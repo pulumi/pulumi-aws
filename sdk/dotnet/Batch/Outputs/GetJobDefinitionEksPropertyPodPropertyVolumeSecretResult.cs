@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Batch.Outputs
         /// </summary>
         public readonly bool Optional;
         /// <summary>
-        /// Name of the secret. The name must be allowed as a DNS subdomain name
+        /// Name of the secret. The name must be allowed as a DNS subdomain name.
         /// </summary>
         public readonly string SecretName;
 

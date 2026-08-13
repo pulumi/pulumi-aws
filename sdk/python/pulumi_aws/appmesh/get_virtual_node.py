@@ -126,7 +126,7 @@ class GetVirtualNodeResult:
     @pulumi.getter
     def specs(self) -> Sequence['outputs.GetVirtualNodeSpecResult']:
         """
-        Virtual node specification. See the `appmesh.VirtualNode` resource for details.
+        Virtual node specification. See `spec` Block for details.
         """
         return pulumi.get(self, "specs")
 

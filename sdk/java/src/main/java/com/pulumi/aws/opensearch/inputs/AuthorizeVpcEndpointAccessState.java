@@ -33,14 +33,14 @@ public final class AuthorizeVpcEndpointAccessState extends com.pulumi.resources.
     }
 
     /**
-     * Information about the Amazon Web Services account or service that was provided access to the domain. See authorized principal attribute for further details.
+     * Information about the Amazon Web Services account or service that was provided access to the domain. See `authorizedPrincipal` Block for further details.
      * 
      */
     @Import(name="authorizedPrincipals")
     private @Nullable Output<List<AuthorizeVpcEndpointAccessAuthorizedPrincipalArgs>> authorizedPrincipals;
 
     /**
-     * @return Information about the Amazon Web Services account or service that was provided access to the domain. See authorized principal attribute for further details.
+     * @return Information about the Amazon Web Services account or service that was provided access to the domain. See `authorizedPrincipal` Block for further details.
      * 
      */
     public Optional<Output<List<AuthorizeVpcEndpointAccessAuthorizedPrincipalArgs>>> authorizedPrincipals() {
@@ -126,7 +126,7 @@ public final class AuthorizeVpcEndpointAccessState extends com.pulumi.resources.
         }
 
         /**
-         * @param authorizedPrincipals Information about the Amazon Web Services account or service that was provided access to the domain. See authorized principal attribute for further details.
+         * @param authorizedPrincipals Information about the Amazon Web Services account or service that was provided access to the domain. See `authorizedPrincipal` Block for further details.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class AuthorizeVpcEndpointAccessState extends com.pulumi.resources.
         }
 
         /**
-         * @param authorizedPrincipals Information about the Amazon Web Services account or service that was provided access to the domain. See authorized principal attribute for further details.
+         * @param authorizedPrincipals Information about the Amazon Web Services account or service that was provided access to the domain. See `authorizedPrincipal` Block for further details.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class AuthorizeVpcEndpointAccessState extends com.pulumi.resources.
         }
 
         /**
-         * @param authorizedPrincipals Information about the Amazon Web Services account or service that was provided access to the domain. See authorized principal attribute for further details.
+         * @param authorizedPrincipals Information about the Amazon Web Services account or service that was provided access to the domain. See `authorizedPrincipal` Block for further details.
          * 
          * @return builder
          * 

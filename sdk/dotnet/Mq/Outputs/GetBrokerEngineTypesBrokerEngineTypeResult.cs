@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Mq.Outputs
         /// </summary>
         public readonly string EngineType;
         /// <summary>
-        /// List of engine versions. See Engine Versions.
+        /// List of engine versions. See `EngineVersions` Block.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBrokerEngineTypesBrokerEngineTypeEngineVersionResult> EngineVersions;
 

@@ -49,43 +49,43 @@ namespace Pulumi.Aws.Transfer
     public partial class Agreement : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
+        /// IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
         /// </summary>
         [Output("accessRole")]
         public Output<string> AccessRole { get; private set; } = null!;
 
         /// <summary>
-        /// The unique identifier for the AS2 agreement.
+        /// Unique identifier for the AS2 agreement.
         /// </summary>
         [Output("agreementId")]
         public Output<string> AgreementId { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the agreement.
+        /// ARN of the agreement.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The landing directory for the files transferred by using the AS2 protocol.
+        /// Landing directory for the files transferred by using the AS2 protocol.
         /// </summary>
         [Output("baseDirectory")]
         public Output<string> BaseDirectory { get; private set; } = null!;
 
         /// <summary>
-        /// The Optional description of the transdfer.
+        /// Optional description of the transdfer.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The unique identifier for the AS2 local profile.
+        /// Unique identifier for the AS2 local profile.
         /// </summary>
         [Output("localProfileId")]
         public Output<string> LocalProfileId { get; private set; } = null!;
 
         /// <summary>
-        /// The unique identifier for the AS2 partner profile.
+        /// Unique identifier for the AS2 partner profile.
         /// </summary>
         [Output("partnerProfileId")]
         public Output<string> PartnerProfileId { get; private set; } = null!;
@@ -97,16 +97,19 @@ namespace Pulumi.Aws.Transfer
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The unique server identifier for the server instance. This is the specific server the agreement uses.
+        /// Unique server identifier for the server instance. This is the specific server the agreement uses.
         /// </summary>
         [Output("serverId")]
         public Output<string> ServerId { get; private set; } = null!;
 
+        /// <summary>
+        /// Status of the agreement which is either ACTIVE or INACTIVE.
+        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -161,31 +164,31 @@ namespace Pulumi.Aws.Transfer
     public sealed class AgreementArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
+        /// IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
         /// </summary>
         [Input("accessRole", required: true)]
         public Input<string> AccessRole { get; set; } = null!;
 
         /// <summary>
-        /// The landing directory for the files transferred by using the AS2 protocol.
+        /// Landing directory for the files transferred by using the AS2 protocol.
         /// </summary>
         [Input("baseDirectory", required: true)]
         public Input<string> BaseDirectory { get; set; } = null!;
 
         /// <summary>
-        /// The Optional description of the transdfer.
+        /// Optional description of the transdfer.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The unique identifier for the AS2 local profile.
+        /// Unique identifier for the AS2 local profile.
         /// </summary>
         [Input("localProfileId", required: true)]
         public Input<string> LocalProfileId { get; set; } = null!;
 
         /// <summary>
-        /// The unique identifier for the AS2 partner profile.
+        /// Unique identifier for the AS2 partner profile.
         /// </summary>
         [Input("partnerProfileId", required: true)]
         public Input<string> PartnerProfileId { get; set; } = null!;
@@ -197,7 +200,7 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The unique server identifier for the server instance. This is the specific server the agreement uses.
+        /// Unique server identifier for the server instance. This is the specific server the agreement uses.
         /// </summary>
         [Input("serverId", required: true)]
         public Input<string> ServerId { get; set; } = null!;
@@ -206,7 +209,7 @@ namespace Pulumi.Aws.Transfer
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -223,43 +226,43 @@ namespace Pulumi.Aws.Transfer
     public sealed class AgreementState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
+        /// IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
         /// </summary>
         [Input("accessRole")]
         public Input<string>? AccessRole { get; set; }
 
         /// <summary>
-        /// The unique identifier for the AS2 agreement.
+        /// Unique identifier for the AS2 agreement.
         /// </summary>
         [Input("agreementId")]
         public Input<string>? AgreementId { get; set; }
 
         /// <summary>
-        /// The ARN of the agreement.
+        /// ARN of the agreement.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The landing directory for the files transferred by using the AS2 protocol.
+        /// Landing directory for the files transferred by using the AS2 protocol.
         /// </summary>
         [Input("baseDirectory")]
         public Input<string>? BaseDirectory { get; set; }
 
         /// <summary>
-        /// The Optional description of the transdfer.
+        /// Optional description of the transdfer.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The unique identifier for the AS2 local profile.
+        /// Unique identifier for the AS2 local profile.
         /// </summary>
         [Input("localProfileId")]
         public Input<string>? LocalProfileId { get; set; }
 
         /// <summary>
-        /// The unique identifier for the AS2 partner profile.
+        /// Unique identifier for the AS2 partner profile.
         /// </summary>
         [Input("partnerProfileId")]
         public Input<string>? PartnerProfileId { get; set; }
@@ -271,11 +274,14 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The unique server identifier for the server instance. This is the specific server the agreement uses.
+        /// Unique server identifier for the server instance. This is the specific server the agreement uses.
         /// </summary>
         [Input("serverId")]
         public Input<string>? ServerId { get; set; }
 
+        /// <summary>
+        /// Status of the agreement which is either ACTIVE or INACTIVE.
+        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
@@ -283,7 +289,7 @@ namespace Pulumi.Aws.Transfer
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

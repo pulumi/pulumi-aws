@@ -60,11 +60,12 @@ type GetBucketReplicationConfigurationArgs struct {
 
 // A collection of values returned by getBucketReplicationConfiguration.
 type GetBucketReplicationConfigurationResult struct {
+	// ARN of the bucket where Amazon S3 stores the results.
 	Bucket string `pulumi:"bucket"`
 	Region string `pulumi:"region"`
 	// ARN of the IAM role that Amazon S3 assumes when replicating objects.
 	Role string `pulumi:"role"`
-	// Unordered list of configuration blocks that define the rules managing replication. See the `awsS3ReplicationConfiguration` resource documentation for details about the `rule` block (excluding the `and` block within the `filter` block).
+	// List of configuration blocks that define the rules managing replication. See `rule` Block below.
 	Rules []GetBucketReplicationConfigurationRule `pulumi:"rules"`
 }
 
@@ -104,6 +105,7 @@ func (o GetBucketReplicationConfigurationResultOutput) ToGetBucketReplicationCon
 	return o
 }
 
+// ARN of the bucket where Amazon S3 stores the results.
 func (o GetBucketReplicationConfigurationResultOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationResult) string { return v.Bucket }).(pulumi.StringOutput)
 }
@@ -117,7 +119,7 @@ func (o GetBucketReplicationConfigurationResultOutput) Role() pulumi.StringOutpu
 	return o.ApplyT(func(v GetBucketReplicationConfigurationResult) string { return v.Role }).(pulumi.StringOutput)
 }
 
-// Unordered list of configuration blocks that define the rules managing replication. See the `awsS3ReplicationConfiguration` resource documentation for details about the `rule` block (excluding the `and` block within the `filter` block).
+// List of configuration blocks that define the rules managing replication. See `rule` Block below.
 func (o GetBucketReplicationConfigurationResultOutput) Rules() GetBucketReplicationConfigurationRuleArrayOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationResult) []GetBucketReplicationConfigurationRule {
 		return v.Rules

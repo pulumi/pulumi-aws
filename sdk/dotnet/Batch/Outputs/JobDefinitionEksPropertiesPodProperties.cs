@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Batch.Outputs
     public sealed class JobDefinitionEksPropertiesPodProperties
     {
         /// <summary>
-        /// Properties of the container that's used on the Amazon EKS pod. See containers below.
+        /// Properties of the container that's used on the Amazon EKS pod. See `Containers` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.JobDefinitionEksPropertiesPodPropertiesContainer> Containers;
         /// <summary>
@@ -30,11 +30,11 @@ namespace Pulumi.Aws.Batch.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.JobDefinitionEksPropertiesPodPropertiesImagePullSecret> ImagePullSecrets;
         /// <summary>
-        /// Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See containers below.
+        /// Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See `InitContainers` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.JobDefinitionEksPropertiesPodPropertiesInitContainer> InitContainers;
         /// <summary>
-        /// Metadata about the Kubernetes pod.
+        /// Metadata about the Kubernetes pod. See `Metadata` below.
         /// </summary>
         public readonly Outputs.JobDefinitionEksPropertiesPodPropertiesMetadata? Metadata;
         /// <summary>
@@ -42,11 +42,11 @@ namespace Pulumi.Aws.Batch.Outputs
         /// </summary>
         public readonly string? ServiceAccountName;
         /// <summary>
-        /// Indicates if the processes in a container are shared, or visible, to other containers in the same pod.
+        /// Whether the processes in a container are shared, or visible, to other containers in the same pod.
         /// </summary>
         public readonly bool? ShareProcessNamespace;
         /// <summary>
-        /// Volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
+        /// Volumes for a job definition that uses Amazon EKS resources. See `Volumes` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.JobDefinitionEksPropertiesPodPropertiesVolume> Volumes;
 

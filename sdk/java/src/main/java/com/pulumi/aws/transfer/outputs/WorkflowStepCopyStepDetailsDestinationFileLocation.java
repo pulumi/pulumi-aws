@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WorkflowStepCopyStepDetailsDestinationFileLocation {
     /**
-     * @return Specifies the details for the EFS file being copied.
+     * @return Details for the EFS file being copied. See `efsFileLocation` Block below.
      * 
      */
     private @Nullable WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocation efsFileLocation;
     /**
-     * @return Specifies the details for the S3 file being copied.
+     * @return Details for the S3 file being copied. See `s3FileLocation` Block below.
      * 
      */
     private @Nullable WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation s3FileLocation;
 
     private WorkflowStepCopyStepDetailsDestinationFileLocation() {}
     /**
-     * @return Specifies the details for the EFS file being copied.
+     * @return Details for the EFS file being copied. See `efsFileLocation` Block below.
      * 
      */
     public Optional<WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocation> efsFileLocation() {
         return Optional.ofNullable(this.efsFileLocation);
     }
     /**
-     * @return Specifies the details for the S3 file being copied.
+     * @return Details for the S3 file being copied. See `s3FileLocation` Block below.
      * 
      */
     public Optional<WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation> s3FileLocation() {

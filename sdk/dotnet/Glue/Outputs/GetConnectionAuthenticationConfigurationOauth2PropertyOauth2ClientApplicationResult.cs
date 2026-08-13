@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationResult
     {
+        /// <summary>
+        /// Reference to the AWS managed client application.
+        /// </summary>
         public readonly string AwsManagedClientApplicationReference;
+        /// <summary>
+        /// Client ID of the user-managed client application.
+        /// </summary>
         public readonly string UserManagedClientApplicationClientId;
 
         [OutputConstructor]

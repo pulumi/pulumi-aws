@@ -93,7 +93,7 @@ namespace Pulumi.Aws.WorkMail
         public Output<string> OwnershipVerificationStatus { get; private set; } = null!;
 
         /// <summary>
-        /// List of DNS records required for domain verification. See `Records` below.
+        /// List of DNS records required for domain verification. See `Records` Block below.
         /// </summary>
         [Output("records")]
         public Output<ImmutableArray<Outputs.DomainRecord>> Records { get; private set; } = null!;
@@ -216,7 +216,7 @@ namespace Pulumi.Aws.WorkMail
         private InputList<Inputs.DomainRecordGetArgs>? _records;
 
         /// <summary>
-        /// List of DNS records required for domain verification. See `Records` below.
+        /// List of DNS records required for domain verification. See `Records` Block below.
         /// </summary>
         public InputList<Inputs.DomainRecordGetArgs> Records
         {

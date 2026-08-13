@@ -14,23 +14,23 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreHarnessToolConfig
     {
         /// <summary>
-        /// AgentCore browser configuration. See `AgentcoreBrowser` below.
+        /// AgentCore browser configuration. See `AgentcoreBrowser` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreHarnessToolConfigAgentcoreBrowser? AgentcoreBrowser;
         /// <summary>
-        /// AgentCore code interpreter configuration. See `AgentcoreCodeInterpreter` below.
+        /// AgentCore code interpreter configuration. See `AgentcoreCodeInterpreter` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreHarnessToolConfigAgentcoreCodeInterpreter? AgentcoreCodeInterpreter;
         /// <summary>
-        /// AgentCore gateway configuration. See `AgentcoreGateway` below.
+        /// AgentCore gateway configuration. See `AgentcoreGateway` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreHarnessToolConfigAgentcoreGateway? AgentcoreGateway;
         /// <summary>
-        /// Inline function configuration. See `InlineFunction` below.
+        /// Inline function configuration. See `InlineFunction` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreHarnessToolConfigInlineFunction? InlineFunction;
         /// <summary>
-        /// Remote MCP server configuration. See `RemoteMcp` below.
+        /// Remote MCP server configuration. See `RemoteMcp` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreHarnessToolConfigRemoteMcp? RemoteMcp;
 

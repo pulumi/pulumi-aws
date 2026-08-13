@@ -52,7 +52,7 @@ class MapConfigurationArgs:
 class PlaceIndexDataSourceConfigurationArgsDict(TypedDict):
     intended_use: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
+    How the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
     """
 
 @pulumi.input_type
@@ -60,7 +60,7 @@ class PlaceIndexDataSourceConfigurationArgs:
     def __init__(__self__, *,
                  intended_use: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] intended_use: Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
+        :param pulumi.Input[_builtins.str] intended_use: How the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
         """
         if intended_use is not None:
             pulumi.set(__self__, "intended_use", intended_use)
@@ -69,7 +69,7 @@ class PlaceIndexDataSourceConfigurationArgs:
     @pulumi.getter(name="intendedUse")
     def intended_use(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
+        How the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
         """
         return pulumi.get(self, "intended_use")
 

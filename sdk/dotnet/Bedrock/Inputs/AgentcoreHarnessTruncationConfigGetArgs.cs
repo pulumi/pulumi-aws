@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.AgentcoreHarnessTruncationConfigSlidingWindowGetArgs>? _slidingWindows;
 
         /// <summary>
-        /// Sliding window truncation configuration. See `SlidingWindow` below.
+        /// Sliding window truncation configuration. See `SlidingWindow` Block below.
         /// </summary>
         public InputList<Inputs.AgentcoreHarnessTruncationConfigSlidingWindowGetArgs> SlidingWindows
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.AgentcoreHarnessTruncationConfigSummarizationGetArgs>? _summarizations;
 
         /// <summary>
-        /// Summarization truncation configuration. See `Summarization` below.
+        /// Summarization truncation configuration. See `Summarization` Block below.
         /// </summary>
         public InputList<Inputs.AgentcoreHarnessTruncationConfigSummarizationGetArgs> Summarizations
         {

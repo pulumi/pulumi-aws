@@ -18,14 +18,14 @@ public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAll
     public static final AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs Empty = new AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs();
 
     /**
-     * Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hostingEnvironment` below.
+     * Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hostingEnvironment` Block below.
      * 
      */
     @Import(name="hostingEnvironments")
     private @Nullable Output<List<AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArgs>> hostingEnvironments;
 
     /**
-     * @return Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hostingEnvironment` below.
+     * @return Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hostingEnvironment` Block below.
      * 
      */
     public Optional<Output<List<AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArgs>>> hostingEnvironments() {
@@ -73,7 +73,7 @@ public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAll
         }
 
         /**
-         * @param hostingEnvironments Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hostingEnvironment` below.
+         * @param hostingEnvironments Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hostingEnvironment` Block below.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAll
         }
 
         /**
-         * @param hostingEnvironments Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hostingEnvironment` below.
+         * @param hostingEnvironments Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hostingEnvironment` Block below.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAll
         }
 
         /**
-         * @param hostingEnvironments Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hostingEnvironment` below.
+         * @param hostingEnvironments Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hostingEnvironment` Block below.
          * 
          * @return builder
          * 

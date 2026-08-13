@@ -165,7 +165,7 @@ namespace Pulumi.Aws.Transfer
         /// </summary>
         public readonly string Certificate;
         /// <summary>
-        /// The domain of the storage system that is used for file transfers.
+        /// Domain of the storage system that is used for file transfers.
         /// </summary>
         public readonly string Domain;
         /// <summary>
@@ -181,7 +181,7 @@ namespace Pulumi.Aws.Transfer
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice.
+        /// Mode of authentication enabled for this service.
         /// </summary>
         public readonly string IdentityProviderType;
         /// <summary>
@@ -202,12 +202,12 @@ namespace Pulumi.Aws.Transfer
         public readonly ImmutableArray<string> Protocols;
         public readonly string Region;
         /// <summary>
-        /// The name of the security policy that is attached to the server.
+        /// Name of the security policy that is attached to the server.
         /// </summary>
         public readonly string SecurityPolicyName;
         public readonly string ServerId;
         /// <summary>
-        /// A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs.
+        /// Set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs.
         /// </summary>
         public readonly ImmutableArray<string> StructuredLogDestinations;
         /// <summary>

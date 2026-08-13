@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Batch.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string> Options;
         /// <summary>
-        /// Secrets to pass to the log configuration.
+        /// Secrets to pass to the log configuration. See `SecretOptions` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionResult> SecretOptions;
 

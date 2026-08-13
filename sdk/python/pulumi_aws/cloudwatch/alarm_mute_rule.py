@@ -422,15 +422,15 @@ class AlarmMuteRule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.CloudwatchAlarm("example",
-            alarm_name=example,
-            comparison_operator=GreaterThanThreshold,
+        example = aws.cloudwatch.MetricAlarm("example",
+            name="example",
+            comparison_operator="GreaterThanThreshold",
             evaluation_periods=2,
-            metric_name=CPUUtilization,
-            namespace=AWS/EC2,
+            metric_name="CPUUtilization",
+            namespace="AWS/EC2",
             period=120,
-            statistic=Average,
-            threshold=80)
+            statistic="Average",
+            threshold=float(80))
         example_alarm_mute_rule = aws.cloudwatch.AlarmMuteRule("example",
             name="example",
             description="Mute alarms during maintenance window",
@@ -444,7 +444,7 @@ class AlarmMuteRule(pulumi.CustomResource):
                 },
             },
             mute_targets={
-                "alarm_names": [example["alarmName"]],
+                "alarm_names": [example.name],
             },
             tags={
                 "Environment": "production",
@@ -535,15 +535,15 @@ class AlarmMuteRule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.CloudwatchAlarm("example",
-            alarm_name=example,
-            comparison_operator=GreaterThanThreshold,
+        example = aws.cloudwatch.MetricAlarm("example",
+            name="example",
+            comparison_operator="GreaterThanThreshold",
             evaluation_periods=2,
-            metric_name=CPUUtilization,
-            namespace=AWS/EC2,
+            metric_name="CPUUtilization",
+            namespace="AWS/EC2",
             period=120,
-            statistic=Average,
-            threshold=80)
+            statistic="Average",
+            threshold=float(80))
         example_alarm_mute_rule = aws.cloudwatch.AlarmMuteRule("example",
             name="example",
             description="Mute alarms during maintenance window",
@@ -557,7 +557,7 @@ class AlarmMuteRule(pulumi.CustomResource):
                 },
             },
             mute_targets={
-                "alarm_names": [example["alarmName"]],
+                "alarm_names": [example.name],
             },
             tags={
                 "Environment": "production",

@@ -2827,9 +2827,12 @@ func (o InstancePublicPortsPortInfoArrayOutput) Index(i pulumi.IntInput) Instanc
 
 type LbCertificateDomainValidationRecord struct {
 	// Domain name (e.g., example.com) for your SSL/TLS certificate.
-	DomainName          *string `pulumi:"domainName"`
-	ResourceRecordName  *string `pulumi:"resourceRecordName"`
-	ResourceRecordType  *string `pulumi:"resourceRecordType"`
+	DomainName *string `pulumi:"domainName"`
+	// Name of the DNS record to create to validate the certificate.
+	ResourceRecordName *string `pulumi:"resourceRecordName"`
+	// Type of DNS record to create to validate the certificate.
+	ResourceRecordType *string `pulumi:"resourceRecordType"`
+	// Value of the DNS record to create to validate the certificate.
 	ResourceRecordValue *string `pulumi:"resourceRecordValue"`
 }
 
@@ -2846,9 +2849,12 @@ type LbCertificateDomainValidationRecordInput interface {
 
 type LbCertificateDomainValidationRecordArgs struct {
 	// Domain name (e.g., example.com) for your SSL/TLS certificate.
-	DomainName          pulumi.StringPtrInput `pulumi:"domainName"`
-	ResourceRecordName  pulumi.StringPtrInput `pulumi:"resourceRecordName"`
-	ResourceRecordType  pulumi.StringPtrInput `pulumi:"resourceRecordType"`
+	DomainName pulumi.StringPtrInput `pulumi:"domainName"`
+	// Name of the DNS record to create to validate the certificate.
+	ResourceRecordName pulumi.StringPtrInput `pulumi:"resourceRecordName"`
+	// Type of DNS record to create to validate the certificate.
+	ResourceRecordType pulumi.StringPtrInput `pulumi:"resourceRecordType"`
+	// Value of the DNS record to create to validate the certificate.
 	ResourceRecordValue pulumi.StringPtrInput `pulumi:"resourceRecordValue"`
 }
 
@@ -2908,14 +2914,17 @@ func (o LbCertificateDomainValidationRecordOutput) DomainName() pulumi.StringPtr
 	return o.ApplyT(func(v LbCertificateDomainValidationRecord) *string { return v.DomainName }).(pulumi.StringPtrOutput)
 }
 
+// Name of the DNS record to create to validate the certificate.
 func (o LbCertificateDomainValidationRecordOutput) ResourceRecordName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LbCertificateDomainValidationRecord) *string { return v.ResourceRecordName }).(pulumi.StringPtrOutput)
 }
 
+// Type of DNS record to create to validate the certificate.
 func (o LbCertificateDomainValidationRecordOutput) ResourceRecordType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LbCertificateDomainValidationRecord) *string { return v.ResourceRecordType }).(pulumi.StringPtrOutput)
 }
 
+// Value of the DNS record to create to validate the certificate.
 func (o LbCertificateDomainValidationRecordOutput) ResourceRecordValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LbCertificateDomainValidationRecord) *string { return v.ResourceRecordValue }).(pulumi.StringPtrOutput)
 }

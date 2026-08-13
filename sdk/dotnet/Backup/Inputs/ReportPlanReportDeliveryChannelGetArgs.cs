@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Backup.Inputs
         private InputList<string>? _formats;
 
         /// <summary>
-        /// A list of the format of your reports: CSV, JSON, or both. If not specified, the default format is CSV.
+        /// List of the format of your reports: CSV, JSON, or both. If not specified, the default format is CSV.
         /// </summary>
         public InputList<string> Formats
         {
@@ -25,13 +25,13 @@ namespace Pulumi.Aws.Backup.Inputs
         }
 
         /// <summary>
-        /// The unique name of the S3 bucket that receives your reports.
+        /// Unique name of the S3 bucket that receives your reports.
         /// </summary>
         [Input("s3BucketName", required: true)]
         public Input<string> S3BucketName { get; set; } = null!;
 
         /// <summary>
-        /// The prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name. If not specified, there is no prefix.
+        /// Prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name. If not specified, there is no prefix.
         /// </summary>
         [Input("s3KeyPrefix")]
         public Input<string>? S3KeyPrefix { get; set; }

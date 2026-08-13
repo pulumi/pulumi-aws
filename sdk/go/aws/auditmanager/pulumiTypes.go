@@ -736,12 +736,13 @@ type ControlControlMappingSource struct {
 	SourceDescription *string `pulumi:"sourceDescription"`
 	// Frequency of evidence collection. Valid values are `DAILY`, `WEEKLY`, or `MONTHLY`.
 	SourceFrequency *string `pulumi:"sourceFrequency"`
-	SourceId        *string `pulumi:"sourceId"`
-	// The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `sourceKeyword` below.
+	// Unique identifier for the source.
+	SourceId *string `pulumi:"sourceId"`
+	// Keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `sourceKeyword` below.
 	SourceKeyword *ControlControlMappingSourceSourceKeyword `pulumi:"sourceKeyword"`
 	// Name of the source.
 	SourceName string `pulumi:"sourceName"`
-	// The setup option for the data source. This option reflects if the evidence collection is automated or manual. Valid values are `System_Controls_Mapping` (automated) and `Procedural_Controls_Mapping` (manual).
+	// Setup option for the data source. This option reflects if the evidence collection is automated or manual. Valid values are `System_Controls_Mapping` (automated) and `Procedural_Controls_Mapping` (manual).
 	SourceSetUpOption string `pulumi:"sourceSetUpOption"`
 	// Type of data source for evidence collection. If `sourceSetUpOption` is manual, the only valid value is `MANUAL`. If `sourceSetUpOption` is automated, valid values are `AWS_Cloudtrail`, `AWS_Config`, `AWS_Security_Hub`, or `AWS_API_Call`.
 	//
@@ -767,12 +768,13 @@ type ControlControlMappingSourceArgs struct {
 	SourceDescription pulumi.StringPtrInput `pulumi:"sourceDescription"`
 	// Frequency of evidence collection. Valid values are `DAILY`, `WEEKLY`, or `MONTHLY`.
 	SourceFrequency pulumi.StringPtrInput `pulumi:"sourceFrequency"`
-	SourceId        pulumi.StringPtrInput `pulumi:"sourceId"`
-	// The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `sourceKeyword` below.
+	// Unique identifier for the source.
+	SourceId pulumi.StringPtrInput `pulumi:"sourceId"`
+	// Keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `sourceKeyword` below.
 	SourceKeyword ControlControlMappingSourceSourceKeywordPtrInput `pulumi:"sourceKeyword"`
 	// Name of the source.
 	SourceName pulumi.StringInput `pulumi:"sourceName"`
-	// The setup option for the data source. This option reflects if the evidence collection is automated or manual. Valid values are `System_Controls_Mapping` (automated) and `Procedural_Controls_Mapping` (manual).
+	// Setup option for the data source. This option reflects if the evidence collection is automated or manual. Valid values are `System_Controls_Mapping` (automated) and `Procedural_Controls_Mapping` (manual).
 	SourceSetUpOption pulumi.StringInput `pulumi:"sourceSetUpOption"`
 	// Type of data source for evidence collection. If `sourceSetUpOption` is manual, the only valid value is `MANUAL`. If `sourceSetUpOption` is automated, valid values are `AWS_Cloudtrail`, `AWS_Config`, `AWS_Security_Hub`, or `AWS_API_Call`.
 	//
@@ -843,11 +845,12 @@ func (o ControlControlMappingSourceOutput) SourceFrequency() pulumi.StringPtrOut
 	return o.ApplyT(func(v ControlControlMappingSource) *string { return v.SourceFrequency }).(pulumi.StringPtrOutput)
 }
 
+// Unique identifier for the source.
 func (o ControlControlMappingSourceOutput) SourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ControlControlMappingSource) *string { return v.SourceId }).(pulumi.StringPtrOutput)
 }
 
-// The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `sourceKeyword` below.
+// Keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `sourceKeyword` below.
 func (o ControlControlMappingSourceOutput) SourceKeyword() ControlControlMappingSourceSourceKeywordPtrOutput {
 	return o.ApplyT(func(v ControlControlMappingSource) *ControlControlMappingSourceSourceKeyword { return v.SourceKeyword }).(ControlControlMappingSourceSourceKeywordPtrOutput)
 }
@@ -857,7 +860,7 @@ func (o ControlControlMappingSourceOutput) SourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v ControlControlMappingSource) string { return v.SourceName }).(pulumi.StringOutput)
 }
 
-// The setup option for the data source. This option reflects if the evidence collection is automated or manual. Valid values are `System_Controls_Mapping` (automated) and `Procedural_Controls_Mapping` (manual).
+// Setup option for the data source. This option reflects if the evidence collection is automated or manual. Valid values are `System_Controls_Mapping` (automated) and `Procedural_Controls_Mapping` (manual).
 func (o ControlControlMappingSourceOutput) SourceSetUpOption() pulumi.StringOutput {
 	return o.ApplyT(func(v ControlControlMappingSource) string { return v.SourceSetUpOption }).(pulumi.StringOutput)
 }
@@ -897,7 +900,7 @@ func (o ControlControlMappingSourceArrayOutput) Index(i pulumi.IntInput) Control
 type ControlControlMappingSourceSourceKeyword struct {
 	// Input method for the keyword. Valid values are `INPUT_TEXT`, `SELECT_FROM_LIST`, or `UPLOAD_FILE`.
 	KeywordInputType string `pulumi:"keywordInputType"`
-	// The value of the keyword that's used when mapping a control data source. For example, this can be a CloudTrail event name, a rule name for Config, a Security Hub control, or the name of an Amazon Web Services API call. See the [Audit Manager supported control data sources documentation](https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources.html) for more information.
+	// Value of the keyword that's used when mapping a control data source. For example, this can be a CloudTrail event name, a rule name for Config, a Security Hub control, or the name of an Amazon Web Services API call. See the [Audit Manager supported control data sources documentation](https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources.html) for more information.
 	KeywordValue string `pulumi:"keywordValue"`
 }
 
@@ -915,7 +918,7 @@ type ControlControlMappingSourceSourceKeywordInput interface {
 type ControlControlMappingSourceSourceKeywordArgs struct {
 	// Input method for the keyword. Valid values are `INPUT_TEXT`, `SELECT_FROM_LIST`, or `UPLOAD_FILE`.
 	KeywordInputType pulumi.StringInput `pulumi:"keywordInputType"`
-	// The value of the keyword that's used when mapping a control data source. For example, this can be a CloudTrail event name, a rule name for Config, a Security Hub control, or the name of an Amazon Web Services API call. See the [Audit Manager supported control data sources documentation](https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources.html) for more information.
+	// Value of the keyword that's used when mapping a control data source. For example, this can be a CloudTrail event name, a rule name for Config, a Security Hub control, or the name of an Amazon Web Services API call. See the [Audit Manager supported control data sources documentation](https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources.html) for more information.
 	KeywordValue pulumi.StringInput `pulumi:"keywordValue"`
 }
 
@@ -1001,7 +1004,7 @@ func (o ControlControlMappingSourceSourceKeywordOutput) KeywordInputType() pulum
 	return o.ApplyT(func(v ControlControlMappingSourceSourceKeyword) string { return v.KeywordInputType }).(pulumi.StringOutput)
 }
 
-// The value of the keyword that's used when mapping a control data source. For example, this can be a CloudTrail event name, a rule name for Config, a Security Hub control, or the name of an Amazon Web Services API call. See the [Audit Manager supported control data sources documentation](https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources.html) for more information.
+// Value of the keyword that's used when mapping a control data source. For example, this can be a CloudTrail event name, a rule name for Config, a Security Hub control, or the name of an Amazon Web Services API call. See the [Audit Manager supported control data sources documentation](https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources.html) for more information.
 func (o ControlControlMappingSourceSourceKeywordOutput) KeywordValue() pulumi.StringOutput {
 	return o.ApplyT(func(v ControlControlMappingSourceSourceKeyword) string { return v.KeywordValue }).(pulumi.StringOutput)
 }
@@ -1040,7 +1043,7 @@ func (o ControlControlMappingSourceSourceKeywordPtrOutput) KeywordInputType() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value of the keyword that's used when mapping a control data source. For example, this can be a CloudTrail event name, a rule name for Config, a Security Hub control, or the name of an Amazon Web Services API call. See the [Audit Manager supported control data sources documentation](https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources.html) for more information.
+// Value of the keyword that's used when mapping a control data source. For example, this can be a CloudTrail event name, a rule name for Config, a Security Hub control, or the name of an Amazon Web Services API call. See the [Audit Manager supported control data sources documentation](https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources.html) for more information.
 func (o ControlControlMappingSourceSourceKeywordPtrOutput) KeywordValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ControlControlMappingSourceSourceKeyword) *string {
 		if v == nil {

@@ -52,14 +52,14 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainerArgs extends 
     }
 
     /**
-     * Environment variables to pass to a container. See EKS Environment below.
+     * Environment variables to pass to a container. See `env` below.
      * 
      */
     @Import(name="envs")
     private @Nullable Output<List<JobDefinitionEksPropertiesPodPropertiesContainerEnvArgs>> envs;
 
     /**
-     * @return Environment variables to pass to a container. See EKS Environment below.
+     * @return Environment variables to pass to a container. See `env` below.
      * 
      */
     public Optional<Output<List<JobDefinitionEksPropertiesPodPropertiesContainerEnvArgs>>> envs() {
@@ -112,14 +112,14 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainerArgs extends 
     }
 
     /**
-     * Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
+     * Type and amount of resources to assign to a container. See `resources` below.
      * 
      */
     @Import(name="resources")
     private @Nullable Output<JobDefinitionEksPropertiesPodPropertiesContainerResourcesArgs> resources;
 
     /**
-     * @return Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
+     * @return Type and amount of resources to assign to a container. See `resources` below.
      * 
      */
     public Optional<Output<JobDefinitionEksPropertiesPodPropertiesContainerResourcesArgs>> resources() {
@@ -142,14 +142,14 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainerArgs extends 
     }
 
     /**
-     * Volume mounts for the container.
+     * Volume mounts for the container. See `volumeMounts` below.
      * 
      */
     @Import(name="volumeMounts")
     private @Nullable Output<List<JobDefinitionEksPropertiesPodPropertiesContainerVolumeMountArgs>> volumeMounts;
 
     /**
-     * @return Volume mounts for the container.
+     * @return Volume mounts for the container. See `volumeMounts` below.
      * 
      */
     public Optional<Output<List<JobDefinitionEksPropertiesPodPropertiesContainerVolumeMountArgs>>> volumeMounts() {
@@ -251,7 +251,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainerArgs extends 
         }
 
         /**
-         * @param envs Environment variables to pass to a container. See EKS Environment below.
+         * @param envs Environment variables to pass to a container. See `env` below.
          * 
          * @return builder
          * 
@@ -262,7 +262,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainerArgs extends 
         }
 
         /**
-         * @param envs Environment variables to pass to a container. See EKS Environment below.
+         * @param envs Environment variables to pass to a container. See `env` below.
          * 
          * @return builder
          * 
@@ -272,7 +272,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainerArgs extends 
         }
 
         /**
-         * @param envs Environment variables to pass to a container. See EKS Environment below.
+         * @param envs Environment variables to pass to a container. See `env` below.
          * 
          * @return builder
          * 
@@ -345,7 +345,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainerArgs extends 
         }
 
         /**
-         * @param resources Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
+         * @param resources Type and amount of resources to assign to a container. See `resources` below.
          * 
          * @return builder
          * 
@@ -356,7 +356,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainerArgs extends 
         }
 
         /**
-         * @param resources Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
+         * @param resources Type and amount of resources to assign to a container. See `resources` below.
          * 
          * @return builder
          * 
@@ -387,7 +387,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainerArgs extends 
         }
 
         /**
-         * @param volumeMounts Volume mounts for the container.
+         * @param volumeMounts Volume mounts for the container. See `volumeMounts` below.
          * 
          * @return builder
          * 
@@ -398,7 +398,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainerArgs extends 
         }
 
         /**
-         * @param volumeMounts Volume mounts for the container.
+         * @param volumeMounts Volume mounts for the container. See `volumeMounts` below.
          * 
          * @return builder
          * 
@@ -408,7 +408,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainerArgs extends 
         }
 
         /**
-         * @param volumeMounts Volume mounts for the container.
+         * @param volumeMounts Volume mounts for the container. See `volumeMounts` below.
          * 
          * @return builder
          * 

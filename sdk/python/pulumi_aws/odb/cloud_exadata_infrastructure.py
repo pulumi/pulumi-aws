@@ -43,7 +43,7 @@ class CloudExadataInfrastructureArgs:
         :param pulumi.Input[_builtins.str] shape: Model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] availability_zone: Name of the Availability Zone (AZ) where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.int] compute_count: Number of compute instances that the Exadata infrastructure is located. Changing this will force terraform to create new resource.
-        :param pulumi.Input[Sequence[pulumi.Input['CloudExadataInfrastructureCustomerContactsToSendToOciArgs']]] customer_contacts_to_send_to_ocis: Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
+        :param pulumi.Input[Sequence[pulumi.Input['CloudExadataInfrastructureCustomerContactsToSendToOciArgs']]] customer_contacts_to_send_to_ocis: Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource. See `customer_contacts_to_send_to_oci` Block below.
         :param pulumi.Input[_builtins.str] database_server_type: Database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] storage_count: Number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
@@ -151,7 +151,7 @@ class CloudExadataInfrastructureArgs:
     @pulumi.getter(name="customerContactsToSendToOcis")
     def customer_contacts_to_send_to_ocis(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CloudExadataInfrastructureCustomerContactsToSendToOciArgs']]]]:
         """
-        Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
+        Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource. See `customer_contacts_to_send_to_oci` Block below.
         """
         return pulumi.get(self, "customer_contacts_to_send_to_ocis")
 
@@ -288,7 +288,7 @@ class _CloudExadataInfrastructureState:
         :param pulumi.Input[_builtins.str] compute_model: OCI model compute model used when you create or clone an instance: ECPU or OCPU.
         :param pulumi.Input[_builtins.int] cpu_count: Total number of CPU cores that are allocated to the Exadata infrastructure.
         :param pulumi.Input[_builtins.str] created_at: Time when the Exadata infrastructure was created.
-        :param pulumi.Input[Sequence[pulumi.Input['CloudExadataInfrastructureCustomerContactsToSendToOciArgs']]] customer_contacts_to_send_to_ocis: Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
+        :param pulumi.Input[Sequence[pulumi.Input['CloudExadataInfrastructureCustomerContactsToSendToOciArgs']]] customer_contacts_to_send_to_ocis: Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource. See `customer_contacts_to_send_to_oci` Block below.
         :param pulumi.Input[_builtins.float] data_storage_size_in_tbs: Size of the Exadata infrastructure's data disk group, in terabytes (TB).
         :param pulumi.Input[_builtins.str] database_server_type: Database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.int] db_node_storage_size_in_gbs: Size of the Exadata infrastructure's local node storage, in gigabytes (GB).
@@ -527,7 +527,7 @@ class _CloudExadataInfrastructureState:
     @pulumi.getter(name="customerContactsToSendToOcis")
     def customer_contacts_to_send_to_ocis(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CloudExadataInfrastructureCustomerContactsToSendToOciArgs']]]]:
         """
-        Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
+        Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource. See `customer_contacts_to_send_to_oci` Block below.
         """
         return pulumi.get(self, "customer_contacts_to_send_to_ocis")
 
@@ -931,7 +931,7 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] availability_zone: Name of the Availability Zone (AZ) where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] availability_zone_id: AZ ID of the AZ where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.int] compute_count: Number of compute instances that the Exadata infrastructure is located. Changing this will force terraform to create new resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CloudExadataInfrastructureCustomerContactsToSendToOciArgs', 'CloudExadataInfrastructureCustomerContactsToSendToOciArgsDict']]]] customer_contacts_to_send_to_ocis: Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CloudExadataInfrastructureCustomerContactsToSendToOciArgs', 'CloudExadataInfrastructureCustomerContactsToSendToOciArgsDict']]]] customer_contacts_to_send_to_ocis: Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource. See `customer_contacts_to_send_to_oci` Block below.
         :param pulumi.Input[_builtins.str] database_server_type: Database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] display_name: User-friendly name for the Exadata infrastructure. Changing this will force terraform to create a new resource.
         :param pulumi.Input[Union['CloudExadataInfrastructureMaintenanceWindowArgs', 'CloudExadataInfrastructureMaintenanceWindowArgsDict']] maintenance_window: The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window
@@ -1117,7 +1117,7 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] compute_model: OCI model compute model used when you create or clone an instance: ECPU or OCPU.
         :param pulumi.Input[_builtins.int] cpu_count: Total number of CPU cores that are allocated to the Exadata infrastructure.
         :param pulumi.Input[_builtins.str] created_at: Time when the Exadata infrastructure was created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CloudExadataInfrastructureCustomerContactsToSendToOciArgs', 'CloudExadataInfrastructureCustomerContactsToSendToOciArgsDict']]]] customer_contacts_to_send_to_ocis: Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CloudExadataInfrastructureCustomerContactsToSendToOciArgs', 'CloudExadataInfrastructureCustomerContactsToSendToOciArgsDict']]]] customer_contacts_to_send_to_ocis: Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource. See `customer_contacts_to_send_to_oci` Block below.
         :param pulumi.Input[_builtins.float] data_storage_size_in_tbs: Size of the Exadata infrastructure's data disk group, in terabytes (TB).
         :param pulumi.Input[_builtins.str] database_server_type: Database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.int] db_node_storage_size_in_gbs: Size of the Exadata infrastructure's local node storage, in gigabytes (GB).
@@ -1280,7 +1280,7 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
     @pulumi.getter(name="customerContactsToSendToOcis")
     def customer_contacts_to_send_to_ocis(self) -> pulumi.Output[Optional[Sequence['outputs.CloudExadataInfrastructureCustomerContactsToSendToOci']]]:
         """
-        Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
+        Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource. See `customer_contacts_to_send_to_oci` Block below.
         """
         return pulumi.get(self, "customer_contacts_to_send_to_ocis")
 

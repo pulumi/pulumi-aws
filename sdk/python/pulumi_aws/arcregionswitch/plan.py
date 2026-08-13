@@ -40,17 +40,17 @@ class PlanArgs:
 
         :param pulumi.Input[_builtins.str] execution_role: ARN of the IAM role that ARC Region Switch will assume to execute the plan.
         :param pulumi.Input[_builtins.str] recovery_approach: Recovery approach for the plan. Valid values: `activeActive`, `activePassive`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: List of AWS regions involved in the plan.
-        :param pulumi.Input[Sequence[pulumi.Input['PlanAssociatedAlarmArgs']]] associated_alarms: Set of CloudWatch alarms associated with the plan. See Associated Alarms below.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: List of AWS regions involved in the plan. Must contain at least 2 regions.
+        :param pulumi.Input[Sequence[pulumi.Input['PlanAssociatedAlarmArgs']]] associated_alarms: CloudWatch alarms associated with the plan. See `associated_alarms` Block for details.
         :param pulumi.Input[_builtins.str] description: Description of the plan.
         :param pulumi.Input[_builtins.str] name: Name of the plan. Must be unique within the account.
         :param pulumi.Input[_builtins.str] primary_region: Primary region for the plan.
         :param pulumi.Input[_builtins.int] recovery_time_objective_minutes: Recovery time objective in minutes.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['PlanReportConfigurationArgs']]] report_configurations: Configuration for automated execution reports. See Report Configuration below.
+        :param pulumi.Input[Sequence[pulumi.Input['PlanReportConfigurationArgs']]] report_configurations: Configuration for automated execution reports. See `report_configuration` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input['PlanTriggerArgs']]] triggers: Set of triggers that can initiate the plan execution. See Triggers below.
-        :param pulumi.Input[Sequence[pulumi.Input['PlanWorkflowArgs']]] workflows: List of workflows that define the steps to execute. See Workflow below.
+        :param pulumi.Input[Sequence[pulumi.Input['PlanTriggerArgs']]] triggers: Triggers that can initiate the plan execution. See `triggers` Block for details.
+        :param pulumi.Input[Sequence[pulumi.Input['PlanWorkflowArgs']]] workflows: Workflows that define the steps to execute. See `workflow` Block for details.
                
                The following arguments are optional:
         """
@@ -111,7 +111,7 @@ class PlanArgs:
     @pulumi.getter
     def regions(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        List of AWS regions involved in the plan.
+        List of AWS regions involved in the plan. Must contain at least 2 regions.
         """
         return pulumi.get(self, "regions")
 
@@ -123,7 +123,7 @@ class PlanArgs:
     @pulumi.getter(name="associatedAlarms")
     def associated_alarms(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PlanAssociatedAlarmArgs']]]]:
         """
-        Set of CloudWatch alarms associated with the plan. See Associated Alarms below.
+        CloudWatch alarms associated with the plan. See `associated_alarms` Block for details.
         """
         return pulumi.get(self, "associated_alarms")
 
@@ -196,7 +196,7 @@ class PlanArgs:
     @pulumi.getter(name="reportConfigurations")
     def report_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PlanReportConfigurationArgs']]]]:
         """
-        Configuration for automated execution reports. See Report Configuration below.
+        Configuration for automated execution reports. See `report_configuration` Block for details.
         """
         return pulumi.get(self, "report_configurations")
 
@@ -229,7 +229,7 @@ class PlanArgs:
     @pulumi.getter
     def triggers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PlanTriggerArgs']]]]:
         """
-        Set of triggers that can initiate the plan execution. See Triggers below.
+        Triggers that can initiate the plan execution. See `triggers` Block for details.
         """
         return pulumi.get(self, "triggers")
 
@@ -241,7 +241,7 @@ class PlanArgs:
     @pulumi.getter
     def workflows(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowArgs']]]]:
         """
-        List of workflows that define the steps to execute. See Workflow below.
+        Workflows that define the steps to execute. See `workflow` Block for details.
 
         The following arguments are optional:
         """
@@ -275,7 +275,7 @@ class _PlanState:
         Input properties used for looking up and filtering Plan resources.
 
         :param pulumi.Input[_builtins.str] arn: ARN of the plan.
-        :param pulumi.Input[Sequence[pulumi.Input['PlanAssociatedAlarmArgs']]] associated_alarms: Set of CloudWatch alarms associated with the plan. See Associated Alarms below.
+        :param pulumi.Input[Sequence[pulumi.Input['PlanAssociatedAlarmArgs']]] associated_alarms: CloudWatch alarms associated with the plan. See `associated_alarms` Block for details.
         :param pulumi.Input[_builtins.str] description: Description of the plan.
         :param pulumi.Input[_builtins.str] execution_role: ARN of the IAM role that ARC Region Switch will assume to execute the plan.
         :param pulumi.Input[_builtins.str] name: Name of the plan. Must be unique within the account.
@@ -283,12 +283,12 @@ class _PlanState:
         :param pulumi.Input[_builtins.str] recovery_approach: Recovery approach for the plan. Valid values: `activeActive`, `activePassive`.
         :param pulumi.Input[_builtins.int] recovery_time_objective_minutes: Recovery time objective in minutes.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: List of AWS regions involved in the plan.
-        :param pulumi.Input[Sequence[pulumi.Input['PlanReportConfigurationArgs']]] report_configurations: Configuration for automated execution reports. See Report Configuration below.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: List of AWS regions involved in the plan. Must contain at least 2 regions.
+        :param pulumi.Input[Sequence[pulumi.Input['PlanReportConfigurationArgs']]] report_configurations: Configuration for automated execution reports. See `report_configuration` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input['PlanTriggerArgs']]] triggers: Set of triggers that can initiate the plan execution. See Triggers below.
-        :param pulumi.Input[Sequence[pulumi.Input['PlanWorkflowArgs']]] workflows: List of workflows that define the steps to execute. See Workflow below.
+        :param pulumi.Input[Sequence[pulumi.Input['PlanTriggerArgs']]] triggers: Triggers that can initiate the plan execution. See `triggers` Block for details.
+        :param pulumi.Input[Sequence[pulumi.Input['PlanWorkflowArgs']]] workflows: Workflows that define the steps to execute. See `workflow` Block for details.
                
                The following arguments are optional:
         """
@@ -344,7 +344,7 @@ class _PlanState:
     @pulumi.getter(name="associatedAlarms")
     def associated_alarms(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PlanAssociatedAlarmArgs']]]]:
         """
-        Set of CloudWatch alarms associated with the plan. See Associated Alarms below.
+        CloudWatch alarms associated with the plan. See `associated_alarms` Block for details.
         """
         return pulumi.get(self, "associated_alarms")
 
@@ -441,7 +441,7 @@ class _PlanState:
     @pulumi.getter
     def regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        List of AWS regions involved in the plan.
+        List of AWS regions involved in the plan. Must contain at least 2 regions.
         """
         return pulumi.get(self, "regions")
 
@@ -453,7 +453,7 @@ class _PlanState:
     @pulumi.getter(name="reportConfigurations")
     def report_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PlanReportConfigurationArgs']]]]:
         """
-        Configuration for automated execution reports. See Report Configuration below.
+        Configuration for automated execution reports. See `report_configuration` Block for details.
         """
         return pulumi.get(self, "report_configurations")
 
@@ -498,7 +498,7 @@ class _PlanState:
     @pulumi.getter
     def triggers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PlanTriggerArgs']]]]:
         """
-        Set of triggers that can initiate the plan execution. See Triggers below.
+        Triggers that can initiate the plan execution. See `triggers` Block for details.
         """
         return pulumi.get(self, "triggers")
 
@@ -510,7 +510,7 @@ class _PlanState:
     @pulumi.getter
     def workflows(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowArgs']]]]:
         """
-        List of workflows that define the steps to execute. See Workflow below.
+        Workflows that define the steps to execute. See `workflow` Block for details.
 
         The following arguments are optional:
         """
@@ -716,7 +716,7 @@ class Plan(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PlanAssociatedAlarmArgs', 'PlanAssociatedAlarmArgsDict']]]] associated_alarms: Set of CloudWatch alarms associated with the plan. See Associated Alarms below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PlanAssociatedAlarmArgs', 'PlanAssociatedAlarmArgsDict']]]] associated_alarms: CloudWatch alarms associated with the plan. See `associated_alarms` Block for details.
         :param pulumi.Input[_builtins.str] description: Description of the plan.
         :param pulumi.Input[_builtins.str] execution_role: ARN of the IAM role that ARC Region Switch will assume to execute the plan.
         :param pulumi.Input[_builtins.str] name: Name of the plan. Must be unique within the account.
@@ -724,11 +724,11 @@ class Plan(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] recovery_approach: Recovery approach for the plan. Valid values: `activeActive`, `activePassive`.
         :param pulumi.Input[_builtins.int] recovery_time_objective_minutes: Recovery time objective in minutes.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: List of AWS regions involved in the plan.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PlanReportConfigurationArgs', 'PlanReportConfigurationArgsDict']]]] report_configurations: Configuration for automated execution reports. See Report Configuration below.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: List of AWS regions involved in the plan. Must contain at least 2 regions.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PlanReportConfigurationArgs', 'PlanReportConfigurationArgsDict']]]] report_configurations: Configuration for automated execution reports. See `report_configuration` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PlanTriggerArgs', 'PlanTriggerArgsDict']]]] triggers: Set of triggers that can initiate the plan execution. See Triggers below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PlanWorkflowArgs', 'PlanWorkflowArgsDict']]]] workflows: List of workflows that define the steps to execute. See Workflow below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PlanTriggerArgs', 'PlanTriggerArgsDict']]]] triggers: Triggers that can initiate the plan execution. See `triggers` Block for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PlanWorkflowArgs', 'PlanWorkflowArgsDict']]]] workflows: Workflows that define the steps to execute. See `workflow` Block for details.
                
                The following arguments are optional:
         """
@@ -1004,7 +1004,7 @@ class Plan(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the plan.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PlanAssociatedAlarmArgs', 'PlanAssociatedAlarmArgsDict']]]] associated_alarms: Set of CloudWatch alarms associated with the plan. See Associated Alarms below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PlanAssociatedAlarmArgs', 'PlanAssociatedAlarmArgsDict']]]] associated_alarms: CloudWatch alarms associated with the plan. See `associated_alarms` Block for details.
         :param pulumi.Input[_builtins.str] description: Description of the plan.
         :param pulumi.Input[_builtins.str] execution_role: ARN of the IAM role that ARC Region Switch will assume to execute the plan.
         :param pulumi.Input[_builtins.str] name: Name of the plan. Must be unique within the account.
@@ -1012,12 +1012,12 @@ class Plan(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] recovery_approach: Recovery approach for the plan. Valid values: `activeActive`, `activePassive`.
         :param pulumi.Input[_builtins.int] recovery_time_objective_minutes: Recovery time objective in minutes.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: List of AWS regions involved in the plan.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PlanReportConfigurationArgs', 'PlanReportConfigurationArgsDict']]]] report_configurations: Configuration for automated execution reports. See Report Configuration below.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: List of AWS regions involved in the plan. Must contain at least 2 regions.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PlanReportConfigurationArgs', 'PlanReportConfigurationArgsDict']]]] report_configurations: Configuration for automated execution reports. See `report_configuration` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PlanTriggerArgs', 'PlanTriggerArgsDict']]]] triggers: Set of triggers that can initiate the plan execution. See Triggers below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PlanWorkflowArgs', 'PlanWorkflowArgsDict']]]] workflows: List of workflows that define the steps to execute. See Workflow below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PlanTriggerArgs', 'PlanTriggerArgsDict']]]] triggers: Triggers that can initiate the plan execution. See `triggers` Block for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PlanWorkflowArgs', 'PlanWorkflowArgsDict']]]] workflows: Workflows that define the steps to execute. See `workflow` Block for details.
                
                The following arguments are optional:
         """
@@ -1055,7 +1055,7 @@ class Plan(pulumi.CustomResource):
     @pulumi.getter(name="associatedAlarms")
     def associated_alarms(self) -> pulumi.Output[Optional[Sequence['outputs.PlanAssociatedAlarm']]]:
         """
-        Set of CloudWatch alarms associated with the plan. See Associated Alarms below.
+        CloudWatch alarms associated with the plan. See `associated_alarms` Block for details.
         """
         return pulumi.get(self, "associated_alarms")
 
@@ -1120,7 +1120,7 @@ class Plan(pulumi.CustomResource):
     @pulumi.getter
     def regions(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        List of AWS regions involved in the plan.
+        List of AWS regions involved in the plan. Must contain at least 2 regions.
         """
         return pulumi.get(self, "regions")
 
@@ -1128,7 +1128,7 @@ class Plan(pulumi.CustomResource):
     @pulumi.getter(name="reportConfigurations")
     def report_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.PlanReportConfiguration']]]:
         """
-        Configuration for automated execution reports. See Report Configuration below.
+        Configuration for automated execution reports. See `report_configuration` Block for details.
         """
         return pulumi.get(self, "report_configurations")
 
@@ -1157,7 +1157,7 @@ class Plan(pulumi.CustomResource):
     @pulumi.getter
     def triggers(self) -> pulumi.Output[Optional[Sequence['outputs.PlanTrigger']]]:
         """
-        Set of triggers that can initiate the plan execution. See Triggers below.
+        Triggers that can initiate the plan execution. See `triggers` Block for details.
         """
         return pulumi.get(self, "triggers")
 
@@ -1165,7 +1165,7 @@ class Plan(pulumi.CustomResource):
     @pulumi.getter
     def workflows(self) -> pulumi.Output[Optional[Sequence['outputs.PlanWorkflow']]]:
         """
-        List of workflows that define the steps to execute. See Workflow below.
+        Workflows that define the steps to execute. See `workflow` Block for details.
 
         The following arguments are optional:
         """

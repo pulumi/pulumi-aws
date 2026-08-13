@@ -12,21 +12,53 @@ import java.util.Objects;
 
 @CustomType
 public final class CloudVmClusterIormConfigCache {
+    /**
+     * @return List of IORM (I/O Resource Manager) database plans for the VM cluster. See `dbPlans` Block below.
+     * 
+     */
     private List<CloudVmClusterIormConfigCacheDbPlan> dbPlans;
+    /**
+     * @return Additional information about the current lifecycle state of the IORM configuration.
+     * 
+     */
     private String lifecycleDetails;
+    /**
+     * @return Current lifecycle state of the IORM configuration.
+     * 
+     */
     private String lifecycleState;
+    /**
+     * @return Current value for the IORM objective.
+     * 
+     */
     private String objective;
 
     private CloudVmClusterIormConfigCache() {}
+    /**
+     * @return List of IORM (I/O Resource Manager) database plans for the VM cluster. See `dbPlans` Block below.
+     * 
+     */
     public List<CloudVmClusterIormConfigCacheDbPlan> dbPlans() {
         return this.dbPlans;
     }
+    /**
+     * @return Additional information about the current lifecycle state of the IORM configuration.
+     * 
+     */
     public String lifecycleDetails() {
         return this.lifecycleDetails;
     }
+    /**
+     * @return Current lifecycle state of the IORM configuration.
+     * 
+     */
     public String lifecycleState() {
         return this.lifecycleState;
     }
+    /**
+     * @return Current value for the IORM objective.
+     * 
+     */
     public String objective() {
         return this.objective;
     }

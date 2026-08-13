@@ -89,7 +89,7 @@ export class CloudExadataInfrastructure extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
-     * Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
+     * Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource. See `customerContactsToSendToOci` Block below.
      */
     declare public readonly customerContactsToSendToOcis: pulumi.Output<outputs.odb.CloudExadataInfrastructureCustomerContactsToSendToOci[] | undefined>;
     /**
@@ -369,7 +369,7 @@ export interface CloudExadataInfrastructureState {
      */
     createdAt?: pulumi.Input<string | undefined>;
     /**
-     * Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
+     * Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource. See `customerContactsToSendToOci` Block below.
      */
     customerContactsToSendToOcis?: pulumi.Input<pulumi.Input<inputs.odb.CloudExadataInfrastructureCustomerContactsToSendToOci>[] | undefined>;
     /**
@@ -507,7 +507,7 @@ export interface CloudExadataInfrastructureArgs {
      */
     computeCount?: pulumi.Input<number | undefined>;
     /**
-     * Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
+     * Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource. See `customerContactsToSendToOci` Block below.
      */
     customerContactsToSendToOcis?: pulumi.Input<pulumi.Input<inputs.odb.CloudExadataInfrastructureCustomerContactsToSendToOci>[] | undefined>;
     /**

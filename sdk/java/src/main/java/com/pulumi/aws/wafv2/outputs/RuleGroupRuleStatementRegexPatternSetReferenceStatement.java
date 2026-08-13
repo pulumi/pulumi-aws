@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatch;
+import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformation;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformation;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -25,6 +26,11 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatement {
      * 
      */
     private @Nullable RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatch fieldToMatch;
+    /**
+     * @return Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+     * 
+     */
+    private @Nullable List<RuleGroupRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformation> preParseTextTransformations;
     /**
      * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
      * At least one required.
@@ -49,6 +55,13 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatement {
         return Optional.ofNullable(this.fieldToMatch);
     }
     /**
+     * @return Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+     * 
+     */
+    public List<RuleGroupRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformation> preParseTextTransformations() {
+        return this.preParseTextTransformations == null ? List.of() : this.preParseTextTransformations;
+    }
+    /**
      * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
      * At least one required.
      * See Text Transformation below for details.
@@ -69,12 +82,14 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatement {
     public static final class Builder {
         private String arn;
         private @Nullable RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatch fieldToMatch;
+        private @Nullable List<RuleGroupRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformation> preParseTextTransformations;
         private List<RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformation> textTransformations;
         public Builder() {}
         public Builder(RuleGroupRuleStatementRegexPatternSetReferenceStatement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
     	      this.fieldToMatch = defaults.fieldToMatch;
+    	      this.preParseTextTransformations = defaults.preParseTextTransformations;
     	      this.textTransformations = defaults.textTransformations;
         }
 
@@ -93,6 +108,15 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatement {
             return this;
         }
         @CustomType.Setter
+        public Builder preParseTextTransformations(@Nullable List<RuleGroupRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformation> preParseTextTransformations) {
+
+            this.preParseTextTransformations = preParseTextTransformations;
+            return this;
+        }
+        public Builder preParseTextTransformations(RuleGroupRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformation... preParseTextTransformations) {
+            return preParseTextTransformations(List.of(preParseTextTransformations));
+        }
+        @CustomType.Setter
         public Builder textTransformations(List<RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformation> textTransformations) {
             if (textTransformations == null) {
               throw new MissingRequiredPropertyException("RuleGroupRuleStatementRegexPatternSetReferenceStatement", "textTransformations");
@@ -107,6 +131,7 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatement {
             final var _resultValue = new RuleGroupRuleStatementRegexPatternSetReferenceStatement();
             _resultValue.arn = arn;
             _resultValue.fieldToMatch = fieldToMatch;
+            _resultValue.preParseTextTransformations = preParseTextTransformations;
             _resultValue.textTransformations = textTransformations;
             return _resultValue;
         }

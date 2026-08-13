@@ -255,7 +255,7 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         public readonly bool EnableFaultInjection;
         /// <summary>
-        /// Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
+        /// Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See `EphemeralStorage` Block.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetTaskDefinitionEphemeralStorageResult> EphemeralStorages;
         /// <summary>
@@ -288,11 +288,11 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         public readonly string PidMode;
         /// <summary>
-        /// Configuration block for rules that are taken into consideration during task placement. Maximum number of `PlacementConstraints` is `10`. Detailed below.
+        /// Configuration block for rules that are taken into consideration during task placement. Maximum number of `PlacementConstraints` is `10`. See `PlacementConstraints` Block.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetTaskDefinitionPlacementConstraintResult> PlacementConstraints;
         /// <summary>
-        /// Configuration block for the App Mesh proxy. Detailed below.
+        /// Configuration block for the App Mesh proxy. See `ProxyConfiguration` Block.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetTaskDefinitionProxyConfigurationResult> ProxyConfigurations;
         public readonly string Region;
@@ -318,7 +318,7 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         public readonly string TaskRoleArn;
         /// <summary>
-        /// Attributes corresponding to the `Volume` argument of the `aws.ecs.TaskDefinition` resource.
+        /// Configuration block for volumes that containers in your task may use. See `Volume` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetTaskDefinitionVolumeResult> Volumes;
 

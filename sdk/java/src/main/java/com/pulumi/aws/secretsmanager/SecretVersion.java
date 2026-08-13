@@ -275,14 +275,14 @@ public class SecretVersion extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.secretStringWo);
     }
     /**
-     * Used together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
+     * Version identifier that works together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
      * 
      */
     @Export(name="secretStringWoVersion", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> secretStringWoVersion;
 
     /**
-     * @return Used together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
+     * @return Version identifier that works together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
      * 
      */
     public Output<Optional<Integer>> secretStringWoVersion() {

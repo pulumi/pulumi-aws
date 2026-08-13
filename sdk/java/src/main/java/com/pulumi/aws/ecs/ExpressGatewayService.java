@@ -291,14 +291,14 @@ public class ExpressGatewayService extends com.pulumi.resources.CustomResource {
         return this.infrastructureRoleArn;
     }
     /**
-     * List of ingress paths with access type and endpoint information.
+     * List of ingress paths for the service. See `ingressPaths` Block below.
      * 
      */
     @Export(name="ingressPaths", refs={List.class,ExpressGatewayServiceIngressPath.class}, tree="[0,1]")
     private Output<List<ExpressGatewayServiceIngressPath>> ingressPaths;
 
     /**
-     * @return List of ingress paths with access type and endpoint information.
+     * @return List of ingress paths for the service. See `ingressPaths` Block below.
      * 
      */
     public Output<List<ExpressGatewayServiceIngressPath>> ingressPaths() {

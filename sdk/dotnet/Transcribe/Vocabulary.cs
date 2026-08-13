@@ -87,13 +87,13 @@ namespace Pulumi.Aws.Transcribe
         public Output<string> DownloadUri { get; private set; } = null!;
 
         /// <summary>
-        /// The language code you selected for your vocabulary.
+        /// Language code you selected for your vocabulary.
         /// </summary>
         [Output("languageCode")]
         public Output<string> LanguageCode { get; private set; } = null!;
 
         /// <summary>
-        /// A list of terms to include in the vocabulary. Conflicts with `VocabularyFileUri`
+        /// List of terms to include in the vocabulary. Conflicts with `VocabularyFileUri`
         /// </summary>
         [Output("phrases")]
         public Output<ImmutableArray<string>> Phrases { get; private set; } = null!;
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.Transcribe
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the Vocabulary. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the Vocabulary. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -114,13 +114,13 @@ namespace Pulumi.Aws.Transcribe
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `Phrases`.
+        /// Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `Phrases`.
         /// </summary>
         [Output("vocabularyFileUri")]
         public Output<string> VocabularyFileUri { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Vocabulary.
+        /// Name of the Vocabulary.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -174,7 +174,7 @@ namespace Pulumi.Aws.Transcribe
     public sealed class VocabularyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The language code you selected for your vocabulary.
+        /// Language code you selected for your vocabulary.
         /// </summary>
         [Input("languageCode", required: true)]
         public Input<string> LanguageCode { get; set; } = null!;
@@ -183,7 +183,7 @@ namespace Pulumi.Aws.Transcribe
         private InputList<string>? _phrases;
 
         /// <summary>
-        /// A list of terms to include in the vocabulary. Conflicts with `VocabularyFileUri`
+        /// List of terms to include in the vocabulary. Conflicts with `VocabularyFileUri`
         /// </summary>
         public InputList<string> Phrases
         {
@@ -201,7 +201,7 @@ namespace Pulumi.Aws.Transcribe
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the Vocabulary. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the Vocabulary. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -210,13 +210,13 @@ namespace Pulumi.Aws.Transcribe
         }
 
         /// <summary>
-        /// The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `Phrases`.
+        /// Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `Phrases`.
         /// </summary>
         [Input("vocabularyFileUri")]
         public Input<string>? VocabularyFileUri { get; set; }
 
         /// <summary>
-        /// The name of the Vocabulary.
+        /// Name of the Vocabulary.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -244,7 +244,7 @@ namespace Pulumi.Aws.Transcribe
         public Input<string>? DownloadUri { get; set; }
 
         /// <summary>
-        /// The language code you selected for your vocabulary.
+        /// Language code you selected for your vocabulary.
         /// </summary>
         [Input("languageCode")]
         public Input<string>? LanguageCode { get; set; }
@@ -253,7 +253,7 @@ namespace Pulumi.Aws.Transcribe
         private InputList<string>? _phrases;
 
         /// <summary>
-        /// A list of terms to include in the vocabulary. Conflicts with `VocabularyFileUri`
+        /// List of terms to include in the vocabulary. Conflicts with `VocabularyFileUri`
         /// </summary>
         public InputList<string> Phrases
         {
@@ -271,7 +271,7 @@ namespace Pulumi.Aws.Transcribe
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the Vocabulary. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the Vocabulary. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -288,13 +288,13 @@ namespace Pulumi.Aws.Transcribe
         }
 
         /// <summary>
-        /// The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `Phrases`.
+        /// Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `Phrases`.
         /// </summary>
         [Input("vocabularyFileUri")]
         public Input<string>? VocabularyFileUri { get; set; }
 
         /// <summary>
-        /// The name of the Vocabulary.
+        /// Name of the Vocabulary.
         /// 
         /// The following arguments are optional:
         /// </summary>

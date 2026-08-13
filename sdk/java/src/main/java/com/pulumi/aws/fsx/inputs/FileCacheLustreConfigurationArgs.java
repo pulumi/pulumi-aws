@@ -36,14 +36,14 @@ public final class FileCacheLustreConfigurationArgs extends com.pulumi.resources
     }
 
     /**
-     * Configuration for Lustre logging used to write the enabled logging events for the cache.
+     * Configuration for Lustre logging used to write the enabled logging events for the cache. See `logConfiguration` Block below.
      * 
      */
     @Import(name="logConfigurations")
     private @Nullable Output<List<FileCacheLustreConfigurationLogConfigurationArgs>> logConfigurations;
 
     /**
-     * @return Configuration for Lustre logging used to write the enabled logging events for the cache.
+     * @return Configuration for Lustre logging used to write the enabled logging events for the cache. See `logConfiguration` Block below.
      * 
      */
     public Optional<Output<List<FileCacheLustreConfigurationLogConfigurationArgs>>> logConfigurations() {
@@ -161,7 +161,7 @@ public final class FileCacheLustreConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param logConfigurations Configuration for Lustre logging used to write the enabled logging events for the cache.
+         * @param logConfigurations Configuration for Lustre logging used to write the enabled logging events for the cache. See `logConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class FileCacheLustreConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param logConfigurations Configuration for Lustre logging used to write the enabled logging events for the cache.
+         * @param logConfigurations Configuration for Lustre logging used to write the enabled logging events for the cache. See `logConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class FileCacheLustreConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param logConfigurations Configuration for Lustre logging used to write the enabled logging events for the cache.
+         * @param logConfigurations Configuration for Lustre logging used to write the enabled logging events for the cache. See `logConfiguration` Block below.
          * 
          * @return builder
          * 

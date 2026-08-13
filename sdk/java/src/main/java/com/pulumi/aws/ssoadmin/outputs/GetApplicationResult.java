@@ -44,7 +44,7 @@ public final class GetApplicationResult {
      */
     private String name;
     /**
-     * @return Options for the portal associated with an application. See the `aws.ssoadmin.Application` resource documentation. The attributes are the same.
+     * @return Options for the portal associated with an application. See `portalOptions` Block below.
      * 
      */
     private List<GetApplicationPortalOption> portalOptions;
@@ -102,7 +102,7 @@ public final class GetApplicationResult {
         return this.name;
     }
     /**
-     * @return Options for the portal associated with an application. See the `aws.ssoadmin.Application` resource documentation. The attributes are the same.
+     * @return Options for the portal associated with an application. See `portalOptions` Block below.
      * 
      */
     public List<GetApplicationPortalOption> portalOptions() {

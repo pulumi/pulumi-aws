@@ -319,7 +319,7 @@ class AccessPointVpcConfiguration(dict):
     def __init__(__self__, *,
                  vpc_id: _builtins.str):
         """
-        :param _builtins.str vpc_id: This access point will only allow connections from the specified VPC ID.
+        :param _builtins.str vpc_id: VPC ID from which the access point allows connections.
         """
         pulumi.set(__self__, "vpc_id", vpc_id)
 
@@ -327,7 +327,7 @@ class AccessPointVpcConfiguration(dict):
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> _builtins.str:
         """
-        This access point will only allow connections from the specified VPC ID.
+        VPC ID from which the access point allows connections.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -7809,7 +7809,7 @@ class DirectoryBucketLocation(dict):
                  name: _builtins.str,
                  type: Optional[_builtins.str] = None):
         """
-        :param _builtins.str name: [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids) or Local Zone ID.
+        :param _builtins.str name: [Availability Zone ID](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-availability-zones.html) or Local Zone ID.
         :param _builtins.str type: Location type. Valid values: `AvailabilityZone`, `LocalZone`.
         """
         pulumi.set(__self__, "name", name)
@@ -7820,7 +7820,7 @@ class DirectoryBucketLocation(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids) or Local Zone ID.
+        [Availability Zone ID](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-availability-zones.html) or Local Zone ID.
         """
         return pulumi.get(self, "name")
 
@@ -9006,7 +9006,15 @@ class GetBucketReplicationConfigurationRuleResult(dict):
                  source_selection_criterias: Sequence['outputs.GetBucketReplicationConfigurationRuleSourceSelectionCriteriaResult'],
                  status: _builtins.str):
         """
+        :param Sequence['GetBucketReplicationConfigurationRuleDeleteMarkerReplicationArgs'] delete_marker_replications: Configuration block that specifies whether delete markers are replicated. See `delete_marker_replication` Block below.
+        :param Sequence['GetBucketReplicationConfigurationRuleDestinationArgs'] destinations: Configuration block that specifies the destination for the rule. See `destination` Block below.
+        :param Sequence['GetBucketReplicationConfigurationRuleExistingObjectReplicationArgs'] existing_object_replications: Configuration block that specifies replication of existing objects. See `existing_object_replication` Block below.
+        :param Sequence['GetBucketReplicationConfigurationRuleFilterArgs'] filters: Configuration block that identifies the subset of objects to which the rule applies. See `filter` Block below.
+        :param _builtins.str id: Unique identifier for the rule.
         :param _builtins.str prefix: Object key name prefix that identifies the subset of objects to which the rule applies.
+        :param _builtins.int priority: Priority associated with the rule.
+        :param Sequence['GetBucketReplicationConfigurationRuleSourceSelectionCriteriaArgs'] source_selection_criterias: Configuration block that specifies special object selection criteria. See `source_selection_criteria` Block below.
+        :param _builtins.str status: Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
         """
         pulumi.set(__self__, "delete_marker_replications", delete_marker_replications)
         pulumi.set(__self__, "destinations", destinations)
@@ -9021,26 +9029,41 @@ class GetBucketReplicationConfigurationRuleResult(dict):
     @_builtins.property
     @pulumi.getter(name="deleteMarkerReplications")
     def delete_marker_replications(self) -> Sequence['outputs.GetBucketReplicationConfigurationRuleDeleteMarkerReplicationResult']:
+        """
+        Configuration block that specifies whether delete markers are replicated. See `delete_marker_replication` Block below.
+        """
         return pulumi.get(self, "delete_marker_replications")
 
     @_builtins.property
     @pulumi.getter
     def destinations(self) -> Sequence['outputs.GetBucketReplicationConfigurationRuleDestinationResult']:
+        """
+        Configuration block that specifies the destination for the rule. See `destination` Block below.
+        """
         return pulumi.get(self, "destinations")
 
     @_builtins.property
     @pulumi.getter(name="existingObjectReplications")
     def existing_object_replications(self) -> Sequence['outputs.GetBucketReplicationConfigurationRuleExistingObjectReplicationResult']:
+        """
+        Configuration block that specifies replication of existing objects. See `existing_object_replication` Block below.
+        """
         return pulumi.get(self, "existing_object_replications")
 
     @_builtins.property
     @pulumi.getter
     def filters(self) -> Sequence['outputs.GetBucketReplicationConfigurationRuleFilterResult']:
+        """
+        Configuration block that identifies the subset of objects to which the rule applies. See `filter` Block below.
+        """
         return pulumi.get(self, "filters")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
+        """
+        Unique identifier for the rule.
+        """
         return pulumi.get(self, "id")
 
     @_builtins.property
@@ -9054,16 +9077,25 @@ class GetBucketReplicationConfigurationRuleResult(dict):
     @_builtins.property
     @pulumi.getter
     def priority(self) -> _builtins.int:
+        """
+        Priority associated with the rule.
+        """
         return pulumi.get(self, "priority")
 
     @_builtins.property
     @pulumi.getter(name="sourceSelectionCriterias")
     def source_selection_criterias(self) -> Sequence['outputs.GetBucketReplicationConfigurationRuleSourceSelectionCriteriaResult']:
+        """
+        Configuration block that specifies special object selection criteria. See `source_selection_criteria` Block below.
+        """
         return pulumi.get(self, "source_selection_criterias")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
+        """
+        Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+        """
         return pulumi.get(self, "status")
 
 
@@ -9071,11 +9103,17 @@ class GetBucketReplicationConfigurationRuleResult(dict):
 class GetBucketReplicationConfigurationRuleDeleteMarkerReplicationResult(dict):
     def __init__(__self__, *,
                  status: _builtins.str):
+        """
+        :param _builtins.str status: Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+        """
         pulumi.set(__self__, "status", status)
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
+        """
+        Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+        """
         return pulumi.get(self, "status")
 
 
@@ -9090,7 +9128,13 @@ class GetBucketReplicationConfigurationRuleDestinationResult(dict):
                  replication_times: Sequence['outputs.GetBucketReplicationConfigurationRuleDestinationReplicationTimeResult'],
                  storage_class: _builtins.str):
         """
+        :param Sequence['GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs'] access_control_translations: Configuration block that specifies the overrides to use for object owners on replication. See `access_control_translation` Block below.
+        :param _builtins.str account: Account ID used to specify the replica ownership.
         :param _builtins.str bucket: Name of the bucket to get the replication configuration for.
+        :param Sequence['GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArgs'] encryption_configurations: Configuration block that provides information about encryption. See `encryption_configuration` Block below.
+        :param Sequence['GetBucketReplicationConfigurationRuleDestinationMetricArgs'] metrics: Configuration block that specifies replication metrics-related settings. See `metrics` Block below.
+        :param Sequence['GetBucketReplicationConfigurationRuleDestinationReplicationTimeArgs'] replication_times: Configuration block that specifies S3 Replication Time Control (S3 RTC). See `replication_time` Block below.
+        :param _builtins.str storage_class: Storage class used to store the object.
         """
         pulumi.set(__self__, "access_control_translations", access_control_translations)
         pulumi.set(__self__, "account", account)
@@ -9103,11 +9147,17 @@ class GetBucketReplicationConfigurationRuleDestinationResult(dict):
     @_builtins.property
     @pulumi.getter(name="accessControlTranslations")
     def access_control_translations(self) -> Sequence['outputs.GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationResult']:
+        """
+        Configuration block that specifies the overrides to use for object owners on replication. See `access_control_translation` Block below.
+        """
         return pulumi.get(self, "access_control_translations")
 
     @_builtins.property
     @pulumi.getter
     def account(self) -> _builtins.str:
+        """
+        Account ID used to specify the replica ownership.
+        """
         return pulumi.get(self, "account")
 
     @_builtins.property
@@ -9121,21 +9171,33 @@ class GetBucketReplicationConfigurationRuleDestinationResult(dict):
     @_builtins.property
     @pulumi.getter(name="encryptionConfigurations")
     def encryption_configurations(self) -> Sequence['outputs.GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationResult']:
+        """
+        Configuration block that provides information about encryption. See `encryption_configuration` Block below.
+        """
         return pulumi.get(self, "encryption_configurations")
 
     @_builtins.property
     @pulumi.getter
     def metrics(self) -> Sequence['outputs.GetBucketReplicationConfigurationRuleDestinationMetricResult']:
+        """
+        Configuration block that specifies replication metrics-related settings. See `metrics` Block below.
+        """
         return pulumi.get(self, "metrics")
 
     @_builtins.property
     @pulumi.getter(name="replicationTimes")
     def replication_times(self) -> Sequence['outputs.GetBucketReplicationConfigurationRuleDestinationReplicationTimeResult']:
+        """
+        Configuration block that specifies S3 Replication Time Control (S3 RTC). See `replication_time` Block below.
+        """
         return pulumi.get(self, "replication_times")
 
     @_builtins.property
     @pulumi.getter(name="storageClass")
     def storage_class(self) -> _builtins.str:
+        """
+        Storage class used to store the object.
+        """
         return pulumi.get(self, "storage_class")
 
 
@@ -9143,11 +9205,17 @@ class GetBucketReplicationConfigurationRuleDestinationResult(dict):
 class GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationResult(dict):
     def __init__(__self__, *,
                  owner: _builtins.str):
+        """
+        :param _builtins.str owner: Replica ownership.
+        """
         pulumi.set(__self__, "owner", owner)
 
     @_builtins.property
     @pulumi.getter
     def owner(self) -> _builtins.str:
+        """
+        Replica ownership.
+        """
         return pulumi.get(self, "owner")
 
 
@@ -9155,11 +9223,17 @@ class GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationRe
 class GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationResult(dict):
     def __init__(__self__, *,
                  replica_kms_key_id: _builtins.str):
+        """
+        :param _builtins.str replica_kms_key_id: ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket.
+        """
         pulumi.set(__self__, "replica_kms_key_id", replica_kms_key_id)
 
     @_builtins.property
     @pulumi.getter(name="replicaKmsKeyId")
     def replica_kms_key_id(self) -> _builtins.str:
+        """
+        ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket.
+        """
         return pulumi.get(self, "replica_kms_key_id")
 
 
@@ -9168,17 +9242,27 @@ class GetBucketReplicationConfigurationRuleDestinationMetricResult(dict):
     def __init__(__self__, *,
                  event_thresholds: Sequence['outputs.GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdResult'],
                  status: _builtins.str):
+        """
+        :param Sequence['GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArgs'] event_thresholds: Configuration block that specifies the time threshold for emitting the `s3:Replication:OperationMissedThreshold` event. See `event_threshold` Block below.
+        :param _builtins.str status: Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+        """
         pulumi.set(__self__, "event_thresholds", event_thresholds)
         pulumi.set(__self__, "status", status)
 
     @_builtins.property
     @pulumi.getter(name="eventThresholds")
     def event_thresholds(self) -> Sequence['outputs.GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdResult']:
+        """
+        Configuration block that specifies the time threshold for emitting the `s3:Replication:OperationMissedThreshold` event. See `event_threshold` Block below.
+        """
         return pulumi.get(self, "event_thresholds")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
+        """
+        Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+        """
         return pulumi.get(self, "status")
 
 
@@ -9186,11 +9270,17 @@ class GetBucketReplicationConfigurationRuleDestinationMetricResult(dict):
 class GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdResult(dict):
     def __init__(__self__, *,
                  minutes: _builtins.int):
+        """
+        :param _builtins.int minutes: Time in minutes.
+        """
         pulumi.set(__self__, "minutes", minutes)
 
     @_builtins.property
     @pulumi.getter
     def minutes(self) -> _builtins.int:
+        """
+        Time in minutes.
+        """
         return pulumi.get(self, "minutes")
 
 
@@ -9199,17 +9289,27 @@ class GetBucketReplicationConfigurationRuleDestinationReplicationTimeResult(dict
     def __init__(__self__, *,
                  status: _builtins.str,
                  times: Sequence['outputs.GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeResult']):
+        """
+        :param _builtins.str status: Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+        :param Sequence['GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArgs'] times: Configuration block that specifies the time by which replication should be complete for all objects and operations on objects. See `time` Block below.
+        """
         pulumi.set(__self__, "status", status)
         pulumi.set(__self__, "times", times)
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
+        """
+        Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def times(self) -> Sequence['outputs.GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeResult']:
+        """
+        Configuration block that specifies the time by which replication should be complete for all objects and operations on objects. See `time` Block below.
+        """
         return pulumi.get(self, "times")
 
 
@@ -9217,11 +9317,17 @@ class GetBucketReplicationConfigurationRuleDestinationReplicationTimeResult(dict
 class GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeResult(dict):
     def __init__(__self__, *,
                  minutes: _builtins.int):
+        """
+        :param _builtins.int minutes: Time in minutes.
+        """
         pulumi.set(__self__, "minutes", minutes)
 
     @_builtins.property
     @pulumi.getter
     def minutes(self) -> _builtins.int:
+        """
+        Time in minutes.
+        """
         return pulumi.get(self, "minutes")
 
 
@@ -9229,11 +9335,17 @@ class GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeResult(
 class GetBucketReplicationConfigurationRuleExistingObjectReplicationResult(dict):
     def __init__(__self__, *,
                  status: _builtins.str):
+        """
+        :param _builtins.str status: Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+        """
         pulumi.set(__self__, "status", status)
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
+        """
+        Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+        """
         return pulumi.get(self, "status")
 
 
@@ -9244,8 +9356,9 @@ class GetBucketReplicationConfigurationRuleFilterResult(dict):
                  prefix: _builtins.str,
                  tags: Sequence['outputs.GetBucketReplicationConfigurationRuleFilterTagResult']):
         """
+        :param Sequence['GetBucketReplicationConfigurationRuleFilterAndArgs'] ands: Configuration block for specifying rule filters. See `and` Block below.
         :param _builtins.str prefix: Object key name prefix that identifies the subset of objects to which the rule applies.
-        :param Sequence['GetBucketReplicationConfigurationRuleFilterTagArgs'] tags: Unordered list of tags that identify a subset of objects to which the rule applies. Each tag has a `key` and a `value`.
+        :param Sequence['GetBucketReplicationConfigurationRuleFilterTagArgs'] tags: List of tags that identify a subset of objects to which the rule applies. See `tag` Block below.
         """
         pulumi.set(__self__, "ands", ands)
         pulumi.set(__self__, "prefix", prefix)
@@ -9254,6 +9367,9 @@ class GetBucketReplicationConfigurationRuleFilterResult(dict):
     @_builtins.property
     @pulumi.getter
     def ands(self) -> Sequence['outputs.GetBucketReplicationConfigurationRuleFilterAndResult']:
+        """
+        Configuration block for specifying rule filters. See `and` Block below.
+        """
         return pulumi.get(self, "ands")
 
     @_builtins.property
@@ -9268,7 +9384,7 @@ class GetBucketReplicationConfigurationRuleFilterResult(dict):
     @pulumi.getter
     def tags(self) -> Sequence['outputs.GetBucketReplicationConfigurationRuleFilterTagResult']:
         """
-        Unordered list of tags that identify a subset of objects to which the rule applies. Each tag has a `key` and a `value`.
+        List of tags that identify a subset of objects to which the rule applies. See `tag` Block below.
         """
         return pulumi.get(self, "tags")
 
@@ -9280,7 +9396,7 @@ class GetBucketReplicationConfigurationRuleFilterAndResult(dict):
                  tags: Sequence['outputs.GetBucketReplicationConfigurationRuleFilterAndTagResult']):
         """
         :param _builtins.str prefix: Object key name prefix that identifies the subset of objects to which the rule applies.
-        :param Sequence['GetBucketReplicationConfigurationRuleFilterAndTagArgs'] tags: Unordered list of tags that identify a subset of objects to which the rule applies. Each tag has a `key` and a `value`.
+        :param Sequence['GetBucketReplicationConfigurationRuleFilterAndTagArgs'] tags: List of tags that identify a subset of objects to which the rule applies. See `tag` Block below.
         """
         pulumi.set(__self__, "prefix", prefix)
         pulumi.set(__self__, "tags", tags)
@@ -9297,7 +9413,7 @@ class GetBucketReplicationConfigurationRuleFilterAndResult(dict):
     @pulumi.getter
     def tags(self) -> Sequence['outputs.GetBucketReplicationConfigurationRuleFilterAndTagResult']:
         """
-        Unordered list of tags that identify a subset of objects to which the rule applies. Each tag has a `key` and a `value`.
+        List of tags that identify a subset of objects to which the rule applies. See `tag` Block below.
         """
         return pulumi.get(self, "tags")
 
@@ -9307,17 +9423,27 @@ class GetBucketReplicationConfigurationRuleFilterAndTagResult(dict):
     def __init__(__self__, *,
                  key: _builtins.str,
                  value: _builtins.str):
+        """
+        :param _builtins.str key: Name of the object key.
+        :param _builtins.str value: Value of the tag.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def key(self) -> _builtins.str:
+        """
+        Name of the object key.
+        """
         return pulumi.get(self, "key")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.str:
+        """
+        Value of the tag.
+        """
         return pulumi.get(self, "value")
 
 
@@ -9326,17 +9452,27 @@ class GetBucketReplicationConfigurationRuleFilterTagResult(dict):
     def __init__(__self__, *,
                  key: _builtins.str,
                  value: _builtins.str):
+        """
+        :param _builtins.str key: Name of the object key.
+        :param _builtins.str value: Value of the tag.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def key(self) -> _builtins.str:
+        """
+        Name of the object key.
+        """
         return pulumi.get(self, "key")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.str:
+        """
+        Value of the tag.
+        """
         return pulumi.get(self, "value")
 
 
@@ -9345,17 +9481,27 @@ class GetBucketReplicationConfigurationRuleSourceSelectionCriteriaResult(dict):
     def __init__(__self__, *,
                  replica_modifications: Sequence['outputs.GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationResult'],
                  sse_kms_encrypted_objects: Sequence['outputs.GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectResult']):
+        """
+        :param Sequence['GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArgs'] replica_modifications: Configuration block for selections for modifications on replicas. See `replica_modifications` Block below.
+        :param Sequence['GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs'] sse_kms_encrypted_objects: Configuration block for filter information for the selection of Amazon S3 objects encrypted with AWS KMS. See `sse_kms_encrypted_objects` Block below.
+        """
         pulumi.set(__self__, "replica_modifications", replica_modifications)
         pulumi.set(__self__, "sse_kms_encrypted_objects", sse_kms_encrypted_objects)
 
     @_builtins.property
     @pulumi.getter(name="replicaModifications")
     def replica_modifications(self) -> Sequence['outputs.GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationResult']:
+        """
+        Configuration block for selections for modifications on replicas. See `replica_modifications` Block below.
+        """
         return pulumi.get(self, "replica_modifications")
 
     @_builtins.property
     @pulumi.getter(name="sseKmsEncryptedObjects")
     def sse_kms_encrypted_objects(self) -> Sequence['outputs.GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectResult']:
+        """
+        Configuration block for filter information for the selection of Amazon S3 objects encrypted with AWS KMS. See `sse_kms_encrypted_objects` Block below.
+        """
         return pulumi.get(self, "sse_kms_encrypted_objects")
 
 
@@ -9363,11 +9509,17 @@ class GetBucketReplicationConfigurationRuleSourceSelectionCriteriaResult(dict):
 class GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationResult(dict):
     def __init__(__self__, *,
                  status: _builtins.str):
+        """
+        :param _builtins.str status: Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+        """
         pulumi.set(__self__, "status", status)
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
+        """
+        Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+        """
         return pulumi.get(self, "status")
 
 
@@ -9375,11 +9527,17 @@ class GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModific
 class GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectResult(dict):
     def __init__(__self__, *,
                  status: _builtins.str):
+        """
+        :param _builtins.str status: Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+        """
         pulumi.set(__self__, "status", status)
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
+        """
+        Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+        """
         return pulumi.get(self, "status")
 
 

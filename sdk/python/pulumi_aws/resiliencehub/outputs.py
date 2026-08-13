@@ -26,6 +26,14 @@ __all__ = [
     'V2PolicyDataRecovery',
     'V2PolicyMultiAz',
     'V2PolicyMultiRegion',
+    'V2ServicePermissionModel',
+    'V2ServicePermissionModelCrossAccountRole',
+    'GetV2PolicyAvailabilitySloResult',
+    'GetV2PolicyDataRecoveryResult',
+    'GetV2PolicyMultiAzResult',
+    'GetV2PolicyMultiRegionResult',
+    'GetV2ServicePermissionModelResult',
+    'GetV2ServicePermissionModelCrossAccountRoleResult',
 ]
 
 @pulumi.output_type
@@ -425,5 +433,277 @@ class V2PolicyMultiRegion(dict):
         Recovery time objective in minutes.
         """
         return pulumi.get(self, "rto_in_minutes")
+
+
+@pulumi.output_type
+class V2ServicePermissionModel(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "invokerRoleName":
+            suggest = "invoker_role_name"
+        elif key == "crossAccountRoles":
+            suggest = "cross_account_roles"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2ServicePermissionModel. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2ServicePermissionModel.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2ServicePermissionModel.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 invoker_role_name: _builtins.str,
+                 cross_account_roles: Optional[Sequence['outputs.V2ServicePermissionModelCrossAccountRole']] = None):
+        """
+        :param _builtins.str invoker_role_name: Name of the IAM role that Resilience Hub assumes for resource discovery.
+        :param Sequence['V2ServicePermissionModelCrossAccountRoleArgs'] cross_account_roles: Cross-account IAM role. See `cross_account_role` Block below.
+        """
+        pulumi.set(__self__, "invoker_role_name", invoker_role_name)
+        if cross_account_roles is not None:
+            pulumi.set(__self__, "cross_account_roles", cross_account_roles)
+
+    @_builtins.property
+    @pulumi.getter(name="invokerRoleName")
+    def invoker_role_name(self) -> _builtins.str:
+        """
+        Name of the IAM role that Resilience Hub assumes for resource discovery.
+        """
+        return pulumi.get(self, "invoker_role_name")
+
+    @_builtins.property
+    @pulumi.getter(name="crossAccountRoles")
+    def cross_account_roles(self) -> Optional[Sequence['outputs.V2ServicePermissionModelCrossAccountRole']]:
+        """
+        Cross-account IAM role. See `cross_account_role` Block below.
+        """
+        return pulumi.get(self, "cross_account_roles")
+
+
+@pulumi.output_type
+class V2ServicePermissionModelCrossAccountRole(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "crossAccountRoleArn":
+            suggest = "cross_account_role_arn"
+        elif key == "externalId":
+            suggest = "external_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2ServicePermissionModelCrossAccountRole. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2ServicePermissionModelCrossAccountRole.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2ServicePermissionModelCrossAccountRole.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cross_account_role_arn: _builtins.str,
+                 external_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str cross_account_role_arn: ARN of the IAM Role for the profile.
+        :param _builtins.str external_id: External ID used for assuming the cross-account role.
+        """
+        pulumi.set(__self__, "cross_account_role_arn", cross_account_role_arn)
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+
+    @_builtins.property
+    @pulumi.getter(name="crossAccountRoleArn")
+    def cross_account_role_arn(self) -> _builtins.str:
+        """
+        ARN of the IAM Role for the profile.
+        """
+        return pulumi.get(self, "cross_account_role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[_builtins.str]:
+        """
+        External ID used for assuming the cross-account role.
+        """
+        return pulumi.get(self, "external_id")
+
+
+@pulumi.output_type
+class GetV2PolicyAvailabilitySloResult(dict):
+    def __init__(__self__, *,
+                 target: _builtins.float):
+        """
+        :param _builtins.float target: Availability target as a percentage.
+        """
+        pulumi.set(__self__, "target", target)
+
+    @_builtins.property
+    @pulumi.getter
+    def target(self) -> _builtins.float:
+        """
+        Availability target as a percentage.
+        """
+        return pulumi.get(self, "target")
+
+
+@pulumi.output_type
+class GetV2PolicyDataRecoveryResult(dict):
+    def __init__(__self__, *,
+                 time_between_backups_in_minutes: _builtins.int):
+        """
+        :param _builtins.int time_between_backups_in_minutes: Maximum time between backups in minutes.
+        """
+        pulumi.set(__self__, "time_between_backups_in_minutes", time_between_backups_in_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="timeBetweenBackupsInMinutes")
+    def time_between_backups_in_minutes(self) -> _builtins.int:
+        """
+        Maximum time between backups in minutes.
+        """
+        return pulumi.get(self, "time_between_backups_in_minutes")
+
+
+@pulumi.output_type
+class GetV2PolicyMultiAzResult(dict):
+    def __init__(__self__, *,
+                 disaster_recovery_approach: _builtins.str,
+                 rpo_in_minutes: _builtins.int,
+                 rto_in_minutes: _builtins.int):
+        """
+        :param _builtins.str disaster_recovery_approach: Disaster recovery approach.
+        :param _builtins.int rpo_in_minutes: Recovery point objective in minutes.
+        :param _builtins.int rto_in_minutes: Recovery time objective in minutes.
+        """
+        pulumi.set(__self__, "disaster_recovery_approach", disaster_recovery_approach)
+        pulumi.set(__self__, "rpo_in_minutes", rpo_in_minutes)
+        pulumi.set(__self__, "rto_in_minutes", rto_in_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="disasterRecoveryApproach")
+    def disaster_recovery_approach(self) -> _builtins.str:
+        """
+        Disaster recovery approach.
+        """
+        return pulumi.get(self, "disaster_recovery_approach")
+
+    @_builtins.property
+    @pulumi.getter(name="rpoInMinutes")
+    def rpo_in_minutes(self) -> _builtins.int:
+        """
+        Recovery point objective in minutes.
+        """
+        return pulumi.get(self, "rpo_in_minutes")
+
+    @_builtins.property
+    @pulumi.getter(name="rtoInMinutes")
+    def rto_in_minutes(self) -> _builtins.int:
+        """
+        Recovery time objective in minutes.
+        """
+        return pulumi.get(self, "rto_in_minutes")
+
+
+@pulumi.output_type
+class GetV2PolicyMultiRegionResult(dict):
+    def __init__(__self__, *,
+                 disaster_recovery_approach: _builtins.str,
+                 rpo_in_minutes: _builtins.int,
+                 rto_in_minutes: _builtins.int):
+        """
+        :param _builtins.str disaster_recovery_approach: Disaster recovery approach.
+        :param _builtins.int rpo_in_minutes: Recovery point objective in minutes.
+        :param _builtins.int rto_in_minutes: Recovery time objective in minutes.
+        """
+        pulumi.set(__self__, "disaster_recovery_approach", disaster_recovery_approach)
+        pulumi.set(__self__, "rpo_in_minutes", rpo_in_minutes)
+        pulumi.set(__self__, "rto_in_minutes", rto_in_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="disasterRecoveryApproach")
+    def disaster_recovery_approach(self) -> _builtins.str:
+        """
+        Disaster recovery approach.
+        """
+        return pulumi.get(self, "disaster_recovery_approach")
+
+    @_builtins.property
+    @pulumi.getter(name="rpoInMinutes")
+    def rpo_in_minutes(self) -> _builtins.int:
+        """
+        Recovery point objective in minutes.
+        """
+        return pulumi.get(self, "rpo_in_minutes")
+
+    @_builtins.property
+    @pulumi.getter(name="rtoInMinutes")
+    def rto_in_minutes(self) -> _builtins.int:
+        """
+        Recovery time objective in minutes.
+        """
+        return pulumi.get(self, "rto_in_minutes")
+
+
+@pulumi.output_type
+class GetV2ServicePermissionModelResult(dict):
+    def __init__(__self__, *,
+                 cross_account_roles: Sequence['outputs.GetV2ServicePermissionModelCrossAccountRoleResult'],
+                 invoker_role_name: _builtins.str):
+        """
+        :param Sequence['GetV2ServicePermissionModelCrossAccountRoleArgs'] cross_account_roles: Cross-account IAM role. See `cross_account_role` Block below.
+        :param _builtins.str invoker_role_name: Name of the IAM role that Resilience Hub assumes for resource discovery.
+        """
+        pulumi.set(__self__, "cross_account_roles", cross_account_roles)
+        pulumi.set(__self__, "invoker_role_name", invoker_role_name)
+
+    @_builtins.property
+    @pulumi.getter(name="crossAccountRoles")
+    def cross_account_roles(self) -> Sequence['outputs.GetV2ServicePermissionModelCrossAccountRoleResult']:
+        """
+        Cross-account IAM role. See `cross_account_role` Block below.
+        """
+        return pulumi.get(self, "cross_account_roles")
+
+    @_builtins.property
+    @pulumi.getter(name="invokerRoleName")
+    def invoker_role_name(self) -> _builtins.str:
+        """
+        Name of the IAM role that Resilience Hub assumes for resource discovery.
+        """
+        return pulumi.get(self, "invoker_role_name")
+
+
+@pulumi.output_type
+class GetV2ServicePermissionModelCrossAccountRoleResult(dict):
+    def __init__(__self__, *,
+                 cross_account_role_arn: _builtins.str,
+                 external_id: _builtins.str):
+        """
+        :param _builtins.str cross_account_role_arn: ARN of the IAM Role for the profile.
+        :param _builtins.str external_id: External ID used for assuming the cross-account role.
+        """
+        pulumi.set(__self__, "cross_account_role_arn", cross_account_role_arn)
+        pulumi.set(__self__, "external_id", external_id)
+
+    @_builtins.property
+    @pulumi.getter(name="crossAccountRoleArn")
+    def cross_account_role_arn(self) -> _builtins.str:
+        """
+        ARN of the IAM Role for the profile.
+        """
+        return pulumi.get(self, "cross_account_role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> _builtins.str:
+        """
+        External ID used for assuming the cross-account role.
+        """
+        return pulumi.get(self, "external_id")
 
 

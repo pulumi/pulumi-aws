@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class JobDefinitionEksPropertiesPodPropertiesInitContainerResources {
+    /**
+     * @return Type and quantity of the resources to reserve for the container. The values vary based on the name that&#39;s specified. Limits must be equal to or greater than requests.
+     * 
+     */
     private @Nullable Map<String,String> limits;
+    /**
+     * @return Type and quantity of the resources to request for the container. The values vary based on the name that&#39;s specified.
+     * 
+     */
     private @Nullable Map<String,String> requests;
 
     private JobDefinitionEksPropertiesPodPropertiesInitContainerResources() {}
+    /**
+     * @return Type and quantity of the resources to reserve for the container. The values vary based on the name that&#39;s specified. Limits must be equal to or greater than requests.
+     * 
+     */
     public Map<String,String> limits() {
         return this.limits == null ? Map.of() : this.limits;
     }
+    /**
+     * @return Type and quantity of the resources to request for the container. The values vary based on the name that&#39;s specified.
+     * 
+     */
     public Map<String,String> requests() {
         return this.requests == null ? Map.of() : this.requests;
     }

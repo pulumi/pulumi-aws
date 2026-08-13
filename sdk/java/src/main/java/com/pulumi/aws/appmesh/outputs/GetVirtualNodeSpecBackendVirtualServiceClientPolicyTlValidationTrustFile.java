@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFile {
+    /**
+     * @return Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on.
+     * 
+     */
     private String certificateChain;
 
     private GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFile() {}
+    /**
+     * @return Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on.
+     * 
+     */
     public String certificateChain() {
         return this.certificateChain;
     }

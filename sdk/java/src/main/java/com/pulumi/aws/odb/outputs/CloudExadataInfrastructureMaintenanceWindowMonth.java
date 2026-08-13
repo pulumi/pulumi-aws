@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class CloudExadataInfrastructureMaintenanceWindowMonth {
+    /**
+     * @return Name of the month. Valid values are `JANUARY`, `FEBRUARY`, `MARCH`, `APRIL`, `MAY`, `JUNE`, `JULY`, `AUGUST`, `SEPTEMBER`, `OCTOBER`, `NOVEMBER`, and `DECEMBER`.
+     * 
+     */
     private String name;
 
     private CloudExadataInfrastructureMaintenanceWindowMonth() {}
+    /**
+     * @return Name of the month. Valid values are `JANUARY`, `FEBRUARY`, `MARCH`, `APRIL`, `MAY`, `JUNE`, `JULY`, `AUGUST`, `SEPTEMBER`, `OCTOBER`, `NOVEMBER`, and `DECEMBER`.
+     * 
+     */
     public String name() {
         return this.name;
     }

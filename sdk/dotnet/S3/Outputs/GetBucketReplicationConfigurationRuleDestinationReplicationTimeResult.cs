@@ -13,7 +13,13 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class GetBucketReplicationConfigurationRuleDestinationReplicationTimeResult
     {
+        /// <summary>
+        /// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+        /// </summary>
         public readonly string Status;
+        /// <summary>
+        /// Configuration block that specifies the time by which replication should be complete for all objects and operations on objects. See `Time` Block below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeResult> Times;
 
         [OutputConstructor]

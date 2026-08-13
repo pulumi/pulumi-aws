@@ -18,7 +18,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Outputs
         /// </summary>
         public readonly string Namespace;
         /// <summary>
-        /// Set of resources to scale. See Resources below.
+        /// Resources to scale. See `Resources` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.PlanWorkflowStepEksResourceScalingConfigScalingResourceResource> Resources;
 

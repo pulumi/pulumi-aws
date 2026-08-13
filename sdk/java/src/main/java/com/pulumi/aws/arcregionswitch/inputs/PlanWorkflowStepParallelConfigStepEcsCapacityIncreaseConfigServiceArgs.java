@@ -16,23 +16,47 @@ public final class PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigSe
 
     public static final PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigServiceArgs Empty = new PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigServiceArgs();
 
+    /**
+     * ARN of the ECS cluster.
+     * 
+     */
     @Import(name="clusterArn", required=true)
     private Output<String> clusterArn;
 
+    /**
+     * @return ARN of the ECS cluster.
+     * 
+     */
     public Output<String> clusterArn() {
         return this.clusterArn;
     }
 
+    /**
+     * ARN of the cross-account role to assume.
+     * 
+     */
     @Import(name="crossAccountRole")
     private @Nullable Output<String> crossAccountRole;
 
+    /**
+     * @return ARN of the cross-account role to assume.
+     * 
+     */
     public Optional<Output<String>> crossAccountRole() {
         return Optional.ofNullable(this.crossAccountRole);
     }
 
+    /**
+     * External ID for cross-account role assumption.
+     * 
+     */
     @Import(name="externalId")
     private @Nullable Output<String> externalId;
 
+    /**
+     * @return External ID for cross-account role assumption.
+     * 
+     */
     public Optional<Output<String>> externalId() {
         return Optional.ofNullable(this.externalId);
     }
@@ -79,29 +103,65 @@ public final class PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigSe
             $ = new PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigServiceArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param clusterArn ARN of the ECS cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clusterArn(Output<String> clusterArn) {
             $.clusterArn = clusterArn;
             return this;
         }
 
+        /**
+         * @param clusterArn ARN of the ECS cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clusterArn(String clusterArn) {
             return clusterArn(Output.of(clusterArn));
         }
 
+        /**
+         * @param crossAccountRole ARN of the cross-account role to assume.
+         * 
+         * @return builder
+         * 
+         */
         public Builder crossAccountRole(@Nullable Output<String> crossAccountRole) {
             $.crossAccountRole = crossAccountRole;
             return this;
         }
 
+        /**
+         * @param crossAccountRole ARN of the cross-account role to assume.
+         * 
+         * @return builder
+         * 
+         */
         public Builder crossAccountRole(String crossAccountRole) {
             return crossAccountRole(Output.of(crossAccountRole));
         }
 
+        /**
+         * @param externalId External ID for cross-account role assumption.
+         * 
+         * @return builder
+         * 
+         */
         public Builder externalId(@Nullable Output<String> externalId) {
             $.externalId = externalId;
             return this;
         }
 
+        /**
+         * @param externalId External ID for cross-account role assumption.
+         * 
+         * @return builder
+         * 
+         */
         public Builder externalId(String externalId) {
             return externalId(Output.of(externalId));
         }

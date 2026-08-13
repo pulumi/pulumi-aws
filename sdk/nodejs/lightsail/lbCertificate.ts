@@ -82,7 +82,7 @@ export class LbCertificate extends pulumi.CustomResource {
      */
     declare public readonly domainName: pulumi.Output<string>;
     /**
-     * Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
+     * Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Each element contains the following attributes:
      */
     declare public /*out*/ readonly domainValidationRecords: pulumi.Output<outputs.lightsail.LbCertificateDomainValidationRecord[]>;
     /**
@@ -167,7 +167,7 @@ export interface LbCertificateState {
      */
     domainName?: pulumi.Input<string | undefined>;
     /**
-     * Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
+     * Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Each element contains the following attributes:
      */
     domainValidationRecords?: pulumi.Input<pulumi.Input<inputs.lightsail.LbCertificateDomainValidationRecord>[] | undefined>;
     /**

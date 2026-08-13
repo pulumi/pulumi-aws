@@ -315,14 +315,14 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
         return this.endpointIpAddressRange;
     }
     /**
-     * Endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+     * Endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See `endpoints` below.
      * 
      */
     @Export(name="endpoints", refs={List.class,OntapFileSystemEndpoint.class}, tree="[0,1]")
     private Output<List<OntapFileSystemEndpoint>> endpoints;
 
     /**
-     * @return Endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+     * @return Endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See `endpoints` below.
      * 
      */
     public Output<List<OntapFileSystemEndpoint>> endpoints() {

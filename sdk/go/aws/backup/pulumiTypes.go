@@ -1526,11 +1526,11 @@ func (o PlanScanSettingArrayOutput) Index(i pulumi.IntInput) PlanScanSettingOutp
 }
 
 type ReportPlanReportDeliveryChannel struct {
-	// A list of the format of your reports: CSV, JSON, or both. If not specified, the default format is CSV.
+	// List of the format of your reports: CSV, JSON, or both. If not specified, the default format is CSV.
 	Formats []string `pulumi:"formats"`
-	// The unique name of the S3 bucket that receives your reports.
+	// Unique name of the S3 bucket that receives your reports.
 	S3BucketName string `pulumi:"s3BucketName"`
-	// The prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name. If not specified, there is no prefix.
+	// Prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name. If not specified, there is no prefix.
 	S3KeyPrefix *string `pulumi:"s3KeyPrefix"`
 }
 
@@ -1546,11 +1546,11 @@ type ReportPlanReportDeliveryChannelInput interface {
 }
 
 type ReportPlanReportDeliveryChannelArgs struct {
-	// A list of the format of your reports: CSV, JSON, or both. If not specified, the default format is CSV.
+	// List of the format of your reports: CSV, JSON, or both. If not specified, the default format is CSV.
 	Formats pulumi.StringArrayInput `pulumi:"formats"`
-	// The unique name of the S3 bucket that receives your reports.
+	// Unique name of the S3 bucket that receives your reports.
 	S3BucketName pulumi.StringInput `pulumi:"s3BucketName"`
-	// The prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name. If not specified, there is no prefix.
+	// Prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name. If not specified, there is no prefix.
 	S3KeyPrefix pulumi.StringPtrInput `pulumi:"s3KeyPrefix"`
 }
 
@@ -1631,17 +1631,17 @@ func (o ReportPlanReportDeliveryChannelOutput) ToReportPlanReportDeliveryChannel
 	}).(ReportPlanReportDeliveryChannelPtrOutput)
 }
 
-// A list of the format of your reports: CSV, JSON, or both. If not specified, the default format is CSV.
+// List of the format of your reports: CSV, JSON, or both. If not specified, the default format is CSV.
 func (o ReportPlanReportDeliveryChannelOutput) Formats() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReportPlanReportDeliveryChannel) []string { return v.Formats }).(pulumi.StringArrayOutput)
 }
 
-// The unique name of the S3 bucket that receives your reports.
+// Unique name of the S3 bucket that receives your reports.
 func (o ReportPlanReportDeliveryChannelOutput) S3BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportPlanReportDeliveryChannel) string { return v.S3BucketName }).(pulumi.StringOutput)
 }
 
-// The prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name. If not specified, there is no prefix.
+// Prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name. If not specified, there is no prefix.
 func (o ReportPlanReportDeliveryChannelOutput) S3KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReportPlanReportDeliveryChannel) *string { return v.S3KeyPrefix }).(pulumi.StringPtrOutput)
 }
@@ -1670,7 +1670,7 @@ func (o ReportPlanReportDeliveryChannelPtrOutput) Elem() ReportPlanReportDeliver
 	}).(ReportPlanReportDeliveryChannelOutput)
 }
 
-// A list of the format of your reports: CSV, JSON, or both. If not specified, the default format is CSV.
+// List of the format of your reports: CSV, JSON, or both. If not specified, the default format is CSV.
 func (o ReportPlanReportDeliveryChannelPtrOutput) Formats() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReportPlanReportDeliveryChannel) []string {
 		if v == nil {
@@ -1680,7 +1680,7 @@ func (o ReportPlanReportDeliveryChannelPtrOutput) Formats() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// The unique name of the S3 bucket that receives your reports.
+// Unique name of the S3 bucket that receives your reports.
 func (o ReportPlanReportDeliveryChannelPtrOutput) S3BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportPlanReportDeliveryChannel) *string {
 		if v == nil {
@@ -1690,7 +1690,7 @@ func (o ReportPlanReportDeliveryChannelPtrOutput) S3BucketName() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name. If not specified, there is no prefix.
+// Prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name. If not specified, there is no prefix.
 func (o ReportPlanReportDeliveryChannelPtrOutput) S3KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportPlanReportDeliveryChannel) *string {
 		if v == nil {
@@ -1701,17 +1701,17 @@ func (o ReportPlanReportDeliveryChannelPtrOutput) S3KeyPrefix() pulumi.StringPtr
 }
 
 type ReportPlanReportSetting struct {
-	// Specifies the list of accounts a report covers.
+	// List of accounts a report covers.
 	Accounts []string `pulumi:"accounts"`
-	// Specifies the Amazon Resource Names (ARNs) of the frameworks a report covers.
+	// Amazon Resource Names (ARNs) of the frameworks a report covers.
 	FrameworkArns []string `pulumi:"frameworkArns"`
-	// Specifies the number of frameworks a report covers.
+	// Number of frameworks a report covers.
 	NumberOfFrameworks *int `pulumi:"numberOfFrameworks"`
-	// Specifies the list of Organizational Units a report covers.
+	// List of Organizational Units a report covers.
 	OrganizationUnits []string `pulumi:"organizationUnits"`
-	// Specifies the list of regions a report covers.
+	// List of regions a report covers.
 	Regions []string `pulumi:"regions"`
-	// Identifies the report template for the report. Reports are built using a report template. The report templates are: `RESOURCE_COMPLIANCE_REPORT` | `CONTROL_COMPLIANCE_REPORT` | `BACKUP_JOB_REPORT` | `COPY_JOB_REPORT` | `RESTORE_JOB_REPORT`.
+	// Report template for the report. Reports are built using a report template. The report templates are: `RESOURCE_COMPLIANCE_REPORT` | `CONTROL_COMPLIANCE_REPORT` | `BACKUP_JOB_REPORT` | `COPY_JOB_REPORT` | `RESTORE_JOB_REPORT`.
 	ReportTemplate string `pulumi:"reportTemplate"`
 }
 
@@ -1727,17 +1727,17 @@ type ReportPlanReportSettingInput interface {
 }
 
 type ReportPlanReportSettingArgs struct {
-	// Specifies the list of accounts a report covers.
+	// List of accounts a report covers.
 	Accounts pulumi.StringArrayInput `pulumi:"accounts"`
-	// Specifies the Amazon Resource Names (ARNs) of the frameworks a report covers.
+	// Amazon Resource Names (ARNs) of the frameworks a report covers.
 	FrameworkArns pulumi.StringArrayInput `pulumi:"frameworkArns"`
-	// Specifies the number of frameworks a report covers.
+	// Number of frameworks a report covers.
 	NumberOfFrameworks pulumi.IntPtrInput `pulumi:"numberOfFrameworks"`
-	// Specifies the list of Organizational Units a report covers.
+	// List of Organizational Units a report covers.
 	OrganizationUnits pulumi.StringArrayInput `pulumi:"organizationUnits"`
-	// Specifies the list of regions a report covers.
+	// List of regions a report covers.
 	Regions pulumi.StringArrayInput `pulumi:"regions"`
-	// Identifies the report template for the report. Reports are built using a report template. The report templates are: `RESOURCE_COMPLIANCE_REPORT` | `CONTROL_COMPLIANCE_REPORT` | `BACKUP_JOB_REPORT` | `COPY_JOB_REPORT` | `RESTORE_JOB_REPORT`.
+	// Report template for the report. Reports are built using a report template. The report templates are: `RESOURCE_COMPLIANCE_REPORT` | `CONTROL_COMPLIANCE_REPORT` | `BACKUP_JOB_REPORT` | `COPY_JOB_REPORT` | `RESTORE_JOB_REPORT`.
 	ReportTemplate pulumi.StringInput `pulumi:"reportTemplate"`
 }
 
@@ -1818,32 +1818,32 @@ func (o ReportPlanReportSettingOutput) ToReportPlanReportSettingPtrOutputWithCon
 	}).(ReportPlanReportSettingPtrOutput)
 }
 
-// Specifies the list of accounts a report covers.
+// List of accounts a report covers.
 func (o ReportPlanReportSettingOutput) Accounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReportPlanReportSetting) []string { return v.Accounts }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the Amazon Resource Names (ARNs) of the frameworks a report covers.
+// Amazon Resource Names (ARNs) of the frameworks a report covers.
 func (o ReportPlanReportSettingOutput) FrameworkArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReportPlanReportSetting) []string { return v.FrameworkArns }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the number of frameworks a report covers.
+// Number of frameworks a report covers.
 func (o ReportPlanReportSettingOutput) NumberOfFrameworks() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ReportPlanReportSetting) *int { return v.NumberOfFrameworks }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the list of Organizational Units a report covers.
+// List of Organizational Units a report covers.
 func (o ReportPlanReportSettingOutput) OrganizationUnits() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReportPlanReportSetting) []string { return v.OrganizationUnits }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the list of regions a report covers.
+// List of regions a report covers.
 func (o ReportPlanReportSettingOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReportPlanReportSetting) []string { return v.Regions }).(pulumi.StringArrayOutput)
 }
 
-// Identifies the report template for the report. Reports are built using a report template. The report templates are: `RESOURCE_COMPLIANCE_REPORT` | `CONTROL_COMPLIANCE_REPORT` | `BACKUP_JOB_REPORT` | `COPY_JOB_REPORT` | `RESTORE_JOB_REPORT`.
+// Report template for the report. Reports are built using a report template. The report templates are: `RESOURCE_COMPLIANCE_REPORT` | `CONTROL_COMPLIANCE_REPORT` | `BACKUP_JOB_REPORT` | `COPY_JOB_REPORT` | `RESTORE_JOB_REPORT`.
 func (o ReportPlanReportSettingOutput) ReportTemplate() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportPlanReportSetting) string { return v.ReportTemplate }).(pulumi.StringOutput)
 }
@@ -1872,7 +1872,7 @@ func (o ReportPlanReportSettingPtrOutput) Elem() ReportPlanReportSettingOutput {
 	}).(ReportPlanReportSettingOutput)
 }
 
-// Specifies the list of accounts a report covers.
+// List of accounts a report covers.
 func (o ReportPlanReportSettingPtrOutput) Accounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReportPlanReportSetting) []string {
 		if v == nil {
@@ -1882,7 +1882,7 @@ func (o ReportPlanReportSettingPtrOutput) Accounts() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies the Amazon Resource Names (ARNs) of the frameworks a report covers.
+// Amazon Resource Names (ARNs) of the frameworks a report covers.
 func (o ReportPlanReportSettingPtrOutput) FrameworkArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReportPlanReportSetting) []string {
 		if v == nil {
@@ -1892,7 +1892,7 @@ func (o ReportPlanReportSettingPtrOutput) FrameworkArns() pulumi.StringArrayOutp
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies the number of frameworks a report covers.
+// Number of frameworks a report covers.
 func (o ReportPlanReportSettingPtrOutput) NumberOfFrameworks() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ReportPlanReportSetting) *int {
 		if v == nil {
@@ -1902,7 +1902,7 @@ func (o ReportPlanReportSettingPtrOutput) NumberOfFrameworks() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the list of Organizational Units a report covers.
+// List of Organizational Units a report covers.
 func (o ReportPlanReportSettingPtrOutput) OrganizationUnits() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReportPlanReportSetting) []string {
 		if v == nil {
@@ -1912,7 +1912,7 @@ func (o ReportPlanReportSettingPtrOutput) OrganizationUnits() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies the list of regions a report covers.
+// List of regions a report covers.
 func (o ReportPlanReportSettingPtrOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReportPlanReportSetting) []string {
 		if v == nil {
@@ -1922,7 +1922,7 @@ func (o ReportPlanReportSettingPtrOutput) Regions() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Identifies the report template for the report. Reports are built using a report template. The report templates are: `RESOURCE_COMPLIANCE_REPORT` | `CONTROL_COMPLIANCE_REPORT` | `BACKUP_JOB_REPORT` | `COPY_JOB_REPORT` | `RESTORE_JOB_REPORT`.
+// Report template for the report. Reports are built using a report template. The report templates are: `RESOURCE_COMPLIANCE_REPORT` | `CONTROL_COMPLIANCE_REPORT` | `BACKUP_JOB_REPORT` | `COPY_JOB_REPORT` | `RESTORE_JOB_REPORT`.
 func (o ReportPlanReportSettingPtrOutput) ReportTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportPlanReportSetting) *string {
 		if v == nil {
@@ -4320,7 +4320,7 @@ type GetReportPlanReportSetting struct {
 	OrganizationUnits []string `pulumi:"organizationUnits"`
 	// List of regions a report covers.
 	Regions []string `pulumi:"regions"`
-	// Identifies the report template for the report. Reports are built using a report template.
+	// Report template for the report. Reports are built using a report template.
 	ReportTemplate string `pulumi:"reportTemplate"`
 }
 
@@ -4346,7 +4346,7 @@ type GetReportPlanReportSettingArgs struct {
 	OrganizationUnits pulumi.StringArrayInput `pulumi:"organizationUnits"`
 	// List of regions a report covers.
 	Regions pulumi.StringArrayInput `pulumi:"regions"`
-	// Identifies the report template for the report. Reports are built using a report template.
+	// Report template for the report. Reports are built using a report template.
 	ReportTemplate pulumi.StringInput `pulumi:"reportTemplate"`
 }
 
@@ -4426,7 +4426,7 @@ func (o GetReportPlanReportSettingOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetReportPlanReportSetting) []string { return v.Regions }).(pulumi.StringArrayOutput)
 }
 
-// Identifies the report template for the report. Reports are built using a report template.
+// Report template for the report. Reports are built using a report template.
 func (o GetReportPlanReportSettingOutput) ReportTemplate() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReportPlanReportSetting) string { return v.ReportTemplate }).(pulumi.StringOutput)
 }

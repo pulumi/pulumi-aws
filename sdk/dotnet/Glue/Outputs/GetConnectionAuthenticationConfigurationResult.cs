@@ -13,11 +13,29 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class GetConnectionAuthenticationConfigurationResult
     {
+        /// <summary>
+        /// Type of authentication used for the connection.
+        /// </summary>
         public readonly string AuthenticationType;
+        /// <summary>
+        /// Basic authentication credentials. See `BasicAuthenticationCredentials` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialResult> BasicAuthenticationCredentials;
+        /// <summary>
+        /// Map of credentials used when the authentication type is custom authentication.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> CustomAuthenticationCredentials;
+        /// <summary>
+        /// ARN of the KMS key used to encrypt the connection.
+        /// </summary>
         public readonly string KmsKeyArn;
+        /// <summary>
+        /// OAuth2 properties. See `Oauth2Properties` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetConnectionAuthenticationConfigurationOauth2PropertyResult> Oauth2Properties;
+        /// <summary>
+        /// ARN of the secret used for authentication.
+        /// </summary>
         public readonly string SecretArn;
 
         [OutputConstructor]

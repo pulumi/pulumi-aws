@@ -1594,6 +1594,181 @@ func (o Smsvoicev2PoolTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type Smsvoicev2SenderIdTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// Smsvoicev2SenderIdTimeoutsInput is an input type that accepts Smsvoicev2SenderIdTimeoutsArgs and Smsvoicev2SenderIdTimeoutsOutput values.
+// You can construct a concrete instance of `Smsvoicev2SenderIdTimeoutsInput` via:
+//
+//	Smsvoicev2SenderIdTimeoutsArgs{...}
+type Smsvoicev2SenderIdTimeoutsInput interface {
+	pulumi.Input
+
+	ToSmsvoicev2SenderIdTimeoutsOutput() Smsvoicev2SenderIdTimeoutsOutput
+	ToSmsvoicev2SenderIdTimeoutsOutputWithContext(context.Context) Smsvoicev2SenderIdTimeoutsOutput
+}
+
+type Smsvoicev2SenderIdTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (Smsvoicev2SenderIdTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Smsvoicev2SenderIdTimeouts)(nil)).Elem()
+}
+
+func (i Smsvoicev2SenderIdTimeoutsArgs) ToSmsvoicev2SenderIdTimeoutsOutput() Smsvoicev2SenderIdTimeoutsOutput {
+	return i.ToSmsvoicev2SenderIdTimeoutsOutputWithContext(context.Background())
+}
+
+func (i Smsvoicev2SenderIdTimeoutsArgs) ToSmsvoicev2SenderIdTimeoutsOutputWithContext(ctx context.Context) Smsvoicev2SenderIdTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Smsvoicev2SenderIdTimeoutsOutput)
+}
+
+func (i Smsvoicev2SenderIdTimeoutsArgs) ToSmsvoicev2SenderIdTimeoutsPtrOutput() Smsvoicev2SenderIdTimeoutsPtrOutput {
+	return i.ToSmsvoicev2SenderIdTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i Smsvoicev2SenderIdTimeoutsArgs) ToSmsvoicev2SenderIdTimeoutsPtrOutputWithContext(ctx context.Context) Smsvoicev2SenderIdTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Smsvoicev2SenderIdTimeoutsOutput).ToSmsvoicev2SenderIdTimeoutsPtrOutputWithContext(ctx)
+}
+
+// Smsvoicev2SenderIdTimeoutsPtrInput is an input type that accepts Smsvoicev2SenderIdTimeoutsArgs, Smsvoicev2SenderIdTimeoutsPtr and Smsvoicev2SenderIdTimeoutsPtrOutput values.
+// You can construct a concrete instance of `Smsvoicev2SenderIdTimeoutsPtrInput` via:
+//
+//	        Smsvoicev2SenderIdTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type Smsvoicev2SenderIdTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToSmsvoicev2SenderIdTimeoutsPtrOutput() Smsvoicev2SenderIdTimeoutsPtrOutput
+	ToSmsvoicev2SenderIdTimeoutsPtrOutputWithContext(context.Context) Smsvoicev2SenderIdTimeoutsPtrOutput
+}
+
+type smsvoicev2SenderIdTimeoutsPtrType Smsvoicev2SenderIdTimeoutsArgs
+
+func Smsvoicev2SenderIdTimeoutsPtr(v *Smsvoicev2SenderIdTimeoutsArgs) Smsvoicev2SenderIdTimeoutsPtrInput {
+	return (*smsvoicev2SenderIdTimeoutsPtrType)(v)
+}
+
+func (*smsvoicev2SenderIdTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Smsvoicev2SenderIdTimeouts)(nil)).Elem()
+}
+
+func (i *smsvoicev2SenderIdTimeoutsPtrType) ToSmsvoicev2SenderIdTimeoutsPtrOutput() Smsvoicev2SenderIdTimeoutsPtrOutput {
+	return i.ToSmsvoicev2SenderIdTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *smsvoicev2SenderIdTimeoutsPtrType) ToSmsvoicev2SenderIdTimeoutsPtrOutputWithContext(ctx context.Context) Smsvoicev2SenderIdTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Smsvoicev2SenderIdTimeoutsPtrOutput)
+}
+
+type Smsvoicev2SenderIdTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (Smsvoicev2SenderIdTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Smsvoicev2SenderIdTimeouts)(nil)).Elem()
+}
+
+func (o Smsvoicev2SenderIdTimeoutsOutput) ToSmsvoicev2SenderIdTimeoutsOutput() Smsvoicev2SenderIdTimeoutsOutput {
+	return o
+}
+
+func (o Smsvoicev2SenderIdTimeoutsOutput) ToSmsvoicev2SenderIdTimeoutsOutputWithContext(ctx context.Context) Smsvoicev2SenderIdTimeoutsOutput {
+	return o
+}
+
+func (o Smsvoicev2SenderIdTimeoutsOutput) ToSmsvoicev2SenderIdTimeoutsPtrOutput() Smsvoicev2SenderIdTimeoutsPtrOutput {
+	return o.ToSmsvoicev2SenderIdTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o Smsvoicev2SenderIdTimeoutsOutput) ToSmsvoicev2SenderIdTimeoutsPtrOutputWithContext(ctx context.Context) Smsvoicev2SenderIdTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Smsvoicev2SenderIdTimeouts) *Smsvoicev2SenderIdTimeouts {
+		return &v
+	}).(Smsvoicev2SenderIdTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o Smsvoicev2SenderIdTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Smsvoicev2SenderIdTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o Smsvoicev2SenderIdTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Smsvoicev2SenderIdTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o Smsvoicev2SenderIdTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Smsvoicev2SenderIdTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type Smsvoicev2SenderIdTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (Smsvoicev2SenderIdTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Smsvoicev2SenderIdTimeouts)(nil)).Elem()
+}
+
+func (o Smsvoicev2SenderIdTimeoutsPtrOutput) ToSmsvoicev2SenderIdTimeoutsPtrOutput() Smsvoicev2SenderIdTimeoutsPtrOutput {
+	return o
+}
+
+func (o Smsvoicev2SenderIdTimeoutsPtrOutput) ToSmsvoicev2SenderIdTimeoutsPtrOutputWithContext(ctx context.Context) Smsvoicev2SenderIdTimeoutsPtrOutput {
+	return o
+}
+
+func (o Smsvoicev2SenderIdTimeoutsPtrOutput) Elem() Smsvoicev2SenderIdTimeoutsOutput {
+	return o.ApplyT(func(v *Smsvoicev2SenderIdTimeouts) Smsvoicev2SenderIdTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret Smsvoicev2SenderIdTimeouts
+		return ret
+	}).(Smsvoicev2SenderIdTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o Smsvoicev2SenderIdTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Smsvoicev2SenderIdTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o Smsvoicev2SenderIdTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Smsvoicev2SenderIdTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o Smsvoicev2SenderIdTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Smsvoicev2SenderIdTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppCampaignHookInput)(nil)).Elem(), AppCampaignHookArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppCampaignHookPtrInput)(nil)).Elem(), AppCampaignHookArgs{})
@@ -1615,6 +1790,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*Smsvoicev2PhoneNumberTimeoutsPtrInput)(nil)).Elem(), Smsvoicev2PhoneNumberTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Smsvoicev2PoolTimeoutsInput)(nil)).Elem(), Smsvoicev2PoolTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Smsvoicev2PoolTimeoutsPtrInput)(nil)).Elem(), Smsvoicev2PoolTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Smsvoicev2SenderIdTimeoutsInput)(nil)).Elem(), Smsvoicev2SenderIdTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Smsvoicev2SenderIdTimeoutsPtrInput)(nil)).Elem(), Smsvoicev2SenderIdTimeoutsArgs{})
 	pulumi.RegisterOutputType(AppCampaignHookOutput{})
 	pulumi.RegisterOutputType(AppCampaignHookPtrOutput{})
 	pulumi.RegisterOutputType(AppLimitsOutput{})
@@ -1635,4 +1812,6 @@ func init() {
 	pulumi.RegisterOutputType(Smsvoicev2PhoneNumberTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(Smsvoicev2PoolTimeoutsOutput{})
 	pulumi.RegisterOutputType(Smsvoicev2PoolTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(Smsvoicev2SenderIdTimeoutsOutput{})
+	pulumi.RegisterOutputType(Smsvoicev2SenderIdTimeoutsPtrOutput{})
 }

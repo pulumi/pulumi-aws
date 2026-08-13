@@ -16,7 +16,7 @@ public final class ServerS3StorageOptionsArgs extends com.pulumi.resources.Resou
     public static final ServerS3StorageOptionsArgs Empty = new ServerS3StorageOptionsArgs();
 
     /**
-     * Specifies whether or not performance for your Amazon S3 directories is optimized. Valid values are `DISABLED`, `ENABLED`.
+     * Whether performance for your Amazon S3 directories is optimized. Valid values are `DISABLED`, `ENABLED`.
      * 
      * By default, home directory mappings have a `TYPE` of `DIRECTORY`. If you enable this option, you would then need to explicitly set the `HomeDirectoryMapEntry` Type to `FILE` if you want a mapping to have a file target. See [Using logical directories to simplify your Transfer Family directory structures](https://docs.aws.amazon.com/transfer/latest/userguide/logical-dir-mappings.html) for details.
      * 
@@ -25,7 +25,7 @@ public final class ServerS3StorageOptionsArgs extends com.pulumi.resources.Resou
     private @Nullable Output<String> directoryListingOptimization;
 
     /**
-     * @return Specifies whether or not performance for your Amazon S3 directories is optimized. Valid values are `DISABLED`, `ENABLED`.
+     * @return Whether performance for your Amazon S3 directories is optimized. Valid values are `DISABLED`, `ENABLED`.
      * 
      * By default, home directory mappings have a `TYPE` of `DIRECTORY`. If you enable this option, you would then need to explicitly set the `HomeDirectoryMapEntry` Type to `FILE` if you want a mapping to have a file target. See [Using logical directories to simplify your Transfer Family directory structures](https://docs.aws.amazon.com/transfer/latest/userguide/logical-dir-mappings.html) for details.
      * 
@@ -59,7 +59,7 @@ public final class ServerS3StorageOptionsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param directoryListingOptimization Specifies whether or not performance for your Amazon S3 directories is optimized. Valid values are `DISABLED`, `ENABLED`.
+         * @param directoryListingOptimization Whether performance for your Amazon S3 directories is optimized. Valid values are `DISABLED`, `ENABLED`.
          * 
          * By default, home directory mappings have a `TYPE` of `DIRECTORY`. If you enable this option, you would then need to explicitly set the `HomeDirectoryMapEntry` Type to `FILE` if you want a mapping to have a file target. See [Using logical directories to simplify your Transfer Family directory structures](https://docs.aws.amazon.com/transfer/latest/userguide/logical-dir-mappings.html) for details.
          * 
@@ -72,7 +72,7 @@ public final class ServerS3StorageOptionsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param directoryListingOptimization Specifies whether or not performance for your Amazon S3 directories is optimized. Valid values are `DISABLED`, `ENABLED`.
+         * @param directoryListingOptimization Whether performance for your Amazon S3 directories is optimized. Valid values are `DISABLED`, `ENABLED`.
          * 
          * By default, home directory mappings have a `TYPE` of `DIRECTORY`. If you enable this option, you would then need to explicitly set the `HomeDirectoryMapEntry` Type to `FILE` if you want a mapping to have a file target. See [Using logical directories to simplify your Transfer Family directory structures](https://docs.aws.amazon.com/transfer/latest/userguide/logical-dir-mappings.html) for details.
          * 

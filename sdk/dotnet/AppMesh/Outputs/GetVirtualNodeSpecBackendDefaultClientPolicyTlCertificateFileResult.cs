@@ -13,7 +13,13 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileResult
     {
+        /// <summary>
+        /// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on.
+        /// </summary>
         public readonly string CertificateChain;
+        /// <summary>
+        /// Private key for a certificate stored on the file system of the virtual node that the proxy is running on.
+        /// </summary>
         public readonly string PrivateKey;
 
         [OutputConstructor]

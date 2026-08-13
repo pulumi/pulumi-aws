@@ -34,6 +34,14 @@ __all__ = [
     'ClusterEncryptionConfigProvider',
     'ClusterIdentity',
     'ClusterIdentityOidc',
+    'ClusterKubeApiServerConfig',
+    'ClusterKubeApiServerConfigServiceNodePortRange',
+    'ClusterKubeControllerManagerConfig',
+    'ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig',
+    'ClusterKubeSchedulerConfig',
+    'ClusterKubeSchedulerConfigNodeResourcesFit',
+    'ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategy',
+    'ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResource',
     'ClusterKubernetesNetworkConfig',
     'ClusterKubernetesNetworkConfigElasticLoadBalancing',
     'ClusterOutpostConfig',
@@ -67,6 +75,14 @@ __all__ = [
     'GetClusterControlPlaneScalingConfigResult',
     'GetClusterIdentityResult',
     'GetClusterIdentityOidcResult',
+    'GetClusterKubeApiServerConfigResult',
+    'GetClusterKubeApiServerConfigServiceNodePortRangeResult',
+    'GetClusterKubeControllerManagerConfigResult',
+    'GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigResult',
+    'GetClusterKubeSchedulerConfigResult',
+    'GetClusterKubeSchedulerConfigNodeResourcesFitResult',
+    'GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResult',
+    'GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceResult',
     'GetClusterKubernetesNetworkConfigResult',
     'GetClusterKubernetesNetworkConfigElasticLoadBalancingResult',
     'GetClusterOutpostConfigResult',
@@ -79,6 +95,53 @@ __all__ = [
     'GetClusterStorageConfigBlockStorageResult',
     'GetClusterUpgradePolicyResult',
     'GetClusterVersionsClusterVersionResult',
+    'GetClusterVersionsClusterVersionControlPlaneComponentConfigResult',
+    'GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigResult',
+    'GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlResult',
+    'GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintResult',
+    'GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeResult',
+    'GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintResult',
+    'GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortResult',
+    'GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortResult',
+    'GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueResult',
+    'GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigResult',
+    'GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigResult',
+    'GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodResult',
+    'GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintResult',
+    'GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigResult',
+    'GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitResult',
+    'GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyResult',
+    'GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResult',
+    'GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceResult',
+    'GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameResult',
+    'GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightResult',
+    'GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyResult',
+    'GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResult',
+    'GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceResult',
+    'GetClusterVersionsClusterVersionControlPlaneScalingTierResult',
+    'GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideResult',
+    'GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigResult',
+    'GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlResult',
+    'GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintResult',
+    'GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeResult',
+    'GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintResult',
+    'GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortResult',
+    'GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortResult',
+    'GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueResult',
+    'GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigResult',
+    'GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigResult',
+    'GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodResult',
+    'GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintResult',
+    'GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigResult',
+    'GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitResult',
+    'GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyResult',
+    'GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResult',
+    'GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceResult',
+    'GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameResult',
+    'GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightResult',
+    'GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyResult',
+    'GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResult',
+    'GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceResult',
     'GetClusterVpcConfigResult',
     'GetClusterZonalShiftConfigResult',
     'GetNodeGroupLaunchTemplateResult',
@@ -759,6 +822,316 @@ class ClusterIdentityOidc(dict):
         Issuer URL for the OpenID Connect identity provider.
         """
         return pulumi.get(self, "issuer")
+
+
+@pulumi.output_type
+class ClusterKubeApiServerConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventTtl":
+            suggest = "event_ttl"
+        elif key == "serviceNodePortRange":
+            suggest = "service_node_port_range"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterKubeApiServerConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterKubeApiServerConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterKubeApiServerConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 event_ttl: Optional[_builtins.str] = None,
+                 service_node_port_range: Optional['outputs.ClusterKubeApiServerConfigServiceNodePortRange'] = None):
+        """
+        :param _builtins.str event_ttl: The duration that Kubernetes events are retained. Must be a single-unit duration (e.g., `30m`, `1h`). Valid range: `10m` to `60m`. Default is `1h`.
+        :param 'ClusterKubeApiServerConfigServiceNodePortRangeArgs' service_node_port_range: Configuration block for the port range available for NodePort services. Detailed below.
+        """
+        if event_ttl is not None:
+            pulumi.set(__self__, "event_ttl", event_ttl)
+        if service_node_port_range is not None:
+            pulumi.set(__self__, "service_node_port_range", service_node_port_range)
+
+    @_builtins.property
+    @pulumi.getter(name="eventTtl")
+    def event_ttl(self) -> Optional[_builtins.str]:
+        """
+        The duration that Kubernetes events are retained. Must be a single-unit duration (e.g., `30m`, `1h`). Valid range: `10m` to `60m`. Default is `1h`.
+        """
+        return pulumi.get(self, "event_ttl")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceNodePortRange")
+    def service_node_port_range(self) -> Optional['outputs.ClusterKubeApiServerConfigServiceNodePortRange']:
+        """
+        Configuration block for the port range available for NodePort services. Detailed below.
+        """
+        return pulumi.get(self, "service_node_port_range")
+
+
+@pulumi.output_type
+class ClusterKubeApiServerConfigServiceNodePortRange(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxPort":
+            suggest = "max_port"
+        elif key == "minPort":
+            suggest = "min_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterKubeApiServerConfigServiceNodePortRange. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterKubeApiServerConfigServiceNodePortRange.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterKubeApiServerConfigServiceNodePortRange.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_port: Optional[_builtins.int] = None,
+                 min_port: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int max_port: The maximum port number in the range. Valid range: `10260` to `32767`. Default is `32767`. Must be greater than or equal to `min_port`.
+        :param _builtins.int min_port: The minimum port number in the range. Valid range: `10260` to `32767`. Default is `30000`.
+        """
+        if max_port is not None:
+            pulumi.set(__self__, "max_port", max_port)
+        if min_port is not None:
+            pulumi.set(__self__, "min_port", min_port)
+
+    @_builtins.property
+    @pulumi.getter(name="maxPort")
+    def max_port(self) -> Optional[_builtins.int]:
+        """
+        The maximum port number in the range. Valid range: `10260` to `32767`. Default is `32767`. Must be greater than or equal to `min_port`.
+        """
+        return pulumi.get(self, "max_port")
+
+    @_builtins.property
+    @pulumi.getter(name="minPort")
+    def min_port(self) -> Optional[_builtins.int]:
+        """
+        The minimum port number in the range. Valid range: `10260` to `32767`. Default is `30000`.
+        """
+        return pulumi.get(self, "min_port")
+
+
+@pulumi.output_type
+class ClusterKubeControllerManagerConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "horizontalPodAutoscalerControllerConfig":
+            suggest = "horizontal_pod_autoscaler_controller_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterKubeControllerManagerConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterKubeControllerManagerConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterKubeControllerManagerConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 horizontal_pod_autoscaler_controller_config: Optional['outputs.ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig'] = None):
+        """
+        :param 'ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs' horizontal_pod_autoscaler_controller_config: Configuration block for the horizontal pod autoscaler controller. Detailed below.
+               
+               > **NOTE:** The `horizontal_pod_autoscaler_controller_config` requires a Provisioned Control Plane scaling tier (e.g., `tier-xl` or higher). It cannot be configured on clusters using the `standard` tier.
+        """
+        if horizontal_pod_autoscaler_controller_config is not None:
+            pulumi.set(__self__, "horizontal_pod_autoscaler_controller_config", horizontal_pod_autoscaler_controller_config)
+
+    @_builtins.property
+    @pulumi.getter(name="horizontalPodAutoscalerControllerConfig")
+    def horizontal_pod_autoscaler_controller_config(self) -> Optional['outputs.ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig']:
+        """
+        Configuration block for the horizontal pod autoscaler controller. Detailed below.
+
+        > **NOTE:** The `horizontal_pod_autoscaler_controller_config` requires a Provisioned Control Plane scaling tier (e.g., `tier-xl` or higher). It cannot be configured on clusters using the `standard` tier.
+        """
+        return pulumi.get(self, "horizontal_pod_autoscaler_controller_config")
+
+
+@pulumi.output_type
+class ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "horizontalPodAutoscalerSyncPeriod":
+            suggest = "horizontal_pod_autoscaler_sync_period"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 horizontal_pod_autoscaler_sync_period: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str horizontal_pod_autoscaler_sync_period: The interval between each sync of the horizontal pod autoscaler. Must be a single-unit duration (e.g., `10s`, `15s`). Valid range: `10s` to `15s`. Default is `15s`.
+        """
+        if horizontal_pod_autoscaler_sync_period is not None:
+            pulumi.set(__self__, "horizontal_pod_autoscaler_sync_period", horizontal_pod_autoscaler_sync_period)
+
+    @_builtins.property
+    @pulumi.getter(name="horizontalPodAutoscalerSyncPeriod")
+    def horizontal_pod_autoscaler_sync_period(self) -> Optional[_builtins.str]:
+        """
+        The interval between each sync of the horizontal pod autoscaler. Must be a single-unit duration (e.g., `10s`, `15s`). Valid range: `10s` to `15s`. Default is `15s`.
+        """
+        return pulumi.get(self, "horizontal_pod_autoscaler_sync_period")
+
+
+@pulumi.output_type
+class ClusterKubeSchedulerConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nodeResourcesFit":
+            suggest = "node_resources_fit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterKubeSchedulerConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterKubeSchedulerConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterKubeSchedulerConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 node_resources_fit: Optional['outputs.ClusterKubeSchedulerConfigNodeResourcesFit'] = None):
+        """
+        :param 'ClusterKubeSchedulerConfigNodeResourcesFitArgs' node_resources_fit: Configuration block for the NodeResourcesFit scheduler plugin. Detailed below.
+        """
+        if node_resources_fit is not None:
+            pulumi.set(__self__, "node_resources_fit", node_resources_fit)
+
+    @_builtins.property
+    @pulumi.getter(name="nodeResourcesFit")
+    def node_resources_fit(self) -> Optional['outputs.ClusterKubeSchedulerConfigNodeResourcesFit']:
+        """
+        Configuration block for the NodeResourcesFit scheduler plugin. Detailed below.
+        """
+        return pulumi.get(self, "node_resources_fit")
+
+
+@pulumi.output_type
+class ClusterKubeSchedulerConfigNodeResourcesFit(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scoringStrategy":
+            suggest = "scoring_strategy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterKubeSchedulerConfigNodeResourcesFit. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterKubeSchedulerConfigNodeResourcesFit.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterKubeSchedulerConfigNodeResourcesFit.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 scoring_strategy: Optional['outputs.ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategy'] = None):
+        """
+        :param 'ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArgs' scoring_strategy: Configuration block for the scoring strategy used to rank nodes during scheduling. Detailed below.
+        """
+        if scoring_strategy is not None:
+            pulumi.set(__self__, "scoring_strategy", scoring_strategy)
+
+    @_builtins.property
+    @pulumi.getter(name="scoringStrategy")
+    def scoring_strategy(self) -> Optional['outputs.ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategy']:
+        """
+        Configuration block for the scoring strategy used to rank nodes during scheduling. Detailed below.
+        """
+        return pulumi.get(self, "scoring_strategy")
+
+
+@pulumi.output_type
+class ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategy(dict):
+    def __init__(__self__, *,
+                 resources: Optional[Sequence['outputs.ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResource']] = None,
+                 type: Optional[_builtins.str] = None):
+        """
+        :param Sequence['ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArgs'] resources: List of resource weight configuration blocks for scoring nodes. Detailed below.
+        :param _builtins.str type: The scoring strategy type. Valid values are `LeastAllocated` and `MostAllocated`. Default is `LeastAllocated`.
+        """
+        if resources is not None:
+            pulumi.set(__self__, "resources", resources)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def resources(self) -> Optional[Sequence['outputs.ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResource']]:
+        """
+        List of resource weight configuration blocks for scoring nodes. Detailed below.
+        """
+        return pulumi.get(self, "resources")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        """
+        The scoring strategy type. Valid values are `LeastAllocated` and `MostAllocated`. Default is `LeastAllocated`.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResource(dict):
+    def __init__(__self__, *,
+                 name: Optional[_builtins.str] = None,
+                 weight: Optional[_builtins.int] = None):
+        """
+        :param _builtins.str name: The name of the resource (e.g., `cpu`, `memory`, `nvidia.com/gpu`).
+        :param _builtins.int weight: The weight assigned to the resource for scoring. Must be between `1` and `100`.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if weight is not None:
+            pulumi.set(__self__, "weight", weight)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        The name of the resource (e.g., `cpu`, `memory`, `nvidia.com/gpu`).
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def weight(self) -> Optional[_builtins.int]:
+        """
+        The weight assigned to the resource for scoring. Must be between `1` and `100`.
+        """
+        return pulumi.get(self, "weight")
 
 
 @pulumi.output_type
@@ -2345,6 +2718,194 @@ class GetClusterIdentityOidcResult(dict):
 
 
 @pulumi.output_type
+class GetClusterKubeApiServerConfigResult(dict):
+    def __init__(__self__, *,
+                 event_ttl: _builtins.str,
+                 service_node_port_ranges: Sequence['outputs.GetClusterKubeApiServerConfigServiceNodePortRangeResult']):
+        """
+        :param _builtins.str event_ttl: The duration that Kubernetes events are retained.
+        :param Sequence['GetClusterKubeApiServerConfigServiceNodePortRangeArgs'] service_node_port_ranges: The port range for NodePort services.
+        """
+        pulumi.set(__self__, "event_ttl", event_ttl)
+        pulumi.set(__self__, "service_node_port_ranges", service_node_port_ranges)
+
+    @_builtins.property
+    @pulumi.getter(name="eventTtl")
+    def event_ttl(self) -> _builtins.str:
+        """
+        The duration that Kubernetes events are retained.
+        """
+        return pulumi.get(self, "event_ttl")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceNodePortRanges")
+    def service_node_port_ranges(self) -> Sequence['outputs.GetClusterKubeApiServerConfigServiceNodePortRangeResult']:
+        """
+        The port range for NodePort services.
+        """
+        return pulumi.get(self, "service_node_port_ranges")
+
+
+@pulumi.output_type
+class GetClusterKubeApiServerConfigServiceNodePortRangeResult(dict):
+    def __init__(__self__, *,
+                 max_port: _builtins.int,
+                 min_port: _builtins.int):
+        """
+        :param _builtins.int max_port: The maximum port number in the range.
+        :param _builtins.int min_port: The minimum port number in the range.
+        """
+        pulumi.set(__self__, "max_port", max_port)
+        pulumi.set(__self__, "min_port", min_port)
+
+    @_builtins.property
+    @pulumi.getter(name="maxPort")
+    def max_port(self) -> _builtins.int:
+        """
+        The maximum port number in the range.
+        """
+        return pulumi.get(self, "max_port")
+
+    @_builtins.property
+    @pulumi.getter(name="minPort")
+    def min_port(self) -> _builtins.int:
+        """
+        The minimum port number in the range.
+        """
+        return pulumi.get(self, "min_port")
+
+
+@pulumi.output_type
+class GetClusterKubeControllerManagerConfigResult(dict):
+    def __init__(__self__, *,
+                 horizontal_pod_autoscaler_controller_configs: Sequence['outputs.GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigResult']):
+        """
+        :param Sequence['GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs'] horizontal_pod_autoscaler_controller_configs: Configuration for the horizontal pod autoscaler controller.
+        """
+        pulumi.set(__self__, "horizontal_pod_autoscaler_controller_configs", horizontal_pod_autoscaler_controller_configs)
+
+    @_builtins.property
+    @pulumi.getter(name="horizontalPodAutoscalerControllerConfigs")
+    def horizontal_pod_autoscaler_controller_configs(self) -> Sequence['outputs.GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigResult']:
+        """
+        Configuration for the horizontal pod autoscaler controller.
+        """
+        return pulumi.get(self, "horizontal_pod_autoscaler_controller_configs")
+
+
+@pulumi.output_type
+class GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigResult(dict):
+    def __init__(__self__, *,
+                 horizontal_pod_autoscaler_sync_period: _builtins.str):
+        """
+        :param _builtins.str horizontal_pod_autoscaler_sync_period: The interval between each sync of the horizontal pod autoscaler.
+        """
+        pulumi.set(__self__, "horizontal_pod_autoscaler_sync_period", horizontal_pod_autoscaler_sync_period)
+
+    @_builtins.property
+    @pulumi.getter(name="horizontalPodAutoscalerSyncPeriod")
+    def horizontal_pod_autoscaler_sync_period(self) -> _builtins.str:
+        """
+        The interval between each sync of the horizontal pod autoscaler.
+        """
+        return pulumi.get(self, "horizontal_pod_autoscaler_sync_period")
+
+
+@pulumi.output_type
+class GetClusterKubeSchedulerConfigResult(dict):
+    def __init__(__self__, *,
+                 node_resources_fits: Sequence['outputs.GetClusterKubeSchedulerConfigNodeResourcesFitResult']):
+        """
+        :param Sequence['GetClusterKubeSchedulerConfigNodeResourcesFitArgs'] node_resources_fits: Configuration for the NodeResourcesFit scheduler plugin.
+        """
+        pulumi.set(__self__, "node_resources_fits", node_resources_fits)
+
+    @_builtins.property
+    @pulumi.getter(name="nodeResourcesFits")
+    def node_resources_fits(self) -> Sequence['outputs.GetClusterKubeSchedulerConfigNodeResourcesFitResult']:
+        """
+        Configuration for the NodeResourcesFit scheduler plugin.
+        """
+        return pulumi.get(self, "node_resources_fits")
+
+
+@pulumi.output_type
+class GetClusterKubeSchedulerConfigNodeResourcesFitResult(dict):
+    def __init__(__self__, *,
+                 scoring_strategies: Sequence['outputs.GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResult']):
+        """
+        :param Sequence['GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArgs'] scoring_strategies: The scoring strategy used to rank nodes during scheduling.
+        """
+        pulumi.set(__self__, "scoring_strategies", scoring_strategies)
+
+    @_builtins.property
+    @pulumi.getter(name="scoringStrategies")
+    def scoring_strategies(self) -> Sequence['outputs.GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResult']:
+        """
+        The scoring strategy used to rank nodes during scheduling.
+        """
+        return pulumi.get(self, "scoring_strategies")
+
+
+@pulumi.output_type
+class GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResult(dict):
+    def __init__(__self__, *,
+                 resources: Sequence['outputs.GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceResult'],
+                 type: _builtins.str):
+        """
+        :param Sequence['GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArgs'] resources: List of resource weights for scoring nodes.
+        :param _builtins.str type: The scoring strategy type (`LeastAllocated` or `MostAllocated`).
+        """
+        pulumi.set(__self__, "resources", resources)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def resources(self) -> Sequence['outputs.GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceResult']:
+        """
+        List of resource weights for scoring nodes.
+        """
+        return pulumi.get(self, "resources")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The scoring strategy type (`LeastAllocated` or `MostAllocated`).
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceResult(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 weight: _builtins.int):
+        """
+        :param _builtins.str name: Name of the cluster.
+        :param _builtins.int weight: The weight assigned to the resource for scoring (1-100).
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "weight", weight)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the cluster.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def weight(self) -> _builtins.int:
+        """
+        The weight assigned to the resource for scoring (1-100).
+        """
+        return pulumi.get(self, "weight")
+
+
+@pulumi.output_type
 class GetClusterKubernetesNetworkConfigResult(dict):
     def __init__(__self__, *,
                  elastic_load_balancings: Sequence['outputs.GetClusterKubernetesNetworkConfigElasticLoadBalancingResult'],
@@ -2646,6 +3207,8 @@ class GetClusterVersionsClusterVersionResult(dict):
     def __init__(__self__, *,
                  cluster_type: _builtins.str,
                  cluster_version: _builtins.str,
+                 control_plane_component_configs: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigResult'],
+                 control_plane_scaling_tiers: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierResult'],
                  default_platform_version: _builtins.str,
                  default_version: _builtins.bool,
                  end_of_extended_support_date: _builtins.str,
@@ -2657,6 +3220,8 @@ class GetClusterVersionsClusterVersionResult(dict):
         :param _builtins.str cluster_type: Type of clusters to filter by.
                Currently, the only valid value is `eks`.
         :param _builtins.str cluster_version: Kubernetes version supported by EKS.
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneComponentConfigArgs'] control_plane_component_configs: Default control plane component configuration and constraints for this version.
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneScalingTierArgs'] control_plane_scaling_tiers: Available provisioned control plane scaling tiers and their capabilities.
         :param _builtins.str default_platform_version: Default eks platform version for the cluster version.
         :param _builtins.bool default_version: Default Kubernetes version for the cluster version.
         :param _builtins.str end_of_extended_support_date: End of extended support date for the cluster version.
@@ -2668,6 +3233,8 @@ class GetClusterVersionsClusterVersionResult(dict):
         """
         pulumi.set(__self__, "cluster_type", cluster_type)
         pulumi.set(__self__, "cluster_version", cluster_version)
+        pulumi.set(__self__, "control_plane_component_configs", control_plane_component_configs)
+        pulumi.set(__self__, "control_plane_scaling_tiers", control_plane_scaling_tiers)
         pulumi.set(__self__, "default_platform_version", default_platform_version)
         pulumi.set(__self__, "default_version", default_version)
         pulumi.set(__self__, "end_of_extended_support_date", end_of_extended_support_date)
@@ -2692,6 +3259,22 @@ class GetClusterVersionsClusterVersionResult(dict):
         Kubernetes version supported by EKS.
         """
         return pulumi.get(self, "cluster_version")
+
+    @_builtins.property
+    @pulumi.getter(name="controlPlaneComponentConfigs")
+    def control_plane_component_configs(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigResult']:
+        """
+        Default control plane component configuration and constraints for this version.
+        """
+        return pulumi.get(self, "control_plane_component_configs")
+
+    @_builtins.property
+    @pulumi.getter(name="controlPlaneScalingTiers")
+    def control_plane_scaling_tiers(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierResult']:
+        """
+        Available provisioned control plane scaling tiers and their capabilities.
+        """
+        return pulumi.get(self, "control_plane_scaling_tiers")
 
     @_builtins.property
     @pulumi.getter(name="defaultPlatformVersion")
@@ -2749,6 +3332,1220 @@ class GetClusterVersionsClusterVersionResult(dict):
         Valid values are `STANDARD_SUPPORT` or `UNSUPPORTED` or `EXTENDED_SUPPORT`.
         """
         return pulumi.get(self, "version_status")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneComponentConfigResult(dict):
+    def __init__(__self__, *,
+                 kube_api_server_configs: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigResult'],
+                 kube_controller_manager_configs: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigResult'],
+                 kube_scheduler_configs: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigResult']):
+        """
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigArgs'] kube_api_server_configs: Kubernetes API server configuration defaults and constraints.
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArgs'] kube_controller_manager_configs: Kubernetes controller manager configuration defaults and constraints.
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArgs'] kube_scheduler_configs: Kubernetes scheduler configuration defaults and constraints.
+        """
+        pulumi.set(__self__, "kube_api_server_configs", kube_api_server_configs)
+        pulumi.set(__self__, "kube_controller_manager_configs", kube_controller_manager_configs)
+        pulumi.set(__self__, "kube_scheduler_configs", kube_scheduler_configs)
+
+    @_builtins.property
+    @pulumi.getter(name="kubeApiServerConfigs")
+    def kube_api_server_configs(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigResult']:
+        """
+        Kubernetes API server configuration defaults and constraints.
+        """
+        return pulumi.get(self, "kube_api_server_configs")
+
+    @_builtins.property
+    @pulumi.getter(name="kubeControllerManagerConfigs")
+    def kube_controller_manager_configs(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigResult']:
+        """
+        Kubernetes controller manager configuration defaults and constraints.
+        """
+        return pulumi.get(self, "kube_controller_manager_configs")
+
+    @_builtins.property
+    @pulumi.getter(name="kubeSchedulerConfigs")
+    def kube_scheduler_configs(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigResult']:
+        """
+        Kubernetes scheduler configuration defaults and constraints.
+        """
+        return pulumi.get(self, "kube_scheduler_configs")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigResult(dict):
+    def __init__(__self__, *,
+                 event_ttls: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlResult'],
+                 service_node_port_ranges: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeResult']):
+        """
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlArgs'] event_ttls: Event TTL configuration with default value and constraints.
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeArgs'] service_node_port_ranges: Service node port range configuration with default value and constraints.
+        """
+        pulumi.set(__self__, "event_ttls", event_ttls)
+        pulumi.set(__self__, "service_node_port_ranges", service_node_port_ranges)
+
+    @_builtins.property
+    @pulumi.getter(name="eventTtls")
+    def event_ttls(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlResult']:
+        """
+        Event TTL configuration with default value and constraints.
+        """
+        return pulumi.get(self, "event_ttls")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceNodePortRanges")
+    def service_node_port_ranges(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeResult']:
+        """
+        Service node port range configuration with default value and constraints.
+        """
+        return pulumi.get(self, "service_node_port_ranges")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlResult(dict):
+    def __init__(__self__, *,
+                 constraints: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintResult'],
+                 default_value: _builtins.str):
+        """
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintArgs'] constraints: Scoring strategy constraints.
+        :param _builtins.str default_value: Default scoring strategy (`type`, `resources`).
+        """
+        pulumi.set(__self__, "constraints", constraints)
+        pulumi.set(__self__, "default_value", default_value)
+
+    @_builtins.property
+    @pulumi.getter
+    def constraints(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintResult']:
+        """
+        Scoring strategy constraints.
+        """
+        return pulumi.get(self, "constraints")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> _builtins.str:
+        """
+        Default scoring strategy (`type`, `resources`).
+        """
+        return pulumi.get(self, "default_value")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintResult(dict):
+    def __init__(__self__, *,
+                 max: _builtins.str,
+                 min: _builtins.str):
+        """
+        :param _builtins.str max: The maximum allowed duration.
+        :param _builtins.str min: The minimum allowed duration.
+        """
+        pulumi.set(__self__, "max", max)
+        pulumi.set(__self__, "min", min)
+
+    @_builtins.property
+    @pulumi.getter
+    def max(self) -> _builtins.str:
+        """
+        The maximum allowed duration.
+        """
+        return pulumi.get(self, "max")
+
+    @_builtins.property
+    @pulumi.getter
+    def min(self) -> _builtins.str:
+        """
+        The minimum allowed duration.
+        """
+        return pulumi.get(self, "min")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeResult(dict):
+    def __init__(__self__, *,
+                 constraints: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintResult'],
+                 default_values: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueResult']):
+        """
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintArgs'] constraints: Scoring strategy constraints.
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueArgs'] default_values: Default scoring strategy (`type`, `resources`).
+        """
+        pulumi.set(__self__, "constraints", constraints)
+        pulumi.set(__self__, "default_values", default_values)
+
+    @_builtins.property
+    @pulumi.getter
+    def constraints(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintResult']:
+        """
+        Scoring strategy constraints.
+        """
+        return pulumi.get(self, "constraints")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultValues")
+    def default_values(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueResult']:
+        """
+        Default scoring strategy (`type`, `resources`).
+        """
+        return pulumi.get(self, "default_values")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintResult(dict):
+    def __init__(__self__, *,
+                 max_ports: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortResult'],
+                 min_ports: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortResult']):
+        """
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArgs'] max_ports: The allowed range for the maximum port (`min`, `max`).
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortArgs'] min_ports: The allowed range for the minimum port (`min`, `max`).
+        """
+        pulumi.set(__self__, "max_ports", max_ports)
+        pulumi.set(__self__, "min_ports", min_ports)
+
+    @_builtins.property
+    @pulumi.getter(name="maxPorts")
+    def max_ports(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortResult']:
+        """
+        The allowed range for the maximum port (`min`, `max`).
+        """
+        return pulumi.get(self, "max_ports")
+
+    @_builtins.property
+    @pulumi.getter(name="minPorts")
+    def min_ports(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortResult']:
+        """
+        The allowed range for the minimum port (`min`, `max`).
+        """
+        return pulumi.get(self, "min_ports")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortResult(dict):
+    def __init__(__self__, *,
+                 max: _builtins.int,
+                 min: _builtins.int):
+        """
+        :param _builtins.int max: The maximum allowed duration.
+        :param _builtins.int min: The minimum allowed duration.
+        """
+        pulumi.set(__self__, "max", max)
+        pulumi.set(__self__, "min", min)
+
+    @_builtins.property
+    @pulumi.getter
+    def max(self) -> _builtins.int:
+        """
+        The maximum allowed duration.
+        """
+        return pulumi.get(self, "max")
+
+    @_builtins.property
+    @pulumi.getter
+    def min(self) -> _builtins.int:
+        """
+        The minimum allowed duration.
+        """
+        return pulumi.get(self, "min")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortResult(dict):
+    def __init__(__self__, *,
+                 max: _builtins.int,
+                 min: _builtins.int):
+        """
+        :param _builtins.int max: The maximum allowed duration.
+        :param _builtins.int min: The minimum allowed duration.
+        """
+        pulumi.set(__self__, "max", max)
+        pulumi.set(__self__, "min", min)
+
+    @_builtins.property
+    @pulumi.getter
+    def max(self) -> _builtins.int:
+        """
+        The maximum allowed duration.
+        """
+        return pulumi.get(self, "max")
+
+    @_builtins.property
+    @pulumi.getter
+    def min(self) -> _builtins.int:
+        """
+        The minimum allowed duration.
+        """
+        return pulumi.get(self, "min")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueResult(dict):
+    def __init__(__self__, *,
+                 max_port: _builtins.int,
+                 min_port: _builtins.int):
+        """
+        :param _builtins.int max_port: The allowed range for the maximum port (`min`, `max`).
+        :param _builtins.int min_port: The allowed range for the minimum port (`min`, `max`).
+        """
+        pulumi.set(__self__, "max_port", max_port)
+        pulumi.set(__self__, "min_port", min_port)
+
+    @_builtins.property
+    @pulumi.getter(name="maxPort")
+    def max_port(self) -> _builtins.int:
+        """
+        The allowed range for the maximum port (`min`, `max`).
+        """
+        return pulumi.get(self, "max_port")
+
+    @_builtins.property
+    @pulumi.getter(name="minPort")
+    def min_port(self) -> _builtins.int:
+        """
+        The allowed range for the minimum port (`min`, `max`).
+        """
+        return pulumi.get(self, "min_port")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigResult(dict):
+    def __init__(__self__, *,
+                 horizontal_pod_autoscaler_controller_configs: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigResult']):
+        """
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs'] horizontal_pod_autoscaler_controller_configs: HPA controller configuration defaults and constraints.
+        """
+        pulumi.set(__self__, "horizontal_pod_autoscaler_controller_configs", horizontal_pod_autoscaler_controller_configs)
+
+    @_builtins.property
+    @pulumi.getter(name="horizontalPodAutoscalerControllerConfigs")
+    def horizontal_pod_autoscaler_controller_configs(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigResult']:
+        """
+        HPA controller configuration defaults and constraints.
+        """
+        return pulumi.get(self, "horizontal_pod_autoscaler_controller_configs")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigResult(dict):
+    def __init__(__self__, *,
+                 horizontal_pod_autoscaler_sync_periods: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodResult']):
+        """
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArgs'] horizontal_pod_autoscaler_sync_periods: HPA sync period configuration with default value and constraints.
+        """
+        pulumi.set(__self__, "horizontal_pod_autoscaler_sync_periods", horizontal_pod_autoscaler_sync_periods)
+
+    @_builtins.property
+    @pulumi.getter(name="horizontalPodAutoscalerSyncPeriods")
+    def horizontal_pod_autoscaler_sync_periods(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodResult']:
+        """
+        HPA sync period configuration with default value and constraints.
+        """
+        return pulumi.get(self, "horizontal_pod_autoscaler_sync_periods")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodResult(dict):
+    def __init__(__self__, *,
+                 constraints: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintResult'],
+                 default_value: _builtins.str):
+        """
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArgs'] constraints: Scoring strategy constraints.
+        :param _builtins.str default_value: Default scoring strategy (`type`, `resources`).
+        """
+        pulumi.set(__self__, "constraints", constraints)
+        pulumi.set(__self__, "default_value", default_value)
+
+    @_builtins.property
+    @pulumi.getter
+    def constraints(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintResult']:
+        """
+        Scoring strategy constraints.
+        """
+        return pulumi.get(self, "constraints")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> _builtins.str:
+        """
+        Default scoring strategy (`type`, `resources`).
+        """
+        return pulumi.get(self, "default_value")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintResult(dict):
+    def __init__(__self__, *,
+                 max: _builtins.str,
+                 min: _builtins.str):
+        """
+        :param _builtins.str max: The maximum allowed duration.
+        :param _builtins.str min: The minimum allowed duration.
+        """
+        pulumi.set(__self__, "max", max)
+        pulumi.set(__self__, "min", min)
+
+    @_builtins.property
+    @pulumi.getter
+    def max(self) -> _builtins.str:
+        """
+        The maximum allowed duration.
+        """
+        return pulumi.get(self, "max")
+
+    @_builtins.property
+    @pulumi.getter
+    def min(self) -> _builtins.str:
+        """
+        The minimum allowed duration.
+        """
+        return pulumi.get(self, "min")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigResult(dict):
+    def __init__(__self__, *,
+                 node_resources_fits: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitResult']):
+        """
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitArgs'] node_resources_fits: NodeResourcesFit plugin configuration with default value and constraints.
+        """
+        pulumi.set(__self__, "node_resources_fits", node_resources_fits)
+
+    @_builtins.property
+    @pulumi.getter(name="nodeResourcesFits")
+    def node_resources_fits(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitResult']:
+        """
+        NodeResourcesFit plugin configuration with default value and constraints.
+        """
+        return pulumi.get(self, "node_resources_fits")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitResult(dict):
+    def __init__(__self__, *,
+                 scoring_strategies: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyResult']):
+        """
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyArgs'] scoring_strategies: Allowed values for the strategy type.
+        """
+        pulumi.set(__self__, "scoring_strategies", scoring_strategies)
+
+    @_builtins.property
+    @pulumi.getter(name="scoringStrategies")
+    def scoring_strategies(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyResult']:
+        """
+        Allowed values for the strategy type.
+        """
+        return pulumi.get(self, "scoring_strategies")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyResult(dict):
+    def __init__(__self__, *,
+                 constraints: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResult'],
+                 default_values: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResult']):
+        """
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArgs'] constraints: Scoring strategy constraints.
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArgs'] default_values: Default scoring strategy (`type`, `resources`).
+        """
+        pulumi.set(__self__, "constraints", constraints)
+        pulumi.set(__self__, "default_values", default_values)
+
+    @_builtins.property
+    @pulumi.getter
+    def constraints(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResult']:
+        """
+        Scoring strategy constraints.
+        """
+        return pulumi.get(self, "constraints")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultValues")
+    def default_values(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResult']:
+        """
+        Default scoring strategy (`type`, `resources`).
+        """
+        return pulumi.get(self, "default_values")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResult(dict):
+    def __init__(__self__, *,
+                 resources: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceResult'],
+                 scoring_strategies: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyResult']):
+        """
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArgs'] resources: Constraints for resource names and weights.
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArgs'] scoring_strategies: Allowed values for the strategy type.
+        """
+        pulumi.set(__self__, "resources", resources)
+        pulumi.set(__self__, "scoring_strategies", scoring_strategies)
+
+    @_builtins.property
+    @pulumi.getter
+    def resources(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceResult']:
+        """
+        Constraints for resource names and weights.
+        """
+        return pulumi.get(self, "resources")
+
+    @_builtins.property
+    @pulumi.getter(name="scoringStrategies")
+    def scoring_strategies(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyResult']:
+        """
+        Allowed values for the strategy type.
+        """
+        return pulumi.get(self, "scoring_strategies")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceResult(dict):
+    def __init__(__self__, *,
+                 names: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameResult'],
+                 weights: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightResult']):
+        pulumi.set(__self__, "names", names)
+        pulumi.set(__self__, "weights", weights)
+
+    @_builtins.property
+    @pulumi.getter
+    def names(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameResult']:
+        return pulumi.get(self, "names")
+
+    @_builtins.property
+    @pulumi.getter
+    def weights(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightResult']:
+        return pulumi.get(self, "weights")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameResult(dict):
+    def __init__(__self__, *,
+                 allowed_values: Sequence[_builtins.str]):
+        pulumi.set(__self__, "allowed_values", allowed_values)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedValues")
+    def allowed_values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "allowed_values")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightResult(dict):
+    def __init__(__self__, *,
+                 max: _builtins.int,
+                 min: _builtins.int):
+        """
+        :param _builtins.int max: The maximum allowed duration.
+        :param _builtins.int min: The minimum allowed duration.
+        """
+        pulumi.set(__self__, "max", max)
+        pulumi.set(__self__, "min", min)
+
+    @_builtins.property
+    @pulumi.getter
+    def max(self) -> _builtins.int:
+        """
+        The maximum allowed duration.
+        """
+        return pulumi.get(self, "max")
+
+    @_builtins.property
+    @pulumi.getter
+    def min(self) -> _builtins.int:
+        """
+        The minimum allowed duration.
+        """
+        return pulumi.get(self, "min")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyResult(dict):
+    def __init__(__self__, *,
+                 allowed_values: Sequence[_builtins.str]):
+        pulumi.set(__self__, "allowed_values", allowed_values)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedValues")
+    def allowed_values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "allowed_values")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResult(dict):
+    def __init__(__self__, *,
+                 resources: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceResult'],
+                 type: _builtins.str):
+        """
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArgs'] resources: Constraints for resource names and weights.
+        """
+        pulumi.set(__self__, "resources", resources)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def resources(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceResult']:
+        """
+        Constraints for resource names and weights.
+        """
+        return pulumi.get(self, "resources")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceResult(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 weight: _builtins.int):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "weight", weight)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def weight(self) -> _builtins.int:
+        return pulumi.get(self, "weight")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneScalingTierResult(dict):
+    def __init__(__self__, *,
+                 api_request_concurrency: _builtins.int,
+                 cluster_database_size_gb: _builtins.int,
+                 control_plane_component_config_overrides: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideResult'],
+                 pod_scheduling_rate_per_second: _builtins.int,
+                 tier_name: _builtins.str):
+        """
+        :param _builtins.int api_request_concurrency: Maximum API request concurrency supported by this tier.
+        :param _builtins.int cluster_database_size_gb: Maximum cluster database size in GB supported by this tier.
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideArgs'] control_plane_component_config_overrides: Control plane component configuration overrides specific to this tier (same structure as `control_plane_component_config`).
+        :param _builtins.int pod_scheduling_rate_per_second: Maximum pod scheduling rate per second supported by this tier.
+        :param _builtins.str tier_name: The name of the scaling tier.
+        """
+        pulumi.set(__self__, "api_request_concurrency", api_request_concurrency)
+        pulumi.set(__self__, "cluster_database_size_gb", cluster_database_size_gb)
+        pulumi.set(__self__, "control_plane_component_config_overrides", control_plane_component_config_overrides)
+        pulumi.set(__self__, "pod_scheduling_rate_per_second", pod_scheduling_rate_per_second)
+        pulumi.set(__self__, "tier_name", tier_name)
+
+    @_builtins.property
+    @pulumi.getter(name="apiRequestConcurrency")
+    def api_request_concurrency(self) -> _builtins.int:
+        """
+        Maximum API request concurrency supported by this tier.
+        """
+        return pulumi.get(self, "api_request_concurrency")
+
+    @_builtins.property
+    @pulumi.getter(name="clusterDatabaseSizeGb")
+    def cluster_database_size_gb(self) -> _builtins.int:
+        """
+        Maximum cluster database size in GB supported by this tier.
+        """
+        return pulumi.get(self, "cluster_database_size_gb")
+
+    @_builtins.property
+    @pulumi.getter(name="controlPlaneComponentConfigOverrides")
+    def control_plane_component_config_overrides(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideResult']:
+        """
+        Control plane component configuration overrides specific to this tier (same structure as `control_plane_component_config`).
+        """
+        return pulumi.get(self, "control_plane_component_config_overrides")
+
+    @_builtins.property
+    @pulumi.getter(name="podSchedulingRatePerSecond")
+    def pod_scheduling_rate_per_second(self) -> _builtins.int:
+        """
+        Maximum pod scheduling rate per second supported by this tier.
+        """
+        return pulumi.get(self, "pod_scheduling_rate_per_second")
+
+    @_builtins.property
+    @pulumi.getter(name="tierName")
+    def tier_name(self) -> _builtins.str:
+        """
+        The name of the scaling tier.
+        """
+        return pulumi.get(self, "tier_name")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideResult(dict):
+    def __init__(__self__, *,
+                 kube_api_server_configs: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigResult'],
+                 kube_controller_manager_configs: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigResult'],
+                 kube_scheduler_configs: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigResult']):
+        """
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigArgs'] kube_api_server_configs: Kubernetes API server configuration defaults and constraints.
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArgs'] kube_controller_manager_configs: Kubernetes controller manager configuration defaults and constraints.
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArgs'] kube_scheduler_configs: Kubernetes scheduler configuration defaults and constraints.
+        """
+        pulumi.set(__self__, "kube_api_server_configs", kube_api_server_configs)
+        pulumi.set(__self__, "kube_controller_manager_configs", kube_controller_manager_configs)
+        pulumi.set(__self__, "kube_scheduler_configs", kube_scheduler_configs)
+
+    @_builtins.property
+    @pulumi.getter(name="kubeApiServerConfigs")
+    def kube_api_server_configs(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigResult']:
+        """
+        Kubernetes API server configuration defaults and constraints.
+        """
+        return pulumi.get(self, "kube_api_server_configs")
+
+    @_builtins.property
+    @pulumi.getter(name="kubeControllerManagerConfigs")
+    def kube_controller_manager_configs(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigResult']:
+        """
+        Kubernetes controller manager configuration defaults and constraints.
+        """
+        return pulumi.get(self, "kube_controller_manager_configs")
+
+    @_builtins.property
+    @pulumi.getter(name="kubeSchedulerConfigs")
+    def kube_scheduler_configs(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigResult']:
+        """
+        Kubernetes scheduler configuration defaults and constraints.
+        """
+        return pulumi.get(self, "kube_scheduler_configs")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigResult(dict):
+    def __init__(__self__, *,
+                 event_ttls: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlResult'],
+                 service_node_port_ranges: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeResult']):
+        """
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlArgs'] event_ttls: Event TTL configuration with default value and constraints.
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeArgs'] service_node_port_ranges: Service node port range configuration with default value and constraints.
+        """
+        pulumi.set(__self__, "event_ttls", event_ttls)
+        pulumi.set(__self__, "service_node_port_ranges", service_node_port_ranges)
+
+    @_builtins.property
+    @pulumi.getter(name="eventTtls")
+    def event_ttls(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlResult']:
+        """
+        Event TTL configuration with default value and constraints.
+        """
+        return pulumi.get(self, "event_ttls")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceNodePortRanges")
+    def service_node_port_ranges(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeResult']:
+        """
+        Service node port range configuration with default value and constraints.
+        """
+        return pulumi.get(self, "service_node_port_ranges")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlResult(dict):
+    def __init__(__self__, *,
+                 constraints: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintResult'],
+                 default_value: _builtins.str):
+        """
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintArgs'] constraints: Scoring strategy constraints.
+        :param _builtins.str default_value: Default scoring strategy (`type`, `resources`).
+        """
+        pulumi.set(__self__, "constraints", constraints)
+        pulumi.set(__self__, "default_value", default_value)
+
+    @_builtins.property
+    @pulumi.getter
+    def constraints(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintResult']:
+        """
+        Scoring strategy constraints.
+        """
+        return pulumi.get(self, "constraints")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> _builtins.str:
+        """
+        Default scoring strategy (`type`, `resources`).
+        """
+        return pulumi.get(self, "default_value")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintResult(dict):
+    def __init__(__self__, *,
+                 max: _builtins.str,
+                 min: _builtins.str):
+        """
+        :param _builtins.str max: The maximum allowed duration.
+        :param _builtins.str min: The minimum allowed duration.
+        """
+        pulumi.set(__self__, "max", max)
+        pulumi.set(__self__, "min", min)
+
+    @_builtins.property
+    @pulumi.getter
+    def max(self) -> _builtins.str:
+        """
+        The maximum allowed duration.
+        """
+        return pulumi.get(self, "max")
+
+    @_builtins.property
+    @pulumi.getter
+    def min(self) -> _builtins.str:
+        """
+        The minimum allowed duration.
+        """
+        return pulumi.get(self, "min")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeResult(dict):
+    def __init__(__self__, *,
+                 constraints: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintResult'],
+                 default_values: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueResult']):
+        """
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintArgs'] constraints: Scoring strategy constraints.
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueArgs'] default_values: Default scoring strategy (`type`, `resources`).
+        """
+        pulumi.set(__self__, "constraints", constraints)
+        pulumi.set(__self__, "default_values", default_values)
+
+    @_builtins.property
+    @pulumi.getter
+    def constraints(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintResult']:
+        """
+        Scoring strategy constraints.
+        """
+        return pulumi.get(self, "constraints")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultValues")
+    def default_values(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueResult']:
+        """
+        Default scoring strategy (`type`, `resources`).
+        """
+        return pulumi.get(self, "default_values")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintResult(dict):
+    def __init__(__self__, *,
+                 max_ports: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortResult'],
+                 min_ports: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortResult']):
+        """
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArgs'] max_ports: The allowed range for the maximum port (`min`, `max`).
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortArgs'] min_ports: The allowed range for the minimum port (`min`, `max`).
+        """
+        pulumi.set(__self__, "max_ports", max_ports)
+        pulumi.set(__self__, "min_ports", min_ports)
+
+    @_builtins.property
+    @pulumi.getter(name="maxPorts")
+    def max_ports(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortResult']:
+        """
+        The allowed range for the maximum port (`min`, `max`).
+        """
+        return pulumi.get(self, "max_ports")
+
+    @_builtins.property
+    @pulumi.getter(name="minPorts")
+    def min_ports(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortResult']:
+        """
+        The allowed range for the minimum port (`min`, `max`).
+        """
+        return pulumi.get(self, "min_ports")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortResult(dict):
+    def __init__(__self__, *,
+                 max: _builtins.int,
+                 min: _builtins.int):
+        """
+        :param _builtins.int max: The maximum allowed duration.
+        :param _builtins.int min: The minimum allowed duration.
+        """
+        pulumi.set(__self__, "max", max)
+        pulumi.set(__self__, "min", min)
+
+    @_builtins.property
+    @pulumi.getter
+    def max(self) -> _builtins.int:
+        """
+        The maximum allowed duration.
+        """
+        return pulumi.get(self, "max")
+
+    @_builtins.property
+    @pulumi.getter
+    def min(self) -> _builtins.int:
+        """
+        The minimum allowed duration.
+        """
+        return pulumi.get(self, "min")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortResult(dict):
+    def __init__(__self__, *,
+                 max: _builtins.int,
+                 min: _builtins.int):
+        """
+        :param _builtins.int max: The maximum allowed duration.
+        :param _builtins.int min: The minimum allowed duration.
+        """
+        pulumi.set(__self__, "max", max)
+        pulumi.set(__self__, "min", min)
+
+    @_builtins.property
+    @pulumi.getter
+    def max(self) -> _builtins.int:
+        """
+        The maximum allowed duration.
+        """
+        return pulumi.get(self, "max")
+
+    @_builtins.property
+    @pulumi.getter
+    def min(self) -> _builtins.int:
+        """
+        The minimum allowed duration.
+        """
+        return pulumi.get(self, "min")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueResult(dict):
+    def __init__(__self__, *,
+                 max_port: _builtins.int,
+                 min_port: _builtins.int):
+        """
+        :param _builtins.int max_port: The allowed range for the maximum port (`min`, `max`).
+        :param _builtins.int min_port: The allowed range for the minimum port (`min`, `max`).
+        """
+        pulumi.set(__self__, "max_port", max_port)
+        pulumi.set(__self__, "min_port", min_port)
+
+    @_builtins.property
+    @pulumi.getter(name="maxPort")
+    def max_port(self) -> _builtins.int:
+        """
+        The allowed range for the maximum port (`min`, `max`).
+        """
+        return pulumi.get(self, "max_port")
+
+    @_builtins.property
+    @pulumi.getter(name="minPort")
+    def min_port(self) -> _builtins.int:
+        """
+        The allowed range for the minimum port (`min`, `max`).
+        """
+        return pulumi.get(self, "min_port")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigResult(dict):
+    def __init__(__self__, *,
+                 horizontal_pod_autoscaler_controller_configs: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigResult']):
+        """
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs'] horizontal_pod_autoscaler_controller_configs: HPA controller configuration defaults and constraints.
+        """
+        pulumi.set(__self__, "horizontal_pod_autoscaler_controller_configs", horizontal_pod_autoscaler_controller_configs)
+
+    @_builtins.property
+    @pulumi.getter(name="horizontalPodAutoscalerControllerConfigs")
+    def horizontal_pod_autoscaler_controller_configs(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigResult']:
+        """
+        HPA controller configuration defaults and constraints.
+        """
+        return pulumi.get(self, "horizontal_pod_autoscaler_controller_configs")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigResult(dict):
+    def __init__(__self__, *,
+                 horizontal_pod_autoscaler_sync_periods: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodResult']):
+        """
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArgs'] horizontal_pod_autoscaler_sync_periods: HPA sync period configuration with default value and constraints.
+        """
+        pulumi.set(__self__, "horizontal_pod_autoscaler_sync_periods", horizontal_pod_autoscaler_sync_periods)
+
+    @_builtins.property
+    @pulumi.getter(name="horizontalPodAutoscalerSyncPeriods")
+    def horizontal_pod_autoscaler_sync_periods(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodResult']:
+        """
+        HPA sync period configuration with default value and constraints.
+        """
+        return pulumi.get(self, "horizontal_pod_autoscaler_sync_periods")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodResult(dict):
+    def __init__(__self__, *,
+                 constraints: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintResult'],
+                 default_value: _builtins.str):
+        """
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArgs'] constraints: Scoring strategy constraints.
+        :param _builtins.str default_value: Default scoring strategy (`type`, `resources`).
+        """
+        pulumi.set(__self__, "constraints", constraints)
+        pulumi.set(__self__, "default_value", default_value)
+
+    @_builtins.property
+    @pulumi.getter
+    def constraints(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintResult']:
+        """
+        Scoring strategy constraints.
+        """
+        return pulumi.get(self, "constraints")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> _builtins.str:
+        """
+        Default scoring strategy (`type`, `resources`).
+        """
+        return pulumi.get(self, "default_value")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintResult(dict):
+    def __init__(__self__, *,
+                 max: _builtins.str,
+                 min: _builtins.str):
+        """
+        :param _builtins.str max: The maximum allowed duration.
+        :param _builtins.str min: The minimum allowed duration.
+        """
+        pulumi.set(__self__, "max", max)
+        pulumi.set(__self__, "min", min)
+
+    @_builtins.property
+    @pulumi.getter
+    def max(self) -> _builtins.str:
+        """
+        The maximum allowed duration.
+        """
+        return pulumi.get(self, "max")
+
+    @_builtins.property
+    @pulumi.getter
+    def min(self) -> _builtins.str:
+        """
+        The minimum allowed duration.
+        """
+        return pulumi.get(self, "min")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigResult(dict):
+    def __init__(__self__, *,
+                 node_resources_fits: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitResult']):
+        """
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitArgs'] node_resources_fits: NodeResourcesFit plugin configuration with default value and constraints.
+        """
+        pulumi.set(__self__, "node_resources_fits", node_resources_fits)
+
+    @_builtins.property
+    @pulumi.getter(name="nodeResourcesFits")
+    def node_resources_fits(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitResult']:
+        """
+        NodeResourcesFit plugin configuration with default value and constraints.
+        """
+        return pulumi.get(self, "node_resources_fits")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitResult(dict):
+    def __init__(__self__, *,
+                 scoring_strategies: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyResult']):
+        """
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyArgs'] scoring_strategies: Allowed values for the strategy type.
+        """
+        pulumi.set(__self__, "scoring_strategies", scoring_strategies)
+
+    @_builtins.property
+    @pulumi.getter(name="scoringStrategies")
+    def scoring_strategies(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyResult']:
+        """
+        Allowed values for the strategy type.
+        """
+        return pulumi.get(self, "scoring_strategies")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyResult(dict):
+    def __init__(__self__, *,
+                 constraints: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResult'],
+                 default_values: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResult']):
+        """
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArgs'] constraints: Scoring strategy constraints.
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArgs'] default_values: Default scoring strategy (`type`, `resources`).
+        """
+        pulumi.set(__self__, "constraints", constraints)
+        pulumi.set(__self__, "default_values", default_values)
+
+    @_builtins.property
+    @pulumi.getter
+    def constraints(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResult']:
+        """
+        Scoring strategy constraints.
+        """
+        return pulumi.get(self, "constraints")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultValues")
+    def default_values(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResult']:
+        """
+        Default scoring strategy (`type`, `resources`).
+        """
+        return pulumi.get(self, "default_values")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResult(dict):
+    def __init__(__self__, *,
+                 resources: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceResult'],
+                 scoring_strategies: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyResult']):
+        """
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArgs'] resources: Constraints for resource names and weights.
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArgs'] scoring_strategies: Allowed values for the strategy type.
+        """
+        pulumi.set(__self__, "resources", resources)
+        pulumi.set(__self__, "scoring_strategies", scoring_strategies)
+
+    @_builtins.property
+    @pulumi.getter
+    def resources(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceResult']:
+        """
+        Constraints for resource names and weights.
+        """
+        return pulumi.get(self, "resources")
+
+    @_builtins.property
+    @pulumi.getter(name="scoringStrategies")
+    def scoring_strategies(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyResult']:
+        """
+        Allowed values for the strategy type.
+        """
+        return pulumi.get(self, "scoring_strategies")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceResult(dict):
+    def __init__(__self__, *,
+                 names: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameResult'],
+                 weights: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightResult']):
+        pulumi.set(__self__, "names", names)
+        pulumi.set(__self__, "weights", weights)
+
+    @_builtins.property
+    @pulumi.getter
+    def names(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameResult']:
+        return pulumi.get(self, "names")
+
+    @_builtins.property
+    @pulumi.getter
+    def weights(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightResult']:
+        return pulumi.get(self, "weights")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameResult(dict):
+    def __init__(__self__, *,
+                 allowed_values: Sequence[_builtins.str]):
+        pulumi.set(__self__, "allowed_values", allowed_values)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedValues")
+    def allowed_values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "allowed_values")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightResult(dict):
+    def __init__(__self__, *,
+                 max: _builtins.int,
+                 min: _builtins.int):
+        """
+        :param _builtins.int max: The maximum allowed duration.
+        :param _builtins.int min: The minimum allowed duration.
+        """
+        pulumi.set(__self__, "max", max)
+        pulumi.set(__self__, "min", min)
+
+    @_builtins.property
+    @pulumi.getter
+    def max(self) -> _builtins.int:
+        """
+        The maximum allowed duration.
+        """
+        return pulumi.get(self, "max")
+
+    @_builtins.property
+    @pulumi.getter
+    def min(self) -> _builtins.int:
+        """
+        The minimum allowed duration.
+        """
+        return pulumi.get(self, "min")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyResult(dict):
+    def __init__(__self__, *,
+                 allowed_values: Sequence[_builtins.str]):
+        pulumi.set(__self__, "allowed_values", allowed_values)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedValues")
+    def allowed_values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "allowed_values")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResult(dict):
+    def __init__(__self__, *,
+                 resources: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceResult'],
+                 type: _builtins.str):
+        """
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArgs'] resources: Constraints for resource names and weights.
+        """
+        pulumi.set(__self__, "resources", resources)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def resources(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceResult']:
+        """
+        Constraints for resource names and weights.
+        """
+        return pulumi.get(self, "resources")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceResult(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 weight: _builtins.int):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "weight", weight)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def weight(self) -> _builtins.int:
+        return pulumi.get(self, "weight")
 
 
 @pulumi.output_type

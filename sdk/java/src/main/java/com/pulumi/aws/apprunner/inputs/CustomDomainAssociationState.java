@@ -19,14 +19,14 @@ public final class CustomDomainAssociationState extends com.pulumi.resources.Res
     public static final CustomDomainAssociationState Empty = new CustomDomainAssociationState();
 
     /**
-     * Set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
+     * Set of certificate CNAME records used for this domain name. See `certificateValidationRecords` Block below for more details.
      * 
      */
     @Import(name="certificateValidationRecords")
     private @Nullable Output<List<CustomDomainAssociationCertificateValidationRecordArgs>> certificateValidationRecords;
 
     /**
-     * @return Set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
+     * @return Set of certificate CNAME records used for this domain name. See `certificateValidationRecords` Block below for more details.
      * 
      */
     public Optional<Output<List<CustomDomainAssociationCertificateValidationRecordArgs>>> certificateValidationRecords() {
@@ -154,7 +154,7 @@ public final class CustomDomainAssociationState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param certificateValidationRecords Set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
+         * @param certificateValidationRecords Set of certificate CNAME records used for this domain name. See `certificateValidationRecords` Block below for more details.
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class CustomDomainAssociationState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param certificateValidationRecords Set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
+         * @param certificateValidationRecords Set of certificate CNAME records used for this domain name. See `certificateValidationRecords` Block below for more details.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class CustomDomainAssociationState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param certificateValidationRecords Set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
+         * @param certificateValidationRecords Set of certificate CNAME records used for this domain name. See `certificateValidationRecords` Block below for more details.
          * 
          * @return builder
          * 

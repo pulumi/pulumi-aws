@@ -21,14 +21,14 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
     public static final NetworkArgs Empty = new NetworkArgs();
 
     /**
-     * Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availabilityZone maps correctly with availability_zone_id.
+     * Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure `availabilityZone` maps correctly with `availabilityZoneId`.
      * 
      */
     @Import(name="availabilityZone")
     private @Nullable Output<String> availabilityZone;
 
     /**
-     * @return Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availabilityZone maps correctly with availability_zone_id.
+     * @return Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure `availabilityZone` maps correctly with `availabilityZoneId`.
      * 
      */
     public Optional<Output<String>> availabilityZone() {
@@ -96,14 +96,14 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can&#39;t be given. Changing this will force terraform to create new resource.
+     * Name of the custom domain that the network is located. `customDomainName` and `defaultDnsPrefix` both can&#39;t be given. Changing this will force terraform to create new resource.
      * 
      */
     @Import(name="customDomainName")
     private @Nullable Output<String> customDomainName;
 
     /**
-     * @return Name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can&#39;t be given. Changing this will force terraform to create new resource.
+     * @return Name of the custom domain that the network is located. `customDomainName` and `defaultDnsPrefix` both can&#39;t be given. Changing this will force terraform to create new resource.
      * 
      */
     public Optional<Output<String>> customDomainName() {
@@ -344,7 +344,7 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZone Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availabilityZone maps correctly with availability_zone_id.
+         * @param availabilityZone Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure `availabilityZone` maps correctly with `availabilityZoneId`.
          * 
          * @return builder
          * 
@@ -355,7 +355,7 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZone Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availabilityZone maps correctly with availability_zone_id.
+         * @param availabilityZone Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure `availabilityZone` maps correctly with `availabilityZoneId`.
          * 
          * @return builder
          * 
@@ -459,7 +459,7 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customDomainName Name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can&#39;t be given. Changing this will force terraform to create new resource.
+         * @param customDomainName Name of the custom domain that the network is located. `customDomainName` and `defaultDnsPrefix` both can&#39;t be given. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -470,7 +470,7 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customDomainName Name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can&#39;t be given. Changing this will force terraform to create new resource.
+         * @param customDomainName Name of the custom domain that the network is located. `customDomainName` and `defaultDnsPrefix` both can&#39;t be given. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 

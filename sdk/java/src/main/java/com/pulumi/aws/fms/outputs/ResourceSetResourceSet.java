@@ -41,7 +41,7 @@ public final class ResourceSetResourceSet {
      */
     private @Nullable String resourceSetStatus;
     /**
-     * @return Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
+     * @return Resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
      * 
      */
     private @Nullable List<String> resourceTypeLists;
@@ -90,7 +90,7 @@ public final class ResourceSetResourceSet {
         return Optional.ofNullable(this.resourceSetStatus);
     }
     /**
-     * @return Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
+     * @return Resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
      * 
      */
     public List<String> resourceTypeLists() {

@@ -158,7 +158,7 @@ namespace Pulumi.Aws.Rds
         public Output<Pulumi.Aws.Rds.EngineType> Engine { get; private set; } = null!;
 
         /// <summary>
-        /// Database engine version. Please note that to upgrade the `EngineVersion` of the instance, it must be done on the `aws.rds.Cluster` `EngineVersion`. Trying to upgrade in `AwsClusterInstance` will not update the `EngineVersion`.
+        /// Database engine version. Please note that to upgrade the `EngineVersion` of the instance, it must be done on the `aws.rds.Cluster` `EngineVersion`. Trying to upgrade in `aws.rds.ClusterInstance` will not update the `EngineVersion`.
         /// </summary>
         [Output("engineVersion")]
         public Output<string> EngineVersion { get; private set; } = null!;
@@ -406,7 +406,7 @@ namespace Pulumi.Aws.Rds
         public Input<Pulumi.Aws.Rds.EngineType> Engine { get; set; } = null!;
 
         /// <summary>
-        /// Database engine version. Please note that to upgrade the `EngineVersion` of the instance, it must be done on the `aws.rds.Cluster` `EngineVersion`. Trying to upgrade in `AwsClusterInstance` will not update the `EngineVersion`.
+        /// Database engine version. Please note that to upgrade the `EngineVersion` of the instance, it must be done on the `aws.rds.Cluster` `EngineVersion`. Trying to upgrade in `aws.rds.ClusterInstance` will not update the `EngineVersion`.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
@@ -598,7 +598,7 @@ namespace Pulumi.Aws.Rds
         public Input<Pulumi.Aws.Rds.EngineType>? Engine { get; set; }
 
         /// <summary>
-        /// Database engine version. Please note that to upgrade the `EngineVersion` of the instance, it must be done on the `aws.rds.Cluster` `EngineVersion`. Trying to upgrade in `AwsClusterInstance` will not update the `EngineVersion`.
+        /// Database engine version. Please note that to upgrade the `EngineVersion` of the instance, it must be done on the `aws.rds.Cluster` `EngineVersion`. Trying to upgrade in `aws.rds.ClusterInstance` will not update the `EngineVersion`.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }

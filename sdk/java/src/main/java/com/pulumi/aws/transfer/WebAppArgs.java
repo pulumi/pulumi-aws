@@ -37,14 +37,14 @@ public final class WebAppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
+     * Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint. See `endpointDetails` Block below.
      * 
      */
     @Import(name="endpointDetails")
     private @Nullable Output<WebAppEndpointDetailsArgs> endpointDetails;
 
     /**
-     * @return Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
+     * @return Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint. See `endpointDetails` Block below.
      * 
      */
     public Optional<Output<WebAppEndpointDetailsArgs>> endpointDetails() {
@@ -52,7 +52,7 @@ public final class WebAppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Block for details of the identity provider to use with the web app. See Identity provider details below.
+     * Block for details of the identity provider to use with the web app. See `identityProviderDetails` Block below.
      * 
      * The following arguments are optional:
      * 
@@ -61,7 +61,7 @@ public final class WebAppArgs extends com.pulumi.resources.ResourceArgs {
     private Output<WebAppIdentityProviderDetailsArgs> identityProviderDetails;
 
     /**
-     * @return Block for details of the identity provider to use with the web app. See Identity provider details below.
+     * @return Block for details of the identity provider to use with the web app. See `identityProviderDetails` Block below.
      * 
      * The following arguments are optional:
      * 
@@ -116,16 +116,14 @@ public final class WebAppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Block for number of concurrent connections or the user sessions on the web app.
-     * * provisioned - (Optional) Number of units of concurrent connections.
+     * Block for number of concurrent connections or the user sessions on the web app. See `webAppUnits` Block below.
      * 
      */
     @Import(name="webAppUnits")
     private @Nullable Output<List<WebAppWebAppUnitArgs>> webAppUnits;
 
     /**
-     * @return Block for number of concurrent connections or the user sessions on the web app.
-     * * provisioned - (Optional) Number of units of concurrent connections.
+     * @return Block for number of concurrent connections or the user sessions on the web app. See `webAppUnits` Block below.
      * 
      */
     public Optional<Output<List<WebAppWebAppUnitArgs>>> webAppUnits() {
@@ -184,7 +182,7 @@ public final class WebAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param endpointDetails Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
+         * @param endpointDetails Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint. See `endpointDetails` Block below.
          * 
          * @return builder
          * 
@@ -195,7 +193,7 @@ public final class WebAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param endpointDetails Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
+         * @param endpointDetails Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint. See `endpointDetails` Block below.
          * 
          * @return builder
          * 
@@ -205,7 +203,7 @@ public final class WebAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identityProviderDetails Block for details of the identity provider to use with the web app. See Identity provider details below.
+         * @param identityProviderDetails Block for details of the identity provider to use with the web app. See `identityProviderDetails` Block below.
          * 
          * The following arguments are optional:
          * 
@@ -218,7 +216,7 @@ public final class WebAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identityProviderDetails Block for details of the identity provider to use with the web app. See Identity provider details below.
+         * @param identityProviderDetails Block for details of the identity provider to use with the web app. See `identityProviderDetails` Block below.
          * 
          * The following arguments are optional:
          * 
@@ -293,8 +291,7 @@ public final class WebAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param webAppUnits Block for number of concurrent connections or the user sessions on the web app.
-         * * provisioned - (Optional) Number of units of concurrent connections.
+         * @param webAppUnits Block for number of concurrent connections or the user sessions on the web app. See `webAppUnits` Block below.
          * 
          * @return builder
          * 
@@ -305,8 +302,7 @@ public final class WebAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param webAppUnits Block for number of concurrent connections or the user sessions on the web app.
-         * * provisioned - (Optional) Number of units of concurrent connections.
+         * @param webAppUnits Block for number of concurrent connections or the user sessions on the web app. See `webAppUnits` Block below.
          * 
          * @return builder
          * 
@@ -316,8 +312,7 @@ public final class WebAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param webAppUnits Block for number of concurrent connections or the user sessions on the web app.
-         * * provisioned - (Optional) Number of units of concurrent connections.
+         * @param webAppUnits Block for number of concurrent connections or the user sessions on the web app. See `webAppUnits` Block below.
          * 
          * @return builder
          * 

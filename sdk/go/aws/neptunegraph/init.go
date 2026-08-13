@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:neptunegraph/graph:Graph":
 		r = &Graph{}
+	case "aws:neptunegraph/privateGraphEndpoint:PrivateGraphEndpoint":
+		r = &PrivateGraphEndpoint{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -39,6 +41,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"neptunegraph/graph",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"neptunegraph/privateGraphEndpoint",
 		&module{version},
 	)
 }

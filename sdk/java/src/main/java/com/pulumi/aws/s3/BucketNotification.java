@@ -623,14 +623,14 @@ public class BucketNotification extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.eventbridge);
     }
     /**
-     * Used to configure notifications to a Lambda Function. See below.
+     * Notification configuration to a Lambda Function. See below.
      * 
      */
     @Export(name="lambdaFunctions", refs={List.class,BucketNotificationLambdaFunction.class}, tree="[0,1]")
     private Output</* @Nullable */ List<BucketNotificationLambdaFunction>> lambdaFunctions;
 
     /**
-     * @return Used to configure notifications to a Lambda Function. See below.
+     * @return Notification configuration to a Lambda Function. See below.
      * 
      */
     public Output<Optional<List<BucketNotificationLambdaFunction>>> lambdaFunctions() {

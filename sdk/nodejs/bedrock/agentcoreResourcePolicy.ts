@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const exampleAgentcoreAgentRuntime = new aws.bedrock.AgentcoreAgentRuntime("example", {});
- * const example = aws.iam.getPolicyDocument({
+ * const example = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         sid: "AllowOAuthFromVPC",
  *         effect: "Allow",
@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *             type: "*",
  *             identifiers: ["*"],
  *         }],
- *         resources: [agentRuntime.example.agentRuntimeArn],
+ *         resources: [exampleAgentcoreAgentRuntime.agentRuntimeArn],
  *         conditions: [{
  *             test: "StringEquals",
  *             variable: "aws:SourceVpc",
@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const exampleAgentcoreResourcePolicy = new aws.bedrock.AgentcoreResourcePolicy("example", {
- *     policy: example.then(example => example.json),
+ *     policy: example.json,
  *     resourceArn: exampleAgentcoreAgentRuntime.agentRuntimeArn,
  * });
  * ```

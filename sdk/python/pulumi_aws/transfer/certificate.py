@@ -29,13 +29,13 @@ class CertificateArgs:
         """
         The set of arguments for constructing a Certificate resource.
 
-        :param pulumi.Input[_builtins.str] certificate: The valid certificate file required for the transfer.
-        :param pulumi.Input[_builtins.str] usage: Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
-        :param pulumi.Input[_builtins.str] certificate_chain: The optional list of certificate that make up the chain for the certificate that is being imported.
-        :param pulumi.Input[_builtins.str] description: A short description that helps identify the certificate.
-        :param pulumi.Input[_builtins.str] private_key: The private key associated with the certificate being imported.
+        :param pulumi.Input[_builtins.str] certificate: Valid certificate file required for the transfer.
+        :param pulumi.Input[_builtins.str] usage: Whether a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
+        :param pulumi.Input[_builtins.str] certificate_chain: Optional list of certificate that make up the chain for the certificate that is being imported.
+        :param pulumi.Input[_builtins.str] description: Short description that helps identify the certificate.
+        :param pulumi.Input[_builtins.str] private_key: Private key associated with the certificate being imported.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "certificate", certificate)
         pulumi.set(__self__, "usage", usage)
@@ -54,7 +54,7 @@ class CertificateArgs:
     @pulumi.getter
     def certificate(self) -> pulumi.Input[_builtins.str]:
         """
-        The valid certificate file required for the transfer.
+        Valid certificate file required for the transfer.
         """
         return pulumi.get(self, "certificate")
 
@@ -66,7 +66,7 @@ class CertificateArgs:
     @pulumi.getter
     def usage(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
+        Whether a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
         """
         return pulumi.get(self, "usage")
 
@@ -78,7 +78,7 @@ class CertificateArgs:
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The optional list of certificate that make up the chain for the certificate that is being imported.
+        Optional list of certificate that make up the chain for the certificate that is being imported.
         """
         return pulumi.get(self, "certificate_chain")
 
@@ -90,7 +90,7 @@ class CertificateArgs:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A short description that helps identify the certificate.
+        Short description that helps identify the certificate.
         """
         return pulumi.get(self, "description")
 
@@ -102,7 +102,7 @@ class CertificateArgs:
     @pulumi.getter(name="privateKey")
     def private_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The private key associated with the certificate being imported.
+        Private key associated with the certificate being imported.
         """
         return pulumi.get(self, "private_key")
 
@@ -126,7 +126,7 @@ class CertificateArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -153,17 +153,17 @@ class _CertificateState:
         """
         Input properties used for looking up and filtering Certificate resources.
 
-        :param pulumi.Input[_builtins.str] active_date: An date when the certificate becomes active
-        :param pulumi.Input[_builtins.str] arn: The ARN of the certificate
-        :param pulumi.Input[_builtins.str] certificate: The valid certificate file required for the transfer.
-        :param pulumi.Input[_builtins.str] certificate_chain: The optional list of certificate that make up the chain for the certificate that is being imported.
-        :param pulumi.Input[_builtins.str] certificate_id: The unique identifier for the AS2 certificate
-        :param pulumi.Input[_builtins.str] description: A short description that helps identify the certificate.
-        :param pulumi.Input[_builtins.str] inactive_date: An date when the certificate becomes inactive
-        :param pulumi.Input[_builtins.str] private_key: The private key associated with the certificate being imported.
+        :param pulumi.Input[_builtins.str] active_date: Date when the certificate becomes active
+        :param pulumi.Input[_builtins.str] arn: ARN of the certificate
+        :param pulumi.Input[_builtins.str] certificate: Valid certificate file required for the transfer.
+        :param pulumi.Input[_builtins.str] certificate_chain: Optional list of certificate that make up the chain for the certificate that is being imported.
+        :param pulumi.Input[_builtins.str] certificate_id: Unique identifier for the AS2 certificate
+        :param pulumi.Input[_builtins.str] description: Short description that helps identify the certificate.
+        :param pulumi.Input[_builtins.str] inactive_date: Date when the certificate becomes inactive
+        :param pulumi.Input[_builtins.str] private_key: Private key associated with the certificate being imported.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] usage: Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.str] usage: Whether a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
         """
         if active_date is not None:
             pulumi.set(__self__, "active_date", active_date)
@@ -194,7 +194,7 @@ class _CertificateState:
     @pulumi.getter(name="activeDate")
     def active_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        An date when the certificate becomes active
+        Date when the certificate becomes active
         """
         return pulumi.get(self, "active_date")
 
@@ -206,7 +206,7 @@ class _CertificateState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the certificate
+        ARN of the certificate
         """
         return pulumi.get(self, "arn")
 
@@ -218,7 +218,7 @@ class _CertificateState:
     @pulumi.getter
     def certificate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The valid certificate file required for the transfer.
+        Valid certificate file required for the transfer.
         """
         return pulumi.get(self, "certificate")
 
@@ -230,7 +230,7 @@ class _CertificateState:
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The optional list of certificate that make up the chain for the certificate that is being imported.
+        Optional list of certificate that make up the chain for the certificate that is being imported.
         """
         return pulumi.get(self, "certificate_chain")
 
@@ -242,7 +242,7 @@ class _CertificateState:
     @pulumi.getter(name="certificateId")
     def certificate_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The unique identifier for the AS2 certificate
+        Unique identifier for the AS2 certificate
         """
         return pulumi.get(self, "certificate_id")
 
@@ -254,7 +254,7 @@ class _CertificateState:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A short description that helps identify the certificate.
+        Short description that helps identify the certificate.
         """
         return pulumi.get(self, "description")
 
@@ -266,7 +266,7 @@ class _CertificateState:
     @pulumi.getter(name="inactiveDate")
     def inactive_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        An date when the certificate becomes inactive
+        Date when the certificate becomes inactive
         """
         return pulumi.get(self, "inactive_date")
 
@@ -278,7 +278,7 @@ class _CertificateState:
     @pulumi.getter(name="privateKey")
     def private_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The private key associated with the certificate being imported.
+        Private key associated with the certificate being imported.
         """
         return pulumi.get(self, "private_key")
 
@@ -302,7 +302,7 @@ class _CertificateState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -323,7 +323,7 @@ class _CertificateState:
     @pulumi.getter
     def usage(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
+        Whether a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
         """
         return pulumi.get(self, "usage")
 
@@ -362,13 +362,13 @@ class Certificate(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] certificate: The valid certificate file required for the transfer.
-        :param pulumi.Input[_builtins.str] certificate_chain: The optional list of certificate that make up the chain for the certificate that is being imported.
-        :param pulumi.Input[_builtins.str] description: A short description that helps identify the certificate.
-        :param pulumi.Input[_builtins.str] private_key: The private key associated with the certificate being imported.
+        :param pulumi.Input[_builtins.str] certificate: Valid certificate file required for the transfer.
+        :param pulumi.Input[_builtins.str] certificate_chain: Optional list of certificate that make up the chain for the certificate that is being imported.
+        :param pulumi.Input[_builtins.str] description: Short description that helps identify the certificate.
+        :param pulumi.Input[_builtins.str] private_key: Private key associated with the certificate being imported.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] usage: Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.str] usage: Whether a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
         """
         ...
     @overload
@@ -468,17 +468,17 @@ class Certificate(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] active_date: An date when the certificate becomes active
-        :param pulumi.Input[_builtins.str] arn: The ARN of the certificate
-        :param pulumi.Input[_builtins.str] certificate: The valid certificate file required for the transfer.
-        :param pulumi.Input[_builtins.str] certificate_chain: The optional list of certificate that make up the chain for the certificate that is being imported.
-        :param pulumi.Input[_builtins.str] certificate_id: The unique identifier for the AS2 certificate
-        :param pulumi.Input[_builtins.str] description: A short description that helps identify the certificate.
-        :param pulumi.Input[_builtins.str] inactive_date: An date when the certificate becomes inactive
-        :param pulumi.Input[_builtins.str] private_key: The private key associated with the certificate being imported.
+        :param pulumi.Input[_builtins.str] active_date: Date when the certificate becomes active
+        :param pulumi.Input[_builtins.str] arn: ARN of the certificate
+        :param pulumi.Input[_builtins.str] certificate: Valid certificate file required for the transfer.
+        :param pulumi.Input[_builtins.str] certificate_chain: Optional list of certificate that make up the chain for the certificate that is being imported.
+        :param pulumi.Input[_builtins.str] certificate_id: Unique identifier for the AS2 certificate
+        :param pulumi.Input[_builtins.str] description: Short description that helps identify the certificate.
+        :param pulumi.Input[_builtins.str] inactive_date: Date when the certificate becomes inactive
+        :param pulumi.Input[_builtins.str] private_key: Private key associated with the certificate being imported.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] usage: Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.str] usage: Whether a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -502,7 +502,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="activeDate")
     def active_date(self) -> pulumi.Output[_builtins.str]:
         """
-        An date when the certificate becomes active
+        Date when the certificate becomes active
         """
         return pulumi.get(self, "active_date")
 
@@ -510,7 +510,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the certificate
+        ARN of the certificate
         """
         return pulumi.get(self, "arn")
 
@@ -518,7 +518,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter
     def certificate(self) -> pulumi.Output[_builtins.str]:
         """
-        The valid certificate file required for the transfer.
+        Valid certificate file required for the transfer.
         """
         return pulumi.get(self, "certificate")
 
@@ -526,7 +526,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The optional list of certificate that make up the chain for the certificate that is being imported.
+        Optional list of certificate that make up the chain for the certificate that is being imported.
         """
         return pulumi.get(self, "certificate_chain")
 
@@ -534,7 +534,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="certificateId")
     def certificate_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The unique identifier for the AS2 certificate
+        Unique identifier for the AS2 certificate
         """
         return pulumi.get(self, "certificate_id")
 
@@ -542,7 +542,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        A short description that helps identify the certificate.
+        Short description that helps identify the certificate.
         """
         return pulumi.get(self, "description")
 
@@ -550,7 +550,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="inactiveDate")
     def inactive_date(self) -> pulumi.Output[_builtins.str]:
         """
-        An date when the certificate becomes inactive
+        Date when the certificate becomes inactive
         """
         return pulumi.get(self, "inactive_date")
 
@@ -558,7 +558,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="privateKey")
     def private_key(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The private key associated with the certificate being imported.
+        Private key associated with the certificate being imported.
         """
         return pulumi.get(self, "private_key")
 
@@ -574,7 +574,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -587,7 +587,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter
     def usage(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
+        Whether a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
         """
         return pulumi.get(self, "usage")
 

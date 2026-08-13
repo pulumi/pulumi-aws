@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreHarnessAuthorizerConfiguration {
     /**
-     * @return JWT-based authorization configuration block. See `customJwtAuthorizer` below.
+     * @return JWT-based authorization configuration block. See `customJwtAuthorizer` Block below.
      * 
      */
     private @Nullable AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizer customJwtAuthorizer;
 
     private AgentcoreHarnessAuthorizerConfiguration() {}
     /**
-     * @return JWT-based authorization configuration block. See `customJwtAuthorizer` below.
+     * @return JWT-based authorization configuration block. See `customJwtAuthorizer` Block below.
      * 
      */
     public Optional<AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizer> customJwtAuthorizer() {

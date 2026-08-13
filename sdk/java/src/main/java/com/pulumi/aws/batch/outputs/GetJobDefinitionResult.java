@@ -31,7 +31,7 @@ public final class GetJobDefinitionResult {
      */
     private String containerOrchestrationType;
     /**
-     * @return Object with various properties that are specific to Amazon EKS based jobs. This must not be specified for Amazon ECS based job definitions.
+     * @return Properties that are specific to Amazon EKS based jobs. This must not be specified for Amazon ECS based job definitions. See `eksProperties` below.
      * 
      */
     private List<GetJobDefinitionEksProperty> eksProperties;
@@ -46,13 +46,13 @@ public final class GetJobDefinitionResult {
      */
     private @Nullable String name;
     /**
-     * @return Object with various properties specific to multi-node parallel jobs. If you specify node properties for a job, it becomes a multi-node parallel job. For more information, see Multi-node Parallel Jobs in the AWS Batch User Guide. If the job definition&#39;s type parameter is container, then you must specify either containerProperties or nodeProperties.
+     * @return Properties specific to multi-node parallel jobs. See `nodeProperties` below.
      * 
      */
     private List<GetJobDefinitionNodeProperty> nodeProperties;
     private String region;
     /**
-     * @return Retry strategy to use for failed jobs that are submitted with this job definition. Any retry strategy that&#39;s specified during a SubmitJob operation overrides the retry strategy defined here. If a job is terminated due to a timeout, it isn&#39;t retried.
+     * @return Retry strategy to use for failed jobs that are submitted with this job definition. See `retryStrategy` below.
      * 
      */
     private List<GetJobDefinitionRetryStrategy> retryStrategies;
@@ -69,7 +69,7 @@ public final class GetJobDefinitionResult {
      */
     private Map<String,String> tags;
     /**
-     * @return Timeout configuration for jobs that are submitted with this job definition, after which AWS Batch terminates your jobs if they have not finished. If a job is terminated due to a timeout, it isn&#39;t retried. The minimum value for the timeout is 60 seconds.
+     * @return Timeout configuration for jobs that are submitted with this job definition, after which AWS Batch terminates your jobs if they have not finished. See `timeout` below.
      * 
      */
     private List<GetJobDefinitionTimeout> timeouts;
@@ -98,7 +98,7 @@ public final class GetJobDefinitionResult {
         return this.containerOrchestrationType;
     }
     /**
-     * @return Object with various properties that are specific to Amazon EKS based jobs. This must not be specified for Amazon ECS based job definitions.
+     * @return Properties that are specific to Amazon EKS based jobs. This must not be specified for Amazon ECS based job definitions. See `eksProperties` below.
      * 
      */
     public List<GetJobDefinitionEksProperty> eksProperties() {
@@ -119,7 +119,7 @@ public final class GetJobDefinitionResult {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return Object with various properties specific to multi-node parallel jobs. If you specify node properties for a job, it becomes a multi-node parallel job. For more information, see Multi-node Parallel Jobs in the AWS Batch User Guide. If the job definition&#39;s type parameter is container, then you must specify either containerProperties or nodeProperties.
+     * @return Properties specific to multi-node parallel jobs. See `nodeProperties` below.
      * 
      */
     public List<GetJobDefinitionNodeProperty> nodeProperties() {
@@ -129,7 +129,7 @@ public final class GetJobDefinitionResult {
         return this.region;
     }
     /**
-     * @return Retry strategy to use for failed jobs that are submitted with this job definition. Any retry strategy that&#39;s specified during a SubmitJob operation overrides the retry strategy defined here. If a job is terminated due to a timeout, it isn&#39;t retried.
+     * @return Retry strategy to use for failed jobs that are submitted with this job definition. See `retryStrategy` below.
      * 
      */
     public List<GetJobDefinitionRetryStrategy> retryStrategies() {
@@ -156,7 +156,7 @@ public final class GetJobDefinitionResult {
         return this.tags;
     }
     /**
-     * @return Timeout configuration for jobs that are submitted with this job definition, after which AWS Batch terminates your jobs if they have not finished. If a job is terminated due to a timeout, it isn&#39;t retried. The minimum value for the timeout is 60 seconds.
+     * @return Timeout configuration for jobs that are submitted with this job definition, after which AWS Batch terminates your jobs if they have not finished. See `timeout` below.
      * 
      */
     public List<GetJobDefinitionTimeout> timeouts() {

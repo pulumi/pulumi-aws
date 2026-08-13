@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Backup.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Regions;
         /// <summary>
-        /// Identifies the report template for the report. Reports are built using a report template.
+        /// Report template for the report. Reports are built using a report template.
         /// </summary>
         public readonly string ReportTemplate;
 

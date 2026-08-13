@@ -11,9 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualNodeSpecListenerTimeoutTcp {
+    /**
+     * @return Idle timeout. See `spec.listener.timeout.tcp.idle` Block for details.
+     * 
+     */
     private List<GetVirtualNodeSpecListenerTimeoutTcpIdle> idles;
 
     private GetVirtualNodeSpecListenerTimeoutTcp() {}
+    /**
+     * @return Idle timeout. See `spec.listener.timeout.tcp.idle` Block for details.
+     * 
+     */
     public List<GetVirtualNodeSpecListenerTimeoutTcpIdle> idles() {
         return this.idles;
     }

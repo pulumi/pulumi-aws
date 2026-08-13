@@ -19,7 +19,7 @@ public final class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigSca
      */
     private String namespace;
     /**
-     * @return Set of resources to scale. See Resources below.
+     * @return Resources to scale. See `resources` Block for details.
      * 
      */
     private @Nullable List<PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResourceResource> resources;
@@ -33,7 +33,7 @@ public final class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigSca
         return this.namespace;
     }
     /**
-     * @return Set of resources to scale. See Resources below.
+     * @return Resources to scale. See `resources` Block for details.
      * 
      */
     public List<PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResourceResource> resources() {

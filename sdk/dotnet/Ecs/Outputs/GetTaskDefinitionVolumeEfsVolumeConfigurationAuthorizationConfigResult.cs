@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigResult
     {
+        /// <summary>
+        /// Access point ID used.
+        /// </summary>
         public readonly string AccessPointId;
+        /// <summary>
+        /// Whether the Amazon ECS task IAM role defined in a task definition is used when mounting the Amazon EFS file system.
+        /// </summary>
         public readonly string Iam;
 
         [OutputConstructor]

@@ -1790,7 +1790,7 @@ func (o TableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput)
 }
 
 type TableMetadata struct {
-	// Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format. See `iceberg` below.
+	// Details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format. See `iceberg` below.
 	Iceberg TableMetadataIceberg `pulumi:"iceberg"`
 }
 
@@ -1806,7 +1806,7 @@ type TableMetadataInput interface {
 }
 
 type TableMetadataArgs struct {
-	// Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format. See `iceberg` below.
+	// Details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format. See `iceberg` below.
 	Iceberg TableMetadataIcebergInput `pulumi:"iceberg"`
 }
 
@@ -1887,7 +1887,7 @@ func (o TableMetadataOutput) ToTableMetadataPtrOutputWithContext(ctx context.Con
 	}).(TableMetadataPtrOutput)
 }
 
-// Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format. See `iceberg` below.
+// Details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format. See `iceberg` below.
 func (o TableMetadataOutput) Iceberg() TableMetadataIcebergOutput {
 	return o.ApplyT(func(v TableMetadata) TableMetadataIceberg { return v.Iceberg }).(TableMetadataIcebergOutput)
 }
@@ -1916,7 +1916,7 @@ func (o TableMetadataPtrOutput) Elem() TableMetadataOutput {
 	}).(TableMetadataOutput)
 }
 
-// Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format. See `iceberg` below.
+// Details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format. See `iceberg` below.
 func (o TableMetadataPtrOutput) Iceberg() TableMetadataIcebergPtrOutput {
 	return o.ApplyT(func(v *TableMetadata) *TableMetadataIceberg {
 		if v == nil {

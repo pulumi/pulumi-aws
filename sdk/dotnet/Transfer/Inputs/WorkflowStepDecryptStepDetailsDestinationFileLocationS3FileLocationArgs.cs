@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Transfer.Inputs
     public sealed class WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the S3 bucket for the customer input file.
+        /// S3 bucket for the customer input file.
         /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
         /// <summary>
-        /// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+        /// Name assigned to the file when it was created in S3. You use the object key to retrieve the object.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }

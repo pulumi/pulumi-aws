@@ -59,17 +59,27 @@ class AccountThrottleSetting(dict):
     def __init__(__self__, *,
                  burst_limit: _builtins.int,
                  rate_limit: _builtins.float):
+        """
+        :param _builtins.int burst_limit: Absolute maximum number of times API Gateway allows the API to be called per second.
+        :param _builtins.float rate_limit: Number of times API Gateway allows the API to be called per second on average.
+        """
         pulumi.set(__self__, "burst_limit", burst_limit)
         pulumi.set(__self__, "rate_limit", rate_limit)
 
     @_builtins.property
     @pulumi.getter(name="burstLimit")
     def burst_limit(self) -> _builtins.int:
+        """
+        Absolute maximum number of times API Gateway allows the API to be called per second.
+        """
         return pulumi.get(self, "burst_limit")
 
     @_builtins.property
     @pulumi.getter(name="rateLimit")
     def rate_limit(self) -> _builtins.float:
+        """
+        Number of times API Gateway allows the API to be called per second on average.
+        """
         return pulumi.get(self, "rate_limit")
 
 
@@ -896,6 +906,7 @@ class GetApiKeysItemResult(dict):
         :param _builtins.str id: ID of the API Key.
         :param _builtins.str last_updated_date: Date and time when the API Key was last updated.
         :param _builtins.str name: Name of the API Key.
+        :param Sequence[_builtins.str] stage_keys: List of stage keys associated with the API Key.
         :param Mapping[str, _builtins.str] tags: Map of tags for the resource.
         :param _builtins.str value: Value of the API Key.
         """
@@ -969,6 +980,9 @@ class GetApiKeysItemResult(dict):
     @_builtins.property
     @pulumi.getter(name="stageKeys")
     def stage_keys(self) -> Sequence[_builtins.str]:
+        """
+        List of stage keys associated with the API Key.
+        """
         return pulumi.get(self, "stage_keys")
 
     @_builtins.property

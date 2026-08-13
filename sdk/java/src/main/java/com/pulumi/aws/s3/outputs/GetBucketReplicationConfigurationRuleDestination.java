@@ -15,22 +15,54 @@ import java.util.Objects;
 
 @CustomType
 public final class GetBucketReplicationConfigurationRuleDestination {
+    /**
+     * @return Configuration block that specifies the overrides to use for object owners on replication. See `accessControlTranslation` Block below.
+     * 
+     */
     private List<GetBucketReplicationConfigurationRuleDestinationAccessControlTranslation> accessControlTranslations;
+    /**
+     * @return Account ID used to specify the replica ownership.
+     * 
+     */
     private String account;
     /**
      * @return Name of the bucket to get the replication configuration for.
      * 
      */
     private String bucket;
+    /**
+     * @return Configuration block that provides information about encryption. See `encryptionConfiguration` Block below.
+     * 
+     */
     private List<GetBucketReplicationConfigurationRuleDestinationEncryptionConfiguration> encryptionConfigurations;
+    /**
+     * @return Configuration block that specifies replication metrics-related settings. See `metrics` Block below.
+     * 
+     */
     private List<GetBucketReplicationConfigurationRuleDestinationMetric> metrics;
+    /**
+     * @return Configuration block that specifies S3 Replication Time Control (S3 RTC). See `replicationTime` Block below.
+     * 
+     */
     private List<GetBucketReplicationConfigurationRuleDestinationReplicationTime> replicationTimes;
+    /**
+     * @return Storage class used to store the object.
+     * 
+     */
     private String storageClass;
 
     private GetBucketReplicationConfigurationRuleDestination() {}
+    /**
+     * @return Configuration block that specifies the overrides to use for object owners on replication. See `accessControlTranslation` Block below.
+     * 
+     */
     public List<GetBucketReplicationConfigurationRuleDestinationAccessControlTranslation> accessControlTranslations() {
         return this.accessControlTranslations;
     }
+    /**
+     * @return Account ID used to specify the replica ownership.
+     * 
+     */
     public String account() {
         return this.account;
     }
@@ -41,15 +73,31 @@ public final class GetBucketReplicationConfigurationRuleDestination {
     public String bucket() {
         return this.bucket;
     }
+    /**
+     * @return Configuration block that provides information about encryption. See `encryptionConfiguration` Block below.
+     * 
+     */
     public List<GetBucketReplicationConfigurationRuleDestinationEncryptionConfiguration> encryptionConfigurations() {
         return this.encryptionConfigurations;
     }
+    /**
+     * @return Configuration block that specifies replication metrics-related settings. See `metrics` Block below.
+     * 
+     */
     public List<GetBucketReplicationConfigurationRuleDestinationMetric> metrics() {
         return this.metrics;
     }
+    /**
+     * @return Configuration block that specifies S3 Replication Time Control (S3 RTC). See `replicationTime` Block below.
+     * 
+     */
     public List<GetBucketReplicationConfigurationRuleDestinationReplicationTime> replicationTimes() {
         return this.replicationTimes;
     }
+    /**
+     * @return Storage class used to store the object.
+     * 
+     */
     public String storageClass() {
         return this.storageClass;
     }

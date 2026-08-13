@@ -13,11 +13,14 @@ import com.pulumi.aws.vpclattice.inputs.GetResourcePolicyPlainArgs;
 import com.pulumi.aws.vpclattice.inputs.GetServiceArgs;
 import com.pulumi.aws.vpclattice.inputs.GetServiceNetworkArgs;
 import com.pulumi.aws.vpclattice.inputs.GetServiceNetworkPlainArgs;
+import com.pulumi.aws.vpclattice.inputs.GetServiceNetworkServiceAssociationsArgs;
+import com.pulumi.aws.vpclattice.inputs.GetServiceNetworkServiceAssociationsPlainArgs;
 import com.pulumi.aws.vpclattice.inputs.GetServicePlainArgs;
 import com.pulumi.aws.vpclattice.outputs.GetAuthPolicyResult;
 import com.pulumi.aws.vpclattice.outputs.GetListenerResult;
 import com.pulumi.aws.vpclattice.outputs.GetResourcePolicyResult;
 import com.pulumi.aws.vpclattice.outputs.GetServiceNetworkResult;
+import com.pulumi.aws.vpclattice.outputs.GetServiceNetworkServiceAssociationsResult;
 import com.pulumi.aws.vpclattice.outputs.GetServiceResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
@@ -1155,5 +1158,530 @@ public final class VpclatticeFunctions {
      */
     public static CompletableFuture<GetServiceNetworkResult> getServiceNetworkPlain(GetServiceNetworkPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:vpclattice/getServiceNetwork:getServiceNetwork", TypeShape.of(GetServiceNetworkResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for listing AWS VPC Lattice Service Network Service Associations.
+     * 
+     * ## Example Usage
+     * 
+     * ### By Service Network Identifier
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
+     * import com.pulumi.aws.vpclattice.inputs.GetServiceNetworkServiceAssociationsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var testSn = VpclatticeFunctions.getServiceNetworkServiceAssociations(GetServiceNetworkServiceAssociationsArgs.builder()
+     *             .serviceNetworkIdentifier(testSnAwsVpclatticeServiceNetwork.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### By Service Identifier
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
+     * import com.pulumi.aws.vpclattice.inputs.GetServiceNetworkServiceAssociationsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var testSvc = VpclatticeFunctions.getServiceNetworkServiceAssociations(GetServiceNetworkServiceAssociationsArgs.builder()
+     *             .serviceIdentifier(testSvcAwsVpclatticeService.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetServiceNetworkServiceAssociationsResult> getServiceNetworkServiceAssociations() {
+        return getServiceNetworkServiceAssociations(GetServiceNetworkServiceAssociationsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for listing AWS VPC Lattice Service Network Service Associations.
+     * 
+     * ## Example Usage
+     * 
+     * ### By Service Network Identifier
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
+     * import com.pulumi.aws.vpclattice.inputs.GetServiceNetworkServiceAssociationsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var testSn = VpclatticeFunctions.getServiceNetworkServiceAssociations(GetServiceNetworkServiceAssociationsArgs.builder()
+     *             .serviceNetworkIdentifier(testSnAwsVpclatticeServiceNetwork.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### By Service Identifier
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
+     * import com.pulumi.aws.vpclattice.inputs.GetServiceNetworkServiceAssociationsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var testSvc = VpclatticeFunctions.getServiceNetworkServiceAssociations(GetServiceNetworkServiceAssociationsArgs.builder()
+     *             .serviceIdentifier(testSvcAwsVpclatticeService.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetServiceNetworkServiceAssociationsResult> getServiceNetworkServiceAssociationsPlain() {
+        return getServiceNetworkServiceAssociationsPlain(GetServiceNetworkServiceAssociationsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for listing AWS VPC Lattice Service Network Service Associations.
+     * 
+     * ## Example Usage
+     * 
+     * ### By Service Network Identifier
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
+     * import com.pulumi.aws.vpclattice.inputs.GetServiceNetworkServiceAssociationsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var testSn = VpclatticeFunctions.getServiceNetworkServiceAssociations(GetServiceNetworkServiceAssociationsArgs.builder()
+     *             .serviceNetworkIdentifier(testSnAwsVpclatticeServiceNetwork.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### By Service Identifier
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
+     * import com.pulumi.aws.vpclattice.inputs.GetServiceNetworkServiceAssociationsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var testSvc = VpclatticeFunctions.getServiceNetworkServiceAssociations(GetServiceNetworkServiceAssociationsArgs.builder()
+     *             .serviceIdentifier(testSvcAwsVpclatticeService.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetServiceNetworkServiceAssociationsResult> getServiceNetworkServiceAssociations(GetServiceNetworkServiceAssociationsArgs args) {
+        return getServiceNetworkServiceAssociations(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for listing AWS VPC Lattice Service Network Service Associations.
+     * 
+     * ## Example Usage
+     * 
+     * ### By Service Network Identifier
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
+     * import com.pulumi.aws.vpclattice.inputs.GetServiceNetworkServiceAssociationsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var testSn = VpclatticeFunctions.getServiceNetworkServiceAssociations(GetServiceNetworkServiceAssociationsArgs.builder()
+     *             .serviceNetworkIdentifier(testSnAwsVpclatticeServiceNetwork.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### By Service Identifier
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
+     * import com.pulumi.aws.vpclattice.inputs.GetServiceNetworkServiceAssociationsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var testSvc = VpclatticeFunctions.getServiceNetworkServiceAssociations(GetServiceNetworkServiceAssociationsArgs.builder()
+     *             .serviceIdentifier(testSvcAwsVpclatticeService.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetServiceNetworkServiceAssociationsResult> getServiceNetworkServiceAssociationsPlain(GetServiceNetworkServiceAssociationsPlainArgs args) {
+        return getServiceNetworkServiceAssociationsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for listing AWS VPC Lattice Service Network Service Associations.
+     * 
+     * ## Example Usage
+     * 
+     * ### By Service Network Identifier
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
+     * import com.pulumi.aws.vpclattice.inputs.GetServiceNetworkServiceAssociationsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var testSn = VpclatticeFunctions.getServiceNetworkServiceAssociations(GetServiceNetworkServiceAssociationsArgs.builder()
+     *             .serviceNetworkIdentifier(testSnAwsVpclatticeServiceNetwork.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### By Service Identifier
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
+     * import com.pulumi.aws.vpclattice.inputs.GetServiceNetworkServiceAssociationsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var testSvc = VpclatticeFunctions.getServiceNetworkServiceAssociations(GetServiceNetworkServiceAssociationsArgs.builder()
+     *             .serviceIdentifier(testSvcAwsVpclatticeService.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetServiceNetworkServiceAssociationsResult> getServiceNetworkServiceAssociations(GetServiceNetworkServiceAssociationsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:vpclattice/getServiceNetworkServiceAssociations:getServiceNetworkServiceAssociations", TypeShape.of(GetServiceNetworkServiceAssociationsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for listing AWS VPC Lattice Service Network Service Associations.
+     * 
+     * ## Example Usage
+     * 
+     * ### By Service Network Identifier
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
+     * import com.pulumi.aws.vpclattice.inputs.GetServiceNetworkServiceAssociationsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var testSn = VpclatticeFunctions.getServiceNetworkServiceAssociations(GetServiceNetworkServiceAssociationsArgs.builder()
+     *             .serviceNetworkIdentifier(testSnAwsVpclatticeServiceNetwork.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### By Service Identifier
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
+     * import com.pulumi.aws.vpclattice.inputs.GetServiceNetworkServiceAssociationsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var testSvc = VpclatticeFunctions.getServiceNetworkServiceAssociations(GetServiceNetworkServiceAssociationsArgs.builder()
+     *             .serviceIdentifier(testSvcAwsVpclatticeService.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetServiceNetworkServiceAssociationsResult> getServiceNetworkServiceAssociations(GetServiceNetworkServiceAssociationsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:vpclattice/getServiceNetworkServiceAssociations:getServiceNetworkServiceAssociations", TypeShape.of(GetServiceNetworkServiceAssociationsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for listing AWS VPC Lattice Service Network Service Associations.
+     * 
+     * ## Example Usage
+     * 
+     * ### By Service Network Identifier
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
+     * import com.pulumi.aws.vpclattice.inputs.GetServiceNetworkServiceAssociationsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var testSn = VpclatticeFunctions.getServiceNetworkServiceAssociations(GetServiceNetworkServiceAssociationsArgs.builder()
+     *             .serviceNetworkIdentifier(testSnAwsVpclatticeServiceNetwork.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### By Service Identifier
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
+     * import com.pulumi.aws.vpclattice.inputs.GetServiceNetworkServiceAssociationsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var testSvc = VpclatticeFunctions.getServiceNetworkServiceAssociations(GetServiceNetworkServiceAssociationsArgs.builder()
+     *             .serviceIdentifier(testSvcAwsVpclatticeService.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetServiceNetworkServiceAssociationsResult> getServiceNetworkServiceAssociationsPlain(GetServiceNetworkServiceAssociationsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:vpclattice/getServiceNetworkServiceAssociations:getServiceNetworkServiceAssociations", TypeShape.of(GetServiceNetworkServiceAssociationsResult.class), args, Utilities.withVersion(options));
     }
 }

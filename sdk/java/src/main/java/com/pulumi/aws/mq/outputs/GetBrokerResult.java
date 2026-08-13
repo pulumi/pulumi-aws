@@ -39,7 +39,7 @@ public final class GetBrokerResult {
     private String brokerId;
     private String brokerName;
     /**
-     * @return Configuration block for broker configuration. See Configuration below.
+     * @return Configuration block for broker configuration. See `configuration` Block below.
      * 
      */
     private GetBrokerConfiguration configuration;
@@ -49,7 +49,7 @@ public final class GetBrokerResult {
      */
     private String deploymentMode;
     /**
-     * @return Configuration block containing encryption options. See Encryption Options below.
+     * @return Configuration block containing encryption options. See `encryptionOptions` Block below.
      * 
      */
     private List<GetBrokerEncryptionOption> encryptionOptions;
@@ -74,22 +74,22 @@ public final class GetBrokerResult {
      */
     private String id;
     /**
-     * @return List of information about allocated brokers (both active &amp; standby). See Instances below.
+     * @return List of information about allocated brokers (both active &amp; standby). See `instances` Block below.
      * 
      */
     private List<GetBrokerInstance> instances;
     /**
-     * @return Configuration block for the LDAP server used to authenticate and authorize connections to the broker. See LDAP Server Metadata below.
+     * @return Configuration block for the LDAP server used to authenticate and authorize connections to the broker. See `ldapServerMetadata` Block below.
      * 
      */
     private List<GetBrokerLdapServerMetadata> ldapServerMetadatas;
     /**
-     * @return Configuration block for the logging configuration of the broker. See Logs below.
+     * @return Configuration block for the logging configuration of the broker. See `logs` Block below.
      * 
      */
     private GetBrokerLogs logs;
     /**
-     * @return Configuration block for the maintenance window start time. See Maintenance Window Start Time below.
+     * @return Configuration block for the maintenance window start time. See `maintenanceWindowStartTime` Block below.
      * 
      */
     private GetBrokerMaintenanceWindowStartTime maintenanceWindowStartTime;
@@ -110,7 +110,7 @@ public final class GetBrokerResult {
      */
     private List<String> securityGroups;
     /**
-     * @return List of resources shared with the broker. See Shared Resources below. Only populated for `engineType` of `RabbitMQ`.
+     * @return List of resources shared with the broker. See `sharedResources` Block below. Only populated for `engineType` of `RabbitMQ`.
      * 
      */
     private List<GetBrokerSharedResource> sharedResources;
@@ -130,7 +130,7 @@ public final class GetBrokerResult {
      */
     private Map<String,String> tags;
     /**
-     * @return Configuration block for broker users. See User below.
+     * @return Configuration block for broker users. See `user` Block below.
      * 
      */
     private List<GetBrokerUser> users;
@@ -164,7 +164,7 @@ public final class GetBrokerResult {
         return this.brokerName;
     }
     /**
-     * @return Configuration block for broker configuration. See Configuration below.
+     * @return Configuration block for broker configuration. See `configuration` Block below.
      * 
      */
     public GetBrokerConfiguration configuration() {
@@ -178,7 +178,7 @@ public final class GetBrokerResult {
         return this.deploymentMode;
     }
     /**
-     * @return Configuration block containing encryption options. See Encryption Options below.
+     * @return Configuration block containing encryption options. See `encryptionOptions` Block below.
      * 
      */
     public List<GetBrokerEncryptionOption> encryptionOptions() {
@@ -213,28 +213,28 @@ public final class GetBrokerResult {
         return this.id;
     }
     /**
-     * @return List of information about allocated brokers (both active &amp; standby). See Instances below.
+     * @return List of information about allocated brokers (both active &amp; standby). See `instances` Block below.
      * 
      */
     public List<GetBrokerInstance> instances() {
         return this.instances;
     }
     /**
-     * @return Configuration block for the LDAP server used to authenticate and authorize connections to the broker. See LDAP Server Metadata below.
+     * @return Configuration block for the LDAP server used to authenticate and authorize connections to the broker. See `ldapServerMetadata` Block below.
      * 
      */
     public List<GetBrokerLdapServerMetadata> ldapServerMetadatas() {
         return this.ldapServerMetadatas;
     }
     /**
-     * @return Configuration block for the logging configuration of the broker. See Logs below.
+     * @return Configuration block for the logging configuration of the broker. See `logs` Block below.
      * 
      */
     public GetBrokerLogs logs() {
         return this.logs;
     }
     /**
-     * @return Configuration block for the maintenance window start time. See Maintenance Window Start Time below.
+     * @return Configuration block for the maintenance window start time. See `maintenanceWindowStartTime` Block below.
      * 
      */
     public GetBrokerMaintenanceWindowStartTime maintenanceWindowStartTime() {
@@ -265,7 +265,7 @@ public final class GetBrokerResult {
         return this.securityGroups;
     }
     /**
-     * @return List of resources shared with the broker. See Shared Resources below. Only populated for `engineType` of `RabbitMQ`.
+     * @return List of resources shared with the broker. See `sharedResources` Block below. Only populated for `engineType` of `RabbitMQ`.
      * 
      */
     public List<GetBrokerSharedResource> sharedResources() {
@@ -293,7 +293,7 @@ public final class GetBrokerResult {
         return this.tags;
     }
     /**
-     * @return Configuration block for broker users. See User below.
+     * @return Configuration block for broker users. See `user` Block below.
      * 
      */
     public List<GetBrokerUser> users() {

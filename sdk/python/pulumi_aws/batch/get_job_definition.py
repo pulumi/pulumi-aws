@@ -99,7 +99,7 @@ class GetJobDefinitionResult:
     @pulumi.getter(name="eksProperties")
     def eks_properties(self) -> Sequence['outputs.GetJobDefinitionEksPropertyResult']:
         """
-        Object with various properties that are specific to Amazon EKS based jobs. This must not be specified for Amazon ECS based job definitions.
+        Properties that are specific to Amazon EKS based jobs. This must not be specified for Amazon ECS based job definitions. See `eks_properties` below.
         """
         return pulumi.get(self, "eks_properties")
 
@@ -123,7 +123,7 @@ class GetJobDefinitionResult:
     @pulumi.getter(name="nodeProperties")
     def node_properties(self) -> Sequence['outputs.GetJobDefinitionNodePropertyResult']:
         """
-        Object with various properties specific to multi-node parallel jobs. If you specify node properties for a job, it becomes a multi-node parallel job. For more information, see Multi-node Parallel Jobs in the AWS Batch User Guide. If the job definition's type parameter is container, then you must specify either containerProperties or nodeProperties.
+        Properties specific to multi-node parallel jobs. See `node_properties` below.
         """
         return pulumi.get(self, "node_properties")
 
@@ -136,7 +136,7 @@ class GetJobDefinitionResult:
     @pulumi.getter(name="retryStrategies")
     def retry_strategies(self) -> Sequence['outputs.GetJobDefinitionRetryStrategyResult']:
         """
-        Retry strategy to use for failed jobs that are submitted with this job definition. Any retry strategy that's specified during a SubmitJob operation overrides the retry strategy defined here. If a job is terminated due to a timeout, it isn't retried.
+        Retry strategy to use for failed jobs that are submitted with this job definition. See `retry_strategy` below.
         """
         return pulumi.get(self, "retry_strategies")
 
@@ -170,7 +170,7 @@ class GetJobDefinitionResult:
     @pulumi.getter
     def timeouts(self) -> Sequence['outputs.GetJobDefinitionTimeoutResult']:
         """
-        Timeout configuration for jobs that are submitted with this job definition, after which AWS Batch terminates your jobs if they have not finished. If a job is terminated due to a timeout, it isn't retried. The minimum value for the timeout is 60 seconds.
+        Timeout configuration for jobs that are submitted with this job definition, after which AWS Batch terminates your jobs if they have not finished. See `timeout` below.
         """
         return pulumi.get(self, "timeouts")
 

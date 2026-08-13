@@ -14,6 +14,7 @@ from .get_listener import *
 from .get_resource_policy import *
 from .get_service import *
 from .get_service_network import *
+from .get_service_network_service_associations import *
 from .listener import *
 from .listener_rule import *
 from .resource_configuration import *

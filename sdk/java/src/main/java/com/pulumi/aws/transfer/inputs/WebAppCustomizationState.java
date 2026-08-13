@@ -76,7 +76,7 @@ public final class WebAppCustomizationState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The identifier of the web app to be customized.
+     * Identifier of the web app to be customized.
      * 
      * The following arguments are optional:
      * 
@@ -85,7 +85,7 @@ public final class WebAppCustomizationState extends com.pulumi.resources.Resourc
     private @Nullable Output<String> webAppId;
 
     /**
-     * @return The identifier of the web app to be customized.
+     * @return Identifier of the web app to be customized.
      * 
      * The following arguments are optional:
      * 
@@ -207,7 +207,7 @@ public final class WebAppCustomizationState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param webAppId The identifier of the web app to be customized.
+         * @param webAppId Identifier of the web app to be customized.
          * 
          * The following arguments are optional:
          * 
@@ -220,7 +220,7 @@ public final class WebAppCustomizationState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param webAppId The identifier of the web app to be customized.
+         * @param webAppId Identifier of the web app to be customized.
          * 
          * The following arguments are optional:
          * 

@@ -158,7 +158,7 @@ class AgentcoreResourcePolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_agentcore_agent_runtime = aws.bedrock.AgentcoreAgentRuntime("example")
-        example = aws.iam.get_policy_document(statements=[{
+        example = aws.iam.get_policy_document_output(statements=[{
             "sid": "AllowOAuthFromVPC",
             "effect": "Allow",
             "actions": ["bedrock-agentcore:InvokeAgentRuntime"],
@@ -166,7 +166,7 @@ class AgentcoreResourcePolicy(pulumi.CustomResource):
                 "type": "*",
                 "identifiers": ["*"],
             }],
-            "resources": [agent_runtime["example"]["agentRuntimeArn"]],
+            "resources": [example_agentcore_agent_runtime.agent_runtime_arn],
             "conditions": [{
                 "test": "StringEquals",
                 "variable": "aws:SourceVpc",
@@ -219,7 +219,7 @@ class AgentcoreResourcePolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_agentcore_agent_runtime = aws.bedrock.AgentcoreAgentRuntime("example")
-        example = aws.iam.get_policy_document(statements=[{
+        example = aws.iam.get_policy_document_output(statements=[{
             "sid": "AllowOAuthFromVPC",
             "effect": "Allow",
             "actions": ["bedrock-agentcore:InvokeAgentRuntime"],
@@ -227,7 +227,7 @@ class AgentcoreResourcePolicy(pulumi.CustomResource):
                 "type": "*",
                 "identifiers": ["*"],
             }],
-            "resources": [agent_runtime["example"]["agentRuntimeArn"]],
+            "resources": [example_agentcore_agent_runtime.agent_runtime_arn],
             "conditions": [{
                 "test": "StringEquals",
                 "variable": "aws:SourceVpc",

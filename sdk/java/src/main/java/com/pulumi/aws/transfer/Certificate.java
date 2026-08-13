@@ -33,112 +33,112 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:transfer/certificate:Certificate")
 public class Certificate extends com.pulumi.resources.CustomResource {
     /**
-     * An date when the certificate becomes active
+     * Date when the certificate becomes active
      * 
      */
     @Export(name="activeDate", refs={String.class}, tree="[0]")
     private Output<String> activeDate;
 
     /**
-     * @return An date when the certificate becomes active
+     * @return Date when the certificate becomes active
      * 
      */
     public Output<String> activeDate() {
         return this.activeDate;
     }
     /**
-     * The ARN of the certificate
+     * ARN of the certificate
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the certificate
+     * @return ARN of the certificate
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The valid certificate file required for the transfer.
+     * Valid certificate file required for the transfer.
      * 
      */
     @Export(name="certificate", refs={String.class}, tree="[0]")
     private Output<String> certificate;
 
     /**
-     * @return The valid certificate file required for the transfer.
+     * @return Valid certificate file required for the transfer.
      * 
      */
     public Output<String> certificate() {
         return this.certificate;
     }
     /**
-     * The optional list of certificate that make up the chain for the certificate that is being imported.
+     * Optional list of certificate that make up the chain for the certificate that is being imported.
      * 
      */
     @Export(name="certificateChain", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> certificateChain;
 
     /**
-     * @return The optional list of certificate that make up the chain for the certificate that is being imported.
+     * @return Optional list of certificate that make up the chain for the certificate that is being imported.
      * 
      */
     public Output<Optional<String>> certificateChain() {
         return Codegen.optional(this.certificateChain);
     }
     /**
-     * The unique identifier for the AS2 certificate
+     * Unique identifier for the AS2 certificate
      * 
      */
     @Export(name="certificateId", refs={String.class}, tree="[0]")
     private Output<String> certificateId;
 
     /**
-     * @return The unique identifier for the AS2 certificate
+     * @return Unique identifier for the AS2 certificate
      * 
      */
     public Output<String> certificateId() {
         return this.certificateId;
     }
     /**
-     * A short description that helps identify the certificate.
+     * Short description that helps identify the certificate.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return A short description that helps identify the certificate.
+     * @return Short description that helps identify the certificate.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * An date when the certificate becomes inactive
+     * Date when the certificate becomes inactive
      * 
      */
     @Export(name="inactiveDate", refs={String.class}, tree="[0]")
     private Output<String> inactiveDate;
 
     /**
-     * @return An date when the certificate becomes inactive
+     * @return Date when the certificate becomes inactive
      * 
      */
     public Output<String> inactiveDate() {
         return this.inactiveDate;
     }
     /**
-     * The private key associated with the certificate being imported.
+     * Private key associated with the certificate being imported.
      * 
      */
     @Export(name="privateKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> privateKey;
 
     /**
-     * @return The private key associated with the certificate being imported.
+     * @return Private key associated with the certificate being imported.
      * 
      */
     public Output<Optional<String>> privateKey() {
@@ -159,14 +159,14 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
@@ -179,14 +179,14 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
+     * Whether a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
      * 
      */
     @Export(name="usage", refs={String.class}, tree="[0]")
     private Output<String> usage;
 
     /**
-     * @return Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
+     * @return Whether a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
      * 
      */
     public Output<String> usage() {

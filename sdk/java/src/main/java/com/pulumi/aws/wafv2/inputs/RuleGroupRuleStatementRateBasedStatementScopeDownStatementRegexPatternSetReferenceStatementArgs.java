@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.inputs;
 
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchArgs;
+import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -50,6 +51,21 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
     }
 
     /**
+     * Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+     * 
+     */
+    @Import(name="preParseTextTransformations")
+    private @Nullable Output<List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationArgs>> preParseTextTransformations;
+
+    /**
+     * @return Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+     * 
+     */
+    public Optional<Output<List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationArgs>>> preParseTextTransformations() {
+        return Optional.ofNullable(this.preParseTextTransformations);
+    }
+
+    /**
      * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
      * At least one required.
      * See Text Transformation below for details.
@@ -73,6 +89,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
     private RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementArgs(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementArgs $) {
         this.arn = $.arn;
         this.fieldToMatch = $.fieldToMatch;
+        this.preParseTextTransformations = $.preParseTextTransformations;
         this.textTransformations = $.textTransformations;
     }
 
@@ -134,6 +151,37 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
          */
         public Builder fieldToMatch(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchArgs fieldToMatch) {
             return fieldToMatch(Output.of(fieldToMatch));
+        }
+
+        /**
+         * @param preParseTextTransformations Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder preParseTextTransformations(@Nullable Output<List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationArgs>> preParseTextTransformations) {
+            $.preParseTextTransformations = preParseTextTransformations;
+            return this;
+        }
+
+        /**
+         * @param preParseTextTransformations Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder preParseTextTransformations(List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationArgs> preParseTextTransformations) {
+            return preParseTextTransformations(Output.of(preParseTextTransformations));
+        }
+
+        /**
+         * @param preParseTextTransformations Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder preParseTextTransformations(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationArgs... preParseTextTransformations) {
+            return preParseTextTransformations(List.of(preParseTextTransformations));
         }
 
         /**

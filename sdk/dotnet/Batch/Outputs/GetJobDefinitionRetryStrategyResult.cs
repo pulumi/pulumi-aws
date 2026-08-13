@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Batch.Outputs
         /// </summary>
         public readonly int Attempts;
         /// <summary>
-        /// Array of up to 5 objects that specify the conditions where jobs are retried or failed.
+        /// Conditions where jobs are retried or failed. See `EvaluateOnExit` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionRetryStrategyEvaluateOnExitResult> EvaluateOnExits;
 

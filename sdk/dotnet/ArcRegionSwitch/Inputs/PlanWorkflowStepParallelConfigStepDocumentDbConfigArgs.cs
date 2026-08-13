@@ -12,31 +12,54 @@ namespace Pulumi.Aws.ArcRegionSwitch.Inputs
 
     public sealed class PlanWorkflowStepParallelConfigStepDocumentDbConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Behavior for global cluster operations. Valid values: `switchoverOnly`, `Failover`.
+        /// </summary>
         [Input("behavior", required: true)]
         public Input<string> Behavior { get; set; } = null!;
 
+        /// <summary>
+        /// ARN of the cross-account role to assume.
+        /// </summary>
         [Input("crossAccountRole")]
         public Input<string>? CrossAccountRole { get; set; }
 
         [Input("databaseClusterArns", required: true)]
         private InputList<string>? _databaseClusterArns;
+
+        /// <summary>
+        /// List of DocumentDB cluster ARNs.
+        /// </summary>
         public InputList<string> DatabaseClusterArns
         {
             get => _databaseClusterArns ?? (_databaseClusterArns = new InputList<string>());
             set => _databaseClusterArns = value;
         }
 
+        /// <summary>
+        /// External ID for cross-account role assumption.
+        /// </summary>
         [Input("externalId")]
         public Input<string>? ExternalId { get; set; }
 
+        /// <summary>
+        /// Global cluster identifier.
+        /// </summary>
         [Input("globalClusterIdentifier", required: true)]
         public Input<string> GlobalClusterIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// Timeout in minutes.
+        /// </summary>
         [Input("timeoutMinutes")]
         public Input<int>? TimeoutMinutes { get; set; }
 
         [Input("ungracefuls")]
         private InputList<Inputs.PlanWorkflowStepParallelConfigStepDocumentDbConfigUngracefulArgs>? _ungracefuls;
+
+        /// <summary>
+        /// Ungraceful behavior configuration. See `workflow.step.document_db_config.ungraceful` Block for details.
+        /// </summary>
         public InputList<Inputs.PlanWorkflowStepParallelConfigStepDocumentDbConfigUngracefulArgs> Ungracefuls
         {
             get => _ungracefuls ?? (_ungracefuls = new InputList<Inputs.PlanWorkflowStepParallelConfigStepDocumentDbConfigUngracefulArgs>());

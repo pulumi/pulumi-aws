@@ -187,7 +187,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string> EndpointIpAddressRange { get; private set; } = null!;
 
         /// <summary>
-        /// Endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+        /// Endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See `Endpoints` below.
         /// </summary>
         [Output("endpoints")]
         public Output<ImmutableArray<Outputs.OntapFileSystemEndpoint>> Endpoints { get; private set; } = null!;
@@ -552,7 +552,7 @@ namespace Pulumi.Aws.Fsx
         private InputList<Inputs.OntapFileSystemEndpointGetArgs>? _endpoints;
 
         /// <summary>
-        /// Endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+        /// Endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See `Endpoints` below.
         /// </summary>
         public InputList<Inputs.OntapFileSystemEndpointGetArgs> Endpoints
         {

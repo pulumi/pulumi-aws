@@ -35,14 +35,14 @@ public final class VectorsVectorBucketState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Encryption configuration for the vector bucket. See Encryption Configuration below for more details.
+     * Encryption configuration for the vector bucket. See `encryptionConfiguration` below for more details.
      * 
      */
     @Import(name="encryptionConfigurations")
     private @Nullable Output<List<VectorsVectorBucketEncryptionConfigurationArgs>> encryptionConfigurations;
 
     /**
-     * @return Encryption configuration for the vector bucket. See Encryption Configuration below for more details.
+     * @return Encryption configuration for the vector bucket. See `encryptionConfiguration` below for more details.
      * 
      */
     public Optional<Output<List<VectorsVectorBucketEncryptionConfigurationArgs>>> encryptionConfigurations() {
@@ -196,7 +196,7 @@ public final class VectorsVectorBucketState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param encryptionConfigurations Encryption configuration for the vector bucket. See Encryption Configuration below for more details.
+         * @param encryptionConfigurations Encryption configuration for the vector bucket. See `encryptionConfiguration` below for more details.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class VectorsVectorBucketState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param encryptionConfigurations Encryption configuration for the vector bucket. See Encryption Configuration below for more details.
+         * @param encryptionConfigurations Encryption configuration for the vector bucket. See `encryptionConfiguration` below for more details.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class VectorsVectorBucketState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param encryptionConfigurations Encryption configuration for the vector bucket. See Encryption Configuration below for more details.
+         * @param encryptionConfigurations Encryption configuration for the vector bucket. See `encryptionConfiguration` below for more details.
          * 
          * @return builder
          * 

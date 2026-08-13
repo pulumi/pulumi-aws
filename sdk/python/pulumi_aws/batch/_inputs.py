@@ -690,7 +690,7 @@ class JobDefinitionEksPropertiesArgs:
 class JobDefinitionEksPropertiesPodPropertiesArgsDict(TypedDict):
     containers: pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesContainerArgsDict']]]
     """
-    Properties of the container that's used on the Amazon EKS pod. See containers below.
+    Properties of the container that's used on the Amazon EKS pod. See `containers` below.
     """
     dns_policy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -706,11 +706,11 @@ class JobDefinitionEksPropertiesPodPropertiesArgsDict(TypedDict):
     """
     init_containers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesInitContainerArgsDict']]]]]
     """
-    Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See containers below.
+    Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See `init_containers` below.
     """
     metadata: NotRequired[pulumi.Input[Optional['JobDefinitionEksPropertiesPodPropertiesMetadataArgsDict']]]
     """
-    Metadata about the Kubernetes pod.
+    Metadata about the Kubernetes pod. See `metadata` below.
     """
     service_account_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -718,11 +718,11 @@ class JobDefinitionEksPropertiesPodPropertiesArgsDict(TypedDict):
     """
     share_process_namespace: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Indicates if the processes in a container are shared, or visible, to other containers in the same pod.
+    Whether the processes in a container are shared, or visible, to other containers in the same pod.
     """
     volumes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesVolumeArgsDict']]]]]
     """
-    Volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
+    Volumes for a job definition that uses Amazon EKS resources. See `volumes` below.
     """
 
 @pulumi.input_type
@@ -738,15 +738,15 @@ class JobDefinitionEksPropertiesPodPropertiesArgs:
                  share_process_namespace: pulumi.Input[Optional[_builtins.bool]] = None,
                  volumes: pulumi.Input[Optional[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesVolumeArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesContainerArgs']]] containers: Properties of the container that's used on the Amazon EKS pod. See containers below.
+        :param pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesContainerArgs']]] containers: Properties of the container that's used on the Amazon EKS pod. See `containers` below.
         :param pulumi.Input[_builtins.str] dns_policy: DNS policy for the pod. The default value is `ClusterFirst`. If the `host_network` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod's DNS policy in the Kubernetes documentation.
         :param pulumi.Input[_builtins.bool] host_network: Whether the pod uses the hosts' network IP address. The default value is `true`. Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections.
         :param pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesImagePullSecretArgs']]] image_pull_secrets: List of Kubernetes secret resources. See `image_pull_secret` below.
-        :param pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesInitContainerArgs']]] init_containers: Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See containers below.
-        :param pulumi.Input['JobDefinitionEksPropertiesPodPropertiesMetadataArgs'] metadata: Metadata about the Kubernetes pod.
+        :param pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesInitContainerArgs']]] init_containers: Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See `init_containers` below.
+        :param pulumi.Input['JobDefinitionEksPropertiesPodPropertiesMetadataArgs'] metadata: Metadata about the Kubernetes pod. See `metadata` below.
         :param pulumi.Input[_builtins.str] service_account_name: Name of the service account that's used to run the pod.
-        :param pulumi.Input[_builtins.bool] share_process_namespace: Indicates if the processes in a container are shared, or visible, to other containers in the same pod.
-        :param pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesVolumeArgs']]] volumes: Volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
+        :param pulumi.Input[_builtins.bool] share_process_namespace: Whether the processes in a container are shared, or visible, to other containers in the same pod.
+        :param pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesVolumeArgs']]] volumes: Volumes for a job definition that uses Amazon EKS resources. See `volumes` below.
         """
         pulumi.set(__self__, "containers", containers)
         if dns_policy is not None:
@@ -770,7 +770,7 @@ class JobDefinitionEksPropertiesPodPropertiesArgs:
     @pulumi.getter
     def containers(self) -> pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesContainerArgs']]]:
         """
-        Properties of the container that's used on the Amazon EKS pod. See containers below.
+        Properties of the container that's used on the Amazon EKS pod. See `containers` below.
         """
         return pulumi.get(self, "containers")
 
@@ -818,7 +818,7 @@ class JobDefinitionEksPropertiesPodPropertiesArgs:
     @pulumi.getter(name="initContainers")
     def init_containers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesInitContainerArgs']]]]:
         """
-        Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See containers below.
+        Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See `init_containers` below.
         """
         return pulumi.get(self, "init_containers")
 
@@ -830,7 +830,7 @@ class JobDefinitionEksPropertiesPodPropertiesArgs:
     @pulumi.getter
     def metadata(self) -> pulumi.Input[Optional['JobDefinitionEksPropertiesPodPropertiesMetadataArgs']]:
         """
-        Metadata about the Kubernetes pod.
+        Metadata about the Kubernetes pod. See `metadata` below.
         """
         return pulumi.get(self, "metadata")
 
@@ -854,7 +854,7 @@ class JobDefinitionEksPropertiesPodPropertiesArgs:
     @pulumi.getter(name="shareProcessNamespace")
     def share_process_namespace(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Indicates if the processes in a container are shared, or visible, to other containers in the same pod.
+        Whether the processes in a container are shared, or visible, to other containers in the same pod.
         """
         return pulumi.get(self, "share_process_namespace")
 
@@ -866,7 +866,7 @@ class JobDefinitionEksPropertiesPodPropertiesArgs:
     @pulumi.getter
     def volumes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesVolumeArgs']]]]:
         """
-        Volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
+        Volumes for a job definition that uses Amazon EKS resources. See `volumes` below.
         """
         return pulumi.get(self, "volumes")
 
@@ -890,7 +890,7 @@ class JobDefinitionEksPropertiesPodPropertiesContainerArgsDict(TypedDict):
     """
     envs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesContainerEnvArgsDict']]]]]
     """
-    Environment variables to pass to a container. See EKS Environment below.
+    Environment variables to pass to a container. See `env` below.
     """
     image_pull_policy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -902,7 +902,7 @@ class JobDefinitionEksPropertiesPodPropertiesContainerArgsDict(TypedDict):
     """
     resources: NotRequired[pulumi.Input[Optional['JobDefinitionEksPropertiesPodPropertiesContainerResourcesArgsDict']]]
     """
-    Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
+    Type and amount of resources to assign to a container. See `resources` below.
     """
     security_context: NotRequired[pulumi.Input[Optional['JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextArgsDict']]]
     """
@@ -910,7 +910,7 @@ class JobDefinitionEksPropertiesPodPropertiesContainerArgsDict(TypedDict):
     """
     volume_mounts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesContainerVolumeMountArgsDict']]]]]
     """
-    Volume mounts for the container.
+    Volume mounts for the container. See `volume_mounts` below.
     """
 
 @pulumi.input_type
@@ -929,12 +929,12 @@ class JobDefinitionEksPropertiesPodPropertiesContainerArgs:
         :param pulumi.Input[_builtins.str] image: Docker image used to start the container.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] args: Array of arguments to the entrypoint. If this isn't specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container's environment.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] commands: Entrypoint for the container. This isn't run within a shell. If this isn't specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container's environment.
-        :param pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesContainerEnvArgs']]] envs: Environment variables to pass to a container. See EKS Environment below.
+        :param pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesContainerEnvArgs']]] envs: Environment variables to pass to a container. See `env` below.
         :param pulumi.Input[_builtins.str] image_pull_policy: Image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
         :param pulumi.Input[_builtins.str] name: Name of the container. If the name isn't specified, the default name "Default" is used. Each container in a pod must have a unique name.
-        :param pulumi.Input['JobDefinitionEksPropertiesPodPropertiesContainerResourcesArgs'] resources: Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
+        :param pulumi.Input['JobDefinitionEksPropertiesPodPropertiesContainerResourcesArgs'] resources: Type and amount of resources to assign to a container. See `resources` below.
         :param pulumi.Input['JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextArgs'] security_context: Security context for a job. See `security_context` below.
-        :param pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesContainerVolumeMountArgs']]] volume_mounts: Volume mounts for the container.
+        :param pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesContainerVolumeMountArgs']]] volume_mounts: Volume mounts for the container. See `volume_mounts` below.
         """
         pulumi.set(__self__, "image", image)
         if args is not None:
@@ -994,7 +994,7 @@ class JobDefinitionEksPropertiesPodPropertiesContainerArgs:
     @pulumi.getter
     def envs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesContainerEnvArgs']]]]:
         """
-        Environment variables to pass to a container. See EKS Environment below.
+        Environment variables to pass to a container. See `env` below.
         """
         return pulumi.get(self, "envs")
 
@@ -1030,7 +1030,7 @@ class JobDefinitionEksPropertiesPodPropertiesContainerArgs:
     @pulumi.getter
     def resources(self) -> pulumi.Input[Optional['JobDefinitionEksPropertiesPodPropertiesContainerResourcesArgs']]:
         """
-        Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
+        Type and amount of resources to assign to a container. See `resources` below.
         """
         return pulumi.get(self, "resources")
 
@@ -1054,7 +1054,7 @@ class JobDefinitionEksPropertiesPodPropertiesContainerArgs:
     @pulumi.getter(name="volumeMounts")
     def volume_mounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesContainerVolumeMountArgs']]]]:
         """
-        Volume mounts for the container.
+        Volume mounts for the container. See `volume_mounts` below.
         """
         return pulumi.get(self, "volume_mounts")
 
@@ -1066,7 +1066,7 @@ class JobDefinitionEksPropertiesPodPropertiesContainerArgs:
 class JobDefinitionEksPropertiesPodPropertiesContainerEnvArgsDict(TypedDict):
     name: pulumi.Input[_builtins.str]
     """
-    Name of the job definition.
+    Name of the environment variable.
     """
     value: pulumi.Input[_builtins.str]
     """
@@ -1079,7 +1079,7 @@ class JobDefinitionEksPropertiesPodPropertiesContainerEnvArgs:
                  name: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] name: Name of the job definition.
+        :param pulumi.Input[_builtins.str] name: Name of the environment variable.
         :param pulumi.Input[_builtins.str] value: Value of the environment variable.
         """
         pulumi.set(__self__, "name", name)
@@ -1089,7 +1089,7 @@ class JobDefinitionEksPropertiesPodPropertiesContainerEnvArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the job definition.
+        Name of the environment variable.
         """
         return pulumi.get(self, "name")
 
@@ -1112,13 +1112,23 @@ class JobDefinitionEksPropertiesPodPropertiesContainerEnvArgs:
 
 class JobDefinitionEksPropertiesPodPropertiesContainerResourcesArgsDict(TypedDict):
     limits: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    """
+    Type and quantity of the resources to reserve for the container. The values vary based on the name that's specified. Limits must be equal to or greater than requests.
+    """
     requests: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    """
+    Type and quantity of the resources to request for the container. The values vary based on the name that's specified.
+    """
 
 @pulumi.input_type
 class JobDefinitionEksPropertiesPodPropertiesContainerResourcesArgs:
     def __init__(__self__, *,
                  limits: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  requests: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] limits: Type and quantity of the resources to reserve for the container. The values vary based on the name that's specified. Limits must be equal to or greater than requests.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] requests: Type and quantity of the resources to request for the container. The values vary based on the name that's specified.
+        """
         if limits is not None:
             pulumi.set(__self__, "limits", limits)
         if requests is not None:
@@ -1127,6 +1137,9 @@ class JobDefinitionEksPropertiesPodPropertiesContainerResourcesArgs:
     @_builtins.property
     @pulumi.getter
     def limits(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Type and quantity of the resources to reserve for the container. The values vary based on the name that's specified. Limits must be equal to or greater than requests.
+        """
         return pulumi.get(self, "limits")
 
     @limits.setter
@@ -1136,6 +1149,9 @@ class JobDefinitionEksPropertiesPodPropertiesContainerResourcesArgs:
     @_builtins.property
     @pulumi.getter
     def requests(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Type and quantity of the resources to request for the container. The values vary based on the name that's specified.
+        """
         return pulumi.get(self, "requests")
 
     @requests.setter
@@ -1153,6 +1169,9 @@ class JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextArgsDict(Ty
     When this parameter is `true`, the container is given elevated permissions on the host container instance. The level of permissions are similar to the root user permissions. The default value is `false`.
     """
     read_only_root_file_system: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    When this parameter is `true`, the container is given read-only access to its root file system. The default value is `false`.
+    """
     run_as_group: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     When this parameter is specified, the container is run as the specified group ID (gid). If this parameter isn't specified, the default is the group that's specified in the image metadata.
@@ -1178,6 +1197,7 @@ class JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextArgs:
         """
         :param pulumi.Input[_builtins.bool] allow_privilege_escalation: Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent process. The default value is `false`.
         :param pulumi.Input[_builtins.bool] privileged: When this parameter is `true`, the container is given elevated permissions on the host container instance. The level of permissions are similar to the root user permissions. The default value is `false`.
+        :param pulumi.Input[_builtins.bool] read_only_root_file_system: When this parameter is `true`, the container is given read-only access to its root file system. The default value is `false`.
         :param pulumi.Input[_builtins.int] run_as_group: When this parameter is specified, the container is run as the specified group ID (gid). If this parameter isn't specified, the default is the group that's specified in the image metadata.
         :param pulumi.Input[_builtins.bool] run_as_non_root: When this parameter is specified, the container is run as a user with a uid other than 0. If this parameter isn't specified, so such rule is enforced.
         :param pulumi.Input[_builtins.int] run_as_user: When this parameter is specified, the container is run as the specified user ID (uid). If this parameter isn't specified, the default is the user that's specified in the image metadata.
@@ -1222,6 +1242,9 @@ class JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextArgs:
     @_builtins.property
     @pulumi.getter(name="readOnlyRootFileSystem")
     def read_only_root_file_system(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When this parameter is `true`, the container is given read-only access to its root file system. The default value is `false`.
+        """
         return pulumi.get(self, "read_only_root_file_system")
 
     @read_only_root_file_system.setter
@@ -1267,11 +1290,17 @@ class JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextArgs:
 
 class JobDefinitionEksPropertiesPodPropertiesContainerVolumeMountArgsDict(TypedDict):
     mount_path: pulumi.Input[_builtins.str]
+    """
+    Path on the container where the volume is mounted.
+    """
     name: pulumi.Input[_builtins.str]
     """
-    Name of the job definition.
+    Name the volume mount. This must match the name of one of the volumes in the pod.
     """
     read_only: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether the container has read-only access to the volume. The default value is `false`.
+    """
 
 @pulumi.input_type
 class JobDefinitionEksPropertiesPodPropertiesContainerVolumeMountArgs:
@@ -1280,7 +1309,9 @@ class JobDefinitionEksPropertiesPodPropertiesContainerVolumeMountArgs:
                  name: pulumi.Input[_builtins.str],
                  read_only: pulumi.Input[Optional[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.str] name: Name of the job definition.
+        :param pulumi.Input[_builtins.str] mount_path: Path on the container where the volume is mounted.
+        :param pulumi.Input[_builtins.str] name: Name the volume mount. This must match the name of one of the volumes in the pod.
+        :param pulumi.Input[_builtins.bool] read_only: Whether the container has read-only access to the volume. The default value is `false`.
         """
         pulumi.set(__self__, "mount_path", mount_path)
         pulumi.set(__self__, "name", name)
@@ -1290,6 +1321,9 @@ class JobDefinitionEksPropertiesPodPropertiesContainerVolumeMountArgs:
     @_builtins.property
     @pulumi.getter(name="mountPath")
     def mount_path(self) -> pulumi.Input[_builtins.str]:
+        """
+        Path on the container where the volume is mounted.
+        """
         return pulumi.get(self, "mount_path")
 
     @mount_path.setter
@@ -1300,7 +1334,7 @@ class JobDefinitionEksPropertiesPodPropertiesContainerVolumeMountArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the job definition.
+        Name the volume mount. This must match the name of one of the volumes in the pod.
         """
         return pulumi.get(self, "name")
 
@@ -1311,6 +1345,9 @@ class JobDefinitionEksPropertiesPodPropertiesContainerVolumeMountArgs:
     @_builtins.property
     @pulumi.getter(name="readOnly")
     def read_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether the container has read-only access to the volume. The default value is `false`.
+        """
         return pulumi.get(self, "read_only")
 
     @read_only.setter
@@ -1361,7 +1398,7 @@ class JobDefinitionEksPropertiesPodPropertiesInitContainerArgsDict(TypedDict):
     """
     envs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArgsDict']]]]]
     """
-    Environment variables to pass to a container. See EKS Environment below.
+    Environment variables to pass to a container. See `env` below.
     """
     image_pull_policy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -1369,11 +1406,11 @@ class JobDefinitionEksPropertiesPodPropertiesInitContainerArgsDict(TypedDict):
     """
     name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Name of the job definition.
+    Name of the container. If the name isn't specified, the default name "Default" is used. Each container in a pod must have a unique name.
     """
     resources: NotRequired[pulumi.Input[Optional['JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesArgsDict']]]
     """
-    Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
+    Type and amount of resources to assign to a container. See `resources` below.
     """
     security_context: NotRequired[pulumi.Input[Optional['JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgsDict']]]
     """
@@ -1381,7 +1418,7 @@ class JobDefinitionEksPropertiesPodPropertiesInitContainerArgsDict(TypedDict):
     """
     volume_mounts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArgsDict']]]]]
     """
-    Volume mounts for the container.
+    Volume mounts for the container. See `volume_mounts` below.
     """
 
 @pulumi.input_type
@@ -1400,12 +1437,12 @@ class JobDefinitionEksPropertiesPodPropertiesInitContainerArgs:
         :param pulumi.Input[_builtins.str] image: Docker image used to start the container.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] args: Array of arguments to the entrypoint. If this isn't specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container's environment.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] commands: Entrypoint for the container. This isn't run within a shell. If this isn't specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container's environment.
-        :param pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArgs']]] envs: Environment variables to pass to a container. See EKS Environment below.
+        :param pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArgs']]] envs: Environment variables to pass to a container. See `env` below.
         :param pulumi.Input[_builtins.str] image_pull_policy: Image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
-        :param pulumi.Input[_builtins.str] name: Name of the job definition.
-        :param pulumi.Input['JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesArgs'] resources: Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
+        :param pulumi.Input[_builtins.str] name: Name of the container. If the name isn't specified, the default name "Default" is used. Each container in a pod must have a unique name.
+        :param pulumi.Input['JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesArgs'] resources: Type and amount of resources to assign to a container. See `resources` below.
         :param pulumi.Input['JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs'] security_context: Security context for a job. See `security_context` below.
-        :param pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArgs']]] volume_mounts: Volume mounts for the container.
+        :param pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArgs']]] volume_mounts: Volume mounts for the container. See `volume_mounts` below.
         """
         pulumi.set(__self__, "image", image)
         if args is not None:
@@ -1465,7 +1502,7 @@ class JobDefinitionEksPropertiesPodPropertiesInitContainerArgs:
     @pulumi.getter
     def envs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArgs']]]]:
         """
-        Environment variables to pass to a container. See EKS Environment below.
+        Environment variables to pass to a container. See `env` below.
         """
         return pulumi.get(self, "envs")
 
@@ -1489,7 +1526,7 @@ class JobDefinitionEksPropertiesPodPropertiesInitContainerArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Name of the job definition.
+        Name of the container. If the name isn't specified, the default name "Default" is used. Each container in a pod must have a unique name.
         """
         return pulumi.get(self, "name")
 
@@ -1501,7 +1538,7 @@ class JobDefinitionEksPropertiesPodPropertiesInitContainerArgs:
     @pulumi.getter
     def resources(self) -> pulumi.Input[Optional['JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesArgs']]:
         """
-        Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
+        Type and amount of resources to assign to a container. See `resources` below.
         """
         return pulumi.get(self, "resources")
 
@@ -1525,7 +1562,7 @@ class JobDefinitionEksPropertiesPodPropertiesInitContainerArgs:
     @pulumi.getter(name="volumeMounts")
     def volume_mounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArgs']]]]:
         """
-        Volume mounts for the container.
+        Volume mounts for the container. See `volume_mounts` below.
         """
         return pulumi.get(self, "volume_mounts")
 
@@ -1537,7 +1574,7 @@ class JobDefinitionEksPropertiesPodPropertiesInitContainerArgs:
 class JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArgsDict(TypedDict):
     name: pulumi.Input[_builtins.str]
     """
-    Name of the job definition.
+    Name of the environment variable.
     """
     value: pulumi.Input[_builtins.str]
     """
@@ -1550,7 +1587,7 @@ class JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArgs:
                  name: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] name: Name of the job definition.
+        :param pulumi.Input[_builtins.str] name: Name of the environment variable.
         :param pulumi.Input[_builtins.str] value: Value of the environment variable.
         """
         pulumi.set(__self__, "name", name)
@@ -1560,7 +1597,7 @@ class JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the job definition.
+        Name of the environment variable.
         """
         return pulumi.get(self, "name")
 
@@ -1583,13 +1620,23 @@ class JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArgs:
 
 class JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesArgsDict(TypedDict):
     limits: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    """
+    Type and quantity of the resources to reserve for the container. The values vary based on the name that's specified. Limits must be equal to or greater than requests.
+    """
     requests: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    """
+    Type and quantity of the resources to request for the container. The values vary based on the name that's specified.
+    """
 
 @pulumi.input_type
 class JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesArgs:
     def __init__(__self__, *,
                  limits: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  requests: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] limits: Type and quantity of the resources to reserve for the container. The values vary based on the name that's specified. Limits must be equal to or greater than requests.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] requests: Type and quantity of the resources to request for the container. The values vary based on the name that's specified.
+        """
         if limits is not None:
             pulumi.set(__self__, "limits", limits)
         if requests is not None:
@@ -1598,6 +1645,9 @@ class JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesArgs:
     @_builtins.property
     @pulumi.getter
     def limits(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Type and quantity of the resources to reserve for the container. The values vary based on the name that's specified. Limits must be equal to or greater than requests.
+        """
         return pulumi.get(self, "limits")
 
     @limits.setter
@@ -1607,6 +1657,9 @@ class JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesArgs:
     @_builtins.property
     @pulumi.getter
     def requests(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Type and quantity of the resources to request for the container. The values vary based on the name that's specified.
+        """
         return pulumi.get(self, "requests")
 
     @requests.setter
@@ -1624,6 +1677,9 @@ class JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgsDic
     When this parameter is `true`, the container is given elevated permissions on the host container instance. The level of permissions are similar to the root user permissions. The default value is `false`.
     """
     read_only_root_file_system: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    When this parameter is `true`, the container is given read-only access to its root file system. The default value is `false`.
+    """
     run_as_group: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     When this parameter is specified, the container is run as the specified group ID (gid). If this parameter isn't specified, the default is the group that's specified in the image metadata.
@@ -1649,6 +1705,7 @@ class JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs:
         """
         :param pulumi.Input[_builtins.bool] allow_privilege_escalation: Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent process. The default value is `false`.
         :param pulumi.Input[_builtins.bool] privileged: When this parameter is `true`, the container is given elevated permissions on the host container instance. The level of permissions are similar to the root user permissions. The default value is `false`.
+        :param pulumi.Input[_builtins.bool] read_only_root_file_system: When this parameter is `true`, the container is given read-only access to its root file system. The default value is `false`.
         :param pulumi.Input[_builtins.int] run_as_group: When this parameter is specified, the container is run as the specified group ID (gid). If this parameter isn't specified, the default is the group that's specified in the image metadata.
         :param pulumi.Input[_builtins.bool] run_as_non_root: When this parameter is specified, the container is run as a user with a uid other than 0. If this parameter isn't specified, so such rule is enforced.
         :param pulumi.Input[_builtins.int] run_as_user: When this parameter is specified, the container is run as the specified user ID (uid). If this parameter isn't specified, the default is the user that's specified in the image metadata.
@@ -1693,6 +1750,9 @@ class JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs:
     @_builtins.property
     @pulumi.getter(name="readOnlyRootFileSystem")
     def read_only_root_file_system(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When this parameter is `true`, the container is given read-only access to its root file system. The default value is `false`.
+        """
         return pulumi.get(self, "read_only_root_file_system")
 
     @read_only_root_file_system.setter
@@ -1738,11 +1798,17 @@ class JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs:
 
 class JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArgsDict(TypedDict):
     mount_path: pulumi.Input[_builtins.str]
+    """
+    Path on the container where the volume is mounted.
+    """
     name: pulumi.Input[_builtins.str]
     """
-    Name of the job definition.
+    Name the volume mount. This must match the name of one of the volumes in the pod.
     """
     read_only: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether the container has read-only access to the volume. The default value is `false`.
+    """
 
 @pulumi.input_type
 class JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArgs:
@@ -1751,7 +1817,9 @@ class JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArgs:
                  name: pulumi.Input[_builtins.str],
                  read_only: pulumi.Input[Optional[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.str] name: Name of the job definition.
+        :param pulumi.Input[_builtins.str] mount_path: Path on the container where the volume is mounted.
+        :param pulumi.Input[_builtins.str] name: Name the volume mount. This must match the name of one of the volumes in the pod.
+        :param pulumi.Input[_builtins.bool] read_only: Whether the container has read-only access to the volume. The default value is `false`.
         """
         pulumi.set(__self__, "mount_path", mount_path)
         pulumi.set(__self__, "name", name)
@@ -1761,6 +1829,9 @@ class JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArgs:
     @_builtins.property
     @pulumi.getter(name="mountPath")
     def mount_path(self) -> pulumi.Input[_builtins.str]:
+        """
+        Path on the container where the volume is mounted.
+        """
         return pulumi.get(self, "mount_path")
 
     @mount_path.setter
@@ -1771,7 +1842,7 @@ class JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the job definition.
+        Name the volume mount. This must match the name of one of the volumes in the pod.
         """
         return pulumi.get(self, "name")
 
@@ -1782,6 +1853,9 @@ class JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArgs:
     @_builtins.property
     @pulumi.getter(name="readOnly")
     def read_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether the container has read-only access to the volume. The default value is `false`.
+        """
         return pulumi.get(self, "read_only")
 
     @read_only.setter
@@ -1820,12 +1894,21 @@ class JobDefinitionEksPropertiesPodPropertiesMetadataArgs:
 
 class JobDefinitionEksPropertiesPodPropertiesVolumeArgsDict(TypedDict):
     empty_dir: NotRequired[pulumi.Input[Optional['JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirArgsDict']]]
+    """
+    Empty directory to mount on the pod. See `empty_dir` below.
+    """
     host_path: NotRequired[pulumi.Input[Optional['JobDefinitionEksPropertiesPodPropertiesVolumeHostPathArgsDict']]]
+    """
+    Path on the host that's mounted to the pod. See `host_path` below.
+    """
     name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Name of the job definition.
+    Name of the volume. The name must be allowed as a DNS subdomain name.
     """
     secret: NotRequired[pulumi.Input[Optional['JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgsDict']]]
+    """
+    Secret to mount as a volume. See `secret` below.
+    """
 
 @pulumi.input_type
 class JobDefinitionEksPropertiesPodPropertiesVolumeArgs:
@@ -1835,7 +1918,10 @@ class JobDefinitionEksPropertiesPodPropertiesVolumeArgs:
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  secret: pulumi.Input[Optional['JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgs']] = None):
         """
-        :param pulumi.Input[_builtins.str] name: Name of the job definition.
+        :param pulumi.Input['JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirArgs'] empty_dir: Empty directory to mount on the pod. See `empty_dir` below.
+        :param pulumi.Input['JobDefinitionEksPropertiesPodPropertiesVolumeHostPathArgs'] host_path: Path on the host that's mounted to the pod. See `host_path` below.
+        :param pulumi.Input[_builtins.str] name: Name of the volume. The name must be allowed as a DNS subdomain name.
+        :param pulumi.Input['JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgs'] secret: Secret to mount as a volume. See `secret` below.
         """
         if empty_dir is not None:
             pulumi.set(__self__, "empty_dir", empty_dir)
@@ -1849,6 +1935,9 @@ class JobDefinitionEksPropertiesPodPropertiesVolumeArgs:
     @_builtins.property
     @pulumi.getter(name="emptyDir")
     def empty_dir(self) -> pulumi.Input[Optional['JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirArgs']]:
+        """
+        Empty directory to mount on the pod. See `empty_dir` below.
+        """
         return pulumi.get(self, "empty_dir")
 
     @empty_dir.setter
@@ -1858,6 +1947,9 @@ class JobDefinitionEksPropertiesPodPropertiesVolumeArgs:
     @_builtins.property
     @pulumi.getter(name="hostPath")
     def host_path(self) -> pulumi.Input[Optional['JobDefinitionEksPropertiesPodPropertiesVolumeHostPathArgs']]:
+        """
+        Path on the host that's mounted to the pod. See `host_path` below.
+        """
         return pulumi.get(self, "host_path")
 
     @host_path.setter
@@ -1868,7 +1960,7 @@ class JobDefinitionEksPropertiesPodPropertiesVolumeArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Name of the job definition.
+        Name of the volume. The name must be allowed as a DNS subdomain name.
         """
         return pulumi.get(self, "name")
 
@@ -1879,6 +1971,9 @@ class JobDefinitionEksPropertiesPodPropertiesVolumeArgs:
     @_builtins.property
     @pulumi.getter
     def secret(self) -> pulumi.Input[Optional['JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgs']]:
+        """
+        Secret to mount as a volume. See `secret` below.
+        """
         return pulumi.get(self, "secret")
 
     @secret.setter

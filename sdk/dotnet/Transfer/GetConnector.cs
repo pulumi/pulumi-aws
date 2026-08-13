@@ -164,7 +164,7 @@ namespace Pulumi.Aws.Transfer
         /// </summary>
         public readonly ImmutableArray<Outputs.GetConnectorSftpConfigResult> SftpConfigs;
         /// <summary>
-        /// Object containing the following attributes:
+        /// Map of tags assigned to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>

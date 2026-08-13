@@ -26,11 +26,11 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly ImmutableArray<string> AllowedScopes;
         /// <summary>
-        /// Configuration restricting which workloads may use this authorizer. See `AllowedWorkloadConfiguration` below.
+        /// Configuration restricting which workloads may use this authorizer. See `AllowedWorkloadConfiguration` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration? AllowedWorkloadConfiguration;
         /// <summary>
-        /// Repeatable block to define a custom claim validation name, value, and operation. See `CustomClaim` below.
+        /// Repeatable block to define a custom claim validation name, value, and operation. See `CustomClaim` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaim> CustomClaims;
         /// <summary>
@@ -38,11 +38,11 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string DiscoveryUrl;
         /// <summary>
-        /// Private endpoint used to reach the authorization server. See `PrivateEndpoint` below.
+        /// Private endpoint used to reach the authorization server. See `PrivateEndpoint` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint? PrivateEndpoint;
         /// <summary>
-        /// Overrides for the private endpoints used to reach the authorization server. See `PrivateEndpointOverrides` below.
+        /// Overrides for the private endpoints used to reach the authorization server. See `PrivateEndpointOverrides` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride> PrivateEndpointOverrides;
 

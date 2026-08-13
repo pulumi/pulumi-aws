@@ -17,31 +17,47 @@ public final class JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMou
 
     public static final JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArgs Empty = new JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArgs();
 
+    /**
+     * Path on the container where the volume is mounted.
+     * 
+     */
     @Import(name="mountPath", required=true)
     private Output<String> mountPath;
 
+    /**
+     * @return Path on the container where the volume is mounted.
+     * 
+     */
     public Output<String> mountPath() {
         return this.mountPath;
     }
 
     /**
-     * Name of the job definition.
+     * Name the volume mount. This must match the name of one of the volumes in the pod.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the job definition.
+     * @return Name the volume mount. This must match the name of one of the volumes in the pod.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * Whether the container has read-only access to the volume. The default value is `false`.
+     * 
+     */
     @Import(name="readOnly")
     private @Nullable Output<Boolean> readOnly;
 
+    /**
+     * @return Whether the container has read-only access to the volume. The default value is `false`.
+     * 
+     */
     public Optional<Output<Boolean>> readOnly() {
         return Optional.ofNullable(this.readOnly);
     }
@@ -72,17 +88,29 @@ public final class JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMou
             $ = new JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param mountPath Path on the container where the volume is mounted.
+         * 
+         * @return builder
+         * 
+         */
         public Builder mountPath(Output<String> mountPath) {
             $.mountPath = mountPath;
             return this;
         }
 
+        /**
+         * @param mountPath Path on the container where the volume is mounted.
+         * 
+         * @return builder
+         * 
+         */
         public Builder mountPath(String mountPath) {
             return mountPath(Output.of(mountPath));
         }
 
         /**
-         * @param name Name of the job definition.
+         * @param name Name the volume mount. This must match the name of one of the volumes in the pod.
          * 
          * @return builder
          * 
@@ -93,7 +121,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMou
         }
 
         /**
-         * @param name Name of the job definition.
+         * @param name Name the volume mount. This must match the name of one of the volumes in the pod.
          * 
          * @return builder
          * 
@@ -102,11 +130,23 @@ public final class JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMou
             return name(Output.of(name));
         }
 
+        /**
+         * @param readOnly Whether the container has read-only access to the volume. The default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder readOnly(@Nullable Output<Boolean> readOnly) {
             $.readOnly = readOnly;
             return this;
         }
 
+        /**
+         * @param readOnly Whether the container has read-only access to the volume. The default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder readOnly(Boolean readOnly) {
             return readOnly(Output.of(readOnly));
         }

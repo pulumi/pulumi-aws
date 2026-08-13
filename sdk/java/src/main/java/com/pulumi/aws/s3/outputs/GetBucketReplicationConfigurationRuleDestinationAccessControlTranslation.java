@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetBucketReplicationConfigurationRuleDestinationAccessControlTranslation {
+    /**
+     * @return Replica ownership.
+     * 
+     */
     private String owner;
 
     private GetBucketReplicationConfigurationRuleDestinationAccessControlTranslation() {}
+    /**
+     * @return Replica ownership.
+     * 
+     */
     public String owner() {
         return this.owner;
     }

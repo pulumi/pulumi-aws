@@ -38,14 +38,14 @@ public final class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigArg
     }
 
     /**
-     * List of EKS clusters. See EKS Clusters below.
+     * EKS clusters. See `eksClusters` Block for details.
      * 
      */
     @Import(name="eksClusters")
     private @Nullable Output<List<PlanWorkflowStepParallelConfigStepEksResourceScalingConfigEksClusterArgs>> eksClusters;
 
     /**
-     * @return List of EKS clusters. See EKS Clusters below.
+     * @return EKS clusters. See `eksClusters` Block for details.
      * 
      */
     public Optional<Output<List<PlanWorkflowStepParallelConfigStepEksResourceScalingConfigEksClusterArgs>>> eksClusters() {
@@ -53,14 +53,14 @@ public final class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigArg
     }
 
     /**
-     * Kubernetes resource type. See Kubernetes Resource Type below.
+     * Kubernetes resource type. See `kubernetesResourceType` Block for details.
      * 
      */
     @Import(name="kubernetesResourceTypes")
     private @Nullable Output<List<PlanWorkflowStepParallelConfigStepEksResourceScalingConfigKubernetesResourceTypeArgs>> kubernetesResourceTypes;
 
     /**
-     * @return Kubernetes resource type. See Kubernetes Resource Type below.
+     * @return Kubernetes resource type. See `kubernetesResourceType` Block for details.
      * 
      */
     public Optional<Output<List<PlanWorkflowStepParallelConfigStepEksResourceScalingConfigKubernetesResourceTypeArgs>>> kubernetesResourceTypes() {
@@ -68,14 +68,14 @@ public final class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigArg
     }
 
     /**
-     * List of scaling resources. See Scaling Resources below.
+     * Scaling resources. See `scalingResources` Block for details.
      * 
      */
     @Import(name="scalingResources")
     private @Nullable Output<List<PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResourceArgs>> scalingResources;
 
     /**
-     * @return List of scaling resources. See Scaling Resources below.
+     * @return Scaling resources. See `scalingResources` Block for details.
      * 
      */
     public Optional<Output<List<PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResourceArgs>>> scalingResources() {
@@ -113,14 +113,14 @@ public final class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigArg
     }
 
     /**
-     * Ungraceful behavior configuration. See Ungraceful Capacity below.
+     * Ungraceful behavior configuration. See `workflow.step.eks_resource_scaling_config.ungraceful` Block for details.
      * 
      */
     @Import(name="ungracefuls")
     private @Nullable Output<List<PlanWorkflowStepParallelConfigStepEksResourceScalingConfigUngracefulArgs>> ungracefuls;
 
     /**
-     * @return Ungraceful behavior configuration. See Ungraceful Capacity below.
+     * @return Ungraceful behavior configuration. See `workflow.step.eks_resource_scaling_config.ungraceful` Block for details.
      * 
      */
     public Optional<Output<List<PlanWorkflowStepParallelConfigStepEksResourceScalingConfigUngracefulArgs>>> ungracefuls() {
@@ -179,7 +179,7 @@ public final class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigArg
         }
 
         /**
-         * @param eksClusters List of EKS clusters. See EKS Clusters below.
+         * @param eksClusters EKS clusters. See `eksClusters` Block for details.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigArg
         }
 
         /**
-         * @param eksClusters List of EKS clusters. See EKS Clusters below.
+         * @param eksClusters EKS clusters. See `eksClusters` Block for details.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigArg
         }
 
         /**
-         * @param eksClusters List of EKS clusters. See EKS Clusters below.
+         * @param eksClusters EKS clusters. See `eksClusters` Block for details.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigArg
         }
 
         /**
-         * @param kubernetesResourceTypes Kubernetes resource type. See Kubernetes Resource Type below.
+         * @param kubernetesResourceTypes Kubernetes resource type. See `kubernetesResourceType` Block for details.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigArg
         }
 
         /**
-         * @param kubernetesResourceTypes Kubernetes resource type. See Kubernetes Resource Type below.
+         * @param kubernetesResourceTypes Kubernetes resource type. See `kubernetesResourceType` Block for details.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigArg
         }
 
         /**
-         * @param kubernetesResourceTypes Kubernetes resource type. See Kubernetes Resource Type below.
+         * @param kubernetesResourceTypes Kubernetes resource type. See `kubernetesResourceType` Block for details.
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigArg
         }
 
         /**
-         * @param scalingResources List of scaling resources. See Scaling Resources below.
+         * @param scalingResources Scaling resources. See `scalingResources` Block for details.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigArg
         }
 
         /**
-         * @param scalingResources List of scaling resources. See Scaling Resources below.
+         * @param scalingResources Scaling resources. See `scalingResources` Block for details.
          * 
          * @return builder
          * 
@@ -262,7 +262,7 @@ public final class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigArg
         }
 
         /**
-         * @param scalingResources List of scaling resources. See Scaling Resources below.
+         * @param scalingResources Scaling resources. See `scalingResources` Block for details.
          * 
          * @return builder
          * 
@@ -314,7 +314,7 @@ public final class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigArg
         }
 
         /**
-         * @param ungracefuls Ungraceful behavior configuration. See Ungraceful Capacity below.
+         * @param ungracefuls Ungraceful behavior configuration. See `workflow.step.eks_resource_scaling_config.ungraceful` Block for details.
          * 
          * @return builder
          * 
@@ -325,7 +325,7 @@ public final class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigArg
         }
 
         /**
-         * @param ungracefuls Ungraceful behavior configuration. See Ungraceful Capacity below.
+         * @param ungracefuls Ungraceful behavior configuration. See `workflow.step.eks_resource_scaling_config.ungraceful` Block for details.
          * 
          * @return builder
          * 
@@ -335,7 +335,7 @@ public final class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigArg
         }
 
         /**
-         * @param ungracefuls Ungraceful behavior configuration. See Ungraceful Capacity below.
+         * @param ungracefuls Ungraceful behavior configuration. See `workflow.step.eks_resource_scaling_config.ungraceful` Block for details.
          * 
          * @return builder
          * 

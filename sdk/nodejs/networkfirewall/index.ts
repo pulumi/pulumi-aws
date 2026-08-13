@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { ContainerAssociationArgs, ContainerAssociationState } from "./containerAssociation";
+export type ContainerAssociation = import("./containerAssociation").ContainerAssociation;
+export const ContainerAssociation: typeof import("./containerAssociation").ContainerAssociation = null as any;
+utilities.lazyLoad(exports, ["ContainerAssociation"], () => require("./containerAssociation"));
+
 export { FirewallArgs, FirewallState } from "./firewall";
 export type Firewall = import("./firewall").Firewall;
 export const Firewall: typeof import("./firewall").Firewall = null as any;
@@ -65,6 +70,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:networkfirewall/containerAssociation:ContainerAssociation":
+                return new ContainerAssociation(name, <any>undefined, { urn })
             case "aws:networkfirewall/firewall:Firewall":
                 return new Firewall(name, <any>undefined, { urn })
             case "aws:networkfirewall/firewallPolicy:FirewallPolicy":
@@ -86,6 +93,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "networkfirewall/containerAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "networkfirewall/firewall", _module)
 pulumi.runtime.registerResourceModule("aws", "networkfirewall/firewallPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "networkfirewall/firewallTransitGatewayAttachmentAccepter", _module)

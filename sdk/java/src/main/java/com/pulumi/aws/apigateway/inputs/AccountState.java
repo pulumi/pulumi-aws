@@ -78,14 +78,14 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Account-Level throttle settings, including the burst limit (absolute maximum number of times API Gateway allows the API to be called per second) and the rate limit (number of times API Gateway allows the API to be called per second on average).
+     * Account-Level throttle settings. See `throttleSettings` Block below.
      * 
      */
     @Import(name="throttleSettings")
     private @Nullable Output<List<AccountThrottleSettingArgs>> throttleSettings;
 
     /**
-     * @return Account-Level throttle settings, including the burst limit (absolute maximum number of times API Gateway allows the API to be called per second) and the rate limit (number of times API Gateway allows the API to be called per second on average).
+     * @return Account-Level throttle settings. See `throttleSettings` Block below.
      * 
      */
     public Optional<Output<List<AccountThrottleSettingArgs>>> throttleSettings() {
@@ -215,7 +215,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param throttleSettings Account-Level throttle settings, including the burst limit (absolute maximum number of times API Gateway allows the API to be called per second) and the rate limit (number of times API Gateway allows the API to be called per second on average).
+         * @param throttleSettings Account-Level throttle settings. See `throttleSettings` Block below.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param throttleSettings Account-Level throttle settings, including the burst limit (absolute maximum number of times API Gateway allows the API to be called per second) and the rate limit (number of times API Gateway allows the API to be called per second on average).
+         * @param throttleSettings Account-Level throttle settings. See `throttleSettings` Block below.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param throttleSettings Account-Level throttle settings, including the burst limit (absolute maximum number of times API Gateway allows the API to be called per second) and the rate limit (number of times API Gateway allows the API to be called per second on average).
+         * @param throttleSettings Account-Level throttle settings. See `throttleSettings` Block below.
          * 
          * @return builder
          * 

@@ -16,14 +16,14 @@ public final class AgentcoreHarnessEnvironmentArtifactArgs extends com.pulumi.re
     public static final AgentcoreHarnessEnvironmentArtifactArgs Empty = new AgentcoreHarnessEnvironmentArtifactArgs();
 
     /**
-     * Container configuration. See `containerConfiguration` below.
+     * Container configuration. See `containerConfiguration` Block below.
      * 
      */
     @Import(name="containerConfiguration")
     private @Nullable Output<AgentcoreHarnessEnvironmentArtifactContainerConfigurationArgs> containerConfiguration;
 
     /**
-     * @return Container configuration. See `containerConfiguration` below.
+     * @return Container configuration. See `containerConfiguration` Block below.
      * 
      */
     public Optional<Output<AgentcoreHarnessEnvironmentArtifactContainerConfigurationArgs>> containerConfiguration() {
@@ -55,7 +55,7 @@ public final class AgentcoreHarnessEnvironmentArtifactArgs extends com.pulumi.re
         }
 
         /**
-         * @param containerConfiguration Container configuration. See `containerConfiguration` below.
+         * @param containerConfiguration Container configuration. See `containerConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class AgentcoreHarnessEnvironmentArtifactArgs extends com.pulumi.re
         }
 
         /**
-         * @param containerConfiguration Container configuration. See `containerConfiguration` below.
+         * @param containerConfiguration Container configuration. See `containerConfiguration` Block below.
          * 
          * @return builder
          * 

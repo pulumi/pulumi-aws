@@ -27,7 +27,7 @@ class WebAppCustomizationArgs:
         """
         The set of arguments for constructing a WebAppCustomization resource.
 
-        :param pulumi.Input[_builtins.str] web_app_id: The identifier of the web app to be customized.
+        :param pulumi.Input[_builtins.str] web_app_id: Identifier of the web app to be customized.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] favicon_file: Base64-encoded string representing the favicon image. Terraform will detect drift only if this argument is specified. To remove the favicon, recreate the resource.
@@ -49,7 +49,7 @@ class WebAppCustomizationArgs:
     @pulumi.getter(name="webAppId")
     def web_app_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The identifier of the web app to be customized.
+        Identifier of the web app to be customized.
 
         The following arguments are optional:
         """
@@ -123,7 +123,7 @@ class _WebAppCustomizationState:
         :param pulumi.Input[_builtins.str] logo_file: Base64-encoded string representing the logo image. Terraform will detect drift only if this argument is specified. To remove the logo, recreate the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] title: Title of the web app. Must be between 1 and 100 characters in length (an empty string is not allowed). To remove the title, omit this argument from your configuration.
-        :param pulumi.Input[_builtins.str] web_app_id: The identifier of the web app to be customized.
+        :param pulumi.Input[_builtins.str] web_app_id: Identifier of the web app to be customized.
                
                The following arguments are optional:
         """
@@ -190,7 +190,7 @@ class _WebAppCustomizationState:
     @pulumi.getter(name="webAppId")
     def web_app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The identifier of the web app to be customized.
+        Identifier of the web app to be customized.
 
         The following arguments are optional:
         """
@@ -233,7 +233,7 @@ class WebAppCustomization(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] logo_file: Base64-encoded string representing the logo image. Terraform will detect drift only if this argument is specified. To remove the logo, recreate the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] title: Title of the web app. Must be between 1 and 100 characters in length (an empty string is not allowed). To remove the title, omit this argument from your configuration.
-        :param pulumi.Input[_builtins.str] web_app_id: The identifier of the web app to be customized.
+        :param pulumi.Input[_builtins.str] web_app_id: Identifier of the web app to be customized.
                
                The following arguments are optional:
         """
@@ -319,7 +319,7 @@ class WebAppCustomization(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] logo_file: Base64-encoded string representing the logo image. Terraform will detect drift only if this argument is specified. To remove the logo, recreate the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] title: Title of the web app. Must be between 1 and 100 characters in length (an empty string is not allowed). To remove the title, omit this argument from your configuration.
-        :param pulumi.Input[_builtins.str] web_app_id: The identifier of the web app to be customized.
+        :param pulumi.Input[_builtins.str] web_app_id: Identifier of the web app to be customized.
                
                The following arguments are optional:
         """
@@ -370,7 +370,7 @@ class WebAppCustomization(pulumi.CustomResource):
     @pulumi.getter(name="webAppId")
     def web_app_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The identifier of the web app to be customized.
+        Identifier of the web app to be customized.
 
         The following arguments are optional:
         """

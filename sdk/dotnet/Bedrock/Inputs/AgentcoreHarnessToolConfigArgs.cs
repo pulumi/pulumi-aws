@@ -13,31 +13,31 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentcoreHarnessToolConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// AgentCore browser configuration. See `AgentcoreBrowser` below.
+        /// AgentCore browser configuration. See `AgentcoreBrowser` Block below.
         /// </summary>
         [Input("agentcoreBrowser")]
         public Input<Inputs.AgentcoreHarnessToolConfigAgentcoreBrowserArgs>? AgentcoreBrowser { get; set; }
 
         /// <summary>
-        /// AgentCore code interpreter configuration. See `AgentcoreCodeInterpreter` below.
+        /// AgentCore code interpreter configuration. See `AgentcoreCodeInterpreter` Block below.
         /// </summary>
         [Input("agentcoreCodeInterpreter")]
         public Input<Inputs.AgentcoreHarnessToolConfigAgentcoreCodeInterpreterArgs>? AgentcoreCodeInterpreter { get; set; }
 
         /// <summary>
-        /// AgentCore gateway configuration. See `AgentcoreGateway` below.
+        /// AgentCore gateway configuration. See `AgentcoreGateway` Block below.
         /// </summary>
         [Input("agentcoreGateway")]
         public Input<Inputs.AgentcoreHarnessToolConfigAgentcoreGatewayArgs>? AgentcoreGateway { get; set; }
 
         /// <summary>
-        /// Inline function configuration. See `InlineFunction` below.
+        /// Inline function configuration. See `InlineFunction` Block below.
         /// </summary>
         [Input("inlineFunction")]
         public Input<Inputs.AgentcoreHarnessToolConfigInlineFunctionArgs>? InlineFunction { get; set; }
 
         /// <summary>
-        /// Remote MCP server configuration. See `RemoteMcp` below.
+        /// Remote MCP server configuration. See `RemoteMcp` Block below.
         /// </summary>
         [Input("remoteMcp")]
         public Input<Inputs.AgentcoreHarnessToolConfigRemoteMcpArgs>? RemoteMcp { get; set; }

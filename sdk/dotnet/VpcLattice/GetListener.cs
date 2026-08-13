@@ -171,7 +171,7 @@ namespace Pulumi.Aws.VpcLattice
         /// </summary>
         public readonly string CreatedAt;
         /// <summary>
-        /// Actions for the default listener rule.
+        /// Action for the default listener rule. See `DefaultAction` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetListenerDefaultActionResult> DefaultActions;
         /// <summary>

@@ -12,15 +12,21 @@ namespace Pulumi.Aws.Batch.Inputs
 
     public sealed class JobDefinitionEksPropertiesPodPropertiesContainerVolumeMountArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Path on the container where the volume is mounted.
+        /// </summary>
         [Input("mountPath", required: true)]
         public Input<string> MountPath { get; set; } = null!;
 
         /// <summary>
-        /// Name of the job definition.
+        /// Name the volume mount. This must match the name of one of the volumes in the pod.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Whether the container has read-only access to the volume. The default value is `False`.
+        /// </summary>
         [Input("readOnly")]
         public Input<bool>? ReadOnly { get; set; }
 

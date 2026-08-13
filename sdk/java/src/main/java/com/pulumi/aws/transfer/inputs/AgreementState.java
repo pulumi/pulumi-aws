@@ -17,14 +17,14 @@ public final class AgreementState extends com.pulumi.resources.ResourceArgs {
     public static final AgreementState Empty = new AgreementState();
 
     /**
-     * The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
+     * IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
      * 
      */
     @Import(name="accessRole")
     private @Nullable Output<String> accessRole;
 
     /**
-     * @return The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
+     * @return IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
      * 
      */
     public Optional<Output<String>> accessRole() {
@@ -32,14 +32,14 @@ public final class AgreementState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The unique identifier for the AS2 agreement.
+     * Unique identifier for the AS2 agreement.
      * 
      */
     @Import(name="agreementId")
     private @Nullable Output<String> agreementId;
 
     /**
-     * @return The unique identifier for the AS2 agreement.
+     * @return Unique identifier for the AS2 agreement.
      * 
      */
     public Optional<Output<String>> agreementId() {
@@ -47,14 +47,14 @@ public final class AgreementState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of the agreement.
+     * ARN of the agreement.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the agreement.
+     * @return ARN of the agreement.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -62,14 +62,14 @@ public final class AgreementState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The landing directory for the files transferred by using the AS2 protocol.
+     * Landing directory for the files transferred by using the AS2 protocol.
      * 
      */
     @Import(name="baseDirectory")
     private @Nullable Output<String> baseDirectory;
 
     /**
-     * @return The landing directory for the files transferred by using the AS2 protocol.
+     * @return Landing directory for the files transferred by using the AS2 protocol.
      * 
      */
     public Optional<Output<String>> baseDirectory() {
@@ -77,14 +77,14 @@ public final class AgreementState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Optional description of the transdfer.
+     * Optional description of the transdfer.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The Optional description of the transdfer.
+     * @return Optional description of the transdfer.
      * 
      */
     public Optional<Output<String>> description() {
@@ -92,14 +92,14 @@ public final class AgreementState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The unique identifier for the AS2 local profile.
+     * Unique identifier for the AS2 local profile.
      * 
      */
     @Import(name="localProfileId")
     private @Nullable Output<String> localProfileId;
 
     /**
-     * @return The unique identifier for the AS2 local profile.
+     * @return Unique identifier for the AS2 local profile.
      * 
      */
     public Optional<Output<String>> localProfileId() {
@@ -107,14 +107,14 @@ public final class AgreementState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The unique identifier for the AS2 partner profile.
+     * Unique identifier for the AS2 partner profile.
      * 
      */
     @Import(name="partnerProfileId")
     private @Nullable Output<String> partnerProfileId;
 
     /**
-     * @return The unique identifier for the AS2 partner profile.
+     * @return Unique identifier for the AS2 partner profile.
      * 
      */
     public Optional<Output<String>> partnerProfileId() {
@@ -137,36 +137,44 @@ public final class AgreementState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The unique server identifier for the server instance. This is the specific server the agreement uses.
+     * Unique server identifier for the server instance. This is the specific server the agreement uses.
      * 
      */
     @Import(name="serverId")
     private @Nullable Output<String> serverId;
 
     /**
-     * @return The unique server identifier for the server instance. This is the specific server the agreement uses.
+     * @return Unique server identifier for the server instance. This is the specific server the agreement uses.
      * 
      */
     public Optional<Output<String>> serverId() {
         return Optional.ofNullable(this.serverId);
     }
 
+    /**
+     * Status of the agreement which is either ACTIVE or INACTIVE.
+     * 
+     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
+    /**
+     * @return Status of the agreement which is either ACTIVE or INACTIVE.
+     * 
+     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -216,7 +224,7 @@ public final class AgreementState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessRole The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
+         * @param accessRole IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
          * 
          * @return builder
          * 
@@ -227,7 +235,7 @@ public final class AgreementState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessRole The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
+         * @param accessRole IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
          * 
          * @return builder
          * 
@@ -237,7 +245,7 @@ public final class AgreementState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param agreementId The unique identifier for the AS2 agreement.
+         * @param agreementId Unique identifier for the AS2 agreement.
          * 
          * @return builder
          * 
@@ -248,7 +256,7 @@ public final class AgreementState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param agreementId The unique identifier for the AS2 agreement.
+         * @param agreementId Unique identifier for the AS2 agreement.
          * 
          * @return builder
          * 
@@ -258,7 +266,7 @@ public final class AgreementState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the agreement.
+         * @param arn ARN of the agreement.
          * 
          * @return builder
          * 
@@ -269,7 +277,7 @@ public final class AgreementState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the agreement.
+         * @param arn ARN of the agreement.
          * 
          * @return builder
          * 
@@ -279,7 +287,7 @@ public final class AgreementState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param baseDirectory The landing directory for the files transferred by using the AS2 protocol.
+         * @param baseDirectory Landing directory for the files transferred by using the AS2 protocol.
          * 
          * @return builder
          * 
@@ -290,7 +298,7 @@ public final class AgreementState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param baseDirectory The landing directory for the files transferred by using the AS2 protocol.
+         * @param baseDirectory Landing directory for the files transferred by using the AS2 protocol.
          * 
          * @return builder
          * 
@@ -300,7 +308,7 @@ public final class AgreementState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The Optional description of the transdfer.
+         * @param description Optional description of the transdfer.
          * 
          * @return builder
          * 
@@ -311,7 +319,7 @@ public final class AgreementState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The Optional description of the transdfer.
+         * @param description Optional description of the transdfer.
          * 
          * @return builder
          * 
@@ -321,7 +329,7 @@ public final class AgreementState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param localProfileId The unique identifier for the AS2 local profile.
+         * @param localProfileId Unique identifier for the AS2 local profile.
          * 
          * @return builder
          * 
@@ -332,7 +340,7 @@ public final class AgreementState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param localProfileId The unique identifier for the AS2 local profile.
+         * @param localProfileId Unique identifier for the AS2 local profile.
          * 
          * @return builder
          * 
@@ -342,7 +350,7 @@ public final class AgreementState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param partnerProfileId The unique identifier for the AS2 partner profile.
+         * @param partnerProfileId Unique identifier for the AS2 partner profile.
          * 
          * @return builder
          * 
@@ -353,7 +361,7 @@ public final class AgreementState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param partnerProfileId The unique identifier for the AS2 partner profile.
+         * @param partnerProfileId Unique identifier for the AS2 partner profile.
          * 
          * @return builder
          * 
@@ -384,7 +392,7 @@ public final class AgreementState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serverId The unique server identifier for the server instance. This is the specific server the agreement uses.
+         * @param serverId Unique server identifier for the server instance. This is the specific server the agreement uses.
          * 
          * @return builder
          * 
@@ -395,7 +403,7 @@ public final class AgreementState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serverId The unique server identifier for the server instance. This is the specific server the agreement uses.
+         * @param serverId Unique server identifier for the server instance. This is the specific server the agreement uses.
          * 
          * @return builder
          * 
@@ -404,17 +412,29 @@ public final class AgreementState extends com.pulumi.resources.ResourceArgs {
             return serverId(Output.of(serverId));
         }
 
+        /**
+         * @param status Status of the agreement which is either ACTIVE or INACTIVE.
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
+        /**
+         * @param status Status of the agreement which is either ACTIVE or INACTIVE.
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(String status) {
             return status(Output.of(status));
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -425,7 +445,7 @@ public final class AgreementState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

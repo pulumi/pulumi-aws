@@ -51,7 +51,7 @@ namespace Pulumi.Aws.Bedrock
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     agentRuntime.Example.AgentRuntimeArn,
+    ///                     exampleAgentcoreAgentRuntime.AgentRuntimeArn,
     ///                 },
     ///                 Conditions = new[]
     ///                 {

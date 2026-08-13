@@ -18,38 +18,62 @@ public final class JobDefinitionEksPropertiesPodPropertiesVolumeArgs extends com
 
     public static final JobDefinitionEksPropertiesPodPropertiesVolumeArgs Empty = new JobDefinitionEksPropertiesPodPropertiesVolumeArgs();
 
+    /**
+     * Empty directory to mount on the pod. See `emptyDir` below.
+     * 
+     */
     @Import(name="emptyDir")
     private @Nullable Output<JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirArgs> emptyDir;
 
+    /**
+     * @return Empty directory to mount on the pod. See `emptyDir` below.
+     * 
+     */
     public Optional<Output<JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirArgs>> emptyDir() {
         return Optional.ofNullable(this.emptyDir);
     }
 
+    /**
+     * Path on the host that&#39;s mounted to the pod. See `hostPath` below.
+     * 
+     */
     @Import(name="hostPath")
     private @Nullable Output<JobDefinitionEksPropertiesPodPropertiesVolumeHostPathArgs> hostPath;
 
+    /**
+     * @return Path on the host that&#39;s mounted to the pod. See `hostPath` below.
+     * 
+     */
     public Optional<Output<JobDefinitionEksPropertiesPodPropertiesVolumeHostPathArgs>> hostPath() {
         return Optional.ofNullable(this.hostPath);
     }
 
     /**
-     * Name of the job definition.
+     * Name of the volume. The name must be allowed as a DNS subdomain name.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the job definition.
+     * @return Name of the volume. The name must be allowed as a DNS subdomain name.
      * 
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Secret to mount as a volume. See `secret` below.
+     * 
+     */
     @Import(name="secret")
     private @Nullable Output<JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgs> secret;
 
+    /**
+     * @return Secret to mount as a volume. See `secret` below.
+     * 
+     */
     public Optional<Output<JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgs>> secret() {
         return Optional.ofNullable(this.secret);
     }
@@ -81,26 +105,50 @@ public final class JobDefinitionEksPropertiesPodPropertiesVolumeArgs extends com
             $ = new JobDefinitionEksPropertiesPodPropertiesVolumeArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param emptyDir Empty directory to mount on the pod. See `emptyDir` below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder emptyDir(@Nullable Output<JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirArgs> emptyDir) {
             $.emptyDir = emptyDir;
             return this;
         }
 
+        /**
+         * @param emptyDir Empty directory to mount on the pod. See `emptyDir` below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder emptyDir(JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirArgs emptyDir) {
             return emptyDir(Output.of(emptyDir));
         }
 
+        /**
+         * @param hostPath Path on the host that&#39;s mounted to the pod. See `hostPath` below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hostPath(@Nullable Output<JobDefinitionEksPropertiesPodPropertiesVolumeHostPathArgs> hostPath) {
             $.hostPath = hostPath;
             return this;
         }
 
+        /**
+         * @param hostPath Path on the host that&#39;s mounted to the pod. See `hostPath` below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hostPath(JobDefinitionEksPropertiesPodPropertiesVolumeHostPathArgs hostPath) {
             return hostPath(Output.of(hostPath));
         }
 
         /**
-         * @param name Name of the job definition.
+         * @param name Name of the volume. The name must be allowed as a DNS subdomain name.
          * 
          * @return builder
          * 
@@ -111,7 +159,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesVolumeArgs extends com
         }
 
         /**
-         * @param name Name of the job definition.
+         * @param name Name of the volume. The name must be allowed as a DNS subdomain name.
          * 
          * @return builder
          * 
@@ -120,11 +168,23 @@ public final class JobDefinitionEksPropertiesPodPropertiesVolumeArgs extends com
             return name(Output.of(name));
         }
 
+        /**
+         * @param secret Secret to mount as a volume. See `secret` below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secret(@Nullable Output<JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgs> secret) {
             $.secret = secret;
             return this;
         }
 
+        /**
+         * @param secret Secret to mount as a volume. See `secret` below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secret(JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgs secret) {
             return secret(Output.of(secret));
         }

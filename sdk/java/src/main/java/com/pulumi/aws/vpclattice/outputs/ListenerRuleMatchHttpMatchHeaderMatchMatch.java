@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ListenerRuleMatchHttpMatchHeaderMatchMatch {
     /**
-     * @return Contains type match.
+     * @return Value that the header must contain to match.
      * 
      */
     private @Nullable String contains;
@@ -29,7 +29,7 @@ public final class ListenerRuleMatchHttpMatchHeaderMatchMatch {
 
     private ListenerRuleMatchHttpMatchHeaderMatchMatch() {}
     /**
-     * @return Contains type match.
+     * @return Value that the header must contain to match.
      * 
      */
     public Optional<String> contains() {

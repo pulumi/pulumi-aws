@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Transfer.Outputs
     public sealed class WebAppIdentityProviderDetails
     {
         /// <summary>
-        /// Block that describes the values to use for the IAM Identity Center settings. See Identity center config below.
+        /// Block that describes the values to use for the IAM Identity Center settings. See `IdentityCenterConfig` Block below.
         /// </summary>
         public readonly Outputs.WebAppIdentityProviderDetailsIdentityCenterConfig? IdentityCenterConfig;
 

@@ -44,6 +44,9 @@ class GetBucketReplicationConfigurationResult:
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> _builtins.str:
+        """
+        ARN of the bucket where Amazon S3 stores the results.
+        """
         return pulumi.get(self, "bucket")
 
     @_builtins.property
@@ -63,7 +66,7 @@ class GetBucketReplicationConfigurationResult:
     @pulumi.getter
     def rules(self) -> Sequence['outputs.GetBucketReplicationConfigurationRuleResult']:
         """
-        Unordered list of configuration blocks that define the rules managing replication. See the `aws_s3_replication_configuration` resource documentation for details about the `rule` block (excluding the `and` block within the `filter` block).
+        List of configuration blocks that define the rules managing replication. See `rule` Block below.
         """
         return pulumi.get(self, "rules")
 

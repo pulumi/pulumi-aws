@@ -16,7 +16,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Inputs
         private InputList<Inputs.PlanReportConfigurationReportOutputS3ConfigurationGetArgs>? _s3Configurations;
 
         /// <summary>
-        /// S3 output configuration. See S3 Configuration below.
+        /// S3 output configuration. See `S3Configuration` Block for details.
         /// </summary>
         public InputList<Inputs.PlanReportConfigurationReportOutputS3ConfigurationGetArgs> S3Configurations
         {

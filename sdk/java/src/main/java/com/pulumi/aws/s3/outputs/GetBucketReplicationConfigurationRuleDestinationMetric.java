@@ -12,13 +12,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetBucketReplicationConfigurationRuleDestinationMetric {
+    /**
+     * @return Configuration block that specifies the time threshold for emitting the `s3:Replication:OperationMissedThreshold` event. See `eventThreshold` Block below.
+     * 
+     */
     private List<GetBucketReplicationConfigurationRuleDestinationMetricEventThreshold> eventThresholds;
+    /**
+     * @return Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+     * 
+     */
     private String status;
 
     private GetBucketReplicationConfigurationRuleDestinationMetric() {}
+    /**
+     * @return Configuration block that specifies the time threshold for emitting the `s3:Replication:OperationMissedThreshold` event. See `eventThreshold` Block below.
+     * 
+     */
     public List<GetBucketReplicationConfigurationRuleDestinationMetricEventThreshold> eventThresholds() {
         return this.eventThresholds;
     }
+    /**
+     * @return Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+     * 
+     */
     public String status() {
         return this.status;
     }

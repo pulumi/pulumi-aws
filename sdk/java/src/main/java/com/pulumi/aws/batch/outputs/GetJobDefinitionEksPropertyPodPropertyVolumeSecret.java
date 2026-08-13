@@ -17,7 +17,7 @@ public final class GetJobDefinitionEksPropertyPodPropertyVolumeSecret {
      */
     private Boolean optional;
     /**
-     * @return Name of the secret. The name must be allowed as a DNS subdomain name
+     * @return Name of the secret. The name must be allowed as a DNS subdomain name.
      * 
      */
     private String secretName;
@@ -31,7 +31,7 @@ public final class GetJobDefinitionEksPropertyPodPropertyVolumeSecret {
         return this.optional;
     }
     /**
-     * @return Name of the secret. The name must be allowed as a DNS subdomain name
+     * @return Name of the secret. The name must be allowed as a DNS subdomain name.
      * 
      */
     public String secretName() {

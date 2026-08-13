@@ -19,14 +19,14 @@ public final class AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalCo
     public static final AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfigArgs Empty = new AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfigArgs();
 
     /**
-     * Key for the retrieval configuration map block.
+     * Namespace path template for retrieval settings.
      * 
      */
     @Import(name="mapBlockKey", required=true)
     private Output<String> mapBlockKey;
 
     /**
-     * @return Key for the retrieval configuration map block.
+     * @return Namespace path template for retrieval settings.
      * 
      */
     public Output<String> mapBlockKey() {
@@ -106,7 +106,7 @@ public final class AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalCo
         }
 
         /**
-         * @param mapBlockKey Key for the retrieval configuration map block.
+         * @param mapBlockKey Namespace path template for retrieval settings.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalCo
         }
 
         /**
-         * @param mapBlockKey Key for the retrieval configuration map block.
+         * @param mapBlockKey Namespace path template for retrieval settings.
          * 
          * @return builder
          * 

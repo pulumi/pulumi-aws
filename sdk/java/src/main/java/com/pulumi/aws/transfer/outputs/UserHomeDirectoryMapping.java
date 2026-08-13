@@ -11,30 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class UserHomeDirectoryMapping {
     /**
-     * @return Represents an entry and a target.
+     * @return Logical directory entry that appears to your user.
      * 
      */
     private String entry;
     /**
-     * @return Represents the map target.
-     * 
-     * The `Restricted` option is achieved using the following mapping:
+     * @return Map target that maps the entry to an actual S3 path.
      * 
      */
     private String target;
 
     private UserHomeDirectoryMapping() {}
     /**
-     * @return Represents an entry and a target.
+     * @return Logical directory entry that appears to your user.
      * 
      */
     public String entry() {
         return this.entry;
     }
     /**
-     * @return Represents the map target.
-     * 
-     * The `Restricted` option is achieved using the following mapping:
+     * @return Map target that maps the entry to an actual S3 path.
      * 
      */
     public String target() {

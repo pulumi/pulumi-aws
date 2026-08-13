@@ -12,13 +12,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetListenerDefaultAction {
+    /**
+     * @return Fixed response action. See `fixedResponse` Block below.
+     * 
+     */
     private List<GetListenerDefaultActionFixedResponse> fixedResponses;
+    /**
+     * @return Forward action. See `forward` Block below.
+     * 
+     */
     private List<GetListenerDefaultActionForward> forwards;
 
     private GetListenerDefaultAction() {}
+    /**
+     * @return Fixed response action. See `fixedResponse` Block below.
+     * 
+     */
     public List<GetListenerDefaultActionFixedResponse> fixedResponses() {
         return this.fixedResponses;
     }
+    /**
+     * @return Forward action. See `forward` Block below.
+     * 
+     */
     public List<GetListenerDefaultActionForward> forwards() {
         return this.forwards;
     }

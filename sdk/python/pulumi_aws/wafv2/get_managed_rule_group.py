@@ -98,7 +98,7 @@ class GetManagedRuleGroupResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Name of the rule.
+        Name of the header.
         """
         return pulumi.get(self, "name")
 
@@ -111,7 +111,7 @@ class GetManagedRuleGroupResult:
     @pulumi.getter
     def rules(self) -> Sequence['outputs.GetManagedRuleGroupRuleResult']:
         """
-        High-level information about the rules. See Rules below for details.
+        High-level information about the rules. See `rules` Block below for details.
         """
         return pulumi.get(self, "rules")
 

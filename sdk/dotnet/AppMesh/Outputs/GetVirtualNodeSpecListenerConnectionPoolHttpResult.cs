@@ -13,7 +13,13 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetVirtualNodeSpecListenerConnectionPoolHttpResult
     {
+        /// <summary>
+        /// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster.
+        /// </summary>
         public readonly int MaxConnections;
+        /// <summary>
+        /// Number of overflowing requests after `MaxConnections` Envoy will queue to upstream cluster.
+        /// </summary>
         public readonly int MaxPendingRequests;
 
         [OutputConstructor]

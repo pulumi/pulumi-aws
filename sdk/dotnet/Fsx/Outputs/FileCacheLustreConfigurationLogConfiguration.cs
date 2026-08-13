@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Fsx.Outputs
     [OutputType]
     public sealed class FileCacheLustreConfigurationLogConfiguration
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the destination that receives the logs.
+        /// </summary>
         public readonly string? Destination;
+        /// <summary>
+        /// Level of logging that Lustre logs write to the destination.
+        /// </summary>
         public readonly string? Level;
 
         [OutputConstructor]

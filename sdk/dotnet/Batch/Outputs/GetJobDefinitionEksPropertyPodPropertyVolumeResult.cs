@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Batch.Outputs
     public sealed class GetJobDefinitionEksPropertyPodPropertyVolumeResult
     {
         /// <summary>
-        /// Configuration of a Kubernetes emptyDir volume.
+        /// Configuration of a Kubernetes emptyDir volume. See `EmptyDir` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirResult> EmptyDirs;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Batch.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Configuration of a Kubernetes secret volume.
+        /// Configuration of a Kubernetes secret volume. See `Secret` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionEksPropertyPodPropertyVolumeSecretResult> Secrets;
 

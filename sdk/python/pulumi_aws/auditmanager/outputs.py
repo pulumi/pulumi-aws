@@ -321,13 +321,14 @@ class ControlControlMappingSource(dict):
                  troubleshooting_text: Optional[_builtins.str] = None):
         """
         :param _builtins.str source_name: Name of the source.
-        :param _builtins.str source_set_up_option: The setup option for the data source. This option reflects if the evidence collection is automated or manual. Valid values are `System_Controls_Mapping` (automated) and `Procedural_Controls_Mapping` (manual).
+        :param _builtins.str source_set_up_option: Setup option for the data source. This option reflects if the evidence collection is automated or manual. Valid values are `System_Controls_Mapping` (automated) and `Procedural_Controls_Mapping` (manual).
         :param _builtins.str source_type: Type of data source for evidence collection. If `source_set_up_option` is manual, the only valid value is `MANUAL`. If `source_set_up_option` is automated, valid values are `AWS_Cloudtrail`, `AWS_Config`, `AWS_Security_Hub`, or `AWS_API_Call`.
                
                The following arguments are optional:
         :param _builtins.str source_description: Description of the source.
         :param _builtins.str source_frequency: Frequency of evidence collection. Valid values are `DAILY`, `WEEKLY`, or `MONTHLY`.
-        :param 'ControlControlMappingSourceSourceKeywordArgs' source_keyword: The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `source_keyword` below.
+        :param _builtins.str source_id: Unique identifier for the source.
+        :param 'ControlControlMappingSourceSourceKeywordArgs' source_keyword: Keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `source_keyword` below.
         :param _builtins.str troubleshooting_text: Instructions for troubleshooting the control.
         """
         pulumi.set(__self__, "source_name", source_name)
@@ -356,7 +357,7 @@ class ControlControlMappingSource(dict):
     @pulumi.getter(name="sourceSetUpOption")
     def source_set_up_option(self) -> _builtins.str:
         """
-        The setup option for the data source. This option reflects if the evidence collection is automated or manual. Valid values are `System_Controls_Mapping` (automated) and `Procedural_Controls_Mapping` (manual).
+        Setup option for the data source. This option reflects if the evidence collection is automated or manual. Valid values are `System_Controls_Mapping` (automated) and `Procedural_Controls_Mapping` (manual).
         """
         return pulumi.get(self, "source_set_up_option")
 
@@ -389,13 +390,16 @@ class ControlControlMappingSource(dict):
     @_builtins.property
     @pulumi.getter(name="sourceId")
     def source_id(self) -> Optional[_builtins.str]:
+        """
+        Unique identifier for the source.
+        """
         return pulumi.get(self, "source_id")
 
     @_builtins.property
     @pulumi.getter(name="sourceKeyword")
     def source_keyword(self) -> Optional['outputs.ControlControlMappingSourceSourceKeyword']:
         """
-        The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `source_keyword` below.
+        Keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `source_keyword` below.
         """
         return pulumi.get(self, "source_keyword")
 
@@ -434,7 +438,7 @@ class ControlControlMappingSourceSourceKeyword(dict):
                  keyword_value: _builtins.str):
         """
         :param _builtins.str keyword_input_type: Input method for the keyword. Valid values are `INPUT_TEXT`, `SELECT_FROM_LIST`, or `UPLOAD_FILE`.
-        :param _builtins.str keyword_value: The value of the keyword that's used when mapping a control data source. For example, this can be a CloudTrail event name, a rule name for Config, a Security Hub control, or the name of an Amazon Web Services API call. See the [Audit Manager supported control data sources documentation](https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources.html) for more information.
+        :param _builtins.str keyword_value: Value of the keyword that's used when mapping a control data source. For example, this can be a CloudTrail event name, a rule name for Config, a Security Hub control, or the name of an Amazon Web Services API call. See the [Audit Manager supported control data sources documentation](https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources.html) for more information.
         """
         pulumi.set(__self__, "keyword_input_type", keyword_input_type)
         pulumi.set(__self__, "keyword_value", keyword_value)
@@ -451,7 +455,7 @@ class ControlControlMappingSourceSourceKeyword(dict):
     @pulumi.getter(name="keywordValue")
     def keyword_value(self) -> _builtins.str:
         """
-        The value of the keyword that's used when mapping a control data source. For example, this can be a CloudTrail event name, a rule name for Config, a Security Hub control, or the name of an Amazon Web Services API call. See the [Audit Manager supported control data sources documentation](https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources.html) for more information.
+        Value of the keyword that's used when mapping a control data source. For example, this can be a CloudTrail event name, a rule name for Config, a Security Hub control, or the name of an Amazon Web Services API call. See the [Audit Manager supported control data sources documentation](https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources.html) for more information.
         """
         return pulumi.get(self, "keyword_value")
 

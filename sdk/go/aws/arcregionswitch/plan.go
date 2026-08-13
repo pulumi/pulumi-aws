@@ -263,7 +263,7 @@ type Plan struct {
 
 	// ARN of the plan.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Set of CloudWatch alarms associated with the plan. See Associated Alarms below.
+	// CloudWatch alarms associated with the plan. See `associatedAlarms` Block for details.
 	AssociatedAlarms PlanAssociatedAlarmArrayOutput `pulumi:"associatedAlarms"`
 	// Description of the plan.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -281,18 +281,18 @@ type Plan struct {
 	//
 	// Deprecated: This attribute will be removed in a future version of the provider.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// List of AWS regions involved in the plan.
+	// List of AWS regions involved in the plan. Must contain at least 2 regions.
 	Regions pulumi.StringArrayOutput `pulumi:"regions"`
-	// Configuration for automated execution reports. See Report Configuration below.
+	// Configuration for automated execution reports. See `reportConfiguration` Block for details.
 	ReportConfigurations PlanReportConfigurationArrayOutput `pulumi:"reportConfigurations"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapOutput `pulumi:"tagsAll"`
 	Timeouts PlanTimeoutsPtrOutput  `pulumi:"timeouts"`
-	// Set of triggers that can initiate the plan execution. See Triggers below.
+	// Triggers that can initiate the plan execution. See `triggers` Block for details.
 	Triggers PlanTriggerArrayOutput `pulumi:"triggers"`
-	// List of workflows that define the steps to execute. See Workflow below.
+	// Workflows that define the steps to execute. See `workflow` Block for details.
 	//
 	// The following arguments are optional:
 	Workflows PlanWorkflowArrayOutput `pulumi:"workflows"`
@@ -339,7 +339,7 @@ func GetPlan(ctx *pulumi.Context,
 type planState struct {
 	// ARN of the plan.
 	Arn *string `pulumi:"arn"`
-	// Set of CloudWatch alarms associated with the plan. See Associated Alarms below.
+	// CloudWatch alarms associated with the plan. See `associatedAlarms` Block for details.
 	AssociatedAlarms []PlanAssociatedAlarm `pulumi:"associatedAlarms"`
 	// Description of the plan.
 	Description *string `pulumi:"description"`
@@ -357,18 +357,18 @@ type planState struct {
 	//
 	// Deprecated: This attribute will be removed in a future version of the provider.
 	Region *string `pulumi:"region"`
-	// List of AWS regions involved in the plan.
+	// List of AWS regions involved in the plan. Must contain at least 2 regions.
 	Regions []string `pulumi:"regions"`
-	// Configuration for automated execution reports. See Report Configuration below.
+	// Configuration for automated execution reports. See `reportConfiguration` Block for details.
 	ReportConfigurations []PlanReportConfiguration `pulumi:"reportConfigurations"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  map[string]string `pulumi:"tagsAll"`
 	Timeouts *PlanTimeouts     `pulumi:"timeouts"`
-	// Set of triggers that can initiate the plan execution. See Triggers below.
+	// Triggers that can initiate the plan execution. See `triggers` Block for details.
 	Triggers []PlanTrigger `pulumi:"triggers"`
-	// List of workflows that define the steps to execute. See Workflow below.
+	// Workflows that define the steps to execute. See `workflow` Block for details.
 	//
 	// The following arguments are optional:
 	Workflows []PlanWorkflow `pulumi:"workflows"`
@@ -377,7 +377,7 @@ type planState struct {
 type PlanState struct {
 	// ARN of the plan.
 	Arn pulumi.StringPtrInput
-	// Set of CloudWatch alarms associated with the plan. See Associated Alarms below.
+	// CloudWatch alarms associated with the plan. See `associatedAlarms` Block for details.
 	AssociatedAlarms PlanAssociatedAlarmArrayInput
 	// Description of the plan.
 	Description pulumi.StringPtrInput
@@ -395,18 +395,18 @@ type PlanState struct {
 	//
 	// Deprecated: This attribute will be removed in a future version of the provider.
 	Region pulumi.StringPtrInput
-	// List of AWS regions involved in the plan.
+	// List of AWS regions involved in the plan. Must contain at least 2 regions.
 	Regions pulumi.StringArrayInput
-	// Configuration for automated execution reports. See Report Configuration below.
+	// Configuration for automated execution reports. See `reportConfiguration` Block for details.
 	ReportConfigurations PlanReportConfigurationArrayInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapInput
 	Timeouts PlanTimeoutsPtrInput
-	// Set of triggers that can initiate the plan execution. See Triggers below.
+	// Triggers that can initiate the plan execution. See `triggers` Block for details.
 	Triggers PlanTriggerArrayInput
-	// List of workflows that define the steps to execute. See Workflow below.
+	// Workflows that define the steps to execute. See `workflow` Block for details.
 	//
 	// The following arguments are optional:
 	Workflows PlanWorkflowArrayInput
@@ -417,7 +417,7 @@ func (PlanState) ElementType() reflect.Type {
 }
 
 type planArgs struct {
-	// Set of CloudWatch alarms associated with the plan. See Associated Alarms below.
+	// CloudWatch alarms associated with the plan. See `associatedAlarms` Block for details.
 	AssociatedAlarms []PlanAssociatedAlarm `pulumi:"associatedAlarms"`
 	// Description of the plan.
 	Description *string `pulumi:"description"`
@@ -435,16 +435,16 @@ type planArgs struct {
 	//
 	// Deprecated: This attribute will be removed in a future version of the provider.
 	Region *string `pulumi:"region"`
-	// List of AWS regions involved in the plan.
+	// List of AWS regions involved in the plan. Must contain at least 2 regions.
 	Regions []string `pulumi:"regions"`
-	// Configuration for automated execution reports. See Report Configuration below.
+	// Configuration for automated execution reports. See `reportConfiguration` Block for details.
 	ReportConfigurations []PlanReportConfiguration `pulumi:"reportConfigurations"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string `pulumi:"tags"`
 	Timeouts *PlanTimeouts     `pulumi:"timeouts"`
-	// Set of triggers that can initiate the plan execution. See Triggers below.
+	// Triggers that can initiate the plan execution. See `triggers` Block for details.
 	Triggers []PlanTrigger `pulumi:"triggers"`
-	// List of workflows that define the steps to execute. See Workflow below.
+	// Workflows that define the steps to execute. See `workflow` Block for details.
 	//
 	// The following arguments are optional:
 	Workflows []PlanWorkflow `pulumi:"workflows"`
@@ -452,7 +452,7 @@ type planArgs struct {
 
 // The set of arguments for constructing a Plan resource.
 type PlanArgs struct {
-	// Set of CloudWatch alarms associated with the plan. See Associated Alarms below.
+	// CloudWatch alarms associated with the plan. See `associatedAlarms` Block for details.
 	AssociatedAlarms PlanAssociatedAlarmArrayInput
 	// Description of the plan.
 	Description pulumi.StringPtrInput
@@ -470,16 +470,16 @@ type PlanArgs struct {
 	//
 	// Deprecated: This attribute will be removed in a future version of the provider.
 	Region pulumi.StringPtrInput
-	// List of AWS regions involved in the plan.
+	// List of AWS regions involved in the plan. Must contain at least 2 regions.
 	Regions pulumi.StringArrayInput
-	// Configuration for automated execution reports. See Report Configuration below.
+	// Configuration for automated execution reports. See `reportConfiguration` Block for details.
 	ReportConfigurations PlanReportConfigurationArrayInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts PlanTimeoutsPtrInput
-	// Set of triggers that can initiate the plan execution. See Triggers below.
+	// Triggers that can initiate the plan execution. See `triggers` Block for details.
 	Triggers PlanTriggerArrayInput
-	// List of workflows that define the steps to execute. See Workflow below.
+	// Workflows that define the steps to execute. See `workflow` Block for details.
 	//
 	// The following arguments are optional:
 	Workflows PlanWorkflowArrayInput
@@ -577,7 +577,7 @@ func (o PlanOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Plan) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Set of CloudWatch alarms associated with the plan. See Associated Alarms below.
+// CloudWatch alarms associated with the plan. See `associatedAlarms` Block for details.
 func (o PlanOutput) AssociatedAlarms() PlanAssociatedAlarmArrayOutput {
 	return o.ApplyT(func(v *Plan) PlanAssociatedAlarmArrayOutput { return v.AssociatedAlarms }).(PlanAssociatedAlarmArrayOutput)
 }
@@ -619,12 +619,12 @@ func (o PlanOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Plan) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// List of AWS regions involved in the plan.
+// List of AWS regions involved in the plan. Must contain at least 2 regions.
 func (o PlanOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Plan) pulumi.StringArrayOutput { return v.Regions }).(pulumi.StringArrayOutput)
 }
 
-// Configuration for automated execution reports. See Report Configuration below.
+// Configuration for automated execution reports. See `reportConfiguration` Block for details.
 func (o PlanOutput) ReportConfigurations() PlanReportConfigurationArrayOutput {
 	return o.ApplyT(func(v *Plan) PlanReportConfigurationArrayOutput { return v.ReportConfigurations }).(PlanReportConfigurationArrayOutput)
 }
@@ -643,12 +643,12 @@ func (o PlanOutput) Timeouts() PlanTimeoutsPtrOutput {
 	return o.ApplyT(func(v *Plan) PlanTimeoutsPtrOutput { return v.Timeouts }).(PlanTimeoutsPtrOutput)
 }
 
-// Set of triggers that can initiate the plan execution. See Triggers below.
+// Triggers that can initiate the plan execution. See `triggers` Block for details.
 func (o PlanOutput) Triggers() PlanTriggerArrayOutput {
 	return o.ApplyT(func(v *Plan) PlanTriggerArrayOutput { return v.Triggers }).(PlanTriggerArrayOutput)
 }
 
-// List of workflows that define the steps to execute. See Workflow below.
+// Workflows that define the steps to execute. See `workflow` Block for details.
 //
 // The following arguments are optional:
 func (o PlanOutput) Workflows() PlanWorkflowArrayOutput {

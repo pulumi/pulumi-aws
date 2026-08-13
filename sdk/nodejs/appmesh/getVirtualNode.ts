@@ -88,7 +88,7 @@ export interface GetVirtualNodeResult {
      */
     readonly resourceOwner: string;
     /**
-     * Virtual node specification. See the `aws.appmesh.VirtualNode` resource for details.
+     * Virtual node specification. See `spec` Block for details.
      */
     readonly specs: outputs.appmesh.GetVirtualNodeSpec[];
     /**

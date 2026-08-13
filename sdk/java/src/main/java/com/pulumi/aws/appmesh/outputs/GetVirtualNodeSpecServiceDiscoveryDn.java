@@ -10,17 +10,41 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualNodeSpecServiceDiscoveryDn {
+    /**
+     * @return DNS host name for your virtual node.
+     * 
+     */
     private String hostname;
+    /**
+     * @return Preferred IP version that this virtual node uses.
+     * 
+     */
     private String ipPreference;
+    /**
+     * @return DNS response type for the virtual node.
+     * 
+     */
     private String responseType;
 
     private GetVirtualNodeSpecServiceDiscoveryDn() {}
+    /**
+     * @return DNS host name for your virtual node.
+     * 
+     */
     public String hostname() {
         return this.hostname;
     }
+    /**
+     * @return Preferred IP version that this virtual node uses.
+     * 
+     */
     public String ipPreference() {
         return this.ipPreference;
     }
+    /**
+     * @return DNS response type for the virtual node.
+     * 
+     */
     public String responseType() {
         return this.responseType;
     }

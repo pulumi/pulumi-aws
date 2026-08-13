@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class CloudExadataInfrastructureMaintenanceWindowDaysOfWeek {
+    /**
+     * @return Name of the day of the week. Valid values are `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY`, `SATURDAY`, and `SUNDAY`.
+     * 
+     */
     private String name;
 
     private CloudExadataInfrastructureMaintenanceWindowDaysOfWeek() {}
+    /**
+     * @return Name of the day of the week. Valid values are `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY`, `SATURDAY`, and `SUNDAY`.
+     * 
+     */
     public String name() {
         return this.name;
     }

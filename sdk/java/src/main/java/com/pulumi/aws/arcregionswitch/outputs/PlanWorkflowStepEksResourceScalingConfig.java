@@ -24,17 +24,17 @@ public final class PlanWorkflowStepEksResourceScalingConfig {
      */
     private String capacityMonitoringApproach;
     /**
-     * @return List of EKS clusters. See EKS Clusters below.
+     * @return EKS clusters. See `eksClusters` Block for details.
      * 
      */
     private @Nullable List<PlanWorkflowStepEksResourceScalingConfigEksCluster> eksClusters;
     /**
-     * @return Kubernetes resource type. See Kubernetes Resource Type below.
+     * @return Kubernetes resource type. See `kubernetesResourceType` Block for details.
      * 
      */
     private @Nullable List<PlanWorkflowStepEksResourceScalingConfigKubernetesResourceType> kubernetesResourceTypes;
     /**
-     * @return List of scaling resources. See Scaling Resources below.
+     * @return Scaling resources. See `scalingResources` Block for details.
      * 
      */
     private @Nullable List<PlanWorkflowStepEksResourceScalingConfigScalingResource> scalingResources;
@@ -49,7 +49,7 @@ public final class PlanWorkflowStepEksResourceScalingConfig {
      */
     private @Nullable Integer timeoutMinutes;
     /**
-     * @return Ungraceful behavior configuration. See Ungraceful Capacity below.
+     * @return Ungraceful behavior configuration. See `workflow.step.eks_resource_scaling_config.ungraceful` Block for details.
      * 
      */
     private @Nullable List<PlanWorkflowStepEksResourceScalingConfigUngraceful> ungracefuls;
@@ -63,21 +63,21 @@ public final class PlanWorkflowStepEksResourceScalingConfig {
         return this.capacityMonitoringApproach;
     }
     /**
-     * @return List of EKS clusters. See EKS Clusters below.
+     * @return EKS clusters. See `eksClusters` Block for details.
      * 
      */
     public List<PlanWorkflowStepEksResourceScalingConfigEksCluster> eksClusters() {
         return this.eksClusters == null ? List.of() : this.eksClusters;
     }
     /**
-     * @return Kubernetes resource type. See Kubernetes Resource Type below.
+     * @return Kubernetes resource type. See `kubernetesResourceType` Block for details.
      * 
      */
     public List<PlanWorkflowStepEksResourceScalingConfigKubernetesResourceType> kubernetesResourceTypes() {
         return this.kubernetesResourceTypes == null ? List.of() : this.kubernetesResourceTypes;
     }
     /**
-     * @return List of scaling resources. See Scaling Resources below.
+     * @return Scaling resources. See `scalingResources` Block for details.
      * 
      */
     public List<PlanWorkflowStepEksResourceScalingConfigScalingResource> scalingResources() {
@@ -98,7 +98,7 @@ public final class PlanWorkflowStepEksResourceScalingConfig {
         return Optional.ofNullable(this.timeoutMinutes);
     }
     /**
-     * @return Ungraceful behavior configuration. See Ungraceful Capacity below.
+     * @return Ungraceful behavior configuration. See `workflow.step.eks_resource_scaling_config.ungraceful` Block for details.
      * 
      */
     public List<PlanWorkflowStepEksResourceScalingConfigUngraceful> ungracefuls() {

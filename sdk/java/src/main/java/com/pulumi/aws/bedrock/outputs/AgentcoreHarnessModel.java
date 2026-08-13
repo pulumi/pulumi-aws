@@ -14,38 +14,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreHarnessModel {
     /**
-     * @return Amazon Bedrock model configuration. See `bedrockModelConfig` below.
+     * @return Amazon Bedrock model configuration. See `bedrockModelConfig` Block below.
      * 
      */
     private @Nullable AgentcoreHarnessModelBedrockModelConfig bedrockModelConfig;
     /**
-     * @return Gemini model configuration. See `geminiModelConfig` below.
+     * @return Gemini model configuration. See `geminiModelConfig` Block below.
      * 
      */
     private @Nullable AgentcoreHarnessModelGeminiModelConfig geminiModelConfig;
     /**
-     * @return OpenAI model configuration. See `openaiModelConfig` below.
+     * @return OpenAI model configuration. See `openaiModelConfig` Block below.
      * 
      */
     private @Nullable AgentcoreHarnessModelOpenaiModelConfig openaiModelConfig;
 
     private AgentcoreHarnessModel() {}
     /**
-     * @return Amazon Bedrock model configuration. See `bedrockModelConfig` below.
+     * @return Amazon Bedrock model configuration. See `bedrockModelConfig` Block below.
      * 
      */
     public Optional<AgentcoreHarnessModelBedrockModelConfig> bedrockModelConfig() {
         return Optional.ofNullable(this.bedrockModelConfig);
     }
     /**
-     * @return Gemini model configuration. See `geminiModelConfig` below.
+     * @return Gemini model configuration. See `geminiModelConfig` Block below.
      * 
      */
     public Optional<AgentcoreHarnessModelGeminiModelConfig> geminiModelConfig() {
         return Optional.ofNullable(this.geminiModelConfig);
     }
     /**
-     * @return OpenAI model configuration. See `openaiModelConfig` below.
+     * @return OpenAI model configuration. See `openaiModelConfig` Block below.
      * 
      */
     public Optional<AgentcoreHarnessModelOpenaiModelConfig> openaiModelConfig() {

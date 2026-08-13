@@ -82,7 +82,7 @@ namespace Pulumi.Aws.S3
         public Output<string> CreationTime { get; private set; } = null!;
 
         /// <summary>
-        /// Encryption configuration for the vector bucket. See Encryption Configuration below for more details.
+        /// Encryption configuration for the vector bucket. See `EncryptionConfiguration` below for more details.
         /// </summary>
         [Output("encryptionConfigurations")]
         public Output<ImmutableArray<Outputs.VectorsVectorBucketEncryptionConfiguration>> EncryptionConfigurations { get; private set; } = null!;
@@ -175,7 +175,7 @@ namespace Pulumi.Aws.S3
         private InputList<Inputs.VectorsVectorBucketEncryptionConfigurationArgs>? _encryptionConfigurations;
 
         /// <summary>
-        /// Encryption configuration for the vector bucket. See Encryption Configuration below for more details.
+        /// Encryption configuration for the vector bucket. See `EncryptionConfiguration` below for more details.
         /// </summary>
         public InputList<Inputs.VectorsVectorBucketEncryptionConfigurationArgs> EncryptionConfigurations
         {
@@ -233,7 +233,7 @@ namespace Pulumi.Aws.S3
         private InputList<Inputs.VectorsVectorBucketEncryptionConfigurationGetArgs>? _encryptionConfigurations;
 
         /// <summary>
-        /// Encryption configuration for the vector bucket. See Encryption Configuration below for more details.
+        /// Encryption configuration for the vector bucket. See `EncryptionConfiguration` below for more details.
         /// </summary>
         public InputList<Inputs.VectorsVectorBucketEncryptionConfigurationGetArgs> EncryptionConfigurations
         {

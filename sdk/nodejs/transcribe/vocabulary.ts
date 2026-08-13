@@ -82,11 +82,11 @@ export class Vocabulary extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly downloadUri: pulumi.Output<string>;
     /**
-     * The language code you selected for your vocabulary.
+     * Language code you selected for your vocabulary.
      */
     declare public readonly languageCode: pulumi.Output<string>;
     /**
-     * A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
+     * List of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
      */
     declare public readonly phrases: pulumi.Output<string[] | undefined>;
     /**
@@ -94,16 +94,16 @@ export class Vocabulary extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
+     * Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
      */
     declare public readonly vocabularyFileUri: pulumi.Output<string>;
     /**
-     * The name of the Vocabulary.
+     * Name of the Vocabulary.
      *
      * The following arguments are optional:
      */
@@ -167,11 +167,11 @@ export interface VocabularyState {
      */
     downloadUri?: pulumi.Input<string | undefined>;
     /**
-     * The language code you selected for your vocabulary.
+     * Language code you selected for your vocabulary.
      */
     languageCode?: pulumi.Input<string | undefined>;
     /**
-     * A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
+     * List of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
      */
     phrases?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -179,16 +179,16 @@ export interface VocabularyState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
+     * Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
      */
     vocabularyFileUri?: pulumi.Input<string | undefined>;
     /**
-     * The name of the Vocabulary.
+     * Name of the Vocabulary.
      *
      * The following arguments are optional:
      */
@@ -200,11 +200,11 @@ export interface VocabularyState {
  */
 export interface VocabularyArgs {
     /**
-     * The language code you selected for your vocabulary.
+     * Language code you selected for your vocabulary.
      */
     languageCode: pulumi.Input<string>;
     /**
-     * A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
+     * List of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
      */
     phrases?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -212,15 +212,15 @@ export interface VocabularyArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
+     * Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
      */
     vocabularyFileUri?: pulumi.Input<string | undefined>;
     /**
-     * The name of the Vocabulary.
+     * Name of the Vocabulary.
      *
      * The following arguments are optional:
      */

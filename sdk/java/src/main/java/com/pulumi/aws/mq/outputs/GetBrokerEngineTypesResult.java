@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetBrokerEngineTypesResult {
     /**
-     * @return List of available engine types and versions. See Engine Types.
+     * @return List of available engine types and versions. See `brokerEngineTypes` Block.
      * 
      */
     private List<GetBrokerEngineTypesBrokerEngineType> brokerEngineTypes;
@@ -33,7 +33,7 @@ public final class GetBrokerEngineTypesResult {
 
     private GetBrokerEngineTypesResult() {}
     /**
-     * @return List of available engine types and versions. See Engine Types.
+     * @return List of available engine types and versions. See `brokerEngineTypes` Block.
      * 
      */
     public List<GetBrokerEngineTypesBrokerEngineType> brokerEngineTypes() {

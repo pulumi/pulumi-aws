@@ -13,6 +13,9 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetVirtualNodeSpecListenerTlValidationTrustFileResult
     {
+        /// <summary>
+        /// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on.
+        /// </summary>
         public readonly string CertificateChain;
 
         [OutputConstructor]

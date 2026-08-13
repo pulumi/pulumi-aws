@@ -10,13 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class NetworkManagedServiceServiceNetworkEndpoint {
+    /**
+     * @return Unique identifier of the VPC endpoint.
+     * 
+     */
     private String vpcEndpointId;
+    /**
+     * @return Type of the VPC endpoint.
+     * 
+     */
     private String vpcEndpointType;
 
     private NetworkManagedServiceServiceNetworkEndpoint() {}
+    /**
+     * @return Unique identifier of the VPC endpoint.
+     * 
+     */
     public String vpcEndpointId() {
         return this.vpcEndpointId;
     }
+    /**
+     * @return Type of the VPC endpoint.
+     * 
+     */
     public String vpcEndpointType() {
         return this.vpcEndpointType;
     }

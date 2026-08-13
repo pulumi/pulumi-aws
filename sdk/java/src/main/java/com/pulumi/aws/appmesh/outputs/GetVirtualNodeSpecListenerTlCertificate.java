@@ -13,17 +13,41 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualNodeSpecListenerTlCertificate {
+    /**
+     * @return AWS Certificate Manager (ACM) certificate. See `spec.listener.tls.certificate.acm` Block for details.
+     * 
+     */
     private List<GetVirtualNodeSpecListenerTlCertificateAcm> acms;
+    /**
+     * @return File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
+     * 
+     */
     private List<GetVirtualNodeSpecListenerTlCertificateFile> files;
+    /**
+     * @return TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
+     * 
+     */
     private List<GetVirtualNodeSpecListenerTlCertificateSd> sds;
 
     private GetVirtualNodeSpecListenerTlCertificate() {}
+    /**
+     * @return AWS Certificate Manager (ACM) certificate. See `spec.listener.tls.certificate.acm` Block for details.
+     * 
+     */
     public List<GetVirtualNodeSpecListenerTlCertificateAcm> acms() {
         return this.acms;
     }
+    /**
+     * @return File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
+     * 
+     */
     public List<GetVirtualNodeSpecListenerTlCertificateFile> files() {
         return this.files;
     }
+    /**
+     * @return TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
+     * 
+     */
     public List<GetVirtualNodeSpecListenerTlCertificateSd> sds() {
         return this.sds;
     }

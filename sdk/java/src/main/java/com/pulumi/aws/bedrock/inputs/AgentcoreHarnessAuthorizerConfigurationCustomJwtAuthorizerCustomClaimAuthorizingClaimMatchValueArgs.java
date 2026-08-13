@@ -31,14 +31,14 @@ public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCus
     }
 
     /**
-     * Value or values to match for. See `claimMatchValue` below.
+     * Value or values to match for. See `claimMatchValue` Block below.
      * 
      */
     @Import(name="claimMatchValue", required=true)
     private Output<AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs> claimMatchValue;
 
     /**
-     * @return Value or values to match for. See `claimMatchValue` below.
+     * @return Value or values to match for. See `claimMatchValue` Block below.
      * 
      */
     public Output<AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs> claimMatchValue() {
@@ -92,7 +92,7 @@ public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCus
         }
 
         /**
-         * @param claimMatchValue Value or values to match for. See `claimMatchValue` below.
+         * @param claimMatchValue Value or values to match for. See `claimMatchValue` Block below.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCus
         }
 
         /**
-         * @param claimMatchValue Value or values to match for. See `claimMatchValue` below.
+         * @param claimMatchValue Value or values to match for. See `claimMatchValue` Block below.
          * 
          * @return builder
          * 

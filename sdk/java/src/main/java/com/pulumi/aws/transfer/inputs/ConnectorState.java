@@ -20,14 +20,14 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
     public static final ConnectorState Empty = new ConnectorState();
 
     /**
-     * The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
+     * IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
      * 
      */
     @Import(name="accessRole")
     private @Nullable Output<String> accessRole;
 
     /**
-     * @return The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
+     * @return IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
      * 
      */
     public Optional<Output<String>> accessRole() {
@@ -35,14 +35,14 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of the connector.
+     * ARN of the connector.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the connector.
+     * @return ARN of the connector.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -50,14 +50,14 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
+     * Either SFTP or AS2 is configured. Parameters to configure for the connector object. See `as2Config` Block below.
      * 
      */
     @Import(name="as2Config")
     private @Nullable Output<ConnectorAs2ConfigArgs> as2Config;
 
     /**
-     * @return Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
+     * @return Either SFTP or AS2 is configured. Parameters to configure for the connector object. See `as2Config` Block below.
      * 
      */
     public Optional<Output<ConnectorAs2ConfigArgs>> as2Config() {
@@ -65,14 +65,14 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The unique identifier for the AS2 profile or SFTP Profile.
+     * Unique identifier for the AS2 profile or SFTP Profile.
      * 
      */
     @Import(name="connectorId")
     private @Nullable Output<String> connectorId;
 
     /**
-     * @return The unique identifier for the AS2 profile or SFTP Profile.
+     * @return Unique identifier for the AS2 profile or SFTP Profile.
      * 
      */
     public Optional<Output<String>> connectorId() {
@@ -80,14 +80,14 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the egress configuration for the connector. When set, enables routing through customer VPCs using VPC Lattice for private connectivity. Fields documented below.
+     * Egress configuration for the connector. When set, enables routing through customer VPCs using VPC Lattice for private connectivity. See `egressConfig` Block below.
      * 
      */
     @Import(name="egressConfig")
     private @Nullable Output<ConnectorEgressConfigArgs> egressConfig;
 
     /**
-     * @return Specifies the egress configuration for the connector. When set, enables routing through customer VPCs using VPC Lattice for private connectivity. Fields documented below.
+     * @return Egress configuration for the connector. When set, enables routing through customer VPCs using VPC Lattice for private connectivity. See `egressConfig` Block below.
      * 
      */
     public Optional<Output<ConnectorEgressConfigArgs>> egressConfig() {
@@ -95,14 +95,14 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
+     * IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
      * 
      */
     @Import(name="loggingRole")
     private @Nullable Output<String> loggingRole;
 
     /**
-     * @return The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
+     * @return IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
      * 
      */
     public Optional<Output<String>> loggingRole() {
@@ -140,14 +140,14 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
+     * Either SFTP or AS2 is configured. Parameters to configure for the connector object. See `sftpConfig` Block below.
      * 
      */
     @Import(name="sftpConfig")
     private @Nullable Output<ConnectorSftpConfigArgs> sftpConfig;
 
     /**
-     * @return Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
+     * @return Either SFTP or AS2 is configured. Parameters to configure for the connector object. See `sftpConfig` Block below.
      * 
      */
     public Optional<Output<ConnectorSftpConfigArgs>> sftpConfig() {
@@ -155,14 +155,14 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -177,14 +177,14 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The URL of the partners AS2 endpoint or SFTP endpoint. Required for AS2 connectors and service-managed SFTP connectors. Must be null when using VPC Lattice egress configuration.
+     * URL of the partners AS2 endpoint or SFTP endpoint. Required for AS2 connectors and service-managed SFTP connectors. Must be null when using VPC Lattice egress configuration.
      * 
      */
     @Import(name="url")
     private @Nullable Output<String> url;
 
     /**
-     * @return The URL of the partners AS2 endpoint or SFTP endpoint. Required for AS2 connectors and service-managed SFTP connectors. Must be null when using VPC Lattice egress configuration.
+     * @return URL of the partners AS2 endpoint or SFTP endpoint. Required for AS2 connectors and service-managed SFTP connectors. Must be null when using VPC Lattice egress configuration.
      * 
      */
     public Optional<Output<String>> url() {
@@ -227,7 +227,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessRole The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
+         * @param accessRole IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessRole The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
+         * @param accessRole IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the connector.
+         * @param arn ARN of the connector.
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the connector.
+         * @param arn ARN of the connector.
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param as2Config Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
+         * @param as2Config Either SFTP or AS2 is configured. Parameters to configure for the connector object. See `as2Config` Block below.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param as2Config Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
+         * @param as2Config Either SFTP or AS2 is configured. Parameters to configure for the connector object. See `as2Config` Block below.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectorId The unique identifier for the AS2 profile or SFTP Profile.
+         * @param connectorId Unique identifier for the AS2 profile or SFTP Profile.
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectorId The unique identifier for the AS2 profile or SFTP Profile.
+         * @param connectorId Unique identifier for the AS2 profile or SFTP Profile.
          * 
          * @return builder
          * 
@@ -311,7 +311,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param egressConfig Specifies the egress configuration for the connector. When set, enables routing through customer VPCs using VPC Lattice for private connectivity. Fields documented below.
+         * @param egressConfig Egress configuration for the connector. When set, enables routing through customer VPCs using VPC Lattice for private connectivity. See `egressConfig` Block below.
          * 
          * @return builder
          * 
@@ -322,7 +322,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param egressConfig Specifies the egress configuration for the connector. When set, enables routing through customer VPCs using VPC Lattice for private connectivity. Fields documented below.
+         * @param egressConfig Egress configuration for the connector. When set, enables routing through customer VPCs using VPC Lattice for private connectivity. See `egressConfig` Block below.
          * 
          * @return builder
          * 
@@ -332,7 +332,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loggingRole The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
+         * @param loggingRole IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
          * 
          * @return builder
          * 
@@ -343,7 +343,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loggingRole The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
+         * @param loggingRole IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
          * 
          * @return builder
          * 
@@ -395,7 +395,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sftpConfig Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
+         * @param sftpConfig Either SFTP or AS2 is configured. Parameters to configure for the connector object. See `sftpConfig` Block below.
          * 
          * @return builder
          * 
@@ -406,7 +406,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sftpConfig Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
+         * @param sftpConfig Either SFTP or AS2 is configured. Parameters to configure for the connector object. See `sftpConfig` Block below.
          * 
          * @return builder
          * 
@@ -416,7 +416,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -427,7 +427,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -446,7 +446,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param url The URL of the partners AS2 endpoint or SFTP endpoint. Required for AS2 connectors and service-managed SFTP connectors. Must be null when using VPC Lattice egress configuration.
+         * @param url URL of the partners AS2 endpoint or SFTP endpoint. Required for AS2 connectors and service-managed SFTP connectors. Must be null when using VPC Lattice egress configuration.
          * 
          * @return builder
          * 
@@ -457,7 +457,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param url The URL of the partners AS2 endpoint or SFTP endpoint. Required for AS2 connectors and service-managed SFTP connectors. Must be null when using VPC Lattice egress configuration.
+         * @param url URL of the partners AS2 endpoint or SFTP endpoint. Required for AS2 connectors and service-managed SFTP connectors. Must be null when using VPC Lattice egress configuration.
          * 
          * @return builder
          * 

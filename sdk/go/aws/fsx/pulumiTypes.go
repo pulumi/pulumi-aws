@@ -743,7 +743,7 @@ func (o FileCacheDataRepositoryAssociationNfArrayOutput) Index(i pulumi.IntInput
 type FileCacheLustreConfiguration struct {
 	// Cache deployment type. The only supported value is `CACHE_1`.
 	DeploymentType string `pulumi:"deploymentType"`
-	// Configuration for Lustre logging used to write the enabled logging events for the cache.
+	// Configuration for Lustre logging used to write the enabled logging events for the cache. See `logConfiguration` Block below.
 	LogConfigurations []FileCacheLustreConfigurationLogConfiguration `pulumi:"logConfigurations"`
 	// Configuration for a Lustre MDT (Metadata Target) storage volume. See `metadataConfiguration` Block below.
 	MetadataConfigurations []FileCacheLustreConfigurationMetadataConfiguration `pulumi:"metadataConfigurations"`
@@ -769,7 +769,7 @@ type FileCacheLustreConfigurationInput interface {
 type FileCacheLustreConfigurationArgs struct {
 	// Cache deployment type. The only supported value is `CACHE_1`.
 	DeploymentType pulumi.StringInput `pulumi:"deploymentType"`
-	// Configuration for Lustre logging used to write the enabled logging events for the cache.
+	// Configuration for Lustre logging used to write the enabled logging events for the cache. See `logConfiguration` Block below.
 	LogConfigurations FileCacheLustreConfigurationLogConfigurationArrayInput `pulumi:"logConfigurations"`
 	// Configuration for a Lustre MDT (Metadata Target) storage volume. See `metadataConfiguration` Block below.
 	MetadataConfigurations FileCacheLustreConfigurationMetadataConfigurationArrayInput `pulumi:"metadataConfigurations"`
@@ -837,7 +837,7 @@ func (o FileCacheLustreConfigurationOutput) DeploymentType() pulumi.StringOutput
 	return o.ApplyT(func(v FileCacheLustreConfiguration) string { return v.DeploymentType }).(pulumi.StringOutput)
 }
 
-// Configuration for Lustre logging used to write the enabled logging events for the cache.
+// Configuration for Lustre logging used to write the enabled logging events for the cache. See `logConfiguration` Block below.
 func (o FileCacheLustreConfigurationOutput) LogConfigurations() FileCacheLustreConfigurationLogConfigurationArrayOutput {
 	return o.ApplyT(func(v FileCacheLustreConfiguration) []FileCacheLustreConfigurationLogConfiguration {
 		return v.LogConfigurations
@@ -887,8 +887,10 @@ func (o FileCacheLustreConfigurationArrayOutput) Index(i pulumi.IntInput) FileCa
 }
 
 type FileCacheLustreConfigurationLogConfiguration struct {
+	// Amazon Resource Name (ARN) of the destination that receives the logs.
 	Destination *string `pulumi:"destination"`
-	Level       *string `pulumi:"level"`
+	// Level of logging that Lustre logs write to the destination.
+	Level *string `pulumi:"level"`
 }
 
 // FileCacheLustreConfigurationLogConfigurationInput is an input type that accepts FileCacheLustreConfigurationLogConfigurationArgs and FileCacheLustreConfigurationLogConfigurationOutput values.
@@ -903,8 +905,10 @@ type FileCacheLustreConfigurationLogConfigurationInput interface {
 }
 
 type FileCacheLustreConfigurationLogConfigurationArgs struct {
+	// Amazon Resource Name (ARN) of the destination that receives the logs.
 	Destination pulumi.StringPtrInput `pulumi:"destination"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
+	// Level of logging that Lustre logs write to the destination.
+	Level pulumi.StringPtrInput `pulumi:"level"`
 }
 
 func (FileCacheLustreConfigurationLogConfigurationArgs) ElementType() reflect.Type {
@@ -958,10 +962,12 @@ func (o FileCacheLustreConfigurationLogConfigurationOutput) ToFileCacheLustreCon
 	return o
 }
 
+// Amazon Resource Name (ARN) of the destination that receives the logs.
 func (o FileCacheLustreConfigurationLogConfigurationOutput) Destination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileCacheLustreConfigurationLogConfiguration) *string { return v.Destination }).(pulumi.StringPtrOutput)
 }
 
+// Level of logging that Lustre logs write to the destination.
 func (o FileCacheLustreConfigurationLogConfigurationOutput) Level() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileCacheLustreConfigurationLogConfiguration) *string { return v.Level }).(pulumi.StringPtrOutput)
 }

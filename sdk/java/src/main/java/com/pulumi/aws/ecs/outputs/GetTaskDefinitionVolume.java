@@ -16,33 +16,89 @@ import java.util.Objects;
 
 @CustomType
 public final class GetTaskDefinitionVolume {
+    /**
+     * @return Whether the volume is configured at launch time.
+     * 
+     */
     private Boolean configureAtLaunch;
+    /**
+     * @return Configuration block for a Docker volume. See `dockerVolumeConfiguration` Block for details.
+     * 
+     */
     private List<GetTaskDefinitionVolumeDockerVolumeConfiguration> dockerVolumeConfigurations;
+    /**
+     * @return Configuration block for an EFS volume. See `efsVolumeConfiguration` Block for details.
+     * 
+     */
     private List<GetTaskDefinitionVolumeEfsVolumeConfiguration> efsVolumeConfigurations;
+    /**
+     * @return Configuration block for an FSx for Windows File Server volume. See `fsxWindowsFileServerVolumeConfiguration` Block for details.
+     * 
+     */
     private List<GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration> fsxWindowsFileServerVolumeConfigurations;
+    /**
+     * @return Path on the host container instance that is presented to the container.
+     * 
+     */
     private String hostPath;
+    /**
+     * @return Name of the volume.
+     * 
+     */
     private String name;
+    /**
+     * @return Configuration block for an S3 Files volume. See `s3filesVolumeConfiguration` Block for details.
+     * 
+     */
     private List<GetTaskDefinitionVolumeS3filesVolumeConfiguration> s3filesVolumeConfigurations;
 
     private GetTaskDefinitionVolume() {}
+    /**
+     * @return Whether the volume is configured at launch time.
+     * 
+     */
     public Boolean configureAtLaunch() {
         return this.configureAtLaunch;
     }
+    /**
+     * @return Configuration block for a Docker volume. See `dockerVolumeConfiguration` Block for details.
+     * 
+     */
     public List<GetTaskDefinitionVolumeDockerVolumeConfiguration> dockerVolumeConfigurations() {
         return this.dockerVolumeConfigurations;
     }
+    /**
+     * @return Configuration block for an EFS volume. See `efsVolumeConfiguration` Block for details.
+     * 
+     */
     public List<GetTaskDefinitionVolumeEfsVolumeConfiguration> efsVolumeConfigurations() {
         return this.efsVolumeConfigurations;
     }
+    /**
+     * @return Configuration block for an FSx for Windows File Server volume. See `fsxWindowsFileServerVolumeConfiguration` Block for details.
+     * 
+     */
     public List<GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration> fsxWindowsFileServerVolumeConfigurations() {
         return this.fsxWindowsFileServerVolumeConfigurations;
     }
+    /**
+     * @return Path on the host container instance that is presented to the container.
+     * 
+     */
     public String hostPath() {
         return this.hostPath;
     }
+    /**
+     * @return Name of the volume.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Configuration block for an S3 Files volume. See `s3filesVolumeConfiguration` Block for details.
+     * 
+     */
     public List<GetTaskDefinitionVolumeS3filesVolumeConfiguration> s3filesVolumeConfigurations() {
         return this.s3filesVolumeConfigurations;
     }

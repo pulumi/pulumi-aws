@@ -13,6 +13,9 @@ namespace Pulumi.Aws.VpcLattice.Outputs
     [OutputType]
     public sealed class GetListenerDefaultActionForwardResult
     {
+        /// <summary>
+        /// Target groups that the listener forwards traffic to. See `TargetGroups` Block below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetListenerDefaultActionForwardTargetGroupResult> TargetGroups;
 
         [OutputConstructor]

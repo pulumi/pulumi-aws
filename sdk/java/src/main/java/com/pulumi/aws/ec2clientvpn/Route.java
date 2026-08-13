@@ -159,18 +159,32 @@ public class Route extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
+     * The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN. Required for VPC-based Client VPN endpoints. Not applicable for Transit Gateway-based Client VPN endpoints.
      * 
      */
     @Export(name="targetVpcSubnetId", refs={String.class}, tree="[0]")
-    private Output<String> targetVpcSubnetId;
+    private Output</* @Nullable */ String> targetVpcSubnetId;
 
     /**
-     * @return The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
+     * @return The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN. Required for VPC-based Client VPN endpoints. Not applicable for Transit Gateway-based Client VPN endpoints.
      * 
      */
-    public Output<String> targetVpcSubnetId() {
-        return this.targetVpcSubnetId;
+    public Output<Optional<String>> targetVpcSubnetId() {
+        return Codegen.optional(this.targetVpcSubnetId);
+    }
+    /**
+     * The ID of the Transit Gateway attachment, if the route targets a Transit Gateway-based Client VPN endpoint.
+     * 
+     */
+    @Export(name="transitGatewayAttachmentId", refs={String.class}, tree="[0]")
+    private Output<String> transitGatewayAttachmentId;
+
+    /**
+     * @return The ID of the Transit Gateway attachment, if the route targets a Transit Gateway-based Client VPN endpoint.
+     * 
+     */
+    public Output<String> transitGatewayAttachmentId() {
+        return this.transitGatewayAttachmentId;
     }
     /**
      * The type of the route.

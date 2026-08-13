@@ -78,70 +78,70 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:backup/reportPlan:ReportPlan")
 public class ReportPlan extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the backup report plan.
+     * ARN of the backup report plan.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the backup report plan.
+     * @return ARN of the backup report plan.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
+     * Date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
      * 
      */
     @Export(name="creationTime", refs={String.class}, tree="[0]")
     private Output<String> creationTime;
 
     /**
-     * @return The date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
+     * @return Date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
      * 
      */
     public Output<String> creationTime() {
         return this.creationTime;
     }
     /**
-     * The deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
+     * Deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
      * 
      */
     @Export(name="deploymentStatus", refs={String.class}, tree="[0]")
     private Output<String> deploymentStatus;
 
     /**
-     * @return The deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
+     * @return Deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
      * 
      */
     public Output<String> deploymentStatus() {
         return this.deploymentStatus;
     }
     /**
-     * The description of the report plan with a maximum of 1,024 characters
+     * Description of the report plan with a maximum of 1,024 characters.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return The description of the report plan with a maximum of 1,024 characters
+     * @return Description of the report plan with a maximum of 1,024 characters.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+     * Unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+     * @return Unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
      * 
      */
     public Output<String> name() {
@@ -162,28 +162,28 @@ public class ReportPlan extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
+     * Object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
      * 
      */
     @Export(name="reportDeliveryChannel", refs={ReportPlanReportDeliveryChannel.class}, tree="[0]")
     private Output<ReportPlanReportDeliveryChannel> reportDeliveryChannel;
 
     /**
-     * @return An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
+     * @return Object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
      * 
      */
     public Output<ReportPlanReportDeliveryChannel> reportDeliveryChannel() {
         return this.reportDeliveryChannel;
     }
     /**
-     * An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
+     * Object that identifies the report template for the report. Reports are built using a report template. Detailed below.
      * 
      */
     @Export(name="reportSetting", refs={ReportPlanReportSetting.class}, tree="[0]")
     private Output<ReportPlanReportSetting> reportSetting;
 
     /**
-     * @return An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
+     * @return Object that identifies the report template for the report. Reports are built using a report template. Detailed below.
      * 
      */
     public Output<ReportPlanReportSetting> reportSetting() {
@@ -204,14 +204,14 @@ public class ReportPlan extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

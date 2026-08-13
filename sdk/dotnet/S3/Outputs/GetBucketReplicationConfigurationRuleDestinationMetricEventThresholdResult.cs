@@ -13,6 +13,9 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdResult
     {
+        /// <summary>
+        /// Time in minutes.
+        /// </summary>
         public readonly int Minutes;
 
         [OutputConstructor]

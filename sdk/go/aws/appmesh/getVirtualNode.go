@@ -79,7 +79,7 @@ type LookupVirtualNodeResult struct {
 	Region          string `pulumi:"region"`
 	// Resource owner's AWS account ID.
 	ResourceOwner string `pulumi:"resourceOwner"`
-	// Virtual node specification. See the `appmesh.VirtualNode` resource for details.
+	// Virtual node specification. See `spec` Block for details.
 	Specs []GetVirtualNodeSpec `pulumi:"specs"`
 	// Map of tags.
 	Tags map[string]string `pulumi:"tags"`
@@ -168,7 +168,7 @@ func (o LookupVirtualNodeResultOutput) ResourceOwner() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualNodeResult) string { return v.ResourceOwner }).(pulumi.StringOutput)
 }
 
-// Virtual node specification. See the `appmesh.VirtualNode` resource for details.
+// Virtual node specification. See `spec` Block for details.
 func (o LookupVirtualNodeResultOutput) Specs() GetVirtualNodeSpecArrayOutput {
 	return o.ApplyT(func(v LookupVirtualNodeResult) []GetVirtualNodeSpec { return v.Specs }).(GetVirtualNodeSpecArrayOutput)
 }

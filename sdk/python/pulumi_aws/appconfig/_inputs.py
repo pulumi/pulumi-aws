@@ -298,7 +298,7 @@ class ExtensionParameterArgsDict(TypedDict):
     """
     required: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Determines if a parameter value must be specified in the extension association.
+    Whether a parameter value must be specified in the extension association.
     """
 
 @pulumi.input_type
@@ -310,7 +310,7 @@ class ExtensionParameterArgs:
         """
         :param pulumi.Input[_builtins.str] name: Parameter name.
         :param pulumi.Input[_builtins.str] description: Information about the parameter.
-        :param pulumi.Input[_builtins.bool] required: Determines if a parameter value must be specified in the extension association.
+        :param pulumi.Input[_builtins.bool] required: Whether a parameter value must be specified in the extension association.
         """
         pulumi.set(__self__, "name", name)
         if description is not None:
@@ -346,7 +346,7 @@ class ExtensionParameterArgs:
     @pulumi.getter
     def required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Determines if a parameter value must be specified in the extension association.
+        Whether a parameter value must be specified in the extension association.
         """
         return pulumi.get(self, "required")
 

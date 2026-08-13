@@ -22,7 +22,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Inputs
         private InputList<Inputs.PlanWorkflowStepEksResourceScalingConfigScalingResourceResourceArgs>? _resources;
 
         /// <summary>
-        /// Set of resources to scale. See Resources below.
+        /// Resources to scale. See `Resources` Block for details.
         /// </summary>
         public InputList<Inputs.PlanWorkflowStepEksResourceScalingConfigScalingResourceResourceArgs> Resources
         {

@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Transfer.Outputs
     [OutputType]
     public sealed class WebAppWebAppUnit
     {
+        /// <summary>
+        /// Number of units of concurrent connections.
+        /// </summary>
         public readonly int Provisioned;
 
         [OutputConstructor]

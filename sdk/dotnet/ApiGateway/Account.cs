@@ -130,7 +130,7 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Account-Level throttle settings, including the burst limit (absolute maximum number of times API Gateway allows the API to be called per second) and the rate limit (number of times API Gateway allows the API to be called per second on average).
+        /// Account-Level throttle settings. See `ThrottleSettings` Block below.
         /// </summary>
         [Output("throttleSettings")]
         public Output<ImmutableArray<Outputs.AccountThrottleSetting>> ThrottleSettings { get; private set; } = null!;
@@ -235,7 +235,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputList<Inputs.AccountThrottleSettingGetArgs>? _throttleSettings;
 
         /// <summary>
-        /// Account-Level throttle settings, including the burst limit (absolute maximum number of times API Gateway allows the API to be called per second) and the rate limit (number of times API Gateway allows the API to be called per second on average).
+        /// Account-Level throttle settings. See `ThrottleSettings` Block below.
         /// </summary>
         public InputList<Inputs.AccountThrottleSettingGetArgs> ThrottleSettings
         {

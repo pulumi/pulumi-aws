@@ -13,13 +13,16 @@ namespace Pulumi.Aws.Odb.Outputs
     [OutputType]
     public sealed class NetworkManagedServiceCrossRegionS3RestoreSourcesAccess
     {
+        /// <summary>
+        /// List of IPv4 addresses for the Amazon STS access.
+        /// </summary>
         public readonly ImmutableArray<string> Ipv4Addresses;
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         public readonly string Region;
         /// <summary>
-        /// Status of the network resource.
+        /// Status of the Zero-ETL access.
         /// </summary>
         public readonly string Status;
 

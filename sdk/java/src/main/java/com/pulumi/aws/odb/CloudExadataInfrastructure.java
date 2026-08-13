@@ -178,14 +178,14 @@ public class CloudExadataInfrastructure extends com.pulumi.resources.CustomResou
         return this.createdAt;
     }
     /**
-     * Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
+     * Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource. See `customerContactsToSendToOci` Block below.
      * 
      */
     @Export(name="customerContactsToSendToOcis", refs={List.class,CloudExadataInfrastructureCustomerContactsToSendToOci.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CloudExadataInfrastructureCustomerContactsToSendToOci>> customerContactsToSendToOcis;
 
     /**
-     * @return Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
+     * @return Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource. See `customerContactsToSendToOci` Block below.
      * 
      */
     public Output<Optional<List<CloudExadataInfrastructureCustomerContactsToSendToOci>>> customerContactsToSendToOcis() {

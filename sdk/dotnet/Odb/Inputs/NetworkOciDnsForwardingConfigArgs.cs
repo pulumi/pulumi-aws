@@ -12,9 +12,15 @@ namespace Pulumi.Aws.Odb.Inputs
 
     public sealed class NetworkOciDnsForwardingConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Domain name for which the DNS queries are forwarded.
+        /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
+        /// <summary>
+        /// IP address of the OCI DNS listener.
+        /// </summary>
         [Input("ociDnsListenerIp", required: true)]
         public Input<string> OciDnsListenerIp { get; set; } = null!;
 

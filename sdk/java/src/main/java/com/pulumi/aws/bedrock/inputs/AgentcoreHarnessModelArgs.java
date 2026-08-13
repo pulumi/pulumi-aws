@@ -18,14 +18,14 @@ public final class AgentcoreHarnessModelArgs extends com.pulumi.resources.Resour
     public static final AgentcoreHarnessModelArgs Empty = new AgentcoreHarnessModelArgs();
 
     /**
-     * Amazon Bedrock model configuration. See `bedrockModelConfig` below.
+     * Amazon Bedrock model configuration. See `bedrockModelConfig` Block below.
      * 
      */
     @Import(name="bedrockModelConfig")
     private @Nullable Output<AgentcoreHarnessModelBedrockModelConfigArgs> bedrockModelConfig;
 
     /**
-     * @return Amazon Bedrock model configuration. See `bedrockModelConfig` below.
+     * @return Amazon Bedrock model configuration. See `bedrockModelConfig` Block below.
      * 
      */
     public Optional<Output<AgentcoreHarnessModelBedrockModelConfigArgs>> bedrockModelConfig() {
@@ -33,14 +33,14 @@ public final class AgentcoreHarnessModelArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Gemini model configuration. See `geminiModelConfig` below.
+     * Gemini model configuration. See `geminiModelConfig` Block below.
      * 
      */
     @Import(name="geminiModelConfig")
     private @Nullable Output<AgentcoreHarnessModelGeminiModelConfigArgs> geminiModelConfig;
 
     /**
-     * @return Gemini model configuration. See `geminiModelConfig` below.
+     * @return Gemini model configuration. See `geminiModelConfig` Block below.
      * 
      */
     public Optional<Output<AgentcoreHarnessModelGeminiModelConfigArgs>> geminiModelConfig() {
@@ -48,14 +48,14 @@ public final class AgentcoreHarnessModelArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * OpenAI model configuration. See `openaiModelConfig` below.
+     * OpenAI model configuration. See `openaiModelConfig` Block below.
      * 
      */
     @Import(name="openaiModelConfig")
     private @Nullable Output<AgentcoreHarnessModelOpenaiModelConfigArgs> openaiModelConfig;
 
     /**
-     * @return OpenAI model configuration. See `openaiModelConfig` below.
+     * @return OpenAI model configuration. See `openaiModelConfig` Block below.
      * 
      */
     public Optional<Output<AgentcoreHarnessModelOpenaiModelConfigArgs>> openaiModelConfig() {
@@ -89,7 +89,7 @@ public final class AgentcoreHarnessModelArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param bedrockModelConfig Amazon Bedrock model configuration. See `bedrockModelConfig` below.
+         * @param bedrockModelConfig Amazon Bedrock model configuration. See `bedrockModelConfig` Block below.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class AgentcoreHarnessModelArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param bedrockModelConfig Amazon Bedrock model configuration. See `bedrockModelConfig` below.
+         * @param bedrockModelConfig Amazon Bedrock model configuration. See `bedrockModelConfig` Block below.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class AgentcoreHarnessModelArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param geminiModelConfig Gemini model configuration. See `geminiModelConfig` below.
+         * @param geminiModelConfig Gemini model configuration. See `geminiModelConfig` Block below.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class AgentcoreHarnessModelArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param geminiModelConfig Gemini model configuration. See `geminiModelConfig` below.
+         * @param geminiModelConfig Gemini model configuration. See `geminiModelConfig` Block below.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class AgentcoreHarnessModelArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param openaiModelConfig OpenAI model configuration. See `openaiModelConfig` below.
+         * @param openaiModelConfig OpenAI model configuration. See `openaiModelConfig` Block below.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class AgentcoreHarnessModelArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param openaiModelConfig OpenAI model configuration. See `openaiModelConfig` below.
+         * @param openaiModelConfig OpenAI model configuration. See `openaiModelConfig` Block below.
          * 
          * @return builder
          * 

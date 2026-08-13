@@ -118,7 +118,7 @@ type ClusterInstance struct {
 	// Name of the database engine to be used for the RDS cluster instance.
 	// Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
 	Engine EngineTypeOutput `pulumi:"engine"`
-	// Database engine version. Please note that to upgrade the `engineVersion` of the instance, it must be done on the `rds.Cluster` `engineVersion`. Trying to upgrade in `awsClusterInstance` will not update the `engineVersion`.
+	// Database engine version. Please note that to upgrade the `engineVersion` of the instance, it must be done on the `rds.Cluster` `engineVersion`. Trying to upgrade in `rds.ClusterInstance` will not update the `engineVersion`.
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
 	// Database engine version
 	EngineVersionActual pulumi.StringOutput `pulumi:"engineVersionActual"`
@@ -235,7 +235,7 @@ type clusterInstanceState struct {
 	// Name of the database engine to be used for the RDS cluster instance.
 	// Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
 	Engine *EngineType `pulumi:"engine"`
-	// Database engine version. Please note that to upgrade the `engineVersion` of the instance, it must be done on the `rds.Cluster` `engineVersion`. Trying to upgrade in `awsClusterInstance` will not update the `engineVersion`.
+	// Database engine version. Please note that to upgrade the `engineVersion` of the instance, it must be done on the `rds.Cluster` `engineVersion`. Trying to upgrade in `rds.ClusterInstance` will not update the `engineVersion`.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// Database engine version
 	EngineVersionActual *string `pulumi:"engineVersionActual"`
@@ -314,7 +314,7 @@ type ClusterInstanceState struct {
 	// Name of the database engine to be used for the RDS cluster instance.
 	// Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
 	Engine EngineTypePtrInput
-	// Database engine version. Please note that to upgrade the `engineVersion` of the instance, it must be done on the `rds.Cluster` `engineVersion`. Trying to upgrade in `awsClusterInstance` will not update the `engineVersion`.
+	// Database engine version. Please note that to upgrade the `engineVersion` of the instance, it must be done on the `rds.Cluster` `engineVersion`. Trying to upgrade in `rds.ClusterInstance` will not update the `engineVersion`.
 	EngineVersion pulumi.StringPtrInput
 	// Database engine version
 	EngineVersionActual pulumi.StringPtrInput
@@ -391,7 +391,7 @@ type clusterInstanceArgs struct {
 	// Name of the database engine to be used for the RDS cluster instance.
 	// Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
 	Engine EngineType `pulumi:"engine"`
-	// Database engine version. Please note that to upgrade the `engineVersion` of the instance, it must be done on the `rds.Cluster` `engineVersion`. Trying to upgrade in `awsClusterInstance` will not update the `engineVersion`.
+	// Database engine version. Please note that to upgrade the `engineVersion` of the instance, it must be done on the `rds.Cluster` `engineVersion`. Trying to upgrade in `rds.ClusterInstance` will not update the `engineVersion`.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// Forces an instance to be destroyed when a part of a read replica cluster. **Note:** will promote the read replica to a standalone cluster before instance deletion.
 	ForceDestroy *bool `pulumi:"forceDestroy"`
@@ -451,7 +451,7 @@ type ClusterInstanceArgs struct {
 	// Name of the database engine to be used for the RDS cluster instance.
 	// Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
 	Engine EngineTypeInput
-	// Database engine version. Please note that to upgrade the `engineVersion` of the instance, it must be done on the `rds.Cluster` `engineVersion`. Trying to upgrade in `awsClusterInstance` will not update the `engineVersion`.
+	// Database engine version. Please note that to upgrade the `engineVersion` of the instance, it must be done on the `rds.Cluster` `engineVersion`. Trying to upgrade in `rds.ClusterInstance` will not update the `engineVersion`.
 	EngineVersion pulumi.StringPtrInput
 	// Forces an instance to be destroyed when a part of a read replica cluster. **Note:** will promote the read replica to a standalone cluster before instance deletion.
 	ForceDestroy pulumi.BoolPtrInput
@@ -641,7 +641,7 @@ func (o ClusterInstanceOutput) Engine() EngineTypeOutput {
 	return o.ApplyT(func(v *ClusterInstance) EngineTypeOutput { return v.Engine }).(EngineTypeOutput)
 }
 
-// Database engine version. Please note that to upgrade the `engineVersion` of the instance, it must be done on the `rds.Cluster` `engineVersion`. Trying to upgrade in `awsClusterInstance` will not update the `engineVersion`.
+// Database engine version. Please note that to upgrade the `engineVersion` of the instance, it must be done on the `rds.Cluster` `engineVersion`. Trying to upgrade in `rds.ClusterInstance` will not update the `engineVersion`.
 func (o ClusterInstanceOutput) EngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.EngineVersion }).(pulumi.StringOutput)
 }

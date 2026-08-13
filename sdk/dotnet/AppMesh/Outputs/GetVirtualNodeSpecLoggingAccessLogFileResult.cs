@@ -13,7 +13,13 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetVirtualNodeSpecLoggingAccessLogFileResult
     {
+        /// <summary>
+        /// Format for the logs. See `spec.logging.access_log.file.format` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualNodeSpecLoggingAccessLogFileFormatResult> Formats;
+        /// <summary>
+        /// File path to write access logs to.
+        /// </summary>
         public readonly string Path;
 
         [OutputConstructor]

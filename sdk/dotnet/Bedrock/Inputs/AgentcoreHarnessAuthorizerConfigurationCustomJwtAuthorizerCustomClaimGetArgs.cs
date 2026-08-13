@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration block to define the value or values to match for and the relationship of the match. See `AuthorizingClaimMatchValue` below.
+        /// Configuration block to define the value or values to match for and the relationship of the match. See `AuthorizingClaimMatchValue` Block below.
         /// </summary>
         [Input("authorizingClaimMatchValue", required: true)]
         public Input<Inputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueGetArgs> AuthorizingClaimMatchValue { get; set; } = null!;

@@ -87,7 +87,7 @@ public class WebAppCustomization extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.title);
     }
     /**
-     * The identifier of the web app to be customized.
+     * Identifier of the web app to be customized.
      * 
      * The following arguments are optional:
      * 
@@ -96,7 +96,7 @@ public class WebAppCustomization extends com.pulumi.resources.CustomResource {
     private Output<String> webAppId;
 
     /**
-     * @return The identifier of the web app to be customized.
+     * @return Identifier of the web app to be customized.
      * 
      * The following arguments are optional:
      * 

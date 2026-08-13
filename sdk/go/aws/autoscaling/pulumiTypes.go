@@ -10678,9 +10678,9 @@ func (o GetAmiIdsFilterArrayOutput) Index(i pulumi.IntInput) GetAmiIdsFilterOutp
 }
 
 type GetGroupInstanceMaintenancePolicy struct {
-	// Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
+	// Upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
 	MaxHealthyPercentage int `pulumi:"maxHealthyPercentage"`
-	// Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
+	// Lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
 	MinHealthyPercentage int `pulumi:"minHealthyPercentage"`
 }
 
@@ -10696,9 +10696,9 @@ type GetGroupInstanceMaintenancePolicyInput interface {
 }
 
 type GetGroupInstanceMaintenancePolicyArgs struct {
-	// Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
+	// Upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
 	MaxHealthyPercentage pulumi.IntInput `pulumi:"maxHealthyPercentage"`
-	// Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
+	// Lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
 	MinHealthyPercentage pulumi.IntInput `pulumi:"minHealthyPercentage"`
 }
 
@@ -10753,12 +10753,12 @@ func (o GetGroupInstanceMaintenancePolicyOutput) ToGetGroupInstanceMaintenancePo
 	return o
 }
 
-// Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
+// Upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
 func (o GetGroupInstanceMaintenancePolicyOutput) MaxHealthyPercentage() pulumi.IntOutput {
 	return o.ApplyT(func(v GetGroupInstanceMaintenancePolicy) int { return v.MaxHealthyPercentage }).(pulumi.IntOutput)
 }
 
-// Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
+// Lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
 func (o GetGroupInstanceMaintenancePolicyOutput) MinHealthyPercentage() pulumi.IntOutput {
 	return o.ApplyT(func(v GetGroupInstanceMaintenancePolicy) int { return v.MinHealthyPercentage }).(pulumi.IntOutput)
 }
@@ -11012,7 +11012,8 @@ type GetGroupMixedInstancesPolicyInstancesDistribution struct {
 	// Strategy used when launching on-demand instances.
 	OnDemandAllocationStrategy string `pulumi:"onDemandAllocationStrategy"`
 	// Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances.
-	OnDemandBaseCapacity                int `pulumi:"onDemandBaseCapacity"`
+	OnDemandBaseCapacity int `pulumi:"onDemandBaseCapacity"`
+	// Percentages of On-Demand Instances and Spot Instances for your additional capacity beyond `onDemandBaseCapacity`.
 	OnDemandPercentageAboveBaseCapacity int `pulumi:"onDemandPercentageAboveBaseCapacity"`
 	// Strategy used when launching Spot instances.
 	SpotAllocationStrategy string `pulumi:"spotAllocationStrategy"`
@@ -11037,7 +11038,8 @@ type GetGroupMixedInstancesPolicyInstancesDistributionArgs struct {
 	// Strategy used when launching on-demand instances.
 	OnDemandAllocationStrategy pulumi.StringInput `pulumi:"onDemandAllocationStrategy"`
 	// Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances.
-	OnDemandBaseCapacity                pulumi.IntInput `pulumi:"onDemandBaseCapacity"`
+	OnDemandBaseCapacity pulumi.IntInput `pulumi:"onDemandBaseCapacity"`
+	// Percentages of On-Demand Instances and Spot Instances for your additional capacity beyond `onDemandBaseCapacity`.
 	OnDemandPercentageAboveBaseCapacity pulumi.IntInput `pulumi:"onDemandPercentageAboveBaseCapacity"`
 	// Strategy used when launching Spot instances.
 	SpotAllocationStrategy pulumi.StringInput `pulumi:"spotAllocationStrategy"`
@@ -11108,6 +11110,7 @@ func (o GetGroupMixedInstancesPolicyInstancesDistributionOutput) OnDemandBaseCap
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyInstancesDistribution) int { return v.OnDemandBaseCapacity }).(pulumi.IntOutput)
 }
 
+// Percentages of On-Demand Instances and Spot Instances for your additional capacity beyond `onDemandBaseCapacity`.
 func (o GetGroupMixedInstancesPolicyInstancesDistributionOutput) OnDemandPercentageAboveBaseCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyInstancesDistribution) int {
 		return v.OnDemandPercentageAboveBaseCapacity
@@ -11519,11 +11522,11 @@ type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement struc
 	AcceleratorTypes []string `pulumi:"acceleratorTypes"`
 	// List of instance types to apply the specified attributes against.
 	AllowedInstanceTypes []string `pulumi:"allowedInstanceTypes"`
-	// Indicates whether bare metal instances are included, excluded, or required.
+	// Whether bare metal instances are included, excluded, or required.
 	BareMetal string `pulumi:"bareMetal"`
 	// List of objects describing the minimum and maximum baseline EBS bandwidth (Mbps).
 	BaselineEbsBandwidthMbps []GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbp `pulumi:"baselineEbsBandwidthMbps"`
-	// Indicates whether burstable performance instance types are included, excluded, or required.
+	// Whether burstable performance instance types are included, excluded, or required.
 	BurstablePerformance string `pulumi:"burstablePerformance"`
 	// List of CPU manufacturer names.
 	CpuManufacturers []string `pulumi:"cpuManufacturers"`
@@ -11531,7 +11534,7 @@ type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement struc
 	ExcludedInstanceTypes []string `pulumi:"excludedInstanceTypes"`
 	// List of instance generation names.
 	InstanceGenerations []string `pulumi:"instanceGenerations"`
-	// Indicates whether instance types with instance store volumes are included, excluded, or required.
+	// Whether instance types with instance store volumes are included, excluded, or required.
 	LocalStorage string `pulumi:"localStorage"`
 	// List of local storage type names.
 	LocalStorageTypes []string `pulumi:"localStorageTypes"`
@@ -11547,7 +11550,7 @@ type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement struc
 	NetworkInterfaceCounts []GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCount `pulumi:"networkInterfaceCounts"`
 	// Price protection threshold for On-Demand Instances.
 	OnDemandMaxPricePercentageOverLowestPrice int `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
-	// Indicates whether instance types must support On-Demand Instance Hibernation.
+	// Whether instance types must support On-Demand Instance Hibernation.
 	RequireHibernateSupport bool `pulumi:"requireHibernateSupport"`
 	// Price protection threshold for Spot Instances.
 	SpotMaxPricePercentageOverLowestPrice int `pulumi:"spotMaxPricePercentageOverLowestPrice"`
@@ -11581,11 +11584,11 @@ type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementArgs s
 	AcceleratorTypes pulumi.StringArrayInput `pulumi:"acceleratorTypes"`
 	// List of instance types to apply the specified attributes against.
 	AllowedInstanceTypes pulumi.StringArrayInput `pulumi:"allowedInstanceTypes"`
-	// Indicates whether bare metal instances are included, excluded, or required.
+	// Whether bare metal instances are included, excluded, or required.
 	BareMetal pulumi.StringInput `pulumi:"bareMetal"`
 	// List of objects describing the minimum and maximum baseline EBS bandwidth (Mbps).
 	BaselineEbsBandwidthMbps GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpArrayInput `pulumi:"baselineEbsBandwidthMbps"`
-	// Indicates whether burstable performance instance types are included, excluded, or required.
+	// Whether burstable performance instance types are included, excluded, or required.
 	BurstablePerformance pulumi.StringInput `pulumi:"burstablePerformance"`
 	// List of CPU manufacturer names.
 	CpuManufacturers pulumi.StringArrayInput `pulumi:"cpuManufacturers"`
@@ -11593,7 +11596,7 @@ type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementArgs s
 	ExcludedInstanceTypes pulumi.StringArrayInput `pulumi:"excludedInstanceTypes"`
 	// List of instance generation names.
 	InstanceGenerations pulumi.StringArrayInput `pulumi:"instanceGenerations"`
-	// Indicates whether instance types with instance store volumes are included, excluded, or required.
+	// Whether instance types with instance store volumes are included, excluded, or required.
 	LocalStorage pulumi.StringInput `pulumi:"localStorage"`
 	// List of local storage type names.
 	LocalStorageTypes pulumi.StringArrayInput `pulumi:"localStorageTypes"`
@@ -11609,7 +11612,7 @@ type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementArgs s
 	NetworkInterfaceCounts GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountArrayInput `pulumi:"networkInterfaceCounts"`
 	// Price protection threshold for On-Demand Instances.
 	OnDemandMaxPricePercentageOverLowestPrice pulumi.IntInput `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
-	// Indicates whether instance types must support On-Demand Instance Hibernation.
+	// Whether instance types must support On-Demand Instance Hibernation.
 	RequireHibernateSupport pulumi.BoolInput `pulumi:"requireHibernateSupport"`
 	// Price protection threshold for Spot Instances.
 	SpotMaxPricePercentageOverLowestPrice pulumi.IntInput `pulumi:"spotMaxPricePercentageOverLowestPrice"`
@@ -11712,7 +11715,7 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOut
 	}).(pulumi.StringArrayOutput)
 }
 
-// Indicates whether bare metal instances are included, excluded, or required.
+// Whether bare metal instances are included, excluded, or required.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput) BareMetal() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement) string {
 		return v.BareMetal
@@ -11726,7 +11729,7 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOut
 	}).(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpArrayOutput)
 }
 
-// Indicates whether burstable performance instance types are included, excluded, or required.
+// Whether burstable performance instance types are included, excluded, or required.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput) BurstablePerformance() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement) string {
 		return v.BurstablePerformance
@@ -11754,7 +11757,7 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOut
 	}).(pulumi.StringArrayOutput)
 }
 
-// Indicates whether instance types with instance store volumes are included, excluded, or required.
+// Whether instance types with instance store volumes are included, excluded, or required.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput) LocalStorage() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement) string {
 		return v.LocalStorage
@@ -11810,7 +11813,7 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOut
 	}).(pulumi.IntOutput)
 }
 
-// Indicates whether instance types must support On-Demand Instance Hibernation.
+// Whether instance types must support On-Demand Instance Hibernation.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput) RequireHibernateSupport() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement) bool {
 		return v.RequireHibernateSupport
@@ -13085,7 +13088,7 @@ func (o GetGroupTagArrayOutput) Index(i pulumi.IntInput) GetGroupTagOutput {
 }
 
 type GetGroupTrafficSource struct {
-	// Identifies the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
+	// Identifier of the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
 	Identifier string `pulumi:"identifier"`
 	// Traffic source type.
 	Type string `pulumi:"type"`
@@ -13103,7 +13106,7 @@ type GetGroupTrafficSourceInput interface {
 }
 
 type GetGroupTrafficSourceArgs struct {
-	// Identifies the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
+	// Identifier of the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
 	Identifier pulumi.StringInput `pulumi:"identifier"`
 	// Traffic source type.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -13160,7 +13163,7 @@ func (o GetGroupTrafficSourceOutput) ToGetGroupTrafficSourceOutputWithContext(ct
 	return o
 }
 
-// Identifies the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
+// Identifier of the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
 func (o GetGroupTrafficSourceOutput) Identifier() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupTrafficSource) string { return v.Identifier }).(pulumi.StringOutput)
 }
@@ -13315,7 +13318,7 @@ func (o GetGroupWarmPoolArrayOutput) Index(i pulumi.IntInput) GetGroupWarmPoolOu
 }
 
 type GetGroupWarmPoolInstanceReusePolicy struct {
-	// Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
+	// Whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
 	ReuseOnScaleIn bool `pulumi:"reuseOnScaleIn"`
 }
 
@@ -13331,7 +13334,7 @@ type GetGroupWarmPoolInstanceReusePolicyInput interface {
 }
 
 type GetGroupWarmPoolInstanceReusePolicyArgs struct {
-	// Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
+	// Whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
 	ReuseOnScaleIn pulumi.BoolInput `pulumi:"reuseOnScaleIn"`
 }
 
@@ -13386,7 +13389,7 @@ func (o GetGroupWarmPoolInstanceReusePolicyOutput) ToGetGroupWarmPoolInstanceReu
 	return o
 }
 
-// Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
+// Whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
 func (o GetGroupWarmPoolInstanceReusePolicyOutput) ReuseOnScaleIn() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetGroupWarmPoolInstanceReusePolicy) bool { return v.ReuseOnScaleIn }).(pulumi.BoolOutput)
 }

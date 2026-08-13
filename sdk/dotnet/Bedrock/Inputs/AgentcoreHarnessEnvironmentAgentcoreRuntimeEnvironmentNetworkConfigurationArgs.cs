@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs>? _networkModeConfigs;
 
         /// <summary>
-        /// VPC configuration. See `NetworkModeConfig` below.
+        /// VPC configuration. See `NetworkModeConfig` Block below.
         /// </summary>
         public InputList<Inputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs> NetworkModeConfigs
         {

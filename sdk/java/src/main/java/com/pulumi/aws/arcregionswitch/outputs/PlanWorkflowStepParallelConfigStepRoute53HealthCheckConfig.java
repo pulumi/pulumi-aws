@@ -36,7 +36,7 @@ public final class PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfig {
      */
     private String recordName;
     /**
-     * @return Configuration block for record sets. See Record Set below.
+     * @return Configuration block for record sets. See `recordSet` Block for details.
      * 
      */
     private @Nullable List<PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigRecordSet> recordSets;
@@ -76,7 +76,7 @@ public final class PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfig {
         return this.recordName;
     }
     /**
-     * @return Configuration block for record sets. See Record Set below.
+     * @return Configuration block for record sets. See `recordSet` Block for details.
      * 
      */
     public List<PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigRecordSet> recordSets() {

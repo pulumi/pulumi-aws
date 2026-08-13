@@ -12,9 +12,15 @@ namespace Pulumi.Aws.Odb.Inputs
 
     public sealed class NetworkManagedServiceServiceNetworkEndpointGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Unique identifier of the VPC endpoint.
+        /// </summary>
         [Input("vpcEndpointId", required: true)]
         public Input<string> VpcEndpointId { get; set; } = null!;
 
+        /// <summary>
+        /// Type of the VPC endpoint.
+        /// </summary>
         [Input("vpcEndpointType", required: true)]
         public Input<string> VpcEndpointType { get; set; } = null!;
 

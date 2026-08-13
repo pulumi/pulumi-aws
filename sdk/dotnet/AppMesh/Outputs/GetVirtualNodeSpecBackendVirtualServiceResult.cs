@@ -13,7 +13,13 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetVirtualNodeSpecBackendVirtualServiceResult
     {
+        /// <summary>
+        /// Default client policy for virtual service backends. See `spec.backend_defaults.client_policy` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyResult> ClientPolicies;
+        /// <summary>
+        /// Name of the virtual service that is acting as a virtual node backend.
+        /// </summary>
         public readonly string VirtualServiceName;
 
         [OutputConstructor]

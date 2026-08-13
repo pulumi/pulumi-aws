@@ -13,22 +13,13 @@ namespace Pulumi.Aws.Transfer.Inputs
     public sealed class UserHomeDirectoryMappingGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Represents an entry and a target.
+        /// Logical directory entry that appears to your user.
         /// </summary>
         [Input("entry", required: true)]
         public Input<string> Entry { get; set; } = null!;
 
         /// <summary>
-        /// Represents the map target.
-        /// 
-        /// The `Restricted` option is achieved using the following mapping:
-        /// 
-        /// ```
-        /// home_directory_mappings {
-        /// entry  = "/"
-        /// target = "/${aws_s3_bucket.foo.id}/$${Transfer:UserName}"
-        /// }
-        /// ```
+        /// Map target that maps the entry to an actual S3 path.
         /// </summary>
         [Input("target", required: true)]
         public Input<string> Target { get; set; } = null!;

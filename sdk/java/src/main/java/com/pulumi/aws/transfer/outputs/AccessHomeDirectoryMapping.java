@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class AccessHomeDirectoryMapping {
     /**
-     * @return Represents an entry and a target.
+     * @return Logical directory entry that appears to your user.
      * 
      */
     private String entry;
     /**
-     * @return Represents the map target.
+     * @return Map target that maps the entry to an actual S3 path.
      * 
      */
     private String target;
 
     private AccessHomeDirectoryMapping() {}
     /**
-     * @return Represents an entry and a target.
+     * @return Logical directory entry that appears to your user.
      * 
      */
     public String entry() {
         return this.entry;
     }
     /**
-     * @return Represents the map target.
+     * @return Map target that maps the entry to an actual S3 path.
      * 
      */
     public String target() {

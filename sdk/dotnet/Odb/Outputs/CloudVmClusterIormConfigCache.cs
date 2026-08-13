@@ -13,9 +13,21 @@ namespace Pulumi.Aws.Odb.Outputs
     [OutputType]
     public sealed class CloudVmClusterIormConfigCache
     {
+        /// <summary>
+        /// List of IORM (I/O Resource Manager) database plans for the VM cluster. See `DbPlans` Block below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.CloudVmClusterIormConfigCacheDbPlan> DbPlans;
+        /// <summary>
+        /// Additional information about the current lifecycle state of the IORM configuration.
+        /// </summary>
         public readonly string LifecycleDetails;
+        /// <summary>
+        /// Current lifecycle state of the IORM configuration.
+        /// </summary>
         public readonly string LifecycleState;
+        /// <summary>
+        /// Current value for the IORM objective.
+        /// </summary>
         public readonly string Objective;
 
         [OutputConstructor]

@@ -15,7 +15,7 @@ import java.util.Objects;
 @CustomType
 public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameter {
     /**
-     * @return Any of the host devices to expose to the container.
+     * @return Host devices to expose to the container. See `devices` below.
      * 
      */
     private List<GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDevice> devices;
@@ -35,19 +35,19 @@ public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxPa
      */
     private Integer sharedMemorySize;
     /**
-     * @return You can use this parameter to tune a container&#39;s memory swappiness behavior.
+     * @return Value used to tune a container&#39;s memory swappiness behavior.
      * 
      */
     private Integer swappiness;
     /**
-     * @return Container path, mount options, and size (in MiB) of the tmpfs mount.
+     * @return Container path, mount options, and size (in MiB) of the tmpfs mount. See `tmpfs` below.
      * 
      */
     private List<GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpf> tmpfs;
 
     private GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameter() {}
     /**
-     * @return Any of the host devices to expose to the container.
+     * @return Host devices to expose to the container. See `devices` below.
      * 
      */
     public List<GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDevice> devices() {
@@ -75,14 +75,14 @@ public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxPa
         return this.sharedMemorySize;
     }
     /**
-     * @return You can use this parameter to tune a container&#39;s memory swappiness behavior.
+     * @return Value used to tune a container&#39;s memory swappiness behavior.
      * 
      */
     public Integer swappiness() {
         return this.swappiness;
     }
     /**
-     * @return Container path, mount options, and size (in MiB) of the tmpfs mount.
+     * @return Container path, mount options, and size (in MiB) of the tmpfs mount. See `tmpfs` below.
      * 
      */
     public List<GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpf> tmpfs() {

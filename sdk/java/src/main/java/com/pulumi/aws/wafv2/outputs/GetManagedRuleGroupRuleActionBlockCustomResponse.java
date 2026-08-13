@@ -13,17 +13,41 @@ import java.util.Objects;
 
 @CustomType
 public final class GetManagedRuleGroupRuleActionBlockCustomResponse {
+    /**
+     * @return Key of the custom response body to use.
+     * 
+     */
     private String customResponseBodyKey;
+    /**
+     * @return HTTP response code returned.
+     * 
+     */
     private Integer responseCode;
+    /**
+     * @return Headers included in the response. See `responseHeader` Block for details.
+     * 
+     */
     private List<GetManagedRuleGroupRuleActionBlockCustomResponseResponseHeader> responseHeaders;
 
     private GetManagedRuleGroupRuleActionBlockCustomResponse() {}
+    /**
+     * @return Key of the custom response body to use.
+     * 
+     */
     public String customResponseBodyKey() {
         return this.customResponseBodyKey;
     }
+    /**
+     * @return HTTP response code returned.
+     * 
+     */
     public Integer responseCode() {
         return this.responseCode;
     }
+    /**
+     * @return Headers included in the response. See `responseHeader` Block for details.
+     * 
+     */
     public List<GetManagedRuleGroupRuleActionBlockCustomResponseResponseHeader> responseHeaders() {
         return this.responseHeaders;
     }

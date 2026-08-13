@@ -10,13 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class AppAuthorizationConnectionTenant {
+    /**
+     * @return Display name of the tenant.
+     * 
+     */
     private String tenantDisplayName;
+    /**
+     * @return ID of the application tenant.
+     * 
+     */
     private String tenantIdentifier;
 
     private AppAuthorizationConnectionTenant() {}
+    /**
+     * @return Display name of the tenant.
+     * 
+     */
     public String tenantDisplayName() {
         return this.tenantDisplayName;
     }
+    /**
+     * @return ID of the application tenant.
+     * 
+     */
     public String tenantIdentifier() {
         return this.tenantIdentifier;
     }

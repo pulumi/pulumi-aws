@@ -72,8 +72,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.CloudwatchAlarm;
- * import com.pulumi.aws.CloudwatchAlarmArgs;
+ * import com.pulumi.aws.cloudwatch.MetricAlarm;
+ * import com.pulumi.aws.cloudwatch.MetricAlarmArgs;
  * import com.pulumi.aws.cloudwatch.AlarmMuteRule;
  * import com.pulumi.aws.cloudwatch.AlarmMuteRuleArgs;
  * import com.pulumi.aws.cloudwatch.inputs.AlarmMuteRuleRuleArgs;
@@ -92,15 +92,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CloudwatchAlarm("example", CloudwatchAlarmArgs.builder()
- *             .alarmName("example")
+ *         var example = new MetricAlarm("example", MetricAlarmArgs.builder()
+ *             .name("example")
  *             .comparisonOperator("GreaterThanThreshold")
  *             .evaluationPeriods(2)
  *             .metricName("CPUUtilization")
  *             .namespace("AWS/EC2")
  *             .period(120)
  *             .statistic("Average")
- *             .threshold(80)
+ *             .threshold(80.0)
  *             .build());
  * 
  *         var exampleAlarmMuteRule = new AlarmMuteRule("exampleAlarmMuteRule", AlarmMuteRuleArgs.builder()
@@ -116,7 +116,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .muteTargets(AlarmMuteRuleMuteTargetsArgs.builder()
- *                 .alarmNames(example.alarmName())
+ *                 .alarmNames(example.name())
  *                 .build())
  *             .tags(Map.of("Environment", "production"))
  *             .build());

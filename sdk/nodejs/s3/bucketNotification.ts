@@ -378,7 +378,7 @@ export class BucketNotification extends pulumi.CustomResource {
      */
     declare public readonly eventbridge: pulumi.Output<boolean | undefined>;
     /**
-     * Used to configure notifications to a Lambda Function. See below.
+     * Notification configuration to a Lambda Function. See below.
      */
     declare public readonly lambdaFunctions: pulumi.Output<outputs.s3.BucketNotificationLambdaFunction[] | undefined>;
     /**
@@ -445,7 +445,7 @@ export interface BucketNotificationState {
      */
     eventbridge?: pulumi.Input<boolean | undefined>;
     /**
-     * Used to configure notifications to a Lambda Function. See below.
+     * Notification configuration to a Lambda Function. See below.
      */
     lambdaFunctions?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationLambdaFunction>[] | undefined>;
     /**
@@ -477,7 +477,7 @@ export interface BucketNotificationArgs {
      */
     eventbridge?: pulumi.Input<boolean | undefined>;
     /**
-     * Used to configure notifications to a Lambda Function. See below.
+     * Notification configuration to a Lambda Function. See below.
      */
     lambdaFunctions?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationLambdaFunction>[] | undefined>;
     /**

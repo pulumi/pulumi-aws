@@ -874,15 +874,15 @@ class PlanScanSettingArgs:
 class ReportPlanReportDeliveryChannelArgsDict(TypedDict):
     s3_bucket_name: pulumi.Input[_builtins.str]
     """
-    The unique name of the S3 bucket that receives your reports.
+    Unique name of the S3 bucket that receives your reports.
     """
     formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    A list of the format of your reports: CSV, JSON, or both. If not specified, the default format is CSV.
+    List of the format of your reports: CSV, JSON, or both. If not specified, the default format is CSV.
     """
     s3_key_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name. If not specified, there is no prefix.
+    Prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name. If not specified, there is no prefix.
     """
 
 @pulumi.input_type
@@ -892,9 +892,9 @@ class ReportPlanReportDeliveryChannelArgs:
                  formats: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  s3_key_prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] s3_bucket_name: The unique name of the S3 bucket that receives your reports.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] formats: A list of the format of your reports: CSV, JSON, or both. If not specified, the default format is CSV.
-        :param pulumi.Input[_builtins.str] s3_key_prefix: The prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name. If not specified, there is no prefix.
+        :param pulumi.Input[_builtins.str] s3_bucket_name: Unique name of the S3 bucket that receives your reports.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] formats: List of the format of your reports: CSV, JSON, or both. If not specified, the default format is CSV.
+        :param pulumi.Input[_builtins.str] s3_key_prefix: Prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name. If not specified, there is no prefix.
         """
         pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
         if formats is not None:
@@ -906,7 +906,7 @@ class ReportPlanReportDeliveryChannelArgs:
     @pulumi.getter(name="s3BucketName")
     def s3_bucket_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The unique name of the S3 bucket that receives your reports.
+        Unique name of the S3 bucket that receives your reports.
         """
         return pulumi.get(self, "s3_bucket_name")
 
@@ -918,7 +918,7 @@ class ReportPlanReportDeliveryChannelArgs:
     @pulumi.getter
     def formats(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of the format of your reports: CSV, JSON, or both. If not specified, the default format is CSV.
+        List of the format of your reports: CSV, JSON, or both. If not specified, the default format is CSV.
         """
         return pulumi.get(self, "formats")
 
@@ -930,7 +930,7 @@ class ReportPlanReportDeliveryChannelArgs:
     @pulumi.getter(name="s3KeyPrefix")
     def s3_key_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name. If not specified, there is no prefix.
+        Prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name. If not specified, there is no prefix.
         """
         return pulumi.get(self, "s3_key_prefix")
 
@@ -942,27 +942,27 @@ class ReportPlanReportDeliveryChannelArgs:
 class ReportPlanReportSettingArgsDict(TypedDict):
     report_template: pulumi.Input[_builtins.str]
     """
-    Identifies the report template for the report. Reports are built using a report template. The report templates are: `RESOURCE_COMPLIANCE_REPORT` | `CONTROL_COMPLIANCE_REPORT` | `BACKUP_JOB_REPORT` | `COPY_JOB_REPORT` | `RESTORE_JOB_REPORT`.
+    Report template for the report. Reports are built using a report template. The report templates are: `RESOURCE_COMPLIANCE_REPORT` | `CONTROL_COMPLIANCE_REPORT` | `BACKUP_JOB_REPORT` | `COPY_JOB_REPORT` | `RESTORE_JOB_REPORT`.
     """
     accounts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    Specifies the list of accounts a report covers.
+    List of accounts a report covers.
     """
     framework_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    Specifies the Amazon Resource Names (ARNs) of the frameworks a report covers.
+    Amazon Resource Names (ARNs) of the frameworks a report covers.
     """
     number_of_frameworks: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Specifies the number of frameworks a report covers.
+    Number of frameworks a report covers.
     """
     organization_units: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    Specifies the list of Organizational Units a report covers.
+    List of Organizational Units a report covers.
     """
     regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    Specifies the list of regions a report covers.
+    List of regions a report covers.
     """
 
 @pulumi.input_type
@@ -975,12 +975,12 @@ class ReportPlanReportSettingArgs:
                  organization_units: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
-        :param pulumi.Input[_builtins.str] report_template: Identifies the report template for the report. Reports are built using a report template. The report templates are: `RESOURCE_COMPLIANCE_REPORT` | `CONTROL_COMPLIANCE_REPORT` | `BACKUP_JOB_REPORT` | `COPY_JOB_REPORT` | `RESTORE_JOB_REPORT`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accounts: Specifies the list of accounts a report covers.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] framework_arns: Specifies the Amazon Resource Names (ARNs) of the frameworks a report covers.
-        :param pulumi.Input[_builtins.int] number_of_frameworks: Specifies the number of frameworks a report covers.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] organization_units: Specifies the list of Organizational Units a report covers.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: Specifies the list of regions a report covers.
+        :param pulumi.Input[_builtins.str] report_template: Report template for the report. Reports are built using a report template. The report templates are: `RESOURCE_COMPLIANCE_REPORT` | `CONTROL_COMPLIANCE_REPORT` | `BACKUP_JOB_REPORT` | `COPY_JOB_REPORT` | `RESTORE_JOB_REPORT`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accounts: List of accounts a report covers.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] framework_arns: Amazon Resource Names (ARNs) of the frameworks a report covers.
+        :param pulumi.Input[_builtins.int] number_of_frameworks: Number of frameworks a report covers.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] organization_units: List of Organizational Units a report covers.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: List of regions a report covers.
         """
         pulumi.set(__self__, "report_template", report_template)
         if accounts is not None:
@@ -998,7 +998,7 @@ class ReportPlanReportSettingArgs:
     @pulumi.getter(name="reportTemplate")
     def report_template(self) -> pulumi.Input[_builtins.str]:
         """
-        Identifies the report template for the report. Reports are built using a report template. The report templates are: `RESOURCE_COMPLIANCE_REPORT` | `CONTROL_COMPLIANCE_REPORT` | `BACKUP_JOB_REPORT` | `COPY_JOB_REPORT` | `RESTORE_JOB_REPORT`.
+        Report template for the report. Reports are built using a report template. The report templates are: `RESOURCE_COMPLIANCE_REPORT` | `CONTROL_COMPLIANCE_REPORT` | `BACKUP_JOB_REPORT` | `COPY_JOB_REPORT` | `RESTORE_JOB_REPORT`.
         """
         return pulumi.get(self, "report_template")
 
@@ -1010,7 +1010,7 @@ class ReportPlanReportSettingArgs:
     @pulumi.getter
     def accounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Specifies the list of accounts a report covers.
+        List of accounts a report covers.
         """
         return pulumi.get(self, "accounts")
 
@@ -1022,7 +1022,7 @@ class ReportPlanReportSettingArgs:
     @pulumi.getter(name="frameworkArns")
     def framework_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Specifies the Amazon Resource Names (ARNs) of the frameworks a report covers.
+        Amazon Resource Names (ARNs) of the frameworks a report covers.
         """
         return pulumi.get(self, "framework_arns")
 
@@ -1034,7 +1034,7 @@ class ReportPlanReportSettingArgs:
     @pulumi.getter(name="numberOfFrameworks")
     def number_of_frameworks(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Specifies the number of frameworks a report covers.
+        Number of frameworks a report covers.
         """
         return pulumi.get(self, "number_of_frameworks")
 
@@ -1046,7 +1046,7 @@ class ReportPlanReportSettingArgs:
     @pulumi.getter(name="organizationUnits")
     def organization_units(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Specifies the list of Organizational Units a report covers.
+        List of Organizational Units a report covers.
         """
         return pulumi.get(self, "organization_units")
 
@@ -1058,7 +1058,7 @@ class ReportPlanReportSettingArgs:
     @pulumi.getter
     def regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Specifies the list of regions a report covers.
+        List of regions a report covers.
         """
         return pulumi.get(self, "regions")
 

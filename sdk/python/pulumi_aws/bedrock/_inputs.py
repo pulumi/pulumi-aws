@@ -595,6 +595,40 @@ __all__ = [
     'AgentcoreGatewayProtocolConfigurationMcpSessionConfigurationArgsDict',
     'AgentcoreGatewayProtocolConfigurationMcpStreamingConfigurationArgs',
     'AgentcoreGatewayProtocolConfigurationMcpStreamingConfigurationArgsDict',
+    'AgentcoreGatewayRuleActionArgs',
+    'AgentcoreGatewayRuleActionArgsDict',
+    'AgentcoreGatewayRuleActionConfigurationBundleArgs',
+    'AgentcoreGatewayRuleActionConfigurationBundleArgsDict',
+    'AgentcoreGatewayRuleActionConfigurationBundleStaticOverrideArgs',
+    'AgentcoreGatewayRuleActionConfigurationBundleStaticOverrideArgsDict',
+    'AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideArgs',
+    'AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideArgsDict',
+    'AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideTrafficSplitArgs',
+    'AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideTrafficSplitArgsDict',
+    'AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideTrafficSplitConfigurationBundleArgs',
+    'AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideTrafficSplitConfigurationBundleArgsDict',
+    'AgentcoreGatewayRuleActionRouteToTargetArgs',
+    'AgentcoreGatewayRuleActionRouteToTargetArgsDict',
+    'AgentcoreGatewayRuleActionRouteToTargetStaticRouteArgs',
+    'AgentcoreGatewayRuleActionRouteToTargetStaticRouteArgsDict',
+    'AgentcoreGatewayRuleActionRouteToTargetWeightedRouteArgs',
+    'AgentcoreGatewayRuleActionRouteToTargetWeightedRouteArgsDict',
+    'AgentcoreGatewayRuleActionRouteToTargetWeightedRouteTrafficSplitArgs',
+    'AgentcoreGatewayRuleActionRouteToTargetWeightedRouteTrafficSplitArgsDict',
+    'AgentcoreGatewayRuleConditionArgs',
+    'AgentcoreGatewayRuleConditionArgsDict',
+    'AgentcoreGatewayRuleConditionMatchPathsArgs',
+    'AgentcoreGatewayRuleConditionMatchPathsArgsDict',
+    'AgentcoreGatewayRuleConditionMatchPrincipalsArgs',
+    'AgentcoreGatewayRuleConditionMatchPrincipalsArgsDict',
+    'AgentcoreGatewayRuleConditionMatchPrincipalsAnyOfArgs',
+    'AgentcoreGatewayRuleConditionMatchPrincipalsAnyOfArgsDict',
+    'AgentcoreGatewayRuleConditionMatchPrincipalsAnyOfIamPrincipalArgs',
+    'AgentcoreGatewayRuleConditionMatchPrincipalsAnyOfIamPrincipalArgsDict',
+    'AgentcoreGatewayRuleSystemArgs',
+    'AgentcoreGatewayRuleSystemArgsDict',
+    'AgentcoreGatewayRuleTimeoutsArgs',
+    'AgentcoreGatewayRuleTimeoutsArgsDict',
     'AgentcoreGatewayTargetCredentialProviderConfigurationArgs',
     'AgentcoreGatewayTargetCredentialProviderConfigurationArgsDict',
     'AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs',
@@ -677,6 +711,12 @@ __all__ = [
     'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3ArgsDict',
     'AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs',
     'AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgsDict',
+    'AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaArgs',
+    'AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaArgsDict',
+    'AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaInlinePayloadArgs',
+    'AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaInlinePayloadArgsDict',
+    'AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaS3Args',
+    'AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaS3ArgsDict',
     'AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs',
     'AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgsDict',
     'AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadArgs',
@@ -747,10 +787,24 @@ __all__ = [
     'AgentcoreHarnessEnvironmentArtifactContainerConfigurationArgsDict',
     'AgentcoreHarnessMemoryArgs',
     'AgentcoreHarnessMemoryArgsDict',
+    'AgentcoreHarnessMemoryActualArgs',
+    'AgentcoreHarnessMemoryActualArgsDict',
+    'AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationArgs',
+    'AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationArgsDict',
+    'AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationRetrievalConfigArgs',
+    'AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationRetrievalConfigArgsDict',
+    'AgentcoreHarnessMemoryActualDisabledArgs',
+    'AgentcoreHarnessMemoryActualDisabledArgsDict',
+    'AgentcoreHarnessMemoryActualManagedMemoryConfigurationArgs',
+    'AgentcoreHarnessMemoryActualManagedMemoryConfigurationArgsDict',
     'AgentcoreHarnessMemoryAgentcoreMemoryConfigurationArgs',
     'AgentcoreHarnessMemoryAgentcoreMemoryConfigurationArgsDict',
     'AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfigArgs',
     'AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfigArgsDict',
+    'AgentcoreHarnessMemoryDisabledArgs',
+    'AgentcoreHarnessMemoryDisabledArgsDict',
+    'AgentcoreHarnessMemoryManagedMemoryConfigurationArgs',
+    'AgentcoreHarnessMemoryManagedMemoryConfigurationArgsDict',
     'AgentcoreHarnessModelArgs',
     'AgentcoreHarnessModelArgsDict',
     'AgentcoreHarnessModelBedrockModelConfigArgs',
@@ -16219,6 +16273,825 @@ class AgentcoreGatewayProtocolConfigurationMcpStreamingConfigurationArgs:
         pulumi.set(self, "enable_response_streaming", value)
 
 
+class AgentcoreGatewayRuleActionArgsDict(TypedDict):
+    configuration_bundle: NotRequired[pulumi.Input[Optional['AgentcoreGatewayRuleActionConfigurationBundleArgsDict']]]
+    """
+    Reference to the configuration bundle for this variant.
+    """
+    route_to_target: NotRequired[pulumi.Input[Optional['AgentcoreGatewayRuleActionRouteToTargetArgsDict']]]
+    """
+    Route requests to a gateway target when the rule's conditions match. See route_to_target below.
+    """
+
+@pulumi.input_type
+class AgentcoreGatewayRuleActionArgs:
+    def __init__(__self__, *,
+                 configuration_bundle: pulumi.Input[Optional['AgentcoreGatewayRuleActionConfigurationBundleArgs']] = None,
+                 route_to_target: pulumi.Input[Optional['AgentcoreGatewayRuleActionRouteToTargetArgs']] = None):
+        """
+        :param pulumi.Input['AgentcoreGatewayRuleActionConfigurationBundleArgs'] configuration_bundle: Reference to the configuration bundle for this variant.
+        :param pulumi.Input['AgentcoreGatewayRuleActionRouteToTargetArgs'] route_to_target: Route requests to a gateway target when the rule's conditions match. See route_to_target below.
+        """
+        if configuration_bundle is not None:
+            pulumi.set(__self__, "configuration_bundle", configuration_bundle)
+        if route_to_target is not None:
+            pulumi.set(__self__, "route_to_target", route_to_target)
+
+    @_builtins.property
+    @pulumi.getter(name="configurationBundle")
+    def configuration_bundle(self) -> pulumi.Input[Optional['AgentcoreGatewayRuleActionConfigurationBundleArgs']]:
+        """
+        Reference to the configuration bundle for this variant.
+        """
+        return pulumi.get(self, "configuration_bundle")
+
+    @configuration_bundle.setter
+    def configuration_bundle(self, value: pulumi.Input[Optional['AgentcoreGatewayRuleActionConfigurationBundleArgs']]):
+        pulumi.set(self, "configuration_bundle", value)
+
+    @_builtins.property
+    @pulumi.getter(name="routeToTarget")
+    def route_to_target(self) -> pulumi.Input[Optional['AgentcoreGatewayRuleActionRouteToTargetArgs']]:
+        """
+        Route requests to a gateway target when the rule's conditions match. See route_to_target below.
+        """
+        return pulumi.get(self, "route_to_target")
+
+    @route_to_target.setter
+    def route_to_target(self, value: pulumi.Input[Optional['AgentcoreGatewayRuleActionRouteToTargetArgs']]):
+        pulumi.set(self, "route_to_target", value)
+
+
+class AgentcoreGatewayRuleActionConfigurationBundleArgsDict(TypedDict):
+    static_override: NotRequired[pulumi.Input[Optional['AgentcoreGatewayRuleActionConfigurationBundleStaticOverrideArgsDict']]]
+    """
+    Statically override the configuration bundle used for the matched request.
+    """
+    weighted_override: NotRequired[pulumi.Input[Optional['AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideArgsDict']]]
+    """
+    Distribute the request across two configuration bundle versions by weight.
+    """
+
+@pulumi.input_type
+class AgentcoreGatewayRuleActionConfigurationBundleArgs:
+    def __init__(__self__, *,
+                 static_override: pulumi.Input[Optional['AgentcoreGatewayRuleActionConfigurationBundleStaticOverrideArgs']] = None,
+                 weighted_override: pulumi.Input[Optional['AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideArgs']] = None):
+        """
+        :param pulumi.Input['AgentcoreGatewayRuleActionConfigurationBundleStaticOverrideArgs'] static_override: Statically override the configuration bundle used for the matched request.
+        :param pulumi.Input['AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideArgs'] weighted_override: Distribute the request across two configuration bundle versions by weight.
+        """
+        if static_override is not None:
+            pulumi.set(__self__, "static_override", static_override)
+        if weighted_override is not None:
+            pulumi.set(__self__, "weighted_override", weighted_override)
+
+    @_builtins.property
+    @pulumi.getter(name="staticOverride")
+    def static_override(self) -> pulumi.Input[Optional['AgentcoreGatewayRuleActionConfigurationBundleStaticOverrideArgs']]:
+        """
+        Statically override the configuration bundle used for the matched request.
+        """
+        return pulumi.get(self, "static_override")
+
+    @static_override.setter
+    def static_override(self, value: pulumi.Input[Optional['AgentcoreGatewayRuleActionConfigurationBundleStaticOverrideArgs']]):
+        pulumi.set(self, "static_override", value)
+
+    @_builtins.property
+    @pulumi.getter(name="weightedOverride")
+    def weighted_override(self) -> pulumi.Input[Optional['AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideArgs']]:
+        """
+        Distribute the request across two configuration bundle versions by weight.
+        """
+        return pulumi.get(self, "weighted_override")
+
+    @weighted_override.setter
+    def weighted_override(self, value: pulumi.Input[Optional['AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideArgs']]):
+        pulumi.set(self, "weighted_override", value)
+
+
+class AgentcoreGatewayRuleActionConfigurationBundleStaticOverrideArgsDict(TypedDict):
+    bundle_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the configuration bundle to apply.
+    """
+    bundle_version: pulumi.Input[_builtins.str]
+    """
+    Version (UUID) of the configuration bundle to apply.
+    """
+
+@pulumi.input_type
+class AgentcoreGatewayRuleActionConfigurationBundleStaticOverrideArgs:
+    def __init__(__self__, *,
+                 bundle_arn: pulumi.Input[_builtins.str],
+                 bundle_version: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] bundle_arn: ARN of the configuration bundle to apply.
+        :param pulumi.Input[_builtins.str] bundle_version: Version (UUID) of the configuration bundle to apply.
+        """
+        pulumi.set(__self__, "bundle_arn", bundle_arn)
+        pulumi.set(__self__, "bundle_version", bundle_version)
+
+    @_builtins.property
+    @pulumi.getter(name="bundleArn")
+    def bundle_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the configuration bundle to apply.
+        """
+        return pulumi.get(self, "bundle_arn")
+
+    @bundle_arn.setter
+    def bundle_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "bundle_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="bundleVersion")
+    def bundle_version(self) -> pulumi.Input[_builtins.str]:
+        """
+        Version (UUID) of the configuration bundle to apply.
+        """
+        return pulumi.get(self, "bundle_version")
+
+    @bundle_version.setter
+    def bundle_version(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "bundle_version", value)
+
+
+class AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideArgsDict(TypedDict):
+    traffic_splits: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideTrafficSplitArgsDict']]]]]
+    """
+    Exactly two `traffic_split` blocks describing the two variants.
+    """
+
+@pulumi.input_type
+class AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideArgs:
+    def __init__(__self__, *,
+                 traffic_splits: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideTrafficSplitArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideTrafficSplitArgs']]] traffic_splits: Exactly two `traffic_split` blocks describing the two variants.
+        """
+        if traffic_splits is not None:
+            pulumi.set(__self__, "traffic_splits", traffic_splits)
+
+    @_builtins.property
+    @pulumi.getter(name="trafficSplits")
+    def traffic_splits(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideTrafficSplitArgs']]]]:
+        """
+        Exactly two `traffic_split` blocks describing the two variants.
+        """
+        return pulumi.get(self, "traffic_splits")
+
+    @traffic_splits.setter
+    def traffic_splits(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideTrafficSplitArgs']]]]):
+        pulumi.set(self, "traffic_splits", value)
+
+
+class AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideTrafficSplitArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of this variant. Between 1 and 64 characters; alphanumeric with internal hyphens.
+    """
+    weight: pulumi.Input[_builtins.int]
+    """
+    Percentage of traffic routed to this variant, between 1 and 99.
+    """
+    configuration_bundle: NotRequired[pulumi.Input[Optional['AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideTrafficSplitConfigurationBundleArgsDict']]]
+    """
+    Reference to the configuration bundle for this variant.
+    """
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Description of the rule. Between 1 and 256 characters.
+    """
+    metadata: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    """
+    Up to 25 key/value metadata pairs describing this variant.
+    """
+
+@pulumi.input_type
+class AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideTrafficSplitArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 weight: pulumi.Input[_builtins.int],
+                 configuration_bundle: pulumi.Input[Optional['AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideTrafficSplitConfigurationBundleArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] name: Name of this variant. Between 1 and 64 characters; alphanumeric with internal hyphens.
+        :param pulumi.Input[_builtins.int] weight: Percentage of traffic routed to this variant, between 1 and 99.
+        :param pulumi.Input['AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideTrafficSplitConfigurationBundleArgs'] configuration_bundle: Reference to the configuration bundle for this variant.
+        :param pulumi.Input[_builtins.str] description: Description of the rule. Between 1 and 256 characters.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: Up to 25 key/value metadata pairs describing this variant.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "weight", weight)
+        if configuration_bundle is not None:
+            pulumi.set(__self__, "configuration_bundle", configuration_bundle)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of this variant. Between 1 and 64 characters; alphanumeric with internal hyphens.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def weight(self) -> pulumi.Input[_builtins.int]:
+        """
+        Percentage of traffic routed to this variant, between 1 and 99.
+        """
+        return pulumi.get(self, "weight")
+
+    @weight.setter
+    def weight(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "weight", value)
+
+    @_builtins.property
+    @pulumi.getter(name="configurationBundle")
+    def configuration_bundle(self) -> pulumi.Input[Optional['AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideTrafficSplitConfigurationBundleArgs']]:
+        """
+        Reference to the configuration bundle for this variant.
+        """
+        return pulumi.get(self, "configuration_bundle")
+
+    @configuration_bundle.setter
+    def configuration_bundle(self, value: pulumi.Input[Optional['AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideTrafficSplitConfigurationBundleArgs']]):
+        pulumi.set(self, "configuration_bundle", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Description of the rule. Between 1 and 256 characters.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def metadata(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Up to 25 key/value metadata pairs describing this variant.
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "metadata", value)
+
+
+class AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideTrafficSplitConfigurationBundleArgsDict(TypedDict):
+    bundle_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the configuration bundle to apply.
+    """
+    bundle_version: pulumi.Input[_builtins.str]
+    """
+    Version (UUID) of the configuration bundle to apply.
+    """
+
+@pulumi.input_type
+class AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideTrafficSplitConfigurationBundleArgs:
+    def __init__(__self__, *,
+                 bundle_arn: pulumi.Input[_builtins.str],
+                 bundle_version: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] bundle_arn: ARN of the configuration bundle to apply.
+        :param pulumi.Input[_builtins.str] bundle_version: Version (UUID) of the configuration bundle to apply.
+        """
+        pulumi.set(__self__, "bundle_arn", bundle_arn)
+        pulumi.set(__self__, "bundle_version", bundle_version)
+
+    @_builtins.property
+    @pulumi.getter(name="bundleArn")
+    def bundle_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the configuration bundle to apply.
+        """
+        return pulumi.get(self, "bundle_arn")
+
+    @bundle_arn.setter
+    def bundle_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "bundle_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="bundleVersion")
+    def bundle_version(self) -> pulumi.Input[_builtins.str]:
+        """
+        Version (UUID) of the configuration bundle to apply.
+        """
+        return pulumi.get(self, "bundle_version")
+
+    @bundle_version.setter
+    def bundle_version(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "bundle_version", value)
+
+
+class AgentcoreGatewayRuleActionRouteToTargetArgsDict(TypedDict):
+    static_route: NotRequired[pulumi.Input[Optional['AgentcoreGatewayRuleActionRouteToTargetStaticRouteArgsDict']]]
+    """
+    Route all matching requests to a single named gateway target.
+    """
+    weighted_route: NotRequired[pulumi.Input[Optional['AgentcoreGatewayRuleActionRouteToTargetWeightedRouteArgsDict']]]
+    """
+    Distribute requests across two named targets by weight.
+    """
+
+@pulumi.input_type
+class AgentcoreGatewayRuleActionRouteToTargetArgs:
+    def __init__(__self__, *,
+                 static_route: pulumi.Input[Optional['AgentcoreGatewayRuleActionRouteToTargetStaticRouteArgs']] = None,
+                 weighted_route: pulumi.Input[Optional['AgentcoreGatewayRuleActionRouteToTargetWeightedRouteArgs']] = None):
+        """
+        :param pulumi.Input['AgentcoreGatewayRuleActionRouteToTargetStaticRouteArgs'] static_route: Route all matching requests to a single named gateway target.
+        :param pulumi.Input['AgentcoreGatewayRuleActionRouteToTargetWeightedRouteArgs'] weighted_route: Distribute requests across two named targets by weight.
+        """
+        if static_route is not None:
+            pulumi.set(__self__, "static_route", static_route)
+        if weighted_route is not None:
+            pulumi.set(__self__, "weighted_route", weighted_route)
+
+    @_builtins.property
+    @pulumi.getter(name="staticRoute")
+    def static_route(self) -> pulumi.Input[Optional['AgentcoreGatewayRuleActionRouteToTargetStaticRouteArgs']]:
+        """
+        Route all matching requests to a single named gateway target.
+        """
+        return pulumi.get(self, "static_route")
+
+    @static_route.setter
+    def static_route(self, value: pulumi.Input[Optional['AgentcoreGatewayRuleActionRouteToTargetStaticRouteArgs']]):
+        pulumi.set(self, "static_route", value)
+
+    @_builtins.property
+    @pulumi.getter(name="weightedRoute")
+    def weighted_route(self) -> pulumi.Input[Optional['AgentcoreGatewayRuleActionRouteToTargetWeightedRouteArgs']]:
+        """
+        Distribute requests across two named targets by weight.
+        """
+        return pulumi.get(self, "weighted_route")
+
+    @weighted_route.setter
+    def weighted_route(self, value: pulumi.Input[Optional['AgentcoreGatewayRuleActionRouteToTargetWeightedRouteArgs']]):
+        pulumi.set(self, "weighted_route", value)
+
+
+class AgentcoreGatewayRuleActionRouteToTargetStaticRouteArgsDict(TypedDict):
+    target_name: pulumi.Input[_builtins.str]
+    """
+    Name of the gateway target this variant points to.
+    """
+
+@pulumi.input_type
+class AgentcoreGatewayRuleActionRouteToTargetStaticRouteArgs:
+    def __init__(__self__, *,
+                 target_name: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] target_name: Name of the gateway target this variant points to.
+        """
+        pulumi.set(__self__, "target_name", target_name)
+
+    @_builtins.property
+    @pulumi.getter(name="targetName")
+    def target_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the gateway target this variant points to.
+        """
+        return pulumi.get(self, "target_name")
+
+    @target_name.setter
+    def target_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "target_name", value)
+
+
+class AgentcoreGatewayRuleActionRouteToTargetWeightedRouteArgsDict(TypedDict):
+    traffic_splits: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreGatewayRuleActionRouteToTargetWeightedRouteTrafficSplitArgsDict']]]]]
+    """
+    Exactly two `traffic_split` blocks describing the two variants.
+    """
+
+@pulumi.input_type
+class AgentcoreGatewayRuleActionRouteToTargetWeightedRouteArgs:
+    def __init__(__self__, *,
+                 traffic_splits: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreGatewayRuleActionRouteToTargetWeightedRouteTrafficSplitArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayRuleActionRouteToTargetWeightedRouteTrafficSplitArgs']]] traffic_splits: Exactly two `traffic_split` blocks describing the two variants.
+        """
+        if traffic_splits is not None:
+            pulumi.set(__self__, "traffic_splits", traffic_splits)
+
+    @_builtins.property
+    @pulumi.getter(name="trafficSplits")
+    def traffic_splits(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreGatewayRuleActionRouteToTargetWeightedRouteTrafficSplitArgs']]]]:
+        """
+        Exactly two `traffic_split` blocks describing the two variants.
+        """
+        return pulumi.get(self, "traffic_splits")
+
+    @traffic_splits.setter
+    def traffic_splits(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreGatewayRuleActionRouteToTargetWeightedRouteTrafficSplitArgs']]]]):
+        pulumi.set(self, "traffic_splits", value)
+
+
+class AgentcoreGatewayRuleActionRouteToTargetWeightedRouteTrafficSplitArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of this variant. Between 1 and 64 characters; alphanumeric with internal hyphens.
+    """
+    target_name: pulumi.Input[_builtins.str]
+    """
+    Name of the gateway target this variant points to.
+    """
+    weight: pulumi.Input[_builtins.int]
+    """
+    Percentage of traffic routed to this variant, between 1 and 99.
+    """
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Description of the rule. Between 1 and 256 characters.
+    """
+    metadata: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    """
+    Up to 25 key/value metadata pairs describing this variant.
+    """
+
+@pulumi.input_type
+class AgentcoreGatewayRuleActionRouteToTargetWeightedRouteTrafficSplitArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 target_name: pulumi.Input[_builtins.str],
+                 weight: pulumi.Input[_builtins.int],
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] name: Name of this variant. Between 1 and 64 characters; alphanumeric with internal hyphens.
+        :param pulumi.Input[_builtins.str] target_name: Name of the gateway target this variant points to.
+        :param pulumi.Input[_builtins.int] weight: Percentage of traffic routed to this variant, between 1 and 99.
+        :param pulumi.Input[_builtins.str] description: Description of the rule. Between 1 and 256 characters.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: Up to 25 key/value metadata pairs describing this variant.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "target_name", target_name)
+        pulumi.set(__self__, "weight", weight)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of this variant. Between 1 and 64 characters; alphanumeric with internal hyphens.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="targetName")
+    def target_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the gateway target this variant points to.
+        """
+        return pulumi.get(self, "target_name")
+
+    @target_name.setter
+    def target_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "target_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def weight(self) -> pulumi.Input[_builtins.int]:
+        """
+        Percentage of traffic routed to this variant, between 1 and 99.
+        """
+        return pulumi.get(self, "weight")
+
+    @weight.setter
+    def weight(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "weight", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Description of the rule. Between 1 and 256 characters.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def metadata(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Up to 25 key/value metadata pairs describing this variant.
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "metadata", value)
+
+
+class AgentcoreGatewayRuleConditionArgsDict(TypedDict):
+    match_paths: NotRequired[pulumi.Input[Optional['AgentcoreGatewayRuleConditionMatchPathsArgsDict']]]
+    """
+    Match when the request path matches any of the supplied glob patterns (e.g. `/api/*`).
+    """
+    match_principals: NotRequired[pulumi.Input[Optional['AgentcoreGatewayRuleConditionMatchPrincipalsArgsDict']]]
+    """
+    Match when the caller's IAM identity matches any of the supplied principal entries.
+    """
+
+@pulumi.input_type
+class AgentcoreGatewayRuleConditionArgs:
+    def __init__(__self__, *,
+                 match_paths: pulumi.Input[Optional['AgentcoreGatewayRuleConditionMatchPathsArgs']] = None,
+                 match_principals: pulumi.Input[Optional['AgentcoreGatewayRuleConditionMatchPrincipalsArgs']] = None):
+        """
+        :param pulumi.Input['AgentcoreGatewayRuleConditionMatchPathsArgs'] match_paths: Match when the request path matches any of the supplied glob patterns (e.g. `/api/*`).
+        :param pulumi.Input['AgentcoreGatewayRuleConditionMatchPrincipalsArgs'] match_principals: Match when the caller's IAM identity matches any of the supplied principal entries.
+        """
+        if match_paths is not None:
+            pulumi.set(__self__, "match_paths", match_paths)
+        if match_principals is not None:
+            pulumi.set(__self__, "match_principals", match_principals)
+
+    @_builtins.property
+    @pulumi.getter(name="matchPaths")
+    def match_paths(self) -> pulumi.Input[Optional['AgentcoreGatewayRuleConditionMatchPathsArgs']]:
+        """
+        Match when the request path matches any of the supplied glob patterns (e.g. `/api/*`).
+        """
+        return pulumi.get(self, "match_paths")
+
+    @match_paths.setter
+    def match_paths(self, value: pulumi.Input[Optional['AgentcoreGatewayRuleConditionMatchPathsArgs']]):
+        pulumi.set(self, "match_paths", value)
+
+    @_builtins.property
+    @pulumi.getter(name="matchPrincipals")
+    def match_principals(self) -> pulumi.Input[Optional['AgentcoreGatewayRuleConditionMatchPrincipalsArgs']]:
+        """
+        Match when the caller's IAM identity matches any of the supplied principal entries.
+        """
+        return pulumi.get(self, "match_principals")
+
+    @match_principals.setter
+    def match_principals(self, value: pulumi.Input[Optional['AgentcoreGatewayRuleConditionMatchPrincipalsArgs']]):
+        pulumi.set(self, "match_principals", value)
+
+
+class AgentcoreGatewayRuleConditionMatchPathsArgsDict(TypedDict):
+    any_ofs: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Between 1 and 100 principal entry blocks.
+    """
+
+@pulumi.input_type
+class AgentcoreGatewayRuleConditionMatchPathsArgs:
+    def __init__(__self__, *,
+                 any_ofs: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] any_ofs: Between 1 and 100 principal entry blocks.
+        """
+        pulumi.set(__self__, "any_ofs", any_ofs)
+
+    @_builtins.property
+    @pulumi.getter(name="anyOfs")
+    def any_ofs(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Between 1 and 100 principal entry blocks.
+        """
+        return pulumi.get(self, "any_ofs")
+
+    @any_ofs.setter
+    def any_ofs(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "any_ofs", value)
+
+
+class AgentcoreGatewayRuleConditionMatchPrincipalsArgsDict(TypedDict):
+    any_ofs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreGatewayRuleConditionMatchPrincipalsAnyOfArgsDict']]]]]
+    """
+    Between 1 and 100 principal entry blocks.
+    """
+
+@pulumi.input_type
+class AgentcoreGatewayRuleConditionMatchPrincipalsArgs:
+    def __init__(__self__, *,
+                 any_ofs: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreGatewayRuleConditionMatchPrincipalsAnyOfArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayRuleConditionMatchPrincipalsAnyOfArgs']]] any_ofs: Between 1 and 100 principal entry blocks.
+        """
+        if any_ofs is not None:
+            pulumi.set(__self__, "any_ofs", any_ofs)
+
+    @_builtins.property
+    @pulumi.getter(name="anyOfs")
+    def any_ofs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreGatewayRuleConditionMatchPrincipalsAnyOfArgs']]]]:
+        """
+        Between 1 and 100 principal entry blocks.
+        """
+        return pulumi.get(self, "any_ofs")
+
+    @any_ofs.setter
+    def any_ofs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreGatewayRuleConditionMatchPrincipalsAnyOfArgs']]]]):
+        pulumi.set(self, "any_ofs", value)
+
+
+class AgentcoreGatewayRuleConditionMatchPrincipalsAnyOfArgsDict(TypedDict):
+    iam_principal: pulumi.Input['AgentcoreGatewayRuleConditionMatchPrincipalsAnyOfIamPrincipalArgsDict']
+    """
+    Match an IAM user, role, or assumed-role ARN. Exactly one `iam_principal` block is required per entry.
+    """
+
+@pulumi.input_type
+class AgentcoreGatewayRuleConditionMatchPrincipalsAnyOfArgs:
+    def __init__(__self__, *,
+                 iam_principal: pulumi.Input['AgentcoreGatewayRuleConditionMatchPrincipalsAnyOfIamPrincipalArgs']):
+        """
+        :param pulumi.Input['AgentcoreGatewayRuleConditionMatchPrincipalsAnyOfIamPrincipalArgs'] iam_principal: Match an IAM user, role, or assumed-role ARN. Exactly one `iam_principal` block is required per entry.
+        """
+        pulumi.set(__self__, "iam_principal", iam_principal)
+
+    @_builtins.property
+    @pulumi.getter(name="iamPrincipal")
+    def iam_principal(self) -> pulumi.Input['AgentcoreGatewayRuleConditionMatchPrincipalsAnyOfIamPrincipalArgs']:
+        """
+        Match an IAM user, role, or assumed-role ARN. Exactly one `iam_principal` block is required per entry.
+        """
+        return pulumi.get(self, "iam_principal")
+
+    @iam_principal.setter
+    def iam_principal(self, value: pulumi.Input['AgentcoreGatewayRuleConditionMatchPrincipalsAnyOfIamPrincipalArgs']):
+        pulumi.set(self, "iam_principal", value)
+
+
+class AgentcoreGatewayRuleConditionMatchPrincipalsAnyOfIamPrincipalArgsDict(TypedDict):
+    arn: pulumi.Input[_builtins.str]
+    """
+    IAM principal ARN. Wildcards are allowed with the `StringLike` operator.
+    """
+    operator: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Match operator, one of `StringEquals` or `StringLike`. Defaults to `StringEquals`.
+    """
+
+@pulumi.input_type
+class AgentcoreGatewayRuleConditionMatchPrincipalsAnyOfIamPrincipalArgs:
+    def __init__(__self__, *,
+                 arn: pulumi.Input[_builtins.str],
+                 operator: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] arn: IAM principal ARN. Wildcards are allowed with the `StringLike` operator.
+        :param pulumi.Input[_builtins.str] operator: Match operator, one of `StringEquals` or `StringLike`. Defaults to `StringEquals`.
+        """
+        pulumi.set(__self__, "arn", arn)
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        IAM principal ARN. Wildcards are allowed with the `StringLike` operator.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "arn", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Match operator, one of `StringEquals` or `StringLike`. Defaults to `StringEquals`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "operator", value)
+
+
+class AgentcoreGatewayRuleSystemArgsDict(TypedDict):
+    managed_by: pulumi.Input[_builtins.str]
+    """
+    Name of the system that manages the rule.
+    """
+
+@pulumi.input_type
+class AgentcoreGatewayRuleSystemArgs:
+    def __init__(__self__, *,
+                 managed_by: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] managed_by: Name of the system that manages the rule.
+        """
+        pulumi.set(__self__, "managed_by", managed_by)
+
+    @_builtins.property
+    @pulumi.getter(name="managedBy")
+    def managed_by(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the system that manages the rule.
+        """
+        return pulumi.get(self, "managed_by")
+
+    @managed_by.setter
+    def managed_by(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "managed_by", value)
+
+
+class AgentcoreGatewayRuleTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+
+@pulumi.input_type
+class AgentcoreGatewayRuleTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param pulumi.Input[_builtins.str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "create", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "delete", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "update", value)
+
+
 class AgentcoreGatewayTargetCredentialProviderConfigurationArgsDict(TypedDict):
     api_key: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgsDict']]]
     """
@@ -19491,19 +20364,35 @@ class AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgsDict(TypedDict):
     """
     Listing mode for the MCP server target. Valid values are `DEFAULT` and `DYNAMIC`. MCP resources for `DEFAULT` targets are cached at the control plane for faster access, while resources for `DYNAMIC` targets are retrieved dynamically when listing tools.
     """
+    mcp_tool_schema: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaArgsDict']]]
+    """
+    Tool schema configuration for the MCP server target. Supported only when the credential provider is configured with an authorization code grant type. When set, dynamic tool discovery and synchronization are disabled. See `mcp_tool_schema` below.
+    """
+    resource_priority: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Priority for resolving MCP server targets with shared resource URIs. Lower values take precedence. Defaults to `1000` when not set.
+    """
 
 @pulumi.input_type
 class AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs:
     def __init__(__self__, *,
                  endpoint: pulumi.Input[_builtins.str],
-                 listing_mode: pulumi.Input[Optional[_builtins.str]] = None):
+                 listing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 mcp_tool_schema: pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaArgs']] = None,
+                 resource_priority: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] endpoint: Endpoint for the MCP server target configuration.
         :param pulumi.Input[_builtins.str] listing_mode: Listing mode for the MCP server target. Valid values are `DEFAULT` and `DYNAMIC`. MCP resources for `DEFAULT` targets are cached at the control plane for faster access, while resources for `DYNAMIC` targets are retrieved dynamically when listing tools.
+        :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaArgs'] mcp_tool_schema: Tool schema configuration for the MCP server target. Supported only when the credential provider is configured with an authorization code grant type. When set, dynamic tool discovery and synchronization are disabled. See `mcp_tool_schema` below.
+        :param pulumi.Input[_builtins.int] resource_priority: Priority for resolving MCP server targets with shared resource URIs. Lower values take precedence. Defaults to `1000` when not set.
         """
         pulumi.set(__self__, "endpoint", endpoint)
         if listing_mode is not None:
             pulumi.set(__self__, "listing_mode", listing_mode)
+        if mcp_tool_schema is not None:
+            pulumi.set(__self__, "mcp_tool_schema", mcp_tool_schema)
+        if resource_priority is not None:
+            pulumi.set(__self__, "resource_priority", resource_priority)
 
     @_builtins.property
     @pulumi.getter
@@ -19528,6 +20417,155 @@ class AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs:
     @listing_mode.setter
     def listing_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "listing_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mcpToolSchema")
+    def mcp_tool_schema(self) -> pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaArgs']]:
+        """
+        Tool schema configuration for the MCP server target. Supported only when the credential provider is configured with an authorization code grant type. When set, dynamic tool discovery and synchronization are disabled. See `mcp_tool_schema` below.
+        """
+        return pulumi.get(self, "mcp_tool_schema")
+
+    @mcp_tool_schema.setter
+    def mcp_tool_schema(self, value: pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaArgs']]):
+        pulumi.set(self, "mcp_tool_schema", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourcePriority")
+    def resource_priority(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Priority for resolving MCP server targets with shared resource URIs. Lower values take precedence. Defaults to `1000` when not set.
+        """
+        return pulumi.get(self, "resource_priority")
+
+    @resource_priority.setter
+    def resource_priority(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "resource_priority", value)
+
+
+class AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaArgsDict(TypedDict):
+    inline_payload: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaInlinePayloadArgsDict']]]
+    """
+    Inline tool schema payload. The `inline_payload` block requires a `payload` (string) containing the MCP tool schema definition.
+    """
+    s3: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaS3ArgsDict']]]
+    """
+    S3 location of the tool schema. See `s3` below.
+    """
+
+@pulumi.input_type
+class AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaArgs:
+    def __init__(__self__, *,
+                 inline_payload: pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaInlinePayloadArgs']] = None,
+                 s3: pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaS3Args']] = None):
+        """
+        :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaInlinePayloadArgs'] inline_payload: Inline tool schema payload. The `inline_payload` block requires a `payload` (string) containing the MCP tool schema definition.
+        :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaS3Args'] s3: S3 location of the tool schema. See `s3` below.
+        """
+        if inline_payload is not None:
+            pulumi.set(__self__, "inline_payload", inline_payload)
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
+
+    @_builtins.property
+    @pulumi.getter(name="inlinePayload")
+    def inline_payload(self) -> pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaInlinePayloadArgs']]:
+        """
+        Inline tool schema payload. The `inline_payload` block requires a `payload` (string) containing the MCP tool schema definition.
+        """
+        return pulumi.get(self, "inline_payload")
+
+    @inline_payload.setter
+    def inline_payload(self, value: pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaInlinePayloadArgs']]):
+        pulumi.set(self, "inline_payload", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def s3(self) -> pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaS3Args']]:
+        """
+        S3 location of the tool schema. See `s3` below.
+        """
+        return pulumi.get(self, "s3")
+
+    @s3.setter
+    def s3(self, value: pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaS3Args']]):
+        pulumi.set(self, "s3", value)
+
+
+class AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaInlinePayloadArgsDict(TypedDict):
+    payload: pulumi.Input[_builtins.str]
+    """
+    The inline schema payload content.
+    """
+
+@pulumi.input_type
+class AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaInlinePayloadArgs:
+    def __init__(__self__, *,
+                 payload: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] payload: The inline schema payload content.
+        """
+        pulumi.set(__self__, "payload", payload)
+
+    @_builtins.property
+    @pulumi.getter
+    def payload(self) -> pulumi.Input[_builtins.str]:
+        """
+        The inline schema payload content.
+        """
+        return pulumi.get(self, "payload")
+
+    @payload.setter
+    def payload(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "payload", value)
+
+
+class AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaS3ArgsDict(TypedDict):
+    uri: pulumi.Input[_builtins.str]
+    """
+    S3 URI where the schema is stored.
+    """
+    bucket_owner_account_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Account ID of the S3 bucket owner.
+    """
+
+@pulumi.input_type
+class AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaS3Args:
+    def __init__(__self__, *,
+                 uri: pulumi.Input[_builtins.str],
+                 bucket_owner_account_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] uri: S3 URI where the schema is stored.
+        :param pulumi.Input[_builtins.str] bucket_owner_account_id: Account ID of the S3 bucket owner.
+        """
+        pulumi.set(__self__, "uri", uri)
+        if bucket_owner_account_id is not None:
+            pulumi.set(__self__, "bucket_owner_account_id", bucket_owner_account_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def uri(self) -> pulumi.Input[_builtins.str]:
+        """
+        S3 URI where the schema is stored.
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "uri", value)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketOwnerAccountId")
+    def bucket_owner_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Account ID of the S3 bucket owner.
+        """
+        return pulumi.get(self, "bucket_owner_account_id")
+
+    @bucket_owner_account_id.setter
+    def bucket_owner_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "bucket_owner_account_id", value)
 
 
 class AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgsDict(TypedDict):
@@ -19919,7 +20957,7 @@ class AgentcoreGatewayWorkloadIdentityDetailArgs:
 class AgentcoreHarnessAuthorizerConfigurationArgsDict(TypedDict):
     custom_jwt_authorizer: NotRequired[pulumi.Input[Optional['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerArgsDict']]]
     """
-    JWT-based authorization configuration block. See `custom_jwt_authorizer` below.
+    JWT-based authorization configuration block. See `custom_jwt_authorizer` Block below.
     """
 
 @pulumi.input_type
@@ -19927,7 +20965,7 @@ class AgentcoreHarnessAuthorizerConfigurationArgs:
     def __init__(__self__, *,
                  custom_jwt_authorizer: pulumi.Input[Optional['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerArgs']] = None):
         """
-        :param pulumi.Input['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerArgs'] custom_jwt_authorizer: JWT-based authorization configuration block. See `custom_jwt_authorizer` below.
+        :param pulumi.Input['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerArgs'] custom_jwt_authorizer: JWT-based authorization configuration block. See `custom_jwt_authorizer` Block below.
         """
         if custom_jwt_authorizer is not None:
             pulumi.set(__self__, "custom_jwt_authorizer", custom_jwt_authorizer)
@@ -19936,7 +20974,7 @@ class AgentcoreHarnessAuthorizerConfigurationArgs:
     @pulumi.getter(name="customJwtAuthorizer")
     def custom_jwt_authorizer(self) -> pulumi.Input[Optional['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerArgs']]:
         """
-        JWT-based authorization configuration block. See `custom_jwt_authorizer` below.
+        JWT-based authorization configuration block. See `custom_jwt_authorizer` Block below.
         """
         return pulumi.get(self, "custom_jwt_authorizer")
 
@@ -19964,19 +21002,19 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerArgsDict(TypedDi
     """
     allowed_workload_configuration: NotRequired[pulumi.Input[Optional['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgsDict']]]
     """
-    Configuration restricting which workloads may use this authorizer. See `allowed_workload_configuration` below.
+    Configuration restricting which workloads may use this authorizer. See `allowed_workload_configuration` Block below.
     """
     custom_claims: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgsDict']]]]]
     """
-    Repeatable block to define a custom claim validation name, value, and operation. See `custom_claim` below.
+    Repeatable block to define a custom claim validation name, value, and operation. See `custom_claim` Block below.
     """
     private_endpoint: NotRequired[pulumi.Input[Optional['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgsDict']]]
     """
-    Private endpoint used to reach the authorization server. See `private_endpoint` below.
+    Private endpoint used to reach the authorization server. See `private_endpoint` Block below.
     """
     private_endpoint_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgsDict']]]]]
     """
-    Overrides for the private endpoints used to reach the authorization server. See `private_endpoint_overrides` below.
+    Overrides for the private endpoints used to reach the authorization server. See `private_endpoint_overrides` Block below.
     """
 
 @pulumi.input_type
@@ -19995,10 +21033,10 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_audiences: Set of allowed audience values for JWT token validation.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_clients: Set of allowed client IDs for JWT token validation.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_scopes: Set of scopes that are allowed to access the token.
-        :param pulumi.Input['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs'] allowed_workload_configuration: Configuration restricting which workloads may use this authorizer. See `allowed_workload_configuration` below.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs']]] custom_claims: Repeatable block to define a custom claim validation name, value, and operation. See `custom_claim` below.
-        :param pulumi.Input['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs'] private_endpoint: Private endpoint used to reach the authorization server. See `private_endpoint` below.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs']]] private_endpoint_overrides: Overrides for the private endpoints used to reach the authorization server. See `private_endpoint_overrides` below.
+        :param pulumi.Input['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs'] allowed_workload_configuration: Configuration restricting which workloads may use this authorizer. See `allowed_workload_configuration` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs']]] custom_claims: Repeatable block to define a custom claim validation name, value, and operation. See `custom_claim` Block below.
+        :param pulumi.Input['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs'] private_endpoint: Private endpoint used to reach the authorization server. See `private_endpoint` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs']]] private_endpoint_overrides: Overrides for the private endpoints used to reach the authorization server. See `private_endpoint_overrides` Block below.
         """
         pulumi.set(__self__, "discovery_url", discovery_url)
         if allowed_audiences is not None:
@@ -20068,7 +21106,7 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerArgs:
     @pulumi.getter(name="allowedWorkloadConfiguration")
     def allowed_workload_configuration(self) -> pulumi.Input[Optional['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs']]:
         """
-        Configuration restricting which workloads may use this authorizer. See `allowed_workload_configuration` below.
+        Configuration restricting which workloads may use this authorizer. See `allowed_workload_configuration` Block below.
         """
         return pulumi.get(self, "allowed_workload_configuration")
 
@@ -20080,7 +21118,7 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerArgs:
     @pulumi.getter(name="customClaims")
     def custom_claims(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs']]]]:
         """
-        Repeatable block to define a custom claim validation name, value, and operation. See `custom_claim` below.
+        Repeatable block to define a custom claim validation name, value, and operation. See `custom_claim` Block below.
         """
         return pulumi.get(self, "custom_claims")
 
@@ -20092,7 +21130,7 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerArgs:
     @pulumi.getter(name="privateEndpoint")
     def private_endpoint(self) -> pulumi.Input[Optional['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs']]:
         """
-        Private endpoint used to reach the authorization server. See `private_endpoint` below.
+        Private endpoint used to reach the authorization server. See `private_endpoint` Block below.
         """
         return pulumi.get(self, "private_endpoint")
 
@@ -20104,7 +21142,7 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerArgs:
     @pulumi.getter(name="privateEndpointOverrides")
     def private_endpoint_overrides(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs']]]]:
         """
-        Overrides for the private endpoints used to reach the authorization server. See `private_endpoint_overrides` below.
+        Overrides for the private endpoints used to reach the authorization server. See `private_endpoint_overrides` Block below.
         """
         return pulumi.get(self, "private_endpoint_overrides")
 
@@ -20116,7 +21154,7 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerArgs:
 class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgsDict(TypedDict):
     hosting_environments: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArgsDict']]]]]
     """
-    Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hosting_environment` below.
+    Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hosting_environment` Block below.
     """
     workload_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
@@ -20129,7 +21167,7 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadC
                  hosting_environments: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArgs']]]] = None,
                  workload_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArgs']]] hosting_environments: Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hosting_environment` below.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArgs']]] hosting_environments: Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hosting_environment` Block below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] workload_identities: List of workload identity names allowed to use the authorizer. Between 1 and 10 entries.
         """
         if hosting_environments is not None:
@@ -20141,7 +21179,7 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadC
     @pulumi.getter(name="hostingEnvironments")
     def hosting_environments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArgs']]]]:
         """
-        Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hosting_environment` below.
+        Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hosting_environment` Block below.
         """
         return pulumi.get(self, "hosting_environments")
 
@@ -20193,7 +21231,7 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadC
 class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgsDict(TypedDict):
     authorizing_claim_match_value: pulumi.Input['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgsDict']
     """
-    Configuration block to define the value or values to match for and the relationship of the match. See `authorizing_claim_match_value` below.
+    Configuration block to define the value or values to match for and the relationship of the match. See `authorizing_claim_match_value` Block below.
     """
     inbound_token_claim_name: pulumi.Input[_builtins.str]
     """
@@ -20211,7 +21249,7 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs:
                  inbound_token_claim_name: pulumi.Input[_builtins.str],
                  inbound_token_claim_value_type: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs'] authorizing_claim_match_value: Configuration block to define the value or values to match for and the relationship of the match. See `authorizing_claim_match_value` below.
+        :param pulumi.Input['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs'] authorizing_claim_match_value: Configuration block to define the value or values to match for and the relationship of the match. See `authorizing_claim_match_value` Block below.
         :param pulumi.Input[_builtins.str] inbound_token_claim_name: Name of the custom claim field to check.
         :param pulumi.Input[_builtins.str] inbound_token_claim_value_type: Data type of the claim value to check for. Valid values are `STRING` and `STRING_ARRAY`.
         """
@@ -20223,7 +21261,7 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs:
     @pulumi.getter(name="authorizingClaimMatchValue")
     def authorizing_claim_match_value(self) -> pulumi.Input['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs']:
         """
-        Configuration block to define the value or values to match for and the relationship of the match. See `authorizing_claim_match_value` below.
+        Configuration block to define the value or values to match for and the relationship of the match. See `authorizing_claim_match_value` Block below.
         """
         return pulumi.get(self, "authorizing_claim_match_value")
 
@@ -20263,7 +21301,7 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAutho
     """
     claim_match_value: pulumi.Input['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgsDict']
     """
-    Value or values to match for. See `claim_match_value` below.
+    Value or values to match for. See `claim_match_value` Block below.
     """
 
 @pulumi.input_type
@@ -20273,7 +21311,7 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAutho
                  claim_match_value: pulumi.Input['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs']):
         """
         :param pulumi.Input[_builtins.str] claim_match_operator: Relationship between the claim field value and the value or values to match for. Valid values are `EQUALS`, `CONTAINS`, and `CONTAINS_ANY`. `EQUALS` can be used only when `inbound_token_claim_value_type` is `STRING`. `CONTAINS` or `CONTAINS_ANY` can be used only when `inbound_token_claim_value_type` is `STRING_ARRAY`.
-        :param pulumi.Input['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs'] claim_match_value: Value or values to match for. See `claim_match_value` below.
+        :param pulumi.Input['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs'] claim_match_value: Value or values to match for. See `claim_match_value` Block below.
         """
         pulumi.set(__self__, "claim_match_operator", claim_match_operator)
         pulumi.set(__self__, "claim_match_value", claim_match_value)
@@ -20294,7 +21332,7 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAutho
     @pulumi.getter(name="claimMatchValue")
     def claim_match_value(self) -> pulumi.Input['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs']:
         """
-        Value or values to match for. See `claim_match_value` below.
+        Value or values to match for. See `claim_match_value` Block below.
         """
         return pulumi.get(self, "claim_match_value")
 
@@ -20355,11 +21393,11 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAutho
 class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgsDict(TypedDict):
     managed_vpc_resource: NotRequired[pulumi.Input[Optional['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgsDict']]]
     """
-    Managed VPC resource configuration. See `managed_vpc_resource` below.
+    Managed VPC resource configuration. See `managed_vpc_resource` Block below.
     """
     self_managed_lattice_resource: NotRequired[pulumi.Input[Optional['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgsDict']]]
     """
-    Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` below.
+    Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` Block below.
     """
 
 @pulumi.input_type
@@ -20368,8 +21406,8 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointA
                  managed_vpc_resource: pulumi.Input[Optional['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs']] = None,
                  self_managed_lattice_resource: pulumi.Input[Optional['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs']] = None):
         """
-        :param pulumi.Input['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs'] managed_vpc_resource: Managed VPC resource configuration. See `managed_vpc_resource` below.
-        :param pulumi.Input['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs'] self_managed_lattice_resource: Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` below.
+        :param pulumi.Input['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs'] managed_vpc_resource: Managed VPC resource configuration. See `managed_vpc_resource` Block below.
+        :param pulumi.Input['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs'] self_managed_lattice_resource: Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` Block below.
         """
         if managed_vpc_resource is not None:
             pulumi.set(__self__, "managed_vpc_resource", managed_vpc_resource)
@@ -20380,7 +21418,7 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointA
     @pulumi.getter(name="managedVpcResource")
     def managed_vpc_resource(self) -> pulumi.Input[Optional['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs']]:
         """
-        Managed VPC resource configuration. See `managed_vpc_resource` below.
+        Managed VPC resource configuration. See `managed_vpc_resource` Block below.
         """
         return pulumi.get(self, "managed_vpc_resource")
 
@@ -20392,7 +21430,7 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointA
     @pulumi.getter(name="selfManagedLatticeResource")
     def self_managed_lattice_resource(self) -> pulumi.Input[Optional['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs']]:
         """
-        Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` below.
+        Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` Block below.
         """
         return pulumi.get(self, "self_managed_lattice_resource")
 
@@ -20534,7 +21572,7 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointO
     """
     private_endpoint: pulumi.Input['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgsDict']
     """
-    Private endpoint configuration. See `private_endpoint` below.
+    Private endpoint configuration. See `private_endpoint` Block below.
     """
 
 @pulumi.input_type
@@ -20544,7 +21582,7 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointO
                  private_endpoint: pulumi.Input['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs']):
         """
         :param pulumi.Input[_builtins.str] domain: Domain the override applies to.
-        :param pulumi.Input['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs'] private_endpoint: Private endpoint configuration. See `private_endpoint` below.
+        :param pulumi.Input['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs'] private_endpoint: Private endpoint configuration. See `private_endpoint` Block below.
         """
         pulumi.set(__self__, "domain", domain)
         pulumi.set(__self__, "private_endpoint", private_endpoint)
@@ -20565,7 +21603,7 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointO
     @pulumi.getter(name="privateEndpoint")
     def private_endpoint(self) -> pulumi.Input['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs']:
         """
-        Private endpoint configuration. See `private_endpoint` below.
+        Private endpoint configuration. See `private_endpoint` Block below.
         """
         return pulumi.get(self, "private_endpoint")
 
@@ -20577,11 +21615,11 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointO
 class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgsDict(TypedDict):
     managed_vpc_resource: NotRequired[pulumi.Input[Optional['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgsDict']]]
     """
-    Managed VPC resource configuration. See `managed_vpc_resource` below.
+    Managed VPC resource configuration. See `managed_vpc_resource` Block below.
     """
     self_managed_lattice_resource: NotRequired[pulumi.Input[Optional['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgsDict']]]
     """
-    Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` below.
+    Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` Block below.
     """
 
 @pulumi.input_type
@@ -20590,8 +21628,8 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointO
                  managed_vpc_resource: pulumi.Input[Optional['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs']] = None,
                  self_managed_lattice_resource: pulumi.Input[Optional['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs']] = None):
         """
-        :param pulumi.Input['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs'] managed_vpc_resource: Managed VPC resource configuration. See `managed_vpc_resource` below.
-        :param pulumi.Input['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs'] self_managed_lattice_resource: Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` below.
+        :param pulumi.Input['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs'] managed_vpc_resource: Managed VPC resource configuration. See `managed_vpc_resource` Block below.
+        :param pulumi.Input['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs'] self_managed_lattice_resource: Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` Block below.
         """
         if managed_vpc_resource is not None:
             pulumi.set(__self__, "managed_vpc_resource", managed_vpc_resource)
@@ -20602,7 +21640,7 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointO
     @pulumi.getter(name="managedVpcResource")
     def managed_vpc_resource(self) -> pulumi.Input[Optional['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs']]:
         """
-        Managed VPC resource configuration. See `managed_vpc_resource` below.
+        Managed VPC resource configuration. See `managed_vpc_resource` Block below.
         """
         return pulumi.get(self, "managed_vpc_resource")
 
@@ -20614,7 +21652,7 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointO
     @pulumi.getter(name="selfManagedLatticeResource")
     def self_managed_lattice_resource(self) -> pulumi.Input[Optional['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs']]:
         """
-        Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` below.
+        Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` Block below.
         """
         return pulumi.get(self, "self_managed_lattice_resource")
 
@@ -20808,7 +21846,7 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointS
 class AgentcoreHarnessEnvironmentArgsDict(TypedDict):
     agentcore_runtime_environments: pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgsDict']]]
     """
-    AgentCore runtime environment configuration. See `agentcore_runtime_environment` below.
+    AgentCore runtime environment configuration. See `agentcore_runtime_environment` Block below.
     """
 
 @pulumi.input_type
@@ -20816,7 +21854,7 @@ class AgentcoreHarnessEnvironmentArgs:
     def __init__(__self__, *,
                  agentcore_runtime_environments: pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs']]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs']]] agentcore_runtime_environments: AgentCore runtime environment configuration. See `agentcore_runtime_environment` below.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs']]] agentcore_runtime_environments: AgentCore runtime environment configuration. See `agentcore_runtime_environment` Block below.
         """
         pulumi.set(__self__, "agentcore_runtime_environments", agentcore_runtime_environments)
 
@@ -20824,7 +21862,7 @@ class AgentcoreHarnessEnvironmentArgs:
     @pulumi.getter(name="agentcoreRuntimeEnvironments")
     def agentcore_runtime_environments(self) -> pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs']]]:
         """
-        AgentCore runtime environment configuration. See `agentcore_runtime_environment` below.
+        AgentCore runtime environment configuration. See `agentcore_runtime_environment` Block below.
         """
         return pulumi.get(self, "agentcore_runtime_environments")
 
@@ -20839,15 +21877,15 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgsDict(TypedDict):
     agent_runtime_name: pulumi.Input[_builtins.str]
     filesystem_configurations: pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationArgsDict']]]
     """
-    Filesystem configurations. See `filesystem_configuration` below.
+    Filesystem configurations. See `filesystem_configuration` Block below.
     """
     lifecycle_configurations: pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfigurationArgsDict']]]
     """
-    Lifecycle configuration. See `lifecycle_configuration` below.
+    Lifecycle configuration. See `lifecycle_configuration` Block below.
     """
     network_configurations: pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationArgsDict']]]
     """
-    Network configuration. See `network_configuration` below.
+    Network configuration. See `network_configuration` Block below.
     """
 
 @pulumi.input_type
@@ -20860,9 +21898,9 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs:
                  lifecycle_configurations: pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfigurationArgs']]],
                  network_configurations: pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationArgs']]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationArgs']]] filesystem_configurations: Filesystem configurations. See `filesystem_configuration` below.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfigurationArgs']]] lifecycle_configurations: Lifecycle configuration. See `lifecycle_configuration` below.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationArgs']]] network_configurations: Network configuration. See `network_configuration` below.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationArgs']]] filesystem_configurations: Filesystem configurations. See `filesystem_configuration` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfigurationArgs']]] lifecycle_configurations: Lifecycle configuration. See `lifecycle_configuration` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationArgs']]] network_configurations: Network configuration. See `network_configuration` Block below.
         """
         pulumi.set(__self__, "agent_runtime_arn", agent_runtime_arn)
         pulumi.set(__self__, "agent_runtime_id", agent_runtime_id)
@@ -20902,7 +21940,7 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs:
     @pulumi.getter(name="filesystemConfigurations")
     def filesystem_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationArgs']]]:
         """
-        Filesystem configurations. See `filesystem_configuration` below.
+        Filesystem configurations. See `filesystem_configuration` Block below.
         """
         return pulumi.get(self, "filesystem_configurations")
 
@@ -20914,7 +21952,7 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs:
     @pulumi.getter(name="lifecycleConfigurations")
     def lifecycle_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfigurationArgs']]]:
         """
-        Lifecycle configuration. See `lifecycle_configuration` below.
+        Lifecycle configuration. See `lifecycle_configuration` Block below.
         """
         return pulumi.get(self, "lifecycle_configurations")
 
@@ -20926,7 +21964,7 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs:
     @pulumi.getter(name="networkConfigurations")
     def network_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationArgs']]]:
         """
-        Network configuration. See `network_configuration` below.
+        Network configuration. See `network_configuration` Block below.
         """
         return pulumi.get(self, "network_configurations")
 
@@ -20938,15 +21976,15 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs:
 class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationArgsDict(TypedDict):
     efs_access_points: pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArgsDict']]]
     """
-    Amazon EFS access point to mount as shared file storage. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `efs_access_point` below.
+    Amazon EFS access point to mount as shared file storage. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `efs_access_point` Block below.
     """
     s3_files_access_points: pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArgsDict']]]
     """
-    Amazon S3 Files access point to mount as shared file storage. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `s3_files_access_point` below.
+    Amazon S3 Files access point to mount as shared file storage. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `s3_files_access_point` Block below.
     """
     session_storages: pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArgsDict']]]
     """
-    Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `session_storage` below.
+    Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `session_storage` Block below.
     """
 
 @pulumi.input_type
@@ -20956,9 +21994,9 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurat
                  s3_files_access_points: pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArgs']]],
                  session_storages: pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArgs']]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArgs']]] efs_access_points: Amazon EFS access point to mount as shared file storage. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `efs_access_point` below.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArgs']]] s3_files_access_points: Amazon S3 Files access point to mount as shared file storage. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `s3_files_access_point` below.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArgs']]] session_storages: Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `session_storage` below.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArgs']]] efs_access_points: Amazon EFS access point to mount as shared file storage. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `efs_access_point` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArgs']]] s3_files_access_points: Amazon S3 Files access point to mount as shared file storage. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `s3_files_access_point` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArgs']]] session_storages: Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `session_storage` Block below.
         """
         pulumi.set(__self__, "efs_access_points", efs_access_points)
         pulumi.set(__self__, "s3_files_access_points", s3_files_access_points)
@@ -20968,7 +22006,7 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurat
     @pulumi.getter(name="efsAccessPoints")
     def efs_access_points(self) -> pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArgs']]]:
         """
-        Amazon EFS access point to mount as shared file storage. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `efs_access_point` below.
+        Amazon EFS access point to mount as shared file storage. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `efs_access_point` Block below.
         """
         return pulumi.get(self, "efs_access_points")
 
@@ -20980,7 +22018,7 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurat
     @pulumi.getter(name="s3FilesAccessPoints")
     def s3_files_access_points(self) -> pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArgs']]]:
         """
-        Amazon S3 Files access point to mount as shared file storage. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `s3_files_access_point` below.
+        Amazon S3 Files access point to mount as shared file storage. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `s3_files_access_point` Block below.
         """
         return pulumi.get(self, "s3_files_access_points")
 
@@ -20992,7 +22030,7 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurat
     @pulumi.getter(name="sessionStorages")
     def session_storages(self) -> pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArgs']]]:
         """
-        Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `session_storage` below.
+        Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `session_storage` Block below.
         """
         return pulumi.get(self, "session_storages")
 
@@ -21177,7 +22215,7 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration
     """
     network_mode_configs: pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgsDict']]]
     """
-    VPC configuration. See `network_mode_config` below.
+    VPC configuration. See `network_mode_config` Block below.
     """
 
 @pulumi.input_type
@@ -21187,7 +22225,7 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration
                  network_mode_configs: pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs']]]):
         """
         :param pulumi.Input[_builtins.str] network_mode: Network mode. Valid values: `PUBLIC`, `VPC`.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs']]] network_mode_configs: VPC configuration. See `network_mode_config` below.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs']]] network_mode_configs: VPC configuration. See `network_mode_config` Block below.
         """
         pulumi.set(__self__, "network_mode", network_mode)
         pulumi.set(__self__, "network_mode_configs", network_mode_configs)
@@ -21208,7 +22246,7 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration
     @pulumi.getter(name="networkModeConfigs")
     def network_mode_configs(self) -> pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs']]]:
         """
-        VPC configuration. See `network_mode_config` below.
+        VPC configuration. See `network_mode_config` Block below.
         """
         return pulumi.get(self, "network_mode_configs")
 
@@ -21286,7 +22324,7 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration
 class AgentcoreHarnessEnvironmentArtifactArgsDict(TypedDict):
     container_configuration: NotRequired[pulumi.Input[Optional['AgentcoreHarnessEnvironmentArtifactContainerConfigurationArgsDict']]]
     """
-    Container configuration. See `container_configuration` below.
+    Container configuration. See `container_configuration` Block below.
     """
 
 @pulumi.input_type
@@ -21294,7 +22332,7 @@ class AgentcoreHarnessEnvironmentArtifactArgs:
     def __init__(__self__, *,
                  container_configuration: pulumi.Input[Optional['AgentcoreHarnessEnvironmentArtifactContainerConfigurationArgs']] = None):
         """
-        :param pulumi.Input['AgentcoreHarnessEnvironmentArtifactContainerConfigurationArgs'] container_configuration: Container configuration. See `container_configuration` below.
+        :param pulumi.Input['AgentcoreHarnessEnvironmentArtifactContainerConfigurationArgs'] container_configuration: Container configuration. See `container_configuration` Block below.
         """
         if container_configuration is not None:
             pulumi.set(__self__, "container_configuration", container_configuration)
@@ -21303,7 +22341,7 @@ class AgentcoreHarnessEnvironmentArtifactArgs:
     @pulumi.getter(name="containerConfiguration")
     def container_configuration(self) -> pulumi.Input[Optional['AgentcoreHarnessEnvironmentArtifactContainerConfigurationArgs']]:
         """
-        Container configuration. See `container_configuration` below.
+        Container configuration. See `container_configuration` Block below.
         """
         return pulumi.get(self, "container_configuration")
 
@@ -21343,30 +22381,406 @@ class AgentcoreHarnessEnvironmentArtifactContainerConfigurationArgs:
 class AgentcoreHarnessMemoryArgsDict(TypedDict):
     agentcore_memory_configuration: NotRequired[pulumi.Input[Optional['AgentcoreHarnessMemoryAgentcoreMemoryConfigurationArgsDict']]]
     """
-    AgentCore memory configuration. See `agentcore_memory_configuration` below.
+    AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `agentcore_memory_configuration` Block below.
+    """
+    disabled: NotRequired[pulumi.Input[Optional['AgentcoreHarnessMemoryDisabledArgsDict']]]
+    """
+    Explicitly disable memory for this harness. See `disabled` Block below.
+    """
+    managed_memory_configuration: NotRequired[pulumi.Input[Optional['AgentcoreHarnessMemoryManagedMemoryConfigurationArgsDict']]]
+    """
+    Managed memory configuration. Creates and manages a memory resource automatically. See `managed_memory_configuration` Block below.
     """
 
 @pulumi.input_type
 class AgentcoreHarnessMemoryArgs:
     def __init__(__self__, *,
-                 agentcore_memory_configuration: pulumi.Input[Optional['AgentcoreHarnessMemoryAgentcoreMemoryConfigurationArgs']] = None):
+                 agentcore_memory_configuration: pulumi.Input[Optional['AgentcoreHarnessMemoryAgentcoreMemoryConfigurationArgs']] = None,
+                 disabled: pulumi.Input[Optional['AgentcoreHarnessMemoryDisabledArgs']] = None,
+                 managed_memory_configuration: pulumi.Input[Optional['AgentcoreHarnessMemoryManagedMemoryConfigurationArgs']] = None):
         """
-        :param pulumi.Input['AgentcoreHarnessMemoryAgentcoreMemoryConfigurationArgs'] agentcore_memory_configuration: AgentCore memory configuration. See `agentcore_memory_configuration` below.
+        :param pulumi.Input['AgentcoreHarnessMemoryAgentcoreMemoryConfigurationArgs'] agentcore_memory_configuration: AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `agentcore_memory_configuration` Block below.
+        :param pulumi.Input['AgentcoreHarnessMemoryDisabledArgs'] disabled: Explicitly disable memory for this harness. See `disabled` Block below.
+        :param pulumi.Input['AgentcoreHarnessMemoryManagedMemoryConfigurationArgs'] managed_memory_configuration: Managed memory configuration. Creates and manages a memory resource automatically. See `managed_memory_configuration` Block below.
         """
         if agentcore_memory_configuration is not None:
             pulumi.set(__self__, "agentcore_memory_configuration", agentcore_memory_configuration)
+        if disabled is not None:
+            pulumi.set(__self__, "disabled", disabled)
+        if managed_memory_configuration is not None:
+            pulumi.set(__self__, "managed_memory_configuration", managed_memory_configuration)
 
     @_builtins.property
     @pulumi.getter(name="agentcoreMemoryConfiguration")
     def agentcore_memory_configuration(self) -> pulumi.Input[Optional['AgentcoreHarnessMemoryAgentcoreMemoryConfigurationArgs']]:
         """
-        AgentCore memory configuration. See `agentcore_memory_configuration` below.
+        AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `agentcore_memory_configuration` Block below.
         """
         return pulumi.get(self, "agentcore_memory_configuration")
 
     @agentcore_memory_configuration.setter
     def agentcore_memory_configuration(self, value: pulumi.Input[Optional['AgentcoreHarnessMemoryAgentcoreMemoryConfigurationArgs']]):
         pulumi.set(self, "agentcore_memory_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def disabled(self) -> pulumi.Input[Optional['AgentcoreHarnessMemoryDisabledArgs']]:
+        """
+        Explicitly disable memory for this harness. See `disabled` Block below.
+        """
+        return pulumi.get(self, "disabled")
+
+    @disabled.setter
+    def disabled(self, value: pulumi.Input[Optional['AgentcoreHarnessMemoryDisabledArgs']]):
+        pulumi.set(self, "disabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="managedMemoryConfiguration")
+    def managed_memory_configuration(self) -> pulumi.Input[Optional['AgentcoreHarnessMemoryManagedMemoryConfigurationArgs']]:
+        """
+        Managed memory configuration. Creates and manages a memory resource automatically. See `managed_memory_configuration` Block below.
+        """
+        return pulumi.get(self, "managed_memory_configuration")
+
+    @managed_memory_configuration.setter
+    def managed_memory_configuration(self, value: pulumi.Input[Optional['AgentcoreHarnessMemoryManagedMemoryConfigurationArgs']]):
+        pulumi.set(self, "managed_memory_configuration", value)
+
+
+class AgentcoreHarnessMemoryActualArgsDict(TypedDict):
+    agentcore_memory_configurations: pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationArgsDict']]]
+    """
+    AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `agentcore_memory_configuration` Block below.
+    """
+    disableds: pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessMemoryActualDisabledArgsDict']]]
+    """
+    Explicitly disable memory for this harness. See `disabled` Block below.
+    """
+    managed_memory_configurations: pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessMemoryActualManagedMemoryConfigurationArgsDict']]]
+    """
+    Managed memory configuration. Creates and manages a memory resource automatically. See `managed_memory_configuration` Block below.
+    """
+
+@pulumi.input_type
+class AgentcoreHarnessMemoryActualArgs:
+    def __init__(__self__, *,
+                 agentcore_memory_configurations: pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationArgs']]],
+                 disableds: pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessMemoryActualDisabledArgs']]],
+                 managed_memory_configurations: pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessMemoryActualManagedMemoryConfigurationArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationArgs']]] agentcore_memory_configurations: AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `agentcore_memory_configuration` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessMemoryActualDisabledArgs']]] disableds: Explicitly disable memory for this harness. See `disabled` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessMemoryActualManagedMemoryConfigurationArgs']]] managed_memory_configurations: Managed memory configuration. Creates and manages a memory resource automatically. See `managed_memory_configuration` Block below.
+        """
+        pulumi.set(__self__, "agentcore_memory_configurations", agentcore_memory_configurations)
+        pulumi.set(__self__, "disableds", disableds)
+        pulumi.set(__self__, "managed_memory_configurations", managed_memory_configurations)
+
+    @_builtins.property
+    @pulumi.getter(name="agentcoreMemoryConfigurations")
+    def agentcore_memory_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationArgs']]]:
+        """
+        AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `agentcore_memory_configuration` Block below.
+        """
+        return pulumi.get(self, "agentcore_memory_configurations")
+
+    @agentcore_memory_configurations.setter
+    def agentcore_memory_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationArgs']]]):
+        pulumi.set(self, "agentcore_memory_configurations", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def disableds(self) -> pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessMemoryActualDisabledArgs']]]:
+        """
+        Explicitly disable memory for this harness. See `disabled` Block below.
+        """
+        return pulumi.get(self, "disableds")
+
+    @disableds.setter
+    def disableds(self, value: pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessMemoryActualDisabledArgs']]]):
+        pulumi.set(self, "disableds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="managedMemoryConfigurations")
+    def managed_memory_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessMemoryActualManagedMemoryConfigurationArgs']]]:
+        """
+        Managed memory configuration. Creates and manages a memory resource automatically. See `managed_memory_configuration` Block below.
+        """
+        return pulumi.get(self, "managed_memory_configurations")
+
+    @managed_memory_configurations.setter
+    def managed_memory_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessMemoryActualManagedMemoryConfigurationArgs']]]):
+        pulumi.set(self, "managed_memory_configurations", value)
+
+
+class AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationArgsDict(TypedDict):
+    actor_id: pulumi.Input[_builtins.str]
+    """
+    Actor ID for memory sessions.
+    """
+    arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the AgentCore memory resource.
+    """
+    messages_count: pulumi.Input[_builtins.int]
+    """
+    Number of messages to retrieve from memory.
+    """
+    retrieval_configs: pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationRetrievalConfigArgsDict']]]
+    """
+    Retrieval configuration parameters. See `retrieval_config` Block below.
+    """
+
+@pulumi.input_type
+class AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationArgs:
+    def __init__(__self__, *,
+                 actor_id: pulumi.Input[_builtins.str],
+                 arn: pulumi.Input[_builtins.str],
+                 messages_count: pulumi.Input[_builtins.int],
+                 retrieval_configs: pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationRetrievalConfigArgs']]]):
+        """
+        :param pulumi.Input[_builtins.str] actor_id: Actor ID for memory sessions.
+        :param pulumi.Input[_builtins.str] arn: ARN of the AgentCore memory resource.
+        :param pulumi.Input[_builtins.int] messages_count: Number of messages to retrieve from memory.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationRetrievalConfigArgs']]] retrieval_configs: Retrieval configuration parameters. See `retrieval_config` Block below.
+        """
+        pulumi.set(__self__, "actor_id", actor_id)
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "messages_count", messages_count)
+        pulumi.set(__self__, "retrieval_configs", retrieval_configs)
+
+    @_builtins.property
+    @pulumi.getter(name="actorId")
+    def actor_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Actor ID for memory sessions.
+        """
+        return pulumi.get(self, "actor_id")
+
+    @actor_id.setter
+    def actor_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "actor_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the AgentCore memory resource.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="messagesCount")
+    def messages_count(self) -> pulumi.Input[_builtins.int]:
+        """
+        Number of messages to retrieve from memory.
+        """
+        return pulumi.get(self, "messages_count")
+
+    @messages_count.setter
+    def messages_count(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "messages_count", value)
+
+    @_builtins.property
+    @pulumi.getter(name="retrievalConfigs")
+    def retrieval_configs(self) -> pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationRetrievalConfigArgs']]]:
+        """
+        Retrieval configuration parameters. See `retrieval_config` Block below.
+        """
+        return pulumi.get(self, "retrieval_configs")
+
+    @retrieval_configs.setter
+    def retrieval_configs(self, value: pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationRetrievalConfigArgs']]]):
+        pulumi.set(self, "retrieval_configs", value)
+
+
+class AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationRetrievalConfigArgsDict(TypedDict):
+    map_block_key: pulumi.Input[_builtins.str]
+    """
+    Namespace path template for retrieval settings.
+    """
+    relevance_score: pulumi.Input[_builtins.float]
+    """
+    Relevance score threshold. Valid value is between `0` and `1`.
+    """
+    strategy_id: pulumi.Input[_builtins.str]
+    """
+    ID of the memory strategy.
+    """
+    top_k: pulumi.Input[_builtins.int]
+    """
+    Number of top results to retrieve.
+    """
+
+@pulumi.input_type
+class AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationRetrievalConfigArgs:
+    def __init__(__self__, *,
+                 map_block_key: pulumi.Input[_builtins.str],
+                 relevance_score: pulumi.Input[_builtins.float],
+                 strategy_id: pulumi.Input[_builtins.str],
+                 top_k: pulumi.Input[_builtins.int]):
+        """
+        :param pulumi.Input[_builtins.str] map_block_key: Namespace path template for retrieval settings.
+        :param pulumi.Input[_builtins.float] relevance_score: Relevance score threshold. Valid value is between `0` and `1`.
+        :param pulumi.Input[_builtins.str] strategy_id: ID of the memory strategy.
+        :param pulumi.Input[_builtins.int] top_k: Number of top results to retrieve.
+        """
+        pulumi.set(__self__, "map_block_key", map_block_key)
+        pulumi.set(__self__, "relevance_score", relevance_score)
+        pulumi.set(__self__, "strategy_id", strategy_id)
+        pulumi.set(__self__, "top_k", top_k)
+
+    @_builtins.property
+    @pulumi.getter(name="mapBlockKey")
+    def map_block_key(self) -> pulumi.Input[_builtins.str]:
+        """
+        Namespace path template for retrieval settings.
+        """
+        return pulumi.get(self, "map_block_key")
+
+    @map_block_key.setter
+    def map_block_key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "map_block_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="relevanceScore")
+    def relevance_score(self) -> pulumi.Input[_builtins.float]:
+        """
+        Relevance score threshold. Valid value is between `0` and `1`.
+        """
+        return pulumi.get(self, "relevance_score")
+
+    @relevance_score.setter
+    def relevance_score(self, value: pulumi.Input[_builtins.float]):
+        pulumi.set(self, "relevance_score", value)
+
+    @_builtins.property
+    @pulumi.getter(name="strategyId")
+    def strategy_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        ID of the memory strategy.
+        """
+        return pulumi.get(self, "strategy_id")
+
+    @strategy_id.setter
+    def strategy_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "strategy_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topK")
+    def top_k(self) -> pulumi.Input[_builtins.int]:
+        """
+        Number of top results to retrieve.
+        """
+        return pulumi.get(self, "top_k")
+
+    @top_k.setter
+    def top_k(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "top_k", value)
+
+
+class AgentcoreHarnessMemoryActualDisabledArgsDict(TypedDict):
+    pass
+
+@pulumi.input_type
+class AgentcoreHarnessMemoryActualDisabledArgs:
+    def __init__(__self__):
+        pass
+
+
+class AgentcoreHarnessMemoryActualManagedMemoryConfigurationArgsDict(TypedDict):
+    arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the managed memory resource.
+    """
+    encryption_key_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of a customer-managed KMS key used to encrypt the memory. Defaults to an AWS-owned key. Cannot be changed after creation.
+    """
+    event_expiry_duration: pulumi.Input[_builtins.int]
+    """
+    Event retention in days. Defaults to `30`.
+    """
+    strategies: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Set of strategy types to enable. Valid values are `SEMANTIC`, `SUMMARIZATION`, and `USER_PREFERENCE`. Defaults to `["SEMANTIC", "SUMMARIZATION"]`.
+
+    In addition, the following attribute is exported:
+    """
+
+@pulumi.input_type
+class AgentcoreHarnessMemoryActualManagedMemoryConfigurationArgs:
+    def __init__(__self__, *,
+                 arn: pulumi.Input[_builtins.str],
+                 encryption_key_arn: pulumi.Input[_builtins.str],
+                 event_expiry_duration: pulumi.Input[_builtins.int],
+                 strategies: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[_builtins.str] arn: ARN of the managed memory resource.
+        :param pulumi.Input[_builtins.str] encryption_key_arn: ARN of a customer-managed KMS key used to encrypt the memory. Defaults to an AWS-owned key. Cannot be changed after creation.
+        :param pulumi.Input[_builtins.int] event_expiry_duration: Event retention in days. Defaults to `30`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] strategies: Set of strategy types to enable. Valid values are `SEMANTIC`, `SUMMARIZATION`, and `USER_PREFERENCE`. Defaults to `["SEMANTIC", "SUMMARIZATION"]`.
+               
+               In addition, the following attribute is exported:
+        """
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "encryption_key_arn", encryption_key_arn)
+        pulumi.set(__self__, "event_expiry_duration", event_expiry_duration)
+        pulumi.set(__self__, "strategies", strategies)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the managed memory resource.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKeyArn")
+    def encryption_key_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of a customer-managed KMS key used to encrypt the memory. Defaults to an AWS-owned key. Cannot be changed after creation.
+        """
+        return pulumi.get(self, "encryption_key_arn")
+
+    @encryption_key_arn.setter
+    def encryption_key_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "encryption_key_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="eventExpiryDuration")
+    def event_expiry_duration(self) -> pulumi.Input[_builtins.int]:
+        """
+        Event retention in days. Defaults to `30`.
+        """
+        return pulumi.get(self, "event_expiry_duration")
+
+    @event_expiry_duration.setter
+    def event_expiry_duration(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "event_expiry_duration", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def strategies(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Set of strategy types to enable. Valid values are `SEMANTIC`, `SUMMARIZATION`, and `USER_PREFERENCE`. Defaults to `["SEMANTIC", "SUMMARIZATION"]`.
+
+        In addition, the following attribute is exported:
+        """
+        return pulumi.get(self, "strategies")
+
+    @strategies.setter
+    def strategies(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "strategies", value)
 
 
 class AgentcoreHarnessMemoryAgentcoreMemoryConfigurationArgsDict(TypedDict):
@@ -21384,7 +22798,7 @@ class AgentcoreHarnessMemoryAgentcoreMemoryConfigurationArgsDict(TypedDict):
     """
     retrieval_config: NotRequired[pulumi.Input[Optional['AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfigArgsDict']]]
     """
-    Retrieval configuration parameters. See `retrieval_config` below.
+    Retrieval configuration parameters. See `retrieval_config` Block below.
     """
 
 @pulumi.input_type
@@ -21398,7 +22812,7 @@ class AgentcoreHarnessMemoryAgentcoreMemoryConfigurationArgs:
         :param pulumi.Input[_builtins.str] arn: ARN of the AgentCore memory resource.
         :param pulumi.Input[_builtins.str] actor_id: Actor ID for memory sessions.
         :param pulumi.Input[_builtins.int] messages_count: Number of messages to retrieve from memory.
-        :param pulumi.Input['AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfigArgs'] retrieval_config: Retrieval configuration parameters. See `retrieval_config` below.
+        :param pulumi.Input['AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfigArgs'] retrieval_config: Retrieval configuration parameters. See `retrieval_config` Block below.
         """
         pulumi.set(__self__, "arn", arn)
         if actor_id is not None:
@@ -21448,7 +22862,7 @@ class AgentcoreHarnessMemoryAgentcoreMemoryConfigurationArgs:
     @pulumi.getter(name="retrievalConfig")
     def retrieval_config(self) -> pulumi.Input[Optional['AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfigArgs']]:
         """
-        Retrieval configuration parameters. See `retrieval_config` below.
+        Retrieval configuration parameters. See `retrieval_config` Block below.
         """
         return pulumi.get(self, "retrieval_config")
 
@@ -21460,7 +22874,7 @@ class AgentcoreHarnessMemoryAgentcoreMemoryConfigurationArgs:
 class AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfigArgsDict(TypedDict):
     map_block_key: pulumi.Input[_builtins.str]
     """
-    Key for the retrieval configuration map block.
+    Namespace path template for retrieval settings.
     """
     relevance_score: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
@@ -21483,7 +22897,7 @@ class AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfigArgs:
                  strategy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  top_k: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input[_builtins.str] map_block_key: Key for the retrieval configuration map block.
+        :param pulumi.Input[_builtins.str] map_block_key: Namespace path template for retrieval settings.
         :param pulumi.Input[_builtins.float] relevance_score: Relevance score threshold. Valid value is between `0` and `1`.
         :param pulumi.Input[_builtins.str] strategy_id: ID of the memory strategy.
         :param pulumi.Input[_builtins.int] top_k: Number of top results to retrieve.
@@ -21500,7 +22914,7 @@ class AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfigArgs:
     @pulumi.getter(name="mapBlockKey")
     def map_block_key(self) -> pulumi.Input[_builtins.str]:
         """
-        Key for the retrieval configuration map block.
+        Namespace path template for retrieval settings.
         """
         return pulumi.get(self, "map_block_key")
 
@@ -21545,18 +22959,122 @@ class AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfigArgs:
         pulumi.set(self, "top_k", value)
 
 
+class AgentcoreHarnessMemoryDisabledArgsDict(TypedDict):
+    pass
+
+@pulumi.input_type
+class AgentcoreHarnessMemoryDisabledArgs:
+    def __init__(__self__):
+        pass
+
+
+class AgentcoreHarnessMemoryManagedMemoryConfigurationArgsDict(TypedDict):
+    arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ARN of the managed memory resource.
+    """
+    encryption_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ARN of a customer-managed KMS key used to encrypt the memory. Defaults to an AWS-owned key. Cannot be changed after creation.
+    """
+    event_expiry_duration: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Event retention in days. Defaults to `30`.
+    """
+    strategies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Set of strategy types to enable. Valid values are `SEMANTIC`, `SUMMARIZATION`, and `USER_PREFERENCE`. Defaults to `["SEMANTIC", "SUMMARIZATION"]`.
+
+    In addition, the following attribute is exported:
+    """
+
+@pulumi.input_type
+class AgentcoreHarnessMemoryManagedMemoryConfigurationArgs:
+    def __init__(__self__, *,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_expiry_duration: pulumi.Input[Optional[_builtins.int]] = None,
+                 strategies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] arn: ARN of the managed memory resource.
+        :param pulumi.Input[_builtins.str] encryption_key_arn: ARN of a customer-managed KMS key used to encrypt the memory. Defaults to an AWS-owned key. Cannot be changed after creation.
+        :param pulumi.Input[_builtins.int] event_expiry_duration: Event retention in days. Defaults to `30`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] strategies: Set of strategy types to enable. Valid values are `SEMANTIC`, `SUMMARIZATION`, and `USER_PREFERENCE`. Defaults to `["SEMANTIC", "SUMMARIZATION"]`.
+               
+               In addition, the following attribute is exported:
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if encryption_key_arn is not None:
+            pulumi.set(__self__, "encryption_key_arn", encryption_key_arn)
+        if event_expiry_duration is not None:
+            pulumi.set(__self__, "event_expiry_duration", event_expiry_duration)
+        if strategies is not None:
+            pulumi.set(__self__, "strategies", strategies)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the managed memory resource.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKeyArn")
+    def encryption_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of a customer-managed KMS key used to encrypt the memory. Defaults to an AWS-owned key. Cannot be changed after creation.
+        """
+        return pulumi.get(self, "encryption_key_arn")
+
+    @encryption_key_arn.setter
+    def encryption_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "encryption_key_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="eventExpiryDuration")
+    def event_expiry_duration(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Event retention in days. Defaults to `30`.
+        """
+        return pulumi.get(self, "event_expiry_duration")
+
+    @event_expiry_duration.setter
+    def event_expiry_duration(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "event_expiry_duration", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def strategies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of strategy types to enable. Valid values are `SEMANTIC`, `SUMMARIZATION`, and `USER_PREFERENCE`. Defaults to `["SEMANTIC", "SUMMARIZATION"]`.
+
+        In addition, the following attribute is exported:
+        """
+        return pulumi.get(self, "strategies")
+
+    @strategies.setter
+    def strategies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "strategies", value)
+
+
 class AgentcoreHarnessModelArgsDict(TypedDict):
     bedrock_model_config: NotRequired[pulumi.Input[Optional['AgentcoreHarnessModelBedrockModelConfigArgsDict']]]
     """
-    Amazon Bedrock model configuration. See `bedrock_model_config` below.
+    Amazon Bedrock model configuration. See `bedrock_model_config` Block below.
     """
     gemini_model_config: NotRequired[pulumi.Input[Optional['AgentcoreHarnessModelGeminiModelConfigArgsDict']]]
     """
-    Gemini model configuration. See `gemini_model_config` below.
+    Gemini model configuration. See `gemini_model_config` Block below.
     """
     openai_model_config: NotRequired[pulumi.Input[Optional['AgentcoreHarnessModelOpenaiModelConfigArgsDict']]]
     """
-    OpenAI model configuration. See `openai_model_config` below.
+    OpenAI model configuration. See `openai_model_config` Block below.
     """
 
 @pulumi.input_type
@@ -21566,9 +23084,9 @@ class AgentcoreHarnessModelArgs:
                  gemini_model_config: pulumi.Input[Optional['AgentcoreHarnessModelGeminiModelConfigArgs']] = None,
                  openai_model_config: pulumi.Input[Optional['AgentcoreHarnessModelOpenaiModelConfigArgs']] = None):
         """
-        :param pulumi.Input['AgentcoreHarnessModelBedrockModelConfigArgs'] bedrock_model_config: Amazon Bedrock model configuration. See `bedrock_model_config` below.
-        :param pulumi.Input['AgentcoreHarnessModelGeminiModelConfigArgs'] gemini_model_config: Gemini model configuration. See `gemini_model_config` below.
-        :param pulumi.Input['AgentcoreHarnessModelOpenaiModelConfigArgs'] openai_model_config: OpenAI model configuration. See `openai_model_config` below.
+        :param pulumi.Input['AgentcoreHarnessModelBedrockModelConfigArgs'] bedrock_model_config: Amazon Bedrock model configuration. See `bedrock_model_config` Block below.
+        :param pulumi.Input['AgentcoreHarnessModelGeminiModelConfigArgs'] gemini_model_config: Gemini model configuration. See `gemini_model_config` Block below.
+        :param pulumi.Input['AgentcoreHarnessModelOpenaiModelConfigArgs'] openai_model_config: OpenAI model configuration. See `openai_model_config` Block below.
         """
         if bedrock_model_config is not None:
             pulumi.set(__self__, "bedrock_model_config", bedrock_model_config)
@@ -21581,7 +23099,7 @@ class AgentcoreHarnessModelArgs:
     @pulumi.getter(name="bedrockModelConfig")
     def bedrock_model_config(self) -> pulumi.Input[Optional['AgentcoreHarnessModelBedrockModelConfigArgs']]:
         """
-        Amazon Bedrock model configuration. See `bedrock_model_config` below.
+        Amazon Bedrock model configuration. See `bedrock_model_config` Block below.
         """
         return pulumi.get(self, "bedrock_model_config")
 
@@ -21593,7 +23111,7 @@ class AgentcoreHarnessModelArgs:
     @pulumi.getter(name="geminiModelConfig")
     def gemini_model_config(self) -> pulumi.Input[Optional['AgentcoreHarnessModelGeminiModelConfigArgs']]:
         """
-        Gemini model configuration. See `gemini_model_config` below.
+        Gemini model configuration. See `gemini_model_config` Block below.
         """
         return pulumi.get(self, "gemini_model_config")
 
@@ -21605,7 +23123,7 @@ class AgentcoreHarnessModelArgs:
     @pulumi.getter(name="openaiModelConfig")
     def openai_model_config(self) -> pulumi.Input[Optional['AgentcoreHarnessModelOpenaiModelConfigArgs']]:
         """
-        OpenAI model configuration. See `openai_model_config` below.
+        OpenAI model configuration. See `openai_model_config` Block below.
         """
         return pulumi.get(self, "openai_model_config")
 
@@ -22132,23 +23650,23 @@ class AgentcoreHarnessToolArgs:
 class AgentcoreHarnessToolConfigArgsDict(TypedDict):
     agentcore_browser: NotRequired[pulumi.Input[Optional['AgentcoreHarnessToolConfigAgentcoreBrowserArgsDict']]]
     """
-    AgentCore browser configuration. See `agentcore_browser` below.
+    AgentCore browser configuration. See `agentcore_browser` Block below.
     """
     agentcore_code_interpreter: NotRequired[pulumi.Input[Optional['AgentcoreHarnessToolConfigAgentcoreCodeInterpreterArgsDict']]]
     """
-    AgentCore code interpreter configuration. See `agentcore_code_interpreter` below.
+    AgentCore code interpreter configuration. See `agentcore_code_interpreter` Block below.
     """
     agentcore_gateway: NotRequired[pulumi.Input[Optional['AgentcoreHarnessToolConfigAgentcoreGatewayArgsDict']]]
     """
-    AgentCore gateway configuration. See `agentcore_gateway` below.
+    AgentCore gateway configuration. See `agentcore_gateway` Block below.
     """
     inline_function: NotRequired[pulumi.Input[Optional['AgentcoreHarnessToolConfigInlineFunctionArgsDict']]]
     """
-    Inline function configuration. See `inline_function` below.
+    Inline function configuration. See `inline_function` Block below.
     """
     remote_mcp: NotRequired[pulumi.Input[Optional['AgentcoreHarnessToolConfigRemoteMcpArgsDict']]]
     """
-    Remote MCP server configuration. See `remote_mcp` below.
+    Remote MCP server configuration. See `remote_mcp` Block below.
     """
 
 @pulumi.input_type
@@ -22160,11 +23678,11 @@ class AgentcoreHarnessToolConfigArgs:
                  inline_function: pulumi.Input[Optional['AgentcoreHarnessToolConfigInlineFunctionArgs']] = None,
                  remote_mcp: pulumi.Input[Optional['AgentcoreHarnessToolConfigRemoteMcpArgs']] = None):
         """
-        :param pulumi.Input['AgentcoreHarnessToolConfigAgentcoreBrowserArgs'] agentcore_browser: AgentCore browser configuration. See `agentcore_browser` below.
-        :param pulumi.Input['AgentcoreHarnessToolConfigAgentcoreCodeInterpreterArgs'] agentcore_code_interpreter: AgentCore code interpreter configuration. See `agentcore_code_interpreter` below.
-        :param pulumi.Input['AgentcoreHarnessToolConfigAgentcoreGatewayArgs'] agentcore_gateway: AgentCore gateway configuration. See `agentcore_gateway` below.
-        :param pulumi.Input['AgentcoreHarnessToolConfigInlineFunctionArgs'] inline_function: Inline function configuration. See `inline_function` below.
-        :param pulumi.Input['AgentcoreHarnessToolConfigRemoteMcpArgs'] remote_mcp: Remote MCP server configuration. See `remote_mcp` below.
+        :param pulumi.Input['AgentcoreHarnessToolConfigAgentcoreBrowserArgs'] agentcore_browser: AgentCore browser configuration. See `agentcore_browser` Block below.
+        :param pulumi.Input['AgentcoreHarnessToolConfigAgentcoreCodeInterpreterArgs'] agentcore_code_interpreter: AgentCore code interpreter configuration. See `agentcore_code_interpreter` Block below.
+        :param pulumi.Input['AgentcoreHarnessToolConfigAgentcoreGatewayArgs'] agentcore_gateway: AgentCore gateway configuration. See `agentcore_gateway` Block below.
+        :param pulumi.Input['AgentcoreHarnessToolConfigInlineFunctionArgs'] inline_function: Inline function configuration. See `inline_function` Block below.
+        :param pulumi.Input['AgentcoreHarnessToolConfigRemoteMcpArgs'] remote_mcp: Remote MCP server configuration. See `remote_mcp` Block below.
         """
         if agentcore_browser is not None:
             pulumi.set(__self__, "agentcore_browser", agentcore_browser)
@@ -22181,7 +23699,7 @@ class AgentcoreHarnessToolConfigArgs:
     @pulumi.getter(name="agentcoreBrowser")
     def agentcore_browser(self) -> pulumi.Input[Optional['AgentcoreHarnessToolConfigAgentcoreBrowserArgs']]:
         """
-        AgentCore browser configuration. See `agentcore_browser` below.
+        AgentCore browser configuration. See `agentcore_browser` Block below.
         """
         return pulumi.get(self, "agentcore_browser")
 
@@ -22193,7 +23711,7 @@ class AgentcoreHarnessToolConfigArgs:
     @pulumi.getter(name="agentcoreCodeInterpreter")
     def agentcore_code_interpreter(self) -> pulumi.Input[Optional['AgentcoreHarnessToolConfigAgentcoreCodeInterpreterArgs']]:
         """
-        AgentCore code interpreter configuration. See `agentcore_code_interpreter` below.
+        AgentCore code interpreter configuration. See `agentcore_code_interpreter` Block below.
         """
         return pulumi.get(self, "agentcore_code_interpreter")
 
@@ -22205,7 +23723,7 @@ class AgentcoreHarnessToolConfigArgs:
     @pulumi.getter(name="agentcoreGateway")
     def agentcore_gateway(self) -> pulumi.Input[Optional['AgentcoreHarnessToolConfigAgentcoreGatewayArgs']]:
         """
-        AgentCore gateway configuration. See `agentcore_gateway` below.
+        AgentCore gateway configuration. See `agentcore_gateway` Block below.
         """
         return pulumi.get(self, "agentcore_gateway")
 
@@ -22217,7 +23735,7 @@ class AgentcoreHarnessToolConfigArgs:
     @pulumi.getter(name="inlineFunction")
     def inline_function(self) -> pulumi.Input[Optional['AgentcoreHarnessToolConfigInlineFunctionArgs']]:
         """
-        Inline function configuration. See `inline_function` below.
+        Inline function configuration. See `inline_function` Block below.
         """
         return pulumi.get(self, "inline_function")
 
@@ -22229,7 +23747,7 @@ class AgentcoreHarnessToolConfigArgs:
     @pulumi.getter(name="remoteMcp")
     def remote_mcp(self) -> pulumi.Input[Optional['AgentcoreHarnessToolConfigRemoteMcpArgs']]:
         """
-        Remote MCP server configuration. See `remote_mcp` below.
+        Remote MCP server configuration. See `remote_mcp` Block below.
         """
         return pulumi.get(self, "remote_mcp")
 
@@ -22303,7 +23821,7 @@ class AgentcoreHarnessToolConfigAgentcoreGatewayArgsDict(TypedDict):
     """
     outbound_auth: NotRequired[pulumi.Input[Optional['AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthArgsDict']]]
     """
-    Outbound authentication configuration. See `outbound_auth` below.
+    Outbound authentication configuration. See `outbound_auth` Block below.
     """
 
 @pulumi.input_type
@@ -22313,7 +23831,7 @@ class AgentcoreHarnessToolConfigAgentcoreGatewayArgs:
                  outbound_auth: pulumi.Input[Optional['AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] gateway_arn: ARN of the AgentCore gateway resource.
-        :param pulumi.Input['AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthArgs'] outbound_auth: Outbound authentication configuration. See `outbound_auth` below.
+        :param pulumi.Input['AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthArgs'] outbound_auth: Outbound authentication configuration. See `outbound_auth` Block below.
         """
         pulumi.set(__self__, "gateway_arn", gateway_arn)
         if outbound_auth is not None:
@@ -22335,7 +23853,7 @@ class AgentcoreHarnessToolConfigAgentcoreGatewayArgs:
     @pulumi.getter(name="outboundAuth")
     def outbound_auth(self) -> pulumi.Input[Optional['AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthArgs']]:
         """
-        Outbound authentication configuration. See `outbound_auth` below.
+        Outbound authentication configuration. See `outbound_auth` Block below.
         """
         return pulumi.get(self, "outbound_auth")
 
@@ -22355,7 +23873,7 @@ class AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthArgsDict(TypedDict):
     """
     oauth: NotRequired[pulumi.Input[Optional['AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthOauthArgsDict']]]
     """
-    OAuth credential provider configuration. See `oauth` below.
+    OAuth credential provider configuration. See `oauth` Block below.
     """
 
 @pulumi.input_type
@@ -22367,7 +23885,7 @@ class AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthArgs:
         """
         :param pulumi.Input[_builtins.bool] aws_iam: Set to `true` to use AWS IAM authentication.
         :param pulumi.Input[_builtins.bool] none: Set to `true` to disable authentication.
-        :param pulumi.Input['AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthOauthArgs'] oauth: OAuth credential provider configuration. See `oauth` below.
+        :param pulumi.Input['AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthOauthArgs'] oauth: OAuth credential provider configuration. See `oauth` Block below.
         """
         if aws_iam is not None:
             pulumi.set(__self__, "aws_iam", aws_iam)
@@ -22404,7 +23922,7 @@ class AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthArgs:
     @pulumi.getter
     def oauth(self) -> pulumi.Input[Optional['AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthOauthArgs']]:
         """
-        OAuth credential provider configuration. See `oauth` below.
+        OAuth credential provider configuration. See `oauth` Block below.
         """
         return pulumi.get(self, "oauth")
 
@@ -22665,11 +24183,11 @@ class AgentcoreHarnessTruncationArgs:
 class AgentcoreHarnessTruncationConfigArgsDict(TypedDict):
     sliding_windows: pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessTruncationConfigSlidingWindowArgsDict']]]
     """
-    Sliding window truncation configuration. See `sliding_window` below.
+    Sliding window truncation configuration. See `sliding_window` Block below.
     """
     summarizations: pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessTruncationConfigSummarizationArgsDict']]]
     """
-    Summarization truncation configuration. See `summarization` below.
+    Summarization truncation configuration. See `summarization` Block below.
     """
 
 @pulumi.input_type
@@ -22678,8 +24196,8 @@ class AgentcoreHarnessTruncationConfigArgs:
                  sliding_windows: pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessTruncationConfigSlidingWindowArgs']]],
                  summarizations: pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessTruncationConfigSummarizationArgs']]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessTruncationConfigSlidingWindowArgs']]] sliding_windows: Sliding window truncation configuration. See `sliding_window` below.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessTruncationConfigSummarizationArgs']]] summarizations: Summarization truncation configuration. See `summarization` below.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessTruncationConfigSlidingWindowArgs']]] sliding_windows: Sliding window truncation configuration. See `sliding_window` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessTruncationConfigSummarizationArgs']]] summarizations: Summarization truncation configuration. See `summarization` Block below.
         """
         pulumi.set(__self__, "sliding_windows", sliding_windows)
         pulumi.set(__self__, "summarizations", summarizations)
@@ -22688,7 +24206,7 @@ class AgentcoreHarnessTruncationConfigArgs:
     @pulumi.getter(name="slidingWindows")
     def sliding_windows(self) -> pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessTruncationConfigSlidingWindowArgs']]]:
         """
-        Sliding window truncation configuration. See `sliding_window` below.
+        Sliding window truncation configuration. See `sliding_window` Block below.
         """
         return pulumi.get(self, "sliding_windows")
 
@@ -22700,7 +24218,7 @@ class AgentcoreHarnessTruncationConfigArgs:
     @pulumi.getter
     def summarizations(self) -> pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessTruncationConfigSummarizationArgs']]]:
         """
-        Summarization truncation configuration. See `summarization` below.
+        Summarization truncation configuration. See `summarization` Block below.
         """
         return pulumi.get(self, "summarizations")
 

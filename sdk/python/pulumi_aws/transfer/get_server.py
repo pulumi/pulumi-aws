@@ -99,7 +99,7 @@ class GetServerResult:
     @pulumi.getter
     def domain(self) -> _builtins.str:
         """
-        The domain of the storage system that is used for file transfers.
+        Domain of the storage system that is used for file transfers.
         """
         return pulumi.get(self, "domain")
 
@@ -131,7 +131,7 @@ class GetServerResult:
     @pulumi.getter(name="identityProviderType")
     def identity_provider_type(self) -> _builtins.str:
         """
-        The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice.
+        Mode of authentication enabled for this service.
         """
         return pulumi.get(self, "identity_provider_type")
 
@@ -176,7 +176,7 @@ class GetServerResult:
     @pulumi.getter(name="securityPolicyName")
     def security_policy_name(self) -> _builtins.str:
         """
-        The name of the security policy that is attached to the server.
+        Name of the security policy that is attached to the server.
         """
         return pulumi.get(self, "security_policy_name")
 
@@ -189,7 +189,7 @@ class GetServerResult:
     @pulumi.getter(name="structuredLogDestinations")
     def structured_log_destinations(self) -> Sequence[_builtins.str]:
         """
-        A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs.
+        Set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs.
         """
         return pulumi.get(self, "structured_log_destinations")
 

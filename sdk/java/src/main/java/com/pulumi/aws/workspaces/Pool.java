@@ -202,14 +202,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:workspaces/pool:Pool")
 public class Pool extends com.pulumi.resources.CustomResource {
     /**
-     * Application settings configuration for the WorkSpaces Pool. See `applicationSettings` below.
+     * Application settings configuration for the WorkSpaces Pool. See `applicationSettings` Block below.
      * 
      */
     @Export(name="applicationSettings", refs={List.class,PoolApplicationSetting.class}, tree="[0,1]")
     private Output<List<PoolApplicationSetting>> applicationSettings;
 
     /**
-     * @return Application settings configuration for the WorkSpaces Pool. See `applicationSettings` below.
+     * @return Application settings configuration for the WorkSpaces Pool. See `applicationSettings` Block below.
      * 
      */
     public Output<List<PoolApplicationSetting>> applicationSettings() {
@@ -244,14 +244,14 @@ public class Pool extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.capacity);
     }
     /**
-     * Capacity status of the WorkSpaces Pool. See `capacityStatus` below.
+     * Capacity status of the WorkSpaces Pool. See `capacityStatus` Block below.
      * 
      */
     @Export(name="capacityStatuses", refs={List.class,PoolCapacityStatus.class}, tree="[0,1]")
     private Output<List<PoolCapacityStatus>> capacityStatuses;
 
     /**
-     * @return Capacity status of the WorkSpaces Pool. See `capacityStatus` below.
+     * @return Capacity status of the WorkSpaces Pool. See `capacityStatus` Block below.
      * 
      */
     public Output<List<PoolCapacityStatus>> capacityStatuses() {
@@ -430,14 +430,14 @@ public class Pool extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * Timeout settings configuration for the WorkSpaces Pool. See `timeoutSettings` below.
+     * Timeout settings configuration for the WorkSpaces Pool. See `timeoutSettings` Block below.
      * 
      */
     @Export(name="timeoutSettings", refs={List.class,PoolTimeoutSetting.class}, tree="[0,1]")
     private Output<List<PoolTimeoutSetting>> timeoutSettings;
 
     /**
-     * @return Timeout settings configuration for the WorkSpaces Pool. See `timeoutSettings` below.
+     * @return Timeout settings configuration for the WorkSpaces Pool. See `timeoutSettings` Block below.
      * 
      */
     public Output<List<PoolTimeoutSetting>> timeoutSettings() {

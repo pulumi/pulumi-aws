@@ -387,6 +387,18 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly identities: pulumi.Output<outputs.eks.ClusterIdentity[]>;
     /**
+     * Configuration block for customizing the Kubernetes API server. Detailed below.
+     */
+    declare public readonly kubeApiServerConfig: pulumi.Output<outputs.eks.ClusterKubeApiServerConfig>;
+    /**
+     * Configuration block for customizing the Kubernetes controller manager. Detailed below.
+     */
+    declare public readonly kubeControllerManagerConfig: pulumi.Output<outputs.eks.ClusterKubeControllerManagerConfig>;
+    /**
+     * Configuration block for customizing the Kubernetes scheduler. Detailed below.
+     */
+    declare public readonly kubeSchedulerConfig: pulumi.Output<outputs.eks.ClusterKubeSchedulerConfig>;
+    /**
      * Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
      */
     declare public readonly kubernetesNetworkConfig: pulumi.Output<outputs.eks.ClusterKubernetesNetworkConfig>;
@@ -477,6 +489,9 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["endpoint"] = state?.endpoint;
             resourceInputs["forceUpdateVersion"] = state?.forceUpdateVersion;
             resourceInputs["identities"] = state?.identities;
+            resourceInputs["kubeApiServerConfig"] = state?.kubeApiServerConfig;
+            resourceInputs["kubeControllerManagerConfig"] = state?.kubeControllerManagerConfig;
+            resourceInputs["kubeSchedulerConfig"] = state?.kubeSchedulerConfig;
             resourceInputs["kubernetesNetworkConfig"] = state?.kubernetesNetworkConfig;
             resourceInputs["name"] = state?.name;
             resourceInputs["outpostConfig"] = state?.outpostConfig;
@@ -509,6 +524,9 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["enabledClusterLogTypes"] = args?.enabledClusterLogTypes;
             resourceInputs["encryptionConfig"] = args?.encryptionConfig;
             resourceInputs["forceUpdateVersion"] = args?.forceUpdateVersion;
+            resourceInputs["kubeApiServerConfig"] = args?.kubeApiServerConfig;
+            resourceInputs["kubeControllerManagerConfig"] = args?.kubeControllerManagerConfig;
+            resourceInputs["kubeSchedulerConfig"] = args?.kubeSchedulerConfig;
             resourceInputs["kubernetesNetworkConfig"] = args?.kubernetesNetworkConfig;
             resourceInputs["name"] = args?.name;
             resourceInputs["outpostConfig"] = args?.outpostConfig;
@@ -600,6 +618,18 @@ export interface ClusterState {
      * Attribute block containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. Detailed below.
      */
     identities?: pulumi.Input<pulumi.Input<inputs.eks.ClusterIdentity>[] | undefined>;
+    /**
+     * Configuration block for customizing the Kubernetes API server. Detailed below.
+     */
+    kubeApiServerConfig?: pulumi.Input<inputs.eks.ClusterKubeApiServerConfig | undefined>;
+    /**
+     * Configuration block for customizing the Kubernetes controller manager. Detailed below.
+     */
+    kubeControllerManagerConfig?: pulumi.Input<inputs.eks.ClusterKubeControllerManagerConfig | undefined>;
+    /**
+     * Configuration block for customizing the Kubernetes scheduler. Detailed below.
+     */
+    kubeSchedulerConfig?: pulumi.Input<inputs.eks.ClusterKubeSchedulerConfig | undefined>;
     /**
      * Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
      */
@@ -704,6 +734,18 @@ export interface ClusterArgs {
      * Force version update by overriding upgrade-blocking readiness checks when updating a cluster.
      */
     forceUpdateVersion?: pulumi.Input<boolean | undefined>;
+    /**
+     * Configuration block for customizing the Kubernetes API server. Detailed below.
+     */
+    kubeApiServerConfig?: pulumi.Input<inputs.eks.ClusterKubeApiServerConfig | undefined>;
+    /**
+     * Configuration block for customizing the Kubernetes controller manager. Detailed below.
+     */
+    kubeControllerManagerConfig?: pulumi.Input<inputs.eks.ClusterKubeControllerManagerConfig | undefined>;
+    /**
+     * Configuration block for customizing the Kubernetes scheduler. Detailed below.
+     */
+    kubeSchedulerConfig?: pulumi.Input<inputs.eks.ClusterKubeSchedulerConfig | undefined>;
     /**
      * Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
      */

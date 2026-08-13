@@ -16,7 +16,7 @@ public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntime
      */
     private String cpuArchitecture;
     /**
-     * @return Operating system for the compute environment. V
+     * @return Operating system for the compute environment.
      * 
      */
     private String operatingSystemFamily;
@@ -30,7 +30,7 @@ public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntime
         return this.cpuArchitecture;
     }
     /**
-     * @return Operating system for the compute environment. V
+     * @return Operating system for the compute environment.
      * 
      */
     public String operatingSystemFamily() {

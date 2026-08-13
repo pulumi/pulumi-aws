@@ -13,6 +13,2050 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type WebAclRuleStatementByteMatchStatementFieldToMatchUriFragment struct {
+	// How to handle requests with a URI fragment that is too large to inspect. Valid values: `MATCH`, `NO_MATCH`.
+	FallbackBehavior *string `pulumi:"fallbackBehavior"`
+}
+
+// WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentInput is an input type that accepts WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentArgs and WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentInput` via:
+//
+//	WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentArgs{...}
+type WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentOutput() WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentOutput
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentOutputWithContext(context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentOutput
+}
+
+type WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentArgs struct {
+	// How to handle requests with a URI fragment that is too large to inspect. Valid values: `MATCH`, `NO_MATCH`.
+	FallbackBehavior pulumi.StringPtrInput `pulumi:"fallbackBehavior"`
+}
+
+func (WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchUriFragment)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentOutput() WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentOutput {
+	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentOutput)
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtrOutput {
+	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtrOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentOutput).ToWebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtrOutputWithContext(ctx)
+}
+
+// WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtrInput is an input type that accepts WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentArgs, WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtr and WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtrOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtrInput` via:
+//
+//	        WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtrInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtrOutput
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtrOutputWithContext(context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtrOutput
+}
+
+type webAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtrType WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentArgs
+
+func WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtr(v *WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentArgs) WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtrInput {
+	return (*webAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtrType)(v)
+}
+
+func (*webAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementByteMatchStatementFieldToMatchUriFragment)(nil)).Elem()
+}
+
+func (i *webAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtrType) ToWebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtrOutput {
+	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtrType) ToWebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtrOutput)
+}
+
+type WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchUriFragment)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentOutput() WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtrOutput {
+	return o.ToWebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementByteMatchStatementFieldToMatchUriFragment) *WebAclRuleStatementByteMatchStatementFieldToMatchUriFragment {
+		return &v
+	}).(WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtrOutput)
+}
+
+// How to handle requests with a URI fragment that is too large to inspect. Valid values: `MATCH`, `NO_MATCH`.
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentOutput) FallbackBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementByteMatchStatementFieldToMatchUriFragment) *string {
+		return v.FallbackBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementByteMatchStatementFieldToMatchUriFragment)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtrOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtrOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtrOutput) Elem() WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementByteMatchStatementFieldToMatchUriFragment) WebAclRuleStatementByteMatchStatementFieldToMatchUriFragment {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclRuleStatementByteMatchStatementFieldToMatchUriFragment
+		return ret
+	}).(WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentOutput)
+}
+
+// How to handle requests with a URI fragment that is too large to inspect. Valid values: `MATCH`, `NO_MATCH`.
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementByteMatchStatementFieldToMatchUriFragment) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FallbackBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebAclRuleStatementByteMatchStatementFieldToMatchUriPath struct {
+}
+
+// WebAclRuleStatementByteMatchStatementFieldToMatchUriPathInput is an input type that accepts WebAclRuleStatementByteMatchStatementFieldToMatchUriPathArgs and WebAclRuleStatementByteMatchStatementFieldToMatchUriPathOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementByteMatchStatementFieldToMatchUriPathInput` via:
+//
+//	WebAclRuleStatementByteMatchStatementFieldToMatchUriPathArgs{...}
+type WebAclRuleStatementByteMatchStatementFieldToMatchUriPathInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchUriPathOutput() WebAclRuleStatementByteMatchStatementFieldToMatchUriPathOutput
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchUriPathOutputWithContext(context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchUriPathOutput
+}
+
+type WebAclRuleStatementByteMatchStatementFieldToMatchUriPathArgs struct {
+}
+
+func (WebAclRuleStatementByteMatchStatementFieldToMatchUriPathArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchUriPath)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchUriPathArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchUriPathOutput() WebAclRuleStatementByteMatchStatementFieldToMatchUriPathOutput {
+	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchUriPathOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchUriPathArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchUriPathOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchUriPathOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchUriPathOutput)
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchUriPathArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchUriPathPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchUriPathPtrOutput {
+	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchUriPathPtrOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchUriPathArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchUriPathPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchUriPathPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchUriPathOutput).ToWebAclRuleStatementByteMatchStatementFieldToMatchUriPathPtrOutputWithContext(ctx)
+}
+
+// WebAclRuleStatementByteMatchStatementFieldToMatchUriPathPtrInput is an input type that accepts WebAclRuleStatementByteMatchStatementFieldToMatchUriPathArgs, WebAclRuleStatementByteMatchStatementFieldToMatchUriPathPtr and WebAclRuleStatementByteMatchStatementFieldToMatchUriPathPtrOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementByteMatchStatementFieldToMatchUriPathPtrInput` via:
+//
+//	        WebAclRuleStatementByteMatchStatementFieldToMatchUriPathArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclRuleStatementByteMatchStatementFieldToMatchUriPathPtrInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchUriPathPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchUriPathPtrOutput
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchUriPathPtrOutputWithContext(context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchUriPathPtrOutput
+}
+
+type webAclRuleStatementByteMatchStatementFieldToMatchUriPathPtrType WebAclRuleStatementByteMatchStatementFieldToMatchUriPathArgs
+
+func WebAclRuleStatementByteMatchStatementFieldToMatchUriPathPtr(v *WebAclRuleStatementByteMatchStatementFieldToMatchUriPathArgs) WebAclRuleStatementByteMatchStatementFieldToMatchUriPathPtrInput {
+	return (*webAclRuleStatementByteMatchStatementFieldToMatchUriPathPtrType)(v)
+}
+
+func (*webAclRuleStatementByteMatchStatementFieldToMatchUriPathPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementByteMatchStatementFieldToMatchUriPath)(nil)).Elem()
+}
+
+func (i *webAclRuleStatementByteMatchStatementFieldToMatchUriPathPtrType) ToWebAclRuleStatementByteMatchStatementFieldToMatchUriPathPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchUriPathPtrOutput {
+	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchUriPathPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclRuleStatementByteMatchStatementFieldToMatchUriPathPtrType) ToWebAclRuleStatementByteMatchStatementFieldToMatchUriPathPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchUriPathPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchUriPathPtrOutput)
+}
+
+type WebAclRuleStatementByteMatchStatementFieldToMatchUriPathOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementByteMatchStatementFieldToMatchUriPathOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchUriPath)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchUriPathOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchUriPathOutput() WebAclRuleStatementByteMatchStatementFieldToMatchUriPathOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchUriPathOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchUriPathOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchUriPathOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchUriPathOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchUriPathPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchUriPathPtrOutput {
+	return o.ToWebAclRuleStatementByteMatchStatementFieldToMatchUriPathPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchUriPathOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchUriPathPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchUriPathPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementByteMatchStatementFieldToMatchUriPath) *WebAclRuleStatementByteMatchStatementFieldToMatchUriPath {
+		return &v
+	}).(WebAclRuleStatementByteMatchStatementFieldToMatchUriPathPtrOutput)
+}
+
+type WebAclRuleStatementByteMatchStatementFieldToMatchUriPathPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementByteMatchStatementFieldToMatchUriPathPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementByteMatchStatementFieldToMatchUriPath)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchUriPathPtrOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchUriPathPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchUriPathPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchUriPathPtrOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchUriPathPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchUriPathPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchUriPathPtrOutput) Elem() WebAclRuleStatementByteMatchStatementFieldToMatchUriPathOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementByteMatchStatementFieldToMatchUriPath) WebAclRuleStatementByteMatchStatementFieldToMatchUriPath {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclRuleStatementByteMatchStatementFieldToMatchUriPath
+		return ret
+	}).(WebAclRuleStatementByteMatchStatementFieldToMatchUriPathOutput)
+}
+
+type WebAclRuleStatementByteMatchStatementPreParseTextTransformation struct {
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	Priority int `pulumi:"priority"`
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	Type string `pulumi:"type"`
+}
+
+// WebAclRuleStatementByteMatchStatementPreParseTextTransformationInput is an input type that accepts WebAclRuleStatementByteMatchStatementPreParseTextTransformationArgs and WebAclRuleStatementByteMatchStatementPreParseTextTransformationOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementByteMatchStatementPreParseTextTransformationInput` via:
+//
+//	WebAclRuleStatementByteMatchStatementPreParseTextTransformationArgs{...}
+type WebAclRuleStatementByteMatchStatementPreParseTextTransformationInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementByteMatchStatementPreParseTextTransformationOutput() WebAclRuleStatementByteMatchStatementPreParseTextTransformationOutput
+	ToWebAclRuleStatementByteMatchStatementPreParseTextTransformationOutputWithContext(context.Context) WebAclRuleStatementByteMatchStatementPreParseTextTransformationOutput
+}
+
+type WebAclRuleStatementByteMatchStatementPreParseTextTransformationArgs struct {
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WebAclRuleStatementByteMatchStatementPreParseTextTransformationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementPreParseTextTransformation)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementByteMatchStatementPreParseTextTransformationArgs) ToWebAclRuleStatementByteMatchStatementPreParseTextTransformationOutput() WebAclRuleStatementByteMatchStatementPreParseTextTransformationOutput {
+	return i.ToWebAclRuleStatementByteMatchStatementPreParseTextTransformationOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementByteMatchStatementPreParseTextTransformationArgs) ToWebAclRuleStatementByteMatchStatementPreParseTextTransformationOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementPreParseTextTransformationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementPreParseTextTransformationOutput)
+}
+
+type WebAclRuleStatementByteMatchStatementPreParseTextTransformationOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementByteMatchStatementPreParseTextTransformationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementPreParseTextTransformation)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementByteMatchStatementPreParseTextTransformationOutput) ToWebAclRuleStatementByteMatchStatementPreParseTextTransformationOutput() WebAclRuleStatementByteMatchStatementPreParseTextTransformationOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementPreParseTextTransformationOutput) ToWebAclRuleStatementByteMatchStatementPreParseTextTransformationOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementPreParseTextTransformationOutput {
+	return o
+}
+
+// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+func (o WebAclRuleStatementByteMatchStatementPreParseTextTransformationOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v WebAclRuleStatementByteMatchStatementPreParseTextTransformation) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+func (o WebAclRuleStatementByteMatchStatementPreParseTextTransformationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclRuleStatementByteMatchStatementPreParseTextTransformation) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type WebAclRuleStatementByteMatchStatementTextTransformation struct {
+	// Relative processing order for multiple transformations (0-based).
+	Priority int `pulumi:"priority"`
+	// Transformation to apply. Valid values: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`, `BASE64_DECODE`, `HEX_DECODE`, `MD5`, `REPLACE_COMMENTS`, `ESCAPE_SEQ_DECODE`, `SQL_HEX_DECODE`, `CSS_DECODE`, `JS_DECODE`, `NORMALIZE_PATH`, `NORMALIZE_PATH_WIN`, `REMOVE_NULLS`, `REPLACE_NULLS`, `BASE64_DECODE_EXT`, `URL_DECODE_UNI`, `UTF8_TO_UNICODE`.
+	Type string `pulumi:"type"`
+}
+
+// WebAclRuleStatementByteMatchStatementTextTransformationInput is an input type that accepts WebAclRuleStatementByteMatchStatementTextTransformationArgs and WebAclRuleStatementByteMatchStatementTextTransformationOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementByteMatchStatementTextTransformationInput` via:
+//
+//	WebAclRuleStatementByteMatchStatementTextTransformationArgs{...}
+type WebAclRuleStatementByteMatchStatementTextTransformationInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementByteMatchStatementTextTransformationOutput() WebAclRuleStatementByteMatchStatementTextTransformationOutput
+	ToWebAclRuleStatementByteMatchStatementTextTransformationOutputWithContext(context.Context) WebAclRuleStatementByteMatchStatementTextTransformationOutput
+}
+
+type WebAclRuleStatementByteMatchStatementTextTransformationArgs struct {
+	// Relative processing order for multiple transformations (0-based).
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// Transformation to apply. Valid values: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`, `BASE64_DECODE`, `HEX_DECODE`, `MD5`, `REPLACE_COMMENTS`, `ESCAPE_SEQ_DECODE`, `SQL_HEX_DECODE`, `CSS_DECODE`, `JS_DECODE`, `NORMALIZE_PATH`, `NORMALIZE_PATH_WIN`, `REMOVE_NULLS`, `REPLACE_NULLS`, `BASE64_DECODE_EXT`, `URL_DECODE_UNI`, `UTF8_TO_UNICODE`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WebAclRuleStatementByteMatchStatementTextTransformationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementTextTransformation)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementByteMatchStatementTextTransformationArgs) ToWebAclRuleStatementByteMatchStatementTextTransformationOutput() WebAclRuleStatementByteMatchStatementTextTransformationOutput {
+	return i.ToWebAclRuleStatementByteMatchStatementTextTransformationOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementByteMatchStatementTextTransformationArgs) ToWebAclRuleStatementByteMatchStatementTextTransformationOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementTextTransformationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementTextTransformationOutput)
+}
+
+// WebAclRuleStatementByteMatchStatementTextTransformationArrayInput is an input type that accepts WebAclRuleStatementByteMatchStatementTextTransformationArray and WebAclRuleStatementByteMatchStatementTextTransformationArrayOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementByteMatchStatementTextTransformationArrayInput` via:
+//
+//	WebAclRuleStatementByteMatchStatementTextTransformationArray{ WebAclRuleStatementByteMatchStatementTextTransformationArgs{...} }
+type WebAclRuleStatementByteMatchStatementTextTransformationArrayInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementByteMatchStatementTextTransformationArrayOutput() WebAclRuleStatementByteMatchStatementTextTransformationArrayOutput
+	ToWebAclRuleStatementByteMatchStatementTextTransformationArrayOutputWithContext(context.Context) WebAclRuleStatementByteMatchStatementTextTransformationArrayOutput
+}
+
+type WebAclRuleStatementByteMatchStatementTextTransformationArray []WebAclRuleStatementByteMatchStatementTextTransformationInput
+
+func (WebAclRuleStatementByteMatchStatementTextTransformationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebAclRuleStatementByteMatchStatementTextTransformation)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementByteMatchStatementTextTransformationArray) ToWebAclRuleStatementByteMatchStatementTextTransformationArrayOutput() WebAclRuleStatementByteMatchStatementTextTransformationArrayOutput {
+	return i.ToWebAclRuleStatementByteMatchStatementTextTransformationArrayOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementByteMatchStatementTextTransformationArray) ToWebAclRuleStatementByteMatchStatementTextTransformationArrayOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementTextTransformationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementTextTransformationArrayOutput)
+}
+
+type WebAclRuleStatementByteMatchStatementTextTransformationOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementByteMatchStatementTextTransformationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementTextTransformation)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementByteMatchStatementTextTransformationOutput) ToWebAclRuleStatementByteMatchStatementTextTransformationOutput() WebAclRuleStatementByteMatchStatementTextTransformationOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementTextTransformationOutput) ToWebAclRuleStatementByteMatchStatementTextTransformationOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementTextTransformationOutput {
+	return o
+}
+
+// Relative processing order for multiple transformations (0-based).
+func (o WebAclRuleStatementByteMatchStatementTextTransformationOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v WebAclRuleStatementByteMatchStatementTextTransformation) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+// Transformation to apply. Valid values: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`, `BASE64_DECODE`, `HEX_DECODE`, `MD5`, `REPLACE_COMMENTS`, `ESCAPE_SEQ_DECODE`, `SQL_HEX_DECODE`, `CSS_DECODE`, `JS_DECODE`, `NORMALIZE_PATH`, `NORMALIZE_PATH_WIN`, `REMOVE_NULLS`, `REPLACE_NULLS`, `BASE64_DECODE_EXT`, `URL_DECODE_UNI`, `UTF8_TO_UNICODE`.
+func (o WebAclRuleStatementByteMatchStatementTextTransformationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclRuleStatementByteMatchStatementTextTransformation) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type WebAclRuleStatementByteMatchStatementTextTransformationArrayOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementByteMatchStatementTextTransformationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebAclRuleStatementByteMatchStatementTextTransformation)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementByteMatchStatementTextTransformationArrayOutput) ToWebAclRuleStatementByteMatchStatementTextTransformationArrayOutput() WebAclRuleStatementByteMatchStatementTextTransformationArrayOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementTextTransformationArrayOutput) ToWebAclRuleStatementByteMatchStatementTextTransformationArrayOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementTextTransformationArrayOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementTextTransformationArrayOutput) Index(i pulumi.IntInput) WebAclRuleStatementByteMatchStatementTextTransformationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebAclRuleStatementByteMatchStatementTextTransformation {
+		return vs[0].([]WebAclRuleStatementByteMatchStatementTextTransformation)[vs[1].(int)]
+	}).(WebAclRuleStatementByteMatchStatementTextTransformationOutput)
+}
+
+type WebAclRuleStatementGeoMatchStatement struct {
+	// List of two-character country codes (ISO 3166-1 alpha-2).
+	CountryCodes []string `pulumi:"countryCodes"`
+	// Configuration for inspecting forwarded IP headers. See Forwarded IP Config below.
+	ForwardedIpConfig *WebAclRuleStatementGeoMatchStatementForwardedIpConfig `pulumi:"forwardedIpConfig"`
+}
+
+// WebAclRuleStatementGeoMatchStatementInput is an input type that accepts WebAclRuleStatementGeoMatchStatementArgs and WebAclRuleStatementGeoMatchStatementOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementGeoMatchStatementInput` via:
+//
+//	WebAclRuleStatementGeoMatchStatementArgs{...}
+type WebAclRuleStatementGeoMatchStatementInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementGeoMatchStatementOutput() WebAclRuleStatementGeoMatchStatementOutput
+	ToWebAclRuleStatementGeoMatchStatementOutputWithContext(context.Context) WebAclRuleStatementGeoMatchStatementOutput
+}
+
+type WebAclRuleStatementGeoMatchStatementArgs struct {
+	// List of two-character country codes (ISO 3166-1 alpha-2).
+	CountryCodes pulumi.StringArrayInput `pulumi:"countryCodes"`
+	// Configuration for inspecting forwarded IP headers. See Forwarded IP Config below.
+	ForwardedIpConfig WebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrInput `pulumi:"forwardedIpConfig"`
+}
+
+func (WebAclRuleStatementGeoMatchStatementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementGeoMatchStatement)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementGeoMatchStatementArgs) ToWebAclRuleStatementGeoMatchStatementOutput() WebAclRuleStatementGeoMatchStatementOutput {
+	return i.ToWebAclRuleStatementGeoMatchStatementOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementGeoMatchStatementArgs) ToWebAclRuleStatementGeoMatchStatementOutputWithContext(ctx context.Context) WebAclRuleStatementGeoMatchStatementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementGeoMatchStatementOutput)
+}
+
+func (i WebAclRuleStatementGeoMatchStatementArgs) ToWebAclRuleStatementGeoMatchStatementPtrOutput() WebAclRuleStatementGeoMatchStatementPtrOutput {
+	return i.ToWebAclRuleStatementGeoMatchStatementPtrOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementGeoMatchStatementArgs) ToWebAclRuleStatementGeoMatchStatementPtrOutputWithContext(ctx context.Context) WebAclRuleStatementGeoMatchStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementGeoMatchStatementOutput).ToWebAclRuleStatementGeoMatchStatementPtrOutputWithContext(ctx)
+}
+
+// WebAclRuleStatementGeoMatchStatementPtrInput is an input type that accepts WebAclRuleStatementGeoMatchStatementArgs, WebAclRuleStatementGeoMatchStatementPtr and WebAclRuleStatementGeoMatchStatementPtrOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementGeoMatchStatementPtrInput` via:
+//
+//	        WebAclRuleStatementGeoMatchStatementArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclRuleStatementGeoMatchStatementPtrInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementGeoMatchStatementPtrOutput() WebAclRuleStatementGeoMatchStatementPtrOutput
+	ToWebAclRuleStatementGeoMatchStatementPtrOutputWithContext(context.Context) WebAclRuleStatementGeoMatchStatementPtrOutput
+}
+
+type webAclRuleStatementGeoMatchStatementPtrType WebAclRuleStatementGeoMatchStatementArgs
+
+func WebAclRuleStatementGeoMatchStatementPtr(v *WebAclRuleStatementGeoMatchStatementArgs) WebAclRuleStatementGeoMatchStatementPtrInput {
+	return (*webAclRuleStatementGeoMatchStatementPtrType)(v)
+}
+
+func (*webAclRuleStatementGeoMatchStatementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementGeoMatchStatement)(nil)).Elem()
+}
+
+func (i *webAclRuleStatementGeoMatchStatementPtrType) ToWebAclRuleStatementGeoMatchStatementPtrOutput() WebAclRuleStatementGeoMatchStatementPtrOutput {
+	return i.ToWebAclRuleStatementGeoMatchStatementPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclRuleStatementGeoMatchStatementPtrType) ToWebAclRuleStatementGeoMatchStatementPtrOutputWithContext(ctx context.Context) WebAclRuleStatementGeoMatchStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementGeoMatchStatementPtrOutput)
+}
+
+type WebAclRuleStatementGeoMatchStatementOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementGeoMatchStatementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementGeoMatchStatement)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementGeoMatchStatementOutput) ToWebAclRuleStatementGeoMatchStatementOutput() WebAclRuleStatementGeoMatchStatementOutput {
+	return o
+}
+
+func (o WebAclRuleStatementGeoMatchStatementOutput) ToWebAclRuleStatementGeoMatchStatementOutputWithContext(ctx context.Context) WebAclRuleStatementGeoMatchStatementOutput {
+	return o
+}
+
+func (o WebAclRuleStatementGeoMatchStatementOutput) ToWebAclRuleStatementGeoMatchStatementPtrOutput() WebAclRuleStatementGeoMatchStatementPtrOutput {
+	return o.ToWebAclRuleStatementGeoMatchStatementPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclRuleStatementGeoMatchStatementOutput) ToWebAclRuleStatementGeoMatchStatementPtrOutputWithContext(ctx context.Context) WebAclRuleStatementGeoMatchStatementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementGeoMatchStatement) *WebAclRuleStatementGeoMatchStatement {
+		return &v
+	}).(WebAclRuleStatementGeoMatchStatementPtrOutput)
+}
+
+// List of two-character country codes (ISO 3166-1 alpha-2).
+func (o WebAclRuleStatementGeoMatchStatementOutput) CountryCodes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WebAclRuleStatementGeoMatchStatement) []string { return v.CountryCodes }).(pulumi.StringArrayOutput)
+}
+
+// Configuration for inspecting forwarded IP headers. See Forwarded IP Config below.
+func (o WebAclRuleStatementGeoMatchStatementOutput) ForwardedIpConfig() WebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementGeoMatchStatement) *WebAclRuleStatementGeoMatchStatementForwardedIpConfig {
+		return v.ForwardedIpConfig
+	}).(WebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrOutput)
+}
+
+type WebAclRuleStatementGeoMatchStatementPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementGeoMatchStatementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementGeoMatchStatement)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementGeoMatchStatementPtrOutput) ToWebAclRuleStatementGeoMatchStatementPtrOutput() WebAclRuleStatementGeoMatchStatementPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementGeoMatchStatementPtrOutput) ToWebAclRuleStatementGeoMatchStatementPtrOutputWithContext(ctx context.Context) WebAclRuleStatementGeoMatchStatementPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementGeoMatchStatementPtrOutput) Elem() WebAclRuleStatementGeoMatchStatementOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementGeoMatchStatement) WebAclRuleStatementGeoMatchStatement {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclRuleStatementGeoMatchStatement
+		return ret
+	}).(WebAclRuleStatementGeoMatchStatementOutput)
+}
+
+// List of two-character country codes (ISO 3166-1 alpha-2).
+func (o WebAclRuleStatementGeoMatchStatementPtrOutput) CountryCodes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementGeoMatchStatement) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CountryCodes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Configuration for inspecting forwarded IP headers. See Forwarded IP Config below.
+func (o WebAclRuleStatementGeoMatchStatementPtrOutput) ForwardedIpConfig() WebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementGeoMatchStatement) *WebAclRuleStatementGeoMatchStatementForwardedIpConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ForwardedIpConfig
+	}).(WebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrOutput)
+}
+
+type WebAclRuleStatementGeoMatchStatementForwardedIpConfig struct {
+	FallbackBehavior string `pulumi:"fallbackBehavior"`
+	// Name of the header containing the forwarded IP address.
+	HeaderName string `pulumi:"headerName"`
+}
+
+// WebAclRuleStatementGeoMatchStatementForwardedIpConfigInput is an input type that accepts WebAclRuleStatementGeoMatchStatementForwardedIpConfigArgs and WebAclRuleStatementGeoMatchStatementForwardedIpConfigOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementGeoMatchStatementForwardedIpConfigInput` via:
+//
+//	WebAclRuleStatementGeoMatchStatementForwardedIpConfigArgs{...}
+type WebAclRuleStatementGeoMatchStatementForwardedIpConfigInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementGeoMatchStatementForwardedIpConfigOutput() WebAclRuleStatementGeoMatchStatementForwardedIpConfigOutput
+	ToWebAclRuleStatementGeoMatchStatementForwardedIpConfigOutputWithContext(context.Context) WebAclRuleStatementGeoMatchStatementForwardedIpConfigOutput
+}
+
+type WebAclRuleStatementGeoMatchStatementForwardedIpConfigArgs struct {
+	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
+	// Name of the header containing the forwarded IP address.
+	HeaderName pulumi.StringInput `pulumi:"headerName"`
+}
+
+func (WebAclRuleStatementGeoMatchStatementForwardedIpConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementGeoMatchStatementForwardedIpConfig)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementGeoMatchStatementForwardedIpConfigArgs) ToWebAclRuleStatementGeoMatchStatementForwardedIpConfigOutput() WebAclRuleStatementGeoMatchStatementForwardedIpConfigOutput {
+	return i.ToWebAclRuleStatementGeoMatchStatementForwardedIpConfigOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementGeoMatchStatementForwardedIpConfigArgs) ToWebAclRuleStatementGeoMatchStatementForwardedIpConfigOutputWithContext(ctx context.Context) WebAclRuleStatementGeoMatchStatementForwardedIpConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementGeoMatchStatementForwardedIpConfigOutput)
+}
+
+func (i WebAclRuleStatementGeoMatchStatementForwardedIpConfigArgs) ToWebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrOutput() WebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrOutput {
+	return i.ToWebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementGeoMatchStatementForwardedIpConfigArgs) ToWebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrOutputWithContext(ctx context.Context) WebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementGeoMatchStatementForwardedIpConfigOutput).ToWebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrOutputWithContext(ctx)
+}
+
+// WebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrInput is an input type that accepts WebAclRuleStatementGeoMatchStatementForwardedIpConfigArgs, WebAclRuleStatementGeoMatchStatementForwardedIpConfigPtr and WebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrInput` via:
+//
+//	        WebAclRuleStatementGeoMatchStatementForwardedIpConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrOutput() WebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrOutput
+	ToWebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrOutputWithContext(context.Context) WebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrOutput
+}
+
+type webAclRuleStatementGeoMatchStatementForwardedIpConfigPtrType WebAclRuleStatementGeoMatchStatementForwardedIpConfigArgs
+
+func WebAclRuleStatementGeoMatchStatementForwardedIpConfigPtr(v *WebAclRuleStatementGeoMatchStatementForwardedIpConfigArgs) WebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrInput {
+	return (*webAclRuleStatementGeoMatchStatementForwardedIpConfigPtrType)(v)
+}
+
+func (*webAclRuleStatementGeoMatchStatementForwardedIpConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementGeoMatchStatementForwardedIpConfig)(nil)).Elem()
+}
+
+func (i *webAclRuleStatementGeoMatchStatementForwardedIpConfigPtrType) ToWebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrOutput() WebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrOutput {
+	return i.ToWebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclRuleStatementGeoMatchStatementForwardedIpConfigPtrType) ToWebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrOutputWithContext(ctx context.Context) WebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrOutput)
+}
+
+type WebAclRuleStatementGeoMatchStatementForwardedIpConfigOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementGeoMatchStatementForwardedIpConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementGeoMatchStatementForwardedIpConfig)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementGeoMatchStatementForwardedIpConfigOutput) ToWebAclRuleStatementGeoMatchStatementForwardedIpConfigOutput() WebAclRuleStatementGeoMatchStatementForwardedIpConfigOutput {
+	return o
+}
+
+func (o WebAclRuleStatementGeoMatchStatementForwardedIpConfigOutput) ToWebAclRuleStatementGeoMatchStatementForwardedIpConfigOutputWithContext(ctx context.Context) WebAclRuleStatementGeoMatchStatementForwardedIpConfigOutput {
+	return o
+}
+
+func (o WebAclRuleStatementGeoMatchStatementForwardedIpConfigOutput) ToWebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrOutput() WebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrOutput {
+	return o.ToWebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclRuleStatementGeoMatchStatementForwardedIpConfigOutput) ToWebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrOutputWithContext(ctx context.Context) WebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementGeoMatchStatementForwardedIpConfig) *WebAclRuleStatementGeoMatchStatementForwardedIpConfig {
+		return &v
+	}).(WebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrOutput)
+}
+
+func (o WebAclRuleStatementGeoMatchStatementForwardedIpConfigOutput) FallbackBehavior() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclRuleStatementGeoMatchStatementForwardedIpConfig) string { return v.FallbackBehavior }).(pulumi.StringOutput)
+}
+
+// Name of the header containing the forwarded IP address.
+func (o WebAclRuleStatementGeoMatchStatementForwardedIpConfigOutput) HeaderName() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclRuleStatementGeoMatchStatementForwardedIpConfig) string { return v.HeaderName }).(pulumi.StringOutput)
+}
+
+type WebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementGeoMatchStatementForwardedIpConfig)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrOutput) ToWebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrOutput() WebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrOutput) ToWebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrOutputWithContext(ctx context.Context) WebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrOutput) Elem() WebAclRuleStatementGeoMatchStatementForwardedIpConfigOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementGeoMatchStatementForwardedIpConfig) WebAclRuleStatementGeoMatchStatementForwardedIpConfig {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclRuleStatementGeoMatchStatementForwardedIpConfig
+		return ret
+	}).(WebAclRuleStatementGeoMatchStatementForwardedIpConfigOutput)
+}
+
+func (o WebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementGeoMatchStatementForwardedIpConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FallbackBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the header containing the forwarded IP address.
+func (o WebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrOutput) HeaderName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementGeoMatchStatementForwardedIpConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HeaderName
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebAclRuleStatementIpSetReferenceStatement struct {
+	// ARN of the IP set to reference.
+	Arn string `pulumi:"arn"`
+	// Configuration for inspecting forwarded IP headers. See IP Set Forwarded IP Config below.
+	IpSetForwardedIpConfig *WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig `pulumi:"ipSetForwardedIpConfig"`
+}
+
+// WebAclRuleStatementIpSetReferenceStatementInput is an input type that accepts WebAclRuleStatementIpSetReferenceStatementArgs and WebAclRuleStatementIpSetReferenceStatementOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementIpSetReferenceStatementInput` via:
+//
+//	WebAclRuleStatementIpSetReferenceStatementArgs{...}
+type WebAclRuleStatementIpSetReferenceStatementInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementIpSetReferenceStatementOutput() WebAclRuleStatementIpSetReferenceStatementOutput
+	ToWebAclRuleStatementIpSetReferenceStatementOutputWithContext(context.Context) WebAclRuleStatementIpSetReferenceStatementOutput
+}
+
+type WebAclRuleStatementIpSetReferenceStatementArgs struct {
+	// ARN of the IP set to reference.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// Configuration for inspecting forwarded IP headers. See IP Set Forwarded IP Config below.
+	IpSetForwardedIpConfig WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrInput `pulumi:"ipSetForwardedIpConfig"`
+}
+
+func (WebAclRuleStatementIpSetReferenceStatementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementIpSetReferenceStatement)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementIpSetReferenceStatementArgs) ToWebAclRuleStatementIpSetReferenceStatementOutput() WebAclRuleStatementIpSetReferenceStatementOutput {
+	return i.ToWebAclRuleStatementIpSetReferenceStatementOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementIpSetReferenceStatementArgs) ToWebAclRuleStatementIpSetReferenceStatementOutputWithContext(ctx context.Context) WebAclRuleStatementIpSetReferenceStatementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementIpSetReferenceStatementOutput)
+}
+
+func (i WebAclRuleStatementIpSetReferenceStatementArgs) ToWebAclRuleStatementIpSetReferenceStatementPtrOutput() WebAclRuleStatementIpSetReferenceStatementPtrOutput {
+	return i.ToWebAclRuleStatementIpSetReferenceStatementPtrOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementIpSetReferenceStatementArgs) ToWebAclRuleStatementIpSetReferenceStatementPtrOutputWithContext(ctx context.Context) WebAclRuleStatementIpSetReferenceStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementIpSetReferenceStatementOutput).ToWebAclRuleStatementIpSetReferenceStatementPtrOutputWithContext(ctx)
+}
+
+// WebAclRuleStatementIpSetReferenceStatementPtrInput is an input type that accepts WebAclRuleStatementIpSetReferenceStatementArgs, WebAclRuleStatementIpSetReferenceStatementPtr and WebAclRuleStatementIpSetReferenceStatementPtrOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementIpSetReferenceStatementPtrInput` via:
+//
+//	        WebAclRuleStatementIpSetReferenceStatementArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclRuleStatementIpSetReferenceStatementPtrInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementIpSetReferenceStatementPtrOutput() WebAclRuleStatementIpSetReferenceStatementPtrOutput
+	ToWebAclRuleStatementIpSetReferenceStatementPtrOutputWithContext(context.Context) WebAclRuleStatementIpSetReferenceStatementPtrOutput
+}
+
+type webAclRuleStatementIpSetReferenceStatementPtrType WebAclRuleStatementIpSetReferenceStatementArgs
+
+func WebAclRuleStatementIpSetReferenceStatementPtr(v *WebAclRuleStatementIpSetReferenceStatementArgs) WebAclRuleStatementIpSetReferenceStatementPtrInput {
+	return (*webAclRuleStatementIpSetReferenceStatementPtrType)(v)
+}
+
+func (*webAclRuleStatementIpSetReferenceStatementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementIpSetReferenceStatement)(nil)).Elem()
+}
+
+func (i *webAclRuleStatementIpSetReferenceStatementPtrType) ToWebAclRuleStatementIpSetReferenceStatementPtrOutput() WebAclRuleStatementIpSetReferenceStatementPtrOutput {
+	return i.ToWebAclRuleStatementIpSetReferenceStatementPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclRuleStatementIpSetReferenceStatementPtrType) ToWebAclRuleStatementIpSetReferenceStatementPtrOutputWithContext(ctx context.Context) WebAclRuleStatementIpSetReferenceStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementIpSetReferenceStatementPtrOutput)
+}
+
+type WebAclRuleStatementIpSetReferenceStatementOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementIpSetReferenceStatementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementIpSetReferenceStatement)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementIpSetReferenceStatementOutput) ToWebAclRuleStatementIpSetReferenceStatementOutput() WebAclRuleStatementIpSetReferenceStatementOutput {
+	return o
+}
+
+func (o WebAclRuleStatementIpSetReferenceStatementOutput) ToWebAclRuleStatementIpSetReferenceStatementOutputWithContext(ctx context.Context) WebAclRuleStatementIpSetReferenceStatementOutput {
+	return o
+}
+
+func (o WebAclRuleStatementIpSetReferenceStatementOutput) ToWebAclRuleStatementIpSetReferenceStatementPtrOutput() WebAclRuleStatementIpSetReferenceStatementPtrOutput {
+	return o.ToWebAclRuleStatementIpSetReferenceStatementPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclRuleStatementIpSetReferenceStatementOutput) ToWebAclRuleStatementIpSetReferenceStatementPtrOutputWithContext(ctx context.Context) WebAclRuleStatementIpSetReferenceStatementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementIpSetReferenceStatement) *WebAclRuleStatementIpSetReferenceStatement {
+		return &v
+	}).(WebAclRuleStatementIpSetReferenceStatementPtrOutput)
+}
+
+// ARN of the IP set to reference.
+func (o WebAclRuleStatementIpSetReferenceStatementOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclRuleStatementIpSetReferenceStatement) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Configuration for inspecting forwarded IP headers. See IP Set Forwarded IP Config below.
+func (o WebAclRuleStatementIpSetReferenceStatementOutput) IpSetForwardedIpConfig() WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementIpSetReferenceStatement) *WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+		return v.IpSetForwardedIpConfig
+	}).(WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrOutput)
+}
+
+type WebAclRuleStatementIpSetReferenceStatementPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementIpSetReferenceStatementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementIpSetReferenceStatement)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementIpSetReferenceStatementPtrOutput) ToWebAclRuleStatementIpSetReferenceStatementPtrOutput() WebAclRuleStatementIpSetReferenceStatementPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementIpSetReferenceStatementPtrOutput) ToWebAclRuleStatementIpSetReferenceStatementPtrOutputWithContext(ctx context.Context) WebAclRuleStatementIpSetReferenceStatementPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementIpSetReferenceStatementPtrOutput) Elem() WebAclRuleStatementIpSetReferenceStatementOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementIpSetReferenceStatement) WebAclRuleStatementIpSetReferenceStatement {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclRuleStatementIpSetReferenceStatement
+		return ret
+	}).(WebAclRuleStatementIpSetReferenceStatementOutput)
+}
+
+// ARN of the IP set to reference.
+func (o WebAclRuleStatementIpSetReferenceStatementPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementIpSetReferenceStatement) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration for inspecting forwarded IP headers. See IP Set Forwarded IP Config below.
+func (o WebAclRuleStatementIpSetReferenceStatementPtrOutput) IpSetForwardedIpConfig() WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementIpSetReferenceStatement) *WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+		if v == nil {
+			return nil
+		}
+		return v.IpSetForwardedIpConfig
+	}).(WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrOutput)
+}
+
+type WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig struct {
+	// Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
+	FallbackBehavior string `pulumi:"fallbackBehavior"`
+	// Name of the header containing the forwarded IP address.
+	HeaderName string `pulumi:"headerName"`
+	// Position in the header to use. Valid values: `FIRST`, `LAST`, `ANY`.
+	Position string `pulumi:"position"`
+}
+
+// WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigInput is an input type that accepts WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigArgs and WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigInput` via:
+//
+//	WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigArgs{...}
+type WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigOutput() WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigOutput
+	ToWebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigOutputWithContext(context.Context) WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigOutput
+}
+
+type WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigArgs struct {
+	// Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
+	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
+	// Name of the header containing the forwarded IP address.
+	HeaderName pulumi.StringInput `pulumi:"headerName"`
+	// Position in the header to use. Valid values: `FIRST`, `LAST`, `ANY`.
+	Position pulumi.StringInput `pulumi:"position"`
+}
+
+func (WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigArgs) ToWebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigOutput() WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigOutput {
+	return i.ToWebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigArgs) ToWebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigOutputWithContext(ctx context.Context) WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigOutput)
+}
+
+func (i WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigArgs) ToWebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrOutput() WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrOutput {
+	return i.ToWebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigArgs) ToWebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrOutputWithContext(ctx context.Context) WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigOutput).ToWebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrOutputWithContext(ctx)
+}
+
+// WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrInput is an input type that accepts WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigArgs, WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtr and WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrInput` via:
+//
+//	        WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrOutput() WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrOutput
+	ToWebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrOutputWithContext(context.Context) WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrOutput
+}
+
+type webAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrType WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigArgs
+
+func WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtr(v *WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigArgs) WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrInput {
+	return (*webAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrType)(v)
+}
+
+func (*webAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig)(nil)).Elem()
+}
+
+func (i *webAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrType) ToWebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrOutput() WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrOutput {
+	return i.ToWebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrType) ToWebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrOutputWithContext(ctx context.Context) WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrOutput)
+}
+
+type WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigOutput) ToWebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigOutput() WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigOutput {
+	return o
+}
+
+func (o WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigOutput) ToWebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigOutputWithContext(ctx context.Context) WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigOutput {
+	return o
+}
+
+func (o WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigOutput) ToWebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrOutput() WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrOutput {
+	return o.ToWebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigOutput) ToWebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrOutputWithContext(ctx context.Context) WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig) *WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+		return &v
+	}).(WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrOutput)
+}
+
+// Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
+func (o WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigOutput) FallbackBehavior() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig) string {
+		return v.FallbackBehavior
+	}).(pulumi.StringOutput)
+}
+
+// Name of the header containing the forwarded IP address.
+func (o WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigOutput) HeaderName() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig) string { return v.HeaderName }).(pulumi.StringOutput)
+}
+
+// Position in the header to use. Valid values: `FIRST`, `LAST`, `ANY`.
+func (o WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigOutput) Position() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig) string { return v.Position }).(pulumi.StringOutput)
+}
+
+type WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrOutput) ToWebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrOutput() WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrOutput) ToWebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrOutputWithContext(ctx context.Context) WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrOutput) Elem() WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig) WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig
+		return ret
+	}).(WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigOutput)
+}
+
+// Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
+func (o WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FallbackBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the header containing the forwarded IP address.
+func (o WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrOutput) HeaderName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HeaderName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Position in the header to use. Valid values: `FIRST`, `LAST`, `ANY`.
+func (o WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrOutput) Position() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Position
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebAclRuleStatementLabelMatchStatement struct {
+	// String to match against. For `LABEL` scope, include the name and any preceding namespace specifications. For `NAMESPACE` scope, include namespace strings. Labels are case sensitive and components must be separated by colon (e.g., `NS1:NS2:name`).
+	Key string `pulumi:"key"`
+	// Whether to match using the label name or namespace. Valid values: `LABEL`, `NAMESPACE`.
+	Scope string `pulumi:"scope"`
+}
+
+// WebAclRuleStatementLabelMatchStatementInput is an input type that accepts WebAclRuleStatementLabelMatchStatementArgs and WebAclRuleStatementLabelMatchStatementOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementLabelMatchStatementInput` via:
+//
+//	WebAclRuleStatementLabelMatchStatementArgs{...}
+type WebAclRuleStatementLabelMatchStatementInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementLabelMatchStatementOutput() WebAclRuleStatementLabelMatchStatementOutput
+	ToWebAclRuleStatementLabelMatchStatementOutputWithContext(context.Context) WebAclRuleStatementLabelMatchStatementOutput
+}
+
+type WebAclRuleStatementLabelMatchStatementArgs struct {
+	// String to match against. For `LABEL` scope, include the name and any preceding namespace specifications. For `NAMESPACE` scope, include namespace strings. Labels are case sensitive and components must be separated by colon (e.g., `NS1:NS2:name`).
+	Key pulumi.StringInput `pulumi:"key"`
+	// Whether to match using the label name or namespace. Valid values: `LABEL`, `NAMESPACE`.
+	Scope pulumi.StringInput `pulumi:"scope"`
+}
+
+func (WebAclRuleStatementLabelMatchStatementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementLabelMatchStatement)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementLabelMatchStatementArgs) ToWebAclRuleStatementLabelMatchStatementOutput() WebAclRuleStatementLabelMatchStatementOutput {
+	return i.ToWebAclRuleStatementLabelMatchStatementOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementLabelMatchStatementArgs) ToWebAclRuleStatementLabelMatchStatementOutputWithContext(ctx context.Context) WebAclRuleStatementLabelMatchStatementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementLabelMatchStatementOutput)
+}
+
+func (i WebAclRuleStatementLabelMatchStatementArgs) ToWebAclRuleStatementLabelMatchStatementPtrOutput() WebAclRuleStatementLabelMatchStatementPtrOutput {
+	return i.ToWebAclRuleStatementLabelMatchStatementPtrOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementLabelMatchStatementArgs) ToWebAclRuleStatementLabelMatchStatementPtrOutputWithContext(ctx context.Context) WebAclRuleStatementLabelMatchStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementLabelMatchStatementOutput).ToWebAclRuleStatementLabelMatchStatementPtrOutputWithContext(ctx)
+}
+
+// WebAclRuleStatementLabelMatchStatementPtrInput is an input type that accepts WebAclRuleStatementLabelMatchStatementArgs, WebAclRuleStatementLabelMatchStatementPtr and WebAclRuleStatementLabelMatchStatementPtrOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementLabelMatchStatementPtrInput` via:
+//
+//	        WebAclRuleStatementLabelMatchStatementArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclRuleStatementLabelMatchStatementPtrInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementLabelMatchStatementPtrOutput() WebAclRuleStatementLabelMatchStatementPtrOutput
+	ToWebAclRuleStatementLabelMatchStatementPtrOutputWithContext(context.Context) WebAclRuleStatementLabelMatchStatementPtrOutput
+}
+
+type webAclRuleStatementLabelMatchStatementPtrType WebAclRuleStatementLabelMatchStatementArgs
+
+func WebAclRuleStatementLabelMatchStatementPtr(v *WebAclRuleStatementLabelMatchStatementArgs) WebAclRuleStatementLabelMatchStatementPtrInput {
+	return (*webAclRuleStatementLabelMatchStatementPtrType)(v)
+}
+
+func (*webAclRuleStatementLabelMatchStatementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementLabelMatchStatement)(nil)).Elem()
+}
+
+func (i *webAclRuleStatementLabelMatchStatementPtrType) ToWebAclRuleStatementLabelMatchStatementPtrOutput() WebAclRuleStatementLabelMatchStatementPtrOutput {
+	return i.ToWebAclRuleStatementLabelMatchStatementPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclRuleStatementLabelMatchStatementPtrType) ToWebAclRuleStatementLabelMatchStatementPtrOutputWithContext(ctx context.Context) WebAclRuleStatementLabelMatchStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementLabelMatchStatementPtrOutput)
+}
+
+type WebAclRuleStatementLabelMatchStatementOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementLabelMatchStatementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementLabelMatchStatement)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementLabelMatchStatementOutput) ToWebAclRuleStatementLabelMatchStatementOutput() WebAclRuleStatementLabelMatchStatementOutput {
+	return o
+}
+
+func (o WebAclRuleStatementLabelMatchStatementOutput) ToWebAclRuleStatementLabelMatchStatementOutputWithContext(ctx context.Context) WebAclRuleStatementLabelMatchStatementOutput {
+	return o
+}
+
+func (o WebAclRuleStatementLabelMatchStatementOutput) ToWebAclRuleStatementLabelMatchStatementPtrOutput() WebAclRuleStatementLabelMatchStatementPtrOutput {
+	return o.ToWebAclRuleStatementLabelMatchStatementPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclRuleStatementLabelMatchStatementOutput) ToWebAclRuleStatementLabelMatchStatementPtrOutputWithContext(ctx context.Context) WebAclRuleStatementLabelMatchStatementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementLabelMatchStatement) *WebAclRuleStatementLabelMatchStatement {
+		return &v
+	}).(WebAclRuleStatementLabelMatchStatementPtrOutput)
+}
+
+// String to match against. For `LABEL` scope, include the name and any preceding namespace specifications. For `NAMESPACE` scope, include namespace strings. Labels are case sensitive and components must be separated by colon (e.g., `NS1:NS2:name`).
+func (o WebAclRuleStatementLabelMatchStatementOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclRuleStatementLabelMatchStatement) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Whether to match using the label name or namespace. Valid values: `LABEL`, `NAMESPACE`.
+func (o WebAclRuleStatementLabelMatchStatementOutput) Scope() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclRuleStatementLabelMatchStatement) string { return v.Scope }).(pulumi.StringOutput)
+}
+
+type WebAclRuleStatementLabelMatchStatementPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementLabelMatchStatementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementLabelMatchStatement)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementLabelMatchStatementPtrOutput) ToWebAclRuleStatementLabelMatchStatementPtrOutput() WebAclRuleStatementLabelMatchStatementPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementLabelMatchStatementPtrOutput) ToWebAclRuleStatementLabelMatchStatementPtrOutputWithContext(ctx context.Context) WebAclRuleStatementLabelMatchStatementPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementLabelMatchStatementPtrOutput) Elem() WebAclRuleStatementLabelMatchStatementOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementLabelMatchStatement) WebAclRuleStatementLabelMatchStatement {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclRuleStatementLabelMatchStatement
+		return ret
+	}).(WebAclRuleStatementLabelMatchStatementOutput)
+}
+
+// String to match against. For `LABEL` scope, include the name and any preceding namespace specifications. For `NAMESPACE` scope, include namespace strings. Labels are case sensitive and components must be separated by colon (e.g., `NS1:NS2:name`).
+func (o WebAclRuleStatementLabelMatchStatementPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementLabelMatchStatement) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to match using the label name or namespace. Valid values: `LABEL`, `NAMESPACE`.
+func (o WebAclRuleStatementLabelMatchStatementPtrOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementLabelMatchStatement) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Scope
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebAclRuleStatementManagedRuleGroupStatement struct {
+	ManagedRuleGroupConfigs []WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig `pulumi:"managedRuleGroupConfigs"`
+	// Name of the managed rule group.
+	Name string `pulumi:"name"`
+	// Override actions for specific rules within the managed rule group. See Rule Action Override below.
+	RuleActionOverrides []WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride `pulumi:"ruleActionOverrides"`
+	// Additional statement to narrow the scope of requests that the managed rule group evaluates. See Scope Down Statement below.
+	ScopeDownStatement *WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement `pulumi:"scopeDownStatement"`
+	// Name of the managed rule group vendor (e.g., "AWS").
+	VendorName string `pulumi:"vendorName"`
+	// Version of the managed rule group.
+	Version *string `pulumi:"version"`
+}
+
+// WebAclRuleStatementManagedRuleGroupStatementInput is an input type that accepts WebAclRuleStatementManagedRuleGroupStatementArgs and WebAclRuleStatementManagedRuleGroupStatementOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementManagedRuleGroupStatementInput` via:
+//
+//	WebAclRuleStatementManagedRuleGroupStatementArgs{...}
+type WebAclRuleStatementManagedRuleGroupStatementInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementManagedRuleGroupStatementOutput() WebAclRuleStatementManagedRuleGroupStatementOutput
+	ToWebAclRuleStatementManagedRuleGroupStatementOutputWithContext(context.Context) WebAclRuleStatementManagedRuleGroupStatementOutput
+}
+
+type WebAclRuleStatementManagedRuleGroupStatementArgs struct {
+	ManagedRuleGroupConfigs WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArrayInput `pulumi:"managedRuleGroupConfigs"`
+	// Name of the managed rule group.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Override actions for specific rules within the managed rule group. See Rule Action Override below.
+	RuleActionOverrides WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArrayInput `pulumi:"ruleActionOverrides"`
+	// Additional statement to narrow the scope of requests that the managed rule group evaluates. See Scope Down Statement below.
+	ScopeDownStatement WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementPtrInput `pulumi:"scopeDownStatement"`
+	// Name of the managed rule group vendor (e.g., "AWS").
+	VendorName pulumi.StringInput `pulumi:"vendorName"`
+	// Version of the managed rule group.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (WebAclRuleStatementManagedRuleGroupStatementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatement)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementManagedRuleGroupStatementArgs) ToWebAclRuleStatementManagedRuleGroupStatementOutput() WebAclRuleStatementManagedRuleGroupStatementOutput {
+	return i.ToWebAclRuleStatementManagedRuleGroupStatementOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementManagedRuleGroupStatementArgs) ToWebAclRuleStatementManagedRuleGroupStatementOutputWithContext(ctx context.Context) WebAclRuleStatementManagedRuleGroupStatementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementManagedRuleGroupStatementOutput)
+}
+
+func (i WebAclRuleStatementManagedRuleGroupStatementArgs) ToWebAclRuleStatementManagedRuleGroupStatementPtrOutput() WebAclRuleStatementManagedRuleGroupStatementPtrOutput {
+	return i.ToWebAclRuleStatementManagedRuleGroupStatementPtrOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementManagedRuleGroupStatementArgs) ToWebAclRuleStatementManagedRuleGroupStatementPtrOutputWithContext(ctx context.Context) WebAclRuleStatementManagedRuleGroupStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementManagedRuleGroupStatementOutput).ToWebAclRuleStatementManagedRuleGroupStatementPtrOutputWithContext(ctx)
+}
+
+// WebAclRuleStatementManagedRuleGroupStatementPtrInput is an input type that accepts WebAclRuleStatementManagedRuleGroupStatementArgs, WebAclRuleStatementManagedRuleGroupStatementPtr and WebAclRuleStatementManagedRuleGroupStatementPtrOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementManagedRuleGroupStatementPtrInput` via:
+//
+//	        WebAclRuleStatementManagedRuleGroupStatementArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclRuleStatementManagedRuleGroupStatementPtrInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementManagedRuleGroupStatementPtrOutput() WebAclRuleStatementManagedRuleGroupStatementPtrOutput
+	ToWebAclRuleStatementManagedRuleGroupStatementPtrOutputWithContext(context.Context) WebAclRuleStatementManagedRuleGroupStatementPtrOutput
+}
+
+type webAclRuleStatementManagedRuleGroupStatementPtrType WebAclRuleStatementManagedRuleGroupStatementArgs
+
+func WebAclRuleStatementManagedRuleGroupStatementPtr(v *WebAclRuleStatementManagedRuleGroupStatementArgs) WebAclRuleStatementManagedRuleGroupStatementPtrInput {
+	return (*webAclRuleStatementManagedRuleGroupStatementPtrType)(v)
+}
+
+func (*webAclRuleStatementManagedRuleGroupStatementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementManagedRuleGroupStatement)(nil)).Elem()
+}
+
+func (i *webAclRuleStatementManagedRuleGroupStatementPtrType) ToWebAclRuleStatementManagedRuleGroupStatementPtrOutput() WebAclRuleStatementManagedRuleGroupStatementPtrOutput {
+	return i.ToWebAclRuleStatementManagedRuleGroupStatementPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclRuleStatementManagedRuleGroupStatementPtrType) ToWebAclRuleStatementManagedRuleGroupStatementPtrOutputWithContext(ctx context.Context) WebAclRuleStatementManagedRuleGroupStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementManagedRuleGroupStatementPtrOutput)
+}
+
+type WebAclRuleStatementManagedRuleGroupStatementOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementManagedRuleGroupStatementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatement)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementOutput) ToWebAclRuleStatementManagedRuleGroupStatementOutput() WebAclRuleStatementManagedRuleGroupStatementOutput {
+	return o
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementOutput) ToWebAclRuleStatementManagedRuleGroupStatementOutputWithContext(ctx context.Context) WebAclRuleStatementManagedRuleGroupStatementOutput {
+	return o
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementOutput) ToWebAclRuleStatementManagedRuleGroupStatementPtrOutput() WebAclRuleStatementManagedRuleGroupStatementPtrOutput {
+	return o.ToWebAclRuleStatementManagedRuleGroupStatementPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementOutput) ToWebAclRuleStatementManagedRuleGroupStatementPtrOutputWithContext(ctx context.Context) WebAclRuleStatementManagedRuleGroupStatementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementManagedRuleGroupStatement) *WebAclRuleStatementManagedRuleGroupStatement {
+		return &v
+	}).(WebAclRuleStatementManagedRuleGroupStatementPtrOutput)
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementOutput) ManagedRuleGroupConfigs() WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArrayOutput {
+	return o.ApplyT(func(v WebAclRuleStatementManagedRuleGroupStatement) []WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig {
+		return v.ManagedRuleGroupConfigs
+	}).(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArrayOutput)
+}
+
+// Name of the managed rule group.
+func (o WebAclRuleStatementManagedRuleGroupStatementOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclRuleStatementManagedRuleGroupStatement) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Override actions for specific rules within the managed rule group. See Rule Action Override below.
+func (o WebAclRuleStatementManagedRuleGroupStatementOutput) RuleActionOverrides() WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArrayOutput {
+	return o.ApplyT(func(v WebAclRuleStatementManagedRuleGroupStatement) []WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride {
+		return v.RuleActionOverrides
+	}).(WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArrayOutput)
+}
+
+// Additional statement to narrow the scope of requests that the managed rule group evaluates. See Scope Down Statement below.
+func (o WebAclRuleStatementManagedRuleGroupStatementOutput) ScopeDownStatement() WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementManagedRuleGroupStatement) *WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement {
+		return v.ScopeDownStatement
+	}).(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementPtrOutput)
+}
+
+// Name of the managed rule group vendor (e.g., "AWS").
+func (o WebAclRuleStatementManagedRuleGroupStatementOutput) VendorName() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclRuleStatementManagedRuleGroupStatement) string { return v.VendorName }).(pulumi.StringOutput)
+}
+
+// Version of the managed rule group.
+func (o WebAclRuleStatementManagedRuleGroupStatementOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementManagedRuleGroupStatement) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type WebAclRuleStatementManagedRuleGroupStatementPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementManagedRuleGroupStatementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementManagedRuleGroupStatement)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementPtrOutput) ToWebAclRuleStatementManagedRuleGroupStatementPtrOutput() WebAclRuleStatementManagedRuleGroupStatementPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementPtrOutput) ToWebAclRuleStatementManagedRuleGroupStatementPtrOutputWithContext(ctx context.Context) WebAclRuleStatementManagedRuleGroupStatementPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementPtrOutput) Elem() WebAclRuleStatementManagedRuleGroupStatementOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementManagedRuleGroupStatement) WebAclRuleStatementManagedRuleGroupStatement {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclRuleStatementManagedRuleGroupStatement
+		return ret
+	}).(WebAclRuleStatementManagedRuleGroupStatementOutput)
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementPtrOutput) ManagedRuleGroupConfigs() WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArrayOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementManagedRuleGroupStatement) []WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedRuleGroupConfigs
+	}).(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArrayOutput)
+}
+
+// Name of the managed rule group.
+func (o WebAclRuleStatementManagedRuleGroupStatementPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementManagedRuleGroupStatement) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Override actions for specific rules within the managed rule group. See Rule Action Override below.
+func (o WebAclRuleStatementManagedRuleGroupStatementPtrOutput) RuleActionOverrides() WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArrayOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementManagedRuleGroupStatement) []WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride {
+		if v == nil {
+			return nil
+		}
+		return v.RuleActionOverrides
+	}).(WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArrayOutput)
+}
+
+// Additional statement to narrow the scope of requests that the managed rule group evaluates. See Scope Down Statement below.
+func (o WebAclRuleStatementManagedRuleGroupStatementPtrOutput) ScopeDownStatement() WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementManagedRuleGroupStatement) *WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement {
+		if v == nil {
+			return nil
+		}
+		return v.ScopeDownStatement
+	}).(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementPtrOutput)
+}
+
+// Name of the managed rule group vendor (e.g., "AWS").
+func (o WebAclRuleStatementManagedRuleGroupStatementPtrOutput) VendorName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementManagedRuleGroupStatement) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VendorName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Version of the managed rule group.
+func (o WebAclRuleStatementManagedRuleGroupStatementPtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementManagedRuleGroupStatement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig struct {
+	AwsManagedRulesAcfpRuleSet       *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet       `pulumi:"awsManagedRulesAcfpRuleSet"`
+	AwsManagedRulesAntiDdosRuleSet   *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSet   `pulumi:"awsManagedRulesAntiDdosRuleSet"`
+	AwsManagedRulesAtpRuleSet        *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet        `pulumi:"awsManagedRulesAtpRuleSet"`
+	AwsManagedRulesBotControlRuleSet *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSet `pulumi:"awsManagedRulesBotControlRuleSet"`
+	// Deprecated: Use awsManagedRulesAtpRuleSet login_path
+	LoginPath *string `pulumi:"loginPath"`
+	// Deprecated: Use awsManagedRulesAtpRuleSet request_inspection password_field
+	PasswordField *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordField `pulumi:"passwordField"`
+	// Deprecated: Use awsManagedRulesAtpRuleSet request_inspection payload_type
+	PayloadType *string `pulumi:"payloadType"`
+	// Deprecated: Use awsManagedRulesAtpRuleSet request_inspection username_field
+	UsernameField *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameField `pulumi:"usernameField"`
+}
+
+// WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigInput is an input type that accepts WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs and WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigInput` via:
+//
+//	WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs{...}
+type WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigOutput() WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigOutput
+	ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigOutputWithContext(context.Context) WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigOutput
+}
+
+type WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs struct {
+	AwsManagedRulesAcfpRuleSet       WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrInput       `pulumi:"awsManagedRulesAcfpRuleSet"`
+	AwsManagedRulesAntiDdosRuleSet   WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetPtrInput   `pulumi:"awsManagedRulesAntiDdosRuleSet"`
+	AwsManagedRulesAtpRuleSet        WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetPtrInput        `pulumi:"awsManagedRulesAtpRuleSet"`
+	AwsManagedRulesBotControlRuleSet WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetPtrInput `pulumi:"awsManagedRulesBotControlRuleSet"`
+	// Deprecated: Use awsManagedRulesAtpRuleSet login_path
+	LoginPath pulumi.StringPtrInput `pulumi:"loginPath"`
+	// Deprecated: Use awsManagedRulesAtpRuleSet request_inspection password_field
+	PasswordField WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordFieldPtrInput `pulumi:"passwordField"`
+	// Deprecated: Use awsManagedRulesAtpRuleSet request_inspection payload_type
+	PayloadType pulumi.StringPtrInput `pulumi:"payloadType"`
+	// Deprecated: Use awsManagedRulesAtpRuleSet request_inspection username_field
+	UsernameField WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameFieldPtrInput `pulumi:"usernameField"`
+}
+
+func (WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs) ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigOutput() WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigOutput {
+	return i.ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs) ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigOutputWithContext(ctx context.Context) WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigOutput)
+}
+
+// WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArrayInput is an input type that accepts WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArray and WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArrayOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArrayInput` via:
+//
+//	WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArray{ WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs{...} }
+type WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArrayInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArrayOutput() WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArrayOutput
+	ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArrayOutputWithContext(context.Context) WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArrayOutput
+}
+
+type WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArray []WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigInput
+
+func (WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArray) ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArrayOutput() WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArrayOutput {
+	return i.ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArrayOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArray) ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArrayOutputWithContext(ctx context.Context) WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArrayOutput)
+}
+
+type WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigOutput) ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigOutput() WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigOutput {
+	return o
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigOutput) ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigOutputWithContext(ctx context.Context) WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigOutput {
+	return o
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigOutput) AwsManagedRulesAcfpRuleSet() WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig) *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet {
+		return v.AwsManagedRulesAcfpRuleSet
+	}).(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrOutput)
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigOutput) AwsManagedRulesAntiDdosRuleSet() WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig) *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSet {
+		return v.AwsManagedRulesAntiDdosRuleSet
+	}).(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetPtrOutput)
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigOutput) AwsManagedRulesAtpRuleSet() WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig) *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet {
+		return v.AwsManagedRulesAtpRuleSet
+	}).(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetPtrOutput)
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigOutput) AwsManagedRulesBotControlRuleSet() WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig) *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSet {
+		return v.AwsManagedRulesBotControlRuleSet
+	}).(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetPtrOutput)
+}
+
+// Deprecated: Use awsManagedRulesAtpRuleSet login_path
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigOutput) LoginPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig) *string { return v.LoginPath }).(pulumi.StringPtrOutput)
+}
+
+// Deprecated: Use awsManagedRulesAtpRuleSet request_inspection password_field
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigOutput) PasswordField() WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordFieldPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig) *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordField {
+		return v.PasswordField
+	}).(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordFieldPtrOutput)
+}
+
+// Deprecated: Use awsManagedRulesAtpRuleSet request_inspection payload_type
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigOutput) PayloadType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig) *string {
+		return v.PayloadType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Deprecated: Use awsManagedRulesAtpRuleSet request_inspection username_field
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigOutput) UsernameField() WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameFieldPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig) *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameField {
+		return v.UsernameField
+	}).(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameFieldPtrOutput)
+}
+
+type WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArrayOutput) ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArrayOutput() WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArrayOutput {
+	return o
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArrayOutput) ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArrayOutputWithContext(ctx context.Context) WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArrayOutput {
+	return o
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArrayOutput) Index(i pulumi.IntInput) WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig {
+		return vs[0].([]WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig)[vs[1].(int)]
+	}).(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigOutput)
+}
+
+type WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet struct {
+	CreationPath         string                                                                                                          `pulumi:"creationPath"`
+	EnableRegexInPath    *bool                                                                                                           `pulumi:"enableRegexInPath"`
+	RegistrationPagePath string                                                                                                          `pulumi:"registrationPagePath"`
+	RequestInspection    *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection  `pulumi:"requestInspection"`
+	ResponseInspection   *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspection `pulumi:"responseInspection"`
+}
+
+// WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetInput is an input type that accepts WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetArgs and WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetInput` via:
+//
+//	WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetArgs{...}
+type WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetOutput() WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetOutput
+	ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetOutputWithContext(context.Context) WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetOutput
+}
+
+type WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetArgs struct {
+	CreationPath         pulumi.StringInput                                                                                                     `pulumi:"creationPath"`
+	EnableRegexInPath    pulumi.BoolPtrInput                                                                                                    `pulumi:"enableRegexInPath"`
+	RegistrationPagePath pulumi.StringInput                                                                                                     `pulumi:"registrationPagePath"`
+	RequestInspection    WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrInput  `pulumi:"requestInspection"`
+	ResponseInspection   WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionPtrInput `pulumi:"responseInspection"`
+}
+
+func (WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetArgs) ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetOutput() WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetOutput {
+	return i.ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetArgs) ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetOutputWithContext(ctx context.Context) WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetOutput)
+}
+
+func (i WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetArgs) ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrOutput() WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrOutput {
+	return i.ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetArgs) ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrOutputWithContext(ctx context.Context) WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetOutput).ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrOutputWithContext(ctx)
+}
+
+// WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrInput is an input type that accepts WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetArgs, WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtr and WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrInput` via:
+//
+//	        WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrOutput() WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrOutput
+	ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrOutputWithContext(context.Context) WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrOutput
+}
+
+type webAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrType WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetArgs
+
+func WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtr(v *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetArgs) WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrInput {
+	return (*webAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrType)(v)
+}
+
+func (*webAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet)(nil)).Elem()
+}
+
+func (i *webAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrType) ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrOutput() WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrOutput {
+	return i.ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrType) ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrOutputWithContext(ctx context.Context) WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrOutput)
+}
+
+type WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetOutput) ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetOutput() WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetOutput {
+	return o
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetOutput) ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetOutputWithContext(ctx context.Context) WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetOutput {
+	return o
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetOutput) ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrOutput() WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrOutput {
+	return o.ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetOutput) ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrOutputWithContext(ctx context.Context) WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet) *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet {
+		return &v
+	}).(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrOutput)
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetOutput) CreationPath() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet) string {
+		return v.CreationPath
+	}).(pulumi.StringOutput)
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetOutput) EnableRegexInPath() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet) *bool {
+		return v.EnableRegexInPath
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetOutput) RegistrationPagePath() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet) string {
+		return v.RegistrationPagePath
+	}).(pulumi.StringOutput)
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetOutput) RequestInspection() WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet) *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection {
+		return v.RequestInspection
+	}).(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrOutput)
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetOutput) ResponseInspection() WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet) *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspection {
+		return v.ResponseInspection
+	}).(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionPtrOutput)
+}
+
+type WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrOutput) ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrOutput() WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrOutput) ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrOutputWithContext(ctx context.Context) WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrOutput) Elem() WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet) WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet
+		return ret
+	}).(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetOutput)
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrOutput) CreationPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CreationPath
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrOutput) EnableRegexInPath() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableRegexInPath
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrOutput) RegistrationPagePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RegistrationPagePath
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrOutput) RequestInspection() WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet) *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection {
+		if v == nil {
+			return nil
+		}
+		return v.RequestInspection
+	}).(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrOutput)
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrOutput) ResponseInspection() WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet) *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspection {
+		if v == nil {
+			return nil
+		}
+		return v.ResponseInspection
+	}).(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionPtrOutput)
+}
+
+type WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection struct {
+	AddressFields     *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFields     `pulumi:"addressFields"`
+	EmailField        *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailField        `pulumi:"emailField"`
+	PasswordField     *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordField     `pulumi:"passwordField"`
+	PayloadType       string                                                                                                                          `pulumi:"payloadType"`
+	PhoneNumberFields *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFields `pulumi:"phoneNumberFields"`
+	UsernameField     *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameField     `pulumi:"usernameField"`
+}
+
+// WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionInput is an input type that accepts WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionArgs and WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionInput` via:
+//
+//	WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionArgs{...}
+type WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionOutput() WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionOutput
+	ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionOutputWithContext(context.Context) WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionOutput
+}
+
+type WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionArgs struct {
+	AddressFields     WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFieldsPtrInput     `pulumi:"addressFields"`
+	EmailField        WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailFieldPtrInput        `pulumi:"emailField"`
+	PasswordField     WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordFieldPtrInput     `pulumi:"passwordField"`
+	PayloadType       pulumi.StringInput                                                                                                                     `pulumi:"payloadType"`
+	PhoneNumberFields WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFieldsPtrInput `pulumi:"phoneNumberFields"`
+	UsernameField     WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameFieldPtrInput     `pulumi:"usernameField"`
+}
+
+func (WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionArgs) ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionOutput() WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionOutput {
+	return i.ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionArgs) ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionOutputWithContext(ctx context.Context) WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionOutput)
+}
+
+func (i WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionArgs) ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrOutput() WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrOutput {
+	return i.ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionArgs) ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrOutputWithContext(ctx context.Context) WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionOutput).ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrOutputWithContext(ctx)
+}
+
+// WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrInput is an input type that accepts WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionArgs, WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtr and WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrInput` via:
+//
+//	        WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrOutput() WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrOutput
+	ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrOutputWithContext(context.Context) WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrOutput
+}
+
+type webAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrType WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionArgs
+
+func WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtr(v *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionArgs) WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrInput {
+	return (*webAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrType)(v)
+}
+
+func (*webAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection)(nil)).Elem()
+}
+
+func (i *webAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrType) ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrOutput() WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrOutput {
+	return i.ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrType) ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrOutputWithContext(ctx context.Context) WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrOutput)
+}
+
+type WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionOutput) ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionOutput() WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionOutput {
+	return o
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionOutput) ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionOutputWithContext(ctx context.Context) WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionOutput {
+	return o
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionOutput) ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrOutput() WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrOutput {
+	return o.ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionOutput) ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrOutputWithContext(ctx context.Context) WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection) *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection {
+		return &v
+	}).(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrOutput)
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionOutput) AddressFields() WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFieldsPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection) *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFields {
+		return v.AddressFields
+	}).(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFieldsPtrOutput)
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionOutput) EmailField() WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailFieldPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection) *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailField {
+		return v.EmailField
+	}).(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailFieldPtrOutput)
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionOutput) PasswordField() WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordFieldPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection) *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordField {
+		return v.PasswordField
+	}).(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordFieldPtrOutput)
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionOutput) PayloadType() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection) string {
+		return v.PayloadType
+	}).(pulumi.StringOutput)
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionOutput) PhoneNumberFields() WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFieldsPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection) *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFields {
+		return v.PhoneNumberFields
+	}).(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFieldsPtrOutput)
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionOutput) UsernameField() WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameFieldPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection) *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameField {
+		return v.UsernameField
+	}).(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameFieldPtrOutput)
+}
+
+type WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrOutput) ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrOutput() WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrOutput) ToWebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrOutputWithContext(ctx context.Context) WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrOutput) Elem() WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection) WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection
+		return ret
+	}).(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionOutput)
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrOutput) AddressFields() WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFieldsPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection) *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFields {
+		if v == nil {
+			return nil
+		}
+		return v.AddressFields
+	}).(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFieldsPtrOutput)
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrOutput) EmailField() WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailFieldPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection) *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailField {
+		if v == nil {
+			return nil
+		}
+		return v.EmailField
+	}).(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailFieldPtrOutput)
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrOutput) PasswordField() WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordFieldPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection) *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordField {
+		if v == nil {
+			return nil
+		}
+		return v.PasswordField
+	}).(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordFieldPtrOutput)
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrOutput) PayloadType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PayloadType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrOutput) PhoneNumberFields() WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFieldsPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection) *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFields {
+		if v == nil {
+			return nil
+		}
+		return v.PhoneNumberFields
+	}).(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFieldsPtrOutput)
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrOutput) UsernameField() WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameFieldPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection) *WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameField {
+		if v == nil {
+			return nil
+		}
+		return v.UsernameField
+	}).(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameFieldPtrOutput)
+}
+
 type WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFields struct {
 	Identifiers []string `pulumi:"identifiers"`
 }
@@ -10502,6 +12546,71 @@ func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchS
 	}).(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchUriPathOutput)
 }
 
+type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementPreParseTextTransformation struct {
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	Priority int `pulumi:"priority"`
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	Type string `pulumi:"type"`
+}
+
+// WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementPreParseTextTransformationInput is an input type that accepts WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementPreParseTextTransformationArgs and WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementPreParseTextTransformationOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementPreParseTextTransformationInput` via:
+//
+//	WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementPreParseTextTransformationArgs{...}
+type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementPreParseTextTransformationInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementPreParseTextTransformationOutput() WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementPreParseTextTransformationOutput
+	ToWebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementPreParseTextTransformationOutputWithContext(context.Context) WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementPreParseTextTransformationOutput
+}
+
+type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementPreParseTextTransformationArgs struct {
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementPreParseTextTransformationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementPreParseTextTransformation)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementPreParseTextTransformationArgs) ToWebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementPreParseTextTransformationOutput() WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementPreParseTextTransformationOutput {
+	return i.ToWebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementPreParseTextTransformationOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementPreParseTextTransformationArgs) ToWebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementPreParseTextTransformationOutputWithContext(ctx context.Context) WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementPreParseTextTransformationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementPreParseTextTransformationOutput)
+}
+
+type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementPreParseTextTransformationOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementPreParseTextTransformationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementPreParseTextTransformation)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementPreParseTextTransformationOutput) ToWebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementPreParseTextTransformationOutput() WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementPreParseTextTransformationOutput {
+	return o
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementPreParseTextTransformationOutput) ToWebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementPreParseTextTransformationOutputWithContext(ctx context.Context) WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementPreParseTextTransformationOutput {
+	return o
+}
+
+// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementPreParseTextTransformationOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementPreParseTextTransformation) int {
+		return v.Priority
+	}).(pulumi.IntOutput)
+}
+
+// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementPreParseTextTransformationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementPreParseTextTransformation) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
 type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementTextTransformation struct {
 	// Relative processing order for multiple transformations (0-based).
 	Priority int `pulumi:"priority"`
@@ -15014,6 +17123,71 @@ func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatch
 	}).(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPathOutput)
 }
 
+type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementPreParseTextTransformation struct {
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	Priority int `pulumi:"priority"`
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	Type string `pulumi:"type"`
+}
+
+// WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationInput is an input type that accepts WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationArgs and WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationInput` via:
+//
+//	WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationArgs{...}
+type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationOutput() WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationOutput
+	ToWebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationOutputWithContext(context.Context) WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationOutput
+}
+
+type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationArgs struct {
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementPreParseTextTransformation)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationArgs) ToWebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationOutput() WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationOutput {
+	return i.ToWebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationArgs) ToWebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationOutputWithContext(ctx context.Context) WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationOutput)
+}
+
+type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementPreParseTextTransformation)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationOutput) ToWebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationOutput() WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationOutput {
+	return o
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationOutput) ToWebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationOutputWithContext(ctx context.Context) WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationOutput {
+	return o
+}
+
+// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementPreParseTextTransformation) int {
+		return v.Priority
+	}).(pulumi.IntOutput)
+}
+
+// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementPreParseTextTransformation) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
 type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementTextTransformation struct {
 	// Relative processing order for multiple transformations (0-based).
 	Priority int `pulumi:"priority"`
@@ -18429,6 +20603,71 @@ func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatte
 		var ret WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPath
 		return ret
 	}).(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPathOutput)
+}
+
+type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformation struct {
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	Priority int `pulumi:"priority"`
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	Type string `pulumi:"type"`
+}
+
+// WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationInput is an input type that accepts WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationArgs and WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationInput` via:
+//
+//	WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationArgs{...}
+type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput() WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput
+	ToWebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutputWithContext(context.Context) WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput
+}
+
+type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationArgs struct {
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformation)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationArgs) ToWebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput() WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput {
+	return i.ToWebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationArgs) ToWebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutputWithContext(ctx context.Context) WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput)
+}
+
+type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformation)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput) ToWebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput() WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput {
+	return o
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput) ToWebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutputWithContext(ctx context.Context) WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput {
+	return o
+}
+
+// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformation) int {
+		return v.Priority
+	}).(pulumi.IntOutput)
+}
+
+// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformation) string {
+		return v.Type
+	}).(pulumi.StringOutput)
 }
 
 type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation struct {
@@ -21869,6 +24108,71 @@ func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstr
 	}).(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPathOutput)
 }
 
+type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformation struct {
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	Priority int `pulumi:"priority"`
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	Type string `pulumi:"type"`
+}
+
+// WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationInput is an input type that accepts WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationArgs and WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationInput` via:
+//
+//	WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationArgs{...}
+type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationOutput() WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationOutput
+	ToWebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationOutputWithContext(context.Context) WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationOutput
+}
+
+type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationArgs struct {
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformation)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationArgs) ToWebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationOutput() WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationOutput {
+	return i.ToWebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationArgs) ToWebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationOutputWithContext(ctx context.Context) WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationOutput)
+}
+
+type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformation)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationOutput) ToWebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationOutput() WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationOutput {
+	return o
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationOutput) ToWebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationOutputWithContext(ctx context.Context) WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationOutput {
+	return o
+}
+
+// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformation) int {
+		return v.Priority
+	}).(pulumi.IntOutput)
+}
+
+// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformation) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
 type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementTextTransformation struct {
 	// Relative processing order for multiple transformations (0-based).
 	Priority int `pulumi:"priority"`
@@ -25278,6 +27582,71 @@ func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchS
 	}).(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPathOutput)
 }
 
+type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementPreParseTextTransformation struct {
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	Priority int `pulumi:"priority"`
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	Type string `pulumi:"type"`
+}
+
+// WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationInput is an input type that accepts WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationArgs and WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationInput` via:
+//
+//	WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationArgs{...}
+type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationOutput() WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationOutput
+	ToWebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationOutputWithContext(context.Context) WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationOutput
+}
+
+type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationArgs struct {
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementPreParseTextTransformation)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationArgs) ToWebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationOutput() WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationOutput {
+	return i.ToWebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationArgs) ToWebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationOutputWithContext(ctx context.Context) WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationOutput)
+}
+
+type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementPreParseTextTransformation)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationOutput) ToWebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationOutput() WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationOutput {
+	return o
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationOutput) ToWebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationOutputWithContext(ctx context.Context) WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationOutput {
+	return o
+}
+
+// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementPreParseTextTransformation) int {
+		return v.Priority
+	}).(pulumi.IntOutput)
+}
+
+// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementPreParseTextTransformation) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
 type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementTextTransformation struct {
 	// Relative processing order for multiple transformations (0-based).
 	Priority int `pulumi:"priority"`
@@ -28664,6 +31033,71 @@ func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchSt
 		var ret WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchUriPath
 		return ret
 	}).(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchUriPathOutput)
+}
+
+type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementPreParseTextTransformation struct {
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	Priority int `pulumi:"priority"`
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	Type string `pulumi:"type"`
+}
+
+// WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementPreParseTextTransformationInput is an input type that accepts WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementPreParseTextTransformationArgs and WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementPreParseTextTransformationOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementPreParseTextTransformationInput` via:
+//
+//	WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementPreParseTextTransformationArgs{...}
+type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementPreParseTextTransformationInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementPreParseTextTransformationOutput() WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementPreParseTextTransformationOutput
+	ToWebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementPreParseTextTransformationOutputWithContext(context.Context) WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementPreParseTextTransformationOutput
+}
+
+type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementPreParseTextTransformationArgs struct {
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementPreParseTextTransformationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementPreParseTextTransformation)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementPreParseTextTransformationArgs) ToWebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementPreParseTextTransformationOutput() WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementPreParseTextTransformationOutput {
+	return i.ToWebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementPreParseTextTransformationOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementPreParseTextTransformationArgs) ToWebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementPreParseTextTransformationOutputWithContext(ctx context.Context) WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementPreParseTextTransformationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementPreParseTextTransformationOutput)
+}
+
+type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementPreParseTextTransformationOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementPreParseTextTransformationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementPreParseTextTransformation)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementPreParseTextTransformationOutput) ToWebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementPreParseTextTransformationOutput() WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementPreParseTextTransformationOutput {
+	return o
+}
+
+func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementPreParseTextTransformationOutput) ToWebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementPreParseTextTransformationOutputWithContext(ctx context.Context) WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementPreParseTextTransformationOutput {
+	return o
+}
+
+// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementPreParseTextTransformationOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementPreParseTextTransformation) int {
+		return v.Priority
+	}).(pulumi.IntOutput)
+}
+
+// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementPreParseTextTransformationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementPreParseTextTransformation) string {
+		return v.Type
+	}).(pulumi.StringOutput)
 }
 
 type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementTextTransformation struct {
@@ -36037,6 +38471,71 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatemen
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPathOutput)
 }
 
+type WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformation struct {
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	Priority int `pulumi:"priority"`
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	Type string `pulumi:"type"`
+}
+
+// WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformationInput is an input type that accepts WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformationArgs and WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformationOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformationInput` via:
+//
+//	WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformationArgs{...}
+type WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformationInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformationOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformationOutput
+	ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformationOutputWithContext(context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformationOutput
+}
+
+type WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformationArgs struct {
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformation)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformationArgs) ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformationOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformationOutput {
+	return i.ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformationOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformationArgs) ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformationOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformationOutput)
+}
+
+type WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformationOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformation)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformationOutput) ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformationOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformationOutput {
+	return o
+}
+
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformationOutput) ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformationOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformationOutput {
+	return o
+}
+
+// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformationOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformation) int {
+		return v.Priority
+	}).(pulumi.IntOutput)
+}
+
+// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformation) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
 type WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformation struct {
 	// Relative processing order for multiple transformations (0-based).
 	Priority int `pulumi:"priority"`
@@ -40549,6 +43048,71 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStateme
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPathOutput)
 }
 
+type WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformation struct {
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	Priority int `pulumi:"priority"`
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	Type string `pulumi:"type"`
+}
+
+// WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationInput is an input type that accepts WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationArgs and WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationInput` via:
+//
+//	WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationArgs{...}
+type WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationOutput
+	ToWebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationOutputWithContext(context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationOutput
+}
+
+type WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationArgs struct {
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformation)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationArgs) ToWebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationOutput {
+	return i.ToWebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationArgs) ToWebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationOutput)
+}
+
+type WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformation)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationOutput) ToWebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationOutput {
+	return o
+}
+
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationOutput) ToWebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationOutput {
+	return o
+}
+
+// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformation) int {
+		return v.Priority
+	}).(pulumi.IntOutput)
+}
+
+// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformation) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
 type WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation struct {
 	// Relative processing order for multiple transformations (0-based).
 	Priority int `pulumi:"priority"`
@@ -43964,6 +46528,71 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRe
 		var ret WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPath
 		return ret
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPathOutput)
+}
+
+type WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformation struct {
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	Priority int `pulumi:"priority"`
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	Type string `pulumi:"type"`
+}
+
+// WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationInput is an input type that accepts WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationArgs and WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationInput` via:
+//
+//	WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationArgs{...}
+type WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput
+	ToWebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutputWithContext(context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput
+}
+
+type WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationArgs struct {
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformation)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationArgs) ToWebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput {
+	return i.ToWebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationArgs) ToWebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput)
+}
+
+type WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformation)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput) ToWebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput {
+	return o
+}
+
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput) ToWebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput {
+	return o
+}
+
+// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformation) int {
+		return v.Priority
+	}).(pulumi.IntOutput)
+}
+
+// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformation) string {
+		return v.Type
+	}).(pulumi.StringOutput)
 }
 
 type WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation struct {
@@ -47404,6 +50033,71 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSta
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPathOutput)
 }
 
+type WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformation struct {
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	Priority int `pulumi:"priority"`
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	Type string `pulumi:"type"`
+}
+
+// WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationInput is an input type that accepts WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationArgs and WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationInput` via:
+//
+//	WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationArgs{...}
+type WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationOutput
+	ToWebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationOutputWithContext(context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationOutput
+}
+
+type WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationArgs struct {
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformation)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationArgs) ToWebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationOutput {
+	return i.ToWebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationArgs) ToWebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationOutput)
+}
+
+type WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformation)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationOutput) ToWebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationOutput {
+	return o
+}
+
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationOutput) ToWebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationOutput {
+	return o
+}
+
+// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformation) int {
+		return v.Priority
+	}).(pulumi.IntOutput)
+}
+
+// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformation) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
 type WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation struct {
 	// Relative processing order for multiple transformations (0-based).
 	Priority int `pulumi:"priority"`
@@ -50813,6 +53507,71 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatemen
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPathOutput)
 }
 
+type WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformation struct {
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	Priority int `pulumi:"priority"`
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	Type string `pulumi:"type"`
+}
+
+// WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationInput is an input type that accepts WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationArgs and WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationInput` via:
+//
+//	WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationArgs{...}
+type WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationOutput
+	ToWebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationOutputWithContext(context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationOutput
+}
+
+type WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationArgs struct {
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformation)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationArgs) ToWebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationOutput {
+	return i.ToWebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationArgs) ToWebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationOutput)
+}
+
+type WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformation)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationOutput) ToWebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationOutput {
+	return o
+}
+
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationOutput) ToWebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationOutput {
+	return o
+}
+
+// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformation) int {
+		return v.Priority
+	}).(pulumi.IntOutput)
+}
+
+// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformation) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
 type WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation struct {
 	// Relative processing order for multiple transformations (0-based).
 	Priority int `pulumi:"priority"`
@@ -54199,6 +56958,71 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 		var ret WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPath
 		return ret
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPathOutput)
+}
+
+type WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformation struct {
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	Priority int `pulumi:"priority"`
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	Type string `pulumi:"type"`
+}
+
+// WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformationInput is an input type that accepts WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformationArgs and WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformationOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformationInput` via:
+//
+//	WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformationArgs{...}
+type WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformationInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformationOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformationOutput
+	ToWebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformationOutputWithContext(context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformationOutput
+}
+
+type WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformationArgs struct {
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformation)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformationArgs) ToWebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformationOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformationOutput {
+	return i.ToWebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformationOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformationArgs) ToWebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformationOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformationOutput)
+}
+
+type WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformationOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformation)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformationOutput) ToWebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformationOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformationOutput {
+	return o
+}
+
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformationOutput) ToWebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformationOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformationOutput {
+	return o
+}
+
+// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformationOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformation) int {
+		return v.Priority
+	}).(pulumi.IntOutput)
+}
+
+// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformation) string {
+		return v.Type
+	}).(pulumi.StringOutput)
 }
 
 type WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation struct {
@@ -57596,6 +60420,67 @@ func (o WebAclRuleStatementRegexMatchStatementFieldToMatchUriPathPtrOutput) Elem
 		var ret WebAclRuleStatementRegexMatchStatementFieldToMatchUriPath
 		return ret
 	}).(WebAclRuleStatementRegexMatchStatementFieldToMatchUriPathOutput)
+}
+
+type WebAclRuleStatementRegexMatchStatementPreParseTextTransformation struct {
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	Priority int `pulumi:"priority"`
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	Type string `pulumi:"type"`
+}
+
+// WebAclRuleStatementRegexMatchStatementPreParseTextTransformationInput is an input type that accepts WebAclRuleStatementRegexMatchStatementPreParseTextTransformationArgs and WebAclRuleStatementRegexMatchStatementPreParseTextTransformationOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementRegexMatchStatementPreParseTextTransformationInput` via:
+//
+//	WebAclRuleStatementRegexMatchStatementPreParseTextTransformationArgs{...}
+type WebAclRuleStatementRegexMatchStatementPreParseTextTransformationInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementRegexMatchStatementPreParseTextTransformationOutput() WebAclRuleStatementRegexMatchStatementPreParseTextTransformationOutput
+	ToWebAclRuleStatementRegexMatchStatementPreParseTextTransformationOutputWithContext(context.Context) WebAclRuleStatementRegexMatchStatementPreParseTextTransformationOutput
+}
+
+type WebAclRuleStatementRegexMatchStatementPreParseTextTransformationArgs struct {
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WebAclRuleStatementRegexMatchStatementPreParseTextTransformationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementRegexMatchStatementPreParseTextTransformation)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementRegexMatchStatementPreParseTextTransformationArgs) ToWebAclRuleStatementRegexMatchStatementPreParseTextTransformationOutput() WebAclRuleStatementRegexMatchStatementPreParseTextTransformationOutput {
+	return i.ToWebAclRuleStatementRegexMatchStatementPreParseTextTransformationOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementRegexMatchStatementPreParseTextTransformationArgs) ToWebAclRuleStatementRegexMatchStatementPreParseTextTransformationOutputWithContext(ctx context.Context) WebAclRuleStatementRegexMatchStatementPreParseTextTransformationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementRegexMatchStatementPreParseTextTransformationOutput)
+}
+
+type WebAclRuleStatementRegexMatchStatementPreParseTextTransformationOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementRegexMatchStatementPreParseTextTransformationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementRegexMatchStatementPreParseTextTransformation)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementRegexMatchStatementPreParseTextTransformationOutput) ToWebAclRuleStatementRegexMatchStatementPreParseTextTransformationOutput() WebAclRuleStatementRegexMatchStatementPreParseTextTransformationOutput {
+	return o
+}
+
+func (o WebAclRuleStatementRegexMatchStatementPreParseTextTransformationOutput) ToWebAclRuleStatementRegexMatchStatementPreParseTextTransformationOutputWithContext(ctx context.Context) WebAclRuleStatementRegexMatchStatementPreParseTextTransformationOutput {
+	return o
+}
+
+// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+func (o WebAclRuleStatementRegexMatchStatementPreParseTextTransformationOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRegexMatchStatementPreParseTextTransformation) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+func (o WebAclRuleStatementRegexMatchStatementPreParseTextTransformationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRegexMatchStatementPreParseTextTransformation) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type WebAclRuleStatementRegexMatchStatementTextTransformation struct {
@@ -61007,6 +63892,71 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPathP
 		var ret WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPath
 		return ret
 	}).(WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPathOutput)
+}
+
+type WebAclRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformation struct {
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	Priority int `pulumi:"priority"`
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	Type string `pulumi:"type"`
+}
+
+// WebAclRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformationInput is an input type that accepts WebAclRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformationArgs and WebAclRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformationInput` via:
+//
+//	WebAclRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformationArgs{...}
+type WebAclRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformationInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput() WebAclRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput
+	ToWebAclRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutputWithContext(context.Context) WebAclRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput
+}
+
+type WebAclRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformationArgs struct {
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WebAclRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformation)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformationArgs) ToWebAclRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput() WebAclRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput {
+	return i.ToWebAclRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformationArgs) ToWebAclRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutputWithContext(ctx context.Context) WebAclRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput)
+}
+
+type WebAclRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformation)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput) ToWebAclRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput() WebAclRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput {
+	return o
+}
+
+func (o WebAclRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput) ToWebAclRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutputWithContext(ctx context.Context) WebAclRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput {
+	return o
+}
+
+// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+func (o WebAclRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformation) int {
+		return v.Priority
+	}).(pulumi.IntOutput)
+}
+
+// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+func (o WebAclRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformation) string {
+		return v.Type
+	}).(pulumi.StringOutput)
 }
 
 type WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformation struct {
@@ -67012,6 +69962,67 @@ func (o WebAclRuleStatementSizeConstraintStatementFieldToMatchUriPathPtrOutput) 
 	}).(WebAclRuleStatementSizeConstraintStatementFieldToMatchUriPathOutput)
 }
 
+type WebAclRuleStatementSizeConstraintStatementPreParseTextTransformation struct {
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	Priority int `pulumi:"priority"`
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	Type string `pulumi:"type"`
+}
+
+// WebAclRuleStatementSizeConstraintStatementPreParseTextTransformationInput is an input type that accepts WebAclRuleStatementSizeConstraintStatementPreParseTextTransformationArgs and WebAclRuleStatementSizeConstraintStatementPreParseTextTransformationOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementSizeConstraintStatementPreParseTextTransformationInput` via:
+//
+//	WebAclRuleStatementSizeConstraintStatementPreParseTextTransformationArgs{...}
+type WebAclRuleStatementSizeConstraintStatementPreParseTextTransformationInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementSizeConstraintStatementPreParseTextTransformationOutput() WebAclRuleStatementSizeConstraintStatementPreParseTextTransformationOutput
+	ToWebAclRuleStatementSizeConstraintStatementPreParseTextTransformationOutputWithContext(context.Context) WebAclRuleStatementSizeConstraintStatementPreParseTextTransformationOutput
+}
+
+type WebAclRuleStatementSizeConstraintStatementPreParseTextTransformationArgs struct {
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WebAclRuleStatementSizeConstraintStatementPreParseTextTransformationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementSizeConstraintStatementPreParseTextTransformation)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementSizeConstraintStatementPreParseTextTransformationArgs) ToWebAclRuleStatementSizeConstraintStatementPreParseTextTransformationOutput() WebAclRuleStatementSizeConstraintStatementPreParseTextTransformationOutput {
+	return i.ToWebAclRuleStatementSizeConstraintStatementPreParseTextTransformationOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementSizeConstraintStatementPreParseTextTransformationArgs) ToWebAclRuleStatementSizeConstraintStatementPreParseTextTransformationOutputWithContext(ctx context.Context) WebAclRuleStatementSizeConstraintStatementPreParseTextTransformationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementSizeConstraintStatementPreParseTextTransformationOutput)
+}
+
+type WebAclRuleStatementSizeConstraintStatementPreParseTextTransformationOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementSizeConstraintStatementPreParseTextTransformationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementSizeConstraintStatementPreParseTextTransformation)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementSizeConstraintStatementPreParseTextTransformationOutput) ToWebAclRuleStatementSizeConstraintStatementPreParseTextTransformationOutput() WebAclRuleStatementSizeConstraintStatementPreParseTextTransformationOutput {
+	return o
+}
+
+func (o WebAclRuleStatementSizeConstraintStatementPreParseTextTransformationOutput) ToWebAclRuleStatementSizeConstraintStatementPreParseTextTransformationOutputWithContext(ctx context.Context) WebAclRuleStatementSizeConstraintStatementPreParseTextTransformationOutput {
+	return o
+}
+
+// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+func (o WebAclRuleStatementSizeConstraintStatementPreParseTextTransformationOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v WebAclRuleStatementSizeConstraintStatementPreParseTextTransformation) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+func (o WebAclRuleStatementSizeConstraintStatementPreParseTextTransformationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclRuleStatementSizeConstraintStatementPreParseTextTransformation) string { return v.Type }).(pulumi.StringOutput)
+}
+
 type WebAclRuleStatementSizeConstraintStatementTextTransformation struct {
 	// Relative processing order for multiple transformations (0-based).
 	Priority int `pulumi:"priority"`
@@ -70277,4118 +73288,32 @@ func (o WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtrOutput) F
 	}).(pulumi.StringPtrOutput)
 }
 
-type WebAclRuleStatementSqliMatchStatementFieldToMatchUriPath struct {
-}
-
-// WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathInput is an input type that accepts WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathArgs and WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathInput` via:
-//
-//	WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathArgs{...}
-type WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementSqliMatchStatementFieldToMatchUriPathOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathOutput
-	ToWebAclRuleStatementSqliMatchStatementFieldToMatchUriPathOutputWithContext(context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathOutput
-}
-
-type WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathArgs struct {
-}
-
-func (WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchUriPath)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathArgs) ToWebAclRuleStatementSqliMatchStatementFieldToMatchUriPathOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathOutput {
-	return i.ToWebAclRuleStatementSqliMatchStatementFieldToMatchUriPathOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathArgs) ToWebAclRuleStatementSqliMatchStatementFieldToMatchUriPathOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathOutput)
-}
-
-func (i WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathArgs) ToWebAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrOutput {
-	return i.ToWebAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathArgs) ToWebAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathOutput).ToWebAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrOutputWithContext(ctx)
-}
-
-// WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrInput is an input type that accepts WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathArgs, WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtr and WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrInput` via:
-//
-//	        WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathArgs{...}
-//
-//	or:
-//
-//	        nil
-type WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrOutput
-	ToWebAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrOutputWithContext(context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrOutput
-}
-
-type webAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrType WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathArgs
-
-func WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtr(v *WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathArgs) WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrInput {
-	return (*webAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrType)(v)
-}
-
-func (*webAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementSqliMatchStatementFieldToMatchUriPath)(nil)).Elem()
-}
-
-func (i *webAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrType) ToWebAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrOutput {
-	return i.ToWebAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrOutputWithContext(context.Background())
-}
-
-func (i *webAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrType) ToWebAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrOutput)
-}
-
-type WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchUriPath)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchUriPathOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathOutput {
-	return o
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchUriPathOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathOutput {
-	return o
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrOutput {
-	return o.ToWebAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrOutputWithContext(context.Background())
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementSqliMatchStatementFieldToMatchUriPath) *WebAclRuleStatementSqliMatchStatementFieldToMatchUriPath {
-		return &v
-	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrOutput)
-}
-
-type WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementSqliMatchStatementFieldToMatchUriPath)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrOutput) Elem() WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementSqliMatchStatementFieldToMatchUriPath) WebAclRuleStatementSqliMatchStatementFieldToMatchUriPath {
-		if v != nil {
-			return *v
-		}
-		var ret WebAclRuleStatementSqliMatchStatementFieldToMatchUriPath
-		return ret
-	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathOutput)
-}
-
-type WebAclRuleStatementSqliMatchStatementTextTransformation struct {
-	// Relative processing order for multiple transformations (0-based).
-	Priority int `pulumi:"priority"`
-	// Transformation to apply. Valid values: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`, `BASE64_DECODE`, `HEX_DECODE`, `MD5`, `REPLACE_COMMENTS`, `ESCAPE_SEQ_DECODE`, `SQL_HEX_DECODE`, `CSS_DECODE`, `JS_DECODE`, `NORMALIZE_PATH`, `NORMALIZE_PATH_WIN`, `REMOVE_NULLS`, `REPLACE_NULLS`, `BASE64_DECODE_EXT`, `URL_DECODE_UNI`, `UTF8_TO_UNICODE`.
-	Type string `pulumi:"type"`
-}
-
-// WebAclRuleStatementSqliMatchStatementTextTransformationInput is an input type that accepts WebAclRuleStatementSqliMatchStatementTextTransformationArgs and WebAclRuleStatementSqliMatchStatementTextTransformationOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementSqliMatchStatementTextTransformationInput` via:
-//
-//	WebAclRuleStatementSqliMatchStatementTextTransformationArgs{...}
-type WebAclRuleStatementSqliMatchStatementTextTransformationInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementSqliMatchStatementTextTransformationOutput() WebAclRuleStatementSqliMatchStatementTextTransformationOutput
-	ToWebAclRuleStatementSqliMatchStatementTextTransformationOutputWithContext(context.Context) WebAclRuleStatementSqliMatchStatementTextTransformationOutput
-}
-
-type WebAclRuleStatementSqliMatchStatementTextTransformationArgs struct {
-	// Relative processing order for multiple transformations (0-based).
-	Priority pulumi.IntInput `pulumi:"priority"`
-	// Transformation to apply. Valid values: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`, `BASE64_DECODE`, `HEX_DECODE`, `MD5`, `REPLACE_COMMENTS`, `ESCAPE_SEQ_DECODE`, `SQL_HEX_DECODE`, `CSS_DECODE`, `JS_DECODE`, `NORMALIZE_PATH`, `NORMALIZE_PATH_WIN`, `REMOVE_NULLS`, `REPLACE_NULLS`, `BASE64_DECODE_EXT`, `URL_DECODE_UNI`, `UTF8_TO_UNICODE`.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (WebAclRuleStatementSqliMatchStatementTextTransformationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementTextTransformation)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementSqliMatchStatementTextTransformationArgs) ToWebAclRuleStatementSqliMatchStatementTextTransformationOutput() WebAclRuleStatementSqliMatchStatementTextTransformationOutput {
-	return i.ToWebAclRuleStatementSqliMatchStatementTextTransformationOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementSqliMatchStatementTextTransformationArgs) ToWebAclRuleStatementSqliMatchStatementTextTransformationOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementTextTransformationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementSqliMatchStatementTextTransformationOutput)
-}
-
-// WebAclRuleStatementSqliMatchStatementTextTransformationArrayInput is an input type that accepts WebAclRuleStatementSqliMatchStatementTextTransformationArray and WebAclRuleStatementSqliMatchStatementTextTransformationArrayOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementSqliMatchStatementTextTransformationArrayInput` via:
-//
-//	WebAclRuleStatementSqliMatchStatementTextTransformationArray{ WebAclRuleStatementSqliMatchStatementTextTransformationArgs{...} }
-type WebAclRuleStatementSqliMatchStatementTextTransformationArrayInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementSqliMatchStatementTextTransformationArrayOutput() WebAclRuleStatementSqliMatchStatementTextTransformationArrayOutput
-	ToWebAclRuleStatementSqliMatchStatementTextTransformationArrayOutputWithContext(context.Context) WebAclRuleStatementSqliMatchStatementTextTransformationArrayOutput
-}
-
-type WebAclRuleStatementSqliMatchStatementTextTransformationArray []WebAclRuleStatementSqliMatchStatementTextTransformationInput
-
-func (WebAclRuleStatementSqliMatchStatementTextTransformationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WebAclRuleStatementSqliMatchStatementTextTransformation)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementSqliMatchStatementTextTransformationArray) ToWebAclRuleStatementSqliMatchStatementTextTransformationArrayOutput() WebAclRuleStatementSqliMatchStatementTextTransformationArrayOutput {
-	return i.ToWebAclRuleStatementSqliMatchStatementTextTransformationArrayOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementSqliMatchStatementTextTransformationArray) ToWebAclRuleStatementSqliMatchStatementTextTransformationArrayOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementTextTransformationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementSqliMatchStatementTextTransformationArrayOutput)
-}
-
-type WebAclRuleStatementSqliMatchStatementTextTransformationOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementSqliMatchStatementTextTransformationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementTextTransformation)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementSqliMatchStatementTextTransformationOutput) ToWebAclRuleStatementSqliMatchStatementTextTransformationOutput() WebAclRuleStatementSqliMatchStatementTextTransformationOutput {
-	return o
-}
-
-func (o WebAclRuleStatementSqliMatchStatementTextTransformationOutput) ToWebAclRuleStatementSqliMatchStatementTextTransformationOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementTextTransformationOutput {
-	return o
-}
-
-// Relative processing order for multiple transformations (0-based).
-func (o WebAclRuleStatementSqliMatchStatementTextTransformationOutput) Priority() pulumi.IntOutput {
-	return o.ApplyT(func(v WebAclRuleStatementSqliMatchStatementTextTransformation) int { return v.Priority }).(pulumi.IntOutput)
-}
-
-// Transformation to apply. Valid values: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`, `BASE64_DECODE`, `HEX_DECODE`, `MD5`, `REPLACE_COMMENTS`, `ESCAPE_SEQ_DECODE`, `SQL_HEX_DECODE`, `CSS_DECODE`, `JS_DECODE`, `NORMALIZE_PATH`, `NORMALIZE_PATH_WIN`, `REMOVE_NULLS`, `REPLACE_NULLS`, `BASE64_DECODE_EXT`, `URL_DECODE_UNI`, `UTF8_TO_UNICODE`.
-func (o WebAclRuleStatementSqliMatchStatementTextTransformationOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v WebAclRuleStatementSqliMatchStatementTextTransformation) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type WebAclRuleStatementSqliMatchStatementTextTransformationArrayOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementSqliMatchStatementTextTransformationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WebAclRuleStatementSqliMatchStatementTextTransformation)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementSqliMatchStatementTextTransformationArrayOutput) ToWebAclRuleStatementSqliMatchStatementTextTransformationArrayOutput() WebAclRuleStatementSqliMatchStatementTextTransformationArrayOutput {
-	return o
-}
-
-func (o WebAclRuleStatementSqliMatchStatementTextTransformationArrayOutput) ToWebAclRuleStatementSqliMatchStatementTextTransformationArrayOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementTextTransformationArrayOutput {
-	return o
-}
-
-func (o WebAclRuleStatementSqliMatchStatementTextTransformationArrayOutput) Index(i pulumi.IntInput) WebAclRuleStatementSqliMatchStatementTextTransformationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebAclRuleStatementSqliMatchStatementTextTransformation {
-		return vs[0].([]WebAclRuleStatementSqliMatchStatementTextTransformation)[vs[1].(int)]
-	}).(WebAclRuleStatementSqliMatchStatementTextTransformationOutput)
-}
-
-type WebAclRuleStatementXssMatchStatement struct {
-	FieldToMatch        *WebAclRuleStatementXssMatchStatementFieldToMatch        `pulumi:"fieldToMatch"`
-	TextTransformations []WebAclRuleStatementXssMatchStatementTextTransformation `pulumi:"textTransformations"`
-}
-
-// WebAclRuleStatementXssMatchStatementInput is an input type that accepts WebAclRuleStatementXssMatchStatementArgs and WebAclRuleStatementXssMatchStatementOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementXssMatchStatementInput` via:
-//
-//	WebAclRuleStatementXssMatchStatementArgs{...}
-type WebAclRuleStatementXssMatchStatementInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementXssMatchStatementOutput() WebAclRuleStatementXssMatchStatementOutput
-	ToWebAclRuleStatementXssMatchStatementOutputWithContext(context.Context) WebAclRuleStatementXssMatchStatementOutput
-}
-
-type WebAclRuleStatementXssMatchStatementArgs struct {
-	FieldToMatch        WebAclRuleStatementXssMatchStatementFieldToMatchPtrInput         `pulumi:"fieldToMatch"`
-	TextTransformations WebAclRuleStatementXssMatchStatementTextTransformationArrayInput `pulumi:"textTransformations"`
-}
-
-func (WebAclRuleStatementXssMatchStatementArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementXssMatchStatement)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementXssMatchStatementArgs) ToWebAclRuleStatementXssMatchStatementOutput() WebAclRuleStatementXssMatchStatementOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementXssMatchStatementArgs) ToWebAclRuleStatementXssMatchStatementOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementOutput)
-}
-
-func (i WebAclRuleStatementXssMatchStatementArgs) ToWebAclRuleStatementXssMatchStatementPtrOutput() WebAclRuleStatementXssMatchStatementPtrOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementPtrOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementXssMatchStatementArgs) ToWebAclRuleStatementXssMatchStatementPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementOutput).ToWebAclRuleStatementXssMatchStatementPtrOutputWithContext(ctx)
-}
-
-// WebAclRuleStatementXssMatchStatementPtrInput is an input type that accepts WebAclRuleStatementXssMatchStatementArgs, WebAclRuleStatementXssMatchStatementPtr and WebAclRuleStatementXssMatchStatementPtrOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementXssMatchStatementPtrInput` via:
-//
-//	        WebAclRuleStatementXssMatchStatementArgs{...}
-//
-//	or:
-//
-//	        nil
-type WebAclRuleStatementXssMatchStatementPtrInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementXssMatchStatementPtrOutput() WebAclRuleStatementXssMatchStatementPtrOutput
-	ToWebAclRuleStatementXssMatchStatementPtrOutputWithContext(context.Context) WebAclRuleStatementXssMatchStatementPtrOutput
-}
-
-type webAclRuleStatementXssMatchStatementPtrType WebAclRuleStatementXssMatchStatementArgs
-
-func WebAclRuleStatementXssMatchStatementPtr(v *WebAclRuleStatementXssMatchStatementArgs) WebAclRuleStatementXssMatchStatementPtrInput {
-	return (*webAclRuleStatementXssMatchStatementPtrType)(v)
-}
-
-func (*webAclRuleStatementXssMatchStatementPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementXssMatchStatement)(nil)).Elem()
-}
-
-func (i *webAclRuleStatementXssMatchStatementPtrType) ToWebAclRuleStatementXssMatchStatementPtrOutput() WebAclRuleStatementXssMatchStatementPtrOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementPtrOutputWithContext(context.Background())
-}
-
-func (i *webAclRuleStatementXssMatchStatementPtrType) ToWebAclRuleStatementXssMatchStatementPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementPtrOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementXssMatchStatementOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementXssMatchStatement)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementXssMatchStatementOutput) ToWebAclRuleStatementXssMatchStatementOutput() WebAclRuleStatementXssMatchStatementOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementOutput) ToWebAclRuleStatementXssMatchStatementOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementOutput) ToWebAclRuleStatementXssMatchStatementPtrOutput() WebAclRuleStatementXssMatchStatementPtrOutput {
-	return o.ToWebAclRuleStatementXssMatchStatementPtrOutputWithContext(context.Background())
-}
-
-func (o WebAclRuleStatementXssMatchStatementOutput) ToWebAclRuleStatementXssMatchStatementPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementXssMatchStatement) *WebAclRuleStatementXssMatchStatement {
-		return &v
-	}).(WebAclRuleStatementXssMatchStatementPtrOutput)
-}
-
-func (o WebAclRuleStatementXssMatchStatementOutput) FieldToMatch() WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput {
-	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatement) *WebAclRuleStatementXssMatchStatementFieldToMatch {
-		return v.FieldToMatch
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput)
-}
-
-func (o WebAclRuleStatementXssMatchStatementOutput) TextTransformations() WebAclRuleStatementXssMatchStatementTextTransformationArrayOutput {
-	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatement) []WebAclRuleStatementXssMatchStatementTextTransformation {
-		return v.TextTransformations
-	}).(WebAclRuleStatementXssMatchStatementTextTransformationArrayOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementPtrOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementXssMatchStatementPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementXssMatchStatement)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementXssMatchStatementPtrOutput) ToWebAclRuleStatementXssMatchStatementPtrOutput() WebAclRuleStatementXssMatchStatementPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementPtrOutput) ToWebAclRuleStatementXssMatchStatementPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementPtrOutput) Elem() WebAclRuleStatementXssMatchStatementOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatement) WebAclRuleStatementXssMatchStatement {
-		if v != nil {
-			return *v
-		}
-		var ret WebAclRuleStatementXssMatchStatement
-		return ret
-	}).(WebAclRuleStatementXssMatchStatementOutput)
-}
-
-func (o WebAclRuleStatementXssMatchStatementPtrOutput) FieldToMatch() WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatement) *WebAclRuleStatementXssMatchStatementFieldToMatch {
-		if v == nil {
-			return nil
-		}
-		return v.FieldToMatch
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput)
-}
-
-func (o WebAclRuleStatementXssMatchStatementPtrOutput) TextTransformations() WebAclRuleStatementXssMatchStatementTextTransformationArrayOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatement) []WebAclRuleStatementXssMatchStatementTextTransformation {
-		if v == nil {
-			return nil
-		}
-		return v.TextTransformations
-	}).(WebAclRuleStatementXssMatchStatementTextTransformationArrayOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatch struct {
-	// Inspect all query arguments.
-	AllQueryArguments *WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArguments `pulumi:"allQueryArguments"`
-	// Inspect the request body as plain text. See Body below.
-	Body *WebAclRuleStatementXssMatchStatementFieldToMatchBody `pulumi:"body"`
-	// Inspect the request cookies. See Cookies below.
-	Cookies *WebAclRuleStatementXssMatchStatementFieldToMatchCookies `pulumi:"cookies"`
-	// Inspect a string containing the list of the request's header names, ordered as they appear in the web request. See Header Order below.
-	HeaderOrders []WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrder `pulumi:"headerOrders"`
-	// Inspect the request headers. See Headers below.
-	Headers []WebAclRuleStatementXssMatchStatementFieldToMatchHeader `pulumi:"headers"`
-	// Match against the request's JA3 fingerprint (CloudFront and ALB only). See JA3 Fingerprint below.
-	Ja3Fingerprint *WebAclRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint `pulumi:"ja3Fingerprint"`
-	// Match against the request's JA4 fingerprint (CloudFront and ALB only). See JA4 Fingerprint below.
-	Ja4Fingerprint *WebAclRuleStatementXssMatchStatementFieldToMatchJa4Fingerprint `pulumi:"ja4Fingerprint"`
-	// Inspect the request body as JSON. See JSON Body below.
-	JsonBody *WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody `pulumi:"jsonBody"`
-	// Inspect the HTTP method.
-	Method *WebAclRuleStatementXssMatchStatementFieldToMatchMethod `pulumi:"method"`
-	// Inspect the query string.
-	QueryString *WebAclRuleStatementXssMatchStatementFieldToMatchQueryString `pulumi:"queryString"`
-	// Inspect a single header. See Single Header below.
-	SingleHeader *WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeader `pulumi:"singleHeader"`
-	// Inspect a single query argument. See Single Query Argument below.
-	SingleQueryArgument *WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument `pulumi:"singleQueryArgument"`
-	// Inspect fragments of the request URI. See URI Fragment below.
-	UriFragment *WebAclRuleStatementXssMatchStatementFieldToMatchUriFragment `pulumi:"uriFragment"`
-	// Inspect the request URI path.
-	UriPath *WebAclRuleStatementXssMatchStatementFieldToMatchUriPath `pulumi:"uriPath"`
-}
-
-// WebAclRuleStatementXssMatchStatementFieldToMatchInput is an input type that accepts WebAclRuleStatementXssMatchStatementFieldToMatchArgs and WebAclRuleStatementXssMatchStatementFieldToMatchOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementXssMatchStatementFieldToMatchInput` via:
-//
-//	WebAclRuleStatementXssMatchStatementFieldToMatchArgs{...}
-type WebAclRuleStatementXssMatchStatementFieldToMatchInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchOutput() WebAclRuleStatementXssMatchStatementFieldToMatchOutput
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchOutputWithContext(context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchOutput
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchArgs struct {
-	// Inspect all query arguments.
-	AllQueryArguments WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrInput `pulumi:"allQueryArguments"`
-	// Inspect the request body as plain text. See Body below.
-	Body WebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrInput `pulumi:"body"`
-	// Inspect the request cookies. See Cookies below.
-	Cookies WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrInput `pulumi:"cookies"`
-	// Inspect a string containing the list of the request's header names, ordered as they appear in the web request. See Header Order below.
-	HeaderOrders WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderArrayInput `pulumi:"headerOrders"`
-	// Inspect the request headers. See Headers below.
-	Headers WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArrayInput `pulumi:"headers"`
-	// Match against the request's JA3 fingerprint (CloudFront and ALB only). See JA3 Fingerprint below.
-	Ja3Fingerprint WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrInput `pulumi:"ja3Fingerprint"`
-	// Match against the request's JA4 fingerprint (CloudFront and ALB only). See JA4 Fingerprint below.
-	Ja4Fingerprint WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrInput `pulumi:"ja4Fingerprint"`
-	// Inspect the request body as JSON. See JSON Body below.
-	JsonBody WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrInput `pulumi:"jsonBody"`
-	// Inspect the HTTP method.
-	Method WebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrInput `pulumi:"method"`
-	// Inspect the query string.
-	QueryString WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrInput `pulumi:"queryString"`
-	// Inspect a single header. See Single Header below.
-	SingleHeader WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrInput `pulumi:"singleHeader"`
-	// Inspect a single query argument. See Single Query Argument below.
-	SingleQueryArgument WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrInput `pulumi:"singleQueryArgument"`
-	// Inspect fragments of the request URI. See URI Fragment below.
-	UriFragment WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrInput `pulumi:"uriFragment"`
-	// Inspect the request URI path.
-	UriPath WebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrInput `pulumi:"uriPath"`
-}
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatch)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchOutput() WebAclRuleStatementXssMatchStatementFieldToMatchOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchOutput)
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchPtrOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchOutput).ToWebAclRuleStatementXssMatchStatementFieldToMatchPtrOutputWithContext(ctx)
-}
-
-// WebAclRuleStatementXssMatchStatementFieldToMatchPtrInput is an input type that accepts WebAclRuleStatementXssMatchStatementFieldToMatchArgs, WebAclRuleStatementXssMatchStatementFieldToMatchPtr and WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementXssMatchStatementFieldToMatchPtrInput` via:
-//
-//	        WebAclRuleStatementXssMatchStatementFieldToMatchArgs{...}
-//
-//	or:
-//
-//	        nil
-type WebAclRuleStatementXssMatchStatementFieldToMatchPtrInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchPtrOutputWithContext(context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput
-}
-
-type webAclRuleStatementXssMatchStatementFieldToMatchPtrType WebAclRuleStatementXssMatchStatementFieldToMatchArgs
-
-func WebAclRuleStatementXssMatchStatementFieldToMatchPtr(v *WebAclRuleStatementXssMatchStatementFieldToMatchArgs) WebAclRuleStatementXssMatchStatementFieldToMatchPtrInput {
-	return (*webAclRuleStatementXssMatchStatementFieldToMatchPtrType)(v)
-}
-
-func (*webAclRuleStatementXssMatchStatementFieldToMatchPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementXssMatchStatementFieldToMatch)(nil)).Elem()
-}
-
-func (i *webAclRuleStatementXssMatchStatementFieldToMatchPtrType) ToWebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchPtrOutputWithContext(context.Background())
-}
-
-func (i *webAclRuleStatementXssMatchStatementFieldToMatchPtrType) ToWebAclRuleStatementXssMatchStatementFieldToMatchPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatch)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchOutput() WebAclRuleStatementXssMatchStatementFieldToMatchOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput {
-	return o.ToWebAclRuleStatementXssMatchStatementFieldToMatchPtrOutputWithContext(context.Background())
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementXssMatchStatementFieldToMatch {
-		return &v
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput)
-}
-
-// Inspect all query arguments.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchOutput) AllQueryArguments() WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrOutput {
-	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArguments {
-		return v.AllQueryArguments
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrOutput)
-}
-
-// Inspect the request body as plain text. See Body below.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchOutput) Body() WebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrOutput {
-	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementXssMatchStatementFieldToMatchBody {
-		return v.Body
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrOutput)
-}
-
-// Inspect the request cookies. See Cookies below.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchOutput) Cookies() WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput {
-	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementXssMatchStatementFieldToMatchCookies {
-		return v.Cookies
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput)
-}
-
-// Inspect a string containing the list of the request's header names, ordered as they appear in the web request. See Header Order below.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchOutput) HeaderOrders() WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderArrayOutput {
-	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatch) []WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrder {
-		return v.HeaderOrders
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderArrayOutput)
-}
-
-// Inspect the request headers. See Headers below.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchOutput) Headers() WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArrayOutput {
-	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatch) []WebAclRuleStatementXssMatchStatementFieldToMatchHeader {
-		return v.Headers
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArrayOutput)
-}
-
-// Match against the request's JA3 fingerprint (CloudFront and ALB only). See JA3 Fingerprint below.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchOutput) Ja3Fingerprint() WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrOutput {
-	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint {
-		return v.Ja3Fingerprint
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrOutput)
-}
-
-// Match against the request's JA4 fingerprint (CloudFront and ALB only). See JA4 Fingerprint below.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchOutput) Ja4Fingerprint() WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrOutput {
-	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementXssMatchStatementFieldToMatchJa4Fingerprint {
-		return v.Ja4Fingerprint
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrOutput)
-}
-
-// Inspect the request body as JSON. See JSON Body below.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchOutput) JsonBody() WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput {
-	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody {
-		return v.JsonBody
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput)
-}
-
-// Inspect the HTTP method.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchOutput) Method() WebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrOutput {
-	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementXssMatchStatementFieldToMatchMethod {
-		return v.Method
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrOutput)
-}
-
-// Inspect the query string.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchOutput) QueryString() WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrOutput {
-	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementXssMatchStatementFieldToMatchQueryString {
-		return v.QueryString
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrOutput)
-}
-
-// Inspect a single header. See Single Header below.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchOutput) SingleHeader() WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput {
-	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeader {
-		return v.SingleHeader
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput)
-}
-
-// Inspect a single query argument. See Single Query Argument below.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchOutput) SingleQueryArgument() WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput {
-	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument {
-		return v.SingleQueryArgument
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput)
-}
-
-// Inspect fragments of the request URI. See URI Fragment below.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchOutput) UriFragment() WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrOutput {
-	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementXssMatchStatementFieldToMatchUriFragment {
-		return v.UriFragment
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrOutput)
-}
-
-// Inspect the request URI path.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchOutput) UriPath() WebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrOutput {
-	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementXssMatchStatementFieldToMatchUriPath {
-		return v.UriPath
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementXssMatchStatementFieldToMatch)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput) Elem() WebAclRuleStatementXssMatchStatementFieldToMatchOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatch) WebAclRuleStatementXssMatchStatementFieldToMatch {
-		if v != nil {
-			return *v
-		}
-		var ret WebAclRuleStatementXssMatchStatementFieldToMatch
-		return ret
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchOutput)
-}
-
-// Inspect all query arguments.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput) AllQueryArguments() WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArguments {
-		if v == nil {
-			return nil
-		}
-		return v.AllQueryArguments
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrOutput)
-}
-
-// Inspect the request body as plain text. See Body below.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput) Body() WebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementXssMatchStatementFieldToMatchBody {
-		if v == nil {
-			return nil
-		}
-		return v.Body
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrOutput)
-}
-
-// Inspect the request cookies. See Cookies below.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput) Cookies() WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementXssMatchStatementFieldToMatchCookies {
-		if v == nil {
-			return nil
-		}
-		return v.Cookies
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput)
-}
-
-// Inspect a string containing the list of the request's header names, ordered as they appear in the web request. See Header Order below.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput) HeaderOrders() WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderArrayOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatch) []WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrder {
-		if v == nil {
-			return nil
-		}
-		return v.HeaderOrders
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderArrayOutput)
-}
-
-// Inspect the request headers. See Headers below.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput) Headers() WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArrayOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatch) []WebAclRuleStatementXssMatchStatementFieldToMatchHeader {
-		if v == nil {
-			return nil
-		}
-		return v.Headers
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArrayOutput)
-}
-
-// Match against the request's JA3 fingerprint (CloudFront and ALB only). See JA3 Fingerprint below.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput) Ja3Fingerprint() WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint {
-		if v == nil {
-			return nil
-		}
-		return v.Ja3Fingerprint
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrOutput)
-}
-
-// Match against the request's JA4 fingerprint (CloudFront and ALB only). See JA4 Fingerprint below.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput) Ja4Fingerprint() WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementXssMatchStatementFieldToMatchJa4Fingerprint {
-		if v == nil {
-			return nil
-		}
-		return v.Ja4Fingerprint
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrOutput)
-}
-
-// Inspect the request body as JSON. See JSON Body below.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput) JsonBody() WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody {
-		if v == nil {
-			return nil
-		}
-		return v.JsonBody
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput)
-}
-
-// Inspect the HTTP method.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput) Method() WebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementXssMatchStatementFieldToMatchMethod {
-		if v == nil {
-			return nil
-		}
-		return v.Method
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrOutput)
-}
-
-// Inspect the query string.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput) QueryString() WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementXssMatchStatementFieldToMatchQueryString {
-		if v == nil {
-			return nil
-		}
-		return v.QueryString
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrOutput)
-}
-
-// Inspect a single header. See Single Header below.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput) SingleHeader() WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeader {
-		if v == nil {
-			return nil
-		}
-		return v.SingleHeader
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput)
-}
-
-// Inspect a single query argument. See Single Query Argument below.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput) SingleQueryArgument() WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument {
-		if v == nil {
-			return nil
-		}
-		return v.SingleQueryArgument
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput)
-}
-
-// Inspect fragments of the request URI. See URI Fragment below.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput) UriFragment() WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementXssMatchStatementFieldToMatchUriFragment {
-		if v == nil {
-			return nil
-		}
-		return v.UriFragment
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrOutput)
-}
-
-// Inspect the request URI path.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput) UriPath() WebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatch) *WebAclRuleStatementXssMatchStatementFieldToMatchUriPath {
-		if v == nil {
-			return nil
-		}
-		return v.UriPath
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArguments struct {
-}
-
-// WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsInput is an input type that accepts WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsArgs and WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsInput` via:
-//
-//	WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsArgs{...}
-type WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsOutput() WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsOutput
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsOutputWithContext(context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsOutput
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsArgs struct {
-}
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArguments)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsOutput() WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsOutput)
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsOutput).ToWebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrOutputWithContext(ctx)
-}
-
-// WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrInput is an input type that accepts WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsArgs, WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtr and WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrInput` via:
-//
-//	        WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsArgs{...}
-//
-//	or:
-//
-//	        nil
-type WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrOutput
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrOutputWithContext(context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrOutput
-}
-
-type webAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrType WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsArgs
-
-func WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtr(v *WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsArgs) WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrInput {
-	return (*webAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrType)(v)
-}
-
-func (*webAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArguments)(nil)).Elem()
-}
-
-func (i *webAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrType) ToWebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrOutputWithContext(context.Background())
-}
-
-func (i *webAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrType) ToWebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArguments)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsOutput() WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrOutput {
-	return o.ToWebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrOutputWithContext(context.Background())
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArguments) *WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArguments {
-		return &v
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArguments)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrOutput) Elem() WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArguments) WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArguments {
-		if v != nil {
-			return *v
-		}
-		var ret WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArguments
-		return ret
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchBody struct {
-	// How to handle requests with a body larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`. Defaults to `CONTINUE`.
-	OversizeHandling *string `pulumi:"oversizeHandling"`
-}
-
-// WebAclRuleStatementXssMatchStatementFieldToMatchBodyInput is an input type that accepts WebAclRuleStatementXssMatchStatementFieldToMatchBodyArgs and WebAclRuleStatementXssMatchStatementFieldToMatchBodyOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementXssMatchStatementFieldToMatchBodyInput` via:
-//
-//	WebAclRuleStatementXssMatchStatementFieldToMatchBodyArgs{...}
-type WebAclRuleStatementXssMatchStatementFieldToMatchBodyInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchBodyOutput() WebAclRuleStatementXssMatchStatementFieldToMatchBodyOutput
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchBodyOutputWithContext(context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchBodyOutput
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchBodyArgs struct {
-	// How to handle requests with a body larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`. Defaults to `CONTINUE`.
-	OversizeHandling pulumi.StringPtrInput `pulumi:"oversizeHandling"`
-}
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchBodyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchBody)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchBodyArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchBodyOutput() WebAclRuleStatementXssMatchStatementFieldToMatchBodyOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchBodyOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchBodyArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchBodyOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchBodyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchBodyOutput)
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchBodyArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchBodyArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchBodyOutput).ToWebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrOutputWithContext(ctx)
-}
-
-// WebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrInput is an input type that accepts WebAclRuleStatementXssMatchStatementFieldToMatchBodyArgs, WebAclRuleStatementXssMatchStatementFieldToMatchBodyPtr and WebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrInput` via:
-//
-//	        WebAclRuleStatementXssMatchStatementFieldToMatchBodyArgs{...}
-//
-//	or:
-//
-//	        nil
-type WebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrOutput
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrOutputWithContext(context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrOutput
-}
-
-type webAclRuleStatementXssMatchStatementFieldToMatchBodyPtrType WebAclRuleStatementXssMatchStatementFieldToMatchBodyArgs
-
-func WebAclRuleStatementXssMatchStatementFieldToMatchBodyPtr(v *WebAclRuleStatementXssMatchStatementFieldToMatchBodyArgs) WebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrInput {
-	return (*webAclRuleStatementXssMatchStatementFieldToMatchBodyPtrType)(v)
-}
-
-func (*webAclRuleStatementXssMatchStatementFieldToMatchBodyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementXssMatchStatementFieldToMatchBody)(nil)).Elem()
-}
-
-func (i *webAclRuleStatementXssMatchStatementFieldToMatchBodyPtrType) ToWebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrOutputWithContext(context.Background())
-}
-
-func (i *webAclRuleStatementXssMatchStatementFieldToMatchBodyPtrType) ToWebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchBodyOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchBodyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchBody)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchBodyOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchBodyOutput() WebAclRuleStatementXssMatchStatementFieldToMatchBodyOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchBodyOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchBodyOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchBodyOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchBodyOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrOutput {
-	return o.ToWebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrOutputWithContext(context.Background())
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchBodyOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementXssMatchStatementFieldToMatchBody) *WebAclRuleStatementXssMatchStatementFieldToMatchBody {
-		return &v
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrOutput)
-}
-
-// How to handle requests with a body larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`. Defaults to `CONTINUE`.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchBodyOutput) OversizeHandling() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatchBody) *string { return v.OversizeHandling }).(pulumi.StringPtrOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementXssMatchStatementFieldToMatchBody)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrOutput) Elem() WebAclRuleStatementXssMatchStatementFieldToMatchBodyOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatchBody) WebAclRuleStatementXssMatchStatementFieldToMatchBody {
-		if v != nil {
-			return *v
-		}
-		var ret WebAclRuleStatementXssMatchStatementFieldToMatchBody
-		return ret
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchBodyOutput)
-}
-
-// How to handle requests with a body larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`. Defaults to `CONTINUE`.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrOutput) OversizeHandling() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatchBody) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OversizeHandling
-	}).(pulumi.StringPtrOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchCookies struct {
-	// Cookies to inspect. See Cookies Match Pattern below.
-	MatchPatterns []WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern `pulumi:"matchPatterns"`
-	// Parts of the cookies to inspect. Valid values: `ALL`, `KEY`, `VALUE`.
-	MatchScope string `pulumi:"matchScope"`
-	// How to handle requests with cookies larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
-	OversizeHandling string `pulumi:"oversizeHandling"`
-}
-
-// WebAclRuleStatementXssMatchStatementFieldToMatchCookiesInput is an input type that accepts WebAclRuleStatementXssMatchStatementFieldToMatchCookiesArgs and WebAclRuleStatementXssMatchStatementFieldToMatchCookiesOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementXssMatchStatementFieldToMatchCookiesInput` via:
-//
-//	WebAclRuleStatementXssMatchStatementFieldToMatchCookiesArgs{...}
-type WebAclRuleStatementXssMatchStatementFieldToMatchCookiesInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesOutput() WebAclRuleStatementXssMatchStatementFieldToMatchCookiesOutput
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesOutputWithContext(context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchCookiesOutput
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchCookiesArgs struct {
-	// Cookies to inspect. See Cookies Match Pattern below.
-	MatchPatterns WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayInput `pulumi:"matchPatterns"`
-	// Parts of the cookies to inspect. Valid values: `ALL`, `KEY`, `VALUE`.
-	MatchScope pulumi.StringInput `pulumi:"matchScope"`
-	// How to handle requests with cookies larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
-	OversizeHandling pulumi.StringInput `pulumi:"oversizeHandling"`
-}
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchCookiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchCookies)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchCookiesArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesOutput() WebAclRuleStatementXssMatchStatementFieldToMatchCookiesOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchCookiesArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchCookiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchCookiesOutput)
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchCookiesArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchCookiesArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchCookiesOutput).ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutputWithContext(ctx)
-}
-
-// WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrInput is an input type that accepts WebAclRuleStatementXssMatchStatementFieldToMatchCookiesArgs, WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtr and WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrInput` via:
-//
-//	        WebAclRuleStatementXssMatchStatementFieldToMatchCookiesArgs{...}
-//
-//	or:
-//
-//	        nil
-type WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutputWithContext(context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput
-}
-
-type webAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrType WebAclRuleStatementXssMatchStatementFieldToMatchCookiesArgs
-
-func WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtr(v *WebAclRuleStatementXssMatchStatementFieldToMatchCookiesArgs) WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrInput {
-	return (*webAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrType)(v)
-}
-
-func (*webAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementXssMatchStatementFieldToMatchCookies)(nil)).Elem()
-}
-
-func (i *webAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrType) ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutputWithContext(context.Background())
-}
-
-func (i *webAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrType) ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchCookiesOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchCookiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchCookies)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchCookiesOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesOutput() WebAclRuleStatementXssMatchStatementFieldToMatchCookiesOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchCookiesOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchCookiesOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchCookiesOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput {
-	return o.ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutputWithContext(context.Background())
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchCookiesOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementXssMatchStatementFieldToMatchCookies) *WebAclRuleStatementXssMatchStatementFieldToMatchCookies {
-		return &v
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput)
-}
-
-// Cookies to inspect. See Cookies Match Pattern below.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchCookiesOutput) MatchPatterns() WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayOutput {
-	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatchCookies) []WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern {
-		return v.MatchPatterns
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayOutput)
-}
-
-// Parts of the cookies to inspect. Valid values: `ALL`, `KEY`, `VALUE`.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchCookiesOutput) MatchScope() pulumi.StringOutput {
-	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatchCookies) string { return v.MatchScope }).(pulumi.StringOutput)
-}
-
-// How to handle requests with cookies larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchCookiesOutput) OversizeHandling() pulumi.StringOutput {
-	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatchCookies) string { return v.OversizeHandling }).(pulumi.StringOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementXssMatchStatementFieldToMatchCookies)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput) Elem() WebAclRuleStatementXssMatchStatementFieldToMatchCookiesOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatchCookies) WebAclRuleStatementXssMatchStatementFieldToMatchCookies {
-		if v != nil {
-			return *v
-		}
-		var ret WebAclRuleStatementXssMatchStatementFieldToMatchCookies
-		return ret
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchCookiesOutput)
-}
-
-// Cookies to inspect. See Cookies Match Pattern below.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput) MatchPatterns() WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatchCookies) []WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern {
-		if v == nil {
-			return nil
-		}
-		return v.MatchPatterns
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayOutput)
-}
-
-// Parts of the cookies to inspect. Valid values: `ALL`, `KEY`, `VALUE`.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput) MatchScope() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatchCookies) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.MatchScope
-	}).(pulumi.StringPtrOutput)
-}
-
-// How to handle requests with cookies larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput) OversizeHandling() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatchCookies) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.OversizeHandling
-	}).(pulumi.StringPtrOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern struct {
-	All *WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll `pulumi:"all"`
-	// List of cookie names to exclude from inspection.
-	ExcludedCookies []string `pulumi:"excludedCookies"`
-	// List of cookie names to inspect.
-	IncludedCookies []string `pulumi:"includedCookies"`
-}
-
-// WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternInput is an input type that accepts WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArgs and WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternInput` via:
-//
-//	WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArgs{...}
-type WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternOutput() WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternOutput
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternOutputWithContext(context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternOutput
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArgs struct {
-	All WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrInput `pulumi:"all"`
-	// List of cookie names to exclude from inspection.
-	ExcludedCookies pulumi.StringArrayInput `pulumi:"excludedCookies"`
-	// List of cookie names to inspect.
-	IncludedCookies pulumi.StringArrayInput `pulumi:"includedCookies"`
-}
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternOutput() WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternOutput)
-}
-
-// WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayInput is an input type that accepts WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArray and WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayInput` via:
-//
-//	WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArray{ WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArgs{...} }
-type WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayOutput() WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayOutput
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayOutputWithContext(context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayOutput
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArray []WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternInput
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArray) ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayOutput() WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArray) ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternOutput() WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternOutput) All() WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrOutput {
-	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern) *WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll {
-		return v.All
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrOutput)
-}
-
-// List of cookie names to exclude from inspection.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternOutput) ExcludedCookies() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern) []string {
-		return v.ExcludedCookies
-	}).(pulumi.StringArrayOutput)
-}
-
-// List of cookie names to inspect.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternOutput) IncludedCookies() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern) []string {
-		return v.IncludedCookies
-	}).(pulumi.StringArrayOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayOutput() WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayOutput) Index(i pulumi.IntInput) WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern {
-		return vs[0].([]WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern)[vs[1].(int)]
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll struct {
-}
-
-// WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllInput is an input type that accepts WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs and WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllInput` via:
-//
-//	WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs{...}
-type WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllOutput() WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllOutput
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllOutputWithContext(context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllOutput
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs struct {
-}
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllOutput() WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllOutput)
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllOutput).ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrOutputWithContext(ctx)
-}
-
-// WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrInput is an input type that accepts WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs, WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtr and WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrInput` via:
-//
-//	        WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs{...}
-//
-//	or:
-//
-//	        nil
-type WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrOutput
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrOutputWithContext(context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrOutput
-}
-
-type webAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrType WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs
-
-func WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtr(v *WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs) WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrInput {
-	return (*webAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrType)(v)
-}
-
-func (*webAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll)(nil)).Elem()
-}
-
-func (i *webAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrType) ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrOutputWithContext(context.Background())
-}
-
-func (i *webAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrType) ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllOutput() WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrOutput {
-	return o.ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrOutputWithContext(context.Background())
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll) *WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll {
-		return &v
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrOutput) Elem() WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll) WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll {
-		if v != nil {
-			return *v
-		}
-		var ret WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll
-		return ret
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchHeader struct {
-	// Headers to inspect. See Headers Match Pattern below.
-	MatchPattern *WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern `pulumi:"matchPattern"`
-	// Parts of the headers to inspect. Valid values: `ALL`, `KEY`, `VALUE`.
-	MatchScope string `pulumi:"matchScope"`
-	// How to handle requests with headers larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
-	OversizeHandling string `pulumi:"oversizeHandling"`
-}
-
-// WebAclRuleStatementXssMatchStatementFieldToMatchHeaderInput is an input type that accepts WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArgs and WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementXssMatchStatementFieldToMatchHeaderInput` via:
-//
-//	WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArgs{...}
-type WebAclRuleStatementXssMatchStatementFieldToMatchHeaderInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderOutput() WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOutput
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderOutputWithContext(context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOutput
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArgs struct {
-	// Headers to inspect. See Headers Match Pattern below.
-	MatchPattern WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrInput `pulumi:"matchPattern"`
-	// Parts of the headers to inspect. Valid values: `ALL`, `KEY`, `VALUE`.
-	MatchScope pulumi.StringInput `pulumi:"matchScope"`
-	// How to handle requests with headers larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
-	OversizeHandling pulumi.StringInput `pulumi:"oversizeHandling"`
-}
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchHeader)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderOutput() WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOutput)
-}
-
-// WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArrayInput is an input type that accepts WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArray and WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArrayOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArrayInput` via:
-//
-//	WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArray{ WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArgs{...} }
-type WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArrayInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderArrayOutput() WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArrayOutput
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderArrayOutputWithContext(context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArrayOutput
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArray []WebAclRuleStatementXssMatchStatementFieldToMatchHeaderInput
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WebAclRuleStatementXssMatchStatementFieldToMatchHeader)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArray) ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderArrayOutput() WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArrayOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderArrayOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArray) ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderArrayOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArrayOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchHeader)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderOutput() WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOutput {
-	return o
-}
-
-// Headers to inspect. See Headers Match Pattern below.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOutput) MatchPattern() WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrOutput {
-	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatchHeader) *WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern {
-		return v.MatchPattern
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrOutput)
-}
-
-// Parts of the headers to inspect. Valid values: `ALL`, `KEY`, `VALUE`.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOutput) MatchScope() pulumi.StringOutput {
-	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatchHeader) string { return v.MatchScope }).(pulumi.StringOutput)
-}
-
-// How to handle requests with headers larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOutput) OversizeHandling() pulumi.StringOutput {
-	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatchHeader) string { return v.OversizeHandling }).(pulumi.StringOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArrayOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WebAclRuleStatementXssMatchStatementFieldToMatchHeader)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArrayOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderArrayOutput() WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArrayOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArrayOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderArrayOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArrayOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArrayOutput) Index(i pulumi.IntInput) WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebAclRuleStatementXssMatchStatementFieldToMatchHeader {
-		return vs[0].([]WebAclRuleStatementXssMatchStatementFieldToMatchHeader)[vs[1].(int)]
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern struct {
-	All *WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll `pulumi:"all"`
-	// List of header names to exclude from inspection.
-	ExcludedHeaders []string `pulumi:"excludedHeaders"`
-	// List of header names to inspect.
-	IncludedHeaders []string `pulumi:"includedHeaders"`
-}
-
-// WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternInput is an input type that accepts WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternArgs and WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternInput` via:
-//
-//	WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternArgs{...}
-type WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutput() WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutput
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutputWithContext(context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutput
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternArgs struct {
-	All WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrInput `pulumi:"all"`
-	// List of header names to exclude from inspection.
-	ExcludedHeaders pulumi.StringArrayInput `pulumi:"excludedHeaders"`
-	// List of header names to inspect.
-	IncludedHeaders pulumi.StringArrayInput `pulumi:"includedHeaders"`
-}
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutput() WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutput)
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutput).ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrOutputWithContext(ctx)
-}
-
-// WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrInput is an input type that accepts WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternArgs, WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtr and WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrInput` via:
-//
-//	        WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternArgs{...}
-//
-//	or:
-//
-//	        nil
-type WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrOutput
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrOutputWithContext(context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrOutput
-}
-
-type webAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrType WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternArgs
-
-func WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtr(v *WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternArgs) WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrInput {
-	return (*webAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrType)(v)
-}
-
-func (*webAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern)(nil)).Elem()
-}
-
-func (i *webAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrType) ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrOutputWithContext(context.Background())
-}
-
-func (i *webAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrType) ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutput() WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrOutput {
-	return o.ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrOutputWithContext(context.Background())
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern) *WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern {
-		return &v
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrOutput)
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutput) All() WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput {
-	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern) *WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll {
-		return v.All
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput)
-}
-
-// List of header names to exclude from inspection.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutput) ExcludedHeaders() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern) []string {
-		return v.ExcludedHeaders
-	}).(pulumi.StringArrayOutput)
-}
-
-// List of header names to inspect.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutput) IncludedHeaders() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern) []string {
-		return v.IncludedHeaders
-	}).(pulumi.StringArrayOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrOutput) Elem() WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern) WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern {
-		if v != nil {
-			return *v
-		}
-		var ret WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern
-		return ret
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutput)
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrOutput) All() WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern) *WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll {
-		if v == nil {
-			return nil
-		}
-		return v.All
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput)
-}
-
-// List of header names to exclude from inspection.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrOutput) ExcludedHeaders() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern) []string {
-		if v == nil {
-			return nil
-		}
-		return v.ExcludedHeaders
-	}).(pulumi.StringArrayOutput)
-}
-
-// List of header names to inspect.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrOutput) IncludedHeaders() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern) []string {
-		if v == nil {
-			return nil
-		}
-		return v.IncludedHeaders
-	}).(pulumi.StringArrayOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll struct {
-}
-
-// WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllInput is an input type that accepts WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllArgs and WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllInput` via:
-//
-//	WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllArgs{...}
-type WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllOutput() WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllOutput
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllOutputWithContext(context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllOutput
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllArgs struct {
-}
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllOutput() WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllOutput)
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllOutput).ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutputWithContext(ctx)
-}
-
-// WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrInput is an input type that accepts WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllArgs, WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtr and WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrInput` via:
-//
-//	        WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllArgs{...}
-//
-//	or:
-//
-//	        nil
-type WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutputWithContext(context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput
-}
-
-type webAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrType WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllArgs
-
-func WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtr(v *WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllArgs) WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrInput {
-	return (*webAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrType)(v)
-}
-
-func (*webAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll)(nil)).Elem()
-}
-
-func (i *webAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrType) ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutputWithContext(context.Background())
-}
-
-func (i *webAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrType) ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllOutput() WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput {
-	return o.ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutputWithContext(context.Background())
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll) *WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll {
-		return &v
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput) Elem() WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll) WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll {
-		if v != nil {
-			return *v
-		}
-		var ret WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll
-		return ret
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrder struct {
-	// How to handle requests with headers larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
-	OversizeHandling string `pulumi:"oversizeHandling"`
-}
-
-// WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderInput is an input type that accepts WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderArgs and WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderInput` via:
-//
-//	WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderArgs{...}
-type WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderOutput() WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderOutput
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderOutputWithContext(context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderOutput
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderArgs struct {
-	// How to handle requests with headers larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
-	OversizeHandling pulumi.StringInput `pulumi:"oversizeHandling"`
-}
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrder)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderOutput() WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderOutput)
-}
-
-// WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderArrayInput is an input type that accepts WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderArray and WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderArrayOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderArrayInput` via:
-//
-//	WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderArray{ WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderArgs{...} }
-type WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderArrayInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderArrayOutput() WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderArrayOutput
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderArrayOutputWithContext(context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderArrayOutput
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderArray []WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderInput
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrder)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderArray) ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderArrayOutput() WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderArrayOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderArrayOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderArray) ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderArrayOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderArrayOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrder)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderOutput() WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderOutput {
-	return o
-}
-
-// How to handle requests with headers larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderOutput) OversizeHandling() pulumi.StringOutput {
-	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrder) string { return v.OversizeHandling }).(pulumi.StringOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderArrayOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrder)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderArrayOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderArrayOutput() WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderArrayOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderArrayOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderArrayOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderArrayOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderArrayOutput) Index(i pulumi.IntInput) WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrder {
-		return vs[0].([]WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrder)[vs[1].(int)]
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint struct {
-	// Action to take if WAF cannot calculate the fingerprint. Valid values: `MATCH`, `NO_MATCH`.
-	FallbackBehavior string `pulumi:"fallbackBehavior"`
-}
-
-// WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintInput is an input type that accepts WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintArgs and WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintInput` via:
-//
-//	WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintArgs{...}
-type WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintOutput() WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintOutput
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintOutputWithContext(context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintOutput
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintArgs struct {
-	// Action to take if WAF cannot calculate the fingerprint. Valid values: `MATCH`, `NO_MATCH`.
-	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
-}
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintOutput() WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintOutput)
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintOutput).ToWebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrOutputWithContext(ctx)
-}
-
-// WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrInput is an input type that accepts WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintArgs, WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtr and WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrInput` via:
-//
-//	        WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintArgs{...}
-//
-//	or:
-//
-//	        nil
-type WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrOutput
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrOutputWithContext(context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrOutput
-}
-
-type webAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrType WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintArgs
-
-func WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtr(v *WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintArgs) WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrInput {
-	return (*webAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrType)(v)
-}
-
-func (*webAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint)(nil)).Elem()
-}
-
-func (i *webAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrType) ToWebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrOutputWithContext(context.Background())
-}
-
-func (i *webAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrType) ToWebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintOutput() WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrOutput {
-	return o.ToWebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrOutputWithContext(context.Background())
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint) *WebAclRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint {
-		return &v
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrOutput)
-}
-
-// Action to take if WAF cannot calculate the fingerprint. Valid values: `MATCH`, `NO_MATCH`.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintOutput) FallbackBehavior() pulumi.StringOutput {
-	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint) string {
-		return v.FallbackBehavior
-	}).(pulumi.StringOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrOutput) Elem() WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint) WebAclRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint {
-		if v != nil {
-			return *v
-		}
-		var ret WebAclRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint
-		return ret
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintOutput)
-}
-
-// Action to take if WAF cannot calculate the fingerprint. Valid values: `MATCH`, `NO_MATCH`.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.FallbackBehavior
-	}).(pulumi.StringPtrOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchJa4Fingerprint struct {
-	// Action to take if WAF cannot calculate the fingerprint. Valid values: `MATCH`, `NO_MATCH`.
-	FallbackBehavior string `pulumi:"fallbackBehavior"`
-}
-
-// WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintInput is an input type that accepts WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintArgs and WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintInput` via:
-//
-//	WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintArgs{...}
-type WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintOutput() WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintOutput
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintOutputWithContext(context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintOutput
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintArgs struct {
-	// Action to take if WAF cannot calculate the fingerprint. Valid values: `MATCH`, `NO_MATCH`.
-	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
-}
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchJa4Fingerprint)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintOutput() WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintOutput)
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintOutput).ToWebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrOutputWithContext(ctx)
-}
-
-// WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrInput is an input type that accepts WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintArgs, WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtr and WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrInput` via:
-//
-//	        WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintArgs{...}
-//
-//	or:
-//
-//	        nil
-type WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrOutput
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrOutputWithContext(context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrOutput
-}
-
-type webAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrType WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintArgs
-
-func WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtr(v *WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintArgs) WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrInput {
-	return (*webAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrType)(v)
-}
-
-func (*webAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementXssMatchStatementFieldToMatchJa4Fingerprint)(nil)).Elem()
-}
-
-func (i *webAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrType) ToWebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrOutputWithContext(context.Background())
-}
-
-func (i *webAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrType) ToWebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchJa4Fingerprint)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintOutput() WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrOutput {
-	return o.ToWebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrOutputWithContext(context.Background())
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementXssMatchStatementFieldToMatchJa4Fingerprint) *WebAclRuleStatementXssMatchStatementFieldToMatchJa4Fingerprint {
-		return &v
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrOutput)
-}
-
-// Action to take if WAF cannot calculate the fingerprint. Valid values: `MATCH`, `NO_MATCH`.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintOutput) FallbackBehavior() pulumi.StringOutput {
-	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatchJa4Fingerprint) string {
-		return v.FallbackBehavior
-	}).(pulumi.StringOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementXssMatchStatementFieldToMatchJa4Fingerprint)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrOutput) Elem() WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatchJa4Fingerprint) WebAclRuleStatementXssMatchStatementFieldToMatchJa4Fingerprint {
-		if v != nil {
-			return *v
-		}
-		var ret WebAclRuleStatementXssMatchStatementFieldToMatchJa4Fingerprint
-		return ret
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintOutput)
-}
-
-// Action to take if WAF cannot calculate the fingerprint. Valid values: `MATCH`, `NO_MATCH`.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatchJa4Fingerprint) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.FallbackBehavior
-	}).(pulumi.StringPtrOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody struct {
-	// How to handle requests with invalid JSON body. Valid values: `EVALUATE_AS_STRING`, `MATCH`, `NO_MATCH`.
-	InvalidFallbackBehavior *string `pulumi:"invalidFallbackBehavior"`
-	// JSON content to inspect. See JSON Body Match Pattern below.
-	MatchPattern *WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern `pulumi:"matchPattern"`
-	// Parts of the JSON to inspect. Valid values: `ALL`, `KEY`, `VALUE`.
-	MatchScope string `pulumi:"matchScope"`
-	// How to handle requests with a body larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`. Defaults to `CONTINUE`.
-	OversizeHandling *string `pulumi:"oversizeHandling"`
-}
-
-// WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyInput is an input type that accepts WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyArgs and WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyInput` via:
-//
-//	WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyArgs{...}
-type WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyOutput() WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyOutput
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyOutputWithContext(context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyOutput
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyArgs struct {
-	// How to handle requests with invalid JSON body. Valid values: `EVALUATE_AS_STRING`, `MATCH`, `NO_MATCH`.
-	InvalidFallbackBehavior pulumi.StringPtrInput `pulumi:"invalidFallbackBehavior"`
-	// JSON content to inspect. See JSON Body Match Pattern below.
-	MatchPattern WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrInput `pulumi:"matchPattern"`
-	// Parts of the JSON to inspect. Valid values: `ALL`, `KEY`, `VALUE`.
-	MatchScope pulumi.StringInput `pulumi:"matchScope"`
-	// How to handle requests with a body larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`. Defaults to `CONTINUE`.
-	OversizeHandling pulumi.StringPtrInput `pulumi:"oversizeHandling"`
-}
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyOutput() WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyOutput)
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyOutput).ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutputWithContext(ctx)
-}
-
-// WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrInput is an input type that accepts WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyArgs, WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtr and WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrInput` via:
-//
-//	        WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyArgs{...}
-//
-//	or:
-//
-//	        nil
-type WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutputWithContext(context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput
-}
-
-type webAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrType WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyArgs
-
-func WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtr(v *WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyArgs) WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrInput {
-	return (*webAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrType)(v)
-}
-
-func (*webAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody)(nil)).Elem()
-}
-
-func (i *webAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrType) ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutputWithContext(context.Background())
-}
-
-func (i *webAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrType) ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyOutput() WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput {
-	return o.ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutputWithContext(context.Background())
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody) *WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody {
-		return &v
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput)
-}
-
-// How to handle requests with invalid JSON body. Valid values: `EVALUATE_AS_STRING`, `MATCH`, `NO_MATCH`.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyOutput) InvalidFallbackBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody) *string {
-		return v.InvalidFallbackBehavior
-	}).(pulumi.StringPtrOutput)
-}
-
-// JSON content to inspect. See JSON Body Match Pattern below.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyOutput) MatchPattern() WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
-	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody) *WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern {
-		return v.MatchPattern
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
-}
-
-// Parts of the JSON to inspect. Valid values: `ALL`, `KEY`, `VALUE`.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyOutput) MatchScope() pulumi.StringOutput {
-	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody) string { return v.MatchScope }).(pulumi.StringOutput)
-}
-
-// How to handle requests with a body larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`. Defaults to `CONTINUE`.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyOutput) OversizeHandling() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody) *string { return v.OversizeHandling }).(pulumi.StringPtrOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput) Elem() WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody) WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody {
-		if v != nil {
-			return *v
-		}
-		var ret WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody
-		return ret
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyOutput)
-}
-
-// How to handle requests with invalid JSON body. Valid values: `EVALUATE_AS_STRING`, `MATCH`, `NO_MATCH`.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput) InvalidFallbackBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody) *string {
-		if v == nil {
-			return nil
-		}
-		return v.InvalidFallbackBehavior
-	}).(pulumi.StringPtrOutput)
-}
-
-// JSON content to inspect. See JSON Body Match Pattern below.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput) MatchPattern() WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody) *WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern {
-		if v == nil {
-			return nil
-		}
-		return v.MatchPattern
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
-}
-
-// Parts of the JSON to inspect. Valid values: `ALL`, `KEY`, `VALUE`.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput) MatchScope() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.MatchScope
-	}).(pulumi.StringPtrOutput)
-}
-
-// How to handle requests with a body larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`. Defaults to `CONTINUE`.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput) OversizeHandling() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OversizeHandling
-	}).(pulumi.StringPtrOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern struct {
-	All *WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll `pulumi:"all"`
-	// List of JSON pointer expressions to inspect (e.g., `/foo/bar`).
-	IncludedPaths []string `pulumi:"includedPaths"`
-}
-
-// WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternInput is an input type that accepts WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArgs and WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternInput` via:
-//
-//	WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArgs{...}
-type WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternOutput() WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternOutput
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternOutputWithContext(context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternOutput
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArgs struct {
-	All WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrInput `pulumi:"all"`
-	// List of JSON pointer expressions to inspect (e.g., `/foo/bar`).
-	IncludedPaths pulumi.StringArrayInput `pulumi:"includedPaths"`
-}
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternOutput() WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternOutput)
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternOutput).ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutputWithContext(ctx)
-}
-
-// WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrInput is an input type that accepts WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArgs, WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtr and WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrInput` via:
-//
-//	        WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArgs{...}
-//
-//	or:
-//
-//	        nil
-type WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutputWithContext(context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput
-}
-
-type webAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrType WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArgs
-
-func WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtr(v *WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArgs) WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrInput {
-	return (*webAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrType)(v)
-}
-
-func (*webAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern)(nil)).Elem()
-}
-
-func (i *webAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrType) ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutputWithContext(context.Background())
-}
-
-func (i *webAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrType) ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternOutput() WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
-	return o.ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutputWithContext(context.Background())
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern) *WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern {
-		return &v
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternOutput) All() WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
-	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern) *WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll {
-		return v.All
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput)
-}
-
-// List of JSON pointer expressions to inspect (e.g., `/foo/bar`).
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternOutput) IncludedPaths() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern) []string {
-		return v.IncludedPaths
-	}).(pulumi.StringArrayOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput) Elem() WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern) WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern {
-		if v != nil {
-			return *v
-		}
-		var ret WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern
-		return ret
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternOutput)
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput) All() WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern) *WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll {
-		if v == nil {
-			return nil
-		}
-		return v.All
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput)
-}
-
-// List of JSON pointer expressions to inspect (e.g., `/foo/bar`).
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput) IncludedPaths() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern) []string {
-		if v == nil {
-			return nil
-		}
-		return v.IncludedPaths
-	}).(pulumi.StringArrayOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll struct {
-}
-
-// WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllInput is an input type that accepts WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs and WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllInput` via:
-//
-//	WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs{...}
-type WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput() WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllOutputWithContext(context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs struct {
-}
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput() WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput)
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput).ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutputWithContext(ctx)
-}
-
-// WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrInput is an input type that accepts WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs, WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtr and WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrInput` via:
-//
-//	        WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs{...}
-//
-//	or:
-//
-//	        nil
-type WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutputWithContext(context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput
-}
-
-type webAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrType WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs
-
-func WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtr(v *WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs) WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrInput {
-	return (*webAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrType)(v)
-}
-
-func (*webAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll)(nil)).Elem()
-}
-
-func (i *webAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrType) ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutputWithContext(context.Background())
-}
-
-func (i *webAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrType) ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput() WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
-	return o.ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutputWithContext(context.Background())
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll) *WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll {
-		return &v
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput) Elem() WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll) WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll {
-		if v != nil {
-			return *v
-		}
-		var ret WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll
-		return ret
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchMethod struct {
-}
-
-// WebAclRuleStatementXssMatchStatementFieldToMatchMethodInput is an input type that accepts WebAclRuleStatementXssMatchStatementFieldToMatchMethodArgs and WebAclRuleStatementXssMatchStatementFieldToMatchMethodOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementXssMatchStatementFieldToMatchMethodInput` via:
-//
-//	WebAclRuleStatementXssMatchStatementFieldToMatchMethodArgs{...}
-type WebAclRuleStatementXssMatchStatementFieldToMatchMethodInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchMethodOutput() WebAclRuleStatementXssMatchStatementFieldToMatchMethodOutput
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchMethodOutputWithContext(context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchMethodOutput
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchMethodArgs struct {
-}
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchMethodArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchMethod)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchMethodArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchMethodOutput() WebAclRuleStatementXssMatchStatementFieldToMatchMethodOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchMethodOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchMethodArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchMethodOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchMethodOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchMethodOutput)
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchMethodArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchMethodArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchMethodOutput).ToWebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrOutputWithContext(ctx)
-}
-
-// WebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrInput is an input type that accepts WebAclRuleStatementXssMatchStatementFieldToMatchMethodArgs, WebAclRuleStatementXssMatchStatementFieldToMatchMethodPtr and WebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrInput` via:
-//
-//	        WebAclRuleStatementXssMatchStatementFieldToMatchMethodArgs{...}
-//
-//	or:
-//
-//	        nil
-type WebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrOutput
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrOutputWithContext(context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrOutput
-}
-
-type webAclRuleStatementXssMatchStatementFieldToMatchMethodPtrType WebAclRuleStatementXssMatchStatementFieldToMatchMethodArgs
-
-func WebAclRuleStatementXssMatchStatementFieldToMatchMethodPtr(v *WebAclRuleStatementXssMatchStatementFieldToMatchMethodArgs) WebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrInput {
-	return (*webAclRuleStatementXssMatchStatementFieldToMatchMethodPtrType)(v)
-}
-
-func (*webAclRuleStatementXssMatchStatementFieldToMatchMethodPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementXssMatchStatementFieldToMatchMethod)(nil)).Elem()
-}
-
-func (i *webAclRuleStatementXssMatchStatementFieldToMatchMethodPtrType) ToWebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrOutputWithContext(context.Background())
-}
-
-func (i *webAclRuleStatementXssMatchStatementFieldToMatchMethodPtrType) ToWebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchMethodOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchMethodOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchMethod)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchMethodOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchMethodOutput() WebAclRuleStatementXssMatchStatementFieldToMatchMethodOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchMethodOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchMethodOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchMethodOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchMethodOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrOutput {
-	return o.ToWebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrOutputWithContext(context.Background())
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchMethodOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementXssMatchStatementFieldToMatchMethod) *WebAclRuleStatementXssMatchStatementFieldToMatchMethod {
-		return &v
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementXssMatchStatementFieldToMatchMethod)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrOutput) Elem() WebAclRuleStatementXssMatchStatementFieldToMatchMethodOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatchMethod) WebAclRuleStatementXssMatchStatementFieldToMatchMethod {
-		if v != nil {
-			return *v
-		}
-		var ret WebAclRuleStatementXssMatchStatementFieldToMatchMethod
-		return ret
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchMethodOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchQueryString struct {
-}
-
-// WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringInput is an input type that accepts WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringArgs and WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringInput` via:
-//
-//	WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringArgs{...}
-type WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchQueryStringOutput() WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringOutput
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchQueryStringOutputWithContext(context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringOutput
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringArgs struct {
-}
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchQueryString)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchQueryStringOutput() WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchQueryStringOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchQueryStringOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringOutput)
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringOutput).ToWebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrOutputWithContext(ctx)
-}
-
-// WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrInput is an input type that accepts WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringArgs, WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtr and WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrInput` via:
-//
-//	        WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringArgs{...}
-//
-//	or:
-//
-//	        nil
-type WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrOutput
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrOutputWithContext(context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrOutput
-}
-
-type webAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrType WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringArgs
-
-func WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtr(v *WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringArgs) WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrInput {
-	return (*webAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrType)(v)
-}
-
-func (*webAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementXssMatchStatementFieldToMatchQueryString)(nil)).Elem()
-}
-
-func (i *webAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrType) ToWebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrOutputWithContext(context.Background())
-}
-
-func (i *webAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrType) ToWebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchQueryString)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchQueryStringOutput() WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchQueryStringOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrOutput {
-	return o.ToWebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrOutputWithContext(context.Background())
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementXssMatchStatementFieldToMatchQueryString) *WebAclRuleStatementXssMatchStatementFieldToMatchQueryString {
-		return &v
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementXssMatchStatementFieldToMatchQueryString)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrOutput) Elem() WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatchQueryString) WebAclRuleStatementXssMatchStatementFieldToMatchQueryString {
-		if v != nil {
-			return *v
-		}
-		var ret WebAclRuleStatementXssMatchStatementFieldToMatchQueryString
-		return ret
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeader struct {
-	// Name of the header to inspect (case insensitive).
-	Name string `pulumi:"name"`
-}
-
-// WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderInput is an input type that accepts WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderArgs and WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderInput` via:
-//
-//	WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderArgs{...}
-type WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderOutput() WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderOutput
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderOutputWithContext(context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderOutput
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderArgs struct {
-	// Name of the header to inspect (case insensitive).
-	Name pulumi.StringInput `pulumi:"name"`
-}
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeader)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderOutput() WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderOutput)
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderOutput).ToWebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutputWithContext(ctx)
-}
-
-// WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrInput is an input type that accepts WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderArgs, WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtr and WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrInput` via:
-//
-//	        WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderArgs{...}
-//
-//	or:
-//
-//	        nil
-type WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutputWithContext(context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput
-}
-
-type webAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrType WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderArgs
-
-func WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtr(v *WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderArgs) WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrInput {
-	return (*webAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrType)(v)
-}
-
-func (*webAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeader)(nil)).Elem()
-}
-
-func (i *webAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrType) ToWebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutputWithContext(context.Background())
-}
-
-func (i *webAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrType) ToWebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeader)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderOutput() WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput {
-	return o.ToWebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutputWithContext(context.Background())
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeader) *WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeader {
-		return &v
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput)
-}
-
-// Name of the header to inspect (case insensitive).
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeader) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeader)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput) Elem() WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeader) WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeader {
-		if v != nil {
-			return *v
-		}
-		var ret WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeader
-		return ret
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderOutput)
-}
-
-// Name of the header to inspect (case insensitive).
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeader) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument struct {
-	// Name of the query argument to inspect.
-	Name string `pulumi:"name"`
-}
-
-// WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentInput is an input type that accepts WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs and WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentInput` via:
-//
-//	WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs{...}
-type WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentOutput() WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentOutput
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentOutputWithContext(context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentOutput
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs struct {
-	// Name of the query argument to inspect.
-	Name pulumi.StringInput `pulumi:"name"`
-}
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentOutput() WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentOutput)
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentOutput).ToWebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutputWithContext(ctx)
-}
-
-// WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrInput is an input type that accepts WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs, WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtr and WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrInput` via:
-//
-//	        WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs{...}
-//
-//	or:
-//
-//	        nil
-type WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutputWithContext(context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput
-}
-
-type webAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrType WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs
-
-func WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtr(v *WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs) WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrInput {
-	return (*webAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrType)(v)
-}
-
-func (*webAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument)(nil)).Elem()
-}
-
-func (i *webAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrType) ToWebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutputWithContext(context.Background())
-}
-
-func (i *webAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrType) ToWebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentOutput() WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput {
-	return o.ToWebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutputWithContext(context.Background())
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument) *WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument {
-		return &v
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput)
-}
-
-// Name of the query argument to inspect.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput) Elem() WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument) WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument {
-		if v != nil {
-			return *v
-		}
-		var ret WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument
-		return ret
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentOutput)
-}
-
-// Name of the query argument to inspect.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchUriFragment struct {
-	// How to handle requests with a URI fragment that is too large to inspect. Valid values: `MATCH`, `NO_MATCH`.
-	FallbackBehavior *string `pulumi:"fallbackBehavior"`
-}
-
-// WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentInput is an input type that accepts WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentArgs and WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentInput` via:
-//
-//	WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentArgs{...}
-type WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentOutput() WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentOutput
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentOutputWithContext(context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentOutput
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentArgs struct {
-	// How to handle requests with a URI fragment that is too large to inspect. Valid values: `MATCH`, `NO_MATCH`.
-	FallbackBehavior pulumi.StringPtrInput `pulumi:"fallbackBehavior"`
-}
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchUriFragment)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentOutput() WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentOutput)
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentOutput).ToWebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrOutputWithContext(ctx)
-}
-
-// WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrInput is an input type that accepts WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentArgs, WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtr and WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrInput` via:
-//
-//	        WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentArgs{...}
-//
-//	or:
-//
-//	        nil
-type WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrOutput
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrOutputWithContext(context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrOutput
-}
-
-type webAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrType WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentArgs
-
-func WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtr(v *WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentArgs) WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrInput {
-	return (*webAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrType)(v)
-}
-
-func (*webAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementXssMatchStatementFieldToMatchUriFragment)(nil)).Elem()
-}
-
-func (i *webAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrType) ToWebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrOutputWithContext(context.Background())
-}
-
-func (i *webAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrType) ToWebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchUriFragment)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentOutput() WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrOutput {
-	return o.ToWebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrOutputWithContext(context.Background())
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementXssMatchStatementFieldToMatchUriFragment) *WebAclRuleStatementXssMatchStatementFieldToMatchUriFragment {
-		return &v
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrOutput)
-}
-
-// How to handle requests with a URI fragment that is too large to inspect. Valid values: `MATCH`, `NO_MATCH`.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentOutput) FallbackBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementFieldToMatchUriFragment) *string { return v.FallbackBehavior }).(pulumi.StringPtrOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementXssMatchStatementFieldToMatchUriFragment)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrOutput) Elem() WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatchUriFragment) WebAclRuleStatementXssMatchStatementFieldToMatchUriFragment {
-		if v != nil {
-			return *v
-		}
-		var ret WebAclRuleStatementXssMatchStatementFieldToMatchUriFragment
-		return ret
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentOutput)
-}
-
-// How to handle requests with a URI fragment that is too large to inspect. Valid values: `MATCH`, `NO_MATCH`.
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatchUriFragment) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FallbackBehavior
-	}).(pulumi.StringPtrOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchUriPath struct {
-}
-
-// WebAclRuleStatementXssMatchStatementFieldToMatchUriPathInput is an input type that accepts WebAclRuleStatementXssMatchStatementFieldToMatchUriPathArgs and WebAclRuleStatementXssMatchStatementFieldToMatchUriPathOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementXssMatchStatementFieldToMatchUriPathInput` via:
-//
-//	WebAclRuleStatementXssMatchStatementFieldToMatchUriPathArgs{...}
-type WebAclRuleStatementXssMatchStatementFieldToMatchUriPathInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchUriPathOutput() WebAclRuleStatementXssMatchStatementFieldToMatchUriPathOutput
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchUriPathOutputWithContext(context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchUriPathOutput
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchUriPathArgs struct {
-}
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchUriPathArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchUriPath)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchUriPathArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchUriPathOutput() WebAclRuleStatementXssMatchStatementFieldToMatchUriPathOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchUriPathOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchUriPathArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchUriPathOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchUriPathOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchUriPathOutput)
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchUriPathArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementXssMatchStatementFieldToMatchUriPathArgs) ToWebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchUriPathOutput).ToWebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrOutputWithContext(ctx)
-}
-
-// WebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrInput is an input type that accepts WebAclRuleStatementXssMatchStatementFieldToMatchUriPathArgs, WebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtr and WebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrInput` via:
-//
-//	        WebAclRuleStatementXssMatchStatementFieldToMatchUriPathArgs{...}
-//
-//	or:
-//
-//	        nil
-type WebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrOutput
-	ToWebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrOutputWithContext(context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrOutput
-}
-
-type webAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrType WebAclRuleStatementXssMatchStatementFieldToMatchUriPathArgs
-
-func WebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtr(v *WebAclRuleStatementXssMatchStatementFieldToMatchUriPathArgs) WebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrInput {
-	return (*webAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrType)(v)
-}
-
-func (*webAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementXssMatchStatementFieldToMatchUriPath)(nil)).Elem()
-}
-
-func (i *webAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrType) ToWebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrOutputWithContext(context.Background())
-}
-
-func (i *webAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrType) ToWebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchUriPathOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchUriPathOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchUriPath)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchUriPathOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchUriPathOutput() WebAclRuleStatementXssMatchStatementFieldToMatchUriPathOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchUriPathOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchUriPathOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchUriPathOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchUriPathOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrOutput {
-	return o.ToWebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrOutputWithContext(context.Background())
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchUriPathOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementXssMatchStatementFieldToMatchUriPath) *WebAclRuleStatementXssMatchStatementFieldToMatchUriPath {
-		return &v
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementXssMatchStatementFieldToMatchUriPath)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrOutput() WebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrOutput) ToWebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrOutput) Elem() WebAclRuleStatementXssMatchStatementFieldToMatchUriPathOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatementFieldToMatchUriPath) WebAclRuleStatementXssMatchStatementFieldToMatchUriPath {
-		if v != nil {
-			return *v
-		}
-		var ret WebAclRuleStatementXssMatchStatementFieldToMatchUriPath
-		return ret
-	}).(WebAclRuleStatementXssMatchStatementFieldToMatchUriPathOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementTextTransformation struct {
-	// Relative processing order for multiple transformations (0-based).
-	Priority int `pulumi:"priority"`
-	// Transformation to apply. Valid values: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`, `BASE64_DECODE`, `HEX_DECODE`, `MD5`, `REPLACE_COMMENTS`, `ESCAPE_SEQ_DECODE`, `SQL_HEX_DECODE`, `CSS_DECODE`, `JS_DECODE`, `NORMALIZE_PATH`, `NORMALIZE_PATH_WIN`, `REMOVE_NULLS`, `REPLACE_NULLS`, `BASE64_DECODE_EXT`, `URL_DECODE_UNI`, `UTF8_TO_UNICODE`.
-	Type string `pulumi:"type"`
-}
-
-// WebAclRuleStatementXssMatchStatementTextTransformationInput is an input type that accepts WebAclRuleStatementXssMatchStatementTextTransformationArgs and WebAclRuleStatementXssMatchStatementTextTransformationOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementXssMatchStatementTextTransformationInput` via:
-//
-//	WebAclRuleStatementXssMatchStatementTextTransformationArgs{...}
-type WebAclRuleStatementXssMatchStatementTextTransformationInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementXssMatchStatementTextTransformationOutput() WebAclRuleStatementXssMatchStatementTextTransformationOutput
-	ToWebAclRuleStatementXssMatchStatementTextTransformationOutputWithContext(context.Context) WebAclRuleStatementXssMatchStatementTextTransformationOutput
-}
-
-type WebAclRuleStatementXssMatchStatementTextTransformationArgs struct {
-	// Relative processing order for multiple transformations (0-based).
-	Priority pulumi.IntInput `pulumi:"priority"`
-	// Transformation to apply. Valid values: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`, `BASE64_DECODE`, `HEX_DECODE`, `MD5`, `REPLACE_COMMENTS`, `ESCAPE_SEQ_DECODE`, `SQL_HEX_DECODE`, `CSS_DECODE`, `JS_DECODE`, `NORMALIZE_PATH`, `NORMALIZE_PATH_WIN`, `REMOVE_NULLS`, `REPLACE_NULLS`, `BASE64_DECODE_EXT`, `URL_DECODE_UNI`, `UTF8_TO_UNICODE`.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (WebAclRuleStatementXssMatchStatementTextTransformationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementXssMatchStatementTextTransformation)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementXssMatchStatementTextTransformationArgs) ToWebAclRuleStatementXssMatchStatementTextTransformationOutput() WebAclRuleStatementXssMatchStatementTextTransformationOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementTextTransformationOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementXssMatchStatementTextTransformationArgs) ToWebAclRuleStatementXssMatchStatementTextTransformationOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementTextTransformationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementTextTransformationOutput)
-}
-
-// WebAclRuleStatementXssMatchStatementTextTransformationArrayInput is an input type that accepts WebAclRuleStatementXssMatchStatementTextTransformationArray and WebAclRuleStatementXssMatchStatementTextTransformationArrayOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementXssMatchStatementTextTransformationArrayInput` via:
-//
-//	WebAclRuleStatementXssMatchStatementTextTransformationArray{ WebAclRuleStatementXssMatchStatementTextTransformationArgs{...} }
-type WebAclRuleStatementXssMatchStatementTextTransformationArrayInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementXssMatchStatementTextTransformationArrayOutput() WebAclRuleStatementXssMatchStatementTextTransformationArrayOutput
-	ToWebAclRuleStatementXssMatchStatementTextTransformationArrayOutputWithContext(context.Context) WebAclRuleStatementXssMatchStatementTextTransformationArrayOutput
-}
-
-type WebAclRuleStatementXssMatchStatementTextTransformationArray []WebAclRuleStatementXssMatchStatementTextTransformationInput
-
-func (WebAclRuleStatementXssMatchStatementTextTransformationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WebAclRuleStatementXssMatchStatementTextTransformation)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementXssMatchStatementTextTransformationArray) ToWebAclRuleStatementXssMatchStatementTextTransformationArrayOutput() WebAclRuleStatementXssMatchStatementTextTransformationArrayOutput {
-	return i.ToWebAclRuleStatementXssMatchStatementTextTransformationArrayOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementXssMatchStatementTextTransformationArray) ToWebAclRuleStatementXssMatchStatementTextTransformationArrayOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementTextTransformationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementXssMatchStatementTextTransformationArrayOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementTextTransformationOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementXssMatchStatementTextTransformationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementXssMatchStatementTextTransformation)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementXssMatchStatementTextTransformationOutput) ToWebAclRuleStatementXssMatchStatementTextTransformationOutput() WebAclRuleStatementXssMatchStatementTextTransformationOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementTextTransformationOutput) ToWebAclRuleStatementXssMatchStatementTextTransformationOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementTextTransformationOutput {
-	return o
-}
-
-// Relative processing order for multiple transformations (0-based).
-func (o WebAclRuleStatementXssMatchStatementTextTransformationOutput) Priority() pulumi.IntOutput {
-	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementTextTransformation) int { return v.Priority }).(pulumi.IntOutput)
-}
-
-// Transformation to apply. Valid values: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`, `BASE64_DECODE`, `HEX_DECODE`, `MD5`, `REPLACE_COMMENTS`, `ESCAPE_SEQ_DECODE`, `SQL_HEX_DECODE`, `CSS_DECODE`, `JS_DECODE`, `NORMALIZE_PATH`, `NORMALIZE_PATH_WIN`, `REMOVE_NULLS`, `REPLACE_NULLS`, `BASE64_DECODE_EXT`, `URL_DECODE_UNI`, `UTF8_TO_UNICODE`.
-func (o WebAclRuleStatementXssMatchStatementTextTransformationOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatementTextTransformation) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type WebAclRuleStatementXssMatchStatementTextTransformationArrayOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementXssMatchStatementTextTransformationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WebAclRuleStatementXssMatchStatementTextTransformation)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementXssMatchStatementTextTransformationArrayOutput) ToWebAclRuleStatementXssMatchStatementTextTransformationArrayOutput() WebAclRuleStatementXssMatchStatementTextTransformationArrayOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementTextTransformationArrayOutput) ToWebAclRuleStatementXssMatchStatementTextTransformationArrayOutputWithContext(ctx context.Context) WebAclRuleStatementXssMatchStatementTextTransformationArrayOutput {
-	return o
-}
-
-func (o WebAclRuleStatementXssMatchStatementTextTransformationArrayOutput) Index(i pulumi.IntInput) WebAclRuleStatementXssMatchStatementTextTransformationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebAclRuleStatementXssMatchStatementTextTransformation {
-		return vs[0].([]WebAclRuleStatementXssMatchStatementTextTransformation)[vs[1].(int)]
-	}).(WebAclRuleStatementXssMatchStatementTextTransformationOutput)
-}
-
-type WebAclRuleTimeouts struct {
-	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-	Create *string `pulumi:"create"`
-	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-	Delete *string `pulumi:"delete"`
-	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-	Update *string `pulumi:"update"`
-}
-
-// WebAclRuleTimeoutsInput is an input type that accepts WebAclRuleTimeoutsArgs and WebAclRuleTimeoutsOutput values.
-// You can construct a concrete instance of `WebAclRuleTimeoutsInput` via:
-//
-//	WebAclRuleTimeoutsArgs{...}
-type WebAclRuleTimeoutsInput interface {
-	pulumi.Input
-
-	ToWebAclRuleTimeoutsOutput() WebAclRuleTimeoutsOutput
-	ToWebAclRuleTimeoutsOutputWithContext(context.Context) WebAclRuleTimeoutsOutput
-}
-
-type WebAclRuleTimeoutsArgs struct {
-	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-	Create pulumi.StringPtrInput `pulumi:"create"`
-	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-	Delete pulumi.StringPtrInput `pulumi:"delete"`
-	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-	Update pulumi.StringPtrInput `pulumi:"update"`
-}
-
-func (WebAclRuleTimeoutsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleTimeouts)(nil)).Elem()
-}
-
-func (i WebAclRuleTimeoutsArgs) ToWebAclRuleTimeoutsOutput() WebAclRuleTimeoutsOutput {
-	return i.ToWebAclRuleTimeoutsOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleTimeoutsArgs) ToWebAclRuleTimeoutsOutputWithContext(ctx context.Context) WebAclRuleTimeoutsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleTimeoutsOutput)
-}
-
-func (i WebAclRuleTimeoutsArgs) ToWebAclRuleTimeoutsPtrOutput() WebAclRuleTimeoutsPtrOutput {
-	return i.ToWebAclRuleTimeoutsPtrOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleTimeoutsArgs) ToWebAclRuleTimeoutsPtrOutputWithContext(ctx context.Context) WebAclRuleTimeoutsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleTimeoutsOutput).ToWebAclRuleTimeoutsPtrOutputWithContext(ctx)
-}
-
-// WebAclRuleTimeoutsPtrInput is an input type that accepts WebAclRuleTimeoutsArgs, WebAclRuleTimeoutsPtr and WebAclRuleTimeoutsPtrOutput values.
-// You can construct a concrete instance of `WebAclRuleTimeoutsPtrInput` via:
-//
-//	        WebAclRuleTimeoutsArgs{...}
-//
-//	or:
-//
-//	        nil
-type WebAclRuleTimeoutsPtrInput interface {
-	pulumi.Input
-
-	ToWebAclRuleTimeoutsPtrOutput() WebAclRuleTimeoutsPtrOutput
-	ToWebAclRuleTimeoutsPtrOutputWithContext(context.Context) WebAclRuleTimeoutsPtrOutput
-}
-
-type webAclRuleTimeoutsPtrType WebAclRuleTimeoutsArgs
-
-func WebAclRuleTimeoutsPtr(v *WebAclRuleTimeoutsArgs) WebAclRuleTimeoutsPtrInput {
-	return (*webAclRuleTimeoutsPtrType)(v)
-}
-
-func (*webAclRuleTimeoutsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleTimeouts)(nil)).Elem()
-}
-
-func (i *webAclRuleTimeoutsPtrType) ToWebAclRuleTimeoutsPtrOutput() WebAclRuleTimeoutsPtrOutput {
-	return i.ToWebAclRuleTimeoutsPtrOutputWithContext(context.Background())
-}
-
-func (i *webAclRuleTimeoutsPtrType) ToWebAclRuleTimeoutsPtrOutputWithContext(ctx context.Context) WebAclRuleTimeoutsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleTimeoutsPtrOutput)
-}
-
-type WebAclRuleTimeoutsOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleTimeoutsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleTimeouts)(nil)).Elem()
-}
-
-func (o WebAclRuleTimeoutsOutput) ToWebAclRuleTimeoutsOutput() WebAclRuleTimeoutsOutput {
-	return o
-}
-
-func (o WebAclRuleTimeoutsOutput) ToWebAclRuleTimeoutsOutputWithContext(ctx context.Context) WebAclRuleTimeoutsOutput {
-	return o
-}
-
-func (o WebAclRuleTimeoutsOutput) ToWebAclRuleTimeoutsPtrOutput() WebAclRuleTimeoutsPtrOutput {
-	return o.ToWebAclRuleTimeoutsPtrOutputWithContext(context.Background())
-}
-
-func (o WebAclRuleTimeoutsOutput) ToWebAclRuleTimeoutsPtrOutputWithContext(ctx context.Context) WebAclRuleTimeoutsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleTimeouts) *WebAclRuleTimeouts {
-		return &v
-	}).(WebAclRuleTimeoutsPtrOutput)
-}
-
-// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-func (o WebAclRuleTimeoutsOutput) Create() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WebAclRuleTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
-}
-
-// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-func (o WebAclRuleTimeoutsOutput) Delete() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WebAclRuleTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
-}
-
-// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-func (o WebAclRuleTimeoutsOutput) Update() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WebAclRuleTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
-}
-
-type WebAclRuleTimeoutsPtrOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleTimeoutsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleTimeouts)(nil)).Elem()
-}
-
-func (o WebAclRuleTimeoutsPtrOutput) ToWebAclRuleTimeoutsPtrOutput() WebAclRuleTimeoutsPtrOutput {
-	return o
-}
-
-func (o WebAclRuleTimeoutsPtrOutput) ToWebAclRuleTimeoutsPtrOutputWithContext(ctx context.Context) WebAclRuleTimeoutsPtrOutput {
-	return o
-}
-
-func (o WebAclRuleTimeoutsPtrOutput) Elem() WebAclRuleTimeoutsOutput {
-	return o.ApplyT(func(v *WebAclRuleTimeouts) WebAclRuleTimeouts {
-		if v != nil {
-			return *v
-		}
-		var ret WebAclRuleTimeouts
-		return ret
-	}).(WebAclRuleTimeoutsOutput)
-}
-
-// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-func (o WebAclRuleTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleTimeouts) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Create
-	}).(pulumi.StringPtrOutput)
-}
-
-// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-func (o WebAclRuleTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleTimeouts) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Delete
-	}).(pulumi.StringPtrOutput)
-}
-
-// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-func (o WebAclRuleTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleTimeouts) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Update
-	}).(pulumi.StringPtrOutput)
-}
-
-type WebAclRuleVisibilityConfig struct {
-	// Whether to enable CloudWatch metrics.
-	CloudwatchMetricsEnabled bool `pulumi:"cloudwatchMetricsEnabled"`
-	// Name of the CloudWatch metric.
-	MetricName string `pulumi:"metricName"`
-	// Whether to store sampled requests.
-	SampledRequestsEnabled bool `pulumi:"sampledRequestsEnabled"`
-}
-
-// WebAclRuleVisibilityConfigInput is an input type that accepts WebAclRuleVisibilityConfigArgs and WebAclRuleVisibilityConfigOutput values.
-// You can construct a concrete instance of `WebAclRuleVisibilityConfigInput` via:
-//
-//	WebAclRuleVisibilityConfigArgs{...}
-type WebAclRuleVisibilityConfigInput interface {
-	pulumi.Input
-
-	ToWebAclRuleVisibilityConfigOutput() WebAclRuleVisibilityConfigOutput
-	ToWebAclRuleVisibilityConfigOutputWithContext(context.Context) WebAclRuleVisibilityConfigOutput
-}
-
-type WebAclRuleVisibilityConfigArgs struct {
-	// Whether to enable CloudWatch metrics.
-	CloudwatchMetricsEnabled pulumi.BoolInput `pulumi:"cloudwatchMetricsEnabled"`
-	// Name of the CloudWatch metric.
-	MetricName pulumi.StringInput `pulumi:"metricName"`
-	// Whether to store sampled requests.
-	SampledRequestsEnabled pulumi.BoolInput `pulumi:"sampledRequestsEnabled"`
-}
-
-func (WebAclRuleVisibilityConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleVisibilityConfig)(nil)).Elem()
-}
-
-func (i WebAclRuleVisibilityConfigArgs) ToWebAclRuleVisibilityConfigOutput() WebAclRuleVisibilityConfigOutput {
-	return i.ToWebAclRuleVisibilityConfigOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleVisibilityConfigArgs) ToWebAclRuleVisibilityConfigOutputWithContext(ctx context.Context) WebAclRuleVisibilityConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleVisibilityConfigOutput)
-}
-
-func (i WebAclRuleVisibilityConfigArgs) ToWebAclRuleVisibilityConfigPtrOutput() WebAclRuleVisibilityConfigPtrOutput {
-	return i.ToWebAclRuleVisibilityConfigPtrOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleVisibilityConfigArgs) ToWebAclRuleVisibilityConfigPtrOutputWithContext(ctx context.Context) WebAclRuleVisibilityConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleVisibilityConfigOutput).ToWebAclRuleVisibilityConfigPtrOutputWithContext(ctx)
-}
-
-// WebAclRuleVisibilityConfigPtrInput is an input type that accepts WebAclRuleVisibilityConfigArgs, WebAclRuleVisibilityConfigPtr and WebAclRuleVisibilityConfigPtrOutput values.
-// You can construct a concrete instance of `WebAclRuleVisibilityConfigPtrInput` via:
-//
-//	        WebAclRuleVisibilityConfigArgs{...}
-//
-//	or:
-//
-//	        nil
-type WebAclRuleVisibilityConfigPtrInput interface {
-	pulumi.Input
-
-	ToWebAclRuleVisibilityConfigPtrOutput() WebAclRuleVisibilityConfigPtrOutput
-	ToWebAclRuleVisibilityConfigPtrOutputWithContext(context.Context) WebAclRuleVisibilityConfigPtrOutput
-}
-
-type webAclRuleVisibilityConfigPtrType WebAclRuleVisibilityConfigArgs
-
-func WebAclRuleVisibilityConfigPtr(v *WebAclRuleVisibilityConfigArgs) WebAclRuleVisibilityConfigPtrInput {
-	return (*webAclRuleVisibilityConfigPtrType)(v)
-}
-
-func (*webAclRuleVisibilityConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleVisibilityConfig)(nil)).Elem()
-}
-
-func (i *webAclRuleVisibilityConfigPtrType) ToWebAclRuleVisibilityConfigPtrOutput() WebAclRuleVisibilityConfigPtrOutput {
-	return i.ToWebAclRuleVisibilityConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *webAclRuleVisibilityConfigPtrType) ToWebAclRuleVisibilityConfigPtrOutputWithContext(ctx context.Context) WebAclRuleVisibilityConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleVisibilityConfigPtrOutput)
-}
-
-type WebAclRuleVisibilityConfigOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleVisibilityConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleVisibilityConfig)(nil)).Elem()
-}
-
-func (o WebAclRuleVisibilityConfigOutput) ToWebAclRuleVisibilityConfigOutput() WebAclRuleVisibilityConfigOutput {
-	return o
-}
-
-func (o WebAclRuleVisibilityConfigOutput) ToWebAclRuleVisibilityConfigOutputWithContext(ctx context.Context) WebAclRuleVisibilityConfigOutput {
-	return o
-}
-
-func (o WebAclRuleVisibilityConfigOutput) ToWebAclRuleVisibilityConfigPtrOutput() WebAclRuleVisibilityConfigPtrOutput {
-	return o.ToWebAclRuleVisibilityConfigPtrOutputWithContext(context.Background())
-}
-
-func (o WebAclRuleVisibilityConfigOutput) ToWebAclRuleVisibilityConfigPtrOutputWithContext(ctx context.Context) WebAclRuleVisibilityConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleVisibilityConfig) *WebAclRuleVisibilityConfig {
-		return &v
-	}).(WebAclRuleVisibilityConfigPtrOutput)
-}
-
-// Whether to enable CloudWatch metrics.
-func (o WebAclRuleVisibilityConfigOutput) CloudwatchMetricsEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v WebAclRuleVisibilityConfig) bool { return v.CloudwatchMetricsEnabled }).(pulumi.BoolOutput)
-}
-
-// Name of the CloudWatch metric.
-func (o WebAclRuleVisibilityConfigOutput) MetricName() pulumi.StringOutput {
-	return o.ApplyT(func(v WebAclRuleVisibilityConfig) string { return v.MetricName }).(pulumi.StringOutput)
-}
-
-// Whether to store sampled requests.
-func (o WebAclRuleVisibilityConfigOutput) SampledRequestsEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v WebAclRuleVisibilityConfig) bool { return v.SampledRequestsEnabled }).(pulumi.BoolOutput)
-}
-
-type WebAclRuleVisibilityConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleVisibilityConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleVisibilityConfig)(nil)).Elem()
-}
-
-func (o WebAclRuleVisibilityConfigPtrOutput) ToWebAclRuleVisibilityConfigPtrOutput() WebAclRuleVisibilityConfigPtrOutput {
-	return o
-}
-
-func (o WebAclRuleVisibilityConfigPtrOutput) ToWebAclRuleVisibilityConfigPtrOutputWithContext(ctx context.Context) WebAclRuleVisibilityConfigPtrOutput {
-	return o
-}
-
-func (o WebAclRuleVisibilityConfigPtrOutput) Elem() WebAclRuleVisibilityConfigOutput {
-	return o.ApplyT(func(v *WebAclRuleVisibilityConfig) WebAclRuleVisibilityConfig {
-		if v != nil {
-			return *v
-		}
-		var ret WebAclRuleVisibilityConfig
-		return ret
-	}).(WebAclRuleVisibilityConfigOutput)
-}
-
-// Whether to enable CloudWatch metrics.
-func (o WebAclRuleVisibilityConfigPtrOutput) CloudwatchMetricsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleVisibilityConfig) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.CloudwatchMetricsEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Name of the CloudWatch metric.
-func (o WebAclRuleVisibilityConfigPtrOutput) MetricName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleVisibilityConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.MetricName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Whether to store sampled requests.
-func (o WebAclRuleVisibilityConfigPtrOutput) SampledRequestsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleVisibilityConfig) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.SampledRequestsEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-type WebAclVisibilityConfig struct {
-	// Whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
-	CloudwatchMetricsEnabled bool `pulumi:"cloudwatchMetricsEnabled"`
-	// A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (\_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
-	MetricName string `pulumi:"metricName"`
-	// Whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
-	SampledRequestsEnabled bool `pulumi:"sampledRequestsEnabled"`
-}
-
-// WebAclVisibilityConfigInput is an input type that accepts WebAclVisibilityConfigArgs and WebAclVisibilityConfigOutput values.
-// You can construct a concrete instance of `WebAclVisibilityConfigInput` via:
-//
-//	WebAclVisibilityConfigArgs{...}
-type WebAclVisibilityConfigInput interface {
-	pulumi.Input
-
-	ToWebAclVisibilityConfigOutput() WebAclVisibilityConfigOutput
-	ToWebAclVisibilityConfigOutputWithContext(context.Context) WebAclVisibilityConfigOutput
-}
-
-type WebAclVisibilityConfigArgs struct {
-	// Whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
-	CloudwatchMetricsEnabled pulumi.BoolInput `pulumi:"cloudwatchMetricsEnabled"`
-	// A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (\_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
-	MetricName pulumi.StringInput `pulumi:"metricName"`
-	// Whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
-	SampledRequestsEnabled pulumi.BoolInput `pulumi:"sampledRequestsEnabled"`
-}
-
-func (WebAclVisibilityConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclVisibilityConfig)(nil)).Elem()
-}
-
-func (i WebAclVisibilityConfigArgs) ToWebAclVisibilityConfigOutput() WebAclVisibilityConfigOutput {
-	return i.ToWebAclVisibilityConfigOutputWithContext(context.Background())
-}
-
-func (i WebAclVisibilityConfigArgs) ToWebAclVisibilityConfigOutputWithContext(ctx context.Context) WebAclVisibilityConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclVisibilityConfigOutput)
-}
-
-func (i WebAclVisibilityConfigArgs) ToWebAclVisibilityConfigPtrOutput() WebAclVisibilityConfigPtrOutput {
-	return i.ToWebAclVisibilityConfigPtrOutputWithContext(context.Background())
-}
-
-func (i WebAclVisibilityConfigArgs) ToWebAclVisibilityConfigPtrOutputWithContext(ctx context.Context) WebAclVisibilityConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclVisibilityConfigOutput).ToWebAclVisibilityConfigPtrOutputWithContext(ctx)
-}
-
-// WebAclVisibilityConfigPtrInput is an input type that accepts WebAclVisibilityConfigArgs, WebAclVisibilityConfigPtr and WebAclVisibilityConfigPtrOutput values.
-// You can construct a concrete instance of `WebAclVisibilityConfigPtrInput` via:
-//
-//	        WebAclVisibilityConfigArgs{...}
-//
-//	or:
-//
-//	        nil
-type WebAclVisibilityConfigPtrInput interface {
-	pulumi.Input
-
-	ToWebAclVisibilityConfigPtrOutput() WebAclVisibilityConfigPtrOutput
-	ToWebAclVisibilityConfigPtrOutputWithContext(context.Context) WebAclVisibilityConfigPtrOutput
-}
-
-type webAclVisibilityConfigPtrType WebAclVisibilityConfigArgs
-
-func WebAclVisibilityConfigPtr(v *WebAclVisibilityConfigArgs) WebAclVisibilityConfigPtrInput {
-	return (*webAclVisibilityConfigPtrType)(v)
-}
-
-func (*webAclVisibilityConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclVisibilityConfig)(nil)).Elem()
-}
-
-func (i *webAclVisibilityConfigPtrType) ToWebAclVisibilityConfigPtrOutput() WebAclVisibilityConfigPtrOutput {
-	return i.ToWebAclVisibilityConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *webAclVisibilityConfigPtrType) ToWebAclVisibilityConfigPtrOutputWithContext(ctx context.Context) WebAclVisibilityConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclVisibilityConfigPtrOutput)
-}
-
-type WebAclVisibilityConfigOutput struct{ *pulumi.OutputState }
-
-func (WebAclVisibilityConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclVisibilityConfig)(nil)).Elem()
-}
-
-func (o WebAclVisibilityConfigOutput) ToWebAclVisibilityConfigOutput() WebAclVisibilityConfigOutput {
-	return o
-}
-
-func (o WebAclVisibilityConfigOutput) ToWebAclVisibilityConfigOutputWithContext(ctx context.Context) WebAclVisibilityConfigOutput {
-	return o
-}
-
-func (o WebAclVisibilityConfigOutput) ToWebAclVisibilityConfigPtrOutput() WebAclVisibilityConfigPtrOutput {
-	return o.ToWebAclVisibilityConfigPtrOutputWithContext(context.Background())
-}
-
-func (o WebAclVisibilityConfigOutput) ToWebAclVisibilityConfigPtrOutputWithContext(ctx context.Context) WebAclVisibilityConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclVisibilityConfig) *WebAclVisibilityConfig {
-		return &v
-	}).(WebAclVisibilityConfigPtrOutput)
-}
-
-// Whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
-func (o WebAclVisibilityConfigOutput) CloudwatchMetricsEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v WebAclVisibilityConfig) bool { return v.CloudwatchMetricsEnabled }).(pulumi.BoolOutput)
-}
-
-// A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (\_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
-func (o WebAclVisibilityConfigOutput) MetricName() pulumi.StringOutput {
-	return o.ApplyT(func(v WebAclVisibilityConfig) string { return v.MetricName }).(pulumi.StringOutput)
-}
-
-// Whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
-func (o WebAclVisibilityConfigOutput) SampledRequestsEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v WebAclVisibilityConfig) bool { return v.SampledRequestsEnabled }).(pulumi.BoolOutput)
-}
-
-type WebAclVisibilityConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (WebAclVisibilityConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclVisibilityConfig)(nil)).Elem()
-}
-
-func (o WebAclVisibilityConfigPtrOutput) ToWebAclVisibilityConfigPtrOutput() WebAclVisibilityConfigPtrOutput {
-	return o
-}
-
-func (o WebAclVisibilityConfigPtrOutput) ToWebAclVisibilityConfigPtrOutputWithContext(ctx context.Context) WebAclVisibilityConfigPtrOutput {
-	return o
-}
-
-func (o WebAclVisibilityConfigPtrOutput) Elem() WebAclVisibilityConfigOutput {
-	return o.ApplyT(func(v *WebAclVisibilityConfig) WebAclVisibilityConfig {
-		if v != nil {
-			return *v
-		}
-		var ret WebAclVisibilityConfig
-		return ret
-	}).(WebAclVisibilityConfigOutput)
-}
-
-// Whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
-func (o WebAclVisibilityConfigPtrOutput) CloudwatchMetricsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *WebAclVisibilityConfig) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.CloudwatchMetricsEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (\_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
-func (o WebAclVisibilityConfigPtrOutput) MetricName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebAclVisibilityConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.MetricName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
-func (o WebAclVisibilityConfigPtrOutput) SampledRequestsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *WebAclVisibilityConfig) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.SampledRequestsEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtrInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchUriPathInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchUriPathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchUriPathPtrInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchUriPathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementPreParseTextTransformationInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementPreParseTextTransformationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementTextTransformationInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementTextTransformationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementTextTransformationArrayInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementTextTransformationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementGeoMatchStatementInput)(nil)).Elem(), WebAclRuleStatementGeoMatchStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementGeoMatchStatementPtrInput)(nil)).Elem(), WebAclRuleStatementGeoMatchStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementGeoMatchStatementForwardedIpConfigInput)(nil)).Elem(), WebAclRuleStatementGeoMatchStatementForwardedIpConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrInput)(nil)).Elem(), WebAclRuleStatementGeoMatchStatementForwardedIpConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementIpSetReferenceStatementInput)(nil)).Elem(), WebAclRuleStatementIpSetReferenceStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementIpSetReferenceStatementPtrInput)(nil)).Elem(), WebAclRuleStatementIpSetReferenceStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigInput)(nil)).Elem(), WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrInput)(nil)).Elem(), WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementLabelMatchStatementInput)(nil)).Elem(), WebAclRuleStatementLabelMatchStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementLabelMatchStatementPtrInput)(nil)).Elem(), WebAclRuleStatementLabelMatchStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementPtrInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArrayInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFieldsInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFieldsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFieldsPtrInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFieldsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailFieldInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailFieldArgs{})
@@ -74528,6 +73453,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchUriFragmentPtrInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchUriFragmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchUriPathInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchUriPathArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchUriPathPtrInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchUriPathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementPreParseTextTransformationInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementPreParseTextTransformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementTextTransformationInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementTextTransformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementTextTransformationArrayInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementTextTransformationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementArgs{})
@@ -74588,6 +73514,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchUriFragmentPtrInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchUriFragmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPathInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPathArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPathPtrInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementTextTransformationInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementTextTransformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementTextTransformationArrayInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementTextTransformationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementArgs{})
@@ -74634,6 +73561,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentPtrInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPathInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPathPtrInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformationInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformationArrayInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementArgs{})
@@ -74680,6 +73608,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragmentPtrInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPathInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPathArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPathPtrInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementTextTransformationInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementTextTransformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementTextTransformationArrayInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementTextTransformationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementArgs{})
@@ -74726,6 +73655,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchUriFragmentPtrInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchUriFragmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPathInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPathArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPathPtrInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementTextTransformationInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementTextTransformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementTextTransformationArrayInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementTextTransformationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementArgs{})
@@ -74772,6 +73702,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragmentPtrInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchUriPathInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchUriPathArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchUriPathPtrInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchUriPathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementPreParseTextTransformationInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementPreParseTextTransformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementTextTransformationInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementTextTransformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementTextTransformationArrayInput)(nil)).Elem(), WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementTextTransformationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementNotStatementInput)(nil)).Elem(), WebAclRuleStatementNotStatementArgs{})
@@ -74871,6 +73802,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriFragmentPtrInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriFragmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPathInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPathArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPathPtrInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformationInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformationInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformationArrayInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgs{})
@@ -74931,6 +73863,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriFragmentPtrInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriFragmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPathInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPathArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPathPtrInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformationInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformationArrayInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementArgs{})
@@ -74977,6 +73910,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentPtrInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPathInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPathPtrInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformationInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformationArrayInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementArgs{})
@@ -75023,6 +73957,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragmentPtrInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPathInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPathArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPathPtrInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformationInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformationArrayInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementArgs{})
@@ -75069,6 +74004,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriFragmentPtrInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriFragmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPathInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPathArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPathPtrInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformationInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformationArrayInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementArgs{})
@@ -75115,6 +74051,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragmentPtrInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPathInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPathArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPathPtrInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformationInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformationInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformationArrayInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRegexMatchStatementInput)(nil)).Elem(), WebAclRuleStatementRegexMatchStatementArgs{})
@@ -75161,6 +74098,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRegexMatchStatementFieldToMatchUriFragmentPtrInput)(nil)).Elem(), WebAclRuleStatementRegexMatchStatementFieldToMatchUriFragmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRegexMatchStatementFieldToMatchUriPathInput)(nil)).Elem(), WebAclRuleStatementRegexMatchStatementFieldToMatchUriPathArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRegexMatchStatementFieldToMatchUriPathPtrInput)(nil)).Elem(), WebAclRuleStatementRegexMatchStatementFieldToMatchUriPathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRegexMatchStatementPreParseTextTransformationInput)(nil)).Elem(), WebAclRuleStatementRegexMatchStatementPreParseTextTransformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRegexMatchStatementTextTransformationInput)(nil)).Elem(), WebAclRuleStatementRegexMatchStatementTextTransformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRegexMatchStatementTextTransformationArrayInput)(nil)).Elem(), WebAclRuleStatementRegexMatchStatementTextTransformationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRegexPatternSetReferenceStatementInput)(nil)).Elem(), WebAclRuleStatementRegexPatternSetReferenceStatementArgs{})
@@ -75207,6 +74145,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentPtrInput)(nil)).Elem(), WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPathInput)(nil)).Elem(), WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPathPtrInput)(nil)).Elem(), WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformationInput)(nil)).Elem(), WebAclRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformationInput)(nil)).Elem(), WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformationArrayInput)(nil)).Elem(), WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRuleGroupReferenceStatementInput)(nil)).Elem(), WebAclRuleStatementRuleGroupReferenceStatementArgs{})
@@ -75291,6 +74230,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementSizeConstraintStatementFieldToMatchUriFragmentPtrInput)(nil)).Elem(), WebAclRuleStatementSizeConstraintStatementFieldToMatchUriFragmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementSizeConstraintStatementFieldToMatchUriPathInput)(nil)).Elem(), WebAclRuleStatementSizeConstraintStatementFieldToMatchUriPathArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementSizeConstraintStatementFieldToMatchUriPathPtrInput)(nil)).Elem(), WebAclRuleStatementSizeConstraintStatementFieldToMatchUriPathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementSizeConstraintStatementPreParseTextTransformationInput)(nil)).Elem(), WebAclRuleStatementSizeConstraintStatementPreParseTextTransformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementSizeConstraintStatementTextTransformationInput)(nil)).Elem(), WebAclRuleStatementSizeConstraintStatementTextTransformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementSizeConstraintStatementTextTransformationArrayInput)(nil)).Elem(), WebAclRuleStatementSizeConstraintStatementTextTransformationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementInput)(nil)).Elem(), WebAclRuleStatementSqliMatchStatementArgs{})
@@ -75335,62 +74275,31 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrInput)(nil)).Elem(), WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentInput)(nil)).Elem(), WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtrInput)(nil)).Elem(), WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathInput)(nil)).Elem(), WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrInput)(nil)).Elem(), WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementTextTransformationInput)(nil)).Elem(), WebAclRuleStatementSqliMatchStatementTextTransformationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementTextTransformationArrayInput)(nil)).Elem(), WebAclRuleStatementSqliMatchStatementTextTransformationArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementXssMatchStatementInput)(nil)).Elem(), WebAclRuleStatementXssMatchStatementArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementXssMatchStatementPtrInput)(nil)).Elem(), WebAclRuleStatementXssMatchStatementArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchInput)(nil)).Elem(), WebAclRuleStatementXssMatchStatementFieldToMatchArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchPtrInput)(nil)).Elem(), WebAclRuleStatementXssMatchStatementFieldToMatchArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsInput)(nil)).Elem(), WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrInput)(nil)).Elem(), WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchBodyInput)(nil)).Elem(), WebAclRuleStatementXssMatchStatementFieldToMatchBodyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrInput)(nil)).Elem(), WebAclRuleStatementXssMatchStatementFieldToMatchBodyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchCookiesInput)(nil)).Elem(), WebAclRuleStatementXssMatchStatementFieldToMatchCookiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrInput)(nil)).Elem(), WebAclRuleStatementXssMatchStatementFieldToMatchCookiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternInput)(nil)).Elem(), WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayInput)(nil)).Elem(), WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllInput)(nil)).Elem(), WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrInput)(nil)).Elem(), WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchHeaderInput)(nil)).Elem(), WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArrayInput)(nil)).Elem(), WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternInput)(nil)).Elem(), WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrInput)(nil)).Elem(), WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllInput)(nil)).Elem(), WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrInput)(nil)).Elem(), WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderInput)(nil)).Elem(), WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderArrayInput)(nil)).Elem(), WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintInput)(nil)).Elem(), WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrInput)(nil)).Elem(), WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintInput)(nil)).Elem(), WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrInput)(nil)).Elem(), WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyInput)(nil)).Elem(), WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrInput)(nil)).Elem(), WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternInput)(nil)).Elem(), WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrInput)(nil)).Elem(), WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllInput)(nil)).Elem(), WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrInput)(nil)).Elem(), WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchMethodInput)(nil)).Elem(), WebAclRuleStatementXssMatchStatementFieldToMatchMethodArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrInput)(nil)).Elem(), WebAclRuleStatementXssMatchStatementFieldToMatchMethodArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringInput)(nil)).Elem(), WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrInput)(nil)).Elem(), WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderInput)(nil)).Elem(), WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrInput)(nil)).Elem(), WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentInput)(nil)).Elem(), WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrInput)(nil)).Elem(), WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentInput)(nil)).Elem(), WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrInput)(nil)).Elem(), WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchUriPathInput)(nil)).Elem(), WebAclRuleStatementXssMatchStatementFieldToMatchUriPathArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrInput)(nil)).Elem(), WebAclRuleStatementXssMatchStatementFieldToMatchUriPathArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementXssMatchStatementTextTransformationInput)(nil)).Elem(), WebAclRuleStatementXssMatchStatementTextTransformationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementXssMatchStatementTextTransformationArrayInput)(nil)).Elem(), WebAclRuleStatementXssMatchStatementTextTransformationArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleTimeoutsInput)(nil)).Elem(), WebAclRuleTimeoutsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleTimeoutsPtrInput)(nil)).Elem(), WebAclRuleTimeoutsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleVisibilityConfigInput)(nil)).Elem(), WebAclRuleVisibilityConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleVisibilityConfigPtrInput)(nil)).Elem(), WebAclRuleVisibilityConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclVisibilityConfigInput)(nil)).Elem(), WebAclVisibilityConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclVisibilityConfigPtrInput)(nil)).Elem(), WebAclVisibilityConfigArgs{})
+	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtrOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchUriPathOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchUriPathPtrOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementPreParseTextTransformationOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementTextTransformationOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementTextTransformationArrayOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementGeoMatchStatementOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementGeoMatchStatementPtrOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementGeoMatchStatementForwardedIpConfigOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementIpSetReferenceStatementOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementIpSetReferenceStatementPtrOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementLabelMatchStatementOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementLabelMatchStatementPtrOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementPtrOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArrayOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetPtrOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPtrOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFieldsOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFieldsPtrOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailFieldOutput{})
@@ -75530,6 +74439,7 @@ func init() {
 	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchUriFragmentPtrOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchUriPathOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchUriPathPtrOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementPreParseTextTransformationOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementTextTransformationOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementTextTransformationArrayOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementOutput{})
@@ -75590,6 +74500,7 @@ func init() {
 	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchUriFragmentPtrOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPathOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPathPtrOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementTextTransformationOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementTextTransformationArrayOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementOutput{})
@@ -75636,6 +74547,7 @@ func init() {
 	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentPtrOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPathOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPathPtrOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformationOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformationArrayOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementOutput{})
@@ -75682,6 +74594,7 @@ func init() {
 	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragmentPtrOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPathOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPathPtrOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementTextTransformationOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementTextTransformationArrayOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementOutput{})
@@ -75728,6 +74641,7 @@ func init() {
 	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchUriFragmentPtrOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPathOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPathPtrOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementTextTransformationOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementTextTransformationArrayOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementOutput{})
@@ -75774,6 +74688,7 @@ func init() {
 	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragmentPtrOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchUriPathOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchUriPathPtrOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementPreParseTextTransformationOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementTextTransformationOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementTextTransformationArrayOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementNotStatementOutput{})
@@ -75873,6 +74788,7 @@ func init() {
 	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriFragmentPtrOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPathOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPathPtrOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformationOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformationOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformationArrayOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementOutput{})
@@ -75933,6 +74849,7 @@ func init() {
 	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriFragmentPtrOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPathOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPathPtrOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformationOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformationArrayOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementOutput{})
@@ -75979,6 +74896,7 @@ func init() {
 	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentPtrOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPathOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPathPtrOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformationOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformationArrayOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementOutput{})
@@ -76025,6 +74943,7 @@ func init() {
 	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragmentPtrOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPathOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPathPtrOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformationOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformationArrayOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementOutput{})
@@ -76071,6 +74990,7 @@ func init() {
 	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriFragmentPtrOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPathOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPathPtrOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformationOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformationArrayOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementOutput{})
@@ -76117,6 +75037,7 @@ func init() {
 	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragmentPtrOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPathOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPathPtrOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformationOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformationOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformationArrayOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRegexMatchStatementOutput{})
@@ -76163,6 +75084,7 @@ func init() {
 	pulumi.RegisterOutputType(WebAclRuleStatementRegexMatchStatementFieldToMatchUriFragmentPtrOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRegexMatchStatementFieldToMatchUriPathOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRegexMatchStatementFieldToMatchUriPathPtrOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementRegexMatchStatementPreParseTextTransformationOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRegexMatchStatementTextTransformationOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRegexMatchStatementTextTransformationArrayOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRegexPatternSetReferenceStatementOutput{})
@@ -76209,6 +75131,7 @@ func init() {
 	pulumi.RegisterOutputType(WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentPtrOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPathOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPathPtrOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformationOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformationArrayOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRuleGroupReferenceStatementOutput{})
@@ -76293,6 +75216,7 @@ func init() {
 	pulumi.RegisterOutputType(WebAclRuleStatementSizeConstraintStatementFieldToMatchUriFragmentPtrOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementSizeConstraintStatementFieldToMatchUriPathOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementSizeConstraintStatementFieldToMatchUriPathPtrOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementSizeConstraintStatementPreParseTextTransformationOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementSizeConstraintStatementTextTransformationOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementSizeConstraintStatementTextTransformationArrayOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementSqliMatchStatementOutput{})
@@ -76337,60 +75261,4 @@ func init() {
 	pulumi.RegisterOutputType(WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtrOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathPtrOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementSqliMatchStatementTextTransformationOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementSqliMatchStatementTextTransformationArrayOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementXssMatchStatementOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementXssMatchStatementPtrOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementXssMatchStatementFieldToMatchOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsPtrOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementXssMatchStatementFieldToMatchBodyOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementXssMatchStatementFieldToMatchBodyPtrOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementXssMatchStatementFieldToMatchCookiesOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArrayOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternPtrOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderArrayOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementXssMatchStatementFieldToMatchMethodOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementXssMatchStatementFieldToMatchMethodPtrOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringPtrOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentPtrOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementXssMatchStatementFieldToMatchUriPathOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementXssMatchStatementFieldToMatchUriPathPtrOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementXssMatchStatementTextTransformationOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementXssMatchStatementTextTransformationArrayOutput{})
-	pulumi.RegisterOutputType(WebAclRuleTimeoutsOutput{})
-	pulumi.RegisterOutputType(WebAclRuleTimeoutsPtrOutput{})
-	pulumi.RegisterOutputType(WebAclRuleVisibilityConfigOutput{})
-	pulumi.RegisterOutputType(WebAclRuleVisibilityConfigPtrOutput{})
-	pulumi.RegisterOutputType(WebAclVisibilityConfigOutput{})
-	pulumi.RegisterOutputType(WebAclVisibilityConfigPtrOutput{})
 }

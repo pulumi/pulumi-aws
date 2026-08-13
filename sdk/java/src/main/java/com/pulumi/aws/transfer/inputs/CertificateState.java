@@ -17,14 +17,14 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     public static final CertificateState Empty = new CertificateState();
 
     /**
-     * An date when the certificate becomes active
+     * Date when the certificate becomes active
      * 
      */
     @Import(name="activeDate")
     private @Nullable Output<String> activeDate;
 
     /**
-     * @return An date when the certificate becomes active
+     * @return Date when the certificate becomes active
      * 
      */
     public Optional<Output<String>> activeDate() {
@@ -32,14 +32,14 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of the certificate
+     * ARN of the certificate
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the certificate
+     * @return ARN of the certificate
      * 
      */
     public Optional<Output<String>> arn() {
@@ -47,14 +47,14 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The valid certificate file required for the transfer.
+     * Valid certificate file required for the transfer.
      * 
      */
     @Import(name="certificate")
     private @Nullable Output<String> certificate;
 
     /**
-     * @return The valid certificate file required for the transfer.
+     * @return Valid certificate file required for the transfer.
      * 
      */
     public Optional<Output<String>> certificate() {
@@ -62,14 +62,14 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The optional list of certificate that make up the chain for the certificate that is being imported.
+     * Optional list of certificate that make up the chain for the certificate that is being imported.
      * 
      */
     @Import(name="certificateChain")
     private @Nullable Output<String> certificateChain;
 
     /**
-     * @return The optional list of certificate that make up the chain for the certificate that is being imported.
+     * @return Optional list of certificate that make up the chain for the certificate that is being imported.
      * 
      */
     public Optional<Output<String>> certificateChain() {
@@ -77,14 +77,14 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The unique identifier for the AS2 certificate
+     * Unique identifier for the AS2 certificate
      * 
      */
     @Import(name="certificateId")
     private @Nullable Output<String> certificateId;
 
     /**
-     * @return The unique identifier for the AS2 certificate
+     * @return Unique identifier for the AS2 certificate
      * 
      */
     public Optional<Output<String>> certificateId() {
@@ -92,14 +92,14 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A short description that helps identify the certificate.
+     * Short description that helps identify the certificate.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A short description that helps identify the certificate.
+     * @return Short description that helps identify the certificate.
      * 
      */
     public Optional<Output<String>> description() {
@@ -107,14 +107,14 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An date when the certificate becomes inactive
+     * Date when the certificate becomes inactive
      * 
      */
     @Import(name="inactiveDate")
     private @Nullable Output<String> inactiveDate;
 
     /**
-     * @return An date when the certificate becomes inactive
+     * @return Date when the certificate becomes inactive
      * 
      */
     public Optional<Output<String>> inactiveDate() {
@@ -122,14 +122,14 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The private key associated with the certificate being imported.
+     * Private key associated with the certificate being imported.
      * 
      */
     @Import(name="privateKey")
     private @Nullable Output<String> privateKey;
 
     /**
-     * @return The private key associated with the certificate being imported.
+     * @return Private key associated with the certificate being imported.
      * 
      */
     public Optional<Output<String>> privateKey() {
@@ -152,14 +152,14 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -174,14 +174,14 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
+     * Whether a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
      * 
      */
     @Import(name="usage")
     private @Nullable Output<String> usage;
 
     /**
-     * @return Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
+     * @return Whether a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
      * 
      */
     public Optional<Output<String>> usage() {
@@ -224,7 +224,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param activeDate An date when the certificate becomes active
+         * @param activeDate Date when the certificate becomes active
          * 
          * @return builder
          * 
@@ -235,7 +235,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param activeDate An date when the certificate becomes active
+         * @param activeDate Date when the certificate becomes active
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the certificate
+         * @param arn ARN of the certificate
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the certificate
+         * @param arn ARN of the certificate
          * 
          * @return builder
          * 
@@ -266,7 +266,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificate The valid certificate file required for the transfer.
+         * @param certificate Valid certificate file required for the transfer.
          * 
          * @return builder
          * 
@@ -277,7 +277,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificate The valid certificate file required for the transfer.
+         * @param certificate Valid certificate file required for the transfer.
          * 
          * @return builder
          * 
@@ -287,7 +287,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateChain The optional list of certificate that make up the chain for the certificate that is being imported.
+         * @param certificateChain Optional list of certificate that make up the chain for the certificate that is being imported.
          * 
          * @return builder
          * 
@@ -298,7 +298,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateChain The optional list of certificate that make up the chain for the certificate that is being imported.
+         * @param certificateChain Optional list of certificate that make up the chain for the certificate that is being imported.
          * 
          * @return builder
          * 
@@ -308,7 +308,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateId The unique identifier for the AS2 certificate
+         * @param certificateId Unique identifier for the AS2 certificate
          * 
          * @return builder
          * 
@@ -319,7 +319,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateId The unique identifier for the AS2 certificate
+         * @param certificateId Unique identifier for the AS2 certificate
          * 
          * @return builder
          * 
@@ -329,7 +329,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A short description that helps identify the certificate.
+         * @param description Short description that helps identify the certificate.
          * 
          * @return builder
          * 
@@ -340,7 +340,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A short description that helps identify the certificate.
+         * @param description Short description that helps identify the certificate.
          * 
          * @return builder
          * 
@@ -350,7 +350,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param inactiveDate An date when the certificate becomes inactive
+         * @param inactiveDate Date when the certificate becomes inactive
          * 
          * @return builder
          * 
@@ -361,7 +361,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param inactiveDate An date when the certificate becomes inactive
+         * @param inactiveDate Date when the certificate becomes inactive
          * 
          * @return builder
          * 
@@ -371,7 +371,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateKey The private key associated with the certificate being imported.
+         * @param privateKey Private key associated with the certificate being imported.
          * 
          * @return builder
          * 
@@ -382,7 +382,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateKey The private key associated with the certificate being imported.
+         * @param privateKey Private key associated with the certificate being imported.
          * 
          * @return builder
          * 
@@ -413,7 +413,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -424,7 +424,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -443,7 +443,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usage Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
+         * @param usage Whether a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
          * 
          * @return builder
          * 
@@ -454,7 +454,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usage Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
+         * @param usage Whether a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
          * 
          * @return builder
          * 

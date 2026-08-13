@@ -11,9 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcm {
+    /**
+     * @return One or more ACM ARNs.
+     * 
+     */
     private List<String> certificateAuthorityArns;
 
     private GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcm() {}
+    /**
+     * @return One or more ACM ARNs.
+     * 
+     */
     public List<String> certificateAuthorityArns() {
         return this.certificateAuthorityArns;
     }

@@ -45,7 +45,7 @@ namespace Pulumi.Aws.AppRunner
     public partial class CustomDomainAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
+        /// Set of certificate CNAME records used for this domain name. See `CertificateValidationRecords` Block below for more details.
         /// </summary>
         [Output("certificateValidationRecords")]
         public Output<ImmutableArray<Outputs.CustomDomainAssociationCertificateValidationRecord>> CertificateValidationRecords { get; private set; } = null!;
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.AppRunner
         private InputList<Inputs.CustomDomainAssociationCertificateValidationRecordGetArgs>? _certificateValidationRecords;
 
         /// <summary>
-        /// Set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
+        /// Set of certificate CNAME records used for this domain name. See `CertificateValidationRecords` Block below for more details.
         /// </summary>
         public InputList<Inputs.CustomDomainAssociationCertificateValidationRecordGetArgs> CertificateValidationRecords
         {

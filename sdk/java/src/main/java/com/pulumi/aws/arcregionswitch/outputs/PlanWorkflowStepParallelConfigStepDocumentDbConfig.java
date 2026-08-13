@@ -15,33 +15,89 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PlanWorkflowStepParallelConfigStepDocumentDbConfig {
+    /**
+     * @return Behavior for global cluster operations. Valid values: `switchoverOnly`, `failover`.
+     * 
+     */
     private String behavior;
+    /**
+     * @return ARN of the cross-account role to assume.
+     * 
+     */
     private @Nullable String crossAccountRole;
+    /**
+     * @return List of DocumentDB cluster ARNs.
+     * 
+     */
     private List<String> databaseClusterArns;
+    /**
+     * @return External ID for cross-account role assumption.
+     * 
+     */
     private @Nullable String externalId;
+    /**
+     * @return Global cluster identifier.
+     * 
+     */
     private String globalClusterIdentifier;
+    /**
+     * @return Timeout in minutes.
+     * 
+     */
     private @Nullable Integer timeoutMinutes;
+    /**
+     * @return Ungraceful behavior configuration. See `workflow.step.document_db_config.ungraceful` Block for details.
+     * 
+     */
     private @Nullable List<PlanWorkflowStepParallelConfigStepDocumentDbConfigUngraceful> ungracefuls;
 
     private PlanWorkflowStepParallelConfigStepDocumentDbConfig() {}
+    /**
+     * @return Behavior for global cluster operations. Valid values: `switchoverOnly`, `failover`.
+     * 
+     */
     public String behavior() {
         return this.behavior;
     }
+    /**
+     * @return ARN of the cross-account role to assume.
+     * 
+     */
     public Optional<String> crossAccountRole() {
         return Optional.ofNullable(this.crossAccountRole);
     }
+    /**
+     * @return List of DocumentDB cluster ARNs.
+     * 
+     */
     public List<String> databaseClusterArns() {
         return this.databaseClusterArns;
     }
+    /**
+     * @return External ID for cross-account role assumption.
+     * 
+     */
     public Optional<String> externalId() {
         return Optional.ofNullable(this.externalId);
     }
+    /**
+     * @return Global cluster identifier.
+     * 
+     */
     public String globalClusterIdentifier() {
         return this.globalClusterIdentifier;
     }
+    /**
+     * @return Timeout in minutes.
+     * 
+     */
     public Optional<Integer> timeoutMinutes() {
         return Optional.ofNullable(this.timeoutMinutes);
     }
+    /**
+     * @return Ungraceful behavior configuration. See `workflow.step.document_db_config.ungraceful` Block for details.
+     * 
+     */
     public List<PlanWorkflowStepParallelConfigStepDocumentDbConfigUngraceful> ungracefuls() {
         return this.ungracefuls == null ? List.of() : this.ungracefuls;
     }

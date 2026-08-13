@@ -32,14 +32,14 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetwork
     }
 
     /**
-     * VPC configuration. See `networkModeConfig` below.
+     * VPC configuration. See `networkModeConfig` Block below.
      * 
      */
     @Import(name="networkModeConfigs", required=true)
     private Output<List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs>> networkModeConfigs;
 
     /**
-     * @return VPC configuration. See `networkModeConfig` below.
+     * @return VPC configuration. See `networkModeConfig` Block below.
      * 
      */
     public Output<List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs>> networkModeConfigs() {
@@ -93,7 +93,7 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetwork
         }
 
         /**
-         * @param networkModeConfigs VPC configuration. See `networkModeConfig` below.
+         * @param networkModeConfigs VPC configuration. See `networkModeConfig` Block below.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetwork
         }
 
         /**
-         * @param networkModeConfigs VPC configuration. See `networkModeConfig` below.
+         * @param networkModeConfigs VPC configuration. See `networkModeConfig` Block below.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetwork
         }
 
         /**
-         * @param networkModeConfigs VPC configuration. See `networkModeConfig` below.
+         * @param networkModeConfigs VPC configuration. See `networkModeConfig` Block below.
          * 
          * @return builder
          * 

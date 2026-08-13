@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfiguration
     {
         /// <summary>
-        /// Amazon EFS access point to mount as shared file storage. Exactly one of `SessionStorage`, `S3FilesAccessPoint`, or `EfsAccessPoint` must be specified. See `EfsAccessPoint` below.
+        /// Amazon EFS access point to mount as shared file storage. Exactly one of `SessionStorage`, `S3FilesAccessPoint`, or `EfsAccessPoint` must be specified. See `EfsAccessPoint` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint> EfsAccessPoints;
         /// <summary>
-        /// Amazon S3 Files access point to mount as shared file storage. Exactly one of `SessionStorage`, `S3FilesAccessPoint`, or `EfsAccessPoint` must be specified. See `S3FilesAccessPoint` below.
+        /// Amazon S3 Files access point to mount as shared file storage. Exactly one of `SessionStorage`, `S3FilesAccessPoint`, or `EfsAccessPoint` must be specified. See `S3FilesAccessPoint` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint> S3FilesAccessPoints;
         /// <summary>
-        /// Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `SessionStorage`, `S3FilesAccessPoint`, or `EfsAccessPoint` must be specified. See `SessionStorage` below.
+        /// Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `SessionStorage`, `S3FilesAccessPoint`, or `EfsAccessPoint` must be specified. See `SessionStorage` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage> SessionStorages;
 

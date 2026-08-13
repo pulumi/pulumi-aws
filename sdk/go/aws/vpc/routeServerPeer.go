@@ -56,7 +56,6 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/vpc"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -73,9 +72,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			testVpcRouteServerAssociation, err := aws.NewVpcRouteServerAssociation(ctx, "test", &aws.VpcRouteServerAssociationArgs{
+//			testRouteServerVpcAssociation, err := vpc.NewRouteServerVpcAssociation(ctx, "test", &vpc.RouteServerVpcAssociationArgs{
 //				RouteServerId: test.RouteServerId,
-//				VpcId:         testAwsVpc.Id,
+//				VpcId:         pulumi.Any(testAwsVpc.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -87,7 +86,7 @@ import (
 //					"Name": pulumi.String("Test Endpoint"),
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
-//				testVpcRouteServerAssociation,
+//				testRouteServerVpcAssociation,
 //			}))
 //			if err != nil {
 //				return err
@@ -96,7 +95,7 @@ import (
 //				RouteServerId: test.RouteServerId,
 //				RouteTableId:  pulumi.Any(testAwsRouteTable.Id),
 //			}, pulumi.DependsOn([]pulumi.Resource{
-//				testVpcRouteServerAssociation,
+//				testRouteServerVpcAssociation,
 //			}))
 //			if err != nil {
 //				return err

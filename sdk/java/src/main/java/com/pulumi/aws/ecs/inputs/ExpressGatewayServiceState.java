@@ -126,14 +126,14 @@ public final class ExpressGatewayServiceState extends com.pulumi.resources.Resou
     }
 
     /**
-     * List of ingress paths with access type and endpoint information.
+     * List of ingress paths for the service. See `ingressPaths` Block below.
      * 
      */
     @Import(name="ingressPaths")
     private @Nullable Output<List<ExpressGatewayServiceIngressPathArgs>> ingressPaths;
 
     /**
-     * @return List of ingress paths with access type and endpoint information.
+     * @return List of ingress paths for the service. See `ingressPaths` Block below.
      * 
      */
     public Optional<Output<List<ExpressGatewayServiceIngressPathArgs>>> ingressPaths() {
@@ -501,7 +501,7 @@ public final class ExpressGatewayServiceState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param ingressPaths List of ingress paths with access type and endpoint information.
+         * @param ingressPaths List of ingress paths for the service. See `ingressPaths` Block below.
          * 
          * @return builder
          * 
@@ -512,7 +512,7 @@ public final class ExpressGatewayServiceState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param ingressPaths List of ingress paths with access type and endpoint information.
+         * @param ingressPaths List of ingress paths for the service. See `ingressPaths` Block below.
          * 
          * @return builder
          * 
@@ -522,7 +522,7 @@ public final class ExpressGatewayServiceState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param ingressPaths List of ingress paths with access type and endpoint information.
+         * @param ingressPaths List of ingress paths for the service. See `ingressPaths` Block below.
          * 
          * @return builder
          * 

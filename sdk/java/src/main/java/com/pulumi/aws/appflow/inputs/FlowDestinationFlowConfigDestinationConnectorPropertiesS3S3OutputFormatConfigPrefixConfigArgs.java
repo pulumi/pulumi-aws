@@ -32,14 +32,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
     }
 
     /**
-     * Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
+     * Whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
      * 
      */
     @Import(name="prefixHierarchies")
     private @Nullable Output<List<String>> prefixHierarchies;
 
     /**
-     * @return Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
+     * @return Whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
      * 
      */
     public Optional<Output<List<String>>> prefixHierarchies() {
@@ -109,7 +109,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
         }
 
         /**
-         * @param prefixHierarchies Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
+         * @param prefixHierarchies Whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
         }
 
         /**
-         * @param prefixHierarchies Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
+         * @param prefixHierarchies Whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
         }
 
         /**
-         * @param prefixHierarchies Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
+         * @param prefixHierarchies Whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
          * 
          * @return builder
          * 

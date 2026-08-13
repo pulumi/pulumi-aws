@@ -14,9 +14,17 @@ public final class CloudExadataInfrastructureMaintenanceWindowDaysOfWeekArgs ext
 
     public static final CloudExadataInfrastructureMaintenanceWindowDaysOfWeekArgs Empty = new CloudExadataInfrastructureMaintenanceWindowDaysOfWeekArgs();
 
+    /**
+     * Name of the day of the week. Valid values are `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY`, `SATURDAY`, and `SUNDAY`.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return Name of the day of the week. Valid values are `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY`, `SATURDAY`, and `SUNDAY`.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
@@ -45,11 +53,23 @@ public final class CloudExadataInfrastructureMaintenanceWindowDaysOfWeekArgs ext
             $ = new CloudExadataInfrastructureMaintenanceWindowDaysOfWeekArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name Name of the day of the week. Valid values are `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY`, `SATURDAY`, and `SUNDAY`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name of the day of the week. Valid values are `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY`, `SATURDAY`, and `SUNDAY`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

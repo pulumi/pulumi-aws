@@ -18,7 +18,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Outputs
         /// </summary>
         public readonly string Action;
         /// <summary>
-        /// List of conditions that must be met. See Conditions below.
+        /// Conditions that must be met. See `Conditions` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.PlanTriggerCondition> Conditions;
         /// <summary>

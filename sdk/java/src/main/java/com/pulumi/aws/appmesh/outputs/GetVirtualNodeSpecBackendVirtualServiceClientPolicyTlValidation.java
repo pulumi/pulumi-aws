@@ -12,13 +12,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidation {
+    /**
+     * @return SANs for a TLS validation context. See `spec.listener.tls.validation.subject_alternative_names` Block for details.
+     * 
+     */
     private List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeName> subjectAlternativeNames;
+    /**
+     * @return TLS validation context trust. See `spec.listener.tls.validation.trust` Block for details.
+     * 
+     */
     private List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrust> trusts;
 
     private GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidation() {}
+    /**
+     * @return SANs for a TLS validation context. See `spec.listener.tls.validation.subject_alternative_names` Block for details.
+     * 
+     */
     public List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeName> subjectAlternativeNames() {
         return this.subjectAlternativeNames;
     }
+    /**
+     * @return TLS validation context trust. See `spec.listener.tls.validation.trust` Block for details.
+     * 
+     */
     public List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrust> trusts() {
         return this.trusts;
     }

@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetListenerDefaultActionFixedResponse {
+    /**
+     * @return Custom HTTP status code to return.
+     * 
+     */
     private Integer statusCode;
 
     private GetListenerDefaultActionFixedResponse() {}
+    /**
+     * @return Custom HTTP status code to return.
+     * 
+     */
     public Integer statusCode() {
         return this.statusCode;
     }

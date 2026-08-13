@@ -85,13 +85,10 @@ export class Control extends pulumi.CustomResource {
     declare public readonly actionPlanTitle: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the control.
-     * * `control_mapping_sources.*.source_id` - Unique identifier for the source.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Data mapping sources. See `controlMappingSources` below.
-     *
-     * The following arguments are optional:
      */
     declare public readonly controlMappingSources: pulumi.Output<outputs.auditmanager.ControlControlMappingSource[] | undefined>;
     /**
@@ -100,6 +97,8 @@ export class Control extends pulumi.CustomResource {
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Name of the control.
+     *
+     * The following arguments are optional:
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -107,7 +106,7 @@ export class Control extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the control. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the control. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
@@ -177,13 +176,10 @@ export interface ControlState {
     actionPlanTitle?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the control.
-     * * `control_mapping_sources.*.source_id` - Unique identifier for the source.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
      * Data mapping sources. See `controlMappingSources` below.
-     *
-     * The following arguments are optional:
      */
     controlMappingSources?: pulumi.Input<pulumi.Input<inputs.auditmanager.ControlControlMappingSource>[] | undefined>;
     /**
@@ -192,6 +188,8 @@ export interface ControlState {
     description?: pulumi.Input<string | undefined>;
     /**
      * Name of the control.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -199,7 +197,7 @@ export interface ControlState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the control. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the control. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
@@ -227,8 +225,6 @@ export interface ControlArgs {
     actionPlanTitle?: pulumi.Input<string | undefined>;
     /**
      * Data mapping sources. See `controlMappingSources` below.
-     *
-     * The following arguments are optional:
      */
     controlMappingSources?: pulumi.Input<pulumi.Input<inputs.auditmanager.ControlControlMappingSource>[] | undefined>;
     /**
@@ -237,6 +233,8 @@ export interface ControlArgs {
     description?: pulumi.Input<string | undefined>;
     /**
      * Name of the control.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -244,7 +242,7 @@ export interface ControlArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the control. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the control. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**

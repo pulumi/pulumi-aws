@@ -43,13 +43,13 @@ namespace Pulumi.Aws.Location
     public partial class PlaceIndex : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The timestamp for when the place index resource was created in ISO 8601 format.
+        /// Timestamp for when the place index resource was created in ISO 8601 format.
         /// </summary>
         [Output("createTime")]
         public Output<string> CreateTime { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the geospatial data provider for the new place index.
+        /// Geospatial data provider for the new place index.
         /// </summary>
         [Output("dataSource")]
         public Output<string> DataSource { get; private set; } = null!;
@@ -61,19 +61,19 @@ namespace Pulumi.Aws.Location
         public Output<Outputs.PlaceIndexDataSourceConfiguration> DataSourceConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The optional description for the place index resource.
+        /// Optional description for the place index resource.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
+        /// Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
         /// </summary>
         [Output("indexArn")]
         public Output<string> IndexArn { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the place index resource.
+        /// Name of the place index resource.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -93,13 +93,13 @@ namespace Pulumi.Aws.Location
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The timestamp for when the place index resource was last update in ISO 8601.
+        /// Timestamp for when the place index resource was last updated in ISO 8601 format.
         /// </summary>
         [Output("updateTime")]
         public Output<string> UpdateTime { get; private set; } = null!;
@@ -151,7 +151,7 @@ namespace Pulumi.Aws.Location
     public sealed class PlaceIndexArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the geospatial data provider for the new place index.
+        /// Geospatial data provider for the new place index.
         /// </summary>
         [Input("dataSource", required: true)]
         public Input<string> DataSource { get; set; } = null!;
@@ -163,13 +163,13 @@ namespace Pulumi.Aws.Location
         public Input<Inputs.PlaceIndexDataSourceConfigurationArgs>? DataSourceConfiguration { get; set; }
 
         /// <summary>
-        /// The optional description for the place index resource.
+        /// Optional description for the place index resource.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The name of the place index resource.
+        /// Name of the place index resource.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -203,13 +203,13 @@ namespace Pulumi.Aws.Location
     public sealed class PlaceIndexState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The timestamp for when the place index resource was created in ISO 8601 format.
+        /// Timestamp for when the place index resource was created in ISO 8601 format.
         /// </summary>
         [Input("createTime")]
         public Input<string>? CreateTime { get; set; }
 
         /// <summary>
-        /// Specifies the geospatial data provider for the new place index.
+        /// Geospatial data provider for the new place index.
         /// </summary>
         [Input("dataSource")]
         public Input<string>? DataSource { get; set; }
@@ -221,19 +221,19 @@ namespace Pulumi.Aws.Location
         public Input<Inputs.PlaceIndexDataSourceConfigurationGetArgs>? DataSourceConfiguration { get; set; }
 
         /// <summary>
-        /// The optional description for the place index resource.
+        /// Optional description for the place index resource.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
+        /// Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
         /// </summary>
         [Input("indexArn")]
         public Input<string>? IndexArn { get; set; }
 
         /// <summary>
-        /// The name of the place index resource.
+        /// Name of the place index resource.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -262,7 +262,7 @@ namespace Pulumi.Aws.Location
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -271,7 +271,7 @@ namespace Pulumi.Aws.Location
         }
 
         /// <summary>
-        /// The timestamp for when the place index resource was last update in ISO 8601.
+        /// Timestamp for when the place index resource was last updated in ISO 8601 format.
         /// </summary>
         [Input("updateTime")]
         public Input<string>? UpdateTime { get; set; }

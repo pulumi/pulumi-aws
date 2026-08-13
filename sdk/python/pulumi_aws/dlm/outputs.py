@@ -585,6 +585,8 @@ class LifecyclePolicyPolicyDetailsParameters(dict):
         suggest = None
         if key == "excludeBootVolume":
             suggest = "exclude_boot_volume"
+        elif key == "excludeDataVolumeTags":
+            suggest = "exclude_data_volume_tags"
         elif key == "noReboot":
             suggest = "no_reboot"
 
@@ -601,13 +603,17 @@ class LifecyclePolicyPolicyDetailsParameters(dict):
 
     def __init__(__self__, *,
                  exclude_boot_volume: Optional[_builtins.bool] = None,
+                 exclude_data_volume_tags: Optional[Mapping[str, _builtins.str]] = None,
                  no_reboot: Optional[_builtins.bool] = None):
         """
         :param _builtins.bool exclude_boot_volume: Indicates whether to exclude the root volume from snapshots created using CreateSnapshots. The default is `false`.
+        :param Mapping[str, _builtins.str] exclude_data_volume_tags: Map specifies whether to exclude volumes that have specific tags.
         :param _builtins.bool no_reboot: Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted when the lifecycle policy runs. `true` indicates that targeted instances are not rebooted when the policy runs. `false` indicates that target instances are rebooted when the policy runs. The default is `true` (instances are not rebooted).
         """
         if exclude_boot_volume is not None:
             pulumi.set(__self__, "exclude_boot_volume", exclude_boot_volume)
+        if exclude_data_volume_tags is not None:
+            pulumi.set(__self__, "exclude_data_volume_tags", exclude_data_volume_tags)
         if no_reboot is not None:
             pulumi.set(__self__, "no_reboot", no_reboot)
 
@@ -618,6 +624,14 @@ class LifecyclePolicyPolicyDetailsParameters(dict):
         Indicates whether to exclude the root volume from snapshots created using CreateSnapshots. The default is `false`.
         """
         return pulumi.get(self, "exclude_boot_volume")
+
+    @_builtins.property
+    @pulumi.getter(name="excludeDataVolumeTags")
+    def exclude_data_volume_tags(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Map specifies whether to exclude volumes that have specific tags.
+        """
+        return pulumi.get(self, "exclude_data_volume_tags")
 
     @_builtins.property
     @pulumi.getter(name="noReboot")

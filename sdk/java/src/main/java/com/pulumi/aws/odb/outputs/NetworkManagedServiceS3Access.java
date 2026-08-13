@@ -11,7 +11,15 @@ import java.util.Objects;
 
 @CustomType
 public final class NetworkManagedServiceS3Access {
+    /**
+     * @return Domain name for which the DNS queries are forwarded.
+     * 
+     */
     private String domainName;
+    /**
+     * @return List of IPv4 addresses for the Amazon STS access.
+     * 
+     */
     private List<String> ipv4Addresses;
     /**
      * @return Endpoint policy for Amazon S3 access from the ODB network.
@@ -19,15 +27,23 @@ public final class NetworkManagedServiceS3Access {
      */
     private String s3PolicyDocument;
     /**
-     * @return Status of the network resource.
+     * @return Status of the Zero-ETL access.
      * 
      */
     private String status;
 
     private NetworkManagedServiceS3Access() {}
+    /**
+     * @return Domain name for which the DNS queries are forwarded.
+     * 
+     */
     public String domainName() {
         return this.domainName;
     }
+    /**
+     * @return List of IPv4 addresses for the Amazon STS access.
+     * 
+     */
     public List<String> ipv4Addresses() {
         return this.ipv4Addresses;
     }
@@ -39,7 +55,7 @@ public final class NetworkManagedServiceS3Access {
         return this.s3PolicyDocument;
     }
     /**
-     * @return Status of the network resource.
+     * @return Status of the Zero-ETL access.
      * 
      */
     public String status() {

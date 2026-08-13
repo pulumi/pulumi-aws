@@ -61,7 +61,7 @@ export class CustomDomainAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * Set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
+     * Set of certificate CNAME records used for this domain name. See `certificateValidationRecords` Block below for more details.
      */
     declare public /*out*/ readonly certificateValidationRecords: pulumi.Output<outputs.apprunner.CustomDomainAssociationCertificateValidationRecord[]>;
     /**
@@ -135,7 +135,7 @@ export class CustomDomainAssociation extends pulumi.CustomResource {
  */
 export interface CustomDomainAssociationState {
     /**
-     * Set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
+     * Set of certificate CNAME records used for this domain name. See `certificateValidationRecords` Block below for more details.
      */
     certificateValidationRecords?: pulumi.Input<pulumi.Input<inputs.apprunner.CustomDomainAssociationCertificateValidationRecord>[] | undefined>;
     /**

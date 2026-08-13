@@ -14,7 +14,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Outputs
     public sealed class PlanWorkflowStepParallelConfig
     {
         /// <summary>
-        /// List of steps to execute in parallel. Uses the same schema as Step but without `ParallelConfig` to prevent infinite nesting.
+        /// Steps to execute in parallel. See `Step` Block for details. The parallel step schema matches `Step` Block but does not support `ParallelConfig` to prevent infinite nesting.
         /// </summary>
         public readonly ImmutableArray<Outputs.PlanWorkflowStepParallelConfigStep> Steps;
 

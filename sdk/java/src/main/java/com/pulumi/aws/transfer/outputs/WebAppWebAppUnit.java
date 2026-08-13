@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAppWebAppUnit {
+    /**
+     * @return Number of units of concurrent connections.
+     * 
+     */
     private Integer provisioned;
 
     private WebAppWebAppUnit() {}
+    /**
+     * @return Number of units of concurrent connections.
+     * 
+     */
     public Integer provisioned() {
         return this.provisioned;
     }

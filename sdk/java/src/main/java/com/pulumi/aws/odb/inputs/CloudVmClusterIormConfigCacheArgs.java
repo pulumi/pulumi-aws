@@ -16,30 +16,62 @@ public final class CloudVmClusterIormConfigCacheArgs extends com.pulumi.resource
 
     public static final CloudVmClusterIormConfigCacheArgs Empty = new CloudVmClusterIormConfigCacheArgs();
 
+    /**
+     * List of IORM (I/O Resource Manager) database plans for the VM cluster. See `dbPlans` Block below.
+     * 
+     */
     @Import(name="dbPlans", required=true)
     private Output<List<CloudVmClusterIormConfigCacheDbPlanArgs>> dbPlans;
 
+    /**
+     * @return List of IORM (I/O Resource Manager) database plans for the VM cluster. See `dbPlans` Block below.
+     * 
+     */
     public Output<List<CloudVmClusterIormConfigCacheDbPlanArgs>> dbPlans() {
         return this.dbPlans;
     }
 
+    /**
+     * Additional information about the current lifecycle state of the IORM configuration.
+     * 
+     */
     @Import(name="lifecycleDetails", required=true)
     private Output<String> lifecycleDetails;
 
+    /**
+     * @return Additional information about the current lifecycle state of the IORM configuration.
+     * 
+     */
     public Output<String> lifecycleDetails() {
         return this.lifecycleDetails;
     }
 
+    /**
+     * Current lifecycle state of the IORM configuration.
+     * 
+     */
     @Import(name="lifecycleState", required=true)
     private Output<String> lifecycleState;
 
+    /**
+     * @return Current lifecycle state of the IORM configuration.
+     * 
+     */
     public Output<String> lifecycleState() {
         return this.lifecycleState;
     }
 
+    /**
+     * Current value for the IORM objective.
+     * 
+     */
     @Import(name="objective", required=true)
     private Output<String> objective;
 
+    /**
+     * @return Current value for the IORM objective.
+     * 
+     */
     public Output<String> objective() {
         return this.objective;
     }
@@ -71,42 +103,96 @@ public final class CloudVmClusterIormConfigCacheArgs extends com.pulumi.resource
             $ = new CloudVmClusterIormConfigCacheArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param dbPlans List of IORM (I/O Resource Manager) database plans for the VM cluster. See `dbPlans` Block below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dbPlans(Output<List<CloudVmClusterIormConfigCacheDbPlanArgs>> dbPlans) {
             $.dbPlans = dbPlans;
             return this;
         }
 
+        /**
+         * @param dbPlans List of IORM (I/O Resource Manager) database plans for the VM cluster. See `dbPlans` Block below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dbPlans(List<CloudVmClusterIormConfigCacheDbPlanArgs> dbPlans) {
             return dbPlans(Output.of(dbPlans));
         }
 
+        /**
+         * @param dbPlans List of IORM (I/O Resource Manager) database plans for the VM cluster. See `dbPlans` Block below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dbPlans(CloudVmClusterIormConfigCacheDbPlanArgs... dbPlans) {
             return dbPlans(List.of(dbPlans));
         }
 
+        /**
+         * @param lifecycleDetails Additional information about the current lifecycle state of the IORM configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lifecycleDetails(Output<String> lifecycleDetails) {
             $.lifecycleDetails = lifecycleDetails;
             return this;
         }
 
+        /**
+         * @param lifecycleDetails Additional information about the current lifecycle state of the IORM configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lifecycleDetails(String lifecycleDetails) {
             return lifecycleDetails(Output.of(lifecycleDetails));
         }
 
+        /**
+         * @param lifecycleState Current lifecycle state of the IORM configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lifecycleState(Output<String> lifecycleState) {
             $.lifecycleState = lifecycleState;
             return this;
         }
 
+        /**
+         * @param lifecycleState Current lifecycle state of the IORM configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lifecycleState(String lifecycleState) {
             return lifecycleState(Output.of(lifecycleState));
         }
 
+        /**
+         * @param objective Current value for the IORM objective.
+         * 
+         * @return builder
+         * 
+         */
         public Builder objective(Output<String> objective) {
             $.objective = objective;
             return this;
         }
 
+        /**
+         * @param objective Current value for the IORM objective.
+         * 
+         * @return builder
+         * 
+         */
         public Builder objective(String objective) {
             return objective(Output.of(objective));
         }

@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import elasticsearch VPC endpoint connections using the `id`. For example:
+ * Using `pulumi import`, import elasticsearch VPC endpoints using the `id`. For example:
  *
  * ```sh
  * $ pulumi import aws:elasticsearch/vpcEndpoint:VpcEndpoint example endpoint-id

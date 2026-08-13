@@ -30,14 +30,14 @@ class AgreementArgs:
         """
         The set of arguments for constructing a Agreement resource.
 
-        :param pulumi.Input[_builtins.str] access_role: The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
-        :param pulumi.Input[_builtins.str] base_directory: The landing directory for the files transferred by using the AS2 protocol.
-        :param pulumi.Input[_builtins.str] local_profile_id: The unique identifier for the AS2 local profile.
-        :param pulumi.Input[_builtins.str] partner_profile_id: The unique identifier for the AS2 partner profile.
-        :param pulumi.Input[_builtins.str] server_id: The unique server identifier for the server instance. This is the specific server the agreement uses.
-        :param pulumi.Input[_builtins.str] description: The Optional description of the transdfer.
+        :param pulumi.Input[_builtins.str] access_role: IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
+        :param pulumi.Input[_builtins.str] base_directory: Landing directory for the files transferred by using the AS2 protocol.
+        :param pulumi.Input[_builtins.str] local_profile_id: Unique identifier for the AS2 local profile.
+        :param pulumi.Input[_builtins.str] partner_profile_id: Unique identifier for the AS2 partner profile.
+        :param pulumi.Input[_builtins.str] server_id: Unique server identifier for the server instance. This is the specific server the agreement uses.
+        :param pulumi.Input[_builtins.str] description: Optional description of the transdfer.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "access_role", access_role)
         pulumi.set(__self__, "base_directory", base_directory)
@@ -55,7 +55,7 @@ class AgreementArgs:
     @pulumi.getter(name="accessRole")
     def access_role(self) -> pulumi.Input[_builtins.str]:
         """
-        The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
+        IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
         """
         return pulumi.get(self, "access_role")
 
@@ -67,7 +67,7 @@ class AgreementArgs:
     @pulumi.getter(name="baseDirectory")
     def base_directory(self) -> pulumi.Input[_builtins.str]:
         """
-        The landing directory for the files transferred by using the AS2 protocol.
+        Landing directory for the files transferred by using the AS2 protocol.
         """
         return pulumi.get(self, "base_directory")
 
@@ -79,7 +79,7 @@ class AgreementArgs:
     @pulumi.getter(name="localProfileId")
     def local_profile_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The unique identifier for the AS2 local profile.
+        Unique identifier for the AS2 local profile.
         """
         return pulumi.get(self, "local_profile_id")
 
@@ -91,7 +91,7 @@ class AgreementArgs:
     @pulumi.getter(name="partnerProfileId")
     def partner_profile_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The unique identifier for the AS2 partner profile.
+        Unique identifier for the AS2 partner profile.
         """
         return pulumi.get(self, "partner_profile_id")
 
@@ -103,7 +103,7 @@ class AgreementArgs:
     @pulumi.getter(name="serverId")
     def server_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The unique server identifier for the server instance. This is the specific server the agreement uses.
+        Unique server identifier for the server instance. This is the specific server the agreement uses.
         """
         return pulumi.get(self, "server_id")
 
@@ -115,7 +115,7 @@ class AgreementArgs:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Optional description of the transdfer.
+        Optional description of the transdfer.
         """
         return pulumi.get(self, "description")
 
@@ -139,7 +139,7 @@ class AgreementArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -166,16 +166,17 @@ class _AgreementState:
         """
         Input properties used for looking up and filtering Agreement resources.
 
-        :param pulumi.Input[_builtins.str] access_role: The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
-        :param pulumi.Input[_builtins.str] agreement_id: The unique identifier for the AS2 agreement.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the agreement.
-        :param pulumi.Input[_builtins.str] base_directory: The landing directory for the files transferred by using the AS2 protocol.
-        :param pulumi.Input[_builtins.str] description: The Optional description of the transdfer.
-        :param pulumi.Input[_builtins.str] local_profile_id: The unique identifier for the AS2 local profile.
-        :param pulumi.Input[_builtins.str] partner_profile_id: The unique identifier for the AS2 partner profile.
+        :param pulumi.Input[_builtins.str] access_role: IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
+        :param pulumi.Input[_builtins.str] agreement_id: Unique identifier for the AS2 agreement.
+        :param pulumi.Input[_builtins.str] arn: ARN of the agreement.
+        :param pulumi.Input[_builtins.str] base_directory: Landing directory for the files transferred by using the AS2 protocol.
+        :param pulumi.Input[_builtins.str] description: Optional description of the transdfer.
+        :param pulumi.Input[_builtins.str] local_profile_id: Unique identifier for the AS2 local profile.
+        :param pulumi.Input[_builtins.str] partner_profile_id: Unique identifier for the AS2 partner profile.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] server_id: The unique server identifier for the server instance. This is the specific server the agreement uses.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.str] server_id: Unique server identifier for the server instance. This is the specific server the agreement uses.
+        :param pulumi.Input[_builtins.str] status: Status of the agreement which is either ACTIVE or INACTIVE.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if access_role is not None:
             pulumi.set(__self__, "access_role", access_role)
@@ -206,7 +207,7 @@ class _AgreementState:
     @pulumi.getter(name="accessRole")
     def access_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
+        IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
         """
         return pulumi.get(self, "access_role")
 
@@ -218,7 +219,7 @@ class _AgreementState:
     @pulumi.getter(name="agreementId")
     def agreement_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The unique identifier for the AS2 agreement.
+        Unique identifier for the AS2 agreement.
         """
         return pulumi.get(self, "agreement_id")
 
@@ -230,7 +231,7 @@ class _AgreementState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the agreement.
+        ARN of the agreement.
         """
         return pulumi.get(self, "arn")
 
@@ -242,7 +243,7 @@ class _AgreementState:
     @pulumi.getter(name="baseDirectory")
     def base_directory(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The landing directory for the files transferred by using the AS2 protocol.
+        Landing directory for the files transferred by using the AS2 protocol.
         """
         return pulumi.get(self, "base_directory")
 
@@ -254,7 +255,7 @@ class _AgreementState:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Optional description of the transdfer.
+        Optional description of the transdfer.
         """
         return pulumi.get(self, "description")
 
@@ -266,7 +267,7 @@ class _AgreementState:
     @pulumi.getter(name="localProfileId")
     def local_profile_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The unique identifier for the AS2 local profile.
+        Unique identifier for the AS2 local profile.
         """
         return pulumi.get(self, "local_profile_id")
 
@@ -278,7 +279,7 @@ class _AgreementState:
     @pulumi.getter(name="partnerProfileId")
     def partner_profile_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The unique identifier for the AS2 partner profile.
+        Unique identifier for the AS2 partner profile.
         """
         return pulumi.get(self, "partner_profile_id")
 
@@ -302,7 +303,7 @@ class _AgreementState:
     @pulumi.getter(name="serverId")
     def server_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The unique server identifier for the server instance. This is the specific server the agreement uses.
+        Unique server identifier for the server instance. This is the specific server the agreement uses.
         """
         return pulumi.get(self, "server_id")
 
@@ -313,6 +314,9 @@ class _AgreementState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Status of the agreement which is either ACTIVE or INACTIVE.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -323,7 +327,7 @@ class _AgreementState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -387,14 +391,14 @@ class Agreement(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] access_role: The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
-        :param pulumi.Input[_builtins.str] base_directory: The landing directory for the files transferred by using the AS2 protocol.
-        :param pulumi.Input[_builtins.str] description: The Optional description of the transdfer.
-        :param pulumi.Input[_builtins.str] local_profile_id: The unique identifier for the AS2 local profile.
-        :param pulumi.Input[_builtins.str] partner_profile_id: The unique identifier for the AS2 partner profile.
+        :param pulumi.Input[_builtins.str] access_role: IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
+        :param pulumi.Input[_builtins.str] base_directory: Landing directory for the files transferred by using the AS2 protocol.
+        :param pulumi.Input[_builtins.str] description: Optional description of the transdfer.
+        :param pulumi.Input[_builtins.str] local_profile_id: Unique identifier for the AS2 local profile.
+        :param pulumi.Input[_builtins.str] partner_profile_id: Unique identifier for the AS2 partner profile.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] server_id: The unique server identifier for the server instance. This is the specific server the agreement uses.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.str] server_id: Unique server identifier for the server instance. This is the specific server the agreement uses.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -514,16 +518,17 @@ class Agreement(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] access_role: The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
-        :param pulumi.Input[_builtins.str] agreement_id: The unique identifier for the AS2 agreement.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the agreement.
-        :param pulumi.Input[_builtins.str] base_directory: The landing directory for the files transferred by using the AS2 protocol.
-        :param pulumi.Input[_builtins.str] description: The Optional description of the transdfer.
-        :param pulumi.Input[_builtins.str] local_profile_id: The unique identifier for the AS2 local profile.
-        :param pulumi.Input[_builtins.str] partner_profile_id: The unique identifier for the AS2 partner profile.
+        :param pulumi.Input[_builtins.str] access_role: IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
+        :param pulumi.Input[_builtins.str] agreement_id: Unique identifier for the AS2 agreement.
+        :param pulumi.Input[_builtins.str] arn: ARN of the agreement.
+        :param pulumi.Input[_builtins.str] base_directory: Landing directory for the files transferred by using the AS2 protocol.
+        :param pulumi.Input[_builtins.str] description: Optional description of the transdfer.
+        :param pulumi.Input[_builtins.str] local_profile_id: Unique identifier for the AS2 local profile.
+        :param pulumi.Input[_builtins.str] partner_profile_id: Unique identifier for the AS2 partner profile.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] server_id: The unique server identifier for the server instance. This is the specific server the agreement uses.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.str] server_id: Unique server identifier for the server instance. This is the specific server the agreement uses.
+        :param pulumi.Input[_builtins.str] status: Status of the agreement which is either ACTIVE or INACTIVE.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -547,7 +552,7 @@ class Agreement(pulumi.CustomResource):
     @pulumi.getter(name="accessRole")
     def access_role(self) -> pulumi.Output[_builtins.str]:
         """
-        The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
+        IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
         """
         return pulumi.get(self, "access_role")
 
@@ -555,7 +560,7 @@ class Agreement(pulumi.CustomResource):
     @pulumi.getter(name="agreementId")
     def agreement_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The unique identifier for the AS2 agreement.
+        Unique identifier for the AS2 agreement.
         """
         return pulumi.get(self, "agreement_id")
 
@@ -563,7 +568,7 @@ class Agreement(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the agreement.
+        ARN of the agreement.
         """
         return pulumi.get(self, "arn")
 
@@ -571,7 +576,7 @@ class Agreement(pulumi.CustomResource):
     @pulumi.getter(name="baseDirectory")
     def base_directory(self) -> pulumi.Output[_builtins.str]:
         """
-        The landing directory for the files transferred by using the AS2 protocol.
+        Landing directory for the files transferred by using the AS2 protocol.
         """
         return pulumi.get(self, "base_directory")
 
@@ -579,7 +584,7 @@ class Agreement(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The Optional description of the transdfer.
+        Optional description of the transdfer.
         """
         return pulumi.get(self, "description")
 
@@ -587,7 +592,7 @@ class Agreement(pulumi.CustomResource):
     @pulumi.getter(name="localProfileId")
     def local_profile_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The unique identifier for the AS2 local profile.
+        Unique identifier for the AS2 local profile.
         """
         return pulumi.get(self, "local_profile_id")
 
@@ -595,7 +600,7 @@ class Agreement(pulumi.CustomResource):
     @pulumi.getter(name="partnerProfileId")
     def partner_profile_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The unique identifier for the AS2 partner profile.
+        Unique identifier for the AS2 partner profile.
         """
         return pulumi.get(self, "partner_profile_id")
 
@@ -611,20 +616,23 @@ class Agreement(pulumi.CustomResource):
     @pulumi.getter(name="serverId")
     def server_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The unique server identifier for the server instance. This is the specific server the agreement uses.
+        Unique server identifier for the server instance. This is the specific server the agreement uses.
         """
         return pulumi.get(self, "server_id")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
+        """
+        Status of the agreement which is either ACTIVE or INACTIVE.
+        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

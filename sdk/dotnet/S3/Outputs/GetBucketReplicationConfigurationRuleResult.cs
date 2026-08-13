@@ -13,17 +13,41 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class GetBucketReplicationConfigurationRuleResult
     {
+        /// <summary>
+        /// Configuration block that specifies whether delete markers are replicated. See `DeleteMarkerReplication` Block below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetBucketReplicationConfigurationRuleDeleteMarkerReplicationResult> DeleteMarkerReplications;
+        /// <summary>
+        /// Configuration block that specifies the destination for the rule. See `Destination` Block below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetBucketReplicationConfigurationRuleDestinationResult> Destinations;
+        /// <summary>
+        /// Configuration block that specifies replication of existing objects. See `ExistingObjectReplication` Block below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetBucketReplicationConfigurationRuleExistingObjectReplicationResult> ExistingObjectReplications;
+        /// <summary>
+        /// Configuration block that identifies the subset of objects to which the rule applies. See `Filter` Block below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetBucketReplicationConfigurationRuleFilterResult> Filters;
+        /// <summary>
+        /// Unique identifier for the rule.
+        /// </summary>
         public readonly string Id;
         /// <summary>
         /// Object key name prefix that identifies the subset of objects to which the rule applies.
         /// </summary>
         public readonly string Prefix;
+        /// <summary>
+        /// Priority associated with the rule.
+        /// </summary>
         public readonly int Priority;
+        /// <summary>
+        /// Configuration block that specifies special object selection criteria. See `SourceSelectionCriteria` Block below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetBucketReplicationConfigurationRuleSourceSelectionCriteriaResult> SourceSelectionCriterias;
+        /// <summary>
+        /// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+        /// </summary>
         public readonly string Status;
 
         [OutputConstructor]

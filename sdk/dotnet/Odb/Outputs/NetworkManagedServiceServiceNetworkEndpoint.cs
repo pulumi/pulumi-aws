@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Odb.Outputs
     [OutputType]
     public sealed class NetworkManagedServiceServiceNetworkEndpoint
     {
+        /// <summary>
+        /// Unique identifier of the VPC endpoint.
+        /// </summary>
         public readonly string VpcEndpointId;
+        /// <summary>
+        /// Type of the VPC endpoint.
+        /// </summary>
         public readonly string VpcEndpointType;
 
         [OutputConstructor]

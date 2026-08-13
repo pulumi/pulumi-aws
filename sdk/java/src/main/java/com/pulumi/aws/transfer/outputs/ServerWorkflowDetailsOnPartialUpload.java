@@ -16,7 +16,7 @@ public final class ServerWorkflowDetailsOnPartialUpload {
      */
     private String executionRole;
     /**
-     * @return A unique identifier for the workflow.
+     * @return Unique identifier for the workflow.
      * 
      */
     private String workflowId;
@@ -30,7 +30,7 @@ public final class ServerWorkflowDetailsOnPartialUpload {
         return this.executionRole;
     }
     /**
-     * @return A unique identifier for the workflow.
+     * @return Unique identifier for the workflow.
      * 
      */
     public String workflowId() {

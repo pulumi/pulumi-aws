@@ -328,7 +328,7 @@ func (o PolicyIncludeMapPtrOutput) Orgunits() pulumi.StringArrayOutput {
 type PolicySecurityServicePolicyData struct {
 	// Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
 	ManagedServiceData *string `pulumi:"managedServiceData"`
-	// Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policyOption` block.
+	// Network Firewall firewall policy options to configure a centralized deployment model. See the `policyOption` block.
 	PolicyOption *PolicySecurityServicePolicyDataPolicyOption `pulumi:"policyOption"`
 	// Service that the policy uses to protect the resources. For the current list of supported types, refer to the [AWS Firewall Manager SecurityServicePolicyData API Type Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html#fms-Type-SecurityServicePolicyData-Type).
 	Type string `pulumi:"type"`
@@ -348,7 +348,7 @@ type PolicySecurityServicePolicyDataInput interface {
 type PolicySecurityServicePolicyDataArgs struct {
 	// Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
 	ManagedServiceData pulumi.StringPtrInput `pulumi:"managedServiceData"`
-	// Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policyOption` block.
+	// Network Firewall firewall policy options to configure a centralized deployment model. See the `policyOption` block.
 	PolicyOption PolicySecurityServicePolicyDataPolicyOptionPtrInput `pulumi:"policyOption"`
 	// Service that the policy uses to protect the resources. For the current list of supported types, refer to the [AWS Firewall Manager SecurityServicePolicyData API Type Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html#fms-Type-SecurityServicePolicyData-Type).
 	Type pulumi.StringInput `pulumi:"type"`
@@ -436,7 +436,7 @@ func (o PolicySecurityServicePolicyDataOutput) ManagedServiceData() pulumi.Strin
 	return o.ApplyT(func(v PolicySecurityServicePolicyData) *string { return v.ManagedServiceData }).(pulumi.StringPtrOutput)
 }
 
-// Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policyOption` block.
+// Network Firewall firewall policy options to configure a centralized deployment model. See the `policyOption` block.
 func (o PolicySecurityServicePolicyDataOutput) PolicyOption() PolicySecurityServicePolicyDataPolicyOptionPtrOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyData) *PolicySecurityServicePolicyDataPolicyOption {
 		return v.PolicyOption
@@ -482,7 +482,7 @@ func (o PolicySecurityServicePolicyDataPtrOutput) ManagedServiceData() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policyOption` block.
+// Network Firewall firewall policy options to configure a centralized deployment model. See the `policyOption` block.
 func (o PolicySecurityServicePolicyDataPtrOutput) PolicyOption() PolicySecurityServicePolicyDataPolicyOptionPtrOutput {
 	return o.ApplyT(func(v *PolicySecurityServicePolicyData) *PolicySecurityServicePolicyDataPolicyOption {
 		if v == nil {
@@ -2085,7 +2085,7 @@ type ResourceSetResourceSet struct {
 	Name string `pulumi:"name"`
 	// Whether the resource set is in or out of the admin's Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but they can't edit or delete the resource set.)
 	ResourceSetStatus *string `pulumi:"resourceSetStatus"`
-	// Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
+	// Resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
 	ResourceTypeLists []string `pulumi:"resourceTypeLists"`
 	// Unique identifier for each update to the resource set.
 	UpdateToken *string `pulumi:"updateToken"`
@@ -2115,7 +2115,7 @@ type ResourceSetResourceSetArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// Whether the resource set is in or out of the admin's Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but they can't edit or delete the resource set.)
 	ResourceSetStatus pulumi.StringPtrInput `pulumi:"resourceSetStatus"`
-	// Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
+	// Resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
 	ResourceTypeLists pulumi.StringArrayInput `pulumi:"resourceTypeLists"`
 	// Unique identifier for each update to the resource set.
 	UpdateToken pulumi.StringPtrInput `pulumi:"updateToken"`
@@ -2199,7 +2199,7 @@ func (o ResourceSetResourceSetOutput) ResourceSetStatus() pulumi.StringPtrOutput
 	return o.ApplyT(func(v ResourceSetResourceSet) *string { return v.ResourceSetStatus }).(pulumi.StringPtrOutput)
 }
 
-// Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
+// Resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
 func (o ResourceSetResourceSetOutput) ResourceTypeLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourceSetResourceSet) []string { return v.ResourceTypeLists }).(pulumi.StringArrayOutput)
 }

@@ -161,42 +161,46 @@ public class LanguageModel extends com.pulumi.resources.CustomResource {
         return this.baseModelName;
     }
     /**
-     * The input data config for the LanguageModel. See Input Data Config for more details.
+     * Input data configuration for the LanguageModel. See `inputDataConfig` Block for details.
      * 
      */
     @Export(name="inputDataConfig", refs={LanguageModelInputDataConfig.class}, tree="[0]")
     private Output<LanguageModelInputDataConfig> inputDataConfig;
 
     /**
-     * @return The input data config for the LanguageModel. See Input Data Config for more details.
+     * @return Input data configuration for the LanguageModel. See `inputDataConfig` Block for details.
      * 
      */
     public Output<LanguageModelInputDataConfig> inputDataConfig() {
         return this.inputDataConfig;
     }
     /**
-     * The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
+     * Language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
      * 
      */
     @Export(name="languageCode", refs={String.class}, tree="[0]")
     private Output<String> languageCode;
 
     /**
-     * @return The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
+     * @return Language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
      * 
      */
     public Output<String> languageCode() {
         return this.languageCode;
     }
     /**
-     * The model name.
+     * Model name.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="modelName", refs={String.class}, tree="[0]")
     private Output<String> modelName;
 
     /**
-     * @return The model name.
+     * @return Model name.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> modelName() {
@@ -216,9 +220,17 @@ public class LanguageModel extends com.pulumi.resources.CustomResource {
     public Output<String> region() {
         return this.region;
     }
+    /**
+     * Map of tags to assign to the LanguageModel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Map of tags to assign to the LanguageModel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }

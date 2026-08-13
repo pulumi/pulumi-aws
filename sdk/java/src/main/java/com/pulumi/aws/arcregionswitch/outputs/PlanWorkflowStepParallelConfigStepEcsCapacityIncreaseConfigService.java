@@ -12,8 +12,20 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigService {
+    /**
+     * @return ARN of the ECS cluster.
+     * 
+     */
     private String clusterArn;
+    /**
+     * @return ARN of the cross-account role to assume.
+     * 
+     */
     private @Nullable String crossAccountRole;
+    /**
+     * @return External ID for cross-account role assumption.
+     * 
+     */
     private @Nullable String externalId;
     /**
      * @return ARN of the ECS service.
@@ -22,12 +34,24 @@ public final class PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigSe
     private String serviceArn;
 
     private PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigService() {}
+    /**
+     * @return ARN of the ECS cluster.
+     * 
+     */
     public String clusterArn() {
         return this.clusterArn;
     }
+    /**
+     * @return ARN of the cross-account role to assume.
+     * 
+     */
     public Optional<String> crossAccountRole() {
         return Optional.ofNullable(this.crossAccountRole);
     }
+    /**
+     * @return External ID for cross-account role assumption.
+     * 
+     */
     public Optional<String> externalId() {
         return Optional.ofNullable(this.externalId);
     }

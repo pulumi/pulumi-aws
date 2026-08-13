@@ -14,6 +14,60 @@ namespace Pulumi.Aws.Odb
     /// 
     /// ## Example Usage
     /// 
+    /// ### Disabled S3 and Zero-ETL Access
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Odb.Network("example", new()
+    ///     {
+    ///         DisplayName = "odb-my-net",
+    ///         AvailabilityZoneId = "use1-az6",
+    ///         ClientSubnetCidr = "10.2.0.0/24",
+    ///         BackupSubnetCidr = "10.2.1.0/24",
+    ///         S3Access = "DISABLED",
+    ///         ZeroEtlAccess = "DISABLED",
+    ///         Tags = 
+    ///         {
+    ///             { "env", "dev" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Enabled S3 and Zero-ETL Access
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Odb.Network("example", new()
+    ///     {
+    ///         DisplayName = "odb-my-net",
+    ///         AvailabilityZoneId = "use1-az6",
+    ///         ClientSubnetCidr = "10.2.0.0/24",
+    ///         BackupSubnetCidr = "10.2.1.0/24",
+    ///         S3Access = "ENABLED",
+    ///         ZeroEtlAccess = "ENABLED",
+    ///         Tags = 
+    ///         {
+    ///             { "env", "dev" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Odb Network using the `Id`. For example:
@@ -32,7 +86,7 @@ namespace Pulumi.Aws.Odb
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure AvailabilityZone maps correctly with availability_zone_id.
+        /// Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure `AvailabilityZone` maps correctly with `AvailabilityZoneId`.
         /// </summary>
         [Output("availabilityZone")]
         public Output<string> AvailabilityZone { get; private set; } = null!;
@@ -68,7 +122,7 @@ namespace Pulumi.Aws.Odb
         public Output<ImmutableArray<string>> CrossRegionS3RestoreSourcesAccesses { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the custom domain that the network is located. Custom_domain_name and DefaultDnsPrefix both can't be given. Changing this will force terraform to create new resource.
+        /// Name of the custom domain that the network is located. `CustomDomainName` and `DefaultDnsPrefix` both can't be given. Changing this will force terraform to create new resource.
         /// </summary>
         [Output("customDomainName")]
         public Output<string?> CustomDomainName { get; private set; } = null!;
@@ -110,13 +164,13 @@ namespace Pulumi.Aws.Odb
         public Output<string?> KmsPolicyDocument { get; private set; } = null!;
 
         /// <summary>
-        /// Managed services configuration for the ODB network.
+        /// Managed services configuration for the ODB network. See `ManagedServices` Block below.
         /// </summary>
         [Output("managedServices")]
         public Output<ImmutableArray<Outputs.NetworkManagedService>> ManagedServices { get; private set; } = null!;
 
         /// <summary>
-        /// Number of storage servers requested for the Exadata infrastructure.
+        /// DNS resolver endpoints in OCI for forwarding DNS queries for the `ociPrivateZone` domain. See `OciDnsForwardingConfigs` Block below.
         /// </summary>
         [Output("ociDnsForwardingConfigs")]
         public Output<ImmutableArray<Outputs.NetworkOciDnsForwardingConfig>> OciDnsForwardingConfigs { get; private set; } = null!;
@@ -152,7 +206,7 @@ namespace Pulumi.Aws.Odb
         public Output<string> OciVcnUrl { get; private set; } = null!;
 
         /// <summary>
-        /// List of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
+        /// List of CIDR ranges from the peered VPC that are allowed access to the ODB network. See the [ODB network peering documentation](https://docs.aws.amazon.com/odb/latest/UserGuide/network-peering.html) for more information.
         /// </summary>
         [Output("peeredCidrs")]
         public Output<ImmutableArray<string>> PeeredCidrs { get; private set; } = null!;
@@ -182,7 +236,7 @@ namespace Pulumi.Aws.Odb
         public Output<string?> S3PolicyDocument { get; private set; } = null!;
 
         /// <summary>
-        /// Status of the network resource.
+        /// Status of the Zero-ETL access.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -272,7 +326,7 @@ namespace Pulumi.Aws.Odb
     public sealed class NetworkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure AvailabilityZone maps correctly with availability_zone_id.
+        /// Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure `AvailabilityZone` maps correctly with `AvailabilityZoneId`.
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
@@ -308,7 +362,7 @@ namespace Pulumi.Aws.Odb
         }
 
         /// <summary>
-        /// Name of the custom domain that the network is located. Custom_domain_name and DefaultDnsPrefix both can't be given. Changing this will force terraform to create new resource.
+        /// Name of the custom domain that the network is located. `CustomDomainName` and `DefaultDnsPrefix` both can't be given. Changing this will force terraform to create new resource.
         /// </summary>
         [Input("customDomainName")]
         public Input<string>? CustomDomainName { get; set; }
@@ -411,7 +465,7 @@ namespace Pulumi.Aws.Odb
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure AvailabilityZone maps correctly with availability_zone_id.
+        /// Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure `AvailabilityZone` maps correctly with `AvailabilityZoneId`.
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
@@ -453,7 +507,7 @@ namespace Pulumi.Aws.Odb
         }
 
         /// <summary>
-        /// Name of the custom domain that the network is located. Custom_domain_name and DefaultDnsPrefix both can't be given. Changing this will force terraform to create new resource.
+        /// Name of the custom domain that the network is located. `CustomDomainName` and `DefaultDnsPrefix` both can't be given. Changing this will force terraform to create new resource.
         /// </summary>
         [Input("customDomainName")]
         public Input<string>? CustomDomainName { get; set; }
@@ -504,7 +558,7 @@ namespace Pulumi.Aws.Odb
         private InputList<Inputs.NetworkManagedServiceGetArgs>? _managedServices;
 
         /// <summary>
-        /// Managed services configuration for the ODB network.
+        /// Managed services configuration for the ODB network. See `ManagedServices` Block below.
         /// </summary>
         public InputList<Inputs.NetworkManagedServiceGetArgs> ManagedServices
         {
@@ -516,7 +570,7 @@ namespace Pulumi.Aws.Odb
         private InputList<Inputs.NetworkOciDnsForwardingConfigGetArgs>? _ociDnsForwardingConfigs;
 
         /// <summary>
-        /// Number of storage servers requested for the Exadata infrastructure.
+        /// DNS resolver endpoints in OCI for forwarding DNS queries for the `ociPrivateZone` domain. See `OciDnsForwardingConfigs` Block below.
         /// </summary>
         public InputList<Inputs.NetworkOciDnsForwardingConfigGetArgs> OciDnsForwardingConfigs
         {
@@ -558,7 +612,7 @@ namespace Pulumi.Aws.Odb
         private InputList<string>? _peeredCidrs;
 
         /// <summary>
-        /// List of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
+        /// List of CIDR ranges from the peered VPC that are allowed access to the ODB network. See the [ODB network peering documentation](https://docs.aws.amazon.com/odb/latest/UserGuide/network-peering.html) for more information.
         /// </summary>
         public InputList<string> PeeredCidrs
         {
@@ -591,7 +645,7 @@ namespace Pulumi.Aws.Odb
         public Input<string>? S3PolicyDocument { get; set; }
 
         /// <summary>
-        /// Status of the network resource.
+        /// Status of the Zero-ETL access.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

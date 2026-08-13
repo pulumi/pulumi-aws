@@ -19,14 +19,14 @@ public final class ReportPlanState extends com.pulumi.resources.ResourceArgs {
     public static final ReportPlanState Empty = new ReportPlanState();
 
     /**
-     * The ARN of the backup report plan.
+     * ARN of the backup report plan.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the backup report plan.
+     * @return ARN of the backup report plan.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -34,14 +34,14 @@ public final class ReportPlanState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
+     * Date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
      * 
      */
     @Import(name="creationTime")
     private @Nullable Output<String> creationTime;
 
     /**
-     * @return The date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
+     * @return Date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
      * 
      */
     public Optional<Output<String>> creationTime() {
@@ -49,14 +49,14 @@ public final class ReportPlanState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
+     * Deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
      * 
      */
     @Import(name="deploymentStatus")
     private @Nullable Output<String> deploymentStatus;
 
     /**
-     * @return The deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
+     * @return Deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
      * 
      */
     public Optional<Output<String>> deploymentStatus() {
@@ -64,14 +64,14 @@ public final class ReportPlanState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The description of the report plan with a maximum of 1,024 characters
+     * Description of the report plan with a maximum of 1,024 characters.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the report plan with a maximum of 1,024 characters
+     * @return Description of the report plan with a maximum of 1,024 characters.
      * 
      */
     public Optional<Output<String>> description() {
@@ -79,14 +79,14 @@ public final class ReportPlanState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+     * Unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+     * @return Unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
      * 
      */
     public Optional<Output<String>> name() {
@@ -109,14 +109,14 @@ public final class ReportPlanState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
+     * Object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
      * 
      */
     @Import(name="reportDeliveryChannel")
     private @Nullable Output<ReportPlanReportDeliveryChannelArgs> reportDeliveryChannel;
 
     /**
-     * @return An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
+     * @return Object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
      * 
      */
     public Optional<Output<ReportPlanReportDeliveryChannelArgs>> reportDeliveryChannel() {
@@ -124,14 +124,14 @@ public final class ReportPlanState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
+     * Object that identifies the report template for the report. Reports are built using a report template. Detailed below.
      * 
      */
     @Import(name="reportSetting")
     private @Nullable Output<ReportPlanReportSettingArgs> reportSetting;
 
     /**
-     * @return An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
+     * @return Object that identifies the report template for the report. Reports are built using a report template. Detailed below.
      * 
      */
     public Optional<Output<ReportPlanReportSettingArgs>> reportSetting() {
@@ -154,14 +154,14 @@ public final class ReportPlanState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -202,7 +202,7 @@ public final class ReportPlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the backup report plan.
+         * @param arn ARN of the backup report plan.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class ReportPlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the backup report plan.
+         * @param arn ARN of the backup report plan.
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class ReportPlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param creationTime The date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
+         * @param creationTime Date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class ReportPlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param creationTime The date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
+         * @param creationTime Date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class ReportPlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deploymentStatus The deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
+         * @param deploymentStatus Deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class ReportPlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deploymentStatus The deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
+         * @param deploymentStatus Deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
          * 
          * @return builder
          * 
@@ -265,7 +265,7 @@ public final class ReportPlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description of the report plan with a maximum of 1,024 characters
+         * @param description Description of the report plan with a maximum of 1,024 characters.
          * 
          * @return builder
          * 
@@ -276,7 +276,7 @@ public final class ReportPlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description of the report plan with a maximum of 1,024 characters
+         * @param description Description of the report plan with a maximum of 1,024 characters.
          * 
          * @return builder
          * 
@@ -286,7 +286,7 @@ public final class ReportPlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+         * @param name Unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
          * 
          * @return builder
          * 
@@ -297,7 +297,7 @@ public final class ReportPlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+         * @param name Unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class ReportPlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param reportDeliveryChannel An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
+         * @param reportDeliveryChannel Object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
          * 
          * @return builder
          * 
@@ -339,7 +339,7 @@ public final class ReportPlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param reportDeliveryChannel An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
+         * @param reportDeliveryChannel Object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
          * 
          * @return builder
          * 
@@ -349,7 +349,7 @@ public final class ReportPlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param reportSetting An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
+         * @param reportSetting Object that identifies the report template for the report. Reports are built using a report template. Detailed below.
          * 
          * @return builder
          * 
@@ -360,7 +360,7 @@ public final class ReportPlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param reportSetting An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
+         * @param reportSetting Object that identifies the report template for the report. Reports are built using a report template. Detailed below.
          * 
          * @return builder
          * 
@@ -391,7 +391,7 @@ public final class ReportPlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -402,7 +402,7 @@ public final class ReportPlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

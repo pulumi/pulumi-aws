@@ -14,35 +14,35 @@ namespace Pulumi.Aws.Transfer.Outputs
     public sealed class ConnectorAs2Config
     {
         /// <summary>
-        /// Specifies weather AS2 file is compressed. The valud values are ZLIB and  DISABLED.
+        /// Whether AS2 file is compressed. The valid values are ZLIB and DISABLED.
         /// </summary>
         public readonly string Compression;
         /// <summary>
-        /// The algorithm that is used to encrypt the file. The valid values are AES128_CBC | AES192_CBC | AES256_CBC | NONE.
+        /// Algorithm that is used to encrypt the file. The valid values are AES128_CBC | AES192_CBC | AES256_CBC | NONE.
         /// </summary>
         public readonly string EncryptionAlgorithm;
         /// <summary>
-        /// The unique identifier for the AS2 local profile.
+        /// Unique identifier for the AS2 local profile.
         /// </summary>
         public readonly string LocalProfileId;
         /// <summary>
-        /// Used for outbound requests to determine if a partner response for transfers is synchronous or asynchronous. The valid values are SYNC and NONE.
+        /// Determines, for outbound requests, if a partner response for transfers is synchronous or asynchronous. The valid values are SYNC and NONE.
         /// </summary>
         public readonly string MdnResponse;
         /// <summary>
-        /// The signing algorithm for the Mdn response. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE | DEFAULT.
+        /// Signing algorithm for the MDN response. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE | DEFAULT.
         /// </summary>
         public readonly string? MdnSigningAlgorithm;
         /// <summary>
-        /// Used as the subject HTTP header attribute in AS2 messages that are being sent with the connector.
+        /// Subject HTTP header attribute used in AS2 messages that are being sent with the connector.
         /// </summary>
         public readonly string? MessageSubject;
         /// <summary>
-        /// The unique identifier for the AS2 partner profile.
+        /// Unique identifier for the AS2 partner profile.
         /// </summary>
         public readonly string PartnerProfileId;
         /// <summary>
-        /// The algorithm that is used to sign AS2 messages sent with the connector. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE .
+        /// Algorithm that is used to sign AS2 messages sent with the connector. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE .
         /// </summary>
         public readonly string SigningAlgorithm;
 

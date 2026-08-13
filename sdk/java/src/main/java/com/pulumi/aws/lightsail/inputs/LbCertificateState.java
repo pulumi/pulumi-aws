@@ -63,14 +63,14 @@ public final class LbCertificateState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
+     * Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Each element contains the following attributes:
      * 
      */
     @Import(name="domainValidationRecords")
     private @Nullable Output<List<LbCertificateDomainValidationRecordArgs>> domainValidationRecords;
 
     /**
-     * @return Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
+     * @return Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Each element contains the following attributes:
      * 
      */
     public Optional<Output<List<LbCertificateDomainValidationRecordArgs>>> domainValidationRecords() {
@@ -252,7 +252,7 @@ public final class LbCertificateState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param domainValidationRecords Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
+         * @param domainValidationRecords Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Each element contains the following attributes:
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class LbCertificateState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param domainValidationRecords Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
+         * @param domainValidationRecords Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Each element contains the following attributes:
          * 
          * @return builder
          * 
@@ -273,7 +273,7 @@ public final class LbCertificateState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param domainValidationRecords Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
+         * @param domainValidationRecords Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Each element contains the following attributes:
          * 
          * @return builder
          * 

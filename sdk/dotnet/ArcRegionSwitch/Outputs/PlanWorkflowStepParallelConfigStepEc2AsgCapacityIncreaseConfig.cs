@@ -14,7 +14,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Outputs
     public sealed class PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfig
     {
         /// <summary>
-        /// Auto Scaling group configuration. See ASG below.
+        /// Auto Scaling group configuration. See `Asg` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigAsg> Asgs;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Outputs
         /// </summary>
         public readonly int? TimeoutMinutes;
         /// <summary>
-        /// Ungraceful behavior configuration. See Ungraceful below.
+        /// Ungraceful behavior configuration. See `workflow.step.ec2_asg_capacity_increase_config.ungraceful` Block for details.
         /// </summary>
         public readonly Outputs.PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigUngraceful? Ungraceful;
 

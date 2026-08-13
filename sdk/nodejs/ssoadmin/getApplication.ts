@@ -75,7 +75,7 @@ export interface GetApplicationResult {
      */
     readonly name: string;
     /**
-     * Options for the portal associated with an application. See the `aws.ssoadmin.Application` resource documentation. The attributes are the same.
+     * Options for the portal associated with an application. See `portalOptions` Block below.
      */
     readonly portalOptions: outputs.ssoadmin.GetApplicationPortalOption[];
     readonly region: string;

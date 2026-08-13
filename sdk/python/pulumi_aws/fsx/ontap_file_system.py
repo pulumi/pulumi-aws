@@ -366,7 +366,7 @@ class _OntapFileSystemState:
         :param pulumi.Input['OntapFileSystemDiskIopsConfigurationArgs'] disk_iops_configuration: SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See `disk_iops_configuration` below.
         :param pulumi.Input[_builtins.str] dns_name: Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
         :param pulumi.Input[_builtins.str] endpoint_ip_address_range: IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.\\* range. Note that the 198.19.\\* range is also used by AWS services such as WorkSpaces and AppStream 2.0 for their [management network interfaces](https://docs.aws.amazon.com/appstream2/latest/developerguide/management_ports.html).
-        :param pulumi.Input[Sequence[pulumi.Input['OntapFileSystemEndpointArgs']]] endpoints: Endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+        :param pulumi.Input[Sequence[pulumi.Input['OntapFileSystemEndpointArgs']]] endpoints: Endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See `endpoints` below.
         :param pulumi.Input[_builtins.str] fsx_admin_password: ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
         :param pulumi.Input[_builtins.int] ha_pairs: Number of ha_pairs to deploy for the file system. Valid value is 1 for `SINGLE_AZ_1` or `MULTI_AZ_1` and `MULTI_AZ_2`. Valid values are 1 through 12 for `SINGLE_AZ_2`.
         :param pulumi.Input[_builtins.str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
@@ -527,7 +527,7 @@ class _OntapFileSystemState:
     @pulumi.getter
     def endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OntapFileSystemEndpointArgs']]]]:
         """
-        Endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+        Endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See `endpoints` below.
         """
         return pulumi.get(self, "endpoints")
 
@@ -1097,7 +1097,7 @@ class OntapFileSystem(pulumi.CustomResource):
         :param pulumi.Input[Union['OntapFileSystemDiskIopsConfigurationArgs', 'OntapFileSystemDiskIopsConfigurationArgsDict']] disk_iops_configuration: SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See `disk_iops_configuration` below.
         :param pulumi.Input[_builtins.str] dns_name: Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
         :param pulumi.Input[_builtins.str] endpoint_ip_address_range: IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.\\* range. Note that the 198.19.\\* range is also used by AWS services such as WorkSpaces and AppStream 2.0 for their [management network interfaces](https://docs.aws.amazon.com/appstream2/latest/developerguide/management_ports.html).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OntapFileSystemEndpointArgs', 'OntapFileSystemEndpointArgsDict']]]] endpoints: Endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OntapFileSystemEndpointArgs', 'OntapFileSystemEndpointArgsDict']]]] endpoints: Endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See `endpoints` below.
         :param pulumi.Input[_builtins.str] fsx_admin_password: ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
         :param pulumi.Input[_builtins.int] ha_pairs: Number of ha_pairs to deploy for the file system. Valid value is 1 for `SINGLE_AZ_1` or `MULTI_AZ_1` and `MULTI_AZ_2`. Valid values are 1 through 12 for `SINGLE_AZ_2`.
         :param pulumi.Input[_builtins.str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
@@ -1209,7 +1209,7 @@ class OntapFileSystem(pulumi.CustomResource):
     @pulumi.getter
     def endpoints(self) -> pulumi.Output[Sequence['outputs.OntapFileSystemEndpoint']]:
         """
-        Endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+        Endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See `endpoints` below.
         """
         return pulumi.get(self, "endpoints")
 

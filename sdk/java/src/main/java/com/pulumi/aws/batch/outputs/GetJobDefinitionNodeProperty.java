@@ -18,7 +18,7 @@ public final class GetJobDefinitionNodeProperty {
      */
     private Integer mainNode;
     /**
-     * @return List of node ranges and their properties that are associated with a multi-node parallel job.
+     * @return List of node ranges and their properties that are associated with a multi-node parallel job. See `nodeRangeProperties` below.
      * 
      */
     private List<GetJobDefinitionNodePropertyNodeRangeProperty> nodeRangeProperties;
@@ -37,7 +37,7 @@ public final class GetJobDefinitionNodeProperty {
         return this.mainNode;
     }
     /**
-     * @return List of node ranges and their properties that are associated with a multi-node parallel job.
+     * @return List of node ranges and their properties that are associated with a multi-node parallel job. See `nodeRangeProperties` below.
      * 
      */
     public List<GetJobDefinitionNodePropertyNodeRangeProperty> nodeRangeProperties() {

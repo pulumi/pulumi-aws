@@ -15,16 +15,32 @@ public final class ServiceDnsEntryArgs extends com.pulumi.resources.ResourceArgs
 
     public static final ServiceDnsEntryArgs Empty = new ServiceDnsEntryArgs();
 
+    /**
+     * Domain name of the service.
+     * 
+     */
     @Import(name="domainName")
     private @Nullable Output<String> domainName;
 
+    /**
+     * @return Domain name of the service.
+     * 
+     */
     public Optional<Output<String>> domainName() {
         return Optional.ofNullable(this.domainName);
     }
 
+    /**
+     * ID of the hosted zone.
+     * 
+     */
     @Import(name="hostedZoneId")
     private @Nullable Output<String> hostedZoneId;
 
+    /**
+     * @return ID of the hosted zone.
+     * 
+     */
     public Optional<Output<String>> hostedZoneId() {
         return Optional.ofNullable(this.hostedZoneId);
     }
@@ -54,20 +70,44 @@ public final class ServiceDnsEntryArgs extends com.pulumi.resources.ResourceArgs
             $ = new ServiceDnsEntryArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param domainName Domain name of the service.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainName(@Nullable Output<String> domainName) {
             $.domainName = domainName;
             return this;
         }
 
+        /**
+         * @param domainName Domain name of the service.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
         }
 
+        /**
+         * @param hostedZoneId ID of the hosted zone.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hostedZoneId(@Nullable Output<String> hostedZoneId) {
             $.hostedZoneId = hostedZoneId;
             return this;
         }
 
+        /**
+         * @param hostedZoneId ID of the hosted zone.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hostedZoneId(String hostedZoneId) {
             return hostedZoneId(Output.of(hostedZoneId));
         }

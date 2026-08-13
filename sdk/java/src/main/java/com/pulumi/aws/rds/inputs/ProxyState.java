@@ -21,14 +21,14 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
     public static final ProxyState Empty = new ProxyState();
 
     /**
-     * The Amazon Resource Name (ARN) for the proxy.
+     * Amazon Resource Name (ARN) for the proxy.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the proxy.
+     * @return Amazon Resource Name (ARN) for the proxy.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -36,14 +36,14 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `defaultAuthScheme` is `NONE` or unspecified. Described below.
+     * Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `defaultAuthScheme` is `NONE` or unspecified. See the `auth` block below.
      * 
      */
     @Import(name="auths")
     private @Nullable Output<List<ProxyAuthArgs>> auths;
 
     /**
-     * @return Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `defaultAuthScheme` is `NONE` or unspecified. Described below.
+     * @return Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `defaultAuthScheme` is `NONE` or unspecified. See the `auth` block below.
      * 
      */
     public Optional<Output<List<ProxyAuthArgs>>> auths() {
@@ -81,14 +81,14 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
+     * Endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
      * 
      */
     @Import(name="endpoint")
     private @Nullable Output<String> endpoint;
 
     /**
-     * @return The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
+     * @return Endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
      * 
      */
     public Optional<Output<String>> endpoint() {
@@ -111,14 +111,14 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
+     * Kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
      * 
      */
     @Import(name="engineFamily")
     private @Nullable Output<String> engineFamily;
 
     /**
-     * @return The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
+     * @return Kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
      * 
      */
     public Optional<Output<String>> engineFamily() {
@@ -126,14 +126,14 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
+     * Number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
      * 
      */
     @Import(name="idleClientTimeout")
     private @Nullable Output<Integer> idleClientTimeout;
 
     /**
-     * @return The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
+     * @return Number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
      * 
      */
     public Optional<Output<Integer>> idleClientTimeout() {
@@ -141,14 +141,14 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can&#39;t end with a hyphen or contain two consecutive hyphens.
+     * Identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can&#39;t end with a hyphen or contain two consecutive hyphens.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can&#39;t end with a hyphen or contain two consecutive hyphens.
+     * @return Identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can&#39;t end with a hyphen or contain two consecutive hyphens.
      * 
      */
     public Optional<Output<String>> name() {
@@ -171,14 +171,14 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy. By enabling this setting, you can enforce encrypted TLS connections to the proxy.
+     * Whether Transport Layer Security (TLS) encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
      * 
      */
     @Import(name="requireTls")
     private @Nullable Output<Boolean> requireTls;
 
     /**
-     * @return A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy. By enabling this setting, you can enforce encrypted TLS connections to the proxy.
+     * @return Whether Transport Layer Security (TLS) encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
      * 
      */
     public Optional<Output<Boolean>> requireTls() {
@@ -186,14 +186,14 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
+     * Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
      * 
      */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
+     * @return Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
      * 
      */
     public Optional<Output<String>> roleArn() {
@@ -201,14 +201,14 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -216,14 +216,14 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -316,7 +316,7 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) for the proxy.
+         * @param arn Amazon Resource Name (ARN) for the proxy.
          * 
          * @return builder
          * 
@@ -327,7 +327,7 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) for the proxy.
+         * @param arn Amazon Resource Name (ARN) for the proxy.
          * 
          * @return builder
          * 
@@ -337,7 +337,7 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param auths Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `defaultAuthScheme` is `NONE` or unspecified. Described below.
+         * @param auths Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `defaultAuthScheme` is `NONE` or unspecified. See the `auth` block below.
          * 
          * @return builder
          * 
@@ -348,7 +348,7 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param auths Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `defaultAuthScheme` is `NONE` or unspecified. Described below.
+         * @param auths Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `defaultAuthScheme` is `NONE` or unspecified. See the `auth` block below.
          * 
          * @return builder
          * 
@@ -358,7 +358,7 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param auths Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `defaultAuthScheme` is `NONE` or unspecified. Described below.
+         * @param auths Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `defaultAuthScheme` is `NONE` or unspecified. See the `auth` block below.
          * 
          * @return builder
          * 
@@ -410,7 +410,7 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param endpoint The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
+         * @param endpoint Endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
          * 
          * @return builder
          * 
@@ -421,7 +421,7 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param endpoint The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
+         * @param endpoint Endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
          * 
          * @return builder
          * 
@@ -452,7 +452,7 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engineFamily The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
+         * @param engineFamily Kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
          * 
          * @return builder
          * 
@@ -463,7 +463,7 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engineFamily The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
+         * @param engineFamily Kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
          * 
          * @return builder
          * 
@@ -473,7 +473,7 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param idleClientTimeout The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
+         * @param idleClientTimeout Number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
          * 
          * @return builder
          * 
@@ -484,7 +484,7 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param idleClientTimeout The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
+         * @param idleClientTimeout Number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
          * 
          * @return builder
          * 
@@ -494,7 +494,7 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can&#39;t end with a hyphen or contain two consecutive hyphens.
+         * @param name Identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can&#39;t end with a hyphen or contain two consecutive hyphens.
          * 
          * @return builder
          * 
@@ -505,7 +505,7 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can&#39;t end with a hyphen or contain two consecutive hyphens.
+         * @param name Identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can&#39;t end with a hyphen or contain two consecutive hyphens.
          * 
          * @return builder
          * 
@@ -536,7 +536,7 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requireTls A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy. By enabling this setting, you can enforce encrypted TLS connections to the proxy.
+         * @param requireTls Whether Transport Layer Security (TLS) encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
          * 
          * @return builder
          * 
@@ -547,7 +547,7 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requireTls A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy. By enabling this setting, you can enforce encrypted TLS connections to the proxy.
+         * @param requireTls Whether Transport Layer Security (TLS) encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
          * 
          * @return builder
          * 
@@ -557,7 +557,7 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
+         * @param roleArn Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
          * 
          * @return builder
          * 
@@ -568,7 +568,7 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
+         * @param roleArn Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
          * 
          * @return builder
          * 
@@ -578,7 +578,7 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -589,7 +589,7 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -599,7 +599,7 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -610,7 +610,7 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

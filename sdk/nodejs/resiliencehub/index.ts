@@ -5,6 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GetV2PolicyArgs, GetV2PolicyResult, GetV2PolicyOutputArgs } from "./getV2Policy";
+export const getV2Policy: typeof import("./getV2Policy").getV2Policy = null as any;
+export const getV2PolicyOutput: typeof import("./getV2Policy").getV2PolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getV2Policy","getV2PolicyOutput"], () => require("./getV2Policy"));
+
+export { GetV2ServiceArgs, GetV2ServiceResult, GetV2ServiceOutputArgs } from "./getV2Service";
+export const getV2Service: typeof import("./getV2Service").getV2Service = null as any;
+export const getV2ServiceOutput: typeof import("./getV2Service").getV2ServiceOutput = null as any;
+utilities.lazyLoad(exports, ["getV2Service","getV2ServiceOutput"], () => require("./getV2Service"));
+
+export { GetV2SystemArgs, GetV2SystemResult, GetV2SystemOutputArgs } from "./getV2System";
+export const getV2System: typeof import("./getV2System").getV2System = null as any;
+export const getV2SystemOutput: typeof import("./getV2System").getV2SystemOutput = null as any;
+utilities.lazyLoad(exports, ["getV2System","getV2SystemOutput"], () => require("./getV2System"));
+
 export { ResiliencyPolicyArgs, ResiliencyPolicyState } from "./resiliencyPolicy";
 export type ResiliencyPolicy = import("./resiliencyPolicy").ResiliencyPolicy;
 export const ResiliencyPolicy: typeof import("./resiliencyPolicy").ResiliencyPolicy = null as any;
@@ -15,6 +30,16 @@ export type V2Policy = import("./v2policy").V2Policy;
 export const V2Policy: typeof import("./v2policy").V2Policy = null as any;
 utilities.lazyLoad(exports, ["V2Policy"], () => require("./v2policy"));
 
+export { V2ServiceArgs, V2ServiceState } from "./v2service";
+export type V2Service = import("./v2service").V2Service;
+export const V2Service: typeof import("./v2service").V2Service = null as any;
+utilities.lazyLoad(exports, ["V2Service"], () => require("./v2service"));
+
+export { V2SystemArgs, V2SystemState } from "./v2system";
+export type V2System = import("./v2system").V2System;
+export const V2System: typeof import("./v2system").V2System = null as any;
+utilities.lazyLoad(exports, ["V2System"], () => require("./v2system"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -24,6 +49,10 @@ const _module = {
                 return new ResiliencyPolicy(name, <any>undefined, { urn })
             case "aws:resiliencehub/v2Policy:V2Policy":
                 return new V2Policy(name, <any>undefined, { urn })
+            case "aws:resiliencehub/v2Service:V2Service":
+                return new V2Service(name, <any>undefined, { urn })
+            case "aws:resiliencehub/v2System:V2System":
+                return new V2System(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -31,3 +60,5 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "resiliencehub/resiliencyPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "resiliencehub/v2Policy", _module)
+pulumi.runtime.registerResourceModule("aws", "resiliencehub/v2Service", _module)
+pulumi.runtime.registerResourceModule("aws", "resiliencehub/v2System", _module)

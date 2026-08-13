@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class JobDefinitionEksPropertiesPodPropertiesInitContainerEnv {
     /**
-     * @return Name of the job definition.
+     * @return Name of the environment variable.
      * 
      */
     private String name;
@@ -23,7 +23,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesInitContainerEnv {
 
     private JobDefinitionEksPropertiesPodPropertiesInitContainerEnv() {}
     /**
-     * @return Name of the job definition.
+     * @return Name of the environment variable.
      * 
      */
     public String name() {

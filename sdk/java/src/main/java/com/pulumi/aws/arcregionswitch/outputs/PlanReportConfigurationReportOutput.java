@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PlanReportConfigurationReportOutput {
     /**
-     * @return S3 output configuration. See S3 Configuration below.
+     * @return S3 output configuration. See `s3Configuration` Block for details.
      * 
      */
     private @Nullable List<PlanReportConfigurationReportOutputS3Configuration> s3Configurations;
 
     private PlanReportConfigurationReportOutput() {}
     /**
-     * @return S3 output configuration. See S3 Configuration below.
+     * @return S3 output configuration. See `s3Configuration` Block for details.
      * 
      */
     public List<PlanReportConfigurationReportOutputS3Configuration> s3Configurations() {

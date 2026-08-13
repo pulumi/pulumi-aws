@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualNodeSpecListenerConnectionPoolGrpc {
+    /**
+     * @return Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster.
+     * 
+     */
     private Integer maxRequests;
 
     private GetVirtualNodeSpecListenerConnectionPoolGrpc() {}
+    /**
+     * @return Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster.
+     * 
+     */
     public Integer maxRequests() {
         return this.maxRequests;
     }

@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint {
     /**
-     * @return Managed VPC resource configuration. See `managedVpcResource` below.
+     * @return Managed VPC resource configuration. See `managedVpcResource` Block below.
      * 
      */
     private @Nullable AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource managedVpcResource;
     /**
-     * @return Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
+     * @return Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` Block below.
      * 
      */
     private @Nullable AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource selfManagedLatticeResource;
 
     private AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint() {}
     /**
-     * @return Managed VPC resource configuration. See `managedVpcResource` below.
+     * @return Managed VPC resource configuration. See `managedVpcResource` Block below.
      * 
      */
     public Optional<AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource> managedVpcResource() {
         return Optional.ofNullable(this.managedVpcResource);
     }
     /**
-     * @return Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
+     * @return Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` Block below.
      * 
      */
     public Optional<AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource> selfManagedLatticeResource() {

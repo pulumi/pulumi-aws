@@ -11,10 +11,18 @@ import java.util.Objects;
 
 @CustomType
 public final class NetworkManagedServiceStsAccess {
+    /**
+     * @return Domain name for which the DNS queries are forwarded.
+     * 
+     */
     private String domainName;
+    /**
+     * @return List of IPv4 addresses for the Amazon STS access.
+     * 
+     */
     private List<String> ipv4Addresses;
     /**
-     * @return Status of the network resource.
+     * @return Status of the Zero-ETL access.
      * 
      */
     private String status;
@@ -25,14 +33,22 @@ public final class NetworkManagedServiceStsAccess {
     private String stsPolicyDocument;
 
     private NetworkManagedServiceStsAccess() {}
+    /**
+     * @return Domain name for which the DNS queries are forwarded.
+     * 
+     */
     public String domainName() {
         return this.domainName;
     }
+    /**
+     * @return List of IPv4 addresses for the Amazon STS access.
+     * 
+     */
     public List<String> ipv4Addresses() {
         return this.ipv4Addresses;
     }
     /**
-     * @return Status of the network resource.
+     * @return Status of the Zero-ETL access.
      * 
      */
     public String status() {

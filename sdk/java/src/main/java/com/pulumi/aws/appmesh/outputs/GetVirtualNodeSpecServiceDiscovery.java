@@ -12,13 +12,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualNodeSpecServiceDiscovery {
+    /**
+     * @return AWS Cloud Map information for the virtual node. See `spec.service_discovery.aws_cloud_map` Block for details.
+     * 
+     */
     private List<GetVirtualNodeSpecServiceDiscoveryAwsCloudMap> awsCloudMaps;
+    /**
+     * @return DNS service name for the virtual node. See `spec.service_discovery.dns` Block for details.
+     * 
+     */
     private List<GetVirtualNodeSpecServiceDiscoveryDn> dns;
 
     private GetVirtualNodeSpecServiceDiscovery() {}
+    /**
+     * @return AWS Cloud Map information for the virtual node. See `spec.service_discovery.aws_cloud_map` Block for details.
+     * 
+     */
     public List<GetVirtualNodeSpecServiceDiscoveryAwsCloudMap> awsCloudMaps() {
         return this.awsCloudMaps;
     }
+    /**
+     * @return DNS service name for the virtual node. See `spec.service_discovery.dns` Block for details.
+     * 
+     */
     public List<GetVirtualNodeSpecServiceDiscoveryDn> dns() {
         return this.dns;
     }

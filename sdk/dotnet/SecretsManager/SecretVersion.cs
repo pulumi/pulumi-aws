@@ -156,7 +156,7 @@ namespace Pulumi.Aws.SecretsManager
         public Output<string?> SecretStringWo { get; private set; } = null!;
 
         /// <summary>
-        /// Used together with `SecretStringWo` to trigger an update. Increment this value when an update to `SecretStringWo` is required.
+        /// Version identifier that works together with `SecretStringWo` to trigger an update. Increment this value when an update to `SecretStringWo` is required.
         /// </summary>
         [Output("secretStringWoVersion")]
         public Output<int?> SecretStringWoVersion { get; private set; } = null!;
@@ -289,7 +289,7 @@ namespace Pulumi.Aws.SecretsManager
         }
 
         /// <summary>
-        /// Used together with `SecretStringWo` to trigger an update. Increment this value when an update to `SecretStringWo` is required.
+        /// Version identifier that works together with `SecretStringWo` to trigger an update. Increment this value when an update to `SecretStringWo` is required.
         /// </summary>
         [Input("secretStringWoVersion")]
         public Input<int>? SecretStringWoVersion { get; set; }
@@ -396,7 +396,7 @@ namespace Pulumi.Aws.SecretsManager
         }
 
         /// <summary>
-        /// Used together with `SecretStringWo` to trigger an update. Increment this value when an update to `SecretStringWo` is required.
+        /// Version identifier that works together with `SecretStringWo` to trigger an update. Increment this value when an update to `SecretStringWo` is required.
         /// </summary>
         [Input("secretStringWoVersion")]
         public Input<int>? SecretStringWoVersion { get; set; }

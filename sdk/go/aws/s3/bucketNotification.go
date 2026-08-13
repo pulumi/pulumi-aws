@@ -643,7 +643,7 @@ type BucketNotification struct {
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// Whether to enable Amazon EventBridge notifications. Defaults to `false`.
 	Eventbridge pulumi.BoolPtrOutput `pulumi:"eventbridge"`
-	// Used to configure notifications to a Lambda Function. See below.
+	// Notification configuration to a Lambda Function. See below.
 	LambdaFunctions BucketNotificationLambdaFunctionArrayOutput `pulumi:"lambdaFunctions"`
 	// Notification configuration to SQS Queue. See below.
 	Queues BucketNotificationQueueArrayOutput `pulumi:"queues"`
@@ -692,7 +692,7 @@ type bucketNotificationState struct {
 	Bucket *string `pulumi:"bucket"`
 	// Whether to enable Amazon EventBridge notifications. Defaults to `false`.
 	Eventbridge *bool `pulumi:"eventbridge"`
-	// Used to configure notifications to a Lambda Function. See below.
+	// Notification configuration to a Lambda Function. See below.
 	LambdaFunctions []BucketNotificationLambdaFunction `pulumi:"lambdaFunctions"`
 	// Notification configuration to SQS Queue. See below.
 	Queues []BucketNotificationQueue `pulumi:"queues"`
@@ -709,7 +709,7 @@ type BucketNotificationState struct {
 	Bucket pulumi.StringPtrInput
 	// Whether to enable Amazon EventBridge notifications. Defaults to `false`.
 	Eventbridge pulumi.BoolPtrInput
-	// Used to configure notifications to a Lambda Function. See below.
+	// Notification configuration to a Lambda Function. See below.
 	LambdaFunctions BucketNotificationLambdaFunctionArrayInput
 	// Notification configuration to SQS Queue. See below.
 	Queues BucketNotificationQueueArrayInput
@@ -730,7 +730,7 @@ type bucketNotificationArgs struct {
 	Bucket string `pulumi:"bucket"`
 	// Whether to enable Amazon EventBridge notifications. Defaults to `false`.
 	Eventbridge *bool `pulumi:"eventbridge"`
-	// Used to configure notifications to a Lambda Function. See below.
+	// Notification configuration to a Lambda Function. See below.
 	LambdaFunctions []BucketNotificationLambdaFunction `pulumi:"lambdaFunctions"`
 	// Notification configuration to SQS Queue. See below.
 	Queues []BucketNotificationQueue `pulumi:"queues"`
@@ -748,7 +748,7 @@ type BucketNotificationArgs struct {
 	Bucket pulumi.StringInput
 	// Whether to enable Amazon EventBridge notifications. Defaults to `false`.
 	Eventbridge pulumi.BoolPtrInput
-	// Used to configure notifications to a Lambda Function. See below.
+	// Notification configuration to a Lambda Function. See below.
 	LambdaFunctions BucketNotificationLambdaFunctionArrayInput
 	// Notification configuration to SQS Queue. See below.
 	Queues BucketNotificationQueueArrayInput
@@ -857,7 +857,7 @@ func (o BucketNotificationOutput) Eventbridge() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BucketNotification) pulumi.BoolPtrOutput { return v.Eventbridge }).(pulumi.BoolPtrOutput)
 }
 
-// Used to configure notifications to a Lambda Function. See below.
+// Notification configuration to a Lambda Function. See below.
 func (o BucketNotificationOutput) LambdaFunctions() BucketNotificationLambdaFunctionArrayOutput {
 	return o.ApplyT(func(v *BucketNotification) BucketNotificationLambdaFunctionArrayOutput { return v.LambdaFunctions }).(BucketNotificationLambdaFunctionArrayOutput)
 }

@@ -48,6 +48,10 @@ public final class GetApiKeysItem {
      * 
      */
     private String name;
+    /**
+     * @return List of stage keys associated with the API Key.
+     * 
+     */
     private List<String> stageKeys;
     /**
      * @return Map of tags for the resource.
@@ -110,6 +114,10 @@ public final class GetApiKeysItem {
     public String name() {
         return this.name;
     }
+    /**
+     * @return List of stage keys associated with the API Key.
+     * 
+     */
     public List<String> stageKeys() {
         return this.stageKeys;
     }

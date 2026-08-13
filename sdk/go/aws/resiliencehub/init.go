@@ -25,6 +25,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ResiliencyPolicy{}
 	case "aws:resiliencehub/v2Policy:V2Policy":
 		r = &V2Policy{}
+	case "aws:resiliencehub/v2Service:V2Service":
+		r = &V2Service{}
+	case "aws:resiliencehub/v2System:V2System":
+		r = &V2System{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -46,6 +50,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"resiliencehub/v2Policy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"resiliencehub/v2Service",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"resiliencehub/v2System",
 		&module{version},
 	)
 }

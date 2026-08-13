@@ -14,16 +14,32 @@ public final class NetworkOciDnsForwardingConfigArgs extends com.pulumi.resource
 
     public static final NetworkOciDnsForwardingConfigArgs Empty = new NetworkOciDnsForwardingConfigArgs();
 
+    /**
+     * Domain name for which the DNS queries are forwarded.
+     * 
+     */
     @Import(name="domainName", required=true)
     private Output<String> domainName;
 
+    /**
+     * @return Domain name for which the DNS queries are forwarded.
+     * 
+     */
     public Output<String> domainName() {
         return this.domainName;
     }
 
+    /**
+     * IP address of the OCI DNS listener.
+     * 
+     */
     @Import(name="ociDnsListenerIp", required=true)
     private Output<String> ociDnsListenerIp;
 
+    /**
+     * @return IP address of the OCI DNS listener.
+     * 
+     */
     public Output<String> ociDnsListenerIp() {
         return this.ociDnsListenerIp;
     }
@@ -53,20 +69,44 @@ public final class NetworkOciDnsForwardingConfigArgs extends com.pulumi.resource
             $ = new NetworkOciDnsForwardingConfigArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param domainName Domain name for which the DNS queries are forwarded.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainName(Output<String> domainName) {
             $.domainName = domainName;
             return this;
         }
 
+        /**
+         * @param domainName Domain name for which the DNS queries are forwarded.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
         }
 
+        /**
+         * @param ociDnsListenerIp IP address of the OCI DNS listener.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ociDnsListenerIp(Output<String> ociDnsListenerIp) {
             $.ociDnsListenerIp = ociDnsListenerIp;
             return this;
         }
 
+        /**
+         * @param ociDnsListenerIp IP address of the OCI DNS listener.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ociDnsListenerIp(String ociDnsListenerIp) {
             return ociDnsListenerIp(Output.of(ociDnsListenerIp));
         }

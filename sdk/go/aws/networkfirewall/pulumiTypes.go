@@ -13,6 +13,395 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type ContainerAssociationContainerMonitoringConfiguration struct {
+	// Key-value pairs that filter which containers within the cluster are monitored. For Amazon EKS, filter by namespace and Kubernetes labels. For Amazon ECS, filter by container instance attributes; attribute filters only match containers on the EC2 launch type, not Fargate. See `attributeFilter` Block below.
+	AttributeFilters []ContainerAssociationContainerMonitoringConfigurationAttributeFilter `pulumi:"attributeFilters"`
+	// ARN of the Amazon ECS or Amazon EKS cluster to monitor. The cluster must be in the same Region and account as the container association.
+	ClusterArn string `pulumi:"clusterArn"`
+}
+
+// ContainerAssociationContainerMonitoringConfigurationInput is an input type that accepts ContainerAssociationContainerMonitoringConfigurationArgs and ContainerAssociationContainerMonitoringConfigurationOutput values.
+// You can construct a concrete instance of `ContainerAssociationContainerMonitoringConfigurationInput` via:
+//
+//	ContainerAssociationContainerMonitoringConfigurationArgs{...}
+type ContainerAssociationContainerMonitoringConfigurationInput interface {
+	pulumi.Input
+
+	ToContainerAssociationContainerMonitoringConfigurationOutput() ContainerAssociationContainerMonitoringConfigurationOutput
+	ToContainerAssociationContainerMonitoringConfigurationOutputWithContext(context.Context) ContainerAssociationContainerMonitoringConfigurationOutput
+}
+
+type ContainerAssociationContainerMonitoringConfigurationArgs struct {
+	// Key-value pairs that filter which containers within the cluster are monitored. For Amazon EKS, filter by namespace and Kubernetes labels. For Amazon ECS, filter by container instance attributes; attribute filters only match containers on the EC2 launch type, not Fargate. See `attributeFilter` Block below.
+	AttributeFilters ContainerAssociationContainerMonitoringConfigurationAttributeFilterArrayInput `pulumi:"attributeFilters"`
+	// ARN of the Amazon ECS or Amazon EKS cluster to monitor. The cluster must be in the same Region and account as the container association.
+	ClusterArn pulumi.StringInput `pulumi:"clusterArn"`
+}
+
+func (ContainerAssociationContainerMonitoringConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerAssociationContainerMonitoringConfiguration)(nil)).Elem()
+}
+
+func (i ContainerAssociationContainerMonitoringConfigurationArgs) ToContainerAssociationContainerMonitoringConfigurationOutput() ContainerAssociationContainerMonitoringConfigurationOutput {
+	return i.ToContainerAssociationContainerMonitoringConfigurationOutputWithContext(context.Background())
+}
+
+func (i ContainerAssociationContainerMonitoringConfigurationArgs) ToContainerAssociationContainerMonitoringConfigurationOutputWithContext(ctx context.Context) ContainerAssociationContainerMonitoringConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerAssociationContainerMonitoringConfigurationOutput)
+}
+
+// ContainerAssociationContainerMonitoringConfigurationArrayInput is an input type that accepts ContainerAssociationContainerMonitoringConfigurationArray and ContainerAssociationContainerMonitoringConfigurationArrayOutput values.
+// You can construct a concrete instance of `ContainerAssociationContainerMonitoringConfigurationArrayInput` via:
+//
+//	ContainerAssociationContainerMonitoringConfigurationArray{ ContainerAssociationContainerMonitoringConfigurationArgs{...} }
+type ContainerAssociationContainerMonitoringConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToContainerAssociationContainerMonitoringConfigurationArrayOutput() ContainerAssociationContainerMonitoringConfigurationArrayOutput
+	ToContainerAssociationContainerMonitoringConfigurationArrayOutputWithContext(context.Context) ContainerAssociationContainerMonitoringConfigurationArrayOutput
+}
+
+type ContainerAssociationContainerMonitoringConfigurationArray []ContainerAssociationContainerMonitoringConfigurationInput
+
+func (ContainerAssociationContainerMonitoringConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerAssociationContainerMonitoringConfiguration)(nil)).Elem()
+}
+
+func (i ContainerAssociationContainerMonitoringConfigurationArray) ToContainerAssociationContainerMonitoringConfigurationArrayOutput() ContainerAssociationContainerMonitoringConfigurationArrayOutput {
+	return i.ToContainerAssociationContainerMonitoringConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i ContainerAssociationContainerMonitoringConfigurationArray) ToContainerAssociationContainerMonitoringConfigurationArrayOutputWithContext(ctx context.Context) ContainerAssociationContainerMonitoringConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerAssociationContainerMonitoringConfigurationArrayOutput)
+}
+
+type ContainerAssociationContainerMonitoringConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ContainerAssociationContainerMonitoringConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerAssociationContainerMonitoringConfiguration)(nil)).Elem()
+}
+
+func (o ContainerAssociationContainerMonitoringConfigurationOutput) ToContainerAssociationContainerMonitoringConfigurationOutput() ContainerAssociationContainerMonitoringConfigurationOutput {
+	return o
+}
+
+func (o ContainerAssociationContainerMonitoringConfigurationOutput) ToContainerAssociationContainerMonitoringConfigurationOutputWithContext(ctx context.Context) ContainerAssociationContainerMonitoringConfigurationOutput {
+	return o
+}
+
+// Key-value pairs that filter which containers within the cluster are monitored. For Amazon EKS, filter by namespace and Kubernetes labels. For Amazon ECS, filter by container instance attributes; attribute filters only match containers on the EC2 launch type, not Fargate. See `attributeFilter` Block below.
+func (o ContainerAssociationContainerMonitoringConfigurationOutput) AttributeFilters() ContainerAssociationContainerMonitoringConfigurationAttributeFilterArrayOutput {
+	return o.ApplyT(func(v ContainerAssociationContainerMonitoringConfiguration) []ContainerAssociationContainerMonitoringConfigurationAttributeFilter {
+		return v.AttributeFilters
+	}).(ContainerAssociationContainerMonitoringConfigurationAttributeFilterArrayOutput)
+}
+
+// ARN of the Amazon ECS or Amazon EKS cluster to monitor. The cluster must be in the same Region and account as the container association.
+func (o ContainerAssociationContainerMonitoringConfigurationOutput) ClusterArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerAssociationContainerMonitoringConfiguration) string { return v.ClusterArn }).(pulumi.StringOutput)
+}
+
+type ContainerAssociationContainerMonitoringConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (ContainerAssociationContainerMonitoringConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerAssociationContainerMonitoringConfiguration)(nil)).Elem()
+}
+
+func (o ContainerAssociationContainerMonitoringConfigurationArrayOutput) ToContainerAssociationContainerMonitoringConfigurationArrayOutput() ContainerAssociationContainerMonitoringConfigurationArrayOutput {
+	return o
+}
+
+func (o ContainerAssociationContainerMonitoringConfigurationArrayOutput) ToContainerAssociationContainerMonitoringConfigurationArrayOutputWithContext(ctx context.Context) ContainerAssociationContainerMonitoringConfigurationArrayOutput {
+	return o
+}
+
+func (o ContainerAssociationContainerMonitoringConfigurationArrayOutput) Index(i pulumi.IntInput) ContainerAssociationContainerMonitoringConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContainerAssociationContainerMonitoringConfiguration {
+		return vs[0].([]ContainerAssociationContainerMonitoringConfiguration)[vs[1].(int)]
+	}).(ContainerAssociationContainerMonitoringConfigurationOutput)
+}
+
+type ContainerAssociationContainerMonitoringConfigurationAttributeFilter struct {
+	// Key of the container attribute to filter on.
+	Key string `pulumi:"key"`
+	// Value of the container attribute to filter on.
+	Value string `pulumi:"value"`
+}
+
+// ContainerAssociationContainerMonitoringConfigurationAttributeFilterInput is an input type that accepts ContainerAssociationContainerMonitoringConfigurationAttributeFilterArgs and ContainerAssociationContainerMonitoringConfigurationAttributeFilterOutput values.
+// You can construct a concrete instance of `ContainerAssociationContainerMonitoringConfigurationAttributeFilterInput` via:
+//
+//	ContainerAssociationContainerMonitoringConfigurationAttributeFilterArgs{...}
+type ContainerAssociationContainerMonitoringConfigurationAttributeFilterInput interface {
+	pulumi.Input
+
+	ToContainerAssociationContainerMonitoringConfigurationAttributeFilterOutput() ContainerAssociationContainerMonitoringConfigurationAttributeFilterOutput
+	ToContainerAssociationContainerMonitoringConfigurationAttributeFilterOutputWithContext(context.Context) ContainerAssociationContainerMonitoringConfigurationAttributeFilterOutput
+}
+
+type ContainerAssociationContainerMonitoringConfigurationAttributeFilterArgs struct {
+	// Key of the container attribute to filter on.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the container attribute to filter on.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ContainerAssociationContainerMonitoringConfigurationAttributeFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerAssociationContainerMonitoringConfigurationAttributeFilter)(nil)).Elem()
+}
+
+func (i ContainerAssociationContainerMonitoringConfigurationAttributeFilterArgs) ToContainerAssociationContainerMonitoringConfigurationAttributeFilterOutput() ContainerAssociationContainerMonitoringConfigurationAttributeFilterOutput {
+	return i.ToContainerAssociationContainerMonitoringConfigurationAttributeFilterOutputWithContext(context.Background())
+}
+
+func (i ContainerAssociationContainerMonitoringConfigurationAttributeFilterArgs) ToContainerAssociationContainerMonitoringConfigurationAttributeFilterOutputWithContext(ctx context.Context) ContainerAssociationContainerMonitoringConfigurationAttributeFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerAssociationContainerMonitoringConfigurationAttributeFilterOutput)
+}
+
+// ContainerAssociationContainerMonitoringConfigurationAttributeFilterArrayInput is an input type that accepts ContainerAssociationContainerMonitoringConfigurationAttributeFilterArray and ContainerAssociationContainerMonitoringConfigurationAttributeFilterArrayOutput values.
+// You can construct a concrete instance of `ContainerAssociationContainerMonitoringConfigurationAttributeFilterArrayInput` via:
+//
+//	ContainerAssociationContainerMonitoringConfigurationAttributeFilterArray{ ContainerAssociationContainerMonitoringConfigurationAttributeFilterArgs{...} }
+type ContainerAssociationContainerMonitoringConfigurationAttributeFilterArrayInput interface {
+	pulumi.Input
+
+	ToContainerAssociationContainerMonitoringConfigurationAttributeFilterArrayOutput() ContainerAssociationContainerMonitoringConfigurationAttributeFilterArrayOutput
+	ToContainerAssociationContainerMonitoringConfigurationAttributeFilterArrayOutputWithContext(context.Context) ContainerAssociationContainerMonitoringConfigurationAttributeFilterArrayOutput
+}
+
+type ContainerAssociationContainerMonitoringConfigurationAttributeFilterArray []ContainerAssociationContainerMonitoringConfigurationAttributeFilterInput
+
+func (ContainerAssociationContainerMonitoringConfigurationAttributeFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerAssociationContainerMonitoringConfigurationAttributeFilter)(nil)).Elem()
+}
+
+func (i ContainerAssociationContainerMonitoringConfigurationAttributeFilterArray) ToContainerAssociationContainerMonitoringConfigurationAttributeFilterArrayOutput() ContainerAssociationContainerMonitoringConfigurationAttributeFilterArrayOutput {
+	return i.ToContainerAssociationContainerMonitoringConfigurationAttributeFilterArrayOutputWithContext(context.Background())
+}
+
+func (i ContainerAssociationContainerMonitoringConfigurationAttributeFilterArray) ToContainerAssociationContainerMonitoringConfigurationAttributeFilterArrayOutputWithContext(ctx context.Context) ContainerAssociationContainerMonitoringConfigurationAttributeFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerAssociationContainerMonitoringConfigurationAttributeFilterArrayOutput)
+}
+
+type ContainerAssociationContainerMonitoringConfigurationAttributeFilterOutput struct{ *pulumi.OutputState }
+
+func (ContainerAssociationContainerMonitoringConfigurationAttributeFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerAssociationContainerMonitoringConfigurationAttributeFilter)(nil)).Elem()
+}
+
+func (o ContainerAssociationContainerMonitoringConfigurationAttributeFilterOutput) ToContainerAssociationContainerMonitoringConfigurationAttributeFilterOutput() ContainerAssociationContainerMonitoringConfigurationAttributeFilterOutput {
+	return o
+}
+
+func (o ContainerAssociationContainerMonitoringConfigurationAttributeFilterOutput) ToContainerAssociationContainerMonitoringConfigurationAttributeFilterOutputWithContext(ctx context.Context) ContainerAssociationContainerMonitoringConfigurationAttributeFilterOutput {
+	return o
+}
+
+// Key of the container attribute to filter on.
+func (o ContainerAssociationContainerMonitoringConfigurationAttributeFilterOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerAssociationContainerMonitoringConfigurationAttributeFilter) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Value of the container attribute to filter on.
+func (o ContainerAssociationContainerMonitoringConfigurationAttributeFilterOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerAssociationContainerMonitoringConfigurationAttributeFilter) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ContainerAssociationContainerMonitoringConfigurationAttributeFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (ContainerAssociationContainerMonitoringConfigurationAttributeFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerAssociationContainerMonitoringConfigurationAttributeFilter)(nil)).Elem()
+}
+
+func (o ContainerAssociationContainerMonitoringConfigurationAttributeFilterArrayOutput) ToContainerAssociationContainerMonitoringConfigurationAttributeFilterArrayOutput() ContainerAssociationContainerMonitoringConfigurationAttributeFilterArrayOutput {
+	return o
+}
+
+func (o ContainerAssociationContainerMonitoringConfigurationAttributeFilterArrayOutput) ToContainerAssociationContainerMonitoringConfigurationAttributeFilterArrayOutputWithContext(ctx context.Context) ContainerAssociationContainerMonitoringConfigurationAttributeFilterArrayOutput {
+	return o
+}
+
+func (o ContainerAssociationContainerMonitoringConfigurationAttributeFilterArrayOutput) Index(i pulumi.IntInput) ContainerAssociationContainerMonitoringConfigurationAttributeFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContainerAssociationContainerMonitoringConfigurationAttributeFilter {
+		return vs[0].([]ContainerAssociationContainerMonitoringConfigurationAttributeFilter)[vs[1].(int)]
+	}).(ContainerAssociationContainerMonitoringConfigurationAttributeFilterOutput)
+}
+
+type ContainerAssociationTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// ContainerAssociationTimeoutsInput is an input type that accepts ContainerAssociationTimeoutsArgs and ContainerAssociationTimeoutsOutput values.
+// You can construct a concrete instance of `ContainerAssociationTimeoutsInput` via:
+//
+//	ContainerAssociationTimeoutsArgs{...}
+type ContainerAssociationTimeoutsInput interface {
+	pulumi.Input
+
+	ToContainerAssociationTimeoutsOutput() ContainerAssociationTimeoutsOutput
+	ToContainerAssociationTimeoutsOutputWithContext(context.Context) ContainerAssociationTimeoutsOutput
+}
+
+type ContainerAssociationTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (ContainerAssociationTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerAssociationTimeouts)(nil)).Elem()
+}
+
+func (i ContainerAssociationTimeoutsArgs) ToContainerAssociationTimeoutsOutput() ContainerAssociationTimeoutsOutput {
+	return i.ToContainerAssociationTimeoutsOutputWithContext(context.Background())
+}
+
+func (i ContainerAssociationTimeoutsArgs) ToContainerAssociationTimeoutsOutputWithContext(ctx context.Context) ContainerAssociationTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerAssociationTimeoutsOutput)
+}
+
+func (i ContainerAssociationTimeoutsArgs) ToContainerAssociationTimeoutsPtrOutput() ContainerAssociationTimeoutsPtrOutput {
+	return i.ToContainerAssociationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i ContainerAssociationTimeoutsArgs) ToContainerAssociationTimeoutsPtrOutputWithContext(ctx context.Context) ContainerAssociationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerAssociationTimeoutsOutput).ToContainerAssociationTimeoutsPtrOutputWithContext(ctx)
+}
+
+// ContainerAssociationTimeoutsPtrInput is an input type that accepts ContainerAssociationTimeoutsArgs, ContainerAssociationTimeoutsPtr and ContainerAssociationTimeoutsPtrOutput values.
+// You can construct a concrete instance of `ContainerAssociationTimeoutsPtrInput` via:
+//
+//	        ContainerAssociationTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ContainerAssociationTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToContainerAssociationTimeoutsPtrOutput() ContainerAssociationTimeoutsPtrOutput
+	ToContainerAssociationTimeoutsPtrOutputWithContext(context.Context) ContainerAssociationTimeoutsPtrOutput
+}
+
+type containerAssociationTimeoutsPtrType ContainerAssociationTimeoutsArgs
+
+func ContainerAssociationTimeoutsPtr(v *ContainerAssociationTimeoutsArgs) ContainerAssociationTimeoutsPtrInput {
+	return (*containerAssociationTimeoutsPtrType)(v)
+}
+
+func (*containerAssociationTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerAssociationTimeouts)(nil)).Elem()
+}
+
+func (i *containerAssociationTimeoutsPtrType) ToContainerAssociationTimeoutsPtrOutput() ContainerAssociationTimeoutsPtrOutput {
+	return i.ToContainerAssociationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *containerAssociationTimeoutsPtrType) ToContainerAssociationTimeoutsPtrOutputWithContext(ctx context.Context) ContainerAssociationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerAssociationTimeoutsPtrOutput)
+}
+
+type ContainerAssociationTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (ContainerAssociationTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerAssociationTimeouts)(nil)).Elem()
+}
+
+func (o ContainerAssociationTimeoutsOutput) ToContainerAssociationTimeoutsOutput() ContainerAssociationTimeoutsOutput {
+	return o
+}
+
+func (o ContainerAssociationTimeoutsOutput) ToContainerAssociationTimeoutsOutputWithContext(ctx context.Context) ContainerAssociationTimeoutsOutput {
+	return o
+}
+
+func (o ContainerAssociationTimeoutsOutput) ToContainerAssociationTimeoutsPtrOutput() ContainerAssociationTimeoutsPtrOutput {
+	return o.ToContainerAssociationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerAssociationTimeoutsOutput) ToContainerAssociationTimeoutsPtrOutputWithContext(ctx context.Context) ContainerAssociationTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerAssociationTimeouts) *ContainerAssociationTimeouts {
+		return &v
+	}).(ContainerAssociationTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ContainerAssociationTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerAssociationTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o ContainerAssociationTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerAssociationTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ContainerAssociationTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerAssociationTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type ContainerAssociationTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerAssociationTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerAssociationTimeouts)(nil)).Elem()
+}
+
+func (o ContainerAssociationTimeoutsPtrOutput) ToContainerAssociationTimeoutsPtrOutput() ContainerAssociationTimeoutsPtrOutput {
+	return o
+}
+
+func (o ContainerAssociationTimeoutsPtrOutput) ToContainerAssociationTimeoutsPtrOutputWithContext(ctx context.Context) ContainerAssociationTimeoutsPtrOutput {
+	return o
+}
+
+func (o ContainerAssociationTimeoutsPtrOutput) Elem() ContainerAssociationTimeoutsOutput {
+	return o.ApplyT(func(v *ContainerAssociationTimeouts) ContainerAssociationTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerAssociationTimeouts
+		return ret
+	}).(ContainerAssociationTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ContainerAssociationTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerAssociationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o ContainerAssociationTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerAssociationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ContainerAssociationTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerAssociationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type FirewallAvailabilityZoneMapping struct {
 	// The ID of the Availability Zone where the firewall endpoint is located..
 	AvailabilityZoneId string `pulumi:"availabilityZoneId"`
@@ -11075,6 +11464,12 @@ func (o GetFirewallSubnetMappingArrayOutput) Index(i pulumi.IntInput) GetFirewal
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerAssociationContainerMonitoringConfigurationInput)(nil)).Elem(), ContainerAssociationContainerMonitoringConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerAssociationContainerMonitoringConfigurationArrayInput)(nil)).Elem(), ContainerAssociationContainerMonitoringConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerAssociationContainerMonitoringConfigurationAttributeFilterInput)(nil)).Elem(), ContainerAssociationContainerMonitoringConfigurationAttributeFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerAssociationContainerMonitoringConfigurationAttributeFilterArrayInput)(nil)).Elem(), ContainerAssociationContainerMonitoringConfigurationAttributeFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerAssociationTimeoutsInput)(nil)).Elem(), ContainerAssociationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerAssociationTimeoutsPtrInput)(nil)).Elem(), ContainerAssociationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallAvailabilityZoneMappingInput)(nil)).Elem(), FirewallAvailabilityZoneMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallAvailabilityZoneMappingArrayInput)(nil)).Elem(), FirewallAvailabilityZoneMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallEncryptionConfigurationInput)(nil)).Elem(), FirewallEncryptionConfigurationArgs{})
@@ -11253,6 +11648,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallSubnetMappingInput)(nil)).Elem(), GetFirewallSubnetMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallSubnetMappingArrayInput)(nil)).Elem(), GetFirewallSubnetMappingArray{})
+	pulumi.RegisterOutputType(ContainerAssociationContainerMonitoringConfigurationOutput{})
+	pulumi.RegisterOutputType(ContainerAssociationContainerMonitoringConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(ContainerAssociationContainerMonitoringConfigurationAttributeFilterOutput{})
+	pulumi.RegisterOutputType(ContainerAssociationContainerMonitoringConfigurationAttributeFilterArrayOutput{})
+	pulumi.RegisterOutputType(ContainerAssociationTimeoutsOutput{})
+	pulumi.RegisterOutputType(ContainerAssociationTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(FirewallAvailabilityZoneMappingOutput{})
 	pulumi.RegisterOutputType(FirewallAvailabilityZoneMappingArrayOutput{})
 	pulumi.RegisterOutputType(FirewallEncryptionConfigurationOutput{})

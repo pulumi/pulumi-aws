@@ -14,29 +14,77 @@ import java.util.Objects;
 
 @CustomType
 public final class GetConnectionAuthenticationConfiguration {
+    /**
+     * @return Type of authentication used for the connection.
+     * 
+     */
     private String authenticationType;
+    /**
+     * @return Basic authentication credentials. See `basicAuthenticationCredentials` Block for details.
+     * 
+     */
     private List<GetConnectionAuthenticationConfigurationBasicAuthenticationCredential> basicAuthenticationCredentials;
+    /**
+     * @return Map of credentials used when the authentication type is custom authentication.
+     * 
+     */
     private Map<String,String> customAuthenticationCredentials;
+    /**
+     * @return ARN of the KMS key used to encrypt the connection.
+     * 
+     */
     private String kmsKeyArn;
+    /**
+     * @return OAuth2 properties. See `oauth2Properties` Block for details.
+     * 
+     */
     private List<GetConnectionAuthenticationConfigurationOauth2Property> oauth2Properties;
+    /**
+     * @return ARN of the secret used for authentication.
+     * 
+     */
     private String secretArn;
 
     private GetConnectionAuthenticationConfiguration() {}
+    /**
+     * @return Type of authentication used for the connection.
+     * 
+     */
     public String authenticationType() {
         return this.authenticationType;
     }
+    /**
+     * @return Basic authentication credentials. See `basicAuthenticationCredentials` Block for details.
+     * 
+     */
     public List<GetConnectionAuthenticationConfigurationBasicAuthenticationCredential> basicAuthenticationCredentials() {
         return this.basicAuthenticationCredentials;
     }
+    /**
+     * @return Map of credentials used when the authentication type is custom authentication.
+     * 
+     */
     public Map<String,String> customAuthenticationCredentials() {
         return this.customAuthenticationCredentials;
     }
+    /**
+     * @return ARN of the KMS key used to encrypt the connection.
+     * 
+     */
     public String kmsKeyArn() {
         return this.kmsKeyArn;
     }
+    /**
+     * @return OAuth2 properties. See `oauth2Properties` Block for details.
+     * 
+     */
     public List<GetConnectionAuthenticationConfigurationOauth2Property> oauth2Properties() {
         return this.oauth2Properties;
     }
+    /**
+     * @return ARN of the secret used for authentication.
+     * 
+     */
     public String secretArn() {
         return this.secretArn;
     }

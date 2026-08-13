@@ -21,6 +21,9 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         /// Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances.
         /// </summary>
         public readonly int OnDemandBaseCapacity;
+        /// <summary>
+        /// Percentages of On-Demand Instances and Spot Instances for your additional capacity beyond `OnDemandBaseCapacity`.
+        /// </summary>
         public readonly int OnDemandPercentageAboveBaseCapacity;
         /// <summary>
         /// Strategy used when launching Spot instances.

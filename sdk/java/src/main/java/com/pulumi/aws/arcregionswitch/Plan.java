@@ -271,14 +271,14 @@ public class Plan extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Set of CloudWatch alarms associated with the plan. See Associated Alarms below.
+     * CloudWatch alarms associated with the plan. See `associatedAlarms` Block for details.
      * 
      */
     @Export(name="associatedAlarms", refs={List.class,PlanAssociatedAlarm.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PlanAssociatedAlarm>> associatedAlarms;
 
     /**
-     * @return Set of CloudWatch alarms associated with the plan. See Associated Alarms below.
+     * @return CloudWatch alarms associated with the plan. See `associatedAlarms` Block for details.
      * 
      */
     public Output<Optional<List<PlanAssociatedAlarm>>> associatedAlarms() {
@@ -387,28 +387,28 @@ public class Plan extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * List of AWS regions involved in the plan.
+     * List of AWS regions involved in the plan. Must contain at least 2 regions.
      * 
      */
     @Export(name="regions", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> regions;
 
     /**
-     * @return List of AWS regions involved in the plan.
+     * @return List of AWS regions involved in the plan. Must contain at least 2 regions.
      * 
      */
     public Output<List<String>> regions() {
         return this.regions;
     }
     /**
-     * Configuration for automated execution reports. See Report Configuration below.
+     * Configuration for automated execution reports. See `reportConfiguration` Block for details.
      * 
      */
     @Export(name="reportConfigurations", refs={List.class,PlanReportConfiguration.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PlanReportConfiguration>> reportConfigurations;
 
     /**
-     * @return Configuration for automated execution reports. See Report Configuration below.
+     * @return Configuration for automated execution reports. See `reportConfiguration` Block for details.
      * 
      */
     public Output<Optional<List<PlanReportConfiguration>>> reportConfigurations() {
@@ -449,21 +449,21 @@ public class Plan extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.timeouts);
     }
     /**
-     * Set of triggers that can initiate the plan execution. See Triggers below.
+     * Triggers that can initiate the plan execution. See `triggers` Block for details.
      * 
      */
     @Export(name="triggers", refs={List.class,PlanTrigger.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PlanTrigger>> triggers;
 
     /**
-     * @return Set of triggers that can initiate the plan execution. See Triggers below.
+     * @return Triggers that can initiate the plan execution. See `triggers` Block for details.
      * 
      */
     public Output<Optional<List<PlanTrigger>>> triggers() {
         return Codegen.optional(this.triggers);
     }
     /**
-     * List of workflows that define the steps to execute. See Workflow below.
+     * Workflows that define the steps to execute. See `workflow` Block for details.
      * 
      * The following arguments are optional:
      * 
@@ -472,7 +472,7 @@ public class Plan extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ List<PlanWorkflow>> workflows;
 
     /**
-     * @return List of workflows that define the steps to execute. See Workflow below.
+     * @return Workflows that define the steps to execute. See `workflow` Block for details.
      * 
      * The following arguments are optional:
      * 

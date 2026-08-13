@@ -11463,6 +11463,13 @@ class GetVirtualNodeSpecResult(dict):
                  listeners: Sequence['outputs.GetVirtualNodeSpecListenerResult'],
                  loggings: Sequence['outputs.GetVirtualNodeSpecLoggingResult'],
                  service_discoveries: Sequence['outputs.GetVirtualNodeSpecServiceDiscoveryResult']):
+        """
+        :param Sequence['GetVirtualNodeSpecBackendDefaultArgs'] backend_defaults: Defaults for backends. See `spec.backend_defaults` Block for details.
+        :param Sequence['GetVirtualNodeSpecBackendArgs'] backends: Backends to which the virtual node sends outbound traffic. See `spec.backend` Block for details.
+        :param Sequence['GetVirtualNodeSpecListenerArgs'] listeners: Listeners from which the virtual node receives inbound traffic. See `spec.listener` Block for details.
+        :param Sequence['GetVirtualNodeSpecLoggingArgs'] loggings: Inbound and outbound access logging information for the virtual node. See `spec.logging` Block for details.
+        :param Sequence['GetVirtualNodeSpecServiceDiscoveryArgs'] service_discoveries: Service discovery information for the virtual node. See `spec.service_discovery` Block for details.
+        """
         pulumi.set(__self__, "backend_defaults", backend_defaults)
         pulumi.set(__self__, "backends", backends)
         pulumi.set(__self__, "listeners", listeners)
@@ -11472,26 +11479,41 @@ class GetVirtualNodeSpecResult(dict):
     @_builtins.property
     @pulumi.getter(name="backendDefaults")
     def backend_defaults(self) -> Sequence['outputs.GetVirtualNodeSpecBackendDefaultResult']:
+        """
+        Defaults for backends. See `spec.backend_defaults` Block for details.
+        """
         return pulumi.get(self, "backend_defaults")
 
     @_builtins.property
     @pulumi.getter
     def backends(self) -> Sequence['outputs.GetVirtualNodeSpecBackendResult']:
+        """
+        Backends to which the virtual node sends outbound traffic. See `spec.backend` Block for details.
+        """
         return pulumi.get(self, "backends")
 
     @_builtins.property
     @pulumi.getter
     def listeners(self) -> Sequence['outputs.GetVirtualNodeSpecListenerResult']:
+        """
+        Listeners from which the virtual node receives inbound traffic. See `spec.listener` Block for details.
+        """
         return pulumi.get(self, "listeners")
 
     @_builtins.property
     @pulumi.getter
     def loggings(self) -> Sequence['outputs.GetVirtualNodeSpecLoggingResult']:
+        """
+        Inbound and outbound access logging information for the virtual node. See `spec.logging` Block for details.
+        """
         return pulumi.get(self, "loggings")
 
     @_builtins.property
     @pulumi.getter(name="serviceDiscoveries")
     def service_discoveries(self) -> Sequence['outputs.GetVirtualNodeSpecServiceDiscoveryResult']:
+        """
+        Service discovery information for the virtual node. See `spec.service_discovery` Block for details.
+        """
         return pulumi.get(self, "service_discoveries")
 
 
@@ -11499,11 +11521,17 @@ class GetVirtualNodeSpecResult(dict):
 class GetVirtualNodeSpecBackendResult(dict):
     def __init__(__self__, *,
                  virtual_services: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceResult']):
+        """
+        :param Sequence['GetVirtualNodeSpecBackendVirtualServiceArgs'] virtual_services: Virtual service used as a backend for a virtual node. See `spec.backend.virtual_service` Block for details.
+        """
         pulumi.set(__self__, "virtual_services", virtual_services)
 
     @_builtins.property
     @pulumi.getter(name="virtualServices")
     def virtual_services(self) -> Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceResult']:
+        """
+        Virtual service used as a backend for a virtual node. See `spec.backend.virtual_service` Block for details.
+        """
         return pulumi.get(self, "virtual_services")
 
 
@@ -11511,11 +11539,17 @@ class GetVirtualNodeSpecBackendResult(dict):
 class GetVirtualNodeSpecBackendDefaultResult(dict):
     def __init__(__self__, *,
                  client_policies: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyResult']):
+        """
+        :param Sequence['GetVirtualNodeSpecBackendDefaultClientPolicyArgs'] client_policies: Default client policy for virtual service backends. See `spec.backend_defaults.client_policy` Block for details.
+        """
         pulumi.set(__self__, "client_policies", client_policies)
 
     @_builtins.property
     @pulumi.getter(name="clientPolicies")
     def client_policies(self) -> Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyResult']:
+        """
+        Default client policy for virtual service backends. See `spec.backend_defaults.client_policy` Block for details.
+        """
         return pulumi.get(self, "client_policies")
 
 
@@ -11523,11 +11557,17 @@ class GetVirtualNodeSpecBackendDefaultResult(dict):
 class GetVirtualNodeSpecBackendDefaultClientPolicyResult(dict):
     def __init__(__self__, *,
                  tls: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlResult']):
+        """
+        :param Sequence['GetVirtualNodeSpecBackendDefaultClientPolicyTlArgs'] tls: Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+        """
         pulumi.set(__self__, "tls", tls)
 
     @_builtins.property
     @pulumi.getter
     def tls(self) -> Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlResult']:
+        """
+        Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+        """
         return pulumi.get(self, "tls")
 
 
@@ -11538,6 +11578,12 @@ class GetVirtualNodeSpecBackendDefaultClientPolicyTlResult(dict):
                  enforce: _builtins.bool,
                  ports: Sequence[_builtins.int],
                  validations: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationResult']):
+        """
+        :param Sequence['GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateArgs'] certificates: Listener's TLS certificate. See `spec.listener.tls.certificate` Block for details.
+        :param _builtins.bool enforce: Whether the policy is enforced.
+        :param Sequence[_builtins.int] ports: One or more ports that the policy is enforced for.
+        :param Sequence['GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationArgs'] validations: Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+        """
         pulumi.set(__self__, "certificates", certificates)
         pulumi.set(__self__, "enforce", enforce)
         pulumi.set(__self__, "ports", ports)
@@ -11546,21 +11592,33 @@ class GetVirtualNodeSpecBackendDefaultClientPolicyTlResult(dict):
     @_builtins.property
     @pulumi.getter
     def certificates(self) -> Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateResult']:
+        """
+        Listener's TLS certificate. See `spec.listener.tls.certificate` Block for details.
+        """
         return pulumi.get(self, "certificates")
 
     @_builtins.property
     @pulumi.getter
     def enforce(self) -> _builtins.bool:
+        """
+        Whether the policy is enforced.
+        """
         return pulumi.get(self, "enforce")
 
     @_builtins.property
     @pulumi.getter
     def ports(self) -> Sequence[_builtins.int]:
+        """
+        One or more ports that the policy is enforced for.
+        """
         return pulumi.get(self, "ports")
 
     @_builtins.property
     @pulumi.getter
     def validations(self) -> Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationResult']:
+        """
+        Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+        """
         return pulumi.get(self, "validations")
 
 
@@ -11569,17 +11627,27 @@ class GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateResult(dict):
     def __init__(__self__, *,
                  files: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileResult'],
                  sds: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdResult']):
+        """
+        :param Sequence['GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileArgs'] files: File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
+        :param Sequence['GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdArgs'] sds: TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
+        """
         pulumi.set(__self__, "files", files)
         pulumi.set(__self__, "sds", sds)
 
     @_builtins.property
     @pulumi.getter
     def files(self) -> Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileResult']:
+        """
+        File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
+        """
         return pulumi.get(self, "files")
 
     @_builtins.property
     @pulumi.getter
     def sds(self) -> Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdResult']:
+        """
+        TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
+        """
         return pulumi.get(self, "sds")
 
 
@@ -11588,17 +11656,27 @@ class GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileResult(dict):
     def __init__(__self__, *,
                  certificate_chain: _builtins.str,
                  private_key: _builtins.str):
+        """
+        :param _builtins.str certificate_chain: Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on.
+        :param _builtins.str private_key: Private key for a certificate stored on the file system of the virtual node that the proxy is running on.
+        """
         pulumi.set(__self__, "certificate_chain", certificate_chain)
         pulumi.set(__self__, "private_key", private_key)
 
     @_builtins.property
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> _builtins.str:
+        """
+        Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on.
+        """
         return pulumi.get(self, "certificate_chain")
 
     @_builtins.property
     @pulumi.getter(name="privateKey")
     def private_key(self) -> _builtins.str:
+        """
+        Private key for a certificate stored on the file system of the virtual node that the proxy is running on.
+        """
         return pulumi.get(self, "private_key")
 
 
@@ -11606,11 +11684,17 @@ class GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileResult(dict):
 class GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdResult(dict):
     def __init__(__self__, *,
                  secret_name: _builtins.str):
+        """
+        :param _builtins.str secret_name: Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        """
         pulumi.set(__self__, "secret_name", secret_name)
 
     @_builtins.property
     @pulumi.getter(name="secretName")
     def secret_name(self) -> _builtins.str:
+        """
+        Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        """
         return pulumi.get(self, "secret_name")
 
 
@@ -11619,17 +11703,27 @@ class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationResult(dict):
     def __init__(__self__, *,
                  subject_alternative_names: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameResult'],
                  trusts: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustResult']):
+        """
+        :param Sequence['GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArgs'] subject_alternative_names: SANs for a TLS validation context. See `spec.listener.tls.validation.subject_alternative_names` Block for details.
+        :param Sequence['GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustArgs'] trusts: TLS validation context trust. See `spec.listener.tls.validation.trust` Block for details.
+        """
         pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
         pulumi.set(__self__, "trusts", trusts)
 
     @_builtins.property
     @pulumi.getter(name="subjectAlternativeNames")
     def subject_alternative_names(self) -> Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameResult']:
+        """
+        SANs for a TLS validation context. See `spec.listener.tls.validation.subject_alternative_names` Block for details.
+        """
         return pulumi.get(self, "subject_alternative_names")
 
     @_builtins.property
     @pulumi.getter
     def trusts(self) -> Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustResult']:
+        """
+        TLS validation context trust. See `spec.listener.tls.validation.trust` Block for details.
+        """
         return pulumi.get(self, "trusts")
 
 
@@ -11637,11 +11731,17 @@ class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationResult(dict):
 class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameResult(dict):
     def __init__(__self__, *,
                  matches: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchResult']):
+        """
+        :param Sequence['GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArgs'] matches: Criteria for determining a SAN's match. See `spec.listener.tls.validation.subject_alternative_names.match` Block for details.
+        """
         pulumi.set(__self__, "matches", matches)
 
     @_builtins.property
     @pulumi.getter
     def matches(self) -> Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchResult']:
+        """
+        Criteria for determining a SAN's match. See `spec.listener.tls.validation.subject_alternative_names.match` Block for details.
+        """
         return pulumi.get(self, "matches")
 
 
@@ -11649,11 +11749,17 @@ class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternative
 class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchResult(dict):
     def __init__(__self__, *,
                  exacts: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] exacts: Values sent must match the specified values exactly.
+        """
         pulumi.set(__self__, "exacts", exacts)
 
     @_builtins.property
     @pulumi.getter
     def exacts(self) -> Sequence[_builtins.str]:
+        """
+        Values sent must match the specified values exactly.
+        """
         return pulumi.get(self, "exacts")
 
 
@@ -11663,6 +11769,11 @@ class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustResult(dict):
                  acms: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcmResult'],
                  files: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileResult'],
                  sds: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdResult']):
+        """
+        :param Sequence['GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcmArgs'] acms: AWS Certificate Manager (ACM) certificate. See `spec.listener.tls.certificate.acm` Block for details.
+        :param Sequence['GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileArgs'] files: File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
+        :param Sequence['GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdArgs'] sds: TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
+        """
         pulumi.set(__self__, "acms", acms)
         pulumi.set(__self__, "files", files)
         pulumi.set(__self__, "sds", sds)
@@ -11670,16 +11781,25 @@ class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustResult(dict):
     @_builtins.property
     @pulumi.getter
     def acms(self) -> Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcmResult']:
+        """
+        AWS Certificate Manager (ACM) certificate. See `spec.listener.tls.certificate.acm` Block for details.
+        """
         return pulumi.get(self, "acms")
 
     @_builtins.property
     @pulumi.getter
     def files(self) -> Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileResult']:
+        """
+        File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
+        """
         return pulumi.get(self, "files")
 
     @_builtins.property
     @pulumi.getter
     def sds(self) -> Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdResult']:
+        """
+        TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
+        """
         return pulumi.get(self, "sds")
 
 
@@ -11687,11 +11807,17 @@ class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustResult(dict):
 class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcmResult(dict):
     def __init__(__self__, *,
                  certificate_authority_arns: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] certificate_authority_arns: One or more ACM ARNs.
+        """
         pulumi.set(__self__, "certificate_authority_arns", certificate_authority_arns)
 
     @_builtins.property
     @pulumi.getter(name="certificateAuthorityArns")
     def certificate_authority_arns(self) -> Sequence[_builtins.str]:
+        """
+        One or more ACM ARNs.
+        """
         return pulumi.get(self, "certificate_authority_arns")
 
 
@@ -11699,11 +11825,17 @@ class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcmResult(dic
 class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileResult(dict):
     def __init__(__self__, *,
                  certificate_chain: _builtins.str):
+        """
+        :param _builtins.str certificate_chain: Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on.
+        """
         pulumi.set(__self__, "certificate_chain", certificate_chain)
 
     @_builtins.property
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> _builtins.str:
+        """
+        Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on.
+        """
         return pulumi.get(self, "certificate_chain")
 
 
@@ -11711,11 +11843,17 @@ class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileResult(di
 class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdResult(dict):
     def __init__(__self__, *,
                  secret_name: _builtins.str):
+        """
+        :param _builtins.str secret_name: Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        """
         pulumi.set(__self__, "secret_name", secret_name)
 
     @_builtins.property
     @pulumi.getter(name="secretName")
     def secret_name(self) -> _builtins.str:
+        """
+        Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        """
         return pulumi.get(self, "secret_name")
 
 
@@ -11724,17 +11862,27 @@ class GetVirtualNodeSpecBackendVirtualServiceResult(dict):
     def __init__(__self__, *,
                  client_policies: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyResult'],
                  virtual_service_name: _builtins.str):
+        """
+        :param Sequence['GetVirtualNodeSpecBackendVirtualServiceClientPolicyArgs'] client_policies: Default client policy for virtual service backends. See `spec.backend_defaults.client_policy` Block for details.
+        :param _builtins.str virtual_service_name: Name of the virtual service that is acting as a virtual node backend.
+        """
         pulumi.set(__self__, "client_policies", client_policies)
         pulumi.set(__self__, "virtual_service_name", virtual_service_name)
 
     @_builtins.property
     @pulumi.getter(name="clientPolicies")
     def client_policies(self) -> Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyResult']:
+        """
+        Default client policy for virtual service backends. See `spec.backend_defaults.client_policy` Block for details.
+        """
         return pulumi.get(self, "client_policies")
 
     @_builtins.property
     @pulumi.getter(name="virtualServiceName")
     def virtual_service_name(self) -> _builtins.str:
+        """
+        Name of the virtual service that is acting as a virtual node backend.
+        """
         return pulumi.get(self, "virtual_service_name")
 
 
@@ -11742,11 +11890,17 @@ class GetVirtualNodeSpecBackendVirtualServiceResult(dict):
 class GetVirtualNodeSpecBackendVirtualServiceClientPolicyResult(dict):
     def __init__(__self__, *,
                  tls: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlResult']):
+        """
+        :param Sequence['GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlArgs'] tls: Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+        """
         pulumi.set(__self__, "tls", tls)
 
     @_builtins.property
     @pulumi.getter
     def tls(self) -> Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlResult']:
+        """
+        Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+        """
         return pulumi.get(self, "tls")
 
 
@@ -11757,6 +11911,12 @@ class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlResult(dict):
                  enforce: _builtins.bool,
                  ports: Sequence[_builtins.int],
                  validations: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationResult']):
+        """
+        :param Sequence['GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateArgs'] certificates: Listener's TLS certificate. See `spec.listener.tls.certificate` Block for details.
+        :param _builtins.bool enforce: Whether the policy is enforced.
+        :param Sequence[_builtins.int] ports: One or more ports that the policy is enforced for.
+        :param Sequence['GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationArgs'] validations: Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+        """
         pulumi.set(__self__, "certificates", certificates)
         pulumi.set(__self__, "enforce", enforce)
         pulumi.set(__self__, "ports", ports)
@@ -11765,21 +11925,33 @@ class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlResult(dict):
     @_builtins.property
     @pulumi.getter
     def certificates(self) -> Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateResult']:
+        """
+        Listener's TLS certificate. See `spec.listener.tls.certificate` Block for details.
+        """
         return pulumi.get(self, "certificates")
 
     @_builtins.property
     @pulumi.getter
     def enforce(self) -> _builtins.bool:
+        """
+        Whether the policy is enforced.
+        """
         return pulumi.get(self, "enforce")
 
     @_builtins.property
     @pulumi.getter
     def ports(self) -> Sequence[_builtins.int]:
+        """
+        One or more ports that the policy is enforced for.
+        """
         return pulumi.get(self, "ports")
 
     @_builtins.property
     @pulumi.getter
     def validations(self) -> Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationResult']:
+        """
+        Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+        """
         return pulumi.get(self, "validations")
 
 
@@ -11788,17 +11960,27 @@ class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateResult(dic
     def __init__(__self__, *,
                  files: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileResult'],
                  sds: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSdResult']):
+        """
+        :param Sequence['GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileArgs'] files: File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
+        :param Sequence['GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSdArgs'] sds: TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
+        """
         pulumi.set(__self__, "files", files)
         pulumi.set(__self__, "sds", sds)
 
     @_builtins.property
     @pulumi.getter
     def files(self) -> Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileResult']:
+        """
+        File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
+        """
         return pulumi.get(self, "files")
 
     @_builtins.property
     @pulumi.getter
     def sds(self) -> Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSdResult']:
+        """
+        TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
+        """
         return pulumi.get(self, "sds")
 
 
@@ -11807,17 +11989,27 @@ class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileResult
     def __init__(__self__, *,
                  certificate_chain: _builtins.str,
                  private_key: _builtins.str):
+        """
+        :param _builtins.str certificate_chain: Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on.
+        :param _builtins.str private_key: Private key for a certificate stored on the file system of the virtual node that the proxy is running on.
+        """
         pulumi.set(__self__, "certificate_chain", certificate_chain)
         pulumi.set(__self__, "private_key", private_key)
 
     @_builtins.property
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> _builtins.str:
+        """
+        Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on.
+        """
         return pulumi.get(self, "certificate_chain")
 
     @_builtins.property
     @pulumi.getter(name="privateKey")
     def private_key(self) -> _builtins.str:
+        """
+        Private key for a certificate stored on the file system of the virtual node that the proxy is running on.
+        """
         return pulumi.get(self, "private_key")
 
 
@@ -11825,11 +12017,17 @@ class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileResult
 class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSdResult(dict):
     def __init__(__self__, *,
                  secret_name: _builtins.str):
+        """
+        :param _builtins.str secret_name: Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        """
         pulumi.set(__self__, "secret_name", secret_name)
 
     @_builtins.property
     @pulumi.getter(name="secretName")
     def secret_name(self) -> _builtins.str:
+        """
+        Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        """
         return pulumi.get(self, "secret_name")
 
 
@@ -11838,17 +12036,27 @@ class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationResult(dict
     def __init__(__self__, *,
                  subject_alternative_names: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameResult'],
                  trusts: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustResult']):
+        """
+        :param Sequence['GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameArgs'] subject_alternative_names: SANs for a TLS validation context. See `spec.listener.tls.validation.subject_alternative_names` Block for details.
+        :param Sequence['GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustArgs'] trusts: TLS validation context trust. See `spec.listener.tls.validation.trust` Block for details.
+        """
         pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
         pulumi.set(__self__, "trusts", trusts)
 
     @_builtins.property
     @pulumi.getter(name="subjectAlternativeNames")
     def subject_alternative_names(self) -> Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameResult']:
+        """
+        SANs for a TLS validation context. See `spec.listener.tls.validation.subject_alternative_names` Block for details.
+        """
         return pulumi.get(self, "subject_alternative_names")
 
     @_builtins.property
     @pulumi.getter
     def trusts(self) -> Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustResult']:
+        """
+        TLS validation context trust. See `spec.listener.tls.validation.trust` Block for details.
+        """
         return pulumi.get(self, "trusts")
 
 
@@ -11856,11 +12064,17 @@ class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationResult(dict
 class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameResult(dict):
     def __init__(__self__, *,
                  matches: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameMatchResult']):
+        """
+        :param Sequence['GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameMatchArgs'] matches: Criteria for determining a SAN's match. See `spec.listener.tls.validation.subject_alternative_names.match` Block for details.
+        """
         pulumi.set(__self__, "matches", matches)
 
     @_builtins.property
     @pulumi.getter
     def matches(self) -> Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameMatchResult']:
+        """
+        Criteria for determining a SAN's match. See `spec.listener.tls.validation.subject_alternative_names.match` Block for details.
+        """
         return pulumi.get(self, "matches")
 
 
@@ -11868,11 +12082,17 @@ class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlte
 class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameMatchResult(dict):
     def __init__(__self__, *,
                  exacts: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] exacts: Values sent must match the specified values exactly.
+        """
         pulumi.set(__self__, "exacts", exacts)
 
     @_builtins.property
     @pulumi.getter
     def exacts(self) -> Sequence[_builtins.str]:
+        """
+        Values sent must match the specified values exactly.
+        """
         return pulumi.get(self, "exacts")
 
 
@@ -11882,6 +12102,11 @@ class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustResult
                  acms: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcmResult'],
                  files: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFileResult'],
                  sds: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSdResult']):
+        """
+        :param Sequence['GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcmArgs'] acms: AWS Certificate Manager (ACM) certificate. See `spec.listener.tls.certificate.acm` Block for details.
+        :param Sequence['GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFileArgs'] files: File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
+        :param Sequence['GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSdArgs'] sds: TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
+        """
         pulumi.set(__self__, "acms", acms)
         pulumi.set(__self__, "files", files)
         pulumi.set(__self__, "sds", sds)
@@ -11889,16 +12114,25 @@ class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustResult
     @_builtins.property
     @pulumi.getter
     def acms(self) -> Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcmResult']:
+        """
+        AWS Certificate Manager (ACM) certificate. See `spec.listener.tls.certificate.acm` Block for details.
+        """
         return pulumi.get(self, "acms")
 
     @_builtins.property
     @pulumi.getter
     def files(self) -> Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFileResult']:
+        """
+        File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
+        """
         return pulumi.get(self, "files")
 
     @_builtins.property
     @pulumi.getter
     def sds(self) -> Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSdResult']:
+        """
+        TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
+        """
         return pulumi.get(self, "sds")
 
 
@@ -11906,11 +12140,17 @@ class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustResult
 class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcmResult(dict):
     def __init__(__self__, *,
                  certificate_authority_arns: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] certificate_authority_arns: One or more ACM ARNs.
+        """
         pulumi.set(__self__, "certificate_authority_arns", certificate_authority_arns)
 
     @_builtins.property
     @pulumi.getter(name="certificateAuthorityArns")
     def certificate_authority_arns(self) -> Sequence[_builtins.str]:
+        """
+        One or more ACM ARNs.
+        """
         return pulumi.get(self, "certificate_authority_arns")
 
 
@@ -11918,11 +12158,17 @@ class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcmRes
 class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFileResult(dict):
     def __init__(__self__, *,
                  certificate_chain: _builtins.str):
+        """
+        :param _builtins.str certificate_chain: Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on.
+        """
         pulumi.set(__self__, "certificate_chain", certificate_chain)
 
     @_builtins.property
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> _builtins.str:
+        """
+        Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on.
+        """
         return pulumi.get(self, "certificate_chain")
 
 
@@ -11930,11 +12176,17 @@ class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFileRe
 class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSdResult(dict):
     def __init__(__self__, *,
                  secret_name: _builtins.str):
+        """
+        :param _builtins.str secret_name: Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        """
         pulumi.set(__self__, "secret_name", secret_name)
 
     @_builtins.property
     @pulumi.getter(name="secretName")
     def secret_name(self) -> _builtins.str:
+        """
+        Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        """
         return pulumi.get(self, "secret_name")
 
 
@@ -11947,6 +12199,14 @@ class GetVirtualNodeSpecListenerResult(dict):
                  port_mappings: Sequence['outputs.GetVirtualNodeSpecListenerPortMappingResult'],
                  timeouts: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutResult'],
                  tls: Sequence['outputs.GetVirtualNodeSpecListenerTlResult']):
+        """
+        :param Sequence['GetVirtualNodeSpecListenerConnectionPoolArgs'] connection_pools: Connection pool information for the listener. See `spec.listener.connection_pool` Block for details.
+        :param Sequence['GetVirtualNodeSpecListenerHealthCheckArgs'] health_checks: Health check information for the listener. See `spec.listener.health_check` Block for details.
+        :param Sequence['GetVirtualNodeSpecListenerOutlierDetectionArgs'] outlier_detections: Outlier detection information for the listener. See `spec.listener.outlier_detection` Block for details.
+        :param Sequence['GetVirtualNodeSpecListenerPortMappingArgs'] port_mappings: Port mapping information for the listener. See `spec.listener.port_mapping` Block for details.
+        :param Sequence['GetVirtualNodeSpecListenerTimeoutArgs'] timeouts: Timeouts for different protocols. See `spec.listener.timeout` Block for details.
+        :param Sequence['GetVirtualNodeSpecListenerTlArgs'] tls: Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+        """
         pulumi.set(__self__, "connection_pools", connection_pools)
         pulumi.set(__self__, "health_checks", health_checks)
         pulumi.set(__self__, "outlier_detections", outlier_detections)
@@ -11957,31 +12217,49 @@ class GetVirtualNodeSpecListenerResult(dict):
     @_builtins.property
     @pulumi.getter(name="connectionPools")
     def connection_pools(self) -> Sequence['outputs.GetVirtualNodeSpecListenerConnectionPoolResult']:
+        """
+        Connection pool information for the listener. See `spec.listener.connection_pool` Block for details.
+        """
         return pulumi.get(self, "connection_pools")
 
     @_builtins.property
     @pulumi.getter(name="healthChecks")
     def health_checks(self) -> Sequence['outputs.GetVirtualNodeSpecListenerHealthCheckResult']:
+        """
+        Health check information for the listener. See `spec.listener.health_check` Block for details.
+        """
         return pulumi.get(self, "health_checks")
 
     @_builtins.property
     @pulumi.getter(name="outlierDetections")
     def outlier_detections(self) -> Sequence['outputs.GetVirtualNodeSpecListenerOutlierDetectionResult']:
+        """
+        Outlier detection information for the listener. See `spec.listener.outlier_detection` Block for details.
+        """
         return pulumi.get(self, "outlier_detections")
 
     @_builtins.property
     @pulumi.getter(name="portMappings")
     def port_mappings(self) -> Sequence['outputs.GetVirtualNodeSpecListenerPortMappingResult']:
+        """
+        Port mapping information for the listener. See `spec.listener.port_mapping` Block for details.
+        """
         return pulumi.get(self, "port_mappings")
 
     @_builtins.property
     @pulumi.getter
     def timeouts(self) -> Sequence['outputs.GetVirtualNodeSpecListenerTimeoutResult']:
+        """
+        Timeouts for different protocols. See `spec.listener.timeout` Block for details.
+        """
         return pulumi.get(self, "timeouts")
 
     @_builtins.property
     @pulumi.getter
     def tls(self) -> Sequence['outputs.GetVirtualNodeSpecListenerTlResult']:
+        """
+        Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+        """
         return pulumi.get(self, "tls")
 
 
@@ -11992,6 +12270,12 @@ class GetVirtualNodeSpecListenerConnectionPoolResult(dict):
                  http2s: Sequence['outputs.GetVirtualNodeSpecListenerConnectionPoolHttp2Result'],
                  https: Sequence['outputs.GetVirtualNodeSpecListenerConnectionPoolHttpResult'],
                  tcps: Sequence['outputs.GetVirtualNodeSpecListenerConnectionPoolTcpResult']):
+        """
+        :param Sequence['GetVirtualNodeSpecListenerConnectionPoolGrpcArgs'] grpcs: Timeouts for gRPC listeners. See `spec.listener.timeout.grpc` Block for details.
+        :param Sequence['GetVirtualNodeSpecListenerConnectionPoolHttp2Args'] http2s: Timeouts for HTTP2 listeners. See `spec.listener.timeout.http2` Block for details.
+        :param Sequence['GetVirtualNodeSpecListenerConnectionPoolHttpArgs'] https: Timeouts for HTTP listeners. See `spec.listener.timeout.http` Block for details.
+        :param Sequence['GetVirtualNodeSpecListenerConnectionPoolTcpArgs'] tcps: Timeouts for TCP listeners. See `spec.listener.timeout.tcp` Block for details.
+        """
         pulumi.set(__self__, "grpcs", grpcs)
         pulumi.set(__self__, "http2s", http2s)
         pulumi.set(__self__, "https", https)
@@ -12000,21 +12284,33 @@ class GetVirtualNodeSpecListenerConnectionPoolResult(dict):
     @_builtins.property
     @pulumi.getter
     def grpcs(self) -> Sequence['outputs.GetVirtualNodeSpecListenerConnectionPoolGrpcResult']:
+        """
+        Timeouts for gRPC listeners. See `spec.listener.timeout.grpc` Block for details.
+        """
         return pulumi.get(self, "grpcs")
 
     @_builtins.property
     @pulumi.getter
     def http2s(self) -> Sequence['outputs.GetVirtualNodeSpecListenerConnectionPoolHttp2Result']:
+        """
+        Timeouts for HTTP2 listeners. See `spec.listener.timeout.http2` Block for details.
+        """
         return pulumi.get(self, "http2s")
 
     @_builtins.property
     @pulumi.getter
     def https(self) -> Sequence['outputs.GetVirtualNodeSpecListenerConnectionPoolHttpResult']:
+        """
+        Timeouts for HTTP listeners. See `spec.listener.timeout.http` Block for details.
+        """
         return pulumi.get(self, "https")
 
     @_builtins.property
     @pulumi.getter
     def tcps(self) -> Sequence['outputs.GetVirtualNodeSpecListenerConnectionPoolTcpResult']:
+        """
+        Timeouts for TCP listeners. See `spec.listener.timeout.tcp` Block for details.
+        """
         return pulumi.get(self, "tcps")
 
 
@@ -12022,11 +12318,17 @@ class GetVirtualNodeSpecListenerConnectionPoolResult(dict):
 class GetVirtualNodeSpecListenerConnectionPoolGrpcResult(dict):
     def __init__(__self__, *,
                  max_requests: _builtins.int):
+        """
+        :param _builtins.int max_requests: Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster.
+        """
         pulumi.set(__self__, "max_requests", max_requests)
 
     @_builtins.property
     @pulumi.getter(name="maxRequests")
     def max_requests(self) -> _builtins.int:
+        """
+        Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster.
+        """
         return pulumi.get(self, "max_requests")
 
 
@@ -12034,11 +12336,17 @@ class GetVirtualNodeSpecListenerConnectionPoolGrpcResult(dict):
 class GetVirtualNodeSpecListenerConnectionPoolHttp2Result(dict):
     def __init__(__self__, *,
                  max_requests: _builtins.int):
+        """
+        :param _builtins.int max_requests: Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster.
+        """
         pulumi.set(__self__, "max_requests", max_requests)
 
     @_builtins.property
     @pulumi.getter(name="maxRequests")
     def max_requests(self) -> _builtins.int:
+        """
+        Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster.
+        """
         return pulumi.get(self, "max_requests")
 
 
@@ -12047,17 +12355,27 @@ class GetVirtualNodeSpecListenerConnectionPoolHttpResult(dict):
     def __init__(__self__, *,
                  max_connections: _builtins.int,
                  max_pending_requests: _builtins.int):
+        """
+        :param _builtins.int max_connections: Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster.
+        :param _builtins.int max_pending_requests: Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster.
+        """
         pulumi.set(__self__, "max_connections", max_connections)
         pulumi.set(__self__, "max_pending_requests", max_pending_requests)
 
     @_builtins.property
     @pulumi.getter(name="maxConnections")
     def max_connections(self) -> _builtins.int:
+        """
+        Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster.
+        """
         return pulumi.get(self, "max_connections")
 
     @_builtins.property
     @pulumi.getter(name="maxPendingRequests")
     def max_pending_requests(self) -> _builtins.int:
+        """
+        Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster.
+        """
         return pulumi.get(self, "max_pending_requests")
 
 
@@ -12065,11 +12383,17 @@ class GetVirtualNodeSpecListenerConnectionPoolHttpResult(dict):
 class GetVirtualNodeSpecListenerConnectionPoolTcpResult(dict):
     def __init__(__self__, *,
                  max_connections: _builtins.int):
+        """
+        :param _builtins.int max_connections: Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster.
+        """
         pulumi.set(__self__, "max_connections", max_connections)
 
     @_builtins.property
     @pulumi.getter(name="maxConnections")
     def max_connections(self) -> _builtins.int:
+        """
+        Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster.
+        """
         return pulumi.get(self, "max_connections")
 
 
@@ -12083,6 +12407,15 @@ class GetVirtualNodeSpecListenerHealthCheckResult(dict):
                  protocol: _builtins.str,
                  timeout_millis: _builtins.int,
                  unhealthy_threshold: _builtins.int):
+        """
+        :param _builtins.int healthy_threshold: Number of consecutive successful health checks that must occur before declaring listener healthy.
+        :param _builtins.int interval_millis: Time period in milliseconds between each health check execution.
+        :param _builtins.str path: File path to write access logs to.
+        :param _builtins.int port: Port used for the port mapping.
+        :param _builtins.str protocol: Protocol used for the port mapping.
+        :param _builtins.int timeout_millis: Amount of time to wait when receiving a response from the health check, in milliseconds.
+        :param _builtins.int unhealthy_threshold: Number of consecutive failed health checks that must occur before declaring a virtual node unhealthy.
+        """
         pulumi.set(__self__, "healthy_threshold", healthy_threshold)
         pulumi.set(__self__, "interval_millis", interval_millis)
         pulumi.set(__self__, "path", path)
@@ -12094,36 +12427,57 @@ class GetVirtualNodeSpecListenerHealthCheckResult(dict):
     @_builtins.property
     @pulumi.getter(name="healthyThreshold")
     def healthy_threshold(self) -> _builtins.int:
+        """
+        Number of consecutive successful health checks that must occur before declaring listener healthy.
+        """
         return pulumi.get(self, "healthy_threshold")
 
     @_builtins.property
     @pulumi.getter(name="intervalMillis")
     def interval_millis(self) -> _builtins.int:
+        """
+        Time period in milliseconds between each health check execution.
+        """
         return pulumi.get(self, "interval_millis")
 
     @_builtins.property
     @pulumi.getter
     def path(self) -> _builtins.str:
+        """
+        File path to write access logs to.
+        """
         return pulumi.get(self, "path")
 
     @_builtins.property
     @pulumi.getter
     def port(self) -> _builtins.int:
+        """
+        Port used for the port mapping.
+        """
         return pulumi.get(self, "port")
 
     @_builtins.property
     @pulumi.getter
     def protocol(self) -> _builtins.str:
+        """
+        Protocol used for the port mapping.
+        """
         return pulumi.get(self, "protocol")
 
     @_builtins.property
     @pulumi.getter(name="timeoutMillis")
     def timeout_millis(self) -> _builtins.int:
+        """
+        Amount of time to wait when receiving a response from the health check, in milliseconds.
+        """
         return pulumi.get(self, "timeout_millis")
 
     @_builtins.property
     @pulumi.getter(name="unhealthyThreshold")
     def unhealthy_threshold(self) -> _builtins.int:
+        """
+        Number of consecutive failed health checks that must occur before declaring a virtual node unhealthy.
+        """
         return pulumi.get(self, "unhealthy_threshold")
 
 
@@ -12134,6 +12488,12 @@ class GetVirtualNodeSpecListenerOutlierDetectionResult(dict):
                  intervals: Sequence['outputs.GetVirtualNodeSpecListenerOutlierDetectionIntervalResult'],
                  max_ejection_percent: _builtins.int,
                  max_server_errors: _builtins.int):
+        """
+        :param Sequence['GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgs'] base_ejection_durations: Base amount of time for which a host is ejected. See `spec.listener.outlier_detection.base_ejection_duration` Block for details.
+        :param Sequence['GetVirtualNodeSpecListenerOutlierDetectionIntervalArgs'] intervals: Time interval between ejection sweep analysis. See `spec.listener.outlier_detection.interval` Block for details.
+        :param _builtins.int max_ejection_percent: Maximum percentage of hosts in load balancing pool for upstream service that can be ejected.
+        :param _builtins.int max_server_errors: Number of consecutive `5xx` errors required for ejection.
+        """
         pulumi.set(__self__, "base_ejection_durations", base_ejection_durations)
         pulumi.set(__self__, "intervals", intervals)
         pulumi.set(__self__, "max_ejection_percent", max_ejection_percent)
@@ -12142,21 +12502,33 @@ class GetVirtualNodeSpecListenerOutlierDetectionResult(dict):
     @_builtins.property
     @pulumi.getter(name="baseEjectionDurations")
     def base_ejection_durations(self) -> Sequence['outputs.GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationResult']:
+        """
+        Base amount of time for which a host is ejected. See `spec.listener.outlier_detection.base_ejection_duration` Block for details.
+        """
         return pulumi.get(self, "base_ejection_durations")
 
     @_builtins.property
     @pulumi.getter
     def intervals(self) -> Sequence['outputs.GetVirtualNodeSpecListenerOutlierDetectionIntervalResult']:
+        """
+        Time interval between ejection sweep analysis. See `spec.listener.outlier_detection.interval` Block for details.
+        """
         return pulumi.get(self, "intervals")
 
     @_builtins.property
     @pulumi.getter(name="maxEjectionPercent")
     def max_ejection_percent(self) -> _builtins.int:
+        """
+        Maximum percentage of hosts in load balancing pool for upstream service that can be ejected.
+        """
         return pulumi.get(self, "max_ejection_percent")
 
     @_builtins.property
     @pulumi.getter(name="maxServerErrors")
     def max_server_errors(self) -> _builtins.int:
+        """
+        Number of consecutive `5xx` errors required for ejection.
+        """
         return pulumi.get(self, "max_server_errors")
 
 
@@ -12165,17 +12537,27 @@ class GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationResult(dict)
     def __init__(__self__, *,
                  unit: _builtins.str,
                  value: _builtins.int):
+        """
+        :param _builtins.str unit: Unit of time.
+        :param _builtins.int value: Value for the JSON.
+        """
         pulumi.set(__self__, "unit", unit)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def unit(self) -> _builtins.str:
+        """
+        Unit of time.
+        """
         return pulumi.get(self, "unit")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.int:
+        """
+        Value for the JSON.
+        """
         return pulumi.get(self, "value")
 
 
@@ -12184,17 +12566,27 @@ class GetVirtualNodeSpecListenerOutlierDetectionIntervalResult(dict):
     def __init__(__self__, *,
                  unit: _builtins.str,
                  value: _builtins.int):
+        """
+        :param _builtins.str unit: Unit of time.
+        :param _builtins.int value: Value for the JSON.
+        """
         pulumi.set(__self__, "unit", unit)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def unit(self) -> _builtins.str:
+        """
+        Unit of time.
+        """
         return pulumi.get(self, "unit")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.int:
+        """
+        Value for the JSON.
+        """
         return pulumi.get(self, "value")
 
 
@@ -12203,17 +12595,27 @@ class GetVirtualNodeSpecListenerPortMappingResult(dict):
     def __init__(__self__, *,
                  port: _builtins.int,
                  protocol: _builtins.str):
+        """
+        :param _builtins.int port: Port used for the port mapping.
+        :param _builtins.str protocol: Protocol used for the port mapping.
+        """
         pulumi.set(__self__, "port", port)
         pulumi.set(__self__, "protocol", protocol)
 
     @_builtins.property
     @pulumi.getter
     def port(self) -> _builtins.int:
+        """
+        Port used for the port mapping.
+        """
         return pulumi.get(self, "port")
 
     @_builtins.property
     @pulumi.getter
     def protocol(self) -> _builtins.str:
+        """
+        Protocol used for the port mapping.
+        """
         return pulumi.get(self, "protocol")
 
 
@@ -12224,6 +12626,12 @@ class GetVirtualNodeSpecListenerTimeoutResult(dict):
                  http2s: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttp2Result'],
                  https: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttpResult'],
                  tcps: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutTcpResult']):
+        """
+        :param Sequence['GetVirtualNodeSpecListenerTimeoutGrpcArgs'] grpcs: Timeouts for gRPC listeners. See `spec.listener.timeout.grpc` Block for details.
+        :param Sequence['GetVirtualNodeSpecListenerTimeoutHttp2Args'] http2s: Timeouts for HTTP2 listeners. See `spec.listener.timeout.http2` Block for details.
+        :param Sequence['GetVirtualNodeSpecListenerTimeoutHttpArgs'] https: Timeouts for HTTP listeners. See `spec.listener.timeout.http` Block for details.
+        :param Sequence['GetVirtualNodeSpecListenerTimeoutTcpArgs'] tcps: Timeouts for TCP listeners. See `spec.listener.timeout.tcp` Block for details.
+        """
         pulumi.set(__self__, "grpcs", grpcs)
         pulumi.set(__self__, "http2s", http2s)
         pulumi.set(__self__, "https", https)
@@ -12232,21 +12640,33 @@ class GetVirtualNodeSpecListenerTimeoutResult(dict):
     @_builtins.property
     @pulumi.getter
     def grpcs(self) -> Sequence['outputs.GetVirtualNodeSpecListenerTimeoutGrpcResult']:
+        """
+        Timeouts for gRPC listeners. See `spec.listener.timeout.grpc` Block for details.
+        """
         return pulumi.get(self, "grpcs")
 
     @_builtins.property
     @pulumi.getter
     def http2s(self) -> Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttp2Result']:
+        """
+        Timeouts for HTTP2 listeners. See `spec.listener.timeout.http2` Block for details.
+        """
         return pulumi.get(self, "http2s")
 
     @_builtins.property
     @pulumi.getter
     def https(self) -> Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttpResult']:
+        """
+        Timeouts for HTTP listeners. See `spec.listener.timeout.http` Block for details.
+        """
         return pulumi.get(self, "https")
 
     @_builtins.property
     @pulumi.getter
     def tcps(self) -> Sequence['outputs.GetVirtualNodeSpecListenerTimeoutTcpResult']:
+        """
+        Timeouts for TCP listeners. See `spec.listener.timeout.tcp` Block for details.
+        """
         return pulumi.get(self, "tcps")
 
 
@@ -12255,17 +12675,27 @@ class GetVirtualNodeSpecListenerTimeoutGrpcResult(dict):
     def __init__(__self__, *,
                  idles: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutGrpcIdleResult'],
                  per_requests: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutGrpcPerRequestResult']):
+        """
+        :param Sequence['GetVirtualNodeSpecListenerTimeoutGrpcIdleArgs'] idles: Idle timeout. See `spec.listener.timeout.tcp.idle` Block for details.
+        :param Sequence['GetVirtualNodeSpecListenerTimeoutGrpcPerRequestArgs'] per_requests: Per request timeout. See `spec.listener.timeout.http2.per_request` Block for details.
+        """
         pulumi.set(__self__, "idles", idles)
         pulumi.set(__self__, "per_requests", per_requests)
 
     @_builtins.property
     @pulumi.getter
     def idles(self) -> Sequence['outputs.GetVirtualNodeSpecListenerTimeoutGrpcIdleResult']:
+        """
+        Idle timeout. See `spec.listener.timeout.tcp.idle` Block for details.
+        """
         return pulumi.get(self, "idles")
 
     @_builtins.property
     @pulumi.getter(name="perRequests")
     def per_requests(self) -> Sequence['outputs.GetVirtualNodeSpecListenerTimeoutGrpcPerRequestResult']:
+        """
+        Per request timeout. See `spec.listener.timeout.http2.per_request` Block for details.
+        """
         return pulumi.get(self, "per_requests")
 
 
@@ -12274,17 +12704,27 @@ class GetVirtualNodeSpecListenerTimeoutGrpcIdleResult(dict):
     def __init__(__self__, *,
                  unit: _builtins.str,
                  value: _builtins.int):
+        """
+        :param _builtins.str unit: Unit of time.
+        :param _builtins.int value: Value for the JSON.
+        """
         pulumi.set(__self__, "unit", unit)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def unit(self) -> _builtins.str:
+        """
+        Unit of time.
+        """
         return pulumi.get(self, "unit")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.int:
+        """
+        Value for the JSON.
+        """
         return pulumi.get(self, "value")
 
 
@@ -12293,17 +12733,27 @@ class GetVirtualNodeSpecListenerTimeoutGrpcPerRequestResult(dict):
     def __init__(__self__, *,
                  unit: _builtins.str,
                  value: _builtins.int):
+        """
+        :param _builtins.str unit: Unit of time.
+        :param _builtins.int value: Value for the JSON.
+        """
         pulumi.set(__self__, "unit", unit)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def unit(self) -> _builtins.str:
+        """
+        Unit of time.
+        """
         return pulumi.get(self, "unit")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.int:
+        """
+        Value for the JSON.
+        """
         return pulumi.get(self, "value")
 
 
@@ -12312,17 +12762,27 @@ class GetVirtualNodeSpecListenerTimeoutHttp2Result(dict):
     def __init__(__self__, *,
                  idles: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttp2IdleResult'],
                  per_requests: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttp2PerRequestResult']):
+        """
+        :param Sequence['GetVirtualNodeSpecListenerTimeoutHttp2IdleArgs'] idles: Idle timeout. See `spec.listener.timeout.tcp.idle` Block for details.
+        :param Sequence['GetVirtualNodeSpecListenerTimeoutHttp2PerRequestArgs'] per_requests: Per request timeout. See `spec.listener.timeout.http2.per_request` Block for details.
+        """
         pulumi.set(__self__, "idles", idles)
         pulumi.set(__self__, "per_requests", per_requests)
 
     @_builtins.property
     @pulumi.getter
     def idles(self) -> Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttp2IdleResult']:
+        """
+        Idle timeout. See `spec.listener.timeout.tcp.idle` Block for details.
+        """
         return pulumi.get(self, "idles")
 
     @_builtins.property
     @pulumi.getter(name="perRequests")
     def per_requests(self) -> Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttp2PerRequestResult']:
+        """
+        Per request timeout. See `spec.listener.timeout.http2.per_request` Block for details.
+        """
         return pulumi.get(self, "per_requests")
 
 
@@ -12331,17 +12791,27 @@ class GetVirtualNodeSpecListenerTimeoutHttp2IdleResult(dict):
     def __init__(__self__, *,
                  unit: _builtins.str,
                  value: _builtins.int):
+        """
+        :param _builtins.str unit: Unit of time.
+        :param _builtins.int value: Value for the JSON.
+        """
         pulumi.set(__self__, "unit", unit)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def unit(self) -> _builtins.str:
+        """
+        Unit of time.
+        """
         return pulumi.get(self, "unit")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.int:
+        """
+        Value for the JSON.
+        """
         return pulumi.get(self, "value")
 
 
@@ -12350,17 +12820,27 @@ class GetVirtualNodeSpecListenerTimeoutHttp2PerRequestResult(dict):
     def __init__(__self__, *,
                  unit: _builtins.str,
                  value: _builtins.int):
+        """
+        :param _builtins.str unit: Unit of time.
+        :param _builtins.int value: Value for the JSON.
+        """
         pulumi.set(__self__, "unit", unit)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def unit(self) -> _builtins.str:
+        """
+        Unit of time.
+        """
         return pulumi.get(self, "unit")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.int:
+        """
+        Value for the JSON.
+        """
         return pulumi.get(self, "value")
 
 
@@ -12369,17 +12849,27 @@ class GetVirtualNodeSpecListenerTimeoutHttpResult(dict):
     def __init__(__self__, *,
                  idles: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttpIdleResult'],
                  per_requests: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttpPerRequestResult']):
+        """
+        :param Sequence['GetVirtualNodeSpecListenerTimeoutHttpIdleArgs'] idles: Idle timeout. See `spec.listener.timeout.tcp.idle` Block for details.
+        :param Sequence['GetVirtualNodeSpecListenerTimeoutHttpPerRequestArgs'] per_requests: Per request timeout. See `spec.listener.timeout.http2.per_request` Block for details.
+        """
         pulumi.set(__self__, "idles", idles)
         pulumi.set(__self__, "per_requests", per_requests)
 
     @_builtins.property
     @pulumi.getter
     def idles(self) -> Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttpIdleResult']:
+        """
+        Idle timeout. See `spec.listener.timeout.tcp.idle` Block for details.
+        """
         return pulumi.get(self, "idles")
 
     @_builtins.property
     @pulumi.getter(name="perRequests")
     def per_requests(self) -> Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttpPerRequestResult']:
+        """
+        Per request timeout. See `spec.listener.timeout.http2.per_request` Block for details.
+        """
         return pulumi.get(self, "per_requests")
 
 
@@ -12388,17 +12878,27 @@ class GetVirtualNodeSpecListenerTimeoutHttpIdleResult(dict):
     def __init__(__self__, *,
                  unit: _builtins.str,
                  value: _builtins.int):
+        """
+        :param _builtins.str unit: Unit of time.
+        :param _builtins.int value: Value for the JSON.
+        """
         pulumi.set(__self__, "unit", unit)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def unit(self) -> _builtins.str:
+        """
+        Unit of time.
+        """
         return pulumi.get(self, "unit")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.int:
+        """
+        Value for the JSON.
+        """
         return pulumi.get(self, "value")
 
 
@@ -12407,17 +12907,27 @@ class GetVirtualNodeSpecListenerTimeoutHttpPerRequestResult(dict):
     def __init__(__self__, *,
                  unit: _builtins.str,
                  value: _builtins.int):
+        """
+        :param _builtins.str unit: Unit of time.
+        :param _builtins.int value: Value for the JSON.
+        """
         pulumi.set(__self__, "unit", unit)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def unit(self) -> _builtins.str:
+        """
+        Unit of time.
+        """
         return pulumi.get(self, "unit")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.int:
+        """
+        Value for the JSON.
+        """
         return pulumi.get(self, "value")
 
 
@@ -12425,11 +12935,17 @@ class GetVirtualNodeSpecListenerTimeoutHttpPerRequestResult(dict):
 class GetVirtualNodeSpecListenerTimeoutTcpResult(dict):
     def __init__(__self__, *,
                  idles: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutTcpIdleResult']):
+        """
+        :param Sequence['GetVirtualNodeSpecListenerTimeoutTcpIdleArgs'] idles: Idle timeout. See `spec.listener.timeout.tcp.idle` Block for details.
+        """
         pulumi.set(__self__, "idles", idles)
 
     @_builtins.property
     @pulumi.getter
     def idles(self) -> Sequence['outputs.GetVirtualNodeSpecListenerTimeoutTcpIdleResult']:
+        """
+        Idle timeout. See `spec.listener.timeout.tcp.idle` Block for details.
+        """
         return pulumi.get(self, "idles")
 
 
@@ -12438,17 +12954,27 @@ class GetVirtualNodeSpecListenerTimeoutTcpIdleResult(dict):
     def __init__(__self__, *,
                  unit: _builtins.str,
                  value: _builtins.int):
+        """
+        :param _builtins.str unit: Unit of time.
+        :param _builtins.int value: Value for the JSON.
+        """
         pulumi.set(__self__, "unit", unit)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def unit(self) -> _builtins.str:
+        """
+        Unit of time.
+        """
         return pulumi.get(self, "unit")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.int:
+        """
+        Value for the JSON.
+        """
         return pulumi.get(self, "value")
 
 
@@ -12458,6 +12984,11 @@ class GetVirtualNodeSpecListenerTlResult(dict):
                  certificates: Sequence['outputs.GetVirtualNodeSpecListenerTlCertificateResult'],
                  mode: _builtins.str,
                  validations: Sequence['outputs.GetVirtualNodeSpecListenerTlValidationResult']):
+        """
+        :param Sequence['GetVirtualNodeSpecListenerTlCertificateArgs'] certificates: Listener's TLS certificate. See `spec.listener.tls.certificate` Block for details.
+        :param _builtins.str mode: Listener's TLS mode.
+        :param Sequence['GetVirtualNodeSpecListenerTlValidationArgs'] validations: Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+        """
         pulumi.set(__self__, "certificates", certificates)
         pulumi.set(__self__, "mode", mode)
         pulumi.set(__self__, "validations", validations)
@@ -12465,16 +12996,25 @@ class GetVirtualNodeSpecListenerTlResult(dict):
     @_builtins.property
     @pulumi.getter
     def certificates(self) -> Sequence['outputs.GetVirtualNodeSpecListenerTlCertificateResult']:
+        """
+        Listener's TLS certificate. See `spec.listener.tls.certificate` Block for details.
+        """
         return pulumi.get(self, "certificates")
 
     @_builtins.property
     @pulumi.getter
     def mode(self) -> _builtins.str:
+        """
+        Listener's TLS mode.
+        """
         return pulumi.get(self, "mode")
 
     @_builtins.property
     @pulumi.getter
     def validations(self) -> Sequence['outputs.GetVirtualNodeSpecListenerTlValidationResult']:
+        """
+        Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+        """
         return pulumi.get(self, "validations")
 
 
@@ -12484,6 +13024,11 @@ class GetVirtualNodeSpecListenerTlCertificateResult(dict):
                  acms: Sequence['outputs.GetVirtualNodeSpecListenerTlCertificateAcmResult'],
                  files: Sequence['outputs.GetVirtualNodeSpecListenerTlCertificateFileResult'],
                  sds: Sequence['outputs.GetVirtualNodeSpecListenerTlCertificateSdResult']):
+        """
+        :param Sequence['GetVirtualNodeSpecListenerTlCertificateAcmArgs'] acms: AWS Certificate Manager (ACM) certificate. See `spec.listener.tls.certificate.acm` Block for details.
+        :param Sequence['GetVirtualNodeSpecListenerTlCertificateFileArgs'] files: File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
+        :param Sequence['GetVirtualNodeSpecListenerTlCertificateSdArgs'] sds: TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
+        """
         pulumi.set(__self__, "acms", acms)
         pulumi.set(__self__, "files", files)
         pulumi.set(__self__, "sds", sds)
@@ -12491,16 +13036,25 @@ class GetVirtualNodeSpecListenerTlCertificateResult(dict):
     @_builtins.property
     @pulumi.getter
     def acms(self) -> Sequence['outputs.GetVirtualNodeSpecListenerTlCertificateAcmResult']:
+        """
+        AWS Certificate Manager (ACM) certificate. See `spec.listener.tls.certificate.acm` Block for details.
+        """
         return pulumi.get(self, "acms")
 
     @_builtins.property
     @pulumi.getter
     def files(self) -> Sequence['outputs.GetVirtualNodeSpecListenerTlCertificateFileResult']:
+        """
+        File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
+        """
         return pulumi.get(self, "files")
 
     @_builtins.property
     @pulumi.getter
     def sds(self) -> Sequence['outputs.GetVirtualNodeSpecListenerTlCertificateSdResult']:
+        """
+        TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
+        """
         return pulumi.get(self, "sds")
 
 
@@ -12508,11 +13062,17 @@ class GetVirtualNodeSpecListenerTlCertificateResult(dict):
 class GetVirtualNodeSpecListenerTlCertificateAcmResult(dict):
     def __init__(__self__, *,
                  certificate_arn: _builtins.str):
+        """
+        :param _builtins.str certificate_arn: ARN for the certificate.
+        """
         pulumi.set(__self__, "certificate_arn", certificate_arn)
 
     @_builtins.property
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> _builtins.str:
+        """
+        ARN for the certificate.
+        """
         return pulumi.get(self, "certificate_arn")
 
 
@@ -12521,17 +13081,27 @@ class GetVirtualNodeSpecListenerTlCertificateFileResult(dict):
     def __init__(__self__, *,
                  certificate_chain: _builtins.str,
                  private_key: _builtins.str):
+        """
+        :param _builtins.str certificate_chain: Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on.
+        :param _builtins.str private_key: Private key for a certificate stored on the file system of the virtual node that the proxy is running on.
+        """
         pulumi.set(__self__, "certificate_chain", certificate_chain)
         pulumi.set(__self__, "private_key", private_key)
 
     @_builtins.property
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> _builtins.str:
+        """
+        Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on.
+        """
         return pulumi.get(self, "certificate_chain")
 
     @_builtins.property
     @pulumi.getter(name="privateKey")
     def private_key(self) -> _builtins.str:
+        """
+        Private key for a certificate stored on the file system of the virtual node that the proxy is running on.
+        """
         return pulumi.get(self, "private_key")
 
 
@@ -12539,11 +13109,17 @@ class GetVirtualNodeSpecListenerTlCertificateFileResult(dict):
 class GetVirtualNodeSpecListenerTlCertificateSdResult(dict):
     def __init__(__self__, *,
                  secret_name: _builtins.str):
+        """
+        :param _builtins.str secret_name: Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        """
         pulumi.set(__self__, "secret_name", secret_name)
 
     @_builtins.property
     @pulumi.getter(name="secretName")
     def secret_name(self) -> _builtins.str:
+        """
+        Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        """
         return pulumi.get(self, "secret_name")
 
 
@@ -12552,17 +13128,27 @@ class GetVirtualNodeSpecListenerTlValidationResult(dict):
     def __init__(__self__, *,
                  subject_alternative_names: Sequence['outputs.GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameResult'],
                  trusts: Sequence['outputs.GetVirtualNodeSpecListenerTlValidationTrustResult']):
+        """
+        :param Sequence['GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameArgs'] subject_alternative_names: SANs for a TLS validation context. See `spec.listener.tls.validation.subject_alternative_names` Block for details.
+        :param Sequence['GetVirtualNodeSpecListenerTlValidationTrustArgs'] trusts: TLS validation context trust. See `spec.listener.tls.validation.trust` Block for details.
+        """
         pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
         pulumi.set(__self__, "trusts", trusts)
 
     @_builtins.property
     @pulumi.getter(name="subjectAlternativeNames")
     def subject_alternative_names(self) -> Sequence['outputs.GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameResult']:
+        """
+        SANs for a TLS validation context. See `spec.listener.tls.validation.subject_alternative_names` Block for details.
+        """
         return pulumi.get(self, "subject_alternative_names")
 
     @_builtins.property
     @pulumi.getter
     def trusts(self) -> Sequence['outputs.GetVirtualNodeSpecListenerTlValidationTrustResult']:
+        """
+        TLS validation context trust. See `spec.listener.tls.validation.trust` Block for details.
+        """
         return pulumi.get(self, "trusts")
 
 
@@ -12570,11 +13156,17 @@ class GetVirtualNodeSpecListenerTlValidationResult(dict):
 class GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameResult(dict):
     def __init__(__self__, *,
                  matches: Sequence['outputs.GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatchResult']):
+        """
+        :param Sequence['GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatchArgs'] matches: Criteria for determining a SAN's match. See `spec.listener.tls.validation.subject_alternative_names.match` Block for details.
+        """
         pulumi.set(__self__, "matches", matches)
 
     @_builtins.property
     @pulumi.getter
     def matches(self) -> Sequence['outputs.GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatchResult']:
+        """
+        Criteria for determining a SAN's match. See `spec.listener.tls.validation.subject_alternative_names.match` Block for details.
+        """
         return pulumi.get(self, "matches")
 
 
@@ -12582,11 +13174,17 @@ class GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameResult(dict):
 class GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatchResult(dict):
     def __init__(__self__, *,
                  exacts: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] exacts: Values sent must match the specified values exactly.
+        """
         pulumi.set(__self__, "exacts", exacts)
 
     @_builtins.property
     @pulumi.getter
     def exacts(self) -> Sequence[_builtins.str]:
+        """
+        Values sent must match the specified values exactly.
+        """
         return pulumi.get(self, "exacts")
 
 
@@ -12595,17 +13193,27 @@ class GetVirtualNodeSpecListenerTlValidationTrustResult(dict):
     def __init__(__self__, *,
                  files: Sequence['outputs.GetVirtualNodeSpecListenerTlValidationTrustFileResult'],
                  sds: Sequence['outputs.GetVirtualNodeSpecListenerTlValidationTrustSdResult']):
+        """
+        :param Sequence['GetVirtualNodeSpecListenerTlValidationTrustFileArgs'] files: File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
+        :param Sequence['GetVirtualNodeSpecListenerTlValidationTrustSdArgs'] sds: TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
+        """
         pulumi.set(__self__, "files", files)
         pulumi.set(__self__, "sds", sds)
 
     @_builtins.property
     @pulumi.getter
     def files(self) -> Sequence['outputs.GetVirtualNodeSpecListenerTlValidationTrustFileResult']:
+        """
+        File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
+        """
         return pulumi.get(self, "files")
 
     @_builtins.property
     @pulumi.getter
     def sds(self) -> Sequence['outputs.GetVirtualNodeSpecListenerTlValidationTrustSdResult']:
+        """
+        TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
+        """
         return pulumi.get(self, "sds")
 
 
@@ -12613,11 +13221,17 @@ class GetVirtualNodeSpecListenerTlValidationTrustResult(dict):
 class GetVirtualNodeSpecListenerTlValidationTrustFileResult(dict):
     def __init__(__self__, *,
                  certificate_chain: _builtins.str):
+        """
+        :param _builtins.str certificate_chain: Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on.
+        """
         pulumi.set(__self__, "certificate_chain", certificate_chain)
 
     @_builtins.property
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> _builtins.str:
+        """
+        Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on.
+        """
         return pulumi.get(self, "certificate_chain")
 
 
@@ -12625,11 +13239,17 @@ class GetVirtualNodeSpecListenerTlValidationTrustFileResult(dict):
 class GetVirtualNodeSpecListenerTlValidationTrustSdResult(dict):
     def __init__(__self__, *,
                  secret_name: _builtins.str):
+        """
+        :param _builtins.str secret_name: Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        """
         pulumi.set(__self__, "secret_name", secret_name)
 
     @_builtins.property
     @pulumi.getter(name="secretName")
     def secret_name(self) -> _builtins.str:
+        """
+        Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        """
         return pulumi.get(self, "secret_name")
 
 
@@ -12637,11 +13257,17 @@ class GetVirtualNodeSpecListenerTlValidationTrustSdResult(dict):
 class GetVirtualNodeSpecLoggingResult(dict):
     def __init__(__self__, *,
                  access_logs: Sequence['outputs.GetVirtualNodeSpecLoggingAccessLogResult']):
+        """
+        :param Sequence['GetVirtualNodeSpecLoggingAccessLogArgs'] access_logs: Access log configuration for a virtual node. See `spec.logging.access_log` Block for details.
+        """
         pulumi.set(__self__, "access_logs", access_logs)
 
     @_builtins.property
     @pulumi.getter(name="accessLogs")
     def access_logs(self) -> Sequence['outputs.GetVirtualNodeSpecLoggingAccessLogResult']:
+        """
+        Access log configuration for a virtual node. See `spec.logging.access_log` Block for details.
+        """
         return pulumi.get(self, "access_logs")
 
 
@@ -12649,11 +13275,17 @@ class GetVirtualNodeSpecLoggingResult(dict):
 class GetVirtualNodeSpecLoggingAccessLogResult(dict):
     def __init__(__self__, *,
                  files: Sequence['outputs.GetVirtualNodeSpecLoggingAccessLogFileResult']):
+        """
+        :param Sequence['GetVirtualNodeSpecLoggingAccessLogFileArgs'] files: File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
+        """
         pulumi.set(__self__, "files", files)
 
     @_builtins.property
     @pulumi.getter
     def files(self) -> Sequence['outputs.GetVirtualNodeSpecLoggingAccessLogFileResult']:
+        """
+        File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
+        """
         return pulumi.get(self, "files")
 
 
@@ -12662,17 +13294,27 @@ class GetVirtualNodeSpecLoggingAccessLogFileResult(dict):
     def __init__(__self__, *,
                  formats: Sequence['outputs.GetVirtualNodeSpecLoggingAccessLogFileFormatResult'],
                  path: _builtins.str):
+        """
+        :param Sequence['GetVirtualNodeSpecLoggingAccessLogFileFormatArgs'] formats: Format for the logs. See `spec.logging.access_log.file.format` Block for details.
+        :param _builtins.str path: File path to write access logs to.
+        """
         pulumi.set(__self__, "formats", formats)
         pulumi.set(__self__, "path", path)
 
     @_builtins.property
     @pulumi.getter
     def formats(self) -> Sequence['outputs.GetVirtualNodeSpecLoggingAccessLogFileFormatResult']:
+        """
+        Format for the logs. See `spec.logging.access_log.file.format` Block for details.
+        """
         return pulumi.get(self, "formats")
 
     @_builtins.property
     @pulumi.getter
     def path(self) -> _builtins.str:
+        """
+        File path to write access logs to.
+        """
         return pulumi.get(self, "path")
 
 
@@ -12681,17 +13323,27 @@ class GetVirtualNodeSpecLoggingAccessLogFileFormatResult(dict):
     def __init__(__self__, *,
                  jsons: Sequence['outputs.GetVirtualNodeSpecLoggingAccessLogFileFormatJsonResult'],
                  text: _builtins.str):
+        """
+        :param Sequence['GetVirtualNodeSpecLoggingAccessLogFileFormatJsonArgs'] jsons: Logging format for JSON. See `spec.logging.access_log.file.format.json` Block for details.
+        :param _builtins.str text: Logging format for text.
+        """
         pulumi.set(__self__, "jsons", jsons)
         pulumi.set(__self__, "text", text)
 
     @_builtins.property
     @pulumi.getter
     def jsons(self) -> Sequence['outputs.GetVirtualNodeSpecLoggingAccessLogFileFormatJsonResult']:
+        """
+        Logging format for JSON. See `spec.logging.access_log.file.format.json` Block for details.
+        """
         return pulumi.get(self, "jsons")
 
     @_builtins.property
     @pulumi.getter
     def text(self) -> _builtins.str:
+        """
+        Logging format for text.
+        """
         return pulumi.get(self, "text")
 
 
@@ -12700,17 +13352,27 @@ class GetVirtualNodeSpecLoggingAccessLogFileFormatJsonResult(dict):
     def __init__(__self__, *,
                  key: _builtins.str,
                  value: _builtins.str):
+        """
+        :param _builtins.str key: Key for the JSON.
+        :param _builtins.str value: Value for the JSON.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def key(self) -> _builtins.str:
+        """
+        Key for the JSON.
+        """
         return pulumi.get(self, "key")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.str:
+        """
+        Value for the JSON.
+        """
         return pulumi.get(self, "value")
 
 
@@ -12719,17 +13381,27 @@ class GetVirtualNodeSpecServiceDiscoveryResult(dict):
     def __init__(__self__, *,
                  aws_cloud_maps: Sequence['outputs.GetVirtualNodeSpecServiceDiscoveryAwsCloudMapResult'],
                  dns: Sequence['outputs.GetVirtualNodeSpecServiceDiscoveryDnResult']):
+        """
+        :param Sequence['GetVirtualNodeSpecServiceDiscoveryAwsCloudMapArgs'] aws_cloud_maps: AWS Cloud Map information for the virtual node. See `spec.service_discovery.aws_cloud_map` Block for details.
+        :param Sequence['GetVirtualNodeSpecServiceDiscoveryDnArgs'] dns: DNS service name for the virtual node. See `spec.service_discovery.dns` Block for details.
+        """
         pulumi.set(__self__, "aws_cloud_maps", aws_cloud_maps)
         pulumi.set(__self__, "dns", dns)
 
     @_builtins.property
     @pulumi.getter(name="awsCloudMaps")
     def aws_cloud_maps(self) -> Sequence['outputs.GetVirtualNodeSpecServiceDiscoveryAwsCloudMapResult']:
+        """
+        AWS Cloud Map information for the virtual node. See `spec.service_discovery.aws_cloud_map` Block for details.
+        """
         return pulumi.get(self, "aws_cloud_maps")
 
     @_builtins.property
     @pulumi.getter
     def dns(self) -> Sequence['outputs.GetVirtualNodeSpecServiceDiscoveryDnResult']:
+        """
+        DNS service name for the virtual node. See `spec.service_discovery.dns` Block for details.
+        """
         return pulumi.get(self, "dns")
 
 
@@ -12739,6 +13411,11 @@ class GetVirtualNodeSpecServiceDiscoveryAwsCloudMapResult(dict):
                  attributes: Mapping[str, _builtins.str],
                  namespace_name: _builtins.str,
                  service_name: _builtins.str):
+        """
+        :param Mapping[str, _builtins.str] attributes: String map that contains attributes with values that you can use to filter instances by any custom attribute that you specified when you registered the instance.
+        :param _builtins.str namespace_name: Name of the AWS Cloud Map namespace to use.
+        :param _builtins.str service_name: Name of the AWS Cloud Map service to use.
+        """
         pulumi.set(__self__, "attributes", attributes)
         pulumi.set(__self__, "namespace_name", namespace_name)
         pulumi.set(__self__, "service_name", service_name)
@@ -12746,16 +13423,25 @@ class GetVirtualNodeSpecServiceDiscoveryAwsCloudMapResult(dict):
     @_builtins.property
     @pulumi.getter
     def attributes(self) -> Mapping[str, _builtins.str]:
+        """
+        String map that contains attributes with values that you can use to filter instances by any custom attribute that you specified when you registered the instance.
+        """
         return pulumi.get(self, "attributes")
 
     @_builtins.property
     @pulumi.getter(name="namespaceName")
     def namespace_name(self) -> _builtins.str:
+        """
+        Name of the AWS Cloud Map namespace to use.
+        """
         return pulumi.get(self, "namespace_name")
 
     @_builtins.property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> _builtins.str:
+        """
+        Name of the AWS Cloud Map service to use.
+        """
         return pulumi.get(self, "service_name")
 
 
@@ -12765,6 +13451,11 @@ class GetVirtualNodeSpecServiceDiscoveryDnResult(dict):
                  hostname: _builtins.str,
                  ip_preference: _builtins.str,
                  response_type: _builtins.str):
+        """
+        :param _builtins.str hostname: DNS host name for your virtual node.
+        :param _builtins.str ip_preference: Preferred IP version that this virtual node uses.
+        :param _builtins.str response_type: DNS response type for the virtual node.
+        """
         pulumi.set(__self__, "hostname", hostname)
         pulumi.set(__self__, "ip_preference", ip_preference)
         pulumi.set(__self__, "response_type", response_type)
@@ -12772,16 +13463,25 @@ class GetVirtualNodeSpecServiceDiscoveryDnResult(dict):
     @_builtins.property
     @pulumi.getter
     def hostname(self) -> _builtins.str:
+        """
+        DNS host name for your virtual node.
+        """
         return pulumi.get(self, "hostname")
 
     @_builtins.property
     @pulumi.getter(name="ipPreference")
     def ip_preference(self) -> _builtins.str:
+        """
+        Preferred IP version that this virtual node uses.
+        """
         return pulumi.get(self, "ip_preference")
 
     @_builtins.property
     @pulumi.getter(name="responseType")
     def response_type(self) -> _builtins.str:
+        """
+        DNS response type for the virtual node.
+        """
         return pulumi.get(self, "response_type")
 
 

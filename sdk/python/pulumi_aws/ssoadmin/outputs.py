@@ -572,17 +572,27 @@ class GetApplicationPortalOptionResult(dict):
     def __init__(__self__, *,
                  sign_in_options: Sequence['outputs.GetApplicationPortalOptionSignInOptionResult'],
                  visibility: _builtins.str):
+        """
+        :param Sequence['GetApplicationPortalOptionSignInOptionArgs'] sign_in_options: Sign-in options for the access portal. See `sign_in_options` Block below.
+        :param _builtins.str visibility: Whether the application is visible in the access portal.
+        """
         pulumi.set(__self__, "sign_in_options", sign_in_options)
         pulumi.set(__self__, "visibility", visibility)
 
     @_builtins.property
     @pulumi.getter(name="signInOptions")
     def sign_in_options(self) -> Sequence['outputs.GetApplicationPortalOptionSignInOptionResult']:
+        """
+        Sign-in options for the access portal. See `sign_in_options` Block below.
+        """
         return pulumi.get(self, "sign_in_options")
 
     @_builtins.property
     @pulumi.getter
     def visibility(self) -> _builtins.str:
+        """
+        Whether the application is visible in the access portal.
+        """
         return pulumi.get(self, "visibility")
 
 
@@ -591,17 +601,27 @@ class GetApplicationPortalOptionSignInOptionResult(dict):
     def __init__(__self__, *,
                  application_url: _builtins.str,
                  origin: _builtins.str):
+        """
+        :param _builtins.str application_url: URL that accepts authentication requests for an application.
+        :param _builtins.str origin: How IAM Identity Center navigates the user to the target application.
+        """
         pulumi.set(__self__, "application_url", application_url)
         pulumi.set(__self__, "origin", origin)
 
     @_builtins.property
     @pulumi.getter(name="applicationUrl")
     def application_url(self) -> _builtins.str:
+        """
+        URL that accepts authentication requests for an application.
+        """
         return pulumi.get(self, "application_url")
 
     @_builtins.property
     @pulumi.getter
     def origin(self) -> _builtins.str:
+        """
+        How IAM Identity Center navigates the user to the target application.
+        """
         return pulumi.get(self, "origin")
 
 

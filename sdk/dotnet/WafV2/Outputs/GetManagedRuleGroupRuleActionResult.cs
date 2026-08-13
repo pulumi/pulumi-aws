@@ -13,10 +13,25 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class GetManagedRuleGroupRuleActionResult
     {
+        /// <summary>
+        /// Rule action that allows the request. See `Allow` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetManagedRuleGroupRuleActionAllowResult> Allows;
+        /// <summary>
+        /// Rule action that blocks the request. See `Block` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetManagedRuleGroupRuleActionBlockResult> Blocks;
+        /// <summary>
+        /// Rule action that requires CAPTCHA verification. See `Captcha` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetManagedRuleGroupRuleActionCaptchaResult> Captchas;
+        /// <summary>
+        /// Rule action that requires challenge verification. See `Challenge` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetManagedRuleGroupRuleActionChallengeResult> Challenges;
+        /// <summary>
+        /// Rule action that counts the request without taking other action. See `Count` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetManagedRuleGroupRuleActionCountResult> Counts;
 
         [OutputConstructor]

@@ -13,26 +13,26 @@ import java.util.Objects;
 @CustomType
 public final class AgentcoreHarnessTruncationConfig {
     /**
-     * @return Sliding window truncation configuration. See `slidingWindow` below.
+     * @return Sliding window truncation configuration. See `slidingWindow` Block below.
      * 
      */
     private List<AgentcoreHarnessTruncationConfigSlidingWindow> slidingWindows;
     /**
-     * @return Summarization truncation configuration. See `summarization` below.
+     * @return Summarization truncation configuration. See `summarization` Block below.
      * 
      */
     private List<AgentcoreHarnessTruncationConfigSummarization> summarizations;
 
     private AgentcoreHarnessTruncationConfig() {}
     /**
-     * @return Sliding window truncation configuration. See `slidingWindow` below.
+     * @return Sliding window truncation configuration. See `slidingWindow` Block below.
      * 
      */
     public List<AgentcoreHarnessTruncationConfigSlidingWindow> slidingWindows() {
         return this.slidingWindows;
     }
     /**
-     * @return Summarization truncation configuration. See `summarization` below.
+     * @return Summarization truncation configuration. See `summarization` Block below.
      * 
      */
     public List<AgentcoreHarnessTruncationConfigSummarization> summarizations() {

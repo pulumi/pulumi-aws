@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatch;
+import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementXssMatchStatementPreParseTextTransformation;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementXssMatchStatementTextTransformation;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -20,6 +21,11 @@ public final class RuleGroupRuleStatementXssMatchStatement {
      */
     private @Nullable RuleGroupRuleStatementXssMatchStatementFieldToMatch fieldToMatch;
     /**
+     * @return Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+     * 
+     */
+    private @Nullable List<RuleGroupRuleStatementXssMatchStatementPreParseTextTransformation> preParseTextTransformations;
+    /**
      * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
      * At least one required.
      * See Text Transformation below for details.
@@ -34,6 +40,13 @@ public final class RuleGroupRuleStatementXssMatchStatement {
      */
     public Optional<RuleGroupRuleStatementXssMatchStatementFieldToMatch> fieldToMatch() {
         return Optional.ofNullable(this.fieldToMatch);
+    }
+    /**
+     * @return Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+     * 
+     */
+    public List<RuleGroupRuleStatementXssMatchStatementPreParseTextTransformation> preParseTextTransformations() {
+        return this.preParseTextTransformations == null ? List.of() : this.preParseTextTransformations;
     }
     /**
      * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
@@ -55,11 +68,13 @@ public final class RuleGroupRuleStatementXssMatchStatement {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable RuleGroupRuleStatementXssMatchStatementFieldToMatch fieldToMatch;
+        private @Nullable List<RuleGroupRuleStatementXssMatchStatementPreParseTextTransformation> preParseTextTransformations;
         private List<RuleGroupRuleStatementXssMatchStatementTextTransformation> textTransformations;
         public Builder() {}
         public Builder(RuleGroupRuleStatementXssMatchStatement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fieldToMatch = defaults.fieldToMatch;
+    	      this.preParseTextTransformations = defaults.preParseTextTransformations;
     	      this.textTransformations = defaults.textTransformations;
         }
 
@@ -68,6 +83,15 @@ public final class RuleGroupRuleStatementXssMatchStatement {
 
             this.fieldToMatch = fieldToMatch;
             return this;
+        }
+        @CustomType.Setter
+        public Builder preParseTextTransformations(@Nullable List<RuleGroupRuleStatementXssMatchStatementPreParseTextTransformation> preParseTextTransformations) {
+
+            this.preParseTextTransformations = preParseTextTransformations;
+            return this;
+        }
+        public Builder preParseTextTransformations(RuleGroupRuleStatementXssMatchStatementPreParseTextTransformation... preParseTextTransformations) {
+            return preParseTextTransformations(List.of(preParseTextTransformations));
         }
         @CustomType.Setter
         public Builder textTransformations(List<RuleGroupRuleStatementXssMatchStatementTextTransformation> textTransformations) {
@@ -83,6 +107,7 @@ public final class RuleGroupRuleStatementXssMatchStatement {
         public RuleGroupRuleStatementXssMatchStatement build() {
             final var _resultValue = new RuleGroupRuleStatementXssMatchStatement();
             _resultValue.fieldToMatch = fieldToMatch;
+            _resultValue.preParseTextTransformations = preParseTextTransformations;
             _resultValue.textTransformations = textTransformations;
             return _resultValue;
         }

@@ -110,14 +110,14 @@ public final class PlanWorkflowStepGlobalAuroraConfigArgs extends com.pulumi.res
     }
 
     /**
-     * Ungraceful behavior configuration. See Ungraceful Aurora below.
+     * Ungraceful behavior configuration. See `workflow.step.global_aurora_config.ungraceful` Block for details.
      * 
      */
     @Import(name="ungracefuls")
     private @Nullable Output<List<PlanWorkflowStepGlobalAuroraConfigUngracefulArgs>> ungracefuls;
 
     /**
-     * @return Ungraceful behavior configuration. See Ungraceful Aurora below.
+     * @return Ungraceful behavior configuration. See `workflow.step.global_aurora_config.ungraceful` Block for details.
      * 
      */
     public Optional<Output<List<PlanWorkflowStepGlobalAuroraConfigUngracefulArgs>>> ungracefuls() {
@@ -291,7 +291,7 @@ public final class PlanWorkflowStepGlobalAuroraConfigArgs extends com.pulumi.res
         }
 
         /**
-         * @param ungracefuls Ungraceful behavior configuration. See Ungraceful Aurora below.
+         * @param ungracefuls Ungraceful behavior configuration. See `workflow.step.global_aurora_config.ungraceful` Block for details.
          * 
          * @return builder
          * 
@@ -302,7 +302,7 @@ public final class PlanWorkflowStepGlobalAuroraConfigArgs extends com.pulumi.res
         }
 
         /**
-         * @param ungracefuls Ungraceful behavior configuration. See Ungraceful Aurora below.
+         * @param ungracefuls Ungraceful behavior configuration. See `workflow.step.global_aurora_config.ungraceful` Block for details.
          * 
          * @return builder
          * 
@@ -312,7 +312,7 @@ public final class PlanWorkflowStepGlobalAuroraConfigArgs extends com.pulumi.res
         }
 
         /**
-         * @param ungracefuls Ungraceful behavior configuration. See Ungraceful Aurora below.
+         * @param ungracefuls Ungraceful behavior configuration. See `workflow.step.global_aurora_config.ungraceful` Block for details.
          * 
          * @return builder
          * 

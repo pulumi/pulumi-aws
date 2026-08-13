@@ -12,9 +12,15 @@ namespace Pulumi.Aws.AppFabric.Inputs
 
     public sealed class AppAuthorizationConnectionTenantArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Display name of the tenant.
+        /// </summary>
         [Input("tenantDisplayName", required: true)]
         public Input<string> TenantDisplayName { get; set; } = null!;
 
+        /// <summary>
+        /// ID of the application tenant.
+        /// </summary>
         [Input("tenantIdentifier", required: true)]
         public Input<string> TenantIdentifier { get; set; } = null!;
 

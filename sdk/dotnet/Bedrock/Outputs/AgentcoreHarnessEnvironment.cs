@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreHarnessEnvironment
     {
         /// <summary>
-        /// AgentCore runtime environment configuration. See `AgentcoreRuntimeEnvironment` below.
+        /// AgentCore runtime environment configuration. See `AgentcoreRuntimeEnvironment` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment> AgentcoreRuntimeEnvironments;
 

@@ -13,7 +13,13 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetVirtualNodeSpecLoggingAccessLogFileFormatJsonResult
     {
+        /// <summary>
+        /// Key for the JSON.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// Value for the JSON.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

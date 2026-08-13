@@ -14,11 +14,11 @@ namespace Pulumi.Aws.AppStream.Outputs
     public sealed class GetImageImagePermissionResult
     {
         /// <summary>
-        /// Boolean indicating if the image can be used for a fleet.
+        /// Whether the image can be used for a fleet.
         /// </summary>
         public readonly bool AllowFleet;
         /// <summary>
-        /// indicated whether the image can be used for an image builder.
+        /// Whether the image can be used for an image builder.
         /// </summary>
         public readonly bool AllowImageBuilder;
 

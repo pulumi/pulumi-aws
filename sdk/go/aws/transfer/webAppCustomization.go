@@ -34,7 +34,7 @@ type WebAppCustomization struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Title of the web app. Must be between 1 and 100 characters in length (an empty string is not allowed). To remove the title, omit this argument from your configuration.
 	Title pulumi.StringPtrOutput `pulumi:"title"`
-	// The identifier of the web app to be customized.
+	// Identifier of the web app to be customized.
 	//
 	// The following arguments are optional:
 	WebAppId pulumi.StringOutput `pulumi:"webAppId"`
@@ -81,7 +81,7 @@ type webAppCustomizationState struct {
 	Region *string `pulumi:"region"`
 	// Title of the web app. Must be between 1 and 100 characters in length (an empty string is not allowed). To remove the title, omit this argument from your configuration.
 	Title *string `pulumi:"title"`
-	// The identifier of the web app to be customized.
+	// Identifier of the web app to be customized.
 	//
 	// The following arguments are optional:
 	WebAppId *string `pulumi:"webAppId"`
@@ -96,7 +96,7 @@ type WebAppCustomizationState struct {
 	Region pulumi.StringPtrInput
 	// Title of the web app. Must be between 1 and 100 characters in length (an empty string is not allowed). To remove the title, omit this argument from your configuration.
 	Title pulumi.StringPtrInput
-	// The identifier of the web app to be customized.
+	// Identifier of the web app to be customized.
 	//
 	// The following arguments are optional:
 	WebAppId pulumi.StringPtrInput
@@ -115,7 +115,7 @@ type webAppCustomizationArgs struct {
 	Region *string `pulumi:"region"`
 	// Title of the web app. Must be between 1 and 100 characters in length (an empty string is not allowed). To remove the title, omit this argument from your configuration.
 	Title *string `pulumi:"title"`
-	// The identifier of the web app to be customized.
+	// Identifier of the web app to be customized.
 	//
 	// The following arguments are optional:
 	WebAppId string `pulumi:"webAppId"`
@@ -131,7 +131,7 @@ type WebAppCustomizationArgs struct {
 	Region pulumi.StringPtrInput
 	// Title of the web app. Must be between 1 and 100 characters in length (an empty string is not allowed). To remove the title, omit this argument from your configuration.
 	Title pulumi.StringPtrInput
-	// The identifier of the web app to be customized.
+	// Identifier of the web app to be customized.
 	//
 	// The following arguments are optional:
 	WebAppId pulumi.StringInput
@@ -244,7 +244,7 @@ func (o WebAppCustomizationOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAppCustomization) pulumi.StringPtrOutput { return v.Title }).(pulumi.StringPtrOutput)
 }
 
-// The identifier of the web app to be customized.
+// Identifier of the web app to be customized.
 //
 // The following arguments are optional:
 func (o WebAppCustomizationOutput) WebAppId() pulumi.StringOutput {

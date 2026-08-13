@@ -28,7 +28,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainer {
      */
     private @Nullable List<String> commands;
     /**
-     * @return Environment variables to pass to a container. See EKS Environment below.
+     * @return Environment variables to pass to a container. See `env` below.
      * 
      */
     private @Nullable List<JobDefinitionEksPropertiesPodPropertiesContainerEnv> envs;
@@ -48,7 +48,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainer {
      */
     private @Nullable String name;
     /**
-     * @return Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
+     * @return Type and amount of resources to assign to a container. See `resources` below.
      * 
      */
     private @Nullable JobDefinitionEksPropertiesPodPropertiesContainerResources resources;
@@ -58,7 +58,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainer {
      */
     private @Nullable JobDefinitionEksPropertiesPodPropertiesContainerSecurityContext securityContext;
     /**
-     * @return Volume mounts for the container.
+     * @return Volume mounts for the container. See `volumeMounts` below.
      * 
      */
     private @Nullable List<JobDefinitionEksPropertiesPodPropertiesContainerVolumeMount> volumeMounts;
@@ -79,7 +79,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainer {
         return this.commands == null ? List.of() : this.commands;
     }
     /**
-     * @return Environment variables to pass to a container. See EKS Environment below.
+     * @return Environment variables to pass to a container. See `env` below.
      * 
      */
     public List<JobDefinitionEksPropertiesPodPropertiesContainerEnv> envs() {
@@ -107,7 +107,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainer {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
+     * @return Type and amount of resources to assign to a container. See `resources` below.
      * 
      */
     public Optional<JobDefinitionEksPropertiesPodPropertiesContainerResources> resources() {
@@ -121,7 +121,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainer {
         return Optional.ofNullable(this.securityContext);
     }
     /**
-     * @return Volume mounts for the container.
+     * @return Volume mounts for the container. See `volumeMounts` below.
      * 
      */
     public List<JobDefinitionEksPropertiesPodPropertiesContainerVolumeMount> volumeMounts() {

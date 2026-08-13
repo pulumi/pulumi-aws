@@ -72,10 +72,21 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `id` (String) Backup Plan ID.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
  * Using `pulumi import`, import Backup Plan using the `id`. For example:
  * 
  * ```sh
- * $ pulumi import aws:backup/plan:Plan test &lt;id&gt;
+ * $ pulumi import aws:backup/plan:Plan example abc123
  * ```
  * 
  */

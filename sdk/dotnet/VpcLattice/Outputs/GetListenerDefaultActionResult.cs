@@ -13,7 +13,13 @@ namespace Pulumi.Aws.VpcLattice.Outputs
     [OutputType]
     public sealed class GetListenerDefaultActionResult
     {
+        /// <summary>
+        /// Fixed response action. See `FixedResponse` Block below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetListenerDefaultActionFixedResponseResult> FixedResponses;
+        /// <summary>
+        /// Forward action. See `Forward` Block below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetListenerDefaultActionForwardResult> Forwards;
 
         [OutputConstructor]

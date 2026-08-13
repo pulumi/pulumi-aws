@@ -59,11 +59,11 @@ export class PlaceIndex extends pulumi.CustomResource {
     }
 
     /**
-     * The timestamp for when the place index resource was created in ISO 8601 format.
+     * Timestamp for when the place index resource was created in ISO 8601 format.
      */
     declare public /*out*/ readonly createTime: pulumi.Output<string>;
     /**
-     * Specifies the geospatial data provider for the new place index.
+     * Geospatial data provider for the new place index.
      */
     declare public readonly dataSource: pulumi.Output<string>;
     /**
@@ -71,15 +71,15 @@ export class PlaceIndex extends pulumi.CustomResource {
      */
     declare public readonly dataSourceConfiguration: pulumi.Output<outputs.location.PlaceIndexDataSourceConfiguration>;
     /**
-     * The optional description for the place index resource.
+     * Optional description for the place index resource.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
+     * Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
      */
     declare public /*out*/ readonly indexArn: pulumi.Output<string>;
     /**
-     * The name of the place index resource.
+     * Name of the place index resource.
      *
      * The following arguments are optional:
      */
@@ -93,11 +93,11 @@ export class PlaceIndex extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * The timestamp for when the place index resource was last update in ISO 8601.
+     * Timestamp for when the place index resource was last updated in ISO 8601 format.
      */
     declare public /*out*/ readonly updateTime: pulumi.Output<string>;
 
@@ -153,11 +153,11 @@ export class PlaceIndex extends pulumi.CustomResource {
  */
 export interface PlaceIndexState {
     /**
-     * The timestamp for when the place index resource was created in ISO 8601 format.
+     * Timestamp for when the place index resource was created in ISO 8601 format.
      */
     createTime?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the geospatial data provider for the new place index.
+     * Geospatial data provider for the new place index.
      */
     dataSource?: pulumi.Input<string | undefined>;
     /**
@@ -165,15 +165,15 @@ export interface PlaceIndexState {
      */
     dataSourceConfiguration?: pulumi.Input<inputs.location.PlaceIndexDataSourceConfiguration | undefined>;
     /**
-     * The optional description for the place index resource.
+     * Optional description for the place index resource.
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
+     * Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
      */
     indexArn?: pulumi.Input<string | undefined>;
     /**
-     * The name of the place index resource.
+     * Name of the place index resource.
      *
      * The following arguments are optional:
      */
@@ -187,11 +187,11 @@ export interface PlaceIndexState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The timestamp for when the place index resource was last update in ISO 8601.
+     * Timestamp for when the place index resource was last updated in ISO 8601 format.
      */
     updateTime?: pulumi.Input<string | undefined>;
 }
@@ -201,7 +201,7 @@ export interface PlaceIndexState {
  */
 export interface PlaceIndexArgs {
     /**
-     * Specifies the geospatial data provider for the new place index.
+     * Geospatial data provider for the new place index.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -209,11 +209,11 @@ export interface PlaceIndexArgs {
      */
     dataSourceConfiguration?: pulumi.Input<inputs.location.PlaceIndexDataSourceConfiguration | undefined>;
     /**
-     * The optional description for the place index resource.
+     * Optional description for the place index resource.
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The name of the place index resource.
+     * Name of the place index resource.
      *
      * The following arguments are optional:
      */

@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:networkfirewall/containerAssociation:ContainerAssociation":
+		r = &ContainerAssociation{}
 	case "aws:networkfirewall/firewall:Firewall":
 		r = &Firewall{}
 	case "aws:networkfirewall/firewallPolicy:FirewallPolicy":
@@ -50,6 +52,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"networkfirewall/containerAssociation",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"networkfirewall/firewall",

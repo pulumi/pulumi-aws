@@ -18,6 +18,10 @@ namespace Pulumi.Aws.Dlm.Outputs
         /// </summary>
         public readonly bool? ExcludeBootVolume;
         /// <summary>
+        /// Map specifies whether to exclude volumes that have specific tags.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? ExcludeDataVolumeTags;
+        /// <summary>
         /// Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted when the lifecycle policy runs. `True` indicates that targeted instances are not rebooted when the policy runs. `False` indicates that target instances are rebooted when the policy runs. The default is `True` (instances are not rebooted).
         /// </summary>
         public readonly bool? NoReboot;
@@ -26,9 +30,12 @@ namespace Pulumi.Aws.Dlm.Outputs
         private LifecyclePolicyPolicyDetailsParameters(
             bool? excludeBootVolume,
 
+            ImmutableDictionary<string, string>? excludeDataVolumeTags,
+
             bool? noReboot)
         {
             ExcludeBootVolume = excludeBootVolume;
+            ExcludeDataVolumeTags = excludeDataVolumeTags;
             NoReboot = noReboot;
         }
     }

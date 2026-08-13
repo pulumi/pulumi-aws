@@ -45,24 +45,24 @@ class AgentcoreHarnessArgs:
 
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that the harness assumes to access AWS services.
         :param pulumi.Input[_builtins.str] harness_name: Name of the harness. Must be 1-40 characters, alphanumeric and underscores only.
-        :param pulumi.Input['AgentcoreHarnessModelArgs'] model: Model configuration for the harness. See `model` below.
+        :param pulumi.Input['AgentcoreHarnessModelArgs'] model: Model configuration for the harness. See `model` Block below.
                
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_tools: List of tool names allowed for the harness. Use `["*"]` to allow all tools.
-        :param pulumi.Input['AgentcoreHarnessAuthorizerConfigurationArgs'] authorizer_configuration: Authorization configuration for authenticating requests. See `authorizer_configuration` below.
-        :param pulumi.Input['AgentcoreHarnessEnvironmentArtifactArgs'] environment_artifact: Environment artifact configuration. See `environment_artifact` below.
+        :param pulumi.Input['AgentcoreHarnessAuthorizerConfigurationArgs'] authorizer_configuration: Authorization configuration for authenticating requests. See `authorizer_configuration` Block below.
+        :param pulumi.Input['AgentcoreHarnessEnvironmentArtifactArgs'] environment_artifact: Environment artifact configuration. See `environment_artifact` Block below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Map of environment variables.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentArgs']]] environments: Compute environment configuration. See `environment` below.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentArgs']]] environments: Compute environment configuration. See `environment` Block below.
         :param pulumi.Input[_builtins.int] max_iterations: Maximum number of iterations the agent loop can perform.
         :param pulumi.Input[_builtins.int] max_tokens: Maximum number of tokens in the model response.
-        :param pulumi.Input['AgentcoreHarnessMemoryArgs'] memory: Memory configuration. See `memory` below.
+        :param pulumi.Input['AgentcoreHarnessMemoryArgs'] memory: Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memory_actual`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessSkillArgs']]] skills: Skill configurations. See `skill` below.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessSystemPromptArgs']]] system_prompts: System prompt blocks for the harness. See `system_prompt` below.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessSkillArgs']]] skills: Skill configurations. See `skill` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessSystemPromptArgs']]] system_prompts: System prompt blocks for the harness. See `system_prompt` Block below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.int] timeout_seconds: Timeout in seconds for the harness execution.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessToolArgs']]] tools: Tool configurations. See `tool` below.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessTruncationArgs']]] truncations: Truncation configuration for conversation history. See `truncation` below.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessToolArgs']]] tools: Tool configurations. See `tool` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessTruncationArgs']]] truncations: Truncation configuration for conversation history. See `truncation` Block below.
         """
         pulumi.set(__self__, "execution_role_arn", execution_role_arn)
         pulumi.set(__self__, "harness_name", harness_name)
@@ -128,7 +128,7 @@ class AgentcoreHarnessArgs:
     @pulumi.getter
     def model(self) -> pulumi.Input['AgentcoreHarnessModelArgs']:
         """
-        Model configuration for the harness. See `model` below.
+        Model configuration for the harness. See `model` Block below.
 
         The following arguments are optional:
         """
@@ -154,7 +154,7 @@ class AgentcoreHarnessArgs:
     @pulumi.getter(name="authorizerConfiguration")
     def authorizer_configuration(self) -> pulumi.Input[Optional['AgentcoreHarnessAuthorizerConfigurationArgs']]:
         """
-        Authorization configuration for authenticating requests. See `authorizer_configuration` below.
+        Authorization configuration for authenticating requests. See `authorizer_configuration` Block below.
         """
         return pulumi.get(self, "authorizer_configuration")
 
@@ -166,7 +166,7 @@ class AgentcoreHarnessArgs:
     @pulumi.getter(name="environmentArtifact")
     def environment_artifact(self) -> pulumi.Input[Optional['AgentcoreHarnessEnvironmentArtifactArgs']]:
         """
-        Environment artifact configuration. See `environment_artifact` below.
+        Environment artifact configuration. See `environment_artifact` Block below.
         """
         return pulumi.get(self, "environment_artifact")
 
@@ -190,7 +190,7 @@ class AgentcoreHarnessArgs:
     @pulumi.getter
     def environments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentArgs']]]]:
         """
-        Compute environment configuration. See `environment` below.
+        Compute environment configuration. See `environment` Block below.
         """
         return pulumi.get(self, "environments")
 
@@ -226,7 +226,7 @@ class AgentcoreHarnessArgs:
     @pulumi.getter
     def memory(self) -> pulumi.Input[Optional['AgentcoreHarnessMemoryArgs']]:
         """
-        Memory configuration. See `memory` below.
+        Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memory_actual`.
         """
         return pulumi.get(self, "memory")
 
@@ -250,7 +250,7 @@ class AgentcoreHarnessArgs:
     @pulumi.getter
     def skills(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreHarnessSkillArgs']]]]:
         """
-        Skill configurations. See `skill` below.
+        Skill configurations. See `skill` Block below.
         """
         return pulumi.get(self, "skills")
 
@@ -262,7 +262,7 @@ class AgentcoreHarnessArgs:
     @pulumi.getter(name="systemPrompts")
     def system_prompts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreHarnessSystemPromptArgs']]]]:
         """
-        System prompt blocks for the harness. See `system_prompt` below.
+        System prompt blocks for the harness. See `system_prompt` Block below.
         """
         return pulumi.get(self, "system_prompts")
 
@@ -307,7 +307,7 @@ class AgentcoreHarnessArgs:
     @pulumi.getter
     def tools(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreHarnessToolArgs']]]]:
         """
-        Tool configurations. See `tool` below.
+        Tool configurations. See `tool` Block below.
         """
         return pulumi.get(self, "tools")
 
@@ -319,7 +319,7 @@ class AgentcoreHarnessArgs:
     @pulumi.getter
     def truncations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreHarnessTruncationArgs']]]]:
         """
-        Truncation configuration for conversation history. See `truncation` below.
+        Truncation configuration for conversation history. See `truncation` Block below.
         """
         return pulumi.get(self, "truncations")
 
@@ -343,6 +343,7 @@ class _AgentcoreHarnessState:
                  max_iterations: pulumi.Input[Optional[_builtins.int]] = None,
                  max_tokens: pulumi.Input[Optional[_builtins.int]] = None,
                  memory: pulumi.Input[Optional['AgentcoreHarnessMemoryArgs']] = None,
+                 memory_actuals: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreHarnessMemoryActualArgs']]]] = None,
                  model: pulumi.Input[Optional['AgentcoreHarnessModelArgs']] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  skills: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreHarnessSkillArgs']]]] = None,
@@ -358,27 +359,28 @@ class _AgentcoreHarnessState:
 
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_tools: List of tool names allowed for the harness. Use `["*"]` to allow all tools.
         :param pulumi.Input[_builtins.str] arn: ARN of the Harness.
-        :param pulumi.Input['AgentcoreHarnessAuthorizerConfigurationArgs'] authorizer_configuration: Authorization configuration for authenticating requests. See `authorizer_configuration` below.
-        :param pulumi.Input['AgentcoreHarnessEnvironmentArtifactArgs'] environment_artifact: Environment artifact configuration. See `environment_artifact` below.
+        :param pulumi.Input['AgentcoreHarnessAuthorizerConfigurationArgs'] authorizer_configuration: Authorization configuration for authenticating requests. See `authorizer_configuration` Block below.
+        :param pulumi.Input['AgentcoreHarnessEnvironmentArtifactArgs'] environment_artifact: Environment artifact configuration. See `environment_artifact` Block below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Map of environment variables.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentArgs']]] environments: Compute environment configuration. See `environment` below.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentArgs']]] environments: Compute environment configuration. See `environment` Block below.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that the harness assumes to access AWS services.
         :param pulumi.Input[_builtins.str] harness_id: Unique identifier of the Harness.
         :param pulumi.Input[_builtins.str] harness_name: Name of the harness. Must be 1-40 characters, alphanumeric and underscores only.
         :param pulumi.Input[_builtins.int] max_iterations: Maximum number of iterations the agent loop can perform.
         :param pulumi.Input[_builtins.int] max_tokens: Maximum number of tokens in the model response.
-        :param pulumi.Input['AgentcoreHarnessMemoryArgs'] memory: Memory configuration. See `memory` below.
-        :param pulumi.Input['AgentcoreHarnessModelArgs'] model: Model configuration for the harness. See `model` below.
+        :param pulumi.Input['AgentcoreHarnessMemoryArgs'] memory: Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memory_actual`.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessMemoryActualArgs']]] memory_actuals: Actual deployed memory configuration.
+        :param pulumi.Input['AgentcoreHarnessModelArgs'] model: Model configuration for the harness. See `model` Block below.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessSkillArgs']]] skills: Skill configurations. See `skill` below.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessSystemPromptArgs']]] system_prompts: System prompt blocks for the harness. See `system_prompt` below.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessSkillArgs']]] skills: Skill configurations. See `skill` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessSystemPromptArgs']]] system_prompts: System prompt blocks for the harness. See `system_prompt` Block below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.int] timeout_seconds: Timeout in seconds for the harness execution.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessToolArgs']]] tools: Tool configurations. See `tool` below.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessTruncationArgs']]] truncations: Truncation configuration for conversation history. See `truncation` below.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessToolArgs']]] tools: Tool configurations. See `tool` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessTruncationArgs']]] truncations: Truncation configuration for conversation history. See `truncation` Block below.
         """
         if allowed_tools is not None:
             pulumi.set(__self__, "allowed_tools", allowed_tools)
@@ -404,6 +406,8 @@ class _AgentcoreHarnessState:
             pulumi.set(__self__, "max_tokens", max_tokens)
         if memory is not None:
             pulumi.set(__self__, "memory", memory)
+        if memory_actuals is not None:
+            pulumi.set(__self__, "memory_actuals", memory_actuals)
         if model is not None:
             pulumi.set(__self__, "model", model)
         if region is not None:
@@ -453,7 +457,7 @@ class _AgentcoreHarnessState:
     @pulumi.getter(name="authorizerConfiguration")
     def authorizer_configuration(self) -> pulumi.Input[Optional['AgentcoreHarnessAuthorizerConfigurationArgs']]:
         """
-        Authorization configuration for authenticating requests. See `authorizer_configuration` below.
+        Authorization configuration for authenticating requests. See `authorizer_configuration` Block below.
         """
         return pulumi.get(self, "authorizer_configuration")
 
@@ -465,7 +469,7 @@ class _AgentcoreHarnessState:
     @pulumi.getter(name="environmentArtifact")
     def environment_artifact(self) -> pulumi.Input[Optional['AgentcoreHarnessEnvironmentArtifactArgs']]:
         """
-        Environment artifact configuration. See `environment_artifact` below.
+        Environment artifact configuration. See `environment_artifact` Block below.
         """
         return pulumi.get(self, "environment_artifact")
 
@@ -489,7 +493,7 @@ class _AgentcoreHarnessState:
     @pulumi.getter
     def environments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentArgs']]]]:
         """
-        Compute environment configuration. See `environment` below.
+        Compute environment configuration. See `environment` Block below.
         """
         return pulumi.get(self, "environments")
 
@@ -561,7 +565,7 @@ class _AgentcoreHarnessState:
     @pulumi.getter
     def memory(self) -> pulumi.Input[Optional['AgentcoreHarnessMemoryArgs']]:
         """
-        Memory configuration. See `memory` below.
+        Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memory_actual`.
         """
         return pulumi.get(self, "memory")
 
@@ -570,10 +574,22 @@ class _AgentcoreHarnessState:
         pulumi.set(self, "memory", value)
 
     @_builtins.property
+    @pulumi.getter(name="memoryActuals")
+    def memory_actuals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreHarnessMemoryActualArgs']]]]:
+        """
+        Actual deployed memory configuration.
+        """
+        return pulumi.get(self, "memory_actuals")
+
+    @memory_actuals.setter
+    def memory_actuals(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreHarnessMemoryActualArgs']]]]):
+        pulumi.set(self, "memory_actuals", value)
+
+    @_builtins.property
     @pulumi.getter
     def model(self) -> pulumi.Input[Optional['AgentcoreHarnessModelArgs']]:
         """
-        Model configuration for the harness. See `model` below.
+        Model configuration for the harness. See `model` Block below.
 
         The following arguments are optional:
         """
@@ -599,7 +615,7 @@ class _AgentcoreHarnessState:
     @pulumi.getter
     def skills(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreHarnessSkillArgs']]]]:
         """
-        Skill configurations. See `skill` below.
+        Skill configurations. See `skill` Block below.
         """
         return pulumi.get(self, "skills")
 
@@ -611,7 +627,7 @@ class _AgentcoreHarnessState:
     @pulumi.getter(name="systemPrompts")
     def system_prompts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreHarnessSystemPromptArgs']]]]:
         """
-        System prompt blocks for the harness. See `system_prompt` below.
+        System prompt blocks for the harness. See `system_prompt` Block below.
         """
         return pulumi.get(self, "system_prompts")
 
@@ -668,7 +684,7 @@ class _AgentcoreHarnessState:
     @pulumi.getter
     def tools(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreHarnessToolArgs']]]]:
         """
-        Tool configurations. See `tool` below.
+        Tool configurations. See `tool` Block below.
         """
         return pulumi.get(self, "tools")
 
@@ -680,7 +696,7 @@ class _AgentcoreHarnessState:
     @pulumi.getter
     def truncations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreHarnessTruncationArgs']]]]:
         """
-        Truncation configuration for conversation history. See `truncation` below.
+        Truncation configuration for conversation history. See `truncation` Block below.
         """
         return pulumi.get(self, "truncations")
 
@@ -817,6 +833,34 @@ class AgentcoreHarness(pulumi.CustomResource):
             }])
         ```
 
+        ### With Managed Memory
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.bedrock.AgentcoreHarness("example",
+            harness_name="my_harness",
+            execution_role_arn=example_aws_iam_role["arn"],
+            model={
+                "bedrock_model_config": {
+                    "model_id": "anthropic.claude-sonnet-4-20250514",
+                },
+            },
+            system_prompts=[{
+                "text": "You are a helpful assistant.",
+            }],
+            memory={
+                "managed_memory_configuration": {
+                    "event_expiry_duration": 14,
+                    "strategies": [
+                        "SEMANTIC",
+                        "SUMMARIZATION",
+                    ],
+                },
+            })
+        ```
+
         ## Import
 
         ### Identity Schema
@@ -840,25 +884,25 @@ class AgentcoreHarness(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_tools: List of tool names allowed for the harness. Use `["*"]` to allow all tools.
-        :param pulumi.Input[Union['AgentcoreHarnessAuthorizerConfigurationArgs', 'AgentcoreHarnessAuthorizerConfigurationArgsDict']] authorizer_configuration: Authorization configuration for authenticating requests. See `authorizer_configuration` below.
-        :param pulumi.Input[Union['AgentcoreHarnessEnvironmentArtifactArgs', 'AgentcoreHarnessEnvironmentArtifactArgsDict']] environment_artifact: Environment artifact configuration. See `environment_artifact` below.
+        :param pulumi.Input[Union['AgentcoreHarnessAuthorizerConfigurationArgs', 'AgentcoreHarnessAuthorizerConfigurationArgsDict']] authorizer_configuration: Authorization configuration for authenticating requests. See `authorizer_configuration` Block below.
+        :param pulumi.Input[Union['AgentcoreHarnessEnvironmentArtifactArgs', 'AgentcoreHarnessEnvironmentArtifactArgsDict']] environment_artifact: Environment artifact configuration. See `environment_artifact` Block below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Map of environment variables.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessEnvironmentArgs', 'AgentcoreHarnessEnvironmentArgsDict']]]] environments: Compute environment configuration. See `environment` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessEnvironmentArgs', 'AgentcoreHarnessEnvironmentArgsDict']]]] environments: Compute environment configuration. See `environment` Block below.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that the harness assumes to access AWS services.
         :param pulumi.Input[_builtins.str] harness_name: Name of the harness. Must be 1-40 characters, alphanumeric and underscores only.
         :param pulumi.Input[_builtins.int] max_iterations: Maximum number of iterations the agent loop can perform.
         :param pulumi.Input[_builtins.int] max_tokens: Maximum number of tokens in the model response.
-        :param pulumi.Input[Union['AgentcoreHarnessMemoryArgs', 'AgentcoreHarnessMemoryArgsDict']] memory: Memory configuration. See `memory` below.
-        :param pulumi.Input[Union['AgentcoreHarnessModelArgs', 'AgentcoreHarnessModelArgsDict']] model: Model configuration for the harness. See `model` below.
+        :param pulumi.Input[Union['AgentcoreHarnessMemoryArgs', 'AgentcoreHarnessMemoryArgsDict']] memory: Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memory_actual`.
+        :param pulumi.Input[Union['AgentcoreHarnessModelArgs', 'AgentcoreHarnessModelArgsDict']] model: Model configuration for the harness. See `model` Block below.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessSkillArgs', 'AgentcoreHarnessSkillArgsDict']]]] skills: Skill configurations. See `skill` below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessSystemPromptArgs', 'AgentcoreHarnessSystemPromptArgsDict']]]] system_prompts: System prompt blocks for the harness. See `system_prompt` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessSkillArgs', 'AgentcoreHarnessSkillArgsDict']]]] skills: Skill configurations. See `skill` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessSystemPromptArgs', 'AgentcoreHarnessSystemPromptArgsDict']]]] system_prompts: System prompt blocks for the harness. See `system_prompt` Block below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.int] timeout_seconds: Timeout in seconds for the harness execution.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessToolArgs', 'AgentcoreHarnessToolArgsDict']]]] tools: Tool configurations. See `tool` below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessTruncationArgs', 'AgentcoreHarnessTruncationArgsDict']]]] truncations: Truncation configuration for conversation history. See `truncation` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessToolArgs', 'AgentcoreHarnessToolArgsDict']]]] tools: Tool configurations. See `tool` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessTruncationArgs', 'AgentcoreHarnessTruncationArgsDict']]]] truncations: Truncation configuration for conversation history. See `truncation` Block below.
         """
         ...
     @overload
@@ -968,6 +1012,34 @@ class AgentcoreHarness(pulumi.CustomResource):
             }])
         ```
 
+        ### With Managed Memory
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.bedrock.AgentcoreHarness("example",
+            harness_name="my_harness",
+            execution_role_arn=example_aws_iam_role["arn"],
+            model={
+                "bedrock_model_config": {
+                    "model_id": "anthropic.claude-sonnet-4-20250514",
+                },
+            },
+            system_prompts=[{
+                "text": "You are a helpful assistant.",
+            }],
+            memory={
+                "managed_memory_configuration": {
+                    "event_expiry_duration": 14,
+                    "strategies": [
+                        "SEMANTIC",
+                        "SUMMARIZATION",
+                    ],
+                },
+            })
+        ```
+
         ## Import
 
         ### Identity Schema
@@ -1058,6 +1130,7 @@ class AgentcoreHarness(pulumi.CustomResource):
             __props__.__dict__["truncations"] = truncations
             __props__.__dict__["arn"] = None
             __props__.__dict__["harness_id"] = None
+            __props__.__dict__["memory_actuals"] = None
             __props__.__dict__["tags_all"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["environmentVariables"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
@@ -1083,6 +1156,7 @@ class AgentcoreHarness(pulumi.CustomResource):
             max_iterations: pulumi.Input[Optional[_builtins.int]] = None,
             max_tokens: pulumi.Input[Optional[_builtins.int]] = None,
             memory: pulumi.Input[Optional[Union['AgentcoreHarnessMemoryArgs', 'AgentcoreHarnessMemoryArgsDict']]] = None,
+            memory_actuals: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreHarnessMemoryActualArgs', 'AgentcoreHarnessMemoryActualArgsDict']]]]] = None,
             model: pulumi.Input[Optional[Union['AgentcoreHarnessModelArgs', 'AgentcoreHarnessModelArgsDict']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             skills: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreHarnessSkillArgs', 'AgentcoreHarnessSkillArgsDict']]]]] = None,
@@ -1102,27 +1176,28 @@ class AgentcoreHarness(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_tools: List of tool names allowed for the harness. Use `["*"]` to allow all tools.
         :param pulumi.Input[_builtins.str] arn: ARN of the Harness.
-        :param pulumi.Input[Union['AgentcoreHarnessAuthorizerConfigurationArgs', 'AgentcoreHarnessAuthorizerConfigurationArgsDict']] authorizer_configuration: Authorization configuration for authenticating requests. See `authorizer_configuration` below.
-        :param pulumi.Input[Union['AgentcoreHarnessEnvironmentArtifactArgs', 'AgentcoreHarnessEnvironmentArtifactArgsDict']] environment_artifact: Environment artifact configuration. See `environment_artifact` below.
+        :param pulumi.Input[Union['AgentcoreHarnessAuthorizerConfigurationArgs', 'AgentcoreHarnessAuthorizerConfigurationArgsDict']] authorizer_configuration: Authorization configuration for authenticating requests. See `authorizer_configuration` Block below.
+        :param pulumi.Input[Union['AgentcoreHarnessEnvironmentArtifactArgs', 'AgentcoreHarnessEnvironmentArtifactArgsDict']] environment_artifact: Environment artifact configuration. See `environment_artifact` Block below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Map of environment variables.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessEnvironmentArgs', 'AgentcoreHarnessEnvironmentArgsDict']]]] environments: Compute environment configuration. See `environment` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessEnvironmentArgs', 'AgentcoreHarnessEnvironmentArgsDict']]]] environments: Compute environment configuration. See `environment` Block below.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that the harness assumes to access AWS services.
         :param pulumi.Input[_builtins.str] harness_id: Unique identifier of the Harness.
         :param pulumi.Input[_builtins.str] harness_name: Name of the harness. Must be 1-40 characters, alphanumeric and underscores only.
         :param pulumi.Input[_builtins.int] max_iterations: Maximum number of iterations the agent loop can perform.
         :param pulumi.Input[_builtins.int] max_tokens: Maximum number of tokens in the model response.
-        :param pulumi.Input[Union['AgentcoreHarnessMemoryArgs', 'AgentcoreHarnessMemoryArgsDict']] memory: Memory configuration. See `memory` below.
-        :param pulumi.Input[Union['AgentcoreHarnessModelArgs', 'AgentcoreHarnessModelArgsDict']] model: Model configuration for the harness. See `model` below.
+        :param pulumi.Input[Union['AgentcoreHarnessMemoryArgs', 'AgentcoreHarnessMemoryArgsDict']] memory: Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memory_actual`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessMemoryActualArgs', 'AgentcoreHarnessMemoryActualArgsDict']]]] memory_actuals: Actual deployed memory configuration.
+        :param pulumi.Input[Union['AgentcoreHarnessModelArgs', 'AgentcoreHarnessModelArgsDict']] model: Model configuration for the harness. See `model` Block below.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessSkillArgs', 'AgentcoreHarnessSkillArgsDict']]]] skills: Skill configurations. See `skill` below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessSystemPromptArgs', 'AgentcoreHarnessSystemPromptArgsDict']]]] system_prompts: System prompt blocks for the harness. See `system_prompt` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessSkillArgs', 'AgentcoreHarnessSkillArgsDict']]]] skills: Skill configurations. See `skill` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessSystemPromptArgs', 'AgentcoreHarnessSystemPromptArgsDict']]]] system_prompts: System prompt blocks for the harness. See `system_prompt` Block below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.int] timeout_seconds: Timeout in seconds for the harness execution.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessToolArgs', 'AgentcoreHarnessToolArgsDict']]]] tools: Tool configurations. See `tool` below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessTruncationArgs', 'AgentcoreHarnessTruncationArgsDict']]]] truncations: Truncation configuration for conversation history. See `truncation` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessToolArgs', 'AgentcoreHarnessToolArgsDict']]]] tools: Tool configurations. See `tool` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessTruncationArgs', 'AgentcoreHarnessTruncationArgsDict']]]] truncations: Truncation configuration for conversation history. See `truncation` Block below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1140,6 +1215,7 @@ class AgentcoreHarness(pulumi.CustomResource):
         __props__.__dict__["max_iterations"] = max_iterations
         __props__.__dict__["max_tokens"] = max_tokens
         __props__.__dict__["memory"] = memory
+        __props__.__dict__["memory_actuals"] = memory_actuals
         __props__.__dict__["model"] = model
         __props__.__dict__["region"] = region
         __props__.__dict__["skills"] = skills
@@ -1172,7 +1248,7 @@ class AgentcoreHarness(pulumi.CustomResource):
     @pulumi.getter(name="authorizerConfiguration")
     def authorizer_configuration(self) -> pulumi.Output[Optional['outputs.AgentcoreHarnessAuthorizerConfiguration']]:
         """
-        Authorization configuration for authenticating requests. See `authorizer_configuration` below.
+        Authorization configuration for authenticating requests. See `authorizer_configuration` Block below.
         """
         return pulumi.get(self, "authorizer_configuration")
 
@@ -1180,7 +1256,7 @@ class AgentcoreHarness(pulumi.CustomResource):
     @pulumi.getter(name="environmentArtifact")
     def environment_artifact(self) -> pulumi.Output[Optional['outputs.AgentcoreHarnessEnvironmentArtifact']]:
         """
-        Environment artifact configuration. See `environment_artifact` below.
+        Environment artifact configuration. See `environment_artifact` Block below.
         """
         return pulumi.get(self, "environment_artifact")
 
@@ -1196,7 +1272,7 @@ class AgentcoreHarness(pulumi.CustomResource):
     @pulumi.getter
     def environments(self) -> pulumi.Output[Sequence['outputs.AgentcoreHarnessEnvironment']]:
         """
-        Compute environment configuration. See `environment` below.
+        Compute environment configuration. See `environment` Block below.
         """
         return pulumi.get(self, "environments")
 
@@ -1244,15 +1320,23 @@ class AgentcoreHarness(pulumi.CustomResource):
     @pulumi.getter
     def memory(self) -> pulumi.Output[Optional['outputs.AgentcoreHarnessMemory']]:
         """
-        Memory configuration. See `memory` below.
+        Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memory_actual`.
         """
         return pulumi.get(self, "memory")
+
+    @_builtins.property
+    @pulumi.getter(name="memoryActuals")
+    def memory_actuals(self) -> pulumi.Output[Sequence['outputs.AgentcoreHarnessMemoryActual']]:
+        """
+        Actual deployed memory configuration.
+        """
+        return pulumi.get(self, "memory_actuals")
 
     @_builtins.property
     @pulumi.getter
     def model(self) -> pulumi.Output['outputs.AgentcoreHarnessModel']:
         """
-        Model configuration for the harness. See `model` below.
+        Model configuration for the harness. See `model` Block below.
 
         The following arguments are optional:
         """
@@ -1270,7 +1354,7 @@ class AgentcoreHarness(pulumi.CustomResource):
     @pulumi.getter
     def skills(self) -> pulumi.Output[Optional[Sequence['outputs.AgentcoreHarnessSkill']]]:
         """
-        Skill configurations. See `skill` below.
+        Skill configurations. See `skill` Block below.
         """
         return pulumi.get(self, "skills")
 
@@ -1278,7 +1362,7 @@ class AgentcoreHarness(pulumi.CustomResource):
     @pulumi.getter(name="systemPrompts")
     def system_prompts(self) -> pulumi.Output[Optional[Sequence['outputs.AgentcoreHarnessSystemPrompt']]]:
         """
-        System prompt blocks for the harness. See `system_prompt` below.
+        System prompt blocks for the harness. See `system_prompt` Block below.
         """
         return pulumi.get(self, "system_prompts")
 
@@ -1315,7 +1399,7 @@ class AgentcoreHarness(pulumi.CustomResource):
     @pulumi.getter
     def tools(self) -> pulumi.Output[Optional[Sequence['outputs.AgentcoreHarnessTool']]]:
         """
-        Tool configurations. See `tool` below.
+        Tool configurations. See `tool` Block below.
         """
         return pulumi.get(self, "tools")
 
@@ -1323,7 +1407,7 @@ class AgentcoreHarness(pulumi.CustomResource):
     @pulumi.getter
     def truncations(self) -> pulumi.Output[Sequence['outputs.AgentcoreHarnessTruncation']]:
         """
-        Truncation configuration for conversation history. See `truncation` below.
+        Truncation configuration for conversation history. See `truncation` Block below.
         """
         return pulumi.get(self, "truncations")
 

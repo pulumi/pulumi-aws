@@ -21,7 +21,7 @@ public final class PlanTrigger {
      */
     private String action;
     /**
-     * @return List of conditions that must be met. See Conditions below.
+     * @return Conditions that must be met. See `conditions` Block for details.
      * 
      */
     private @Nullable List<PlanTriggerCondition> conditions;
@@ -50,7 +50,7 @@ public final class PlanTrigger {
         return this.action;
     }
     /**
-     * @return List of conditions that must be met. See Conditions below.
+     * @return Conditions that must be met. See `conditions` Block for details.
      * 
      */
     public List<PlanTriggerCondition> conditions() {

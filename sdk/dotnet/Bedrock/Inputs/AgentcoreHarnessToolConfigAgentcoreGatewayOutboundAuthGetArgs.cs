@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<bool>? None { get; set; }
 
         /// <summary>
-        /// OAuth credential provider configuration. See `Oauth` below.
+        /// OAuth credential provider configuration. See `Oauth` Block below.
         /// </summary>
         [Input("oauth")]
         public Input<Inputs.AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthOauthGetArgs>? Oauth { get; set; }

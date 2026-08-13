@@ -17,33 +17,85 @@ import java.util.Objects;
 
 @CustomType
 public final class GetBucketReplicationConfigurationRule {
+    /**
+     * @return Configuration block that specifies whether delete markers are replicated. See `deleteMarkerReplication` Block below.
+     * 
+     */
     private List<GetBucketReplicationConfigurationRuleDeleteMarkerReplication> deleteMarkerReplications;
+    /**
+     * @return Configuration block that specifies the destination for the rule. See `destination` Block below.
+     * 
+     */
     private List<GetBucketReplicationConfigurationRuleDestination> destinations;
+    /**
+     * @return Configuration block that specifies replication of existing objects. See `existingObjectReplication` Block below.
+     * 
+     */
     private List<GetBucketReplicationConfigurationRuleExistingObjectReplication> existingObjectReplications;
+    /**
+     * @return Configuration block that identifies the subset of objects to which the rule applies. See `filter` Block below.
+     * 
+     */
     private List<GetBucketReplicationConfigurationRuleFilter> filters;
+    /**
+     * @return Unique identifier for the rule.
+     * 
+     */
     private String id;
     /**
      * @return Object key name prefix that identifies the subset of objects to which the rule applies.
      * 
      */
     private String prefix;
+    /**
+     * @return Priority associated with the rule.
+     * 
+     */
     private Integer priority;
+    /**
+     * @return Configuration block that specifies special object selection criteria. See `sourceSelectionCriteria` Block below.
+     * 
+     */
     private List<GetBucketReplicationConfigurationRuleSourceSelectionCriteria> sourceSelectionCriterias;
+    /**
+     * @return Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+     * 
+     */
     private String status;
 
     private GetBucketReplicationConfigurationRule() {}
+    /**
+     * @return Configuration block that specifies whether delete markers are replicated. See `deleteMarkerReplication` Block below.
+     * 
+     */
     public List<GetBucketReplicationConfigurationRuleDeleteMarkerReplication> deleteMarkerReplications() {
         return this.deleteMarkerReplications;
     }
+    /**
+     * @return Configuration block that specifies the destination for the rule. See `destination` Block below.
+     * 
+     */
     public List<GetBucketReplicationConfigurationRuleDestination> destinations() {
         return this.destinations;
     }
+    /**
+     * @return Configuration block that specifies replication of existing objects. See `existingObjectReplication` Block below.
+     * 
+     */
     public List<GetBucketReplicationConfigurationRuleExistingObjectReplication> existingObjectReplications() {
         return this.existingObjectReplications;
     }
+    /**
+     * @return Configuration block that identifies the subset of objects to which the rule applies. See `filter` Block below.
+     * 
+     */
     public List<GetBucketReplicationConfigurationRuleFilter> filters() {
         return this.filters;
     }
+    /**
+     * @return Unique identifier for the rule.
+     * 
+     */
     public String id() {
         return this.id;
     }
@@ -54,12 +106,24 @@ public final class GetBucketReplicationConfigurationRule {
     public String prefix() {
         return this.prefix;
     }
+    /**
+     * @return Priority associated with the rule.
+     * 
+     */
     public Integer priority() {
         return this.priority;
     }
+    /**
+     * @return Configuration block that specifies special object selection criteria. See `sourceSelectionCriteria` Block below.
+     * 
+     */
     public List<GetBucketReplicationConfigurationRuleSourceSelectionCriteria> sourceSelectionCriterias() {
         return this.sourceSelectionCriterias;
     }
+    /**
+     * @return Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+     * 
+     */
     public String status() {
         return this.status;
     }

@@ -33,14 +33,14 @@ public final class TargetGroupAttachmentTargetArgs extends com.pulumi.resources.
     }
 
     /**
-     * This port is used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
+     * Port used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
      * 
      */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
     /**
-     * @return This port is used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
+     * @return Port used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
      * 
      */
     public Optional<Output<Integer>> port() {
@@ -94,7 +94,7 @@ public final class TargetGroupAttachmentTargetArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param port This port is used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
+         * @param port Port used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class TargetGroupAttachmentTargetArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param port This port is used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
+         * @param port Port used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
          * 
          * @return builder
          * 

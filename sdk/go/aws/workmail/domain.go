@@ -77,7 +77,7 @@ type Domain struct {
 	OrganizationId pulumi.StringOutput `pulumi:"organizationId"`
 	// Domain ownership verification status. Values: `PENDING`, `VERIFIED`, `FAILED`.
 	OwnershipVerificationStatus pulumi.StringOutput `pulumi:"ownershipVerificationStatus"`
-	// List of DNS records required for domain verification. See `records` below.
+	// List of DNS records required for domain verification. See `records` Block below.
 	Records DomainRecordArrayOutput `pulumi:"records"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -131,7 +131,7 @@ type domainState struct {
 	OrganizationId *string `pulumi:"organizationId"`
 	// Domain ownership verification status. Values: `PENDING`, `VERIFIED`, `FAILED`.
 	OwnershipVerificationStatus *string `pulumi:"ownershipVerificationStatus"`
-	// List of DNS records required for domain verification. See `records` below.
+	// List of DNS records required for domain verification. See `records` Block below.
 	Records []DomainRecord `pulumi:"records"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -150,7 +150,7 @@ type DomainState struct {
 	OrganizationId pulumi.StringPtrInput
 	// Domain ownership verification status. Values: `PENDING`, `VERIFIED`, `FAILED`.
 	OwnershipVerificationStatus pulumi.StringPtrInput
-	// List of DNS records required for domain verification. See `records` below.
+	// List of DNS records required for domain verification. See `records` Block below.
 	Records DomainRecordArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -296,7 +296,7 @@ func (o DomainOutput) OwnershipVerificationStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.OwnershipVerificationStatus }).(pulumi.StringOutput)
 }
 
-// List of DNS records required for domain verification. See `records` below.
+// List of DNS records required for domain verification. See `records` Block below.
 func (o DomainOutput) Records() DomainRecordArrayOutput {
 	return o.ApplyT(func(v *Domain) DomainRecordArrayOutput { return v.Records }).(DomainRecordArrayOutput)
 }

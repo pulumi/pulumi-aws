@@ -72,8 +72,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.vpc.RouteServer;
  * import com.pulumi.aws.vpc.RouteServerArgs;
- * import com.pulumi.aws.VpcRouteServerAssociation;
- * import com.pulumi.aws.VpcRouteServerAssociationArgs;
+ * import com.pulumi.aws.vpc.RouteServerVpcAssociation;
+ * import com.pulumi.aws.vpc.RouteServerVpcAssociationArgs;
  * import com.pulumi.aws.vpc.RouteServerEndpoint;
  * import com.pulumi.aws.vpc.RouteServerEndpointArgs;
  * import com.pulumi.aws.vpc.RouteServerPropagation;
@@ -100,7 +100,7 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("Name", "Test"))
  *             .build());
  * 
- *         var testVpcRouteServerAssociation = new VpcRouteServerAssociation("testVpcRouteServerAssociation", VpcRouteServerAssociationArgs.builder()
+ *         var testRouteServerVpcAssociation = new RouteServerVpcAssociation("testRouteServerVpcAssociation", RouteServerVpcAssociationArgs.builder()
  *             .routeServerId(test.routeServerId())
  *             .vpcId(testAwsVpc.id())
  *             .build());
@@ -110,14 +110,14 @@ import javax.annotation.Nullable;
  *             .subnetId(testAwsSubnet.id())
  *             .tags(Map.of("Name", "Test Endpoint"))
  *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(testVpcRouteServerAssociation)
+ *                 .dependsOn(testRouteServerVpcAssociation)
  *                 .build());
  * 
  *         var testRouteServerPropagation = new RouteServerPropagation("testRouteServerPropagation", RouteServerPropagationArgs.builder()
  *             .routeServerId(test.routeServerId())
  *             .routeTableId(testAwsRouteTable.id())
  *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(testVpcRouteServerAssociation)
+ *                 .dependsOn(testRouteServerVpcAssociation)
  *                 .build());
  * 
  *         var testRouteServerPeer = new RouteServerPeer("testRouteServerPeer", RouteServerPeerArgs.builder()

@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *         "m5.4xlarge",
  *     ],
  * });
- * const exampleEc2Instance = new aws.index.Ec2Instance("example", {instanceType: example.instanceType});
+ * const exampleInstance = new aws.ec2.Instance("example", {instanceType: aws.ec2.InstanceType[example.then(example => example.instanceType)]});
  * ```
  */
 export function getOutpostInstanceType(args: GetOutpostInstanceTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetOutpostInstanceTypeResult> {
@@ -86,7 +86,7 @@ export interface GetOutpostInstanceTypeResult {
  *         "m5.4xlarge",
  *     ],
  * });
- * const exampleEc2Instance = new aws.index.Ec2Instance("example", {instanceType: example.instanceType});
+ * const exampleInstance = new aws.ec2.Instance("example", {instanceType: aws.ec2.InstanceType[example.then(example => example.instanceType)]});
  * ```
  */
 export function getOutpostInstanceTypeOutput(args: GetOutpostInstanceTypeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOutpostInstanceTypeResult> {

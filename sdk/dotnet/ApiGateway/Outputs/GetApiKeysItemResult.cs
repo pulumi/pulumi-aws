@@ -41,6 +41,9 @@ namespace Pulumi.Aws.ApiGateway.Outputs
         /// Name of the API Key.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// List of stage keys associated with the API Key.
+        /// </summary>
         public readonly ImmutableArray<string> StageKeys;
         /// <summary>
         /// Map of tags for the resource.

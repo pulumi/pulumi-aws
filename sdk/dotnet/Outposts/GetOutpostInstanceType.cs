@@ -34,9 +34,9 @@ namespace Pulumi.Aws.Outposts
         ///         },
         ///     });
         /// 
-        ///     var exampleEc2Instance = new Aws.Ec2Instance("example", new()
+        ///     var exampleInstance = new Aws.Ec2.Instance("example", new()
         ///     {
-        ///         InstanceType = example.Apply(getOutpostInstanceTypeResult =&gt; getOutpostInstanceTypeResult.InstanceType),
+        ///         InstanceType = example.Apply(getOutpostInstanceTypeResult =&gt; getOutpostInstanceTypeResult.InstanceType).Apply(System.Enum.Parse&lt;Aws.Ec2.InstanceType&gt;),
         ///     });
         /// 
         /// });
@@ -68,9 +68,9 @@ namespace Pulumi.Aws.Outposts
         ///         },
         ///     });
         /// 
-        ///     var exampleEc2Instance = new Aws.Ec2Instance("example", new()
+        ///     var exampleInstance = new Aws.Ec2.Instance("example", new()
         ///     {
-        ///         InstanceType = example.Apply(getOutpostInstanceTypeResult =&gt; getOutpostInstanceTypeResult.InstanceType),
+        ///         InstanceType = example.Apply(getOutpostInstanceTypeResult =&gt; getOutpostInstanceTypeResult.InstanceType).Apply(System.Enum.Parse&lt;Aws.Ec2.InstanceType&gt;),
         ///     });
         /// 
         /// });
@@ -102,9 +102,9 @@ namespace Pulumi.Aws.Outposts
         ///         },
         ///     });
         /// 
-        ///     var exampleEc2Instance = new Aws.Ec2Instance("example", new()
+        ///     var exampleInstance = new Aws.Ec2.Instance("example", new()
         ///     {
-        ///         InstanceType = example.Apply(getOutpostInstanceTypeResult =&gt; getOutpostInstanceTypeResult.InstanceType),
+        ///         InstanceType = example.Apply(getOutpostInstanceTypeResult =&gt; getOutpostInstanceTypeResult.InstanceType).Apply(System.Enum.Parse&lt;Aws.Ec2.InstanceType&gt;),
         ///     });
         /// 
         /// });

@@ -10,13 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class NetworkOciDnsForwardingConfig {
+    /**
+     * @return Domain name for which the DNS queries are forwarded.
+     * 
+     */
     private String domainName;
+    /**
+     * @return IP address of the OCI DNS listener.
+     * 
+     */
     private String ociDnsListenerIp;
 
     private NetworkOciDnsForwardingConfig() {}
+    /**
+     * @return Domain name for which the DNS queries are forwarded.
+     * 
+     */
     public String domainName() {
         return this.domainName;
     }
+    /**
+     * @return IP address of the OCI DNS listener.
+     * 
+     */
     public String ociDnsListenerIp() {
         return this.ociDnsListenerIp;
     }

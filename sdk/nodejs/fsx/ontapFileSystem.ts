@@ -148,7 +148,7 @@ export class OntapFileSystem extends pulumi.CustomResource {
      */
     declare public readonly endpointIpAddressRange: pulumi.Output<string>;
     /**
-     * Endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+     * Endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See `endpoints` below.
      */
     declare public /*out*/ readonly endpoints: pulumi.Output<outputs.fsx.OntapFileSystemEndpoint[]>;
     /**
@@ -344,7 +344,7 @@ export interface OntapFileSystemState {
      */
     endpointIpAddressRange?: pulumi.Input<string | undefined>;
     /**
-     * Endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+     * Endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See `endpoints` below.
      */
     endpoints?: pulumi.Input<pulumi.Input<inputs.fsx.OntapFileSystemEndpoint>[] | undefined>;
     /**

@@ -645,7 +645,7 @@ namespace Pulumi.Aws.S3
         public Output<bool?> Eventbridge { get; private set; } = null!;
 
         /// <summary>
-        /// Used to configure notifications to a Lambda Function. See below.
+        /// Notification configuration to a Lambda Function. See below.
         /// </summary>
         [Output("lambdaFunctions")]
         public Output<ImmutableArray<Outputs.BucketNotificationLambdaFunction>> LambdaFunctions { get; private set; } = null!;
@@ -732,7 +732,7 @@ namespace Pulumi.Aws.S3
         private InputList<Inputs.BucketNotificationLambdaFunctionArgs>? _lambdaFunctions;
 
         /// <summary>
-        /// Used to configure notifications to a Lambda Function. See below.
+        /// Notification configuration to a Lambda Function. See below.
         /// </summary>
         public InputList<Inputs.BucketNotificationLambdaFunctionArgs> LambdaFunctions
         {
@@ -796,7 +796,7 @@ namespace Pulumi.Aws.S3
         private InputList<Inputs.BucketNotificationLambdaFunctionGetArgs>? _lambdaFunctions;
 
         /// <summary>
-        /// Used to configure notifications to a Lambda Function. See below.
+        /// Notification configuration to a Lambda Function. See below.
         /// </summary>
         public InputList<Inputs.BucketNotificationLambdaFunctionGetArgs> LambdaFunctions
         {

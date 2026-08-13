@@ -147,7 +147,7 @@ func (o PlanAssociatedAlarmArrayOutput) Index(i pulumi.IntInput) PlanAssociatedA
 }
 
 type PlanReportConfiguration struct {
-	// Output destination for the report. See Report Output below.
+	// Output destination for the report. See `reportOutput` Block for details.
 	ReportOutputs []PlanReportConfigurationReportOutput `pulumi:"reportOutputs"`
 }
 
@@ -163,7 +163,7 @@ type PlanReportConfigurationInput interface {
 }
 
 type PlanReportConfigurationArgs struct {
-	// Output destination for the report. See Report Output below.
+	// Output destination for the report. See `reportOutput` Block for details.
 	ReportOutputs PlanReportConfigurationReportOutputArrayInput `pulumi:"reportOutputs"`
 }
 
@@ -218,7 +218,7 @@ func (o PlanReportConfigurationOutput) ToPlanReportConfigurationOutputWithContex
 	return o
 }
 
-// Output destination for the report. See Report Output below.
+// Output destination for the report. See `reportOutput` Block for details.
 func (o PlanReportConfigurationOutput) ReportOutputs() PlanReportConfigurationReportOutputArrayOutput {
 	return o.ApplyT(func(v PlanReportConfiguration) []PlanReportConfigurationReportOutput { return v.ReportOutputs }).(PlanReportConfigurationReportOutputArrayOutput)
 }
@@ -244,7 +244,7 @@ func (o PlanReportConfigurationArrayOutput) Index(i pulumi.IntInput) PlanReportC
 }
 
 type PlanReportConfigurationReportOutput struct {
-	// S3 output configuration. See S3 Configuration below.
+	// S3 output configuration. See `s3Configuration` Block for details.
 	S3Configurations []PlanReportConfigurationReportOutputS3Configuration `pulumi:"s3Configurations"`
 }
 
@@ -260,7 +260,7 @@ type PlanReportConfigurationReportOutputInput interface {
 }
 
 type PlanReportConfigurationReportOutputArgs struct {
-	// S3 output configuration. See S3 Configuration below.
+	// S3 output configuration. See `s3Configuration` Block for details.
 	S3Configurations PlanReportConfigurationReportOutputS3ConfigurationArrayInput `pulumi:"s3Configurations"`
 }
 
@@ -315,7 +315,7 @@ func (o PlanReportConfigurationReportOutputOutput) ToPlanReportConfigurationRepo
 	return o
 }
 
-// S3 output configuration. See S3 Configuration below.
+// S3 output configuration. See `s3Configuration` Block for details.
 func (o PlanReportConfigurationReportOutputOutput) S3Configurations() PlanReportConfigurationReportOutputS3ConfigurationArrayOutput {
 	return o.ApplyT(func(v PlanReportConfigurationReportOutput) []PlanReportConfigurationReportOutputS3Configuration {
 		return v.S3Configurations
@@ -626,7 +626,7 @@ func (o PlanTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 type PlanTrigger struct {
 	// Action to trigger. Valid values: `activate`, `deactivate`.
 	Action string `pulumi:"action"`
-	// List of conditions that must be met. See Conditions below.
+	// Conditions that must be met. See `conditions` Block for details.
 	Conditions []PlanTriggerCondition `pulumi:"conditions"`
 	// Description of the trigger.
 	Description *string `pulumi:"description"`
@@ -650,7 +650,7 @@ type PlanTriggerInput interface {
 type PlanTriggerArgs struct {
 	// Action to trigger. Valid values: `activate`, `deactivate`.
 	Action pulumi.StringInput `pulumi:"action"`
-	// List of conditions that must be met. See Conditions below.
+	// Conditions that must be met. See `conditions` Block for details.
 	Conditions PlanTriggerConditionArrayInput `pulumi:"conditions"`
 	// Description of the trigger.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -716,7 +716,7 @@ func (o PlanTriggerOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanTrigger) string { return v.Action }).(pulumi.StringOutput)
 }
 
-// List of conditions that must be met. See Conditions below.
+// Conditions that must be met. See `conditions` Block for details.
 func (o PlanTriggerOutput) Conditions() PlanTriggerConditionArrayOutput {
 	return o.ApplyT(func(v PlanTrigger) []PlanTriggerCondition { return v.Conditions }).(PlanTriggerConditionArrayOutput)
 }
@@ -863,7 +863,7 @@ func (o PlanTriggerConditionArrayOutput) Index(i pulumi.IntInput) PlanTriggerCon
 }
 
 type PlanWorkflow struct {
-	// List of steps in the workflow. See Step below.
+	// Steps in the workflow. See `step` Block for details.
 	Steps []PlanWorkflowStep `pulumi:"steps"`
 	// Description of the workflow.
 	WorkflowDescription *string `pulumi:"workflowDescription"`
@@ -885,7 +885,7 @@ type PlanWorkflowInput interface {
 }
 
 type PlanWorkflowArgs struct {
-	// List of steps in the workflow. See Step below.
+	// Steps in the workflow. See `step` Block for details.
 	Steps PlanWorkflowStepArrayInput `pulumi:"steps"`
 	// Description of the workflow.
 	WorkflowDescription pulumi.StringPtrInput `pulumi:"workflowDescription"`
@@ -946,7 +946,7 @@ func (o PlanWorkflowOutput) ToPlanWorkflowOutputWithContext(ctx context.Context)
 	return o
 }
 
-// List of steps in the workflow. See Step below.
+// Steps in the workflow. See `step` Block for details.
 func (o PlanWorkflowOutput) Steps() PlanWorkflowStepArrayOutput {
 	return o.ApplyT(func(v PlanWorkflow) []PlanWorkflowStep { return v.Steps }).(PlanWorkflowStepArrayOutput)
 }
@@ -987,36 +987,45 @@ func (o PlanWorkflowArrayOutput) Index(i pulumi.IntInput) PlanWorkflowOutput {
 }
 
 type PlanWorkflowStep struct {
-	// Configuration for ARC routing control. See ARC Routing Control Config below.
+	// Configuration for ARC routing control. See `arcRoutingControlConfig` Block for details.
 	ArcRoutingControlConfigs []PlanWorkflowStepArcRoutingControlConfig `pulumi:"arcRoutingControlConfigs"`
-	// Configuration for Lambda function execution. See Custom Action Lambda Config below.
+	// Configuration for Aurora provisioned scaling. See `auroraProvisionedScalingConfig` Block for details.
+	AuroraProvisionedScalingConfigs []PlanWorkflowStepAuroraProvisionedScalingConfig `pulumi:"auroraProvisionedScalingConfigs"`
+	// Configuration for Aurora Serverless scaling. See `auroraServerlessScalingConfig` Block for details.
+	AuroraServerlessScalingConfigs []PlanWorkflowStepAuroraServerlessScalingConfig `pulumi:"auroraServerlessScalingConfigs"`
+	// Configuration for Lambda function execution. See `customActionLambdaConfig` Block for details.
 	CustomActionLambdaConfigs []PlanWorkflowStepCustomActionLambdaConfig `pulumi:"customActionLambdaConfigs"`
 	// Description of the step.
 	Description *string `pulumi:"description"`
-	// Configuration for DocumentDB global cluster operations. See DocumentDB Config below.
+	// Configuration for DocumentDB global cluster operations. See `documentDbConfig` Block for details.
 	DocumentDbConfigs []PlanWorkflowStepDocumentDbConfig `pulumi:"documentDbConfigs"`
-	// Configuration for EC2 Auto Scaling group capacity increase. See EC2 ASG Capacity Increase Config below.
+	// Configuration for EC2 Auto Scaling group capacity increase. See `ec2AsgCapacityIncreaseConfig` Block for details.
 	Ec2AsgCapacityIncreaseConfigs []PlanWorkflowStepEc2AsgCapacityIncreaseConfig `pulumi:"ec2AsgCapacityIncreaseConfigs"`
-	// Configuration for ECS service capacity increase. See ECS Capacity Increase Config below.
+	// Configuration for ECS service capacity increase. See `ecsCapacityIncreaseConfig` Block for details.
 	EcsCapacityIncreaseConfigs []PlanWorkflowStepEcsCapacityIncreaseConfig `pulumi:"ecsCapacityIncreaseConfigs"`
-	// Configuration for EKS resource scaling. See EKS Resource Scaling Config below.
+	// Configuration for EKS resource scaling. See `eksResourceScalingConfig` Block for details.
 	EksResourceScalingConfigs []PlanWorkflowStepEksResourceScalingConfig `pulumi:"eksResourceScalingConfigs"`
-	// Configuration for manual approval steps. See Execution Approval Config below.
+	// Configuration for manual approval steps. See `executionApprovalConfig` Block for details.
 	ExecutionApprovalConfigs []PlanWorkflowStepExecutionApprovalConfig `pulumi:"executionApprovalConfigs"`
 	// Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `Route53HealthCheck`.
 	ExecutionBlockType string `pulumi:"executionBlockType"`
-	// Configuration for Aurora Global Database operations. See Global Aurora Config below.
+	// Configuration for Aurora Global Database operations. See `globalAuroraConfig` Block for details.
 	GlobalAuroraConfigs []PlanWorkflowStepGlobalAuroraConfig `pulumi:"globalAuroraConfigs"`
+	// Configuration for Lambda event source mapping operations. See `lambdaEventSourceMappingConfig` Block for details.
+	LambdaEventSourceMappingConfigs []PlanWorkflowStepLambdaEventSourceMappingConfig `pulumi:"lambdaEventSourceMappingConfigs"`
 	// Name of the step.
 	Name string `pulumi:"name"`
-	// Configuration for parallel execution of multiple steps. See Parallel Config below.
+	// Configuration for Neptune global database operations. See `neptuneGlobalDatabaseConfig` Block for details.
+	NeptuneGlobalDatabaseConfigs []PlanWorkflowStepNeptuneGlobalDatabaseConfig `pulumi:"neptuneGlobalDatabaseConfigs"`
+	// Configuration for parallel execution of multiple steps. See `parallelConfig` Block for details.
 	ParallelConfigs []PlanWorkflowStepParallelConfig `pulumi:"parallelConfigs"`
-	// Configuration for creating cross-region RDS read replicas. See RDS Create Cross Region Read Replica Config below.
+	// Configuration for creating cross-region RDS read replicas. See `rdsCreateCrossRegionReadReplicaConfig` Block for details.
 	RdsCreateCrossRegionReadReplicaConfigs []PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfig `pulumi:"rdsCreateCrossRegionReadReplicaConfigs"`
-	// Configuration for promoting RDS read replicas. See RDS Promote Read Replica Config below.
+	// Configuration for promoting RDS read replicas. See `rdsPromoteReadReplicaConfig` Block for details.
 	RdsPromoteReadReplicaConfigs []PlanWorkflowStepRdsPromoteReadReplicaConfig `pulumi:"rdsPromoteReadReplicaConfigs"`
-	RegionSwitchPlanConfigs      []PlanWorkflowStepRegionSwitchPlanConfig      `pulumi:"regionSwitchPlanConfigs"`
-	// Configuration for Route53 health check operations. See Route53 Health Check Config below.
+	// Configuration for executing a nested region switch plan. See `regionSwitchPlanConfig` Block for details.
+	RegionSwitchPlanConfigs []PlanWorkflowStepRegionSwitchPlanConfig `pulumi:"regionSwitchPlanConfigs"`
+	// Configuration for Route53 health check operations. See `route53HealthCheckConfig` Block for details.
 	Route53HealthCheckConfigs []PlanWorkflowStepRoute53HealthCheckConfig `pulumi:"route53HealthCheckConfigs"`
 }
 
@@ -1032,36 +1041,45 @@ type PlanWorkflowStepInput interface {
 }
 
 type PlanWorkflowStepArgs struct {
-	// Configuration for ARC routing control. See ARC Routing Control Config below.
+	// Configuration for ARC routing control. See `arcRoutingControlConfig` Block for details.
 	ArcRoutingControlConfigs PlanWorkflowStepArcRoutingControlConfigArrayInput `pulumi:"arcRoutingControlConfigs"`
-	// Configuration for Lambda function execution. See Custom Action Lambda Config below.
+	// Configuration for Aurora provisioned scaling. See `auroraProvisionedScalingConfig` Block for details.
+	AuroraProvisionedScalingConfigs PlanWorkflowStepAuroraProvisionedScalingConfigArrayInput `pulumi:"auroraProvisionedScalingConfigs"`
+	// Configuration for Aurora Serverless scaling. See `auroraServerlessScalingConfig` Block for details.
+	AuroraServerlessScalingConfigs PlanWorkflowStepAuroraServerlessScalingConfigArrayInput `pulumi:"auroraServerlessScalingConfigs"`
+	// Configuration for Lambda function execution. See `customActionLambdaConfig` Block for details.
 	CustomActionLambdaConfigs PlanWorkflowStepCustomActionLambdaConfigArrayInput `pulumi:"customActionLambdaConfigs"`
 	// Description of the step.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Configuration for DocumentDB global cluster operations. See DocumentDB Config below.
+	// Configuration for DocumentDB global cluster operations. See `documentDbConfig` Block for details.
 	DocumentDbConfigs PlanWorkflowStepDocumentDbConfigArrayInput `pulumi:"documentDbConfigs"`
-	// Configuration for EC2 Auto Scaling group capacity increase. See EC2 ASG Capacity Increase Config below.
+	// Configuration for EC2 Auto Scaling group capacity increase. See `ec2AsgCapacityIncreaseConfig` Block for details.
 	Ec2AsgCapacityIncreaseConfigs PlanWorkflowStepEc2AsgCapacityIncreaseConfigArrayInput `pulumi:"ec2AsgCapacityIncreaseConfigs"`
-	// Configuration for ECS service capacity increase. See ECS Capacity Increase Config below.
+	// Configuration for ECS service capacity increase. See `ecsCapacityIncreaseConfig` Block for details.
 	EcsCapacityIncreaseConfigs PlanWorkflowStepEcsCapacityIncreaseConfigArrayInput `pulumi:"ecsCapacityIncreaseConfigs"`
-	// Configuration for EKS resource scaling. See EKS Resource Scaling Config below.
+	// Configuration for EKS resource scaling. See `eksResourceScalingConfig` Block for details.
 	EksResourceScalingConfigs PlanWorkflowStepEksResourceScalingConfigArrayInput `pulumi:"eksResourceScalingConfigs"`
-	// Configuration for manual approval steps. See Execution Approval Config below.
+	// Configuration for manual approval steps. See `executionApprovalConfig` Block for details.
 	ExecutionApprovalConfigs PlanWorkflowStepExecutionApprovalConfigArrayInput `pulumi:"executionApprovalConfigs"`
 	// Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `Route53HealthCheck`.
 	ExecutionBlockType pulumi.StringInput `pulumi:"executionBlockType"`
-	// Configuration for Aurora Global Database operations. See Global Aurora Config below.
+	// Configuration for Aurora Global Database operations. See `globalAuroraConfig` Block for details.
 	GlobalAuroraConfigs PlanWorkflowStepGlobalAuroraConfigArrayInput `pulumi:"globalAuroraConfigs"`
+	// Configuration for Lambda event source mapping operations. See `lambdaEventSourceMappingConfig` Block for details.
+	LambdaEventSourceMappingConfigs PlanWorkflowStepLambdaEventSourceMappingConfigArrayInput `pulumi:"lambdaEventSourceMappingConfigs"`
 	// Name of the step.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Configuration for parallel execution of multiple steps. See Parallel Config below.
+	// Configuration for Neptune global database operations. See `neptuneGlobalDatabaseConfig` Block for details.
+	NeptuneGlobalDatabaseConfigs PlanWorkflowStepNeptuneGlobalDatabaseConfigArrayInput `pulumi:"neptuneGlobalDatabaseConfigs"`
+	// Configuration for parallel execution of multiple steps. See `parallelConfig` Block for details.
 	ParallelConfigs PlanWorkflowStepParallelConfigArrayInput `pulumi:"parallelConfigs"`
-	// Configuration for creating cross-region RDS read replicas. See RDS Create Cross Region Read Replica Config below.
+	// Configuration for creating cross-region RDS read replicas. See `rdsCreateCrossRegionReadReplicaConfig` Block for details.
 	RdsCreateCrossRegionReadReplicaConfigs PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArrayInput `pulumi:"rdsCreateCrossRegionReadReplicaConfigs"`
-	// Configuration for promoting RDS read replicas. See RDS Promote Read Replica Config below.
+	// Configuration for promoting RDS read replicas. See `rdsPromoteReadReplicaConfig` Block for details.
 	RdsPromoteReadReplicaConfigs PlanWorkflowStepRdsPromoteReadReplicaConfigArrayInput `pulumi:"rdsPromoteReadReplicaConfigs"`
-	RegionSwitchPlanConfigs      PlanWorkflowStepRegionSwitchPlanConfigArrayInput      `pulumi:"regionSwitchPlanConfigs"`
-	// Configuration for Route53 health check operations. See Route53 Health Check Config below.
+	// Configuration for executing a nested region switch plan. See `regionSwitchPlanConfig` Block for details.
+	RegionSwitchPlanConfigs PlanWorkflowStepRegionSwitchPlanConfigArrayInput `pulumi:"regionSwitchPlanConfigs"`
+	// Configuration for Route53 health check operations. See `route53HealthCheckConfig` Block for details.
 	Route53HealthCheckConfigs PlanWorkflowStepRoute53HealthCheckConfigArrayInput `pulumi:"route53HealthCheckConfigs"`
 }
 
@@ -1116,12 +1134,26 @@ func (o PlanWorkflowStepOutput) ToPlanWorkflowStepOutputWithContext(ctx context.
 	return o
 }
 
-// Configuration for ARC routing control. See ARC Routing Control Config below.
+// Configuration for ARC routing control. See `arcRoutingControlConfig` Block for details.
 func (o PlanWorkflowStepOutput) ArcRoutingControlConfigs() PlanWorkflowStepArcRoutingControlConfigArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStep) []PlanWorkflowStepArcRoutingControlConfig { return v.ArcRoutingControlConfigs }).(PlanWorkflowStepArcRoutingControlConfigArrayOutput)
 }
 
-// Configuration for Lambda function execution. See Custom Action Lambda Config below.
+// Configuration for Aurora provisioned scaling. See `auroraProvisionedScalingConfig` Block for details.
+func (o PlanWorkflowStepOutput) AuroraProvisionedScalingConfigs() PlanWorkflowStepAuroraProvisionedScalingConfigArrayOutput {
+	return o.ApplyT(func(v PlanWorkflowStep) []PlanWorkflowStepAuroraProvisionedScalingConfig {
+		return v.AuroraProvisionedScalingConfigs
+	}).(PlanWorkflowStepAuroraProvisionedScalingConfigArrayOutput)
+}
+
+// Configuration for Aurora Serverless scaling. See `auroraServerlessScalingConfig` Block for details.
+func (o PlanWorkflowStepOutput) AuroraServerlessScalingConfigs() PlanWorkflowStepAuroraServerlessScalingConfigArrayOutput {
+	return o.ApplyT(func(v PlanWorkflowStep) []PlanWorkflowStepAuroraServerlessScalingConfig {
+		return v.AuroraServerlessScalingConfigs
+	}).(PlanWorkflowStepAuroraServerlessScalingConfigArrayOutput)
+}
+
+// Configuration for Lambda function execution. See `customActionLambdaConfig` Block for details.
 func (o PlanWorkflowStepOutput) CustomActionLambdaConfigs() PlanWorkflowStepCustomActionLambdaConfigArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStep) []PlanWorkflowStepCustomActionLambdaConfig {
 		return v.CustomActionLambdaConfigs
@@ -1133,33 +1165,33 @@ func (o PlanWorkflowStepOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PlanWorkflowStep) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Configuration for DocumentDB global cluster operations. See DocumentDB Config below.
+// Configuration for DocumentDB global cluster operations. See `documentDbConfig` Block for details.
 func (o PlanWorkflowStepOutput) DocumentDbConfigs() PlanWorkflowStepDocumentDbConfigArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStep) []PlanWorkflowStepDocumentDbConfig { return v.DocumentDbConfigs }).(PlanWorkflowStepDocumentDbConfigArrayOutput)
 }
 
-// Configuration for EC2 Auto Scaling group capacity increase. See EC2 ASG Capacity Increase Config below.
+// Configuration for EC2 Auto Scaling group capacity increase. See `ec2AsgCapacityIncreaseConfig` Block for details.
 func (o PlanWorkflowStepOutput) Ec2AsgCapacityIncreaseConfigs() PlanWorkflowStepEc2AsgCapacityIncreaseConfigArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStep) []PlanWorkflowStepEc2AsgCapacityIncreaseConfig {
 		return v.Ec2AsgCapacityIncreaseConfigs
 	}).(PlanWorkflowStepEc2AsgCapacityIncreaseConfigArrayOutput)
 }
 
-// Configuration for ECS service capacity increase. See ECS Capacity Increase Config below.
+// Configuration for ECS service capacity increase. See `ecsCapacityIncreaseConfig` Block for details.
 func (o PlanWorkflowStepOutput) EcsCapacityIncreaseConfigs() PlanWorkflowStepEcsCapacityIncreaseConfigArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStep) []PlanWorkflowStepEcsCapacityIncreaseConfig {
 		return v.EcsCapacityIncreaseConfigs
 	}).(PlanWorkflowStepEcsCapacityIncreaseConfigArrayOutput)
 }
 
-// Configuration for EKS resource scaling. See EKS Resource Scaling Config below.
+// Configuration for EKS resource scaling. See `eksResourceScalingConfig` Block for details.
 func (o PlanWorkflowStepOutput) EksResourceScalingConfigs() PlanWorkflowStepEksResourceScalingConfigArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStep) []PlanWorkflowStepEksResourceScalingConfig {
 		return v.EksResourceScalingConfigs
 	}).(PlanWorkflowStepEksResourceScalingConfigArrayOutput)
 }
 
-// Configuration for manual approval steps. See Execution Approval Config below.
+// Configuration for manual approval steps. See `executionApprovalConfig` Block for details.
 func (o PlanWorkflowStepOutput) ExecutionApprovalConfigs() PlanWorkflowStepExecutionApprovalConfigArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStep) []PlanWorkflowStepExecutionApprovalConfig { return v.ExecutionApprovalConfigs }).(PlanWorkflowStepExecutionApprovalConfigArrayOutput)
 }
@@ -1169,9 +1201,16 @@ func (o PlanWorkflowStepOutput) ExecutionBlockType() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanWorkflowStep) string { return v.ExecutionBlockType }).(pulumi.StringOutput)
 }
 
-// Configuration for Aurora Global Database operations. See Global Aurora Config below.
+// Configuration for Aurora Global Database operations. See `globalAuroraConfig` Block for details.
 func (o PlanWorkflowStepOutput) GlobalAuroraConfigs() PlanWorkflowStepGlobalAuroraConfigArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStep) []PlanWorkflowStepGlobalAuroraConfig { return v.GlobalAuroraConfigs }).(PlanWorkflowStepGlobalAuroraConfigArrayOutput)
+}
+
+// Configuration for Lambda event source mapping operations. See `lambdaEventSourceMappingConfig` Block for details.
+func (o PlanWorkflowStepOutput) LambdaEventSourceMappingConfigs() PlanWorkflowStepLambdaEventSourceMappingConfigArrayOutput {
+	return o.ApplyT(func(v PlanWorkflowStep) []PlanWorkflowStepLambdaEventSourceMappingConfig {
+		return v.LambdaEventSourceMappingConfigs
+	}).(PlanWorkflowStepLambdaEventSourceMappingConfigArrayOutput)
 }
 
 // Name of the step.
@@ -1179,30 +1218,38 @@ func (o PlanWorkflowStepOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanWorkflowStep) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Configuration for parallel execution of multiple steps. See Parallel Config below.
+// Configuration for Neptune global database operations. See `neptuneGlobalDatabaseConfig` Block for details.
+func (o PlanWorkflowStepOutput) NeptuneGlobalDatabaseConfigs() PlanWorkflowStepNeptuneGlobalDatabaseConfigArrayOutput {
+	return o.ApplyT(func(v PlanWorkflowStep) []PlanWorkflowStepNeptuneGlobalDatabaseConfig {
+		return v.NeptuneGlobalDatabaseConfigs
+	}).(PlanWorkflowStepNeptuneGlobalDatabaseConfigArrayOutput)
+}
+
+// Configuration for parallel execution of multiple steps. See `parallelConfig` Block for details.
 func (o PlanWorkflowStepOutput) ParallelConfigs() PlanWorkflowStepParallelConfigArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStep) []PlanWorkflowStepParallelConfig { return v.ParallelConfigs }).(PlanWorkflowStepParallelConfigArrayOutput)
 }
 
-// Configuration for creating cross-region RDS read replicas. See RDS Create Cross Region Read Replica Config below.
+// Configuration for creating cross-region RDS read replicas. See `rdsCreateCrossRegionReadReplicaConfig` Block for details.
 func (o PlanWorkflowStepOutput) RdsCreateCrossRegionReadReplicaConfigs() PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStep) []PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfig {
 		return v.RdsCreateCrossRegionReadReplicaConfigs
 	}).(PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArrayOutput)
 }
 
-// Configuration for promoting RDS read replicas. See RDS Promote Read Replica Config below.
+// Configuration for promoting RDS read replicas. See `rdsPromoteReadReplicaConfig` Block for details.
 func (o PlanWorkflowStepOutput) RdsPromoteReadReplicaConfigs() PlanWorkflowStepRdsPromoteReadReplicaConfigArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStep) []PlanWorkflowStepRdsPromoteReadReplicaConfig {
 		return v.RdsPromoteReadReplicaConfigs
 	}).(PlanWorkflowStepRdsPromoteReadReplicaConfigArrayOutput)
 }
 
+// Configuration for executing a nested region switch plan. See `regionSwitchPlanConfig` Block for details.
 func (o PlanWorkflowStepOutput) RegionSwitchPlanConfigs() PlanWorkflowStepRegionSwitchPlanConfigArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStep) []PlanWorkflowStepRegionSwitchPlanConfig { return v.RegionSwitchPlanConfigs }).(PlanWorkflowStepRegionSwitchPlanConfigArrayOutput)
 }
 
-// Configuration for Route53 health check operations. See Route53 Health Check Config below.
+// Configuration for Route53 health check operations. See `route53HealthCheckConfig` Block for details.
 func (o PlanWorkflowStepOutput) Route53HealthCheckConfigs() PlanWorkflowStepRoute53HealthCheckConfigArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStep) []PlanWorkflowStepRoute53HealthCheckConfig {
 		return v.Route53HealthCheckConfigs
@@ -1234,7 +1281,7 @@ type PlanWorkflowStepArcRoutingControlConfig struct {
 	CrossAccountRole *string `pulumi:"crossAccountRole"`
 	// External ID for cross-account role assumption.
 	ExternalId *string `pulumi:"externalId"`
-	// List of regions and their routing controls. See Region and Routing Controls below.
+	// Regions and their routing controls. See `regionAndRoutingControls` Block for details.
 	RegionAndRoutingControls []PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControl `pulumi:"regionAndRoutingControls"`
 	// Timeout in minutes.
 	TimeoutMinutes *int `pulumi:"timeoutMinutes"`
@@ -1256,7 +1303,7 @@ type PlanWorkflowStepArcRoutingControlConfigArgs struct {
 	CrossAccountRole pulumi.StringPtrInput `pulumi:"crossAccountRole"`
 	// External ID for cross-account role assumption.
 	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
-	// List of regions and their routing controls. See Region and Routing Controls below.
+	// Regions and their routing controls. See `regionAndRoutingControls` Block for details.
 	RegionAndRoutingControls PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlArrayInput `pulumi:"regionAndRoutingControls"`
 	// Timeout in minutes.
 	TimeoutMinutes pulumi.IntPtrInput `pulumi:"timeoutMinutes"`
@@ -1323,7 +1370,7 @@ func (o PlanWorkflowStepArcRoutingControlConfigOutput) ExternalId() pulumi.Strin
 	return o.ApplyT(func(v PlanWorkflowStepArcRoutingControlConfig) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
 }
 
-// List of regions and their routing controls. See Region and Routing Controls below.
+// Regions and their routing controls. See `regionAndRoutingControls` Block for details.
 func (o PlanWorkflowStepArcRoutingControlConfigOutput) RegionAndRoutingControls() PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStepArcRoutingControlConfig) []PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControl {
 		return v.RegionAndRoutingControls
@@ -1358,7 +1405,7 @@ func (o PlanWorkflowStepArcRoutingControlConfigArrayOutput) Index(i pulumi.IntIn
 type PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControl struct {
 	// AWS region.
 	Region string `pulumi:"region"`
-	// List of routing controls. See Routing Control below.
+	// Routing controls. See `routingControl` Block for details.
 	RoutingControls []PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlRoutingControl `pulumi:"routingControls"`
 }
 
@@ -1376,7 +1423,7 @@ type PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlInput interfa
 type PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlArgs struct {
 	// AWS region.
 	Region pulumi.StringInput `pulumi:"region"`
-	// List of routing controls. See Routing Control below.
+	// Routing controls. See `routingControl` Block for details.
 	RoutingControls PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlRoutingControlArrayInput `pulumi:"routingControls"`
 }
 
@@ -1436,7 +1483,7 @@ func (o PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlOutput) Re
 	return o.ApplyT(func(v PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControl) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// List of routing controls. See Routing Control below.
+// Routing controls. See `routingControl` Block for details.
 func (o PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlOutput) RoutingControls() PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlRoutingControlArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControl) []PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlRoutingControl {
 		return v.RoutingControls
@@ -1573,8 +1620,296 @@ func (o PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlRoutingCon
 	}).(PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlRoutingControlOutput)
 }
 
+type PlanWorkflowStepAuroraProvisionedScalingConfig struct {
+	// ARN of the cross-account role to assume.
+	CrossAccountRole *string `pulumi:"crossAccountRole"`
+	// External ID for cross-account role assumption.
+	ExternalId *string `pulumi:"externalId"`
+	// Global cluster identifier.
+	GlobalClusterIdentifier string `pulumi:"globalClusterIdentifier"`
+	// Map of regions to Aurora instance ARNs.
+	InstanceArns map[string]string `pulumi:"instanceArns"`
+	// Map of regions to database cluster ARNs.
+	RegionDatabaseClusterArns map[string]string `pulumi:"regionDatabaseClusterArns"`
+	// Timeout in minutes.
+	TimeoutMinutes *int `pulumi:"timeoutMinutes"`
+}
+
+// PlanWorkflowStepAuroraProvisionedScalingConfigInput is an input type that accepts PlanWorkflowStepAuroraProvisionedScalingConfigArgs and PlanWorkflowStepAuroraProvisionedScalingConfigOutput values.
+// You can construct a concrete instance of `PlanWorkflowStepAuroraProvisionedScalingConfigInput` via:
+//
+//	PlanWorkflowStepAuroraProvisionedScalingConfigArgs{...}
+type PlanWorkflowStepAuroraProvisionedScalingConfigInput interface {
+	pulumi.Input
+
+	ToPlanWorkflowStepAuroraProvisionedScalingConfigOutput() PlanWorkflowStepAuroraProvisionedScalingConfigOutput
+	ToPlanWorkflowStepAuroraProvisionedScalingConfigOutputWithContext(context.Context) PlanWorkflowStepAuroraProvisionedScalingConfigOutput
+}
+
+type PlanWorkflowStepAuroraProvisionedScalingConfigArgs struct {
+	// ARN of the cross-account role to assume.
+	CrossAccountRole pulumi.StringPtrInput `pulumi:"crossAccountRole"`
+	// External ID for cross-account role assumption.
+	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
+	// Global cluster identifier.
+	GlobalClusterIdentifier pulumi.StringInput `pulumi:"globalClusterIdentifier"`
+	// Map of regions to Aurora instance ARNs.
+	InstanceArns pulumi.StringMapInput `pulumi:"instanceArns"`
+	// Map of regions to database cluster ARNs.
+	RegionDatabaseClusterArns pulumi.StringMapInput `pulumi:"regionDatabaseClusterArns"`
+	// Timeout in minutes.
+	TimeoutMinutes pulumi.IntPtrInput `pulumi:"timeoutMinutes"`
+}
+
+func (PlanWorkflowStepAuroraProvisionedScalingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanWorkflowStepAuroraProvisionedScalingConfig)(nil)).Elem()
+}
+
+func (i PlanWorkflowStepAuroraProvisionedScalingConfigArgs) ToPlanWorkflowStepAuroraProvisionedScalingConfigOutput() PlanWorkflowStepAuroraProvisionedScalingConfigOutput {
+	return i.ToPlanWorkflowStepAuroraProvisionedScalingConfigOutputWithContext(context.Background())
+}
+
+func (i PlanWorkflowStepAuroraProvisionedScalingConfigArgs) ToPlanWorkflowStepAuroraProvisionedScalingConfigOutputWithContext(ctx context.Context) PlanWorkflowStepAuroraProvisionedScalingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepAuroraProvisionedScalingConfigOutput)
+}
+
+// PlanWorkflowStepAuroraProvisionedScalingConfigArrayInput is an input type that accepts PlanWorkflowStepAuroraProvisionedScalingConfigArray and PlanWorkflowStepAuroraProvisionedScalingConfigArrayOutput values.
+// You can construct a concrete instance of `PlanWorkflowStepAuroraProvisionedScalingConfigArrayInput` via:
+//
+//	PlanWorkflowStepAuroraProvisionedScalingConfigArray{ PlanWorkflowStepAuroraProvisionedScalingConfigArgs{...} }
+type PlanWorkflowStepAuroraProvisionedScalingConfigArrayInput interface {
+	pulumi.Input
+
+	ToPlanWorkflowStepAuroraProvisionedScalingConfigArrayOutput() PlanWorkflowStepAuroraProvisionedScalingConfigArrayOutput
+	ToPlanWorkflowStepAuroraProvisionedScalingConfigArrayOutputWithContext(context.Context) PlanWorkflowStepAuroraProvisionedScalingConfigArrayOutput
+}
+
+type PlanWorkflowStepAuroraProvisionedScalingConfigArray []PlanWorkflowStepAuroraProvisionedScalingConfigInput
+
+func (PlanWorkflowStepAuroraProvisionedScalingConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanWorkflowStepAuroraProvisionedScalingConfig)(nil)).Elem()
+}
+
+func (i PlanWorkflowStepAuroraProvisionedScalingConfigArray) ToPlanWorkflowStepAuroraProvisionedScalingConfigArrayOutput() PlanWorkflowStepAuroraProvisionedScalingConfigArrayOutput {
+	return i.ToPlanWorkflowStepAuroraProvisionedScalingConfigArrayOutputWithContext(context.Background())
+}
+
+func (i PlanWorkflowStepAuroraProvisionedScalingConfigArray) ToPlanWorkflowStepAuroraProvisionedScalingConfigArrayOutputWithContext(ctx context.Context) PlanWorkflowStepAuroraProvisionedScalingConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepAuroraProvisionedScalingConfigArrayOutput)
+}
+
+type PlanWorkflowStepAuroraProvisionedScalingConfigOutput struct{ *pulumi.OutputState }
+
+func (PlanWorkflowStepAuroraProvisionedScalingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanWorkflowStepAuroraProvisionedScalingConfig)(nil)).Elem()
+}
+
+func (o PlanWorkflowStepAuroraProvisionedScalingConfigOutput) ToPlanWorkflowStepAuroraProvisionedScalingConfigOutput() PlanWorkflowStepAuroraProvisionedScalingConfigOutput {
+	return o
+}
+
+func (o PlanWorkflowStepAuroraProvisionedScalingConfigOutput) ToPlanWorkflowStepAuroraProvisionedScalingConfigOutputWithContext(ctx context.Context) PlanWorkflowStepAuroraProvisionedScalingConfigOutput {
+	return o
+}
+
+// ARN of the cross-account role to assume.
+func (o PlanWorkflowStepAuroraProvisionedScalingConfigOutput) CrossAccountRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStepAuroraProvisionedScalingConfig) *string { return v.CrossAccountRole }).(pulumi.StringPtrOutput)
+}
+
+// External ID for cross-account role assumption.
+func (o PlanWorkflowStepAuroraProvisionedScalingConfigOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStepAuroraProvisionedScalingConfig) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
+}
+
+// Global cluster identifier.
+func (o PlanWorkflowStepAuroraProvisionedScalingConfigOutput) GlobalClusterIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanWorkflowStepAuroraProvisionedScalingConfig) string { return v.GlobalClusterIdentifier }).(pulumi.StringOutput)
+}
+
+// Map of regions to Aurora instance ARNs.
+func (o PlanWorkflowStepAuroraProvisionedScalingConfigOutput) InstanceArns() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PlanWorkflowStepAuroraProvisionedScalingConfig) map[string]string { return v.InstanceArns }).(pulumi.StringMapOutput)
+}
+
+// Map of regions to database cluster ARNs.
+func (o PlanWorkflowStepAuroraProvisionedScalingConfigOutput) RegionDatabaseClusterArns() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PlanWorkflowStepAuroraProvisionedScalingConfig) map[string]string {
+		return v.RegionDatabaseClusterArns
+	}).(pulumi.StringMapOutput)
+}
+
+// Timeout in minutes.
+func (o PlanWorkflowStepAuroraProvisionedScalingConfigOutput) TimeoutMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStepAuroraProvisionedScalingConfig) *int { return v.TimeoutMinutes }).(pulumi.IntPtrOutput)
+}
+
+type PlanWorkflowStepAuroraProvisionedScalingConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (PlanWorkflowStepAuroraProvisionedScalingConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanWorkflowStepAuroraProvisionedScalingConfig)(nil)).Elem()
+}
+
+func (o PlanWorkflowStepAuroraProvisionedScalingConfigArrayOutput) ToPlanWorkflowStepAuroraProvisionedScalingConfigArrayOutput() PlanWorkflowStepAuroraProvisionedScalingConfigArrayOutput {
+	return o
+}
+
+func (o PlanWorkflowStepAuroraProvisionedScalingConfigArrayOutput) ToPlanWorkflowStepAuroraProvisionedScalingConfigArrayOutputWithContext(ctx context.Context) PlanWorkflowStepAuroraProvisionedScalingConfigArrayOutput {
+	return o
+}
+
+func (o PlanWorkflowStepAuroraProvisionedScalingConfigArrayOutput) Index(i pulumi.IntInput) PlanWorkflowStepAuroraProvisionedScalingConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PlanWorkflowStepAuroraProvisionedScalingConfig {
+		return vs[0].([]PlanWorkflowStepAuroraProvisionedScalingConfig)[vs[1].(int)]
+	}).(PlanWorkflowStepAuroraProvisionedScalingConfigOutput)
+}
+
+type PlanWorkflowStepAuroraServerlessScalingConfig struct {
+	// ARN of the cross-account role to assume.
+	CrossAccountRole *string `pulumi:"crossAccountRole"`
+	// External ID for cross-account role assumption.
+	ExternalId *string `pulumi:"externalId"`
+	// Global cluster identifier.
+	GlobalClusterIdentifier string `pulumi:"globalClusterIdentifier"`
+	// Map of regions to database cluster ARNs.
+	RegionDatabaseClusterArns map[string]string `pulumi:"regionDatabaseClusterArns"`
+	// Target capacity percentage.
+	TargetPercent *int `pulumi:"targetPercent"`
+	// Timeout in minutes.
+	TimeoutMinutes *int `pulumi:"timeoutMinutes"`
+}
+
+// PlanWorkflowStepAuroraServerlessScalingConfigInput is an input type that accepts PlanWorkflowStepAuroraServerlessScalingConfigArgs and PlanWorkflowStepAuroraServerlessScalingConfigOutput values.
+// You can construct a concrete instance of `PlanWorkflowStepAuroraServerlessScalingConfigInput` via:
+//
+//	PlanWorkflowStepAuroraServerlessScalingConfigArgs{...}
+type PlanWorkflowStepAuroraServerlessScalingConfigInput interface {
+	pulumi.Input
+
+	ToPlanWorkflowStepAuroraServerlessScalingConfigOutput() PlanWorkflowStepAuroraServerlessScalingConfigOutput
+	ToPlanWorkflowStepAuroraServerlessScalingConfigOutputWithContext(context.Context) PlanWorkflowStepAuroraServerlessScalingConfigOutput
+}
+
+type PlanWorkflowStepAuroraServerlessScalingConfigArgs struct {
+	// ARN of the cross-account role to assume.
+	CrossAccountRole pulumi.StringPtrInput `pulumi:"crossAccountRole"`
+	// External ID for cross-account role assumption.
+	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
+	// Global cluster identifier.
+	GlobalClusterIdentifier pulumi.StringInput `pulumi:"globalClusterIdentifier"`
+	// Map of regions to database cluster ARNs.
+	RegionDatabaseClusterArns pulumi.StringMapInput `pulumi:"regionDatabaseClusterArns"`
+	// Target capacity percentage.
+	TargetPercent pulumi.IntPtrInput `pulumi:"targetPercent"`
+	// Timeout in minutes.
+	TimeoutMinutes pulumi.IntPtrInput `pulumi:"timeoutMinutes"`
+}
+
+func (PlanWorkflowStepAuroraServerlessScalingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanWorkflowStepAuroraServerlessScalingConfig)(nil)).Elem()
+}
+
+func (i PlanWorkflowStepAuroraServerlessScalingConfigArgs) ToPlanWorkflowStepAuroraServerlessScalingConfigOutput() PlanWorkflowStepAuroraServerlessScalingConfigOutput {
+	return i.ToPlanWorkflowStepAuroraServerlessScalingConfigOutputWithContext(context.Background())
+}
+
+func (i PlanWorkflowStepAuroraServerlessScalingConfigArgs) ToPlanWorkflowStepAuroraServerlessScalingConfigOutputWithContext(ctx context.Context) PlanWorkflowStepAuroraServerlessScalingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepAuroraServerlessScalingConfigOutput)
+}
+
+// PlanWorkflowStepAuroraServerlessScalingConfigArrayInput is an input type that accepts PlanWorkflowStepAuroraServerlessScalingConfigArray and PlanWorkflowStepAuroraServerlessScalingConfigArrayOutput values.
+// You can construct a concrete instance of `PlanWorkflowStepAuroraServerlessScalingConfigArrayInput` via:
+//
+//	PlanWorkflowStepAuroraServerlessScalingConfigArray{ PlanWorkflowStepAuroraServerlessScalingConfigArgs{...} }
+type PlanWorkflowStepAuroraServerlessScalingConfigArrayInput interface {
+	pulumi.Input
+
+	ToPlanWorkflowStepAuroraServerlessScalingConfigArrayOutput() PlanWorkflowStepAuroraServerlessScalingConfigArrayOutput
+	ToPlanWorkflowStepAuroraServerlessScalingConfigArrayOutputWithContext(context.Context) PlanWorkflowStepAuroraServerlessScalingConfigArrayOutput
+}
+
+type PlanWorkflowStepAuroraServerlessScalingConfigArray []PlanWorkflowStepAuroraServerlessScalingConfigInput
+
+func (PlanWorkflowStepAuroraServerlessScalingConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanWorkflowStepAuroraServerlessScalingConfig)(nil)).Elem()
+}
+
+func (i PlanWorkflowStepAuroraServerlessScalingConfigArray) ToPlanWorkflowStepAuroraServerlessScalingConfigArrayOutput() PlanWorkflowStepAuroraServerlessScalingConfigArrayOutput {
+	return i.ToPlanWorkflowStepAuroraServerlessScalingConfigArrayOutputWithContext(context.Background())
+}
+
+func (i PlanWorkflowStepAuroraServerlessScalingConfigArray) ToPlanWorkflowStepAuroraServerlessScalingConfigArrayOutputWithContext(ctx context.Context) PlanWorkflowStepAuroraServerlessScalingConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepAuroraServerlessScalingConfigArrayOutput)
+}
+
+type PlanWorkflowStepAuroraServerlessScalingConfigOutput struct{ *pulumi.OutputState }
+
+func (PlanWorkflowStepAuroraServerlessScalingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanWorkflowStepAuroraServerlessScalingConfig)(nil)).Elem()
+}
+
+func (o PlanWorkflowStepAuroraServerlessScalingConfigOutput) ToPlanWorkflowStepAuroraServerlessScalingConfigOutput() PlanWorkflowStepAuroraServerlessScalingConfigOutput {
+	return o
+}
+
+func (o PlanWorkflowStepAuroraServerlessScalingConfigOutput) ToPlanWorkflowStepAuroraServerlessScalingConfigOutputWithContext(ctx context.Context) PlanWorkflowStepAuroraServerlessScalingConfigOutput {
+	return o
+}
+
+// ARN of the cross-account role to assume.
+func (o PlanWorkflowStepAuroraServerlessScalingConfigOutput) CrossAccountRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStepAuroraServerlessScalingConfig) *string { return v.CrossAccountRole }).(pulumi.StringPtrOutput)
+}
+
+// External ID for cross-account role assumption.
+func (o PlanWorkflowStepAuroraServerlessScalingConfigOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStepAuroraServerlessScalingConfig) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
+}
+
+// Global cluster identifier.
+func (o PlanWorkflowStepAuroraServerlessScalingConfigOutput) GlobalClusterIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanWorkflowStepAuroraServerlessScalingConfig) string { return v.GlobalClusterIdentifier }).(pulumi.StringOutput)
+}
+
+// Map of regions to database cluster ARNs.
+func (o PlanWorkflowStepAuroraServerlessScalingConfigOutput) RegionDatabaseClusterArns() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PlanWorkflowStepAuroraServerlessScalingConfig) map[string]string {
+		return v.RegionDatabaseClusterArns
+	}).(pulumi.StringMapOutput)
+}
+
+// Target capacity percentage.
+func (o PlanWorkflowStepAuroraServerlessScalingConfigOutput) TargetPercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStepAuroraServerlessScalingConfig) *int { return v.TargetPercent }).(pulumi.IntPtrOutput)
+}
+
+// Timeout in minutes.
+func (o PlanWorkflowStepAuroraServerlessScalingConfigOutput) TimeoutMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStepAuroraServerlessScalingConfig) *int { return v.TimeoutMinutes }).(pulumi.IntPtrOutput)
+}
+
+type PlanWorkflowStepAuroraServerlessScalingConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (PlanWorkflowStepAuroraServerlessScalingConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanWorkflowStepAuroraServerlessScalingConfig)(nil)).Elem()
+}
+
+func (o PlanWorkflowStepAuroraServerlessScalingConfigArrayOutput) ToPlanWorkflowStepAuroraServerlessScalingConfigArrayOutput() PlanWorkflowStepAuroraServerlessScalingConfigArrayOutput {
+	return o
+}
+
+func (o PlanWorkflowStepAuroraServerlessScalingConfigArrayOutput) ToPlanWorkflowStepAuroraServerlessScalingConfigArrayOutputWithContext(ctx context.Context) PlanWorkflowStepAuroraServerlessScalingConfigArrayOutput {
+	return o
+}
+
+func (o PlanWorkflowStepAuroraServerlessScalingConfigArrayOutput) Index(i pulumi.IntInput) PlanWorkflowStepAuroraServerlessScalingConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PlanWorkflowStepAuroraServerlessScalingConfig {
+		return vs[0].([]PlanWorkflowStepAuroraServerlessScalingConfig)[vs[1].(int)]
+	}).(PlanWorkflowStepAuroraServerlessScalingConfigOutput)
+}
+
 type PlanWorkflowStepCustomActionLambdaConfig struct {
-	// Lambda function configuration. See Lambda below.
+	// Lambda function configuration. See `lambda` Block for details.
 	Lambdas []PlanWorkflowStepCustomActionLambdaConfigLambda `pulumi:"lambdas"`
 	// Region where the Lambda function should run. Valid values: `activatingRegion`, `deactivatingRegion`.
 	RegionToRun string `pulumi:"regionToRun"`
@@ -1582,7 +1917,7 @@ type PlanWorkflowStepCustomActionLambdaConfig struct {
 	RetryIntervalMinutes float64 `pulumi:"retryIntervalMinutes"`
 	// Timeout in minutes.
 	TimeoutMinutes *int `pulumi:"timeoutMinutes"`
-	// Ungraceful behavior configuration. See Ungraceful below.
+	// Ungraceful behavior configuration. See `workflow.step.custom_action_lambda_config.ungraceful` Block for details.
 	Ungracefuls []PlanWorkflowStepCustomActionLambdaConfigUngraceful `pulumi:"ungracefuls"`
 }
 
@@ -1598,7 +1933,7 @@ type PlanWorkflowStepCustomActionLambdaConfigInput interface {
 }
 
 type PlanWorkflowStepCustomActionLambdaConfigArgs struct {
-	// Lambda function configuration. See Lambda below.
+	// Lambda function configuration. See `lambda` Block for details.
 	Lambdas PlanWorkflowStepCustomActionLambdaConfigLambdaArrayInput `pulumi:"lambdas"`
 	// Region where the Lambda function should run. Valid values: `activatingRegion`, `deactivatingRegion`.
 	RegionToRun pulumi.StringInput `pulumi:"regionToRun"`
@@ -1606,7 +1941,7 @@ type PlanWorkflowStepCustomActionLambdaConfigArgs struct {
 	RetryIntervalMinutes pulumi.Float64Input `pulumi:"retryIntervalMinutes"`
 	// Timeout in minutes.
 	TimeoutMinutes pulumi.IntPtrInput `pulumi:"timeoutMinutes"`
-	// Ungraceful behavior configuration. See Ungraceful below.
+	// Ungraceful behavior configuration. See `workflow.step.custom_action_lambda_config.ungraceful` Block for details.
 	Ungracefuls PlanWorkflowStepCustomActionLambdaConfigUngracefulArrayInput `pulumi:"ungracefuls"`
 }
 
@@ -1661,7 +1996,7 @@ func (o PlanWorkflowStepCustomActionLambdaConfigOutput) ToPlanWorkflowStepCustom
 	return o
 }
 
-// Lambda function configuration. See Lambda below.
+// Lambda function configuration. See `lambda` Block for details.
 func (o PlanWorkflowStepCustomActionLambdaConfigOutput) Lambdas() PlanWorkflowStepCustomActionLambdaConfigLambdaArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStepCustomActionLambdaConfig) []PlanWorkflowStepCustomActionLambdaConfigLambda {
 		return v.Lambdas
@@ -1683,7 +2018,7 @@ func (o PlanWorkflowStepCustomActionLambdaConfigOutput) TimeoutMinutes() pulumi.
 	return o.ApplyT(func(v PlanWorkflowStepCustomActionLambdaConfig) *int { return v.TimeoutMinutes }).(pulumi.IntPtrOutput)
 }
 
-// Ungraceful behavior configuration. See Ungraceful below.
+// Ungraceful behavior configuration. See `workflow.step.custom_action_lambda_config.ungraceful` Block for details.
 func (o PlanWorkflowStepCustomActionLambdaConfigOutput) Ungracefuls() PlanWorkflowStepCustomActionLambdaConfigUngracefulArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStepCustomActionLambdaConfig) []PlanWorkflowStepCustomActionLambdaConfigUngraceful {
 		return v.Ungracefuls
@@ -1826,7 +2161,6 @@ func (o PlanWorkflowStepCustomActionLambdaConfigLambdaArrayOutput) Index(i pulum
 }
 
 type PlanWorkflowStepCustomActionLambdaConfigUngraceful struct {
-	// Behavior when ungraceful. Valid values: `skip`.
 	Behavior string `pulumi:"behavior"`
 }
 
@@ -1842,7 +2176,6 @@ type PlanWorkflowStepCustomActionLambdaConfigUngracefulInput interface {
 }
 
 type PlanWorkflowStepCustomActionLambdaConfigUngracefulArgs struct {
-	// Behavior when ungraceful. Valid values: `skip`.
 	Behavior pulumi.StringInput `pulumi:"behavior"`
 }
 
@@ -1897,7 +2230,6 @@ func (o PlanWorkflowStepCustomActionLambdaConfigUngracefulOutput) ToPlanWorkflow
 	return o
 }
 
-// Behavior when ungraceful. Valid values: `skip`.
 func (o PlanWorkflowStepCustomActionLambdaConfigUngracefulOutput) Behavior() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanWorkflowStepCustomActionLambdaConfigUngraceful) string { return v.Behavior }).(pulumi.StringOutput)
 }
@@ -1923,13 +2255,20 @@ func (o PlanWorkflowStepCustomActionLambdaConfigUngracefulArrayOutput) Index(i p
 }
 
 type PlanWorkflowStepDocumentDbConfig struct {
-	Behavior                string                                       `pulumi:"behavior"`
-	CrossAccountRole        *string                                      `pulumi:"crossAccountRole"`
-	DatabaseClusterArns     []string                                     `pulumi:"databaseClusterArns"`
-	ExternalId              *string                                      `pulumi:"externalId"`
-	GlobalClusterIdentifier string                                       `pulumi:"globalClusterIdentifier"`
-	TimeoutMinutes          *int                                         `pulumi:"timeoutMinutes"`
-	Ungracefuls             []PlanWorkflowStepDocumentDbConfigUngraceful `pulumi:"ungracefuls"`
+	// Behavior for global cluster operations. Valid values: `switchoverOnly`, `failover`.
+	Behavior string `pulumi:"behavior"`
+	// ARN of the cross-account role to assume.
+	CrossAccountRole *string `pulumi:"crossAccountRole"`
+	// List of DocumentDB cluster ARNs.
+	DatabaseClusterArns []string `pulumi:"databaseClusterArns"`
+	// External ID for cross-account role assumption.
+	ExternalId *string `pulumi:"externalId"`
+	// Global cluster identifier.
+	GlobalClusterIdentifier string `pulumi:"globalClusterIdentifier"`
+	// Timeout in minutes.
+	TimeoutMinutes *int `pulumi:"timeoutMinutes"`
+	// Ungraceful behavior configuration. See `workflow.step.document_db_config.ungraceful` Block for details.
+	Ungracefuls []PlanWorkflowStepDocumentDbConfigUngraceful `pulumi:"ungracefuls"`
 }
 
 // PlanWorkflowStepDocumentDbConfigInput is an input type that accepts PlanWorkflowStepDocumentDbConfigArgs and PlanWorkflowStepDocumentDbConfigOutput values.
@@ -1944,13 +2283,20 @@ type PlanWorkflowStepDocumentDbConfigInput interface {
 }
 
 type PlanWorkflowStepDocumentDbConfigArgs struct {
-	Behavior                pulumi.StringInput                                   `pulumi:"behavior"`
-	CrossAccountRole        pulumi.StringPtrInput                                `pulumi:"crossAccountRole"`
-	DatabaseClusterArns     pulumi.StringArrayInput                              `pulumi:"databaseClusterArns"`
-	ExternalId              pulumi.StringPtrInput                                `pulumi:"externalId"`
-	GlobalClusterIdentifier pulumi.StringInput                                   `pulumi:"globalClusterIdentifier"`
-	TimeoutMinutes          pulumi.IntPtrInput                                   `pulumi:"timeoutMinutes"`
-	Ungracefuls             PlanWorkflowStepDocumentDbConfigUngracefulArrayInput `pulumi:"ungracefuls"`
+	// Behavior for global cluster operations. Valid values: `switchoverOnly`, `failover`.
+	Behavior pulumi.StringInput `pulumi:"behavior"`
+	// ARN of the cross-account role to assume.
+	CrossAccountRole pulumi.StringPtrInput `pulumi:"crossAccountRole"`
+	// List of DocumentDB cluster ARNs.
+	DatabaseClusterArns pulumi.StringArrayInput `pulumi:"databaseClusterArns"`
+	// External ID for cross-account role assumption.
+	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
+	// Global cluster identifier.
+	GlobalClusterIdentifier pulumi.StringInput `pulumi:"globalClusterIdentifier"`
+	// Timeout in minutes.
+	TimeoutMinutes pulumi.IntPtrInput `pulumi:"timeoutMinutes"`
+	// Ungraceful behavior configuration. See `workflow.step.document_db_config.ungraceful` Block for details.
+	Ungracefuls PlanWorkflowStepDocumentDbConfigUngracefulArrayInput `pulumi:"ungracefuls"`
 }
 
 func (PlanWorkflowStepDocumentDbConfigArgs) ElementType() reflect.Type {
@@ -2004,30 +2350,37 @@ func (o PlanWorkflowStepDocumentDbConfigOutput) ToPlanWorkflowStepDocumentDbConf
 	return o
 }
 
+// Behavior for global cluster operations. Valid values: `switchoverOnly`, `failover`.
 func (o PlanWorkflowStepDocumentDbConfigOutput) Behavior() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanWorkflowStepDocumentDbConfig) string { return v.Behavior }).(pulumi.StringOutput)
 }
 
+// ARN of the cross-account role to assume.
 func (o PlanWorkflowStepDocumentDbConfigOutput) CrossAccountRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PlanWorkflowStepDocumentDbConfig) *string { return v.CrossAccountRole }).(pulumi.StringPtrOutput)
 }
 
+// List of DocumentDB cluster ARNs.
 func (o PlanWorkflowStepDocumentDbConfigOutput) DatabaseClusterArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStepDocumentDbConfig) []string { return v.DatabaseClusterArns }).(pulumi.StringArrayOutput)
 }
 
+// External ID for cross-account role assumption.
 func (o PlanWorkflowStepDocumentDbConfigOutput) ExternalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PlanWorkflowStepDocumentDbConfig) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
 }
 
+// Global cluster identifier.
 func (o PlanWorkflowStepDocumentDbConfigOutput) GlobalClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanWorkflowStepDocumentDbConfig) string { return v.GlobalClusterIdentifier }).(pulumi.StringOutput)
 }
 
+// Timeout in minutes.
 func (o PlanWorkflowStepDocumentDbConfigOutput) TimeoutMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PlanWorkflowStepDocumentDbConfig) *int { return v.TimeoutMinutes }).(pulumi.IntPtrOutput)
 }
 
+// Ungraceful behavior configuration. See `workflow.step.document_db_config.ungraceful` Block for details.
 func (o PlanWorkflowStepDocumentDbConfigOutput) Ungracefuls() PlanWorkflowStepDocumentDbConfigUngracefulArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStepDocumentDbConfig) []PlanWorkflowStepDocumentDbConfigUngraceful {
 		return v.Ungracefuls
@@ -2149,7 +2502,7 @@ func (o PlanWorkflowStepDocumentDbConfigUngracefulArrayOutput) Index(i pulumi.In
 }
 
 type PlanWorkflowStepEc2AsgCapacityIncreaseConfig struct {
-	// Auto Scaling group configuration. See ASG below.
+	// Auto Scaling group configuration. See `asg` Block for details.
 	Asgs []PlanWorkflowStepEc2AsgCapacityIncreaseConfigAsg `pulumi:"asgs"`
 	// Capacity monitoring approach. Valid values: `sampledMaxInLast24Hours`, `autoscalingMaxInLast24Hours`.
 	CapacityMonitoringApproach string `pulumi:"capacityMonitoringApproach"`
@@ -2157,7 +2510,7 @@ type PlanWorkflowStepEc2AsgCapacityIncreaseConfig struct {
 	TargetPercent *int `pulumi:"targetPercent"`
 	// Timeout in minutes.
 	TimeoutMinutes *int `pulumi:"timeoutMinutes"`
-	// Ungraceful behavior configuration. See Ungraceful below.
+	// Ungraceful behavior configuration. See `workflow.step.ec2_asg_capacity_increase_config.ungraceful` Block for details.
 	Ungraceful *PlanWorkflowStepEc2AsgCapacityIncreaseConfigUngraceful `pulumi:"ungraceful"`
 }
 
@@ -2173,7 +2526,7 @@ type PlanWorkflowStepEc2AsgCapacityIncreaseConfigInput interface {
 }
 
 type PlanWorkflowStepEc2AsgCapacityIncreaseConfigArgs struct {
-	// Auto Scaling group configuration. See ASG below.
+	// Auto Scaling group configuration. See `asg` Block for details.
 	Asgs PlanWorkflowStepEc2AsgCapacityIncreaseConfigAsgArrayInput `pulumi:"asgs"`
 	// Capacity monitoring approach. Valid values: `sampledMaxInLast24Hours`, `autoscalingMaxInLast24Hours`.
 	CapacityMonitoringApproach pulumi.StringInput `pulumi:"capacityMonitoringApproach"`
@@ -2181,7 +2534,7 @@ type PlanWorkflowStepEc2AsgCapacityIncreaseConfigArgs struct {
 	TargetPercent pulumi.IntPtrInput `pulumi:"targetPercent"`
 	// Timeout in minutes.
 	TimeoutMinutes pulumi.IntPtrInput `pulumi:"timeoutMinutes"`
-	// Ungraceful behavior configuration. See Ungraceful below.
+	// Ungraceful behavior configuration. See `workflow.step.ec2_asg_capacity_increase_config.ungraceful` Block for details.
 	Ungraceful PlanWorkflowStepEc2AsgCapacityIncreaseConfigUngracefulPtrInput `pulumi:"ungraceful"`
 }
 
@@ -2236,7 +2589,7 @@ func (o PlanWorkflowStepEc2AsgCapacityIncreaseConfigOutput) ToPlanWorkflowStepEc
 	return o
 }
 
-// Auto Scaling group configuration. See ASG below.
+// Auto Scaling group configuration. See `asg` Block for details.
 func (o PlanWorkflowStepEc2AsgCapacityIncreaseConfigOutput) Asgs() PlanWorkflowStepEc2AsgCapacityIncreaseConfigAsgArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStepEc2AsgCapacityIncreaseConfig) []PlanWorkflowStepEc2AsgCapacityIncreaseConfigAsg {
 		return v.Asgs
@@ -2258,7 +2611,7 @@ func (o PlanWorkflowStepEc2AsgCapacityIncreaseConfigOutput) TimeoutMinutes() pul
 	return o.ApplyT(func(v PlanWorkflowStepEc2AsgCapacityIncreaseConfig) *int { return v.TimeoutMinutes }).(pulumi.IntPtrOutput)
 }
 
-// Ungraceful behavior configuration. See Ungraceful below.
+// Ungraceful behavior configuration. See `workflow.step.ec2_asg_capacity_increase_config.ungraceful` Block for details.
 func (o PlanWorkflowStepEc2AsgCapacityIncreaseConfigOutput) Ungraceful() PlanWorkflowStepEc2AsgCapacityIncreaseConfigUngracefulPtrOutput {
 	return o.ApplyT(func(v PlanWorkflowStepEc2AsgCapacityIncreaseConfig) *PlanWorkflowStepEc2AsgCapacityIncreaseConfigUngraceful {
 		return v.Ungraceful
@@ -2540,13 +2893,13 @@ func (o PlanWorkflowStepEc2AsgCapacityIncreaseConfigUngracefulPtrOutput) Minimum
 type PlanWorkflowStepEcsCapacityIncreaseConfig struct {
 	// Capacity monitoring approach. Valid values: `sampledMaxInLast24Hours`, `containerInsightsMaxInLast24Hours`.
 	CapacityMonitoringApproach string `pulumi:"capacityMonitoringApproach"`
-	// ECS service configuration. See ECS Service below.
+	// ECS service configuration. See `service` Block for details.
 	Services []PlanWorkflowStepEcsCapacityIncreaseConfigService `pulumi:"services"`
 	// Target capacity percentage.
 	TargetPercent *int `pulumi:"targetPercent"`
 	// Timeout in minutes.
 	TimeoutMinutes *int `pulumi:"timeoutMinutes"`
-	// Ungraceful behavior configuration. See Ungraceful Capacity below.
+	// Ungraceful behavior configuration. See `workflow.step.ecs_capacity_increase_config.ungraceful` Block for details.
 	Ungraceful *PlanWorkflowStepEcsCapacityIncreaseConfigUngraceful `pulumi:"ungraceful"`
 }
 
@@ -2564,13 +2917,13 @@ type PlanWorkflowStepEcsCapacityIncreaseConfigInput interface {
 type PlanWorkflowStepEcsCapacityIncreaseConfigArgs struct {
 	// Capacity monitoring approach. Valid values: `sampledMaxInLast24Hours`, `containerInsightsMaxInLast24Hours`.
 	CapacityMonitoringApproach pulumi.StringInput `pulumi:"capacityMonitoringApproach"`
-	// ECS service configuration. See ECS Service below.
+	// ECS service configuration. See `service` Block for details.
 	Services PlanWorkflowStepEcsCapacityIncreaseConfigServiceArrayInput `pulumi:"services"`
 	// Target capacity percentage.
 	TargetPercent pulumi.IntPtrInput `pulumi:"targetPercent"`
 	// Timeout in minutes.
 	TimeoutMinutes pulumi.IntPtrInput `pulumi:"timeoutMinutes"`
-	// Ungraceful behavior configuration. See Ungraceful Capacity below.
+	// Ungraceful behavior configuration. See `workflow.step.ecs_capacity_increase_config.ungraceful` Block for details.
 	Ungraceful PlanWorkflowStepEcsCapacityIncreaseConfigUngracefulPtrInput `pulumi:"ungraceful"`
 }
 
@@ -2630,7 +2983,7 @@ func (o PlanWorkflowStepEcsCapacityIncreaseConfigOutput) CapacityMonitoringAppro
 	return o.ApplyT(func(v PlanWorkflowStepEcsCapacityIncreaseConfig) string { return v.CapacityMonitoringApproach }).(pulumi.StringOutput)
 }
 
-// ECS service configuration. See ECS Service below.
+// ECS service configuration. See `service` Block for details.
 func (o PlanWorkflowStepEcsCapacityIncreaseConfigOutput) Services() PlanWorkflowStepEcsCapacityIncreaseConfigServiceArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStepEcsCapacityIncreaseConfig) []PlanWorkflowStepEcsCapacityIncreaseConfigService {
 		return v.Services
@@ -2647,7 +3000,7 @@ func (o PlanWorkflowStepEcsCapacityIncreaseConfigOutput) TimeoutMinutes() pulumi
 	return o.ApplyT(func(v PlanWorkflowStepEcsCapacityIncreaseConfig) *int { return v.TimeoutMinutes }).(pulumi.IntPtrOutput)
 }
 
-// Ungraceful behavior configuration. See Ungraceful Capacity below.
+// Ungraceful behavior configuration. See `workflow.step.ecs_capacity_increase_config.ungraceful` Block for details.
 func (o PlanWorkflowStepEcsCapacityIncreaseConfigOutput) Ungraceful() PlanWorkflowStepEcsCapacityIncreaseConfigUngracefulPtrOutput {
 	return o.ApplyT(func(v PlanWorkflowStepEcsCapacityIncreaseConfig) *PlanWorkflowStepEcsCapacityIncreaseConfigUngraceful {
 		return v.Ungraceful
@@ -2675,9 +3028,12 @@ func (o PlanWorkflowStepEcsCapacityIncreaseConfigArrayOutput) Index(i pulumi.Int
 }
 
 type PlanWorkflowStepEcsCapacityIncreaseConfigService struct {
-	ClusterArn       string  `pulumi:"clusterArn"`
+	// ARN of the ECS cluster.
+	ClusterArn string `pulumi:"clusterArn"`
+	// ARN of the cross-account role to assume.
 	CrossAccountRole *string `pulumi:"crossAccountRole"`
-	ExternalId       *string `pulumi:"externalId"`
+	// External ID for cross-account role assumption.
+	ExternalId *string `pulumi:"externalId"`
 	// ARN of the ECS service.
 	ServiceArn string `pulumi:"serviceArn"`
 }
@@ -2694,9 +3050,12 @@ type PlanWorkflowStepEcsCapacityIncreaseConfigServiceInput interface {
 }
 
 type PlanWorkflowStepEcsCapacityIncreaseConfigServiceArgs struct {
-	ClusterArn       pulumi.StringInput    `pulumi:"clusterArn"`
+	// ARN of the ECS cluster.
+	ClusterArn pulumi.StringInput `pulumi:"clusterArn"`
+	// ARN of the cross-account role to assume.
 	CrossAccountRole pulumi.StringPtrInput `pulumi:"crossAccountRole"`
-	ExternalId       pulumi.StringPtrInput `pulumi:"externalId"`
+	// External ID for cross-account role assumption.
+	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
 	// ARN of the ECS service.
 	ServiceArn pulumi.StringInput `pulumi:"serviceArn"`
 }
@@ -2752,14 +3111,17 @@ func (o PlanWorkflowStepEcsCapacityIncreaseConfigServiceOutput) ToPlanWorkflowSt
 	return o
 }
 
+// ARN of the ECS cluster.
 func (o PlanWorkflowStepEcsCapacityIncreaseConfigServiceOutput) ClusterArn() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanWorkflowStepEcsCapacityIncreaseConfigService) string { return v.ClusterArn }).(pulumi.StringOutput)
 }
 
+// ARN of the cross-account role to assume.
 func (o PlanWorkflowStepEcsCapacityIncreaseConfigServiceOutput) CrossAccountRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PlanWorkflowStepEcsCapacityIncreaseConfigService) *string { return v.CrossAccountRole }).(pulumi.StringPtrOutput)
 }
 
+// External ID for cross-account role assumption.
 func (o PlanWorkflowStepEcsCapacityIncreaseConfigServiceOutput) ExternalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PlanWorkflowStepEcsCapacityIncreaseConfigService) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
 }
@@ -2929,17 +3291,17 @@ func (o PlanWorkflowStepEcsCapacityIncreaseConfigUngracefulPtrOutput) MinimumSuc
 type PlanWorkflowStepEksResourceScalingConfig struct {
 	// Capacity monitoring approach. Valid values: `sampledMaxInLast24Hours`, `autoscalingMaxInLast24Hours`.
 	CapacityMonitoringApproach string `pulumi:"capacityMonitoringApproach"`
-	// List of EKS clusters. See EKS Clusters below.
+	// EKS clusters. See `eksClusters` Block for details.
 	EksClusters []PlanWorkflowStepEksResourceScalingConfigEksCluster `pulumi:"eksClusters"`
-	// Kubernetes resource type. See Kubernetes Resource Type below.
+	// Kubernetes resource type. See `kubernetesResourceType` Block for details.
 	KubernetesResourceTypes []PlanWorkflowStepEksResourceScalingConfigKubernetesResourceType `pulumi:"kubernetesResourceTypes"`
-	// List of scaling resources. See Scaling Resources below.
+	// Scaling resources. See `scalingResources` Block for details.
 	ScalingResources []PlanWorkflowStepEksResourceScalingConfigScalingResource `pulumi:"scalingResources"`
 	// Target capacity percentage.
 	TargetPercent int `pulumi:"targetPercent"`
 	// Timeout in minutes.
 	TimeoutMinutes *int `pulumi:"timeoutMinutes"`
-	// Ungraceful behavior configuration. See Ungraceful Capacity below.
+	// Ungraceful behavior configuration. See `workflow.step.eks_resource_scaling_config.ungraceful` Block for details.
 	Ungracefuls []PlanWorkflowStepEksResourceScalingConfigUngraceful `pulumi:"ungracefuls"`
 }
 
@@ -2957,17 +3319,17 @@ type PlanWorkflowStepEksResourceScalingConfigInput interface {
 type PlanWorkflowStepEksResourceScalingConfigArgs struct {
 	// Capacity monitoring approach. Valid values: `sampledMaxInLast24Hours`, `autoscalingMaxInLast24Hours`.
 	CapacityMonitoringApproach pulumi.StringInput `pulumi:"capacityMonitoringApproach"`
-	// List of EKS clusters. See EKS Clusters below.
+	// EKS clusters. See `eksClusters` Block for details.
 	EksClusters PlanWorkflowStepEksResourceScalingConfigEksClusterArrayInput `pulumi:"eksClusters"`
-	// Kubernetes resource type. See Kubernetes Resource Type below.
+	// Kubernetes resource type. See `kubernetesResourceType` Block for details.
 	KubernetesResourceTypes PlanWorkflowStepEksResourceScalingConfigKubernetesResourceTypeArrayInput `pulumi:"kubernetesResourceTypes"`
-	// List of scaling resources. See Scaling Resources below.
+	// Scaling resources. See `scalingResources` Block for details.
 	ScalingResources PlanWorkflowStepEksResourceScalingConfigScalingResourceArrayInput `pulumi:"scalingResources"`
 	// Target capacity percentage.
 	TargetPercent pulumi.IntInput `pulumi:"targetPercent"`
 	// Timeout in minutes.
 	TimeoutMinutes pulumi.IntPtrInput `pulumi:"timeoutMinutes"`
-	// Ungraceful behavior configuration. See Ungraceful Capacity below.
+	// Ungraceful behavior configuration. See `workflow.step.eks_resource_scaling_config.ungraceful` Block for details.
 	Ungracefuls PlanWorkflowStepEksResourceScalingConfigUngracefulArrayInput `pulumi:"ungracefuls"`
 }
 
@@ -3027,21 +3389,21 @@ func (o PlanWorkflowStepEksResourceScalingConfigOutput) CapacityMonitoringApproa
 	return o.ApplyT(func(v PlanWorkflowStepEksResourceScalingConfig) string { return v.CapacityMonitoringApproach }).(pulumi.StringOutput)
 }
 
-// List of EKS clusters. See EKS Clusters below.
+// EKS clusters. See `eksClusters` Block for details.
 func (o PlanWorkflowStepEksResourceScalingConfigOutput) EksClusters() PlanWorkflowStepEksResourceScalingConfigEksClusterArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStepEksResourceScalingConfig) []PlanWorkflowStepEksResourceScalingConfigEksCluster {
 		return v.EksClusters
 	}).(PlanWorkflowStepEksResourceScalingConfigEksClusterArrayOutput)
 }
 
-// Kubernetes resource type. See Kubernetes Resource Type below.
+// Kubernetes resource type. See `kubernetesResourceType` Block for details.
 func (o PlanWorkflowStepEksResourceScalingConfigOutput) KubernetesResourceTypes() PlanWorkflowStepEksResourceScalingConfigKubernetesResourceTypeArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStepEksResourceScalingConfig) []PlanWorkflowStepEksResourceScalingConfigKubernetesResourceType {
 		return v.KubernetesResourceTypes
 	}).(PlanWorkflowStepEksResourceScalingConfigKubernetesResourceTypeArrayOutput)
 }
 
-// List of scaling resources. See Scaling Resources below.
+// Scaling resources. See `scalingResources` Block for details.
 func (o PlanWorkflowStepEksResourceScalingConfigOutput) ScalingResources() PlanWorkflowStepEksResourceScalingConfigScalingResourceArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStepEksResourceScalingConfig) []PlanWorkflowStepEksResourceScalingConfigScalingResource {
 		return v.ScalingResources
@@ -3058,7 +3420,7 @@ func (o PlanWorkflowStepEksResourceScalingConfigOutput) TimeoutMinutes() pulumi.
 	return o.ApplyT(func(v PlanWorkflowStepEksResourceScalingConfig) *int { return v.TimeoutMinutes }).(pulumi.IntPtrOutput)
 }
 
-// Ungraceful behavior configuration. See Ungraceful Capacity below.
+// Ungraceful behavior configuration. See `workflow.step.eks_resource_scaling_config.ungraceful` Block for details.
 func (o PlanWorkflowStepEksResourceScalingConfigOutput) Ungracefuls() PlanWorkflowStepEksResourceScalingConfigUngracefulArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStepEksResourceScalingConfig) []PlanWorkflowStepEksResourceScalingConfigUngraceful {
 		return v.Ungracefuls
@@ -3309,7 +3671,7 @@ func (o PlanWorkflowStepEksResourceScalingConfigKubernetesResourceTypeArrayOutpu
 type PlanWorkflowStepEksResourceScalingConfigScalingResource struct {
 	// Kubernetes namespace.
 	Namespace string `pulumi:"namespace"`
-	// Set of resources to scale. See Resources below.
+	// Resources to scale. See `resources` Block for details.
 	Resources []PlanWorkflowStepEksResourceScalingConfigScalingResourceResource `pulumi:"resources"`
 }
 
@@ -3327,7 +3689,7 @@ type PlanWorkflowStepEksResourceScalingConfigScalingResourceInput interface {
 type PlanWorkflowStepEksResourceScalingConfigScalingResourceArgs struct {
 	// Kubernetes namespace.
 	Namespace pulumi.StringInput `pulumi:"namespace"`
-	// Set of resources to scale. See Resources below.
+	// Resources to scale. See `resources` Block for details.
 	Resources PlanWorkflowStepEksResourceScalingConfigScalingResourceResourceArrayInput `pulumi:"resources"`
 }
 
@@ -3387,7 +3749,7 @@ func (o PlanWorkflowStepEksResourceScalingConfigScalingResourceOutput) Namespace
 	return o.ApplyT(func(v PlanWorkflowStepEksResourceScalingConfigScalingResource) string { return v.Namespace }).(pulumi.StringOutput)
 }
 
-// Set of resources to scale. See Resources below.
+// Resources to scale. See `resources` Block for details.
 func (o PlanWorkflowStepEksResourceScalingConfigScalingResourceOutput) Resources() PlanWorkflowStepEksResourceScalingConfigScalingResourceResourceArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStepEksResourceScalingConfigScalingResource) []PlanWorkflowStepEksResourceScalingConfigScalingResourceResource {
 		return v.Resources
@@ -3754,7 +4116,7 @@ type PlanWorkflowStepGlobalAuroraConfig struct {
 	GlobalClusterIdentifier string `pulumi:"globalClusterIdentifier"`
 	// Timeout in minutes.
 	TimeoutMinutes *int `pulumi:"timeoutMinutes"`
-	// Ungraceful behavior configuration. See Ungraceful Aurora below.
+	// Ungraceful behavior configuration. See `workflow.step.global_aurora_config.ungraceful` Block for details.
 	Ungracefuls []PlanWorkflowStepGlobalAuroraConfigUngraceful `pulumi:"ungracefuls"`
 }
 
@@ -3782,7 +4144,7 @@ type PlanWorkflowStepGlobalAuroraConfigArgs struct {
 	GlobalClusterIdentifier pulumi.StringInput `pulumi:"globalClusterIdentifier"`
 	// Timeout in minutes.
 	TimeoutMinutes pulumi.IntPtrInput `pulumi:"timeoutMinutes"`
-	// Ungraceful behavior configuration. See Ungraceful Aurora below.
+	// Ungraceful behavior configuration. See `workflow.step.global_aurora_config.ungraceful` Block for details.
 	Ungracefuls PlanWorkflowStepGlobalAuroraConfigUngracefulArrayInput `pulumi:"ungracefuls"`
 }
 
@@ -3867,7 +4229,7 @@ func (o PlanWorkflowStepGlobalAuroraConfigOutput) TimeoutMinutes() pulumi.IntPtr
 	return o.ApplyT(func(v PlanWorkflowStepGlobalAuroraConfig) *int { return v.TimeoutMinutes }).(pulumi.IntPtrOutput)
 }
 
-// Ungraceful behavior configuration. See Ungraceful Aurora below.
+// Ungraceful behavior configuration. See `workflow.step.global_aurora_config.ungraceful` Block for details.
 func (o PlanWorkflowStepGlobalAuroraConfigOutput) Ungracefuls() PlanWorkflowStepGlobalAuroraConfigUngracefulArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStepGlobalAuroraConfig) []PlanWorkflowStepGlobalAuroraConfigUngraceful {
 		return v.Ungracefuls
@@ -3988,8 +4350,607 @@ func (o PlanWorkflowStepGlobalAuroraConfigUngracefulArrayOutput) Index(i pulumi.
 	}).(PlanWorkflowStepGlobalAuroraConfigUngracefulOutput)
 }
 
+type PlanWorkflowStepLambdaEventSourceMappingConfig struct {
+	// Action to perform on the event source mapping.
+	Action string `pulumi:"action"`
+	// Event source mappings per region. See `regionEventSourceMapping` Block for details.
+	RegionEventSourceMappings []PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMapping `pulumi:"regionEventSourceMappings"`
+	// Timeout in minutes.
+	TimeoutMinutes *int `pulumi:"timeoutMinutes"`
+	// Ungraceful behavior configuration. See `workflow.step.lambda_event_source_mapping_config.ungraceful` Block for details.
+	Ungracefuls []PlanWorkflowStepLambdaEventSourceMappingConfigUngraceful `pulumi:"ungracefuls"`
+}
+
+// PlanWorkflowStepLambdaEventSourceMappingConfigInput is an input type that accepts PlanWorkflowStepLambdaEventSourceMappingConfigArgs and PlanWorkflowStepLambdaEventSourceMappingConfigOutput values.
+// You can construct a concrete instance of `PlanWorkflowStepLambdaEventSourceMappingConfigInput` via:
+//
+//	PlanWorkflowStepLambdaEventSourceMappingConfigArgs{...}
+type PlanWorkflowStepLambdaEventSourceMappingConfigInput interface {
+	pulumi.Input
+
+	ToPlanWorkflowStepLambdaEventSourceMappingConfigOutput() PlanWorkflowStepLambdaEventSourceMappingConfigOutput
+	ToPlanWorkflowStepLambdaEventSourceMappingConfigOutputWithContext(context.Context) PlanWorkflowStepLambdaEventSourceMappingConfigOutput
+}
+
+type PlanWorkflowStepLambdaEventSourceMappingConfigArgs struct {
+	// Action to perform on the event source mapping.
+	Action pulumi.StringInput `pulumi:"action"`
+	// Event source mappings per region. See `regionEventSourceMapping` Block for details.
+	RegionEventSourceMappings PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayInput `pulumi:"regionEventSourceMappings"`
+	// Timeout in minutes.
+	TimeoutMinutes pulumi.IntPtrInput `pulumi:"timeoutMinutes"`
+	// Ungraceful behavior configuration. See `workflow.step.lambda_event_source_mapping_config.ungraceful` Block for details.
+	Ungracefuls PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulArrayInput `pulumi:"ungracefuls"`
+}
+
+func (PlanWorkflowStepLambdaEventSourceMappingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanWorkflowStepLambdaEventSourceMappingConfig)(nil)).Elem()
+}
+
+func (i PlanWorkflowStepLambdaEventSourceMappingConfigArgs) ToPlanWorkflowStepLambdaEventSourceMappingConfigOutput() PlanWorkflowStepLambdaEventSourceMappingConfigOutput {
+	return i.ToPlanWorkflowStepLambdaEventSourceMappingConfigOutputWithContext(context.Background())
+}
+
+func (i PlanWorkflowStepLambdaEventSourceMappingConfigArgs) ToPlanWorkflowStepLambdaEventSourceMappingConfigOutputWithContext(ctx context.Context) PlanWorkflowStepLambdaEventSourceMappingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepLambdaEventSourceMappingConfigOutput)
+}
+
+// PlanWorkflowStepLambdaEventSourceMappingConfigArrayInput is an input type that accepts PlanWorkflowStepLambdaEventSourceMappingConfigArray and PlanWorkflowStepLambdaEventSourceMappingConfigArrayOutput values.
+// You can construct a concrete instance of `PlanWorkflowStepLambdaEventSourceMappingConfigArrayInput` via:
+//
+//	PlanWorkflowStepLambdaEventSourceMappingConfigArray{ PlanWorkflowStepLambdaEventSourceMappingConfigArgs{...} }
+type PlanWorkflowStepLambdaEventSourceMappingConfigArrayInput interface {
+	pulumi.Input
+
+	ToPlanWorkflowStepLambdaEventSourceMappingConfigArrayOutput() PlanWorkflowStepLambdaEventSourceMappingConfigArrayOutput
+	ToPlanWorkflowStepLambdaEventSourceMappingConfigArrayOutputWithContext(context.Context) PlanWorkflowStepLambdaEventSourceMappingConfigArrayOutput
+}
+
+type PlanWorkflowStepLambdaEventSourceMappingConfigArray []PlanWorkflowStepLambdaEventSourceMappingConfigInput
+
+func (PlanWorkflowStepLambdaEventSourceMappingConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanWorkflowStepLambdaEventSourceMappingConfig)(nil)).Elem()
+}
+
+func (i PlanWorkflowStepLambdaEventSourceMappingConfigArray) ToPlanWorkflowStepLambdaEventSourceMappingConfigArrayOutput() PlanWorkflowStepLambdaEventSourceMappingConfigArrayOutput {
+	return i.ToPlanWorkflowStepLambdaEventSourceMappingConfigArrayOutputWithContext(context.Background())
+}
+
+func (i PlanWorkflowStepLambdaEventSourceMappingConfigArray) ToPlanWorkflowStepLambdaEventSourceMappingConfigArrayOutputWithContext(ctx context.Context) PlanWorkflowStepLambdaEventSourceMappingConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepLambdaEventSourceMappingConfigArrayOutput)
+}
+
+type PlanWorkflowStepLambdaEventSourceMappingConfigOutput struct{ *pulumi.OutputState }
+
+func (PlanWorkflowStepLambdaEventSourceMappingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanWorkflowStepLambdaEventSourceMappingConfig)(nil)).Elem()
+}
+
+func (o PlanWorkflowStepLambdaEventSourceMappingConfigOutput) ToPlanWorkflowStepLambdaEventSourceMappingConfigOutput() PlanWorkflowStepLambdaEventSourceMappingConfigOutput {
+	return o
+}
+
+func (o PlanWorkflowStepLambdaEventSourceMappingConfigOutput) ToPlanWorkflowStepLambdaEventSourceMappingConfigOutputWithContext(ctx context.Context) PlanWorkflowStepLambdaEventSourceMappingConfigOutput {
+	return o
+}
+
+// Action to perform on the event source mapping.
+func (o PlanWorkflowStepLambdaEventSourceMappingConfigOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanWorkflowStepLambdaEventSourceMappingConfig) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// Event source mappings per region. See `regionEventSourceMapping` Block for details.
+func (o PlanWorkflowStepLambdaEventSourceMappingConfigOutput) RegionEventSourceMappings() PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayOutput {
+	return o.ApplyT(func(v PlanWorkflowStepLambdaEventSourceMappingConfig) []PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMapping {
+		return v.RegionEventSourceMappings
+	}).(PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayOutput)
+}
+
+// Timeout in minutes.
+func (o PlanWorkflowStepLambdaEventSourceMappingConfigOutput) TimeoutMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStepLambdaEventSourceMappingConfig) *int { return v.TimeoutMinutes }).(pulumi.IntPtrOutput)
+}
+
+// Ungraceful behavior configuration. See `workflow.step.lambda_event_source_mapping_config.ungraceful` Block for details.
+func (o PlanWorkflowStepLambdaEventSourceMappingConfigOutput) Ungracefuls() PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulArrayOutput {
+	return o.ApplyT(func(v PlanWorkflowStepLambdaEventSourceMappingConfig) []PlanWorkflowStepLambdaEventSourceMappingConfigUngraceful {
+		return v.Ungracefuls
+	}).(PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulArrayOutput)
+}
+
+type PlanWorkflowStepLambdaEventSourceMappingConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (PlanWorkflowStepLambdaEventSourceMappingConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanWorkflowStepLambdaEventSourceMappingConfig)(nil)).Elem()
+}
+
+func (o PlanWorkflowStepLambdaEventSourceMappingConfigArrayOutput) ToPlanWorkflowStepLambdaEventSourceMappingConfigArrayOutput() PlanWorkflowStepLambdaEventSourceMappingConfigArrayOutput {
+	return o
+}
+
+func (o PlanWorkflowStepLambdaEventSourceMappingConfigArrayOutput) ToPlanWorkflowStepLambdaEventSourceMappingConfigArrayOutputWithContext(ctx context.Context) PlanWorkflowStepLambdaEventSourceMappingConfigArrayOutput {
+	return o
+}
+
+func (o PlanWorkflowStepLambdaEventSourceMappingConfigArrayOutput) Index(i pulumi.IntInput) PlanWorkflowStepLambdaEventSourceMappingConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PlanWorkflowStepLambdaEventSourceMappingConfig {
+		return vs[0].([]PlanWorkflowStepLambdaEventSourceMappingConfig)[vs[1].(int)]
+	}).(PlanWorkflowStepLambdaEventSourceMappingConfigOutput)
+}
+
+type PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMapping struct {
+	// ARN of the event source mapping.
+	Arn string `pulumi:"arn"`
+	// ARN of the cross-account role to assume.
+	CrossAccountRole *string `pulumi:"crossAccountRole"`
+	// External ID for cross-account role assumption.
+	ExternalId *string `pulumi:"externalId"`
+	// AWS region.
+	Region string `pulumi:"region"`
+}
+
+// PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingInput is an input type that accepts PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingArgs and PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutput values.
+// You can construct a concrete instance of `PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingInput` via:
+//
+//	PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingArgs{...}
+type PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingInput interface {
+	pulumi.Input
+
+	ToPlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutput() PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutput
+	ToPlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutputWithContext(context.Context) PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutput
+}
+
+type PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingArgs struct {
+	// ARN of the event source mapping.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// ARN of the cross-account role to assume.
+	CrossAccountRole pulumi.StringPtrInput `pulumi:"crossAccountRole"`
+	// External ID for cross-account role assumption.
+	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
+	// AWS region.
+	Region pulumi.StringInput `pulumi:"region"`
+}
+
+func (PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMapping)(nil)).Elem()
+}
+
+func (i PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingArgs) ToPlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutput() PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutput {
+	return i.ToPlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutputWithContext(context.Background())
+}
+
+func (i PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingArgs) ToPlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutputWithContext(ctx context.Context) PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutput)
+}
+
+// PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayInput is an input type that accepts PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingArray and PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayOutput values.
+// You can construct a concrete instance of `PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayInput` via:
+//
+//	PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingArray{ PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingArgs{...} }
+type PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayInput interface {
+	pulumi.Input
+
+	ToPlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayOutput() PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayOutput
+	ToPlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayOutputWithContext(context.Context) PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayOutput
+}
+
+type PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingArray []PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingInput
+
+func (PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMapping)(nil)).Elem()
+}
+
+func (i PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingArray) ToPlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayOutput() PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayOutput {
+	return i.ToPlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayOutputWithContext(context.Background())
+}
+
+func (i PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingArray) ToPlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayOutputWithContext(ctx context.Context) PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayOutput)
+}
+
+type PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutput struct{ *pulumi.OutputState }
+
+func (PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMapping)(nil)).Elem()
+}
+
+func (o PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutput) ToPlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutput() PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutput {
+	return o
+}
+
+func (o PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutput) ToPlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutputWithContext(ctx context.Context) PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutput {
+	return o
+}
+
+// ARN of the event source mapping.
+func (o PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMapping) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// ARN of the cross-account role to assume.
+func (o PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutput) CrossAccountRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMapping) *string {
+		return v.CrossAccountRole
+	}).(pulumi.StringPtrOutput)
+}
+
+// External ID for cross-account role assumption.
+func (o PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMapping) *string {
+		return v.ExternalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// AWS region.
+func (o PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMapping) string { return v.Region }).(pulumi.StringOutput)
+}
+
+type PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMapping)(nil)).Elem()
+}
+
+func (o PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayOutput) ToPlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayOutput() PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayOutput {
+	return o
+}
+
+func (o PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayOutput) ToPlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayOutputWithContext(ctx context.Context) PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayOutput {
+	return o
+}
+
+func (o PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayOutput) Index(i pulumi.IntInput) PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMapping {
+		return vs[0].([]PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMapping)[vs[1].(int)]
+	}).(PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutput)
+}
+
+type PlanWorkflowStepLambdaEventSourceMappingConfigUngraceful struct {
+	Behavior string `pulumi:"behavior"`
+}
+
+// PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulInput is an input type that accepts PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulArgs and PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulOutput values.
+// You can construct a concrete instance of `PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulInput` via:
+//
+//	PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulArgs{...}
+type PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulInput interface {
+	pulumi.Input
+
+	ToPlanWorkflowStepLambdaEventSourceMappingConfigUngracefulOutput() PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulOutput
+	ToPlanWorkflowStepLambdaEventSourceMappingConfigUngracefulOutputWithContext(context.Context) PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulOutput
+}
+
+type PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulArgs struct {
+	Behavior pulumi.StringInput `pulumi:"behavior"`
+}
+
+func (PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanWorkflowStepLambdaEventSourceMappingConfigUngraceful)(nil)).Elem()
+}
+
+func (i PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulArgs) ToPlanWorkflowStepLambdaEventSourceMappingConfigUngracefulOutput() PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulOutput {
+	return i.ToPlanWorkflowStepLambdaEventSourceMappingConfigUngracefulOutputWithContext(context.Background())
+}
+
+func (i PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulArgs) ToPlanWorkflowStepLambdaEventSourceMappingConfigUngracefulOutputWithContext(ctx context.Context) PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulOutput)
+}
+
+// PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulArrayInput is an input type that accepts PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulArray and PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulArrayOutput values.
+// You can construct a concrete instance of `PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulArrayInput` via:
+//
+//	PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulArray{ PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulArgs{...} }
+type PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulArrayInput interface {
+	pulumi.Input
+
+	ToPlanWorkflowStepLambdaEventSourceMappingConfigUngracefulArrayOutput() PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulArrayOutput
+	ToPlanWorkflowStepLambdaEventSourceMappingConfigUngracefulArrayOutputWithContext(context.Context) PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulArrayOutput
+}
+
+type PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulArray []PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulInput
+
+func (PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanWorkflowStepLambdaEventSourceMappingConfigUngraceful)(nil)).Elem()
+}
+
+func (i PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulArray) ToPlanWorkflowStepLambdaEventSourceMappingConfigUngracefulArrayOutput() PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulArrayOutput {
+	return i.ToPlanWorkflowStepLambdaEventSourceMappingConfigUngracefulArrayOutputWithContext(context.Background())
+}
+
+func (i PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulArray) ToPlanWorkflowStepLambdaEventSourceMappingConfigUngracefulArrayOutputWithContext(ctx context.Context) PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulArrayOutput)
+}
+
+type PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulOutput struct{ *pulumi.OutputState }
+
+func (PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanWorkflowStepLambdaEventSourceMappingConfigUngraceful)(nil)).Elem()
+}
+
+func (o PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulOutput) ToPlanWorkflowStepLambdaEventSourceMappingConfigUngracefulOutput() PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulOutput {
+	return o
+}
+
+func (o PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulOutput) ToPlanWorkflowStepLambdaEventSourceMappingConfigUngracefulOutputWithContext(ctx context.Context) PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulOutput {
+	return o
+}
+
+func (o PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulOutput) Behavior() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanWorkflowStepLambdaEventSourceMappingConfigUngraceful) string { return v.Behavior }).(pulumi.StringOutput)
+}
+
+type PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulArrayOutput struct{ *pulumi.OutputState }
+
+func (PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanWorkflowStepLambdaEventSourceMappingConfigUngraceful)(nil)).Elem()
+}
+
+func (o PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulArrayOutput) ToPlanWorkflowStepLambdaEventSourceMappingConfigUngracefulArrayOutput() PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulArrayOutput {
+	return o
+}
+
+func (o PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulArrayOutput) ToPlanWorkflowStepLambdaEventSourceMappingConfigUngracefulArrayOutputWithContext(ctx context.Context) PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulArrayOutput {
+	return o
+}
+
+func (o PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulArrayOutput) Index(i pulumi.IntInput) PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PlanWorkflowStepLambdaEventSourceMappingConfigUngraceful {
+		return vs[0].([]PlanWorkflowStepLambdaEventSourceMappingConfigUngraceful)[vs[1].(int)]
+	}).(PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulOutput)
+}
+
+type PlanWorkflowStepNeptuneGlobalDatabaseConfig struct {
+	// Behavior for global database operations.
+	Behavior string `pulumi:"behavior"`
+	// ARN of the cross-account role to assume.
+	CrossAccountRole *string `pulumi:"crossAccountRole"`
+	// External ID for cross-account role assumption.
+	ExternalId *string `pulumi:"externalId"`
+	// Global cluster identifier.
+	GlobalClusterIdentifier string `pulumi:"globalClusterIdentifier"`
+	// Map of regions to database cluster ARNs.
+	RegionDatabaseClusterArns map[string]string `pulumi:"regionDatabaseClusterArns"`
+	// Timeout in minutes.
+	TimeoutMinutes *int `pulumi:"timeoutMinutes"`
+	// Ungraceful behavior configuration. See `workflow.step.neptune_global_database_config.ungraceful` Block for details.
+	Ungracefuls []PlanWorkflowStepNeptuneGlobalDatabaseConfigUngraceful `pulumi:"ungracefuls"`
+}
+
+// PlanWorkflowStepNeptuneGlobalDatabaseConfigInput is an input type that accepts PlanWorkflowStepNeptuneGlobalDatabaseConfigArgs and PlanWorkflowStepNeptuneGlobalDatabaseConfigOutput values.
+// You can construct a concrete instance of `PlanWorkflowStepNeptuneGlobalDatabaseConfigInput` via:
+//
+//	PlanWorkflowStepNeptuneGlobalDatabaseConfigArgs{...}
+type PlanWorkflowStepNeptuneGlobalDatabaseConfigInput interface {
+	pulumi.Input
+
+	ToPlanWorkflowStepNeptuneGlobalDatabaseConfigOutput() PlanWorkflowStepNeptuneGlobalDatabaseConfigOutput
+	ToPlanWorkflowStepNeptuneGlobalDatabaseConfigOutputWithContext(context.Context) PlanWorkflowStepNeptuneGlobalDatabaseConfigOutput
+}
+
+type PlanWorkflowStepNeptuneGlobalDatabaseConfigArgs struct {
+	// Behavior for global database operations.
+	Behavior pulumi.StringInput `pulumi:"behavior"`
+	// ARN of the cross-account role to assume.
+	CrossAccountRole pulumi.StringPtrInput `pulumi:"crossAccountRole"`
+	// External ID for cross-account role assumption.
+	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
+	// Global cluster identifier.
+	GlobalClusterIdentifier pulumi.StringInput `pulumi:"globalClusterIdentifier"`
+	// Map of regions to database cluster ARNs.
+	RegionDatabaseClusterArns pulumi.StringMapInput `pulumi:"regionDatabaseClusterArns"`
+	// Timeout in minutes.
+	TimeoutMinutes pulumi.IntPtrInput `pulumi:"timeoutMinutes"`
+	// Ungraceful behavior configuration. See `workflow.step.neptune_global_database_config.ungraceful` Block for details.
+	Ungracefuls PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulArrayInput `pulumi:"ungracefuls"`
+}
+
+func (PlanWorkflowStepNeptuneGlobalDatabaseConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanWorkflowStepNeptuneGlobalDatabaseConfig)(nil)).Elem()
+}
+
+func (i PlanWorkflowStepNeptuneGlobalDatabaseConfigArgs) ToPlanWorkflowStepNeptuneGlobalDatabaseConfigOutput() PlanWorkflowStepNeptuneGlobalDatabaseConfigOutput {
+	return i.ToPlanWorkflowStepNeptuneGlobalDatabaseConfigOutputWithContext(context.Background())
+}
+
+func (i PlanWorkflowStepNeptuneGlobalDatabaseConfigArgs) ToPlanWorkflowStepNeptuneGlobalDatabaseConfigOutputWithContext(ctx context.Context) PlanWorkflowStepNeptuneGlobalDatabaseConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepNeptuneGlobalDatabaseConfigOutput)
+}
+
+// PlanWorkflowStepNeptuneGlobalDatabaseConfigArrayInput is an input type that accepts PlanWorkflowStepNeptuneGlobalDatabaseConfigArray and PlanWorkflowStepNeptuneGlobalDatabaseConfigArrayOutput values.
+// You can construct a concrete instance of `PlanWorkflowStepNeptuneGlobalDatabaseConfigArrayInput` via:
+//
+//	PlanWorkflowStepNeptuneGlobalDatabaseConfigArray{ PlanWorkflowStepNeptuneGlobalDatabaseConfigArgs{...} }
+type PlanWorkflowStepNeptuneGlobalDatabaseConfigArrayInput interface {
+	pulumi.Input
+
+	ToPlanWorkflowStepNeptuneGlobalDatabaseConfigArrayOutput() PlanWorkflowStepNeptuneGlobalDatabaseConfigArrayOutput
+	ToPlanWorkflowStepNeptuneGlobalDatabaseConfigArrayOutputWithContext(context.Context) PlanWorkflowStepNeptuneGlobalDatabaseConfigArrayOutput
+}
+
+type PlanWorkflowStepNeptuneGlobalDatabaseConfigArray []PlanWorkflowStepNeptuneGlobalDatabaseConfigInput
+
+func (PlanWorkflowStepNeptuneGlobalDatabaseConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanWorkflowStepNeptuneGlobalDatabaseConfig)(nil)).Elem()
+}
+
+func (i PlanWorkflowStepNeptuneGlobalDatabaseConfigArray) ToPlanWorkflowStepNeptuneGlobalDatabaseConfigArrayOutput() PlanWorkflowStepNeptuneGlobalDatabaseConfigArrayOutput {
+	return i.ToPlanWorkflowStepNeptuneGlobalDatabaseConfigArrayOutputWithContext(context.Background())
+}
+
+func (i PlanWorkflowStepNeptuneGlobalDatabaseConfigArray) ToPlanWorkflowStepNeptuneGlobalDatabaseConfigArrayOutputWithContext(ctx context.Context) PlanWorkflowStepNeptuneGlobalDatabaseConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepNeptuneGlobalDatabaseConfigArrayOutput)
+}
+
+type PlanWorkflowStepNeptuneGlobalDatabaseConfigOutput struct{ *pulumi.OutputState }
+
+func (PlanWorkflowStepNeptuneGlobalDatabaseConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanWorkflowStepNeptuneGlobalDatabaseConfig)(nil)).Elem()
+}
+
+func (o PlanWorkflowStepNeptuneGlobalDatabaseConfigOutput) ToPlanWorkflowStepNeptuneGlobalDatabaseConfigOutput() PlanWorkflowStepNeptuneGlobalDatabaseConfigOutput {
+	return o
+}
+
+func (o PlanWorkflowStepNeptuneGlobalDatabaseConfigOutput) ToPlanWorkflowStepNeptuneGlobalDatabaseConfigOutputWithContext(ctx context.Context) PlanWorkflowStepNeptuneGlobalDatabaseConfigOutput {
+	return o
+}
+
+// Behavior for global database operations.
+func (o PlanWorkflowStepNeptuneGlobalDatabaseConfigOutput) Behavior() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanWorkflowStepNeptuneGlobalDatabaseConfig) string { return v.Behavior }).(pulumi.StringOutput)
+}
+
+// ARN of the cross-account role to assume.
+func (o PlanWorkflowStepNeptuneGlobalDatabaseConfigOutput) CrossAccountRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStepNeptuneGlobalDatabaseConfig) *string { return v.CrossAccountRole }).(pulumi.StringPtrOutput)
+}
+
+// External ID for cross-account role assumption.
+func (o PlanWorkflowStepNeptuneGlobalDatabaseConfigOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStepNeptuneGlobalDatabaseConfig) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
+}
+
+// Global cluster identifier.
+func (o PlanWorkflowStepNeptuneGlobalDatabaseConfigOutput) GlobalClusterIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanWorkflowStepNeptuneGlobalDatabaseConfig) string { return v.GlobalClusterIdentifier }).(pulumi.StringOutput)
+}
+
+// Map of regions to database cluster ARNs.
+func (o PlanWorkflowStepNeptuneGlobalDatabaseConfigOutput) RegionDatabaseClusterArns() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PlanWorkflowStepNeptuneGlobalDatabaseConfig) map[string]string {
+		return v.RegionDatabaseClusterArns
+	}).(pulumi.StringMapOutput)
+}
+
+// Timeout in minutes.
+func (o PlanWorkflowStepNeptuneGlobalDatabaseConfigOutput) TimeoutMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStepNeptuneGlobalDatabaseConfig) *int { return v.TimeoutMinutes }).(pulumi.IntPtrOutput)
+}
+
+// Ungraceful behavior configuration. See `workflow.step.neptune_global_database_config.ungraceful` Block for details.
+func (o PlanWorkflowStepNeptuneGlobalDatabaseConfigOutput) Ungracefuls() PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulArrayOutput {
+	return o.ApplyT(func(v PlanWorkflowStepNeptuneGlobalDatabaseConfig) []PlanWorkflowStepNeptuneGlobalDatabaseConfigUngraceful {
+		return v.Ungracefuls
+	}).(PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulArrayOutput)
+}
+
+type PlanWorkflowStepNeptuneGlobalDatabaseConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (PlanWorkflowStepNeptuneGlobalDatabaseConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanWorkflowStepNeptuneGlobalDatabaseConfig)(nil)).Elem()
+}
+
+func (o PlanWorkflowStepNeptuneGlobalDatabaseConfigArrayOutput) ToPlanWorkflowStepNeptuneGlobalDatabaseConfigArrayOutput() PlanWorkflowStepNeptuneGlobalDatabaseConfigArrayOutput {
+	return o
+}
+
+func (o PlanWorkflowStepNeptuneGlobalDatabaseConfigArrayOutput) ToPlanWorkflowStepNeptuneGlobalDatabaseConfigArrayOutputWithContext(ctx context.Context) PlanWorkflowStepNeptuneGlobalDatabaseConfigArrayOutput {
+	return o
+}
+
+func (o PlanWorkflowStepNeptuneGlobalDatabaseConfigArrayOutput) Index(i pulumi.IntInput) PlanWorkflowStepNeptuneGlobalDatabaseConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PlanWorkflowStepNeptuneGlobalDatabaseConfig {
+		return vs[0].([]PlanWorkflowStepNeptuneGlobalDatabaseConfig)[vs[1].(int)]
+	}).(PlanWorkflowStepNeptuneGlobalDatabaseConfigOutput)
+}
+
+type PlanWorkflowStepNeptuneGlobalDatabaseConfigUngraceful struct {
+	Ungraceful string `pulumi:"ungraceful"`
+}
+
+// PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulInput is an input type that accepts PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulArgs and PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulOutput values.
+// You can construct a concrete instance of `PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulInput` via:
+//
+//	PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulArgs{...}
+type PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulInput interface {
+	pulumi.Input
+
+	ToPlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulOutput() PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulOutput
+	ToPlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulOutputWithContext(context.Context) PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulOutput
+}
+
+type PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulArgs struct {
+	Ungraceful pulumi.StringInput `pulumi:"ungraceful"`
+}
+
+func (PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanWorkflowStepNeptuneGlobalDatabaseConfigUngraceful)(nil)).Elem()
+}
+
+func (i PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulArgs) ToPlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulOutput() PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulOutput {
+	return i.ToPlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulOutputWithContext(context.Background())
+}
+
+func (i PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulArgs) ToPlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulOutputWithContext(ctx context.Context) PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulOutput)
+}
+
+// PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulArrayInput is an input type that accepts PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulArray and PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulArrayOutput values.
+// You can construct a concrete instance of `PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulArrayInput` via:
+//
+//	PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulArray{ PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulArgs{...} }
+type PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulArrayInput interface {
+	pulumi.Input
+
+	ToPlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulArrayOutput() PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulArrayOutput
+	ToPlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulArrayOutputWithContext(context.Context) PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulArrayOutput
+}
+
+type PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulArray []PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulInput
+
+func (PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanWorkflowStepNeptuneGlobalDatabaseConfigUngraceful)(nil)).Elem()
+}
+
+func (i PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulArray) ToPlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulArrayOutput() PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulArrayOutput {
+	return i.ToPlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulArrayOutputWithContext(context.Background())
+}
+
+func (i PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulArray) ToPlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulArrayOutputWithContext(ctx context.Context) PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulArrayOutput)
+}
+
+type PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulOutput struct{ *pulumi.OutputState }
+
+func (PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanWorkflowStepNeptuneGlobalDatabaseConfigUngraceful)(nil)).Elem()
+}
+
+func (o PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulOutput) ToPlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulOutput() PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulOutput {
+	return o
+}
+
+func (o PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulOutput) ToPlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulOutputWithContext(ctx context.Context) PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulOutput {
+	return o
+}
+
+func (o PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulOutput) Ungraceful() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanWorkflowStepNeptuneGlobalDatabaseConfigUngraceful) string { return v.Ungraceful }).(pulumi.StringOutput)
+}
+
+type PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulArrayOutput struct{ *pulumi.OutputState }
+
+func (PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanWorkflowStepNeptuneGlobalDatabaseConfigUngraceful)(nil)).Elem()
+}
+
+func (o PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulArrayOutput) ToPlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulArrayOutput() PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulArrayOutput {
+	return o
+}
+
+func (o PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulArrayOutput) ToPlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulArrayOutputWithContext(ctx context.Context) PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulArrayOutput {
+	return o
+}
+
+func (o PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulArrayOutput) Index(i pulumi.IntInput) PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PlanWorkflowStepNeptuneGlobalDatabaseConfigUngraceful {
+		return vs[0].([]PlanWorkflowStepNeptuneGlobalDatabaseConfigUngraceful)[vs[1].(int)]
+	}).(PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulOutput)
+}
+
 type PlanWorkflowStepParallelConfig struct {
-	// List of steps to execute in parallel. Uses the same schema as Step but without `parallelConfig` to prevent infinite nesting.
+	// Steps to execute in parallel. See `step` Block for details. The parallel step schema matches `step` Block but does not support `parallelConfig` to prevent infinite nesting.
 	Steps []PlanWorkflowStepParallelConfigStep `pulumi:"steps"`
 }
 
@@ -4005,7 +4966,7 @@ type PlanWorkflowStepParallelConfigInput interface {
 }
 
 type PlanWorkflowStepParallelConfigArgs struct {
-	// List of steps to execute in parallel. Uses the same schema as Step but without `parallelConfig` to prevent infinite nesting.
+	// Steps to execute in parallel. See `step` Block for details. The parallel step schema matches `step` Block but does not support `parallelConfig` to prevent infinite nesting.
 	Steps PlanWorkflowStepParallelConfigStepArrayInput `pulumi:"steps"`
 }
 
@@ -4060,7 +5021,7 @@ func (o PlanWorkflowStepParallelConfigOutput) ToPlanWorkflowStepParallelConfigOu
 	return o
 }
 
-// List of steps to execute in parallel. Uses the same schema as Step but without `parallelConfig` to prevent infinite nesting.
+// Steps to execute in parallel. See `step` Block for details. The parallel step schema matches `step` Block but does not support `parallelConfig` to prevent infinite nesting.
 func (o PlanWorkflowStepParallelConfigOutput) Steps() PlanWorkflowStepParallelConfigStepArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfig) []PlanWorkflowStepParallelConfigStep { return v.Steps }).(PlanWorkflowStepParallelConfigStepArrayOutput)
 }
@@ -4086,34 +5047,43 @@ func (o PlanWorkflowStepParallelConfigArrayOutput) Index(i pulumi.IntInput) Plan
 }
 
 type PlanWorkflowStepParallelConfigStep struct {
-	// Configuration for ARC routing control. See ARC Routing Control Config below.
+	// Configuration for ARC routing control. See `arcRoutingControlConfig` Block for details.
 	ArcRoutingControlConfigs []PlanWorkflowStepParallelConfigStepArcRoutingControlConfig `pulumi:"arcRoutingControlConfigs"`
-	// Configuration for Lambda function execution. See Custom Action Lambda Config below.
+	// Configuration for Aurora provisioned scaling. See `auroraProvisionedScalingConfig` Block for details.
+	AuroraProvisionedScalingConfigs []PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfig `pulumi:"auroraProvisionedScalingConfigs"`
+	// Configuration for Aurora Serverless scaling. See `auroraServerlessScalingConfig` Block for details.
+	AuroraServerlessScalingConfigs []PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfig `pulumi:"auroraServerlessScalingConfigs"`
+	// Configuration for Lambda function execution. See `customActionLambdaConfig` Block for details.
 	CustomActionLambdaConfigs []PlanWorkflowStepParallelConfigStepCustomActionLambdaConfig `pulumi:"customActionLambdaConfigs"`
 	// Description of the step.
 	Description *string `pulumi:"description"`
-	// Configuration for DocumentDB global cluster operations. See DocumentDB Config below.
+	// Configuration for DocumentDB global cluster operations. See `documentDbConfig` Block for details.
 	DocumentDbConfigs []PlanWorkflowStepParallelConfigStepDocumentDbConfig `pulumi:"documentDbConfigs"`
-	// Configuration for EC2 Auto Scaling group capacity increase. See EC2 ASG Capacity Increase Config below.
+	// Configuration for EC2 Auto Scaling group capacity increase. See `ec2AsgCapacityIncreaseConfig` Block for details.
 	Ec2AsgCapacityIncreaseConfigs []PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfig `pulumi:"ec2AsgCapacityIncreaseConfigs"`
-	// Configuration for ECS service capacity increase. See ECS Capacity Increase Config below.
+	// Configuration for ECS service capacity increase. See `ecsCapacityIncreaseConfig` Block for details.
 	EcsCapacityIncreaseConfigs []PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfig `pulumi:"ecsCapacityIncreaseConfigs"`
-	// Configuration for EKS resource scaling. See EKS Resource Scaling Config below.
+	// Configuration for EKS resource scaling. See `eksResourceScalingConfig` Block for details.
 	EksResourceScalingConfigs []PlanWorkflowStepParallelConfigStepEksResourceScalingConfig `pulumi:"eksResourceScalingConfigs"`
-	// Configuration for manual approval steps. See Execution Approval Config below.
+	// Configuration for manual approval steps. See `executionApprovalConfig` Block for details.
 	ExecutionApprovalConfigs []PlanWorkflowStepParallelConfigStepExecutionApprovalConfig `pulumi:"executionApprovalConfigs"`
 	// Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `Route53HealthCheck`.
 	ExecutionBlockType string `pulumi:"executionBlockType"`
-	// Configuration for Aurora Global Database operations. See Global Aurora Config below.
+	// Configuration for Aurora Global Database operations. See `globalAuroraConfig` Block for details.
 	GlobalAuroraConfigs []PlanWorkflowStepParallelConfigStepGlobalAuroraConfig `pulumi:"globalAuroraConfigs"`
+	// Configuration for Lambda event source mapping operations. See `lambdaEventSourceMappingConfig` Block for details.
+	LambdaEventSourceMappingConfigs []PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfig `pulumi:"lambdaEventSourceMappingConfigs"`
 	// Name of the step.
 	Name string `pulumi:"name"`
-	// Configuration for creating cross-region RDS read replicas. See RDS Create Cross Region Read Replica Config below.
+	// Configuration for Neptune global database operations. See `neptuneGlobalDatabaseConfig` Block for details.
+	NeptuneGlobalDatabaseConfigs []PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfig `pulumi:"neptuneGlobalDatabaseConfigs"`
+	// Configuration for creating cross-region RDS read replicas. See `rdsCreateCrossRegionReadReplicaConfig` Block for details.
 	RdsCreateCrossRegionReadReplicaConfigs []PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfig `pulumi:"rdsCreateCrossRegionReadReplicaConfigs"`
-	// Configuration for promoting RDS read replicas. See RDS Promote Read Replica Config below.
+	// Configuration for promoting RDS read replicas. See `rdsPromoteReadReplicaConfig` Block for details.
 	RdsPromoteReadReplicaConfigs []PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfig `pulumi:"rdsPromoteReadReplicaConfigs"`
-	RegionSwitchPlanConfigs      []PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfig      `pulumi:"regionSwitchPlanConfigs"`
-	// Configuration for Route53 health check operations. See Route53 Health Check Config below.
+	// Configuration for executing a nested region switch plan. See `regionSwitchPlanConfig` Block for details.
+	RegionSwitchPlanConfigs []PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfig `pulumi:"regionSwitchPlanConfigs"`
+	// Configuration for Route53 health check operations. See `route53HealthCheckConfig` Block for details.
 	Route53HealthCheckConfigs []PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfig `pulumi:"route53HealthCheckConfigs"`
 }
 
@@ -4129,34 +5099,43 @@ type PlanWorkflowStepParallelConfigStepInput interface {
 }
 
 type PlanWorkflowStepParallelConfigStepArgs struct {
-	// Configuration for ARC routing control. See ARC Routing Control Config below.
+	// Configuration for ARC routing control. See `arcRoutingControlConfig` Block for details.
 	ArcRoutingControlConfigs PlanWorkflowStepParallelConfigStepArcRoutingControlConfigArrayInput `pulumi:"arcRoutingControlConfigs"`
-	// Configuration for Lambda function execution. See Custom Action Lambda Config below.
+	// Configuration for Aurora provisioned scaling. See `auroraProvisionedScalingConfig` Block for details.
+	AuroraProvisionedScalingConfigs PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigArrayInput `pulumi:"auroraProvisionedScalingConfigs"`
+	// Configuration for Aurora Serverless scaling. See `auroraServerlessScalingConfig` Block for details.
+	AuroraServerlessScalingConfigs PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigArrayInput `pulumi:"auroraServerlessScalingConfigs"`
+	// Configuration for Lambda function execution. See `customActionLambdaConfig` Block for details.
 	CustomActionLambdaConfigs PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigArrayInput `pulumi:"customActionLambdaConfigs"`
 	// Description of the step.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Configuration for DocumentDB global cluster operations. See DocumentDB Config below.
+	// Configuration for DocumentDB global cluster operations. See `documentDbConfig` Block for details.
 	DocumentDbConfigs PlanWorkflowStepParallelConfigStepDocumentDbConfigArrayInput `pulumi:"documentDbConfigs"`
-	// Configuration for EC2 Auto Scaling group capacity increase. See EC2 ASG Capacity Increase Config below.
+	// Configuration for EC2 Auto Scaling group capacity increase. See `ec2AsgCapacityIncreaseConfig` Block for details.
 	Ec2AsgCapacityIncreaseConfigs PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigArrayInput `pulumi:"ec2AsgCapacityIncreaseConfigs"`
-	// Configuration for ECS service capacity increase. See ECS Capacity Increase Config below.
+	// Configuration for ECS service capacity increase. See `ecsCapacityIncreaseConfig` Block for details.
 	EcsCapacityIncreaseConfigs PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigArrayInput `pulumi:"ecsCapacityIncreaseConfigs"`
-	// Configuration for EKS resource scaling. See EKS Resource Scaling Config below.
+	// Configuration for EKS resource scaling. See `eksResourceScalingConfig` Block for details.
 	EksResourceScalingConfigs PlanWorkflowStepParallelConfigStepEksResourceScalingConfigArrayInput `pulumi:"eksResourceScalingConfigs"`
-	// Configuration for manual approval steps. See Execution Approval Config below.
+	// Configuration for manual approval steps. See `executionApprovalConfig` Block for details.
 	ExecutionApprovalConfigs PlanWorkflowStepParallelConfigStepExecutionApprovalConfigArrayInput `pulumi:"executionApprovalConfigs"`
 	// Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `Route53HealthCheck`.
 	ExecutionBlockType pulumi.StringInput `pulumi:"executionBlockType"`
-	// Configuration for Aurora Global Database operations. See Global Aurora Config below.
+	// Configuration for Aurora Global Database operations. See `globalAuroraConfig` Block for details.
 	GlobalAuroraConfigs PlanWorkflowStepParallelConfigStepGlobalAuroraConfigArrayInput `pulumi:"globalAuroraConfigs"`
+	// Configuration for Lambda event source mapping operations. See `lambdaEventSourceMappingConfig` Block for details.
+	LambdaEventSourceMappingConfigs PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigArrayInput `pulumi:"lambdaEventSourceMappingConfigs"`
 	// Name of the step.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Configuration for creating cross-region RDS read replicas. See RDS Create Cross Region Read Replica Config below.
+	// Configuration for Neptune global database operations. See `neptuneGlobalDatabaseConfig` Block for details.
+	NeptuneGlobalDatabaseConfigs PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigArrayInput `pulumi:"neptuneGlobalDatabaseConfigs"`
+	// Configuration for creating cross-region RDS read replicas. See `rdsCreateCrossRegionReadReplicaConfig` Block for details.
 	RdsCreateCrossRegionReadReplicaConfigs PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArrayInput `pulumi:"rdsCreateCrossRegionReadReplicaConfigs"`
-	// Configuration for promoting RDS read replicas. See RDS Promote Read Replica Config below.
+	// Configuration for promoting RDS read replicas. See `rdsPromoteReadReplicaConfig` Block for details.
 	RdsPromoteReadReplicaConfigs PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArrayInput `pulumi:"rdsPromoteReadReplicaConfigs"`
-	RegionSwitchPlanConfigs      PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfigArrayInput      `pulumi:"regionSwitchPlanConfigs"`
-	// Configuration for Route53 health check operations. See Route53 Health Check Config below.
+	// Configuration for executing a nested region switch plan. See `regionSwitchPlanConfig` Block for details.
+	RegionSwitchPlanConfigs PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfigArrayInput `pulumi:"regionSwitchPlanConfigs"`
+	// Configuration for Route53 health check operations. See `route53HealthCheckConfig` Block for details.
 	Route53HealthCheckConfigs PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigArrayInput `pulumi:"route53HealthCheckConfigs"`
 }
 
@@ -4211,14 +5190,28 @@ func (o PlanWorkflowStepParallelConfigStepOutput) ToPlanWorkflowStepParallelConf
 	return o
 }
 
-// Configuration for ARC routing control. See ARC Routing Control Config below.
+// Configuration for ARC routing control. See `arcRoutingControlConfig` Block for details.
 func (o PlanWorkflowStepParallelConfigStepOutput) ArcRoutingControlConfigs() PlanWorkflowStepParallelConfigStepArcRoutingControlConfigArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStep) []PlanWorkflowStepParallelConfigStepArcRoutingControlConfig {
 		return v.ArcRoutingControlConfigs
 	}).(PlanWorkflowStepParallelConfigStepArcRoutingControlConfigArrayOutput)
 }
 
-// Configuration for Lambda function execution. See Custom Action Lambda Config below.
+// Configuration for Aurora provisioned scaling. See `auroraProvisionedScalingConfig` Block for details.
+func (o PlanWorkflowStepParallelConfigStepOutput) AuroraProvisionedScalingConfigs() PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigArrayOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStep) []PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfig {
+		return v.AuroraProvisionedScalingConfigs
+	}).(PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigArrayOutput)
+}
+
+// Configuration for Aurora Serverless scaling. See `auroraServerlessScalingConfig` Block for details.
+func (o PlanWorkflowStepParallelConfigStepOutput) AuroraServerlessScalingConfigs() PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigArrayOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStep) []PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfig {
+		return v.AuroraServerlessScalingConfigs
+	}).(PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigArrayOutput)
+}
+
+// Configuration for Lambda function execution. See `customActionLambdaConfig` Block for details.
 func (o PlanWorkflowStepParallelConfigStepOutput) CustomActionLambdaConfigs() PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStep) []PlanWorkflowStepParallelConfigStepCustomActionLambdaConfig {
 		return v.CustomActionLambdaConfigs
@@ -4230,35 +5223,35 @@ func (o PlanWorkflowStepParallelConfigStepOutput) Description() pulumi.StringPtr
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStep) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Configuration for DocumentDB global cluster operations. See DocumentDB Config below.
+// Configuration for DocumentDB global cluster operations. See `documentDbConfig` Block for details.
 func (o PlanWorkflowStepParallelConfigStepOutput) DocumentDbConfigs() PlanWorkflowStepParallelConfigStepDocumentDbConfigArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStep) []PlanWorkflowStepParallelConfigStepDocumentDbConfig {
 		return v.DocumentDbConfigs
 	}).(PlanWorkflowStepParallelConfigStepDocumentDbConfigArrayOutput)
 }
 
-// Configuration for EC2 Auto Scaling group capacity increase. See EC2 ASG Capacity Increase Config below.
+// Configuration for EC2 Auto Scaling group capacity increase. See `ec2AsgCapacityIncreaseConfig` Block for details.
 func (o PlanWorkflowStepParallelConfigStepOutput) Ec2AsgCapacityIncreaseConfigs() PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStep) []PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfig {
 		return v.Ec2AsgCapacityIncreaseConfigs
 	}).(PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigArrayOutput)
 }
 
-// Configuration for ECS service capacity increase. See ECS Capacity Increase Config below.
+// Configuration for ECS service capacity increase. See `ecsCapacityIncreaseConfig` Block for details.
 func (o PlanWorkflowStepParallelConfigStepOutput) EcsCapacityIncreaseConfigs() PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStep) []PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfig {
 		return v.EcsCapacityIncreaseConfigs
 	}).(PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigArrayOutput)
 }
 
-// Configuration for EKS resource scaling. See EKS Resource Scaling Config below.
+// Configuration for EKS resource scaling. See `eksResourceScalingConfig` Block for details.
 func (o PlanWorkflowStepParallelConfigStepOutput) EksResourceScalingConfigs() PlanWorkflowStepParallelConfigStepEksResourceScalingConfigArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStep) []PlanWorkflowStepParallelConfigStepEksResourceScalingConfig {
 		return v.EksResourceScalingConfigs
 	}).(PlanWorkflowStepParallelConfigStepEksResourceScalingConfigArrayOutput)
 }
 
-// Configuration for manual approval steps. See Execution Approval Config below.
+// Configuration for manual approval steps. See `executionApprovalConfig` Block for details.
 func (o PlanWorkflowStepParallelConfigStepOutput) ExecutionApprovalConfigs() PlanWorkflowStepParallelConfigStepExecutionApprovalConfigArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStep) []PlanWorkflowStepParallelConfigStepExecutionApprovalConfig {
 		return v.ExecutionApprovalConfigs
@@ -4270,11 +5263,18 @@ func (o PlanWorkflowStepParallelConfigStepOutput) ExecutionBlockType() pulumi.St
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStep) string { return v.ExecutionBlockType }).(pulumi.StringOutput)
 }
 
-// Configuration for Aurora Global Database operations. See Global Aurora Config below.
+// Configuration for Aurora Global Database operations. See `globalAuroraConfig` Block for details.
 func (o PlanWorkflowStepParallelConfigStepOutput) GlobalAuroraConfigs() PlanWorkflowStepParallelConfigStepGlobalAuroraConfigArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStep) []PlanWorkflowStepParallelConfigStepGlobalAuroraConfig {
 		return v.GlobalAuroraConfigs
 	}).(PlanWorkflowStepParallelConfigStepGlobalAuroraConfigArrayOutput)
+}
+
+// Configuration for Lambda event source mapping operations. See `lambdaEventSourceMappingConfig` Block for details.
+func (o PlanWorkflowStepParallelConfigStepOutput) LambdaEventSourceMappingConfigs() PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigArrayOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStep) []PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfig {
+		return v.LambdaEventSourceMappingConfigs
+	}).(PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigArrayOutput)
 }
 
 // Name of the step.
@@ -4282,27 +5282,35 @@ func (o PlanWorkflowStepParallelConfigStepOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStep) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Configuration for creating cross-region RDS read replicas. See RDS Create Cross Region Read Replica Config below.
+// Configuration for Neptune global database operations. See `neptuneGlobalDatabaseConfig` Block for details.
+func (o PlanWorkflowStepParallelConfigStepOutput) NeptuneGlobalDatabaseConfigs() PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigArrayOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStep) []PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfig {
+		return v.NeptuneGlobalDatabaseConfigs
+	}).(PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigArrayOutput)
+}
+
+// Configuration for creating cross-region RDS read replicas. See `rdsCreateCrossRegionReadReplicaConfig` Block for details.
 func (o PlanWorkflowStepParallelConfigStepOutput) RdsCreateCrossRegionReadReplicaConfigs() PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStep) []PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfig {
 		return v.RdsCreateCrossRegionReadReplicaConfigs
 	}).(PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArrayOutput)
 }
 
-// Configuration for promoting RDS read replicas. See RDS Promote Read Replica Config below.
+// Configuration for promoting RDS read replicas. See `rdsPromoteReadReplicaConfig` Block for details.
 func (o PlanWorkflowStepParallelConfigStepOutput) RdsPromoteReadReplicaConfigs() PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStep) []PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfig {
 		return v.RdsPromoteReadReplicaConfigs
 	}).(PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArrayOutput)
 }
 
+// Configuration for executing a nested region switch plan. See `regionSwitchPlanConfig` Block for details.
 func (o PlanWorkflowStepParallelConfigStepOutput) RegionSwitchPlanConfigs() PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfigArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStep) []PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfig {
 		return v.RegionSwitchPlanConfigs
 	}).(PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfigArrayOutput)
 }
 
-// Configuration for Route53 health check operations. See Route53 Health Check Config below.
+// Configuration for Route53 health check operations. See `route53HealthCheckConfig` Block for details.
 func (o PlanWorkflowStepParallelConfigStepOutput) Route53HealthCheckConfigs() PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStep) []PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfig {
 		return v.Route53HealthCheckConfigs
@@ -4334,7 +5342,7 @@ type PlanWorkflowStepParallelConfigStepArcRoutingControlConfig struct {
 	CrossAccountRole *string `pulumi:"crossAccountRole"`
 	// External ID for cross-account role assumption.
 	ExternalId *string `pulumi:"externalId"`
-	// List of regions and their routing controls. See Region and Routing Controls below.
+	// Regions and their routing controls. See `regionAndRoutingControls` Block for details.
 	RegionAndRoutingControls []PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControl `pulumi:"regionAndRoutingControls"`
 	// Timeout in minutes.
 	TimeoutMinutes *int `pulumi:"timeoutMinutes"`
@@ -4356,7 +5364,7 @@ type PlanWorkflowStepParallelConfigStepArcRoutingControlConfigArgs struct {
 	CrossAccountRole pulumi.StringPtrInput `pulumi:"crossAccountRole"`
 	// External ID for cross-account role assumption.
 	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
-	// List of regions and their routing controls. See Region and Routing Controls below.
+	// Regions and their routing controls. See `regionAndRoutingControls` Block for details.
 	RegionAndRoutingControls PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControlArrayInput `pulumi:"regionAndRoutingControls"`
 	// Timeout in minutes.
 	TimeoutMinutes pulumi.IntPtrInput `pulumi:"timeoutMinutes"`
@@ -4423,7 +5431,7 @@ func (o PlanWorkflowStepParallelConfigStepArcRoutingControlConfigOutput) Externa
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepArcRoutingControlConfig) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
 }
 
-// List of regions and their routing controls. See Region and Routing Controls below.
+// Regions and their routing controls. See `regionAndRoutingControls` Block for details.
 func (o PlanWorkflowStepParallelConfigStepArcRoutingControlConfigOutput) RegionAndRoutingControls() PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControlArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepArcRoutingControlConfig) []PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControl {
 		return v.RegionAndRoutingControls
@@ -4458,7 +5466,7 @@ func (o PlanWorkflowStepParallelConfigStepArcRoutingControlConfigArrayOutput) In
 type PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControl struct {
 	// AWS region.
 	Region string `pulumi:"region"`
-	// List of routing controls. See Routing Control below.
+	// Routing controls. See `routingControl` Block for details.
 	RoutingControls []PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControlRoutingControl `pulumi:"routingControls"`
 }
 
@@ -4476,7 +5484,7 @@ type PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingCo
 type PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControlArgs struct {
 	// AWS region.
 	Region pulumi.StringInput `pulumi:"region"`
-	// List of routing controls. See Routing Control below.
+	// Routing controls. See `routingControl` Block for details.
 	RoutingControls PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControlRoutingControlArrayInput `pulumi:"routingControls"`
 }
 
@@ -4538,7 +5546,7 @@ func (o PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutin
 	}).(pulumi.StringOutput)
 }
 
-// List of routing controls. See Routing Control below.
+// Routing controls. See `routingControl` Block for details.
 func (o PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControlOutput) RoutingControls() PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControlRoutingControlArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControl) []PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControlRoutingControl {
 		return v.RoutingControls
@@ -4675,8 +5683,306 @@ func (o PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutin
 	}).(PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControlRoutingControlOutput)
 }
 
+type PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfig struct {
+	// ARN of the cross-account role to assume.
+	CrossAccountRole *string `pulumi:"crossAccountRole"`
+	// External ID for cross-account role assumption.
+	ExternalId *string `pulumi:"externalId"`
+	// Global cluster identifier.
+	GlobalClusterIdentifier string `pulumi:"globalClusterIdentifier"`
+	// Map of regions to Aurora instance ARNs.
+	InstanceArns map[string]string `pulumi:"instanceArns"`
+	// Map of regions to database cluster ARNs.
+	RegionDatabaseClusterArns map[string]string `pulumi:"regionDatabaseClusterArns"`
+	// Timeout in minutes.
+	TimeoutMinutes *int `pulumi:"timeoutMinutes"`
+}
+
+// PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigInput is an input type that accepts PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigArgs and PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigOutput values.
+// You can construct a concrete instance of `PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigInput` via:
+//
+//	PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigArgs{...}
+type PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigInput interface {
+	pulumi.Input
+
+	ToPlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigOutput() PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigOutput
+	ToPlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigOutputWithContext(context.Context) PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigOutput
+}
+
+type PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigArgs struct {
+	// ARN of the cross-account role to assume.
+	CrossAccountRole pulumi.StringPtrInput `pulumi:"crossAccountRole"`
+	// External ID for cross-account role assumption.
+	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
+	// Global cluster identifier.
+	GlobalClusterIdentifier pulumi.StringInput `pulumi:"globalClusterIdentifier"`
+	// Map of regions to Aurora instance ARNs.
+	InstanceArns pulumi.StringMapInput `pulumi:"instanceArns"`
+	// Map of regions to database cluster ARNs.
+	RegionDatabaseClusterArns pulumi.StringMapInput `pulumi:"regionDatabaseClusterArns"`
+	// Timeout in minutes.
+	TimeoutMinutes pulumi.IntPtrInput `pulumi:"timeoutMinutes"`
+}
+
+func (PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfig)(nil)).Elem()
+}
+
+func (i PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigArgs) ToPlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigOutput() PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigOutput {
+	return i.ToPlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigOutputWithContext(context.Background())
+}
+
+func (i PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigArgs) ToPlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigOutput)
+}
+
+// PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigArrayInput is an input type that accepts PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigArray and PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigArrayOutput values.
+// You can construct a concrete instance of `PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigArrayInput` via:
+//
+//	PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigArray{ PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigArgs{...} }
+type PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigArrayInput interface {
+	pulumi.Input
+
+	ToPlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigArrayOutput() PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigArrayOutput
+	ToPlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigArrayOutputWithContext(context.Context) PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigArrayOutput
+}
+
+type PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigArray []PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigInput
+
+func (PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfig)(nil)).Elem()
+}
+
+func (i PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigArray) ToPlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigArrayOutput() PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigArrayOutput {
+	return i.ToPlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigArrayOutputWithContext(context.Background())
+}
+
+func (i PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigArray) ToPlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigArrayOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigArrayOutput)
+}
+
+type PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigOutput struct{ *pulumi.OutputState }
+
+func (PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfig)(nil)).Elem()
+}
+
+func (o PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigOutput) ToPlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigOutput() PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigOutput {
+	return o
+}
+
+func (o PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigOutput) ToPlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigOutput {
+	return o
+}
+
+// ARN of the cross-account role to assume.
+func (o PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigOutput) CrossAccountRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfig) *string {
+		return v.CrossAccountRole
+	}).(pulumi.StringPtrOutput)
+}
+
+// External ID for cross-account role assumption.
+func (o PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfig) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
+}
+
+// Global cluster identifier.
+func (o PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigOutput) GlobalClusterIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfig) string {
+		return v.GlobalClusterIdentifier
+	}).(pulumi.StringOutput)
+}
+
+// Map of regions to Aurora instance ARNs.
+func (o PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigOutput) InstanceArns() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfig) map[string]string {
+		return v.InstanceArns
+	}).(pulumi.StringMapOutput)
+}
+
+// Map of regions to database cluster ARNs.
+func (o PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigOutput) RegionDatabaseClusterArns() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfig) map[string]string {
+		return v.RegionDatabaseClusterArns
+	}).(pulumi.StringMapOutput)
+}
+
+// Timeout in minutes.
+func (o PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigOutput) TimeoutMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfig) *int { return v.TimeoutMinutes }).(pulumi.IntPtrOutput)
+}
+
+type PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfig)(nil)).Elem()
+}
+
+func (o PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigArrayOutput) ToPlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigArrayOutput() PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigArrayOutput {
+	return o
+}
+
+func (o PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigArrayOutput) ToPlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigArrayOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigArrayOutput {
+	return o
+}
+
+func (o PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigArrayOutput) Index(i pulumi.IntInput) PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfig {
+		return vs[0].([]PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfig)[vs[1].(int)]
+	}).(PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigOutput)
+}
+
+type PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfig struct {
+	// ARN of the cross-account role to assume.
+	CrossAccountRole *string `pulumi:"crossAccountRole"`
+	// External ID for cross-account role assumption.
+	ExternalId *string `pulumi:"externalId"`
+	// Global cluster identifier.
+	GlobalClusterIdentifier string `pulumi:"globalClusterIdentifier"`
+	// Map of regions to database cluster ARNs.
+	RegionDatabaseClusterArns map[string]string `pulumi:"regionDatabaseClusterArns"`
+	// Target capacity percentage.
+	TargetPercent *int `pulumi:"targetPercent"`
+	// Timeout in minutes.
+	TimeoutMinutes *int `pulumi:"timeoutMinutes"`
+}
+
+// PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigInput is an input type that accepts PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigArgs and PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigOutput values.
+// You can construct a concrete instance of `PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigInput` via:
+//
+//	PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigArgs{...}
+type PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigInput interface {
+	pulumi.Input
+
+	ToPlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigOutput() PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigOutput
+	ToPlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigOutputWithContext(context.Context) PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigOutput
+}
+
+type PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigArgs struct {
+	// ARN of the cross-account role to assume.
+	CrossAccountRole pulumi.StringPtrInput `pulumi:"crossAccountRole"`
+	// External ID for cross-account role assumption.
+	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
+	// Global cluster identifier.
+	GlobalClusterIdentifier pulumi.StringInput `pulumi:"globalClusterIdentifier"`
+	// Map of regions to database cluster ARNs.
+	RegionDatabaseClusterArns pulumi.StringMapInput `pulumi:"regionDatabaseClusterArns"`
+	// Target capacity percentage.
+	TargetPercent pulumi.IntPtrInput `pulumi:"targetPercent"`
+	// Timeout in minutes.
+	TimeoutMinutes pulumi.IntPtrInput `pulumi:"timeoutMinutes"`
+}
+
+func (PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfig)(nil)).Elem()
+}
+
+func (i PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigArgs) ToPlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigOutput() PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigOutput {
+	return i.ToPlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigOutputWithContext(context.Background())
+}
+
+func (i PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigArgs) ToPlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigOutput)
+}
+
+// PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigArrayInput is an input type that accepts PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigArray and PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigArrayOutput values.
+// You can construct a concrete instance of `PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigArrayInput` via:
+//
+//	PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigArray{ PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigArgs{...} }
+type PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigArrayInput interface {
+	pulumi.Input
+
+	ToPlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigArrayOutput() PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigArrayOutput
+	ToPlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigArrayOutputWithContext(context.Context) PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigArrayOutput
+}
+
+type PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigArray []PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigInput
+
+func (PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfig)(nil)).Elem()
+}
+
+func (i PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigArray) ToPlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigArrayOutput() PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigArrayOutput {
+	return i.ToPlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigArrayOutputWithContext(context.Background())
+}
+
+func (i PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigArray) ToPlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigArrayOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigArrayOutput)
+}
+
+type PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigOutput struct{ *pulumi.OutputState }
+
+func (PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfig)(nil)).Elem()
+}
+
+func (o PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigOutput) ToPlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigOutput() PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigOutput {
+	return o
+}
+
+func (o PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigOutput) ToPlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigOutput {
+	return o
+}
+
+// ARN of the cross-account role to assume.
+func (o PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigOutput) CrossAccountRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfig) *string {
+		return v.CrossAccountRole
+	}).(pulumi.StringPtrOutput)
+}
+
+// External ID for cross-account role assumption.
+func (o PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfig) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
+}
+
+// Global cluster identifier.
+func (o PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigOutput) GlobalClusterIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfig) string {
+		return v.GlobalClusterIdentifier
+	}).(pulumi.StringOutput)
+}
+
+// Map of regions to database cluster ARNs.
+func (o PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigOutput) RegionDatabaseClusterArns() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfig) map[string]string {
+		return v.RegionDatabaseClusterArns
+	}).(pulumi.StringMapOutput)
+}
+
+// Target capacity percentage.
+func (o PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigOutput) TargetPercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfig) *int { return v.TargetPercent }).(pulumi.IntPtrOutput)
+}
+
+// Timeout in minutes.
+func (o PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigOutput) TimeoutMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfig) *int { return v.TimeoutMinutes }).(pulumi.IntPtrOutput)
+}
+
+type PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfig)(nil)).Elem()
+}
+
+func (o PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigArrayOutput) ToPlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigArrayOutput() PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigArrayOutput {
+	return o
+}
+
+func (o PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigArrayOutput) ToPlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigArrayOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigArrayOutput {
+	return o
+}
+
+func (o PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigArrayOutput) Index(i pulumi.IntInput) PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfig {
+		return vs[0].([]PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfig)[vs[1].(int)]
+	}).(PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigOutput)
+}
+
 type PlanWorkflowStepParallelConfigStepCustomActionLambdaConfig struct {
-	// Lambda function configuration. See Lambda below.
+	// Lambda function configuration. See `lambda` Block for details.
 	Lambdas []PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigLambda `pulumi:"lambdas"`
 	// Region where the Lambda function should run. Valid values: `activatingRegion`, `deactivatingRegion`.
 	RegionToRun string `pulumi:"regionToRun"`
@@ -4684,7 +5990,7 @@ type PlanWorkflowStepParallelConfigStepCustomActionLambdaConfig struct {
 	RetryIntervalMinutes float64 `pulumi:"retryIntervalMinutes"`
 	// Timeout in minutes.
 	TimeoutMinutes *int `pulumi:"timeoutMinutes"`
-	// Ungraceful behavior configuration. See Ungraceful below.
+	// Ungraceful behavior configuration. See `workflow.step.custom_action_lambda_config.ungraceful` Block for details.
 	Ungracefuls []PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigUngraceful `pulumi:"ungracefuls"`
 }
 
@@ -4700,7 +6006,7 @@ type PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigInput interface {
 }
 
 type PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigArgs struct {
-	// Lambda function configuration. See Lambda below.
+	// Lambda function configuration. See `lambda` Block for details.
 	Lambdas PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigLambdaArrayInput `pulumi:"lambdas"`
 	// Region where the Lambda function should run. Valid values: `activatingRegion`, `deactivatingRegion`.
 	RegionToRun pulumi.StringInput `pulumi:"regionToRun"`
@@ -4708,7 +6014,7 @@ type PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigArgs struct {
 	RetryIntervalMinutes pulumi.Float64Input `pulumi:"retryIntervalMinutes"`
 	// Timeout in minutes.
 	TimeoutMinutes pulumi.IntPtrInput `pulumi:"timeoutMinutes"`
-	// Ungraceful behavior configuration. See Ungraceful below.
+	// Ungraceful behavior configuration. See `workflow.step.custom_action_lambda_config.ungraceful` Block for details.
 	Ungracefuls PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigUngracefulArrayInput `pulumi:"ungracefuls"`
 }
 
@@ -4763,7 +6069,7 @@ func (o PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigOutput) ToPlan
 	return o
 }
 
-// Lambda function configuration. See Lambda below.
+// Lambda function configuration. See `lambda` Block for details.
 func (o PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigOutput) Lambdas() PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigLambdaArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepCustomActionLambdaConfig) []PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigLambda {
 		return v.Lambdas
@@ -4787,7 +6093,7 @@ func (o PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigOutput) Timeou
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepCustomActionLambdaConfig) *int { return v.TimeoutMinutes }).(pulumi.IntPtrOutput)
 }
 
-// Ungraceful behavior configuration. See Ungraceful below.
+// Ungraceful behavior configuration. See `workflow.step.custom_action_lambda_config.ungraceful` Block for details.
 func (o PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigOutput) Ungracefuls() PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigUngracefulArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepCustomActionLambdaConfig) []PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigUngraceful {
 		return v.Ungracefuls
@@ -4932,7 +6238,6 @@ func (o PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigLambdaArrayOut
 }
 
 type PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigUngraceful struct {
-	// Behavior when ungraceful. Valid values: `skip`.
 	Behavior string `pulumi:"behavior"`
 }
 
@@ -4948,7 +6253,6 @@ type PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigUngracefulInput i
 }
 
 type PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigUngracefulArgs struct {
-	// Behavior when ungraceful. Valid values: `skip`.
 	Behavior pulumi.StringInput `pulumi:"behavior"`
 }
 
@@ -5003,7 +6307,6 @@ func (o PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigUngracefulOutp
 	return o
 }
 
-// Behavior when ungraceful. Valid values: `skip`.
 func (o PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigUngracefulOutput) Behavior() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigUngraceful) string { return v.Behavior }).(pulumi.StringOutput)
 }
@@ -5029,13 +6332,20 @@ func (o PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigUngracefulArra
 }
 
 type PlanWorkflowStepParallelConfigStepDocumentDbConfig struct {
-	Behavior                string                                                         `pulumi:"behavior"`
-	CrossAccountRole        *string                                                        `pulumi:"crossAccountRole"`
-	DatabaseClusterArns     []string                                                       `pulumi:"databaseClusterArns"`
-	ExternalId              *string                                                        `pulumi:"externalId"`
-	GlobalClusterIdentifier string                                                         `pulumi:"globalClusterIdentifier"`
-	TimeoutMinutes          *int                                                           `pulumi:"timeoutMinutes"`
-	Ungracefuls             []PlanWorkflowStepParallelConfigStepDocumentDbConfigUngraceful `pulumi:"ungracefuls"`
+	// Behavior for global cluster operations. Valid values: `switchoverOnly`, `failover`.
+	Behavior string `pulumi:"behavior"`
+	// ARN of the cross-account role to assume.
+	CrossAccountRole *string `pulumi:"crossAccountRole"`
+	// List of DocumentDB cluster ARNs.
+	DatabaseClusterArns []string `pulumi:"databaseClusterArns"`
+	// External ID for cross-account role assumption.
+	ExternalId *string `pulumi:"externalId"`
+	// Global cluster identifier.
+	GlobalClusterIdentifier string `pulumi:"globalClusterIdentifier"`
+	// Timeout in minutes.
+	TimeoutMinutes *int `pulumi:"timeoutMinutes"`
+	// Ungraceful behavior configuration. See `workflow.step.document_db_config.ungraceful` Block for details.
+	Ungracefuls []PlanWorkflowStepParallelConfigStepDocumentDbConfigUngraceful `pulumi:"ungracefuls"`
 }
 
 // PlanWorkflowStepParallelConfigStepDocumentDbConfigInput is an input type that accepts PlanWorkflowStepParallelConfigStepDocumentDbConfigArgs and PlanWorkflowStepParallelConfigStepDocumentDbConfigOutput values.
@@ -5050,13 +6360,20 @@ type PlanWorkflowStepParallelConfigStepDocumentDbConfigInput interface {
 }
 
 type PlanWorkflowStepParallelConfigStepDocumentDbConfigArgs struct {
-	Behavior                pulumi.StringInput                                                     `pulumi:"behavior"`
-	CrossAccountRole        pulumi.StringPtrInput                                                  `pulumi:"crossAccountRole"`
-	DatabaseClusterArns     pulumi.StringArrayInput                                                `pulumi:"databaseClusterArns"`
-	ExternalId              pulumi.StringPtrInput                                                  `pulumi:"externalId"`
-	GlobalClusterIdentifier pulumi.StringInput                                                     `pulumi:"globalClusterIdentifier"`
-	TimeoutMinutes          pulumi.IntPtrInput                                                     `pulumi:"timeoutMinutes"`
-	Ungracefuls             PlanWorkflowStepParallelConfigStepDocumentDbConfigUngracefulArrayInput `pulumi:"ungracefuls"`
+	// Behavior for global cluster operations. Valid values: `switchoverOnly`, `failover`.
+	Behavior pulumi.StringInput `pulumi:"behavior"`
+	// ARN of the cross-account role to assume.
+	CrossAccountRole pulumi.StringPtrInput `pulumi:"crossAccountRole"`
+	// List of DocumentDB cluster ARNs.
+	DatabaseClusterArns pulumi.StringArrayInput `pulumi:"databaseClusterArns"`
+	// External ID for cross-account role assumption.
+	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
+	// Global cluster identifier.
+	GlobalClusterIdentifier pulumi.StringInput `pulumi:"globalClusterIdentifier"`
+	// Timeout in minutes.
+	TimeoutMinutes pulumi.IntPtrInput `pulumi:"timeoutMinutes"`
+	// Ungraceful behavior configuration. See `workflow.step.document_db_config.ungraceful` Block for details.
+	Ungracefuls PlanWorkflowStepParallelConfigStepDocumentDbConfigUngracefulArrayInput `pulumi:"ungracefuls"`
 }
 
 func (PlanWorkflowStepParallelConfigStepDocumentDbConfigArgs) ElementType() reflect.Type {
@@ -5110,30 +6427,37 @@ func (o PlanWorkflowStepParallelConfigStepDocumentDbConfigOutput) ToPlanWorkflow
 	return o
 }
 
+// Behavior for global cluster operations. Valid values: `switchoverOnly`, `failover`.
 func (o PlanWorkflowStepParallelConfigStepDocumentDbConfigOutput) Behavior() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepDocumentDbConfig) string { return v.Behavior }).(pulumi.StringOutput)
 }
 
+// ARN of the cross-account role to assume.
 func (o PlanWorkflowStepParallelConfigStepDocumentDbConfigOutput) CrossAccountRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepDocumentDbConfig) *string { return v.CrossAccountRole }).(pulumi.StringPtrOutput)
 }
 
+// List of DocumentDB cluster ARNs.
 func (o PlanWorkflowStepParallelConfigStepDocumentDbConfigOutput) DatabaseClusterArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepDocumentDbConfig) []string { return v.DatabaseClusterArns }).(pulumi.StringArrayOutput)
 }
 
+// External ID for cross-account role assumption.
 func (o PlanWorkflowStepParallelConfigStepDocumentDbConfigOutput) ExternalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepDocumentDbConfig) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
 }
 
+// Global cluster identifier.
 func (o PlanWorkflowStepParallelConfigStepDocumentDbConfigOutput) GlobalClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepDocumentDbConfig) string { return v.GlobalClusterIdentifier }).(pulumi.StringOutput)
 }
 
+// Timeout in minutes.
 func (o PlanWorkflowStepParallelConfigStepDocumentDbConfigOutput) TimeoutMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepDocumentDbConfig) *int { return v.TimeoutMinutes }).(pulumi.IntPtrOutput)
 }
 
+// Ungraceful behavior configuration. See `workflow.step.document_db_config.ungraceful` Block for details.
 func (o PlanWorkflowStepParallelConfigStepDocumentDbConfigOutput) Ungracefuls() PlanWorkflowStepParallelConfigStepDocumentDbConfigUngracefulArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepDocumentDbConfig) []PlanWorkflowStepParallelConfigStepDocumentDbConfigUngraceful {
 		return v.Ungracefuls
@@ -5255,7 +6579,7 @@ func (o PlanWorkflowStepParallelConfigStepDocumentDbConfigUngracefulArrayOutput)
 }
 
 type PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfig struct {
-	// Auto Scaling group configuration. See ASG below.
+	// Auto Scaling group configuration. See `asg` Block for details.
 	Asgs []PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigAsg `pulumi:"asgs"`
 	// Capacity monitoring approach. Valid values: `sampledMaxInLast24Hours`, `autoscalingMaxInLast24Hours`.
 	CapacityMonitoringApproach string `pulumi:"capacityMonitoringApproach"`
@@ -5263,7 +6587,7 @@ type PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfig struct {
 	TargetPercent *int `pulumi:"targetPercent"`
 	// Timeout in minutes.
 	TimeoutMinutes *int `pulumi:"timeoutMinutes"`
-	// Ungraceful behavior configuration. See Ungraceful below.
+	// Ungraceful behavior configuration. See `workflow.step.ec2_asg_capacity_increase_config.ungraceful` Block for details.
 	Ungraceful *PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigUngraceful `pulumi:"ungraceful"`
 }
 
@@ -5279,7 +6603,7 @@ type PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigInput interfa
 }
 
 type PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigArgs struct {
-	// Auto Scaling group configuration. See ASG below.
+	// Auto Scaling group configuration. See `asg` Block for details.
 	Asgs PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigAsgArrayInput `pulumi:"asgs"`
 	// Capacity monitoring approach. Valid values: `sampledMaxInLast24Hours`, `autoscalingMaxInLast24Hours`.
 	CapacityMonitoringApproach pulumi.StringInput `pulumi:"capacityMonitoringApproach"`
@@ -5287,7 +6611,7 @@ type PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigArgs struct {
 	TargetPercent pulumi.IntPtrInput `pulumi:"targetPercent"`
 	// Timeout in minutes.
 	TimeoutMinutes pulumi.IntPtrInput `pulumi:"timeoutMinutes"`
-	// Ungraceful behavior configuration. See Ungraceful below.
+	// Ungraceful behavior configuration. See `workflow.step.ec2_asg_capacity_increase_config.ungraceful` Block for details.
 	Ungraceful PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigUngracefulPtrInput `pulumi:"ungraceful"`
 }
 
@@ -5342,7 +6666,7 @@ func (o PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigOutput) To
 	return o
 }
 
-// Auto Scaling group configuration. See ASG below.
+// Auto Scaling group configuration. See `asg` Block for details.
 func (o PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigOutput) Asgs() PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigAsgArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfig) []PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigAsg {
 		return v.Asgs
@@ -5366,7 +6690,7 @@ func (o PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigOutput) Ti
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfig) *int { return v.TimeoutMinutes }).(pulumi.IntPtrOutput)
 }
 
-// Ungraceful behavior configuration. See Ungraceful below.
+// Ungraceful behavior configuration. See `workflow.step.ec2_asg_capacity_increase_config.ungraceful` Block for details.
 func (o PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigOutput) Ungraceful() PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigUngracefulPtrOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfig) *PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigUngraceful {
 		return v.Ungraceful
@@ -5652,13 +6976,13 @@ func (o PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigUngraceful
 type PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfig struct {
 	// Capacity monitoring approach. Valid values: `sampledMaxInLast24Hours`, `containerInsightsMaxInLast24Hours`.
 	CapacityMonitoringApproach string `pulumi:"capacityMonitoringApproach"`
-	// ECS service configuration. See ECS Service below.
+	// ECS service configuration. See `service` Block for details.
 	Services []PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigService `pulumi:"services"`
 	// Target capacity percentage.
 	TargetPercent *int `pulumi:"targetPercent"`
 	// Timeout in minutes.
 	TimeoutMinutes *int `pulumi:"timeoutMinutes"`
-	// Ungraceful behavior configuration. See Ungraceful Capacity below.
+	// Ungraceful behavior configuration. See `workflow.step.ecs_capacity_increase_config.ungraceful` Block for details.
 	Ungraceful *PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigUngraceful `pulumi:"ungraceful"`
 }
 
@@ -5676,13 +7000,13 @@ type PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigInput interface 
 type PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigArgs struct {
 	// Capacity monitoring approach. Valid values: `sampledMaxInLast24Hours`, `containerInsightsMaxInLast24Hours`.
 	CapacityMonitoringApproach pulumi.StringInput `pulumi:"capacityMonitoringApproach"`
-	// ECS service configuration. See ECS Service below.
+	// ECS service configuration. See `service` Block for details.
 	Services PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigServiceArrayInput `pulumi:"services"`
 	// Target capacity percentage.
 	TargetPercent pulumi.IntPtrInput `pulumi:"targetPercent"`
 	// Timeout in minutes.
 	TimeoutMinutes pulumi.IntPtrInput `pulumi:"timeoutMinutes"`
-	// Ungraceful behavior configuration. See Ungraceful Capacity below.
+	// Ungraceful behavior configuration. See `workflow.step.ecs_capacity_increase_config.ungraceful` Block for details.
 	Ungraceful PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigUngracefulPtrInput `pulumi:"ungraceful"`
 }
 
@@ -5744,7 +7068,7 @@ func (o PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigOutput) Capac
 	}).(pulumi.StringOutput)
 }
 
-// ECS service configuration. See ECS Service below.
+// ECS service configuration. See `service` Block for details.
 func (o PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigOutput) Services() PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigServiceArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfig) []PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigService {
 		return v.Services
@@ -5761,7 +7085,7 @@ func (o PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigOutput) Timeo
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfig) *int { return v.TimeoutMinutes }).(pulumi.IntPtrOutput)
 }
 
-// Ungraceful behavior configuration. See Ungraceful Capacity below.
+// Ungraceful behavior configuration. See `workflow.step.ecs_capacity_increase_config.ungraceful` Block for details.
 func (o PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigOutput) Ungraceful() PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigUngracefulPtrOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfig) *PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigUngraceful {
 		return v.Ungraceful
@@ -5789,9 +7113,12 @@ func (o PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigArrayOutput) 
 }
 
 type PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigService struct {
-	ClusterArn       string  `pulumi:"clusterArn"`
+	// ARN of the ECS cluster.
+	ClusterArn string `pulumi:"clusterArn"`
+	// ARN of the cross-account role to assume.
 	CrossAccountRole *string `pulumi:"crossAccountRole"`
-	ExternalId       *string `pulumi:"externalId"`
+	// External ID for cross-account role assumption.
+	ExternalId *string `pulumi:"externalId"`
 	// ARN of the ECS service.
 	ServiceArn string `pulumi:"serviceArn"`
 }
@@ -5808,9 +7135,12 @@ type PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigServiceInput int
 }
 
 type PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigServiceArgs struct {
-	ClusterArn       pulumi.StringInput    `pulumi:"clusterArn"`
+	// ARN of the ECS cluster.
+	ClusterArn pulumi.StringInput `pulumi:"clusterArn"`
+	// ARN of the cross-account role to assume.
 	CrossAccountRole pulumi.StringPtrInput `pulumi:"crossAccountRole"`
-	ExternalId       pulumi.StringPtrInput `pulumi:"externalId"`
+	// External ID for cross-account role assumption.
+	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
 	// ARN of the ECS service.
 	ServiceArn pulumi.StringInput `pulumi:"serviceArn"`
 }
@@ -5866,16 +7196,19 @@ func (o PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigServiceOutput
 	return o
 }
 
+// ARN of the ECS cluster.
 func (o PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigServiceOutput) ClusterArn() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigService) string { return v.ClusterArn }).(pulumi.StringOutput)
 }
 
+// ARN of the cross-account role to assume.
 func (o PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigServiceOutput) CrossAccountRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigService) *string {
 		return v.CrossAccountRole
 	}).(pulumi.StringPtrOutput)
 }
 
+// External ID for cross-account role assumption.
 func (o PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigServiceOutput) ExternalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigService) *string {
 		return v.ExternalId
@@ -6049,17 +7382,17 @@ func (o PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigUngracefulPtr
 type PlanWorkflowStepParallelConfigStepEksResourceScalingConfig struct {
 	// Capacity monitoring approach. Valid values: `sampledMaxInLast24Hours`, `autoscalingMaxInLast24Hours`.
 	CapacityMonitoringApproach string `pulumi:"capacityMonitoringApproach"`
-	// List of EKS clusters. See EKS Clusters below.
+	// EKS clusters. See `eksClusters` Block for details.
 	EksClusters []PlanWorkflowStepParallelConfigStepEksResourceScalingConfigEksCluster `pulumi:"eksClusters"`
-	// Kubernetes resource type. See Kubernetes Resource Type below.
+	// Kubernetes resource type. See `kubernetesResourceType` Block for details.
 	KubernetesResourceTypes []PlanWorkflowStepParallelConfigStepEksResourceScalingConfigKubernetesResourceType `pulumi:"kubernetesResourceTypes"`
-	// List of scaling resources. See Scaling Resources below.
+	// Scaling resources. See `scalingResources` Block for details.
 	ScalingResources []PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResource `pulumi:"scalingResources"`
 	// Target capacity percentage.
 	TargetPercent int `pulumi:"targetPercent"`
 	// Timeout in minutes.
 	TimeoutMinutes *int `pulumi:"timeoutMinutes"`
-	// Ungraceful behavior configuration. See Ungraceful Capacity below.
+	// Ungraceful behavior configuration. See `workflow.step.eks_resource_scaling_config.ungraceful` Block for details.
 	Ungracefuls []PlanWorkflowStepParallelConfigStepEksResourceScalingConfigUngraceful `pulumi:"ungracefuls"`
 }
 
@@ -6077,17 +7410,17 @@ type PlanWorkflowStepParallelConfigStepEksResourceScalingConfigInput interface {
 type PlanWorkflowStepParallelConfigStepEksResourceScalingConfigArgs struct {
 	// Capacity monitoring approach. Valid values: `sampledMaxInLast24Hours`, `autoscalingMaxInLast24Hours`.
 	CapacityMonitoringApproach pulumi.StringInput `pulumi:"capacityMonitoringApproach"`
-	// List of EKS clusters. See EKS Clusters below.
+	// EKS clusters. See `eksClusters` Block for details.
 	EksClusters PlanWorkflowStepParallelConfigStepEksResourceScalingConfigEksClusterArrayInput `pulumi:"eksClusters"`
-	// Kubernetes resource type. See Kubernetes Resource Type below.
+	// Kubernetes resource type. See `kubernetesResourceType` Block for details.
 	KubernetesResourceTypes PlanWorkflowStepParallelConfigStepEksResourceScalingConfigKubernetesResourceTypeArrayInput `pulumi:"kubernetesResourceTypes"`
-	// List of scaling resources. See Scaling Resources below.
+	// Scaling resources. See `scalingResources` Block for details.
 	ScalingResources PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResourceArrayInput `pulumi:"scalingResources"`
 	// Target capacity percentage.
 	TargetPercent pulumi.IntInput `pulumi:"targetPercent"`
 	// Timeout in minutes.
 	TimeoutMinutes pulumi.IntPtrInput `pulumi:"timeoutMinutes"`
-	// Ungraceful behavior configuration. See Ungraceful Capacity below.
+	// Ungraceful behavior configuration. See `workflow.step.eks_resource_scaling_config.ungraceful` Block for details.
 	Ungracefuls PlanWorkflowStepParallelConfigStepEksResourceScalingConfigUngracefulArrayInput `pulumi:"ungracefuls"`
 }
 
@@ -6149,21 +7482,21 @@ func (o PlanWorkflowStepParallelConfigStepEksResourceScalingConfigOutput) Capaci
 	}).(pulumi.StringOutput)
 }
 
-// List of EKS clusters. See EKS Clusters below.
+// EKS clusters. See `eksClusters` Block for details.
 func (o PlanWorkflowStepParallelConfigStepEksResourceScalingConfigOutput) EksClusters() PlanWorkflowStepParallelConfigStepEksResourceScalingConfigEksClusterArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepEksResourceScalingConfig) []PlanWorkflowStepParallelConfigStepEksResourceScalingConfigEksCluster {
 		return v.EksClusters
 	}).(PlanWorkflowStepParallelConfigStepEksResourceScalingConfigEksClusterArrayOutput)
 }
 
-// Kubernetes resource type. See Kubernetes Resource Type below.
+// Kubernetes resource type. See `kubernetesResourceType` Block for details.
 func (o PlanWorkflowStepParallelConfigStepEksResourceScalingConfigOutput) KubernetesResourceTypes() PlanWorkflowStepParallelConfigStepEksResourceScalingConfigKubernetesResourceTypeArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepEksResourceScalingConfig) []PlanWorkflowStepParallelConfigStepEksResourceScalingConfigKubernetesResourceType {
 		return v.KubernetesResourceTypes
 	}).(PlanWorkflowStepParallelConfigStepEksResourceScalingConfigKubernetesResourceTypeArrayOutput)
 }
 
-// List of scaling resources. See Scaling Resources below.
+// Scaling resources. See `scalingResources` Block for details.
 func (o PlanWorkflowStepParallelConfigStepEksResourceScalingConfigOutput) ScalingResources() PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResourceArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepEksResourceScalingConfig) []PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResource {
 		return v.ScalingResources
@@ -6180,7 +7513,7 @@ func (o PlanWorkflowStepParallelConfigStepEksResourceScalingConfigOutput) Timeou
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepEksResourceScalingConfig) *int { return v.TimeoutMinutes }).(pulumi.IntPtrOutput)
 }
 
-// Ungraceful behavior configuration. See Ungraceful Capacity below.
+// Ungraceful behavior configuration. See `workflow.step.eks_resource_scaling_config.ungraceful` Block for details.
 func (o PlanWorkflowStepParallelConfigStepEksResourceScalingConfigOutput) Ungracefuls() PlanWorkflowStepParallelConfigStepEksResourceScalingConfigUngracefulArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepEksResourceScalingConfig) []PlanWorkflowStepParallelConfigStepEksResourceScalingConfigUngraceful {
 		return v.Ungracefuls
@@ -6441,7 +7774,7 @@ func (o PlanWorkflowStepParallelConfigStepEksResourceScalingConfigKubernetesReso
 type PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResource struct {
 	// Kubernetes namespace.
 	Namespace string `pulumi:"namespace"`
-	// Set of resources to scale. See Resources below.
+	// Resources to scale. See `resources` Block for details.
 	Resources []PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResourceResource `pulumi:"resources"`
 }
 
@@ -6459,7 +7792,7 @@ type PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResourceIn
 type PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResourceArgs struct {
 	// Kubernetes namespace.
 	Namespace pulumi.StringInput `pulumi:"namespace"`
-	// Set of resources to scale. See Resources below.
+	// Resources to scale. See `resources` Block for details.
 	Resources PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResourceResourceArrayInput `pulumi:"resources"`
 }
 
@@ -6521,7 +7854,7 @@ func (o PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResourc
 	}).(pulumi.StringOutput)
 }
 
-// Set of resources to scale. See Resources below.
+// Resources to scale. See `resources` Block for details.
 func (o PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResourceOutput) Resources() PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResourceResourceArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResource) []PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResourceResource {
 		return v.Resources
@@ -6898,7 +8231,7 @@ type PlanWorkflowStepParallelConfigStepGlobalAuroraConfig struct {
 	GlobalClusterIdentifier string `pulumi:"globalClusterIdentifier"`
 	// Timeout in minutes.
 	TimeoutMinutes *int `pulumi:"timeoutMinutes"`
-	// Ungraceful behavior configuration. See Ungraceful Aurora below.
+	// Ungraceful behavior configuration. See `workflow.step.global_aurora_config.ungraceful` Block for details.
 	Ungracefuls []PlanWorkflowStepParallelConfigStepGlobalAuroraConfigUngraceful `pulumi:"ungracefuls"`
 }
 
@@ -6926,7 +8259,7 @@ type PlanWorkflowStepParallelConfigStepGlobalAuroraConfigArgs struct {
 	GlobalClusterIdentifier pulumi.StringInput `pulumi:"globalClusterIdentifier"`
 	// Timeout in minutes.
 	TimeoutMinutes pulumi.IntPtrInput `pulumi:"timeoutMinutes"`
-	// Ungraceful behavior configuration. See Ungraceful Aurora below.
+	// Ungraceful behavior configuration. See `workflow.step.global_aurora_config.ungraceful` Block for details.
 	Ungracefuls PlanWorkflowStepParallelConfigStepGlobalAuroraConfigUngracefulArrayInput `pulumi:"ungracefuls"`
 }
 
@@ -7011,7 +8344,7 @@ func (o PlanWorkflowStepParallelConfigStepGlobalAuroraConfigOutput) TimeoutMinut
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepGlobalAuroraConfig) *int { return v.TimeoutMinutes }).(pulumi.IntPtrOutput)
 }
 
-// Ungraceful behavior configuration. See Ungraceful Aurora below.
+// Ungraceful behavior configuration. See `workflow.step.global_aurora_config.ungraceful` Block for details.
 func (o PlanWorkflowStepParallelConfigStepGlobalAuroraConfigOutput) Ungracefuls() PlanWorkflowStepParallelConfigStepGlobalAuroraConfigUngracefulArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepGlobalAuroraConfig) []PlanWorkflowStepParallelConfigStepGlobalAuroraConfigUngraceful {
 		return v.Ungracefuls
@@ -7130,6 +8463,617 @@ func (o PlanWorkflowStepParallelConfigStepGlobalAuroraConfigUngracefulArrayOutpu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PlanWorkflowStepParallelConfigStepGlobalAuroraConfigUngraceful {
 		return vs[0].([]PlanWorkflowStepParallelConfigStepGlobalAuroraConfigUngraceful)[vs[1].(int)]
 	}).(PlanWorkflowStepParallelConfigStepGlobalAuroraConfigUngracefulOutput)
+}
+
+type PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfig struct {
+	// Action to perform on the event source mapping.
+	Action string `pulumi:"action"`
+	// Event source mappings per region. See `regionEventSourceMapping` Block for details.
+	RegionEventSourceMappings []PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMapping `pulumi:"regionEventSourceMappings"`
+	// Timeout in minutes.
+	TimeoutMinutes *int `pulumi:"timeoutMinutes"`
+	// Ungraceful behavior configuration. See `workflow.step.lambda_event_source_mapping_config.ungraceful` Block for details.
+	Ungracefuls []PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngraceful `pulumi:"ungracefuls"`
+}
+
+// PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigInput is an input type that accepts PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigArgs and PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigOutput values.
+// You can construct a concrete instance of `PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigInput` via:
+//
+//	PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigArgs{...}
+type PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigInput interface {
+	pulumi.Input
+
+	ToPlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigOutput() PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigOutput
+	ToPlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigOutputWithContext(context.Context) PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigOutput
+}
+
+type PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigArgs struct {
+	// Action to perform on the event source mapping.
+	Action pulumi.StringInput `pulumi:"action"`
+	// Event source mappings per region. See `regionEventSourceMapping` Block for details.
+	RegionEventSourceMappings PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayInput `pulumi:"regionEventSourceMappings"`
+	// Timeout in minutes.
+	TimeoutMinutes pulumi.IntPtrInput `pulumi:"timeoutMinutes"`
+	// Ungraceful behavior configuration. See `workflow.step.lambda_event_source_mapping_config.ungraceful` Block for details.
+	Ungracefuls PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulArrayInput `pulumi:"ungracefuls"`
+}
+
+func (PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfig)(nil)).Elem()
+}
+
+func (i PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigArgs) ToPlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigOutput() PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigOutput {
+	return i.ToPlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigOutputWithContext(context.Background())
+}
+
+func (i PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigArgs) ToPlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigOutput)
+}
+
+// PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigArrayInput is an input type that accepts PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigArray and PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigArrayOutput values.
+// You can construct a concrete instance of `PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigArrayInput` via:
+//
+//	PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigArray{ PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigArgs{...} }
+type PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigArrayInput interface {
+	pulumi.Input
+
+	ToPlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigArrayOutput() PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigArrayOutput
+	ToPlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigArrayOutputWithContext(context.Context) PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigArrayOutput
+}
+
+type PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigArray []PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigInput
+
+func (PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfig)(nil)).Elem()
+}
+
+func (i PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigArray) ToPlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigArrayOutput() PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigArrayOutput {
+	return i.ToPlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigArrayOutputWithContext(context.Background())
+}
+
+func (i PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigArray) ToPlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigArrayOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigArrayOutput)
+}
+
+type PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigOutput struct{ *pulumi.OutputState }
+
+func (PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfig)(nil)).Elem()
+}
+
+func (o PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigOutput) ToPlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigOutput() PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigOutput {
+	return o
+}
+
+func (o PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigOutput) ToPlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigOutput {
+	return o
+}
+
+// Action to perform on the event source mapping.
+func (o PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfig) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// Event source mappings per region. See `regionEventSourceMapping` Block for details.
+func (o PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigOutput) RegionEventSourceMappings() PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfig) []PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMapping {
+		return v.RegionEventSourceMappings
+	}).(PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayOutput)
+}
+
+// Timeout in minutes.
+func (o PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigOutput) TimeoutMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfig) *int { return v.TimeoutMinutes }).(pulumi.IntPtrOutput)
+}
+
+// Ungraceful behavior configuration. See `workflow.step.lambda_event_source_mapping_config.ungraceful` Block for details.
+func (o PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigOutput) Ungracefuls() PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulArrayOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfig) []PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngraceful {
+		return v.Ungracefuls
+	}).(PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulArrayOutput)
+}
+
+type PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfig)(nil)).Elem()
+}
+
+func (o PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigArrayOutput) ToPlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigArrayOutput() PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigArrayOutput {
+	return o
+}
+
+func (o PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigArrayOutput) ToPlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigArrayOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigArrayOutput {
+	return o
+}
+
+func (o PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigArrayOutput) Index(i pulumi.IntInput) PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfig {
+		return vs[0].([]PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfig)[vs[1].(int)]
+	}).(PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigOutput)
+}
+
+type PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMapping struct {
+	// ARN of the event source mapping.
+	Arn string `pulumi:"arn"`
+	// ARN of the cross-account role to assume.
+	CrossAccountRole *string `pulumi:"crossAccountRole"`
+	// External ID for cross-account role assumption.
+	ExternalId *string `pulumi:"externalId"`
+	// AWS region.
+	Region string `pulumi:"region"`
+}
+
+// PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingInput is an input type that accepts PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingArgs and PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutput values.
+// You can construct a concrete instance of `PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingInput` via:
+//
+//	PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingArgs{...}
+type PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingInput interface {
+	pulumi.Input
+
+	ToPlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutput() PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutput
+	ToPlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutputWithContext(context.Context) PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutput
+}
+
+type PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingArgs struct {
+	// ARN of the event source mapping.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// ARN of the cross-account role to assume.
+	CrossAccountRole pulumi.StringPtrInput `pulumi:"crossAccountRole"`
+	// External ID for cross-account role assumption.
+	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
+	// AWS region.
+	Region pulumi.StringInput `pulumi:"region"`
+}
+
+func (PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMapping)(nil)).Elem()
+}
+
+func (i PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingArgs) ToPlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutput() PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutput {
+	return i.ToPlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutputWithContext(context.Background())
+}
+
+func (i PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingArgs) ToPlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutput)
+}
+
+// PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayInput is an input type that accepts PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingArray and PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayOutput values.
+// You can construct a concrete instance of `PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayInput` via:
+//
+//	PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingArray{ PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingArgs{...} }
+type PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayInput interface {
+	pulumi.Input
+
+	ToPlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayOutput() PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayOutput
+	ToPlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayOutputWithContext(context.Context) PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayOutput
+}
+
+type PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingArray []PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingInput
+
+func (PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMapping)(nil)).Elem()
+}
+
+func (i PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingArray) ToPlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayOutput() PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayOutput {
+	return i.ToPlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayOutputWithContext(context.Background())
+}
+
+func (i PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingArray) ToPlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayOutput)
+}
+
+type PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutput struct{ *pulumi.OutputState }
+
+func (PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMapping)(nil)).Elem()
+}
+
+func (o PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutput) ToPlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutput() PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutput {
+	return o
+}
+
+func (o PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutput) ToPlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutput {
+	return o
+}
+
+// ARN of the event source mapping.
+func (o PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMapping) string {
+		return v.Arn
+	}).(pulumi.StringOutput)
+}
+
+// ARN of the cross-account role to assume.
+func (o PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutput) CrossAccountRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMapping) *string {
+		return v.CrossAccountRole
+	}).(pulumi.StringPtrOutput)
+}
+
+// External ID for cross-account role assumption.
+func (o PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMapping) *string {
+		return v.ExternalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// AWS region.
+func (o PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMapping) string {
+		return v.Region
+	}).(pulumi.StringOutput)
+}
+
+type PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMapping)(nil)).Elem()
+}
+
+func (o PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayOutput) ToPlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayOutput() PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayOutput {
+	return o
+}
+
+func (o PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayOutput) ToPlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayOutput {
+	return o
+}
+
+func (o PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayOutput) Index(i pulumi.IntInput) PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMapping {
+		return vs[0].([]PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMapping)[vs[1].(int)]
+	}).(PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutput)
+}
+
+type PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngraceful struct {
+	Behavior string `pulumi:"behavior"`
+}
+
+// PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulInput is an input type that accepts PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulArgs and PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulOutput values.
+// You can construct a concrete instance of `PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulInput` via:
+//
+//	PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulArgs{...}
+type PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulInput interface {
+	pulumi.Input
+
+	ToPlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulOutput() PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulOutput
+	ToPlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulOutputWithContext(context.Context) PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulOutput
+}
+
+type PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulArgs struct {
+	Behavior pulumi.StringInput `pulumi:"behavior"`
+}
+
+func (PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngraceful)(nil)).Elem()
+}
+
+func (i PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulArgs) ToPlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulOutput() PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulOutput {
+	return i.ToPlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulOutputWithContext(context.Background())
+}
+
+func (i PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulArgs) ToPlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulOutput)
+}
+
+// PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulArrayInput is an input type that accepts PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulArray and PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulArrayOutput values.
+// You can construct a concrete instance of `PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulArrayInput` via:
+//
+//	PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulArray{ PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulArgs{...} }
+type PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulArrayInput interface {
+	pulumi.Input
+
+	ToPlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulArrayOutput() PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulArrayOutput
+	ToPlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulArrayOutputWithContext(context.Context) PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulArrayOutput
+}
+
+type PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulArray []PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulInput
+
+func (PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngraceful)(nil)).Elem()
+}
+
+func (i PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulArray) ToPlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulArrayOutput() PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulArrayOutput {
+	return i.ToPlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulArrayOutputWithContext(context.Background())
+}
+
+func (i PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulArray) ToPlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulArrayOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulArrayOutput)
+}
+
+type PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulOutput struct{ *pulumi.OutputState }
+
+func (PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngraceful)(nil)).Elem()
+}
+
+func (o PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulOutput) ToPlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulOutput() PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulOutput {
+	return o
+}
+
+func (o PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulOutput) ToPlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulOutput {
+	return o
+}
+
+func (o PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulOutput) Behavior() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngraceful) string {
+		return v.Behavior
+	}).(pulumi.StringOutput)
+}
+
+type PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulArrayOutput struct{ *pulumi.OutputState }
+
+func (PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngraceful)(nil)).Elem()
+}
+
+func (o PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulArrayOutput) ToPlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulArrayOutput() PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulArrayOutput {
+	return o
+}
+
+func (o PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulArrayOutput) ToPlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulArrayOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulArrayOutput {
+	return o
+}
+
+func (o PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulArrayOutput) Index(i pulumi.IntInput) PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngraceful {
+		return vs[0].([]PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngraceful)[vs[1].(int)]
+	}).(PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulOutput)
+}
+
+type PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfig struct {
+	// Behavior for global database operations.
+	Behavior string `pulumi:"behavior"`
+	// ARN of the cross-account role to assume.
+	CrossAccountRole *string `pulumi:"crossAccountRole"`
+	// External ID for cross-account role assumption.
+	ExternalId *string `pulumi:"externalId"`
+	// Global cluster identifier.
+	GlobalClusterIdentifier string `pulumi:"globalClusterIdentifier"`
+	// Map of regions to database cluster ARNs.
+	RegionDatabaseClusterArns map[string]string `pulumi:"regionDatabaseClusterArns"`
+	// Timeout in minutes.
+	TimeoutMinutes *int `pulumi:"timeoutMinutes"`
+	// Ungraceful behavior configuration. See `workflow.step.neptune_global_database_config.ungraceful` Block for details.
+	Ungracefuls []PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngraceful `pulumi:"ungracefuls"`
+}
+
+// PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigInput is an input type that accepts PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigArgs and PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigOutput values.
+// You can construct a concrete instance of `PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigInput` via:
+//
+//	PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigArgs{...}
+type PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigInput interface {
+	pulumi.Input
+
+	ToPlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigOutput() PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigOutput
+	ToPlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigOutputWithContext(context.Context) PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigOutput
+}
+
+type PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigArgs struct {
+	// Behavior for global database operations.
+	Behavior pulumi.StringInput `pulumi:"behavior"`
+	// ARN of the cross-account role to assume.
+	CrossAccountRole pulumi.StringPtrInput `pulumi:"crossAccountRole"`
+	// External ID for cross-account role assumption.
+	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
+	// Global cluster identifier.
+	GlobalClusterIdentifier pulumi.StringInput `pulumi:"globalClusterIdentifier"`
+	// Map of regions to database cluster ARNs.
+	RegionDatabaseClusterArns pulumi.StringMapInput `pulumi:"regionDatabaseClusterArns"`
+	// Timeout in minutes.
+	TimeoutMinutes pulumi.IntPtrInput `pulumi:"timeoutMinutes"`
+	// Ungraceful behavior configuration. See `workflow.step.neptune_global_database_config.ungraceful` Block for details.
+	Ungracefuls PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulArrayInput `pulumi:"ungracefuls"`
+}
+
+func (PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfig)(nil)).Elem()
+}
+
+func (i PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigArgs) ToPlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigOutput() PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigOutput {
+	return i.ToPlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigOutputWithContext(context.Background())
+}
+
+func (i PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigArgs) ToPlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigOutput)
+}
+
+// PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigArrayInput is an input type that accepts PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigArray and PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigArrayOutput values.
+// You can construct a concrete instance of `PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigArrayInput` via:
+//
+//	PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigArray{ PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigArgs{...} }
+type PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigArrayInput interface {
+	pulumi.Input
+
+	ToPlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigArrayOutput() PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigArrayOutput
+	ToPlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigArrayOutputWithContext(context.Context) PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigArrayOutput
+}
+
+type PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigArray []PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigInput
+
+func (PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfig)(nil)).Elem()
+}
+
+func (i PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigArray) ToPlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigArrayOutput() PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigArrayOutput {
+	return i.ToPlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigArrayOutputWithContext(context.Background())
+}
+
+func (i PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigArray) ToPlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigArrayOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigArrayOutput)
+}
+
+type PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigOutput struct{ *pulumi.OutputState }
+
+func (PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfig)(nil)).Elem()
+}
+
+func (o PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigOutput) ToPlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigOutput() PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigOutput {
+	return o
+}
+
+func (o PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigOutput) ToPlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigOutput {
+	return o
+}
+
+// Behavior for global database operations.
+func (o PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigOutput) Behavior() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfig) string { return v.Behavior }).(pulumi.StringOutput)
+}
+
+// ARN of the cross-account role to assume.
+func (o PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigOutput) CrossAccountRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfig) *string {
+		return v.CrossAccountRole
+	}).(pulumi.StringPtrOutput)
+}
+
+// External ID for cross-account role assumption.
+func (o PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfig) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
+}
+
+// Global cluster identifier.
+func (o PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigOutput) GlobalClusterIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfig) string {
+		return v.GlobalClusterIdentifier
+	}).(pulumi.StringOutput)
+}
+
+// Map of regions to database cluster ARNs.
+func (o PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigOutput) RegionDatabaseClusterArns() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfig) map[string]string {
+		return v.RegionDatabaseClusterArns
+	}).(pulumi.StringMapOutput)
+}
+
+// Timeout in minutes.
+func (o PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigOutput) TimeoutMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfig) *int { return v.TimeoutMinutes }).(pulumi.IntPtrOutput)
+}
+
+// Ungraceful behavior configuration. See `workflow.step.neptune_global_database_config.ungraceful` Block for details.
+func (o PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigOutput) Ungracefuls() PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulArrayOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfig) []PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngraceful {
+		return v.Ungracefuls
+	}).(PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulArrayOutput)
+}
+
+type PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfig)(nil)).Elem()
+}
+
+func (o PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigArrayOutput) ToPlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigArrayOutput() PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigArrayOutput {
+	return o
+}
+
+func (o PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigArrayOutput) ToPlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigArrayOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigArrayOutput {
+	return o
+}
+
+func (o PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigArrayOutput) Index(i pulumi.IntInput) PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfig {
+		return vs[0].([]PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfig)[vs[1].(int)]
+	}).(PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigOutput)
+}
+
+type PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngraceful struct {
+	Ungraceful string `pulumi:"ungraceful"`
+}
+
+// PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulInput is an input type that accepts PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulArgs and PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulOutput values.
+// You can construct a concrete instance of `PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulInput` via:
+//
+//	PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulArgs{...}
+type PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulInput interface {
+	pulumi.Input
+
+	ToPlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulOutput() PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulOutput
+	ToPlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulOutputWithContext(context.Context) PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulOutput
+}
+
+type PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulArgs struct {
+	Ungraceful pulumi.StringInput `pulumi:"ungraceful"`
+}
+
+func (PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngraceful)(nil)).Elem()
+}
+
+func (i PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulArgs) ToPlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulOutput() PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulOutput {
+	return i.ToPlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulOutputWithContext(context.Background())
+}
+
+func (i PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulArgs) ToPlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulOutput)
+}
+
+// PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulArrayInput is an input type that accepts PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulArray and PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulArrayOutput values.
+// You can construct a concrete instance of `PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulArrayInput` via:
+//
+//	PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulArray{ PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulArgs{...} }
+type PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulArrayInput interface {
+	pulumi.Input
+
+	ToPlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulArrayOutput() PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulArrayOutput
+	ToPlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulArrayOutputWithContext(context.Context) PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulArrayOutput
+}
+
+type PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulArray []PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulInput
+
+func (PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngraceful)(nil)).Elem()
+}
+
+func (i PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulArray) ToPlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulArrayOutput() PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulArrayOutput {
+	return i.ToPlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulArrayOutputWithContext(context.Background())
+}
+
+func (i PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulArray) ToPlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulArrayOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulArrayOutput)
+}
+
+type PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulOutput struct{ *pulumi.OutputState }
+
+func (PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngraceful)(nil)).Elem()
+}
+
+func (o PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulOutput) ToPlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulOutput() PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulOutput {
+	return o
+}
+
+func (o PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulOutput) ToPlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulOutput {
+	return o
+}
+
+func (o PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulOutput) Ungraceful() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngraceful) string {
+		return v.Ungraceful
+	}).(pulumi.StringOutput)
+}
+
+type PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulArrayOutput struct{ *pulumi.OutputState }
+
+func (PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngraceful)(nil)).Elem()
+}
+
+func (o PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulArrayOutput) ToPlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulArrayOutput() PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulArrayOutput {
+	return o
+}
+
+func (o PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulArrayOutput) ToPlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulArrayOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulArrayOutput {
+	return o
+}
+
+func (o PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulArrayOutput) Index(i pulumi.IntInput) PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngraceful {
+		return vs[0].([]PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngraceful)[vs[1].(int)]
+	}).(PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulOutput)
 }
 
 type PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfig struct {
@@ -7516,7 +9460,7 @@ type PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfig struct {
 	HostedZoneId string `pulumi:"hostedZoneId"`
 	// DNS record name.
 	RecordName string `pulumi:"recordName"`
-	// Configuration block for record sets. See Record Set below.
+	// Configuration block for record sets. See `recordSet` Block for details.
 	RecordSets []PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigRecordSet `pulumi:"recordSets"`
 	// Timeout in minutes.
 	TimeoutMinutes *int `pulumi:"timeoutMinutes"`
@@ -7542,7 +9486,7 @@ type PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigArgs struct {
 	HostedZoneId pulumi.StringInput `pulumi:"hostedZoneId"`
 	// DNS record name.
 	RecordName pulumi.StringInput `pulumi:"recordName"`
-	// Configuration block for record sets. See Record Set below.
+	// Configuration block for record sets. See `recordSet` Block for details.
 	RecordSets PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigRecordSetArrayInput `pulumi:"recordSets"`
 	// Timeout in minutes.
 	TimeoutMinutes pulumi.IntPtrInput `pulumi:"timeoutMinutes"`
@@ -7619,7 +9563,7 @@ func (o PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigOutput) Record
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfig) string { return v.RecordName }).(pulumi.StringOutput)
 }
 
-// Configuration block for record sets. See Record Set below.
+// Configuration block for record sets. See `recordSet` Block for details.
 func (o PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigOutput) RecordSets() PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigRecordSetArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfig) []PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigRecordSet {
 		return v.RecordSets
@@ -8133,7 +10077,7 @@ type PlanWorkflowStepRoute53HealthCheckConfig struct {
 	HostedZoneId string `pulumi:"hostedZoneId"`
 	// DNS record name.
 	RecordName string `pulumi:"recordName"`
-	// Configuration block for record sets. See Record Set below.
+	// Configuration block for record sets. See `recordSet` Block for details.
 	RecordSets []PlanWorkflowStepRoute53HealthCheckConfigRecordSet `pulumi:"recordSets"`
 	// Timeout in minutes.
 	TimeoutMinutes *int `pulumi:"timeoutMinutes"`
@@ -8159,7 +10103,7 @@ type PlanWorkflowStepRoute53HealthCheckConfigArgs struct {
 	HostedZoneId pulumi.StringInput `pulumi:"hostedZoneId"`
 	// DNS record name.
 	RecordName pulumi.StringInput `pulumi:"recordName"`
-	// Configuration block for record sets. See Record Set below.
+	// Configuration block for record sets. See `recordSet` Block for details.
 	RecordSets PlanWorkflowStepRoute53HealthCheckConfigRecordSetArrayInput `pulumi:"recordSets"`
 	// Timeout in minutes.
 	TimeoutMinutes pulumi.IntPtrInput `pulumi:"timeoutMinutes"`
@@ -8236,7 +10180,7 @@ func (o PlanWorkflowStepRoute53HealthCheckConfigOutput) RecordName() pulumi.Stri
 	return o.ApplyT(func(v PlanWorkflowStepRoute53HealthCheckConfig) string { return v.RecordName }).(pulumi.StringOutput)
 }
 
-// Configuration block for record sets. See Record Set below.
+// Configuration block for record sets. See `recordSet` Block for details.
 func (o PlanWorkflowStepRoute53HealthCheckConfigOutput) RecordSets() PlanWorkflowStepRoute53HealthCheckConfigRecordSetArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStepRoute53HealthCheckConfig) []PlanWorkflowStepRoute53HealthCheckConfigRecordSet {
 		return v.RecordSets
@@ -8532,6 +10476,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlArrayInput)(nil)).Elem(), PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlRoutingControlInput)(nil)).Elem(), PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlRoutingControlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlRoutingControlArrayInput)(nil)).Elem(), PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlRoutingControlArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepAuroraProvisionedScalingConfigInput)(nil)).Elem(), PlanWorkflowStepAuroraProvisionedScalingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepAuroraProvisionedScalingConfigArrayInput)(nil)).Elem(), PlanWorkflowStepAuroraProvisionedScalingConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepAuroraServerlessScalingConfigInput)(nil)).Elem(), PlanWorkflowStepAuroraServerlessScalingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepAuroraServerlessScalingConfigArrayInput)(nil)).Elem(), PlanWorkflowStepAuroraServerlessScalingConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepCustomActionLambdaConfigInput)(nil)).Elem(), PlanWorkflowStepCustomActionLambdaConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepCustomActionLambdaConfigArrayInput)(nil)).Elem(), PlanWorkflowStepCustomActionLambdaConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepCustomActionLambdaConfigLambdaInput)(nil)).Elem(), PlanWorkflowStepCustomActionLambdaConfigLambdaArgs{})
@@ -8572,6 +10520,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepGlobalAuroraConfigArrayInput)(nil)).Elem(), PlanWorkflowStepGlobalAuroraConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepGlobalAuroraConfigUngracefulInput)(nil)).Elem(), PlanWorkflowStepGlobalAuroraConfigUngracefulArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepGlobalAuroraConfigUngracefulArrayInput)(nil)).Elem(), PlanWorkflowStepGlobalAuroraConfigUngracefulArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepLambdaEventSourceMappingConfigInput)(nil)).Elem(), PlanWorkflowStepLambdaEventSourceMappingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepLambdaEventSourceMappingConfigArrayInput)(nil)).Elem(), PlanWorkflowStepLambdaEventSourceMappingConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingInput)(nil)).Elem(), PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayInput)(nil)).Elem(), PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulInput)(nil)).Elem(), PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulArrayInput)(nil)).Elem(), PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepNeptuneGlobalDatabaseConfigInput)(nil)).Elem(), PlanWorkflowStepNeptuneGlobalDatabaseConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepNeptuneGlobalDatabaseConfigArrayInput)(nil)).Elem(), PlanWorkflowStepNeptuneGlobalDatabaseConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulInput)(nil)).Elem(), PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulArrayInput)(nil)).Elem(), PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigInput)(nil)).Elem(), PlanWorkflowStepParallelConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigArrayInput)(nil)).Elem(), PlanWorkflowStepParallelConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepArgs{})
@@ -8582,6 +10540,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControlArrayInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControlArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControlRoutingControlInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControlRoutingControlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControlRoutingControlArrayInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControlRoutingControlArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigArrayInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigArrayInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigArrayInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigLambdaInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigLambdaArgs{})
@@ -8622,6 +10584,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepGlobalAuroraConfigArrayInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepGlobalAuroraConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepGlobalAuroraConfigUngracefulInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepGlobalAuroraConfigUngracefulArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepGlobalAuroraConfigUngracefulArrayInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepGlobalAuroraConfigUngracefulArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigArrayInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulArrayInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigArrayInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulArrayInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArrayInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArgs{})
@@ -8668,6 +10640,10 @@ func init() {
 	pulumi.RegisterOutputType(PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlArrayOutput{})
 	pulumi.RegisterOutputType(PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlRoutingControlOutput{})
 	pulumi.RegisterOutputType(PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlRoutingControlArrayOutput{})
+	pulumi.RegisterOutputType(PlanWorkflowStepAuroraProvisionedScalingConfigOutput{})
+	pulumi.RegisterOutputType(PlanWorkflowStepAuroraProvisionedScalingConfigArrayOutput{})
+	pulumi.RegisterOutputType(PlanWorkflowStepAuroraServerlessScalingConfigOutput{})
+	pulumi.RegisterOutputType(PlanWorkflowStepAuroraServerlessScalingConfigArrayOutput{})
 	pulumi.RegisterOutputType(PlanWorkflowStepCustomActionLambdaConfigOutput{})
 	pulumi.RegisterOutputType(PlanWorkflowStepCustomActionLambdaConfigArrayOutput{})
 	pulumi.RegisterOutputType(PlanWorkflowStepCustomActionLambdaConfigLambdaOutput{})
@@ -8708,6 +10684,16 @@ func init() {
 	pulumi.RegisterOutputType(PlanWorkflowStepGlobalAuroraConfigArrayOutput{})
 	pulumi.RegisterOutputType(PlanWorkflowStepGlobalAuroraConfigUngracefulOutput{})
 	pulumi.RegisterOutputType(PlanWorkflowStepGlobalAuroraConfigUngracefulArrayOutput{})
+	pulumi.RegisterOutputType(PlanWorkflowStepLambdaEventSourceMappingConfigOutput{})
+	pulumi.RegisterOutputType(PlanWorkflowStepLambdaEventSourceMappingConfigArrayOutput{})
+	pulumi.RegisterOutputType(PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutput{})
+	pulumi.RegisterOutputType(PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayOutput{})
+	pulumi.RegisterOutputType(PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulOutput{})
+	pulumi.RegisterOutputType(PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulArrayOutput{})
+	pulumi.RegisterOutputType(PlanWorkflowStepNeptuneGlobalDatabaseConfigOutput{})
+	pulumi.RegisterOutputType(PlanWorkflowStepNeptuneGlobalDatabaseConfigArrayOutput{})
+	pulumi.RegisterOutputType(PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulOutput{})
+	pulumi.RegisterOutputType(PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulArrayOutput{})
 	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigOutput{})
 	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigArrayOutput{})
 	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepOutput{})
@@ -8718,6 +10704,10 @@ func init() {
 	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControlArrayOutput{})
 	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControlRoutingControlOutput{})
 	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControlRoutingControlArrayOutput{})
+	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigOutput{})
+	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigArrayOutput{})
+	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigOutput{})
+	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigArrayOutput{})
 	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigOutput{})
 	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigArrayOutput{})
 	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigLambdaOutput{})
@@ -8758,6 +10748,16 @@ func init() {
 	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepGlobalAuroraConfigArrayOutput{})
 	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepGlobalAuroraConfigUngracefulOutput{})
 	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepGlobalAuroraConfigUngracefulArrayOutput{})
+	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigOutput{})
+	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigArrayOutput{})
+	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingOutput{})
+	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingArrayOutput{})
+	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulOutput{})
+	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulArrayOutput{})
+	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigOutput{})
+	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigArrayOutput{})
+	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulOutput{})
+	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulArrayOutput{})
 	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigOutput{})
 	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArrayOutput{})
 	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigOutput{})

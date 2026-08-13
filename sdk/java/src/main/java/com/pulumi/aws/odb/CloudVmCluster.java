@@ -463,14 +463,14 @@ public class CloudVmCluster extends com.pulumi.resources.CustomResource {
         return this.hostnamePrefixComputed;
     }
     /**
-     * Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
+     * Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster. See `iormConfigCache` Block below.
      * 
      */
     @Export(name="iormConfigCaches", refs={List.class,CloudVmClusterIormConfigCache.class}, tree="[0,1]")
     private Output<List<CloudVmClusterIormConfigCache>> iormConfigCaches;
 
     /**
-     * @return Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
+     * @return Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster. See `iormConfigCache` Block below.
      * 
      */
     public Output<List<CloudVmClusterIormConfigCache>> iormConfigCaches() {

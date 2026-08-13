@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  *         Name: "Test",
  *     },
  * });
- * const testVpcRouteServerAssociation = new aws.index.VpcRouteServerAssociation("test", {
+ * const testRouteServerVpcAssociation = new aws.vpc.RouteServerVpcAssociation("test", {
  *     routeServerId: test.routeServerId,
  *     vpcId: testAwsVpc.id,
  * });
@@ -53,13 +53,13 @@ import * as utilities from "../utilities";
  *         Name: "Test Endpoint",
  *     },
  * }, {
- *     dependsOn: [testVpcRouteServerAssociation],
+ *     dependsOn: [testRouteServerVpcAssociation],
  * });
  * const testRouteServerPropagation = new aws.vpc.RouteServerPropagation("test", {
  *     routeServerId: test.routeServerId,
  *     routeTableId: testAwsRouteTable.id,
  * }, {
- *     dependsOn: [testVpcRouteServerAssociation],
+ *     dependsOn: [testRouteServerVpcAssociation],
  * });
  * const testRouteServerPeer = new aws.vpc.RouteServerPeer("test", {
  *     routeServerEndpointId: testRouteServerEndpoint.routeServerEndpointId,

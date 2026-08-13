@@ -16,14 +16,14 @@ public final class WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocat
     public static final WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs Empty = new WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs();
 
     /**
-     * Specifies the S3 bucket for the customer input file.
+     * S3 bucket for the customer input file.
      * 
      */
     @Import(name="bucket")
     private @Nullable Output<String> bucket;
 
     /**
-     * @return Specifies the S3 bucket for the customer input file.
+     * @return S3 bucket for the customer input file.
      * 
      */
     public Optional<Output<String>> bucket() {
@@ -31,14 +31,14 @@ public final class WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocat
     }
 
     /**
-     * The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+     * Name assigned to the file when it was created in S3. You use the object key to retrieve the object.
      * 
      */
     @Import(name="key")
     private @Nullable Output<String> key;
 
     /**
-     * @return The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+     * @return Name assigned to the file when it was created in S3. You use the object key to retrieve the object.
      * 
      */
     public Optional<Output<String>> key() {
@@ -71,7 +71,7 @@ public final class WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocat
         }
 
         /**
-         * @param bucket Specifies the S3 bucket for the customer input file.
+         * @param bucket S3 bucket for the customer input file.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocat
         }
 
         /**
-         * @param bucket Specifies the S3 bucket for the customer input file.
+         * @param bucket S3 bucket for the customer input file.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocat
         }
 
         /**
-         * @param key The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+         * @param key Name assigned to the file when it was created in S3. You use the object key to retrieve the object.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocat
         }
 
         /**
-         * @param key The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+         * @param key Name assigned to the file when it was created in S3. You use the object key to retrieve the object.
          * 
          * @return builder
          * 

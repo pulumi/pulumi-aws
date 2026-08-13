@@ -12,11 +12,14 @@ namespace Pulumi.Aws.Transfer.Inputs
 
     public sealed class WorkflowStepTagStepDetailsTagGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name assigned to the tag that you create.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// The value that corresponds to the key.
+        /// Value that corresponds to the key.
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;

@@ -14,11 +14,19 @@ namespace Pulumi.Aws.ArcRegionSwitch.Outputs
     public sealed class PlanWorkflowStep
     {
         /// <summary>
-        /// Configuration for ARC routing control. See ARC Routing Control Config below.
+        /// Configuration for ARC routing control. See `ArcRoutingControlConfig` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.PlanWorkflowStepArcRoutingControlConfig> ArcRoutingControlConfigs;
         /// <summary>
-        /// Configuration for Lambda function execution. See Custom Action Lambda Config below.
+        /// Configuration for Aurora provisioned scaling. See `AuroraProvisionedScalingConfig` Block for details.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PlanWorkflowStepAuroraProvisionedScalingConfig> AuroraProvisionedScalingConfigs;
+        /// <summary>
+        /// Configuration for Aurora Serverless scaling. See `AuroraServerlessScalingConfig` Block for details.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PlanWorkflowStepAuroraServerlessScalingConfig> AuroraServerlessScalingConfigs;
+        /// <summary>
+        /// Configuration for Lambda function execution. See `CustomActionLambdaConfig` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.PlanWorkflowStepCustomActionLambdaConfig> CustomActionLambdaConfigs;
         /// <summary>
@@ -26,23 +34,23 @@ namespace Pulumi.Aws.ArcRegionSwitch.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// Configuration for DocumentDB global cluster operations. See DocumentDB Config below.
+        /// Configuration for DocumentDB global cluster operations. See `DocumentDbConfig` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.PlanWorkflowStepDocumentDbConfig> DocumentDbConfigs;
         /// <summary>
-        /// Configuration for EC2 Auto Scaling group capacity increase. See EC2 ASG Capacity Increase Config below.
+        /// Configuration for EC2 Auto Scaling group capacity increase. See `Ec2AsgCapacityIncreaseConfig` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.PlanWorkflowStepEc2AsgCapacityIncreaseConfig> Ec2AsgCapacityIncreaseConfigs;
         /// <summary>
-        /// Configuration for ECS service capacity increase. See ECS Capacity Increase Config below.
+        /// Configuration for ECS service capacity increase. See `EcsCapacityIncreaseConfig` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.PlanWorkflowStepEcsCapacityIncreaseConfig> EcsCapacityIncreaseConfigs;
         /// <summary>
-        /// Configuration for EKS resource scaling. See EKS Resource Scaling Config below.
+        /// Configuration for EKS resource scaling. See `EksResourceScalingConfig` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.PlanWorkflowStepEksResourceScalingConfig> EksResourceScalingConfigs;
         /// <summary>
-        /// Configuration for manual approval steps. See Execution Approval Config below.
+        /// Configuration for manual approval steps. See `ExecutionApprovalConfig` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.PlanWorkflowStepExecutionApprovalConfig> ExecutionApprovalConfigs;
         /// <summary>
@@ -50,34 +58,49 @@ namespace Pulumi.Aws.ArcRegionSwitch.Outputs
         /// </summary>
         public readonly string ExecutionBlockType;
         /// <summary>
-        /// Configuration for Aurora Global Database operations. See Global Aurora Config below.
+        /// Configuration for Aurora Global Database operations. See `GlobalAuroraConfig` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.PlanWorkflowStepGlobalAuroraConfig> GlobalAuroraConfigs;
+        /// <summary>
+        /// Configuration for Lambda event source mapping operations. See `LambdaEventSourceMappingConfig` Block for details.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PlanWorkflowStepLambdaEventSourceMappingConfig> LambdaEventSourceMappingConfigs;
         /// <summary>
         /// Name of the step.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Configuration for parallel execution of multiple steps. See Parallel Config below.
+        /// Configuration for Neptune global database operations. See `NeptuneGlobalDatabaseConfig` Block for details.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PlanWorkflowStepNeptuneGlobalDatabaseConfig> NeptuneGlobalDatabaseConfigs;
+        /// <summary>
+        /// Configuration for parallel execution of multiple steps. See `ParallelConfig` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.PlanWorkflowStepParallelConfig> ParallelConfigs;
         /// <summary>
-        /// Configuration for creating cross-region RDS read replicas. See RDS Create Cross Region Read Replica Config below.
+        /// Configuration for creating cross-region RDS read replicas. See `RdsCreateCrossRegionReadReplicaConfig` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfig> RdsCreateCrossRegionReadReplicaConfigs;
         /// <summary>
-        /// Configuration for promoting RDS read replicas. See RDS Promote Read Replica Config below.
+        /// Configuration for promoting RDS read replicas. See `RdsPromoteReadReplicaConfig` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.PlanWorkflowStepRdsPromoteReadReplicaConfig> RdsPromoteReadReplicaConfigs;
+        /// <summary>
+        /// Configuration for executing a nested region switch plan. See `RegionSwitchPlanConfig` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.PlanWorkflowStepRegionSwitchPlanConfig> RegionSwitchPlanConfigs;
         /// <summary>
-        /// Configuration for Route53 health check operations. See Route53 Health Check Config below.
+        /// Configuration for Route53 health check operations. See `Route53HealthCheckConfig` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.PlanWorkflowStepRoute53HealthCheckConfig> Route53HealthCheckConfigs;
 
         [OutputConstructor]
         private PlanWorkflowStep(
             ImmutableArray<Outputs.PlanWorkflowStepArcRoutingControlConfig> arcRoutingControlConfigs,
+
+            ImmutableArray<Outputs.PlanWorkflowStepAuroraProvisionedScalingConfig> auroraProvisionedScalingConfigs,
+
+            ImmutableArray<Outputs.PlanWorkflowStepAuroraServerlessScalingConfig> auroraServerlessScalingConfigs,
 
             ImmutableArray<Outputs.PlanWorkflowStepCustomActionLambdaConfig> customActionLambdaConfigs,
 
@@ -97,7 +120,11 @@ namespace Pulumi.Aws.ArcRegionSwitch.Outputs
 
             ImmutableArray<Outputs.PlanWorkflowStepGlobalAuroraConfig> globalAuroraConfigs,
 
+            ImmutableArray<Outputs.PlanWorkflowStepLambdaEventSourceMappingConfig> lambdaEventSourceMappingConfigs,
+
             string name,
+
+            ImmutableArray<Outputs.PlanWorkflowStepNeptuneGlobalDatabaseConfig> neptuneGlobalDatabaseConfigs,
 
             ImmutableArray<Outputs.PlanWorkflowStepParallelConfig> parallelConfigs,
 
@@ -110,6 +137,8 @@ namespace Pulumi.Aws.ArcRegionSwitch.Outputs
             ImmutableArray<Outputs.PlanWorkflowStepRoute53HealthCheckConfig> route53HealthCheckConfigs)
         {
             ArcRoutingControlConfigs = arcRoutingControlConfigs;
+            AuroraProvisionedScalingConfigs = auroraProvisionedScalingConfigs;
+            AuroraServerlessScalingConfigs = auroraServerlessScalingConfigs;
             CustomActionLambdaConfigs = customActionLambdaConfigs;
             Description = description;
             DocumentDbConfigs = documentDbConfigs;
@@ -119,7 +148,9 @@ namespace Pulumi.Aws.ArcRegionSwitch.Outputs
             ExecutionApprovalConfigs = executionApprovalConfigs;
             ExecutionBlockType = executionBlockType;
             GlobalAuroraConfigs = globalAuroraConfigs;
+            LambdaEventSourceMappingConfigs = lambdaEventSourceMappingConfigs;
             Name = name;
+            NeptuneGlobalDatabaseConfigs = neptuneGlobalDatabaseConfigs;
             ParallelConfigs = parallelConfigs;
             RdsCreateCrossRegionReadReplicaConfigs = rdsCreateCrossRegionReadReplicaConfigs;
             RdsPromoteReadReplicaConfigs = rdsPromoteReadReplicaConfigs;

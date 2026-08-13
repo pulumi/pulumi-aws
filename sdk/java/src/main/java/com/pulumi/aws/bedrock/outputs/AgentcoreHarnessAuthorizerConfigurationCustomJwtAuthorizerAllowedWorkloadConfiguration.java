@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration {
     /**
-     * @return Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hostingEnvironment` below.
+     * @return Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hostingEnvironment` Block below.
      * 
      */
     private @Nullable List<AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment> hostingEnvironments;
@@ -25,7 +25,7 @@ public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAll
 
     private AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration() {}
     /**
-     * @return Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hostingEnvironment` below.
+     * @return Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hostingEnvironment` Block below.
      * 
      */
     public List<AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment> hostingEnvironments() {

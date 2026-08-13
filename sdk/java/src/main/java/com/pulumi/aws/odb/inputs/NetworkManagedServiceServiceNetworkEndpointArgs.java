@@ -14,16 +14,32 @@ public final class NetworkManagedServiceServiceNetworkEndpointArgs extends com.p
 
     public static final NetworkManagedServiceServiceNetworkEndpointArgs Empty = new NetworkManagedServiceServiceNetworkEndpointArgs();
 
+    /**
+     * Unique identifier of the VPC endpoint.
+     * 
+     */
     @Import(name="vpcEndpointId", required=true)
     private Output<String> vpcEndpointId;
 
+    /**
+     * @return Unique identifier of the VPC endpoint.
+     * 
+     */
     public Output<String> vpcEndpointId() {
         return this.vpcEndpointId;
     }
 
+    /**
+     * Type of the VPC endpoint.
+     * 
+     */
     @Import(name="vpcEndpointType", required=true)
     private Output<String> vpcEndpointType;
 
+    /**
+     * @return Type of the VPC endpoint.
+     * 
+     */
     public Output<String> vpcEndpointType() {
         return this.vpcEndpointType;
     }
@@ -53,20 +69,44 @@ public final class NetworkManagedServiceServiceNetworkEndpointArgs extends com.p
             $ = new NetworkManagedServiceServiceNetworkEndpointArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param vpcEndpointId Unique identifier of the VPC endpoint.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcEndpointId(Output<String> vpcEndpointId) {
             $.vpcEndpointId = vpcEndpointId;
             return this;
         }
 
+        /**
+         * @param vpcEndpointId Unique identifier of the VPC endpoint.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcEndpointId(String vpcEndpointId) {
             return vpcEndpointId(Output.of(vpcEndpointId));
         }
 
+        /**
+         * @param vpcEndpointType Type of the VPC endpoint.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcEndpointType(Output<String> vpcEndpointType) {
             $.vpcEndpointType = vpcEndpointType;
             return this;
         }
 
+        /**
+         * @param vpcEndpointType Type of the VPC endpoint.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcEndpointType(String vpcEndpointType) {
             return vpcEndpointType(Output.of(vpcEndpointType));
         }

@@ -24,6 +24,9 @@ namespace Pulumi.Aws.Batch.Inputs
         [Input("privileged")]
         public Input<bool>? Privileged { get; set; }
 
+        /// <summary>
+        /// When this parameter is `True`, the container is given read-only access to its root file system. The default value is `False`.
+        /// </summary>
         [Input("readOnlyRootFileSystem")]
         public Input<bool>? ReadOnlyRootFileSystem { get; set; }
 

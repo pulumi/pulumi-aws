@@ -14,7 +14,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Outputs
     public sealed class PlanWorkflow
     {
         /// <summary>
-        /// List of steps in the workflow. See Step below.
+        /// Steps in the workflow. See `Step` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.PlanWorkflowStep> Steps;
         /// <summary>

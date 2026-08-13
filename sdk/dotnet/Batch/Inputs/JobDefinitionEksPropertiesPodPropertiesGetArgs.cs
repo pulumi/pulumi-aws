@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Batch.Inputs
         private InputList<Inputs.JobDefinitionEksPropertiesPodPropertiesContainerGetArgs>? _containers;
 
         /// <summary>
-        /// Properties of the container that's used on the Amazon EKS pod. See containers below.
+        /// Properties of the container that's used on the Amazon EKS pod. See `Containers` below.
         /// </summary>
         public InputList<Inputs.JobDefinitionEksPropertiesPodPropertiesContainerGetArgs> Containers
         {
@@ -52,7 +52,7 @@ namespace Pulumi.Aws.Batch.Inputs
         private InputList<Inputs.JobDefinitionEksPropertiesPodPropertiesInitContainerGetArgs>? _initContainers;
 
         /// <summary>
-        /// Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See containers below.
+        /// Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See `InitContainers` below.
         /// </summary>
         public InputList<Inputs.JobDefinitionEksPropertiesPodPropertiesInitContainerGetArgs> InitContainers
         {
@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Batch.Inputs
         }
 
         /// <summary>
-        /// Metadata about the Kubernetes pod.
+        /// Metadata about the Kubernetes pod. See `Metadata` below.
         /// </summary>
         [Input("metadata")]
         public Input<Inputs.JobDefinitionEksPropertiesPodPropertiesMetadataGetArgs>? Metadata { get; set; }
@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Batch.Inputs
         public Input<string>? ServiceAccountName { get; set; }
 
         /// <summary>
-        /// Indicates if the processes in a container are shared, or visible, to other containers in the same pod.
+        /// Whether the processes in a container are shared, or visible, to other containers in the same pod.
         /// </summary>
         [Input("shareProcessNamespace")]
         public Input<bool>? ShareProcessNamespace { get; set; }
@@ -82,7 +82,7 @@ namespace Pulumi.Aws.Batch.Inputs
         private InputList<Inputs.JobDefinitionEksPropertiesPodPropertiesVolumeGetArgs>? _volumes;
 
         /// <summary>
-        /// Volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
+        /// Volumes for a job definition that uses Amazon EKS resources. See `Volumes` below.
         /// </summary>
         public InputList<Inputs.JobDefinitionEksPropertiesPodPropertiesVolumeGetArgs> Volumes
         {

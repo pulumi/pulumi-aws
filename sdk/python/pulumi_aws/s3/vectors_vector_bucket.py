@@ -32,7 +32,7 @@ class VectorsVectorBucketArgs:
         :param pulumi.Input[_builtins.str] vector_bucket_name: Name of the vector bucket.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input['VectorsVectorBucketEncryptionConfigurationArgs']]] encryption_configurations: Encryption configuration for the vector bucket. See Encryption Configuration below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['VectorsVectorBucketEncryptionConfigurationArgs']]] encryption_configurations: Encryption configuration for the vector bucket. See `encryption_configuration` below for more details.
         :param pulumi.Input[_builtins.bool] force_destroy: Boolean that indicates all indexes and vectors should be deleted from the vector bucket *when the vector bucket is destroyed* so that the vector bucket can be destroyed without error. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the vector bucket or destroying the vector bucket, this flag will not work.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -65,7 +65,7 @@ class VectorsVectorBucketArgs:
     @pulumi.getter(name="encryptionConfigurations")
     def encryption_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VectorsVectorBucketEncryptionConfigurationArgs']]]]:
         """
-        Encryption configuration for the vector bucket. See Encryption Configuration below for more details.
+        Encryption configuration for the vector bucket. See `encryption_configuration` below for more details.
         """
         return pulumi.get(self, "encryption_configurations")
 
@@ -125,7 +125,7 @@ class _VectorsVectorBucketState:
         Input properties used for looking up and filtering VectorsVectorBucket resources.
 
         :param pulumi.Input[_builtins.str] creation_time: Date and time when the vector bucket was created.
-        :param pulumi.Input[Sequence[pulumi.Input['VectorsVectorBucketEncryptionConfigurationArgs']]] encryption_configurations: Encryption configuration for the vector bucket. See Encryption Configuration below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['VectorsVectorBucketEncryptionConfigurationArgs']]] encryption_configurations: Encryption configuration for the vector bucket. See `encryption_configuration` below for more details.
         :param pulumi.Input[_builtins.bool] force_destroy: Boolean that indicates all indexes and vectors should be deleted from the vector bucket *when the vector bucket is destroyed* so that the vector bucket can be destroyed without error. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the vector bucket or destroying the vector bucket, this flag will not work.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -168,7 +168,7 @@ class _VectorsVectorBucketState:
     @pulumi.getter(name="encryptionConfigurations")
     def encryption_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VectorsVectorBucketEncryptionConfigurationArgs']]]]:
         """
-        Encryption configuration for the vector bucket. See Encryption Configuration below for more details.
+        Encryption configuration for the vector bucket. See `encryption_configuration` below for more details.
         """
         return pulumi.get(self, "encryption_configurations")
 
@@ -308,7 +308,7 @@ class VectorsVectorBucket(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['VectorsVectorBucketEncryptionConfigurationArgs', 'VectorsVectorBucketEncryptionConfigurationArgsDict']]]] encryption_configurations: Encryption configuration for the vector bucket. See Encryption Configuration below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VectorsVectorBucketEncryptionConfigurationArgs', 'VectorsVectorBucketEncryptionConfigurationArgsDict']]]] encryption_configurations: Encryption configuration for the vector bucket. See `encryption_configuration` below for more details.
         :param pulumi.Input[_builtins.bool] force_destroy: Boolean that indicates all indexes and vectors should be deleted from the vector bucket *when the vector bucket is destroyed* so that the vector bucket can be destroyed without error. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the vector bucket or destroying the vector bucket, this flag will not work.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -430,7 +430,7 @@ class VectorsVectorBucket(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] creation_time: Date and time when the vector bucket was created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['VectorsVectorBucketEncryptionConfigurationArgs', 'VectorsVectorBucketEncryptionConfigurationArgsDict']]]] encryption_configurations: Encryption configuration for the vector bucket. See Encryption Configuration below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VectorsVectorBucketEncryptionConfigurationArgs', 'VectorsVectorBucketEncryptionConfigurationArgsDict']]]] encryption_configurations: Encryption configuration for the vector bucket. See `encryption_configuration` below for more details.
         :param pulumi.Input[_builtins.bool] force_destroy: Boolean that indicates all indexes and vectors should be deleted from the vector bucket *when the vector bucket is destroyed* so that the vector bucket can be destroyed without error. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the vector bucket or destroying the vector bucket, this flag will not work.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -466,7 +466,7 @@ class VectorsVectorBucket(pulumi.CustomResource):
     @pulumi.getter(name="encryptionConfigurations")
     def encryption_configurations(self) -> pulumi.Output[Sequence['outputs.VectorsVectorBucketEncryptionConfiguration']]:
         """
-        Encryption configuration for the vector bucket. See Encryption Configuration below for more details.
+        Encryption configuration for the vector bucket. See `encryption_configuration` below for more details.
         """
         return pulumi.get(self, "encryption_configurations")
 

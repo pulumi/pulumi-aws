@@ -28,7 +28,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesInitContainer {
      */
     private @Nullable List<String> commands;
     /**
-     * @return Environment variables to pass to a container. See EKS Environment below.
+     * @return Environment variables to pass to a container. See `env` below.
      * 
      */
     private @Nullable List<JobDefinitionEksPropertiesPodPropertiesInitContainerEnv> envs;
@@ -43,12 +43,12 @@ public final class JobDefinitionEksPropertiesPodPropertiesInitContainer {
      */
     private @Nullable String imagePullPolicy;
     /**
-     * @return Name of the job definition.
+     * @return Name of the container. If the name isn&#39;t specified, the default name &#34;Default&#34; is used. Each container in a pod must have a unique name.
      * 
      */
     private @Nullable String name;
     /**
-     * @return Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
+     * @return Type and amount of resources to assign to a container. See `resources` below.
      * 
      */
     private @Nullable JobDefinitionEksPropertiesPodPropertiesInitContainerResources resources;
@@ -58,7 +58,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesInitContainer {
      */
     private @Nullable JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext securityContext;
     /**
-     * @return Volume mounts for the container.
+     * @return Volume mounts for the container. See `volumeMounts` below.
      * 
      */
     private @Nullable List<JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMount> volumeMounts;
@@ -79,7 +79,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesInitContainer {
         return this.commands == null ? List.of() : this.commands;
     }
     /**
-     * @return Environment variables to pass to a container. See EKS Environment below.
+     * @return Environment variables to pass to a container. See `env` below.
      * 
      */
     public List<JobDefinitionEksPropertiesPodPropertiesInitContainerEnv> envs() {
@@ -100,14 +100,14 @@ public final class JobDefinitionEksPropertiesPodPropertiesInitContainer {
         return Optional.ofNullable(this.imagePullPolicy);
     }
     /**
-     * @return Name of the job definition.
+     * @return Name of the container. If the name isn&#39;t specified, the default name &#34;Default&#34; is used. Each container in a pod must have a unique name.
      * 
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
+     * @return Type and amount of resources to assign to a container. See `resources` below.
      * 
      */
     public Optional<JobDefinitionEksPropertiesPodPropertiesInitContainerResources> resources() {
@@ -121,7 +121,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesInitContainer {
         return Optional.ofNullable(this.securityContext);
     }
     /**
-     * @return Volume mounts for the container.
+     * @return Volume mounts for the container. See `volumeMounts` below.
      * 
      */
     public List<JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMount> volumeMounts() {

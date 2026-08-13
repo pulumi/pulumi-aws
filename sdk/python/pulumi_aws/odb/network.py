@@ -51,9 +51,9 @@ class NetworkArgs:
         :param pulumi.Input[_builtins.str] zero_etl_access: Configuration for Zero-ETL access from the ODB network.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] availability_zone: Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availability_zone maps correctly with availability_zone_id.
+        :param pulumi.Input[_builtins.str] availability_zone: Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure `availability_zone` maps correctly with `availability_zone_id`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cross_region_s3_restore_sources_accesses: List of regions enabled for cross-region restore in the ODB network.
-        :param pulumi.Input[_builtins.str] custom_domain_name: Name of the custom domain that the network is located. Custom_domain_name and default_dns_prefix both can't be given. Changing this will force terraform to create new resource.
+        :param pulumi.Input[_builtins.str] custom_domain_name: Name of the custom domain that the network is located. `custom_domain_name` and `default_dns_prefix` both can't be given. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] default_dns_prefix: Default DNS prefix for the network resource. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.bool] delete_associated_resources: If set to true deletes associated OCI resources. Default false.
         :param pulumi.Input[_builtins.str] kms_access: Configuration for KMS access from the ODB network.
@@ -175,7 +175,7 @@ class NetworkArgs:
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availability_zone maps correctly with availability_zone_id.
+        Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure `availability_zone` maps correctly with `availability_zone_id`.
         """
         return pulumi.get(self, "availability_zone")
 
@@ -199,7 +199,7 @@ class NetworkArgs:
     @pulumi.getter(name="customDomainName")
     def custom_domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Name of the custom domain that the network is located. Custom_domain_name and default_dns_prefix both can't be given. Changing this will force terraform to create new resource.
+        Name of the custom domain that the network is located. `custom_domain_name` and `default_dns_prefix` both can't be given. Changing this will force terraform to create new resource.
         """
         return pulumi.get(self, "custom_domain_name")
 
@@ -366,32 +366,32 @@ class _NetworkState:
         Input properties used for looking up and filtering Network resources.
 
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the odb network resource.
-        :param pulumi.Input[_builtins.str] availability_zone: Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availability_zone maps correctly with availability_zone_id.
+        :param pulumi.Input[_builtins.str] availability_zone: Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure `availability_zone` maps correctly with `availability_zone_id`.
         :param pulumi.Input[_builtins.str] availability_zone_id: AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] backup_subnet_cidr: CIDR range of the backup subnet for the ODB network. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] client_subnet_cidr: CIDR notation for the network resource. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] created_at: Date and time when the ODB network was created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cross_region_s3_restore_sources_accesses: List of regions enabled for cross-region restore in the ODB network.
-        :param pulumi.Input[_builtins.str] custom_domain_name: Name of the custom domain that the network is located. Custom_domain_name and default_dns_prefix both can't be given. Changing this will force terraform to create new resource.
+        :param pulumi.Input[_builtins.str] custom_domain_name: Name of the custom domain that the network is located. `custom_domain_name` and `default_dns_prefix` both can't be given. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] default_dns_prefix: Default DNS prefix for the network resource. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.bool] delete_associated_resources: If set to true deletes associated OCI resources. Default false.
         :param pulumi.Input[_builtins.str] display_name: User-friendly name for the odb network. Changing this will force terraform to create a new resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ec2_placement_group_ids: List of EC2 placement group IDs associated with the ODB network.
         :param pulumi.Input[_builtins.str] kms_access: Configuration for KMS access from the ODB network.
         :param pulumi.Input[_builtins.str] kms_policy_document: Endpoint policy for KMS access from the ODB network.
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceArgs']]] managed_services: Managed services configuration for the ODB network.
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkOciDnsForwardingConfigArgs']]] oci_dns_forwarding_configs: Number of storage servers requested for the Exadata infrastructure.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceArgs']]] managed_services: Managed services configuration for the ODB network. See `managed_services` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkOciDnsForwardingConfigArgs']]] oci_dns_forwarding_configs: DNS resolver endpoints in OCI for forwarding DNS queries for the `ociPrivateZone` domain. See `oci_dns_forwarding_configs` Block below.
         :param pulumi.Input[_builtins.str] oci_network_anchor_id: Unique identifier of the OCI network anchor for the ODB network.
         :param pulumi.Input[_builtins.str] oci_network_anchor_url: URL of the OCI network anchor for the ODB network.
         :param pulumi.Input[_builtins.str] oci_resource_anchor_name: Name of the OCI resource anchor for the ODB network.
         :param pulumi.Input[_builtins.str] oci_vcn_id: Unique identifier Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
         :param pulumi.Input[_builtins.str] oci_vcn_url: URL of the OCI VCN for the ODB network.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] peered_cidrs: List of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] peered_cidrs: List of CIDR ranges from the peered VPC that are allowed access to the ODB network. See the [ODB network peering documentation](https://docs.aws.amazon.com/odb/latest/UserGuide/network-peering.html) for more information.
         :param pulumi.Input[_builtins.float] percent_progress: Amount of progress made on the current operation on the ODB network, expressed as a percentage.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] s3_access: Configuration for Amazon S3 access from the ODB network.
         :param pulumi.Input[_builtins.str] s3_policy_document: Endpoint policy for Amazon S3 access from the ODB network.
-        :param pulumi.Input[_builtins.str] status: Status of the network resource.
+        :param pulumi.Input[_builtins.str] status: Status of the Zero-ETL access.
         :param pulumi.Input[_builtins.str] status_reason: Additional information about the current status of the ODB network.
         :param pulumi.Input[_builtins.str] sts_access: Configuration for STS access from the ODB network.
         :param pulumi.Input[_builtins.str] sts_policy_document: Endpoint policy for STS access from the ODB network.
@@ -485,7 +485,7 @@ class _NetworkState:
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availability_zone maps correctly with availability_zone_id.
+        Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure `availability_zone` maps correctly with `availability_zone_id`.
         """
         return pulumi.get(self, "availability_zone")
 
@@ -557,7 +557,7 @@ class _NetworkState:
     @pulumi.getter(name="customDomainName")
     def custom_domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Name of the custom domain that the network is located. Custom_domain_name and default_dns_prefix both can't be given. Changing this will force terraform to create new resource.
+        Name of the custom domain that the network is located. `custom_domain_name` and `default_dns_prefix` both can't be given. Changing this will force terraform to create new resource.
         """
         return pulumi.get(self, "custom_domain_name")
 
@@ -641,7 +641,7 @@ class _NetworkState:
     @pulumi.getter(name="managedServices")
     def managed_services(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkManagedServiceArgs']]]]:
         """
-        Managed services configuration for the ODB network.
+        Managed services configuration for the ODB network. See `managed_services` Block below.
         """
         return pulumi.get(self, "managed_services")
 
@@ -653,7 +653,7 @@ class _NetworkState:
     @pulumi.getter(name="ociDnsForwardingConfigs")
     def oci_dns_forwarding_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkOciDnsForwardingConfigArgs']]]]:
         """
-        Number of storage servers requested for the Exadata infrastructure.
+        DNS resolver endpoints in OCI for forwarding DNS queries for the `ociPrivateZone` domain. See `oci_dns_forwarding_configs` Block below.
         """
         return pulumi.get(self, "oci_dns_forwarding_configs")
 
@@ -725,7 +725,7 @@ class _NetworkState:
     @pulumi.getter(name="peeredCidrs")
     def peered_cidrs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        List of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
+        List of CIDR ranges from the peered VPC that are allowed access to the ODB network. See the [ODB network peering documentation](https://docs.aws.amazon.com/odb/latest/UserGuide/network-peering.html) for more information.
         """
         return pulumi.get(self, "peered_cidrs")
 
@@ -785,7 +785,7 @@ class _NetworkState:
     @pulumi.getter
     def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Status of the network resource.
+        Status of the Zero-ETL access.
         """
         return pulumi.get(self, "status")
 
@@ -905,6 +905,42 @@ class Network(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Disabled S3 and Zero-ETL Access
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.odb.Network("example",
+            display_name="odb-my-net",
+            availability_zone_id="use1-az6",
+            client_subnet_cidr="10.2.0.0/24",
+            backup_subnet_cidr="10.2.1.0/24",
+            s3_access="DISABLED",
+            zero_etl_access="DISABLED",
+            tags={
+                "env": "dev",
+            })
+        ```
+
+        ### Enabled S3 and Zero-ETL Access
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.odb.Network("example",
+            display_name="odb-my-net",
+            availability_zone_id="use1-az6",
+            client_subnet_cidr="10.2.0.0/24",
+            backup_subnet_cidr="10.2.1.0/24",
+            s3_access="ENABLED",
+            zero_etl_access="ENABLED",
+            tags={
+                "env": "dev",
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import Odb Network using the `id`. For example:
@@ -916,12 +952,12 @@ class Network(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] availability_zone: Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availability_zone maps correctly with availability_zone_id.
+        :param pulumi.Input[_builtins.str] availability_zone: Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure `availability_zone` maps correctly with `availability_zone_id`.
         :param pulumi.Input[_builtins.str] availability_zone_id: AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] backup_subnet_cidr: CIDR range of the backup subnet for the ODB network. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] client_subnet_cidr: CIDR notation for the network resource. Changing this will force terraform to create new resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cross_region_s3_restore_sources_accesses: List of regions enabled for cross-region restore in the ODB network.
-        :param pulumi.Input[_builtins.str] custom_domain_name: Name of the custom domain that the network is located. Custom_domain_name and default_dns_prefix both can't be given. Changing this will force terraform to create new resource.
+        :param pulumi.Input[_builtins.str] custom_domain_name: Name of the custom domain that the network is located. `custom_domain_name` and `default_dns_prefix` both can't be given. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] default_dns_prefix: Default DNS prefix for the network resource. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.bool] delete_associated_resources: If set to true deletes associated OCI resources. Default false.
         :param pulumi.Input[_builtins.str] display_name: User-friendly name for the odb network. Changing this will force terraform to create a new resource.
@@ -947,6 +983,42 @@ class Network(pulumi.CustomResource):
         Resource for managing odb Network resource in AWS for Oracle Database@AWS.
 
         ## Example Usage
+
+        ### Disabled S3 and Zero-ETL Access
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.odb.Network("example",
+            display_name="odb-my-net",
+            availability_zone_id="use1-az6",
+            client_subnet_cidr="10.2.0.0/24",
+            backup_subnet_cidr="10.2.1.0/24",
+            s3_access="DISABLED",
+            zero_etl_access="DISABLED",
+            tags={
+                "env": "dev",
+            })
+        ```
+
+        ### Enabled S3 and Zero-ETL Access
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.odb.Network("example",
+            display_name="odb-my-net",
+            availability_zone_id="use1-az6",
+            client_subnet_cidr="10.2.0.0/24",
+            backup_subnet_cidr="10.2.1.0/24",
+            s3_access="ENABLED",
+            zero_etl_access="ENABLED",
+            tags={
+                "env": "dev",
+            })
+        ```
 
         ## Import
 
@@ -1098,32 +1170,32 @@ class Network(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the odb network resource.
-        :param pulumi.Input[_builtins.str] availability_zone: Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availability_zone maps correctly with availability_zone_id.
+        :param pulumi.Input[_builtins.str] availability_zone: Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure `availability_zone` maps correctly with `availability_zone_id`.
         :param pulumi.Input[_builtins.str] availability_zone_id: AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] backup_subnet_cidr: CIDR range of the backup subnet for the ODB network. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] client_subnet_cidr: CIDR notation for the network resource. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] created_at: Date and time when the ODB network was created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cross_region_s3_restore_sources_accesses: List of regions enabled for cross-region restore in the ODB network.
-        :param pulumi.Input[_builtins.str] custom_domain_name: Name of the custom domain that the network is located. Custom_domain_name and default_dns_prefix both can't be given. Changing this will force terraform to create new resource.
+        :param pulumi.Input[_builtins.str] custom_domain_name: Name of the custom domain that the network is located. `custom_domain_name` and `default_dns_prefix` both can't be given. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] default_dns_prefix: Default DNS prefix for the network resource. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.bool] delete_associated_resources: If set to true deletes associated OCI resources. Default false.
         :param pulumi.Input[_builtins.str] display_name: User-friendly name for the odb network. Changing this will force terraform to create a new resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ec2_placement_group_ids: List of EC2 placement group IDs associated with the ODB network.
         :param pulumi.Input[_builtins.str] kms_access: Configuration for KMS access from the ODB network.
         :param pulumi.Input[_builtins.str] kms_policy_document: Endpoint policy for KMS access from the ODB network.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkManagedServiceArgs', 'NetworkManagedServiceArgsDict']]]] managed_services: Managed services configuration for the ODB network.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkOciDnsForwardingConfigArgs', 'NetworkOciDnsForwardingConfigArgsDict']]]] oci_dns_forwarding_configs: Number of storage servers requested for the Exadata infrastructure.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkManagedServiceArgs', 'NetworkManagedServiceArgsDict']]]] managed_services: Managed services configuration for the ODB network. See `managed_services` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkOciDnsForwardingConfigArgs', 'NetworkOciDnsForwardingConfigArgsDict']]]] oci_dns_forwarding_configs: DNS resolver endpoints in OCI for forwarding DNS queries for the `ociPrivateZone` domain. See `oci_dns_forwarding_configs` Block below.
         :param pulumi.Input[_builtins.str] oci_network_anchor_id: Unique identifier of the OCI network anchor for the ODB network.
         :param pulumi.Input[_builtins.str] oci_network_anchor_url: URL of the OCI network anchor for the ODB network.
         :param pulumi.Input[_builtins.str] oci_resource_anchor_name: Name of the OCI resource anchor for the ODB network.
         :param pulumi.Input[_builtins.str] oci_vcn_id: Unique identifier Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
         :param pulumi.Input[_builtins.str] oci_vcn_url: URL of the OCI VCN for the ODB network.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] peered_cidrs: List of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] peered_cidrs: List of CIDR ranges from the peered VPC that are allowed access to the ODB network. See the [ODB network peering documentation](https://docs.aws.amazon.com/odb/latest/UserGuide/network-peering.html) for more information.
         :param pulumi.Input[_builtins.float] percent_progress: Amount of progress made on the current operation on the ODB network, expressed as a percentage.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] s3_access: Configuration for Amazon S3 access from the ODB network.
         :param pulumi.Input[_builtins.str] s3_policy_document: Endpoint policy for Amazon S3 access from the ODB network.
-        :param pulumi.Input[_builtins.str] status: Status of the network resource.
+        :param pulumi.Input[_builtins.str] status: Status of the Zero-ETL access.
         :param pulumi.Input[_builtins.str] status_reason: Additional information about the current status of the ODB network.
         :param pulumi.Input[_builtins.str] sts_access: Configuration for STS access from the ODB network.
         :param pulumi.Input[_builtins.str] sts_policy_document: Endpoint policy for STS access from the ODB network.
@@ -1184,7 +1256,7 @@ class Network(pulumi.CustomResource):
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Output[_builtins.str]:
         """
-        Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availability_zone maps correctly with availability_zone_id.
+        Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure `availability_zone` maps correctly with `availability_zone_id`.
         """
         return pulumi.get(self, "availability_zone")
 
@@ -1232,7 +1304,7 @@ class Network(pulumi.CustomResource):
     @pulumi.getter(name="customDomainName")
     def custom_domain_name(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Name of the custom domain that the network is located. Custom_domain_name and default_dns_prefix both can't be given. Changing this will force terraform to create new resource.
+        Name of the custom domain that the network is located. `custom_domain_name` and `default_dns_prefix` both can't be given. Changing this will force terraform to create new resource.
         """
         return pulumi.get(self, "custom_domain_name")
 
@@ -1288,7 +1360,7 @@ class Network(pulumi.CustomResource):
     @pulumi.getter(name="managedServices")
     def managed_services(self) -> pulumi.Output[Sequence['outputs.NetworkManagedService']]:
         """
-        Managed services configuration for the ODB network.
+        Managed services configuration for the ODB network. See `managed_services` Block below.
         """
         return pulumi.get(self, "managed_services")
 
@@ -1296,7 +1368,7 @@ class Network(pulumi.CustomResource):
     @pulumi.getter(name="ociDnsForwardingConfigs")
     def oci_dns_forwarding_configs(self) -> pulumi.Output[Sequence['outputs.NetworkOciDnsForwardingConfig']]:
         """
-        Number of storage servers requested for the Exadata infrastructure.
+        DNS resolver endpoints in OCI for forwarding DNS queries for the `ociPrivateZone` domain. See `oci_dns_forwarding_configs` Block below.
         """
         return pulumi.get(self, "oci_dns_forwarding_configs")
 
@@ -1344,7 +1416,7 @@ class Network(pulumi.CustomResource):
     @pulumi.getter(name="peeredCidrs")
     def peered_cidrs(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        List of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
+        List of CIDR ranges from the peered VPC that are allowed access to the ODB network. See the [ODB network peering documentation](https://docs.aws.amazon.com/odb/latest/UserGuide/network-peering.html) for more information.
         """
         return pulumi.get(self, "peered_cidrs")
 
@@ -1384,7 +1456,7 @@ class Network(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
         """
-        Status of the network resource.
+        Status of the Zero-ETL access.
         """
         return pulumi.get(self, "status")
 

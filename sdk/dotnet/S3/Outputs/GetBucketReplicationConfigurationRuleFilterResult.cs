@@ -13,13 +13,16 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class GetBucketReplicationConfigurationRuleFilterResult
     {
+        /// <summary>
+        /// Configuration block for specifying rule filters. See `And` Block below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetBucketReplicationConfigurationRuleFilterAndResult> Ands;
         /// <summary>
         /// Object key name prefix that identifies the subset of objects to which the rule applies.
         /// </summary>
         public readonly string Prefix;
         /// <summary>
-        /// Unordered list of tags that identify a subset of objects to which the rule applies. Each tag has a `Key` and a `Value`.
+        /// List of tags that identify a subset of objects to which the rule applies. See `Tag` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBucketReplicationConfigurationRuleFilterTagResult> Tags;
 

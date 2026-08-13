@@ -18,15 +18,15 @@ namespace Pulumi.Aws.Batch.Outputs
         /// </summary>
         public readonly string Action;
         /// <summary>
-        /// Contains a glob pattern to match against the decimal representation of the ExitCode returned for a job.
+        /// Glob pattern to match against the decimal representation of the ExitCode returned for a job.
         /// </summary>
         public readonly string OnExitCode;
         /// <summary>
-        /// Contains a glob pattern to match against the Reason returned for a job.
+        /// Glob pattern to match against the Reason returned for a job.
         /// </summary>
         public readonly string OnReason;
         /// <summary>
-        /// Contains a glob pattern to match against the StatusReason returned for a job.
+        /// Glob pattern to match against the StatusReason returned for a job.
         /// </summary>
         public readonly string OnStatusReason;
 

@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaim {
     /**
-     * @return Configuration block to define the value or values to match for and the relationship of the match. See `authorizingClaimMatchValue` below.
+     * @return Configuration block to define the value or values to match for and the relationship of the match. See `authorizingClaimMatchValue` Block below.
      * 
      */
     private AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue authorizingClaimMatchValue;
@@ -29,7 +29,7 @@ public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCus
 
     private AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaim() {}
     /**
-     * @return Configuration block to define the value or values to match for and the relationship of the match. See `authorizingClaimMatchValue` below.
+     * @return Configuration block to define the value or values to match for and the relationship of the match. See `authorizingClaimMatchValue` Block below.
      * 
      */
     public AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue authorizingClaimMatchValue() {

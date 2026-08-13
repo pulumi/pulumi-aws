@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Odb.Inputs
         private InputList<Inputs.CloudExadataInfrastructureMaintenanceWindowDaysOfWeekArgs>? _daysOfWeeks;
 
         /// <summary>
-        /// Days of the week when maintenance can be performed.
+        /// Days of the week when maintenance can be performed. See `DaysOfWeek` Block below.
         /// </summary>
         public InputList<Inputs.CloudExadataInfrastructureMaintenanceWindowDaysOfWeekArgs> DaysOfWeeks
         {
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Odb.Inputs
         private InputList<Inputs.CloudExadataInfrastructureMaintenanceWindowMonthArgs>? _months;
 
         /// <summary>
-        /// Months when maintenance can be performed.
+        /// Months when maintenance can be performed. See `Months` Block below.
         /// </summary>
         public InputList<Inputs.CloudExadataInfrastructureMaintenanceWindowMonthArgs> Months
         {

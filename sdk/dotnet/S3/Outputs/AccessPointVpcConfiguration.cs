@@ -14,7 +14,7 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class AccessPointVpcConfiguration
     {
         /// <summary>
-        /// This access point will only allow connections from the specified VPC ID.
+        /// VPC ID from which the access point allows connections.
         /// </summary>
         public readonly string VpcId;
 

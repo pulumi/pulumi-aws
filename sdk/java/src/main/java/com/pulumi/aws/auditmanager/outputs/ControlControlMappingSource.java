@@ -23,9 +23,13 @@ public final class ControlControlMappingSource {
      * 
      */
     private @Nullable String sourceFrequency;
+    /**
+     * @return Unique identifier for the source.
+     * 
+     */
     private @Nullable String sourceId;
     /**
-     * @return The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `sourceKeyword` below.
+     * @return Keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `sourceKeyword` below.
      * 
      */
     private @Nullable ControlControlMappingSourceSourceKeyword sourceKeyword;
@@ -35,7 +39,7 @@ public final class ControlControlMappingSource {
      */
     private String sourceName;
     /**
-     * @return The setup option for the data source. This option reflects if the evidence collection is automated or manual. Valid values are `System_Controls_Mapping` (automated) and `Procedural_Controls_Mapping` (manual).
+     * @return Setup option for the data source. This option reflects if the evidence collection is automated or manual. Valid values are `System_Controls_Mapping` (automated) and `Procedural_Controls_Mapping` (manual).
      * 
      */
     private String sourceSetUpOption;
@@ -67,11 +71,15 @@ public final class ControlControlMappingSource {
     public Optional<String> sourceFrequency() {
         return Optional.ofNullable(this.sourceFrequency);
     }
+    /**
+     * @return Unique identifier for the source.
+     * 
+     */
     public Optional<String> sourceId() {
         return Optional.ofNullable(this.sourceId);
     }
     /**
-     * @return The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `sourceKeyword` below.
+     * @return Keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `sourceKeyword` below.
      * 
      */
     public Optional<ControlControlMappingSourceSourceKeyword> sourceKeyword() {
@@ -85,7 +93,7 @@ public final class ControlControlMappingSource {
         return this.sourceName;
     }
     /**
-     * @return The setup option for the data source. This option reflects if the evidence collection is automated or manual. Valid values are `System_Controls_Mapping` (automated) and `Procedural_Controls_Mapping` (manual).
+     * @return Setup option for the data source. This option reflects if the evidence collection is automated or manual. Valid values are `System_Controls_Mapping` (automated) and `Procedural_Controls_Mapping` (manual).
      * 
      */
     public String sourceSetUpOption() {

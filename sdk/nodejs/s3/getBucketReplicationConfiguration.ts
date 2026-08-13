@@ -49,6 +49,9 @@ export interface GetBucketReplicationConfigurationArgs {
  * A collection of values returned by getBucketReplicationConfiguration.
  */
 export interface GetBucketReplicationConfigurationResult {
+    /**
+     * ARN of the bucket where Amazon S3 stores the results.
+     */
     readonly bucket: string;
     readonly region: string;
     /**
@@ -56,7 +59,7 @@ export interface GetBucketReplicationConfigurationResult {
      */
     readonly role: string;
     /**
-     * Unordered list of configuration blocks that define the rules managing replication. See the `awsS3ReplicationConfiguration` resource documentation for details about the `rule` block (excluding the `and` block within the `filter` block).
+     * List of configuration blocks that define the rules managing replication. See `rule` Block below.
      */
     readonly rules: outputs.s3.GetBucketReplicationConfigurationRule[];
 }

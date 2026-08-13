@@ -18,14 +18,14 @@ public final class WorkflowStepDecryptStepDetailsArgs extends com.pulumi.resourc
     public static final WorkflowStepDecryptStepDetailsArgs Empty = new WorkflowStepDecryptStepDetailsArgs();
 
     /**
-     * Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
+     * Location for the file being copied. Use `${Transfer:username}` in this field to parametrize the destination prefix by username. See `destinationFileLocation` Block below.
      * 
      */
     @Import(name="destinationFileLocation")
     private @Nullable Output<WorkflowStepDecryptStepDetailsDestinationFileLocationArgs> destinationFileLocation;
 
     /**
-     * @return Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
+     * @return Location for the file being copied. Use `${Transfer:username}` in this field to parametrize the destination prefix by username. See `destinationFileLocation` Block below.
      * 
      */
     public Optional<Output<WorkflowStepDecryptStepDetailsDestinationFileLocationArgs>> destinationFileLocation() {
@@ -33,14 +33,14 @@ public final class WorkflowStepDecryptStepDetailsArgs extends com.pulumi.resourc
     }
 
     /**
-     * The name of the step, used as an identifier.
+     * Name of the step, used as an identifier.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the step, used as an identifier.
+     * @return Name of the step, used as an identifier.
      * 
      */
     public Optional<Output<String>> name() {
@@ -48,14 +48,14 @@ public final class WorkflowStepDecryptStepDetailsArgs extends com.pulumi.resourc
     }
 
     /**
-     * A flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
+     * Flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
      * 
      */
     @Import(name="overwriteExisting")
     private @Nullable Output<String> overwriteExisting;
 
     /**
-     * @return A flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
+     * @return Flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
      * 
      */
     public Optional<Output<String>> overwriteExisting() {
@@ -63,14 +63,14 @@ public final class WorkflowStepDecryptStepDetailsArgs extends com.pulumi.resourc
     }
 
     /**
-     * Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+     * File to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter `${previous.file}` to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter `${original.file}` to use the originally-uploaded file location as input for this step.
      * 
      */
     @Import(name="sourceFileLocation")
     private @Nullable Output<String> sourceFileLocation;
 
     /**
-     * @return Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+     * @return File to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter `${previous.file}` to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter `${original.file}` to use the originally-uploaded file location as input for this step.
      * 
      */
     public Optional<Output<String>> sourceFileLocation() {
@@ -78,14 +78,14 @@ public final class WorkflowStepDecryptStepDetailsArgs extends com.pulumi.resourc
     }
 
     /**
-     * The type of encryption used. Currently, this value must be `&#34;PGP&#34;`.
+     * Type of encryption used. Currently, this value must be `&#34;PGP&#34;`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of encryption used. Currently, this value must be `&#34;PGP&#34;`.
+     * @return Type of encryption used. Currently, this value must be `&#34;PGP&#34;`.
      * 
      */
     public Output<String> type() {
@@ -121,7 +121,7 @@ public final class WorkflowStepDecryptStepDetailsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param destinationFileLocation Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
+         * @param destinationFileLocation Location for the file being copied. Use `${Transfer:username}` in this field to parametrize the destination prefix by username. See `destinationFileLocation` Block below.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class WorkflowStepDecryptStepDetailsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param destinationFileLocation Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
+         * @param destinationFileLocation Location for the file being copied. Use `${Transfer:username}` in this field to parametrize the destination prefix by username. See `destinationFileLocation` Block below.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class WorkflowStepDecryptStepDetailsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param name The name of the step, used as an identifier.
+         * @param name Name of the step, used as an identifier.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class WorkflowStepDecryptStepDetailsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param name The name of the step, used as an identifier.
+         * @param name Name of the step, used as an identifier.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class WorkflowStepDecryptStepDetailsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param overwriteExisting A flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
+         * @param overwriteExisting Flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class WorkflowStepDecryptStepDetailsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param overwriteExisting A flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
+         * @param overwriteExisting Flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class WorkflowStepDecryptStepDetailsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param sourceFileLocation Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+         * @param sourceFileLocation File to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter `${previous.file}` to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter `${original.file}` to use the originally-uploaded file location as input for this step.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class WorkflowStepDecryptStepDetailsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param sourceFileLocation Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+         * @param sourceFileLocation File to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter `${previous.file}` to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter `${original.file}` to use the originally-uploaded file location as input for this step.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class WorkflowStepDecryptStepDetailsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param type The type of encryption used. Currently, this value must be `&#34;PGP&#34;`.
+         * @param type Type of encryption used. Currently, this value must be `&#34;PGP&#34;`.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class WorkflowStepDecryptStepDetailsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param type The type of encryption used. Currently, this value must be `&#34;PGP&#34;`.
+         * @param type Type of encryption used. Currently, this value must be `&#34;PGP&#34;`.
          * 
          * @return builder
          * 

@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Batch.Inputs
         private InputList<Inputs.JobDefinitionEksPropertiesPodPropertiesContainerEnvArgs>? _envs;
 
         /// <summary>
-        /// Environment variables to pass to a container. See EKS Environment below.
+        /// Environment variables to pass to a container. See `Env` below.
         /// </summary>
         public InputList<Inputs.JobDefinitionEksPropertiesPodPropertiesContainerEnvArgs> Envs
         {
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Batch.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Type and amount of resources to assign to a container. The supported resources include `Memory`, `Cpu`, and `nvidia.com/gpu`.
+        /// Type and amount of resources to assign to a container. See `Resources` below.
         /// </summary>
         [Input("resources")]
         public Input<Inputs.JobDefinitionEksPropertiesPodPropertiesContainerResourcesArgs>? Resources { get; set; }
@@ -82,7 +82,7 @@ namespace Pulumi.Aws.Batch.Inputs
         private InputList<Inputs.JobDefinitionEksPropertiesPodPropertiesContainerVolumeMountArgs>? _volumeMounts;
 
         /// <summary>
-        /// Volume mounts for the container.
+        /// Volume mounts for the container. See `VolumeMounts` below.
         /// </summary>
         public InputList<Inputs.JobDefinitionEksPropertiesPodPropertiesContainerVolumeMountArgs> VolumeMounts
         {

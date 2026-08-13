@@ -13,11 +13,17 @@ namespace Pulumi.Aws.Batch.Outputs
     [OutputType]
     public sealed class JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMount
     {
+        /// <summary>
+        /// Path on the container where the volume is mounted.
+        /// </summary>
         public readonly string MountPath;
         /// <summary>
-        /// Name of the job definition.
+        /// Name the volume mount. This must match the name of one of the volumes in the pod.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Whether the container has read-only access to the volume. The default value is `False`.
+        /// </summary>
         public readonly bool? ReadOnly;
 
         [OutputConstructor]

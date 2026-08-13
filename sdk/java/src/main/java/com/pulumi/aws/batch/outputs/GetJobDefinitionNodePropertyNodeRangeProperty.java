@@ -13,26 +13,26 @@ import java.util.Objects;
 @CustomType
 public final class GetJobDefinitionNodePropertyNodeRangeProperty {
     /**
-     * @return Container details for the node range.
+     * @return Container details for the node range. See `container` below.
      * 
      */
     private List<GetJobDefinitionNodePropertyNodeRangePropertyContainer> containers;
     /**
-     * @return Range of nodes, using node index values. A range of 0:3 indicates nodes with index values of 0 through 3. I
+     * @return Range of nodes, using node index values. A range of 0:3 indicates nodes with index values of 0 through 3.
      * 
      */
     private String targetNodes;
 
     private GetJobDefinitionNodePropertyNodeRangeProperty() {}
     /**
-     * @return Container details for the node range.
+     * @return Container details for the node range. See `container` below.
      * 
      */
     public List<GetJobDefinitionNodePropertyNodeRangePropertyContainer> containers() {
         return this.containers;
     }
     /**
-     * @return Range of nodes, using node index values. A range of 0:3 indicates nodes with index values of 0 through 3. I
+     * @return Range of nodes, using node index values. A range of 0:3 indicates nodes with index values of 0 through 3.
      * 
      */
     public String targetNodes() {

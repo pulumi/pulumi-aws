@@ -87,7 +87,7 @@ namespace Pulumi.Aws.Transcribe
         public Output<string> DownloadUri { get; private set; } = null!;
 
         /// <summary>
-        /// The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
+        /// Language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
         /// </summary>
         [Output("languageCode")]
         public Output<string> LanguageCode { get; private set; } = null!;
@@ -99,7 +99,7 @@ namespace Pulumi.Aws.Transcribe
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the MedicalVocabulary. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the MedicalVocabulary. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -108,13 +108,13 @@ namespace Pulumi.Aws.Transcribe
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
+        /// Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
         /// </summary>
         [Output("vocabularyFileUri")]
         public Output<string> VocabularyFileUri { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Medical Vocabulary.
+        /// Name of the Medical Vocabulary.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.Transcribe
     public sealed class MedicalVocabularyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
+        /// Language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
         /// </summary>
         [Input("languageCode", required: true)]
         public Input<string> LanguageCode { get; set; } = null!;
@@ -183,7 +183,7 @@ namespace Pulumi.Aws.Transcribe
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the MedicalVocabulary. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the MedicalVocabulary. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -192,13 +192,13 @@ namespace Pulumi.Aws.Transcribe
         }
 
         /// <summary>
-        /// The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
+        /// Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
         /// </summary>
         [Input("vocabularyFileUri", required: true)]
         public Input<string> VocabularyFileUri { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Medical Vocabulary.
+        /// Name of the Medical Vocabulary.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -226,7 +226,7 @@ namespace Pulumi.Aws.Transcribe
         public Input<string>? DownloadUri { get; set; }
 
         /// <summary>
-        /// The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
+        /// Language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
         /// </summary>
         [Input("languageCode")]
         public Input<string>? LanguageCode { get; set; }
@@ -241,7 +241,7 @@ namespace Pulumi.Aws.Transcribe
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the MedicalVocabulary. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the MedicalVocabulary. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -258,13 +258,13 @@ namespace Pulumi.Aws.Transcribe
         }
 
         /// <summary>
-        /// The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
+        /// Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
         /// </summary>
         [Input("vocabularyFileUri")]
         public Input<string>? VocabularyFileUri { get; set; }
 
         /// <summary>
-        /// The name of the Medical Vocabulary.
+        /// Name of the Medical Vocabulary.
         /// 
         /// The following arguments are optional:
         /// </summary>

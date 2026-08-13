@@ -23,7 +23,7 @@ public final class CloudExadataInfrastructureMaintenanceWindow {
      */
     private Integer customActionTimeoutInMins;
     /**
-     * @return Days of the week when maintenance can be performed.
+     * @return Days of the week when maintenance can be performed. See `daysOfWeek` Block below.
      * 
      */
     private @Nullable List<CloudExadataInfrastructureMaintenanceWindowDaysOfWeek> daysOfWeeks;
@@ -43,7 +43,7 @@ public final class CloudExadataInfrastructureMaintenanceWindow {
      */
     private @Nullable Integer leadTimeInWeeks;
     /**
-     * @return Months when maintenance can be performed.
+     * @return Months when maintenance can be performed. See `months` Block below.
      * 
      */
     private @Nullable List<CloudExadataInfrastructureMaintenanceWindowMonth> months;
@@ -72,7 +72,7 @@ public final class CloudExadataInfrastructureMaintenanceWindow {
         return this.customActionTimeoutInMins;
     }
     /**
-     * @return Days of the week when maintenance can be performed.
+     * @return Days of the week when maintenance can be performed. See `daysOfWeek` Block below.
      * 
      */
     public List<CloudExadataInfrastructureMaintenanceWindowDaysOfWeek> daysOfWeeks() {
@@ -100,7 +100,7 @@ public final class CloudExadataInfrastructureMaintenanceWindow {
         return Optional.ofNullable(this.leadTimeInWeeks);
     }
     /**
-     * @return Months when maintenance can be performed.
+     * @return Months when maintenance can be performed. See `months` Block below.
      * 
      */
     public List<CloudExadataInfrastructureMaintenanceWindowMonth> months() {

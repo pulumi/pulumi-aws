@@ -11,9 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName {
+    /**
+     * @return Criteria for determining a SAN&#39;s match. See `spec.listener.tls.validation.subject_alternative_names.match` Block for details.
+     * 
+     */
     private List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch> matches;
 
     private GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName() {}
+    /**
+     * @return Criteria for determining a SAN&#39;s match. See `spec.listener.tls.validation.subject_alternative_names.match` Block for details.
+     * 
+     */
     public List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch> matches() {
         return this.matches;
     }

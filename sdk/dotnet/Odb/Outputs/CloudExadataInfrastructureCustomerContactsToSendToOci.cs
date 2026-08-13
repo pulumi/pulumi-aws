@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Odb.Outputs
     [OutputType]
     public sealed class CloudExadataInfrastructureCustomerContactsToSendToOci
     {
+        /// <summary>
+        /// Email address of the contact.
+        /// </summary>
         public readonly string Email;
 
         [OutputConstructor]

@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Batch.Inputs
     {
         [Input("limits")]
         private InputMap<string>? _limits;
+
+        /// <summary>
+        /// Type and quantity of the resources to reserve for the container. The values vary based on the name that's specified. Limits must be equal to or greater than requests.
+        /// </summary>
         public InputMap<string> Limits
         {
             get => _limits ?? (_limits = new InputMap<string>());
@@ -22,6 +26,10 @@ namespace Pulumi.Aws.Batch.Inputs
 
         [Input("requests")]
         private InputMap<string>? _requests;
+
+        /// <summary>
+        /// Type and quantity of the resources to request for the container. The values vary based on the name that's specified.
+        /// </summary>
         public InputMap<string> Requests
         {
             get => _requests ?? (_requests = new InputMap<string>());

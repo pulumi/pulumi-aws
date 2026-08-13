@@ -6,6 +6,7 @@ import builtins as _builtins
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .container_association import *
 from .firewall import *
 from .firewall_policy import *
 from .firewall_transit_gateway_attachment_accepter import *

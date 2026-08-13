@@ -16,7 +16,7 @@ public final class GetConnectorAs2Config {
      */
     private String basicAuthSecretId;
     /**
-     * @return Specifies whether AS2 file is compressed. Will be ZLIB or DISABLED
+     * @return Whether AS2 file is compressed. Will be ZLIB or DISABLED
      * 
      */
     private String compression;
@@ -31,7 +31,7 @@ public final class GetConnectorAs2Config {
      */
     private String localProfileId;
     /**
-     * @return Used for outbound requests to tell if response is asynchronous or not. Will be either SYNC or NONE.
+     * @return Whether outbound requests use an asynchronous response. Will be either SYNC or NONE.
      * 
      */
     private String mdnResponse;
@@ -50,6 +50,10 @@ public final class GetConnectorAs2Config {
      * 
      */
     private String partnerProfileId;
+    /**
+     * @return Algorithm used for signing AS2 messages sent with the connector.
+     * 
+     */
     private String singingAlgorithm;
 
     private GetConnectorAs2Config() {}
@@ -61,7 +65,7 @@ public final class GetConnectorAs2Config {
         return this.basicAuthSecretId;
     }
     /**
-     * @return Specifies whether AS2 file is compressed. Will be ZLIB or DISABLED
+     * @return Whether AS2 file is compressed. Will be ZLIB or DISABLED
      * 
      */
     public String compression() {
@@ -82,7 +86,7 @@ public final class GetConnectorAs2Config {
         return this.localProfileId;
     }
     /**
-     * @return Used for outbound requests to tell if response is asynchronous or not. Will be either SYNC or NONE.
+     * @return Whether outbound requests use an asynchronous response. Will be either SYNC or NONE.
      * 
      */
     public String mdnResponse() {
@@ -109,6 +113,10 @@ public final class GetConnectorAs2Config {
     public String partnerProfileId() {
         return this.partnerProfileId;
     }
+    /**
+     * @return Algorithm used for signing AS2 messages sent with the connector.
+     * 
+     */
     public String singingAlgorithm() {
         return this.singingAlgorithm;
     }

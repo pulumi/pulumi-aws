@@ -11,21 +11,53 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDbServerDbServerPatchingDetail {
+    /**
+     * @return Estimated time, in minutes, that it takes to patch the database server.
+     * 
+     */
     private Integer estimatedPatchDuration;
+    /**
+     * @return Status of the patching operation.
+     * 
+     */
     private String patchingStatus;
+    /**
+     * @return Date and time when the patching operation ended.
+     * 
+     */
     private String timePatchingEnded;
+    /**
+     * @return Date and time when the patching operation started.
+     * 
+     */
     private String timePatchingStarted;
 
     private GetDbServerDbServerPatchingDetail() {}
+    /**
+     * @return Estimated time, in minutes, that it takes to patch the database server.
+     * 
+     */
     public Integer estimatedPatchDuration() {
         return this.estimatedPatchDuration;
     }
+    /**
+     * @return Status of the patching operation.
+     * 
+     */
     public String patchingStatus() {
         return this.patchingStatus;
     }
+    /**
+     * @return Date and time when the patching operation ended.
+     * 
+     */
     public String timePatchingEnded() {
         return this.timePatchingEnded;
     }
+    /**
+     * @return Date and time when the patching operation started.
+     * 
+     */
     public String timePatchingStarted() {
         return this.timePatchingStarted;
     }

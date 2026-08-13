@@ -118,14 +118,14 @@ public class LbCertificate extends com.pulumi.resources.CustomResource {
         return this.domainName;
     }
     /**
-     * Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
+     * Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Each element contains the following attributes:
      * 
      */
     @Export(name="domainValidationRecords", refs={List.class,LbCertificateDomainValidationRecord.class}, tree="[0,1]")
     private Output<List<LbCertificateDomainValidationRecord>> domainValidationRecords;
 
     /**
-     * @return Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
+     * @return Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Each element contains the following attributes:
      * 
      */
     public Output<List<LbCertificateDomainValidationRecord>> domainValidationRecords() {

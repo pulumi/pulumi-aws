@@ -15,23 +15,47 @@ public final class CloudVmClusterIormConfigCacheDbPlanArgs extends com.pulumi.re
 
     public static final CloudVmClusterIormConfigCacheDbPlanArgs Empty = new CloudVmClusterIormConfigCacheDbPlanArgs();
 
+    /**
+     * Database name to which the IORM plan applies.
+     * 
+     */
     @Import(name="dbName", required=true)
     private Output<String> dbName;
 
+    /**
+     * @return Database name to which the IORM plan applies.
+     * 
+     */
     public Output<String> dbName() {
         return this.dbName;
     }
 
+    /**
+     * Flash cache limit for the database plan.
+     * 
+     */
     @Import(name="flashCacheLimit", required=true)
     private Output<String> flashCacheLimit;
 
+    /**
+     * @return Flash cache limit for the database plan.
+     * 
+     */
     public Output<String> flashCacheLimit() {
         return this.flashCacheLimit;
     }
 
+    /**
+     * Relative priority of the database in the IORM plan.
+     * 
+     */
     @Import(name="share", required=true)
     private Output<Integer> share;
 
+    /**
+     * @return Relative priority of the database in the IORM plan.
+     * 
+     */
     public Output<Integer> share() {
         return this.share;
     }
@@ -62,29 +86,65 @@ public final class CloudVmClusterIormConfigCacheDbPlanArgs extends com.pulumi.re
             $ = new CloudVmClusterIormConfigCacheDbPlanArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param dbName Database name to which the IORM plan applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dbName(Output<String> dbName) {
             $.dbName = dbName;
             return this;
         }
 
+        /**
+         * @param dbName Database name to which the IORM plan applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dbName(String dbName) {
             return dbName(Output.of(dbName));
         }
 
+        /**
+         * @param flashCacheLimit Flash cache limit for the database plan.
+         * 
+         * @return builder
+         * 
+         */
         public Builder flashCacheLimit(Output<String> flashCacheLimit) {
             $.flashCacheLimit = flashCacheLimit;
             return this;
         }
 
+        /**
+         * @param flashCacheLimit Flash cache limit for the database plan.
+         * 
+         * @return builder
+         * 
+         */
         public Builder flashCacheLimit(String flashCacheLimit) {
             return flashCacheLimit(Output.of(flashCacheLimit));
         }
 
+        /**
+         * @param share Relative priority of the database in the IORM plan.
+         * 
+         * @return builder
+         * 
+         */
         public Builder share(Output<Integer> share) {
             $.share = share;
             return this;
         }
 
+        /**
+         * @param share Relative priority of the database in the IORM plan.
+         * 
+         * @return builder
+         * 
+         */
         public Builder share(Integer share) {
             return share(Output.of(share));
         }

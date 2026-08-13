@@ -19,7 +19,7 @@ public final class AgentcoreHarnessToolConfigAgentcoreGateway {
      */
     private String gatewayArn;
     /**
-     * @return Outbound authentication configuration. See `outboundAuth` below.
+     * @return Outbound authentication configuration. See `outboundAuth` Block below.
      * 
      */
     private @Nullable AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuth outboundAuth;
@@ -33,7 +33,7 @@ public final class AgentcoreHarnessToolConfigAgentcoreGateway {
         return this.gatewayArn;
     }
     /**
-     * @return Outbound authentication configuration. See `outboundAuth` below.
+     * @return Outbound authentication configuration. See `outboundAuth` Block below.
      * 
      */
     public Optional<AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuth> outboundAuth() {

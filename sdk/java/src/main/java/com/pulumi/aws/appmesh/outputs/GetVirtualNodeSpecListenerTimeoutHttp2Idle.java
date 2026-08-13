@@ -11,13 +11,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualNodeSpecListenerTimeoutHttp2Idle {
+    /**
+     * @return Unit of time.
+     * 
+     */
     private String unit;
+    /**
+     * @return Value for the JSON.
+     * 
+     */
     private Integer value;
 
     private GetVirtualNodeSpecListenerTimeoutHttp2Idle() {}
+    /**
+     * @return Unit of time.
+     * 
+     */
     public String unit() {
         return this.unit;
     }
+    /**
+     * @return Value for the JSON.
+     * 
+     */
     public Integer value() {
         return this.value;
     }

@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class JobDefinitionEksPropertiesPodProperties {
     /**
-     * @return Properties of the container that&#39;s used on the Amazon EKS pod. See containers below.
+     * @return Properties of the container that&#39;s used on the Amazon EKS pod. See `containers` below.
      * 
      */
     private List<JobDefinitionEksPropertiesPodPropertiesContainer> containers;
@@ -40,12 +40,12 @@ public final class JobDefinitionEksPropertiesPodProperties {
      */
     private @Nullable List<JobDefinitionEksPropertiesPodPropertiesImagePullSecret> imagePullSecrets;
     /**
-     * @return Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See containers below.
+     * @return Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See `initContainers` below.
      * 
      */
     private @Nullable List<JobDefinitionEksPropertiesPodPropertiesInitContainer> initContainers;
     /**
-     * @return Metadata about the Kubernetes pod.
+     * @return Metadata about the Kubernetes pod. See `metadata` below.
      * 
      */
     private @Nullable JobDefinitionEksPropertiesPodPropertiesMetadata metadata;
@@ -55,19 +55,19 @@ public final class JobDefinitionEksPropertiesPodProperties {
      */
     private @Nullable String serviceAccountName;
     /**
-     * @return Indicates if the processes in a container are shared, or visible, to other containers in the same pod.
+     * @return Whether the processes in a container are shared, or visible, to other containers in the same pod.
      * 
      */
     private @Nullable Boolean shareProcessNamespace;
     /**
-     * @return Volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
+     * @return Volumes for a job definition that uses Amazon EKS resources. See `volumes` below.
      * 
      */
     private @Nullable List<JobDefinitionEksPropertiesPodPropertiesVolume> volumes;
 
     private JobDefinitionEksPropertiesPodProperties() {}
     /**
-     * @return Properties of the container that&#39;s used on the Amazon EKS pod. See containers below.
+     * @return Properties of the container that&#39;s used on the Amazon EKS pod. See `containers` below.
      * 
      */
     public List<JobDefinitionEksPropertiesPodPropertiesContainer> containers() {
@@ -95,14 +95,14 @@ public final class JobDefinitionEksPropertiesPodProperties {
         return this.imagePullSecrets == null ? List.of() : this.imagePullSecrets;
     }
     /**
-     * @return Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See containers below.
+     * @return Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See `initContainers` below.
      * 
      */
     public List<JobDefinitionEksPropertiesPodPropertiesInitContainer> initContainers() {
         return this.initContainers == null ? List.of() : this.initContainers;
     }
     /**
-     * @return Metadata about the Kubernetes pod.
+     * @return Metadata about the Kubernetes pod. See `metadata` below.
      * 
      */
     public Optional<JobDefinitionEksPropertiesPodPropertiesMetadata> metadata() {
@@ -116,14 +116,14 @@ public final class JobDefinitionEksPropertiesPodProperties {
         return Optional.ofNullable(this.serviceAccountName);
     }
     /**
-     * @return Indicates if the processes in a container are shared, or visible, to other containers in the same pod.
+     * @return Whether the processes in a container are shared, or visible, to other containers in the same pod.
      * 
      */
     public Optional<Boolean> shareProcessNamespace() {
         return Optional.ofNullable(this.shareProcessNamespace);
     }
     /**
-     * @return Volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
+     * @return Volumes for a job definition that uses Amazon EKS resources. See `volumes` below.
      * 
      */
     public List<JobDefinitionEksPropertiesPodPropertiesVolume> volumes() {

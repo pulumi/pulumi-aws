@@ -77,18 +77,18 @@ public final class RouteArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
+     * The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN. Required for VPC-based Client VPN endpoints. Not applicable for Transit Gateway-based Client VPN endpoints.
      * 
      */
-    @Import(name="targetVpcSubnetId", required=true)
-    private Output<String> targetVpcSubnetId;
+    @Import(name="targetVpcSubnetId")
+    private @Nullable Output<String> targetVpcSubnetId;
 
     /**
-     * @return The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
+     * @return The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN. Required for VPC-based Client VPN endpoints. Not applicable for Transit Gateway-based Client VPN endpoints.
      * 
      */
-    public Output<String> targetVpcSubnetId() {
-        return this.targetVpcSubnetId;
+    public Optional<Output<String>> targetVpcSubnetId() {
+        return Optional.ofNullable(this.targetVpcSubnetId);
     }
 
     private RouteArgs() {}
@@ -204,18 +204,18 @@ public final class RouteArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetVpcSubnetId The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
+         * @param targetVpcSubnetId The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN. Required for VPC-based Client VPN endpoints. Not applicable for Transit Gateway-based Client VPN endpoints.
          * 
          * @return builder
          * 
          */
-        public Builder targetVpcSubnetId(Output<String> targetVpcSubnetId) {
+        public Builder targetVpcSubnetId(@Nullable Output<String> targetVpcSubnetId) {
             $.targetVpcSubnetId = targetVpcSubnetId;
             return this;
         }
 
         /**
-         * @param targetVpcSubnetId The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
+         * @param targetVpcSubnetId The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN. Required for VPC-based Client VPN endpoints. Not applicable for Transit Gateway-based Client VPN endpoints.
          * 
          * @return builder
          * 
@@ -230,9 +230,6 @@ public final class RouteArgs extends com.pulumi.resources.ResourceArgs {
             }
             if ($.destinationCidrBlock == null) {
                 throw new MissingRequiredPropertyException("RouteArgs", "destinationCidrBlock");
-            }
-            if ($.targetVpcSubnetId == null) {
-                throw new MissingRequiredPropertyException("RouteArgs", "targetVpcSubnetId");
             }
             return $;
         }

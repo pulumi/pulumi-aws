@@ -48,14 +48,14 @@ public final class VocabularyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The language code you selected for your vocabulary.
+     * Language code you selected for your vocabulary.
      * 
      */
     @Import(name="languageCode")
     private @Nullable Output<String> languageCode;
 
     /**
-     * @return The language code you selected for your vocabulary.
+     * @return Language code you selected for your vocabulary.
      * 
      */
     public Optional<Output<String>> languageCode() {
@@ -63,14 +63,14 @@ public final class VocabularyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
+     * List of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
      * 
      */
     @Import(name="phrases")
     private @Nullable Output<List<String>> phrases;
 
     /**
-     * @return A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
+     * @return List of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
      * 
      */
     public Optional<Output<List<String>>> phrases() {
@@ -93,14 +93,14 @@ public final class VocabularyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -115,14 +115,14 @@ public final class VocabularyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
+     * Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
      * 
      */
     @Import(name="vocabularyFileUri")
     private @Nullable Output<String> vocabularyFileUri;
 
     /**
-     * @return The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
+     * @return Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
      * 
      */
     public Optional<Output<String>> vocabularyFileUri() {
@@ -130,7 +130,7 @@ public final class VocabularyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the Vocabulary.
+     * Name of the Vocabulary.
      * 
      * The following arguments are optional:
      * 
@@ -139,7 +139,7 @@ public final class VocabularyState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> vocabularyName;
 
     /**
-     * @return The name of the Vocabulary.
+     * @return Name of the Vocabulary.
      * 
      * The following arguments are optional:
      * 
@@ -223,7 +223,7 @@ public final class VocabularyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param languageCode The language code you selected for your vocabulary.
+         * @param languageCode Language code you selected for your vocabulary.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class VocabularyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param languageCode The language code you selected for your vocabulary.
+         * @param languageCode Language code you selected for your vocabulary.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class VocabularyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param phrases A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
+         * @param phrases List of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class VocabularyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param phrases A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
+         * @param phrases List of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
          * 
          * @return builder
          * 
@@ -265,7 +265,7 @@ public final class VocabularyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param phrases A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
+         * @param phrases List of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
          * 
          * @return builder
          * 
@@ -296,7 +296,7 @@ public final class VocabularyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class VocabularyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -326,7 +326,7 @@ public final class VocabularyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vocabularyFileUri The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
+         * @param vocabularyFileUri Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
          * 
          * @return builder
          * 
@@ -337,7 +337,7 @@ public final class VocabularyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vocabularyFileUri The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
+         * @param vocabularyFileUri Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
          * 
          * @return builder
          * 
@@ -347,7 +347,7 @@ public final class VocabularyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vocabularyName The name of the Vocabulary.
+         * @param vocabularyName Name of the Vocabulary.
          * 
          * The following arguments are optional:
          * 
@@ -360,7 +360,7 @@ public final class VocabularyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vocabularyName The name of the Vocabulary.
+         * @param vocabularyName Name of the Vocabulary.
          * 
          * The following arguments are optional:
          * 

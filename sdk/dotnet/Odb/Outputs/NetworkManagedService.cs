@@ -21,14 +21,29 @@ namespace Pulumi.Aws.Odb.Outputs
         /// Configuration for KMS access from the ODB network.
         /// </summary>
         public readonly ImmutableArray<Outputs.NetworkManagedServiceKmsAccess> KmsAccesses;
+        /// <summary>
+        /// Managed S3 backup access configuration. See `ManagedS3BackupAccess` Block below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.NetworkManagedServiceManagedS3BackupAccess> ManagedS3BackupAccesses;
+        /// <summary>
+        /// List of IPv4 CIDR ranges used by the managed services.
+        /// </summary>
         public readonly ImmutableArray<string> ManagedServiceIpv4Cidrs;
+        /// <summary>
+        /// ARN of the resource gateway.
+        /// </summary>
         public readonly string ResourceGatewayArn;
         /// <summary>
         /// Configuration for Amazon S3 access from the ODB network.
         /// </summary>
         public readonly ImmutableArray<Outputs.NetworkManagedServiceS3Access> S3Accesses;
+        /// <summary>
+        /// ARN of the service network.
+        /// </summary>
         public readonly string ServiceNetworkArn;
+        /// <summary>
+        /// Service network endpoint configuration. See `ServiceNetworkEndpoint` Block below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.NetworkManagedServiceServiceNetworkEndpoint> ServiceNetworkEndpoints;
         /// <summary>
         /// Configuration for STS access from the ODB network.

@@ -13,9 +13,12 @@ namespace Pulumi.Aws.Odb.Outputs
     [OutputType]
     public sealed class NetworkManagedServiceZeroEtlAccess
     {
+        /// <summary>
+        /// CIDR range for the Zero-ETL access.
+        /// </summary>
         public readonly string Cidr;
         /// <summary>
-        /// Status of the network resource.
+        /// Status of the Zero-ETL access.
         /// </summary>
         public readonly string Status;
 

@@ -15,6 +15,10 @@ public final class GetManagedRuleGroupRuleActionCountCustomRequestHandlingInsert
      * 
      */
     private String name;
+    /**
+     * @return Value of the header.
+     * 
+     */
     private String value;
 
     private GetManagedRuleGroupRuleActionCountCustomRequestHandlingInsertHeader() {}
@@ -25,6 +29,10 @@ public final class GetManagedRuleGroupRuleActionCountCustomRequestHandlingInsert
     public String name() {
         return this.name;
     }
+    /**
+     * @return Value of the header.
+     * 
+     */
     public String value() {
         return this.value;
     }

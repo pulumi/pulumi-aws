@@ -28,6 +28,8 @@ __all__ = [
     'PlanWorkflowStepArcRoutingControlConfig',
     'PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControl',
     'PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlRoutingControl',
+    'PlanWorkflowStepAuroraProvisionedScalingConfig',
+    'PlanWorkflowStepAuroraServerlessScalingConfig',
     'PlanWorkflowStepCustomActionLambdaConfig',
     'PlanWorkflowStepCustomActionLambdaConfigLambda',
     'PlanWorkflowStepCustomActionLambdaConfigUngraceful',
@@ -48,11 +50,18 @@ __all__ = [
     'PlanWorkflowStepExecutionApprovalConfig',
     'PlanWorkflowStepGlobalAuroraConfig',
     'PlanWorkflowStepGlobalAuroraConfigUngraceful',
+    'PlanWorkflowStepLambdaEventSourceMappingConfig',
+    'PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMapping',
+    'PlanWorkflowStepLambdaEventSourceMappingConfigUngraceful',
+    'PlanWorkflowStepNeptuneGlobalDatabaseConfig',
+    'PlanWorkflowStepNeptuneGlobalDatabaseConfigUngraceful',
     'PlanWorkflowStepParallelConfig',
     'PlanWorkflowStepParallelConfigStep',
     'PlanWorkflowStepParallelConfigStepArcRoutingControlConfig',
     'PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControl',
     'PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControlRoutingControl',
+    'PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfig',
+    'PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfig',
     'PlanWorkflowStepParallelConfigStepCustomActionLambdaConfig',
     'PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigLambda',
     'PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigUngraceful',
@@ -73,6 +82,11 @@ __all__ = [
     'PlanWorkflowStepParallelConfigStepExecutionApprovalConfig',
     'PlanWorkflowStepParallelConfigStepGlobalAuroraConfig',
     'PlanWorkflowStepParallelConfigStepGlobalAuroraConfigUngraceful',
+    'PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfig',
+    'PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMapping',
+    'PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngraceful',
+    'PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfig',
+    'PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngraceful',
     'PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfig',
     'PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfig',
     'PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfig',
@@ -197,7 +211,7 @@ class PlanReportConfiguration(dict):
     def __init__(__self__, *,
                  report_outputs: Optional[Sequence['outputs.PlanReportConfigurationReportOutput']] = None):
         """
-        :param Sequence['PlanReportConfigurationReportOutputArgs'] report_outputs: Output destination for the report. See Report Output below.
+        :param Sequence['PlanReportConfigurationReportOutputArgs'] report_outputs: Output destination for the report. See `report_output` Block for details.
         """
         if report_outputs is not None:
             pulumi.set(__self__, "report_outputs", report_outputs)
@@ -206,7 +220,7 @@ class PlanReportConfiguration(dict):
     @pulumi.getter(name="reportOutputs")
     def report_outputs(self) -> Optional[Sequence['outputs.PlanReportConfigurationReportOutput']]:
         """
-        Output destination for the report. See Report Output below.
+        Output destination for the report. See `report_output` Block for details.
         """
         return pulumi.get(self, "report_outputs")
 
@@ -233,7 +247,7 @@ class PlanReportConfigurationReportOutput(dict):
     def __init__(__self__, *,
                  s3_configurations: Optional[Sequence['outputs.PlanReportConfigurationReportOutputS3Configuration']] = None):
         """
-        :param Sequence['PlanReportConfigurationReportOutputS3ConfigurationArgs'] s3_configurations: S3 output configuration. See S3 Configuration below.
+        :param Sequence['PlanReportConfigurationReportOutputS3ConfigurationArgs'] s3_configurations: S3 output configuration. See `s3_configuration` Block for details.
         """
         if s3_configurations is not None:
             pulumi.set(__self__, "s3_configurations", s3_configurations)
@@ -242,7 +256,7 @@ class PlanReportConfigurationReportOutput(dict):
     @pulumi.getter(name="s3Configurations")
     def s3_configurations(self) -> Optional[Sequence['outputs.PlanReportConfigurationReportOutputS3Configuration']]:
         """
-        S3 output configuration. See S3 Configuration below.
+        S3 output configuration. See `s3_configuration` Block for details.
         """
         return pulumi.get(self, "s3_configurations")
 
@@ -369,7 +383,7 @@ class PlanTrigger(dict):
         :param _builtins.str action: Action to trigger. Valid values: `activate`, `deactivate`.
         :param _builtins.int min_delay_minutes_between_executions: Minimum delay in minutes between executions.
         :param _builtins.str target_region: Target region for the trigger.
-        :param Sequence['PlanTriggerConditionArgs'] conditions: List of conditions that must be met. See Conditions below.
+        :param Sequence['PlanTriggerConditionArgs'] conditions: Conditions that must be met. See `conditions` Block for details.
         :param _builtins.str description: Description of the trigger.
         """
         pulumi.set(__self__, "action", action)
@@ -408,7 +422,7 @@ class PlanTrigger(dict):
     @pulumi.getter
     def conditions(self) -> Optional[Sequence['outputs.PlanTriggerCondition']]:
         """
-        List of conditions that must be met. See Conditions below.
+        Conditions that must be met. See `conditions` Block for details.
         """
         return pulumi.get(self, "conditions")
 
@@ -497,7 +511,7 @@ class PlanWorkflow(dict):
                  workflow_target_region: Optional[_builtins.str] = None):
         """
         :param _builtins.str workflow_target_action: Action to perform. Valid values: `activate`, `deactivate`.
-        :param Sequence['PlanWorkflowStepArgs'] steps: List of steps in the workflow. See Step below.
+        :param Sequence['PlanWorkflowStepArgs'] steps: Steps in the workflow. See `step` Block for details.
         :param _builtins.str workflow_description: Description of the workflow.
         :param _builtins.str workflow_target_region: Target region for the workflow.
         """
@@ -521,7 +535,7 @@ class PlanWorkflow(dict):
     @pulumi.getter
     def steps(self) -> Optional[Sequence['outputs.PlanWorkflowStep']]:
         """
-        List of steps in the workflow. See Step below.
+        Steps in the workflow. See `step` Block for details.
         """
         return pulumi.get(self, "steps")
 
@@ -551,6 +565,10 @@ class PlanWorkflowStep(dict):
             suggest = "execution_block_type"
         elif key == "arcRoutingControlConfigs":
             suggest = "arc_routing_control_configs"
+        elif key == "auroraProvisionedScalingConfigs":
+            suggest = "aurora_provisioned_scaling_configs"
+        elif key == "auroraServerlessScalingConfigs":
+            suggest = "aurora_serverless_scaling_configs"
         elif key == "customActionLambdaConfigs":
             suggest = "custom_action_lambda_configs"
         elif key == "documentDbConfigs":
@@ -565,6 +583,10 @@ class PlanWorkflowStep(dict):
             suggest = "execution_approval_configs"
         elif key == "globalAuroraConfigs":
             suggest = "global_aurora_configs"
+        elif key == "lambdaEventSourceMappingConfigs":
+            suggest = "lambda_event_source_mapping_configs"
+        elif key == "neptuneGlobalDatabaseConfigs":
+            suggest = "neptune_global_database_configs"
         elif key == "parallelConfigs":
             suggest = "parallel_configs"
         elif key == "rdsCreateCrossRegionReadReplicaConfigs":
@@ -591,6 +613,8 @@ class PlanWorkflowStep(dict):
                  execution_block_type: _builtins.str,
                  name: _builtins.str,
                  arc_routing_control_configs: Optional[Sequence['outputs.PlanWorkflowStepArcRoutingControlConfig']] = None,
+                 aurora_provisioned_scaling_configs: Optional[Sequence['outputs.PlanWorkflowStepAuroraProvisionedScalingConfig']] = None,
+                 aurora_serverless_scaling_configs: Optional[Sequence['outputs.PlanWorkflowStepAuroraServerlessScalingConfig']] = None,
                  custom_action_lambda_configs: Optional[Sequence['outputs.PlanWorkflowStepCustomActionLambdaConfig']] = None,
                  description: Optional[_builtins.str] = None,
                  document_db_configs: Optional[Sequence['outputs.PlanWorkflowStepDocumentDbConfig']] = None,
@@ -599,6 +623,8 @@ class PlanWorkflowStep(dict):
                  eks_resource_scaling_configs: Optional[Sequence['outputs.PlanWorkflowStepEksResourceScalingConfig']] = None,
                  execution_approval_configs: Optional[Sequence['outputs.PlanWorkflowStepExecutionApprovalConfig']] = None,
                  global_aurora_configs: Optional[Sequence['outputs.PlanWorkflowStepGlobalAuroraConfig']] = None,
+                 lambda_event_source_mapping_configs: Optional[Sequence['outputs.PlanWorkflowStepLambdaEventSourceMappingConfig']] = None,
+                 neptune_global_database_configs: Optional[Sequence['outputs.PlanWorkflowStepNeptuneGlobalDatabaseConfig']] = None,
                  parallel_configs: Optional[Sequence['outputs.PlanWorkflowStepParallelConfig']] = None,
                  rds_create_cross_region_read_replica_configs: Optional[Sequence['outputs.PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfig']] = None,
                  rds_promote_read_replica_configs: Optional[Sequence['outputs.PlanWorkflowStepRdsPromoteReadReplicaConfig']] = None,
@@ -607,24 +633,33 @@ class PlanWorkflowStep(dict):
         """
         :param _builtins.str execution_block_type: Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `Route53HealthCheck`.
         :param _builtins.str name: Name of the step.
-        :param Sequence['PlanWorkflowStepArcRoutingControlConfigArgs'] arc_routing_control_configs: Configuration for ARC routing control. See ARC Routing Control Config below.
-        :param Sequence['PlanWorkflowStepCustomActionLambdaConfigArgs'] custom_action_lambda_configs: Configuration for Lambda function execution. See Custom Action Lambda Config below.
+        :param Sequence['PlanWorkflowStepArcRoutingControlConfigArgs'] arc_routing_control_configs: Configuration for ARC routing control. See `arc_routing_control_config` Block for details.
+        :param Sequence['PlanWorkflowStepAuroraProvisionedScalingConfigArgs'] aurora_provisioned_scaling_configs: Configuration for Aurora provisioned scaling. See `aurora_provisioned_scaling_config` Block for details.
+        :param Sequence['PlanWorkflowStepAuroraServerlessScalingConfigArgs'] aurora_serverless_scaling_configs: Configuration for Aurora Serverless scaling. See `aurora_serverless_scaling_config` Block for details.
+        :param Sequence['PlanWorkflowStepCustomActionLambdaConfigArgs'] custom_action_lambda_configs: Configuration for Lambda function execution. See `custom_action_lambda_config` Block for details.
         :param _builtins.str description: Description of the step.
-        :param Sequence['PlanWorkflowStepDocumentDbConfigArgs'] document_db_configs: Configuration for DocumentDB global cluster operations. See DocumentDB Config below.
-        :param Sequence['PlanWorkflowStepEc2AsgCapacityIncreaseConfigArgs'] ec2_asg_capacity_increase_configs: Configuration for EC2 Auto Scaling group capacity increase. See EC2 ASG Capacity Increase Config below.
-        :param Sequence['PlanWorkflowStepEcsCapacityIncreaseConfigArgs'] ecs_capacity_increase_configs: Configuration for ECS service capacity increase. See ECS Capacity Increase Config below.
-        :param Sequence['PlanWorkflowStepEksResourceScalingConfigArgs'] eks_resource_scaling_configs: Configuration for EKS resource scaling. See EKS Resource Scaling Config below.
-        :param Sequence['PlanWorkflowStepExecutionApprovalConfigArgs'] execution_approval_configs: Configuration for manual approval steps. See Execution Approval Config below.
-        :param Sequence['PlanWorkflowStepGlobalAuroraConfigArgs'] global_aurora_configs: Configuration for Aurora Global Database operations. See Global Aurora Config below.
-        :param Sequence['PlanWorkflowStepParallelConfigArgs'] parallel_configs: Configuration for parallel execution of multiple steps. See Parallel Config below.
-        :param Sequence['PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArgs'] rds_create_cross_region_read_replica_configs: Configuration for creating cross-region RDS read replicas. See RDS Create Cross Region Read Replica Config below.
-        :param Sequence['PlanWorkflowStepRdsPromoteReadReplicaConfigArgs'] rds_promote_read_replica_configs: Configuration for promoting RDS read replicas. See RDS Promote Read Replica Config below.
-        :param Sequence['PlanWorkflowStepRoute53HealthCheckConfigArgs'] route53_health_check_configs: Configuration for Route53 health check operations. See Route53 Health Check Config below.
+        :param Sequence['PlanWorkflowStepDocumentDbConfigArgs'] document_db_configs: Configuration for DocumentDB global cluster operations. See `document_db_config` Block for details.
+        :param Sequence['PlanWorkflowStepEc2AsgCapacityIncreaseConfigArgs'] ec2_asg_capacity_increase_configs: Configuration for EC2 Auto Scaling group capacity increase. See `ec2_asg_capacity_increase_config` Block for details.
+        :param Sequence['PlanWorkflowStepEcsCapacityIncreaseConfigArgs'] ecs_capacity_increase_configs: Configuration for ECS service capacity increase. See `ecs_capacity_increase_config` Block for details.
+        :param Sequence['PlanWorkflowStepEksResourceScalingConfigArgs'] eks_resource_scaling_configs: Configuration for EKS resource scaling. See `eks_resource_scaling_config` Block for details.
+        :param Sequence['PlanWorkflowStepExecutionApprovalConfigArgs'] execution_approval_configs: Configuration for manual approval steps. See `execution_approval_config` Block for details.
+        :param Sequence['PlanWorkflowStepGlobalAuroraConfigArgs'] global_aurora_configs: Configuration for Aurora Global Database operations. See `global_aurora_config` Block for details.
+        :param Sequence['PlanWorkflowStepLambdaEventSourceMappingConfigArgs'] lambda_event_source_mapping_configs: Configuration for Lambda event source mapping operations. See `lambda_event_source_mapping_config` Block for details.
+        :param Sequence['PlanWorkflowStepNeptuneGlobalDatabaseConfigArgs'] neptune_global_database_configs: Configuration for Neptune global database operations. See `neptune_global_database_config` Block for details.
+        :param Sequence['PlanWorkflowStepParallelConfigArgs'] parallel_configs: Configuration for parallel execution of multiple steps. See `parallel_config` Block for details.
+        :param Sequence['PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArgs'] rds_create_cross_region_read_replica_configs: Configuration for creating cross-region RDS read replicas. See `rds_create_cross_region_read_replica_config` Block for details.
+        :param Sequence['PlanWorkflowStepRdsPromoteReadReplicaConfigArgs'] rds_promote_read_replica_configs: Configuration for promoting RDS read replicas. See `rds_promote_read_replica_config` Block for details.
+        :param Sequence['PlanWorkflowStepRegionSwitchPlanConfigArgs'] region_switch_plan_configs: Configuration for executing a nested region switch plan. See `region_switch_plan_config` Block for details.
+        :param Sequence['PlanWorkflowStepRoute53HealthCheckConfigArgs'] route53_health_check_configs: Configuration for Route53 health check operations. See `route53_health_check_config` Block for details.
         """
         pulumi.set(__self__, "execution_block_type", execution_block_type)
         pulumi.set(__self__, "name", name)
         if arc_routing_control_configs is not None:
             pulumi.set(__self__, "arc_routing_control_configs", arc_routing_control_configs)
+        if aurora_provisioned_scaling_configs is not None:
+            pulumi.set(__self__, "aurora_provisioned_scaling_configs", aurora_provisioned_scaling_configs)
+        if aurora_serverless_scaling_configs is not None:
+            pulumi.set(__self__, "aurora_serverless_scaling_configs", aurora_serverless_scaling_configs)
         if custom_action_lambda_configs is not None:
             pulumi.set(__self__, "custom_action_lambda_configs", custom_action_lambda_configs)
         if description is not None:
@@ -641,6 +676,10 @@ class PlanWorkflowStep(dict):
             pulumi.set(__self__, "execution_approval_configs", execution_approval_configs)
         if global_aurora_configs is not None:
             pulumi.set(__self__, "global_aurora_configs", global_aurora_configs)
+        if lambda_event_source_mapping_configs is not None:
+            pulumi.set(__self__, "lambda_event_source_mapping_configs", lambda_event_source_mapping_configs)
+        if neptune_global_database_configs is not None:
+            pulumi.set(__self__, "neptune_global_database_configs", neptune_global_database_configs)
         if parallel_configs is not None:
             pulumi.set(__self__, "parallel_configs", parallel_configs)
         if rds_create_cross_region_read_replica_configs is not None:
@@ -672,15 +711,31 @@ class PlanWorkflowStep(dict):
     @pulumi.getter(name="arcRoutingControlConfigs")
     def arc_routing_control_configs(self) -> Optional[Sequence['outputs.PlanWorkflowStepArcRoutingControlConfig']]:
         """
-        Configuration for ARC routing control. See ARC Routing Control Config below.
+        Configuration for ARC routing control. See `arc_routing_control_config` Block for details.
         """
         return pulumi.get(self, "arc_routing_control_configs")
+
+    @_builtins.property
+    @pulumi.getter(name="auroraProvisionedScalingConfigs")
+    def aurora_provisioned_scaling_configs(self) -> Optional[Sequence['outputs.PlanWorkflowStepAuroraProvisionedScalingConfig']]:
+        """
+        Configuration for Aurora provisioned scaling. See `aurora_provisioned_scaling_config` Block for details.
+        """
+        return pulumi.get(self, "aurora_provisioned_scaling_configs")
+
+    @_builtins.property
+    @pulumi.getter(name="auroraServerlessScalingConfigs")
+    def aurora_serverless_scaling_configs(self) -> Optional[Sequence['outputs.PlanWorkflowStepAuroraServerlessScalingConfig']]:
+        """
+        Configuration for Aurora Serverless scaling. See `aurora_serverless_scaling_config` Block for details.
+        """
+        return pulumi.get(self, "aurora_serverless_scaling_configs")
 
     @_builtins.property
     @pulumi.getter(name="customActionLambdaConfigs")
     def custom_action_lambda_configs(self) -> Optional[Sequence['outputs.PlanWorkflowStepCustomActionLambdaConfig']]:
         """
-        Configuration for Lambda function execution. See Custom Action Lambda Config below.
+        Configuration for Lambda function execution. See `custom_action_lambda_config` Block for details.
         """
         return pulumi.get(self, "custom_action_lambda_configs")
 
@@ -696,7 +751,7 @@ class PlanWorkflowStep(dict):
     @pulumi.getter(name="documentDbConfigs")
     def document_db_configs(self) -> Optional[Sequence['outputs.PlanWorkflowStepDocumentDbConfig']]:
         """
-        Configuration for DocumentDB global cluster operations. See DocumentDB Config below.
+        Configuration for DocumentDB global cluster operations. See `document_db_config` Block for details.
         """
         return pulumi.get(self, "document_db_configs")
 
@@ -704,7 +759,7 @@ class PlanWorkflowStep(dict):
     @pulumi.getter(name="ec2AsgCapacityIncreaseConfigs")
     def ec2_asg_capacity_increase_configs(self) -> Optional[Sequence['outputs.PlanWorkflowStepEc2AsgCapacityIncreaseConfig']]:
         """
-        Configuration for EC2 Auto Scaling group capacity increase. See EC2 ASG Capacity Increase Config below.
+        Configuration for EC2 Auto Scaling group capacity increase. See `ec2_asg_capacity_increase_config` Block for details.
         """
         return pulumi.get(self, "ec2_asg_capacity_increase_configs")
 
@@ -712,7 +767,7 @@ class PlanWorkflowStep(dict):
     @pulumi.getter(name="ecsCapacityIncreaseConfigs")
     def ecs_capacity_increase_configs(self) -> Optional[Sequence['outputs.PlanWorkflowStepEcsCapacityIncreaseConfig']]:
         """
-        Configuration for ECS service capacity increase. See ECS Capacity Increase Config below.
+        Configuration for ECS service capacity increase. See `ecs_capacity_increase_config` Block for details.
         """
         return pulumi.get(self, "ecs_capacity_increase_configs")
 
@@ -720,7 +775,7 @@ class PlanWorkflowStep(dict):
     @pulumi.getter(name="eksResourceScalingConfigs")
     def eks_resource_scaling_configs(self) -> Optional[Sequence['outputs.PlanWorkflowStepEksResourceScalingConfig']]:
         """
-        Configuration for EKS resource scaling. See EKS Resource Scaling Config below.
+        Configuration for EKS resource scaling. See `eks_resource_scaling_config` Block for details.
         """
         return pulumi.get(self, "eks_resource_scaling_configs")
 
@@ -728,7 +783,7 @@ class PlanWorkflowStep(dict):
     @pulumi.getter(name="executionApprovalConfigs")
     def execution_approval_configs(self) -> Optional[Sequence['outputs.PlanWorkflowStepExecutionApprovalConfig']]:
         """
-        Configuration for manual approval steps. See Execution Approval Config below.
+        Configuration for manual approval steps. See `execution_approval_config` Block for details.
         """
         return pulumi.get(self, "execution_approval_configs")
 
@@ -736,15 +791,31 @@ class PlanWorkflowStep(dict):
     @pulumi.getter(name="globalAuroraConfigs")
     def global_aurora_configs(self) -> Optional[Sequence['outputs.PlanWorkflowStepGlobalAuroraConfig']]:
         """
-        Configuration for Aurora Global Database operations. See Global Aurora Config below.
+        Configuration for Aurora Global Database operations. See `global_aurora_config` Block for details.
         """
         return pulumi.get(self, "global_aurora_configs")
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaEventSourceMappingConfigs")
+    def lambda_event_source_mapping_configs(self) -> Optional[Sequence['outputs.PlanWorkflowStepLambdaEventSourceMappingConfig']]:
+        """
+        Configuration for Lambda event source mapping operations. See `lambda_event_source_mapping_config` Block for details.
+        """
+        return pulumi.get(self, "lambda_event_source_mapping_configs")
+
+    @_builtins.property
+    @pulumi.getter(name="neptuneGlobalDatabaseConfigs")
+    def neptune_global_database_configs(self) -> Optional[Sequence['outputs.PlanWorkflowStepNeptuneGlobalDatabaseConfig']]:
+        """
+        Configuration for Neptune global database operations. See `neptune_global_database_config` Block for details.
+        """
+        return pulumi.get(self, "neptune_global_database_configs")
 
     @_builtins.property
     @pulumi.getter(name="parallelConfigs")
     def parallel_configs(self) -> Optional[Sequence['outputs.PlanWorkflowStepParallelConfig']]:
         """
-        Configuration for parallel execution of multiple steps. See Parallel Config below.
+        Configuration for parallel execution of multiple steps. See `parallel_config` Block for details.
         """
         return pulumi.get(self, "parallel_configs")
 
@@ -752,7 +823,7 @@ class PlanWorkflowStep(dict):
     @pulumi.getter(name="rdsCreateCrossRegionReadReplicaConfigs")
     def rds_create_cross_region_read_replica_configs(self) -> Optional[Sequence['outputs.PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfig']]:
         """
-        Configuration for creating cross-region RDS read replicas. See RDS Create Cross Region Read Replica Config below.
+        Configuration for creating cross-region RDS read replicas. See `rds_create_cross_region_read_replica_config` Block for details.
         """
         return pulumi.get(self, "rds_create_cross_region_read_replica_configs")
 
@@ -760,20 +831,23 @@ class PlanWorkflowStep(dict):
     @pulumi.getter(name="rdsPromoteReadReplicaConfigs")
     def rds_promote_read_replica_configs(self) -> Optional[Sequence['outputs.PlanWorkflowStepRdsPromoteReadReplicaConfig']]:
         """
-        Configuration for promoting RDS read replicas. See RDS Promote Read Replica Config below.
+        Configuration for promoting RDS read replicas. See `rds_promote_read_replica_config` Block for details.
         """
         return pulumi.get(self, "rds_promote_read_replica_configs")
 
     @_builtins.property
     @pulumi.getter(name="regionSwitchPlanConfigs")
     def region_switch_plan_configs(self) -> Optional[Sequence['outputs.PlanWorkflowStepRegionSwitchPlanConfig']]:
+        """
+        Configuration for executing a nested region switch plan. See `region_switch_plan_config` Block for details.
+        """
         return pulumi.get(self, "region_switch_plan_configs")
 
     @_builtins.property
     @pulumi.getter(name="route53HealthCheckConfigs")
     def route53_health_check_configs(self) -> Optional[Sequence['outputs.PlanWorkflowStepRoute53HealthCheckConfig']]:
         """
-        Configuration for Route53 health check operations. See Route53 Health Check Config below.
+        Configuration for Route53 health check operations. See `route53_health_check_config` Block for details.
         """
         return pulumi.get(self, "route53_health_check_configs")
 
@@ -811,7 +885,7 @@ class PlanWorkflowStepArcRoutingControlConfig(dict):
         """
         :param _builtins.str cross_account_role: ARN of the cross-account role to assume.
         :param _builtins.str external_id: External ID for cross-account role assumption.
-        :param Sequence['PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlArgs'] region_and_routing_controls: List of regions and their routing controls. See Region and Routing Controls below.
+        :param Sequence['PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlArgs'] region_and_routing_controls: Regions and their routing controls. See `region_and_routing_controls` Block for details.
         :param _builtins.int timeout_minutes: Timeout in minutes.
         """
         if cross_account_role is not None:
@@ -843,7 +917,7 @@ class PlanWorkflowStepArcRoutingControlConfig(dict):
     @pulumi.getter(name="regionAndRoutingControls")
     def region_and_routing_controls(self) -> Optional[Sequence['outputs.PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControl']]:
         """
-        List of regions and their routing controls. See Region and Routing Controls below.
+        Regions and their routing controls. See `region_and_routing_controls` Block for details.
         """
         return pulumi.get(self, "region_and_routing_controls")
 
@@ -880,7 +954,7 @@ class PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControl(dict):
                  routing_controls: Optional[Sequence['outputs.PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlRoutingControl']] = None):
         """
         :param _builtins.str region: AWS region.
-        :param Sequence['PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlRoutingControlArgs'] routing_controls: List of routing controls. See Routing Control below.
+        :param Sequence['PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlRoutingControlArgs'] routing_controls: Routing controls. See `routing_control` Block for details.
         """
         pulumi.set(__self__, "region", region)
         if routing_controls is not None:
@@ -898,7 +972,7 @@ class PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControl(dict):
     @pulumi.getter(name="routingControls")
     def routing_controls(self) -> Optional[Sequence['outputs.PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlRoutingControl']]:
         """
-        List of routing controls. See Routing Control below.
+        Routing controls. See `routing_control` Block for details.
         """
         return pulumi.get(self, "routing_controls")
 
@@ -950,6 +1024,213 @@ class PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlRoutingContr
 
 
 @pulumi.output_type
+class PlanWorkflowStepAuroraProvisionedScalingConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "globalClusterIdentifier":
+            suggest = "global_cluster_identifier"
+        elif key == "instanceArns":
+            suggest = "instance_arns"
+        elif key == "regionDatabaseClusterArns":
+            suggest = "region_database_cluster_arns"
+        elif key == "crossAccountRole":
+            suggest = "cross_account_role"
+        elif key == "externalId":
+            suggest = "external_id"
+        elif key == "timeoutMinutes":
+            suggest = "timeout_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlanWorkflowStepAuroraProvisionedScalingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlanWorkflowStepAuroraProvisionedScalingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlanWorkflowStepAuroraProvisionedScalingConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 global_cluster_identifier: _builtins.str,
+                 instance_arns: Mapping[str, _builtins.str],
+                 region_database_cluster_arns: Mapping[str, _builtins.str],
+                 cross_account_role: Optional[_builtins.str] = None,
+                 external_id: Optional[_builtins.str] = None,
+                 timeout_minutes: Optional[_builtins.int] = None):
+        """
+        :param _builtins.str global_cluster_identifier: Global cluster identifier.
+        :param Mapping[str, _builtins.str] instance_arns: Map of regions to Aurora instance ARNs.
+        :param Mapping[str, _builtins.str] region_database_cluster_arns: Map of regions to database cluster ARNs.
+        :param _builtins.str cross_account_role: ARN of the cross-account role to assume.
+        :param _builtins.str external_id: External ID for cross-account role assumption.
+        :param _builtins.int timeout_minutes: Timeout in minutes.
+        """
+        pulumi.set(__self__, "global_cluster_identifier", global_cluster_identifier)
+        pulumi.set(__self__, "instance_arns", instance_arns)
+        pulumi.set(__self__, "region_database_cluster_arns", region_database_cluster_arns)
+        if cross_account_role is not None:
+            pulumi.set(__self__, "cross_account_role", cross_account_role)
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+        if timeout_minutes is not None:
+            pulumi.set(__self__, "timeout_minutes", timeout_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="globalClusterIdentifier")
+    def global_cluster_identifier(self) -> _builtins.str:
+        """
+        Global cluster identifier.
+        """
+        return pulumi.get(self, "global_cluster_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceArns")
+    def instance_arns(self) -> Mapping[str, _builtins.str]:
+        """
+        Map of regions to Aurora instance ARNs.
+        """
+        return pulumi.get(self, "instance_arns")
+
+    @_builtins.property
+    @pulumi.getter(name="regionDatabaseClusterArns")
+    def region_database_cluster_arns(self) -> Mapping[str, _builtins.str]:
+        """
+        Map of regions to database cluster ARNs.
+        """
+        return pulumi.get(self, "region_database_cluster_arns")
+
+    @_builtins.property
+    @pulumi.getter(name="crossAccountRole")
+    def cross_account_role(self) -> Optional[_builtins.str]:
+        """
+        ARN of the cross-account role to assume.
+        """
+        return pulumi.get(self, "cross_account_role")
+
+    @_builtins.property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[_builtins.str]:
+        """
+        External ID for cross-account role assumption.
+        """
+        return pulumi.get(self, "external_id")
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutMinutes")
+    def timeout_minutes(self) -> Optional[_builtins.int]:
+        """
+        Timeout in minutes.
+        """
+        return pulumi.get(self, "timeout_minutes")
+
+
+@pulumi.output_type
+class PlanWorkflowStepAuroraServerlessScalingConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "globalClusterIdentifier":
+            suggest = "global_cluster_identifier"
+        elif key == "regionDatabaseClusterArns":
+            suggest = "region_database_cluster_arns"
+        elif key == "crossAccountRole":
+            suggest = "cross_account_role"
+        elif key == "externalId":
+            suggest = "external_id"
+        elif key == "targetPercent":
+            suggest = "target_percent"
+        elif key == "timeoutMinutes":
+            suggest = "timeout_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlanWorkflowStepAuroraServerlessScalingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlanWorkflowStepAuroraServerlessScalingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlanWorkflowStepAuroraServerlessScalingConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 global_cluster_identifier: _builtins.str,
+                 region_database_cluster_arns: Mapping[str, _builtins.str],
+                 cross_account_role: Optional[_builtins.str] = None,
+                 external_id: Optional[_builtins.str] = None,
+                 target_percent: Optional[_builtins.int] = None,
+                 timeout_minutes: Optional[_builtins.int] = None):
+        """
+        :param _builtins.str global_cluster_identifier: Global cluster identifier.
+        :param Mapping[str, _builtins.str] region_database_cluster_arns: Map of regions to database cluster ARNs.
+        :param _builtins.str cross_account_role: ARN of the cross-account role to assume.
+        :param _builtins.str external_id: External ID for cross-account role assumption.
+        :param _builtins.int target_percent: Target capacity percentage.
+        :param _builtins.int timeout_minutes: Timeout in minutes.
+        """
+        pulumi.set(__self__, "global_cluster_identifier", global_cluster_identifier)
+        pulumi.set(__self__, "region_database_cluster_arns", region_database_cluster_arns)
+        if cross_account_role is not None:
+            pulumi.set(__self__, "cross_account_role", cross_account_role)
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+        if target_percent is not None:
+            pulumi.set(__self__, "target_percent", target_percent)
+        if timeout_minutes is not None:
+            pulumi.set(__self__, "timeout_minutes", timeout_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="globalClusterIdentifier")
+    def global_cluster_identifier(self) -> _builtins.str:
+        """
+        Global cluster identifier.
+        """
+        return pulumi.get(self, "global_cluster_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="regionDatabaseClusterArns")
+    def region_database_cluster_arns(self) -> Mapping[str, _builtins.str]:
+        """
+        Map of regions to database cluster ARNs.
+        """
+        return pulumi.get(self, "region_database_cluster_arns")
+
+    @_builtins.property
+    @pulumi.getter(name="crossAccountRole")
+    def cross_account_role(self) -> Optional[_builtins.str]:
+        """
+        ARN of the cross-account role to assume.
+        """
+        return pulumi.get(self, "cross_account_role")
+
+    @_builtins.property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[_builtins.str]:
+        """
+        External ID for cross-account role assumption.
+        """
+        return pulumi.get(self, "external_id")
+
+    @_builtins.property
+    @pulumi.getter(name="targetPercent")
+    def target_percent(self) -> Optional[_builtins.int]:
+        """
+        Target capacity percentage.
+        """
+        return pulumi.get(self, "target_percent")
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutMinutes")
+    def timeout_minutes(self) -> Optional[_builtins.int]:
+        """
+        Timeout in minutes.
+        """
+        return pulumi.get(self, "timeout_minutes")
+
+
+@pulumi.output_type
 class PlanWorkflowStepCustomActionLambdaConfig(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -981,9 +1262,9 @@ class PlanWorkflowStepCustomActionLambdaConfig(dict):
         """
         :param _builtins.str region_to_run: Region where the Lambda function should run. Valid values: `activatingRegion`, `deactivatingRegion`.
         :param _builtins.float retry_interval_minutes: Retry interval in minutes.
-        :param Sequence['PlanWorkflowStepCustomActionLambdaConfigLambdaArgs'] lambdas: Lambda function configuration. See Lambda below.
+        :param Sequence['PlanWorkflowStepCustomActionLambdaConfigLambdaArgs'] lambdas: Lambda function configuration. See `lambda` Block for details.
         :param _builtins.int timeout_minutes: Timeout in minutes.
-        :param Sequence['PlanWorkflowStepCustomActionLambdaConfigUngracefulArgs'] ungracefuls: Ungraceful behavior configuration. See Ungraceful below.
+        :param Sequence['PlanWorkflowStepCustomActionLambdaConfigUngracefulArgs'] ungracefuls: Ungraceful behavior configuration. See `workflow.step.custom_action_lambda_config.ungraceful` Block for details.
         """
         pulumi.set(__self__, "region_to_run", region_to_run)
         pulumi.set(__self__, "retry_interval_minutes", retry_interval_minutes)
@@ -1014,7 +1295,7 @@ class PlanWorkflowStepCustomActionLambdaConfig(dict):
     @pulumi.getter
     def lambdas(self) -> Optional[Sequence['outputs.PlanWorkflowStepCustomActionLambdaConfigLambda']]:
         """
-        Lambda function configuration. See Lambda below.
+        Lambda function configuration. See `lambda` Block for details.
         """
         return pulumi.get(self, "lambdas")
 
@@ -1030,7 +1311,7 @@ class PlanWorkflowStepCustomActionLambdaConfig(dict):
     @pulumi.getter
     def ungracefuls(self) -> Optional[Sequence['outputs.PlanWorkflowStepCustomActionLambdaConfigUngraceful']]:
         """
-        Ungraceful behavior configuration. See Ungraceful below.
+        Ungraceful behavior configuration. See `workflow.step.custom_action_lambda_config.ungraceful` Block for details.
         """
         return pulumi.get(self, "ungracefuls")
 
@@ -1100,17 +1381,11 @@ class PlanWorkflowStepCustomActionLambdaConfigLambda(dict):
 class PlanWorkflowStepCustomActionLambdaConfigUngraceful(dict):
     def __init__(__self__, *,
                  behavior: _builtins.str):
-        """
-        :param _builtins.str behavior: Behavior when ungraceful. Valid values: `skip`.
-        """
         pulumi.set(__self__, "behavior", behavior)
 
     @_builtins.property
     @pulumi.getter
     def behavior(self) -> _builtins.str:
-        """
-        Behavior when ungraceful. Valid values: `skip`.
-        """
         return pulumi.get(self, "behavior")
 
 
@@ -1149,6 +1424,15 @@ class PlanWorkflowStepDocumentDbConfig(dict):
                  external_id: Optional[_builtins.str] = None,
                  timeout_minutes: Optional[_builtins.int] = None,
                  ungracefuls: Optional[Sequence['outputs.PlanWorkflowStepDocumentDbConfigUngraceful']] = None):
+        """
+        :param _builtins.str behavior: Behavior for global cluster operations. Valid values: `switchoverOnly`, `failover`.
+        :param Sequence[_builtins.str] database_cluster_arns: List of DocumentDB cluster ARNs.
+        :param _builtins.str global_cluster_identifier: Global cluster identifier.
+        :param _builtins.str cross_account_role: ARN of the cross-account role to assume.
+        :param _builtins.str external_id: External ID for cross-account role assumption.
+        :param _builtins.int timeout_minutes: Timeout in minutes.
+        :param Sequence['PlanWorkflowStepDocumentDbConfigUngracefulArgs'] ungracefuls: Ungraceful behavior configuration. See `workflow.step.document_db_config.ungraceful` Block for details.
+        """
         pulumi.set(__self__, "behavior", behavior)
         pulumi.set(__self__, "database_cluster_arns", database_cluster_arns)
         pulumi.set(__self__, "global_cluster_identifier", global_cluster_identifier)
@@ -1164,36 +1448,57 @@ class PlanWorkflowStepDocumentDbConfig(dict):
     @_builtins.property
     @pulumi.getter
     def behavior(self) -> _builtins.str:
+        """
+        Behavior for global cluster operations. Valid values: `switchoverOnly`, `failover`.
+        """
         return pulumi.get(self, "behavior")
 
     @_builtins.property
     @pulumi.getter(name="databaseClusterArns")
     def database_cluster_arns(self) -> Sequence[_builtins.str]:
+        """
+        List of DocumentDB cluster ARNs.
+        """
         return pulumi.get(self, "database_cluster_arns")
 
     @_builtins.property
     @pulumi.getter(name="globalClusterIdentifier")
     def global_cluster_identifier(self) -> _builtins.str:
+        """
+        Global cluster identifier.
+        """
         return pulumi.get(self, "global_cluster_identifier")
 
     @_builtins.property
     @pulumi.getter(name="crossAccountRole")
     def cross_account_role(self) -> Optional[_builtins.str]:
+        """
+        ARN of the cross-account role to assume.
+        """
         return pulumi.get(self, "cross_account_role")
 
     @_builtins.property
     @pulumi.getter(name="externalId")
     def external_id(self) -> Optional[_builtins.str]:
+        """
+        External ID for cross-account role assumption.
+        """
         return pulumi.get(self, "external_id")
 
     @_builtins.property
     @pulumi.getter(name="timeoutMinutes")
     def timeout_minutes(self) -> Optional[_builtins.int]:
+        """
+        Timeout in minutes.
+        """
         return pulumi.get(self, "timeout_minutes")
 
     @_builtins.property
     @pulumi.getter
     def ungracefuls(self) -> Optional[Sequence['outputs.PlanWorkflowStepDocumentDbConfigUngraceful']]:
+        """
+        Ungraceful behavior configuration. See `workflow.step.document_db_config.ungraceful` Block for details.
+        """
         return pulumi.get(self, "ungracefuls")
 
 
@@ -1240,10 +1545,10 @@ class PlanWorkflowStepEc2AsgCapacityIncreaseConfig(dict):
                  ungraceful: Optional['outputs.PlanWorkflowStepEc2AsgCapacityIncreaseConfigUngraceful'] = None):
         """
         :param _builtins.str capacity_monitoring_approach: Capacity monitoring approach. Valid values: `sampledMaxInLast24Hours`, `autoscalingMaxInLast24Hours`.
-        :param Sequence['PlanWorkflowStepEc2AsgCapacityIncreaseConfigAsgArgs'] asgs: Auto Scaling group configuration. See ASG below.
+        :param Sequence['PlanWorkflowStepEc2AsgCapacityIncreaseConfigAsgArgs'] asgs: Auto Scaling group configuration. See `asg` Block for details.
         :param _builtins.int target_percent: Target capacity percentage.
         :param _builtins.int timeout_minutes: Timeout in minutes.
-        :param 'PlanWorkflowStepEc2AsgCapacityIncreaseConfigUngracefulArgs' ungraceful: Ungraceful behavior configuration. See Ungraceful below.
+        :param 'PlanWorkflowStepEc2AsgCapacityIncreaseConfigUngracefulArgs' ungraceful: Ungraceful behavior configuration. See `workflow.step.ec2_asg_capacity_increase_config.ungraceful` Block for details.
         """
         pulumi.set(__self__, "capacity_monitoring_approach", capacity_monitoring_approach)
         if asgs is not None:
@@ -1267,7 +1572,7 @@ class PlanWorkflowStepEc2AsgCapacityIncreaseConfig(dict):
     @pulumi.getter
     def asgs(self) -> Optional[Sequence['outputs.PlanWorkflowStepEc2AsgCapacityIncreaseConfigAsg']]:
         """
-        Auto Scaling group configuration. See ASG below.
+        Auto Scaling group configuration. See `asg` Block for details.
         """
         return pulumi.get(self, "asgs")
 
@@ -1291,7 +1596,7 @@ class PlanWorkflowStepEc2AsgCapacityIncreaseConfig(dict):
     @pulumi.getter
     def ungraceful(self) -> Optional['outputs.PlanWorkflowStepEc2AsgCapacityIncreaseConfigUngraceful']:
         """
-        Ungraceful behavior configuration. See Ungraceful below.
+        Ungraceful behavior configuration. See `workflow.step.ec2_asg_capacity_increase_config.ungraceful` Block for details.
         """
         return pulumi.get(self, "ungraceful")
 
@@ -1423,10 +1728,10 @@ class PlanWorkflowStepEcsCapacityIncreaseConfig(dict):
                  ungraceful: Optional['outputs.PlanWorkflowStepEcsCapacityIncreaseConfigUngraceful'] = None):
         """
         :param _builtins.str capacity_monitoring_approach: Capacity monitoring approach. Valid values: `sampledMaxInLast24Hours`, `containerInsightsMaxInLast24Hours`.
-        :param Sequence['PlanWorkflowStepEcsCapacityIncreaseConfigServiceArgs'] services: ECS service configuration. See ECS Service below.
+        :param Sequence['PlanWorkflowStepEcsCapacityIncreaseConfigServiceArgs'] services: ECS service configuration. See `service` Block for details.
         :param _builtins.int target_percent: Target capacity percentage.
         :param _builtins.int timeout_minutes: Timeout in minutes.
-        :param 'PlanWorkflowStepEcsCapacityIncreaseConfigUngracefulArgs' ungraceful: Ungraceful behavior configuration. See Ungraceful Capacity below.
+        :param 'PlanWorkflowStepEcsCapacityIncreaseConfigUngracefulArgs' ungraceful: Ungraceful behavior configuration. See `workflow.step.ecs_capacity_increase_config.ungraceful` Block for details.
         """
         pulumi.set(__self__, "capacity_monitoring_approach", capacity_monitoring_approach)
         if services is not None:
@@ -1450,7 +1755,7 @@ class PlanWorkflowStepEcsCapacityIncreaseConfig(dict):
     @pulumi.getter
     def services(self) -> Optional[Sequence['outputs.PlanWorkflowStepEcsCapacityIncreaseConfigService']]:
         """
-        ECS service configuration. See ECS Service below.
+        ECS service configuration. See `service` Block for details.
         """
         return pulumi.get(self, "services")
 
@@ -1474,7 +1779,7 @@ class PlanWorkflowStepEcsCapacityIncreaseConfig(dict):
     @pulumi.getter
     def ungraceful(self) -> Optional['outputs.PlanWorkflowStepEcsCapacityIncreaseConfigUngraceful']:
         """
-        Ungraceful behavior configuration. See Ungraceful Capacity below.
+        Ungraceful behavior configuration. See `workflow.step.ecs_capacity_increase_config.ungraceful` Block for details.
         """
         return pulumi.get(self, "ungraceful")
 
@@ -1510,7 +1815,10 @@ class PlanWorkflowStepEcsCapacityIncreaseConfigService(dict):
                  cross_account_role: Optional[_builtins.str] = None,
                  external_id: Optional[_builtins.str] = None):
         """
+        :param _builtins.str cluster_arn: ARN of the ECS cluster.
         :param _builtins.str service_arn: ARN of the ECS service.
+        :param _builtins.str cross_account_role: ARN of the cross-account role to assume.
+        :param _builtins.str external_id: External ID for cross-account role assumption.
         """
         pulumi.set(__self__, "cluster_arn", cluster_arn)
         pulumi.set(__self__, "service_arn", service_arn)
@@ -1522,6 +1830,9 @@ class PlanWorkflowStepEcsCapacityIncreaseConfigService(dict):
     @_builtins.property
     @pulumi.getter(name="clusterArn")
     def cluster_arn(self) -> _builtins.str:
+        """
+        ARN of the ECS cluster.
+        """
         return pulumi.get(self, "cluster_arn")
 
     @_builtins.property
@@ -1535,11 +1846,17 @@ class PlanWorkflowStepEcsCapacityIncreaseConfigService(dict):
     @_builtins.property
     @pulumi.getter(name="crossAccountRole")
     def cross_account_role(self) -> Optional[_builtins.str]:
+        """
+        ARN of the cross-account role to assume.
+        """
         return pulumi.get(self, "cross_account_role")
 
     @_builtins.property
     @pulumi.getter(name="externalId")
     def external_id(self) -> Optional[_builtins.str]:
+        """
+        External ID for cross-account role assumption.
+        """
         return pulumi.get(self, "external_id")
 
 
@@ -1618,11 +1935,11 @@ class PlanWorkflowStepEksResourceScalingConfig(dict):
         """
         :param _builtins.str capacity_monitoring_approach: Capacity monitoring approach. Valid values: `sampledMaxInLast24Hours`, `autoscalingMaxInLast24Hours`.
         :param _builtins.int target_percent: Target capacity percentage.
-        :param Sequence['PlanWorkflowStepEksResourceScalingConfigEksClusterArgs'] eks_clusters: List of EKS clusters. See EKS Clusters below.
-        :param Sequence['PlanWorkflowStepEksResourceScalingConfigKubernetesResourceTypeArgs'] kubernetes_resource_types: Kubernetes resource type. See Kubernetes Resource Type below.
-        :param Sequence['PlanWorkflowStepEksResourceScalingConfigScalingResourceArgs'] scaling_resources: List of scaling resources. See Scaling Resources below.
+        :param Sequence['PlanWorkflowStepEksResourceScalingConfigEksClusterArgs'] eks_clusters: EKS clusters. See `eks_clusters` Block for details.
+        :param Sequence['PlanWorkflowStepEksResourceScalingConfigKubernetesResourceTypeArgs'] kubernetes_resource_types: Kubernetes resource type. See `kubernetes_resource_type` Block for details.
+        :param Sequence['PlanWorkflowStepEksResourceScalingConfigScalingResourceArgs'] scaling_resources: Scaling resources. See `scaling_resources` Block for details.
         :param _builtins.int timeout_minutes: Timeout in minutes.
-        :param Sequence['PlanWorkflowStepEksResourceScalingConfigUngracefulArgs'] ungracefuls: Ungraceful behavior configuration. See Ungraceful Capacity below.
+        :param Sequence['PlanWorkflowStepEksResourceScalingConfigUngracefulArgs'] ungracefuls: Ungraceful behavior configuration. See `workflow.step.eks_resource_scaling_config.ungraceful` Block for details.
         """
         pulumi.set(__self__, "capacity_monitoring_approach", capacity_monitoring_approach)
         pulumi.set(__self__, "target_percent", target_percent)
@@ -1657,7 +1974,7 @@ class PlanWorkflowStepEksResourceScalingConfig(dict):
     @pulumi.getter(name="eksClusters")
     def eks_clusters(self) -> Optional[Sequence['outputs.PlanWorkflowStepEksResourceScalingConfigEksCluster']]:
         """
-        List of EKS clusters. See EKS Clusters below.
+        EKS clusters. See `eks_clusters` Block for details.
         """
         return pulumi.get(self, "eks_clusters")
 
@@ -1665,7 +1982,7 @@ class PlanWorkflowStepEksResourceScalingConfig(dict):
     @pulumi.getter(name="kubernetesResourceTypes")
     def kubernetes_resource_types(self) -> Optional[Sequence['outputs.PlanWorkflowStepEksResourceScalingConfigKubernetesResourceType']]:
         """
-        Kubernetes resource type. See Kubernetes Resource Type below.
+        Kubernetes resource type. See `kubernetes_resource_type` Block for details.
         """
         return pulumi.get(self, "kubernetes_resource_types")
 
@@ -1673,7 +1990,7 @@ class PlanWorkflowStepEksResourceScalingConfig(dict):
     @pulumi.getter(name="scalingResources")
     def scaling_resources(self) -> Optional[Sequence['outputs.PlanWorkflowStepEksResourceScalingConfigScalingResource']]:
         """
-        List of scaling resources. See Scaling Resources below.
+        Scaling resources. See `scaling_resources` Block for details.
         """
         return pulumi.get(self, "scaling_resources")
 
@@ -1689,7 +2006,7 @@ class PlanWorkflowStepEksResourceScalingConfig(dict):
     @pulumi.getter
     def ungracefuls(self) -> Optional[Sequence['outputs.PlanWorkflowStepEksResourceScalingConfigUngraceful']]:
         """
-        Ungraceful behavior configuration. See Ungraceful Capacity below.
+        Ungraceful behavior configuration. See `workflow.step.eks_resource_scaling_config.ungraceful` Block for details.
         """
         return pulumi.get(self, "ungracefuls")
 
@@ -1810,7 +2127,7 @@ class PlanWorkflowStepEksResourceScalingConfigScalingResource(dict):
                  resources: Optional[Sequence['outputs.PlanWorkflowStepEksResourceScalingConfigScalingResourceResource']] = None):
         """
         :param _builtins.str namespace: Kubernetes namespace.
-        :param Sequence['PlanWorkflowStepEksResourceScalingConfigScalingResourceResourceArgs'] resources: Set of resources to scale. See Resources below.
+        :param Sequence['PlanWorkflowStepEksResourceScalingConfigScalingResourceResourceArgs'] resources: Resources to scale. See `resources` Block for details.
         """
         pulumi.set(__self__, "namespace", namespace)
         if resources is not None:
@@ -1828,7 +2145,7 @@ class PlanWorkflowStepEksResourceScalingConfigScalingResource(dict):
     @pulumi.getter
     def resources(self) -> Optional[Sequence['outputs.PlanWorkflowStepEksResourceScalingConfigScalingResourceResource']]:
         """
-        Set of resources to scale. See Resources below.
+        Resources to scale. See `resources` Block for details.
         """
         return pulumi.get(self, "resources")
 
@@ -2030,7 +2347,7 @@ class PlanWorkflowStepGlobalAuroraConfig(dict):
         :param _builtins.str cross_account_role: ARN of the cross-account role to assume.
         :param _builtins.str external_id: External ID for cross-account role assumption.
         :param _builtins.int timeout_minutes: Timeout in minutes.
-        :param Sequence['PlanWorkflowStepGlobalAuroraConfigUngracefulArgs'] ungracefuls: Ungraceful behavior configuration. See Ungraceful Aurora below.
+        :param Sequence['PlanWorkflowStepGlobalAuroraConfigUngracefulArgs'] ungracefuls: Ungraceful behavior configuration. See `workflow.step.global_aurora_config.ungraceful` Block for details.
         """
         pulumi.set(__self__, "behavior", behavior)
         pulumi.set(__self__, "database_cluster_arns", database_cluster_arns)
@@ -2096,7 +2413,7 @@ class PlanWorkflowStepGlobalAuroraConfig(dict):
     @pulumi.getter
     def ungracefuls(self) -> Optional[Sequence['outputs.PlanWorkflowStepGlobalAuroraConfigUngraceful']]:
         """
-        Ungraceful behavior configuration. See Ungraceful Aurora below.
+        Ungraceful behavior configuration. See `workflow.step.global_aurora_config.ungraceful` Block for details.
         """
         return pulumi.get(self, "ungracefuls")
 
@@ -2114,11 +2431,293 @@ class PlanWorkflowStepGlobalAuroraConfigUngraceful(dict):
 
 
 @pulumi.output_type
+class PlanWorkflowStepLambdaEventSourceMappingConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "regionEventSourceMappings":
+            suggest = "region_event_source_mappings"
+        elif key == "timeoutMinutes":
+            suggest = "timeout_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlanWorkflowStepLambdaEventSourceMappingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlanWorkflowStepLambdaEventSourceMappingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlanWorkflowStepLambdaEventSourceMappingConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action: _builtins.str,
+                 region_event_source_mappings: Optional[Sequence['outputs.PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMapping']] = None,
+                 timeout_minutes: Optional[_builtins.int] = None,
+                 ungracefuls: Optional[Sequence['outputs.PlanWorkflowStepLambdaEventSourceMappingConfigUngraceful']] = None):
+        """
+        :param _builtins.str action: Action to perform on the event source mapping.
+        :param Sequence['PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMappingArgs'] region_event_source_mappings: Event source mappings per region. See `region_event_source_mapping` Block for details.
+        :param _builtins.int timeout_minutes: Timeout in minutes.
+        :param Sequence['PlanWorkflowStepLambdaEventSourceMappingConfigUngracefulArgs'] ungracefuls: Ungraceful behavior configuration. See `workflow.step.lambda_event_source_mapping_config.ungraceful` Block for details.
+        """
+        pulumi.set(__self__, "action", action)
+        if region_event_source_mappings is not None:
+            pulumi.set(__self__, "region_event_source_mappings", region_event_source_mappings)
+        if timeout_minutes is not None:
+            pulumi.set(__self__, "timeout_minutes", timeout_minutes)
+        if ungracefuls is not None:
+            pulumi.set(__self__, "ungracefuls", ungracefuls)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> _builtins.str:
+        """
+        Action to perform on the event source mapping.
+        """
+        return pulumi.get(self, "action")
+
+    @_builtins.property
+    @pulumi.getter(name="regionEventSourceMappings")
+    def region_event_source_mappings(self) -> Optional[Sequence['outputs.PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMapping']]:
+        """
+        Event source mappings per region. See `region_event_source_mapping` Block for details.
+        """
+        return pulumi.get(self, "region_event_source_mappings")
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutMinutes")
+    def timeout_minutes(self) -> Optional[_builtins.int]:
+        """
+        Timeout in minutes.
+        """
+        return pulumi.get(self, "timeout_minutes")
+
+    @_builtins.property
+    @pulumi.getter
+    def ungracefuls(self) -> Optional[Sequence['outputs.PlanWorkflowStepLambdaEventSourceMappingConfigUngraceful']]:
+        """
+        Ungraceful behavior configuration. See `workflow.step.lambda_event_source_mapping_config.ungraceful` Block for details.
+        """
+        return pulumi.get(self, "ungracefuls")
+
+
+@pulumi.output_type
+class PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMapping(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "crossAccountRole":
+            suggest = "cross_account_role"
+        elif key == "externalId":
+            suggest = "external_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMapping.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 arn: _builtins.str,
+                 region: _builtins.str,
+                 cross_account_role: Optional[_builtins.str] = None,
+                 external_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str arn: ARN of the event source mapping.
+        :param _builtins.str region: AWS region.
+        :param _builtins.str cross_account_role: ARN of the cross-account role to assume.
+        :param _builtins.str external_id: External ID for cross-account role assumption.
+        """
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "region", region)
+        if cross_account_role is not None:
+            pulumi.set(__self__, "cross_account_role", cross_account_role)
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> _builtins.str:
+        """
+        ARN of the event source mapping.
+        """
+        return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> _builtins.str:
+        """
+        AWS region.
+        """
+        return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter(name="crossAccountRole")
+    def cross_account_role(self) -> Optional[_builtins.str]:
+        """
+        ARN of the cross-account role to assume.
+        """
+        return pulumi.get(self, "cross_account_role")
+
+    @_builtins.property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[_builtins.str]:
+        """
+        External ID for cross-account role assumption.
+        """
+        return pulumi.get(self, "external_id")
+
+
+@pulumi.output_type
+class PlanWorkflowStepLambdaEventSourceMappingConfigUngraceful(dict):
+    def __init__(__self__, *,
+                 behavior: _builtins.str):
+        pulumi.set(__self__, "behavior", behavior)
+
+    @_builtins.property
+    @pulumi.getter
+    def behavior(self) -> _builtins.str:
+        return pulumi.get(self, "behavior")
+
+
+@pulumi.output_type
+class PlanWorkflowStepNeptuneGlobalDatabaseConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "globalClusterIdentifier":
+            suggest = "global_cluster_identifier"
+        elif key == "regionDatabaseClusterArns":
+            suggest = "region_database_cluster_arns"
+        elif key == "crossAccountRole":
+            suggest = "cross_account_role"
+        elif key == "externalId":
+            suggest = "external_id"
+        elif key == "timeoutMinutes":
+            suggest = "timeout_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlanWorkflowStepNeptuneGlobalDatabaseConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlanWorkflowStepNeptuneGlobalDatabaseConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlanWorkflowStepNeptuneGlobalDatabaseConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 behavior: _builtins.str,
+                 global_cluster_identifier: _builtins.str,
+                 region_database_cluster_arns: Mapping[str, _builtins.str],
+                 cross_account_role: Optional[_builtins.str] = None,
+                 external_id: Optional[_builtins.str] = None,
+                 timeout_minutes: Optional[_builtins.int] = None,
+                 ungracefuls: Optional[Sequence['outputs.PlanWorkflowStepNeptuneGlobalDatabaseConfigUngraceful']] = None):
+        """
+        :param _builtins.str behavior: Behavior for global database operations.
+        :param _builtins.str global_cluster_identifier: Global cluster identifier.
+        :param Mapping[str, _builtins.str] region_database_cluster_arns: Map of regions to database cluster ARNs.
+        :param _builtins.str cross_account_role: ARN of the cross-account role to assume.
+        :param _builtins.str external_id: External ID for cross-account role assumption.
+        :param _builtins.int timeout_minutes: Timeout in minutes.
+        :param Sequence['PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulArgs'] ungracefuls: Ungraceful behavior configuration. See `workflow.step.neptune_global_database_config.ungraceful` Block for details.
+        """
+        pulumi.set(__self__, "behavior", behavior)
+        pulumi.set(__self__, "global_cluster_identifier", global_cluster_identifier)
+        pulumi.set(__self__, "region_database_cluster_arns", region_database_cluster_arns)
+        if cross_account_role is not None:
+            pulumi.set(__self__, "cross_account_role", cross_account_role)
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+        if timeout_minutes is not None:
+            pulumi.set(__self__, "timeout_minutes", timeout_minutes)
+        if ungracefuls is not None:
+            pulumi.set(__self__, "ungracefuls", ungracefuls)
+
+    @_builtins.property
+    @pulumi.getter
+    def behavior(self) -> _builtins.str:
+        """
+        Behavior for global database operations.
+        """
+        return pulumi.get(self, "behavior")
+
+    @_builtins.property
+    @pulumi.getter(name="globalClusterIdentifier")
+    def global_cluster_identifier(self) -> _builtins.str:
+        """
+        Global cluster identifier.
+        """
+        return pulumi.get(self, "global_cluster_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="regionDatabaseClusterArns")
+    def region_database_cluster_arns(self) -> Mapping[str, _builtins.str]:
+        """
+        Map of regions to database cluster ARNs.
+        """
+        return pulumi.get(self, "region_database_cluster_arns")
+
+    @_builtins.property
+    @pulumi.getter(name="crossAccountRole")
+    def cross_account_role(self) -> Optional[_builtins.str]:
+        """
+        ARN of the cross-account role to assume.
+        """
+        return pulumi.get(self, "cross_account_role")
+
+    @_builtins.property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[_builtins.str]:
+        """
+        External ID for cross-account role assumption.
+        """
+        return pulumi.get(self, "external_id")
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutMinutes")
+    def timeout_minutes(self) -> Optional[_builtins.int]:
+        """
+        Timeout in minutes.
+        """
+        return pulumi.get(self, "timeout_minutes")
+
+    @_builtins.property
+    @pulumi.getter
+    def ungracefuls(self) -> Optional[Sequence['outputs.PlanWorkflowStepNeptuneGlobalDatabaseConfigUngraceful']]:
+        """
+        Ungraceful behavior configuration. See `workflow.step.neptune_global_database_config.ungraceful` Block for details.
+        """
+        return pulumi.get(self, "ungracefuls")
+
+
+@pulumi.output_type
+class PlanWorkflowStepNeptuneGlobalDatabaseConfigUngraceful(dict):
+    def __init__(__self__, *,
+                 ungraceful: _builtins.str):
+        pulumi.set(__self__, "ungraceful", ungraceful)
+
+    @_builtins.property
+    @pulumi.getter
+    def ungraceful(self) -> _builtins.str:
+        return pulumi.get(self, "ungraceful")
+
+
+@pulumi.output_type
 class PlanWorkflowStepParallelConfig(dict):
     def __init__(__self__, *,
                  steps: Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStep']] = None):
         """
-        :param Sequence['PlanWorkflowStepParallelConfigStepArgs'] steps: List of steps to execute in parallel. Uses the same schema as Step but without `parallel_config` to prevent infinite nesting.
+        :param Sequence['PlanWorkflowStepParallelConfigStepArgs'] steps: Steps to execute in parallel. See `step` Block for details. The parallel step schema matches `step` Block but does not support `parallel_config` to prevent infinite nesting.
         """
         if steps is not None:
             pulumi.set(__self__, "steps", steps)
@@ -2127,7 +2726,7 @@ class PlanWorkflowStepParallelConfig(dict):
     @pulumi.getter
     def steps(self) -> Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStep']]:
         """
-        List of steps to execute in parallel. Uses the same schema as Step but without `parallel_config` to prevent infinite nesting.
+        Steps to execute in parallel. See `step` Block for details. The parallel step schema matches `step` Block but does not support `parallel_config` to prevent infinite nesting.
         """
         return pulumi.get(self, "steps")
 
@@ -2141,6 +2740,10 @@ class PlanWorkflowStepParallelConfigStep(dict):
             suggest = "execution_block_type"
         elif key == "arcRoutingControlConfigs":
             suggest = "arc_routing_control_configs"
+        elif key == "auroraProvisionedScalingConfigs":
+            suggest = "aurora_provisioned_scaling_configs"
+        elif key == "auroraServerlessScalingConfigs":
+            suggest = "aurora_serverless_scaling_configs"
         elif key == "customActionLambdaConfigs":
             suggest = "custom_action_lambda_configs"
         elif key == "documentDbConfigs":
@@ -2155,6 +2758,10 @@ class PlanWorkflowStepParallelConfigStep(dict):
             suggest = "execution_approval_configs"
         elif key == "globalAuroraConfigs":
             suggest = "global_aurora_configs"
+        elif key == "lambdaEventSourceMappingConfigs":
+            suggest = "lambda_event_source_mapping_configs"
+        elif key == "neptuneGlobalDatabaseConfigs":
+            suggest = "neptune_global_database_configs"
         elif key == "rdsCreateCrossRegionReadReplicaConfigs":
             suggest = "rds_create_cross_region_read_replica_configs"
         elif key == "rdsPromoteReadReplicaConfigs":
@@ -2179,6 +2786,8 @@ class PlanWorkflowStepParallelConfigStep(dict):
                  execution_block_type: _builtins.str,
                  name: _builtins.str,
                  arc_routing_control_configs: Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepArcRoutingControlConfig']] = None,
+                 aurora_provisioned_scaling_configs: Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfig']] = None,
+                 aurora_serverless_scaling_configs: Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfig']] = None,
                  custom_action_lambda_configs: Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepCustomActionLambdaConfig']] = None,
                  description: Optional[_builtins.str] = None,
                  document_db_configs: Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepDocumentDbConfig']] = None,
@@ -2187,6 +2796,8 @@ class PlanWorkflowStepParallelConfigStep(dict):
                  eks_resource_scaling_configs: Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepEksResourceScalingConfig']] = None,
                  execution_approval_configs: Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepExecutionApprovalConfig']] = None,
                  global_aurora_configs: Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepGlobalAuroraConfig']] = None,
+                 lambda_event_source_mapping_configs: Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfig']] = None,
+                 neptune_global_database_configs: Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfig']] = None,
                  rds_create_cross_region_read_replica_configs: Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfig']] = None,
                  rds_promote_read_replica_configs: Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfig']] = None,
                  region_switch_plan_configs: Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfig']] = None,
@@ -2194,23 +2805,32 @@ class PlanWorkflowStepParallelConfigStep(dict):
         """
         :param _builtins.str execution_block_type: Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `Route53HealthCheck`.
         :param _builtins.str name: Name of the step.
-        :param Sequence['PlanWorkflowStepParallelConfigStepArcRoutingControlConfigArgs'] arc_routing_control_configs: Configuration for ARC routing control. See ARC Routing Control Config below.
-        :param Sequence['PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigArgs'] custom_action_lambda_configs: Configuration for Lambda function execution. See Custom Action Lambda Config below.
+        :param Sequence['PlanWorkflowStepParallelConfigStepArcRoutingControlConfigArgs'] arc_routing_control_configs: Configuration for ARC routing control. See `arc_routing_control_config` Block for details.
+        :param Sequence['PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigArgs'] aurora_provisioned_scaling_configs: Configuration for Aurora provisioned scaling. See `aurora_provisioned_scaling_config` Block for details.
+        :param Sequence['PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigArgs'] aurora_serverless_scaling_configs: Configuration for Aurora Serverless scaling. See `aurora_serverless_scaling_config` Block for details.
+        :param Sequence['PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigArgs'] custom_action_lambda_configs: Configuration for Lambda function execution. See `custom_action_lambda_config` Block for details.
         :param _builtins.str description: Description of the step.
-        :param Sequence['PlanWorkflowStepParallelConfigStepDocumentDbConfigArgs'] document_db_configs: Configuration for DocumentDB global cluster operations. See DocumentDB Config below.
-        :param Sequence['PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigArgs'] ec2_asg_capacity_increase_configs: Configuration for EC2 Auto Scaling group capacity increase. See EC2 ASG Capacity Increase Config below.
-        :param Sequence['PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigArgs'] ecs_capacity_increase_configs: Configuration for ECS service capacity increase. See ECS Capacity Increase Config below.
-        :param Sequence['PlanWorkflowStepParallelConfigStepEksResourceScalingConfigArgs'] eks_resource_scaling_configs: Configuration for EKS resource scaling. See EKS Resource Scaling Config below.
-        :param Sequence['PlanWorkflowStepParallelConfigStepExecutionApprovalConfigArgs'] execution_approval_configs: Configuration for manual approval steps. See Execution Approval Config below.
-        :param Sequence['PlanWorkflowStepParallelConfigStepGlobalAuroraConfigArgs'] global_aurora_configs: Configuration for Aurora Global Database operations. See Global Aurora Config below.
-        :param Sequence['PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArgs'] rds_create_cross_region_read_replica_configs: Configuration for creating cross-region RDS read replicas. See RDS Create Cross Region Read Replica Config below.
-        :param Sequence['PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArgs'] rds_promote_read_replica_configs: Configuration for promoting RDS read replicas. See RDS Promote Read Replica Config below.
-        :param Sequence['PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigArgs'] route53_health_check_configs: Configuration for Route53 health check operations. See Route53 Health Check Config below.
+        :param Sequence['PlanWorkflowStepParallelConfigStepDocumentDbConfigArgs'] document_db_configs: Configuration for DocumentDB global cluster operations. See `document_db_config` Block for details.
+        :param Sequence['PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigArgs'] ec2_asg_capacity_increase_configs: Configuration for EC2 Auto Scaling group capacity increase. See `ec2_asg_capacity_increase_config` Block for details.
+        :param Sequence['PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigArgs'] ecs_capacity_increase_configs: Configuration for ECS service capacity increase. See `ecs_capacity_increase_config` Block for details.
+        :param Sequence['PlanWorkflowStepParallelConfigStepEksResourceScalingConfigArgs'] eks_resource_scaling_configs: Configuration for EKS resource scaling. See `eks_resource_scaling_config` Block for details.
+        :param Sequence['PlanWorkflowStepParallelConfigStepExecutionApprovalConfigArgs'] execution_approval_configs: Configuration for manual approval steps. See `execution_approval_config` Block for details.
+        :param Sequence['PlanWorkflowStepParallelConfigStepGlobalAuroraConfigArgs'] global_aurora_configs: Configuration for Aurora Global Database operations. See `global_aurora_config` Block for details.
+        :param Sequence['PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigArgs'] lambda_event_source_mapping_configs: Configuration for Lambda event source mapping operations. See `lambda_event_source_mapping_config` Block for details.
+        :param Sequence['PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigArgs'] neptune_global_database_configs: Configuration for Neptune global database operations. See `neptune_global_database_config` Block for details.
+        :param Sequence['PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArgs'] rds_create_cross_region_read_replica_configs: Configuration for creating cross-region RDS read replicas. See `rds_create_cross_region_read_replica_config` Block for details.
+        :param Sequence['PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArgs'] rds_promote_read_replica_configs: Configuration for promoting RDS read replicas. See `rds_promote_read_replica_config` Block for details.
+        :param Sequence['PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfigArgs'] region_switch_plan_configs: Configuration for executing a nested region switch plan. See `region_switch_plan_config` Block for details.
+        :param Sequence['PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigArgs'] route53_health_check_configs: Configuration for Route53 health check operations. See `route53_health_check_config` Block for details.
         """
         pulumi.set(__self__, "execution_block_type", execution_block_type)
         pulumi.set(__self__, "name", name)
         if arc_routing_control_configs is not None:
             pulumi.set(__self__, "arc_routing_control_configs", arc_routing_control_configs)
+        if aurora_provisioned_scaling_configs is not None:
+            pulumi.set(__self__, "aurora_provisioned_scaling_configs", aurora_provisioned_scaling_configs)
+        if aurora_serverless_scaling_configs is not None:
+            pulumi.set(__self__, "aurora_serverless_scaling_configs", aurora_serverless_scaling_configs)
         if custom_action_lambda_configs is not None:
             pulumi.set(__self__, "custom_action_lambda_configs", custom_action_lambda_configs)
         if description is not None:
@@ -2227,6 +2847,10 @@ class PlanWorkflowStepParallelConfigStep(dict):
             pulumi.set(__self__, "execution_approval_configs", execution_approval_configs)
         if global_aurora_configs is not None:
             pulumi.set(__self__, "global_aurora_configs", global_aurora_configs)
+        if lambda_event_source_mapping_configs is not None:
+            pulumi.set(__self__, "lambda_event_source_mapping_configs", lambda_event_source_mapping_configs)
+        if neptune_global_database_configs is not None:
+            pulumi.set(__self__, "neptune_global_database_configs", neptune_global_database_configs)
         if rds_create_cross_region_read_replica_configs is not None:
             pulumi.set(__self__, "rds_create_cross_region_read_replica_configs", rds_create_cross_region_read_replica_configs)
         if rds_promote_read_replica_configs is not None:
@@ -2256,15 +2880,31 @@ class PlanWorkflowStepParallelConfigStep(dict):
     @pulumi.getter(name="arcRoutingControlConfigs")
     def arc_routing_control_configs(self) -> Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepArcRoutingControlConfig']]:
         """
-        Configuration for ARC routing control. See ARC Routing Control Config below.
+        Configuration for ARC routing control. See `arc_routing_control_config` Block for details.
         """
         return pulumi.get(self, "arc_routing_control_configs")
+
+    @_builtins.property
+    @pulumi.getter(name="auroraProvisionedScalingConfigs")
+    def aurora_provisioned_scaling_configs(self) -> Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfig']]:
+        """
+        Configuration for Aurora provisioned scaling. See `aurora_provisioned_scaling_config` Block for details.
+        """
+        return pulumi.get(self, "aurora_provisioned_scaling_configs")
+
+    @_builtins.property
+    @pulumi.getter(name="auroraServerlessScalingConfigs")
+    def aurora_serverless_scaling_configs(self) -> Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfig']]:
+        """
+        Configuration for Aurora Serverless scaling. See `aurora_serverless_scaling_config` Block for details.
+        """
+        return pulumi.get(self, "aurora_serverless_scaling_configs")
 
     @_builtins.property
     @pulumi.getter(name="customActionLambdaConfigs")
     def custom_action_lambda_configs(self) -> Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepCustomActionLambdaConfig']]:
         """
-        Configuration for Lambda function execution. See Custom Action Lambda Config below.
+        Configuration for Lambda function execution. See `custom_action_lambda_config` Block for details.
         """
         return pulumi.get(self, "custom_action_lambda_configs")
 
@@ -2280,7 +2920,7 @@ class PlanWorkflowStepParallelConfigStep(dict):
     @pulumi.getter(name="documentDbConfigs")
     def document_db_configs(self) -> Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepDocumentDbConfig']]:
         """
-        Configuration for DocumentDB global cluster operations. See DocumentDB Config below.
+        Configuration for DocumentDB global cluster operations. See `document_db_config` Block for details.
         """
         return pulumi.get(self, "document_db_configs")
 
@@ -2288,7 +2928,7 @@ class PlanWorkflowStepParallelConfigStep(dict):
     @pulumi.getter(name="ec2AsgCapacityIncreaseConfigs")
     def ec2_asg_capacity_increase_configs(self) -> Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfig']]:
         """
-        Configuration for EC2 Auto Scaling group capacity increase. See EC2 ASG Capacity Increase Config below.
+        Configuration for EC2 Auto Scaling group capacity increase. See `ec2_asg_capacity_increase_config` Block for details.
         """
         return pulumi.get(self, "ec2_asg_capacity_increase_configs")
 
@@ -2296,7 +2936,7 @@ class PlanWorkflowStepParallelConfigStep(dict):
     @pulumi.getter(name="ecsCapacityIncreaseConfigs")
     def ecs_capacity_increase_configs(self) -> Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfig']]:
         """
-        Configuration for ECS service capacity increase. See ECS Capacity Increase Config below.
+        Configuration for ECS service capacity increase. See `ecs_capacity_increase_config` Block for details.
         """
         return pulumi.get(self, "ecs_capacity_increase_configs")
 
@@ -2304,7 +2944,7 @@ class PlanWorkflowStepParallelConfigStep(dict):
     @pulumi.getter(name="eksResourceScalingConfigs")
     def eks_resource_scaling_configs(self) -> Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepEksResourceScalingConfig']]:
         """
-        Configuration for EKS resource scaling. See EKS Resource Scaling Config below.
+        Configuration for EKS resource scaling. See `eks_resource_scaling_config` Block for details.
         """
         return pulumi.get(self, "eks_resource_scaling_configs")
 
@@ -2312,7 +2952,7 @@ class PlanWorkflowStepParallelConfigStep(dict):
     @pulumi.getter(name="executionApprovalConfigs")
     def execution_approval_configs(self) -> Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepExecutionApprovalConfig']]:
         """
-        Configuration for manual approval steps. See Execution Approval Config below.
+        Configuration for manual approval steps. See `execution_approval_config` Block for details.
         """
         return pulumi.get(self, "execution_approval_configs")
 
@@ -2320,15 +2960,31 @@ class PlanWorkflowStepParallelConfigStep(dict):
     @pulumi.getter(name="globalAuroraConfigs")
     def global_aurora_configs(self) -> Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepGlobalAuroraConfig']]:
         """
-        Configuration for Aurora Global Database operations. See Global Aurora Config below.
+        Configuration for Aurora Global Database operations. See `global_aurora_config` Block for details.
         """
         return pulumi.get(self, "global_aurora_configs")
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaEventSourceMappingConfigs")
+    def lambda_event_source_mapping_configs(self) -> Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfig']]:
+        """
+        Configuration for Lambda event source mapping operations. See `lambda_event_source_mapping_config` Block for details.
+        """
+        return pulumi.get(self, "lambda_event_source_mapping_configs")
+
+    @_builtins.property
+    @pulumi.getter(name="neptuneGlobalDatabaseConfigs")
+    def neptune_global_database_configs(self) -> Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfig']]:
+        """
+        Configuration for Neptune global database operations. See `neptune_global_database_config` Block for details.
+        """
+        return pulumi.get(self, "neptune_global_database_configs")
 
     @_builtins.property
     @pulumi.getter(name="rdsCreateCrossRegionReadReplicaConfigs")
     def rds_create_cross_region_read_replica_configs(self) -> Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfig']]:
         """
-        Configuration for creating cross-region RDS read replicas. See RDS Create Cross Region Read Replica Config below.
+        Configuration for creating cross-region RDS read replicas. See `rds_create_cross_region_read_replica_config` Block for details.
         """
         return pulumi.get(self, "rds_create_cross_region_read_replica_configs")
 
@@ -2336,20 +2992,23 @@ class PlanWorkflowStepParallelConfigStep(dict):
     @pulumi.getter(name="rdsPromoteReadReplicaConfigs")
     def rds_promote_read_replica_configs(self) -> Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfig']]:
         """
-        Configuration for promoting RDS read replicas. See RDS Promote Read Replica Config below.
+        Configuration for promoting RDS read replicas. See `rds_promote_read_replica_config` Block for details.
         """
         return pulumi.get(self, "rds_promote_read_replica_configs")
 
     @_builtins.property
     @pulumi.getter(name="regionSwitchPlanConfigs")
     def region_switch_plan_configs(self) -> Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfig']]:
+        """
+        Configuration for executing a nested region switch plan. See `region_switch_plan_config` Block for details.
+        """
         return pulumi.get(self, "region_switch_plan_configs")
 
     @_builtins.property
     @pulumi.getter(name="route53HealthCheckConfigs")
     def route53_health_check_configs(self) -> Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfig']]:
         """
-        Configuration for Route53 health check operations. See Route53 Health Check Config below.
+        Configuration for Route53 health check operations. See `route53_health_check_config` Block for details.
         """
         return pulumi.get(self, "route53_health_check_configs")
 
@@ -2387,7 +3046,7 @@ class PlanWorkflowStepParallelConfigStepArcRoutingControlConfig(dict):
         """
         :param _builtins.str cross_account_role: ARN of the cross-account role to assume.
         :param _builtins.str external_id: External ID for cross-account role assumption.
-        :param Sequence['PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControlArgs'] region_and_routing_controls: List of regions and their routing controls. See Region and Routing Controls below.
+        :param Sequence['PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControlArgs'] region_and_routing_controls: Regions and their routing controls. See `region_and_routing_controls` Block for details.
         :param _builtins.int timeout_minutes: Timeout in minutes.
         """
         if cross_account_role is not None:
@@ -2419,7 +3078,7 @@ class PlanWorkflowStepParallelConfigStepArcRoutingControlConfig(dict):
     @pulumi.getter(name="regionAndRoutingControls")
     def region_and_routing_controls(self) -> Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControl']]:
         """
-        List of regions and their routing controls. See Region and Routing Controls below.
+        Regions and their routing controls. See `region_and_routing_controls` Block for details.
         """
         return pulumi.get(self, "region_and_routing_controls")
 
@@ -2456,7 +3115,7 @@ class PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingC
                  routing_controls: Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControlRoutingControl']] = None):
         """
         :param _builtins.str region: AWS region.
-        :param Sequence['PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControlRoutingControlArgs'] routing_controls: List of routing controls. See Routing Control below.
+        :param Sequence['PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControlRoutingControlArgs'] routing_controls: Routing controls. See `routing_control` Block for details.
         """
         pulumi.set(__self__, "region", region)
         if routing_controls is not None:
@@ -2474,7 +3133,7 @@ class PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingC
     @pulumi.getter(name="routingControls")
     def routing_controls(self) -> Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControlRoutingControl']]:
         """
-        List of routing controls. See Routing Control below.
+        Routing controls. See `routing_control` Block for details.
         """
         return pulumi.get(self, "routing_controls")
 
@@ -2526,6 +3185,213 @@ class PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingC
 
 
 @pulumi.output_type
+class PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "globalClusterIdentifier":
+            suggest = "global_cluster_identifier"
+        elif key == "instanceArns":
+            suggest = "instance_arns"
+        elif key == "regionDatabaseClusterArns":
+            suggest = "region_database_cluster_arns"
+        elif key == "crossAccountRole":
+            suggest = "cross_account_role"
+        elif key == "externalId":
+            suggest = "external_id"
+        elif key == "timeoutMinutes":
+            suggest = "timeout_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 global_cluster_identifier: _builtins.str,
+                 instance_arns: Mapping[str, _builtins.str],
+                 region_database_cluster_arns: Mapping[str, _builtins.str],
+                 cross_account_role: Optional[_builtins.str] = None,
+                 external_id: Optional[_builtins.str] = None,
+                 timeout_minutes: Optional[_builtins.int] = None):
+        """
+        :param _builtins.str global_cluster_identifier: Global cluster identifier.
+        :param Mapping[str, _builtins.str] instance_arns: Map of regions to Aurora instance ARNs.
+        :param Mapping[str, _builtins.str] region_database_cluster_arns: Map of regions to database cluster ARNs.
+        :param _builtins.str cross_account_role: ARN of the cross-account role to assume.
+        :param _builtins.str external_id: External ID for cross-account role assumption.
+        :param _builtins.int timeout_minutes: Timeout in minutes.
+        """
+        pulumi.set(__self__, "global_cluster_identifier", global_cluster_identifier)
+        pulumi.set(__self__, "instance_arns", instance_arns)
+        pulumi.set(__self__, "region_database_cluster_arns", region_database_cluster_arns)
+        if cross_account_role is not None:
+            pulumi.set(__self__, "cross_account_role", cross_account_role)
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+        if timeout_minutes is not None:
+            pulumi.set(__self__, "timeout_minutes", timeout_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="globalClusterIdentifier")
+    def global_cluster_identifier(self) -> _builtins.str:
+        """
+        Global cluster identifier.
+        """
+        return pulumi.get(self, "global_cluster_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceArns")
+    def instance_arns(self) -> Mapping[str, _builtins.str]:
+        """
+        Map of regions to Aurora instance ARNs.
+        """
+        return pulumi.get(self, "instance_arns")
+
+    @_builtins.property
+    @pulumi.getter(name="regionDatabaseClusterArns")
+    def region_database_cluster_arns(self) -> Mapping[str, _builtins.str]:
+        """
+        Map of regions to database cluster ARNs.
+        """
+        return pulumi.get(self, "region_database_cluster_arns")
+
+    @_builtins.property
+    @pulumi.getter(name="crossAccountRole")
+    def cross_account_role(self) -> Optional[_builtins.str]:
+        """
+        ARN of the cross-account role to assume.
+        """
+        return pulumi.get(self, "cross_account_role")
+
+    @_builtins.property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[_builtins.str]:
+        """
+        External ID for cross-account role assumption.
+        """
+        return pulumi.get(self, "external_id")
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutMinutes")
+    def timeout_minutes(self) -> Optional[_builtins.int]:
+        """
+        Timeout in minutes.
+        """
+        return pulumi.get(self, "timeout_minutes")
+
+
+@pulumi.output_type
+class PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "globalClusterIdentifier":
+            suggest = "global_cluster_identifier"
+        elif key == "regionDatabaseClusterArns":
+            suggest = "region_database_cluster_arns"
+        elif key == "crossAccountRole":
+            suggest = "cross_account_role"
+        elif key == "externalId":
+            suggest = "external_id"
+        elif key == "targetPercent":
+            suggest = "target_percent"
+        elif key == "timeoutMinutes":
+            suggest = "timeout_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 global_cluster_identifier: _builtins.str,
+                 region_database_cluster_arns: Mapping[str, _builtins.str],
+                 cross_account_role: Optional[_builtins.str] = None,
+                 external_id: Optional[_builtins.str] = None,
+                 target_percent: Optional[_builtins.int] = None,
+                 timeout_minutes: Optional[_builtins.int] = None):
+        """
+        :param _builtins.str global_cluster_identifier: Global cluster identifier.
+        :param Mapping[str, _builtins.str] region_database_cluster_arns: Map of regions to database cluster ARNs.
+        :param _builtins.str cross_account_role: ARN of the cross-account role to assume.
+        :param _builtins.str external_id: External ID for cross-account role assumption.
+        :param _builtins.int target_percent: Target capacity percentage.
+        :param _builtins.int timeout_minutes: Timeout in minutes.
+        """
+        pulumi.set(__self__, "global_cluster_identifier", global_cluster_identifier)
+        pulumi.set(__self__, "region_database_cluster_arns", region_database_cluster_arns)
+        if cross_account_role is not None:
+            pulumi.set(__self__, "cross_account_role", cross_account_role)
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+        if target_percent is not None:
+            pulumi.set(__self__, "target_percent", target_percent)
+        if timeout_minutes is not None:
+            pulumi.set(__self__, "timeout_minutes", timeout_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="globalClusterIdentifier")
+    def global_cluster_identifier(self) -> _builtins.str:
+        """
+        Global cluster identifier.
+        """
+        return pulumi.get(self, "global_cluster_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="regionDatabaseClusterArns")
+    def region_database_cluster_arns(self) -> Mapping[str, _builtins.str]:
+        """
+        Map of regions to database cluster ARNs.
+        """
+        return pulumi.get(self, "region_database_cluster_arns")
+
+    @_builtins.property
+    @pulumi.getter(name="crossAccountRole")
+    def cross_account_role(self) -> Optional[_builtins.str]:
+        """
+        ARN of the cross-account role to assume.
+        """
+        return pulumi.get(self, "cross_account_role")
+
+    @_builtins.property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[_builtins.str]:
+        """
+        External ID for cross-account role assumption.
+        """
+        return pulumi.get(self, "external_id")
+
+    @_builtins.property
+    @pulumi.getter(name="targetPercent")
+    def target_percent(self) -> Optional[_builtins.int]:
+        """
+        Target capacity percentage.
+        """
+        return pulumi.get(self, "target_percent")
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutMinutes")
+    def timeout_minutes(self) -> Optional[_builtins.int]:
+        """
+        Timeout in minutes.
+        """
+        return pulumi.get(self, "timeout_minutes")
+
+
+@pulumi.output_type
 class PlanWorkflowStepParallelConfigStepCustomActionLambdaConfig(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2557,9 +3423,9 @@ class PlanWorkflowStepParallelConfigStepCustomActionLambdaConfig(dict):
         """
         :param _builtins.str region_to_run: Region where the Lambda function should run. Valid values: `activatingRegion`, `deactivatingRegion`.
         :param _builtins.float retry_interval_minutes: Retry interval in minutes.
-        :param Sequence['PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigLambdaArgs'] lambdas: Lambda function configuration. See Lambda below.
+        :param Sequence['PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigLambdaArgs'] lambdas: Lambda function configuration. See `lambda` Block for details.
         :param _builtins.int timeout_minutes: Timeout in minutes.
-        :param Sequence['PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigUngracefulArgs'] ungracefuls: Ungraceful behavior configuration. See Ungraceful below.
+        :param Sequence['PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigUngracefulArgs'] ungracefuls: Ungraceful behavior configuration. See `workflow.step.custom_action_lambda_config.ungraceful` Block for details.
         """
         pulumi.set(__self__, "region_to_run", region_to_run)
         pulumi.set(__self__, "retry_interval_minutes", retry_interval_minutes)
@@ -2590,7 +3456,7 @@ class PlanWorkflowStepParallelConfigStepCustomActionLambdaConfig(dict):
     @pulumi.getter
     def lambdas(self) -> Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigLambda']]:
         """
-        Lambda function configuration. See Lambda below.
+        Lambda function configuration. See `lambda` Block for details.
         """
         return pulumi.get(self, "lambdas")
 
@@ -2606,7 +3472,7 @@ class PlanWorkflowStepParallelConfigStepCustomActionLambdaConfig(dict):
     @pulumi.getter
     def ungracefuls(self) -> Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigUngraceful']]:
         """
-        Ungraceful behavior configuration. See Ungraceful below.
+        Ungraceful behavior configuration. See `workflow.step.custom_action_lambda_config.ungraceful` Block for details.
         """
         return pulumi.get(self, "ungracefuls")
 
@@ -2676,17 +3542,11 @@ class PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigLambda(dict):
 class PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigUngraceful(dict):
     def __init__(__self__, *,
                  behavior: _builtins.str):
-        """
-        :param _builtins.str behavior: Behavior when ungraceful. Valid values: `skip`.
-        """
         pulumi.set(__self__, "behavior", behavior)
 
     @_builtins.property
     @pulumi.getter
     def behavior(self) -> _builtins.str:
-        """
-        Behavior when ungraceful. Valid values: `skip`.
-        """
         return pulumi.get(self, "behavior")
 
 
@@ -2725,6 +3585,15 @@ class PlanWorkflowStepParallelConfigStepDocumentDbConfig(dict):
                  external_id: Optional[_builtins.str] = None,
                  timeout_minutes: Optional[_builtins.int] = None,
                  ungracefuls: Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepDocumentDbConfigUngraceful']] = None):
+        """
+        :param _builtins.str behavior: Behavior for global cluster operations. Valid values: `switchoverOnly`, `failover`.
+        :param Sequence[_builtins.str] database_cluster_arns: List of DocumentDB cluster ARNs.
+        :param _builtins.str global_cluster_identifier: Global cluster identifier.
+        :param _builtins.str cross_account_role: ARN of the cross-account role to assume.
+        :param _builtins.str external_id: External ID for cross-account role assumption.
+        :param _builtins.int timeout_minutes: Timeout in minutes.
+        :param Sequence['PlanWorkflowStepParallelConfigStepDocumentDbConfigUngracefulArgs'] ungracefuls: Ungraceful behavior configuration. See `workflow.step.document_db_config.ungraceful` Block for details.
+        """
         pulumi.set(__self__, "behavior", behavior)
         pulumi.set(__self__, "database_cluster_arns", database_cluster_arns)
         pulumi.set(__self__, "global_cluster_identifier", global_cluster_identifier)
@@ -2740,36 +3609,57 @@ class PlanWorkflowStepParallelConfigStepDocumentDbConfig(dict):
     @_builtins.property
     @pulumi.getter
     def behavior(self) -> _builtins.str:
+        """
+        Behavior for global cluster operations. Valid values: `switchoverOnly`, `failover`.
+        """
         return pulumi.get(self, "behavior")
 
     @_builtins.property
     @pulumi.getter(name="databaseClusterArns")
     def database_cluster_arns(self) -> Sequence[_builtins.str]:
+        """
+        List of DocumentDB cluster ARNs.
+        """
         return pulumi.get(self, "database_cluster_arns")
 
     @_builtins.property
     @pulumi.getter(name="globalClusterIdentifier")
     def global_cluster_identifier(self) -> _builtins.str:
+        """
+        Global cluster identifier.
+        """
         return pulumi.get(self, "global_cluster_identifier")
 
     @_builtins.property
     @pulumi.getter(name="crossAccountRole")
     def cross_account_role(self) -> Optional[_builtins.str]:
+        """
+        ARN of the cross-account role to assume.
+        """
         return pulumi.get(self, "cross_account_role")
 
     @_builtins.property
     @pulumi.getter(name="externalId")
     def external_id(self) -> Optional[_builtins.str]:
+        """
+        External ID for cross-account role assumption.
+        """
         return pulumi.get(self, "external_id")
 
     @_builtins.property
     @pulumi.getter(name="timeoutMinutes")
     def timeout_minutes(self) -> Optional[_builtins.int]:
+        """
+        Timeout in minutes.
+        """
         return pulumi.get(self, "timeout_minutes")
 
     @_builtins.property
     @pulumi.getter
     def ungracefuls(self) -> Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepDocumentDbConfigUngraceful']]:
+        """
+        Ungraceful behavior configuration. See `workflow.step.document_db_config.ungraceful` Block for details.
+        """
         return pulumi.get(self, "ungracefuls")
 
 
@@ -2816,10 +3706,10 @@ class PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfig(dict):
                  ungraceful: Optional['outputs.PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigUngraceful'] = None):
         """
         :param _builtins.str capacity_monitoring_approach: Capacity monitoring approach. Valid values: `sampledMaxInLast24Hours`, `autoscalingMaxInLast24Hours`.
-        :param Sequence['PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigAsgArgs'] asgs: Auto Scaling group configuration. See ASG below.
+        :param Sequence['PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigAsgArgs'] asgs: Auto Scaling group configuration. See `asg` Block for details.
         :param _builtins.int target_percent: Target capacity percentage.
         :param _builtins.int timeout_minutes: Timeout in minutes.
-        :param 'PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigUngracefulArgs' ungraceful: Ungraceful behavior configuration. See Ungraceful below.
+        :param 'PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigUngracefulArgs' ungraceful: Ungraceful behavior configuration. See `workflow.step.ec2_asg_capacity_increase_config.ungraceful` Block for details.
         """
         pulumi.set(__self__, "capacity_monitoring_approach", capacity_monitoring_approach)
         if asgs is not None:
@@ -2843,7 +3733,7 @@ class PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfig(dict):
     @pulumi.getter
     def asgs(self) -> Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigAsg']]:
         """
-        Auto Scaling group configuration. See ASG below.
+        Auto Scaling group configuration. See `asg` Block for details.
         """
         return pulumi.get(self, "asgs")
 
@@ -2867,7 +3757,7 @@ class PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfig(dict):
     @pulumi.getter
     def ungraceful(self) -> Optional['outputs.PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigUngraceful']:
         """
-        Ungraceful behavior configuration. See Ungraceful below.
+        Ungraceful behavior configuration. See `workflow.step.ec2_asg_capacity_increase_config.ungraceful` Block for details.
         """
         return pulumi.get(self, "ungraceful")
 
@@ -2999,10 +3889,10 @@ class PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfig(dict):
                  ungraceful: Optional['outputs.PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigUngraceful'] = None):
         """
         :param _builtins.str capacity_monitoring_approach: Capacity monitoring approach. Valid values: `sampledMaxInLast24Hours`, `containerInsightsMaxInLast24Hours`.
-        :param Sequence['PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigServiceArgs'] services: ECS service configuration. See ECS Service below.
+        :param Sequence['PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigServiceArgs'] services: ECS service configuration. See `service` Block for details.
         :param _builtins.int target_percent: Target capacity percentage.
         :param _builtins.int timeout_minutes: Timeout in minutes.
-        :param 'PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigUngracefulArgs' ungraceful: Ungraceful behavior configuration. See Ungraceful Capacity below.
+        :param 'PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigUngracefulArgs' ungraceful: Ungraceful behavior configuration. See `workflow.step.ecs_capacity_increase_config.ungraceful` Block for details.
         """
         pulumi.set(__self__, "capacity_monitoring_approach", capacity_monitoring_approach)
         if services is not None:
@@ -3026,7 +3916,7 @@ class PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfig(dict):
     @pulumi.getter
     def services(self) -> Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigService']]:
         """
-        ECS service configuration. See ECS Service below.
+        ECS service configuration. See `service` Block for details.
         """
         return pulumi.get(self, "services")
 
@@ -3050,7 +3940,7 @@ class PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfig(dict):
     @pulumi.getter
     def ungraceful(self) -> Optional['outputs.PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigUngraceful']:
         """
-        Ungraceful behavior configuration. See Ungraceful Capacity below.
+        Ungraceful behavior configuration. See `workflow.step.ecs_capacity_increase_config.ungraceful` Block for details.
         """
         return pulumi.get(self, "ungraceful")
 
@@ -3086,7 +3976,10 @@ class PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigService(dict):
                  cross_account_role: Optional[_builtins.str] = None,
                  external_id: Optional[_builtins.str] = None):
         """
+        :param _builtins.str cluster_arn: ARN of the ECS cluster.
         :param _builtins.str service_arn: ARN of the ECS service.
+        :param _builtins.str cross_account_role: ARN of the cross-account role to assume.
+        :param _builtins.str external_id: External ID for cross-account role assumption.
         """
         pulumi.set(__self__, "cluster_arn", cluster_arn)
         pulumi.set(__self__, "service_arn", service_arn)
@@ -3098,6 +3991,9 @@ class PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigService(dict):
     @_builtins.property
     @pulumi.getter(name="clusterArn")
     def cluster_arn(self) -> _builtins.str:
+        """
+        ARN of the ECS cluster.
+        """
         return pulumi.get(self, "cluster_arn")
 
     @_builtins.property
@@ -3111,11 +4007,17 @@ class PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigService(dict):
     @_builtins.property
     @pulumi.getter(name="crossAccountRole")
     def cross_account_role(self) -> Optional[_builtins.str]:
+        """
+        ARN of the cross-account role to assume.
+        """
         return pulumi.get(self, "cross_account_role")
 
     @_builtins.property
     @pulumi.getter(name="externalId")
     def external_id(self) -> Optional[_builtins.str]:
+        """
+        External ID for cross-account role assumption.
+        """
         return pulumi.get(self, "external_id")
 
 
@@ -3194,11 +4096,11 @@ class PlanWorkflowStepParallelConfigStepEksResourceScalingConfig(dict):
         """
         :param _builtins.str capacity_monitoring_approach: Capacity monitoring approach. Valid values: `sampledMaxInLast24Hours`, `autoscalingMaxInLast24Hours`.
         :param _builtins.int target_percent: Target capacity percentage.
-        :param Sequence['PlanWorkflowStepParallelConfigStepEksResourceScalingConfigEksClusterArgs'] eks_clusters: List of EKS clusters. See EKS Clusters below.
-        :param Sequence['PlanWorkflowStepParallelConfigStepEksResourceScalingConfigKubernetesResourceTypeArgs'] kubernetes_resource_types: Kubernetes resource type. See Kubernetes Resource Type below.
-        :param Sequence['PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResourceArgs'] scaling_resources: List of scaling resources. See Scaling Resources below.
+        :param Sequence['PlanWorkflowStepParallelConfigStepEksResourceScalingConfigEksClusterArgs'] eks_clusters: EKS clusters. See `eks_clusters` Block for details.
+        :param Sequence['PlanWorkflowStepParallelConfigStepEksResourceScalingConfigKubernetesResourceTypeArgs'] kubernetes_resource_types: Kubernetes resource type. See `kubernetes_resource_type` Block for details.
+        :param Sequence['PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResourceArgs'] scaling_resources: Scaling resources. See `scaling_resources` Block for details.
         :param _builtins.int timeout_minutes: Timeout in minutes.
-        :param Sequence['PlanWorkflowStepParallelConfigStepEksResourceScalingConfigUngracefulArgs'] ungracefuls: Ungraceful behavior configuration. See Ungraceful Capacity below.
+        :param Sequence['PlanWorkflowStepParallelConfigStepEksResourceScalingConfigUngracefulArgs'] ungracefuls: Ungraceful behavior configuration. See `workflow.step.eks_resource_scaling_config.ungraceful` Block for details.
         """
         pulumi.set(__self__, "capacity_monitoring_approach", capacity_monitoring_approach)
         pulumi.set(__self__, "target_percent", target_percent)
@@ -3233,7 +4135,7 @@ class PlanWorkflowStepParallelConfigStepEksResourceScalingConfig(dict):
     @pulumi.getter(name="eksClusters")
     def eks_clusters(self) -> Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepEksResourceScalingConfigEksCluster']]:
         """
-        List of EKS clusters. See EKS Clusters below.
+        EKS clusters. See `eks_clusters` Block for details.
         """
         return pulumi.get(self, "eks_clusters")
 
@@ -3241,7 +4143,7 @@ class PlanWorkflowStepParallelConfigStepEksResourceScalingConfig(dict):
     @pulumi.getter(name="kubernetesResourceTypes")
     def kubernetes_resource_types(self) -> Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepEksResourceScalingConfigKubernetesResourceType']]:
         """
-        Kubernetes resource type. See Kubernetes Resource Type below.
+        Kubernetes resource type. See `kubernetes_resource_type` Block for details.
         """
         return pulumi.get(self, "kubernetes_resource_types")
 
@@ -3249,7 +4151,7 @@ class PlanWorkflowStepParallelConfigStepEksResourceScalingConfig(dict):
     @pulumi.getter(name="scalingResources")
     def scaling_resources(self) -> Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResource']]:
         """
-        List of scaling resources. See Scaling Resources below.
+        Scaling resources. See `scaling_resources` Block for details.
         """
         return pulumi.get(self, "scaling_resources")
 
@@ -3265,7 +4167,7 @@ class PlanWorkflowStepParallelConfigStepEksResourceScalingConfig(dict):
     @pulumi.getter
     def ungracefuls(self) -> Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepEksResourceScalingConfigUngraceful']]:
         """
-        Ungraceful behavior configuration. See Ungraceful Capacity below.
+        Ungraceful behavior configuration. See `workflow.step.eks_resource_scaling_config.ungraceful` Block for details.
         """
         return pulumi.get(self, "ungracefuls")
 
@@ -3386,7 +4288,7 @@ class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResource(
                  resources: Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResourceResource']] = None):
         """
         :param _builtins.str namespace: Kubernetes namespace.
-        :param Sequence['PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResourceResourceArgs'] resources: Set of resources to scale. See Resources below.
+        :param Sequence['PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResourceResourceArgs'] resources: Resources to scale. See `resources` Block for details.
         """
         pulumi.set(__self__, "namespace", namespace)
         if resources is not None:
@@ -3404,7 +4306,7 @@ class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResource(
     @pulumi.getter
     def resources(self) -> Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResourceResource']]:
         """
-        Set of resources to scale. See Resources below.
+        Resources to scale. See `resources` Block for details.
         """
         return pulumi.get(self, "resources")
 
@@ -3606,7 +4508,7 @@ class PlanWorkflowStepParallelConfigStepGlobalAuroraConfig(dict):
         :param _builtins.str cross_account_role: ARN of the cross-account role to assume.
         :param _builtins.str external_id: External ID for cross-account role assumption.
         :param _builtins.int timeout_minutes: Timeout in minutes.
-        :param Sequence['PlanWorkflowStepParallelConfigStepGlobalAuroraConfigUngracefulArgs'] ungracefuls: Ungraceful behavior configuration. See Ungraceful Aurora below.
+        :param Sequence['PlanWorkflowStepParallelConfigStepGlobalAuroraConfigUngracefulArgs'] ungracefuls: Ungraceful behavior configuration. See `workflow.step.global_aurora_config.ungraceful` Block for details.
         """
         pulumi.set(__self__, "behavior", behavior)
         pulumi.set(__self__, "database_cluster_arns", database_cluster_arns)
@@ -3672,13 +4574,295 @@ class PlanWorkflowStepParallelConfigStepGlobalAuroraConfig(dict):
     @pulumi.getter
     def ungracefuls(self) -> Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepGlobalAuroraConfigUngraceful']]:
         """
-        Ungraceful behavior configuration. See Ungraceful Aurora below.
+        Ungraceful behavior configuration. See `workflow.step.global_aurora_config.ungraceful` Block for details.
         """
         return pulumi.get(self, "ungracefuls")
 
 
 @pulumi.output_type
 class PlanWorkflowStepParallelConfigStepGlobalAuroraConfigUngraceful(dict):
+    def __init__(__self__, *,
+                 ungraceful: _builtins.str):
+        pulumi.set(__self__, "ungraceful", ungraceful)
+
+    @_builtins.property
+    @pulumi.getter
+    def ungraceful(self) -> _builtins.str:
+        return pulumi.get(self, "ungraceful")
+
+
+@pulumi.output_type
+class PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "regionEventSourceMappings":
+            suggest = "region_event_source_mappings"
+        elif key == "timeoutMinutes":
+            suggest = "timeout_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action: _builtins.str,
+                 region_event_source_mappings: Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMapping']] = None,
+                 timeout_minutes: Optional[_builtins.int] = None,
+                 ungracefuls: Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngraceful']] = None):
+        """
+        :param _builtins.str action: Action to perform on the event source mapping.
+        :param Sequence['PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMappingArgs'] region_event_source_mappings: Event source mappings per region. See `region_event_source_mapping` Block for details.
+        :param _builtins.int timeout_minutes: Timeout in minutes.
+        :param Sequence['PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngracefulArgs'] ungracefuls: Ungraceful behavior configuration. See `workflow.step.lambda_event_source_mapping_config.ungraceful` Block for details.
+        """
+        pulumi.set(__self__, "action", action)
+        if region_event_source_mappings is not None:
+            pulumi.set(__self__, "region_event_source_mappings", region_event_source_mappings)
+        if timeout_minutes is not None:
+            pulumi.set(__self__, "timeout_minutes", timeout_minutes)
+        if ungracefuls is not None:
+            pulumi.set(__self__, "ungracefuls", ungracefuls)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> _builtins.str:
+        """
+        Action to perform on the event source mapping.
+        """
+        return pulumi.get(self, "action")
+
+    @_builtins.property
+    @pulumi.getter(name="regionEventSourceMappings")
+    def region_event_source_mappings(self) -> Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMapping']]:
+        """
+        Event source mappings per region. See `region_event_source_mapping` Block for details.
+        """
+        return pulumi.get(self, "region_event_source_mappings")
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutMinutes")
+    def timeout_minutes(self) -> Optional[_builtins.int]:
+        """
+        Timeout in minutes.
+        """
+        return pulumi.get(self, "timeout_minutes")
+
+    @_builtins.property
+    @pulumi.getter
+    def ungracefuls(self) -> Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngraceful']]:
+        """
+        Ungraceful behavior configuration. See `workflow.step.lambda_event_source_mapping_config.ungraceful` Block for details.
+        """
+        return pulumi.get(self, "ungracefuls")
+
+
+@pulumi.output_type
+class PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMapping(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "crossAccountRole":
+            suggest = "cross_account_role"
+        elif key == "externalId":
+            suggest = "external_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMapping.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 arn: _builtins.str,
+                 region: _builtins.str,
+                 cross_account_role: Optional[_builtins.str] = None,
+                 external_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str arn: ARN of the event source mapping.
+        :param _builtins.str region: AWS region.
+        :param _builtins.str cross_account_role: ARN of the cross-account role to assume.
+        :param _builtins.str external_id: External ID for cross-account role assumption.
+        """
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "region", region)
+        if cross_account_role is not None:
+            pulumi.set(__self__, "cross_account_role", cross_account_role)
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> _builtins.str:
+        """
+        ARN of the event source mapping.
+        """
+        return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> _builtins.str:
+        """
+        AWS region.
+        """
+        return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter(name="crossAccountRole")
+    def cross_account_role(self) -> Optional[_builtins.str]:
+        """
+        ARN of the cross-account role to assume.
+        """
+        return pulumi.get(self, "cross_account_role")
+
+    @_builtins.property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[_builtins.str]:
+        """
+        External ID for cross-account role assumption.
+        """
+        return pulumi.get(self, "external_id")
+
+
+@pulumi.output_type
+class PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngraceful(dict):
+    def __init__(__self__, *,
+                 behavior: _builtins.str):
+        pulumi.set(__self__, "behavior", behavior)
+
+    @_builtins.property
+    @pulumi.getter
+    def behavior(self) -> _builtins.str:
+        return pulumi.get(self, "behavior")
+
+
+@pulumi.output_type
+class PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "globalClusterIdentifier":
+            suggest = "global_cluster_identifier"
+        elif key == "regionDatabaseClusterArns":
+            suggest = "region_database_cluster_arns"
+        elif key == "crossAccountRole":
+            suggest = "cross_account_role"
+        elif key == "externalId":
+            suggest = "external_id"
+        elif key == "timeoutMinutes":
+            suggest = "timeout_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 behavior: _builtins.str,
+                 global_cluster_identifier: _builtins.str,
+                 region_database_cluster_arns: Mapping[str, _builtins.str],
+                 cross_account_role: Optional[_builtins.str] = None,
+                 external_id: Optional[_builtins.str] = None,
+                 timeout_minutes: Optional[_builtins.int] = None,
+                 ungracefuls: Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngraceful']] = None):
+        """
+        :param _builtins.str behavior: Behavior for global database operations.
+        :param _builtins.str global_cluster_identifier: Global cluster identifier.
+        :param Mapping[str, _builtins.str] region_database_cluster_arns: Map of regions to database cluster ARNs.
+        :param _builtins.str cross_account_role: ARN of the cross-account role to assume.
+        :param _builtins.str external_id: External ID for cross-account role assumption.
+        :param _builtins.int timeout_minutes: Timeout in minutes.
+        :param Sequence['PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngracefulArgs'] ungracefuls: Ungraceful behavior configuration. See `workflow.step.neptune_global_database_config.ungraceful` Block for details.
+        """
+        pulumi.set(__self__, "behavior", behavior)
+        pulumi.set(__self__, "global_cluster_identifier", global_cluster_identifier)
+        pulumi.set(__self__, "region_database_cluster_arns", region_database_cluster_arns)
+        if cross_account_role is not None:
+            pulumi.set(__self__, "cross_account_role", cross_account_role)
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+        if timeout_minutes is not None:
+            pulumi.set(__self__, "timeout_minutes", timeout_minutes)
+        if ungracefuls is not None:
+            pulumi.set(__self__, "ungracefuls", ungracefuls)
+
+    @_builtins.property
+    @pulumi.getter
+    def behavior(self) -> _builtins.str:
+        """
+        Behavior for global database operations.
+        """
+        return pulumi.get(self, "behavior")
+
+    @_builtins.property
+    @pulumi.getter(name="globalClusterIdentifier")
+    def global_cluster_identifier(self) -> _builtins.str:
+        """
+        Global cluster identifier.
+        """
+        return pulumi.get(self, "global_cluster_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="regionDatabaseClusterArns")
+    def region_database_cluster_arns(self) -> Mapping[str, _builtins.str]:
+        """
+        Map of regions to database cluster ARNs.
+        """
+        return pulumi.get(self, "region_database_cluster_arns")
+
+    @_builtins.property
+    @pulumi.getter(name="crossAccountRole")
+    def cross_account_role(self) -> Optional[_builtins.str]:
+        """
+        ARN of the cross-account role to assume.
+        """
+        return pulumi.get(self, "cross_account_role")
+
+    @_builtins.property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[_builtins.str]:
+        """
+        External ID for cross-account role assumption.
+        """
+        return pulumi.get(self, "external_id")
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutMinutes")
+    def timeout_minutes(self) -> Optional[_builtins.int]:
+        """
+        Timeout in minutes.
+        """
+        return pulumi.get(self, "timeout_minutes")
+
+    @_builtins.property
+    @pulumi.getter
+    def ungracefuls(self) -> Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngraceful']]:
+        """
+        Ungraceful behavior configuration. See `workflow.step.neptune_global_database_config.ungraceful` Block for details.
+        """
+        return pulumi.get(self, "ungracefuls")
+
+
+@pulumi.output_type
+class PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngraceful(dict):
     def __init__(__self__, *,
                  ungraceful: _builtins.str):
         pulumi.set(__self__, "ungraceful", ungraceful)
@@ -3945,7 +5129,7 @@ class PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfig(dict):
         :param _builtins.str record_name: DNS record name.
         :param _builtins.str cross_account_role: ARN of the cross-account role to assume.
         :param _builtins.str external_id: External ID for cross-account role assumption.
-        :param Sequence['PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigRecordSetArgs'] record_sets: Configuration block for record sets. See Record Set below.
+        :param Sequence['PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigRecordSetArgs'] record_sets: Configuration block for record sets. See `record_set` Block for details.
         :param _builtins.int timeout_minutes: Timeout in minutes.
         """
         pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
@@ -3995,7 +5179,7 @@ class PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfig(dict):
     @pulumi.getter(name="recordSets")
     def record_sets(self) -> Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigRecordSet']]:
         """
-        Configuration block for record sets. See Record Set below.
+        Configuration block for record sets. See `record_set` Block for details.
         """
         return pulumi.get(self, "record_sets")
 
@@ -4310,7 +5494,7 @@ class PlanWorkflowStepRoute53HealthCheckConfig(dict):
         :param _builtins.str record_name: DNS record name.
         :param _builtins.str cross_account_role: ARN of the cross-account role to assume.
         :param _builtins.str external_id: External ID for cross-account role assumption.
-        :param Sequence['PlanWorkflowStepRoute53HealthCheckConfigRecordSetArgs'] record_sets: Configuration block for record sets. See Record Set below.
+        :param Sequence['PlanWorkflowStepRoute53HealthCheckConfigRecordSetArgs'] record_sets: Configuration block for record sets. See `record_set` Block for details.
         :param _builtins.int timeout_minutes: Timeout in minutes.
         """
         pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
@@ -4360,7 +5544,7 @@ class PlanWorkflowStepRoute53HealthCheckConfig(dict):
     @pulumi.getter(name="recordSets")
     def record_sets(self) -> Optional[Sequence['outputs.PlanWorkflowStepRoute53HealthCheckConfigRecordSet']]:
         """
-        Configuration block for record sets. See Record Set below.
+        Configuration block for record sets. See `record_set` Block for details.
         """
         return pulumi.get(self, "record_sets")
 

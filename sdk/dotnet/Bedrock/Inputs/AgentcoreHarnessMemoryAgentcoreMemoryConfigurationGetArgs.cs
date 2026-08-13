@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<int>? MessagesCount { get; set; }
 
         /// <summary>
-        /// Retrieval configuration parameters. See `RetrievalConfig` below.
+        /// Retrieval configuration parameters. See `RetrievalConfig` Block below.
         /// </summary>
         [Input("retrievalConfig")]
         public Input<Inputs.AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfigGetArgs>? RetrievalConfig { get; set; }

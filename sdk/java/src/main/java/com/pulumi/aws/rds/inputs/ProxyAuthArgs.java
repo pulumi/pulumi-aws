@@ -16,14 +16,14 @@ public final class ProxyAuthArgs extends com.pulumi.resources.ResourceArgs {
     public static final ProxyAuthArgs Empty = new ProxyAuthArgs();
 
     /**
-     * The type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
+     * Type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
      * 
      */
     @Import(name="authScheme")
     private @Nullable Output<String> authScheme;
 
     /**
-     * @return The type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
+     * @return Type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
      * 
      */
     public Optional<Output<String>> authScheme() {
@@ -31,14 +31,14 @@ public final class ProxyAuthArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_CACHING_SHA2_PASSWORD`, `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
+     * Type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_CACHING_SHA2_PASSWORD`, `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
      * 
      */
     @Import(name="clientPasswordAuthType")
     private @Nullable Output<String> clientPasswordAuthType;
 
     /**
-     * @return The type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_CACHING_SHA2_PASSWORD`, `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
+     * @return Type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_CACHING_SHA2_PASSWORD`, `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
      * 
      */
     public Optional<Output<String>> clientPasswordAuthType() {
@@ -46,14 +46,14 @@ public final class ProxyAuthArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A user-specified description about the authentication used by a proxy to log in as a specific database user.
+     * User-specified description about the authentication used by a proxy to log in as a specific database user.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A user-specified description about the authentication used by a proxy to log in as a specific database user.
+     * @return User-specified description about the authentication used by a proxy to log in as a specific database user.
      * 
      */
     public Optional<Output<String>> description() {
@@ -76,14 +76,14 @@ public final class ProxyAuthArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+     * Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
      * 
      */
     @Import(name="secretArn")
     private @Nullable Output<String> secretArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+     * @return Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
      * 
      */
     public Optional<Output<String>> secretArn() {
@@ -91,14 +91,14 @@ public final class ProxyAuthArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the database user to which the proxy connects.
+     * Name of the database user to which the proxy connects.
      * 
      */
     @Import(name="username")
     private @Nullable Output<String> username;
 
     /**
-     * @return The name of the database user to which the proxy connects.
+     * @return Name of the database user to which the proxy connects.
      * 
      */
     public Optional<Output<String>> username() {
@@ -135,7 +135,7 @@ public final class ProxyAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authScheme The type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
+         * @param authScheme Type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class ProxyAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authScheme The type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
+         * @param authScheme Type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class ProxyAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientPasswordAuthType The type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_CACHING_SHA2_PASSWORD`, `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
+         * @param clientPasswordAuthType Type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_CACHING_SHA2_PASSWORD`, `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class ProxyAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientPasswordAuthType The type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_CACHING_SHA2_PASSWORD`, `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
+         * @param clientPasswordAuthType Type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_CACHING_SHA2_PASSWORD`, `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class ProxyAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A user-specified description about the authentication used by a proxy to log in as a specific database user.
+         * @param description User-specified description about the authentication used by a proxy to log in as a specific database user.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class ProxyAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A user-specified description about the authentication used by a proxy to log in as a specific database user.
+         * @param description User-specified description about the authentication used by a proxy to log in as a specific database user.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class ProxyAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param secretArn The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+         * @param secretArn Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class ProxyAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param secretArn The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+         * @param secretArn Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
          * 
          * @return builder
          * 
@@ -240,7 +240,7 @@ public final class ProxyAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param username The name of the database user to which the proxy connects.
+         * @param username Name of the database user to which the proxy connects.
          * 
          * @return builder
          * 
@@ -251,7 +251,7 @@ public final class ProxyAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param username The name of the database user to which the proxy connects.
+         * @param username Name of the database user to which the proxy connects.
          * 
          * @return builder
          * 

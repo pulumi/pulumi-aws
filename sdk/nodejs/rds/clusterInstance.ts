@@ -144,7 +144,7 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     declare public readonly engine: pulumi.Output<enums.rds.EngineType>;
     /**
-     * Database engine version. Please note that to upgrade the `engineVersion` of the instance, it must be done on the `aws.rds.Cluster` `engineVersion`. Trying to upgrade in `awsClusterInstance` will not update the `engineVersion`.
+     * Database engine version. Please note that to upgrade the `engineVersion` of the instance, it must be done on the `aws.rds.Cluster` `engineVersion`. Trying to upgrade in `aws.rds.ClusterInstance` will not update the `engineVersion`.
      */
     declare public readonly engineVersion: pulumi.Output<string>;
     /**
@@ -399,7 +399,7 @@ export interface ClusterInstanceState {
      */
     engine?: pulumi.Input<enums.rds.EngineType | undefined>;
     /**
-     * Database engine version. Please note that to upgrade the `engineVersion` of the instance, it must be done on the `aws.rds.Cluster` `engineVersion`. Trying to upgrade in `awsClusterInstance` will not update the `engineVersion`.
+     * Database engine version. Please note that to upgrade the `engineVersion` of the instance, it must be done on the `aws.rds.Cluster` `engineVersion`. Trying to upgrade in `aws.rds.ClusterInstance` will not update the `engineVersion`.
      */
     engineVersion?: pulumi.Input<string | undefined>;
     /**
@@ -541,7 +541,7 @@ export interface ClusterInstanceArgs {
      */
     engine: pulumi.Input<enums.rds.EngineType>;
     /**
-     * Database engine version. Please note that to upgrade the `engineVersion` of the instance, it must be done on the `aws.rds.Cluster` `engineVersion`. Trying to upgrade in `awsClusterInstance` will not update the `engineVersion`.
+     * Database engine version. Please note that to upgrade the `engineVersion` of the instance, it must be done on the `aws.rds.Cluster` `engineVersion`. Trying to upgrade in `aws.rds.ClusterInstance` will not update the `engineVersion`.
      */
     engineVersion?: pulumi.Input<string | undefined>;
     /**

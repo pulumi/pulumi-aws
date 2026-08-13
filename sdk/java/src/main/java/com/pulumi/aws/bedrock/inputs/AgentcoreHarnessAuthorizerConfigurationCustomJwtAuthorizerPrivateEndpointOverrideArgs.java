@@ -31,14 +31,14 @@ public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPri
     }
 
     /**
-     * Private endpoint configuration. See `privateEndpoint` below.
+     * Private endpoint configuration. See `privateEndpoint` Block below.
      * 
      */
     @Import(name="privateEndpoint", required=true)
     private Output<AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs> privateEndpoint;
 
     /**
-     * @return Private endpoint configuration. See `privateEndpoint` below.
+     * @return Private endpoint configuration. See `privateEndpoint` Block below.
      * 
      */
     public Output<AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs> privateEndpoint() {
@@ -92,7 +92,7 @@ public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPri
         }
 
         /**
-         * @param privateEndpoint Private endpoint configuration. See `privateEndpoint` below.
+         * @param privateEndpoint Private endpoint configuration. See `privateEndpoint` Block below.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPri
         }
 
         /**
-         * @param privateEndpoint Private endpoint configuration. See `privateEndpoint` below.
+         * @param privateEndpoint Private endpoint configuration. See `privateEndpoint` Block below.
          * 
          * @return builder
          * 

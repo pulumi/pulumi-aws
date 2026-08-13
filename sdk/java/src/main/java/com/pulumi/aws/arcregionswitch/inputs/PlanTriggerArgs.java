@@ -35,14 +35,14 @@ public final class PlanTriggerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of conditions that must be met. See Conditions below.
+     * Conditions that must be met. See `conditions` Block for details.
      * 
      */
     @Import(name="conditions")
     private @Nullable Output<List<PlanTriggerConditionArgs>> conditions;
 
     /**
-     * @return List of conditions that must be met. See Conditions below.
+     * @return Conditions that must be met. See `conditions` Block for details.
      * 
      */
     public Optional<Output<List<PlanTriggerConditionArgs>>> conditions() {
@@ -144,7 +144,7 @@ public final class PlanTriggerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param conditions List of conditions that must be met. See Conditions below.
+         * @param conditions Conditions that must be met. See `conditions` Block for details.
          * 
          * @return builder
          * 
@@ -155,7 +155,7 @@ public final class PlanTriggerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param conditions List of conditions that must be met. See Conditions below.
+         * @param conditions Conditions that must be met. See `conditions` Block for details.
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class PlanTriggerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param conditions List of conditions that must be met. See Conditions below.
+         * @param conditions Conditions that must be met. See `conditions` Block for details.
          * 
          * @return builder
          * 

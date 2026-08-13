@@ -38,14 +38,14 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
+     * Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. Required when `protocols` is set to `FTPS`.
      * 
      */
     @Import(name="certificate")
     private @Nullable Output<String> certificate;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
+     * @return Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. Required when `protocols` is set to `FTPS`.
      * 
      */
     public Optional<Output<String>> certificate() {
@@ -53,14 +53,14 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The directory service ID of the directory service you want to connect to with an `identityProviderType` of `AWS_DIRECTORY_SERVICE`.
+     * Directory service ID of the directory service you want to connect to with an `identityProviderType` of `AWS_DIRECTORY_SERVICE`.
      * 
      */
     @Import(name="directoryId")
     private @Nullable Output<String> directoryId;
 
     /**
-     * @return The directory service ID of the directory service you want to connect to with an `identityProviderType` of `AWS_DIRECTORY_SERVICE`.
+     * @return Directory service ID of the directory service you want to connect to with an `identityProviderType` of `AWS_DIRECTORY_SERVICE`.
      * 
      */
     public Optional<Output<String>> directoryId() {
@@ -68,14 +68,14 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
+     * Domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
      * 
      */
     @Import(name="domain")
     private @Nullable Output<String> domain;
 
     /**
-     * @return The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
+     * @return Domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
      * 
      */
     public Optional<Output<String>> domain() {
@@ -83,14 +83,14 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`)
+     * Endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`)
      * 
      */
     @Import(name="endpoint")
     private @Nullable Output<String> endpoint;
 
     /**
-     * @return The endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`)
+     * @return Endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`)
      * 
      */
     public Optional<Output<String>> endpoint() {
@@ -98,14 +98,14 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
+     * Virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
      * 
      */
     @Import(name="endpointDetails")
     private @Nullable Output<ServerEndpointDetailsArgs> endpointDetails;
 
     /**
-     * @return The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
+     * @return Virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
      * 
      */
     public Optional<Output<ServerEndpointDetailsArgs>> endpointDetails() {
@@ -113,14 +113,14 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn&#39;t accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.  Defaults to `PUBLIC`.
+     * Type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn&#39;t accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`. Defaults to `PUBLIC`.
      * 
      */
     @Import(name="endpointType")
     private @Nullable Output<String> endpointType;
 
     /**
-     * @return The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn&#39;t accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.  Defaults to `PUBLIC`.
+     * @return Type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn&#39;t accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`. Defaults to `PUBLIC`.
      * 
      */
     public Optional<Output<String>> endpointType() {
@@ -128,14 +128,14 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`. This option only applies to servers configured with a `SERVICE_MANAGED` `identityProviderType`.
+     * Boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`. This option only applies to servers configured with a `SERVICE_MANAGED` `identityProviderType`.
      * 
      */
     @Import(name="forceDestroy")
     private @Nullable Output<Boolean> forceDestroy;
 
     /**
-     * @return A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`. This option only applies to servers configured with a `SERVICE_MANAGED` `identityProviderType`.
+     * @return Boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`. This option only applies to servers configured with a `SERVICE_MANAGED` `identityProviderType`.
      * 
      */
     public Optional<Output<Boolean>> forceDestroy() {
@@ -143,14 +143,14 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN for a lambda function to use for the Identity provider with an `identityProviderType` of `AWS_LAMBDA`.
+     * ARN for a lambda function to use for the Identity provider with an `identityProviderType` of `AWS_LAMBDA`.
      * 
      */
     @Import(name="function")
     private @Nullable Output<String> function;
 
     /**
-     * @return The ARN for a lambda function to use for the Identity provider with an `identityProviderType` of `AWS_LAMBDA`.
+     * @return ARN for a lambda function to use for the Identity provider with an `identityProviderType` of `AWS_LAMBDA`.
      * 
      */
     public Optional<Output<String>> function() {
@@ -173,14 +173,14 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * This value contains the message-digest algorithm (MD5) hash of the server&#39;s host key. This value is equivalent to the output of the `ssh-keygen -l -E md5 -f my-new-server-key` command.
+     * Message-digest algorithm (MD5) hash of the server&#39;s host key. This value is equivalent to the output of the `ssh-keygen -l -E md5 -f my-new-server-key` command.
      * 
      */
     @Import(name="hostKeyFingerprint")
     private @Nullable Output<String> hostKeyFingerprint;
 
     /**
-     * @return This value contains the message-digest algorithm (MD5) hash of the server&#39;s host key. This value is equivalent to the output of the `ssh-keygen -l -E md5 -f my-new-server-key` command.
+     * @return Message-digest algorithm (MD5) hash of the server&#39;s host key. This value is equivalent to the output of the `ssh-keygen -l -E md5 -f my-new-server-key` command.
      * 
      */
     public Optional<Output<String>> hostKeyFingerprint() {
@@ -188,14 +188,14 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice. Using `AWS_DIRECTORY_SERVICE` will allow for authentication against AWS Managed Active Directory or Microsoft Active Directory in your on-premises environment, or in AWS using AD Connectors. Use the `AWS_LAMBDA` value to directly use a Lambda function as your identity provider. If you choose this value, you must specify the ARN for the lambda function in the `function` argument.
+     * Mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice. Using `AWS_DIRECTORY_SERVICE` will allow for authentication against AWS Managed Active Directory or Microsoft Active Directory in your on-premises environment, or in AWS using AD Connectors. Use the `AWS_LAMBDA` value to directly use a Lambda function as your identity provider. If you choose this value, you must specify the ARN for the lambda function in the `function` argument.
      * 
      */
     @Import(name="identityProviderType")
     private @Nullable Output<String> identityProviderType;
 
     /**
-     * @return The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice. Using `AWS_DIRECTORY_SERVICE` will allow for authentication against AWS Managed Active Directory or Microsoft Active Directory in your on-premises environment, or in AWS using AD Connectors. Use the `AWS_LAMBDA` value to directly use a Lambda function as your identity provider. If you choose this value, you must specify the ARN for the lambda function in the `function` argument.
+     * @return Mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice. Using `AWS_DIRECTORY_SERVICE` will allow for authentication against AWS Managed Active Directory or Microsoft Active Directory in your on-premises environment, or in AWS using AD Connectors. Use the `AWS_LAMBDA` value to directly use a Lambda function as your identity provider. If you choose this value, you must specify the ARN for the lambda function in the `function` argument.
      * 
      */
     public Optional<Output<String>> identityProviderType() {
@@ -278,14 +278,14 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The protocol settings that are configured for your server. See `protocolDetails` Block below for details.
+     * Protocol settings that are configured for your server. See `protocolDetails` Block below for details.
      * 
      */
     @Import(name="protocolDetails")
     private @Nullable Output<ServerProtocolDetailsArgs> protocolDetails;
 
     /**
-     * @return The protocol settings that are configured for your server. See `protocolDetails` Block below for details.
+     * @return Protocol settings that are configured for your server. See `protocolDetails` Block below for details.
      * 
      */
     public Optional<Output<ServerProtocolDetailsArgs>> protocolDetails() {
@@ -293,22 +293,14 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server&#39;s endpoint. This defaults to `SFTP` . The available protocols are:
-     * * `AS2`: File transfer over Applicability Statement 2
-     * * `SFTP`: File transfer over SSH
-     * * `FTPS`: File transfer with TLS encryption
-     * * `FTP`: Unencrypted file transfer
+     * File transfer protocol or protocols over which your file transfer protocol client can connect to your server&#39;s endpoint. This defaults to `SFTP`. The available protocols are `AS2` (file transfer over Applicability Statement 2), `SFTP` (file transfer over SSH), `FTPS` (file transfer with TLS encryption), and `FTP` (unencrypted file transfer).
      * 
      */
     @Import(name="protocols")
     private @Nullable Output<List<String>> protocols;
 
     /**
-     * @return Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server&#39;s endpoint. This defaults to `SFTP` . The available protocols are:
-     * * `AS2`: File transfer over Applicability Statement 2
-     * * `SFTP`: File transfer over SSH
-     * * `FTPS`: File transfer with TLS encryption
-     * * `FTP`: Unencrypted file transfer
+     * @return File transfer protocol or protocols over which your file transfer protocol client can connect to your server&#39;s endpoint. This defaults to `SFTP`. The available protocols are `AS2` (file transfer over Applicability Statement 2), `SFTP` (file transfer over SSH), `FTPS` (file transfer with TLS encryption), and `FTP` (unencrypted file transfer).
      * 
      */
     public Optional<Output<List<String>>> protocols() {
@@ -331,14 +323,14 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` Block below for details.
+     * Whether performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` Block below for details.
      * 
      */
     @Import(name="s3StorageOptions")
     private @Nullable Output<ServerS3StorageOptionsArgs> s3StorageOptions;
 
     /**
-     * @return Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` Block below for details.
+     * @return Whether performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` Block below for details.
      * 
      */
     public Optional<Output<ServerS3StorageOptionsArgs>> s3StorageOptions() {
@@ -346,54 +338,14 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
-     * * `TransferSecurityPolicy-2018-11`
-     * * `TransferSecurityPolicy-2020-06`
-     * * `TransferSecurityPolicy-2022-03`
-     * * `TransferSecurityPolicy-2023-05`
-     * * `TransferSecurityPolicy-2024-01`
-     * * `TransferSecurityPolicy-2025-03`
-     * * `TransferSecurityPolicy-FIPS-2020-06`
-     * * `TransferSecurityPolicy-FIPS-2023-05`
-     * * `TransferSecurityPolicy-FIPS-2024-01`
-     * * `TransferSecurityPolicy-FIPS-2024-05`
-     * * `TransferSecurityPolicy-FIPS-2025-03`
-     * * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
-     * * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
-     * * `TransferSecurityPolicy-Restricted-2018-11`
-     * * `TransferSecurityPolicy-Restricted-2020-06`
-     * * `TransferSecurityPolicy-Restricted-2024-06`
-     * * `TransferSecurityPolicy-SshAuditCompliant-2025-02`
-     * * `TransferSecurityPolicy-AS2Restricted-2025-07`
-     * 
-     * See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
+     * Name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-2022-03`, `TransferSecurityPolicy-2023-05`, `TransferSecurityPolicy-2024-01`, `TransferSecurityPolicy-2025-03`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-FIPS-2023-05`, `TransferSecurityPolicy-FIPS-2024-01`, `TransferSecurityPolicy-FIPS-2024-05`, `TransferSecurityPolicy-FIPS-2025-03`, `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`, `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`, `TransferSecurityPolicy-Restricted-2018-11`, `TransferSecurityPolicy-Restricted-2020-06`, `TransferSecurityPolicy-Restricted-2024-06`, `TransferSecurityPolicy-SshAuditCompliant-2025-02`, and `TransferSecurityPolicy-AS2Restricted-2025-07`. See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
      * 
      */
     @Import(name="securityPolicyName")
     private @Nullable Output<String> securityPolicyName;
 
     /**
-     * @return Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
-     * * `TransferSecurityPolicy-2018-11`
-     * * `TransferSecurityPolicy-2020-06`
-     * * `TransferSecurityPolicy-2022-03`
-     * * `TransferSecurityPolicy-2023-05`
-     * * `TransferSecurityPolicy-2024-01`
-     * * `TransferSecurityPolicy-2025-03`
-     * * `TransferSecurityPolicy-FIPS-2020-06`
-     * * `TransferSecurityPolicy-FIPS-2023-05`
-     * * `TransferSecurityPolicy-FIPS-2024-01`
-     * * `TransferSecurityPolicy-FIPS-2024-05`
-     * * `TransferSecurityPolicy-FIPS-2025-03`
-     * * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
-     * * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
-     * * `TransferSecurityPolicy-Restricted-2018-11`
-     * * `TransferSecurityPolicy-Restricted-2020-06`
-     * * `TransferSecurityPolicy-Restricted-2024-06`
-     * * `TransferSecurityPolicy-SshAuditCompliant-2025-02`
-     * * `TransferSecurityPolicy-AS2Restricted-2025-07`
-     * 
-     * See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
+     * @return Name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-2022-03`, `TransferSecurityPolicy-2023-05`, `TransferSecurityPolicy-2024-01`, `TransferSecurityPolicy-2025-03`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-FIPS-2023-05`, `TransferSecurityPolicy-FIPS-2024-01`, `TransferSecurityPolicy-FIPS-2024-05`, `TransferSecurityPolicy-FIPS-2025-03`, `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`, `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`, `TransferSecurityPolicy-Restricted-2018-11`, `TransferSecurityPolicy-Restricted-2020-06`, `TransferSecurityPolicy-Restricted-2024-06`, `TransferSecurityPolicy-SshAuditCompliant-2025-02`, and `TransferSecurityPolicy-AS2Restricted-2025-07`. See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
      * 
      */
     public Optional<Output<String>> securityPolicyName() {
@@ -416,14 +368,14 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
+     * Set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
      * 
      */
     @Import(name="structuredLogDestinations")
     private @Nullable Output<List<String>> structuredLogDestinations;
 
     /**
-     * @return A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
+     * @return Set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
      * 
      */
     public Optional<Output<List<String>>> structuredLogDestinations() {
@@ -431,14 +383,14 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -446,14 +398,14 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -476,14 +428,14 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the workflow details. See `workflowDetails` Block below for details.
+     * Workflow details. See `workflowDetails` Block below for details.
      * 
      */
     @Import(name="workflowDetails")
     private @Nullable Output<ServerWorkflowDetailsArgs> workflowDetails;
 
     /**
-     * @return Specifies the workflow details. See `workflowDetails` Block below for details.
+     * @return Workflow details. See `workflowDetails` Block below for details.
      * 
      */
     public Optional<Output<ServerWorkflowDetailsArgs>> workflowDetails() {
@@ -563,7 +515,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificate The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
+         * @param certificate Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. Required when `protocols` is set to `FTPS`.
          * 
          * @return builder
          * 
@@ -574,7 +526,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificate The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
+         * @param certificate Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. Required when `protocols` is set to `FTPS`.
          * 
          * @return builder
          * 
@@ -584,7 +536,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param directoryId The directory service ID of the directory service you want to connect to with an `identityProviderType` of `AWS_DIRECTORY_SERVICE`.
+         * @param directoryId Directory service ID of the directory service you want to connect to with an `identityProviderType` of `AWS_DIRECTORY_SERVICE`.
          * 
          * @return builder
          * 
@@ -595,7 +547,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param directoryId The directory service ID of the directory service you want to connect to with an `identityProviderType` of `AWS_DIRECTORY_SERVICE`.
+         * @param directoryId Directory service ID of the directory service you want to connect to with an `identityProviderType` of `AWS_DIRECTORY_SERVICE`.
          * 
          * @return builder
          * 
@@ -605,7 +557,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domain The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
+         * @param domain Domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
          * 
          * @return builder
          * 
@@ -616,7 +568,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domain The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
+         * @param domain Domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
          * 
          * @return builder
          * 
@@ -626,7 +578,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param endpoint The endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`)
+         * @param endpoint Endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`)
          * 
          * @return builder
          * 
@@ -637,7 +589,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param endpoint The endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`)
+         * @param endpoint Endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`)
          * 
          * @return builder
          * 
@@ -647,7 +599,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param endpointDetails The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
+         * @param endpointDetails Virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
          * 
          * @return builder
          * 
@@ -658,7 +610,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param endpointDetails The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
+         * @param endpointDetails Virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
          * 
          * @return builder
          * 
@@ -668,7 +620,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param endpointType The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn&#39;t accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.  Defaults to `PUBLIC`.
+         * @param endpointType Type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn&#39;t accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`. Defaults to `PUBLIC`.
          * 
          * @return builder
          * 
@@ -679,7 +631,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param endpointType The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn&#39;t accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.  Defaults to `PUBLIC`.
+         * @param endpointType Type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn&#39;t accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`. Defaults to `PUBLIC`.
          * 
          * @return builder
          * 
@@ -689,7 +641,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param forceDestroy A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`. This option only applies to servers configured with a `SERVICE_MANAGED` `identityProviderType`.
+         * @param forceDestroy Boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`. This option only applies to servers configured with a `SERVICE_MANAGED` `identityProviderType`.
          * 
          * @return builder
          * 
@@ -700,7 +652,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param forceDestroy A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`. This option only applies to servers configured with a `SERVICE_MANAGED` `identityProviderType`.
+         * @param forceDestroy Boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`. This option only applies to servers configured with a `SERVICE_MANAGED` `identityProviderType`.
          * 
          * @return builder
          * 
@@ -710,7 +662,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param function The ARN for a lambda function to use for the Identity provider with an `identityProviderType` of `AWS_LAMBDA`.
+         * @param function ARN for a lambda function to use for the Identity provider with an `identityProviderType` of `AWS_LAMBDA`.
          * 
          * @return builder
          * 
@@ -721,7 +673,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param function The ARN for a lambda function to use for the Identity provider with an `identityProviderType` of `AWS_LAMBDA`.
+         * @param function ARN for a lambda function to use for the Identity provider with an `identityProviderType` of `AWS_LAMBDA`.
          * 
          * @return builder
          * 
@@ -752,7 +704,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hostKeyFingerprint This value contains the message-digest algorithm (MD5) hash of the server&#39;s host key. This value is equivalent to the output of the `ssh-keygen -l -E md5 -f my-new-server-key` command.
+         * @param hostKeyFingerprint Message-digest algorithm (MD5) hash of the server&#39;s host key. This value is equivalent to the output of the `ssh-keygen -l -E md5 -f my-new-server-key` command.
          * 
          * @return builder
          * 
@@ -763,7 +715,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hostKeyFingerprint This value contains the message-digest algorithm (MD5) hash of the server&#39;s host key. This value is equivalent to the output of the `ssh-keygen -l -E md5 -f my-new-server-key` command.
+         * @param hostKeyFingerprint Message-digest algorithm (MD5) hash of the server&#39;s host key. This value is equivalent to the output of the `ssh-keygen -l -E md5 -f my-new-server-key` command.
          * 
          * @return builder
          * 
@@ -773,7 +725,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identityProviderType The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice. Using `AWS_DIRECTORY_SERVICE` will allow for authentication against AWS Managed Active Directory or Microsoft Active Directory in your on-premises environment, or in AWS using AD Connectors. Use the `AWS_LAMBDA` value to directly use a Lambda function as your identity provider. If you choose this value, you must specify the ARN for the lambda function in the `function` argument.
+         * @param identityProviderType Mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice. Using `AWS_DIRECTORY_SERVICE` will allow for authentication against AWS Managed Active Directory or Microsoft Active Directory in your on-premises environment, or in AWS using AD Connectors. Use the `AWS_LAMBDA` value to directly use a Lambda function as your identity provider. If you choose this value, you must specify the ARN for the lambda function in the `function` argument.
          * 
          * @return builder
          * 
@@ -784,7 +736,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identityProviderType The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice. Using `AWS_DIRECTORY_SERVICE` will allow for authentication against AWS Managed Active Directory or Microsoft Active Directory in your on-premises environment, or in AWS using AD Connectors. Use the `AWS_LAMBDA` value to directly use a Lambda function as your identity provider. If you choose this value, you must specify the ARN for the lambda function in the `function` argument.
+         * @param identityProviderType Mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice. Using `AWS_DIRECTORY_SERVICE` will allow for authentication against AWS Managed Active Directory or Microsoft Active Directory in your on-premises environment, or in AWS using AD Connectors. Use the `AWS_LAMBDA` value to directly use a Lambda function as your identity provider. If you choose this value, you must specify the ARN for the lambda function in the `function` argument.
          * 
          * @return builder
          * 
@@ -899,7 +851,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protocolDetails The protocol settings that are configured for your server. See `protocolDetails` Block below for details.
+         * @param protocolDetails Protocol settings that are configured for your server. See `protocolDetails` Block below for details.
          * 
          * @return builder
          * 
@@ -910,7 +862,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protocolDetails The protocol settings that are configured for your server. See `protocolDetails` Block below for details.
+         * @param protocolDetails Protocol settings that are configured for your server. See `protocolDetails` Block below for details.
          * 
          * @return builder
          * 
@@ -920,11 +872,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protocols Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server&#39;s endpoint. This defaults to `SFTP` . The available protocols are:
-         * * `AS2`: File transfer over Applicability Statement 2
-         * * `SFTP`: File transfer over SSH
-         * * `FTPS`: File transfer with TLS encryption
-         * * `FTP`: Unencrypted file transfer
+         * @param protocols File transfer protocol or protocols over which your file transfer protocol client can connect to your server&#39;s endpoint. This defaults to `SFTP`. The available protocols are `AS2` (file transfer over Applicability Statement 2), `SFTP` (file transfer over SSH), `FTPS` (file transfer with TLS encryption), and `FTP` (unencrypted file transfer).
          * 
          * @return builder
          * 
@@ -935,11 +883,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protocols Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server&#39;s endpoint. This defaults to `SFTP` . The available protocols are:
-         * * `AS2`: File transfer over Applicability Statement 2
-         * * `SFTP`: File transfer over SSH
-         * * `FTPS`: File transfer with TLS encryption
-         * * `FTP`: Unencrypted file transfer
+         * @param protocols File transfer protocol or protocols over which your file transfer protocol client can connect to your server&#39;s endpoint. This defaults to `SFTP`. The available protocols are `AS2` (file transfer over Applicability Statement 2), `SFTP` (file transfer over SSH), `FTPS` (file transfer with TLS encryption), and `FTP` (unencrypted file transfer).
          * 
          * @return builder
          * 
@@ -949,11 +893,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protocols Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server&#39;s endpoint. This defaults to `SFTP` . The available protocols are:
-         * * `AS2`: File transfer over Applicability Statement 2
-         * * `SFTP`: File transfer over SSH
-         * * `FTPS`: File transfer with TLS encryption
-         * * `FTP`: Unencrypted file transfer
+         * @param protocols File transfer protocol or protocols over which your file transfer protocol client can connect to your server&#39;s endpoint. This defaults to `SFTP`. The available protocols are `AS2` (file transfer over Applicability Statement 2), `SFTP` (file transfer over SSH), `FTPS` (file transfer with TLS encryption), and `FTP` (unencrypted file transfer).
          * 
          * @return builder
          * 
@@ -984,7 +924,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param s3StorageOptions Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` Block below for details.
+         * @param s3StorageOptions Whether performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` Block below for details.
          * 
          * @return builder
          * 
@@ -995,7 +935,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param s3StorageOptions Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` Block below for details.
+         * @param s3StorageOptions Whether performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` Block below for details.
          * 
          * @return builder
          * 
@@ -1005,27 +945,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityPolicyName Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
-         * * `TransferSecurityPolicy-2018-11`
-         * * `TransferSecurityPolicy-2020-06`
-         * * `TransferSecurityPolicy-2022-03`
-         * * `TransferSecurityPolicy-2023-05`
-         * * `TransferSecurityPolicy-2024-01`
-         * * `TransferSecurityPolicy-2025-03`
-         * * `TransferSecurityPolicy-FIPS-2020-06`
-         * * `TransferSecurityPolicy-FIPS-2023-05`
-         * * `TransferSecurityPolicy-FIPS-2024-01`
-         * * `TransferSecurityPolicy-FIPS-2024-05`
-         * * `TransferSecurityPolicy-FIPS-2025-03`
-         * * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
-         * * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
-         * * `TransferSecurityPolicy-Restricted-2018-11`
-         * * `TransferSecurityPolicy-Restricted-2020-06`
-         * * `TransferSecurityPolicy-Restricted-2024-06`
-         * * `TransferSecurityPolicy-SshAuditCompliant-2025-02`
-         * * `TransferSecurityPolicy-AS2Restricted-2025-07`
-         * 
-         * See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
+         * @param securityPolicyName Name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-2022-03`, `TransferSecurityPolicy-2023-05`, `TransferSecurityPolicy-2024-01`, `TransferSecurityPolicy-2025-03`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-FIPS-2023-05`, `TransferSecurityPolicy-FIPS-2024-01`, `TransferSecurityPolicy-FIPS-2024-05`, `TransferSecurityPolicy-FIPS-2025-03`, `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`, `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`, `TransferSecurityPolicy-Restricted-2018-11`, `TransferSecurityPolicy-Restricted-2020-06`, `TransferSecurityPolicy-Restricted-2024-06`, `TransferSecurityPolicy-SshAuditCompliant-2025-02`, and `TransferSecurityPolicy-AS2Restricted-2025-07`. See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
          * 
          * @return builder
          * 
@@ -1036,27 +956,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityPolicyName Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
-         * * `TransferSecurityPolicy-2018-11`
-         * * `TransferSecurityPolicy-2020-06`
-         * * `TransferSecurityPolicy-2022-03`
-         * * `TransferSecurityPolicy-2023-05`
-         * * `TransferSecurityPolicy-2024-01`
-         * * `TransferSecurityPolicy-2025-03`
-         * * `TransferSecurityPolicy-FIPS-2020-06`
-         * * `TransferSecurityPolicy-FIPS-2023-05`
-         * * `TransferSecurityPolicy-FIPS-2024-01`
-         * * `TransferSecurityPolicy-FIPS-2024-05`
-         * * `TransferSecurityPolicy-FIPS-2025-03`
-         * * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
-         * * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
-         * * `TransferSecurityPolicy-Restricted-2018-11`
-         * * `TransferSecurityPolicy-Restricted-2020-06`
-         * * `TransferSecurityPolicy-Restricted-2024-06`
-         * * `TransferSecurityPolicy-SshAuditCompliant-2025-02`
-         * * `TransferSecurityPolicy-AS2Restricted-2025-07`
-         * 
-         * See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
+         * @param securityPolicyName Name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-2022-03`, `TransferSecurityPolicy-2023-05`, `TransferSecurityPolicy-2024-01`, `TransferSecurityPolicy-2025-03`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-FIPS-2023-05`, `TransferSecurityPolicy-FIPS-2024-01`, `TransferSecurityPolicy-FIPS-2024-05`, `TransferSecurityPolicy-FIPS-2025-03`, `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`, `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`, `TransferSecurityPolicy-Restricted-2018-11`, `TransferSecurityPolicy-Restricted-2020-06`, `TransferSecurityPolicy-Restricted-2024-06`, `TransferSecurityPolicy-SshAuditCompliant-2025-02`, and `TransferSecurityPolicy-AS2Restricted-2025-07`. See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
          * 
          * @return builder
          * 
@@ -1087,7 +987,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param structuredLogDestinations A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
+         * @param structuredLogDestinations Set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
          * 
          * @return builder
          * 
@@ -1098,7 +998,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param structuredLogDestinations A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
+         * @param structuredLogDestinations Set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
          * 
          * @return builder
          * 
@@ -1108,7 +1008,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param structuredLogDestinations A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
+         * @param structuredLogDestinations Set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
          * 
          * @return builder
          * 
@@ -1118,7 +1018,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1129,7 +1029,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1139,7 +1039,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -1150,7 +1050,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -1181,7 +1081,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workflowDetails Specifies the workflow details. See `workflowDetails` Block below for details.
+         * @param workflowDetails Workflow details. See `workflowDetails` Block below for details.
          * 
          * @return builder
          * 
@@ -1192,7 +1092,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workflowDetails Specifies the workflow details. See `workflowDetails` Block below for details.
+         * @param workflowDetails Workflow details. See `workflowDetails` Block below for details.
          * 
          * @return builder
          * 

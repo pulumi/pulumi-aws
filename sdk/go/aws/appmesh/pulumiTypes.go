@@ -44248,10 +44248,15 @@ func (o GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutput) Index(i 
 }
 
 type GetVirtualNodeSpec struct {
-	BackendDefaults    []GetVirtualNodeSpecBackendDefault   `pulumi:"backendDefaults"`
-	Backends           []GetVirtualNodeSpecBackend          `pulumi:"backends"`
-	Listeners          []GetVirtualNodeSpecListener         `pulumi:"listeners"`
-	Loggings           []GetVirtualNodeSpecLogging          `pulumi:"loggings"`
+	// Defaults for backends. See `spec.backend_defaults` Block for details.
+	BackendDefaults []GetVirtualNodeSpecBackendDefault `pulumi:"backendDefaults"`
+	// Backends to which the virtual node sends outbound traffic. See `spec.backend` Block for details.
+	Backends []GetVirtualNodeSpecBackend `pulumi:"backends"`
+	// Listeners from which the virtual node receives inbound traffic. See `spec.listener` Block for details.
+	Listeners []GetVirtualNodeSpecListener `pulumi:"listeners"`
+	// Inbound and outbound access logging information for the virtual node. See `spec.logging` Block for details.
+	Loggings []GetVirtualNodeSpecLogging `pulumi:"loggings"`
+	// Service discovery information for the virtual node. See `spec.service_discovery` Block for details.
 	ServiceDiscoveries []GetVirtualNodeSpecServiceDiscovery `pulumi:"serviceDiscoveries"`
 }
 
@@ -44267,10 +44272,15 @@ type GetVirtualNodeSpecInput interface {
 }
 
 type GetVirtualNodeSpecArgs struct {
-	BackendDefaults    GetVirtualNodeSpecBackendDefaultArrayInput   `pulumi:"backendDefaults"`
-	Backends           GetVirtualNodeSpecBackendArrayInput          `pulumi:"backends"`
-	Listeners          GetVirtualNodeSpecListenerArrayInput         `pulumi:"listeners"`
-	Loggings           GetVirtualNodeSpecLoggingArrayInput          `pulumi:"loggings"`
+	// Defaults for backends. See `spec.backend_defaults` Block for details.
+	BackendDefaults GetVirtualNodeSpecBackendDefaultArrayInput `pulumi:"backendDefaults"`
+	// Backends to which the virtual node sends outbound traffic. See `spec.backend` Block for details.
+	Backends GetVirtualNodeSpecBackendArrayInput `pulumi:"backends"`
+	// Listeners from which the virtual node receives inbound traffic. See `spec.listener` Block for details.
+	Listeners GetVirtualNodeSpecListenerArrayInput `pulumi:"listeners"`
+	// Inbound and outbound access logging information for the virtual node. See `spec.logging` Block for details.
+	Loggings GetVirtualNodeSpecLoggingArrayInput `pulumi:"loggings"`
+	// Service discovery information for the virtual node. See `spec.service_discovery` Block for details.
 	ServiceDiscoveries GetVirtualNodeSpecServiceDiscoveryArrayInput `pulumi:"serviceDiscoveries"`
 }
 
@@ -44325,22 +44335,27 @@ func (o GetVirtualNodeSpecOutput) ToGetVirtualNodeSpecOutputWithContext(ctx cont
 	return o
 }
 
+// Defaults for backends. See `spec.backend_defaults` Block for details.
 func (o GetVirtualNodeSpecOutput) BackendDefaults() GetVirtualNodeSpecBackendDefaultArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpec) []GetVirtualNodeSpecBackendDefault { return v.BackendDefaults }).(GetVirtualNodeSpecBackendDefaultArrayOutput)
 }
 
+// Backends to which the virtual node sends outbound traffic. See `spec.backend` Block for details.
 func (o GetVirtualNodeSpecOutput) Backends() GetVirtualNodeSpecBackendArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpec) []GetVirtualNodeSpecBackend { return v.Backends }).(GetVirtualNodeSpecBackendArrayOutput)
 }
 
+// Listeners from which the virtual node receives inbound traffic. See `spec.listener` Block for details.
 func (o GetVirtualNodeSpecOutput) Listeners() GetVirtualNodeSpecListenerArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpec) []GetVirtualNodeSpecListener { return v.Listeners }).(GetVirtualNodeSpecListenerArrayOutput)
 }
 
+// Inbound and outbound access logging information for the virtual node. See `spec.logging` Block for details.
 func (o GetVirtualNodeSpecOutput) Loggings() GetVirtualNodeSpecLoggingArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpec) []GetVirtualNodeSpecLogging { return v.Loggings }).(GetVirtualNodeSpecLoggingArrayOutput)
 }
 
+// Service discovery information for the virtual node. See `spec.service_discovery` Block for details.
 func (o GetVirtualNodeSpecOutput) ServiceDiscoveries() GetVirtualNodeSpecServiceDiscoveryArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpec) []GetVirtualNodeSpecServiceDiscovery { return v.ServiceDiscoveries }).(GetVirtualNodeSpecServiceDiscoveryArrayOutput)
 }
@@ -44366,6 +44381,7 @@ func (o GetVirtualNodeSpecArrayOutput) Index(i pulumi.IntInput) GetVirtualNodeSp
 }
 
 type GetVirtualNodeSpecBackend struct {
+	// Virtual service used as a backend for a virtual node. See `spec.backend.virtual_service` Block for details.
 	VirtualServices []GetVirtualNodeSpecBackendVirtualService `pulumi:"virtualServices"`
 }
 
@@ -44381,6 +44397,7 @@ type GetVirtualNodeSpecBackendInput interface {
 }
 
 type GetVirtualNodeSpecBackendArgs struct {
+	// Virtual service used as a backend for a virtual node. See `spec.backend.virtual_service` Block for details.
 	VirtualServices GetVirtualNodeSpecBackendVirtualServiceArrayInput `pulumi:"virtualServices"`
 }
 
@@ -44435,6 +44452,7 @@ func (o GetVirtualNodeSpecBackendOutput) ToGetVirtualNodeSpecBackendOutputWithCo
 	return o
 }
 
+// Virtual service used as a backend for a virtual node. See `spec.backend.virtual_service` Block for details.
 func (o GetVirtualNodeSpecBackendOutput) VirtualServices() GetVirtualNodeSpecBackendVirtualServiceArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackend) []GetVirtualNodeSpecBackendVirtualService { return v.VirtualServices }).(GetVirtualNodeSpecBackendVirtualServiceArrayOutput)
 }
@@ -44460,6 +44478,7 @@ func (o GetVirtualNodeSpecBackendArrayOutput) Index(i pulumi.IntInput) GetVirtua
 }
 
 type GetVirtualNodeSpecBackendDefault struct {
+	// Default client policy for virtual service backends. See `spec.backend_defaults.client_policy` Block for details.
 	ClientPolicies []GetVirtualNodeSpecBackendDefaultClientPolicy `pulumi:"clientPolicies"`
 }
 
@@ -44475,6 +44494,7 @@ type GetVirtualNodeSpecBackendDefaultInput interface {
 }
 
 type GetVirtualNodeSpecBackendDefaultArgs struct {
+	// Default client policy for virtual service backends. See `spec.backend_defaults.client_policy` Block for details.
 	ClientPolicies GetVirtualNodeSpecBackendDefaultClientPolicyArrayInput `pulumi:"clientPolicies"`
 }
 
@@ -44529,6 +44549,7 @@ func (o GetVirtualNodeSpecBackendDefaultOutput) ToGetVirtualNodeSpecBackendDefau
 	return o
 }
 
+// Default client policy for virtual service backends. See `spec.backend_defaults.client_policy` Block for details.
 func (o GetVirtualNodeSpecBackendDefaultOutput) ClientPolicies() GetVirtualNodeSpecBackendDefaultClientPolicyArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendDefault) []GetVirtualNodeSpecBackendDefaultClientPolicy {
 		return v.ClientPolicies
@@ -44556,6 +44577,7 @@ func (o GetVirtualNodeSpecBackendDefaultArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 type GetVirtualNodeSpecBackendDefaultClientPolicy struct {
+	// Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
 	Tls []GetVirtualNodeSpecBackendDefaultClientPolicyTl `pulumi:"tls"`
 }
 
@@ -44571,6 +44593,7 @@ type GetVirtualNodeSpecBackendDefaultClientPolicyInput interface {
 }
 
 type GetVirtualNodeSpecBackendDefaultClientPolicyArgs struct {
+	// Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
 	Tls GetVirtualNodeSpecBackendDefaultClientPolicyTlArrayInput `pulumi:"tls"`
 }
 
@@ -44625,6 +44648,7 @@ func (o GetVirtualNodeSpecBackendDefaultClientPolicyOutput) ToGetVirtualNodeSpec
 	return o
 }
 
+// Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
 func (o GetVirtualNodeSpecBackendDefaultClientPolicyOutput) Tls() GetVirtualNodeSpecBackendDefaultClientPolicyTlArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendDefaultClientPolicy) []GetVirtualNodeSpecBackendDefaultClientPolicyTl {
 		return v.Tls
@@ -44652,10 +44676,14 @@ func (o GetVirtualNodeSpecBackendDefaultClientPolicyArrayOutput) Index(i pulumi.
 }
 
 type GetVirtualNodeSpecBackendDefaultClientPolicyTl struct {
+	// Listener's TLS certificate. See `spec.listener.tls.certificate` Block for details.
 	Certificates []GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificate `pulumi:"certificates"`
-	Enforce      bool                                                        `pulumi:"enforce"`
-	Ports        []int                                                       `pulumi:"ports"`
-	Validations  []GetVirtualNodeSpecBackendDefaultClientPolicyTlValidation  `pulumi:"validations"`
+	// Whether the policy is enforced.
+	Enforce bool `pulumi:"enforce"`
+	// One or more ports that the policy is enforced for.
+	Ports []int `pulumi:"ports"`
+	// Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+	Validations []GetVirtualNodeSpecBackendDefaultClientPolicyTlValidation `pulumi:"validations"`
 }
 
 // GetVirtualNodeSpecBackendDefaultClientPolicyTlInput is an input type that accepts GetVirtualNodeSpecBackendDefaultClientPolicyTlArgs and GetVirtualNodeSpecBackendDefaultClientPolicyTlOutput values.
@@ -44670,10 +44698,14 @@ type GetVirtualNodeSpecBackendDefaultClientPolicyTlInput interface {
 }
 
 type GetVirtualNodeSpecBackendDefaultClientPolicyTlArgs struct {
+	// Listener's TLS certificate. See `spec.listener.tls.certificate` Block for details.
 	Certificates GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateArrayInput `pulumi:"certificates"`
-	Enforce      pulumi.BoolInput                                                    `pulumi:"enforce"`
-	Ports        pulumi.IntArrayInput                                                `pulumi:"ports"`
-	Validations  GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationArrayInput  `pulumi:"validations"`
+	// Whether the policy is enforced.
+	Enforce pulumi.BoolInput `pulumi:"enforce"`
+	// One or more ports that the policy is enforced for.
+	Ports pulumi.IntArrayInput `pulumi:"ports"`
+	// Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+	Validations GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationArrayInput `pulumi:"validations"`
 }
 
 func (GetVirtualNodeSpecBackendDefaultClientPolicyTlArgs) ElementType() reflect.Type {
@@ -44727,20 +44759,24 @@ func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlOutput) ToGetVirtualNodeSp
 	return o
 }
 
+// Listener's TLS certificate. See `spec.listener.tls.certificate` Block for details.
 func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlOutput) Certificates() GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendDefaultClientPolicyTl) []GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificate {
 		return v.Certificates
 	}).(GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateArrayOutput)
 }
 
+// Whether the policy is enforced.
 func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlOutput) Enforce() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendDefaultClientPolicyTl) bool { return v.Enforce }).(pulumi.BoolOutput)
 }
 
+// One or more ports that the policy is enforced for.
 func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlOutput) Ports() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendDefaultClientPolicyTl) []int { return v.Ports }).(pulumi.IntArrayOutput)
 }
 
+// Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
 func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlOutput) Validations() GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendDefaultClientPolicyTl) []GetVirtualNodeSpecBackendDefaultClientPolicyTlValidation {
 		return v.Validations
@@ -44768,8 +44804,10 @@ func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlArrayOutput) Index(i pulum
 }
 
 type GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificate struct {
+	// File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
 	Files []GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFile `pulumi:"files"`
-	Sds   []GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSd   `pulumi:"sds"`
+	// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
+	Sds []GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSd `pulumi:"sds"`
 }
 
 // GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateInput is an input type that accepts GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateArgs and GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateOutput values.
@@ -44784,8 +44822,10 @@ type GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateInput interface {
 }
 
 type GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateArgs struct {
+	// File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
 	Files GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileArrayInput `pulumi:"files"`
-	Sds   GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdArrayInput   `pulumi:"sds"`
+	// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
+	Sds GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdArrayInput `pulumi:"sds"`
 }
 
 func (GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateArgs) ElementType() reflect.Type {
@@ -44839,12 +44879,14 @@ func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateOutput) ToGetVi
 	return o
 }
 
+// File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
 func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateOutput) Files() GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificate) []GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFile {
 		return v.Files
 	}).(GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileArrayOutput)
 }
 
+// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
 func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateOutput) Sds() GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificate) []GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSd {
 		return v.Sds
@@ -44872,8 +44914,10 @@ func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateArrayOutput) In
 }
 
 type GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFile struct {
+	// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on.
 	CertificateChain string `pulumi:"certificateChain"`
-	PrivateKey       string `pulumi:"privateKey"`
+	// Private key for a certificate stored on the file system of the virtual node that the proxy is running on.
+	PrivateKey string `pulumi:"privateKey"`
 }
 
 // GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileInput is an input type that accepts GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileArgs and GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileOutput values.
@@ -44888,8 +44932,10 @@ type GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileInput interfac
 }
 
 type GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileArgs struct {
+	// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on.
 	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
-	PrivateKey       pulumi.StringInput `pulumi:"privateKey"`
+	// Private key for a certificate stored on the file system of the virtual node that the proxy is running on.
+	PrivateKey pulumi.StringInput `pulumi:"privateKey"`
 }
 
 func (GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileArgs) ElementType() reflect.Type {
@@ -44943,12 +44989,14 @@ func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileOutput) ToG
 	return o
 }
 
+// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on.
 func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileOutput) CertificateChain() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFile) string {
 		return v.CertificateChain
 	}).(pulumi.StringOutput)
 }
 
+// Private key for a certificate stored on the file system of the virtual node that the proxy is running on.
 func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileOutput) PrivateKey() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFile) string { return v.PrivateKey }).(pulumi.StringOutput)
 }
@@ -44974,6 +45022,7 @@ func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileArrayOutput
 }
 
 type GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSd struct {
+	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 	SecretName string `pulumi:"secretName"`
 }
 
@@ -44989,6 +45038,7 @@ type GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdInput interface 
 }
 
 type GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdArgs struct {
+	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 	SecretName pulumi.StringInput `pulumi:"secretName"`
 }
 
@@ -45043,6 +45093,7 @@ func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdOutput) ToGet
 	return o
 }
 
+// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSd) string { return v.SecretName }).(pulumi.StringOutput)
 }
@@ -45068,8 +45119,10 @@ func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdArrayOutput) 
 }
 
 type GetVirtualNodeSpecBackendDefaultClientPolicyTlValidation struct {
+	// SANs for a TLS validation context. See `spec.listener.tls.validation.subject_alternative_names` Block for details.
 	SubjectAlternativeNames []GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName `pulumi:"subjectAlternativeNames"`
-	Trusts                  []GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrust                  `pulumi:"trusts"`
+	// TLS validation context trust. See `spec.listener.tls.validation.trust` Block for details.
+	Trusts []GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrust `pulumi:"trusts"`
 }
 
 // GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationInput is an input type that accepts GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationArgs and GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationOutput values.
@@ -45084,8 +45137,10 @@ type GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationInput interface {
 }
 
 type GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationArgs struct {
+	// SANs for a TLS validation context. See `spec.listener.tls.validation.subject_alternative_names` Block for details.
 	SubjectAlternativeNames GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArrayInput `pulumi:"subjectAlternativeNames"`
-	Trusts                  GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustArrayInput                  `pulumi:"trusts"`
+	// TLS validation context trust. See `spec.listener.tls.validation.trust` Block for details.
+	Trusts GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustArrayInput `pulumi:"trusts"`
 }
 
 func (GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationArgs) ElementType() reflect.Type {
@@ -45139,12 +45194,14 @@ func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationOutput) ToGetVir
 	return o
 }
 
+// SANs for a TLS validation context. See `spec.listener.tls.validation.subject_alternative_names` Block for details.
 func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationOutput) SubjectAlternativeNames() GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendDefaultClientPolicyTlValidation) []GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName {
 		return v.SubjectAlternativeNames
 	}).(GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArrayOutput)
 }
 
+// TLS validation context trust. See `spec.listener.tls.validation.trust` Block for details.
 func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationOutput) Trusts() GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendDefaultClientPolicyTlValidation) []GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrust {
 		return v.Trusts
@@ -45172,6 +45229,7 @@ func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationArrayOutput) Ind
 }
 
 type GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName struct {
+	// Criteria for determining a SAN's match. See `spec.listener.tls.validation.subject_alternative_names.match` Block for details.
 	Matches []GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch `pulumi:"matches"`
 }
 
@@ -45187,6 +45245,7 @@ type GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeN
 }
 
 type GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArgs struct {
+	// Criteria for determining a SAN's match. See `spec.listener.tls.validation.subject_alternative_names.match` Block for details.
 	Matches GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArrayInput `pulumi:"matches"`
 }
 
@@ -45241,6 +45300,7 @@ func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternati
 	return o
 }
 
+// Criteria for determining a SAN's match. See `spec.listener.tls.validation.subject_alternative_names.match` Block for details.
 func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameOutput) Matches() GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName) []GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch {
 		return v.Matches
@@ -45268,6 +45328,7 @@ func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternati
 }
 
 type GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch struct {
+	// Values sent must match the specified values exactly.
 	Exacts []string `pulumi:"exacts"`
 }
 
@@ -45283,6 +45344,7 @@ type GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeN
 }
 
 type GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArgs struct {
+	// Values sent must match the specified values exactly.
 	Exacts pulumi.StringArrayInput `pulumi:"exacts"`
 }
 
@@ -45337,6 +45399,7 @@ func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternati
 	return o
 }
 
+// Values sent must match the specified values exactly.
 func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchOutput) Exacts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch) []string {
 		return v.Exacts
@@ -45364,9 +45427,12 @@ func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternati
 }
 
 type GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrust struct {
-	Acms  []GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcm  `pulumi:"acms"`
+	// AWS Certificate Manager (ACM) certificate. See `spec.listener.tls.certificate.acm` Block for details.
+	Acms []GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcm `pulumi:"acms"`
+	// File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
 	Files []GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFile `pulumi:"files"`
-	Sds   []GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSd   `pulumi:"sds"`
+	// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
+	Sds []GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSd `pulumi:"sds"`
 }
 
 // GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustInput is an input type that accepts GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustArgs and GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustOutput values.
@@ -45381,9 +45447,12 @@ type GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustInput interfac
 }
 
 type GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustArgs struct {
-	Acms  GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcmArrayInput  `pulumi:"acms"`
+	// AWS Certificate Manager (ACM) certificate. See `spec.listener.tls.certificate.acm` Block for details.
+	Acms GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcmArrayInput `pulumi:"acms"`
+	// File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
 	Files GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileArrayInput `pulumi:"files"`
-	Sds   GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdArrayInput   `pulumi:"sds"`
+	// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
+	Sds GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdArrayInput `pulumi:"sds"`
 }
 
 func (GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustArgs) ElementType() reflect.Type {
@@ -45437,18 +45506,21 @@ func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustOutput) ToG
 	return o
 }
 
+// AWS Certificate Manager (ACM) certificate. See `spec.listener.tls.certificate.acm` Block for details.
 func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustOutput) Acms() GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcmArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrust) []GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcm {
 		return v.Acms
 	}).(GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcmArrayOutput)
 }
 
+// File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
 func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustOutput) Files() GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrust) []GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFile {
 		return v.Files
 	}).(GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileArrayOutput)
 }
 
+// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
 func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustOutput) Sds() GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrust) []GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSd {
 		return v.Sds
@@ -45476,6 +45548,7 @@ func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustArrayOutput
 }
 
 type GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcm struct {
+	// One or more ACM ARNs.
 	CertificateAuthorityArns []string `pulumi:"certificateAuthorityArns"`
 }
 
@@ -45491,6 +45564,7 @@ type GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcmInput inter
 }
 
 type GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcmArgs struct {
+	// One or more ACM ARNs.
 	CertificateAuthorityArns pulumi.StringArrayInput `pulumi:"certificateAuthorityArns"`
 }
 
@@ -45545,6 +45619,7 @@ func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcmOutput) 
 	return o
 }
 
+// One or more ACM ARNs.
 func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcmOutput) CertificateAuthorityArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcm) []string {
 		return v.CertificateAuthorityArns
@@ -45572,6 +45647,7 @@ func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcmArrayOut
 }
 
 type GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFile struct {
+	// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on.
 	CertificateChain string `pulumi:"certificateChain"`
 }
 
@@ -45587,6 +45663,7 @@ type GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileInput inte
 }
 
 type GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileArgs struct {
+	// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on.
 	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
 }
 
@@ -45641,6 +45718,7 @@ func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileOutput)
 	return o
 }
 
+// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on.
 func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileOutput) CertificateChain() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFile) string {
 		return v.CertificateChain
@@ -45668,6 +45746,7 @@ func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileArrayOu
 }
 
 type GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSd struct {
+	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 	SecretName string `pulumi:"secretName"`
 }
 
@@ -45683,6 +45762,7 @@ type GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdInput interf
 }
 
 type GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdArgs struct {
+	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 	SecretName pulumi.StringInput `pulumi:"secretName"`
 }
 
@@ -45737,6 +45817,7 @@ func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdOutput) T
 	return o
 }
 
+// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSd) string { return v.SecretName }).(pulumi.StringOutput)
 }
@@ -45762,8 +45843,10 @@ func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdArrayOutp
 }
 
 type GetVirtualNodeSpecBackendVirtualService struct {
-	ClientPolicies     []GetVirtualNodeSpecBackendVirtualServiceClientPolicy `pulumi:"clientPolicies"`
-	VirtualServiceName string                                                `pulumi:"virtualServiceName"`
+	// Default client policy for virtual service backends. See `spec.backend_defaults.client_policy` Block for details.
+	ClientPolicies []GetVirtualNodeSpecBackendVirtualServiceClientPolicy `pulumi:"clientPolicies"`
+	// Name of the virtual service that is acting as a virtual node backend.
+	VirtualServiceName string `pulumi:"virtualServiceName"`
 }
 
 // GetVirtualNodeSpecBackendVirtualServiceInput is an input type that accepts GetVirtualNodeSpecBackendVirtualServiceArgs and GetVirtualNodeSpecBackendVirtualServiceOutput values.
@@ -45778,8 +45861,10 @@ type GetVirtualNodeSpecBackendVirtualServiceInput interface {
 }
 
 type GetVirtualNodeSpecBackendVirtualServiceArgs struct {
-	ClientPolicies     GetVirtualNodeSpecBackendVirtualServiceClientPolicyArrayInput `pulumi:"clientPolicies"`
-	VirtualServiceName pulumi.StringInput                                            `pulumi:"virtualServiceName"`
+	// Default client policy for virtual service backends. See `spec.backend_defaults.client_policy` Block for details.
+	ClientPolicies GetVirtualNodeSpecBackendVirtualServiceClientPolicyArrayInput `pulumi:"clientPolicies"`
+	// Name of the virtual service that is acting as a virtual node backend.
+	VirtualServiceName pulumi.StringInput `pulumi:"virtualServiceName"`
 }
 
 func (GetVirtualNodeSpecBackendVirtualServiceArgs) ElementType() reflect.Type {
@@ -45833,12 +45918,14 @@ func (o GetVirtualNodeSpecBackendVirtualServiceOutput) ToGetVirtualNodeSpecBacke
 	return o
 }
 
+// Default client policy for virtual service backends. See `spec.backend_defaults.client_policy` Block for details.
 func (o GetVirtualNodeSpecBackendVirtualServiceOutput) ClientPolicies() GetVirtualNodeSpecBackendVirtualServiceClientPolicyArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendVirtualService) []GetVirtualNodeSpecBackendVirtualServiceClientPolicy {
 		return v.ClientPolicies
 	}).(GetVirtualNodeSpecBackendVirtualServiceClientPolicyArrayOutput)
 }
 
+// Name of the virtual service that is acting as a virtual node backend.
 func (o GetVirtualNodeSpecBackendVirtualServiceOutput) VirtualServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendVirtualService) string { return v.VirtualServiceName }).(pulumi.StringOutput)
 }
@@ -45864,6 +45951,7 @@ func (o GetVirtualNodeSpecBackendVirtualServiceArrayOutput) Index(i pulumi.IntIn
 }
 
 type GetVirtualNodeSpecBackendVirtualServiceClientPolicy struct {
+	// Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
 	Tls []GetVirtualNodeSpecBackendVirtualServiceClientPolicyTl `pulumi:"tls"`
 }
 
@@ -45879,6 +45967,7 @@ type GetVirtualNodeSpecBackendVirtualServiceClientPolicyInput interface {
 }
 
 type GetVirtualNodeSpecBackendVirtualServiceClientPolicyArgs struct {
+	// Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
 	Tls GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlArrayInput `pulumi:"tls"`
 }
 
@@ -45933,6 +46022,7 @@ func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyOutput) ToGetVirtualN
 	return o
 }
 
+// Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
 func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyOutput) Tls() GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendVirtualServiceClientPolicy) []GetVirtualNodeSpecBackendVirtualServiceClientPolicyTl {
 		return v.Tls
@@ -45960,10 +46050,14 @@ func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyArrayOutput) Index(i 
 }
 
 type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTl struct {
+	// Listener's TLS certificate. See `spec.listener.tls.certificate` Block for details.
 	Certificates []GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificate `pulumi:"certificates"`
-	Enforce      bool                                                               `pulumi:"enforce"`
-	Ports        []int                                                              `pulumi:"ports"`
-	Validations  []GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidation  `pulumi:"validations"`
+	// Whether the policy is enforced.
+	Enforce bool `pulumi:"enforce"`
+	// One or more ports that the policy is enforced for.
+	Ports []int `pulumi:"ports"`
+	// Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+	Validations []GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidation `pulumi:"validations"`
 }
 
 // GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlInput is an input type that accepts GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlArgs and GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlOutput values.
@@ -45978,10 +46072,14 @@ type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlInput interface {
 }
 
 type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlArgs struct {
+	// Listener's TLS certificate. See `spec.listener.tls.certificate` Block for details.
 	Certificates GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateArrayInput `pulumi:"certificates"`
-	Enforce      pulumi.BoolInput                                                           `pulumi:"enforce"`
-	Ports        pulumi.IntArrayInput                                                       `pulumi:"ports"`
-	Validations  GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationArrayInput  `pulumi:"validations"`
+	// Whether the policy is enforced.
+	Enforce pulumi.BoolInput `pulumi:"enforce"`
+	// One or more ports that the policy is enforced for.
+	Ports pulumi.IntArrayInput `pulumi:"ports"`
+	// Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+	Validations GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationArrayInput `pulumi:"validations"`
 }
 
 func (GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlArgs) ElementType() reflect.Type {
@@ -46035,20 +46133,24 @@ func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlOutput) ToGetVirtua
 	return o
 }
 
+// Listener's TLS certificate. See `spec.listener.tls.certificate` Block for details.
 func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlOutput) Certificates() GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendVirtualServiceClientPolicyTl) []GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificate {
 		return v.Certificates
 	}).(GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateArrayOutput)
 }
 
+// Whether the policy is enforced.
 func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlOutput) Enforce() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendVirtualServiceClientPolicyTl) bool { return v.Enforce }).(pulumi.BoolOutput)
 }
 
+// One or more ports that the policy is enforced for.
 func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlOutput) Ports() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendVirtualServiceClientPolicyTl) []int { return v.Ports }).(pulumi.IntArrayOutput)
 }
 
+// Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
 func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlOutput) Validations() GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendVirtualServiceClientPolicyTl) []GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidation {
 		return v.Validations
@@ -46076,8 +46178,10 @@ func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlArrayOutput) Index(
 }
 
 type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificate struct {
+	// File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
 	Files []GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFile `pulumi:"files"`
-	Sds   []GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSd   `pulumi:"sds"`
+	// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
+	Sds []GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSd `pulumi:"sds"`
 }
 
 // GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateInput is an input type that accepts GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateArgs and GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateOutput values.
@@ -46092,8 +46196,10 @@ type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateInput inter
 }
 
 type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateArgs struct {
+	// File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
 	Files GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileArrayInput `pulumi:"files"`
-	Sds   GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSdArrayInput   `pulumi:"sds"`
+	// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
+	Sds GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSdArrayInput `pulumi:"sds"`
 }
 
 func (GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateArgs) ElementType() reflect.Type {
@@ -46147,12 +46253,14 @@ func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateOutput) 
 	return o
 }
 
+// File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
 func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateOutput) Files() GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificate) []GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFile {
 		return v.Files
 	}).(GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileArrayOutput)
 }
 
+// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
 func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateOutput) Sds() GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSdArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificate) []GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSd {
 		return v.Sds
@@ -46180,8 +46288,10 @@ func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateArrayOut
 }
 
 type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFile struct {
+	// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on.
 	CertificateChain string `pulumi:"certificateChain"`
-	PrivateKey       string `pulumi:"privateKey"`
+	// Private key for a certificate stored on the file system of the virtual node that the proxy is running on.
+	PrivateKey string `pulumi:"privateKey"`
 }
 
 // GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileInput is an input type that accepts GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileArgs and GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileOutput values.
@@ -46196,8 +46306,10 @@ type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileInput i
 }
 
 type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileArgs struct {
+	// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on.
 	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
-	PrivateKey       pulumi.StringInput `pulumi:"privateKey"`
+	// Private key for a certificate stored on the file system of the virtual node that the proxy is running on.
+	PrivateKey pulumi.StringInput `pulumi:"privateKey"`
 }
 
 func (GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileArgs) ElementType() reflect.Type {
@@ -46251,12 +46363,14 @@ func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileOutp
 	return o
 }
 
+// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on.
 func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileOutput) CertificateChain() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFile) string {
 		return v.CertificateChain
 	}).(pulumi.StringOutput)
 }
 
+// Private key for a certificate stored on the file system of the virtual node that the proxy is running on.
 func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileOutput) PrivateKey() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFile) string {
 		return v.PrivateKey
@@ -46284,6 +46398,7 @@ func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileArra
 }
 
 type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSd struct {
+	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 	SecretName string `pulumi:"secretName"`
 }
 
@@ -46299,6 +46414,7 @@ type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSdInput int
 }
 
 type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSdArgs struct {
+	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 	SecretName pulumi.StringInput `pulumi:"secretName"`
 }
 
@@ -46353,6 +46469,7 @@ func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSdOutput
 	return o
 }
 
+// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSdOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSd) string { return v.SecretName }).(pulumi.StringOutput)
 }
@@ -46378,8 +46495,10 @@ func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSdArrayO
 }
 
 type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidation struct {
+	// SANs for a TLS validation context. See `spec.listener.tls.validation.subject_alternative_names` Block for details.
 	SubjectAlternativeNames []GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeName `pulumi:"subjectAlternativeNames"`
-	Trusts                  []GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrust                  `pulumi:"trusts"`
+	// TLS validation context trust. See `spec.listener.tls.validation.trust` Block for details.
+	Trusts []GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrust `pulumi:"trusts"`
 }
 
 // GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationInput is an input type that accepts GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationArgs and GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationOutput values.
@@ -46394,8 +46513,10 @@ type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationInput interf
 }
 
 type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationArgs struct {
+	// SANs for a TLS validation context. See `spec.listener.tls.validation.subject_alternative_names` Block for details.
 	SubjectAlternativeNames GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameArrayInput `pulumi:"subjectAlternativeNames"`
-	Trusts                  GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustArrayInput                  `pulumi:"trusts"`
+	// TLS validation context trust. See `spec.listener.tls.validation.trust` Block for details.
+	Trusts GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustArrayInput `pulumi:"trusts"`
 }
 
 func (GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationArgs) ElementType() reflect.Type {
@@ -46449,12 +46570,14 @@ func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationOutput) T
 	return o
 }
 
+// SANs for a TLS validation context. See `spec.listener.tls.validation.subject_alternative_names` Block for details.
 func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationOutput) SubjectAlternativeNames() GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidation) []GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeName {
 		return v.SubjectAlternativeNames
 	}).(GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameArrayOutput)
 }
 
+// TLS validation context trust. See `spec.listener.tls.validation.trust` Block for details.
 func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationOutput) Trusts() GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidation) []GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrust {
 		return v.Trusts
@@ -46482,6 +46605,7 @@ func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationArrayOutp
 }
 
 type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeName struct {
+	// Criteria for determining a SAN's match. See `spec.listener.tls.validation.subject_alternative_names.match` Block for details.
 	Matches []GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameMatch `pulumi:"matches"`
 }
 
@@ -46497,6 +46621,7 @@ type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlter
 }
 
 type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameArgs struct {
+	// Criteria for determining a SAN's match. See `spec.listener.tls.validation.subject_alternative_names.match` Block for details.
 	Matches GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameMatchArrayInput `pulumi:"matches"`
 }
 
@@ -46551,6 +46676,7 @@ func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAl
 	return o
 }
 
+// Criteria for determining a SAN's match. See `spec.listener.tls.validation.subject_alternative_names.match` Block for details.
 func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameOutput) Matches() GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameMatchArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeName) []GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameMatch {
 		return v.Matches
@@ -46578,6 +46704,7 @@ func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAl
 }
 
 type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameMatch struct {
+	// Values sent must match the specified values exactly.
 	Exacts []string `pulumi:"exacts"`
 }
 
@@ -46593,6 +46720,7 @@ type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlter
 }
 
 type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameMatchArgs struct {
+	// Values sent must match the specified values exactly.
 	Exacts pulumi.StringArrayInput `pulumi:"exacts"`
 }
 
@@ -46647,6 +46775,7 @@ func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAl
 	return o
 }
 
+// Values sent must match the specified values exactly.
 func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameMatchOutput) Exacts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameMatch) []string {
 		return v.Exacts
@@ -46674,9 +46803,12 @@ func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAl
 }
 
 type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrust struct {
-	Acms  []GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcm  `pulumi:"acms"`
+	// AWS Certificate Manager (ACM) certificate. See `spec.listener.tls.certificate.acm` Block for details.
+	Acms []GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcm `pulumi:"acms"`
+	// File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
 	Files []GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFile `pulumi:"files"`
-	Sds   []GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSd   `pulumi:"sds"`
+	// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
+	Sds []GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSd `pulumi:"sds"`
 }
 
 // GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustInput is an input type that accepts GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustArgs and GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustOutput values.
@@ -46691,9 +46823,12 @@ type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustInput i
 }
 
 type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustArgs struct {
-	Acms  GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcmArrayInput  `pulumi:"acms"`
+	// AWS Certificate Manager (ACM) certificate. See `spec.listener.tls.certificate.acm` Block for details.
+	Acms GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcmArrayInput `pulumi:"acms"`
+	// File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
 	Files GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFileArrayInput `pulumi:"files"`
-	Sds   GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSdArrayInput   `pulumi:"sds"`
+	// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
+	Sds GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSdArrayInput `pulumi:"sds"`
 }
 
 func (GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustArgs) ElementType() reflect.Type {
@@ -46747,18 +46882,21 @@ func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustOutp
 	return o
 }
 
+// AWS Certificate Manager (ACM) certificate. See `spec.listener.tls.certificate.acm` Block for details.
 func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustOutput) Acms() GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcmArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrust) []GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcm {
 		return v.Acms
 	}).(GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcmArrayOutput)
 }
 
+// File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
 func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustOutput) Files() GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFileArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrust) []GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFile {
 		return v.Files
 	}).(GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFileArrayOutput)
 }
 
+// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
 func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustOutput) Sds() GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSdArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrust) []GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSd {
 		return v.Sds
@@ -46786,6 +46924,7 @@ func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustArra
 }
 
 type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcm struct {
+	// One or more ACM ARNs.
 	CertificateAuthorityArns []string `pulumi:"certificateAuthorityArns"`
 }
 
@@ -46801,6 +46940,7 @@ type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcmInpu
 }
 
 type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcmArgs struct {
+	// One or more ACM ARNs.
 	CertificateAuthorityArns pulumi.StringArrayInput `pulumi:"certificateAuthorityArns"`
 }
 
@@ -46855,6 +46995,7 @@ func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcmO
 	return o
 }
 
+// One or more ACM ARNs.
 func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcmOutput) CertificateAuthorityArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcm) []string {
 		return v.CertificateAuthorityArns
@@ -46882,6 +47023,7 @@ func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcmA
 }
 
 type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFile struct {
+	// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on.
 	CertificateChain string `pulumi:"certificateChain"`
 }
 
@@ -46897,6 +47039,7 @@ type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFileInp
 }
 
 type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFileArgs struct {
+	// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on.
 	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
 }
 
@@ -46951,6 +47094,7 @@ func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFile
 	return o
 }
 
+// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on.
 func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFileOutput) CertificateChain() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFile) string {
 		return v.CertificateChain
@@ -46978,6 +47122,7 @@ func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFile
 }
 
 type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSd struct {
+	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 	SecretName string `pulumi:"secretName"`
 }
 
@@ -46993,6 +47138,7 @@ type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSdInput
 }
 
 type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSdArgs struct {
+	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 	SecretName pulumi.StringInput `pulumi:"secretName"`
 }
 
@@ -47047,6 +47193,7 @@ func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSdOu
 	return o
 }
 
+// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSdOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSd) string {
 		return v.SecretName
@@ -47074,12 +47221,18 @@ func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSdAr
 }
 
 type GetVirtualNodeSpecListener struct {
-	ConnectionPools   []GetVirtualNodeSpecListenerConnectionPool   `pulumi:"connectionPools"`
-	HealthChecks      []GetVirtualNodeSpecListenerHealthCheck      `pulumi:"healthChecks"`
+	// Connection pool information for the listener. See `spec.listener.connection_pool` Block for details.
+	ConnectionPools []GetVirtualNodeSpecListenerConnectionPool `pulumi:"connectionPools"`
+	// Health check information for the listener. See `spec.listener.health_check` Block for details.
+	HealthChecks []GetVirtualNodeSpecListenerHealthCheck `pulumi:"healthChecks"`
+	// Outlier detection information for the listener. See `spec.listener.outlier_detection` Block for details.
 	OutlierDetections []GetVirtualNodeSpecListenerOutlierDetection `pulumi:"outlierDetections"`
-	PortMappings      []GetVirtualNodeSpecListenerPortMapping      `pulumi:"portMappings"`
-	Timeouts          []GetVirtualNodeSpecListenerTimeout          `pulumi:"timeouts"`
-	Tls               []GetVirtualNodeSpecListenerTl               `pulumi:"tls"`
+	// Port mapping information for the listener. See `spec.listener.port_mapping` Block for details.
+	PortMappings []GetVirtualNodeSpecListenerPortMapping `pulumi:"portMappings"`
+	// Timeouts for different protocols. See `spec.listener.timeout` Block for details.
+	Timeouts []GetVirtualNodeSpecListenerTimeout `pulumi:"timeouts"`
+	// Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+	Tls []GetVirtualNodeSpecListenerTl `pulumi:"tls"`
 }
 
 // GetVirtualNodeSpecListenerInput is an input type that accepts GetVirtualNodeSpecListenerArgs and GetVirtualNodeSpecListenerOutput values.
@@ -47094,12 +47247,18 @@ type GetVirtualNodeSpecListenerInput interface {
 }
 
 type GetVirtualNodeSpecListenerArgs struct {
-	ConnectionPools   GetVirtualNodeSpecListenerConnectionPoolArrayInput   `pulumi:"connectionPools"`
-	HealthChecks      GetVirtualNodeSpecListenerHealthCheckArrayInput      `pulumi:"healthChecks"`
+	// Connection pool information for the listener. See `spec.listener.connection_pool` Block for details.
+	ConnectionPools GetVirtualNodeSpecListenerConnectionPoolArrayInput `pulumi:"connectionPools"`
+	// Health check information for the listener. See `spec.listener.health_check` Block for details.
+	HealthChecks GetVirtualNodeSpecListenerHealthCheckArrayInput `pulumi:"healthChecks"`
+	// Outlier detection information for the listener. See `spec.listener.outlier_detection` Block for details.
 	OutlierDetections GetVirtualNodeSpecListenerOutlierDetectionArrayInput `pulumi:"outlierDetections"`
-	PortMappings      GetVirtualNodeSpecListenerPortMappingArrayInput      `pulumi:"portMappings"`
-	Timeouts          GetVirtualNodeSpecListenerTimeoutArrayInput          `pulumi:"timeouts"`
-	Tls               GetVirtualNodeSpecListenerTlArrayInput               `pulumi:"tls"`
+	// Port mapping information for the listener. See `spec.listener.port_mapping` Block for details.
+	PortMappings GetVirtualNodeSpecListenerPortMappingArrayInput `pulumi:"portMappings"`
+	// Timeouts for different protocols. See `spec.listener.timeout` Block for details.
+	Timeouts GetVirtualNodeSpecListenerTimeoutArrayInput `pulumi:"timeouts"`
+	// Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+	Tls GetVirtualNodeSpecListenerTlArrayInput `pulumi:"tls"`
 }
 
 func (GetVirtualNodeSpecListenerArgs) ElementType() reflect.Type {
@@ -47153,30 +47312,36 @@ func (o GetVirtualNodeSpecListenerOutput) ToGetVirtualNodeSpecListenerOutputWith
 	return o
 }
 
+// Connection pool information for the listener. See `spec.listener.connection_pool` Block for details.
 func (o GetVirtualNodeSpecListenerOutput) ConnectionPools() GetVirtualNodeSpecListenerConnectionPoolArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListener) []GetVirtualNodeSpecListenerConnectionPool {
 		return v.ConnectionPools
 	}).(GetVirtualNodeSpecListenerConnectionPoolArrayOutput)
 }
 
+// Health check information for the listener. See `spec.listener.health_check` Block for details.
 func (o GetVirtualNodeSpecListenerOutput) HealthChecks() GetVirtualNodeSpecListenerHealthCheckArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListener) []GetVirtualNodeSpecListenerHealthCheck { return v.HealthChecks }).(GetVirtualNodeSpecListenerHealthCheckArrayOutput)
 }
 
+// Outlier detection information for the listener. See `spec.listener.outlier_detection` Block for details.
 func (o GetVirtualNodeSpecListenerOutput) OutlierDetections() GetVirtualNodeSpecListenerOutlierDetectionArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListener) []GetVirtualNodeSpecListenerOutlierDetection {
 		return v.OutlierDetections
 	}).(GetVirtualNodeSpecListenerOutlierDetectionArrayOutput)
 }
 
+// Port mapping information for the listener. See `spec.listener.port_mapping` Block for details.
 func (o GetVirtualNodeSpecListenerOutput) PortMappings() GetVirtualNodeSpecListenerPortMappingArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListener) []GetVirtualNodeSpecListenerPortMapping { return v.PortMappings }).(GetVirtualNodeSpecListenerPortMappingArrayOutput)
 }
 
+// Timeouts for different protocols. See `spec.listener.timeout` Block for details.
 func (o GetVirtualNodeSpecListenerOutput) Timeouts() GetVirtualNodeSpecListenerTimeoutArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListener) []GetVirtualNodeSpecListenerTimeout { return v.Timeouts }).(GetVirtualNodeSpecListenerTimeoutArrayOutput)
 }
 
+// Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
 func (o GetVirtualNodeSpecListenerOutput) Tls() GetVirtualNodeSpecListenerTlArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListener) []GetVirtualNodeSpecListenerTl { return v.Tls }).(GetVirtualNodeSpecListenerTlArrayOutput)
 }
@@ -47202,10 +47367,14 @@ func (o GetVirtualNodeSpecListenerArrayOutput) Index(i pulumi.IntInput) GetVirtu
 }
 
 type GetVirtualNodeSpecListenerConnectionPool struct {
-	Grpcs  []GetVirtualNodeSpecListenerConnectionPoolGrpc  `pulumi:"grpcs"`
+	// Timeouts for gRPC listeners. See `spec.listener.timeout.grpc` Block for details.
+	Grpcs []GetVirtualNodeSpecListenerConnectionPoolGrpc `pulumi:"grpcs"`
+	// Timeouts for HTTP2 listeners. See `spec.listener.timeout.http2` Block for details.
 	Http2s []GetVirtualNodeSpecListenerConnectionPoolHttp2 `pulumi:"http2s"`
-	Https  []GetVirtualNodeSpecListenerConnectionPoolHttp  `pulumi:"https"`
-	Tcps   []GetVirtualNodeSpecListenerConnectionPoolTcp   `pulumi:"tcps"`
+	// Timeouts for HTTP listeners. See `spec.listener.timeout.http` Block for details.
+	Https []GetVirtualNodeSpecListenerConnectionPoolHttp `pulumi:"https"`
+	// Timeouts for TCP listeners. See `spec.listener.timeout.tcp` Block for details.
+	Tcps []GetVirtualNodeSpecListenerConnectionPoolTcp `pulumi:"tcps"`
 }
 
 // GetVirtualNodeSpecListenerConnectionPoolInput is an input type that accepts GetVirtualNodeSpecListenerConnectionPoolArgs and GetVirtualNodeSpecListenerConnectionPoolOutput values.
@@ -47220,10 +47389,14 @@ type GetVirtualNodeSpecListenerConnectionPoolInput interface {
 }
 
 type GetVirtualNodeSpecListenerConnectionPoolArgs struct {
-	Grpcs  GetVirtualNodeSpecListenerConnectionPoolGrpcArrayInput  `pulumi:"grpcs"`
+	// Timeouts for gRPC listeners. See `spec.listener.timeout.grpc` Block for details.
+	Grpcs GetVirtualNodeSpecListenerConnectionPoolGrpcArrayInput `pulumi:"grpcs"`
+	// Timeouts for HTTP2 listeners. See `spec.listener.timeout.http2` Block for details.
 	Http2s GetVirtualNodeSpecListenerConnectionPoolHttp2ArrayInput `pulumi:"http2s"`
-	Https  GetVirtualNodeSpecListenerConnectionPoolHttpArrayInput  `pulumi:"https"`
-	Tcps   GetVirtualNodeSpecListenerConnectionPoolTcpArrayInput   `pulumi:"tcps"`
+	// Timeouts for HTTP listeners. See `spec.listener.timeout.http` Block for details.
+	Https GetVirtualNodeSpecListenerConnectionPoolHttpArrayInput `pulumi:"https"`
+	// Timeouts for TCP listeners. See `spec.listener.timeout.tcp` Block for details.
+	Tcps GetVirtualNodeSpecListenerConnectionPoolTcpArrayInput `pulumi:"tcps"`
 }
 
 func (GetVirtualNodeSpecListenerConnectionPoolArgs) ElementType() reflect.Type {
@@ -47277,24 +47450,28 @@ func (o GetVirtualNodeSpecListenerConnectionPoolOutput) ToGetVirtualNodeSpecList
 	return o
 }
 
+// Timeouts for gRPC listeners. See `spec.listener.timeout.grpc` Block for details.
 func (o GetVirtualNodeSpecListenerConnectionPoolOutput) Grpcs() GetVirtualNodeSpecListenerConnectionPoolGrpcArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerConnectionPool) []GetVirtualNodeSpecListenerConnectionPoolGrpc {
 		return v.Grpcs
 	}).(GetVirtualNodeSpecListenerConnectionPoolGrpcArrayOutput)
 }
 
+// Timeouts for HTTP2 listeners. See `spec.listener.timeout.http2` Block for details.
 func (o GetVirtualNodeSpecListenerConnectionPoolOutput) Http2s() GetVirtualNodeSpecListenerConnectionPoolHttp2ArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerConnectionPool) []GetVirtualNodeSpecListenerConnectionPoolHttp2 {
 		return v.Http2s
 	}).(GetVirtualNodeSpecListenerConnectionPoolHttp2ArrayOutput)
 }
 
+// Timeouts for HTTP listeners. See `spec.listener.timeout.http` Block for details.
 func (o GetVirtualNodeSpecListenerConnectionPoolOutput) Https() GetVirtualNodeSpecListenerConnectionPoolHttpArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerConnectionPool) []GetVirtualNodeSpecListenerConnectionPoolHttp {
 		return v.Https
 	}).(GetVirtualNodeSpecListenerConnectionPoolHttpArrayOutput)
 }
 
+// Timeouts for TCP listeners. See `spec.listener.timeout.tcp` Block for details.
 func (o GetVirtualNodeSpecListenerConnectionPoolOutput) Tcps() GetVirtualNodeSpecListenerConnectionPoolTcpArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerConnectionPool) []GetVirtualNodeSpecListenerConnectionPoolTcp {
 		return v.Tcps
@@ -47322,6 +47499,7 @@ func (o GetVirtualNodeSpecListenerConnectionPoolArrayOutput) Index(i pulumi.IntI
 }
 
 type GetVirtualNodeSpecListenerConnectionPoolGrpc struct {
+	// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster.
 	MaxRequests int `pulumi:"maxRequests"`
 }
 
@@ -47337,6 +47515,7 @@ type GetVirtualNodeSpecListenerConnectionPoolGrpcInput interface {
 }
 
 type GetVirtualNodeSpecListenerConnectionPoolGrpcArgs struct {
+	// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster.
 	MaxRequests pulumi.IntInput `pulumi:"maxRequests"`
 }
 
@@ -47391,6 +47570,7 @@ func (o GetVirtualNodeSpecListenerConnectionPoolGrpcOutput) ToGetVirtualNodeSpec
 	return o
 }
 
+// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster.
 func (o GetVirtualNodeSpecListenerConnectionPoolGrpcOutput) MaxRequests() pulumi.IntOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerConnectionPoolGrpc) int { return v.MaxRequests }).(pulumi.IntOutput)
 }
@@ -47416,6 +47596,7 @@ func (o GetVirtualNodeSpecListenerConnectionPoolGrpcArrayOutput) Index(i pulumi.
 }
 
 type GetVirtualNodeSpecListenerConnectionPoolHttp2 struct {
+	// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster.
 	MaxRequests int `pulumi:"maxRequests"`
 }
 
@@ -47431,6 +47612,7 @@ type GetVirtualNodeSpecListenerConnectionPoolHttp2Input interface {
 }
 
 type GetVirtualNodeSpecListenerConnectionPoolHttp2Args struct {
+	// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster.
 	MaxRequests pulumi.IntInput `pulumi:"maxRequests"`
 }
 
@@ -47485,6 +47667,7 @@ func (o GetVirtualNodeSpecListenerConnectionPoolHttp2Output) ToGetVirtualNodeSpe
 	return o
 }
 
+// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster.
 func (o GetVirtualNodeSpecListenerConnectionPoolHttp2Output) MaxRequests() pulumi.IntOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerConnectionPoolHttp2) int { return v.MaxRequests }).(pulumi.IntOutput)
 }
@@ -47510,7 +47693,9 @@ func (o GetVirtualNodeSpecListenerConnectionPoolHttp2ArrayOutput) Index(i pulumi
 }
 
 type GetVirtualNodeSpecListenerConnectionPoolHttp struct {
-	MaxConnections     int `pulumi:"maxConnections"`
+	// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster.
+	MaxConnections int `pulumi:"maxConnections"`
+	// Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster.
 	MaxPendingRequests int `pulumi:"maxPendingRequests"`
 }
 
@@ -47526,7 +47711,9 @@ type GetVirtualNodeSpecListenerConnectionPoolHttpInput interface {
 }
 
 type GetVirtualNodeSpecListenerConnectionPoolHttpArgs struct {
-	MaxConnections     pulumi.IntInput `pulumi:"maxConnections"`
+	// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster.
+	MaxConnections pulumi.IntInput `pulumi:"maxConnections"`
+	// Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster.
 	MaxPendingRequests pulumi.IntInput `pulumi:"maxPendingRequests"`
 }
 
@@ -47581,10 +47768,12 @@ func (o GetVirtualNodeSpecListenerConnectionPoolHttpOutput) ToGetVirtualNodeSpec
 	return o
 }
 
+// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster.
 func (o GetVirtualNodeSpecListenerConnectionPoolHttpOutput) MaxConnections() pulumi.IntOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerConnectionPoolHttp) int { return v.MaxConnections }).(pulumi.IntOutput)
 }
 
+// Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster.
 func (o GetVirtualNodeSpecListenerConnectionPoolHttpOutput) MaxPendingRequests() pulumi.IntOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerConnectionPoolHttp) int { return v.MaxPendingRequests }).(pulumi.IntOutput)
 }
@@ -47610,6 +47799,7 @@ func (o GetVirtualNodeSpecListenerConnectionPoolHttpArrayOutput) Index(i pulumi.
 }
 
 type GetVirtualNodeSpecListenerConnectionPoolTcp struct {
+	// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster.
 	MaxConnections int `pulumi:"maxConnections"`
 }
 
@@ -47625,6 +47815,7 @@ type GetVirtualNodeSpecListenerConnectionPoolTcpInput interface {
 }
 
 type GetVirtualNodeSpecListenerConnectionPoolTcpArgs struct {
+	// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster.
 	MaxConnections pulumi.IntInput `pulumi:"maxConnections"`
 }
 
@@ -47679,6 +47870,7 @@ func (o GetVirtualNodeSpecListenerConnectionPoolTcpOutput) ToGetVirtualNodeSpecL
 	return o
 }
 
+// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster.
 func (o GetVirtualNodeSpecListenerConnectionPoolTcpOutput) MaxConnections() pulumi.IntOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerConnectionPoolTcp) int { return v.MaxConnections }).(pulumi.IntOutput)
 }
@@ -47704,13 +47896,20 @@ func (o GetVirtualNodeSpecListenerConnectionPoolTcpArrayOutput) Index(i pulumi.I
 }
 
 type GetVirtualNodeSpecListenerHealthCheck struct {
-	HealthyThreshold   int    `pulumi:"healthyThreshold"`
-	IntervalMillis     int    `pulumi:"intervalMillis"`
-	Path               string `pulumi:"path"`
-	Port               int    `pulumi:"port"`
-	Protocol           string `pulumi:"protocol"`
-	TimeoutMillis      int    `pulumi:"timeoutMillis"`
-	UnhealthyThreshold int    `pulumi:"unhealthyThreshold"`
+	// Number of consecutive successful health checks that must occur before declaring listener healthy.
+	HealthyThreshold int `pulumi:"healthyThreshold"`
+	// Time period in milliseconds between each health check execution.
+	IntervalMillis int `pulumi:"intervalMillis"`
+	// File path to write access logs to.
+	Path string `pulumi:"path"`
+	// Port used for the port mapping.
+	Port int `pulumi:"port"`
+	// Protocol used for the port mapping.
+	Protocol string `pulumi:"protocol"`
+	// Amount of time to wait when receiving a response from the health check, in milliseconds.
+	TimeoutMillis int `pulumi:"timeoutMillis"`
+	// Number of consecutive failed health checks that must occur before declaring a virtual node unhealthy.
+	UnhealthyThreshold int `pulumi:"unhealthyThreshold"`
 }
 
 // GetVirtualNodeSpecListenerHealthCheckInput is an input type that accepts GetVirtualNodeSpecListenerHealthCheckArgs and GetVirtualNodeSpecListenerHealthCheckOutput values.
@@ -47725,13 +47924,20 @@ type GetVirtualNodeSpecListenerHealthCheckInput interface {
 }
 
 type GetVirtualNodeSpecListenerHealthCheckArgs struct {
-	HealthyThreshold   pulumi.IntInput    `pulumi:"healthyThreshold"`
-	IntervalMillis     pulumi.IntInput    `pulumi:"intervalMillis"`
-	Path               pulumi.StringInput `pulumi:"path"`
-	Port               pulumi.IntInput    `pulumi:"port"`
-	Protocol           pulumi.StringInput `pulumi:"protocol"`
-	TimeoutMillis      pulumi.IntInput    `pulumi:"timeoutMillis"`
-	UnhealthyThreshold pulumi.IntInput    `pulumi:"unhealthyThreshold"`
+	// Number of consecutive successful health checks that must occur before declaring listener healthy.
+	HealthyThreshold pulumi.IntInput `pulumi:"healthyThreshold"`
+	// Time period in milliseconds between each health check execution.
+	IntervalMillis pulumi.IntInput `pulumi:"intervalMillis"`
+	// File path to write access logs to.
+	Path pulumi.StringInput `pulumi:"path"`
+	// Port used for the port mapping.
+	Port pulumi.IntInput `pulumi:"port"`
+	// Protocol used for the port mapping.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	// Amount of time to wait when receiving a response from the health check, in milliseconds.
+	TimeoutMillis pulumi.IntInput `pulumi:"timeoutMillis"`
+	// Number of consecutive failed health checks that must occur before declaring a virtual node unhealthy.
+	UnhealthyThreshold pulumi.IntInput `pulumi:"unhealthyThreshold"`
 }
 
 func (GetVirtualNodeSpecListenerHealthCheckArgs) ElementType() reflect.Type {
@@ -47785,30 +47991,37 @@ func (o GetVirtualNodeSpecListenerHealthCheckOutput) ToGetVirtualNodeSpecListene
 	return o
 }
 
+// Number of consecutive successful health checks that must occur before declaring listener healthy.
 func (o GetVirtualNodeSpecListenerHealthCheckOutput) HealthyThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerHealthCheck) int { return v.HealthyThreshold }).(pulumi.IntOutput)
 }
 
+// Time period in milliseconds between each health check execution.
 func (o GetVirtualNodeSpecListenerHealthCheckOutput) IntervalMillis() pulumi.IntOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerHealthCheck) int { return v.IntervalMillis }).(pulumi.IntOutput)
 }
 
+// File path to write access logs to.
 func (o GetVirtualNodeSpecListenerHealthCheckOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerHealthCheck) string { return v.Path }).(pulumi.StringOutput)
 }
 
+// Port used for the port mapping.
 func (o GetVirtualNodeSpecListenerHealthCheckOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerHealthCheck) int { return v.Port }).(pulumi.IntOutput)
 }
 
+// Protocol used for the port mapping.
 func (o GetVirtualNodeSpecListenerHealthCheckOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerHealthCheck) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
+// Amount of time to wait when receiving a response from the health check, in milliseconds.
 func (o GetVirtualNodeSpecListenerHealthCheckOutput) TimeoutMillis() pulumi.IntOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerHealthCheck) int { return v.TimeoutMillis }).(pulumi.IntOutput)
 }
 
+// Number of consecutive failed health checks that must occur before declaring a virtual node unhealthy.
 func (o GetVirtualNodeSpecListenerHealthCheckOutput) UnhealthyThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerHealthCheck) int { return v.UnhealthyThreshold }).(pulumi.IntOutput)
 }
@@ -47834,10 +48047,14 @@ func (o GetVirtualNodeSpecListenerHealthCheckArrayOutput) Index(i pulumi.IntInpu
 }
 
 type GetVirtualNodeSpecListenerOutlierDetection struct {
+	// Base amount of time for which a host is ejected. See `spec.listener.outlier_detection.base_ejection_duration` Block for details.
 	BaseEjectionDurations []GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration `pulumi:"baseEjectionDurations"`
-	Intervals             []GetVirtualNodeSpecListenerOutlierDetectionInterval             `pulumi:"intervals"`
-	MaxEjectionPercent    int                                                              `pulumi:"maxEjectionPercent"`
-	MaxServerErrors       int                                                              `pulumi:"maxServerErrors"`
+	// Time interval between ejection sweep analysis. See `spec.listener.outlier_detection.interval` Block for details.
+	Intervals []GetVirtualNodeSpecListenerOutlierDetectionInterval `pulumi:"intervals"`
+	// Maximum percentage of hosts in load balancing pool for upstream service that can be ejected.
+	MaxEjectionPercent int `pulumi:"maxEjectionPercent"`
+	// Number of consecutive `5xx` errors required for ejection.
+	MaxServerErrors int `pulumi:"maxServerErrors"`
 }
 
 // GetVirtualNodeSpecListenerOutlierDetectionInput is an input type that accepts GetVirtualNodeSpecListenerOutlierDetectionArgs and GetVirtualNodeSpecListenerOutlierDetectionOutput values.
@@ -47852,10 +48069,14 @@ type GetVirtualNodeSpecListenerOutlierDetectionInput interface {
 }
 
 type GetVirtualNodeSpecListenerOutlierDetectionArgs struct {
+	// Base amount of time for which a host is ejected. See `spec.listener.outlier_detection.base_ejection_duration` Block for details.
 	BaseEjectionDurations GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArrayInput `pulumi:"baseEjectionDurations"`
-	Intervals             GetVirtualNodeSpecListenerOutlierDetectionIntervalArrayInput             `pulumi:"intervals"`
-	MaxEjectionPercent    pulumi.IntInput                                                          `pulumi:"maxEjectionPercent"`
-	MaxServerErrors       pulumi.IntInput                                                          `pulumi:"maxServerErrors"`
+	// Time interval between ejection sweep analysis. See `spec.listener.outlier_detection.interval` Block for details.
+	Intervals GetVirtualNodeSpecListenerOutlierDetectionIntervalArrayInput `pulumi:"intervals"`
+	// Maximum percentage of hosts in load balancing pool for upstream service that can be ejected.
+	MaxEjectionPercent pulumi.IntInput `pulumi:"maxEjectionPercent"`
+	// Number of consecutive `5xx` errors required for ejection.
+	MaxServerErrors pulumi.IntInput `pulumi:"maxServerErrors"`
 }
 
 func (GetVirtualNodeSpecListenerOutlierDetectionArgs) ElementType() reflect.Type {
@@ -47909,22 +48130,26 @@ func (o GetVirtualNodeSpecListenerOutlierDetectionOutput) ToGetVirtualNodeSpecLi
 	return o
 }
 
+// Base amount of time for which a host is ejected. See `spec.listener.outlier_detection.base_ejection_duration` Block for details.
 func (o GetVirtualNodeSpecListenerOutlierDetectionOutput) BaseEjectionDurations() GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerOutlierDetection) []GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration {
 		return v.BaseEjectionDurations
 	}).(GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArrayOutput)
 }
 
+// Time interval between ejection sweep analysis. See `spec.listener.outlier_detection.interval` Block for details.
 func (o GetVirtualNodeSpecListenerOutlierDetectionOutput) Intervals() GetVirtualNodeSpecListenerOutlierDetectionIntervalArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerOutlierDetection) []GetVirtualNodeSpecListenerOutlierDetectionInterval {
 		return v.Intervals
 	}).(GetVirtualNodeSpecListenerOutlierDetectionIntervalArrayOutput)
 }
 
+// Maximum percentage of hosts in load balancing pool for upstream service that can be ejected.
 func (o GetVirtualNodeSpecListenerOutlierDetectionOutput) MaxEjectionPercent() pulumi.IntOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerOutlierDetection) int { return v.MaxEjectionPercent }).(pulumi.IntOutput)
 }
 
+// Number of consecutive `5xx` errors required for ejection.
 func (o GetVirtualNodeSpecListenerOutlierDetectionOutput) MaxServerErrors() pulumi.IntOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerOutlierDetection) int { return v.MaxServerErrors }).(pulumi.IntOutput)
 }
@@ -47950,8 +48175,10 @@ func (o GetVirtualNodeSpecListenerOutlierDetectionArrayOutput) Index(i pulumi.In
 }
 
 type GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration struct {
-	Unit  string `pulumi:"unit"`
-	Value int    `pulumi:"value"`
+	// Unit of time.
+	Unit string `pulumi:"unit"`
+	// Value for the JSON.
+	Value int `pulumi:"value"`
 }
 
 // GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationInput is an input type that accepts GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgs and GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutput values.
@@ -47966,8 +48193,10 @@ type GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationInput interfa
 }
 
 type GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgs struct {
-	Unit  pulumi.StringInput `pulumi:"unit"`
-	Value pulumi.IntInput    `pulumi:"value"`
+	// Unit of time.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// Value for the JSON.
+	Value pulumi.IntInput `pulumi:"value"`
 }
 
 func (GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgs) ElementType() reflect.Type {
@@ -48021,10 +48250,12 @@ func (o GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutput) To
 	return o
 }
 
+// Unit of time.
 func (o GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration) string { return v.Unit }).(pulumi.StringOutput)
 }
 
+// Value for the JSON.
 func (o GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutput) Value() pulumi.IntOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration) int { return v.Value }).(pulumi.IntOutput)
 }
@@ -48050,8 +48281,10 @@ func (o GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArrayOutpu
 }
 
 type GetVirtualNodeSpecListenerOutlierDetectionInterval struct {
-	Unit  string `pulumi:"unit"`
-	Value int    `pulumi:"value"`
+	// Unit of time.
+	Unit string `pulumi:"unit"`
+	// Value for the JSON.
+	Value int `pulumi:"value"`
 }
 
 // GetVirtualNodeSpecListenerOutlierDetectionIntervalInput is an input type that accepts GetVirtualNodeSpecListenerOutlierDetectionIntervalArgs and GetVirtualNodeSpecListenerOutlierDetectionIntervalOutput values.
@@ -48066,8 +48299,10 @@ type GetVirtualNodeSpecListenerOutlierDetectionIntervalInput interface {
 }
 
 type GetVirtualNodeSpecListenerOutlierDetectionIntervalArgs struct {
-	Unit  pulumi.StringInput `pulumi:"unit"`
-	Value pulumi.IntInput    `pulumi:"value"`
+	// Unit of time.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// Value for the JSON.
+	Value pulumi.IntInput `pulumi:"value"`
 }
 
 func (GetVirtualNodeSpecListenerOutlierDetectionIntervalArgs) ElementType() reflect.Type {
@@ -48121,10 +48356,12 @@ func (o GetVirtualNodeSpecListenerOutlierDetectionIntervalOutput) ToGetVirtualNo
 	return o
 }
 
+// Unit of time.
 func (o GetVirtualNodeSpecListenerOutlierDetectionIntervalOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerOutlierDetectionInterval) string { return v.Unit }).(pulumi.StringOutput)
 }
 
+// Value for the JSON.
 func (o GetVirtualNodeSpecListenerOutlierDetectionIntervalOutput) Value() pulumi.IntOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerOutlierDetectionInterval) int { return v.Value }).(pulumi.IntOutput)
 }
@@ -48150,7 +48387,9 @@ func (o GetVirtualNodeSpecListenerOutlierDetectionIntervalArrayOutput) Index(i p
 }
 
 type GetVirtualNodeSpecListenerPortMapping struct {
-	Port     int    `pulumi:"port"`
+	// Port used for the port mapping.
+	Port int `pulumi:"port"`
+	// Protocol used for the port mapping.
 	Protocol string `pulumi:"protocol"`
 }
 
@@ -48166,7 +48405,9 @@ type GetVirtualNodeSpecListenerPortMappingInput interface {
 }
 
 type GetVirtualNodeSpecListenerPortMappingArgs struct {
-	Port     pulumi.IntInput    `pulumi:"port"`
+	// Port used for the port mapping.
+	Port pulumi.IntInput `pulumi:"port"`
+	// Protocol used for the port mapping.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
 }
 
@@ -48221,10 +48462,12 @@ func (o GetVirtualNodeSpecListenerPortMappingOutput) ToGetVirtualNodeSpecListene
 	return o
 }
 
+// Port used for the port mapping.
 func (o GetVirtualNodeSpecListenerPortMappingOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerPortMapping) int { return v.Port }).(pulumi.IntOutput)
 }
 
+// Protocol used for the port mapping.
 func (o GetVirtualNodeSpecListenerPortMappingOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerPortMapping) string { return v.Protocol }).(pulumi.StringOutput)
 }
@@ -48250,10 +48493,14 @@ func (o GetVirtualNodeSpecListenerPortMappingArrayOutput) Index(i pulumi.IntInpu
 }
 
 type GetVirtualNodeSpecListenerTimeout struct {
-	Grpcs  []GetVirtualNodeSpecListenerTimeoutGrpc  `pulumi:"grpcs"`
+	// Timeouts for gRPC listeners. See `spec.listener.timeout.grpc` Block for details.
+	Grpcs []GetVirtualNodeSpecListenerTimeoutGrpc `pulumi:"grpcs"`
+	// Timeouts for HTTP2 listeners. See `spec.listener.timeout.http2` Block for details.
 	Http2s []GetVirtualNodeSpecListenerTimeoutHttp2 `pulumi:"http2s"`
-	Https  []GetVirtualNodeSpecListenerTimeoutHttp  `pulumi:"https"`
-	Tcps   []GetVirtualNodeSpecListenerTimeoutTcp   `pulumi:"tcps"`
+	// Timeouts for HTTP listeners. See `spec.listener.timeout.http` Block for details.
+	Https []GetVirtualNodeSpecListenerTimeoutHttp `pulumi:"https"`
+	// Timeouts for TCP listeners. See `spec.listener.timeout.tcp` Block for details.
+	Tcps []GetVirtualNodeSpecListenerTimeoutTcp `pulumi:"tcps"`
 }
 
 // GetVirtualNodeSpecListenerTimeoutInput is an input type that accepts GetVirtualNodeSpecListenerTimeoutArgs and GetVirtualNodeSpecListenerTimeoutOutput values.
@@ -48268,10 +48515,14 @@ type GetVirtualNodeSpecListenerTimeoutInput interface {
 }
 
 type GetVirtualNodeSpecListenerTimeoutArgs struct {
-	Grpcs  GetVirtualNodeSpecListenerTimeoutGrpcArrayInput  `pulumi:"grpcs"`
+	// Timeouts for gRPC listeners. See `spec.listener.timeout.grpc` Block for details.
+	Grpcs GetVirtualNodeSpecListenerTimeoutGrpcArrayInput `pulumi:"grpcs"`
+	// Timeouts for HTTP2 listeners. See `spec.listener.timeout.http2` Block for details.
 	Http2s GetVirtualNodeSpecListenerTimeoutHttp2ArrayInput `pulumi:"http2s"`
-	Https  GetVirtualNodeSpecListenerTimeoutHttpArrayInput  `pulumi:"https"`
-	Tcps   GetVirtualNodeSpecListenerTimeoutTcpArrayInput   `pulumi:"tcps"`
+	// Timeouts for HTTP listeners. See `spec.listener.timeout.http` Block for details.
+	Https GetVirtualNodeSpecListenerTimeoutHttpArrayInput `pulumi:"https"`
+	// Timeouts for TCP listeners. See `spec.listener.timeout.tcp` Block for details.
+	Tcps GetVirtualNodeSpecListenerTimeoutTcpArrayInput `pulumi:"tcps"`
 }
 
 func (GetVirtualNodeSpecListenerTimeoutArgs) ElementType() reflect.Type {
@@ -48325,18 +48576,22 @@ func (o GetVirtualNodeSpecListenerTimeoutOutput) ToGetVirtualNodeSpecListenerTim
 	return o
 }
 
+// Timeouts for gRPC listeners. See `spec.listener.timeout.grpc` Block for details.
 func (o GetVirtualNodeSpecListenerTimeoutOutput) Grpcs() GetVirtualNodeSpecListenerTimeoutGrpcArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeout) []GetVirtualNodeSpecListenerTimeoutGrpc { return v.Grpcs }).(GetVirtualNodeSpecListenerTimeoutGrpcArrayOutput)
 }
 
+// Timeouts for HTTP2 listeners. See `spec.listener.timeout.http2` Block for details.
 func (o GetVirtualNodeSpecListenerTimeoutOutput) Http2s() GetVirtualNodeSpecListenerTimeoutHttp2ArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeout) []GetVirtualNodeSpecListenerTimeoutHttp2 { return v.Http2s }).(GetVirtualNodeSpecListenerTimeoutHttp2ArrayOutput)
 }
 
+// Timeouts for HTTP listeners. See `spec.listener.timeout.http` Block for details.
 func (o GetVirtualNodeSpecListenerTimeoutOutput) Https() GetVirtualNodeSpecListenerTimeoutHttpArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeout) []GetVirtualNodeSpecListenerTimeoutHttp { return v.Https }).(GetVirtualNodeSpecListenerTimeoutHttpArrayOutput)
 }
 
+// Timeouts for TCP listeners. See `spec.listener.timeout.tcp` Block for details.
 func (o GetVirtualNodeSpecListenerTimeoutOutput) Tcps() GetVirtualNodeSpecListenerTimeoutTcpArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeout) []GetVirtualNodeSpecListenerTimeoutTcp { return v.Tcps }).(GetVirtualNodeSpecListenerTimeoutTcpArrayOutput)
 }
@@ -48362,7 +48617,9 @@ func (o GetVirtualNodeSpecListenerTimeoutArrayOutput) Index(i pulumi.IntInput) G
 }
 
 type GetVirtualNodeSpecListenerTimeoutGrpc struct {
-	Idles       []GetVirtualNodeSpecListenerTimeoutGrpcIdle       `pulumi:"idles"`
+	// Idle timeout. See `spec.listener.timeout.tcp.idle` Block for details.
+	Idles []GetVirtualNodeSpecListenerTimeoutGrpcIdle `pulumi:"idles"`
+	// Per request timeout. See `spec.listener.timeout.http2.per_request` Block for details.
 	PerRequests []GetVirtualNodeSpecListenerTimeoutGrpcPerRequest `pulumi:"perRequests"`
 }
 
@@ -48378,7 +48635,9 @@ type GetVirtualNodeSpecListenerTimeoutGrpcInput interface {
 }
 
 type GetVirtualNodeSpecListenerTimeoutGrpcArgs struct {
-	Idles       GetVirtualNodeSpecListenerTimeoutGrpcIdleArrayInput       `pulumi:"idles"`
+	// Idle timeout. See `spec.listener.timeout.tcp.idle` Block for details.
+	Idles GetVirtualNodeSpecListenerTimeoutGrpcIdleArrayInput `pulumi:"idles"`
+	// Per request timeout. See `spec.listener.timeout.http2.per_request` Block for details.
 	PerRequests GetVirtualNodeSpecListenerTimeoutGrpcPerRequestArrayInput `pulumi:"perRequests"`
 }
 
@@ -48433,12 +48692,14 @@ func (o GetVirtualNodeSpecListenerTimeoutGrpcOutput) ToGetVirtualNodeSpecListene
 	return o
 }
 
+// Idle timeout. See `spec.listener.timeout.tcp.idle` Block for details.
 func (o GetVirtualNodeSpecListenerTimeoutGrpcOutput) Idles() GetVirtualNodeSpecListenerTimeoutGrpcIdleArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutGrpc) []GetVirtualNodeSpecListenerTimeoutGrpcIdle {
 		return v.Idles
 	}).(GetVirtualNodeSpecListenerTimeoutGrpcIdleArrayOutput)
 }
 
+// Per request timeout. See `spec.listener.timeout.http2.per_request` Block for details.
 func (o GetVirtualNodeSpecListenerTimeoutGrpcOutput) PerRequests() GetVirtualNodeSpecListenerTimeoutGrpcPerRequestArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutGrpc) []GetVirtualNodeSpecListenerTimeoutGrpcPerRequest {
 		return v.PerRequests
@@ -48466,8 +48727,10 @@ func (o GetVirtualNodeSpecListenerTimeoutGrpcArrayOutput) Index(i pulumi.IntInpu
 }
 
 type GetVirtualNodeSpecListenerTimeoutGrpcIdle struct {
-	Unit  string `pulumi:"unit"`
-	Value int    `pulumi:"value"`
+	// Unit of time.
+	Unit string `pulumi:"unit"`
+	// Value for the JSON.
+	Value int `pulumi:"value"`
 }
 
 // GetVirtualNodeSpecListenerTimeoutGrpcIdleInput is an input type that accepts GetVirtualNodeSpecListenerTimeoutGrpcIdleArgs and GetVirtualNodeSpecListenerTimeoutGrpcIdleOutput values.
@@ -48482,8 +48745,10 @@ type GetVirtualNodeSpecListenerTimeoutGrpcIdleInput interface {
 }
 
 type GetVirtualNodeSpecListenerTimeoutGrpcIdleArgs struct {
-	Unit  pulumi.StringInput `pulumi:"unit"`
-	Value pulumi.IntInput    `pulumi:"value"`
+	// Unit of time.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// Value for the JSON.
+	Value pulumi.IntInput `pulumi:"value"`
 }
 
 func (GetVirtualNodeSpecListenerTimeoutGrpcIdleArgs) ElementType() reflect.Type {
@@ -48537,10 +48802,12 @@ func (o GetVirtualNodeSpecListenerTimeoutGrpcIdleOutput) ToGetVirtualNodeSpecLis
 	return o
 }
 
+// Unit of time.
 func (o GetVirtualNodeSpecListenerTimeoutGrpcIdleOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutGrpcIdle) string { return v.Unit }).(pulumi.StringOutput)
 }
 
+// Value for the JSON.
 func (o GetVirtualNodeSpecListenerTimeoutGrpcIdleOutput) Value() pulumi.IntOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutGrpcIdle) int { return v.Value }).(pulumi.IntOutput)
 }
@@ -48566,8 +48833,10 @@ func (o GetVirtualNodeSpecListenerTimeoutGrpcIdleArrayOutput) Index(i pulumi.Int
 }
 
 type GetVirtualNodeSpecListenerTimeoutGrpcPerRequest struct {
-	Unit  string `pulumi:"unit"`
-	Value int    `pulumi:"value"`
+	// Unit of time.
+	Unit string `pulumi:"unit"`
+	// Value for the JSON.
+	Value int `pulumi:"value"`
 }
 
 // GetVirtualNodeSpecListenerTimeoutGrpcPerRequestInput is an input type that accepts GetVirtualNodeSpecListenerTimeoutGrpcPerRequestArgs and GetVirtualNodeSpecListenerTimeoutGrpcPerRequestOutput values.
@@ -48582,8 +48851,10 @@ type GetVirtualNodeSpecListenerTimeoutGrpcPerRequestInput interface {
 }
 
 type GetVirtualNodeSpecListenerTimeoutGrpcPerRequestArgs struct {
-	Unit  pulumi.StringInput `pulumi:"unit"`
-	Value pulumi.IntInput    `pulumi:"value"`
+	// Unit of time.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// Value for the JSON.
+	Value pulumi.IntInput `pulumi:"value"`
 }
 
 func (GetVirtualNodeSpecListenerTimeoutGrpcPerRequestArgs) ElementType() reflect.Type {
@@ -48637,10 +48908,12 @@ func (o GetVirtualNodeSpecListenerTimeoutGrpcPerRequestOutput) ToGetVirtualNodeS
 	return o
 }
 
+// Unit of time.
 func (o GetVirtualNodeSpecListenerTimeoutGrpcPerRequestOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutGrpcPerRequest) string { return v.Unit }).(pulumi.StringOutput)
 }
 
+// Value for the JSON.
 func (o GetVirtualNodeSpecListenerTimeoutGrpcPerRequestOutput) Value() pulumi.IntOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutGrpcPerRequest) int { return v.Value }).(pulumi.IntOutput)
 }
@@ -48666,7 +48939,9 @@ func (o GetVirtualNodeSpecListenerTimeoutGrpcPerRequestArrayOutput) Index(i pulu
 }
 
 type GetVirtualNodeSpecListenerTimeoutHttp2 struct {
-	Idles       []GetVirtualNodeSpecListenerTimeoutHttp2Idle       `pulumi:"idles"`
+	// Idle timeout. See `spec.listener.timeout.tcp.idle` Block for details.
+	Idles []GetVirtualNodeSpecListenerTimeoutHttp2Idle `pulumi:"idles"`
+	// Per request timeout. See `spec.listener.timeout.http2.per_request` Block for details.
 	PerRequests []GetVirtualNodeSpecListenerTimeoutHttp2PerRequest `pulumi:"perRequests"`
 }
 
@@ -48682,7 +48957,9 @@ type GetVirtualNodeSpecListenerTimeoutHttp2Input interface {
 }
 
 type GetVirtualNodeSpecListenerTimeoutHttp2Args struct {
-	Idles       GetVirtualNodeSpecListenerTimeoutHttp2IdleArrayInput       `pulumi:"idles"`
+	// Idle timeout. See `spec.listener.timeout.tcp.idle` Block for details.
+	Idles GetVirtualNodeSpecListenerTimeoutHttp2IdleArrayInput `pulumi:"idles"`
+	// Per request timeout. See `spec.listener.timeout.http2.per_request` Block for details.
 	PerRequests GetVirtualNodeSpecListenerTimeoutHttp2PerRequestArrayInput `pulumi:"perRequests"`
 }
 
@@ -48737,12 +49014,14 @@ func (o GetVirtualNodeSpecListenerTimeoutHttp2Output) ToGetVirtualNodeSpecListen
 	return o
 }
 
+// Idle timeout. See `spec.listener.timeout.tcp.idle` Block for details.
 func (o GetVirtualNodeSpecListenerTimeoutHttp2Output) Idles() GetVirtualNodeSpecListenerTimeoutHttp2IdleArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutHttp2) []GetVirtualNodeSpecListenerTimeoutHttp2Idle {
 		return v.Idles
 	}).(GetVirtualNodeSpecListenerTimeoutHttp2IdleArrayOutput)
 }
 
+// Per request timeout. See `spec.listener.timeout.http2.per_request` Block for details.
 func (o GetVirtualNodeSpecListenerTimeoutHttp2Output) PerRequests() GetVirtualNodeSpecListenerTimeoutHttp2PerRequestArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutHttp2) []GetVirtualNodeSpecListenerTimeoutHttp2PerRequest {
 		return v.PerRequests
@@ -48770,8 +49049,10 @@ func (o GetVirtualNodeSpecListenerTimeoutHttp2ArrayOutput) Index(i pulumi.IntInp
 }
 
 type GetVirtualNodeSpecListenerTimeoutHttp2Idle struct {
-	Unit  string `pulumi:"unit"`
-	Value int    `pulumi:"value"`
+	// Unit of time.
+	Unit string `pulumi:"unit"`
+	// Value for the JSON.
+	Value int `pulumi:"value"`
 }
 
 // GetVirtualNodeSpecListenerTimeoutHttp2IdleInput is an input type that accepts GetVirtualNodeSpecListenerTimeoutHttp2IdleArgs and GetVirtualNodeSpecListenerTimeoutHttp2IdleOutput values.
@@ -48786,8 +49067,10 @@ type GetVirtualNodeSpecListenerTimeoutHttp2IdleInput interface {
 }
 
 type GetVirtualNodeSpecListenerTimeoutHttp2IdleArgs struct {
-	Unit  pulumi.StringInput `pulumi:"unit"`
-	Value pulumi.IntInput    `pulumi:"value"`
+	// Unit of time.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// Value for the JSON.
+	Value pulumi.IntInput `pulumi:"value"`
 }
 
 func (GetVirtualNodeSpecListenerTimeoutHttp2IdleArgs) ElementType() reflect.Type {
@@ -48841,10 +49124,12 @@ func (o GetVirtualNodeSpecListenerTimeoutHttp2IdleOutput) ToGetVirtualNodeSpecLi
 	return o
 }
 
+// Unit of time.
 func (o GetVirtualNodeSpecListenerTimeoutHttp2IdleOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutHttp2Idle) string { return v.Unit }).(pulumi.StringOutput)
 }
 
+// Value for the JSON.
 func (o GetVirtualNodeSpecListenerTimeoutHttp2IdleOutput) Value() pulumi.IntOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutHttp2Idle) int { return v.Value }).(pulumi.IntOutput)
 }
@@ -48870,8 +49155,10 @@ func (o GetVirtualNodeSpecListenerTimeoutHttp2IdleArrayOutput) Index(i pulumi.In
 }
 
 type GetVirtualNodeSpecListenerTimeoutHttp2PerRequest struct {
-	Unit  string `pulumi:"unit"`
-	Value int    `pulumi:"value"`
+	// Unit of time.
+	Unit string `pulumi:"unit"`
+	// Value for the JSON.
+	Value int `pulumi:"value"`
 }
 
 // GetVirtualNodeSpecListenerTimeoutHttp2PerRequestInput is an input type that accepts GetVirtualNodeSpecListenerTimeoutHttp2PerRequestArgs and GetVirtualNodeSpecListenerTimeoutHttp2PerRequestOutput values.
@@ -48886,8 +49173,10 @@ type GetVirtualNodeSpecListenerTimeoutHttp2PerRequestInput interface {
 }
 
 type GetVirtualNodeSpecListenerTimeoutHttp2PerRequestArgs struct {
-	Unit  pulumi.StringInput `pulumi:"unit"`
-	Value pulumi.IntInput    `pulumi:"value"`
+	// Unit of time.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// Value for the JSON.
+	Value pulumi.IntInput `pulumi:"value"`
 }
 
 func (GetVirtualNodeSpecListenerTimeoutHttp2PerRequestArgs) ElementType() reflect.Type {
@@ -48941,10 +49230,12 @@ func (o GetVirtualNodeSpecListenerTimeoutHttp2PerRequestOutput) ToGetVirtualNode
 	return o
 }
 
+// Unit of time.
 func (o GetVirtualNodeSpecListenerTimeoutHttp2PerRequestOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutHttp2PerRequest) string { return v.Unit }).(pulumi.StringOutput)
 }
 
+// Value for the JSON.
 func (o GetVirtualNodeSpecListenerTimeoutHttp2PerRequestOutput) Value() pulumi.IntOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutHttp2PerRequest) int { return v.Value }).(pulumi.IntOutput)
 }
@@ -48970,7 +49261,9 @@ func (o GetVirtualNodeSpecListenerTimeoutHttp2PerRequestArrayOutput) Index(i pul
 }
 
 type GetVirtualNodeSpecListenerTimeoutHttp struct {
-	Idles       []GetVirtualNodeSpecListenerTimeoutHttpIdle       `pulumi:"idles"`
+	// Idle timeout. See `spec.listener.timeout.tcp.idle` Block for details.
+	Idles []GetVirtualNodeSpecListenerTimeoutHttpIdle `pulumi:"idles"`
+	// Per request timeout. See `spec.listener.timeout.http2.per_request` Block for details.
 	PerRequests []GetVirtualNodeSpecListenerTimeoutHttpPerRequest `pulumi:"perRequests"`
 }
 
@@ -48986,7 +49279,9 @@ type GetVirtualNodeSpecListenerTimeoutHttpInput interface {
 }
 
 type GetVirtualNodeSpecListenerTimeoutHttpArgs struct {
-	Idles       GetVirtualNodeSpecListenerTimeoutHttpIdleArrayInput       `pulumi:"idles"`
+	// Idle timeout. See `spec.listener.timeout.tcp.idle` Block for details.
+	Idles GetVirtualNodeSpecListenerTimeoutHttpIdleArrayInput `pulumi:"idles"`
+	// Per request timeout. See `spec.listener.timeout.http2.per_request` Block for details.
 	PerRequests GetVirtualNodeSpecListenerTimeoutHttpPerRequestArrayInput `pulumi:"perRequests"`
 }
 
@@ -49041,12 +49336,14 @@ func (o GetVirtualNodeSpecListenerTimeoutHttpOutput) ToGetVirtualNodeSpecListene
 	return o
 }
 
+// Idle timeout. See `spec.listener.timeout.tcp.idle` Block for details.
 func (o GetVirtualNodeSpecListenerTimeoutHttpOutput) Idles() GetVirtualNodeSpecListenerTimeoutHttpIdleArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutHttp) []GetVirtualNodeSpecListenerTimeoutHttpIdle {
 		return v.Idles
 	}).(GetVirtualNodeSpecListenerTimeoutHttpIdleArrayOutput)
 }
 
+// Per request timeout. See `spec.listener.timeout.http2.per_request` Block for details.
 func (o GetVirtualNodeSpecListenerTimeoutHttpOutput) PerRequests() GetVirtualNodeSpecListenerTimeoutHttpPerRequestArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutHttp) []GetVirtualNodeSpecListenerTimeoutHttpPerRequest {
 		return v.PerRequests
@@ -49074,8 +49371,10 @@ func (o GetVirtualNodeSpecListenerTimeoutHttpArrayOutput) Index(i pulumi.IntInpu
 }
 
 type GetVirtualNodeSpecListenerTimeoutHttpIdle struct {
-	Unit  string `pulumi:"unit"`
-	Value int    `pulumi:"value"`
+	// Unit of time.
+	Unit string `pulumi:"unit"`
+	// Value for the JSON.
+	Value int `pulumi:"value"`
 }
 
 // GetVirtualNodeSpecListenerTimeoutHttpIdleInput is an input type that accepts GetVirtualNodeSpecListenerTimeoutHttpIdleArgs and GetVirtualNodeSpecListenerTimeoutHttpIdleOutput values.
@@ -49090,8 +49389,10 @@ type GetVirtualNodeSpecListenerTimeoutHttpIdleInput interface {
 }
 
 type GetVirtualNodeSpecListenerTimeoutHttpIdleArgs struct {
-	Unit  pulumi.StringInput `pulumi:"unit"`
-	Value pulumi.IntInput    `pulumi:"value"`
+	// Unit of time.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// Value for the JSON.
+	Value pulumi.IntInput `pulumi:"value"`
 }
 
 func (GetVirtualNodeSpecListenerTimeoutHttpIdleArgs) ElementType() reflect.Type {
@@ -49145,10 +49446,12 @@ func (o GetVirtualNodeSpecListenerTimeoutHttpIdleOutput) ToGetVirtualNodeSpecLis
 	return o
 }
 
+// Unit of time.
 func (o GetVirtualNodeSpecListenerTimeoutHttpIdleOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutHttpIdle) string { return v.Unit }).(pulumi.StringOutput)
 }
 
+// Value for the JSON.
 func (o GetVirtualNodeSpecListenerTimeoutHttpIdleOutput) Value() pulumi.IntOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutHttpIdle) int { return v.Value }).(pulumi.IntOutput)
 }
@@ -49174,8 +49477,10 @@ func (o GetVirtualNodeSpecListenerTimeoutHttpIdleArrayOutput) Index(i pulumi.Int
 }
 
 type GetVirtualNodeSpecListenerTimeoutHttpPerRequest struct {
-	Unit  string `pulumi:"unit"`
-	Value int    `pulumi:"value"`
+	// Unit of time.
+	Unit string `pulumi:"unit"`
+	// Value for the JSON.
+	Value int `pulumi:"value"`
 }
 
 // GetVirtualNodeSpecListenerTimeoutHttpPerRequestInput is an input type that accepts GetVirtualNodeSpecListenerTimeoutHttpPerRequestArgs and GetVirtualNodeSpecListenerTimeoutHttpPerRequestOutput values.
@@ -49190,8 +49495,10 @@ type GetVirtualNodeSpecListenerTimeoutHttpPerRequestInput interface {
 }
 
 type GetVirtualNodeSpecListenerTimeoutHttpPerRequestArgs struct {
-	Unit  pulumi.StringInput `pulumi:"unit"`
-	Value pulumi.IntInput    `pulumi:"value"`
+	// Unit of time.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// Value for the JSON.
+	Value pulumi.IntInput `pulumi:"value"`
 }
 
 func (GetVirtualNodeSpecListenerTimeoutHttpPerRequestArgs) ElementType() reflect.Type {
@@ -49245,10 +49552,12 @@ func (o GetVirtualNodeSpecListenerTimeoutHttpPerRequestOutput) ToGetVirtualNodeS
 	return o
 }
 
+// Unit of time.
 func (o GetVirtualNodeSpecListenerTimeoutHttpPerRequestOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutHttpPerRequest) string { return v.Unit }).(pulumi.StringOutput)
 }
 
+// Value for the JSON.
 func (o GetVirtualNodeSpecListenerTimeoutHttpPerRequestOutput) Value() pulumi.IntOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutHttpPerRequest) int { return v.Value }).(pulumi.IntOutput)
 }
@@ -49274,6 +49583,7 @@ func (o GetVirtualNodeSpecListenerTimeoutHttpPerRequestArrayOutput) Index(i pulu
 }
 
 type GetVirtualNodeSpecListenerTimeoutTcp struct {
+	// Idle timeout. See `spec.listener.timeout.tcp.idle` Block for details.
 	Idles []GetVirtualNodeSpecListenerTimeoutTcpIdle `pulumi:"idles"`
 }
 
@@ -49289,6 +49599,7 @@ type GetVirtualNodeSpecListenerTimeoutTcpInput interface {
 }
 
 type GetVirtualNodeSpecListenerTimeoutTcpArgs struct {
+	// Idle timeout. See `spec.listener.timeout.tcp.idle` Block for details.
 	Idles GetVirtualNodeSpecListenerTimeoutTcpIdleArrayInput `pulumi:"idles"`
 }
 
@@ -49343,6 +49654,7 @@ func (o GetVirtualNodeSpecListenerTimeoutTcpOutput) ToGetVirtualNodeSpecListener
 	return o
 }
 
+// Idle timeout. See `spec.listener.timeout.tcp.idle` Block for details.
 func (o GetVirtualNodeSpecListenerTimeoutTcpOutput) Idles() GetVirtualNodeSpecListenerTimeoutTcpIdleArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutTcp) []GetVirtualNodeSpecListenerTimeoutTcpIdle {
 		return v.Idles
@@ -49370,8 +49682,10 @@ func (o GetVirtualNodeSpecListenerTimeoutTcpArrayOutput) Index(i pulumi.IntInput
 }
 
 type GetVirtualNodeSpecListenerTimeoutTcpIdle struct {
-	Unit  string `pulumi:"unit"`
-	Value int    `pulumi:"value"`
+	// Unit of time.
+	Unit string `pulumi:"unit"`
+	// Value for the JSON.
+	Value int `pulumi:"value"`
 }
 
 // GetVirtualNodeSpecListenerTimeoutTcpIdleInput is an input type that accepts GetVirtualNodeSpecListenerTimeoutTcpIdleArgs and GetVirtualNodeSpecListenerTimeoutTcpIdleOutput values.
@@ -49386,8 +49700,10 @@ type GetVirtualNodeSpecListenerTimeoutTcpIdleInput interface {
 }
 
 type GetVirtualNodeSpecListenerTimeoutTcpIdleArgs struct {
-	Unit  pulumi.StringInput `pulumi:"unit"`
-	Value pulumi.IntInput    `pulumi:"value"`
+	// Unit of time.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// Value for the JSON.
+	Value pulumi.IntInput `pulumi:"value"`
 }
 
 func (GetVirtualNodeSpecListenerTimeoutTcpIdleArgs) ElementType() reflect.Type {
@@ -49441,10 +49757,12 @@ func (o GetVirtualNodeSpecListenerTimeoutTcpIdleOutput) ToGetVirtualNodeSpecList
 	return o
 }
 
+// Unit of time.
 func (o GetVirtualNodeSpecListenerTimeoutTcpIdleOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutTcpIdle) string { return v.Unit }).(pulumi.StringOutput)
 }
 
+// Value for the JSON.
 func (o GetVirtualNodeSpecListenerTimeoutTcpIdleOutput) Value() pulumi.IntOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutTcpIdle) int { return v.Value }).(pulumi.IntOutput)
 }
@@ -49470,9 +49788,12 @@ func (o GetVirtualNodeSpecListenerTimeoutTcpIdleArrayOutput) Index(i pulumi.IntI
 }
 
 type GetVirtualNodeSpecListenerTl struct {
+	// Listener's TLS certificate. See `spec.listener.tls.certificate` Block for details.
 	Certificates []GetVirtualNodeSpecListenerTlCertificate `pulumi:"certificates"`
-	Mode         string                                    `pulumi:"mode"`
-	Validations  []GetVirtualNodeSpecListenerTlValidation  `pulumi:"validations"`
+	// Listener's TLS mode.
+	Mode string `pulumi:"mode"`
+	// Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+	Validations []GetVirtualNodeSpecListenerTlValidation `pulumi:"validations"`
 }
 
 // GetVirtualNodeSpecListenerTlInput is an input type that accepts GetVirtualNodeSpecListenerTlArgs and GetVirtualNodeSpecListenerTlOutput values.
@@ -49487,9 +49808,12 @@ type GetVirtualNodeSpecListenerTlInput interface {
 }
 
 type GetVirtualNodeSpecListenerTlArgs struct {
+	// Listener's TLS certificate. See `spec.listener.tls.certificate` Block for details.
 	Certificates GetVirtualNodeSpecListenerTlCertificateArrayInput `pulumi:"certificates"`
-	Mode         pulumi.StringInput                                `pulumi:"mode"`
-	Validations  GetVirtualNodeSpecListenerTlValidationArrayInput  `pulumi:"validations"`
+	// Listener's TLS mode.
+	Mode pulumi.StringInput `pulumi:"mode"`
+	// Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+	Validations GetVirtualNodeSpecListenerTlValidationArrayInput `pulumi:"validations"`
 }
 
 func (GetVirtualNodeSpecListenerTlArgs) ElementType() reflect.Type {
@@ -49543,14 +49867,17 @@ func (o GetVirtualNodeSpecListenerTlOutput) ToGetVirtualNodeSpecListenerTlOutput
 	return o
 }
 
+// Listener's TLS certificate. See `spec.listener.tls.certificate` Block for details.
 func (o GetVirtualNodeSpecListenerTlOutput) Certificates() GetVirtualNodeSpecListenerTlCertificateArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTl) []GetVirtualNodeSpecListenerTlCertificate { return v.Certificates }).(GetVirtualNodeSpecListenerTlCertificateArrayOutput)
 }
 
+// Listener's TLS mode.
 func (o GetVirtualNodeSpecListenerTlOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTl) string { return v.Mode }).(pulumi.StringOutput)
 }
 
+// Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
 func (o GetVirtualNodeSpecListenerTlOutput) Validations() GetVirtualNodeSpecListenerTlValidationArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTl) []GetVirtualNodeSpecListenerTlValidation { return v.Validations }).(GetVirtualNodeSpecListenerTlValidationArrayOutput)
 }
@@ -49576,9 +49903,12 @@ func (o GetVirtualNodeSpecListenerTlArrayOutput) Index(i pulumi.IntInput) GetVir
 }
 
 type GetVirtualNodeSpecListenerTlCertificate struct {
-	Acms  []GetVirtualNodeSpecListenerTlCertificateAcm  `pulumi:"acms"`
+	// AWS Certificate Manager (ACM) certificate. See `spec.listener.tls.certificate.acm` Block for details.
+	Acms []GetVirtualNodeSpecListenerTlCertificateAcm `pulumi:"acms"`
+	// File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
 	Files []GetVirtualNodeSpecListenerTlCertificateFile `pulumi:"files"`
-	Sds   []GetVirtualNodeSpecListenerTlCertificateSd   `pulumi:"sds"`
+	// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
+	Sds []GetVirtualNodeSpecListenerTlCertificateSd `pulumi:"sds"`
 }
 
 // GetVirtualNodeSpecListenerTlCertificateInput is an input type that accepts GetVirtualNodeSpecListenerTlCertificateArgs and GetVirtualNodeSpecListenerTlCertificateOutput values.
@@ -49593,9 +49923,12 @@ type GetVirtualNodeSpecListenerTlCertificateInput interface {
 }
 
 type GetVirtualNodeSpecListenerTlCertificateArgs struct {
-	Acms  GetVirtualNodeSpecListenerTlCertificateAcmArrayInput  `pulumi:"acms"`
+	// AWS Certificate Manager (ACM) certificate. See `spec.listener.tls.certificate.acm` Block for details.
+	Acms GetVirtualNodeSpecListenerTlCertificateAcmArrayInput `pulumi:"acms"`
+	// File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
 	Files GetVirtualNodeSpecListenerTlCertificateFileArrayInput `pulumi:"files"`
-	Sds   GetVirtualNodeSpecListenerTlCertificateSdArrayInput   `pulumi:"sds"`
+	// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
+	Sds GetVirtualNodeSpecListenerTlCertificateSdArrayInput `pulumi:"sds"`
 }
 
 func (GetVirtualNodeSpecListenerTlCertificateArgs) ElementType() reflect.Type {
@@ -49649,18 +49982,21 @@ func (o GetVirtualNodeSpecListenerTlCertificateOutput) ToGetVirtualNodeSpecListe
 	return o
 }
 
+// AWS Certificate Manager (ACM) certificate. See `spec.listener.tls.certificate.acm` Block for details.
 func (o GetVirtualNodeSpecListenerTlCertificateOutput) Acms() GetVirtualNodeSpecListenerTlCertificateAcmArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTlCertificate) []GetVirtualNodeSpecListenerTlCertificateAcm {
 		return v.Acms
 	}).(GetVirtualNodeSpecListenerTlCertificateAcmArrayOutput)
 }
 
+// File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
 func (o GetVirtualNodeSpecListenerTlCertificateOutput) Files() GetVirtualNodeSpecListenerTlCertificateFileArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTlCertificate) []GetVirtualNodeSpecListenerTlCertificateFile {
 		return v.Files
 	}).(GetVirtualNodeSpecListenerTlCertificateFileArrayOutput)
 }
 
+// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
 func (o GetVirtualNodeSpecListenerTlCertificateOutput) Sds() GetVirtualNodeSpecListenerTlCertificateSdArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTlCertificate) []GetVirtualNodeSpecListenerTlCertificateSd {
 		return v.Sds
@@ -49688,6 +50024,7 @@ func (o GetVirtualNodeSpecListenerTlCertificateArrayOutput) Index(i pulumi.IntIn
 }
 
 type GetVirtualNodeSpecListenerTlCertificateAcm struct {
+	// ARN for the certificate.
 	CertificateArn string `pulumi:"certificateArn"`
 }
 
@@ -49703,6 +50040,7 @@ type GetVirtualNodeSpecListenerTlCertificateAcmInput interface {
 }
 
 type GetVirtualNodeSpecListenerTlCertificateAcmArgs struct {
+	// ARN for the certificate.
 	CertificateArn pulumi.StringInput `pulumi:"certificateArn"`
 }
 
@@ -49757,6 +50095,7 @@ func (o GetVirtualNodeSpecListenerTlCertificateAcmOutput) ToGetVirtualNodeSpecLi
 	return o
 }
 
+// ARN for the certificate.
 func (o GetVirtualNodeSpecListenerTlCertificateAcmOutput) CertificateArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTlCertificateAcm) string { return v.CertificateArn }).(pulumi.StringOutput)
 }
@@ -49782,8 +50121,10 @@ func (o GetVirtualNodeSpecListenerTlCertificateAcmArrayOutput) Index(i pulumi.In
 }
 
 type GetVirtualNodeSpecListenerTlCertificateFile struct {
+	// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on.
 	CertificateChain string `pulumi:"certificateChain"`
-	PrivateKey       string `pulumi:"privateKey"`
+	// Private key for a certificate stored on the file system of the virtual node that the proxy is running on.
+	PrivateKey string `pulumi:"privateKey"`
 }
 
 // GetVirtualNodeSpecListenerTlCertificateFileInput is an input type that accepts GetVirtualNodeSpecListenerTlCertificateFileArgs and GetVirtualNodeSpecListenerTlCertificateFileOutput values.
@@ -49798,8 +50139,10 @@ type GetVirtualNodeSpecListenerTlCertificateFileInput interface {
 }
 
 type GetVirtualNodeSpecListenerTlCertificateFileArgs struct {
+	// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on.
 	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
-	PrivateKey       pulumi.StringInput `pulumi:"privateKey"`
+	// Private key for a certificate stored on the file system of the virtual node that the proxy is running on.
+	PrivateKey pulumi.StringInput `pulumi:"privateKey"`
 }
 
 func (GetVirtualNodeSpecListenerTlCertificateFileArgs) ElementType() reflect.Type {
@@ -49853,10 +50196,12 @@ func (o GetVirtualNodeSpecListenerTlCertificateFileOutput) ToGetVirtualNodeSpecL
 	return o
 }
 
+// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on.
 func (o GetVirtualNodeSpecListenerTlCertificateFileOutput) CertificateChain() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTlCertificateFile) string { return v.CertificateChain }).(pulumi.StringOutput)
 }
 
+// Private key for a certificate stored on the file system of the virtual node that the proxy is running on.
 func (o GetVirtualNodeSpecListenerTlCertificateFileOutput) PrivateKey() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTlCertificateFile) string { return v.PrivateKey }).(pulumi.StringOutput)
 }
@@ -49882,6 +50227,7 @@ func (o GetVirtualNodeSpecListenerTlCertificateFileArrayOutput) Index(i pulumi.I
 }
 
 type GetVirtualNodeSpecListenerTlCertificateSd struct {
+	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 	SecretName string `pulumi:"secretName"`
 }
 
@@ -49897,6 +50243,7 @@ type GetVirtualNodeSpecListenerTlCertificateSdInput interface {
 }
 
 type GetVirtualNodeSpecListenerTlCertificateSdArgs struct {
+	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 	SecretName pulumi.StringInput `pulumi:"secretName"`
 }
 
@@ -49951,6 +50298,7 @@ func (o GetVirtualNodeSpecListenerTlCertificateSdOutput) ToGetVirtualNodeSpecLis
 	return o
 }
 
+// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 func (o GetVirtualNodeSpecListenerTlCertificateSdOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTlCertificateSd) string { return v.SecretName }).(pulumi.StringOutput)
 }
@@ -49976,8 +50324,10 @@ func (o GetVirtualNodeSpecListenerTlCertificateSdArrayOutput) Index(i pulumi.Int
 }
 
 type GetVirtualNodeSpecListenerTlValidation struct {
+	// SANs for a TLS validation context. See `spec.listener.tls.validation.subject_alternative_names` Block for details.
 	SubjectAlternativeNames []GetVirtualNodeSpecListenerTlValidationSubjectAlternativeName `pulumi:"subjectAlternativeNames"`
-	Trusts                  []GetVirtualNodeSpecListenerTlValidationTrust                  `pulumi:"trusts"`
+	// TLS validation context trust. See `spec.listener.tls.validation.trust` Block for details.
+	Trusts []GetVirtualNodeSpecListenerTlValidationTrust `pulumi:"trusts"`
 }
 
 // GetVirtualNodeSpecListenerTlValidationInput is an input type that accepts GetVirtualNodeSpecListenerTlValidationArgs and GetVirtualNodeSpecListenerTlValidationOutput values.
@@ -49992,8 +50342,10 @@ type GetVirtualNodeSpecListenerTlValidationInput interface {
 }
 
 type GetVirtualNodeSpecListenerTlValidationArgs struct {
+	// SANs for a TLS validation context. See `spec.listener.tls.validation.subject_alternative_names` Block for details.
 	SubjectAlternativeNames GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameArrayInput `pulumi:"subjectAlternativeNames"`
-	Trusts                  GetVirtualNodeSpecListenerTlValidationTrustArrayInput                  `pulumi:"trusts"`
+	// TLS validation context trust. See `spec.listener.tls.validation.trust` Block for details.
+	Trusts GetVirtualNodeSpecListenerTlValidationTrustArrayInput `pulumi:"trusts"`
 }
 
 func (GetVirtualNodeSpecListenerTlValidationArgs) ElementType() reflect.Type {
@@ -50047,12 +50399,14 @@ func (o GetVirtualNodeSpecListenerTlValidationOutput) ToGetVirtualNodeSpecListen
 	return o
 }
 
+// SANs for a TLS validation context. See `spec.listener.tls.validation.subject_alternative_names` Block for details.
 func (o GetVirtualNodeSpecListenerTlValidationOutput) SubjectAlternativeNames() GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTlValidation) []GetVirtualNodeSpecListenerTlValidationSubjectAlternativeName {
 		return v.SubjectAlternativeNames
 	}).(GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameArrayOutput)
 }
 
+// TLS validation context trust. See `spec.listener.tls.validation.trust` Block for details.
 func (o GetVirtualNodeSpecListenerTlValidationOutput) Trusts() GetVirtualNodeSpecListenerTlValidationTrustArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTlValidation) []GetVirtualNodeSpecListenerTlValidationTrust {
 		return v.Trusts
@@ -50080,6 +50434,7 @@ func (o GetVirtualNodeSpecListenerTlValidationArrayOutput) Index(i pulumi.IntInp
 }
 
 type GetVirtualNodeSpecListenerTlValidationSubjectAlternativeName struct {
+	// Criteria for determining a SAN's match. See `spec.listener.tls.validation.subject_alternative_names.match` Block for details.
 	Matches []GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatch `pulumi:"matches"`
 }
 
@@ -50095,6 +50450,7 @@ type GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameInput interface
 }
 
 type GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameArgs struct {
+	// Criteria for determining a SAN's match. See `spec.listener.tls.validation.subject_alternative_names.match` Block for details.
 	Matches GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatchArrayInput `pulumi:"matches"`
 }
 
@@ -50149,6 +50505,7 @@ func (o GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameOutput) ToGe
 	return o
 }
 
+// Criteria for determining a SAN's match. See `spec.listener.tls.validation.subject_alternative_names.match` Block for details.
 func (o GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameOutput) Matches() GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatchArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTlValidationSubjectAlternativeName) []GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatch {
 		return v.Matches
@@ -50176,6 +50533,7 @@ func (o GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameArrayOutput)
 }
 
 type GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatch struct {
+	// Values sent must match the specified values exactly.
 	Exacts []string `pulumi:"exacts"`
 }
 
@@ -50191,6 +50549,7 @@ type GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatchInput inte
 }
 
 type GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatchArgs struct {
+	// Values sent must match the specified values exactly.
 	Exacts pulumi.StringArrayInput `pulumi:"exacts"`
 }
 
@@ -50245,6 +50604,7 @@ func (o GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatchOutput)
 	return o
 }
 
+// Values sent must match the specified values exactly.
 func (o GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatchOutput) Exacts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatch) []string { return v.Exacts }).(pulumi.StringArrayOutput)
 }
@@ -50270,8 +50630,10 @@ func (o GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatchArrayOu
 }
 
 type GetVirtualNodeSpecListenerTlValidationTrust struct {
+	// File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
 	Files []GetVirtualNodeSpecListenerTlValidationTrustFile `pulumi:"files"`
-	Sds   []GetVirtualNodeSpecListenerTlValidationTrustSd   `pulumi:"sds"`
+	// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
+	Sds []GetVirtualNodeSpecListenerTlValidationTrustSd `pulumi:"sds"`
 }
 
 // GetVirtualNodeSpecListenerTlValidationTrustInput is an input type that accepts GetVirtualNodeSpecListenerTlValidationTrustArgs and GetVirtualNodeSpecListenerTlValidationTrustOutput values.
@@ -50286,8 +50648,10 @@ type GetVirtualNodeSpecListenerTlValidationTrustInput interface {
 }
 
 type GetVirtualNodeSpecListenerTlValidationTrustArgs struct {
+	// File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
 	Files GetVirtualNodeSpecListenerTlValidationTrustFileArrayInput `pulumi:"files"`
-	Sds   GetVirtualNodeSpecListenerTlValidationTrustSdArrayInput   `pulumi:"sds"`
+	// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
+	Sds GetVirtualNodeSpecListenerTlValidationTrustSdArrayInput `pulumi:"sds"`
 }
 
 func (GetVirtualNodeSpecListenerTlValidationTrustArgs) ElementType() reflect.Type {
@@ -50341,12 +50705,14 @@ func (o GetVirtualNodeSpecListenerTlValidationTrustOutput) ToGetVirtualNodeSpecL
 	return o
 }
 
+// File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
 func (o GetVirtualNodeSpecListenerTlValidationTrustOutput) Files() GetVirtualNodeSpecListenerTlValidationTrustFileArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTlValidationTrust) []GetVirtualNodeSpecListenerTlValidationTrustFile {
 		return v.Files
 	}).(GetVirtualNodeSpecListenerTlValidationTrustFileArrayOutput)
 }
 
+// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
 func (o GetVirtualNodeSpecListenerTlValidationTrustOutput) Sds() GetVirtualNodeSpecListenerTlValidationTrustSdArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTlValidationTrust) []GetVirtualNodeSpecListenerTlValidationTrustSd {
 		return v.Sds
@@ -50374,6 +50740,7 @@ func (o GetVirtualNodeSpecListenerTlValidationTrustArrayOutput) Index(i pulumi.I
 }
 
 type GetVirtualNodeSpecListenerTlValidationTrustFile struct {
+	// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on.
 	CertificateChain string `pulumi:"certificateChain"`
 }
 
@@ -50389,6 +50756,7 @@ type GetVirtualNodeSpecListenerTlValidationTrustFileInput interface {
 }
 
 type GetVirtualNodeSpecListenerTlValidationTrustFileArgs struct {
+	// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on.
 	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
 }
 
@@ -50443,6 +50811,7 @@ func (o GetVirtualNodeSpecListenerTlValidationTrustFileOutput) ToGetVirtualNodeS
 	return o
 }
 
+// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on.
 func (o GetVirtualNodeSpecListenerTlValidationTrustFileOutput) CertificateChain() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTlValidationTrustFile) string { return v.CertificateChain }).(pulumi.StringOutput)
 }
@@ -50468,6 +50837,7 @@ func (o GetVirtualNodeSpecListenerTlValidationTrustFileArrayOutput) Index(i pulu
 }
 
 type GetVirtualNodeSpecListenerTlValidationTrustSd struct {
+	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 	SecretName string `pulumi:"secretName"`
 }
 
@@ -50483,6 +50853,7 @@ type GetVirtualNodeSpecListenerTlValidationTrustSdInput interface {
 }
 
 type GetVirtualNodeSpecListenerTlValidationTrustSdArgs struct {
+	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 	SecretName pulumi.StringInput `pulumi:"secretName"`
 }
 
@@ -50537,6 +50908,7 @@ func (o GetVirtualNodeSpecListenerTlValidationTrustSdOutput) ToGetVirtualNodeSpe
 	return o
 }
 
+// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 func (o GetVirtualNodeSpecListenerTlValidationTrustSdOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTlValidationTrustSd) string { return v.SecretName }).(pulumi.StringOutput)
 }
@@ -50562,6 +50934,7 @@ func (o GetVirtualNodeSpecListenerTlValidationTrustSdArrayOutput) Index(i pulumi
 }
 
 type GetVirtualNodeSpecLogging struct {
+	// Access log configuration for a virtual node. See `spec.logging.access_log` Block for details.
 	AccessLogs []GetVirtualNodeSpecLoggingAccessLog `pulumi:"accessLogs"`
 }
 
@@ -50577,6 +50950,7 @@ type GetVirtualNodeSpecLoggingInput interface {
 }
 
 type GetVirtualNodeSpecLoggingArgs struct {
+	// Access log configuration for a virtual node. See `spec.logging.access_log` Block for details.
 	AccessLogs GetVirtualNodeSpecLoggingAccessLogArrayInput `pulumi:"accessLogs"`
 }
 
@@ -50631,6 +51005,7 @@ func (o GetVirtualNodeSpecLoggingOutput) ToGetVirtualNodeSpecLoggingOutputWithCo
 	return o
 }
 
+// Access log configuration for a virtual node. See `spec.logging.access_log` Block for details.
 func (o GetVirtualNodeSpecLoggingOutput) AccessLogs() GetVirtualNodeSpecLoggingAccessLogArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecLogging) []GetVirtualNodeSpecLoggingAccessLog { return v.AccessLogs }).(GetVirtualNodeSpecLoggingAccessLogArrayOutput)
 }
@@ -50656,6 +51031,7 @@ func (o GetVirtualNodeSpecLoggingArrayOutput) Index(i pulumi.IntInput) GetVirtua
 }
 
 type GetVirtualNodeSpecLoggingAccessLog struct {
+	// File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
 	Files []GetVirtualNodeSpecLoggingAccessLogFile `pulumi:"files"`
 }
 
@@ -50671,6 +51047,7 @@ type GetVirtualNodeSpecLoggingAccessLogInput interface {
 }
 
 type GetVirtualNodeSpecLoggingAccessLogArgs struct {
+	// File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
 	Files GetVirtualNodeSpecLoggingAccessLogFileArrayInput `pulumi:"files"`
 }
 
@@ -50725,6 +51102,7 @@ func (o GetVirtualNodeSpecLoggingAccessLogOutput) ToGetVirtualNodeSpecLoggingAcc
 	return o
 }
 
+// File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
 func (o GetVirtualNodeSpecLoggingAccessLogOutput) Files() GetVirtualNodeSpecLoggingAccessLogFileArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecLoggingAccessLog) []GetVirtualNodeSpecLoggingAccessLogFile { return v.Files }).(GetVirtualNodeSpecLoggingAccessLogFileArrayOutput)
 }
@@ -50750,8 +51128,10 @@ func (o GetVirtualNodeSpecLoggingAccessLogArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetVirtualNodeSpecLoggingAccessLogFile struct {
+	// Format for the logs. See `spec.logging.access_log.file.format` Block for details.
 	Formats []GetVirtualNodeSpecLoggingAccessLogFileFormat `pulumi:"formats"`
-	Path    string                                         `pulumi:"path"`
+	// File path to write access logs to.
+	Path string `pulumi:"path"`
 }
 
 // GetVirtualNodeSpecLoggingAccessLogFileInput is an input type that accepts GetVirtualNodeSpecLoggingAccessLogFileArgs and GetVirtualNodeSpecLoggingAccessLogFileOutput values.
@@ -50766,8 +51146,10 @@ type GetVirtualNodeSpecLoggingAccessLogFileInput interface {
 }
 
 type GetVirtualNodeSpecLoggingAccessLogFileArgs struct {
+	// Format for the logs. See `spec.logging.access_log.file.format` Block for details.
 	Formats GetVirtualNodeSpecLoggingAccessLogFileFormatArrayInput `pulumi:"formats"`
-	Path    pulumi.StringInput                                     `pulumi:"path"`
+	// File path to write access logs to.
+	Path pulumi.StringInput `pulumi:"path"`
 }
 
 func (GetVirtualNodeSpecLoggingAccessLogFileArgs) ElementType() reflect.Type {
@@ -50821,12 +51203,14 @@ func (o GetVirtualNodeSpecLoggingAccessLogFileOutput) ToGetVirtualNodeSpecLoggin
 	return o
 }
 
+// Format for the logs. See `spec.logging.access_log.file.format` Block for details.
 func (o GetVirtualNodeSpecLoggingAccessLogFileOutput) Formats() GetVirtualNodeSpecLoggingAccessLogFileFormatArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecLoggingAccessLogFile) []GetVirtualNodeSpecLoggingAccessLogFileFormat {
 		return v.Formats
 	}).(GetVirtualNodeSpecLoggingAccessLogFileFormatArrayOutput)
 }
 
+// File path to write access logs to.
 func (o GetVirtualNodeSpecLoggingAccessLogFileOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecLoggingAccessLogFile) string { return v.Path }).(pulumi.StringOutput)
 }
@@ -50852,8 +51236,10 @@ func (o GetVirtualNodeSpecLoggingAccessLogFileArrayOutput) Index(i pulumi.IntInp
 }
 
 type GetVirtualNodeSpecLoggingAccessLogFileFormat struct {
+	// Logging format for JSON. See `spec.logging.access_log.file.format.json` Block for details.
 	Jsons []GetVirtualNodeSpecLoggingAccessLogFileFormatJson `pulumi:"jsons"`
-	Text  string                                             `pulumi:"text"`
+	// Logging format for text.
+	Text string `pulumi:"text"`
 }
 
 // GetVirtualNodeSpecLoggingAccessLogFileFormatInput is an input type that accepts GetVirtualNodeSpecLoggingAccessLogFileFormatArgs and GetVirtualNodeSpecLoggingAccessLogFileFormatOutput values.
@@ -50868,8 +51254,10 @@ type GetVirtualNodeSpecLoggingAccessLogFileFormatInput interface {
 }
 
 type GetVirtualNodeSpecLoggingAccessLogFileFormatArgs struct {
+	// Logging format for JSON. See `spec.logging.access_log.file.format.json` Block for details.
 	Jsons GetVirtualNodeSpecLoggingAccessLogFileFormatJsonArrayInput `pulumi:"jsons"`
-	Text  pulumi.StringInput                                         `pulumi:"text"`
+	// Logging format for text.
+	Text pulumi.StringInput `pulumi:"text"`
 }
 
 func (GetVirtualNodeSpecLoggingAccessLogFileFormatArgs) ElementType() reflect.Type {
@@ -50923,12 +51311,14 @@ func (o GetVirtualNodeSpecLoggingAccessLogFileFormatOutput) ToGetVirtualNodeSpec
 	return o
 }
 
+// Logging format for JSON. See `spec.logging.access_log.file.format.json` Block for details.
 func (o GetVirtualNodeSpecLoggingAccessLogFileFormatOutput) Jsons() GetVirtualNodeSpecLoggingAccessLogFileFormatJsonArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecLoggingAccessLogFileFormat) []GetVirtualNodeSpecLoggingAccessLogFileFormatJson {
 		return v.Jsons
 	}).(GetVirtualNodeSpecLoggingAccessLogFileFormatJsonArrayOutput)
 }
 
+// Logging format for text.
 func (o GetVirtualNodeSpecLoggingAccessLogFileFormatOutput) Text() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecLoggingAccessLogFileFormat) string { return v.Text }).(pulumi.StringOutput)
 }
@@ -50954,7 +51344,9 @@ func (o GetVirtualNodeSpecLoggingAccessLogFileFormatArrayOutput) Index(i pulumi.
 }
 
 type GetVirtualNodeSpecLoggingAccessLogFileFormatJson struct {
-	Key   string `pulumi:"key"`
+	// Key for the JSON.
+	Key string `pulumi:"key"`
+	// Value for the JSON.
 	Value string `pulumi:"value"`
 }
 
@@ -50970,7 +51362,9 @@ type GetVirtualNodeSpecLoggingAccessLogFileFormatJsonInput interface {
 }
 
 type GetVirtualNodeSpecLoggingAccessLogFileFormatJsonArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// Key for the JSON.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value for the JSON.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -51025,10 +51419,12 @@ func (o GetVirtualNodeSpecLoggingAccessLogFileFormatJsonOutput) ToGetVirtualNode
 	return o
 }
 
+// Key for the JSON.
 func (o GetVirtualNodeSpecLoggingAccessLogFileFormatJsonOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecLoggingAccessLogFileFormatJson) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value for the JSON.
 func (o GetVirtualNodeSpecLoggingAccessLogFileFormatJsonOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecLoggingAccessLogFileFormatJson) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -51054,8 +51450,10 @@ func (o GetVirtualNodeSpecLoggingAccessLogFileFormatJsonArrayOutput) Index(i pul
 }
 
 type GetVirtualNodeSpecServiceDiscovery struct {
+	// AWS Cloud Map information for the virtual node. See `spec.service_discovery.aws_cloud_map` Block for details.
 	AwsCloudMaps []GetVirtualNodeSpecServiceDiscoveryAwsCloudMap `pulumi:"awsCloudMaps"`
-	Dns          []GetVirtualNodeSpecServiceDiscoveryDn          `pulumi:"dns"`
+	// DNS service name for the virtual node. See `spec.service_discovery.dns` Block for details.
+	Dns []GetVirtualNodeSpecServiceDiscoveryDn `pulumi:"dns"`
 }
 
 // GetVirtualNodeSpecServiceDiscoveryInput is an input type that accepts GetVirtualNodeSpecServiceDiscoveryArgs and GetVirtualNodeSpecServiceDiscoveryOutput values.
@@ -51070,8 +51468,10 @@ type GetVirtualNodeSpecServiceDiscoveryInput interface {
 }
 
 type GetVirtualNodeSpecServiceDiscoveryArgs struct {
+	// AWS Cloud Map information for the virtual node. See `spec.service_discovery.aws_cloud_map` Block for details.
 	AwsCloudMaps GetVirtualNodeSpecServiceDiscoveryAwsCloudMapArrayInput `pulumi:"awsCloudMaps"`
-	Dns          GetVirtualNodeSpecServiceDiscoveryDnArrayInput          `pulumi:"dns"`
+	// DNS service name for the virtual node. See `spec.service_discovery.dns` Block for details.
+	Dns GetVirtualNodeSpecServiceDiscoveryDnArrayInput `pulumi:"dns"`
 }
 
 func (GetVirtualNodeSpecServiceDiscoveryArgs) ElementType() reflect.Type {
@@ -51125,12 +51525,14 @@ func (o GetVirtualNodeSpecServiceDiscoveryOutput) ToGetVirtualNodeSpecServiceDis
 	return o
 }
 
+// AWS Cloud Map information for the virtual node. See `spec.service_discovery.aws_cloud_map` Block for details.
 func (o GetVirtualNodeSpecServiceDiscoveryOutput) AwsCloudMaps() GetVirtualNodeSpecServiceDiscoveryAwsCloudMapArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecServiceDiscovery) []GetVirtualNodeSpecServiceDiscoveryAwsCloudMap {
 		return v.AwsCloudMaps
 	}).(GetVirtualNodeSpecServiceDiscoveryAwsCloudMapArrayOutput)
 }
 
+// DNS service name for the virtual node. See `spec.service_discovery.dns` Block for details.
 func (o GetVirtualNodeSpecServiceDiscoveryOutput) Dns() GetVirtualNodeSpecServiceDiscoveryDnArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecServiceDiscovery) []GetVirtualNodeSpecServiceDiscoveryDn { return v.Dns }).(GetVirtualNodeSpecServiceDiscoveryDnArrayOutput)
 }
@@ -51156,9 +51558,12 @@ func (o GetVirtualNodeSpecServiceDiscoveryArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetVirtualNodeSpecServiceDiscoveryAwsCloudMap struct {
-	Attributes    map[string]string `pulumi:"attributes"`
-	NamespaceName string            `pulumi:"namespaceName"`
-	ServiceName   string            `pulumi:"serviceName"`
+	// String map that contains attributes with values that you can use to filter instances by any custom attribute that you specified when you registered the instance.
+	Attributes map[string]string `pulumi:"attributes"`
+	// Name of the AWS Cloud Map namespace to use.
+	NamespaceName string `pulumi:"namespaceName"`
+	// Name of the AWS Cloud Map service to use.
+	ServiceName string `pulumi:"serviceName"`
 }
 
 // GetVirtualNodeSpecServiceDiscoveryAwsCloudMapInput is an input type that accepts GetVirtualNodeSpecServiceDiscoveryAwsCloudMap and GetVirtualNodeSpecServiceDiscoveryAwsCloudMapOutput values.
@@ -51173,9 +51578,12 @@ type GetVirtualNodeSpecServiceDiscoveryAwsCloudMapInput interface {
 }
 
 type GetVirtualNodeSpecServiceDiscoveryAwsCloudMapArgs struct {
-	Attributes    pulumi.StringMapInput `pulumi:"attributes"`
-	NamespaceName pulumi.StringInput    `pulumi:"namespaceName"`
-	ServiceName   pulumi.StringInput    `pulumi:"serviceName"`
+	// String map that contains attributes with values that you can use to filter instances by any custom attribute that you specified when you registered the instance.
+	Attributes pulumi.StringMapInput `pulumi:"attributes"`
+	// Name of the AWS Cloud Map namespace to use.
+	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
+	// Name of the AWS Cloud Map service to use.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
 }
 
 func (GetVirtualNodeSpecServiceDiscoveryAwsCloudMapArgs) ElementType() reflect.Type {
@@ -51229,14 +51637,17 @@ func (o GetVirtualNodeSpecServiceDiscoveryAwsCloudMapOutput) ToGetVirtualNodeSpe
 	return o
 }
 
+// String map that contains attributes with values that you can use to filter instances by any custom attribute that you specified when you registered the instance.
 func (o GetVirtualNodeSpecServiceDiscoveryAwsCloudMapOutput) Attributes() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecServiceDiscoveryAwsCloudMap) map[string]string { return v.Attributes }).(pulumi.StringMapOutput)
 }
 
+// Name of the AWS Cloud Map namespace to use.
 func (o GetVirtualNodeSpecServiceDiscoveryAwsCloudMapOutput) NamespaceName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecServiceDiscoveryAwsCloudMap) string { return v.NamespaceName }).(pulumi.StringOutput)
 }
 
+// Name of the AWS Cloud Map service to use.
 func (o GetVirtualNodeSpecServiceDiscoveryAwsCloudMapOutput) ServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecServiceDiscoveryAwsCloudMap) string { return v.ServiceName }).(pulumi.StringOutput)
 }
@@ -51262,8 +51673,11 @@ func (o GetVirtualNodeSpecServiceDiscoveryAwsCloudMapArrayOutput) Index(i pulumi
 }
 
 type GetVirtualNodeSpecServiceDiscoveryDn struct {
-	Hostname     string `pulumi:"hostname"`
+	// DNS host name for your virtual node.
+	Hostname string `pulumi:"hostname"`
+	// Preferred IP version that this virtual node uses.
 	IpPreference string `pulumi:"ipPreference"`
+	// DNS response type for the virtual node.
 	ResponseType string `pulumi:"responseType"`
 }
 
@@ -51279,8 +51693,11 @@ type GetVirtualNodeSpecServiceDiscoveryDnInput interface {
 }
 
 type GetVirtualNodeSpecServiceDiscoveryDnArgs struct {
-	Hostname     pulumi.StringInput `pulumi:"hostname"`
+	// DNS host name for your virtual node.
+	Hostname pulumi.StringInput `pulumi:"hostname"`
+	// Preferred IP version that this virtual node uses.
 	IpPreference pulumi.StringInput `pulumi:"ipPreference"`
+	// DNS response type for the virtual node.
 	ResponseType pulumi.StringInput `pulumi:"responseType"`
 }
 
@@ -51335,14 +51752,17 @@ func (o GetVirtualNodeSpecServiceDiscoveryDnOutput) ToGetVirtualNodeSpecServiceD
 	return o
 }
 
+// DNS host name for your virtual node.
 func (o GetVirtualNodeSpecServiceDiscoveryDnOutput) Hostname() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecServiceDiscoveryDn) string { return v.Hostname }).(pulumi.StringOutput)
 }
 
+// Preferred IP version that this virtual node uses.
 func (o GetVirtualNodeSpecServiceDiscoveryDnOutput) IpPreference() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecServiceDiscoveryDn) string { return v.IpPreference }).(pulumi.StringOutput)
 }
 
+// DNS response type for the virtual node.
 func (o GetVirtualNodeSpecServiceDiscoveryDnOutput) ResponseType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecServiceDiscoveryDn) string { return v.ResponseType }).(pulumi.StringOutput)
 }

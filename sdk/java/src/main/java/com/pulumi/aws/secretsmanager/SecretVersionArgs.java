@@ -96,14 +96,14 @@ public final class SecretVersionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Used together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
+     * Version identifier that works together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
      * 
      */
     @Import(name="secretStringWoVersion")
     private @Nullable Output<Integer> secretStringWoVersion;
 
     /**
-     * @return Used together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
+     * @return Version identifier that works together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
      * 
      */
     public Optional<Output<Integer>> secretStringWoVersion() {
@@ -267,7 +267,7 @@ public final class SecretVersionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param secretStringWoVersion Used together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
+         * @param secretStringWoVersion Version identifier that works together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
          * 
          * @return builder
          * 
@@ -278,7 +278,7 @@ public final class SecretVersionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param secretStringWoVersion Used together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
+         * @param secretStringWoVersion Version identifier that works together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
          * 
          * @return builder
          * 

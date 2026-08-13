@@ -18,7 +18,7 @@ public final class GetJobDefinitionRetryStrategy {
      */
     private Integer attempts;
     /**
-     * @return Array of up to 5 objects that specify the conditions where jobs are retried or failed.
+     * @return Conditions where jobs are retried or failed. See `evaluateOnExit` below.
      * 
      */
     private List<GetJobDefinitionRetryStrategyEvaluateOnExit> evaluateOnExits;
@@ -32,7 +32,7 @@ public final class GetJobDefinitionRetryStrategy {
         return this.attempts;
     }
     /**
-     * @return Array of up to 5 objects that specify the conditions where jobs are retried or failed.
+     * @return Conditions where jobs are retried or failed. See `evaluateOnExit` below.
      * 
      */
     public List<GetJobDefinitionRetryStrategyEvaluateOnExit> evaluateOnExits() {

@@ -209,7 +209,7 @@ func (o AccessPointPublicAccessBlockConfigurationPtrOutput) RestrictPublicBucket
 }
 
 type AccessPointVpcConfiguration struct {
-	// This access point will only allow connections from the specified VPC ID.
+	// VPC ID from which the access point allows connections.
 	VpcId string `pulumi:"vpcId"`
 }
 
@@ -225,7 +225,7 @@ type AccessPointVpcConfigurationInput interface {
 }
 
 type AccessPointVpcConfigurationArgs struct {
-	// This access point will only allow connections from the specified VPC ID.
+	// VPC ID from which the access point allows connections.
 	VpcId pulumi.StringInput `pulumi:"vpcId"`
 }
 
@@ -306,7 +306,7 @@ func (o AccessPointVpcConfigurationOutput) ToAccessPointVpcConfigurationPtrOutpu
 	}).(AccessPointVpcConfigurationPtrOutput)
 }
 
-// This access point will only allow connections from the specified VPC ID.
+// VPC ID from which the access point allows connections.
 func (o AccessPointVpcConfigurationOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v AccessPointVpcConfiguration) string { return v.VpcId }).(pulumi.StringOutput)
 }
@@ -335,7 +335,7 @@ func (o AccessPointVpcConfigurationPtrOutput) Elem() AccessPointVpcConfiguration
 	}).(AccessPointVpcConfigurationOutput)
 }
 
-// This access point will only allow connections from the specified VPC ID.
+// VPC ID from which the access point allows connections.
 func (o AccessPointVpcConfigurationPtrOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessPointVpcConfiguration) *string {
 		if v == nil {
@@ -21427,7 +21427,7 @@ func (o BucketWebsiteConfigurationV2RoutingRuleRedirectOutput) ReplaceKeyWith() 
 }
 
 type DirectoryBucketLocation struct {
-	// [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids) or Local Zone ID.
+	// [Availability Zone ID](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-availability-zones.html) or Local Zone ID.
 	Name string `pulumi:"name"`
 	// Location type. Valid values: `AvailabilityZone`, `LocalZone`.
 	Type *string `pulumi:"type"`
@@ -21445,7 +21445,7 @@ type DirectoryBucketLocationInput interface {
 }
 
 type DirectoryBucketLocationArgs struct {
-	// [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids) or Local Zone ID.
+	// [Availability Zone ID](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-availability-zones.html) or Local Zone ID.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Location type. Valid values: `AvailabilityZone`, `LocalZone`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -21528,7 +21528,7 @@ func (o DirectoryBucketLocationOutput) ToDirectoryBucketLocationPtrOutputWithCon
 	}).(DirectoryBucketLocationPtrOutput)
 }
 
-// [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids) or Local Zone ID.
+// [Availability Zone ID](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-availability-zones.html) or Local Zone ID.
 func (o DirectoryBucketLocationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DirectoryBucketLocation) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -21562,7 +21562,7 @@ func (o DirectoryBucketLocationPtrOutput) Elem() DirectoryBucketLocationOutput {
 	}).(DirectoryBucketLocationOutput)
 }
 
-// [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids) or Local Zone ID.
+// [Availability Zone ID](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-availability-zones.html) or Local Zone ID.
 func (o DirectoryBucketLocationPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DirectoryBucketLocation) *string {
 		if v == nil {
@@ -25423,16 +25423,24 @@ func (o GetBucketObjectLockConfigurationRuleDefaultRetentionArrayOutput) Index(i
 }
 
 type GetBucketReplicationConfigurationRule struct {
-	DeleteMarkerReplications   []GetBucketReplicationConfigurationRuleDeleteMarkerReplication   `pulumi:"deleteMarkerReplications"`
-	Destinations               []GetBucketReplicationConfigurationRuleDestination               `pulumi:"destinations"`
+	// Configuration block that specifies whether delete markers are replicated. See `deleteMarkerReplication` Block below.
+	DeleteMarkerReplications []GetBucketReplicationConfigurationRuleDeleteMarkerReplication `pulumi:"deleteMarkerReplications"`
+	// Configuration block that specifies the destination for the rule. See `destination` Block below.
+	Destinations []GetBucketReplicationConfigurationRuleDestination `pulumi:"destinations"`
+	// Configuration block that specifies replication of existing objects. See `existingObjectReplication` Block below.
 	ExistingObjectReplications []GetBucketReplicationConfigurationRuleExistingObjectReplication `pulumi:"existingObjectReplications"`
-	Filters                    []GetBucketReplicationConfigurationRuleFilter                    `pulumi:"filters"`
-	Id                         string                                                           `pulumi:"id"`
+	// Configuration block that identifies the subset of objects to which the rule applies. See `filter` Block below.
+	Filters []GetBucketReplicationConfigurationRuleFilter `pulumi:"filters"`
+	// Unique identifier for the rule.
+	Id string `pulumi:"id"`
 	// Object key name prefix that identifies the subset of objects to which the rule applies.
-	Prefix                   string                                                         `pulumi:"prefix"`
-	Priority                 int                                                            `pulumi:"priority"`
+	Prefix string `pulumi:"prefix"`
+	// Priority associated with the rule.
+	Priority int `pulumi:"priority"`
+	// Configuration block that specifies special object selection criteria. See `sourceSelectionCriteria` Block below.
 	SourceSelectionCriterias []GetBucketReplicationConfigurationRuleSourceSelectionCriteria `pulumi:"sourceSelectionCriterias"`
-	Status                   string                                                         `pulumi:"status"`
+	// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+	Status string `pulumi:"status"`
 }
 
 // GetBucketReplicationConfigurationRuleInput is an input type that accepts GetBucketReplicationConfigurationRuleArgs and GetBucketReplicationConfigurationRuleOutput values.
@@ -25447,16 +25455,24 @@ type GetBucketReplicationConfigurationRuleInput interface {
 }
 
 type GetBucketReplicationConfigurationRuleArgs struct {
-	DeleteMarkerReplications   GetBucketReplicationConfigurationRuleDeleteMarkerReplicationArrayInput   `pulumi:"deleteMarkerReplications"`
-	Destinations               GetBucketReplicationConfigurationRuleDestinationArrayInput               `pulumi:"destinations"`
+	// Configuration block that specifies whether delete markers are replicated. See `deleteMarkerReplication` Block below.
+	DeleteMarkerReplications GetBucketReplicationConfigurationRuleDeleteMarkerReplicationArrayInput `pulumi:"deleteMarkerReplications"`
+	// Configuration block that specifies the destination for the rule. See `destination` Block below.
+	Destinations GetBucketReplicationConfigurationRuleDestinationArrayInput `pulumi:"destinations"`
+	// Configuration block that specifies replication of existing objects. See `existingObjectReplication` Block below.
 	ExistingObjectReplications GetBucketReplicationConfigurationRuleExistingObjectReplicationArrayInput `pulumi:"existingObjectReplications"`
-	Filters                    GetBucketReplicationConfigurationRuleFilterArrayInput                    `pulumi:"filters"`
-	Id                         pulumi.StringInput                                                       `pulumi:"id"`
+	// Configuration block that identifies the subset of objects to which the rule applies. See `filter` Block below.
+	Filters GetBucketReplicationConfigurationRuleFilterArrayInput `pulumi:"filters"`
+	// Unique identifier for the rule.
+	Id pulumi.StringInput `pulumi:"id"`
 	// Object key name prefix that identifies the subset of objects to which the rule applies.
-	Prefix                   pulumi.StringInput                                                     `pulumi:"prefix"`
-	Priority                 pulumi.IntInput                                                        `pulumi:"priority"`
+	Prefix pulumi.StringInput `pulumi:"prefix"`
+	// Priority associated with the rule.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// Configuration block that specifies special object selection criteria. See `sourceSelectionCriteria` Block below.
 	SourceSelectionCriterias GetBucketReplicationConfigurationRuleSourceSelectionCriteriaArrayInput `pulumi:"sourceSelectionCriterias"`
-	Status                   pulumi.StringInput                                                     `pulumi:"status"`
+	// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+	Status pulumi.StringInput `pulumi:"status"`
 }
 
 func (GetBucketReplicationConfigurationRuleArgs) ElementType() reflect.Type {
@@ -25510,30 +25526,35 @@ func (o GetBucketReplicationConfigurationRuleOutput) ToGetBucketReplicationConfi
 	return o
 }
 
+// Configuration block that specifies whether delete markers are replicated. See `deleteMarkerReplication` Block below.
 func (o GetBucketReplicationConfigurationRuleOutput) DeleteMarkerReplications() GetBucketReplicationConfigurationRuleDeleteMarkerReplicationArrayOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRule) []GetBucketReplicationConfigurationRuleDeleteMarkerReplication {
 		return v.DeleteMarkerReplications
 	}).(GetBucketReplicationConfigurationRuleDeleteMarkerReplicationArrayOutput)
 }
 
+// Configuration block that specifies the destination for the rule. See `destination` Block below.
 func (o GetBucketReplicationConfigurationRuleOutput) Destinations() GetBucketReplicationConfigurationRuleDestinationArrayOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRule) []GetBucketReplicationConfigurationRuleDestination {
 		return v.Destinations
 	}).(GetBucketReplicationConfigurationRuleDestinationArrayOutput)
 }
 
+// Configuration block that specifies replication of existing objects. See `existingObjectReplication` Block below.
 func (o GetBucketReplicationConfigurationRuleOutput) ExistingObjectReplications() GetBucketReplicationConfigurationRuleExistingObjectReplicationArrayOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRule) []GetBucketReplicationConfigurationRuleExistingObjectReplication {
 		return v.ExistingObjectReplications
 	}).(GetBucketReplicationConfigurationRuleExistingObjectReplicationArrayOutput)
 }
 
+// Configuration block that identifies the subset of objects to which the rule applies. See `filter` Block below.
 func (o GetBucketReplicationConfigurationRuleOutput) Filters() GetBucketReplicationConfigurationRuleFilterArrayOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRule) []GetBucketReplicationConfigurationRuleFilter {
 		return v.Filters
 	}).(GetBucketReplicationConfigurationRuleFilterArrayOutput)
 }
 
+// Unique identifier for the rule.
 func (o GetBucketReplicationConfigurationRuleOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRule) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -25543,16 +25564,19 @@ func (o GetBucketReplicationConfigurationRuleOutput) Prefix() pulumi.StringOutpu
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRule) string { return v.Prefix }).(pulumi.StringOutput)
 }
 
+// Priority associated with the rule.
 func (o GetBucketReplicationConfigurationRuleOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRule) int { return v.Priority }).(pulumi.IntOutput)
 }
 
+// Configuration block that specifies special object selection criteria. See `sourceSelectionCriteria` Block below.
 func (o GetBucketReplicationConfigurationRuleOutput) SourceSelectionCriterias() GetBucketReplicationConfigurationRuleSourceSelectionCriteriaArrayOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRule) []GetBucketReplicationConfigurationRuleSourceSelectionCriteria {
 		return v.SourceSelectionCriterias
 	}).(GetBucketReplicationConfigurationRuleSourceSelectionCriteriaArrayOutput)
 }
 
+// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
 func (o GetBucketReplicationConfigurationRuleOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRule) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -25578,6 +25602,7 @@ func (o GetBucketReplicationConfigurationRuleArrayOutput) Index(i pulumi.IntInpu
 }
 
 type GetBucketReplicationConfigurationRuleDeleteMarkerReplication struct {
+	// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
 	Status string `pulumi:"status"`
 }
 
@@ -25593,6 +25618,7 @@ type GetBucketReplicationConfigurationRuleDeleteMarkerReplicationInput interface
 }
 
 type GetBucketReplicationConfigurationRuleDeleteMarkerReplicationArgs struct {
+	// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
 	Status pulumi.StringInput `pulumi:"status"`
 }
 
@@ -25647,6 +25673,7 @@ func (o GetBucketReplicationConfigurationRuleDeleteMarkerReplicationOutput) ToGe
 	return o
 }
 
+// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
 func (o GetBucketReplicationConfigurationRuleDeleteMarkerReplicationOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleDeleteMarkerReplication) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -25672,14 +25699,20 @@ func (o GetBucketReplicationConfigurationRuleDeleteMarkerReplicationArrayOutput)
 }
 
 type GetBucketReplicationConfigurationRuleDestination struct {
+	// Configuration block that specifies the overrides to use for object owners on replication. See `accessControlTranslation` Block below.
 	AccessControlTranslations []GetBucketReplicationConfigurationRuleDestinationAccessControlTranslation `pulumi:"accessControlTranslations"`
-	Account                   string                                                                     `pulumi:"account"`
+	// Account ID used to specify the replica ownership.
+	Account string `pulumi:"account"`
 	// Name of the bucket to get the replication configuration for.
-	Bucket                   string                                                                    `pulumi:"bucket"`
+	Bucket string `pulumi:"bucket"`
+	// Configuration block that provides information about encryption. See `encryptionConfiguration` Block below.
 	EncryptionConfigurations []GetBucketReplicationConfigurationRuleDestinationEncryptionConfiguration `pulumi:"encryptionConfigurations"`
-	Metrics                  []GetBucketReplicationConfigurationRuleDestinationMetric                  `pulumi:"metrics"`
-	ReplicationTimes         []GetBucketReplicationConfigurationRuleDestinationReplicationTime         `pulumi:"replicationTimes"`
-	StorageClass             string                                                                    `pulumi:"storageClass"`
+	// Configuration block that specifies replication metrics-related settings. See `metrics` Block below.
+	Metrics []GetBucketReplicationConfigurationRuleDestinationMetric `pulumi:"metrics"`
+	// Configuration block that specifies S3 Replication Time Control (S3 RTC). See `replicationTime` Block below.
+	ReplicationTimes []GetBucketReplicationConfigurationRuleDestinationReplicationTime `pulumi:"replicationTimes"`
+	// Storage class used to store the object.
+	StorageClass string `pulumi:"storageClass"`
 }
 
 // GetBucketReplicationConfigurationRuleDestinationInput is an input type that accepts GetBucketReplicationConfigurationRuleDestinationArgs and GetBucketReplicationConfigurationRuleDestinationOutput values.
@@ -25694,14 +25727,20 @@ type GetBucketReplicationConfigurationRuleDestinationInput interface {
 }
 
 type GetBucketReplicationConfigurationRuleDestinationArgs struct {
+	// Configuration block that specifies the overrides to use for object owners on replication. See `accessControlTranslation` Block below.
 	AccessControlTranslations GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArrayInput `pulumi:"accessControlTranslations"`
-	Account                   pulumi.StringInput                                                                 `pulumi:"account"`
+	// Account ID used to specify the replica ownership.
+	Account pulumi.StringInput `pulumi:"account"`
 	// Name of the bucket to get the replication configuration for.
-	Bucket                   pulumi.StringInput                                                                `pulumi:"bucket"`
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// Configuration block that provides information about encryption. See `encryptionConfiguration` Block below.
 	EncryptionConfigurations GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArrayInput `pulumi:"encryptionConfigurations"`
-	Metrics                  GetBucketReplicationConfigurationRuleDestinationMetricArrayInput                  `pulumi:"metrics"`
-	ReplicationTimes         GetBucketReplicationConfigurationRuleDestinationReplicationTimeArrayInput         `pulumi:"replicationTimes"`
-	StorageClass             pulumi.StringInput                                                                `pulumi:"storageClass"`
+	// Configuration block that specifies replication metrics-related settings. See `metrics` Block below.
+	Metrics GetBucketReplicationConfigurationRuleDestinationMetricArrayInput `pulumi:"metrics"`
+	// Configuration block that specifies S3 Replication Time Control (S3 RTC). See `replicationTime` Block below.
+	ReplicationTimes GetBucketReplicationConfigurationRuleDestinationReplicationTimeArrayInput `pulumi:"replicationTimes"`
+	// Storage class used to store the object.
+	StorageClass pulumi.StringInput `pulumi:"storageClass"`
 }
 
 func (GetBucketReplicationConfigurationRuleDestinationArgs) ElementType() reflect.Type {
@@ -25755,12 +25794,14 @@ func (o GetBucketReplicationConfigurationRuleDestinationOutput) ToGetBucketRepli
 	return o
 }
 
+// Configuration block that specifies the overrides to use for object owners on replication. See `accessControlTranslation` Block below.
 func (o GetBucketReplicationConfigurationRuleDestinationOutput) AccessControlTranslations() GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArrayOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleDestination) []GetBucketReplicationConfigurationRuleDestinationAccessControlTranslation {
 		return v.AccessControlTranslations
 	}).(GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArrayOutput)
 }
 
+// Account ID used to specify the replica ownership.
 func (o GetBucketReplicationConfigurationRuleDestinationOutput) Account() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleDestination) string { return v.Account }).(pulumi.StringOutput)
 }
@@ -25770,24 +25811,28 @@ func (o GetBucketReplicationConfigurationRuleDestinationOutput) Bucket() pulumi.
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleDestination) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
+// Configuration block that provides information about encryption. See `encryptionConfiguration` Block below.
 func (o GetBucketReplicationConfigurationRuleDestinationOutput) EncryptionConfigurations() GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArrayOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleDestination) []GetBucketReplicationConfigurationRuleDestinationEncryptionConfiguration {
 		return v.EncryptionConfigurations
 	}).(GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArrayOutput)
 }
 
+// Configuration block that specifies replication metrics-related settings. See `metrics` Block below.
 func (o GetBucketReplicationConfigurationRuleDestinationOutput) Metrics() GetBucketReplicationConfigurationRuleDestinationMetricArrayOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleDestination) []GetBucketReplicationConfigurationRuleDestinationMetric {
 		return v.Metrics
 	}).(GetBucketReplicationConfigurationRuleDestinationMetricArrayOutput)
 }
 
+// Configuration block that specifies S3 Replication Time Control (S3 RTC). See `replicationTime` Block below.
 func (o GetBucketReplicationConfigurationRuleDestinationOutput) ReplicationTimes() GetBucketReplicationConfigurationRuleDestinationReplicationTimeArrayOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleDestination) []GetBucketReplicationConfigurationRuleDestinationReplicationTime {
 		return v.ReplicationTimes
 	}).(GetBucketReplicationConfigurationRuleDestinationReplicationTimeArrayOutput)
 }
 
+// Storage class used to store the object.
 func (o GetBucketReplicationConfigurationRuleDestinationOutput) StorageClass() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleDestination) string { return v.StorageClass }).(pulumi.StringOutput)
 }
@@ -25813,6 +25858,7 @@ func (o GetBucketReplicationConfigurationRuleDestinationArrayOutput) Index(i pul
 }
 
 type GetBucketReplicationConfigurationRuleDestinationAccessControlTranslation struct {
+	// Replica ownership.
 	Owner string `pulumi:"owner"`
 }
 
@@ -25828,6 +25874,7 @@ type GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationInp
 }
 
 type GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs struct {
+	// Replica ownership.
 	Owner pulumi.StringInput `pulumi:"owner"`
 }
 
@@ -25882,6 +25929,7 @@ func (o GetBucketReplicationConfigurationRuleDestinationAccessControlTranslation
 	return o
 }
 
+// Replica ownership.
 func (o GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleDestinationAccessControlTranslation) string {
 		return v.Owner
@@ -25909,6 +25957,7 @@ func (o GetBucketReplicationConfigurationRuleDestinationAccessControlTranslation
 }
 
 type GetBucketReplicationConfigurationRuleDestinationEncryptionConfiguration struct {
+	// ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket.
 	ReplicaKmsKeyId string `pulumi:"replicaKmsKeyId"`
 }
 
@@ -25924,6 +25973,7 @@ type GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationInpu
 }
 
 type GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArgs struct {
+	// ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket.
 	ReplicaKmsKeyId pulumi.StringInput `pulumi:"replicaKmsKeyId"`
 }
 
@@ -25978,6 +26028,7 @@ func (o GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationO
 	return o
 }
 
+// ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket.
 func (o GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationOutput) ReplicaKmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleDestinationEncryptionConfiguration) string {
 		return v.ReplicaKmsKeyId
@@ -26005,8 +26056,10 @@ func (o GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationA
 }
 
 type GetBucketReplicationConfigurationRuleDestinationMetric struct {
+	// Configuration block that specifies the time threshold for emitting the `s3:Replication:OperationMissedThreshold` event. See `eventThreshold` Block below.
 	EventThresholds []GetBucketReplicationConfigurationRuleDestinationMetricEventThreshold `pulumi:"eventThresholds"`
-	Status          string                                                                 `pulumi:"status"`
+	// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+	Status string `pulumi:"status"`
 }
 
 // GetBucketReplicationConfigurationRuleDestinationMetricInput is an input type that accepts GetBucketReplicationConfigurationRuleDestinationMetricArgs and GetBucketReplicationConfigurationRuleDestinationMetricOutput values.
@@ -26021,8 +26074,10 @@ type GetBucketReplicationConfigurationRuleDestinationMetricInput interface {
 }
 
 type GetBucketReplicationConfigurationRuleDestinationMetricArgs struct {
+	// Configuration block that specifies the time threshold for emitting the `s3:Replication:OperationMissedThreshold` event. See `eventThreshold` Block below.
 	EventThresholds GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArrayInput `pulumi:"eventThresholds"`
-	Status          pulumi.StringInput                                                             `pulumi:"status"`
+	// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+	Status pulumi.StringInput `pulumi:"status"`
 }
 
 func (GetBucketReplicationConfigurationRuleDestinationMetricArgs) ElementType() reflect.Type {
@@ -26076,12 +26131,14 @@ func (o GetBucketReplicationConfigurationRuleDestinationMetricOutput) ToGetBucke
 	return o
 }
 
+// Configuration block that specifies the time threshold for emitting the `s3:Replication:OperationMissedThreshold` event. See `eventThreshold` Block below.
 func (o GetBucketReplicationConfigurationRuleDestinationMetricOutput) EventThresholds() GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArrayOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleDestinationMetric) []GetBucketReplicationConfigurationRuleDestinationMetricEventThreshold {
 		return v.EventThresholds
 	}).(GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArrayOutput)
 }
 
+// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
 func (o GetBucketReplicationConfigurationRuleDestinationMetricOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleDestinationMetric) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -26107,6 +26164,7 @@ func (o GetBucketReplicationConfigurationRuleDestinationMetricArrayOutput) Index
 }
 
 type GetBucketReplicationConfigurationRuleDestinationMetricEventThreshold struct {
+	// Time in minutes.
 	Minutes int `pulumi:"minutes"`
 }
 
@@ -26122,6 +26180,7 @@ type GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdInput i
 }
 
 type GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArgs struct {
+	// Time in minutes.
 	Minutes pulumi.IntInput `pulumi:"minutes"`
 }
 
@@ -26176,6 +26235,7 @@ func (o GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdOutp
 	return o
 }
 
+// Time in minutes.
 func (o GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdOutput) Minutes() pulumi.IntOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleDestinationMetricEventThreshold) int { return v.Minutes }).(pulumi.IntOutput)
 }
@@ -26201,8 +26261,10 @@ func (o GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArra
 }
 
 type GetBucketReplicationConfigurationRuleDestinationReplicationTime struct {
-	Status string                                                                `pulumi:"status"`
-	Times  []GetBucketReplicationConfigurationRuleDestinationReplicationTimeTime `pulumi:"times"`
+	// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+	Status string `pulumi:"status"`
+	// Configuration block that specifies the time by which replication should be complete for all objects and operations on objects. See `time` Block below.
+	Times []GetBucketReplicationConfigurationRuleDestinationReplicationTimeTime `pulumi:"times"`
 }
 
 // GetBucketReplicationConfigurationRuleDestinationReplicationTimeInput is an input type that accepts GetBucketReplicationConfigurationRuleDestinationReplicationTimeArgs and GetBucketReplicationConfigurationRuleDestinationReplicationTimeOutput values.
@@ -26217,8 +26279,10 @@ type GetBucketReplicationConfigurationRuleDestinationReplicationTimeInput interf
 }
 
 type GetBucketReplicationConfigurationRuleDestinationReplicationTimeArgs struct {
-	Status pulumi.StringInput                                                            `pulumi:"status"`
-	Times  GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArrayInput `pulumi:"times"`
+	// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+	Status pulumi.StringInput `pulumi:"status"`
+	// Configuration block that specifies the time by which replication should be complete for all objects and operations on objects. See `time` Block below.
+	Times GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArrayInput `pulumi:"times"`
 }
 
 func (GetBucketReplicationConfigurationRuleDestinationReplicationTimeArgs) ElementType() reflect.Type {
@@ -26272,10 +26336,12 @@ func (o GetBucketReplicationConfigurationRuleDestinationReplicationTimeOutput) T
 	return o
 }
 
+// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
 func (o GetBucketReplicationConfigurationRuleDestinationReplicationTimeOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleDestinationReplicationTime) string { return v.Status }).(pulumi.StringOutput)
 }
 
+// Configuration block that specifies the time by which replication should be complete for all objects and operations on objects. See `time` Block below.
 func (o GetBucketReplicationConfigurationRuleDestinationReplicationTimeOutput) Times() GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArrayOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleDestinationReplicationTime) []GetBucketReplicationConfigurationRuleDestinationReplicationTimeTime {
 		return v.Times
@@ -26303,6 +26369,7 @@ func (o GetBucketReplicationConfigurationRuleDestinationReplicationTimeArrayOutp
 }
 
 type GetBucketReplicationConfigurationRuleDestinationReplicationTimeTime struct {
+	// Time in minutes.
 	Minutes int `pulumi:"minutes"`
 }
 
@@ -26318,6 +26385,7 @@ type GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeInput in
 }
 
 type GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArgs struct {
+	// Time in minutes.
 	Minutes pulumi.IntInput `pulumi:"minutes"`
 }
 
@@ -26372,6 +26440,7 @@ func (o GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeOutpu
 	return o
 }
 
+// Time in minutes.
 func (o GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeOutput) Minutes() pulumi.IntOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleDestinationReplicationTimeTime) int { return v.Minutes }).(pulumi.IntOutput)
 }
@@ -26397,6 +26466,7 @@ func (o GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArray
 }
 
 type GetBucketReplicationConfigurationRuleExistingObjectReplication struct {
+	// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
 	Status string `pulumi:"status"`
 }
 
@@ -26412,6 +26482,7 @@ type GetBucketReplicationConfigurationRuleExistingObjectReplicationInput interfa
 }
 
 type GetBucketReplicationConfigurationRuleExistingObjectReplicationArgs struct {
+	// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
 	Status pulumi.StringInput `pulumi:"status"`
 }
 
@@ -26466,6 +26537,7 @@ func (o GetBucketReplicationConfigurationRuleExistingObjectReplicationOutput) To
 	return o
 }
 
+// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
 func (o GetBucketReplicationConfigurationRuleExistingObjectReplicationOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleExistingObjectReplication) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -26491,10 +26563,11 @@ func (o GetBucketReplicationConfigurationRuleExistingObjectReplicationArrayOutpu
 }
 
 type GetBucketReplicationConfigurationRuleFilter struct {
+	// Configuration block for specifying rule filters. See `and` Block below.
 	Ands []GetBucketReplicationConfigurationRuleFilterAnd `pulumi:"ands"`
 	// Object key name prefix that identifies the subset of objects to which the rule applies.
 	Prefix string `pulumi:"prefix"`
-	// Unordered list of tags that identify a subset of objects to which the rule applies. Each tag has a `key` and a `value`.
+	// List of tags that identify a subset of objects to which the rule applies. See `tag` Block below.
 	Tags []GetBucketReplicationConfigurationRuleFilterTag `pulumi:"tags"`
 }
 
@@ -26510,10 +26583,11 @@ type GetBucketReplicationConfigurationRuleFilterInput interface {
 }
 
 type GetBucketReplicationConfigurationRuleFilterArgs struct {
+	// Configuration block for specifying rule filters. See `and` Block below.
 	Ands GetBucketReplicationConfigurationRuleFilterAndArrayInput `pulumi:"ands"`
 	// Object key name prefix that identifies the subset of objects to which the rule applies.
 	Prefix pulumi.StringInput `pulumi:"prefix"`
-	// Unordered list of tags that identify a subset of objects to which the rule applies. Each tag has a `key` and a `value`.
+	// List of tags that identify a subset of objects to which the rule applies. See `tag` Block below.
 	Tags GetBucketReplicationConfigurationRuleFilterTagArrayInput `pulumi:"tags"`
 }
 
@@ -26568,6 +26642,7 @@ func (o GetBucketReplicationConfigurationRuleFilterOutput) ToGetBucketReplicatio
 	return o
 }
 
+// Configuration block for specifying rule filters. See `and` Block below.
 func (o GetBucketReplicationConfigurationRuleFilterOutput) Ands() GetBucketReplicationConfigurationRuleFilterAndArrayOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleFilter) []GetBucketReplicationConfigurationRuleFilterAnd {
 		return v.Ands
@@ -26579,7 +26654,7 @@ func (o GetBucketReplicationConfigurationRuleFilterOutput) Prefix() pulumi.Strin
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleFilter) string { return v.Prefix }).(pulumi.StringOutput)
 }
 
-// Unordered list of tags that identify a subset of objects to which the rule applies. Each tag has a `key` and a `value`.
+// List of tags that identify a subset of objects to which the rule applies. See `tag` Block below.
 func (o GetBucketReplicationConfigurationRuleFilterOutput) Tags() GetBucketReplicationConfigurationRuleFilterTagArrayOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleFilter) []GetBucketReplicationConfigurationRuleFilterTag {
 		return v.Tags
@@ -26609,7 +26684,7 @@ func (o GetBucketReplicationConfigurationRuleFilterArrayOutput) Index(i pulumi.I
 type GetBucketReplicationConfigurationRuleFilterAnd struct {
 	// Object key name prefix that identifies the subset of objects to which the rule applies.
 	Prefix string `pulumi:"prefix"`
-	// Unordered list of tags that identify a subset of objects to which the rule applies. Each tag has a `key` and a `value`.
+	// List of tags that identify a subset of objects to which the rule applies. See `tag` Block below.
 	Tags []GetBucketReplicationConfigurationRuleFilterAndTag `pulumi:"tags"`
 }
 
@@ -26627,7 +26702,7 @@ type GetBucketReplicationConfigurationRuleFilterAndInput interface {
 type GetBucketReplicationConfigurationRuleFilterAndArgs struct {
 	// Object key name prefix that identifies the subset of objects to which the rule applies.
 	Prefix pulumi.StringInput `pulumi:"prefix"`
-	// Unordered list of tags that identify a subset of objects to which the rule applies. Each tag has a `key` and a `value`.
+	// List of tags that identify a subset of objects to which the rule applies. See `tag` Block below.
 	Tags GetBucketReplicationConfigurationRuleFilterAndTagArrayInput `pulumi:"tags"`
 }
 
@@ -26687,7 +26762,7 @@ func (o GetBucketReplicationConfigurationRuleFilterAndOutput) Prefix() pulumi.St
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleFilterAnd) string { return v.Prefix }).(pulumi.StringOutput)
 }
 
-// Unordered list of tags that identify a subset of objects to which the rule applies. Each tag has a `key` and a `value`.
+// List of tags that identify a subset of objects to which the rule applies. See `tag` Block below.
 func (o GetBucketReplicationConfigurationRuleFilterAndOutput) Tags() GetBucketReplicationConfigurationRuleFilterAndTagArrayOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleFilterAnd) []GetBucketReplicationConfigurationRuleFilterAndTag {
 		return v.Tags
@@ -26715,7 +26790,9 @@ func (o GetBucketReplicationConfigurationRuleFilterAndArrayOutput) Index(i pulum
 }
 
 type GetBucketReplicationConfigurationRuleFilterAndTag struct {
-	Key   string `pulumi:"key"`
+	// Name of the object key.
+	Key string `pulumi:"key"`
+	// Value of the tag.
 	Value string `pulumi:"value"`
 }
 
@@ -26731,7 +26808,9 @@ type GetBucketReplicationConfigurationRuleFilterAndTagInput interface {
 }
 
 type GetBucketReplicationConfigurationRuleFilterAndTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// Name of the object key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the tag.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -26786,10 +26865,12 @@ func (o GetBucketReplicationConfigurationRuleFilterAndTagOutput) ToGetBucketRepl
 	return o
 }
 
+// Name of the object key.
 func (o GetBucketReplicationConfigurationRuleFilterAndTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleFilterAndTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value of the tag.
 func (o GetBucketReplicationConfigurationRuleFilterAndTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleFilterAndTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -26815,7 +26896,9 @@ func (o GetBucketReplicationConfigurationRuleFilterAndTagArrayOutput) Index(i pu
 }
 
 type GetBucketReplicationConfigurationRuleFilterTag struct {
-	Key   string `pulumi:"key"`
+	// Name of the object key.
+	Key string `pulumi:"key"`
+	// Value of the tag.
 	Value string `pulumi:"value"`
 }
 
@@ -26831,7 +26914,9 @@ type GetBucketReplicationConfigurationRuleFilterTagInput interface {
 }
 
 type GetBucketReplicationConfigurationRuleFilterTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// Name of the object key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the tag.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -26886,10 +26971,12 @@ func (o GetBucketReplicationConfigurationRuleFilterTagOutput) ToGetBucketReplica
 	return o
 }
 
+// Name of the object key.
 func (o GetBucketReplicationConfigurationRuleFilterTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleFilterTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Value of the tag.
 func (o GetBucketReplicationConfigurationRuleFilterTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleFilterTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -26915,7 +27002,9 @@ func (o GetBucketReplicationConfigurationRuleFilterTagArrayOutput) Index(i pulum
 }
 
 type GetBucketReplicationConfigurationRuleSourceSelectionCriteria struct {
-	ReplicaModifications   []GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModification   `pulumi:"replicaModifications"`
+	// Configuration block for selections for modifications on replicas. See `replicaModifications` Block below.
+	ReplicaModifications []GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModification `pulumi:"replicaModifications"`
+	// Configuration block for filter information for the selection of Amazon S3 objects encrypted with AWS KMS. See `sseKmsEncryptedObjects` Block below.
 	SseKmsEncryptedObjects []GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject `pulumi:"sseKmsEncryptedObjects"`
 }
 
@@ -26931,7 +27020,9 @@ type GetBucketReplicationConfigurationRuleSourceSelectionCriteriaInput interface
 }
 
 type GetBucketReplicationConfigurationRuleSourceSelectionCriteriaArgs struct {
-	ReplicaModifications   GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArrayInput   `pulumi:"replicaModifications"`
+	// Configuration block for selections for modifications on replicas. See `replicaModifications` Block below.
+	ReplicaModifications GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArrayInput `pulumi:"replicaModifications"`
+	// Configuration block for filter information for the selection of Amazon S3 objects encrypted with AWS KMS. See `sseKmsEncryptedObjects` Block below.
 	SseKmsEncryptedObjects GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayInput `pulumi:"sseKmsEncryptedObjects"`
 }
 
@@ -26986,12 +27077,14 @@ func (o GetBucketReplicationConfigurationRuleSourceSelectionCriteriaOutput) ToGe
 	return o
 }
 
+// Configuration block for selections for modifications on replicas. See `replicaModifications` Block below.
 func (o GetBucketReplicationConfigurationRuleSourceSelectionCriteriaOutput) ReplicaModifications() GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArrayOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleSourceSelectionCriteria) []GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModification {
 		return v.ReplicaModifications
 	}).(GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArrayOutput)
 }
 
+// Configuration block for filter information for the selection of Amazon S3 objects encrypted with AWS KMS. See `sseKmsEncryptedObjects` Block below.
 func (o GetBucketReplicationConfigurationRuleSourceSelectionCriteriaOutput) SseKmsEncryptedObjects() GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleSourceSelectionCriteria) []GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject {
 		return v.SseKmsEncryptedObjects
@@ -27019,6 +27112,7 @@ func (o GetBucketReplicationConfigurationRuleSourceSelectionCriteriaArrayOutput)
 }
 
 type GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModification struct {
+	// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
 	Status string `pulumi:"status"`
 }
 
@@ -27034,6 +27128,7 @@ type GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModifica
 }
 
 type GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArgs struct {
+	// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
 	Status pulumi.StringInput `pulumi:"status"`
 }
 
@@ -27088,6 +27183,7 @@ func (o GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModif
 	return o
 }
 
+// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
 func (o GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModification) string {
 		return v.Status
@@ -27115,6 +27211,7 @@ func (o GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModif
 }
 
 type GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject struct {
+	// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
 	Status string `pulumi:"status"`
 }
 
@@ -27130,6 +27227,7 @@ type GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncrypted
 }
 
 type GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs struct {
+	// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
 	Status pulumi.StringInput `pulumi:"status"`
 }
 
@@ -27184,6 +27282,7 @@ func (o GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryp
 	return o
 }
 
+// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
 func (o GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject) string {
 		return v.Status

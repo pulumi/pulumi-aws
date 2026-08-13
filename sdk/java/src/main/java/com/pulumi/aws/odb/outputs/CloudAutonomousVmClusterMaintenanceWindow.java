@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CloudAutonomousVmClusterMaintenanceWindow {
     /**
-     * @return Days of the week when maintenance can be performed. Changing this will force terraform to create new resource.
+     * @return Days of the week when maintenance can be performed. Changing this will force terraform to create new resource. See `daysOfWeek` Block below.
      * 
      */
     private @Nullable List<CloudAutonomousVmClusterMaintenanceWindowDaysOfWeek> daysOfWeeks;
@@ -32,7 +32,7 @@ public final class CloudAutonomousVmClusterMaintenanceWindow {
      */
     private @Nullable Integer leadTimeInWeeks;
     /**
-     * @return Months when maintenance can be performed. Changing this will force terraform to create new resource.
+     * @return Months when maintenance can be performed. Changing this will force terraform to create new resource. See `months` Block below.
      * 
      */
     private @Nullable List<CloudAutonomousVmClusterMaintenanceWindowMonth> months;
@@ -49,7 +49,7 @@ public final class CloudAutonomousVmClusterMaintenanceWindow {
 
     private CloudAutonomousVmClusterMaintenanceWindow() {}
     /**
-     * @return Days of the week when maintenance can be performed. Changing this will force terraform to create new resource.
+     * @return Days of the week when maintenance can be performed. Changing this will force terraform to create new resource. See `daysOfWeek` Block below.
      * 
      */
     public List<CloudAutonomousVmClusterMaintenanceWindowDaysOfWeek> daysOfWeeks() {
@@ -70,7 +70,7 @@ public final class CloudAutonomousVmClusterMaintenanceWindow {
         return Optional.ofNullable(this.leadTimeInWeeks);
     }
     /**
-     * @return Months when maintenance can be performed. Changing this will force terraform to create new resource.
+     * @return Months when maintenance can be performed. Changing this will force terraform to create new resource. See `months` Block below.
      * 
      */
     public List<CloudAutonomousVmClusterMaintenanceWindowMonth> months() {

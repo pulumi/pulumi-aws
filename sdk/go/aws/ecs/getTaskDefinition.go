@@ -105,7 +105,7 @@ type LookupTaskDefinitionResult struct {
 	Cpu string `pulumi:"cpu"`
 	// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
 	EnableFaultInjection bool `pulumi:"enableFaultInjection"`
-	// Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
+	// Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See `ephemeralStorage` Block.
 	EphemeralStorages []GetTaskDefinitionEphemeralStorage `pulumi:"ephemeralStorages"`
 	// ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
 	ExecutionRoleArn string `pulumi:"executionRoleArn"`
@@ -122,9 +122,9 @@ type LookupTaskDefinitionResult struct {
 	NetworkMode string `pulumi:"networkMode"`
 	// Process namespace to use for the containers in the task. The valid values are `host` and `task`.
 	PidMode string `pulumi:"pidMode"`
-	// Configuration block for rules that are taken into consideration during task placement. Maximum number of `placementConstraints` is `10`. Detailed below.
+	// Configuration block for rules that are taken into consideration during task placement. Maximum number of `placementConstraints` is `10`. See `placementConstraints` Block.
 	PlacementConstraints []GetTaskDefinitionPlacementConstraint `pulumi:"placementConstraints"`
-	// Configuration block for the App Mesh proxy. Detailed below.
+	// Configuration block for the App Mesh proxy. See `proxyConfiguration` Block.
 	ProxyConfigurations []GetTaskDefinitionProxyConfiguration `pulumi:"proxyConfigurations"`
 	Region              string                                `pulumi:"region"`
 	// Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
@@ -138,7 +138,7 @@ type LookupTaskDefinitionResult struct {
 	TaskDefinition string `pulumi:"taskDefinition"`
 	// ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
 	TaskRoleArn string `pulumi:"taskRoleArn"`
-	// Attributes corresponding to the `volume` argument of the `ecs.TaskDefinition` resource.
+	// Configuration block for volumes that containers in your task may use. See `volume` Block for details.
 	Volumes []GetTaskDefinitionVolume `pulumi:"volumes"`
 }
 
@@ -203,7 +203,7 @@ func (o LookupTaskDefinitionResultOutput) EnableFaultInjection() pulumi.BoolOutp
 	return o.ApplyT(func(v LookupTaskDefinitionResult) bool { return v.EnableFaultInjection }).(pulumi.BoolOutput)
 }
 
-// Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
+// Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See `ephemeralStorage` Block.
 func (o LookupTaskDefinitionResultOutput) EphemeralStorages() GetTaskDefinitionEphemeralStorageArrayOutput {
 	return o.ApplyT(func(v LookupTaskDefinitionResult) []GetTaskDefinitionEphemeralStorage { return v.EphemeralStorages }).(GetTaskDefinitionEphemeralStorageArrayOutput)
 }
@@ -244,14 +244,14 @@ func (o LookupTaskDefinitionResultOutput) PidMode() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTaskDefinitionResult) string { return v.PidMode }).(pulumi.StringOutput)
 }
 
-// Configuration block for rules that are taken into consideration during task placement. Maximum number of `placementConstraints` is `10`. Detailed below.
+// Configuration block for rules that are taken into consideration during task placement. Maximum number of `placementConstraints` is `10`. See `placementConstraints` Block.
 func (o LookupTaskDefinitionResultOutput) PlacementConstraints() GetTaskDefinitionPlacementConstraintArrayOutput {
 	return o.ApplyT(func(v LookupTaskDefinitionResult) []GetTaskDefinitionPlacementConstraint {
 		return v.PlacementConstraints
 	}).(GetTaskDefinitionPlacementConstraintArrayOutput)
 }
 
-// Configuration block for the App Mesh proxy. Detailed below.
+// Configuration block for the App Mesh proxy. See `proxyConfiguration` Block.
 func (o LookupTaskDefinitionResultOutput) ProxyConfigurations() GetTaskDefinitionProxyConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupTaskDefinitionResult) []GetTaskDefinitionProxyConfiguration { return v.ProxyConfigurations }).(GetTaskDefinitionProxyConfigurationArrayOutput)
 }
@@ -289,7 +289,7 @@ func (o LookupTaskDefinitionResultOutput) TaskRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTaskDefinitionResult) string { return v.TaskRoleArn }).(pulumi.StringOutput)
 }
 
-// Attributes corresponding to the `volume` argument of the `ecs.TaskDefinition` resource.
+// Configuration block for volumes that containers in your task may use. See `volume` Block for details.
 func (o LookupTaskDefinitionResultOutput) Volumes() GetTaskDefinitionVolumeArrayOutput {
 	return o.ApplyT(func(v LookupTaskDefinitionResult) []GetTaskDefinitionVolume { return v.Volumes }).(GetTaskDefinitionVolumeArrayOutput)
 }

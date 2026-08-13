@@ -16,12 +16,20 @@ public final class GetDbNodesDbNode {
      * 
      */
     private String additionalDetails;
+    /**
+     * @return Amazon Resource Name (ARN) of the DB node.
+     * 
+     */
     private String arn;
     /**
      * @return Oracle Cloud ID (OCID) of the backup IP address that&#39;s associated with the DB node.
      * 
      */
     private String backupIpId;
+    /**
+     * @return OCID of the second backup virtual network interface card (VNIC) for the DB node.
+     * 
+     */
     private String backupVnic2Id;
     /**
      * @return OCID of the backup VNIC for the DB node.
@@ -38,6 +46,10 @@ public final class GetDbNodesDbNode {
      * 
      */
     private String createdAt;
+    /**
+     * @return Amount of local node storage, in gigabytes (GB), that&#39;s allocated on the DB node.
+     * 
+     */
     private Integer dbNodeStorageSize;
     /**
      * @return Unique identifier of the database server that&#39;s associated with the DB node.
@@ -64,12 +76,20 @@ public final class GetDbNodesDbNode {
      * 
      */
     private String hostname;
+    /**
+     * @return Unique identifier of the DB node.
+     * 
+     */
     private String id;
     /**
      * @return Type of maintenance the DB node is undergoing.
      * 
      */
     private String maintenanceType;
+    /**
+     * @return Amount of memory, in gigabytes (GB), that&#39;s allocated on the DB node.
+     * 
+     */
     private Integer memorySize;
     /**
      * @return Name of the OCI resource anchor for the DB node.
@@ -81,6 +101,10 @@ public final class GetDbNodesDbNode {
      * 
      */
     private String ocid;
+    /**
+     * @return Size of the block storage volume, in gigabytes (GB), that&#39;s allocated for the DB system. This attribute applies only for virtual machine DB systems.
+     * 
+     */
     private Integer softwareStorageSize;
     /**
      * @return Current status of the DB node.
@@ -107,6 +131,10 @@ public final class GetDbNodesDbNode {
      * 
      */
     private Integer totalCpuCoreCount;
+    /**
+     * @return OCID of the second VNIC.
+     * 
+     */
     private String vnic2Id;
     /**
      * @return OCID of the VNIC.
@@ -122,6 +150,10 @@ public final class GetDbNodesDbNode {
     public String additionalDetails() {
         return this.additionalDetails;
     }
+    /**
+     * @return Amazon Resource Name (ARN) of the DB node.
+     * 
+     */
     public String arn() {
         return this.arn;
     }
@@ -132,6 +164,10 @@ public final class GetDbNodesDbNode {
     public String backupIpId() {
         return this.backupIpId;
     }
+    /**
+     * @return OCID of the second backup virtual network interface card (VNIC) for the DB node.
+     * 
+     */
     public String backupVnic2Id() {
         return this.backupVnic2Id;
     }
@@ -156,6 +192,10 @@ public final class GetDbNodesDbNode {
     public String createdAt() {
         return this.createdAt;
     }
+    /**
+     * @return Amount of local node storage, in gigabytes (GB), that&#39;s allocated on the DB node.
+     * 
+     */
     public Integer dbNodeStorageSize() {
         return this.dbNodeStorageSize;
     }
@@ -194,6 +234,10 @@ public final class GetDbNodesDbNode {
     public String hostname() {
         return this.hostname;
     }
+    /**
+     * @return Unique identifier of the DB node.
+     * 
+     */
     public String id() {
         return this.id;
     }
@@ -204,6 +248,10 @@ public final class GetDbNodesDbNode {
     public String maintenanceType() {
         return this.maintenanceType;
     }
+    /**
+     * @return Amount of memory, in gigabytes (GB), that&#39;s allocated on the DB node.
+     * 
+     */
     public Integer memorySize() {
         return this.memorySize;
     }
@@ -221,6 +269,10 @@ public final class GetDbNodesDbNode {
     public String ocid() {
         return this.ocid;
     }
+    /**
+     * @return Size of the block storage volume, in gigabytes (GB), that&#39;s allocated for the DB system. This attribute applies only for virtual machine DB systems.
+     * 
+     */
     public Integer softwareStorageSize() {
         return this.softwareStorageSize;
     }
@@ -259,6 +311,10 @@ public final class GetDbNodesDbNode {
     public Integer totalCpuCoreCount() {
         return this.totalCpuCoreCount;
     }
+    /**
+     * @return OCID of the second VNIC.
+     * 
+     */
     public String vnic2Id() {
         return this.vnic2Id;
     }

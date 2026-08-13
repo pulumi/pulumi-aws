@@ -10,6 +10,11 @@ export type Graph = import("./graph").Graph;
 export const Graph: typeof import("./graph").Graph = null as any;
 utilities.lazyLoad(exports, ["Graph"], () => require("./graph"));
 
+export { PrivateGraphEndpointArgs, PrivateGraphEndpointState } from "./privateGraphEndpoint";
+export type PrivateGraphEndpoint = import("./privateGraphEndpoint").PrivateGraphEndpoint;
+export const PrivateGraphEndpoint: typeof import("./privateGraphEndpoint").PrivateGraphEndpoint = null as any;
+utilities.lazyLoad(exports, ["PrivateGraphEndpoint"], () => require("./privateGraphEndpoint"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -17,9 +22,12 @@ const _module = {
         switch (type) {
             case "aws:neptunegraph/graph:Graph":
                 return new Graph(name, <any>undefined, { urn })
+            case "aws:neptunegraph/privateGraphEndpoint:PrivateGraphEndpoint":
+                return new PrivateGraphEndpoint(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("aws", "neptunegraph/graph", _module)
+pulumi.runtime.registerResourceModule("aws", "neptunegraph/privateGraphEndpoint", _module)

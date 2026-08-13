@@ -13,6 +13,9 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationResult
     {
+        /// <summary>
+        /// Replica ownership.
+        /// </summary>
         public readonly string Owner;
 
         [OutputConstructor]

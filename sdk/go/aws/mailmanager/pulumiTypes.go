@@ -13,6 +13,1133 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type IngressPointIngressPointConfiguration struct {
+	// ARN of the secret in AWS Secrets Manager that holds the SMTP password, used for `AUTH` ingress points.
+	SecretArn *string `pulumi:"secretArn"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// SMTP password used for `AUTH` ingress points. This argument is not stored in state. Requires `smtpPasswordWoVersion` to be set. See Write-Only Arguments for more information.
+	SmtpPasswordWo *string `pulumi:"smtpPasswordWo"`
+	// Version number for `smtpPasswordWo`. Increment this value to trigger a password update. Required when using `smtpPasswordWo`.
+	SmtpPasswordWoVersion *int `pulumi:"smtpPasswordWoVersion"`
+	// Configuration used to authenticate with `MTLS` ingress points. See `tlsAuthConfiguration` Block for details.
+	TlsAuthConfiguration *IngressPointIngressPointConfigurationTlsAuthConfiguration `pulumi:"tlsAuthConfiguration"`
+}
+
+// IngressPointIngressPointConfigurationInput is an input type that accepts IngressPointIngressPointConfigurationArgs and IngressPointIngressPointConfigurationOutput values.
+// You can construct a concrete instance of `IngressPointIngressPointConfigurationInput` via:
+//
+//	IngressPointIngressPointConfigurationArgs{...}
+type IngressPointIngressPointConfigurationInput interface {
+	pulumi.Input
+
+	ToIngressPointIngressPointConfigurationOutput() IngressPointIngressPointConfigurationOutput
+	ToIngressPointIngressPointConfigurationOutputWithContext(context.Context) IngressPointIngressPointConfigurationOutput
+}
+
+type IngressPointIngressPointConfigurationArgs struct {
+	// ARN of the secret in AWS Secrets Manager that holds the SMTP password, used for `AUTH` ingress points.
+	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// SMTP password used for `AUTH` ingress points. This argument is not stored in state. Requires `smtpPasswordWoVersion` to be set. See Write-Only Arguments for more information.
+	SmtpPasswordWo pulumi.StringPtrInput `pulumi:"smtpPasswordWo"`
+	// Version number for `smtpPasswordWo`. Increment this value to trigger a password update. Required when using `smtpPasswordWo`.
+	SmtpPasswordWoVersion pulumi.IntPtrInput `pulumi:"smtpPasswordWoVersion"`
+	// Configuration used to authenticate with `MTLS` ingress points. See `tlsAuthConfiguration` Block for details.
+	TlsAuthConfiguration IngressPointIngressPointConfigurationTlsAuthConfigurationPtrInput `pulumi:"tlsAuthConfiguration"`
+}
+
+func (IngressPointIngressPointConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IngressPointIngressPointConfiguration)(nil)).Elem()
+}
+
+func (i IngressPointIngressPointConfigurationArgs) ToIngressPointIngressPointConfigurationOutput() IngressPointIngressPointConfigurationOutput {
+	return i.ToIngressPointIngressPointConfigurationOutputWithContext(context.Background())
+}
+
+func (i IngressPointIngressPointConfigurationArgs) ToIngressPointIngressPointConfigurationOutputWithContext(ctx context.Context) IngressPointIngressPointConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IngressPointIngressPointConfigurationOutput)
+}
+
+func (i IngressPointIngressPointConfigurationArgs) ToIngressPointIngressPointConfigurationPtrOutput() IngressPointIngressPointConfigurationPtrOutput {
+	return i.ToIngressPointIngressPointConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i IngressPointIngressPointConfigurationArgs) ToIngressPointIngressPointConfigurationPtrOutputWithContext(ctx context.Context) IngressPointIngressPointConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IngressPointIngressPointConfigurationOutput).ToIngressPointIngressPointConfigurationPtrOutputWithContext(ctx)
+}
+
+// IngressPointIngressPointConfigurationPtrInput is an input type that accepts IngressPointIngressPointConfigurationArgs, IngressPointIngressPointConfigurationPtr and IngressPointIngressPointConfigurationPtrOutput values.
+// You can construct a concrete instance of `IngressPointIngressPointConfigurationPtrInput` via:
+//
+//	        IngressPointIngressPointConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type IngressPointIngressPointConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToIngressPointIngressPointConfigurationPtrOutput() IngressPointIngressPointConfigurationPtrOutput
+	ToIngressPointIngressPointConfigurationPtrOutputWithContext(context.Context) IngressPointIngressPointConfigurationPtrOutput
+}
+
+type ingressPointIngressPointConfigurationPtrType IngressPointIngressPointConfigurationArgs
+
+func IngressPointIngressPointConfigurationPtr(v *IngressPointIngressPointConfigurationArgs) IngressPointIngressPointConfigurationPtrInput {
+	return (*ingressPointIngressPointConfigurationPtrType)(v)
+}
+
+func (*ingressPointIngressPointConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IngressPointIngressPointConfiguration)(nil)).Elem()
+}
+
+func (i *ingressPointIngressPointConfigurationPtrType) ToIngressPointIngressPointConfigurationPtrOutput() IngressPointIngressPointConfigurationPtrOutput {
+	return i.ToIngressPointIngressPointConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *ingressPointIngressPointConfigurationPtrType) ToIngressPointIngressPointConfigurationPtrOutputWithContext(ctx context.Context) IngressPointIngressPointConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IngressPointIngressPointConfigurationPtrOutput)
+}
+
+type IngressPointIngressPointConfigurationOutput struct{ *pulumi.OutputState }
+
+func (IngressPointIngressPointConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IngressPointIngressPointConfiguration)(nil)).Elem()
+}
+
+func (o IngressPointIngressPointConfigurationOutput) ToIngressPointIngressPointConfigurationOutput() IngressPointIngressPointConfigurationOutput {
+	return o
+}
+
+func (o IngressPointIngressPointConfigurationOutput) ToIngressPointIngressPointConfigurationOutputWithContext(ctx context.Context) IngressPointIngressPointConfigurationOutput {
+	return o
+}
+
+func (o IngressPointIngressPointConfigurationOutput) ToIngressPointIngressPointConfigurationPtrOutput() IngressPointIngressPointConfigurationPtrOutput {
+	return o.ToIngressPointIngressPointConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o IngressPointIngressPointConfigurationOutput) ToIngressPointIngressPointConfigurationPtrOutputWithContext(ctx context.Context) IngressPointIngressPointConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IngressPointIngressPointConfiguration) *IngressPointIngressPointConfiguration {
+		return &v
+	}).(IngressPointIngressPointConfigurationPtrOutput)
+}
+
+// ARN of the secret in AWS Secrets Manager that holds the SMTP password, used for `AUTH` ingress points.
+func (o IngressPointIngressPointConfigurationOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IngressPointIngressPointConfiguration) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+// SMTP password used for `AUTH` ingress points. This argument is not stored in state. Requires `smtpPasswordWoVersion` to be set. See Write-Only Arguments for more information.
+func (o IngressPointIngressPointConfigurationOutput) SmtpPasswordWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IngressPointIngressPointConfiguration) *string { return v.SmtpPasswordWo }).(pulumi.StringPtrOutput)
+}
+
+// Version number for `smtpPasswordWo`. Increment this value to trigger a password update. Required when using `smtpPasswordWo`.
+func (o IngressPointIngressPointConfigurationOutput) SmtpPasswordWoVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v IngressPointIngressPointConfiguration) *int { return v.SmtpPasswordWoVersion }).(pulumi.IntPtrOutput)
+}
+
+// Configuration used to authenticate with `MTLS` ingress points. See `tlsAuthConfiguration` Block for details.
+func (o IngressPointIngressPointConfigurationOutput) TlsAuthConfiguration() IngressPointIngressPointConfigurationTlsAuthConfigurationPtrOutput {
+	return o.ApplyT(func(v IngressPointIngressPointConfiguration) *IngressPointIngressPointConfigurationTlsAuthConfiguration {
+		return v.TlsAuthConfiguration
+	}).(IngressPointIngressPointConfigurationTlsAuthConfigurationPtrOutput)
+}
+
+type IngressPointIngressPointConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (IngressPointIngressPointConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IngressPointIngressPointConfiguration)(nil)).Elem()
+}
+
+func (o IngressPointIngressPointConfigurationPtrOutput) ToIngressPointIngressPointConfigurationPtrOutput() IngressPointIngressPointConfigurationPtrOutput {
+	return o
+}
+
+func (o IngressPointIngressPointConfigurationPtrOutput) ToIngressPointIngressPointConfigurationPtrOutputWithContext(ctx context.Context) IngressPointIngressPointConfigurationPtrOutput {
+	return o
+}
+
+func (o IngressPointIngressPointConfigurationPtrOutput) Elem() IngressPointIngressPointConfigurationOutput {
+	return o.ApplyT(func(v *IngressPointIngressPointConfiguration) IngressPointIngressPointConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret IngressPointIngressPointConfiguration
+		return ret
+	}).(IngressPointIngressPointConfigurationOutput)
+}
+
+// ARN of the secret in AWS Secrets Manager that holds the SMTP password, used for `AUTH` ingress points.
+func (o IngressPointIngressPointConfigurationPtrOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IngressPointIngressPointConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+// SMTP password used for `AUTH` ingress points. This argument is not stored in state. Requires `smtpPasswordWoVersion` to be set. See Write-Only Arguments for more information.
+func (o IngressPointIngressPointConfigurationPtrOutput) SmtpPasswordWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IngressPointIngressPointConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SmtpPasswordWo
+	}).(pulumi.StringPtrOutput)
+}
+
+// Version number for `smtpPasswordWo`. Increment this value to trigger a password update. Required when using `smtpPasswordWo`.
+func (o IngressPointIngressPointConfigurationPtrOutput) SmtpPasswordWoVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *IngressPointIngressPointConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SmtpPasswordWoVersion
+	}).(pulumi.IntPtrOutput)
+}
+
+// Configuration used to authenticate with `MTLS` ingress points. See `tlsAuthConfiguration` Block for details.
+func (o IngressPointIngressPointConfigurationPtrOutput) TlsAuthConfiguration() IngressPointIngressPointConfigurationTlsAuthConfigurationPtrOutput {
+	return o.ApplyT(func(v *IngressPointIngressPointConfiguration) *IngressPointIngressPointConfigurationTlsAuthConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.TlsAuthConfiguration
+	}).(IngressPointIngressPointConfigurationTlsAuthConfigurationPtrOutput)
+}
+
+type IngressPointIngressPointConfigurationTlsAuthConfiguration struct {
+	// Trust store used to validate client certificates. See `trustStore` Block for details.
+	TrustStore *IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStore `pulumi:"trustStore"`
+}
+
+// IngressPointIngressPointConfigurationTlsAuthConfigurationInput is an input type that accepts IngressPointIngressPointConfigurationTlsAuthConfigurationArgs and IngressPointIngressPointConfigurationTlsAuthConfigurationOutput values.
+// You can construct a concrete instance of `IngressPointIngressPointConfigurationTlsAuthConfigurationInput` via:
+//
+//	IngressPointIngressPointConfigurationTlsAuthConfigurationArgs{...}
+type IngressPointIngressPointConfigurationTlsAuthConfigurationInput interface {
+	pulumi.Input
+
+	ToIngressPointIngressPointConfigurationTlsAuthConfigurationOutput() IngressPointIngressPointConfigurationTlsAuthConfigurationOutput
+	ToIngressPointIngressPointConfigurationTlsAuthConfigurationOutputWithContext(context.Context) IngressPointIngressPointConfigurationTlsAuthConfigurationOutput
+}
+
+type IngressPointIngressPointConfigurationTlsAuthConfigurationArgs struct {
+	// Trust store used to validate client certificates. See `trustStore` Block for details.
+	TrustStore IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrInput `pulumi:"trustStore"`
+}
+
+func (IngressPointIngressPointConfigurationTlsAuthConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IngressPointIngressPointConfigurationTlsAuthConfiguration)(nil)).Elem()
+}
+
+func (i IngressPointIngressPointConfigurationTlsAuthConfigurationArgs) ToIngressPointIngressPointConfigurationTlsAuthConfigurationOutput() IngressPointIngressPointConfigurationTlsAuthConfigurationOutput {
+	return i.ToIngressPointIngressPointConfigurationTlsAuthConfigurationOutputWithContext(context.Background())
+}
+
+func (i IngressPointIngressPointConfigurationTlsAuthConfigurationArgs) ToIngressPointIngressPointConfigurationTlsAuthConfigurationOutputWithContext(ctx context.Context) IngressPointIngressPointConfigurationTlsAuthConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IngressPointIngressPointConfigurationTlsAuthConfigurationOutput)
+}
+
+func (i IngressPointIngressPointConfigurationTlsAuthConfigurationArgs) ToIngressPointIngressPointConfigurationTlsAuthConfigurationPtrOutput() IngressPointIngressPointConfigurationTlsAuthConfigurationPtrOutput {
+	return i.ToIngressPointIngressPointConfigurationTlsAuthConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i IngressPointIngressPointConfigurationTlsAuthConfigurationArgs) ToIngressPointIngressPointConfigurationTlsAuthConfigurationPtrOutputWithContext(ctx context.Context) IngressPointIngressPointConfigurationTlsAuthConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IngressPointIngressPointConfigurationTlsAuthConfigurationOutput).ToIngressPointIngressPointConfigurationTlsAuthConfigurationPtrOutputWithContext(ctx)
+}
+
+// IngressPointIngressPointConfigurationTlsAuthConfigurationPtrInput is an input type that accepts IngressPointIngressPointConfigurationTlsAuthConfigurationArgs, IngressPointIngressPointConfigurationTlsAuthConfigurationPtr and IngressPointIngressPointConfigurationTlsAuthConfigurationPtrOutput values.
+// You can construct a concrete instance of `IngressPointIngressPointConfigurationTlsAuthConfigurationPtrInput` via:
+//
+//	        IngressPointIngressPointConfigurationTlsAuthConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type IngressPointIngressPointConfigurationTlsAuthConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToIngressPointIngressPointConfigurationTlsAuthConfigurationPtrOutput() IngressPointIngressPointConfigurationTlsAuthConfigurationPtrOutput
+	ToIngressPointIngressPointConfigurationTlsAuthConfigurationPtrOutputWithContext(context.Context) IngressPointIngressPointConfigurationTlsAuthConfigurationPtrOutput
+}
+
+type ingressPointIngressPointConfigurationTlsAuthConfigurationPtrType IngressPointIngressPointConfigurationTlsAuthConfigurationArgs
+
+func IngressPointIngressPointConfigurationTlsAuthConfigurationPtr(v *IngressPointIngressPointConfigurationTlsAuthConfigurationArgs) IngressPointIngressPointConfigurationTlsAuthConfigurationPtrInput {
+	return (*ingressPointIngressPointConfigurationTlsAuthConfigurationPtrType)(v)
+}
+
+func (*ingressPointIngressPointConfigurationTlsAuthConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IngressPointIngressPointConfigurationTlsAuthConfiguration)(nil)).Elem()
+}
+
+func (i *ingressPointIngressPointConfigurationTlsAuthConfigurationPtrType) ToIngressPointIngressPointConfigurationTlsAuthConfigurationPtrOutput() IngressPointIngressPointConfigurationTlsAuthConfigurationPtrOutput {
+	return i.ToIngressPointIngressPointConfigurationTlsAuthConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *ingressPointIngressPointConfigurationTlsAuthConfigurationPtrType) ToIngressPointIngressPointConfigurationTlsAuthConfigurationPtrOutputWithContext(ctx context.Context) IngressPointIngressPointConfigurationTlsAuthConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IngressPointIngressPointConfigurationTlsAuthConfigurationPtrOutput)
+}
+
+type IngressPointIngressPointConfigurationTlsAuthConfigurationOutput struct{ *pulumi.OutputState }
+
+func (IngressPointIngressPointConfigurationTlsAuthConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IngressPointIngressPointConfigurationTlsAuthConfiguration)(nil)).Elem()
+}
+
+func (o IngressPointIngressPointConfigurationTlsAuthConfigurationOutput) ToIngressPointIngressPointConfigurationTlsAuthConfigurationOutput() IngressPointIngressPointConfigurationTlsAuthConfigurationOutput {
+	return o
+}
+
+func (o IngressPointIngressPointConfigurationTlsAuthConfigurationOutput) ToIngressPointIngressPointConfigurationTlsAuthConfigurationOutputWithContext(ctx context.Context) IngressPointIngressPointConfigurationTlsAuthConfigurationOutput {
+	return o
+}
+
+func (o IngressPointIngressPointConfigurationTlsAuthConfigurationOutput) ToIngressPointIngressPointConfigurationTlsAuthConfigurationPtrOutput() IngressPointIngressPointConfigurationTlsAuthConfigurationPtrOutput {
+	return o.ToIngressPointIngressPointConfigurationTlsAuthConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o IngressPointIngressPointConfigurationTlsAuthConfigurationOutput) ToIngressPointIngressPointConfigurationTlsAuthConfigurationPtrOutputWithContext(ctx context.Context) IngressPointIngressPointConfigurationTlsAuthConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IngressPointIngressPointConfigurationTlsAuthConfiguration) *IngressPointIngressPointConfigurationTlsAuthConfiguration {
+		return &v
+	}).(IngressPointIngressPointConfigurationTlsAuthConfigurationPtrOutput)
+}
+
+// Trust store used to validate client certificates. See `trustStore` Block for details.
+func (o IngressPointIngressPointConfigurationTlsAuthConfigurationOutput) TrustStore() IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrOutput {
+	return o.ApplyT(func(v IngressPointIngressPointConfigurationTlsAuthConfiguration) *IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStore {
+		return v.TrustStore
+	}).(IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrOutput)
+}
+
+type IngressPointIngressPointConfigurationTlsAuthConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (IngressPointIngressPointConfigurationTlsAuthConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IngressPointIngressPointConfigurationTlsAuthConfiguration)(nil)).Elem()
+}
+
+func (o IngressPointIngressPointConfigurationTlsAuthConfigurationPtrOutput) ToIngressPointIngressPointConfigurationTlsAuthConfigurationPtrOutput() IngressPointIngressPointConfigurationTlsAuthConfigurationPtrOutput {
+	return o
+}
+
+func (o IngressPointIngressPointConfigurationTlsAuthConfigurationPtrOutput) ToIngressPointIngressPointConfigurationTlsAuthConfigurationPtrOutputWithContext(ctx context.Context) IngressPointIngressPointConfigurationTlsAuthConfigurationPtrOutput {
+	return o
+}
+
+func (o IngressPointIngressPointConfigurationTlsAuthConfigurationPtrOutput) Elem() IngressPointIngressPointConfigurationTlsAuthConfigurationOutput {
+	return o.ApplyT(func(v *IngressPointIngressPointConfigurationTlsAuthConfiguration) IngressPointIngressPointConfigurationTlsAuthConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret IngressPointIngressPointConfigurationTlsAuthConfiguration
+		return ret
+	}).(IngressPointIngressPointConfigurationTlsAuthConfigurationOutput)
+}
+
+// Trust store used to validate client certificates. See `trustStore` Block for details.
+func (o IngressPointIngressPointConfigurationTlsAuthConfigurationPtrOutput) TrustStore() IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrOutput {
+	return o.ApplyT(func(v *IngressPointIngressPointConfigurationTlsAuthConfiguration) *IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStore {
+		if v == nil {
+			return nil
+		}
+		return v.TrustStore
+	}).(IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrOutput)
+}
+
+type IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStore struct {
+	// PEM-encoded certificate authority (CA) content used to validate client certificates.
+	CaContent string `pulumi:"caContent"`
+	// PEM-encoded certificate revocation list (CRL) content used to check whether client certificates have been revoked.
+	CrlContent *string `pulumi:"crlContent"`
+	// ARN of the AWS KMS key used to decrypt the CRL content.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+}
+
+// IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreInput is an input type that accepts IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreArgs and IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreOutput values.
+// You can construct a concrete instance of `IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreInput` via:
+//
+//	IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreArgs{...}
+type IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreInput interface {
+	pulumi.Input
+
+	ToIngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreOutput() IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreOutput
+	ToIngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreOutputWithContext(context.Context) IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreOutput
+}
+
+type IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreArgs struct {
+	// PEM-encoded certificate authority (CA) content used to validate client certificates.
+	CaContent pulumi.StringInput `pulumi:"caContent"`
+	// PEM-encoded certificate revocation list (CRL) content used to check whether client certificates have been revoked.
+	CrlContent pulumi.StringPtrInput `pulumi:"crlContent"`
+	// ARN of the AWS KMS key used to decrypt the CRL content.
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+}
+
+func (IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStore)(nil)).Elem()
+}
+
+func (i IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreArgs) ToIngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreOutput() IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreOutput {
+	return i.ToIngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreOutputWithContext(context.Background())
+}
+
+func (i IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreArgs) ToIngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreOutputWithContext(ctx context.Context) IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreOutput)
+}
+
+func (i IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreArgs) ToIngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrOutput() IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrOutput {
+	return i.ToIngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrOutputWithContext(context.Background())
+}
+
+func (i IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreArgs) ToIngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrOutputWithContext(ctx context.Context) IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreOutput).ToIngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrOutputWithContext(ctx)
+}
+
+// IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrInput is an input type that accepts IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreArgs, IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtr and IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrOutput values.
+// You can construct a concrete instance of `IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrInput` via:
+//
+//	        IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreArgs{...}
+//
+//	or:
+//
+//	        nil
+type IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrInput interface {
+	pulumi.Input
+
+	ToIngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrOutput() IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrOutput
+	ToIngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrOutputWithContext(context.Context) IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrOutput
+}
+
+type ingressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrType IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreArgs
+
+func IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtr(v *IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreArgs) IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrInput {
+	return (*ingressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrType)(v)
+}
+
+func (*ingressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStore)(nil)).Elem()
+}
+
+func (i *ingressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrType) ToIngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrOutput() IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrOutput {
+	return i.ToIngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrOutputWithContext(context.Background())
+}
+
+func (i *ingressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrType) ToIngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrOutputWithContext(ctx context.Context) IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrOutput)
+}
+
+type IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreOutput struct{ *pulumi.OutputState }
+
+func (IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStore)(nil)).Elem()
+}
+
+func (o IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreOutput) ToIngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreOutput() IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreOutput {
+	return o
+}
+
+func (o IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreOutput) ToIngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreOutputWithContext(ctx context.Context) IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreOutput {
+	return o
+}
+
+func (o IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreOutput) ToIngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrOutput() IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrOutput {
+	return o.ToIngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrOutputWithContext(context.Background())
+}
+
+func (o IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreOutput) ToIngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrOutputWithContext(ctx context.Context) IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStore) *IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStore {
+		return &v
+	}).(IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrOutput)
+}
+
+// PEM-encoded certificate authority (CA) content used to validate client certificates.
+func (o IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreOutput) CaContent() pulumi.StringOutput {
+	return o.ApplyT(func(v IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStore) string { return v.CaContent }).(pulumi.StringOutput)
+}
+
+// PEM-encoded certificate revocation list (CRL) content used to check whether client certificates have been revoked.
+func (o IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreOutput) CrlContent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStore) *string {
+		return v.CrlContent
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the AWS KMS key used to decrypt the CRL content.
+func (o IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStore) *string {
+		return v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrOutput struct{ *pulumi.OutputState }
+
+func (IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStore)(nil)).Elem()
+}
+
+func (o IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrOutput) ToIngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrOutput() IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrOutput {
+	return o
+}
+
+func (o IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrOutput) ToIngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrOutputWithContext(ctx context.Context) IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrOutput {
+	return o
+}
+
+func (o IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrOutput) Elem() IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreOutput {
+	return o.ApplyT(func(v *IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStore) IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStore {
+		if v != nil {
+			return *v
+		}
+		var ret IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStore
+		return ret
+	}).(IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreOutput)
+}
+
+// PEM-encoded certificate authority (CA) content used to validate client certificates.
+func (o IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrOutput) CaContent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStore) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CaContent
+	}).(pulumi.StringPtrOutput)
+}
+
+// PEM-encoded certificate revocation list (CRL) content used to check whether client certificates have been revoked.
+func (o IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrOutput) CrlContent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStore) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CrlContent
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the AWS KMS key used to decrypt the CRL content.
+func (o IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStore) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type IngressPointNetworkConfiguration struct {
+	// Configuration for a private ingress point that uses a VPC endpoint. See `privateNetworkConfiguration` Block for details.
+	PrivateNetworkConfiguration *IngressPointNetworkConfigurationPrivateNetworkConfiguration `pulumi:"privateNetworkConfiguration"`
+	// Configuration for a public ingress point. See `publicNetworkConfiguration` Block for details.
+	PublicNetworkConfiguration *IngressPointNetworkConfigurationPublicNetworkConfiguration `pulumi:"publicNetworkConfiguration"`
+}
+
+// IngressPointNetworkConfigurationInput is an input type that accepts IngressPointNetworkConfigurationArgs and IngressPointNetworkConfigurationOutput values.
+// You can construct a concrete instance of `IngressPointNetworkConfigurationInput` via:
+//
+//	IngressPointNetworkConfigurationArgs{...}
+type IngressPointNetworkConfigurationInput interface {
+	pulumi.Input
+
+	ToIngressPointNetworkConfigurationOutput() IngressPointNetworkConfigurationOutput
+	ToIngressPointNetworkConfigurationOutputWithContext(context.Context) IngressPointNetworkConfigurationOutput
+}
+
+type IngressPointNetworkConfigurationArgs struct {
+	// Configuration for a private ingress point that uses a VPC endpoint. See `privateNetworkConfiguration` Block for details.
+	PrivateNetworkConfiguration IngressPointNetworkConfigurationPrivateNetworkConfigurationPtrInput `pulumi:"privateNetworkConfiguration"`
+	// Configuration for a public ingress point. See `publicNetworkConfiguration` Block for details.
+	PublicNetworkConfiguration IngressPointNetworkConfigurationPublicNetworkConfigurationPtrInput `pulumi:"publicNetworkConfiguration"`
+}
+
+func (IngressPointNetworkConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IngressPointNetworkConfiguration)(nil)).Elem()
+}
+
+func (i IngressPointNetworkConfigurationArgs) ToIngressPointNetworkConfigurationOutput() IngressPointNetworkConfigurationOutput {
+	return i.ToIngressPointNetworkConfigurationOutputWithContext(context.Background())
+}
+
+func (i IngressPointNetworkConfigurationArgs) ToIngressPointNetworkConfigurationOutputWithContext(ctx context.Context) IngressPointNetworkConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IngressPointNetworkConfigurationOutput)
+}
+
+func (i IngressPointNetworkConfigurationArgs) ToIngressPointNetworkConfigurationPtrOutput() IngressPointNetworkConfigurationPtrOutput {
+	return i.ToIngressPointNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i IngressPointNetworkConfigurationArgs) ToIngressPointNetworkConfigurationPtrOutputWithContext(ctx context.Context) IngressPointNetworkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IngressPointNetworkConfigurationOutput).ToIngressPointNetworkConfigurationPtrOutputWithContext(ctx)
+}
+
+// IngressPointNetworkConfigurationPtrInput is an input type that accepts IngressPointNetworkConfigurationArgs, IngressPointNetworkConfigurationPtr and IngressPointNetworkConfigurationPtrOutput values.
+// You can construct a concrete instance of `IngressPointNetworkConfigurationPtrInput` via:
+//
+//	        IngressPointNetworkConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type IngressPointNetworkConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToIngressPointNetworkConfigurationPtrOutput() IngressPointNetworkConfigurationPtrOutput
+	ToIngressPointNetworkConfigurationPtrOutputWithContext(context.Context) IngressPointNetworkConfigurationPtrOutput
+}
+
+type ingressPointNetworkConfigurationPtrType IngressPointNetworkConfigurationArgs
+
+func IngressPointNetworkConfigurationPtr(v *IngressPointNetworkConfigurationArgs) IngressPointNetworkConfigurationPtrInput {
+	return (*ingressPointNetworkConfigurationPtrType)(v)
+}
+
+func (*ingressPointNetworkConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IngressPointNetworkConfiguration)(nil)).Elem()
+}
+
+func (i *ingressPointNetworkConfigurationPtrType) ToIngressPointNetworkConfigurationPtrOutput() IngressPointNetworkConfigurationPtrOutput {
+	return i.ToIngressPointNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *ingressPointNetworkConfigurationPtrType) ToIngressPointNetworkConfigurationPtrOutputWithContext(ctx context.Context) IngressPointNetworkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IngressPointNetworkConfigurationPtrOutput)
+}
+
+type IngressPointNetworkConfigurationOutput struct{ *pulumi.OutputState }
+
+func (IngressPointNetworkConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IngressPointNetworkConfiguration)(nil)).Elem()
+}
+
+func (o IngressPointNetworkConfigurationOutput) ToIngressPointNetworkConfigurationOutput() IngressPointNetworkConfigurationOutput {
+	return o
+}
+
+func (o IngressPointNetworkConfigurationOutput) ToIngressPointNetworkConfigurationOutputWithContext(ctx context.Context) IngressPointNetworkConfigurationOutput {
+	return o
+}
+
+func (o IngressPointNetworkConfigurationOutput) ToIngressPointNetworkConfigurationPtrOutput() IngressPointNetworkConfigurationPtrOutput {
+	return o.ToIngressPointNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o IngressPointNetworkConfigurationOutput) ToIngressPointNetworkConfigurationPtrOutputWithContext(ctx context.Context) IngressPointNetworkConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IngressPointNetworkConfiguration) *IngressPointNetworkConfiguration {
+		return &v
+	}).(IngressPointNetworkConfigurationPtrOutput)
+}
+
+// Configuration for a private ingress point that uses a VPC endpoint. See `privateNetworkConfiguration` Block for details.
+func (o IngressPointNetworkConfigurationOutput) PrivateNetworkConfiguration() IngressPointNetworkConfigurationPrivateNetworkConfigurationPtrOutput {
+	return o.ApplyT(func(v IngressPointNetworkConfiguration) *IngressPointNetworkConfigurationPrivateNetworkConfiguration {
+		return v.PrivateNetworkConfiguration
+	}).(IngressPointNetworkConfigurationPrivateNetworkConfigurationPtrOutput)
+}
+
+// Configuration for a public ingress point. See `publicNetworkConfiguration` Block for details.
+func (o IngressPointNetworkConfigurationOutput) PublicNetworkConfiguration() IngressPointNetworkConfigurationPublicNetworkConfigurationPtrOutput {
+	return o.ApplyT(func(v IngressPointNetworkConfiguration) *IngressPointNetworkConfigurationPublicNetworkConfiguration {
+		return v.PublicNetworkConfiguration
+	}).(IngressPointNetworkConfigurationPublicNetworkConfigurationPtrOutput)
+}
+
+type IngressPointNetworkConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (IngressPointNetworkConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IngressPointNetworkConfiguration)(nil)).Elem()
+}
+
+func (o IngressPointNetworkConfigurationPtrOutput) ToIngressPointNetworkConfigurationPtrOutput() IngressPointNetworkConfigurationPtrOutput {
+	return o
+}
+
+func (o IngressPointNetworkConfigurationPtrOutput) ToIngressPointNetworkConfigurationPtrOutputWithContext(ctx context.Context) IngressPointNetworkConfigurationPtrOutput {
+	return o
+}
+
+func (o IngressPointNetworkConfigurationPtrOutput) Elem() IngressPointNetworkConfigurationOutput {
+	return o.ApplyT(func(v *IngressPointNetworkConfiguration) IngressPointNetworkConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret IngressPointNetworkConfiguration
+		return ret
+	}).(IngressPointNetworkConfigurationOutput)
+}
+
+// Configuration for a private ingress point that uses a VPC endpoint. See `privateNetworkConfiguration` Block for details.
+func (o IngressPointNetworkConfigurationPtrOutput) PrivateNetworkConfiguration() IngressPointNetworkConfigurationPrivateNetworkConfigurationPtrOutput {
+	return o.ApplyT(func(v *IngressPointNetworkConfiguration) *IngressPointNetworkConfigurationPrivateNetworkConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateNetworkConfiguration
+	}).(IngressPointNetworkConfigurationPrivateNetworkConfigurationPtrOutput)
+}
+
+// Configuration for a public ingress point. See `publicNetworkConfiguration` Block for details.
+func (o IngressPointNetworkConfigurationPtrOutput) PublicNetworkConfiguration() IngressPointNetworkConfigurationPublicNetworkConfigurationPtrOutput {
+	return o.ApplyT(func(v *IngressPointNetworkConfiguration) *IngressPointNetworkConfigurationPublicNetworkConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.PublicNetworkConfiguration
+	}).(IngressPointNetworkConfigurationPublicNetworkConfigurationPtrOutput)
+}
+
+type IngressPointNetworkConfigurationPrivateNetworkConfiguration struct {
+	// Identifier of the VPC endpoint to associate with the ingress point.
+	VpcEndpointId string `pulumi:"vpcEndpointId"`
+}
+
+// IngressPointNetworkConfigurationPrivateNetworkConfigurationInput is an input type that accepts IngressPointNetworkConfigurationPrivateNetworkConfigurationArgs and IngressPointNetworkConfigurationPrivateNetworkConfigurationOutput values.
+// You can construct a concrete instance of `IngressPointNetworkConfigurationPrivateNetworkConfigurationInput` via:
+//
+//	IngressPointNetworkConfigurationPrivateNetworkConfigurationArgs{...}
+type IngressPointNetworkConfigurationPrivateNetworkConfigurationInput interface {
+	pulumi.Input
+
+	ToIngressPointNetworkConfigurationPrivateNetworkConfigurationOutput() IngressPointNetworkConfigurationPrivateNetworkConfigurationOutput
+	ToIngressPointNetworkConfigurationPrivateNetworkConfigurationOutputWithContext(context.Context) IngressPointNetworkConfigurationPrivateNetworkConfigurationOutput
+}
+
+type IngressPointNetworkConfigurationPrivateNetworkConfigurationArgs struct {
+	// Identifier of the VPC endpoint to associate with the ingress point.
+	VpcEndpointId pulumi.StringInput `pulumi:"vpcEndpointId"`
+}
+
+func (IngressPointNetworkConfigurationPrivateNetworkConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IngressPointNetworkConfigurationPrivateNetworkConfiguration)(nil)).Elem()
+}
+
+func (i IngressPointNetworkConfigurationPrivateNetworkConfigurationArgs) ToIngressPointNetworkConfigurationPrivateNetworkConfigurationOutput() IngressPointNetworkConfigurationPrivateNetworkConfigurationOutput {
+	return i.ToIngressPointNetworkConfigurationPrivateNetworkConfigurationOutputWithContext(context.Background())
+}
+
+func (i IngressPointNetworkConfigurationPrivateNetworkConfigurationArgs) ToIngressPointNetworkConfigurationPrivateNetworkConfigurationOutputWithContext(ctx context.Context) IngressPointNetworkConfigurationPrivateNetworkConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IngressPointNetworkConfigurationPrivateNetworkConfigurationOutput)
+}
+
+func (i IngressPointNetworkConfigurationPrivateNetworkConfigurationArgs) ToIngressPointNetworkConfigurationPrivateNetworkConfigurationPtrOutput() IngressPointNetworkConfigurationPrivateNetworkConfigurationPtrOutput {
+	return i.ToIngressPointNetworkConfigurationPrivateNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i IngressPointNetworkConfigurationPrivateNetworkConfigurationArgs) ToIngressPointNetworkConfigurationPrivateNetworkConfigurationPtrOutputWithContext(ctx context.Context) IngressPointNetworkConfigurationPrivateNetworkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IngressPointNetworkConfigurationPrivateNetworkConfigurationOutput).ToIngressPointNetworkConfigurationPrivateNetworkConfigurationPtrOutputWithContext(ctx)
+}
+
+// IngressPointNetworkConfigurationPrivateNetworkConfigurationPtrInput is an input type that accepts IngressPointNetworkConfigurationPrivateNetworkConfigurationArgs, IngressPointNetworkConfigurationPrivateNetworkConfigurationPtr and IngressPointNetworkConfigurationPrivateNetworkConfigurationPtrOutput values.
+// You can construct a concrete instance of `IngressPointNetworkConfigurationPrivateNetworkConfigurationPtrInput` via:
+//
+//	        IngressPointNetworkConfigurationPrivateNetworkConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type IngressPointNetworkConfigurationPrivateNetworkConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToIngressPointNetworkConfigurationPrivateNetworkConfigurationPtrOutput() IngressPointNetworkConfigurationPrivateNetworkConfigurationPtrOutput
+	ToIngressPointNetworkConfigurationPrivateNetworkConfigurationPtrOutputWithContext(context.Context) IngressPointNetworkConfigurationPrivateNetworkConfigurationPtrOutput
+}
+
+type ingressPointNetworkConfigurationPrivateNetworkConfigurationPtrType IngressPointNetworkConfigurationPrivateNetworkConfigurationArgs
+
+func IngressPointNetworkConfigurationPrivateNetworkConfigurationPtr(v *IngressPointNetworkConfigurationPrivateNetworkConfigurationArgs) IngressPointNetworkConfigurationPrivateNetworkConfigurationPtrInput {
+	return (*ingressPointNetworkConfigurationPrivateNetworkConfigurationPtrType)(v)
+}
+
+func (*ingressPointNetworkConfigurationPrivateNetworkConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IngressPointNetworkConfigurationPrivateNetworkConfiguration)(nil)).Elem()
+}
+
+func (i *ingressPointNetworkConfigurationPrivateNetworkConfigurationPtrType) ToIngressPointNetworkConfigurationPrivateNetworkConfigurationPtrOutput() IngressPointNetworkConfigurationPrivateNetworkConfigurationPtrOutput {
+	return i.ToIngressPointNetworkConfigurationPrivateNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *ingressPointNetworkConfigurationPrivateNetworkConfigurationPtrType) ToIngressPointNetworkConfigurationPrivateNetworkConfigurationPtrOutputWithContext(ctx context.Context) IngressPointNetworkConfigurationPrivateNetworkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IngressPointNetworkConfigurationPrivateNetworkConfigurationPtrOutput)
+}
+
+type IngressPointNetworkConfigurationPrivateNetworkConfigurationOutput struct{ *pulumi.OutputState }
+
+func (IngressPointNetworkConfigurationPrivateNetworkConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IngressPointNetworkConfigurationPrivateNetworkConfiguration)(nil)).Elem()
+}
+
+func (o IngressPointNetworkConfigurationPrivateNetworkConfigurationOutput) ToIngressPointNetworkConfigurationPrivateNetworkConfigurationOutput() IngressPointNetworkConfigurationPrivateNetworkConfigurationOutput {
+	return o
+}
+
+func (o IngressPointNetworkConfigurationPrivateNetworkConfigurationOutput) ToIngressPointNetworkConfigurationPrivateNetworkConfigurationOutputWithContext(ctx context.Context) IngressPointNetworkConfigurationPrivateNetworkConfigurationOutput {
+	return o
+}
+
+func (o IngressPointNetworkConfigurationPrivateNetworkConfigurationOutput) ToIngressPointNetworkConfigurationPrivateNetworkConfigurationPtrOutput() IngressPointNetworkConfigurationPrivateNetworkConfigurationPtrOutput {
+	return o.ToIngressPointNetworkConfigurationPrivateNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o IngressPointNetworkConfigurationPrivateNetworkConfigurationOutput) ToIngressPointNetworkConfigurationPrivateNetworkConfigurationPtrOutputWithContext(ctx context.Context) IngressPointNetworkConfigurationPrivateNetworkConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IngressPointNetworkConfigurationPrivateNetworkConfiguration) *IngressPointNetworkConfigurationPrivateNetworkConfiguration {
+		return &v
+	}).(IngressPointNetworkConfigurationPrivateNetworkConfigurationPtrOutput)
+}
+
+// Identifier of the VPC endpoint to associate with the ingress point.
+func (o IngressPointNetworkConfigurationPrivateNetworkConfigurationOutput) VpcEndpointId() pulumi.StringOutput {
+	return o.ApplyT(func(v IngressPointNetworkConfigurationPrivateNetworkConfiguration) string { return v.VpcEndpointId }).(pulumi.StringOutput)
+}
+
+type IngressPointNetworkConfigurationPrivateNetworkConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (IngressPointNetworkConfigurationPrivateNetworkConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IngressPointNetworkConfigurationPrivateNetworkConfiguration)(nil)).Elem()
+}
+
+func (o IngressPointNetworkConfigurationPrivateNetworkConfigurationPtrOutput) ToIngressPointNetworkConfigurationPrivateNetworkConfigurationPtrOutput() IngressPointNetworkConfigurationPrivateNetworkConfigurationPtrOutput {
+	return o
+}
+
+func (o IngressPointNetworkConfigurationPrivateNetworkConfigurationPtrOutput) ToIngressPointNetworkConfigurationPrivateNetworkConfigurationPtrOutputWithContext(ctx context.Context) IngressPointNetworkConfigurationPrivateNetworkConfigurationPtrOutput {
+	return o
+}
+
+func (o IngressPointNetworkConfigurationPrivateNetworkConfigurationPtrOutput) Elem() IngressPointNetworkConfigurationPrivateNetworkConfigurationOutput {
+	return o.ApplyT(func(v *IngressPointNetworkConfigurationPrivateNetworkConfiguration) IngressPointNetworkConfigurationPrivateNetworkConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret IngressPointNetworkConfigurationPrivateNetworkConfiguration
+		return ret
+	}).(IngressPointNetworkConfigurationPrivateNetworkConfigurationOutput)
+}
+
+// Identifier of the VPC endpoint to associate with the ingress point.
+func (o IngressPointNetworkConfigurationPrivateNetworkConfigurationPtrOutput) VpcEndpointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IngressPointNetworkConfigurationPrivateNetworkConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VpcEndpointId
+	}).(pulumi.StringPtrOutput)
+}
+
+type IngressPointNetworkConfigurationPublicNetworkConfiguration struct {
+	// IP address type for the public ingress point. Valid values are `IPV4` and `DUAL_STACK`.
+	IpType string `pulumi:"ipType"`
+}
+
+// IngressPointNetworkConfigurationPublicNetworkConfigurationInput is an input type that accepts IngressPointNetworkConfigurationPublicNetworkConfigurationArgs and IngressPointNetworkConfigurationPublicNetworkConfigurationOutput values.
+// You can construct a concrete instance of `IngressPointNetworkConfigurationPublicNetworkConfigurationInput` via:
+//
+//	IngressPointNetworkConfigurationPublicNetworkConfigurationArgs{...}
+type IngressPointNetworkConfigurationPublicNetworkConfigurationInput interface {
+	pulumi.Input
+
+	ToIngressPointNetworkConfigurationPublicNetworkConfigurationOutput() IngressPointNetworkConfigurationPublicNetworkConfigurationOutput
+	ToIngressPointNetworkConfigurationPublicNetworkConfigurationOutputWithContext(context.Context) IngressPointNetworkConfigurationPublicNetworkConfigurationOutput
+}
+
+type IngressPointNetworkConfigurationPublicNetworkConfigurationArgs struct {
+	// IP address type for the public ingress point. Valid values are `IPV4` and `DUAL_STACK`.
+	IpType pulumi.StringInput `pulumi:"ipType"`
+}
+
+func (IngressPointNetworkConfigurationPublicNetworkConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IngressPointNetworkConfigurationPublicNetworkConfiguration)(nil)).Elem()
+}
+
+func (i IngressPointNetworkConfigurationPublicNetworkConfigurationArgs) ToIngressPointNetworkConfigurationPublicNetworkConfigurationOutput() IngressPointNetworkConfigurationPublicNetworkConfigurationOutput {
+	return i.ToIngressPointNetworkConfigurationPublicNetworkConfigurationOutputWithContext(context.Background())
+}
+
+func (i IngressPointNetworkConfigurationPublicNetworkConfigurationArgs) ToIngressPointNetworkConfigurationPublicNetworkConfigurationOutputWithContext(ctx context.Context) IngressPointNetworkConfigurationPublicNetworkConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IngressPointNetworkConfigurationPublicNetworkConfigurationOutput)
+}
+
+func (i IngressPointNetworkConfigurationPublicNetworkConfigurationArgs) ToIngressPointNetworkConfigurationPublicNetworkConfigurationPtrOutput() IngressPointNetworkConfigurationPublicNetworkConfigurationPtrOutput {
+	return i.ToIngressPointNetworkConfigurationPublicNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i IngressPointNetworkConfigurationPublicNetworkConfigurationArgs) ToIngressPointNetworkConfigurationPublicNetworkConfigurationPtrOutputWithContext(ctx context.Context) IngressPointNetworkConfigurationPublicNetworkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IngressPointNetworkConfigurationPublicNetworkConfigurationOutput).ToIngressPointNetworkConfigurationPublicNetworkConfigurationPtrOutputWithContext(ctx)
+}
+
+// IngressPointNetworkConfigurationPublicNetworkConfigurationPtrInput is an input type that accepts IngressPointNetworkConfigurationPublicNetworkConfigurationArgs, IngressPointNetworkConfigurationPublicNetworkConfigurationPtr and IngressPointNetworkConfigurationPublicNetworkConfigurationPtrOutput values.
+// You can construct a concrete instance of `IngressPointNetworkConfigurationPublicNetworkConfigurationPtrInput` via:
+//
+//	        IngressPointNetworkConfigurationPublicNetworkConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type IngressPointNetworkConfigurationPublicNetworkConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToIngressPointNetworkConfigurationPublicNetworkConfigurationPtrOutput() IngressPointNetworkConfigurationPublicNetworkConfigurationPtrOutput
+	ToIngressPointNetworkConfigurationPublicNetworkConfigurationPtrOutputWithContext(context.Context) IngressPointNetworkConfigurationPublicNetworkConfigurationPtrOutput
+}
+
+type ingressPointNetworkConfigurationPublicNetworkConfigurationPtrType IngressPointNetworkConfigurationPublicNetworkConfigurationArgs
+
+func IngressPointNetworkConfigurationPublicNetworkConfigurationPtr(v *IngressPointNetworkConfigurationPublicNetworkConfigurationArgs) IngressPointNetworkConfigurationPublicNetworkConfigurationPtrInput {
+	return (*ingressPointNetworkConfigurationPublicNetworkConfigurationPtrType)(v)
+}
+
+func (*ingressPointNetworkConfigurationPublicNetworkConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IngressPointNetworkConfigurationPublicNetworkConfiguration)(nil)).Elem()
+}
+
+func (i *ingressPointNetworkConfigurationPublicNetworkConfigurationPtrType) ToIngressPointNetworkConfigurationPublicNetworkConfigurationPtrOutput() IngressPointNetworkConfigurationPublicNetworkConfigurationPtrOutput {
+	return i.ToIngressPointNetworkConfigurationPublicNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *ingressPointNetworkConfigurationPublicNetworkConfigurationPtrType) ToIngressPointNetworkConfigurationPublicNetworkConfigurationPtrOutputWithContext(ctx context.Context) IngressPointNetworkConfigurationPublicNetworkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IngressPointNetworkConfigurationPublicNetworkConfigurationPtrOutput)
+}
+
+type IngressPointNetworkConfigurationPublicNetworkConfigurationOutput struct{ *pulumi.OutputState }
+
+func (IngressPointNetworkConfigurationPublicNetworkConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IngressPointNetworkConfigurationPublicNetworkConfiguration)(nil)).Elem()
+}
+
+func (o IngressPointNetworkConfigurationPublicNetworkConfigurationOutput) ToIngressPointNetworkConfigurationPublicNetworkConfigurationOutput() IngressPointNetworkConfigurationPublicNetworkConfigurationOutput {
+	return o
+}
+
+func (o IngressPointNetworkConfigurationPublicNetworkConfigurationOutput) ToIngressPointNetworkConfigurationPublicNetworkConfigurationOutputWithContext(ctx context.Context) IngressPointNetworkConfigurationPublicNetworkConfigurationOutput {
+	return o
+}
+
+func (o IngressPointNetworkConfigurationPublicNetworkConfigurationOutput) ToIngressPointNetworkConfigurationPublicNetworkConfigurationPtrOutput() IngressPointNetworkConfigurationPublicNetworkConfigurationPtrOutput {
+	return o.ToIngressPointNetworkConfigurationPublicNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o IngressPointNetworkConfigurationPublicNetworkConfigurationOutput) ToIngressPointNetworkConfigurationPublicNetworkConfigurationPtrOutputWithContext(ctx context.Context) IngressPointNetworkConfigurationPublicNetworkConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IngressPointNetworkConfigurationPublicNetworkConfiguration) *IngressPointNetworkConfigurationPublicNetworkConfiguration {
+		return &v
+	}).(IngressPointNetworkConfigurationPublicNetworkConfigurationPtrOutput)
+}
+
+// IP address type for the public ingress point. Valid values are `IPV4` and `DUAL_STACK`.
+func (o IngressPointNetworkConfigurationPublicNetworkConfigurationOutput) IpType() pulumi.StringOutput {
+	return o.ApplyT(func(v IngressPointNetworkConfigurationPublicNetworkConfiguration) string { return v.IpType }).(pulumi.StringOutput)
+}
+
+type IngressPointNetworkConfigurationPublicNetworkConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (IngressPointNetworkConfigurationPublicNetworkConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IngressPointNetworkConfigurationPublicNetworkConfiguration)(nil)).Elem()
+}
+
+func (o IngressPointNetworkConfigurationPublicNetworkConfigurationPtrOutput) ToIngressPointNetworkConfigurationPublicNetworkConfigurationPtrOutput() IngressPointNetworkConfigurationPublicNetworkConfigurationPtrOutput {
+	return o
+}
+
+func (o IngressPointNetworkConfigurationPublicNetworkConfigurationPtrOutput) ToIngressPointNetworkConfigurationPublicNetworkConfigurationPtrOutputWithContext(ctx context.Context) IngressPointNetworkConfigurationPublicNetworkConfigurationPtrOutput {
+	return o
+}
+
+func (o IngressPointNetworkConfigurationPublicNetworkConfigurationPtrOutput) Elem() IngressPointNetworkConfigurationPublicNetworkConfigurationOutput {
+	return o.ApplyT(func(v *IngressPointNetworkConfigurationPublicNetworkConfiguration) IngressPointNetworkConfigurationPublicNetworkConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret IngressPointNetworkConfigurationPublicNetworkConfiguration
+		return ret
+	}).(IngressPointNetworkConfigurationPublicNetworkConfigurationOutput)
+}
+
+// IP address type for the public ingress point. Valid values are `IPV4` and `DUAL_STACK`.
+func (o IngressPointNetworkConfigurationPublicNetworkConfigurationPtrOutput) IpType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IngressPointNetworkConfigurationPublicNetworkConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IpType
+	}).(pulumi.StringPtrOutput)
+}
+
+type IngressPointTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// IngressPointTimeoutsInput is an input type that accepts IngressPointTimeoutsArgs and IngressPointTimeoutsOutput values.
+// You can construct a concrete instance of `IngressPointTimeoutsInput` via:
+//
+//	IngressPointTimeoutsArgs{...}
+type IngressPointTimeoutsInput interface {
+	pulumi.Input
+
+	ToIngressPointTimeoutsOutput() IngressPointTimeoutsOutput
+	ToIngressPointTimeoutsOutputWithContext(context.Context) IngressPointTimeoutsOutput
+}
+
+type IngressPointTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (IngressPointTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IngressPointTimeouts)(nil)).Elem()
+}
+
+func (i IngressPointTimeoutsArgs) ToIngressPointTimeoutsOutput() IngressPointTimeoutsOutput {
+	return i.ToIngressPointTimeoutsOutputWithContext(context.Background())
+}
+
+func (i IngressPointTimeoutsArgs) ToIngressPointTimeoutsOutputWithContext(ctx context.Context) IngressPointTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IngressPointTimeoutsOutput)
+}
+
+func (i IngressPointTimeoutsArgs) ToIngressPointTimeoutsPtrOutput() IngressPointTimeoutsPtrOutput {
+	return i.ToIngressPointTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i IngressPointTimeoutsArgs) ToIngressPointTimeoutsPtrOutputWithContext(ctx context.Context) IngressPointTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IngressPointTimeoutsOutput).ToIngressPointTimeoutsPtrOutputWithContext(ctx)
+}
+
+// IngressPointTimeoutsPtrInput is an input type that accepts IngressPointTimeoutsArgs, IngressPointTimeoutsPtr and IngressPointTimeoutsPtrOutput values.
+// You can construct a concrete instance of `IngressPointTimeoutsPtrInput` via:
+//
+//	        IngressPointTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type IngressPointTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToIngressPointTimeoutsPtrOutput() IngressPointTimeoutsPtrOutput
+	ToIngressPointTimeoutsPtrOutputWithContext(context.Context) IngressPointTimeoutsPtrOutput
+}
+
+type ingressPointTimeoutsPtrType IngressPointTimeoutsArgs
+
+func IngressPointTimeoutsPtr(v *IngressPointTimeoutsArgs) IngressPointTimeoutsPtrInput {
+	return (*ingressPointTimeoutsPtrType)(v)
+}
+
+func (*ingressPointTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IngressPointTimeouts)(nil)).Elem()
+}
+
+func (i *ingressPointTimeoutsPtrType) ToIngressPointTimeoutsPtrOutput() IngressPointTimeoutsPtrOutput {
+	return i.ToIngressPointTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *ingressPointTimeoutsPtrType) ToIngressPointTimeoutsPtrOutputWithContext(ctx context.Context) IngressPointTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IngressPointTimeoutsPtrOutput)
+}
+
+type IngressPointTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (IngressPointTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IngressPointTimeouts)(nil)).Elem()
+}
+
+func (o IngressPointTimeoutsOutput) ToIngressPointTimeoutsOutput() IngressPointTimeoutsOutput {
+	return o
+}
+
+func (o IngressPointTimeoutsOutput) ToIngressPointTimeoutsOutputWithContext(ctx context.Context) IngressPointTimeoutsOutput {
+	return o
+}
+
+func (o IngressPointTimeoutsOutput) ToIngressPointTimeoutsPtrOutput() IngressPointTimeoutsPtrOutput {
+	return o.ToIngressPointTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o IngressPointTimeoutsOutput) ToIngressPointTimeoutsPtrOutputWithContext(ctx context.Context) IngressPointTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IngressPointTimeouts) *IngressPointTimeouts {
+		return &v
+	}).(IngressPointTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o IngressPointTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IngressPointTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o IngressPointTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IngressPointTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o IngressPointTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IngressPointTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type IngressPointTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (IngressPointTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IngressPointTimeouts)(nil)).Elem()
+}
+
+func (o IngressPointTimeoutsPtrOutput) ToIngressPointTimeoutsPtrOutput() IngressPointTimeoutsPtrOutput {
+	return o
+}
+
+func (o IngressPointTimeoutsPtrOutput) ToIngressPointTimeoutsPtrOutputWithContext(ctx context.Context) IngressPointTimeoutsPtrOutput {
+	return o
+}
+
+func (o IngressPointTimeoutsPtrOutput) Elem() IngressPointTimeoutsOutput {
+	return o.ApplyT(func(v *IngressPointTimeouts) IngressPointTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret IngressPointTimeouts
+		return ret
+	}).(IngressPointTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o IngressPointTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IngressPointTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o IngressPointTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IngressPointTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o IngressPointTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IngressPointTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type RuleSetRule struct {
 	// One or more actions to execute when all conditions match. Between 1 and 10 actions are supported. Each action must contain exactly one action configuration. See `action` Block.
 	Actions []RuleSetRuleAction `pulumi:"actions"`
@@ -9985,6 +11112,20 @@ func (o TrafficPolicyPolicyStatementConditionTlsExpressionEvaluatePtrOutput) Att
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IngressPointIngressPointConfigurationInput)(nil)).Elem(), IngressPointIngressPointConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IngressPointIngressPointConfigurationPtrInput)(nil)).Elem(), IngressPointIngressPointConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IngressPointIngressPointConfigurationTlsAuthConfigurationInput)(nil)).Elem(), IngressPointIngressPointConfigurationTlsAuthConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IngressPointIngressPointConfigurationTlsAuthConfigurationPtrInput)(nil)).Elem(), IngressPointIngressPointConfigurationTlsAuthConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreInput)(nil)).Elem(), IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrInput)(nil)).Elem(), IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IngressPointNetworkConfigurationInput)(nil)).Elem(), IngressPointNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IngressPointNetworkConfigurationPtrInput)(nil)).Elem(), IngressPointNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IngressPointNetworkConfigurationPrivateNetworkConfigurationInput)(nil)).Elem(), IngressPointNetworkConfigurationPrivateNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IngressPointNetworkConfigurationPrivateNetworkConfigurationPtrInput)(nil)).Elem(), IngressPointNetworkConfigurationPrivateNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IngressPointNetworkConfigurationPublicNetworkConfigurationInput)(nil)).Elem(), IngressPointNetworkConfigurationPublicNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IngressPointNetworkConfigurationPublicNetworkConfigurationPtrInput)(nil)).Elem(), IngressPointNetworkConfigurationPublicNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IngressPointTimeoutsInput)(nil)).Elem(), IngressPointTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IngressPointTimeoutsPtrInput)(nil)).Elem(), IngressPointTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleInput)(nil)).Elem(), RuleSetRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleArrayInput)(nil)).Elem(), RuleSetRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleActionInput)(nil)).Elem(), RuleSetRuleActionArgs{})
@@ -10107,6 +11248,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficPolicyPolicyStatementConditionTlsExpressionPtrInput)(nil)).Elem(), TrafficPolicyPolicyStatementConditionTlsExpressionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficPolicyPolicyStatementConditionTlsExpressionEvaluateInput)(nil)).Elem(), TrafficPolicyPolicyStatementConditionTlsExpressionEvaluateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficPolicyPolicyStatementConditionTlsExpressionEvaluatePtrInput)(nil)).Elem(), TrafficPolicyPolicyStatementConditionTlsExpressionEvaluateArgs{})
+	pulumi.RegisterOutputType(IngressPointIngressPointConfigurationOutput{})
+	pulumi.RegisterOutputType(IngressPointIngressPointConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(IngressPointIngressPointConfigurationTlsAuthConfigurationOutput{})
+	pulumi.RegisterOutputType(IngressPointIngressPointConfigurationTlsAuthConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreOutput{})
+	pulumi.RegisterOutputType(IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStorePtrOutput{})
+	pulumi.RegisterOutputType(IngressPointNetworkConfigurationOutput{})
+	pulumi.RegisterOutputType(IngressPointNetworkConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(IngressPointNetworkConfigurationPrivateNetworkConfigurationOutput{})
+	pulumi.RegisterOutputType(IngressPointNetworkConfigurationPrivateNetworkConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(IngressPointNetworkConfigurationPublicNetworkConfigurationOutput{})
+	pulumi.RegisterOutputType(IngressPointNetworkConfigurationPublicNetworkConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(IngressPointTimeoutsOutput{})
+	pulumi.RegisterOutputType(IngressPointTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(RuleSetRuleOutput{})
 	pulumi.RegisterOutputType(RuleSetRuleArrayOutput{})
 	pulumi.RegisterOutputType(RuleSetRuleActionOutput{})

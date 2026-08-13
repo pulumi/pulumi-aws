@@ -12,12 +12,21 @@ namespace Pulumi.Aws.ArcRegionSwitch.Inputs
 
     public sealed class PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigServiceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ARN of the ECS cluster.
+        /// </summary>
         [Input("clusterArn", required: true)]
         public Input<string> ClusterArn { get; set; } = null!;
 
+        /// <summary>
+        /// ARN of the cross-account role to assume.
+        /// </summary>
         [Input("crossAccountRole")]
         public Input<string>? CrossAccountRole { get; set; }
 
+        /// <summary>
+        /// External ID for cross-account role assumption.
+        /// </summary>
         [Input("externalId")]
         public Input<string>? ExternalId { get; set; }
 

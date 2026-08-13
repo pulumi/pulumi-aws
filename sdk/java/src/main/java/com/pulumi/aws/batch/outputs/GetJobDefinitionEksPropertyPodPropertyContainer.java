@@ -16,7 +16,7 @@ import java.util.Objects;
 @CustomType
 public final class GetJobDefinitionEksPropertyPodPropertyContainer {
     /**
-     * @return Array of arguments to the entrypoint
+     * @return Array of arguments to the entrypoint.
      * 
      */
     private List<String> args;
@@ -26,7 +26,7 @@ public final class GetJobDefinitionEksPropertyPodPropertyContainer {
      */
     private List<String> commands;
     /**
-     * @return Environment variables to pass to a container.  Array of EksContainerEnvironmentVariable objects.
+     * @return Environment variables to pass to a container. See `env` below.
      * 
      */
     private List<GetJobDefinitionEksPropertyPodPropertyContainerEnv> envs;
@@ -46,24 +46,24 @@ public final class GetJobDefinitionEksPropertyPodPropertyContainer {
      */
     private String name;
     /**
-     * @return Type and amount of resources to assign to a container.
+     * @return Type and amount of resources to assign to a container. See `resources` below.
      * 
      */
     private List<GetJobDefinitionEksPropertyPodPropertyContainerResource> resources;
     /**
-     * @return Security context for a job.
+     * @return Security context for a job. See `securityContext` below.
      * 
      */
     private List<GetJobDefinitionEksPropertyPodPropertyContainerSecurityContext> securityContexts;
     /**
-     * @return Volume mounts for the container.
+     * @return Volume mounts for the container. See `volumeMounts` below.
      * 
      */
     private List<GetJobDefinitionEksPropertyPodPropertyContainerVolumeMount> volumeMounts;
 
     private GetJobDefinitionEksPropertyPodPropertyContainer() {}
     /**
-     * @return Array of arguments to the entrypoint
+     * @return Array of arguments to the entrypoint.
      * 
      */
     public List<String> args() {
@@ -77,7 +77,7 @@ public final class GetJobDefinitionEksPropertyPodPropertyContainer {
         return this.commands;
     }
     /**
-     * @return Environment variables to pass to a container.  Array of EksContainerEnvironmentVariable objects.
+     * @return Environment variables to pass to a container. See `env` below.
      * 
      */
     public List<GetJobDefinitionEksPropertyPodPropertyContainerEnv> envs() {
@@ -105,21 +105,21 @@ public final class GetJobDefinitionEksPropertyPodPropertyContainer {
         return this.name;
     }
     /**
-     * @return Type and amount of resources to assign to a container.
+     * @return Type and amount of resources to assign to a container. See `resources` below.
      * 
      */
     public List<GetJobDefinitionEksPropertyPodPropertyContainerResource> resources() {
         return this.resources;
     }
     /**
-     * @return Security context for a job.
+     * @return Security context for a job. See `securityContext` below.
      * 
      */
     public List<GetJobDefinitionEksPropertyPodPropertyContainerSecurityContext> securityContexts() {
         return this.securityContexts;
     }
     /**
-     * @return Volume mounts for the container.
+     * @return Volume mounts for the container. See `volumeMounts` below.
      * 
      */
     public List<GetJobDefinitionEksPropertyPodPropertyContainerVolumeMount> volumeMounts() {

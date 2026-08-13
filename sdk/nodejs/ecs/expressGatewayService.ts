@@ -166,7 +166,7 @@ export class ExpressGatewayService extends pulumi.CustomResource {
      */
     declare public readonly infrastructureRoleArn: pulumi.Output<string>;
     /**
-     * List of ingress paths with access type and endpoint information.
+     * List of ingress paths for the service. See `ingressPaths` Block below.
      */
     declare public /*out*/ readonly ingressPaths: pulumi.Output<outputs.ecs.ExpressGatewayServiceIngressPath[]>;
     /**
@@ -319,7 +319,7 @@ export interface ExpressGatewayServiceState {
      */
     infrastructureRoleArn?: pulumi.Input<string | undefined>;
     /**
-     * List of ingress paths with access type and endpoint information.
+     * List of ingress paths for the service. See `ingressPaths` Block below.
      */
     ingressPaths?: pulumi.Input<pulumi.Input<inputs.ecs.ExpressGatewayServiceIngressPath>[] | undefined>;
     /**

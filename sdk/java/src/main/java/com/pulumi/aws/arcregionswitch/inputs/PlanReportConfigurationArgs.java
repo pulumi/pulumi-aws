@@ -17,14 +17,14 @@ public final class PlanReportConfigurationArgs extends com.pulumi.resources.Reso
     public static final PlanReportConfigurationArgs Empty = new PlanReportConfigurationArgs();
 
     /**
-     * Output destination for the report. See Report Output below.
+     * Output destination for the report. See `reportOutput` Block for details.
      * 
      */
     @Import(name="reportOutputs")
     private @Nullable Output<List<PlanReportConfigurationReportOutputArgs>> reportOutputs;
 
     /**
-     * @return Output destination for the report. See Report Output below.
+     * @return Output destination for the report. See `reportOutput` Block for details.
      * 
      */
     public Optional<Output<List<PlanReportConfigurationReportOutputArgs>>> reportOutputs() {
@@ -56,7 +56,7 @@ public final class PlanReportConfigurationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param reportOutputs Output destination for the report. See Report Output below.
+         * @param reportOutputs Output destination for the report. See `reportOutput` Block for details.
          * 
          * @return builder
          * 
@@ -67,7 +67,7 @@ public final class PlanReportConfigurationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param reportOutputs Output destination for the report. See Report Output below.
+         * @param reportOutputs Output destination for the report. See `reportOutput` Block for details.
          * 
          * @return builder
          * 
@@ -77,7 +77,7 @@ public final class PlanReportConfigurationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param reportOutputs Output destination for the report. See Report Output below.
+         * @param reportOutputs Output destination for the report. See `reportOutput` Block for details.
          * 
          * @return builder
          * 

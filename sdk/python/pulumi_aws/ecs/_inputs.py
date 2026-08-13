@@ -4094,19 +4094,32 @@ class DaemonTimeoutsArgs:
 
 class ExpressGatewayServiceIngressPathArgsDict(TypedDict):
     access_type: pulumi.Input[_builtins.str]
+    """
+    Access type for the ingress path.
+    """
     endpoint: pulumi.Input[_builtins.str]
+    """
+    Endpoint for the ingress path.
+    """
 
 @pulumi.input_type
 class ExpressGatewayServiceIngressPathArgs:
     def __init__(__self__, *,
                  access_type: pulumi.Input[_builtins.str],
                  endpoint: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] access_type: Access type for the ingress path.
+        :param pulumi.Input[_builtins.str] endpoint: Endpoint for the ingress path.
+        """
         pulumi.set(__self__, "access_type", access_type)
         pulumi.set(__self__, "endpoint", endpoint)
 
     @_builtins.property
     @pulumi.getter(name="accessType")
     def access_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Access type for the ingress path.
+        """
         return pulumi.get(self, "access_type")
 
     @access_type.setter
@@ -4116,6 +4129,9 @@ class ExpressGatewayServiceIngressPathArgs:
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> pulumi.Input[_builtins.str]:
+        """
+        Endpoint for the ingress path.
+        """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
@@ -6590,7 +6606,7 @@ class ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgsDict(TypedDi
     """
     propagate_tags: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Determines whether to propagate the tags from the task definition to the Amazon EBS volume.
+    Whether to propagate the tags from the task definition to the Amazon EBS volume.
     """
     tags: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
@@ -6605,7 +6621,7 @@ class ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs:
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] resource_type: Type of volume resource. Valid values, `volume`.
-        :param pulumi.Input[_builtins.str] propagate_tags: Determines whether to propagate the tags from the task definition to the Amazon EBS volume.
+        :param pulumi.Input[_builtins.str] propagate_tags: Whether to propagate the tags from the task definition to the Amazon EBS volume.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags applied to this Amazon EBS volume. `AmazonECSCreated` and `AmazonECSManaged` are reserved tags that can't be used.
         """
         pulumi.set(__self__, "resource_type", resource_type)
@@ -6630,7 +6646,7 @@ class ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs:
     @pulumi.getter(name="propagateTags")
     def propagate_tags(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Determines whether to propagate the tags from the task definition to the Amazon EBS volume.
+        Whether to propagate the tags from the task definition to the Amazon EBS volume.
         """
         return pulumi.get(self, "propagate_tags")
 

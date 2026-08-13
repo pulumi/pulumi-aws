@@ -82,7 +82,7 @@ export interface GetConnectorResult {
      */
     readonly sftpConfigs: outputs.transfer.GetConnectorSftpConfig[];
     /**
-     * Object containing the following attributes:
+     * Map of tags assigned to the resource.
      */
     readonly tags: {[key: string]: string};
     /**

@@ -14,11 +14,11 @@ namespace Pulumi.Aws.AppStream.Outputs
     public sealed class GetImageApplicationIconS3LocationResult
     {
         /// <summary>
-        /// S3 bucket of the S3 object.
+        /// Name of the S3 bucket containing the icon.
         /// </summary>
         public readonly string S3Bucket;
         /// <summary>
-        /// S3 key of the S3 object.
+        /// S3 key of the icon.
         /// </summary>
         public readonly string S3Key;
 

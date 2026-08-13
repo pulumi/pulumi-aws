@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Odb.Outputs
         /// </summary>
         public readonly int CustomActionTimeoutInMins;
         /// <summary>
-        /// Days of the week when maintenance can be performed.
+        /// Days of the week when maintenance can be performed. See `DaysOfWeek` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.CloudExadataInfrastructureMaintenanceWindowDaysOfWeek> DaysOfWeeks;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Odb.Outputs
         /// </summary>
         public readonly int? LeadTimeInWeeks;
         /// <summary>
-        /// Months when maintenance can be performed.
+        /// Months when maintenance can be performed. See `Months` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.CloudExadataInfrastructureMaintenanceWindowMonth> Months;
         /// <summary>

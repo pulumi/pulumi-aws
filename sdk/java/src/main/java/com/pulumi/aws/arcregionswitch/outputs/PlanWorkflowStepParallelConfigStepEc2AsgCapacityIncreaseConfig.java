@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfig {
     /**
-     * @return Auto Scaling group configuration. See ASG below.
+     * @return Auto Scaling group configuration. See `asg` Block for details.
      * 
      */
     private @Nullable List<PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigAsg> asgs;
@@ -37,14 +37,14 @@ public final class PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfi
      */
     private @Nullable Integer timeoutMinutes;
     /**
-     * @return Ungraceful behavior configuration. See Ungraceful below.
+     * @return Ungraceful behavior configuration. See `workflow.step.ec2_asg_capacity_increase_config.ungraceful` Block for details.
      * 
      */
     private @Nullable PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigUngraceful ungraceful;
 
     private PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfig() {}
     /**
-     * @return Auto Scaling group configuration. See ASG below.
+     * @return Auto Scaling group configuration. See `asg` Block for details.
      * 
      */
     public List<PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigAsg> asgs() {
@@ -72,7 +72,7 @@ public final class PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfi
         return Optional.ofNullable(this.timeoutMinutes);
     }
     /**
-     * @return Ungraceful behavior configuration. See Ungraceful below.
+     * @return Ungraceful behavior configuration. See `workflow.step.ec2_asg_capacity_increase_config.ungraceful` Block for details.
      * 
      */
     public Optional<PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigUngraceful> ungraceful() {

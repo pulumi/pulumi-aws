@@ -64,6 +64,7 @@ __all__ = [
     'RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument',
     'RuleGroupRuleStatementByteMatchStatementFieldToMatchUriFragment',
     'RuleGroupRuleStatementByteMatchStatementFieldToMatchUriPath',
+    'RuleGroupRuleStatementByteMatchStatementPreParseTextTransformation',
     'RuleGroupRuleStatementByteMatchStatementTextTransformation',
     'RuleGroupRuleStatementGeoMatchStatement',
     'RuleGroupRuleStatementGeoMatchStatementForwardedIpConfig',
@@ -118,6 +119,7 @@ __all__ = [
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgument',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriFragment',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPath',
+    'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformation',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformation',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfig',
@@ -148,6 +150,7 @@ __all__ = [
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgument',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriFragment',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPath',
+    'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformation',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatch',
@@ -171,6 +174,7 @@ __all__ = [
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriFragment',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPath',
+    'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformation',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch',
@@ -194,6 +198,7 @@ __all__ = [
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgument',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragment',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPath',
+    'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformation',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch',
@@ -217,6 +222,7 @@ __all__ = [
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgument',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriFragment',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPath',
+    'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformation',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch',
@@ -240,6 +246,7 @@ __all__ = [
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgument',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragment',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPath',
+    'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformation',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation',
     'RuleGroupRuleStatementRegexMatchStatement',
     'RuleGroupRuleStatementRegexMatchStatementFieldToMatch',
@@ -263,6 +270,7 @@ __all__ = [
     'RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument',
     'RuleGroupRuleStatementRegexMatchStatementFieldToMatchUriFragment',
     'RuleGroupRuleStatementRegexMatchStatementFieldToMatchUriPath',
+    'RuleGroupRuleStatementRegexMatchStatementPreParseTextTransformation',
     'RuleGroupRuleStatementRegexMatchStatementTextTransformation',
     'RuleGroupRuleStatementRegexPatternSetReferenceStatement',
     'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatch',
@@ -286,6 +294,7 @@ __all__ = [
     'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument',
     'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriFragment',
     'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPath',
+    'RuleGroupRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformation',
     'RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformation',
     'RuleGroupRuleStatementSizeConstraintStatement',
     'RuleGroupRuleStatementSizeConstraintStatementFieldToMatch',
@@ -309,6 +318,7 @@ __all__ = [
     'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument',
     'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchUriFragment',
     'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchUriPath',
+    'RuleGroupRuleStatementSizeConstraintStatementPreParseTextTransformation',
     'RuleGroupRuleStatementSizeConstraintStatementTextTransformation',
     'RuleGroupRuleStatementSqliMatchStatement',
     'RuleGroupRuleStatementSqliMatchStatementFieldToMatch',
@@ -332,6 +342,7 @@ __all__ = [
     'RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument',
     'RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriFragment',
     'RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriPath',
+    'RuleGroupRuleStatementSqliMatchStatementPreParseTextTransformation',
     'RuleGroupRuleStatementSqliMatchStatementTextTransformation',
     'RuleGroupRuleStatementXssMatchStatement',
     'RuleGroupRuleStatementXssMatchStatementFieldToMatch',
@@ -355,6 +366,7 @@ __all__ = [
     'RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument',
     'RuleGroupRuleStatementXssMatchStatementFieldToMatchUriFragment',
     'RuleGroupRuleStatementXssMatchStatementFieldToMatchUriPath',
+    'RuleGroupRuleStatementXssMatchStatementPreParseTextTransformation',
     'RuleGroupRuleStatementXssMatchStatementTextTransformation',
     'RuleGroupRuleVisibilityConfig',
     'RuleGroupVisibilityConfig',
@@ -2268,6 +2280,8 @@ class RuleGroupRuleStatementByteMatchStatement(dict):
             suggest = "text_transformations"
         elif key == "fieldToMatch":
             suggest = "field_to_match"
+        elif key == "preParseTextTransformations":
+            suggest = "pre_parse_text_transformations"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleStatementByteMatchStatement. Access the value via the '{suggest}' property getter instead.")
@@ -2284,7 +2298,8 @@ class RuleGroupRuleStatementByteMatchStatement(dict):
                  positional_constraint: _builtins.str,
                  search_string: _builtins.str,
                  text_transformations: Sequence['outputs.RuleGroupRuleStatementByteMatchStatementTextTransformation'],
-                 field_to_match: Optional['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatch'] = None):
+                 field_to_match: Optional['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatch'] = None,
+                 pre_parse_text_transformations: Optional[Sequence['outputs.RuleGroupRuleStatementByteMatchStatementPreParseTextTransformation']] = None):
         """
         :param _builtins.str positional_constraint: The area within the portion of a web request that you want AWS WAF to search for `search_string`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
         :param _builtins.str search_string: A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `field_to_match`. The maximum length of the value is 50 bytes.
@@ -2292,12 +2307,15 @@ class RuleGroupRuleStatementByteMatchStatement(dict):
                At least one required.
                See Text Transformation below for details.
         :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        :param Sequence['RuleGroupRuleStatementByteMatchStatementPreParseTextTransformationArgs'] pre_parse_text_transformations: Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `text_transformation` is applied. Supported only when `field_to_match` specifies `single_query_argument` or `all_query_arguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
         """
         pulumi.set(__self__, "positional_constraint", positional_constraint)
         pulumi.set(__self__, "search_string", search_string)
         pulumi.set(__self__, "text_transformations", text_transformations)
         if field_to_match is not None:
             pulumi.set(__self__, "field_to_match", field_to_match)
+        if pre_parse_text_transformations is not None:
+            pulumi.set(__self__, "pre_parse_text_transformations", pre_parse_text_transformations)
 
     @_builtins.property
     @pulumi.getter(name="positionalConstraint")
@@ -2332,6 +2350,14 @@ class RuleGroupRuleStatementByteMatchStatement(dict):
         The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
         return pulumi.get(self, "field_to_match")
+
+    @_builtins.property
+    @pulumi.getter(name="preParseTextTransformations")
+    def pre_parse_text_transformations(self) -> Optional[Sequence['outputs.RuleGroupRuleStatementByteMatchStatementPreParseTextTransformation']]:
+        """
+        Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `text_transformation` is applied. Supported only when `field_to_match` specifies `single_query_argument` or `all_query_arguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+        """
+        return pulumi.get(self, "pre_parse_text_transformations")
 
 
 @pulumi.output_type
@@ -3149,6 +3175,35 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchUriFragment(dict):
 class RuleGroupRuleStatementByteMatchStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
+
+
+@pulumi.output_type
+class RuleGroupRuleStatementByteMatchStatementPreParseTextTransformation(dict):
+    def __init__(__self__, *,
+                 priority: _builtins.int,
+                 type: _builtins.str):
+        """
+        :param _builtins.int priority: The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        :param _builtins.str type: The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        """
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def priority(self) -> _builtins.int:
+        """
+        The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        """
+        return pulumi.get(self, "priority")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -4578,6 +4633,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
             suggest = "text_transformations"
         elif key == "fieldToMatch":
             suggest = "field_to_match"
+        elif key == "preParseTextTransformations":
+            suggest = "pre_parse_text_transformations"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement. Access the value via the '{suggest}' property getter instead.")
@@ -4594,7 +4651,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
                  positional_constraint: _builtins.str,
                  search_string: _builtins.str,
                  text_transformations: Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformation'],
-                 field_to_match: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch'] = None):
+                 field_to_match: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch'] = None,
+                 pre_parse_text_transformations: Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformation']] = None):
         """
         :param _builtins.str positional_constraint: The area within the portion of a web request that you want AWS WAF to search for `search_string`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
         :param _builtins.str search_string: A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `field_to_match`. The maximum length of the value is 50 bytes.
@@ -4602,12 +4660,15 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
                At least one required.
                See Text Transformation below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformationArgs'] pre_parse_text_transformations: Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `text_transformation` is applied. Supported only when `field_to_match` specifies `single_query_argument` or `all_query_arguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
         """
         pulumi.set(__self__, "positional_constraint", positional_constraint)
         pulumi.set(__self__, "search_string", search_string)
         pulumi.set(__self__, "text_transformations", text_transformations)
         if field_to_match is not None:
             pulumi.set(__self__, "field_to_match", field_to_match)
+        if pre_parse_text_transformations is not None:
+            pulumi.set(__self__, "pre_parse_text_transformations", pre_parse_text_transformations)
 
     @_builtins.property
     @pulumi.getter(name="positionalConstraint")
@@ -4642,6 +4703,14 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
         The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
         return pulumi.get(self, "field_to_match")
+
+    @_builtins.property
+    @pulumi.getter(name="preParseTextTransformations")
+    def pre_parse_text_transformations(self) -> Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformation']]:
+        """
+        Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `text_transformation` is applied. Supported only when `field_to_match` specifies `single_query_argument` or `all_query_arguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+        """
+        return pulumi.get(self, "pre_parse_text_transformations")
 
 
 @pulumi.output_type
@@ -5462,6 +5531,35 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
 
 
 @pulumi.output_type
+class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformation(dict):
+    def __init__(__self__, *,
+                 priority: _builtins.int,
+                 type: _builtins.str):
+        """
+        :param _builtins.int priority: The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        :param _builtins.str type: The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        """
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def priority(self) -> _builtins.int:
+        """
+        The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        """
+        return pulumi.get(self, "priority")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformation(dict):
     def __init__(__self__, *,
                  priority: _builtins.int,
@@ -5769,6 +5867,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
             suggest = "text_transformations"
         elif key == "fieldToMatch":
             suggest = "field_to_match"
+        elif key == "preParseTextTransformations":
+            suggest = "pre_parse_text_transformations"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement. Access the value via the '{suggest}' property getter instead.")
@@ -5784,18 +5884,22 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
     def __init__(__self__, *,
                  regex_string: _builtins.str,
                  text_transformations: Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation'],
-                 field_to_match: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatch'] = None):
+                 field_to_match: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatch'] = None,
+                 pre_parse_text_transformations: Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformation']] = None):
         """
         :param _builtins.str regex_string: The string representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can't be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
         :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
                At least one required.
                See Text Transformation below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationArgs'] pre_parse_text_transformations: Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `text_transformation` is applied. Supported only when `field_to_match` specifies `single_query_argument` or `all_query_arguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
         """
         pulumi.set(__self__, "regex_string", regex_string)
         pulumi.set(__self__, "text_transformations", text_transformations)
         if field_to_match is not None:
             pulumi.set(__self__, "field_to_match", field_to_match)
+        if pre_parse_text_transformations is not None:
+            pulumi.set(__self__, "pre_parse_text_transformations", pre_parse_text_transformations)
 
     @_builtins.property
     @pulumi.getter(name="regexString")
@@ -5822,6 +5926,14 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
         The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
         return pulumi.get(self, "field_to_match")
+
+    @_builtins.property
+    @pulumi.getter(name="preParseTextTransformations")
+    def pre_parse_text_transformations(self) -> Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformation']]:
+        """
+        Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `text_transformation` is applied. Supported only when `field_to_match` specifies `single_query_argument` or `all_query_arguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+        """
+        return pulumi.get(self, "pre_parse_text_transformations")
 
 
 @pulumi.output_type
@@ -6642,6 +6754,35 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
 
 
 @pulumi.output_type
+class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformation(dict):
+    def __init__(__self__, *,
+                 priority: _builtins.int,
+                 type: _builtins.str):
+        """
+        :param _builtins.int priority: The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        :param _builtins.str type: The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        """
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def priority(self) -> _builtins.int:
+        """
+        The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        """
+        return pulumi.get(self, "priority")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation(dict):
     def __init__(__self__, *,
                  priority: _builtins.int,
@@ -6679,6 +6820,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
             suggest = "text_transformations"
         elif key == "fieldToMatch":
             suggest = "field_to_match"
+        elif key == "preParseTextTransformations":
+            suggest = "pre_parse_text_transformations"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement. Access the value via the '{suggest}' property getter instead.")
@@ -6694,18 +6837,22 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
     def __init__(__self__, *,
                  arn: _builtins.str,
                  text_transformations: Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation'],
-                 field_to_match: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatch'] = None):
+                 field_to_match: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatch'] = None,
+                 pre_parse_text_transformations: Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformation']] = None):
         """
         :param _builtins.str arn: The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
         :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
                At least one required.
                See Text Transformation below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationArgs'] pre_parse_text_transformations: Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `text_transformation` is applied. Supported only when `field_to_match` specifies `single_query_argument` or `all_query_arguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "text_transformations", text_transformations)
         if field_to_match is not None:
             pulumi.set(__self__, "field_to_match", field_to_match)
+        if pre_parse_text_transformations is not None:
+            pulumi.set(__self__, "pre_parse_text_transformations", pre_parse_text_transformations)
 
     @_builtins.property
     @pulumi.getter
@@ -6732,6 +6879,14 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
         The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
         return pulumi.get(self, "field_to_match")
+
+    @_builtins.property
+    @pulumi.getter(name="preParseTextTransformations")
+    def pre_parse_text_transformations(self) -> Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformation']]:
+        """
+        Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `text_transformation` is applied. Supported only when `field_to_match` specifies `single_query_argument` or `all_query_arguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+        """
+        return pulumi.get(self, "pre_parse_text_transformations")
 
 
 @pulumi.output_type
@@ -7552,6 +7707,35 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
 
 
 @pulumi.output_type
+class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformation(dict):
+    def __init__(__self__, *,
+                 priority: _builtins.int,
+                 type: _builtins.str):
+        """
+        :param _builtins.int priority: The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        :param _builtins.str type: The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        """
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def priority(self) -> _builtins.int:
+        """
+        The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        """
+        return pulumi.get(self, "priority")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation(dict):
     def __init__(__self__, *,
                  priority: _builtins.int,
@@ -7591,6 +7775,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
             suggest = "text_transformations"
         elif key == "fieldToMatch":
             suggest = "field_to_match"
+        elif key == "preParseTextTransformations":
+            suggest = "pre_parse_text_transformations"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement. Access the value via the '{suggest}' property getter instead.")
@@ -7607,7 +7793,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
                  comparison_operator: _builtins.str,
                  size: _builtins.int,
                  text_transformations: Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation'],
-                 field_to_match: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch'] = None):
+                 field_to_match: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch'] = None,
+                 pre_parse_text_transformations: Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformation']] = None):
         """
         :param _builtins.str comparison_operator: The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
         :param _builtins.int size: The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
@@ -7615,12 +7802,15 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
                At least one required.
                See Text Transformation below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationArgs'] pre_parse_text_transformations: Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `text_transformation` is applied. Supported only when `field_to_match` specifies `single_query_argument` or `all_query_arguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
         """
         pulumi.set(__self__, "comparison_operator", comparison_operator)
         pulumi.set(__self__, "size", size)
         pulumi.set(__self__, "text_transformations", text_transformations)
         if field_to_match is not None:
             pulumi.set(__self__, "field_to_match", field_to_match)
+        if pre_parse_text_transformations is not None:
+            pulumi.set(__self__, "pre_parse_text_transformations", pre_parse_text_transformations)
 
     @_builtins.property
     @pulumi.getter(name="comparisonOperator")
@@ -7655,6 +7845,14 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
         The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
         return pulumi.get(self, "field_to_match")
+
+    @_builtins.property
+    @pulumi.getter(name="preParseTextTransformations")
+    def pre_parse_text_transformations(self) -> Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformation']]:
+        """
+        Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `text_transformation` is applied. Supported only when `field_to_match` specifies `single_query_argument` or `all_query_arguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+        """
+        return pulumi.get(self, "pre_parse_text_transformations")
 
 
 @pulumi.output_type
@@ -8475,6 +8673,35 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
 
 
 @pulumi.output_type
+class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformation(dict):
+    def __init__(__self__, *,
+                 priority: _builtins.int,
+                 type: _builtins.str):
+        """
+        :param _builtins.int priority: The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        :param _builtins.str type: The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        """
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def priority(self) -> _builtins.int:
+        """
+        The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        """
+        return pulumi.get(self, "priority")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation(dict):
     def __init__(__self__, *,
                  priority: _builtins.int,
@@ -8512,6 +8739,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
             suggest = "text_transformations"
         elif key == "fieldToMatch":
             suggest = "field_to_match"
+        elif key == "preParseTextTransformations":
+            suggest = "pre_parse_text_transformations"
         elif key == "sensitivityLevel":
             suggest = "sensitivity_level"
 
@@ -8529,17 +8758,21 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
     def __init__(__self__, *,
                  text_transformations: Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation'],
                  field_to_match: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch'] = None,
+                 pre_parse_text_transformations: Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformation']] = None,
                  sensitivity_level: Optional[_builtins.str] = None):
         """
         :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
                At least one required.
                See Text Transformation below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationArgs'] pre_parse_text_transformations: Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `text_transformation` is applied. Supported only when `field_to_match` specifies `single_query_argument` or `all_query_arguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
         :param _builtins.str sensitivity_level: Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
         """
         pulumi.set(__self__, "text_transformations", text_transformations)
         if field_to_match is not None:
             pulumi.set(__self__, "field_to_match", field_to_match)
+        if pre_parse_text_transformations is not None:
+            pulumi.set(__self__, "pre_parse_text_transformations", pre_parse_text_transformations)
         if sensitivity_level is not None:
             pulumi.set(__self__, "sensitivity_level", sensitivity_level)
 
@@ -8560,6 +8793,14 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
         The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
         return pulumi.get(self, "field_to_match")
+
+    @_builtins.property
+    @pulumi.getter(name="preParseTextTransformations")
+    def pre_parse_text_transformations(self) -> Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformation']]:
+        """
+        Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `text_transformation` is applied. Supported only when `field_to_match` specifies `single_query_argument` or `all_query_arguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+        """
+        return pulumi.get(self, "pre_parse_text_transformations")
 
     @_builtins.property
     @pulumi.getter(name="sensitivityLevel")
@@ -9388,6 +9629,35 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
 
 
 @pulumi.output_type
+class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformation(dict):
+    def __init__(__self__, *,
+                 priority: _builtins.int,
+                 type: _builtins.str):
+        """
+        :param _builtins.int priority: The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        :param _builtins.str type: The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        """
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def priority(self) -> _builtins.int:
+        """
+        The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        """
+        return pulumi.get(self, "priority")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation(dict):
     def __init__(__self__, *,
                  priority: _builtins.int,
@@ -9425,6 +9695,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
             suggest = "text_transformations"
         elif key == "fieldToMatch":
             suggest = "field_to_match"
+        elif key == "preParseTextTransformations":
+            suggest = "pre_parse_text_transformations"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement. Access the value via the '{suggest}' property getter instead.")
@@ -9439,16 +9711,20 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
 
     def __init__(__self__, *,
                  text_transformations: Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation'],
-                 field_to_match: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch'] = None):
+                 field_to_match: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch'] = None,
+                 pre_parse_text_transformations: Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformation']] = None):
         """
         :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
                At least one required.
                See Text Transformation below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformationArgs'] pre_parse_text_transformations: Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `text_transformation` is applied. Supported only when `field_to_match` specifies `single_query_argument` or `all_query_arguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
         """
         pulumi.set(__self__, "text_transformations", text_transformations)
         if field_to_match is not None:
             pulumi.set(__self__, "field_to_match", field_to_match)
+        if pre_parse_text_transformations is not None:
+            pulumi.set(__self__, "pre_parse_text_transformations", pre_parse_text_transformations)
 
     @_builtins.property
     @pulumi.getter(name="textTransformations")
@@ -9467,6 +9743,14 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
         The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
         return pulumi.get(self, "field_to_match")
+
+    @_builtins.property
+    @pulumi.getter(name="preParseTextTransformations")
+    def pre_parse_text_transformations(self) -> Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformation']]:
+        """
+        Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `text_transformation` is applied. Supported only when `field_to_match` specifies `single_query_argument` or `all_query_arguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+        """
+        return pulumi.get(self, "pre_parse_text_transformations")
 
 
 @pulumi.output_type
@@ -10287,6 +10571,35 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
 
 
 @pulumi.output_type
+class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformation(dict):
+    def __init__(__self__, *,
+                 priority: _builtins.int,
+                 type: _builtins.str):
+        """
+        :param _builtins.int priority: The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        :param _builtins.str type: The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        """
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def priority(self) -> _builtins.int:
+        """
+        The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        """
+        return pulumi.get(self, "priority")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation(dict):
     def __init__(__self__, *,
                  priority: _builtins.int,
@@ -10326,6 +10639,8 @@ class RuleGroupRuleStatementRegexMatchStatement(dict):
             suggest = "text_transformations"
         elif key == "fieldToMatch":
             suggest = "field_to_match"
+        elif key == "preParseTextTransformations":
+            suggest = "pre_parse_text_transformations"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleStatementRegexMatchStatement. Access the value via the '{suggest}' property getter instead.")
@@ -10341,18 +10656,22 @@ class RuleGroupRuleStatementRegexMatchStatement(dict):
     def __init__(__self__, *,
                  regex_string: _builtins.str,
                  text_transformations: Sequence['outputs.RuleGroupRuleStatementRegexMatchStatementTextTransformation'],
-                 field_to_match: Optional['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatch'] = None):
+                 field_to_match: Optional['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatch'] = None,
+                 pre_parse_text_transformations: Optional[Sequence['outputs.RuleGroupRuleStatementRegexMatchStatementPreParseTextTransformation']] = None):
         """
         :param _builtins.str regex_string: The string representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can't be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
         :param Sequence['RuleGroupRuleStatementRegexMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
                At least one required.
                See Text Transformation below for details.
         :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        :param Sequence['RuleGroupRuleStatementRegexMatchStatementPreParseTextTransformationArgs'] pre_parse_text_transformations: Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `text_transformation` is applied. Supported only when `field_to_match` specifies `single_query_argument` or `all_query_arguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
         """
         pulumi.set(__self__, "regex_string", regex_string)
         pulumi.set(__self__, "text_transformations", text_transformations)
         if field_to_match is not None:
             pulumi.set(__self__, "field_to_match", field_to_match)
+        if pre_parse_text_transformations is not None:
+            pulumi.set(__self__, "pre_parse_text_transformations", pre_parse_text_transformations)
 
     @_builtins.property
     @pulumi.getter(name="regexString")
@@ -10379,6 +10698,14 @@ class RuleGroupRuleStatementRegexMatchStatement(dict):
         The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
         return pulumi.get(self, "field_to_match")
+
+    @_builtins.property
+    @pulumi.getter(name="preParseTextTransformations")
+    def pre_parse_text_transformations(self) -> Optional[Sequence['outputs.RuleGroupRuleStatementRegexMatchStatementPreParseTextTransformation']]:
+        """
+        Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `text_transformation` is applied. Supported only when `field_to_match` specifies `single_query_argument` or `all_query_arguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+        """
+        return pulumi.get(self, "pre_parse_text_transformations")
 
 
 @pulumi.output_type
@@ -11199,6 +11526,35 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchUriPath(dict):
 
 
 @pulumi.output_type
+class RuleGroupRuleStatementRegexMatchStatementPreParseTextTransformation(dict):
+    def __init__(__self__, *,
+                 priority: _builtins.int,
+                 type: _builtins.str):
+        """
+        :param _builtins.int priority: The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        :param _builtins.str type: The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        """
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def priority(self) -> _builtins.int:
+        """
+        The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        """
+        return pulumi.get(self, "priority")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class RuleGroupRuleStatementRegexMatchStatementTextTransformation(dict):
     def __init__(__self__, *,
                  priority: _builtins.int,
@@ -11236,6 +11592,8 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatement(dict):
             suggest = "text_transformations"
         elif key == "fieldToMatch":
             suggest = "field_to_match"
+        elif key == "preParseTextTransformations":
+            suggest = "pre_parse_text_transformations"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleStatementRegexPatternSetReferenceStatement. Access the value via the '{suggest}' property getter instead.")
@@ -11251,18 +11609,22 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatement(dict):
     def __init__(__self__, *,
                  arn: _builtins.str,
                  text_transformations: Sequence['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformation'],
-                 field_to_match: Optional['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatch'] = None):
+                 field_to_match: Optional['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatch'] = None,
+                 pre_parse_text_transformations: Optional[Sequence['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformation']] = None):
         """
         :param _builtins.str arn: The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
         :param Sequence['RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
                At least one required.
                See Text Transformation below for details.
         :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        :param Sequence['RuleGroupRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformationArgs'] pre_parse_text_transformations: Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `text_transformation` is applied. Supported only when `field_to_match` specifies `single_query_argument` or `all_query_arguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "text_transformations", text_transformations)
         if field_to_match is not None:
             pulumi.set(__self__, "field_to_match", field_to_match)
+        if pre_parse_text_transformations is not None:
+            pulumi.set(__self__, "pre_parse_text_transformations", pre_parse_text_transformations)
 
     @_builtins.property
     @pulumi.getter
@@ -11289,6 +11651,14 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatement(dict):
         The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
         return pulumi.get(self, "field_to_match")
+
+    @_builtins.property
+    @pulumi.getter(name="preParseTextTransformations")
+    def pre_parse_text_transformations(self) -> Optional[Sequence['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformation']]:
+        """
+        Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `text_transformation` is applied. Supported only when `field_to_match` specifies `single_query_argument` or `all_query_arguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+        """
+        return pulumi.get(self, "pre_parse_text_transformations")
 
 
 @pulumi.output_type
@@ -12109,6 +12479,35 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPath
 
 
 @pulumi.output_type
+class RuleGroupRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformation(dict):
+    def __init__(__self__, *,
+                 priority: _builtins.int,
+                 type: _builtins.str):
+        """
+        :param _builtins.int priority: The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        :param _builtins.str type: The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        """
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def priority(self) -> _builtins.int:
+        """
+        The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        """
+        return pulumi.get(self, "priority")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformation(dict):
     def __init__(__self__, *,
                  priority: _builtins.int,
@@ -12148,6 +12547,8 @@ class RuleGroupRuleStatementSizeConstraintStatement(dict):
             suggest = "text_transformations"
         elif key == "fieldToMatch":
             suggest = "field_to_match"
+        elif key == "preParseTextTransformations":
+            suggest = "pre_parse_text_transformations"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleStatementSizeConstraintStatement. Access the value via the '{suggest}' property getter instead.")
@@ -12164,7 +12565,8 @@ class RuleGroupRuleStatementSizeConstraintStatement(dict):
                  comparison_operator: _builtins.str,
                  size: _builtins.int,
                  text_transformations: Sequence['outputs.RuleGroupRuleStatementSizeConstraintStatementTextTransformation'],
-                 field_to_match: Optional['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatch'] = None):
+                 field_to_match: Optional['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatch'] = None,
+                 pre_parse_text_transformations: Optional[Sequence['outputs.RuleGroupRuleStatementSizeConstraintStatementPreParseTextTransformation']] = None):
         """
         :param _builtins.str comparison_operator: The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
         :param _builtins.int size: The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
@@ -12172,12 +12574,15 @@ class RuleGroupRuleStatementSizeConstraintStatement(dict):
                At least one required.
                See Text Transformation below for details.
         :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        :param Sequence['RuleGroupRuleStatementSizeConstraintStatementPreParseTextTransformationArgs'] pre_parse_text_transformations: Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `text_transformation` is applied. Supported only when `field_to_match` specifies `single_query_argument` or `all_query_arguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
         """
         pulumi.set(__self__, "comparison_operator", comparison_operator)
         pulumi.set(__self__, "size", size)
         pulumi.set(__self__, "text_transformations", text_transformations)
         if field_to_match is not None:
             pulumi.set(__self__, "field_to_match", field_to_match)
+        if pre_parse_text_transformations is not None:
+            pulumi.set(__self__, "pre_parse_text_transformations", pre_parse_text_transformations)
 
     @_builtins.property
     @pulumi.getter(name="comparisonOperator")
@@ -12212,6 +12617,14 @@ class RuleGroupRuleStatementSizeConstraintStatement(dict):
         The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
         return pulumi.get(self, "field_to_match")
+
+    @_builtins.property
+    @pulumi.getter(name="preParseTextTransformations")
+    def pre_parse_text_transformations(self) -> Optional[Sequence['outputs.RuleGroupRuleStatementSizeConstraintStatementPreParseTextTransformation']]:
+        """
+        Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `text_transformation` is applied. Supported only when `field_to_match` specifies `single_query_argument` or `all_query_arguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+        """
+        return pulumi.get(self, "pre_parse_text_transformations")
 
 
 @pulumi.output_type
@@ -13032,6 +13445,35 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchUriPath(dict):
 
 
 @pulumi.output_type
+class RuleGroupRuleStatementSizeConstraintStatementPreParseTextTransformation(dict):
+    def __init__(__self__, *,
+                 priority: _builtins.int,
+                 type: _builtins.str):
+        """
+        :param _builtins.int priority: The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        :param _builtins.str type: The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        """
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def priority(self) -> _builtins.int:
+        """
+        The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        """
+        return pulumi.get(self, "priority")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class RuleGroupRuleStatementSizeConstraintStatementTextTransformation(dict):
     def __init__(__self__, *,
                  priority: _builtins.int,
@@ -13069,6 +13511,8 @@ class RuleGroupRuleStatementSqliMatchStatement(dict):
             suggest = "text_transformations"
         elif key == "fieldToMatch":
             suggest = "field_to_match"
+        elif key == "preParseTextTransformations":
+            suggest = "pre_parse_text_transformations"
         elif key == "sensitivityLevel":
             suggest = "sensitivity_level"
 
@@ -13086,17 +13530,21 @@ class RuleGroupRuleStatementSqliMatchStatement(dict):
     def __init__(__self__, *,
                  text_transformations: Sequence['outputs.RuleGroupRuleStatementSqliMatchStatementTextTransformation'],
                  field_to_match: Optional['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatch'] = None,
+                 pre_parse_text_transformations: Optional[Sequence['outputs.RuleGroupRuleStatementSqliMatchStatementPreParseTextTransformation']] = None,
                  sensitivity_level: Optional[_builtins.str] = None):
         """
         :param Sequence['RuleGroupRuleStatementSqliMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
                At least one required.
                See Text Transformation below for details.
         :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        :param Sequence['RuleGroupRuleStatementSqliMatchStatementPreParseTextTransformationArgs'] pre_parse_text_transformations: Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `text_transformation` is applied. Supported only when `field_to_match` specifies `single_query_argument` or `all_query_arguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
         :param _builtins.str sensitivity_level: Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
         """
         pulumi.set(__self__, "text_transformations", text_transformations)
         if field_to_match is not None:
             pulumi.set(__self__, "field_to_match", field_to_match)
+        if pre_parse_text_transformations is not None:
+            pulumi.set(__self__, "pre_parse_text_transformations", pre_parse_text_transformations)
         if sensitivity_level is not None:
             pulumi.set(__self__, "sensitivity_level", sensitivity_level)
 
@@ -13117,6 +13565,14 @@ class RuleGroupRuleStatementSqliMatchStatement(dict):
         The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
         return pulumi.get(self, "field_to_match")
+
+    @_builtins.property
+    @pulumi.getter(name="preParseTextTransformations")
+    def pre_parse_text_transformations(self) -> Optional[Sequence['outputs.RuleGroupRuleStatementSqliMatchStatementPreParseTextTransformation']]:
+        """
+        Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `text_transformation` is applied. Supported only when `field_to_match` specifies `single_query_argument` or `all_query_arguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+        """
+        return pulumi.get(self, "pre_parse_text_transformations")
 
     @_builtins.property
     @pulumi.getter(name="sensitivityLevel")
@@ -13945,6 +14401,35 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriPath(dict):
 
 
 @pulumi.output_type
+class RuleGroupRuleStatementSqliMatchStatementPreParseTextTransformation(dict):
+    def __init__(__self__, *,
+                 priority: _builtins.int,
+                 type: _builtins.str):
+        """
+        :param _builtins.int priority: The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        :param _builtins.str type: The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        """
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def priority(self) -> _builtins.int:
+        """
+        The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        """
+        return pulumi.get(self, "priority")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class RuleGroupRuleStatementSqliMatchStatementTextTransformation(dict):
     def __init__(__self__, *,
                  priority: _builtins.int,
@@ -13982,6 +14467,8 @@ class RuleGroupRuleStatementXssMatchStatement(dict):
             suggest = "text_transformations"
         elif key == "fieldToMatch":
             suggest = "field_to_match"
+        elif key == "preParseTextTransformations":
+            suggest = "pre_parse_text_transformations"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleStatementXssMatchStatement. Access the value via the '{suggest}' property getter instead.")
@@ -13996,16 +14483,20 @@ class RuleGroupRuleStatementXssMatchStatement(dict):
 
     def __init__(__self__, *,
                  text_transformations: Sequence['outputs.RuleGroupRuleStatementXssMatchStatementTextTransformation'],
-                 field_to_match: Optional['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatch'] = None):
+                 field_to_match: Optional['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatch'] = None,
+                 pre_parse_text_transformations: Optional[Sequence['outputs.RuleGroupRuleStatementXssMatchStatementPreParseTextTransformation']] = None):
         """
         :param Sequence['RuleGroupRuleStatementXssMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
                At least one required.
                See Text Transformation below for details.
         :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        :param Sequence['RuleGroupRuleStatementXssMatchStatementPreParseTextTransformationArgs'] pre_parse_text_transformations: Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `text_transformation` is applied. Supported only when `field_to_match` specifies `single_query_argument` or `all_query_arguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
         """
         pulumi.set(__self__, "text_transformations", text_transformations)
         if field_to_match is not None:
             pulumi.set(__self__, "field_to_match", field_to_match)
+        if pre_parse_text_transformations is not None:
+            pulumi.set(__self__, "pre_parse_text_transformations", pre_parse_text_transformations)
 
     @_builtins.property
     @pulumi.getter(name="textTransformations")
@@ -14024,6 +14515,14 @@ class RuleGroupRuleStatementXssMatchStatement(dict):
         The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
         return pulumi.get(self, "field_to_match")
+
+    @_builtins.property
+    @pulumi.getter(name="preParseTextTransformations")
+    def pre_parse_text_transformations(self) -> Optional[Sequence['outputs.RuleGroupRuleStatementXssMatchStatementPreParseTextTransformation']]:
+        """
+        Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `text_transformation` is applied. Supported only when `field_to_match` specifies `single_query_argument` or `all_query_arguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+        """
+        return pulumi.get(self, "pre_parse_text_transformations")
 
 
 @pulumi.output_type
@@ -14841,6 +15340,35 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchUriFragment(dict):
 class RuleGroupRuleStatementXssMatchStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
+
+
+@pulumi.output_type
+class RuleGroupRuleStatementXssMatchStatementPreParseTextTransformation(dict):
+    def __init__(__self__, *,
+                 priority: _builtins.int,
+                 type: _builtins.str):
+        """
+        :param _builtins.int priority: The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        :param _builtins.str type: The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        """
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def priority(self) -> _builtins.int:
+        """
+        The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        """
+        return pulumi.get(self, "priority")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -41864,7 +42392,7 @@ class GetManagedRuleGroupRuleResult(dict):
                  actions: Sequence['outputs.GetManagedRuleGroupRuleActionResult'],
                  name: _builtins.str):
         """
-        :param Sequence['GetManagedRuleGroupRuleActionArgs'] actions: Action taken on a web request when it matches a rule's statement. See `action_to_use` for details.
+        :param Sequence['GetManagedRuleGroupRuleActionArgs'] actions: Action taken on a web request when it matches a rule's statement. See `action` Block for details.
         :param _builtins.str name: Managed rule group name.
         """
         pulumi.set(__self__, "actions", actions)
@@ -41874,7 +42402,7 @@ class GetManagedRuleGroupRuleResult(dict):
     @pulumi.getter
     def actions(self) -> Sequence['outputs.GetManagedRuleGroupRuleActionResult']:
         """
-        Action taken on a web request when it matches a rule's statement. See `action_to_use` for details.
+        Action taken on a web request when it matches a rule's statement. See `action` Block for details.
         """
         return pulumi.get(self, "actions")
 
@@ -41895,6 +42423,13 @@ class GetManagedRuleGroupRuleActionResult(dict):
                  captchas: Sequence['outputs.GetManagedRuleGroupRuleActionCaptchaResult'],
                  challenges: Sequence['outputs.GetManagedRuleGroupRuleActionChallengeResult'],
                  counts: Sequence['outputs.GetManagedRuleGroupRuleActionCountResult']):
+        """
+        :param Sequence['GetManagedRuleGroupRuleActionAllowArgs'] allows: Rule action that allows the request. See `allow` Block for details.
+        :param Sequence['GetManagedRuleGroupRuleActionBlockArgs'] blocks: Rule action that blocks the request. See `block` Block for details.
+        :param Sequence['GetManagedRuleGroupRuleActionCaptchaArgs'] captchas: Rule action that requires CAPTCHA verification. See `captcha` Block for details.
+        :param Sequence['GetManagedRuleGroupRuleActionChallengeArgs'] challenges: Rule action that requires challenge verification. See `challenge` Block for details.
+        :param Sequence['GetManagedRuleGroupRuleActionCountArgs'] counts: Rule action that counts the request without taking other action. See `count` Block for details.
+        """
         pulumi.set(__self__, "allows", allows)
         pulumi.set(__self__, "blocks", blocks)
         pulumi.set(__self__, "captchas", captchas)
@@ -41904,26 +42439,41 @@ class GetManagedRuleGroupRuleActionResult(dict):
     @_builtins.property
     @pulumi.getter
     def allows(self) -> Sequence['outputs.GetManagedRuleGroupRuleActionAllowResult']:
+        """
+        Rule action that allows the request. See `allow` Block for details.
+        """
         return pulumi.get(self, "allows")
 
     @_builtins.property
     @pulumi.getter
     def blocks(self) -> Sequence['outputs.GetManagedRuleGroupRuleActionBlockResult']:
+        """
+        Rule action that blocks the request. See `block` Block for details.
+        """
         return pulumi.get(self, "blocks")
 
     @_builtins.property
     @pulumi.getter
     def captchas(self) -> Sequence['outputs.GetManagedRuleGroupRuleActionCaptchaResult']:
+        """
+        Rule action that requires CAPTCHA verification. See `captcha` Block for details.
+        """
         return pulumi.get(self, "captchas")
 
     @_builtins.property
     @pulumi.getter
     def challenges(self) -> Sequence['outputs.GetManagedRuleGroupRuleActionChallengeResult']:
+        """
+        Rule action that requires challenge verification. See `challenge` Block for details.
+        """
         return pulumi.get(self, "challenges")
 
     @_builtins.property
     @pulumi.getter
     def counts(self) -> Sequence['outputs.GetManagedRuleGroupRuleActionCountResult']:
+        """
+        Rule action that counts the request without taking other action. See `count` Block for details.
+        """
         return pulumi.get(self, "counts")
 
 
@@ -41931,11 +42481,17 @@ class GetManagedRuleGroupRuleActionResult(dict):
 class GetManagedRuleGroupRuleActionAllowResult(dict):
     def __init__(__self__, *,
                  custom_request_handlings: Sequence['outputs.GetManagedRuleGroupRuleActionAllowCustomRequestHandlingResult']):
+        """
+        :param Sequence['GetManagedRuleGroupRuleActionAllowCustomRequestHandlingArgs'] custom_request_handlings: Custom handling for the counted request. See `custom_request_handling` Block for details.
+        """
         pulumi.set(__self__, "custom_request_handlings", custom_request_handlings)
 
     @_builtins.property
     @pulumi.getter(name="customRequestHandlings")
     def custom_request_handlings(self) -> Sequence['outputs.GetManagedRuleGroupRuleActionAllowCustomRequestHandlingResult']:
+        """
+        Custom handling for the counted request. See `custom_request_handling` Block for details.
+        """
         return pulumi.get(self, "custom_request_handlings")
 
 
@@ -41943,11 +42499,17 @@ class GetManagedRuleGroupRuleActionAllowResult(dict):
 class GetManagedRuleGroupRuleActionAllowCustomRequestHandlingResult(dict):
     def __init__(__self__, *,
                  insert_headers: Sequence['outputs.GetManagedRuleGroupRuleActionAllowCustomRequestHandlingInsertHeaderResult']):
+        """
+        :param Sequence['GetManagedRuleGroupRuleActionAllowCustomRequestHandlingInsertHeaderArgs'] insert_headers: Headers inserted into the request. See `insert_header` Block for details.
+        """
         pulumi.set(__self__, "insert_headers", insert_headers)
 
     @_builtins.property
     @pulumi.getter(name="insertHeaders")
     def insert_headers(self) -> Sequence['outputs.GetManagedRuleGroupRuleActionAllowCustomRequestHandlingInsertHeaderResult']:
+        """
+        Headers inserted into the request. See `insert_header` Block for details.
+        """
         return pulumi.get(self, "insert_headers")
 
 
@@ -41958,6 +42520,7 @@ class GetManagedRuleGroupRuleActionAllowCustomRequestHandlingInsertHeaderResult(
                  value: _builtins.str):
         """
         :param _builtins.str name: Managed rule group name.
+        :param _builtins.str value: Value of the header.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -41973,6 +42536,9 @@ class GetManagedRuleGroupRuleActionAllowCustomRequestHandlingInsertHeaderResult(
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.str:
+        """
+        Value of the header.
+        """
         return pulumi.get(self, "value")
 
 
@@ -41980,11 +42546,17 @@ class GetManagedRuleGroupRuleActionAllowCustomRequestHandlingInsertHeaderResult(
 class GetManagedRuleGroupRuleActionBlockResult(dict):
     def __init__(__self__, *,
                  custom_responses: Sequence['outputs.GetManagedRuleGroupRuleActionBlockCustomResponseResult']):
+        """
+        :param Sequence['GetManagedRuleGroupRuleActionBlockCustomResponseArgs'] custom_responses: Custom response for the blocked request. See `custom_response` Block for details.
+        """
         pulumi.set(__self__, "custom_responses", custom_responses)
 
     @_builtins.property
     @pulumi.getter(name="customResponses")
     def custom_responses(self) -> Sequence['outputs.GetManagedRuleGroupRuleActionBlockCustomResponseResult']:
+        """
+        Custom response for the blocked request. See `custom_response` Block for details.
+        """
         return pulumi.get(self, "custom_responses")
 
 
@@ -41994,6 +42566,11 @@ class GetManagedRuleGroupRuleActionBlockCustomResponseResult(dict):
                  custom_response_body_key: _builtins.str,
                  response_code: _builtins.int,
                  response_headers: Sequence['outputs.GetManagedRuleGroupRuleActionBlockCustomResponseResponseHeaderResult']):
+        """
+        :param _builtins.str custom_response_body_key: Key of the custom response body to use.
+        :param _builtins.int response_code: HTTP response code returned.
+        :param Sequence['GetManagedRuleGroupRuleActionBlockCustomResponseResponseHeaderArgs'] response_headers: Headers included in the response. See `response_header` Block for details.
+        """
         pulumi.set(__self__, "custom_response_body_key", custom_response_body_key)
         pulumi.set(__self__, "response_code", response_code)
         pulumi.set(__self__, "response_headers", response_headers)
@@ -42001,16 +42578,25 @@ class GetManagedRuleGroupRuleActionBlockCustomResponseResult(dict):
     @_builtins.property
     @pulumi.getter(name="customResponseBodyKey")
     def custom_response_body_key(self) -> _builtins.str:
+        """
+        Key of the custom response body to use.
+        """
         return pulumi.get(self, "custom_response_body_key")
 
     @_builtins.property
     @pulumi.getter(name="responseCode")
     def response_code(self) -> _builtins.int:
+        """
+        HTTP response code returned.
+        """
         return pulumi.get(self, "response_code")
 
     @_builtins.property
     @pulumi.getter(name="responseHeaders")
     def response_headers(self) -> Sequence['outputs.GetManagedRuleGroupRuleActionBlockCustomResponseResponseHeaderResult']:
+        """
+        Headers included in the response. See `response_header` Block for details.
+        """
         return pulumi.get(self, "response_headers")
 
 
@@ -42021,6 +42607,7 @@ class GetManagedRuleGroupRuleActionBlockCustomResponseResponseHeaderResult(dict)
                  value: _builtins.str):
         """
         :param _builtins.str name: Managed rule group name.
+        :param _builtins.str value: Value of the header.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -42036,6 +42623,9 @@ class GetManagedRuleGroupRuleActionBlockCustomResponseResponseHeaderResult(dict)
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.str:
+        """
+        Value of the header.
+        """
         return pulumi.get(self, "value")
 
 
@@ -42043,11 +42633,17 @@ class GetManagedRuleGroupRuleActionBlockCustomResponseResponseHeaderResult(dict)
 class GetManagedRuleGroupRuleActionCaptchaResult(dict):
     def __init__(__self__, *,
                  custom_request_handlings: Sequence['outputs.GetManagedRuleGroupRuleActionCaptchaCustomRequestHandlingResult']):
+        """
+        :param Sequence['GetManagedRuleGroupRuleActionCaptchaCustomRequestHandlingArgs'] custom_request_handlings: Custom handling for the counted request. See `custom_request_handling` Block for details.
+        """
         pulumi.set(__self__, "custom_request_handlings", custom_request_handlings)
 
     @_builtins.property
     @pulumi.getter(name="customRequestHandlings")
     def custom_request_handlings(self) -> Sequence['outputs.GetManagedRuleGroupRuleActionCaptchaCustomRequestHandlingResult']:
+        """
+        Custom handling for the counted request. See `custom_request_handling` Block for details.
+        """
         return pulumi.get(self, "custom_request_handlings")
 
 
@@ -42055,11 +42651,17 @@ class GetManagedRuleGroupRuleActionCaptchaResult(dict):
 class GetManagedRuleGroupRuleActionCaptchaCustomRequestHandlingResult(dict):
     def __init__(__self__, *,
                  insert_headers: Sequence['outputs.GetManagedRuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeaderResult']):
+        """
+        :param Sequence['GetManagedRuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeaderArgs'] insert_headers: Headers inserted into the request. See `insert_header` Block for details.
+        """
         pulumi.set(__self__, "insert_headers", insert_headers)
 
     @_builtins.property
     @pulumi.getter(name="insertHeaders")
     def insert_headers(self) -> Sequence['outputs.GetManagedRuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeaderResult']:
+        """
+        Headers inserted into the request. See `insert_header` Block for details.
+        """
         return pulumi.get(self, "insert_headers")
 
 
@@ -42070,6 +42672,7 @@ class GetManagedRuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeaderResul
                  value: _builtins.str):
         """
         :param _builtins.str name: Managed rule group name.
+        :param _builtins.str value: Value of the header.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -42085,6 +42688,9 @@ class GetManagedRuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeaderResul
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.str:
+        """
+        Value of the header.
+        """
         return pulumi.get(self, "value")
 
 
@@ -42092,11 +42698,17 @@ class GetManagedRuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeaderResul
 class GetManagedRuleGroupRuleActionChallengeResult(dict):
     def __init__(__self__, *,
                  custom_request_handlings: Sequence['outputs.GetManagedRuleGroupRuleActionChallengeCustomRequestHandlingResult']):
+        """
+        :param Sequence['GetManagedRuleGroupRuleActionChallengeCustomRequestHandlingArgs'] custom_request_handlings: Custom handling for the counted request. See `custom_request_handling` Block for details.
+        """
         pulumi.set(__self__, "custom_request_handlings", custom_request_handlings)
 
     @_builtins.property
     @pulumi.getter(name="customRequestHandlings")
     def custom_request_handlings(self) -> Sequence['outputs.GetManagedRuleGroupRuleActionChallengeCustomRequestHandlingResult']:
+        """
+        Custom handling for the counted request. See `custom_request_handling` Block for details.
+        """
         return pulumi.get(self, "custom_request_handlings")
 
 
@@ -42104,11 +42716,17 @@ class GetManagedRuleGroupRuleActionChallengeResult(dict):
 class GetManagedRuleGroupRuleActionChallengeCustomRequestHandlingResult(dict):
     def __init__(__self__, *,
                  insert_headers: Sequence['outputs.GetManagedRuleGroupRuleActionChallengeCustomRequestHandlingInsertHeaderResult']):
+        """
+        :param Sequence['GetManagedRuleGroupRuleActionChallengeCustomRequestHandlingInsertHeaderArgs'] insert_headers: Headers inserted into the request. See `insert_header` Block for details.
+        """
         pulumi.set(__self__, "insert_headers", insert_headers)
 
     @_builtins.property
     @pulumi.getter(name="insertHeaders")
     def insert_headers(self) -> Sequence['outputs.GetManagedRuleGroupRuleActionChallengeCustomRequestHandlingInsertHeaderResult']:
+        """
+        Headers inserted into the request. See `insert_header` Block for details.
+        """
         return pulumi.get(self, "insert_headers")
 
 
@@ -42119,6 +42737,7 @@ class GetManagedRuleGroupRuleActionChallengeCustomRequestHandlingInsertHeaderRes
                  value: _builtins.str):
         """
         :param _builtins.str name: Managed rule group name.
+        :param _builtins.str value: Value of the header.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -42134,6 +42753,9 @@ class GetManagedRuleGroupRuleActionChallengeCustomRequestHandlingInsertHeaderRes
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.str:
+        """
+        Value of the header.
+        """
         return pulumi.get(self, "value")
 
 
@@ -42141,11 +42763,17 @@ class GetManagedRuleGroupRuleActionChallengeCustomRequestHandlingInsertHeaderRes
 class GetManagedRuleGroupRuleActionCountResult(dict):
     def __init__(__self__, *,
                  custom_request_handlings: Sequence['outputs.GetManagedRuleGroupRuleActionCountCustomRequestHandlingResult']):
+        """
+        :param Sequence['GetManagedRuleGroupRuleActionCountCustomRequestHandlingArgs'] custom_request_handlings: Custom handling for the counted request. See `custom_request_handling` Block for details.
+        """
         pulumi.set(__self__, "custom_request_handlings", custom_request_handlings)
 
     @_builtins.property
     @pulumi.getter(name="customRequestHandlings")
     def custom_request_handlings(self) -> Sequence['outputs.GetManagedRuleGroupRuleActionCountCustomRequestHandlingResult']:
+        """
+        Custom handling for the counted request. See `custom_request_handling` Block for details.
+        """
         return pulumi.get(self, "custom_request_handlings")
 
 
@@ -42153,11 +42781,17 @@ class GetManagedRuleGroupRuleActionCountResult(dict):
 class GetManagedRuleGroupRuleActionCountCustomRequestHandlingResult(dict):
     def __init__(__self__, *,
                  insert_headers: Sequence['outputs.GetManagedRuleGroupRuleActionCountCustomRequestHandlingInsertHeaderResult']):
+        """
+        :param Sequence['GetManagedRuleGroupRuleActionCountCustomRequestHandlingInsertHeaderArgs'] insert_headers: Headers inserted into the request. See `insert_header` Block for details.
+        """
         pulumi.set(__self__, "insert_headers", insert_headers)
 
     @_builtins.property
     @pulumi.getter(name="insertHeaders")
     def insert_headers(self) -> Sequence['outputs.GetManagedRuleGroupRuleActionCountCustomRequestHandlingInsertHeaderResult']:
+        """
+        Headers inserted into the request. See `insert_header` Block for details.
+        """
         return pulumi.get(self, "insert_headers")
 
 
@@ -42168,6 +42802,7 @@ class GetManagedRuleGroupRuleActionCountCustomRequestHandlingInsertHeaderResult(
                  value: _builtins.str):
         """
         :param _builtins.str name: Managed rule group name.
+        :param _builtins.str value: Value of the header.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -42183,6 +42818,9 @@ class GetManagedRuleGroupRuleActionCountCustomRequestHandlingInsertHeaderResult(
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.str:
+        """
+        Value of the header.
+        """
         return pulumi.get(self, "value")
 
 

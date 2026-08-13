@@ -65,7 +65,7 @@ type LookupServerResult struct {
 	Arn string `pulumi:"arn"`
 	// ARN of any certificate.
 	Certificate string `pulumi:"certificate"`
-	// The domain of the storage system that is used for file transfers.
+	// Domain of the storage system that is used for file transfers.
 	Domain string `pulumi:"domain"`
 	// Endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`).
 	Endpoint string `pulumi:"endpoint"`
@@ -73,7 +73,7 @@ type LookupServerResult struct {
 	EndpointType string `pulumi:"endpointType"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice.
+	// Mode of authentication enabled for this service.
 	IdentityProviderType string `pulumi:"identityProviderType"`
 	// ARN of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
 	InvocationRole string `pulumi:"invocationRole"`
@@ -84,10 +84,10 @@ type LookupServerResult struct {
 	// File transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint.
 	Protocols []string `pulumi:"protocols"`
 	Region    string   `pulumi:"region"`
-	// The name of the security policy that is attached to the server.
+	// Name of the security policy that is attached to the server.
 	SecurityPolicyName string `pulumi:"securityPolicyName"`
 	ServerId           string `pulumi:"serverId"`
-	// A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs.
+	// Set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs.
 	StructuredLogDestinations []string `pulumi:"structuredLogDestinations"`
 	// Map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -143,7 +143,7 @@ func (o LookupServerResultOutput) Certificate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.Certificate }).(pulumi.StringOutput)
 }
 
-// The domain of the storage system that is used for file transfers.
+// Domain of the storage system that is used for file transfers.
 func (o LookupServerResultOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.Domain }).(pulumi.StringOutput)
 }
@@ -163,7 +163,7 @@ func (o LookupServerResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice.
+// Mode of authentication enabled for this service.
 func (o LookupServerResultOutput) IdentityProviderType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.IdentityProviderType }).(pulumi.StringOutput)
 }
@@ -192,7 +192,7 @@ func (o LookupServerResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// The name of the security policy that is attached to the server.
+// Name of the security policy that is attached to the server.
 func (o LookupServerResultOutput) SecurityPolicyName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.SecurityPolicyName }).(pulumi.StringOutput)
 }
@@ -201,7 +201,7 @@ func (o LookupServerResultOutput) ServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.ServerId }).(pulumi.StringOutput)
 }
 
-// A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs.
+// Set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs.
 func (o LookupServerResultOutput) StructuredLogDestinations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupServerResult) []string { return v.StructuredLogDestinations }).(pulumi.StringArrayOutput)
 }

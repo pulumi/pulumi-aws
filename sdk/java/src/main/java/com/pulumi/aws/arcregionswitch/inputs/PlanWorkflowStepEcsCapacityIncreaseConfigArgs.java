@@ -36,14 +36,14 @@ public final class PlanWorkflowStepEcsCapacityIncreaseConfigArgs extends com.pul
     }
 
     /**
-     * ECS service configuration. See ECS Service below.
+     * ECS service configuration. See `service` Block for details.
      * 
      */
     @Import(name="services")
     private @Nullable Output<List<PlanWorkflowStepEcsCapacityIncreaseConfigServiceArgs>> services;
 
     /**
-     * @return ECS service configuration. See ECS Service below.
+     * @return ECS service configuration. See `service` Block for details.
      * 
      */
     public Optional<Output<List<PlanWorkflowStepEcsCapacityIncreaseConfigServiceArgs>>> services() {
@@ -81,14 +81,14 @@ public final class PlanWorkflowStepEcsCapacityIncreaseConfigArgs extends com.pul
     }
 
     /**
-     * Ungraceful behavior configuration. See Ungraceful Capacity below.
+     * Ungraceful behavior configuration. See `workflow.step.ecs_capacity_increase_config.ungraceful` Block for details.
      * 
      */
     @Import(name="ungraceful")
     private @Nullable Output<PlanWorkflowStepEcsCapacityIncreaseConfigUngracefulArgs> ungraceful;
 
     /**
-     * @return Ungraceful behavior configuration. See Ungraceful Capacity below.
+     * @return Ungraceful behavior configuration. See `workflow.step.ecs_capacity_increase_config.ungraceful` Block for details.
      * 
      */
     public Optional<Output<PlanWorkflowStepEcsCapacityIncreaseConfigUngracefulArgs>> ungraceful() {
@@ -145,7 +145,7 @@ public final class PlanWorkflowStepEcsCapacityIncreaseConfigArgs extends com.pul
         }
 
         /**
-         * @param services ECS service configuration. See ECS Service below.
+         * @param services ECS service configuration. See `service` Block for details.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class PlanWorkflowStepEcsCapacityIncreaseConfigArgs extends com.pul
         }
 
         /**
-         * @param services ECS service configuration. See ECS Service below.
+         * @param services ECS service configuration. See `service` Block for details.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class PlanWorkflowStepEcsCapacityIncreaseConfigArgs extends com.pul
         }
 
         /**
-         * @param services ECS service configuration. See ECS Service below.
+         * @param services ECS service configuration. See `service` Block for details.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class PlanWorkflowStepEcsCapacityIncreaseConfigArgs extends com.pul
         }
 
         /**
-         * @param ungraceful Ungraceful behavior configuration. See Ungraceful Capacity below.
+         * @param ungraceful Ungraceful behavior configuration. See `workflow.step.ecs_capacity_increase_config.ungraceful` Block for details.
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class PlanWorkflowStepEcsCapacityIncreaseConfigArgs extends com.pul
         }
 
         /**
-         * @param ungraceful Ungraceful behavior configuration. See Ungraceful Capacity below.
+         * @param ungraceful Ungraceful behavior configuration. See `workflow.step.ecs_capacity_increase_config.ungraceful` Block for details.
          * 
          * @return builder
          * 

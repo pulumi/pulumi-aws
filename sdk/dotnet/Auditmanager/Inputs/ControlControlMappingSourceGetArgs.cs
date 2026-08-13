@@ -24,11 +24,14 @@ namespace Pulumi.Aws.Auditmanager.Inputs
         [Input("sourceFrequency")]
         public Input<string>? SourceFrequency { get; set; }
 
+        /// <summary>
+        /// Unique identifier for the source.
+        /// </summary>
         [Input("sourceId")]
         public Input<string>? SourceId { get; set; }
 
         /// <summary>
-        /// The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `SourceKeyword` below.
+        /// Keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `SourceKeyword` below.
         /// </summary>
         [Input("sourceKeyword")]
         public Input<Inputs.ControlControlMappingSourceSourceKeywordGetArgs>? SourceKeyword { get; set; }
@@ -40,7 +43,7 @@ namespace Pulumi.Aws.Auditmanager.Inputs
         public Input<string> SourceName { get; set; } = null!;
 
         /// <summary>
-        /// The setup option for the data source. This option reflects if the evidence collection is automated or manual. Valid values are `System_Controls_Mapping` (automated) and `Procedural_Controls_Mapping` (manual).
+        /// Setup option for the data source. This option reflects if the evidence collection is automated or manual. Valid values are `System_Controls_Mapping` (automated) and `Procedural_Controls_Mapping` (manual).
         /// </summary>
         [Input("sourceSetUpOption", required: true)]
         public Input<string> SourceSetUpOption { get; set; } = null!;

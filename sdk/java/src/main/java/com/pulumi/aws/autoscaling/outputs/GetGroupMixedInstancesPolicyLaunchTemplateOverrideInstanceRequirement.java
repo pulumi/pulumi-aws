@@ -53,7 +53,7 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceReq
      */
     private List<String> allowedInstanceTypes;
     /**
-     * @return Indicates whether bare metal instances are included, excluded, or required.
+     * @return Whether bare metal instances are included, excluded, or required.
      * 
      */
     private String bareMetal;
@@ -63,7 +63,7 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceReq
      */
     private List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbp> baselineEbsBandwidthMbps;
     /**
-     * @return Indicates whether burstable performance instance types are included, excluded, or required.
+     * @return Whether burstable performance instance types are included, excluded, or required.
      * 
      */
     private String burstablePerformance;
@@ -83,7 +83,7 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceReq
      */
     private List<String> instanceGenerations;
     /**
-     * @return Indicates whether instance types with instance store volumes are included, excluded, or required.
+     * @return Whether instance types with instance store volumes are included, excluded, or required.
      * 
      */
     private String localStorage;
@@ -123,7 +123,7 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceReq
      */
     private Integer onDemandMaxPricePercentageOverLowestPrice;
     /**
-     * @return Indicates whether instance types must support On-Demand Instance Hibernation.
+     * @return Whether instance types must support On-Demand Instance Hibernation.
      * 
      */
     private Boolean requireHibernateSupport;
@@ -187,7 +187,7 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceReq
         return this.allowedInstanceTypes;
     }
     /**
-     * @return Indicates whether bare metal instances are included, excluded, or required.
+     * @return Whether bare metal instances are included, excluded, or required.
      * 
      */
     public String bareMetal() {
@@ -201,7 +201,7 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceReq
         return this.baselineEbsBandwidthMbps;
     }
     /**
-     * @return Indicates whether burstable performance instance types are included, excluded, or required.
+     * @return Whether burstable performance instance types are included, excluded, or required.
      * 
      */
     public String burstablePerformance() {
@@ -229,7 +229,7 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceReq
         return this.instanceGenerations;
     }
     /**
-     * @return Indicates whether instance types with instance store volumes are included, excluded, or required.
+     * @return Whether instance types with instance store volumes are included, excluded, or required.
      * 
      */
     public String localStorage() {
@@ -285,7 +285,7 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceReq
         return this.onDemandMaxPricePercentageOverLowestPrice;
     }
     /**
-     * @return Indicates whether instance types must support On-Demand Instance Hibernation.
+     * @return Whether instance types must support On-Demand Instance Hibernation.
      * 
      */
     public Boolean requireHibernateSupport() {

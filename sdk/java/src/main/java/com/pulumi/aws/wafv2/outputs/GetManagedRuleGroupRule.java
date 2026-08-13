@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetManagedRuleGroupRule {
     /**
-     * @return Action taken on a web request when it matches a rule&#39;s statement. See `actionToUse` for details.
+     * @return Action taken on a web request when it matches a rule&#39;s statement. See `action` Block for details.
      * 
      */
     private List<GetManagedRuleGroupRuleAction> actions;
@@ -25,7 +25,7 @@ public final class GetManagedRuleGroupRule {
 
     private GetManagedRuleGroupRule() {}
     /**
-     * @return Action taken on a web request when it matches a rule&#39;s statement. See `actionToUse` for details.
+     * @return Action taken on a web request when it matches a rule&#39;s statement. See `action` Block for details.
      * 
      */
     public List<GetManagedRuleGroupRuleAction> actions() {

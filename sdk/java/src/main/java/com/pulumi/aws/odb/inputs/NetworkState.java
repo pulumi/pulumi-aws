@@ -38,14 +38,14 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availabilityZone maps correctly with availability_zone_id.
+     * Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure `availabilityZone` maps correctly with `availabilityZoneId`.
      * 
      */
     @Import(name="availabilityZone")
     private @Nullable Output<String> availabilityZone;
 
     /**
-     * @return Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availabilityZone maps correctly with availability_zone_id.
+     * @return Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure `availabilityZone` maps correctly with `availabilityZoneId`.
      * 
      */
     public Optional<Output<String>> availabilityZone() {
@@ -128,14 +128,14 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can&#39;t be given. Changing this will force terraform to create new resource.
+     * Name of the custom domain that the network is located. `customDomainName` and `defaultDnsPrefix` both can&#39;t be given. Changing this will force terraform to create new resource.
      * 
      */
     @Import(name="customDomainName")
     private @Nullable Output<String> customDomainName;
 
     /**
-     * @return Name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can&#39;t be given. Changing this will force terraform to create new resource.
+     * @return Name of the custom domain that the network is located. `customDomainName` and `defaultDnsPrefix` both can&#39;t be given. Changing this will force terraform to create new resource.
      * 
      */
     public Optional<Output<String>> customDomainName() {
@@ -233,14 +233,14 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Managed services configuration for the ODB network.
+     * Managed services configuration for the ODB network. See `managedServices` Block below.
      * 
      */
     @Import(name="managedServices")
     private @Nullable Output<List<NetworkManagedServiceArgs>> managedServices;
 
     /**
-     * @return Managed services configuration for the ODB network.
+     * @return Managed services configuration for the ODB network. See `managedServices` Block below.
      * 
      */
     public Optional<Output<List<NetworkManagedServiceArgs>>> managedServices() {
@@ -248,14 +248,14 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Number of storage servers requested for the Exadata infrastructure.
+     * DNS resolver endpoints in OCI for forwarding DNS queries for the `ociPrivateZone` domain. See `ociDnsForwardingConfigs` Block below.
      * 
      */
     @Import(name="ociDnsForwardingConfigs")
     private @Nullable Output<List<NetworkOciDnsForwardingConfigArgs>> ociDnsForwardingConfigs;
 
     /**
-     * @return Number of storage servers requested for the Exadata infrastructure.
+     * @return DNS resolver endpoints in OCI for forwarding DNS queries for the `ociPrivateZone` domain. See `ociDnsForwardingConfigs` Block below.
      * 
      */
     public Optional<Output<List<NetworkOciDnsForwardingConfigArgs>>> ociDnsForwardingConfigs() {
@@ -338,14 +338,14 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
+     * List of CIDR ranges from the peered VPC that are allowed access to the ODB network. See the [ODB network peering documentation](https://docs.aws.amazon.com/odb/latest/UserGuide/network-peering.html) for more information.
      * 
      */
     @Import(name="peeredCidrs")
     private @Nullable Output<List<String>> peeredCidrs;
 
     /**
-     * @return List of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
+     * @return List of CIDR ranges from the peered VPC that are allowed access to the ODB network. See the [ODB network peering documentation](https://docs.aws.amazon.com/odb/latest/UserGuide/network-peering.html) for more information.
      * 
      */
     public Optional<Output<List<String>>> peeredCidrs() {
@@ -413,14 +413,14 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Status of the network resource.
+     * Status of the Zero-ETL access.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Status of the network resource.
+     * @return Status of the Zero-ETL access.
      * 
      */
     public Optional<Output<String>> status() {
@@ -599,7 +599,7 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZone Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availabilityZone maps correctly with availability_zone_id.
+         * @param availabilityZone Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure `availabilityZone` maps correctly with `availabilityZoneId`.
          * 
          * @return builder
          * 
@@ -610,7 +610,7 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZone Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availabilityZone maps correctly with availability_zone_id.
+         * @param availabilityZone Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure `availabilityZone` maps correctly with `availabilityZoneId`.
          * 
          * @return builder
          * 
@@ -735,7 +735,7 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customDomainName Name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can&#39;t be given. Changing this will force terraform to create new resource.
+         * @param customDomainName Name of the custom domain that the network is located. `customDomainName` and `defaultDnsPrefix` both can&#39;t be given. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -746,7 +746,7 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customDomainName Name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can&#39;t be given. Changing this will force terraform to create new resource.
+         * @param customDomainName Name of the custom domain that the network is located. `customDomainName` and `defaultDnsPrefix` both can&#39;t be given. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -892,7 +892,7 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managedServices Managed services configuration for the ODB network.
+         * @param managedServices Managed services configuration for the ODB network. See `managedServices` Block below.
          * 
          * @return builder
          * 
@@ -903,7 +903,7 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managedServices Managed services configuration for the ODB network.
+         * @param managedServices Managed services configuration for the ODB network. See `managedServices` Block below.
          * 
          * @return builder
          * 
@@ -913,7 +913,7 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managedServices Managed services configuration for the ODB network.
+         * @param managedServices Managed services configuration for the ODB network. See `managedServices` Block below.
          * 
          * @return builder
          * 
@@ -923,7 +923,7 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ociDnsForwardingConfigs Number of storage servers requested for the Exadata infrastructure.
+         * @param ociDnsForwardingConfigs DNS resolver endpoints in OCI for forwarding DNS queries for the `ociPrivateZone` domain. See `ociDnsForwardingConfigs` Block below.
          * 
          * @return builder
          * 
@@ -934,7 +934,7 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ociDnsForwardingConfigs Number of storage servers requested for the Exadata infrastructure.
+         * @param ociDnsForwardingConfigs DNS resolver endpoints in OCI for forwarding DNS queries for the `ociPrivateZone` domain. See `ociDnsForwardingConfigs` Block below.
          * 
          * @return builder
          * 
@@ -944,7 +944,7 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ociDnsForwardingConfigs Number of storage servers requested for the Exadata infrastructure.
+         * @param ociDnsForwardingConfigs DNS resolver endpoints in OCI for forwarding DNS queries for the `ociPrivateZone` domain. See `ociDnsForwardingConfigs` Block below.
          * 
          * @return builder
          * 
@@ -1059,7 +1059,7 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param peeredCidrs List of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
+         * @param peeredCidrs List of CIDR ranges from the peered VPC that are allowed access to the ODB network. See the [ODB network peering documentation](https://docs.aws.amazon.com/odb/latest/UserGuide/network-peering.html) for more information.
          * 
          * @return builder
          * 
@@ -1070,7 +1070,7 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param peeredCidrs List of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
+         * @param peeredCidrs List of CIDR ranges from the peered VPC that are allowed access to the ODB network. See the [ODB network peering documentation](https://docs.aws.amazon.com/odb/latest/UserGuide/network-peering.html) for more information.
          * 
          * @return builder
          * 
@@ -1080,7 +1080,7 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param peeredCidrs List of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
+         * @param peeredCidrs List of CIDR ranges from the peered VPC that are allowed access to the ODB network. See the [ODB network peering documentation](https://docs.aws.amazon.com/odb/latest/UserGuide/network-peering.html) for more information.
          * 
          * @return builder
          * 
@@ -1174,7 +1174,7 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Status of the network resource.
+         * @param status Status of the Zero-ETL access.
          * 
          * @return builder
          * 
@@ -1185,7 +1185,7 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Status of the network resource.
+         * @param status Status of the Zero-ETL access.
          * 
          * @return builder
          * 

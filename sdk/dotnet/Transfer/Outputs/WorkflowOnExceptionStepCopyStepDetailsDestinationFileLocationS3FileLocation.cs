@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Transfer.Outputs
     public sealed class WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocation
     {
         /// <summary>
-        /// Specifies the S3 bucket for the customer input file.
+        /// S3 bucket for the customer input file.
         /// </summary>
         public readonly string? Bucket;
         /// <summary>
-        /// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+        /// Name assigned to the file when it was created in S3. You use the object key to retrieve the object.
         /// </summary>
         public readonly string? Key;
 

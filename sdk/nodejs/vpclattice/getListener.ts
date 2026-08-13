@@ -66,7 +66,7 @@ export interface GetListenerResult {
      */
     readonly createdAt: string;
     /**
-     * Actions for the default listener rule.
+     * Action for the default listener rule. See `defaultAction` Block below.
      */
     readonly defaultActions: outputs.vpclattice.GetListenerDefaultAction[];
     /**

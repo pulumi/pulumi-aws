@@ -10,19 +10,27 @@ import java.util.Objects;
 
 @CustomType
 public final class NetworkManagedServiceZeroEtlAccess {
+    /**
+     * @return CIDR range for the Zero-ETL access.
+     * 
+     */
     private String cidr;
     /**
-     * @return Status of the network resource.
+     * @return Status of the Zero-ETL access.
      * 
      */
     private String status;
 
     private NetworkManagedServiceZeroEtlAccess() {}
+    /**
+     * @return CIDR range for the Zero-ETL access.
+     * 
+     */
     public String cidr() {
         return this.cidr;
     }
     /**
-     * @return Status of the network resource.
+     * @return Status of the Zero-ETL access.
      * 
      */
     public String status() {

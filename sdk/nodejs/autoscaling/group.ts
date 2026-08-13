@@ -499,7 +499,7 @@ export class Group extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
+     * The instance capacity distribution across Availability Zones. See `availabilityZoneDistribution` Block below for more details.
      */
     declare public readonly availabilityZoneDistribution: pulumi.Output<outputs.autoscaling.GroupAvailabilityZoneDistribution>;
     /**
@@ -511,7 +511,7 @@ export class Group extends pulumi.CustomResource {
      */
     declare public readonly capacityRebalance: pulumi.Output<boolean | undefined>;
     /**
-     * The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See Capacity Reservation Specification below for more details.
+     * The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See `capacityReservationSpecification` Block below for more details.
      */
     declare public readonly capacityReservationSpecification: pulumi.Output<outputs.autoscaling.GroupCapacityReservationSpecification>;
     /**
@@ -593,7 +593,7 @@ export class Group extends pulumi.CustomResource {
      */
     declare public readonly launchConfiguration: pulumi.Output<string | undefined>;
     /**
-     * Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
+     * Nested argument with Launch template specification to use to launch instances. See `launchTemplate` Block below for more details.
      */
     declare public readonly launchTemplate: pulumi.Output<outputs.autoscaling.GroupLaunchTemplate>;
     /**
@@ -626,7 +626,7 @@ export class Group extends pulumi.CustomResource {
      */
     declare public readonly minSize: pulumi.Output<number>;
     /**
-     * Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
+     * Configuration block containing settings to define launch targets for Auto Scaling groups. See `mixedInstancesPolicy` Block below for more details.
      */
     declare public readonly mixedInstancesPolicy: pulumi.Output<outputs.autoscaling.GroupMixedInstancesPolicy>;
     /**
@@ -668,7 +668,7 @@ export class Group extends pulumi.CustomResource {
      */
     declare public readonly suspendedProcesses: pulumi.Output<string[] | undefined>;
     /**
-     * Configuration block(s) containing resource tags. See Tag below for more details.
+     * Configuration block(s) containing resource tags. See `tag` Block below for more details.
      */
     declare public readonly tags: pulumi.Output<outputs.autoscaling.GroupTag[] | undefined>;
     /**
@@ -841,7 +841,7 @@ export interface GroupState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
+     * The instance capacity distribution across Availability Zones. See `availabilityZoneDistribution` Block below for more details.
      */
     availabilityZoneDistribution?: pulumi.Input<inputs.autoscaling.GroupAvailabilityZoneDistribution | undefined>;
     /**
@@ -853,7 +853,7 @@ export interface GroupState {
      */
     capacityRebalance?: pulumi.Input<boolean | undefined>;
     /**
-     * The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See Capacity Reservation Specification below for more details.
+     * The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See `capacityReservationSpecification` Block below for more details.
      */
     capacityReservationSpecification?: pulumi.Input<inputs.autoscaling.GroupCapacityReservationSpecification | undefined>;
     /**
@@ -935,7 +935,7 @@ export interface GroupState {
      */
     launchConfiguration?: pulumi.Input<string | LaunchConfiguration | undefined>;
     /**
-     * Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
+     * Nested argument with Launch template specification to use to launch instances. See `launchTemplate` Block below for more details.
      */
     launchTemplate?: pulumi.Input<inputs.autoscaling.GroupLaunchTemplate | undefined>;
     /**
@@ -968,7 +968,7 @@ export interface GroupState {
      */
     minSize?: pulumi.Input<number | undefined>;
     /**
-     * Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
+     * Configuration block containing settings to define launch targets for Auto Scaling groups. See `mixedInstancesPolicy` Block below for more details.
      */
     mixedInstancesPolicy?: pulumi.Input<inputs.autoscaling.GroupMixedInstancesPolicy | undefined>;
     /**
@@ -1010,7 +1010,7 @@ export interface GroupState {
      */
     suspendedProcesses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Configuration block(s) containing resource tags. See Tag below for more details.
+     * Configuration block(s) containing resource tags. See `tag` Block below for more details.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.autoscaling.GroupTag>[] | undefined>;
     /**
@@ -1061,7 +1061,7 @@ export interface GroupState {
  */
 export interface GroupArgs {
     /**
-     * The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
+     * The instance capacity distribution across Availability Zones. See `availabilityZoneDistribution` Block below for more details.
      */
     availabilityZoneDistribution?: pulumi.Input<inputs.autoscaling.GroupAvailabilityZoneDistribution | undefined>;
     /**
@@ -1073,7 +1073,7 @@ export interface GroupArgs {
      */
     capacityRebalance?: pulumi.Input<boolean | undefined>;
     /**
-     * The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See Capacity Reservation Specification below for more details.
+     * The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See `capacityReservationSpecification` Block below for more details.
      */
     capacityReservationSpecification?: pulumi.Input<inputs.autoscaling.GroupCapacityReservationSpecification | undefined>;
     /**
@@ -1155,7 +1155,7 @@ export interface GroupArgs {
      */
     launchConfiguration?: pulumi.Input<string | LaunchConfiguration | undefined>;
     /**
-     * Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
+     * Nested argument with Launch template specification to use to launch instances. See `launchTemplate` Block below for more details.
      */
     launchTemplate?: pulumi.Input<inputs.autoscaling.GroupLaunchTemplate | undefined>;
     /**
@@ -1188,7 +1188,7 @@ export interface GroupArgs {
      */
     minSize: pulumi.Input<number>;
     /**
-     * Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
+     * Configuration block containing settings to define launch targets for Auto Scaling groups. See `mixedInstancesPolicy` Block below for more details.
      */
     mixedInstancesPolicy?: pulumi.Input<inputs.autoscaling.GroupMixedInstancesPolicy | undefined>;
     /**
@@ -1226,7 +1226,7 @@ export interface GroupArgs {
      */
     suspendedProcesses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Configuration block(s) containing resource tags. See Tag below for more details.
+     * Configuration block(s) containing resource tags. See `tag` Block below for more details.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.autoscaling.GroupTag>[] | undefined>;
     /**

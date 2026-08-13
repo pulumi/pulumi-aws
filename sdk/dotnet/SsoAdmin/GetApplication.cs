@@ -161,7 +161,7 @@ namespace Pulumi.Aws.SsoAdmin
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Options for the portal associated with an application. See the `aws.ssoadmin.Application` resource documentation. The attributes are the same.
+        /// Options for the portal associated with an application. See `PortalOptions` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationPortalOptionResult> PortalOptions;
         public readonly string Region;

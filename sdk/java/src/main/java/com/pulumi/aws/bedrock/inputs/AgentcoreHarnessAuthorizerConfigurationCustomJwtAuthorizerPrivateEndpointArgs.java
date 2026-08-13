@@ -17,14 +17,14 @@ public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPri
     public static final AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs Empty = new AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs();
 
     /**
-     * Managed VPC resource configuration. See `managedVpcResource` below.
+     * Managed VPC resource configuration. See `managedVpcResource` Block below.
      * 
      */
     @Import(name="managedVpcResource")
     private @Nullable Output<AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs> managedVpcResource;
 
     /**
-     * @return Managed VPC resource configuration. See `managedVpcResource` below.
+     * @return Managed VPC resource configuration. See `managedVpcResource` Block below.
      * 
      */
     public Optional<Output<AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs>> managedVpcResource() {
@@ -32,14 +32,14 @@ public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPri
     }
 
     /**
-     * Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
+     * Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` Block below.
      * 
      */
     @Import(name="selfManagedLatticeResource")
     private @Nullable Output<AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs> selfManagedLatticeResource;
 
     /**
-     * @return Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
+     * @return Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` Block below.
      * 
      */
     public Optional<Output<AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs>> selfManagedLatticeResource() {
@@ -72,7 +72,7 @@ public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPri
         }
 
         /**
-         * @param managedVpcResource Managed VPC resource configuration. See `managedVpcResource` below.
+         * @param managedVpcResource Managed VPC resource configuration. See `managedVpcResource` Block below.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPri
         }
 
         /**
-         * @param managedVpcResource Managed VPC resource configuration. See `managedVpcResource` below.
+         * @param managedVpcResource Managed VPC resource configuration. See `managedVpcResource` Block below.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPri
         }
 
         /**
-         * @param selfManagedLatticeResource Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
+         * @param selfManagedLatticeResource Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` Block below.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPri
         }
 
         /**
-         * @param selfManagedLatticeResource Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
+         * @param selfManagedLatticeResource Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` Block below.
          * 
          * @return builder
          * 

@@ -21,14 +21,14 @@ public final class CloudAutonomousVmClusterMaintenanceWindowArgs extends com.pul
     public static final CloudAutonomousVmClusterMaintenanceWindowArgs Empty = new CloudAutonomousVmClusterMaintenanceWindowArgs();
 
     /**
-     * Days of the week when maintenance can be performed. Changing this will force terraform to create new resource.
+     * Days of the week when maintenance can be performed. Changing this will force terraform to create new resource. See `daysOfWeek` Block below.
      * 
      */
     @Import(name="daysOfWeeks")
     private @Nullable Output<List<CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArgs>> daysOfWeeks;
 
     /**
-     * @return Days of the week when maintenance can be performed. Changing this will force terraform to create new resource.
+     * @return Days of the week when maintenance can be performed. Changing this will force terraform to create new resource. See `daysOfWeek` Block below.
      * 
      */
     public Optional<Output<List<CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArgs>>> daysOfWeeks() {
@@ -66,14 +66,14 @@ public final class CloudAutonomousVmClusterMaintenanceWindowArgs extends com.pul
     }
 
     /**
-     * Months when maintenance can be performed. Changing this will force terraform to create new resource.
+     * Months when maintenance can be performed. Changing this will force terraform to create new resource. See `months` Block below.
      * 
      */
     @Import(name="months")
     private @Nullable Output<List<CloudAutonomousVmClusterMaintenanceWindowMonthArgs>> months;
 
     /**
-     * @return Months when maintenance can be performed. Changing this will force terraform to create new resource.
+     * @return Months when maintenance can be performed. Changing this will force terraform to create new resource. See `months` Block below.
      * 
      */
     public Optional<Output<List<CloudAutonomousVmClusterMaintenanceWindowMonthArgs>>> months() {
@@ -140,7 +140,7 @@ public final class CloudAutonomousVmClusterMaintenanceWindowArgs extends com.pul
         }
 
         /**
-         * @param daysOfWeeks Days of the week when maintenance can be performed. Changing this will force terraform to create new resource.
+         * @param daysOfWeeks Days of the week when maintenance can be performed. Changing this will force terraform to create new resource. See `daysOfWeek` Block below.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class CloudAutonomousVmClusterMaintenanceWindowArgs extends com.pul
         }
 
         /**
-         * @param daysOfWeeks Days of the week when maintenance can be performed. Changing this will force terraform to create new resource.
+         * @param daysOfWeeks Days of the week when maintenance can be performed. Changing this will force terraform to create new resource. See `daysOfWeek` Block below.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class CloudAutonomousVmClusterMaintenanceWindowArgs extends com.pul
         }
 
         /**
-         * @param daysOfWeeks Days of the week when maintenance can be performed. Changing this will force terraform to create new resource.
+         * @param daysOfWeeks Days of the week when maintenance can be performed. Changing this will force terraform to create new resource. See `daysOfWeek` Block below.
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class CloudAutonomousVmClusterMaintenanceWindowArgs extends com.pul
         }
 
         /**
-         * @param months Months when maintenance can be performed. Changing this will force terraform to create new resource.
+         * @param months Months when maintenance can be performed. Changing this will force terraform to create new resource. See `months` Block below.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class CloudAutonomousVmClusterMaintenanceWindowArgs extends com.pul
         }
 
         /**
-         * @param months Months when maintenance can be performed. Changing this will force terraform to create new resource.
+         * @param months Months when maintenance can be performed. Changing this will force terraform to create new resource. See `months` Block below.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class CloudAutonomousVmClusterMaintenanceWindowArgs extends com.pul
         }
 
         /**
-         * @param months Months when maintenance can be performed. Changing this will force terraform to create new resource.
+         * @param months Months when maintenance can be performed. Changing this will force terraform to create new resource. See `months` Block below.
          * 
          * @return builder
          * 

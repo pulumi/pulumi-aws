@@ -10,13 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetApplicationPortalOptionSignInOption {
+    /**
+     * @return URL that accepts authentication requests for an application.
+     * 
+     */
     private String applicationUrl;
+    /**
+     * @return How IAM Identity Center navigates the user to the target application.
+     * 
+     */
     private String origin;
 
     private GetApplicationPortalOptionSignInOption() {}
+    /**
+     * @return URL that accepts authentication requests for an application.
+     * 
+     */
     public String applicationUrl() {
         return this.applicationUrl;
     }
+    /**
+     * @return How IAM Identity Center navigates the user to the target application.
+     * 
+     */
     public String origin() {
         return this.origin;
     }

@@ -25,14 +25,14 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
     public static final PlanArgs Empty = new PlanArgs();
 
     /**
-     * Set of CloudWatch alarms associated with the plan. See Associated Alarms below.
+     * CloudWatch alarms associated with the plan. See `associatedAlarms` Block for details.
      * 
      */
     @Import(name="associatedAlarms")
     private @Nullable Output<List<PlanAssociatedAlarmArgs>> associatedAlarms;
 
     /**
-     * @return Set of CloudWatch alarms associated with the plan. See Associated Alarms below.
+     * @return CloudWatch alarms associated with the plan. See `associatedAlarms` Block for details.
      * 
      */
     public Optional<Output<List<PlanAssociatedAlarmArgs>>> associatedAlarms() {
@@ -153,14 +153,14 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of AWS regions involved in the plan.
+     * List of AWS regions involved in the plan. Must contain at least 2 regions.
      * 
      */
     @Import(name="regions", required=true)
     private Output<List<String>> regions;
 
     /**
-     * @return List of AWS regions involved in the plan.
+     * @return List of AWS regions involved in the plan. Must contain at least 2 regions.
      * 
      */
     public Output<List<String>> regions() {
@@ -168,14 +168,14 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration for automated execution reports. See Report Configuration below.
+     * Configuration for automated execution reports. See `reportConfiguration` Block for details.
      * 
      */
     @Import(name="reportConfigurations")
     private @Nullable Output<List<PlanReportConfigurationArgs>> reportConfigurations;
 
     /**
-     * @return Configuration for automated execution reports. See Report Configuration below.
+     * @return Configuration for automated execution reports. See `reportConfiguration` Block for details.
      * 
      */
     public Optional<Output<List<PlanReportConfigurationArgs>>> reportConfigurations() {
@@ -205,14 +205,14 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Set of triggers that can initiate the plan execution. See Triggers below.
+     * Triggers that can initiate the plan execution. See `triggers` Block for details.
      * 
      */
     @Import(name="triggers")
     private @Nullable Output<List<PlanTriggerArgs>> triggers;
 
     /**
-     * @return Set of triggers that can initiate the plan execution. See Triggers below.
+     * @return Triggers that can initiate the plan execution. See `triggers` Block for details.
      * 
      */
     public Optional<Output<List<PlanTriggerArgs>>> triggers() {
@@ -220,7 +220,7 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of workflows that define the steps to execute. See Workflow below.
+     * Workflows that define the steps to execute. See `workflow` Block for details.
      * 
      * The following arguments are optional:
      * 
@@ -229,7 +229,7 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<List<PlanWorkflowArgs>> workflows;
 
     /**
-     * @return List of workflows that define the steps to execute. See Workflow below.
+     * @return Workflows that define the steps to execute. See `workflow` Block for details.
      * 
      * The following arguments are optional:
      * 
@@ -276,7 +276,7 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param associatedAlarms Set of CloudWatch alarms associated with the plan. See Associated Alarms below.
+         * @param associatedAlarms CloudWatch alarms associated with the plan. See `associatedAlarms` Block for details.
          * 
          * @return builder
          * 
@@ -287,7 +287,7 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param associatedAlarms Set of CloudWatch alarms associated with the plan. See Associated Alarms below.
+         * @param associatedAlarms CloudWatch alarms associated with the plan. See `associatedAlarms` Block for details.
          * 
          * @return builder
          * 
@@ -297,7 +297,7 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param associatedAlarms Set of CloudWatch alarms associated with the plan. See Associated Alarms below.
+         * @param associatedAlarms CloudWatch alarms associated with the plan. See `associatedAlarms` Block for details.
          * 
          * @return builder
          * 
@@ -462,7 +462,7 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param regions List of AWS regions involved in the plan.
+         * @param regions List of AWS regions involved in the plan. Must contain at least 2 regions.
          * 
          * @return builder
          * 
@@ -473,7 +473,7 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param regions List of AWS regions involved in the plan.
+         * @param regions List of AWS regions involved in the plan. Must contain at least 2 regions.
          * 
          * @return builder
          * 
@@ -483,7 +483,7 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param regions List of AWS regions involved in the plan.
+         * @param regions List of AWS regions involved in the plan. Must contain at least 2 regions.
          * 
          * @return builder
          * 
@@ -493,7 +493,7 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param reportConfigurations Configuration for automated execution reports. See Report Configuration below.
+         * @param reportConfigurations Configuration for automated execution reports. See `reportConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -504,7 +504,7 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param reportConfigurations Configuration for automated execution reports. See Report Configuration below.
+         * @param reportConfigurations Configuration for automated execution reports. See `reportConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -514,7 +514,7 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param reportConfigurations Configuration for automated execution reports. See Report Configuration below.
+         * @param reportConfigurations Configuration for automated execution reports. See `reportConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -554,7 +554,7 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param triggers Set of triggers that can initiate the plan execution. See Triggers below.
+         * @param triggers Triggers that can initiate the plan execution. See `triggers` Block for details.
          * 
          * @return builder
          * 
@@ -565,7 +565,7 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param triggers Set of triggers that can initiate the plan execution. See Triggers below.
+         * @param triggers Triggers that can initiate the plan execution. See `triggers` Block for details.
          * 
          * @return builder
          * 
@@ -575,7 +575,7 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param triggers Set of triggers that can initiate the plan execution. See Triggers below.
+         * @param triggers Triggers that can initiate the plan execution. See `triggers` Block for details.
          * 
          * @return builder
          * 
@@ -585,7 +585,7 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workflows List of workflows that define the steps to execute. See Workflow below.
+         * @param workflows Workflows that define the steps to execute. See `workflow` Block for details.
          * 
          * The following arguments are optional:
          * 
@@ -598,7 +598,7 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workflows List of workflows that define the steps to execute. See Workflow below.
+         * @param workflows Workflows that define the steps to execute. See `workflow` Block for details.
          * 
          * The following arguments are optional:
          * 
@@ -610,7 +610,7 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workflows List of workflows that define the steps to execute. See Workflow below.
+         * @param workflows Workflows that define the steps to execute. See `workflow` Block for details.
          * 
          * The following arguments are optional:
          * 

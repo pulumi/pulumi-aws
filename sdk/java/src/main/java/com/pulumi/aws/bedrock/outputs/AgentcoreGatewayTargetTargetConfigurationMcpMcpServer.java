@@ -3,8 +3,10 @@
 
 package com.pulumi.aws.bedrock.outputs;
 
+import com.pulumi.aws.bedrock.outputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchema;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -22,6 +24,16 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpMcpServer {
      * 
      */
     private @Nullable String listingMode;
+    /**
+     * @return Tool schema configuration for the MCP server target. Supported only when the credential provider is configured with an authorization code grant type. When set, dynamic tool discovery and synchronization are disabled. See `mcpToolSchema` below.
+     * 
+     */
+    private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchema mcpToolSchema;
+    /**
+     * @return Priority for resolving MCP server targets with shared resource URIs. Lower values take precedence. Defaults to `1000` when not set.
+     * 
+     */
+    private @Nullable Integer resourcePriority;
 
     private AgentcoreGatewayTargetTargetConfigurationMcpMcpServer() {}
     /**
@@ -38,6 +50,20 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpMcpServer {
     public Optional<String> listingMode() {
         return Optional.ofNullable(this.listingMode);
     }
+    /**
+     * @return Tool schema configuration for the MCP server target. Supported only when the credential provider is configured with an authorization code grant type. When set, dynamic tool discovery and synchronization are disabled. See `mcpToolSchema` below.
+     * 
+     */
+    public Optional<AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchema> mcpToolSchema() {
+        return Optional.ofNullable(this.mcpToolSchema);
+    }
+    /**
+     * @return Priority for resolving MCP server targets with shared resource URIs. Lower values take precedence. Defaults to `1000` when not set.
+     * 
+     */
+    public Optional<Integer> resourcePriority() {
+        return Optional.ofNullable(this.resourcePriority);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -50,11 +76,15 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpMcpServer {
     public static final class Builder {
         private String endpoint;
         private @Nullable String listingMode;
+        private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchema mcpToolSchema;
+        private @Nullable Integer resourcePriority;
         public Builder() {}
         public Builder(AgentcoreGatewayTargetTargetConfigurationMcpMcpServer defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.endpoint = defaults.endpoint;
     	      this.listingMode = defaults.listingMode;
+    	      this.mcpToolSchema = defaults.mcpToolSchema;
+    	      this.resourcePriority = defaults.resourcePriority;
         }
 
         @CustomType.Setter
@@ -71,10 +101,24 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpMcpServer {
             this.listingMode = listingMode;
             return this;
         }
+        @CustomType.Setter
+        public Builder mcpToolSchema(@Nullable AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchema mcpToolSchema) {
+
+            this.mcpToolSchema = mcpToolSchema;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder resourcePriority(@Nullable Integer resourcePriority) {
+
+            this.resourcePriority = resourcePriority;
+            return this;
+        }
         public AgentcoreGatewayTargetTargetConfigurationMcpMcpServer build() {
             final var _resultValue = new AgentcoreGatewayTargetTargetConfigurationMcpMcpServer();
             _resultValue.endpoint = endpoint;
             _resultValue.listingMode = listingMode;
+            _resultValue.mcpToolSchema = mcpToolSchema;
+            _resultValue.resourcePriority = resourcePriority;
             return _resultValue;
         }
     }

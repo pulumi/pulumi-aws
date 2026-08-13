@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DirectoryBucketLocation {
     /**
-     * @return [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids) or Local Zone ID.
+     * @return [Availability Zone ID](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-availability-zones.html) or Local Zone ID.
      * 
      */
     private String name;
@@ -25,7 +25,7 @@ public final class DirectoryBucketLocation {
 
     private DirectoryBucketLocation() {}
     /**
-     * @return [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids) or Local Zone ID.
+     * @return [Availability Zone ID](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-availability-zones.html) or Local Zone ID.
      * 
      */
     public String name() {

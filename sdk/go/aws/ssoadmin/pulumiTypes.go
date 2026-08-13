@@ -2047,8 +2047,10 @@ func (o GetApplicationAssignmentsApplicationAssignmentArrayOutput) Index(i pulum
 }
 
 type GetApplicationPortalOption struct {
+	// Sign-in options for the access portal. See `signInOptions` Block below.
 	SignInOptions []GetApplicationPortalOptionSignInOption `pulumi:"signInOptions"`
-	Visibility    string                                   `pulumi:"visibility"`
+	// Whether the application is visible in the access portal.
+	Visibility string `pulumi:"visibility"`
 }
 
 // GetApplicationPortalOptionInput is an input type that accepts GetApplicationPortalOptionArgs and GetApplicationPortalOptionOutput values.
@@ -2063,8 +2065,10 @@ type GetApplicationPortalOptionInput interface {
 }
 
 type GetApplicationPortalOptionArgs struct {
+	// Sign-in options for the access portal. See `signInOptions` Block below.
 	SignInOptions GetApplicationPortalOptionSignInOptionArrayInput `pulumi:"signInOptions"`
-	Visibility    pulumi.StringInput                               `pulumi:"visibility"`
+	// Whether the application is visible in the access portal.
+	Visibility pulumi.StringInput `pulumi:"visibility"`
 }
 
 func (GetApplicationPortalOptionArgs) ElementType() reflect.Type {
@@ -2118,10 +2122,12 @@ func (o GetApplicationPortalOptionOutput) ToGetApplicationPortalOptionOutputWith
 	return o
 }
 
+// Sign-in options for the access portal. See `signInOptions` Block below.
 func (o GetApplicationPortalOptionOutput) SignInOptions() GetApplicationPortalOptionSignInOptionArrayOutput {
 	return o.ApplyT(func(v GetApplicationPortalOption) []GetApplicationPortalOptionSignInOption { return v.SignInOptions }).(GetApplicationPortalOptionSignInOptionArrayOutput)
 }
 
+// Whether the application is visible in the access portal.
 func (o GetApplicationPortalOptionOutput) Visibility() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationPortalOption) string { return v.Visibility }).(pulumi.StringOutput)
 }
@@ -2147,8 +2153,10 @@ func (o GetApplicationPortalOptionArrayOutput) Index(i pulumi.IntInput) GetAppli
 }
 
 type GetApplicationPortalOptionSignInOption struct {
+	// URL that accepts authentication requests for an application.
 	ApplicationUrl string `pulumi:"applicationUrl"`
-	Origin         string `pulumi:"origin"`
+	// How IAM Identity Center navigates the user to the target application.
+	Origin string `pulumi:"origin"`
 }
 
 // GetApplicationPortalOptionSignInOptionInput is an input type that accepts GetApplicationPortalOptionSignInOptionArgs and GetApplicationPortalOptionSignInOptionOutput values.
@@ -2163,8 +2171,10 @@ type GetApplicationPortalOptionSignInOptionInput interface {
 }
 
 type GetApplicationPortalOptionSignInOptionArgs struct {
+	// URL that accepts authentication requests for an application.
 	ApplicationUrl pulumi.StringInput `pulumi:"applicationUrl"`
-	Origin         pulumi.StringInput `pulumi:"origin"`
+	// How IAM Identity Center navigates the user to the target application.
+	Origin pulumi.StringInput `pulumi:"origin"`
 }
 
 func (GetApplicationPortalOptionSignInOptionArgs) ElementType() reflect.Type {
@@ -2218,10 +2228,12 @@ func (o GetApplicationPortalOptionSignInOptionOutput) ToGetApplicationPortalOpti
 	return o
 }
 
+// URL that accepts authentication requests for an application.
 func (o GetApplicationPortalOptionSignInOptionOutput) ApplicationUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationPortalOptionSignInOption) string { return v.ApplicationUrl }).(pulumi.StringOutput)
 }
 
+// How IAM Identity Center navigates the user to the target application.
 func (o GetApplicationPortalOptionSignInOptionOutput) Origin() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationPortalOptionSignInOption) string { return v.Origin }).(pulumi.StringOutput)
 }

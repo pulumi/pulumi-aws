@@ -740,14 +740,14 @@ public class Group extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
+     * The instance capacity distribution across Availability Zones. See `availabilityZoneDistribution` Block below for more details.
      * 
      */
     @Export(name="availabilityZoneDistribution", refs={GroupAvailabilityZoneDistribution.class}, tree="[0]")
     private Output<GroupAvailabilityZoneDistribution> availabilityZoneDistribution;
 
     /**
-     * @return The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
+     * @return The instance capacity distribution across Availability Zones. See `availabilityZoneDistribution` Block below for more details.
      * 
      */
     public Output<GroupAvailabilityZoneDistribution> availabilityZoneDistribution() {
@@ -782,14 +782,14 @@ public class Group extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.capacityRebalance);
     }
     /**
-     * The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See Capacity Reservation Specification below for more details.
+     * The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See `capacityReservationSpecification` Block below for more details.
      * 
      */
     @Export(name="capacityReservationSpecification", refs={GroupCapacityReservationSpecification.class}, tree="[0]")
     private Output<GroupCapacityReservationSpecification> capacityReservationSpecification;
 
     /**
-     * @return The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See Capacity Reservation Specification below for more details.
+     * @return The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See `capacityReservationSpecification` Block below for more details.
      * 
      */
     public Output<GroupCapacityReservationSpecification> capacityReservationSpecification() {
@@ -1048,14 +1048,14 @@ public class Group extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.launchConfiguration);
     }
     /**
-     * Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
+     * Nested argument with Launch template specification to use to launch instances. See `launchTemplate` Block below for more details.
      * 
      */
     @Export(name="launchTemplate", refs={GroupLaunchTemplate.class}, tree="[0]")
     private Output<GroupLaunchTemplate> launchTemplate;
 
     /**
-     * @return Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
+     * @return Nested argument with Launch template specification to use to launch instances. See `launchTemplate` Block below for more details.
      * 
      */
     public Output<GroupLaunchTemplate> launchTemplate() {
@@ -1156,14 +1156,14 @@ public class Group extends com.pulumi.resources.CustomResource {
         return this.minSize;
     }
     /**
-     * Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
+     * Configuration block containing settings to define launch targets for Auto Scaling groups. See `mixedInstancesPolicy` Block below for more details.
      * 
      */
     @Export(name="mixedInstancesPolicy", refs={GroupMixedInstancesPolicy.class}, tree="[0]")
     private Output<GroupMixedInstancesPolicy> mixedInstancesPolicy;
 
     /**
-     * @return Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
+     * @return Configuration block containing settings to define launch targets for Auto Scaling groups. See `mixedInstancesPolicy` Block below for more details.
      * 
      */
     public Output<GroupMixedInstancesPolicy> mixedInstancesPolicy() {
@@ -1294,14 +1294,14 @@ public class Group extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.suspendedProcesses);
     }
     /**
-     * Configuration block(s) containing resource tags. See Tag below for more details.
+     * Configuration block(s) containing resource tags. See `tag` Block below for more details.
      * 
      */
     @Export(name="tags", refs={List.class,GroupTag.class}, tree="[0,1]")
     private Output</* @Nullable */ List<GroupTag>> tags;
 
     /**
-     * @return Configuration block(s) containing resource tags. See Tag below for more details.
+     * @return Configuration block(s) containing resource tags. See `tag` Block below for more details.
      * 
      */
     public Output<Optional<List<GroupTag>>> tags() {

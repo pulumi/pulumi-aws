@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyResult
     {
+        /// <summary>
+        /// Authorization code used to obtain an access token.
+        /// </summary>
         public readonly string AuthorizationCode;
+        /// <summary>
+        /// Redirect URI used in the authorization code request.
+        /// </summary>
         public readonly string RedirectUri;
 
         [OutputConstructor]

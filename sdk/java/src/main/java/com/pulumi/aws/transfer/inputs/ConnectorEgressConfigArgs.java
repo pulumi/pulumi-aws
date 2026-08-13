@@ -16,14 +16,14 @@ public final class ConnectorEgressConfigArgs extends com.pulumi.resources.Resour
     public static final ConnectorEgressConfigArgs Empty = new ConnectorEgressConfigArgs();
 
     /**
-     * VPC Lattice configuration for routing connector traffic through customer VPCs. Fields documented below.
+     * VPC Lattice configuration for routing connector traffic through customer VPCs. See `vpcLattice` Block below.
      * 
      */
     @Import(name="vpcLattice")
     private @Nullable Output<ConnectorEgressConfigVpcLatticeArgs> vpcLattice;
 
     /**
-     * @return VPC Lattice configuration for routing connector traffic through customer VPCs. Fields documented below.
+     * @return VPC Lattice configuration for routing connector traffic through customer VPCs. See `vpcLattice` Block below.
      * 
      */
     public Optional<Output<ConnectorEgressConfigVpcLatticeArgs>> vpcLattice() {
@@ -55,7 +55,7 @@ public final class ConnectorEgressConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param vpcLattice VPC Lattice configuration for routing connector traffic through customer VPCs. Fields documented below.
+         * @param vpcLattice VPC Lattice configuration for routing connector traffic through customer VPCs. See `vpcLattice` Block below.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class ConnectorEgressConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param vpcLattice VPC Lattice configuration for routing connector traffic through customer VPCs. Fields documented below.
+         * @param vpcLattice VPC Lattice configuration for routing connector traffic through customer VPCs. See `vpcLattice` Block below.
          * 
          * @return builder
          * 

@@ -113,7 +113,6 @@ public class Control extends com.pulumi.resources.CustomResource {
     }
     /**
      * Amazon Resource Name (ARN) of the control.
-     * * `control_mapping_sources.*.source_id` - Unique identifier for the source.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
@@ -121,7 +120,6 @@ public class Control extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Amazon Resource Name (ARN) of the control.
-     * * `control_mapping_sources.*.source_id` - Unique identifier for the source.
      * 
      */
     public Output<String> arn() {
@@ -130,16 +128,12 @@ public class Control extends com.pulumi.resources.CustomResource {
     /**
      * Data mapping sources. See `controlMappingSources` below.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Export(name="controlMappingSources", refs={List.class,ControlControlMappingSource.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ControlControlMappingSource>> controlMappingSources;
 
     /**
      * @return Data mapping sources. See `controlMappingSources` below.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<Optional<List<ControlControlMappingSource>>> controlMappingSources() {
@@ -162,12 +156,16 @@ public class Control extends com.pulumi.resources.CustomResource {
     /**
      * Name of the control.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return Name of the control.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {
@@ -188,14 +186,14 @@ public class Control extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A map of tags to assign to the control. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the control. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the control. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the control. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

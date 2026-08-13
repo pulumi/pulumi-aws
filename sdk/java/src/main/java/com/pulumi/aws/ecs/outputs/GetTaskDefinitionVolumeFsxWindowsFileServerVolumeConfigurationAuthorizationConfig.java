@@ -10,13 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig {
+    /**
+     * @return Authorization credential option used.
+     * 
+     */
     private String credentialsParameter;
+    /**
+     * @return Fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
+     * 
+     */
     private String domain;
 
     private GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig() {}
+    /**
+     * @return Authorization credential option used.
+     * 
+     */
     public String credentialsParameter() {
         return this.credentialsParameter;
     }
+    /**
+     * @return Fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
+     * 
+     */
     public String domain() {
         return this.domain;
     }

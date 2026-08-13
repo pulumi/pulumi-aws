@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ecs.Outputs
     public sealed class ServiceVolumeConfigurationManagedEbsVolumeTagSpecification
     {
         /// <summary>
-        /// Determines whether to propagate the tags from the task definition to the Amazon EBS volume.
+        /// Whether to propagate the tags from the task definition to the Amazon EBS volume.
         /// </summary>
         public readonly string? PropagateTags;
         /// <summary>

@@ -13,8 +13,17 @@ namespace Pulumi.Aws.Odb.Outputs
     [OutputType]
     public sealed class CloudVmClusterIormConfigCacheDbPlan
     {
+        /// <summary>
+        /// Database name to which the IORM plan applies.
+        /// </summary>
         public readonly string DbName;
+        /// <summary>
+        /// Flash cache limit for the database plan.
+        /// </summary>
         public readonly string FlashCacheLimit;
+        /// <summary>
+        /// Relative priority of the database in the IORM plan.
+        /// </summary>
         public readonly int Share;
 
         [OutputConstructor]

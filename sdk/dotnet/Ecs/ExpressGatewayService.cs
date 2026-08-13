@@ -199,7 +199,7 @@ namespace Pulumi.Aws.Ecs
         public Output<string> InfrastructureRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// List of ingress paths with access type and endpoint information.
+        /// List of ingress paths for the service. See `IngressPaths` Block below.
         /// </summary>
         [Output("ingressPaths")]
         public Output<ImmutableArray<Outputs.ExpressGatewayServiceIngressPath>> IngressPaths { get; private set; } = null!;
@@ -476,7 +476,7 @@ namespace Pulumi.Aws.Ecs
         private InputList<Inputs.ExpressGatewayServiceIngressPathGetArgs>? _ingressPaths;
 
         /// <summary>
-        /// List of ingress paths with access type and endpoint information.
+        /// List of ingress paths for the service. See `IngressPaths` Block below.
         /// </summary>
         public InputList<Inputs.ExpressGatewayServiceIngressPathGetArgs> IngressPaths
         {

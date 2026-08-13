@@ -125,7 +125,7 @@ class _AppAuthorizationConnectionState:
                The following arguments are optional:
         :param pulumi.Input['AppAuthorizationConnectionAuthRequestArgs'] auth_request: OAuth2 authorization information. Required if the app authorization for the request is configured with an OAuth2 (`oauth2`) authorization type. See `auth_request` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['AppAuthorizationConnectionTenantArgs']]] tenants: Contains information about an application tenant, such as the application display name and identifier.
+        :param pulumi.Input[Sequence[pulumi.Input['AppAuthorizationConnectionTenantArgs']]] tenants: Information about an application tenant. See `tenant` Block below.
         """
         if app is not None:
             pulumi.set(__self__, "app", app)
@@ -208,7 +208,7 @@ class _AppAuthorizationConnectionState:
     @pulumi.getter
     def tenants(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AppAuthorizationConnectionTenantArgs']]]]:
         """
-        Contains information about an application tenant, such as the application display name and identifier.
+        Information about an application tenant. See `tenant` Block below.
         """
         return pulumi.get(self, "tenants")
 
@@ -358,7 +358,7 @@ class AppAuthorizationConnection(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[Union['AppAuthorizationConnectionAuthRequestArgs', 'AppAuthorizationConnectionAuthRequestArgsDict']] auth_request: OAuth2 authorization information. Required if the app authorization for the request is configured with an OAuth2 (`oauth2`) authorization type. See `auth_request` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AppAuthorizationConnectionTenantArgs', 'AppAuthorizationConnectionTenantArgsDict']]]] tenants: Contains information about an application tenant, such as the application display name and identifier.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AppAuthorizationConnectionTenantArgs', 'AppAuthorizationConnectionTenantArgsDict']]]] tenants: Information about an application tenant. See `tenant` Block below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -419,7 +419,7 @@ class AppAuthorizationConnection(pulumi.CustomResource):
     @pulumi.getter
     def tenants(self) -> pulumi.Output[Sequence['outputs.AppAuthorizationConnectionTenant']]:
         """
-        Contains information about an application tenant, such as the application display name and identifier.
+        Information about an application tenant. See `tenant` Block below.
         """
         return pulumi.get(self, "tenants")
 

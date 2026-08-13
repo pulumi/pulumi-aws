@@ -14,8 +14,10 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type AccountThrottleSetting struct {
-	BurstLimit int     `pulumi:"burstLimit"`
-	RateLimit  float64 `pulumi:"rateLimit"`
+	// Absolute maximum number of times API Gateway allows the API to be called per second.
+	BurstLimit int `pulumi:"burstLimit"`
+	// Number of times API Gateway allows the API to be called per second on average.
+	RateLimit float64 `pulumi:"rateLimit"`
 }
 
 // AccountThrottleSettingInput is an input type that accepts AccountThrottleSettingArgs and AccountThrottleSettingOutput values.
@@ -30,8 +32,10 @@ type AccountThrottleSettingInput interface {
 }
 
 type AccountThrottleSettingArgs struct {
-	BurstLimit pulumi.IntInput     `pulumi:"burstLimit"`
-	RateLimit  pulumi.Float64Input `pulumi:"rateLimit"`
+	// Absolute maximum number of times API Gateway allows the API to be called per second.
+	BurstLimit pulumi.IntInput `pulumi:"burstLimit"`
+	// Number of times API Gateway allows the API to be called per second on average.
+	RateLimit pulumi.Float64Input `pulumi:"rateLimit"`
 }
 
 func (AccountThrottleSettingArgs) ElementType() reflect.Type {
@@ -85,10 +89,12 @@ func (o AccountThrottleSettingOutput) ToAccountThrottleSettingOutputWithContext(
 	return o
 }
 
+// Absolute maximum number of times API Gateway allows the API to be called per second.
 func (o AccountThrottleSettingOutput) BurstLimit() pulumi.IntOutput {
 	return o.ApplyT(func(v AccountThrottleSetting) int { return v.BurstLimit }).(pulumi.IntOutput)
 }
 
+// Number of times API Gateway allows the API to be called per second on average.
 func (o AccountThrottleSettingOutput) RateLimit() pulumi.Float64Output {
 	return o.ApplyT(func(v AccountThrottleSetting) float64 { return v.RateLimit }).(pulumi.Float64Output)
 }
@@ -2340,7 +2346,8 @@ type GetApiKeysItem struct {
 	// Date and time when the API Key was last updated.
 	LastUpdatedDate string `pulumi:"lastUpdatedDate"`
 	// Name of the API Key.
-	Name      string   `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// List of stage keys associated with the API Key.
 	StageKeys []string `pulumi:"stageKeys"`
 	// Map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -2373,7 +2380,8 @@ type GetApiKeysItemArgs struct {
 	// Date and time when the API Key was last updated.
 	LastUpdatedDate pulumi.StringInput `pulumi:"lastUpdatedDate"`
 	// Name of the API Key.
-	Name      pulumi.StringInput      `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// List of stage keys associated with the API Key.
 	StageKeys pulumi.StringArrayInput `pulumi:"stageKeys"`
 	// Map of tags for the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -2467,6 +2475,7 @@ func (o GetApiKeysItemOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApiKeysItem) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// List of stage keys associated with the API Key.
 func (o GetApiKeysItemOutput) StageKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetApiKeysItem) []string { return v.StageKeys }).(pulumi.StringArrayOutput)
 }

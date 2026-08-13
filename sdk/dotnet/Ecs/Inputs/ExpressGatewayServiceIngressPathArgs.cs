@@ -12,9 +12,15 @@ namespace Pulumi.Aws.Ecs.Inputs
 
     public sealed class ExpressGatewayServiceIngressPathArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Access type for the ingress path.
+        /// </summary>
         [Input("accessType", required: true)]
         public Input<string> AccessType { get; set; } = null!;
 
+        /// <summary>
+        /// Endpoint for the ingress path.
+        /// </summary>
         [Input("endpoint", required: true)]
         public Input<string> Endpoint { get; set; } = null!;
 

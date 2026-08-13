@@ -13,7 +13,7 @@ namespace Pulumi.Aws.S3.Inputs
     public sealed class AccessPointVpcConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// This access point will only allow connections from the specified VPC ID.
+        /// VPC ID from which the access point allows connections.
         /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;

@@ -17,14 +17,14 @@ public final class DirectoryBucketLocationArgs extends com.pulumi.resources.Reso
     public static final DirectoryBucketLocationArgs Empty = new DirectoryBucketLocationArgs();
 
     /**
-     * [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids) or Local Zone ID.
+     * [Availability Zone ID](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-availability-zones.html) or Local Zone ID.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids) or Local Zone ID.
+     * @return [Availability Zone ID](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-availability-zones.html) or Local Zone ID.
      * 
      */
     public Output<String> name() {
@@ -72,7 +72,7 @@ public final class DirectoryBucketLocationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids) or Local Zone ID.
+         * @param name [Availability Zone ID](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-availability-zones.html) or Local Zone ID.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class DirectoryBucketLocationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids) or Local Zone ID.
+         * @param name [Availability Zone ID](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-availability-zones.html) or Local Zone ID.
          * 
          * @return builder
          * 

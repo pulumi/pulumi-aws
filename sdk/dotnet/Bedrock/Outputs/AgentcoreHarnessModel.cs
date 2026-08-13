@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreHarnessModel
     {
         /// <summary>
-        /// Amazon Bedrock model configuration. See `BedrockModelConfig` below.
+        /// Amazon Bedrock model configuration. See `BedrockModelConfig` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreHarnessModelBedrockModelConfig? BedrockModelConfig;
         /// <summary>
-        /// Gemini model configuration. See `GeminiModelConfig` below.
+        /// Gemini model configuration. See `GeminiModelConfig` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreHarnessModelGeminiModelConfig? GeminiModelConfig;
         /// <summary>
-        /// OpenAI model configuration. See `OpenaiModelConfig` below.
+        /// OpenAI model configuration. See `OpenaiModelConfig` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreHarnessModelOpenaiModelConfig? OpenaiModelConfig;
 

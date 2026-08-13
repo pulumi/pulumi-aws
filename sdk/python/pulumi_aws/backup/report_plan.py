@@ -30,10 +30,10 @@ class ReportPlanArgs:
         """
         The set of arguments for constructing a ReportPlan resource.
 
-        :param pulumi.Input['ReportPlanReportDeliveryChannelArgs'] report_delivery_channel: An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
-        :param pulumi.Input['ReportPlanReportSettingArgs'] report_setting: An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
-        :param pulumi.Input[_builtins.str] description: The description of the report plan with a maximum of 1,024 characters
-        :param pulumi.Input[_builtins.str] name: The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+        :param pulumi.Input['ReportPlanReportDeliveryChannelArgs'] report_delivery_channel: Object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
+        :param pulumi.Input['ReportPlanReportSettingArgs'] report_setting: Object that identifies the report template for the report. Reports are built using a report template. Detailed below.
+        :param pulumi.Input[_builtins.str] description: Description of the report plan with a maximum of 1,024 characters.
+        :param pulumi.Input[_builtins.str] name: Unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Metadata that you can assign to help organize the report plans you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -52,7 +52,7 @@ class ReportPlanArgs:
     @pulumi.getter(name="reportDeliveryChannel")
     def report_delivery_channel(self) -> pulumi.Input['ReportPlanReportDeliveryChannelArgs']:
         """
-        An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
+        Object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
         """
         return pulumi.get(self, "report_delivery_channel")
 
@@ -64,7 +64,7 @@ class ReportPlanArgs:
     @pulumi.getter(name="reportSetting")
     def report_setting(self) -> pulumi.Input['ReportPlanReportSettingArgs']:
         """
-        An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
+        Object that identifies the report template for the report. Reports are built using a report template. Detailed below.
         """
         return pulumi.get(self, "report_setting")
 
@@ -76,7 +76,7 @@ class ReportPlanArgs:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The description of the report plan with a maximum of 1,024 characters
+        Description of the report plan with a maximum of 1,024 characters.
         """
         return pulumi.get(self, "description")
 
@@ -88,7 +88,7 @@ class ReportPlanArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+        Unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
         """
         return pulumi.get(self, "name")
 
@@ -137,16 +137,16 @@ class _ReportPlanState:
         """
         Input properties used for looking up and filtering ReportPlan resources.
 
-        :param pulumi.Input[_builtins.str] arn: The ARN of the backup report plan.
-        :param pulumi.Input[_builtins.str] creation_time: The date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
-        :param pulumi.Input[_builtins.str] deployment_status: The deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
-        :param pulumi.Input[_builtins.str] description: The description of the report plan with a maximum of 1,024 characters
-        :param pulumi.Input[_builtins.str] name: The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+        :param pulumi.Input[_builtins.str] arn: ARN of the backup report plan.
+        :param pulumi.Input[_builtins.str] creation_time: Date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
+        :param pulumi.Input[_builtins.str] deployment_status: Deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
+        :param pulumi.Input[_builtins.str] description: Description of the report plan with a maximum of 1,024 characters.
+        :param pulumi.Input[_builtins.str] name: Unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['ReportPlanReportDeliveryChannelArgs'] report_delivery_channel: An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
-        :param pulumi.Input['ReportPlanReportSettingArgs'] report_setting: An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
+        :param pulumi.Input['ReportPlanReportDeliveryChannelArgs'] report_delivery_channel: Object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
+        :param pulumi.Input['ReportPlanReportSettingArgs'] report_setting: Object that identifies the report template for the report. Reports are built using a report template. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Metadata that you can assign to help organize the report plans you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -173,7 +173,7 @@ class _ReportPlanState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the backup report plan.
+        ARN of the backup report plan.
         """
         return pulumi.get(self, "arn")
 
@@ -185,7 +185,7 @@ class _ReportPlanState:
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
+        Date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
         """
         return pulumi.get(self, "creation_time")
 
@@ -197,7 +197,7 @@ class _ReportPlanState:
     @pulumi.getter(name="deploymentStatus")
     def deployment_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
+        Deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
         """
         return pulumi.get(self, "deployment_status")
 
@@ -209,7 +209,7 @@ class _ReportPlanState:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The description of the report plan with a maximum of 1,024 characters
+        Description of the report plan with a maximum of 1,024 characters.
         """
         return pulumi.get(self, "description")
 
@@ -221,7 +221,7 @@ class _ReportPlanState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+        Unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
         """
         return pulumi.get(self, "name")
 
@@ -245,7 +245,7 @@ class _ReportPlanState:
     @pulumi.getter(name="reportDeliveryChannel")
     def report_delivery_channel(self) -> pulumi.Input[Optional['ReportPlanReportDeliveryChannelArgs']]:
         """
-        An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
+        Object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
         """
         return pulumi.get(self, "report_delivery_channel")
 
@@ -257,7 +257,7 @@ class _ReportPlanState:
     @pulumi.getter(name="reportSetting")
     def report_setting(self) -> pulumi.Input[Optional['ReportPlanReportSettingArgs']]:
         """
-        An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
+        Object that identifies the report template for the report. Reports are built using a report template. Detailed below.
         """
         return pulumi.get(self, "report_setting")
 
@@ -281,7 +281,7 @@ class _ReportPlanState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -341,11 +341,11 @@ class ReportPlan(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: The description of the report plan with a maximum of 1,024 characters
-        :param pulumi.Input[_builtins.str] name: The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+        :param pulumi.Input[_builtins.str] description: Description of the report plan with a maximum of 1,024 characters.
+        :param pulumi.Input[_builtins.str] name: Unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ReportPlanReportDeliveryChannelArgs', 'ReportPlanReportDeliveryChannelArgsDict']] report_delivery_channel: An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
-        :param pulumi.Input[Union['ReportPlanReportSettingArgs', 'ReportPlanReportSettingArgsDict']] report_setting: An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
+        :param pulumi.Input[Union['ReportPlanReportDeliveryChannelArgs', 'ReportPlanReportDeliveryChannelArgsDict']] report_delivery_channel: Object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
+        :param pulumi.Input[Union['ReportPlanReportSettingArgs', 'ReportPlanReportSettingArgsDict']] report_setting: Object that identifies the report template for the report. Reports are built using a report template. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Metadata that you can assign to help organize the report plans you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -461,16 +461,16 @@ class ReportPlan(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the backup report plan.
-        :param pulumi.Input[_builtins.str] creation_time: The date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
-        :param pulumi.Input[_builtins.str] deployment_status: The deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
-        :param pulumi.Input[_builtins.str] description: The description of the report plan with a maximum of 1,024 characters
-        :param pulumi.Input[_builtins.str] name: The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+        :param pulumi.Input[_builtins.str] arn: ARN of the backup report plan.
+        :param pulumi.Input[_builtins.str] creation_time: Date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
+        :param pulumi.Input[_builtins.str] deployment_status: Deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
+        :param pulumi.Input[_builtins.str] description: Description of the report plan with a maximum of 1,024 characters.
+        :param pulumi.Input[_builtins.str] name: Unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ReportPlanReportDeliveryChannelArgs', 'ReportPlanReportDeliveryChannelArgsDict']] report_delivery_channel: An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
-        :param pulumi.Input[Union['ReportPlanReportSettingArgs', 'ReportPlanReportSettingArgsDict']] report_setting: An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
+        :param pulumi.Input[Union['ReportPlanReportDeliveryChannelArgs', 'ReportPlanReportDeliveryChannelArgsDict']] report_delivery_channel: Object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
+        :param pulumi.Input[Union['ReportPlanReportSettingArgs', 'ReportPlanReportSettingArgsDict']] report_setting: Object that identifies the report template for the report. Reports are built using a report template. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Metadata that you can assign to help organize the report plans you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -492,7 +492,7 @@ class ReportPlan(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the backup report plan.
+        ARN of the backup report plan.
         """
         return pulumi.get(self, "arn")
 
@@ -500,7 +500,7 @@ class ReportPlan(pulumi.CustomResource):
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> pulumi.Output[_builtins.str]:
         """
-        The date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
+        Date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
         """
         return pulumi.get(self, "creation_time")
 
@@ -508,7 +508,7 @@ class ReportPlan(pulumi.CustomResource):
     @pulumi.getter(name="deploymentStatus")
     def deployment_status(self) -> pulumi.Output[_builtins.str]:
         """
-        The deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
+        Deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
         """
         return pulumi.get(self, "deployment_status")
 
@@ -516,7 +516,7 @@ class ReportPlan(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The description of the report plan with a maximum of 1,024 characters
+        Description of the report plan with a maximum of 1,024 characters.
         """
         return pulumi.get(self, "description")
 
@@ -524,7 +524,7 @@ class ReportPlan(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+        Unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
         """
         return pulumi.get(self, "name")
 
@@ -540,7 +540,7 @@ class ReportPlan(pulumi.CustomResource):
     @pulumi.getter(name="reportDeliveryChannel")
     def report_delivery_channel(self) -> pulumi.Output['outputs.ReportPlanReportDeliveryChannel']:
         """
-        An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
+        Object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
         """
         return pulumi.get(self, "report_delivery_channel")
 
@@ -548,7 +548,7 @@ class ReportPlan(pulumi.CustomResource):
     @pulumi.getter(name="reportSetting")
     def report_setting(self) -> pulumi.Output['outputs.ReportPlanReportSetting']:
         """
-        An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
+        Object that identifies the report template for the report. Reports are built using a report template. Detailed below.
         """
         return pulumi.get(self, "report_setting")
 
@@ -564,7 +564,7 @@ class ReportPlan(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

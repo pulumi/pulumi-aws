@@ -13,11 +13,29 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class GetConnectionAuthenticationConfigurationOauth2PropertyResult
     {
+        /// <summary>
+        /// Authorization code properties. See `AuthorizationCodeProperties` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyResult> AuthorizationCodeProperties;
+        /// <summary>
+        /// OAuth2 client application. See `Oauth2ClientApplication` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationResult> Oauth2ClientApplications;
+        /// <summary>
+        /// OAuth2 credentials. See `Oauth2Credentials` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialResult> Oauth2Credentials;
+        /// <summary>
+        /// OAuth2 grant type.
+        /// </summary>
         public readonly string Oauth2GrantType;
+        /// <summary>
+        /// URL of the provider's authentication server used to exchange an authorization code for an access token.
+        /// </summary>
         public readonly string TokenUrl;
+        /// <summary>
+        /// Map of parameters to add to the token request.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> TokenUrlParametersMap;
 
         [OutputConstructor]

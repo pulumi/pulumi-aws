@@ -45,7 +45,7 @@ class GetBrokerEngineTypesResult:
     @pulumi.getter(name="brokerEngineTypes")
     def broker_engine_types(self) -> Sequence['outputs.GetBrokerEngineTypesBrokerEngineTypeResult']:
         """
-        List of available engine types and versions. See Engine Types.
+        List of available engine types and versions. See `broker_engine_types` Block.
         """
         return pulumi.get(self, "broker_engine_types")
 

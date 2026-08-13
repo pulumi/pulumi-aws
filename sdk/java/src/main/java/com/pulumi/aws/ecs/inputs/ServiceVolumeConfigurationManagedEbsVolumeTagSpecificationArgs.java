@@ -18,14 +18,14 @@ public final class ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArg
     public static final ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs Empty = new ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs();
 
     /**
-     * Determines whether to propagate the tags from the task definition to the Amazon EBS volume.
+     * Whether to propagate the tags from the task definition to the Amazon EBS volume.
      * 
      */
     @Import(name="propagateTags")
     private @Nullable Output<String> propagateTags;
 
     /**
-     * @return Determines whether to propagate the tags from the task definition to the Amazon EBS volume.
+     * @return Whether to propagate the tags from the task definition to the Amazon EBS volume.
      * 
      */
     public Optional<Output<String>> propagateTags() {
@@ -89,7 +89,7 @@ public final class ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArg
         }
 
         /**
-         * @param propagateTags Determines whether to propagate the tags from the task definition to the Amazon EBS volume.
+         * @param propagateTags Whether to propagate the tags from the task definition to the Amazon EBS volume.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArg
         }
 
         /**
-         * @param propagateTags Determines whether to propagate the tags from the task definition to the Amazon EBS volume.
+         * @param propagateTags Whether to propagate the tags from the task definition to the Amazon EBS volume.
          * 
          * @return builder
          * 

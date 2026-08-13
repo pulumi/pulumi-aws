@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Batch.Outputs
     public sealed class GetJobDefinitionNodePropertyNodeRangePropertyResult
     {
         /// <summary>
-        /// Container details for the node range.
+        /// Container details for the node range. See `Container` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerResult> Containers;
         /// <summary>
-        /// Range of nodes, using node index values. A range of 0:3 indicates nodes with index values of 0 through 3. I
+        /// Range of nodes, using node index values. A range of 0:3 indicates nodes with index values of 0 through 3.
         /// </summary>
         public readonly string TargetNodes;
 

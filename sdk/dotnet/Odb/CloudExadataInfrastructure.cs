@@ -86,7 +86,7 @@ namespace Pulumi.Aws.Odb
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
+        /// Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource. See `CustomerContactsToSendToOci` Block below.
         /// </summary>
         [Output("customerContactsToSendToOcis")]
         public Output<ImmutableArray<Outputs.CloudExadataInfrastructureCustomerContactsToSendToOci>> CustomerContactsToSendToOcis { get; private set; } = null!;
@@ -335,7 +335,7 @@ namespace Pulumi.Aws.Odb
         private InputList<Inputs.CloudExadataInfrastructureCustomerContactsToSendToOciArgs>? _customerContactsToSendToOcis;
 
         /// <summary>
-        /// Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
+        /// Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource. See `CustomerContactsToSendToOci` Block below.
         /// </summary>
         public InputList<Inputs.CloudExadataInfrastructureCustomerContactsToSendToOciArgs> CustomerContactsToSendToOcis
         {
@@ -474,7 +474,7 @@ namespace Pulumi.Aws.Odb
         private InputList<Inputs.CloudExadataInfrastructureCustomerContactsToSendToOciGetArgs>? _customerContactsToSendToOcis;
 
         /// <summary>
-        /// Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
+        /// Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource. See `CustomerContactsToSendToOci` Block below.
         /// </summary>
         public InputList<Inputs.CloudExadataInfrastructureCustomerContactsToSendToOciGetArgs> CustomerContactsToSendToOcis
         {

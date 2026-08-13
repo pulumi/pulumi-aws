@@ -28,14 +28,14 @@ class VocabularyArgs:
         """
         The set of arguments for constructing a Vocabulary resource.
 
-        :param pulumi.Input[_builtins.str] language_code: The language code you selected for your vocabulary.
-        :param pulumi.Input[_builtins.str] vocabulary_name: The name of the Vocabulary.
+        :param pulumi.Input[_builtins.str] language_code: Language code you selected for your vocabulary.
+        :param pulumi.Input[_builtins.str] vocabulary_name: Name of the Vocabulary.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] phrases: A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] phrases: List of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the Vocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] vocabulary_file_uri: The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the Vocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.str] vocabulary_file_uri: Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
         """
         pulumi.set(__self__, "language_code", language_code)
         pulumi.set(__self__, "vocabulary_name", vocabulary_name)
@@ -52,7 +52,7 @@ class VocabularyArgs:
     @pulumi.getter(name="languageCode")
     def language_code(self) -> pulumi.Input[_builtins.str]:
         """
-        The language code you selected for your vocabulary.
+        Language code you selected for your vocabulary.
         """
         return pulumi.get(self, "language_code")
 
@@ -64,7 +64,7 @@ class VocabularyArgs:
     @pulumi.getter(name="vocabularyName")
     def vocabulary_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the Vocabulary.
+        Name of the Vocabulary.
 
         The following arguments are optional:
         """
@@ -78,7 +78,7 @@ class VocabularyArgs:
     @pulumi.getter
     def phrases(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
+        List of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
         """
         return pulumi.get(self, "phrases")
 
@@ -102,7 +102,7 @@ class VocabularyArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the Vocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the Vocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -114,7 +114,7 @@ class VocabularyArgs:
     @pulumi.getter(name="vocabularyFileUri")
     def vocabulary_file_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
+        Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
         """
         return pulumi.get(self, "vocabulary_file_uri")
 
@@ -140,12 +140,12 @@ class _VocabularyState:
 
         :param pulumi.Input[_builtins.str] arn: ARN of the Vocabulary.
         :param pulumi.Input[_builtins.str] download_uri: Generated download URI.
-        :param pulumi.Input[_builtins.str] language_code: The language code you selected for your vocabulary.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] phrases: A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
+        :param pulumi.Input[_builtins.str] language_code: Language code you selected for your vocabulary.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] phrases: List of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the Vocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] vocabulary_file_uri: The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
-        :param pulumi.Input[_builtins.str] vocabulary_name: The name of the Vocabulary.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the Vocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.str] vocabulary_file_uri: Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
+        :param pulumi.Input[_builtins.str] vocabulary_name: Name of the Vocabulary.
                
                The following arguments are optional:
         """
@@ -196,7 +196,7 @@ class _VocabularyState:
     @pulumi.getter(name="languageCode")
     def language_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The language code you selected for your vocabulary.
+        Language code you selected for your vocabulary.
         """
         return pulumi.get(self, "language_code")
 
@@ -208,7 +208,7 @@ class _VocabularyState:
     @pulumi.getter
     def phrases(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
+        List of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
         """
         return pulumi.get(self, "phrases")
 
@@ -232,7 +232,7 @@ class _VocabularyState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the Vocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the Vocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -253,7 +253,7 @@ class _VocabularyState:
     @pulumi.getter(name="vocabularyFileUri")
     def vocabulary_file_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
+        Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
         """
         return pulumi.get(self, "vocabulary_file_uri")
 
@@ -265,7 +265,7 @@ class _VocabularyState:
     @pulumi.getter(name="vocabularyName")
     def vocabulary_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the Vocabulary.
+        Name of the Vocabulary.
 
         The following arguments are optional:
         """
@@ -333,12 +333,12 @@ class Vocabulary(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] language_code: The language code you selected for your vocabulary.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] phrases: A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
+        :param pulumi.Input[_builtins.str] language_code: Language code you selected for your vocabulary.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] phrases: List of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the Vocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] vocabulary_file_uri: The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
-        :param pulumi.Input[_builtins.str] vocabulary_name: The name of the Vocabulary.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the Vocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.str] vocabulary_file_uri: Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
+        :param pulumi.Input[_builtins.str] vocabulary_name: Name of the Vocabulary.
                
                The following arguments are optional:
         """
@@ -461,12 +461,12 @@ class Vocabulary(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the Vocabulary.
         :param pulumi.Input[_builtins.str] download_uri: Generated download URI.
-        :param pulumi.Input[_builtins.str] language_code: The language code you selected for your vocabulary.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] phrases: A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
+        :param pulumi.Input[_builtins.str] language_code: Language code you selected for your vocabulary.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] phrases: List of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the Vocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] vocabulary_file_uri: The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
-        :param pulumi.Input[_builtins.str] vocabulary_name: The name of the Vocabulary.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the Vocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.str] vocabulary_file_uri: Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
+        :param pulumi.Input[_builtins.str] vocabulary_name: Name of the Vocabulary.
                
                The following arguments are optional:
         """
@@ -505,7 +505,7 @@ class Vocabulary(pulumi.CustomResource):
     @pulumi.getter(name="languageCode")
     def language_code(self) -> pulumi.Output[_builtins.str]:
         """
-        The language code you selected for your vocabulary.
+        Language code you selected for your vocabulary.
         """
         return pulumi.get(self, "language_code")
 
@@ -513,7 +513,7 @@ class Vocabulary(pulumi.CustomResource):
     @pulumi.getter
     def phrases(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
+        List of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
         """
         return pulumi.get(self, "phrases")
 
@@ -529,7 +529,7 @@ class Vocabulary(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to assign to the Vocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the Vocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -542,7 +542,7 @@ class Vocabulary(pulumi.CustomResource):
     @pulumi.getter(name="vocabularyFileUri")
     def vocabulary_file_uri(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
+        Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
         """
         return pulumi.get(self, "vocabulary_file_uri")
 
@@ -550,7 +550,7 @@ class Vocabulary(pulumi.CustomResource):
     @pulumi.getter(name="vocabularyName")
     def vocabulary_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the Vocabulary.
+        Name of the Vocabulary.
 
         The following arguments are optional:
         """

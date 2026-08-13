@@ -18,7 +18,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Outputs
         /// </summary>
         public readonly string Region;
         /// <summary>
-        /// List of routing controls. See Routing Control below.
+        /// Routing controls. See `RoutingControl` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControlRoutingControl> RoutingControls;
 

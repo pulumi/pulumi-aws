@@ -15,7 +15,7 @@ import java.util.Objects;
 @CustomType
 public final class GetImageApplication {
     /**
-     * @return The app block ARN of the application.
+     * @return App block ARN of the application.
      * 
      */
     private String appBlockArn;
@@ -40,12 +40,12 @@ public final class GetImageApplication {
      */
     private String displayName;
     /**
-     * @return Bool based on if the application is enabled.
+     * @return Whether the application is enabled.
      * 
      */
     private Boolean enabled;
     /**
-     * @return A list named iconS3Location that contains the following:
+     * @return S3 location of the application icon and contains the following:
      * 
      */
     private List<GetImageApplicationIconS3Location> iconS3Locations;
@@ -60,12 +60,12 @@ public final class GetImageApplication {
      */
     private List<String> instanceFamilies;
     /**
-     * @return Arguments that are passed to the application at it&#39;s launch.
+     * @return Arguments that are passed to the application at its launch.
      * 
      */
     private String launchParameters;
     /**
-     * @return Path to the application&#39;s excecutable in the instance.
+     * @return Path to the application&#39;s executable in the instance.
      * 
      */
     private String launchPath;
@@ -92,7 +92,7 @@ public final class GetImageApplication {
 
     private GetImageApplication() {}
     /**
-     * @return The app block ARN of the application.
+     * @return App block ARN of the application.
      * 
      */
     public String appBlockArn() {
@@ -127,14 +127,14 @@ public final class GetImageApplication {
         return this.displayName;
     }
     /**
-     * @return Bool based on if the application is enabled.
+     * @return Whether the application is enabled.
      * 
      */
     public Boolean enabled() {
         return this.enabled;
     }
     /**
-     * @return A list named iconS3Location that contains the following:
+     * @return S3 location of the application icon and contains the following:
      * 
      */
     public List<GetImageApplicationIconS3Location> iconS3Locations() {
@@ -155,14 +155,14 @@ public final class GetImageApplication {
         return this.instanceFamilies;
     }
     /**
-     * @return Arguments that are passed to the application at it&#39;s launch.
+     * @return Arguments that are passed to the application at its launch.
      * 
      */
     public String launchParameters() {
         return this.launchParameters;
     }
     /**
-     * @return Path to the application&#39;s excecutable in the instance.
+     * @return Path to the application&#39;s executable in the instance.
      * 
      */
     public String launchPath() {

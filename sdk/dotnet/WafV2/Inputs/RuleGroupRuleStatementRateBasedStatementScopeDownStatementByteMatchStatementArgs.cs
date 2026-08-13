@@ -24,6 +24,18 @@ namespace Pulumi.Aws.WafV2.Inputs
         [Input("positionalConstraint", required: true)]
         public Input<string> PositionalConstraint { get; set; } = null!;
 
+        [Input("preParseTextTransformations")]
+        private InputList<Inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformationArgs>? _preParseTextTransformations;
+
+        /// <summary>
+        /// Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `TextTransformation` is applied. Supported only when `FieldToMatch` specifies `SingleQueryArgument` or `AllQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+        /// </summary>
+        public InputList<Inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformationArgs> PreParseTextTransformations
+        {
+            get => _preParseTextTransformations ?? (_preParseTextTransformations = new InputList<Inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformationArgs>());
+            set => _preParseTextTransformations = value;
+        }
+
         /// <summary>
         /// A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `FieldToMatch`. The maximum length of the value is 50 bytes.
         /// </summary>

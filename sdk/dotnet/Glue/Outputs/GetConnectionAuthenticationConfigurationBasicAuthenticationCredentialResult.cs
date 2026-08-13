@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialResult
     {
+        /// <summary>
+        /// Password used for basic authentication.
+        /// </summary>
         public readonly string Password;
+        /// <summary>
+        /// Username used for basic authentication.
+        /// </summary>
         public readonly string Username;
 
         [OutputConstructor]

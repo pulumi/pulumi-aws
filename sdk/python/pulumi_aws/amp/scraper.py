@@ -24,6 +24,7 @@ class ScraperArgs:
                  destination: pulumi.Input['ScraperDestinationArgs'],
                  scrape_configuration: pulumi.Input[_builtins.str],
                  alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 exporter: pulumi.Input[Optional['ScraperExporterArgs']] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_configuration: pulumi.Input[Optional['ScraperRoleConfigurationArgs']] = None,
                  source: pulumi.Input[Optional['ScraperSourceArgs']] = None,
@@ -35,6 +36,7 @@ class ScraperArgs:
         :param pulumi.Input['ScraperDestinationArgs'] destination: Configuration block for the managed scraper to send metrics to. See `destination` Block for details.
         :param pulumi.Input[_builtins.str] scrape_configuration: Configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
         :param pulumi.Input[_builtins.str] alias: Name to associate with the managed scraper. This is for your use, and does not need to be unique.
+        :param pulumi.Input['ScraperExporterArgs'] exporter: Configuration block for additional exporters. See `exporter` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['ScraperRoleConfigurationArgs'] role_configuration: Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `role_configuration` Block for details.
         :param pulumi.Input['ScraperSourceArgs'] source: Configuration block to specify where the managed scraper will collect metrics from. See `source` Block for details.
@@ -46,6 +48,8 @@ class ScraperArgs:
         pulumi.set(__self__, "scrape_configuration", scrape_configuration)
         if alias is not None:
             pulumi.set(__self__, "alias", alias)
+        if exporter is not None:
+            pulumi.set(__self__, "exporter", exporter)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if role_configuration is not None:
@@ -92,6 +96,18 @@ class ScraperArgs:
     @alias.setter
     def alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alias", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def exporter(self) -> pulumi.Input[Optional['ScraperExporterArgs']]:
+        """
+        Configuration block for additional exporters. See `exporter` Block for details.
+        """
+        return pulumi.get(self, "exporter")
+
+    @exporter.setter
+    def exporter(self, value: pulumi.Input[Optional['ScraperExporterArgs']]):
+        pulumi.set(self, "exporter", value)
 
     @_builtins.property
     @pulumi.getter
@@ -159,6 +175,7 @@ class _ScraperState:
                  alias: pulumi.Input[Optional[_builtins.str]] = None,
                  arn: pulumi.Input[Optional[_builtins.str]] = None,
                  destination: pulumi.Input[Optional['ScraperDestinationArgs']] = None,
+                 exporter: pulumi.Input[Optional['ScraperExporterArgs']] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  role_configuration: pulumi.Input[Optional['ScraperRoleConfigurationArgs']] = None,
@@ -173,6 +190,7 @@ class _ScraperState:
         :param pulumi.Input[_builtins.str] alias: Name to associate with the managed scraper. This is for your use, and does not need to be unique.
         :param pulumi.Input[_builtins.str] arn: ARN of the scraper.
         :param pulumi.Input['ScraperDestinationArgs'] destination: Configuration block for the managed scraper to send metrics to. See `destination` Block for details.
+        :param pulumi.Input['ScraperExporterArgs'] exporter: Configuration block for additional exporters. See `exporter` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
         :param pulumi.Input['ScraperRoleConfigurationArgs'] role_configuration: Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `role_configuration` Block for details.
@@ -189,6 +207,8 @@ class _ScraperState:
             pulumi.set(__self__, "arn", arn)
         if destination is not None:
             pulumi.set(__self__, "destination", destination)
+        if exporter is not None:
+            pulumi.set(__self__, "exporter", exporter)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if role_arn is not None:
@@ -241,6 +261,18 @@ class _ScraperState:
     @destination.setter
     def destination(self, value: pulumi.Input[Optional['ScraperDestinationArgs']]):
         pulumi.set(self, "destination", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def exporter(self) -> pulumi.Input[Optional['ScraperExporterArgs']]:
+        """
+        Configuration block for additional exporters. See `exporter` Block for details.
+        """
+        return pulumi.get(self, "exporter")
+
+    @exporter.setter
+    def exporter(self, value: pulumi.Input[Optional['ScraperExporterArgs']]):
+        pulumi.set(self, "exporter", value)
 
     @_builtins.property
     @pulumi.getter
@@ -346,6 +378,7 @@ class Scraper(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias: pulumi.Input[Optional[_builtins.str]] = None,
                  destination: pulumi.Input[Optional[Union['ScraperDestinationArgs', 'ScraperDestinationArgsDict']]] = None,
+                 exporter: pulumi.Input[Optional[Union['ScraperExporterArgs', 'ScraperExporterArgsDict']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_configuration: pulumi.Input[Optional[Union['ScraperRoleConfigurationArgs', 'ScraperRoleConfigurationArgsDict']]] = None,
                  scrape_configuration: pulumi.Input[Optional[_builtins.str]] = None,
@@ -504,6 +537,44 @@ class Scraper(pulumi.CustomResource):
         \"\"\")
         ```
 
+        ### OpenSearch Exporter
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.amp.Scraper("example",
+            source={
+                "vpc": {
+                    "security_group_ids": [example_aws_security_group["id"]],
+                    "subnet_ids": [
+                        example1["id"],
+                        example2["id"],
+                    ],
+                },
+            },
+            destination={
+                "amp": {
+                    "workspace_arn": example_aws_prometheus_workspace["arn"],
+                },
+            },
+            exporter={
+                "opensearch": {
+                    "domain_arn": example_aws_opensearch_domain["arn"],
+                },
+            },
+            scrape_configuration=\"\"\"global:
+          scrape_interval: 30s
+        scrape_configs:
+          - job_name: 'my-service'
+            dns_sd_configs:
+              - names: ['my-service.my-namespace']
+                type: A
+                port: 8080
+            metrics_path: '/metrics'
+        \"\"\")
+        ```
+
         ### Use default EKS scraper configuration
 
         You can use the data source `aws_prometheus_scraper_configuration` to use a
@@ -622,6 +693,7 @@ class Scraper(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alias: Name to associate with the managed scraper. This is for your use, and does not need to be unique.
         :param pulumi.Input[Union['ScraperDestinationArgs', 'ScraperDestinationArgsDict']] destination: Configuration block for the managed scraper to send metrics to. See `destination` Block for details.
+        :param pulumi.Input[Union['ScraperExporterArgs', 'ScraperExporterArgsDict']] exporter: Configuration block for additional exporters. See `exporter` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['ScraperRoleConfigurationArgs', 'ScraperRoleConfigurationArgsDict']] role_configuration: Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `role_configuration` Block for details.
         :param pulumi.Input[_builtins.str] scrape_configuration: Configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
@@ -787,6 +859,44 @@ class Scraper(pulumi.CustomResource):
         \"\"\")
         ```
 
+        ### OpenSearch Exporter
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.amp.Scraper("example",
+            source={
+                "vpc": {
+                    "security_group_ids": [example_aws_security_group["id"]],
+                    "subnet_ids": [
+                        example1["id"],
+                        example2["id"],
+                    ],
+                },
+            },
+            destination={
+                "amp": {
+                    "workspace_arn": example_aws_prometheus_workspace["arn"],
+                },
+            },
+            exporter={
+                "opensearch": {
+                    "domain_arn": example_aws_opensearch_domain["arn"],
+                },
+            },
+            scrape_configuration=\"\"\"global:
+          scrape_interval: 30s
+        scrape_configs:
+          - job_name: 'my-service'
+            dns_sd_configs:
+              - names: ['my-service.my-namespace']
+                type: A
+                port: 8080
+            metrics_path: '/metrics'
+        \"\"\")
+        ```
+
         ### Use default EKS scraper configuration
 
         You can use the data source `aws_prometheus_scraper_configuration` to use a
@@ -918,6 +1028,7 @@ class Scraper(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias: pulumi.Input[Optional[_builtins.str]] = None,
                  destination: pulumi.Input[Optional[Union['ScraperDestinationArgs', 'ScraperDestinationArgsDict']]] = None,
+                 exporter: pulumi.Input[Optional[Union['ScraperExporterArgs', 'ScraperExporterArgsDict']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_configuration: pulumi.Input[Optional[Union['ScraperRoleConfigurationArgs', 'ScraperRoleConfigurationArgsDict']]] = None,
                  scrape_configuration: pulumi.Input[Optional[_builtins.str]] = None,
@@ -937,6 +1048,7 @@ class Scraper(pulumi.CustomResource):
             if destination is None and not opts.urn:
                 raise TypeError("Missing required property 'destination'")
             __props__.__dict__["destination"] = destination
+            __props__.__dict__["exporter"] = exporter
             __props__.__dict__["region"] = region
             __props__.__dict__["role_configuration"] = role_configuration
             if scrape_configuration is None and not opts.urn:
@@ -961,6 +1073,7 @@ class Scraper(pulumi.CustomResource):
             alias: pulumi.Input[Optional[_builtins.str]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             destination: pulumi.Input[Optional[Union['ScraperDestinationArgs', 'ScraperDestinationArgsDict']]] = None,
+            exporter: pulumi.Input[Optional[Union['ScraperExporterArgs', 'ScraperExporterArgsDict']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             role_arn: pulumi.Input[Optional[_builtins.str]] = None,
             role_configuration: pulumi.Input[Optional[Union['ScraperRoleConfigurationArgs', 'ScraperRoleConfigurationArgsDict']]] = None,
@@ -979,6 +1092,7 @@ class Scraper(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] alias: Name to associate with the managed scraper. This is for your use, and does not need to be unique.
         :param pulumi.Input[_builtins.str] arn: ARN of the scraper.
         :param pulumi.Input[Union['ScraperDestinationArgs', 'ScraperDestinationArgsDict']] destination: Configuration block for the managed scraper to send metrics to. See `destination` Block for details.
+        :param pulumi.Input[Union['ScraperExporterArgs', 'ScraperExporterArgsDict']] exporter: Configuration block for additional exporters. See `exporter` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
         :param pulumi.Input[Union['ScraperRoleConfigurationArgs', 'ScraperRoleConfigurationArgsDict']] role_configuration: Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `role_configuration` Block for details.
@@ -996,6 +1110,7 @@ class Scraper(pulumi.CustomResource):
         __props__.__dict__["alias"] = alias
         __props__.__dict__["arn"] = arn
         __props__.__dict__["destination"] = destination
+        __props__.__dict__["exporter"] = exporter
         __props__.__dict__["region"] = region
         __props__.__dict__["role_arn"] = role_arn
         __props__.__dict__["role_configuration"] = role_configuration
@@ -1029,6 +1144,14 @@ class Scraper(pulumi.CustomResource):
         Configuration block for the managed scraper to send metrics to. See `destination` Block for details.
         """
         return pulumi.get(self, "destination")
+
+    @_builtins.property
+    @pulumi.getter
+    def exporter(self) -> pulumi.Output[Optional['outputs.ScraperExporter']]:
+        """
+        Configuration block for additional exporters. See `exporter` Block for details.
+        """
+        return pulumi.get(self, "exporter")
 
     @_builtins.property
     @pulumi.getter

@@ -66,7 +66,7 @@ type LookupListenerResult struct {
 	Arn string `pulumi:"arn"`
 	// Date and time that the listener was created.
 	CreatedAt string `pulumi:"createdAt"`
-	// Actions for the default listener rule.
+	// Action for the default listener rule. See `defaultAction` Block below.
 	DefaultActions []GetListenerDefaultAction `pulumi:"defaultActions"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -141,7 +141,7 @@ func (o LookupListenerResultOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupListenerResult) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// Actions for the default listener rule.
+// Action for the default listener rule. See `defaultAction` Block below.
 func (o LookupListenerResultOutput) DefaultActions() GetListenerDefaultActionArrayOutput {
 	return o.ApplyT(func(v LookupListenerResult) []GetListenerDefaultAction { return v.DefaultActions }).(GetListenerDefaultActionArrayOutput)
 }

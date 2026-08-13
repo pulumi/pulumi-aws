@@ -142,7 +142,7 @@ class GetBrokerResult:
     @pulumi.getter
     def configuration(self) -> 'outputs.GetBrokerConfigurationResult':
         """
-        Configuration block for broker configuration. See Configuration below.
+        Configuration block for broker configuration. See `configuration` Block below.
         """
         return pulumi.get(self, "configuration")
 
@@ -158,7 +158,7 @@ class GetBrokerResult:
     @pulumi.getter(name="encryptionOptions")
     def encryption_options(self) -> Sequence['outputs.GetBrokerEncryptionOptionResult']:
         """
-        Configuration block containing encryption options. See Encryption Options below.
+        Configuration block containing encryption options. See `encryption_options` Block below.
         """
         return pulumi.get(self, "encryption_options")
 
@@ -198,7 +198,7 @@ class GetBrokerResult:
     @pulumi.getter
     def instances(self) -> Sequence['outputs.GetBrokerInstanceResult']:
         """
-        List of information about allocated brokers (both active & standby). See Instances below.
+        List of information about allocated brokers (both active & standby). See `instances` Block below.
         """
         return pulumi.get(self, "instances")
 
@@ -206,7 +206,7 @@ class GetBrokerResult:
     @pulumi.getter(name="ldapServerMetadatas")
     def ldap_server_metadatas(self) -> Sequence['outputs.GetBrokerLdapServerMetadataResult']:
         """
-        Configuration block for the LDAP server used to authenticate and authorize connections to the broker. See LDAP Server Metadata below.
+        Configuration block for the LDAP server used to authenticate and authorize connections to the broker. See `ldap_server_metadata` Block below.
         """
         return pulumi.get(self, "ldap_server_metadatas")
 
@@ -214,7 +214,7 @@ class GetBrokerResult:
     @pulumi.getter
     def logs(self) -> 'outputs.GetBrokerLogsResult':
         """
-        Configuration block for the logging configuration of the broker. See Logs below.
+        Configuration block for the logging configuration of the broker. See `logs` Block below.
         """
         return pulumi.get(self, "logs")
 
@@ -222,7 +222,7 @@ class GetBrokerResult:
     @pulumi.getter(name="maintenanceWindowStartTime")
     def maintenance_window_start_time(self) -> 'outputs.GetBrokerMaintenanceWindowStartTimeResult':
         """
-        Configuration block for the maintenance window start time. See Maintenance Window Start Time below.
+        Configuration block for the maintenance window start time. See `maintenance_window_start_time` Block below.
         """
         return pulumi.get(self, "maintenance_window_start_time")
 
@@ -259,7 +259,7 @@ class GetBrokerResult:
     @pulumi.getter(name="sharedResources")
     def shared_resources(self) -> Sequence['outputs.GetBrokerSharedResourceResult']:
         """
-        List of resources shared with the broker. See Shared Resources below. Only populated for `engine_type` of `RabbitMQ`.
+        List of resources shared with the broker. See `shared_resources` Block below. Only populated for `engine_type` of `RabbitMQ`.
         """
         return pulumi.get(self, "shared_resources")
 
@@ -291,7 +291,7 @@ class GetBrokerResult:
     @pulumi.getter
     def users(self) -> Sequence['outputs.GetBrokerUserResult']:
         """
-        Configuration block for broker users. See User below.
+        Configuration block for broker users. See `user` Block below.
         """
         return pulumi.get(self, "users")
 

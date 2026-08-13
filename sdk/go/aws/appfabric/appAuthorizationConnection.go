@@ -57,7 +57,7 @@ type AppAuthorizationConnection struct {
 	AuthRequest AppAuthorizationConnectionAuthRequestPtrOutput `pulumi:"authRequest"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Contains information about an application tenant, such as the application display name and identifier.
+	// Information about an application tenant. See `tenant` Block below.
 	Tenants  AppAuthorizationConnectionTenantArrayOutput `pulumi:"tenants"`
 	Timeouts AppAuthorizationConnectionTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -110,7 +110,7 @@ type appAuthorizationConnectionState struct {
 	AuthRequest *AppAuthorizationConnectionAuthRequest `pulumi:"authRequest"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Contains information about an application tenant, such as the application display name and identifier.
+	// Information about an application tenant. See `tenant` Block below.
 	Tenants  []AppAuthorizationConnectionTenant  `pulumi:"tenants"`
 	Timeouts *AppAuthorizationConnectionTimeouts `pulumi:"timeouts"`
 }
@@ -128,7 +128,7 @@ type AppAuthorizationConnectionState struct {
 	AuthRequest AppAuthorizationConnectionAuthRequestPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Contains information about an application tenant, such as the application display name and identifier.
+	// Information about an application tenant. See `tenant` Block below.
 	Tenants  AppAuthorizationConnectionTenantArrayInput
 	Timeouts AppAuthorizationConnectionTimeoutsPtrInput
 }
@@ -282,7 +282,7 @@ func (o AppAuthorizationConnectionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppAuthorizationConnection) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Contains information about an application tenant, such as the application display name and identifier.
+// Information about an application tenant. See `tenant` Block below.
 func (o AppAuthorizationConnectionOutput) Tenants() AppAuthorizationConnectionTenantArrayOutput {
 	return o.ApplyT(func(v *AppAuthorizationConnection) AppAuthorizationConnectionTenantArrayOutput { return v.Tenants }).(AppAuthorizationConnectionTenantArrayOutput)
 }

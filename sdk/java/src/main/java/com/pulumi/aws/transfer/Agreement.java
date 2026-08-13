@@ -70,98 +70,98 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:transfer/agreement:Agreement")
 public class Agreement extends com.pulumi.resources.CustomResource {
     /**
-     * The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
+     * IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
      * 
      */
     @Export(name="accessRole", refs={String.class}, tree="[0]")
     private Output<String> accessRole;
 
     /**
-     * @return The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
+     * @return IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
      * 
      */
     public Output<String> accessRole() {
         return this.accessRole;
     }
     /**
-     * The unique identifier for the AS2 agreement.
+     * Unique identifier for the AS2 agreement.
      * 
      */
     @Export(name="agreementId", refs={String.class}, tree="[0]")
     private Output<String> agreementId;
 
     /**
-     * @return The unique identifier for the AS2 agreement.
+     * @return Unique identifier for the AS2 agreement.
      * 
      */
     public Output<String> agreementId() {
         return this.agreementId;
     }
     /**
-     * The ARN of the agreement.
+     * ARN of the agreement.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the agreement.
+     * @return ARN of the agreement.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The landing directory for the files transferred by using the AS2 protocol.
+     * Landing directory for the files transferred by using the AS2 protocol.
      * 
      */
     @Export(name="baseDirectory", refs={String.class}, tree="[0]")
     private Output<String> baseDirectory;
 
     /**
-     * @return The landing directory for the files transferred by using the AS2 protocol.
+     * @return Landing directory for the files transferred by using the AS2 protocol.
      * 
      */
     public Output<String> baseDirectory() {
         return this.baseDirectory;
     }
     /**
-     * The Optional description of the transdfer.
+     * Optional description of the transdfer.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return The Optional description of the transdfer.
+     * @return Optional description of the transdfer.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * The unique identifier for the AS2 local profile.
+     * Unique identifier for the AS2 local profile.
      * 
      */
     @Export(name="localProfileId", refs={String.class}, tree="[0]")
     private Output<String> localProfileId;
 
     /**
-     * @return The unique identifier for the AS2 local profile.
+     * @return Unique identifier for the AS2 local profile.
      * 
      */
     public Output<String> localProfileId() {
         return this.localProfileId;
     }
     /**
-     * The unique identifier for the AS2 partner profile.
+     * Unique identifier for the AS2 partner profile.
      * 
      */
     @Export(name="partnerProfileId", refs={String.class}, tree="[0]")
     private Output<String> partnerProfileId;
 
     /**
-     * @return The unique identifier for the AS2 partner profile.
+     * @return Unique identifier for the AS2 partner profile.
      * 
      */
     public Output<String> partnerProfileId() {
@@ -182,34 +182,42 @@ public class Agreement extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The unique server identifier for the server instance. This is the specific server the agreement uses.
+     * Unique server identifier for the server instance. This is the specific server the agreement uses.
      * 
      */
     @Export(name="serverId", refs={String.class}, tree="[0]")
     private Output<String> serverId;
 
     /**
-     * @return The unique server identifier for the server instance. This is the specific server the agreement uses.
+     * @return Unique server identifier for the server instance. This is the specific server the agreement uses.
      * 
      */
     public Output<String> serverId() {
         return this.serverId;
     }
+    /**
+     * Status of the agreement which is either ACTIVE or INACTIVE.
+     * 
+     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
+    /**
+     * @return Status of the agreement which is either ACTIVE or INACTIVE.
+     * 
+     */
     public Output<String> status() {
         return this.status;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

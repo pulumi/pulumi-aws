@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Vpc
     ///         },
     ///     });
     /// 
-    ///     var testVpcRouteServerAssociation = new Aws.VpcRouteServerAssociation("test", new()
+    ///     var testRouteServerVpcAssociation = new Aws.Vpc.RouteServerVpcAssociation("test", new()
     ///     {
     ///         RouteServerId = test.RouteServerId,
     ///         VpcId = testAwsVpc.Id,
@@ -78,7 +78,7 @@ namespace Pulumi.Aws.Vpc
     ///     {
     ///         DependsOn =
     ///         {
-    ///             testVpcRouteServerAssociation,
+    ///             testRouteServerVpcAssociation,
     ///         },
     ///     });
     /// 
@@ -90,7 +90,7 @@ namespace Pulumi.Aws.Vpc
     ///     {
     ///         DependsOn =
     ///         {
-    ///             testVpcRouteServerAssociation,
+    ///             testRouteServerVpcAssociation,
     ///         },
     ///     });
     /// 

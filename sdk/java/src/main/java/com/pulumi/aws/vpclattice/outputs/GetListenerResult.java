@@ -25,7 +25,7 @@ public final class GetListenerResult {
      */
     private String createdAt;
     /**
-     * @return Actions for the default listener rule.
+     * @return Action for the default listener rule. See `defaultAction` Block below.
      * 
      */
     private List<GetListenerDefaultAction> defaultActions;
@@ -94,7 +94,7 @@ public final class GetListenerResult {
         return this.createdAt;
     }
     /**
-     * @return Actions for the default listener rule.
+     * @return Action for the default listener rule. See `defaultAction` Block below.
      * 
      */
     public List<GetListenerDefaultAction> defaultActions() {

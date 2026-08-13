@@ -68,6 +68,8 @@ __all__ = [
     'GetEngineVersionFilterArgsDict',
     'GetInstancesFilterArgs',
     'GetInstancesFilterArgsDict',
+    'GetSnapshotsFilterArgs',
+    'GetSnapshotsFilterArgsDict',
 ]
 
 class ClusterMasterUserSecretArgsDict(TypedDict):
@@ -1543,15 +1545,15 @@ class ParameterGroupParameterArgs:
 class ProxyAuthArgsDict(TypedDict):
     auth_scheme: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
+    Type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
     """
     client_password_auth_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_CACHING_SHA2_PASSWORD`, `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
+    Type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_CACHING_SHA2_PASSWORD`, `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
     """
     description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    A user-specified description about the authentication used by a proxy to log in as a specific database user.
+    User-specified description about the authentication used by a proxy to log in as a specific database user.
     """
     iam_auth: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -1559,11 +1561,11 @@ class ProxyAuthArgsDict(TypedDict):
     """
     secret_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+    Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
     """
     username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The name of the database user to which the proxy connects.
+    Name of the database user to which the proxy connects.
     """
 
 @pulumi.input_type
@@ -1576,12 +1578,12 @@ class ProxyAuthArgs:
                  secret_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  username: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] auth_scheme: The type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
-        :param pulumi.Input[_builtins.str] client_password_auth_type: The type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_CACHING_SHA2_PASSWORD`, `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
-        :param pulumi.Input[_builtins.str] description: A user-specified description about the authentication used by a proxy to log in as a specific database user.
+        :param pulumi.Input[_builtins.str] auth_scheme: Type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
+        :param pulumi.Input[_builtins.str] client_password_auth_type: Type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_CACHING_SHA2_PASSWORD`, `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
+        :param pulumi.Input[_builtins.str] description: User-specified description about the authentication used by a proxy to log in as a specific database user.
         :param pulumi.Input[_builtins.str] iam_auth: Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. One of `DISABLED`, `REQUIRED`.
-        :param pulumi.Input[_builtins.str] secret_arn: The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
-        :param pulumi.Input[_builtins.str] username: The name of the database user to which the proxy connects.
+        :param pulumi.Input[_builtins.str] secret_arn: Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+        :param pulumi.Input[_builtins.str] username: Name of the database user to which the proxy connects.
         """
         if auth_scheme is not None:
             pulumi.set(__self__, "auth_scheme", auth_scheme)
@@ -1600,7 +1602,7 @@ class ProxyAuthArgs:
     @pulumi.getter(name="authScheme")
     def auth_scheme(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
+        Type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
         """
         return pulumi.get(self, "auth_scheme")
 
@@ -1612,7 +1614,7 @@ class ProxyAuthArgs:
     @pulumi.getter(name="clientPasswordAuthType")
     def client_password_auth_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_CACHING_SHA2_PASSWORD`, `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
+        Type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_CACHING_SHA2_PASSWORD`, `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
         """
         return pulumi.get(self, "client_password_auth_type")
 
@@ -1624,7 +1626,7 @@ class ProxyAuthArgs:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A user-specified description about the authentication used by a proxy to log in as a specific database user.
+        User-specified description about the authentication used by a proxy to log in as a specific database user.
         """
         return pulumi.get(self, "description")
 
@@ -1648,7 +1650,7 @@ class ProxyAuthArgs:
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+        Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
         """
         return pulumi.get(self, "secret_arn")
 
@@ -1660,7 +1662,7 @@ class ProxyAuthArgs:
     @pulumi.getter
     def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the database user to which the proxy connects.
+        Name of the database user to which the proxy connects.
         """
         return pulumi.get(self, "username")
 
@@ -1997,6 +1999,53 @@ class GetInstancesFilterArgs:
     def values(self) -> Sequence[_builtins.str]:
         """
         Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Sequence[_builtins.str]):
+        pulumi.set(self, "values", value)
+
+
+class GetSnapshotsFilterArgsDict(TypedDict):
+    name: _builtins.str
+    """
+    Name of the filter field. Valid values can be found in the RDS DescribeDBSnapshots API Reference.
+    """
+    values: Sequence[_builtins.str]
+    """
+    Set of values accepted for the given filter field. Results will be selected if any given value matches.
+    """
+
+@pulumi.input_type
+class GetSnapshotsFilterArgs:
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param _builtins.str name: Name of the filter field. Valid values can be found in the RDS DescribeDBSnapshots API Reference.
+        :param Sequence[_builtins.str] values: Set of values accepted for the given filter field. Results will be selected if any given value matches.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the filter field. Valid values can be found in the RDS DescribeDBSnapshots API Reference.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: _builtins.str):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        """
+        Set of values accepted for the given filter field. Results will be selected if any given value matches.
         """
         return pulumi.get(self, "values")
 

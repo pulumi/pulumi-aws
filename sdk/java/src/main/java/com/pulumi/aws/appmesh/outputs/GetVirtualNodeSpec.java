@@ -15,25 +15,65 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualNodeSpec {
+    /**
+     * @return Defaults for backends. See `spec.backend_defaults` Block for details.
+     * 
+     */
     private List<GetVirtualNodeSpecBackendDefault> backendDefaults;
+    /**
+     * @return Backends to which the virtual node sends outbound traffic. See `spec.backend` Block for details.
+     * 
+     */
     private List<GetVirtualNodeSpecBackend> backends;
+    /**
+     * @return Listeners from which the virtual node receives inbound traffic. See `spec.listener` Block for details.
+     * 
+     */
     private List<GetVirtualNodeSpecListener> listeners;
+    /**
+     * @return Inbound and outbound access logging information for the virtual node. See `spec.logging` Block for details.
+     * 
+     */
     private List<GetVirtualNodeSpecLogging> loggings;
+    /**
+     * @return Service discovery information for the virtual node. See `spec.service_discovery` Block for details.
+     * 
+     */
     private List<GetVirtualNodeSpecServiceDiscovery> serviceDiscoveries;
 
     private GetVirtualNodeSpec() {}
+    /**
+     * @return Defaults for backends. See `spec.backend_defaults` Block for details.
+     * 
+     */
     public List<GetVirtualNodeSpecBackendDefault> backendDefaults() {
         return this.backendDefaults;
     }
+    /**
+     * @return Backends to which the virtual node sends outbound traffic. See `spec.backend` Block for details.
+     * 
+     */
     public List<GetVirtualNodeSpecBackend> backends() {
         return this.backends;
     }
+    /**
+     * @return Listeners from which the virtual node receives inbound traffic. See `spec.listener` Block for details.
+     * 
+     */
     public List<GetVirtualNodeSpecListener> listeners() {
         return this.listeners;
     }
+    /**
+     * @return Inbound and outbound access logging information for the virtual node. See `spec.logging` Block for details.
+     * 
+     */
     public List<GetVirtualNodeSpecLogging> loggings() {
         return this.loggings;
     }
+    /**
+     * @return Service discovery information for the virtual node. See `spec.service_discovery` Block for details.
+     * 
+     */
     public List<GetVirtualNodeSpecServiceDiscovery> serviceDiscoveries() {
         return this.serviceDiscoveries;
     }

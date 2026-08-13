@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Transfer.Outputs
     public sealed class AccessHomeDirectoryMapping
     {
         /// <summary>
-        /// Represents an entry and a target.
+        /// Logical directory entry that appears to your user.
         /// </summary>
         public readonly string Entry;
         /// <summary>
-        /// Represents the map target.
+        /// Map target that maps the entry to an actual S3 path.
         /// </summary>
         public readonly string Target;
 

@@ -13,12 +13,33 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetVirtualNodeSpecListenerHealthCheckResult
     {
+        /// <summary>
+        /// Number of consecutive successful health checks that must occur before declaring listener healthy.
+        /// </summary>
         public readonly int HealthyThreshold;
+        /// <summary>
+        /// Time period in milliseconds between each health check execution.
+        /// </summary>
         public readonly int IntervalMillis;
+        /// <summary>
+        /// File path to write access logs to.
+        /// </summary>
         public readonly string Path;
+        /// <summary>
+        /// Port used for the port mapping.
+        /// </summary>
         public readonly int Port;
+        /// <summary>
+        /// Protocol used for the port mapping.
+        /// </summary>
         public readonly string Protocol;
+        /// <summary>
+        /// Amount of time to wait when receiving a response from the health check, in milliseconds.
+        /// </summary>
         public readonly int TimeoutMillis;
+        /// <summary>
+        /// Number of consecutive failed health checks that must occur before declaring a virtual node unhealthy.
+        /// </summary>
         public readonly int UnhealthyThreshold;
 
         [OutputConstructor]

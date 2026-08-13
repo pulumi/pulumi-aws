@@ -102,14 +102,14 @@ public class VocabularyFilter extends com.pulumi.resources.CustomResource {
         return this.downloadUri;
     }
     /**
-     * The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
+     * Language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
      * 
      */
     @Export(name="languageCode", refs={String.class}, tree="[0]")
     private Output<String> languageCode;
 
     /**
-     * @return The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
+     * @return Language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
      * 
      */
     public Output<String> languageCode() {
@@ -130,14 +130,14 @@ public class VocabularyFilter extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A map of tags to assign to the VocabularyFilter. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the VocabularyFilter. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the VocabularyFilter. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the VocabularyFilter. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
@@ -150,21 +150,21 @@ public class VocabularyFilter extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
+     * Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
      * 
      */
     @Export(name="vocabularyFilterFileUri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vocabularyFilterFileUri;
 
     /**
-     * @return The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
+     * @return Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
      * 
      */
     public Output<Optional<String>> vocabularyFilterFileUri() {
         return Codegen.optional(this.vocabularyFilterFileUri);
     }
     /**
-     * The name of the VocabularyFilter.
+     * Name of the VocabularyFilter.
      * 
      * The following arguments are optional:
      * 
@@ -173,7 +173,7 @@ public class VocabularyFilter extends com.pulumi.resources.CustomResource {
     private Output<String> vocabularyFilterName;
 
     /**
-     * @return The name of the VocabularyFilter.
+     * @return Name of the VocabularyFilter.
      * 
      * The following arguments are optional:
      * 
@@ -182,14 +182,14 @@ public class VocabularyFilter extends com.pulumi.resources.CustomResource {
         return this.vocabularyFilterName;
     }
     /**
-     * A list of terms to include in the vocabulary. Conflicts with `vocabularyFilterFileUri` argument.
+     * List of terms to include in the vocabulary. Conflicts with `vocabularyFilterFileUri` argument.
      * 
      */
     @Export(name="words", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> words;
 
     /**
-     * @return A list of terms to include in the vocabulary. Conflicts with `vocabularyFilterFileUri` argument.
+     * @return List of terms to include in the vocabulary. Conflicts with `vocabularyFilterFileUri` argument.
      * 
      */
     public Output<Optional<List<String>>> words() {

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppStream.Outputs
     public sealed class GetImageApplicationResult
     {
         /// <summary>
-        /// The app block ARN of the application.
+        /// App block ARN of the application.
         /// </summary>
         public readonly string AppBlockArn;
         /// <summary>
@@ -34,11 +34,11 @@ namespace Pulumi.Aws.AppStream.Outputs
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
-        /// Bool based on if the application is enabled.
+        /// Whether the application is enabled.
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
-        /// A list named IconS3Location that contains the following:
+        /// S3 location of the application icon and contains the following:
         /// </summary>
         public readonly ImmutableArray<Outputs.GetImageApplicationIconS3LocationResult> IconS3Locations;
         /// <summary>
@@ -50,11 +50,11 @@ namespace Pulumi.Aws.AppStream.Outputs
         /// </summary>
         public readonly ImmutableArray<string> InstanceFamilies;
         /// <summary>
-        /// Arguments that are passed to the application at it's launch.
+        /// Arguments that are passed to the application at its launch.
         /// </summary>
         public readonly string LaunchParameters;
         /// <summary>
-        /// Path to the application's excecutable in the instance.
+        /// Path to the application's executable in the instance.
         /// </summary>
         public readonly string LaunchPath;
         /// <summary>

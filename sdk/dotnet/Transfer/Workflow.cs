@@ -103,19 +103,19 @@ namespace Pulumi.Aws.Transfer
     public partial class Workflow : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Workflow ARN.
+        /// Workflow ARN.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// A textual description for the workflow.
+        /// Textual description for the workflow.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
+        /// Steps (actions) to take if errors are encountered during execution of the workflow. See `OnExceptionSteps` Block below.
         /// </summary>
         [Output("onExceptionSteps")]
         public Output<ImmutableArray<Outputs.WorkflowOnExceptionStep>> OnExceptionSteps { get; private set; } = null!;
@@ -127,19 +127,19 @@ namespace Pulumi.Aws.Transfer
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
+        /// Details for the steps that are in the specified workflow. See `Steps` Block below.
         /// </summary>
         [Output("steps")]
         public Output<ImmutableArray<Outputs.WorkflowStep>> Steps { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -191,7 +191,7 @@ namespace Pulumi.Aws.Transfer
     public sealed class WorkflowArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A textual description for the workflow.
+        /// Textual description for the workflow.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -200,7 +200,7 @@ namespace Pulumi.Aws.Transfer
         private InputList<Inputs.WorkflowOnExceptionStepArgs>? _onExceptionSteps;
 
         /// <summary>
-        /// Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
+        /// Steps (actions) to take if errors are encountered during execution of the workflow. See `OnExceptionSteps` Block below.
         /// </summary>
         public InputList<Inputs.WorkflowOnExceptionStepArgs> OnExceptionSteps
         {
@@ -218,7 +218,7 @@ namespace Pulumi.Aws.Transfer
         private InputList<Inputs.WorkflowStepArgs>? _steps;
 
         /// <summary>
-        /// Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
+        /// Details for the steps that are in the specified workflow. See `Steps` Block below.
         /// </summary>
         public InputList<Inputs.WorkflowStepArgs> Steps
         {
@@ -230,7 +230,7 @@ namespace Pulumi.Aws.Transfer
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -247,13 +247,13 @@ namespace Pulumi.Aws.Transfer
     public sealed class WorkflowState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Workflow ARN.
+        /// Workflow ARN.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// A textual description for the workflow.
+        /// Textual description for the workflow.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -262,7 +262,7 @@ namespace Pulumi.Aws.Transfer
         private InputList<Inputs.WorkflowOnExceptionStepGetArgs>? _onExceptionSteps;
 
         /// <summary>
-        /// Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
+        /// Steps (actions) to take if errors are encountered during execution of the workflow. See `OnExceptionSteps` Block below.
         /// </summary>
         public InputList<Inputs.WorkflowOnExceptionStepGetArgs> OnExceptionSteps
         {
@@ -280,7 +280,7 @@ namespace Pulumi.Aws.Transfer
         private InputList<Inputs.WorkflowStepGetArgs>? _steps;
 
         /// <summary>
-        /// Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
+        /// Details for the steps that are in the specified workflow. See `Steps` Block below.
         /// </summary>
         public InputList<Inputs.WorkflowStepGetArgs> Steps
         {
@@ -292,7 +292,7 @@ namespace Pulumi.Aws.Transfer
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -304,7 +304,7 @@ namespace Pulumi.Aws.Transfer
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

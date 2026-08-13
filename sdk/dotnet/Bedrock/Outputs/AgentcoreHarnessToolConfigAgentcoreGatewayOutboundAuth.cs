@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly bool? None;
         /// <summary>
-        /// OAuth credential provider configuration. See `Oauth` below.
+        /// OAuth credential provider configuration. See `Oauth` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthOauth? Oauth;
 

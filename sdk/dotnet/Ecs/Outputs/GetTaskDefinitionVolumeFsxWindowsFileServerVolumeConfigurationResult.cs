@@ -13,8 +13,17 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationResult
     {
+        /// <summary>
+        /// Configuration block for authorization for the Amazon FSx for Windows File Server file system. See `fsx_windows_file_server_volume_configuration.authorization_config` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigResult> AuthorizationConfigs;
+        /// <summary>
+        /// Amazon FSx for Windows File Server file system ID used.
+        /// </summary>
         public readonly string FileSystemId;
+        /// <summary>
+        /// Directory within the Amazon S3 Files file system to mount as the root directory.
+        /// </summary>
         public readonly string RootDirectory;
 
         [OutputConstructor]

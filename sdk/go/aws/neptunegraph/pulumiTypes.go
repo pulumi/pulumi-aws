@@ -325,13 +325,173 @@ func (o GraphVectorSearchConfigurationPtrOutput) VectorSearchDimension() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
+type PrivateGraphEndpointTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+}
+
+// PrivateGraphEndpointTimeoutsInput is an input type that accepts PrivateGraphEndpointTimeoutsArgs and PrivateGraphEndpointTimeoutsOutput values.
+// You can construct a concrete instance of `PrivateGraphEndpointTimeoutsInput` via:
+//
+//	PrivateGraphEndpointTimeoutsArgs{...}
+type PrivateGraphEndpointTimeoutsInput interface {
+	pulumi.Input
+
+	ToPrivateGraphEndpointTimeoutsOutput() PrivateGraphEndpointTimeoutsOutput
+	ToPrivateGraphEndpointTimeoutsOutputWithContext(context.Context) PrivateGraphEndpointTimeoutsOutput
+}
+
+type PrivateGraphEndpointTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (PrivateGraphEndpointTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateGraphEndpointTimeouts)(nil)).Elem()
+}
+
+func (i PrivateGraphEndpointTimeoutsArgs) ToPrivateGraphEndpointTimeoutsOutput() PrivateGraphEndpointTimeoutsOutput {
+	return i.ToPrivateGraphEndpointTimeoutsOutputWithContext(context.Background())
+}
+
+func (i PrivateGraphEndpointTimeoutsArgs) ToPrivateGraphEndpointTimeoutsOutputWithContext(ctx context.Context) PrivateGraphEndpointTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateGraphEndpointTimeoutsOutput)
+}
+
+func (i PrivateGraphEndpointTimeoutsArgs) ToPrivateGraphEndpointTimeoutsPtrOutput() PrivateGraphEndpointTimeoutsPtrOutput {
+	return i.ToPrivateGraphEndpointTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i PrivateGraphEndpointTimeoutsArgs) ToPrivateGraphEndpointTimeoutsPtrOutputWithContext(ctx context.Context) PrivateGraphEndpointTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateGraphEndpointTimeoutsOutput).ToPrivateGraphEndpointTimeoutsPtrOutputWithContext(ctx)
+}
+
+// PrivateGraphEndpointTimeoutsPtrInput is an input type that accepts PrivateGraphEndpointTimeoutsArgs, PrivateGraphEndpointTimeoutsPtr and PrivateGraphEndpointTimeoutsPtrOutput values.
+// You can construct a concrete instance of `PrivateGraphEndpointTimeoutsPtrInput` via:
+//
+//	        PrivateGraphEndpointTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type PrivateGraphEndpointTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToPrivateGraphEndpointTimeoutsPtrOutput() PrivateGraphEndpointTimeoutsPtrOutput
+	ToPrivateGraphEndpointTimeoutsPtrOutputWithContext(context.Context) PrivateGraphEndpointTimeoutsPtrOutput
+}
+
+type privateGraphEndpointTimeoutsPtrType PrivateGraphEndpointTimeoutsArgs
+
+func PrivateGraphEndpointTimeoutsPtr(v *PrivateGraphEndpointTimeoutsArgs) PrivateGraphEndpointTimeoutsPtrInput {
+	return (*privateGraphEndpointTimeoutsPtrType)(v)
+}
+
+func (*privateGraphEndpointTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateGraphEndpointTimeouts)(nil)).Elem()
+}
+
+func (i *privateGraphEndpointTimeoutsPtrType) ToPrivateGraphEndpointTimeoutsPtrOutput() PrivateGraphEndpointTimeoutsPtrOutput {
+	return i.ToPrivateGraphEndpointTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *privateGraphEndpointTimeoutsPtrType) ToPrivateGraphEndpointTimeoutsPtrOutputWithContext(ctx context.Context) PrivateGraphEndpointTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateGraphEndpointTimeoutsPtrOutput)
+}
+
+type PrivateGraphEndpointTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (PrivateGraphEndpointTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateGraphEndpointTimeouts)(nil)).Elem()
+}
+
+func (o PrivateGraphEndpointTimeoutsOutput) ToPrivateGraphEndpointTimeoutsOutput() PrivateGraphEndpointTimeoutsOutput {
+	return o
+}
+
+func (o PrivateGraphEndpointTimeoutsOutput) ToPrivateGraphEndpointTimeoutsOutputWithContext(ctx context.Context) PrivateGraphEndpointTimeoutsOutput {
+	return o
+}
+
+func (o PrivateGraphEndpointTimeoutsOutput) ToPrivateGraphEndpointTimeoutsPtrOutput() PrivateGraphEndpointTimeoutsPtrOutput {
+	return o.ToPrivateGraphEndpointTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o PrivateGraphEndpointTimeoutsOutput) ToPrivateGraphEndpointTimeoutsPtrOutputWithContext(ctx context.Context) PrivateGraphEndpointTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateGraphEndpointTimeouts) *PrivateGraphEndpointTimeouts {
+		return &v
+	}).(PrivateGraphEndpointTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o PrivateGraphEndpointTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateGraphEndpointTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o PrivateGraphEndpointTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateGraphEndpointTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type PrivateGraphEndpointTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateGraphEndpointTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateGraphEndpointTimeouts)(nil)).Elem()
+}
+
+func (o PrivateGraphEndpointTimeoutsPtrOutput) ToPrivateGraphEndpointTimeoutsPtrOutput() PrivateGraphEndpointTimeoutsPtrOutput {
+	return o
+}
+
+func (o PrivateGraphEndpointTimeoutsPtrOutput) ToPrivateGraphEndpointTimeoutsPtrOutputWithContext(ctx context.Context) PrivateGraphEndpointTimeoutsPtrOutput {
+	return o
+}
+
+func (o PrivateGraphEndpointTimeoutsPtrOutput) Elem() PrivateGraphEndpointTimeoutsOutput {
+	return o.ApplyT(func(v *PrivateGraphEndpointTimeouts) PrivateGraphEndpointTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateGraphEndpointTimeouts
+		return ret
+	}).(PrivateGraphEndpointTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o PrivateGraphEndpointTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateGraphEndpointTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o PrivateGraphEndpointTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateGraphEndpointTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphTimeoutsInput)(nil)).Elem(), GraphTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphTimeoutsPtrInput)(nil)).Elem(), GraphTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphVectorSearchConfigurationInput)(nil)).Elem(), GraphVectorSearchConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphVectorSearchConfigurationPtrInput)(nil)).Elem(), GraphVectorSearchConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateGraphEndpointTimeoutsInput)(nil)).Elem(), PrivateGraphEndpointTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateGraphEndpointTimeoutsPtrInput)(nil)).Elem(), PrivateGraphEndpointTimeoutsArgs{})
 	pulumi.RegisterOutputType(GraphTimeoutsOutput{})
 	pulumi.RegisterOutputType(GraphTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(GraphVectorSearchConfigurationOutput{})
 	pulumi.RegisterOutputType(GraphVectorSearchConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(PrivateGraphEndpointTimeoutsOutput{})
+	pulumi.RegisterOutputType(PrivateGraphEndpointTimeoutsPtrOutput{})
 }

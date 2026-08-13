@@ -22,7 +22,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Inputs
         private InputList<Inputs.PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigServiceGetArgs>? _services;
 
         /// <summary>
-        /// ECS service configuration. See ECS Service below.
+        /// ECS service configuration. See `Service` Block for details.
         /// </summary>
         public InputList<Inputs.PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigServiceGetArgs> Services
         {
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Inputs
         public Input<int>? TimeoutMinutes { get; set; }
 
         /// <summary>
-        /// Ungraceful behavior configuration. See Ungraceful Capacity below.
+        /// Ungraceful behavior configuration. See `workflow.step.ecs_capacity_increase_config.ungraceful` Block for details.
         /// </summary>
         [Input("ungraceful")]
         public Input<Inputs.PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigUngracefulGetArgs>? Ungraceful { get; set; }

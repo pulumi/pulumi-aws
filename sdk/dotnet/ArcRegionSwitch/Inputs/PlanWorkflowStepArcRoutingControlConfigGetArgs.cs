@@ -28,7 +28,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Inputs
         private InputList<Inputs.PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlGetArgs>? _regionAndRoutingControls;
 
         /// <summary>
-        /// List of regions and their routing controls. See Region and Routing Controls below.
+        /// Regions and their routing controls. See `RegionAndRoutingControls` Block for details.
         /// </summary>
         public InputList<Inputs.PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlGetArgs> RegionAndRoutingControls
         {

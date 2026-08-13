@@ -119,7 +119,7 @@ namespace Pulumi.Aws.Transfer
     ///     var example = new Aws.Transfer.Server("example", new()
     ///     {
     ///         IdentityProviderType = "AWS_LAMBDA",
-    ///         Function = exampleAwsLambdaIdentityProvider.Arn,
+    ///         Function = exampleAwsLambdaFunction.Arn,
     ///     });
     /// 
     /// });
@@ -249,49 +249,49 @@ namespace Pulumi.Aws.Transfer
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `Protocols` is set to `FTPS`
+        /// Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. Required when `Protocols` is set to `FTPS`.
         /// </summary>
         [Output("certificate")]
         public Output<string?> Certificate { get; private set; } = null!;
 
         /// <summary>
-        /// The directory service ID of the directory service you want to connect to with an `IdentityProviderType` of `AWS_DIRECTORY_SERVICE`.
+        /// Directory service ID of the directory service you want to connect to with an `IdentityProviderType` of `AWS_DIRECTORY_SERVICE`.
         /// </summary>
         [Output("directoryId")]
         public Output<string?> DirectoryId { get; private set; } = null!;
 
         /// <summary>
-        /// The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
+        /// Domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
         /// </summary>
         [Output("domain")]
         public Output<string?> Domain { get; private set; } = null!;
 
         /// <summary>
-        /// The endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`)
+        /// Endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`)
         /// </summary>
         [Output("endpoint")]
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
-        /// The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `EndpointDetails` Block below for details.
+        /// Virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `EndpointDetails` Block below for details.
         /// </summary>
         [Output("endpointDetails")]
         public Output<Outputs.ServerEndpointDetails?> EndpointDetails { get; private set; } = null!;
 
         /// <summary>
-        /// The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.  Defaults to `PUBLIC`.
+        /// Type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`. Defaults to `PUBLIC`.
         /// </summary>
         [Output("endpointType")]
         public Output<string?> EndpointType { get; private set; } = null!;
 
         /// <summary>
-        /// A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `False`. This option only applies to servers configured with a `SERVICE_MANAGED` `IdentityProviderType`.
+        /// Boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `False`. This option only applies to servers configured with a `SERVICE_MANAGED` `IdentityProviderType`.
         /// </summary>
         [Output("forceDestroy")]
         public Output<bool?> ForceDestroy { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN for a lambda function to use for the Identity provider with an `IdentityProviderType` of `AWS_LAMBDA`.
+        /// ARN for a lambda function to use for the Identity provider with an `IdentityProviderType` of `AWS_LAMBDA`.
         /// </summary>
         [Output("function")]
         public Output<string?> Function { get; private set; } = null!;
@@ -303,13 +303,13 @@ namespace Pulumi.Aws.Transfer
         public Output<string?> HostKey { get; private set; } = null!;
 
         /// <summary>
-        /// This value contains the message-digest algorithm (MD5) hash of the server's host key. This value is equivalent to the output of the `ssh-keygen -l -E md5 -f my-new-server-key` command.
+        /// Message-digest algorithm (MD5) hash of the server's host key. This value is equivalent to the output of the `ssh-keygen -l -E md5 -f my-new-server-key` command.
         /// </summary>
         [Output("hostKeyFingerprint")]
         public Output<string> HostKeyFingerprint { get; private set; } = null!;
 
         /// <summary>
-        /// The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice. Using `AWS_DIRECTORY_SERVICE` will allow for authentication against AWS Managed Active Directory or Microsoft Active Directory in your on-premises environment, or in AWS using AD Connectors. Use the `AWS_LAMBDA` value to directly use a Lambda function as your identity provider. If you choose this value, you must specify the ARN for the lambda function in the `Function` argument.
+        /// Mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice. Using `AWS_DIRECTORY_SERVICE` will allow for authentication against AWS Managed Active Directory or Microsoft Active Directory in your on-premises environment, or in AWS using AD Connectors. Use the `AWS_LAMBDA` value to directly use a Lambda function as your identity provider. If you choose this value, you must specify the ARN for the lambda function in the `Function` argument.
         /// </summary>
         [Output("identityProviderType")]
         public Output<string?> IdentityProviderType { get; private set; } = null!;
@@ -345,17 +345,13 @@ namespace Pulumi.Aws.Transfer
         public Output<string?> PreAuthenticationLoginBanner { get; private set; } = null!;
 
         /// <summary>
-        /// The protocol settings that are configured for your server. See `ProtocolDetails` Block below for details.
+        /// Protocol settings that are configured for your server. See `ProtocolDetails` Block below for details.
         /// </summary>
         [Output("protocolDetails")]
         public Output<Outputs.ServerProtocolDetails> ProtocolDetails { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
-        /// * `AS2`: File transfer over Applicability Statement 2
-        /// * `SFTP`: File transfer over SSH
-        /// * `FTPS`: File transfer with TLS encryption
-        /// * `FTP`: Unencrypted file transfer
+        /// File transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP`. The available protocols are `AS2` (file transfer over Applicability Statement 2), `SFTP` (file transfer over SSH), `FTPS` (file transfer with TLS encryption), and `FTP` (unencrypted file transfer).
         /// </summary>
         [Output("protocols")]
         public Output<ImmutableArray<string>> Protocols { get; private set; } = null!;
@@ -367,33 +363,13 @@ namespace Pulumi.Aws.Transfer
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `S3StorageOptions` Block below for details.
+        /// Whether performance for your Amazon S3 directories is optimized. This is disabled by default. See `S3StorageOptions` Block below for details.
         /// </summary>
         [Output("s3StorageOptions")]
         public Output<Outputs.ServerS3StorageOptions> S3StorageOptions { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
-        /// * `TransferSecurityPolicy-2018-11`
-        /// * `TransferSecurityPolicy-2020-06`
-        /// * `TransferSecurityPolicy-2022-03`
-        /// * `TransferSecurityPolicy-2023-05`
-        /// * `TransferSecurityPolicy-2024-01`
-        /// * `TransferSecurityPolicy-2025-03`
-        /// * `TransferSecurityPolicy-FIPS-2020-06`
-        /// * `TransferSecurityPolicy-FIPS-2023-05`
-        /// * `TransferSecurityPolicy-FIPS-2024-01`
-        /// * `TransferSecurityPolicy-FIPS-2024-05`
-        /// * `TransferSecurityPolicy-FIPS-2025-03`
-        /// * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
-        /// * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
-        /// * `TransferSecurityPolicy-Restricted-2018-11`
-        /// * `TransferSecurityPolicy-Restricted-2020-06`
-        /// * `TransferSecurityPolicy-Restricted-2024-06`
-        /// * `TransferSecurityPolicy-SshAuditCompliant-2025-02`
-        /// * `TransferSecurityPolicy-AS2Restricted-2025-07`
-        /// 
-        /// See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
+        /// Name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-2022-03`, `TransferSecurityPolicy-2023-05`, `TransferSecurityPolicy-2024-01`, `TransferSecurityPolicy-2025-03`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-FIPS-2023-05`, `TransferSecurityPolicy-FIPS-2024-01`, `TransferSecurityPolicy-FIPS-2024-05`, `TransferSecurityPolicy-FIPS-2025-03`, `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`, `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`, `TransferSecurityPolicy-Restricted-2018-11`, `TransferSecurityPolicy-Restricted-2020-06`, `TransferSecurityPolicy-Restricted-2024-06`, `TransferSecurityPolicy-SshAuditCompliant-2025-02`, and `TransferSecurityPolicy-AS2Restricted-2025-07`. See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
         /// </summary>
         [Output("securityPolicyName")]
         public Output<string?> SecurityPolicyName { get; private set; } = null!;
@@ -405,19 +381,19 @@ namespace Pulumi.Aws.Transfer
         public Output<string> SftpAuthenticationMethods { get; private set; } = null!;
 
         /// <summary>
-        /// A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
+        /// Set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
         /// </summary>
         [Output("structuredLogDestinations")]
         public Output<ImmutableArray<string>> StructuredLogDestinations { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -429,7 +405,7 @@ namespace Pulumi.Aws.Transfer
         public Output<string?> Url { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the workflow details. See `WorkflowDetails` Block below for details.
+        /// Workflow details. See `WorkflowDetails` Block below for details.
         /// </summary>
         [Output("workflowDetails")]
         public Output<Outputs.ServerWorkflowDetails?> WorkflowDetails { get; private set; } = null!;
@@ -487,43 +463,43 @@ namespace Pulumi.Aws.Transfer
     public sealed class ServerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `Protocols` is set to `FTPS`
+        /// Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. Required when `Protocols` is set to `FTPS`.
         /// </summary>
         [Input("certificate")]
         public Input<string>? Certificate { get; set; }
 
         /// <summary>
-        /// The directory service ID of the directory service you want to connect to with an `IdentityProviderType` of `AWS_DIRECTORY_SERVICE`.
+        /// Directory service ID of the directory service you want to connect to with an `IdentityProviderType` of `AWS_DIRECTORY_SERVICE`.
         /// </summary>
         [Input("directoryId")]
         public Input<string>? DirectoryId { get; set; }
 
         /// <summary>
-        /// The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
+        /// Domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
         /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }
 
         /// <summary>
-        /// The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `EndpointDetails` Block below for details.
+        /// Virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `EndpointDetails` Block below for details.
         /// </summary>
         [Input("endpointDetails")]
         public Input<Inputs.ServerEndpointDetailsArgs>? EndpointDetails { get; set; }
 
         /// <summary>
-        /// The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.  Defaults to `PUBLIC`.
+        /// Type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`. Defaults to `PUBLIC`.
         /// </summary>
         [Input("endpointType")]
         public Input<string>? EndpointType { get; set; }
 
         /// <summary>
-        /// A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `False`. This option only applies to servers configured with a `SERVICE_MANAGED` `IdentityProviderType`.
+        /// Boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `False`. This option only applies to servers configured with a `SERVICE_MANAGED` `IdentityProviderType`.
         /// </summary>
         [Input("forceDestroy")]
         public Input<bool>? ForceDestroy { get; set; }
 
         /// <summary>
-        /// The ARN for a lambda function to use for the Identity provider with an `IdentityProviderType` of `AWS_LAMBDA`.
+        /// ARN for a lambda function to use for the Identity provider with an `IdentityProviderType` of `AWS_LAMBDA`.
         /// </summary>
         [Input("function")]
         public Input<string>? Function { get; set; }
@@ -545,7 +521,7 @@ namespace Pulumi.Aws.Transfer
         }
 
         /// <summary>
-        /// The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice. Using `AWS_DIRECTORY_SERVICE` will allow for authentication against AWS Managed Active Directory or Microsoft Active Directory in your on-premises environment, or in AWS using AD Connectors. Use the `AWS_LAMBDA` value to directly use a Lambda function as your identity provider. If you choose this value, you must specify the ARN for the lambda function in the `Function` argument.
+        /// Mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice. Using `AWS_DIRECTORY_SERVICE` will allow for authentication against AWS Managed Active Directory or Microsoft Active Directory in your on-premises environment, or in AWS using AD Connectors. Use the `AWS_LAMBDA` value to directly use a Lambda function as your identity provider. If you choose this value, you must specify the ARN for the lambda function in the `Function` argument.
         /// </summary>
         [Input("identityProviderType")]
         public Input<string>? IdentityProviderType { get; set; }
@@ -601,7 +577,7 @@ namespace Pulumi.Aws.Transfer
         }
 
         /// <summary>
-        /// The protocol settings that are configured for your server. See `ProtocolDetails` Block below for details.
+        /// Protocol settings that are configured for your server. See `ProtocolDetails` Block below for details.
         /// </summary>
         [Input("protocolDetails")]
         public Input<Inputs.ServerProtocolDetailsArgs>? ProtocolDetails { get; set; }
@@ -610,11 +586,7 @@ namespace Pulumi.Aws.Transfer
         private InputList<string>? _protocols;
 
         /// <summary>
-        /// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
-        /// * `AS2`: File transfer over Applicability Statement 2
-        /// * `SFTP`: File transfer over SSH
-        /// * `FTPS`: File transfer with TLS encryption
-        /// * `FTP`: Unencrypted file transfer
+        /// File transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP`. The available protocols are `AS2` (file transfer over Applicability Statement 2), `SFTP` (file transfer over SSH), `FTPS` (file transfer with TLS encryption), and `FTP` (unencrypted file transfer).
         /// </summary>
         public InputList<string> Protocols
         {
@@ -629,33 +601,13 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `S3StorageOptions` Block below for details.
+        /// Whether performance for your Amazon S3 directories is optimized. This is disabled by default. See `S3StorageOptions` Block below for details.
         /// </summary>
         [Input("s3StorageOptions")]
         public Input<Inputs.ServerS3StorageOptionsArgs>? S3StorageOptions { get; set; }
 
         /// <summary>
-        /// Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
-        /// * `TransferSecurityPolicy-2018-11`
-        /// * `TransferSecurityPolicy-2020-06`
-        /// * `TransferSecurityPolicy-2022-03`
-        /// * `TransferSecurityPolicy-2023-05`
-        /// * `TransferSecurityPolicy-2024-01`
-        /// * `TransferSecurityPolicy-2025-03`
-        /// * `TransferSecurityPolicy-FIPS-2020-06`
-        /// * `TransferSecurityPolicy-FIPS-2023-05`
-        /// * `TransferSecurityPolicy-FIPS-2024-01`
-        /// * `TransferSecurityPolicy-FIPS-2024-05`
-        /// * `TransferSecurityPolicy-FIPS-2025-03`
-        /// * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
-        /// * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
-        /// * `TransferSecurityPolicy-Restricted-2018-11`
-        /// * `TransferSecurityPolicy-Restricted-2020-06`
-        /// * `TransferSecurityPolicy-Restricted-2024-06`
-        /// * `TransferSecurityPolicy-SshAuditCompliant-2025-02`
-        /// * `TransferSecurityPolicy-AS2Restricted-2025-07`
-        /// 
-        /// See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
+        /// Name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-2022-03`, `TransferSecurityPolicy-2023-05`, `TransferSecurityPolicy-2024-01`, `TransferSecurityPolicy-2025-03`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-FIPS-2023-05`, `TransferSecurityPolicy-FIPS-2024-01`, `TransferSecurityPolicy-FIPS-2024-05`, `TransferSecurityPolicy-FIPS-2025-03`, `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`, `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`, `TransferSecurityPolicy-Restricted-2018-11`, `TransferSecurityPolicy-Restricted-2020-06`, `TransferSecurityPolicy-Restricted-2024-06`, `TransferSecurityPolicy-SshAuditCompliant-2025-02`, and `TransferSecurityPolicy-AS2Restricted-2025-07`. See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
         /// </summary>
         [Input("securityPolicyName")]
         public Input<string>? SecurityPolicyName { get; set; }
@@ -670,7 +622,7 @@ namespace Pulumi.Aws.Transfer
         private InputList<string>? _structuredLogDestinations;
 
         /// <summary>
-        /// A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
+        /// Set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
         /// </summary>
         public InputList<string> StructuredLogDestinations
         {
@@ -682,7 +634,7 @@ namespace Pulumi.Aws.Transfer
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -697,7 +649,7 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? Url { get; set; }
 
         /// <summary>
-        /// Specifies the workflow details. See `WorkflowDetails` Block below for details.
+        /// Workflow details. See `WorkflowDetails` Block below for details.
         /// </summary>
         [Input("workflowDetails")]
         public Input<Inputs.ServerWorkflowDetailsArgs>? WorkflowDetails { get; set; }
@@ -717,49 +669,49 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `Protocols` is set to `FTPS`
+        /// Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. Required when `Protocols` is set to `FTPS`.
         /// </summary>
         [Input("certificate")]
         public Input<string>? Certificate { get; set; }
 
         /// <summary>
-        /// The directory service ID of the directory service you want to connect to with an `IdentityProviderType` of `AWS_DIRECTORY_SERVICE`.
+        /// Directory service ID of the directory service you want to connect to with an `IdentityProviderType` of `AWS_DIRECTORY_SERVICE`.
         /// </summary>
         [Input("directoryId")]
         public Input<string>? DirectoryId { get; set; }
 
         /// <summary>
-        /// The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
+        /// Domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
         /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }
 
         /// <summary>
-        /// The endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`)
+        /// Endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`)
         /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
 
         /// <summary>
-        /// The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `EndpointDetails` Block below for details.
+        /// Virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `EndpointDetails` Block below for details.
         /// </summary>
         [Input("endpointDetails")]
         public Input<Inputs.ServerEndpointDetailsGetArgs>? EndpointDetails { get; set; }
 
         /// <summary>
-        /// The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.  Defaults to `PUBLIC`.
+        /// Type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`. Defaults to `PUBLIC`.
         /// </summary>
         [Input("endpointType")]
         public Input<string>? EndpointType { get; set; }
 
         /// <summary>
-        /// A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `False`. This option only applies to servers configured with a `SERVICE_MANAGED` `IdentityProviderType`.
+        /// Boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `False`. This option only applies to servers configured with a `SERVICE_MANAGED` `IdentityProviderType`.
         /// </summary>
         [Input("forceDestroy")]
         public Input<bool>? ForceDestroy { get; set; }
 
         /// <summary>
-        /// The ARN for a lambda function to use for the Identity provider with an `IdentityProviderType` of `AWS_LAMBDA`.
+        /// ARN for a lambda function to use for the Identity provider with an `IdentityProviderType` of `AWS_LAMBDA`.
         /// </summary>
         [Input("function")]
         public Input<string>? Function { get; set; }
@@ -781,13 +733,13 @@ namespace Pulumi.Aws.Transfer
         }
 
         /// <summary>
-        /// This value contains the message-digest algorithm (MD5) hash of the server's host key. This value is equivalent to the output of the `ssh-keygen -l -E md5 -f my-new-server-key` command.
+        /// Message-digest algorithm (MD5) hash of the server's host key. This value is equivalent to the output of the `ssh-keygen -l -E md5 -f my-new-server-key` command.
         /// </summary>
         [Input("hostKeyFingerprint")]
         public Input<string>? HostKeyFingerprint { get; set; }
 
         /// <summary>
-        /// The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice. Using `AWS_DIRECTORY_SERVICE` will allow for authentication against AWS Managed Active Directory or Microsoft Active Directory in your on-premises environment, or in AWS using AD Connectors. Use the `AWS_LAMBDA` value to directly use a Lambda function as your identity provider. If you choose this value, you must specify the ARN for the lambda function in the `Function` argument.
+        /// Mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice. Using `AWS_DIRECTORY_SERVICE` will allow for authentication against AWS Managed Active Directory or Microsoft Active Directory in your on-premises environment, or in AWS using AD Connectors. Use the `AWS_LAMBDA` value to directly use a Lambda function as your identity provider. If you choose this value, you must specify the ARN for the lambda function in the `Function` argument.
         /// </summary>
         [Input("identityProviderType")]
         public Input<string>? IdentityProviderType { get; set; }
@@ -843,7 +795,7 @@ namespace Pulumi.Aws.Transfer
         }
 
         /// <summary>
-        /// The protocol settings that are configured for your server. See `ProtocolDetails` Block below for details.
+        /// Protocol settings that are configured for your server. See `ProtocolDetails` Block below for details.
         /// </summary>
         [Input("protocolDetails")]
         public Input<Inputs.ServerProtocolDetailsGetArgs>? ProtocolDetails { get; set; }
@@ -852,11 +804,7 @@ namespace Pulumi.Aws.Transfer
         private InputList<string>? _protocols;
 
         /// <summary>
-        /// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
-        /// * `AS2`: File transfer over Applicability Statement 2
-        /// * `SFTP`: File transfer over SSH
-        /// * `FTPS`: File transfer with TLS encryption
-        /// * `FTP`: Unencrypted file transfer
+        /// File transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP`. The available protocols are `AS2` (file transfer over Applicability Statement 2), `SFTP` (file transfer over SSH), `FTPS` (file transfer with TLS encryption), and `FTP` (unencrypted file transfer).
         /// </summary>
         public InputList<string> Protocols
         {
@@ -871,33 +819,13 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `S3StorageOptions` Block below for details.
+        /// Whether performance for your Amazon S3 directories is optimized. This is disabled by default. See `S3StorageOptions` Block below for details.
         /// </summary>
         [Input("s3StorageOptions")]
         public Input<Inputs.ServerS3StorageOptionsGetArgs>? S3StorageOptions { get; set; }
 
         /// <summary>
-        /// Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
-        /// * `TransferSecurityPolicy-2018-11`
-        /// * `TransferSecurityPolicy-2020-06`
-        /// * `TransferSecurityPolicy-2022-03`
-        /// * `TransferSecurityPolicy-2023-05`
-        /// * `TransferSecurityPolicy-2024-01`
-        /// * `TransferSecurityPolicy-2025-03`
-        /// * `TransferSecurityPolicy-FIPS-2020-06`
-        /// * `TransferSecurityPolicy-FIPS-2023-05`
-        /// * `TransferSecurityPolicy-FIPS-2024-01`
-        /// * `TransferSecurityPolicy-FIPS-2024-05`
-        /// * `TransferSecurityPolicy-FIPS-2025-03`
-        /// * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
-        /// * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
-        /// * `TransferSecurityPolicy-Restricted-2018-11`
-        /// * `TransferSecurityPolicy-Restricted-2020-06`
-        /// * `TransferSecurityPolicy-Restricted-2024-06`
-        /// * `TransferSecurityPolicy-SshAuditCompliant-2025-02`
-        /// * `TransferSecurityPolicy-AS2Restricted-2025-07`
-        /// 
-        /// See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
+        /// Name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-2022-03`, `TransferSecurityPolicy-2023-05`, `TransferSecurityPolicy-2024-01`, `TransferSecurityPolicy-2025-03`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-FIPS-2023-05`, `TransferSecurityPolicy-FIPS-2024-01`, `TransferSecurityPolicy-FIPS-2024-05`, `TransferSecurityPolicy-FIPS-2025-03`, `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`, `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`, `TransferSecurityPolicy-Restricted-2018-11`, `TransferSecurityPolicy-Restricted-2020-06`, `TransferSecurityPolicy-Restricted-2024-06`, `TransferSecurityPolicy-SshAuditCompliant-2025-02`, and `TransferSecurityPolicy-AS2Restricted-2025-07`. See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
         /// </summary>
         [Input("securityPolicyName")]
         public Input<string>? SecurityPolicyName { get; set; }
@@ -912,7 +840,7 @@ namespace Pulumi.Aws.Transfer
         private InputList<string>? _structuredLogDestinations;
 
         /// <summary>
-        /// A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
+        /// Set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
         /// </summary>
         public InputList<string> StructuredLogDestinations
         {
@@ -924,7 +852,7 @@ namespace Pulumi.Aws.Transfer
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -936,7 +864,7 @@ namespace Pulumi.Aws.Transfer
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -951,7 +879,7 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? Url { get; set; }
 
         /// <summary>
-        /// Specifies the workflow details. See `WorkflowDetails` Block below for details.
+        /// Workflow details. See `WorkflowDetails` Block below for details.
         /// </summary>
         [Input("workflowDetails")]
         public Input<Inputs.ServerWorkflowDetailsGetArgs>? WorkflowDetails { get; set; }

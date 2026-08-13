@@ -40,7 +40,7 @@ class TableArgs:
                The following arguments are optional:
         :param pulumi.Input['TableEncryptionConfigurationArgs'] encryption_configuration: Single table bucket encryption configuration object. See `encryption_configuration` below.
         :param pulumi.Input['TableMaintenanceConfigurationArgs'] maintenance_configuration: Single table bucket maintenance configuration object. See `maintenance_configuration` below.
-        :param pulumi.Input['TableMetadataArgs'] metadata: Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
+        :param pulumi.Input['TableMetadataArgs'] metadata: Details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
         :param pulumi.Input[_builtins.str] name: Name of the table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number. A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -127,7 +127,7 @@ class TableArgs:
     @pulumi.getter
     def metadata(self) -> pulumi.Input[Optional['TableMetadataArgs']]:
         """
-        Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
+        Details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
         """
         return pulumi.get(self, "metadata")
 
@@ -204,7 +204,7 @@ class _TableState:
         :param pulumi.Input['TableEncryptionConfigurationArgs'] encryption_configuration: Single table bucket encryption configuration object. See `encryption_configuration` below.
         :param pulumi.Input[_builtins.str] format: Format of the table. Must be `ICEBERG`.
         :param pulumi.Input['TableMaintenanceConfigurationArgs'] maintenance_configuration: Single table bucket maintenance configuration object. See `maintenance_configuration` below.
-        :param pulumi.Input['TableMetadataArgs'] metadata: Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
+        :param pulumi.Input['TableMetadataArgs'] metadata: Details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
         :param pulumi.Input[_builtins.str] metadata_location: Location of table metadata.
         :param pulumi.Input[_builtins.str] modified_at: Date and time when the namespace was last modified.
         :param pulumi.Input[_builtins.str] modified_by: Account ID of the account that last modified the namespace.
@@ -338,7 +338,7 @@ class _TableState:
     @pulumi.getter
     def metadata(self) -> pulumi.Input[Optional['TableMetadataArgs']]:
         """
-        Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
+        Details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
         """
         return pulumi.get(self, "metadata")
 
@@ -602,7 +602,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[Union['TableEncryptionConfigurationArgs', 'TableEncryptionConfigurationArgsDict']] encryption_configuration: Single table bucket encryption configuration object. See `encryption_configuration` below.
         :param pulumi.Input[_builtins.str] format: Format of the table. Must be `ICEBERG`.
         :param pulumi.Input[Union['TableMaintenanceConfigurationArgs', 'TableMaintenanceConfigurationArgsDict']] maintenance_configuration: Single table bucket maintenance configuration object. See `maintenance_configuration` below.
-        :param pulumi.Input[Union['TableMetadataArgs', 'TableMetadataArgsDict']] metadata: Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
+        :param pulumi.Input[Union['TableMetadataArgs', 'TableMetadataArgsDict']] metadata: Details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
         :param pulumi.Input[_builtins.str] name: Name of the table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number. A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
         :param pulumi.Input[_builtins.str] namespace: Name of the namespace for this table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -795,7 +795,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[Union['TableEncryptionConfigurationArgs', 'TableEncryptionConfigurationArgsDict']] encryption_configuration: Single table bucket encryption configuration object. See `encryption_configuration` below.
         :param pulumi.Input[_builtins.str] format: Format of the table. Must be `ICEBERG`.
         :param pulumi.Input[Union['TableMaintenanceConfigurationArgs', 'TableMaintenanceConfigurationArgsDict']] maintenance_configuration: Single table bucket maintenance configuration object. See `maintenance_configuration` below.
-        :param pulumi.Input[Union['TableMetadataArgs', 'TableMetadataArgsDict']] metadata: Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
+        :param pulumi.Input[Union['TableMetadataArgs', 'TableMetadataArgsDict']] metadata: Details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
         :param pulumi.Input[_builtins.str] metadata_location: Location of table metadata.
         :param pulumi.Input[_builtins.str] modified_at: Date and time when the namespace was last modified.
         :param pulumi.Input[_builtins.str] modified_by: Account ID of the account that last modified the namespace.
@@ -890,7 +890,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter
     def metadata(self) -> pulumi.Output[Optional['outputs.TableMetadata']]:
         """
-        Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
+        Details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
         """
         return pulumi.get(self, "metadata")
 

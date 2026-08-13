@@ -22,14 +22,14 @@ public final class WorkflowOnExceptionStepArgs extends com.pulumi.resources.Reso
     public static final WorkflowOnExceptionStepArgs Empty = new WorkflowOnExceptionStepArgs();
 
     /**
-     * Details for a step that performs a file copy. See Copy Step Details below.
+     * Details for a step that performs a file copy. See `copyStepDetails` Block below.
      * 
      */
     @Import(name="copyStepDetails")
     private @Nullable Output<WorkflowOnExceptionStepCopyStepDetailsArgs> copyStepDetails;
 
     /**
-     * @return Details for a step that performs a file copy. See Copy Step Details below.
+     * @return Details for a step that performs a file copy. See `copyStepDetails` Block below.
      * 
      */
     public Optional<Output<WorkflowOnExceptionStepCopyStepDetailsArgs>> copyStepDetails() {
@@ -37,14 +37,14 @@ public final class WorkflowOnExceptionStepArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Details for a step that invokes a lambda function.
+     * Details for a step that invokes a lambda function. See `customStepDetails` Block below.
      * 
      */
     @Import(name="customStepDetails")
     private @Nullable Output<WorkflowOnExceptionStepCustomStepDetailsArgs> customStepDetails;
 
     /**
-     * @return Details for a step that invokes a lambda function.
+     * @return Details for a step that invokes a lambda function. See `customStepDetails` Block below.
      * 
      */
     public Optional<Output<WorkflowOnExceptionStepCustomStepDetailsArgs>> customStepDetails() {
@@ -52,14 +52,14 @@ public final class WorkflowOnExceptionStepArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Details for a step that decrypts the file.
+     * Details for a step that decrypts the file. See `decryptStepDetails` Block below.
      * 
      */
     @Import(name="decryptStepDetails")
     private @Nullable Output<WorkflowOnExceptionStepDecryptStepDetailsArgs> decryptStepDetails;
 
     /**
-     * @return Details for a step that decrypts the file.
+     * @return Details for a step that decrypts the file. See `decryptStepDetails` Block below.
      * 
      */
     public Optional<Output<WorkflowOnExceptionStepDecryptStepDetailsArgs>> decryptStepDetails() {
@@ -67,14 +67,14 @@ public final class WorkflowOnExceptionStepArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Details for a step that deletes the file.
+     * Details for a step that deletes the file. See `deleteStepDetails` Block below.
      * 
      */
     @Import(name="deleteStepDetails")
     private @Nullable Output<WorkflowOnExceptionStepDeleteStepDetailsArgs> deleteStepDetails;
 
     /**
-     * @return Details for a step that deletes the file.
+     * @return Details for a step that deletes the file. See `deleteStepDetails` Block below.
      * 
      */
     public Optional<Output<WorkflowOnExceptionStepDeleteStepDetailsArgs>> deleteStepDetails() {
@@ -82,23 +82,31 @@ public final class WorkflowOnExceptionStepArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Details for a step that creates one or more tags.
+     * Details for a step that creates one or more tags. See `tagStepDetails` Block below.
      * 
      */
     @Import(name="tagStepDetails")
     private @Nullable Output<WorkflowOnExceptionStepTagStepDetailsArgs> tagStepDetails;
 
     /**
-     * @return Details for a step that creates one or more tags.
+     * @return Details for a step that creates one or more tags. See `tagStepDetails` Block below.
      * 
      */
     public Optional<Output<WorkflowOnExceptionStepTagStepDetailsArgs>> tagStepDetails() {
         return Optional.ofNullable(this.tagStepDetails);
     }
 
+    /**
+     * Step type. Valid values are `COPY`, `CUSTOM`, `DECRYPT`, `DELETE`, and `TAG`.
+     * 
+     */
     @Import(name="type", required=true)
     private Output<String> type;
 
+    /**
+     * @return Step type. Valid values are `COPY`, `CUSTOM`, `DECRYPT`, `DELETE`, and `TAG`.
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }
@@ -133,7 +141,7 @@ public final class WorkflowOnExceptionStepArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param copyStepDetails Details for a step that performs a file copy. See Copy Step Details below.
+         * @param copyStepDetails Details for a step that performs a file copy. See `copyStepDetails` Block below.
          * 
          * @return builder
          * 
@@ -144,7 +152,7 @@ public final class WorkflowOnExceptionStepArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param copyStepDetails Details for a step that performs a file copy. See Copy Step Details below.
+         * @param copyStepDetails Details for a step that performs a file copy. See `copyStepDetails` Block below.
          * 
          * @return builder
          * 
@@ -154,7 +162,7 @@ public final class WorkflowOnExceptionStepArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param customStepDetails Details for a step that invokes a lambda function.
+         * @param customStepDetails Details for a step that invokes a lambda function. See `customStepDetails` Block below.
          * 
          * @return builder
          * 
@@ -165,7 +173,7 @@ public final class WorkflowOnExceptionStepArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param customStepDetails Details for a step that invokes a lambda function.
+         * @param customStepDetails Details for a step that invokes a lambda function. See `customStepDetails` Block below.
          * 
          * @return builder
          * 
@@ -175,7 +183,7 @@ public final class WorkflowOnExceptionStepArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param decryptStepDetails Details for a step that decrypts the file.
+         * @param decryptStepDetails Details for a step that decrypts the file. See `decryptStepDetails` Block below.
          * 
          * @return builder
          * 
@@ -186,7 +194,7 @@ public final class WorkflowOnExceptionStepArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param decryptStepDetails Details for a step that decrypts the file.
+         * @param decryptStepDetails Details for a step that decrypts the file. See `decryptStepDetails` Block below.
          * 
          * @return builder
          * 
@@ -196,7 +204,7 @@ public final class WorkflowOnExceptionStepArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param deleteStepDetails Details for a step that deletes the file.
+         * @param deleteStepDetails Details for a step that deletes the file. See `deleteStepDetails` Block below.
          * 
          * @return builder
          * 
@@ -207,7 +215,7 @@ public final class WorkflowOnExceptionStepArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param deleteStepDetails Details for a step that deletes the file.
+         * @param deleteStepDetails Details for a step that deletes the file. See `deleteStepDetails` Block below.
          * 
          * @return builder
          * 
@@ -217,7 +225,7 @@ public final class WorkflowOnExceptionStepArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param tagStepDetails Details for a step that creates one or more tags.
+         * @param tagStepDetails Details for a step that creates one or more tags. See `tagStepDetails` Block below.
          * 
          * @return builder
          * 
@@ -228,7 +236,7 @@ public final class WorkflowOnExceptionStepArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param tagStepDetails Details for a step that creates one or more tags.
+         * @param tagStepDetails Details for a step that creates one or more tags. See `tagStepDetails` Block below.
          * 
          * @return builder
          * 
@@ -237,11 +245,23 @@ public final class WorkflowOnExceptionStepArgs extends com.pulumi.resources.Reso
             return tagStepDetails(Output.of(tagStepDetails));
         }
 
+        /**
+         * @param type Step type. Valid values are `COPY`, `CUSTOM`, `DECRYPT`, `DELETE`, and `TAG`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type Step type. Valid values are `COPY`, `CUSTOM`, `DECRYPT`, `DELETE`, and `TAG`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

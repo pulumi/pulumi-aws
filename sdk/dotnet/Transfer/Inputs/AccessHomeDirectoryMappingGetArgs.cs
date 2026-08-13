@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Transfer.Inputs
     public sealed class AccessHomeDirectoryMappingGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Represents an entry and a target.
+        /// Logical directory entry that appears to your user.
         /// </summary>
         [Input("entry", required: true)]
         public Input<string> Entry { get; set; } = null!;
 
         /// <summary>
-        /// Represents the map target.
+        /// Map target that maps the entry to an actual S3 path.
         /// </summary>
         [Input("target", required: true)]
         public Input<string> Target { get; set; } = null!;

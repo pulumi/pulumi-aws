@@ -11,21 +11,53 @@ import java.util.Objects;
 
 @CustomType
 public final class GetTaskDefinitionVolumeS3filesVolumeConfiguration {
+    /**
+     * @return Full ARN of the S3 Files access point used.
+     * 
+     */
     private String accessPointArn;
+    /**
+     * @return Full ARN of the S3 Files file system mounted.
+     * 
+     */
     private String fileSystemArn;
+    /**
+     * @return Directory within the Amazon S3 Files file system to mount as the root directory.
+     * 
+     */
     private String rootDirectory;
+    /**
+     * @return Port used for sending encrypted data between the ECS host and the S3 Files file system.
+     * 
+     */
     private Integer transitEncryptionPort;
 
     private GetTaskDefinitionVolumeS3filesVolumeConfiguration() {}
+    /**
+     * @return Full ARN of the S3 Files access point used.
+     * 
+     */
     public String accessPointArn() {
         return this.accessPointArn;
     }
+    /**
+     * @return Full ARN of the S3 Files file system mounted.
+     * 
+     */
     public String fileSystemArn() {
         return this.fileSystemArn;
     }
+    /**
+     * @return Directory within the Amazon S3 Files file system to mount as the root directory.
+     * 
+     */
     public String rootDirectory() {
         return this.rootDirectory;
     }
+    /**
+     * @return Port used for sending encrypted data between the ECS host and the S3 Files file system.
+     * 
+     */
     public Integer transitEncryptionPort() {
         return this.transitEncryptionPort;
     }

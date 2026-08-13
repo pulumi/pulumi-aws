@@ -491,7 +491,7 @@ class TableMetadata(dict):
     def __init__(__self__, *,
                  iceberg: 'outputs.TableMetadataIceberg'):
         """
-        :param 'TableMetadataIcebergArgs' iceberg: Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format. See `iceberg` below.
+        :param 'TableMetadataIcebergArgs' iceberg: Details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format. See `iceberg` below.
         """
         pulumi.set(__self__, "iceberg", iceberg)
 
@@ -499,7 +499,7 @@ class TableMetadata(dict):
     @pulumi.getter
     def iceberg(self) -> 'outputs.TableMetadataIceberg':
         """
-        Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format. See `iceberg` below.
+        Details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format. See `iceberg` below.
         """
         return pulumi.get(self, "iceberg")
 

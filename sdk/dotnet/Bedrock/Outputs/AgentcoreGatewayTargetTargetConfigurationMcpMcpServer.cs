@@ -21,15 +21,29 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// Listing mode for the MCP server target. Valid values are `DEFAULT` and `DYNAMIC`. MCP resources for `DEFAULT` targets are cached at the control plane for faster access, while resources for `DYNAMIC` targets are retrieved dynamically when listing tools.
         /// </summary>
         public readonly string? ListingMode;
+        /// <summary>
+        /// Tool schema configuration for the MCP server target. Supported only when the credential provider is configured with an authorization code grant type. When set, dynamic tool discovery and synchronization are disabled. See `McpToolSchema` below.
+        /// </summary>
+        public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchema? McpToolSchema;
+        /// <summary>
+        /// Priority for resolving MCP server targets with shared resource URIs. Lower values take precedence. Defaults to `1000` when not set.
+        /// </summary>
+        public readonly int? ResourcePriority;
 
         [OutputConstructor]
         private AgentcoreGatewayTargetTargetConfigurationMcpMcpServer(
             string endpoint,
 
-            string? listingMode)
+            string? listingMode,
+
+            Outputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchema? mcpToolSchema,
+
+            int? resourcePriority)
         {
             Endpoint = endpoint;
             ListingMode = listingMode;
+            McpToolSchema = mcpToolSchema;
+            ResourcePriority = resourcePriority;
         }
     }
 }

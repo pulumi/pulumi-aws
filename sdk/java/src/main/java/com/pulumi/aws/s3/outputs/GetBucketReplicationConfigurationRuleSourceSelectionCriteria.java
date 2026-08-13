@@ -12,13 +12,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetBucketReplicationConfigurationRuleSourceSelectionCriteria {
+    /**
+     * @return Configuration block for selections for modifications on replicas. See `replicaModifications` Block below.
+     * 
+     */
     private List<GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModification> replicaModifications;
+    /**
+     * @return Configuration block for filter information for the selection of Amazon S3 objects encrypted with AWS KMS. See `sseKmsEncryptedObjects` Block below.
+     * 
+     */
     private List<GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject> sseKmsEncryptedObjects;
 
     private GetBucketReplicationConfigurationRuleSourceSelectionCriteria() {}
+    /**
+     * @return Configuration block for selections for modifications on replicas. See `replicaModifications` Block below.
+     * 
+     */
     public List<GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModification> replicaModifications() {
         return this.replicaModifications;
     }
+    /**
+     * @return Configuration block for filter information for the selection of Amazon S3 objects encrypted with AWS KMS. See `sseKmsEncryptedObjects` Block below.
+     * 
+     */
     public List<GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject> sseKmsEncryptedObjects() {
         return this.sseKmsEncryptedObjects;
     }

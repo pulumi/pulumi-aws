@@ -18,7 +18,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
      */
     private @Nullable String prefixFormat;
     /**
-     * @return Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
+     * @return Whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
      * 
      */
     private @Nullable List<String> prefixHierarchies;
@@ -37,7 +37,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
         return Optional.ofNullable(this.prefixFormat);
     }
     /**
-     * @return Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
+     * @return Whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
      * 
      */
     public List<String> prefixHierarchies() {

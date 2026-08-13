@@ -51,16 +51,12 @@ public final class ControlArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Data mapping sources. See `controlMappingSources` below.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="controlMappingSources")
     private @Nullable Output<List<ControlControlMappingSourceArgs>> controlMappingSources;
 
     /**
      * @return Data mapping sources. See `controlMappingSources` below.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Optional<Output<List<ControlControlMappingSourceArgs>>> controlMappingSources() {
@@ -85,12 +81,16 @@ public final class ControlArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Name of the control.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
      * @return Name of the control.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> name() {
@@ -113,14 +113,14 @@ public final class ControlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the control. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the control. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the control. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the control. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -218,8 +218,6 @@ public final class ControlArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param controlMappingSources Data mapping sources. See `controlMappingSources` below.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -231,8 +229,6 @@ public final class ControlArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param controlMappingSources Data mapping sources. See `controlMappingSources` below.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -242,8 +238,6 @@ public final class ControlArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param controlMappingSources Data mapping sources. See `controlMappingSources` below.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -276,6 +270,8 @@ public final class ControlArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param name Name of the control.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -286,6 +282,8 @@ public final class ControlArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param name Name of the control.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -316,7 +314,7 @@ public final class ControlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the control. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the control. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -327,7 +325,7 @@ public final class ControlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the control. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the control. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

@@ -13,7 +13,13 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetVirtualNodeSpecListenerTimeoutTcpIdleResult
     {
+        /// <summary>
+        /// Unit of time.
+        /// </summary>
         public readonly string Unit;
+        /// <summary>
+        /// Value for the JSON.
+        /// </summary>
         public readonly int Value;
 
         [OutputConstructor]

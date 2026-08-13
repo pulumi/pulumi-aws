@@ -30,14 +30,14 @@ public final class ServerWorkflowDetailsOnUploadArgs extends com.pulumi.resource
     }
 
     /**
-     * A unique identifier for the workflow.
+     * Unique identifier for the workflow.
      * 
      */
     @Import(name="workflowId", required=true)
     private Output<String> workflowId;
 
     /**
-     * @return A unique identifier for the workflow.
+     * @return Unique identifier for the workflow.
      * 
      */
     public Output<String> workflowId() {
@@ -91,7 +91,7 @@ public final class ServerWorkflowDetailsOnUploadArgs extends com.pulumi.resource
         }
 
         /**
-         * @param workflowId A unique identifier for the workflow.
+         * @param workflowId Unique identifier for the workflow.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class ServerWorkflowDetailsOnUploadArgs extends com.pulumi.resource
         }
 
         /**
-         * @param workflowId A unique identifier for the workflow.
+         * @param workflowId Unique identifier for the workflow.
          * 
          * @return builder
          * 

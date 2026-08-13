@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Odb.Outputs
     [OutputType]
     public sealed class CloudExadataInfrastructureMaintenanceWindowDaysOfWeek
     {
+        /// <summary>
+        /// Name of the day of the week. Valid values are `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY`, `SATURDAY`, and `SUNDAY`.
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

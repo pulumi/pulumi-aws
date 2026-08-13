@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string ClaimMatchOperator;
         /// <summary>
-        /// Value or values to match for. See `ClaimMatchValue` below.
+        /// Value or values to match for. See `ClaimMatchValue` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue ClaimMatchValue;
 

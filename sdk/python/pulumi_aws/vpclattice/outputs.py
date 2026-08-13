@@ -50,6 +50,8 @@ __all__ = [
     'GetListenerDefaultActionForwardResult',
     'GetListenerDefaultActionForwardTargetGroupResult',
     'GetServiceDnsEntryResult',
+    'GetServiceNetworkServiceAssociationsItemResult',
+    'GetServiceNetworkServiceAssociationsItemDnsEntryResult',
 ]
 
 @pulumi.output_type
@@ -199,7 +201,7 @@ class ListenerDefaultActionForwardTargetGroup(dict):
                  weight: Optional[_builtins.int] = None):
         """
         :param _builtins.str target_group_identifier: ID or Amazon Resource Name (ARN) of the target group.
-        :param _builtins.int weight: Determines how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
+        :param _builtins.int weight: Weight that controls how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
         """
         if target_group_identifier is not None:
             pulumi.set(__self__, "target_group_identifier", target_group_identifier)
@@ -218,7 +220,7 @@ class ListenerDefaultActionForwardTargetGroup(dict):
     @pulumi.getter
     def weight(self) -> Optional[_builtins.int]:
         """
-        Determines how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
+        Weight that controls how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
         """
         return pulumi.get(self, "weight")
 
@@ -550,7 +552,7 @@ class ListenerRuleMatchHttpMatchHeaderMatchMatch(dict):
                  exact: Optional[_builtins.str] = None,
                  prefix: Optional[_builtins.str] = None):
         """
-        :param _builtins.str contains: Contains type match.
+        :param _builtins.str contains: Value that the header must contain to match.
         :param _builtins.str exact: Exact type match.
         :param _builtins.str prefix: Prefix type match. Matches the value with the prefix.
         """
@@ -565,7 +567,7 @@ class ListenerRuleMatchHttpMatchHeaderMatchMatch(dict):
     @pulumi.getter
     def contains(self) -> Optional[_builtins.str]:
         """
-        Contains type match.
+        Value that the header must contain to match.
         """
         return pulumi.get(self, "contains")
 
@@ -939,6 +941,10 @@ class ServiceDnsEntry(dict):
     def __init__(__self__, *,
                  domain_name: Optional[_builtins.str] = None,
                  hosted_zone_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str domain_name: Domain name of the service.
+        :param _builtins.str hosted_zone_id: ID of the hosted zone.
+        """
         if domain_name is not None:
             pulumi.set(__self__, "domain_name", domain_name)
         if hosted_zone_id is not None:
@@ -947,11 +953,17 @@ class ServiceDnsEntry(dict):
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[_builtins.str]:
+        """
+        Domain name of the service.
+        """
         return pulumi.get(self, "domain_name")
 
     @_builtins.property
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> Optional[_builtins.str]:
+        """
+        ID of the hosted zone.
+        """
         return pulumi.get(self, "hosted_zone_id")
 
 
@@ -1141,7 +1153,7 @@ class TargetGroupAttachmentTarget(dict):
                  port: Optional[_builtins.int] = None):
         """
         :param _builtins.str id: ID of the target. If the target type of the target group is INSTANCE, this is an instance ID. If the target type is IP , this is an IP address. If the target type is LAMBDA, this is the ARN of the Lambda function. If the target type is ALB, this is the ARN of the Application Load Balancer.
-        :param _builtins.int port: This port is used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
+        :param _builtins.int port: Port used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
         """
         pulumi.set(__self__, "id", id)
         if port is not None:
@@ -1159,7 +1171,7 @@ class TargetGroupAttachmentTarget(dict):
     @pulumi.getter
     def port(self) -> Optional[_builtins.int]:
         """
-        This port is used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
+        Port used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
         """
         return pulumi.get(self, "port")
 
@@ -1456,17 +1468,27 @@ class GetListenerDefaultActionResult(dict):
     def __init__(__self__, *,
                  fixed_responses: Sequence['outputs.GetListenerDefaultActionFixedResponseResult'],
                  forwards: Sequence['outputs.GetListenerDefaultActionForwardResult']):
+        """
+        :param Sequence['GetListenerDefaultActionFixedResponseArgs'] fixed_responses: Fixed response action. See `fixed_response` Block below.
+        :param Sequence['GetListenerDefaultActionForwardArgs'] forwards: Forward action. See `forward` Block below.
+        """
         pulumi.set(__self__, "fixed_responses", fixed_responses)
         pulumi.set(__self__, "forwards", forwards)
 
     @_builtins.property
     @pulumi.getter(name="fixedResponses")
     def fixed_responses(self) -> Sequence['outputs.GetListenerDefaultActionFixedResponseResult']:
+        """
+        Fixed response action. See `fixed_response` Block below.
+        """
         return pulumi.get(self, "fixed_responses")
 
     @_builtins.property
     @pulumi.getter
     def forwards(self) -> Sequence['outputs.GetListenerDefaultActionForwardResult']:
+        """
+        Forward action. See `forward` Block below.
+        """
         return pulumi.get(self, "forwards")
 
 
@@ -1474,11 +1496,17 @@ class GetListenerDefaultActionResult(dict):
 class GetListenerDefaultActionFixedResponseResult(dict):
     def __init__(__self__, *,
                  status_code: _builtins.int):
+        """
+        :param _builtins.int status_code: Custom HTTP status code to return.
+        """
         pulumi.set(__self__, "status_code", status_code)
 
     @_builtins.property
     @pulumi.getter(name="statusCode")
     def status_code(self) -> _builtins.int:
+        """
+        Custom HTTP status code to return.
+        """
         return pulumi.get(self, "status_code")
 
 
@@ -1486,11 +1514,17 @@ class GetListenerDefaultActionFixedResponseResult(dict):
 class GetListenerDefaultActionForwardResult(dict):
     def __init__(__self__, *,
                  target_groups: Sequence['outputs.GetListenerDefaultActionForwardTargetGroupResult']):
+        """
+        :param Sequence['GetListenerDefaultActionForwardTargetGroupArgs'] target_groups: Target groups that the listener forwards traffic to. See `target_groups` Block below.
+        """
         pulumi.set(__self__, "target_groups", target_groups)
 
     @_builtins.property
     @pulumi.getter(name="targetGroups")
     def target_groups(self) -> Sequence['outputs.GetListenerDefaultActionForwardTargetGroupResult']:
+        """
+        Target groups that the listener forwards traffic to. See `target_groups` Block below.
+        """
         return pulumi.get(self, "target_groups")
 
 
@@ -1499,17 +1533,27 @@ class GetListenerDefaultActionForwardTargetGroupResult(dict):
     def __init__(__self__, *,
                  target_group_identifier: _builtins.str,
                  weight: _builtins.int):
+        """
+        :param _builtins.str target_group_identifier: ID or ARN of the target group.
+        :param _builtins.int weight: Weight assigned to the target group that determines the proportion of traffic it receives.
+        """
         pulumi.set(__self__, "target_group_identifier", target_group_identifier)
         pulumi.set(__self__, "weight", weight)
 
     @_builtins.property
     @pulumi.getter(name="targetGroupIdentifier")
     def target_group_identifier(self) -> _builtins.str:
+        """
+        ID or ARN of the target group.
+        """
         return pulumi.get(self, "target_group_identifier")
 
     @_builtins.property
     @pulumi.getter
     def weight(self) -> _builtins.int:
+        """
+        Weight assigned to the target group that determines the proportion of traffic it receives.
+        """
         return pulumi.get(self, "weight")
 
 
@@ -1538,6 +1582,185 @@ class GetServiceDnsEntryResult(dict):
     def hosted_zone_id(self) -> _builtins.str:
         """
         Hosted zone ID where the DNS name is registered.
+        """
+        return pulumi.get(self, "hosted_zone_id")
+
+
+@pulumi.output_type
+class GetServiceNetworkServiceAssociationsItemResult(dict):
+    def __init__(__self__, *,
+                 arn: _builtins.str,
+                 created_at: _builtins.str,
+                 created_by: _builtins.str,
+                 custom_domain_name: _builtins.str,
+                 dns_entries: Sequence['outputs.GetServiceNetworkServiceAssociationsItemDnsEntryResult'],
+                 id: _builtins.str,
+                 service_arn: _builtins.str,
+                 service_id: _builtins.str,
+                 service_name: _builtins.str,
+                 service_network_arn: _builtins.str,
+                 service_network_id: _builtins.str,
+                 service_network_name: _builtins.str,
+                 status: _builtins.str):
+        """
+        :param _builtins.str arn: ARN of the association.
+        :param _builtins.str created_at: Date and time the association was created, in RFC 3339 format.
+        :param _builtins.str created_by: Account that created the association.
+        :param _builtins.str custom_domain_name: Custom domain name of the service.
+        :param Sequence['GetServiceNetworkServiceAssociationsItemDnsEntryArgs'] dns_entries: List of objects with DNS names.
+        :param _builtins.str id: ID of the association.
+        :param _builtins.str service_arn: ARN of the associated service.
+        :param _builtins.str service_id: ID of the associated service.
+        :param _builtins.str service_name: Name of the associated service.
+        :param _builtins.str service_network_arn: ARN of the service network the service is associated with.
+        :param _builtins.str service_network_id: ID of the service network the service is associated with.
+        :param _builtins.str service_network_name: Name of the service network the service is associated with.
+        :param _builtins.str status: Status of the association. One of `CREATE_IN_PROGRESS`, `ACTIVE`, `DELETE_IN_PROGRESS`, `CREATE_FAILED`, or `DELETE_FAILED`.
+        """
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "created_at", created_at)
+        pulumi.set(__self__, "created_by", created_by)
+        pulumi.set(__self__, "custom_domain_name", custom_domain_name)
+        pulumi.set(__self__, "dns_entries", dns_entries)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "service_arn", service_arn)
+        pulumi.set(__self__, "service_id", service_id)
+        pulumi.set(__self__, "service_name", service_name)
+        pulumi.set(__self__, "service_network_arn", service_network_arn)
+        pulumi.set(__self__, "service_network_id", service_network_id)
+        pulumi.set(__self__, "service_network_name", service_network_name)
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> _builtins.str:
+        """
+        ARN of the association.
+        """
+        return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> _builtins.str:
+        """
+        Date and time the association was created, in RFC 3339 format.
+        """
+        return pulumi.get(self, "created_at")
+
+    @_builtins.property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> _builtins.str:
+        """
+        Account that created the association.
+        """
+        return pulumi.get(self, "created_by")
+
+    @_builtins.property
+    @pulumi.getter(name="customDomainName")
+    def custom_domain_name(self) -> _builtins.str:
+        """
+        Custom domain name of the service.
+        """
+        return pulumi.get(self, "custom_domain_name")
+
+    @_builtins.property
+    @pulumi.getter(name="dnsEntries")
+    def dns_entries(self) -> Sequence['outputs.GetServiceNetworkServiceAssociationsItemDnsEntryResult']:
+        """
+        List of objects with DNS names.
+        """
+        return pulumi.get(self, "dns_entries")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        ID of the association.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceArn")
+    def service_arn(self) -> _builtins.str:
+        """
+        ARN of the associated service.
+        """
+        return pulumi.get(self, "service_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceId")
+    def service_id(self) -> _builtins.str:
+        """
+        ID of the associated service.
+        """
+        return pulumi.get(self, "service_id")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> _builtins.str:
+        """
+        Name of the associated service.
+        """
+        return pulumi.get(self, "service_name")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceNetworkArn")
+    def service_network_arn(self) -> _builtins.str:
+        """
+        ARN of the service network the service is associated with.
+        """
+        return pulumi.get(self, "service_network_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceNetworkId")
+    def service_network_id(self) -> _builtins.str:
+        """
+        ID of the service network the service is associated with.
+        """
+        return pulumi.get(self, "service_network_id")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceNetworkName")
+    def service_network_name(self) -> _builtins.str:
+        """
+        Name of the service network the service is associated with.
+        """
+        return pulumi.get(self, "service_network_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        Status of the association. One of `CREATE_IN_PROGRESS`, `ACTIVE`, `DELETE_IN_PROGRESS`, `CREATE_FAILED`, or `DELETE_FAILED`.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class GetServiceNetworkServiceAssociationsItemDnsEntryResult(dict):
+    def __init__(__self__, *,
+                 domain_name: _builtins.str,
+                 hosted_zone_id: _builtins.str):
+        """
+        :param _builtins.str domain_name: Domain name of the service.
+        :param _builtins.str hosted_zone_id: ID of the hosted zone.
+        """
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+
+    @_builtins.property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> _builtins.str:
+        """
+        Domain name of the service.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @_builtins.property
+    @pulumi.getter(name="hostedZoneId")
+    def hosted_zone_id(self) -> _builtins.str:
+        """
+        ID of the hosted zone.
         """
         return pulumi.get(self, "hosted_zone_id")
 

@@ -35,42 +35,39 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Sid:    pulumi.StringRef("AllowOAuthFromVPC"),
-//						Effect: pulumi.StringRef("Allow"),
-//						Actions: []string{
-//							"bedrock-agentcore:InvokeAgentRuntime",
+//			example := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Sid:    pulumi.String("AllowOAuthFromVPC"),
+//						Effect: pulumi.String("Allow"),
+//						Actions: pulumi.StringArray{
+//							pulumi.String("bedrock-agentcore:InvokeAgentRuntime"),
 //						},
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "*",
-//								Identifiers: []string{
-//									"*",
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Type: pulumi.String("*"),
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String("*"),
 //								},
 //							},
 //						},
 //						Resources: pulumi.StringArray{
-//							agentRuntime.Example.AgentRuntimeArn,
+//							exampleAgentcoreAgentRuntime.AgentRuntimeArn,
 //						},
-//						Conditions: []iam.GetPolicyDocumentStatementCondition{
-//							{
-//								Test:     "StringEquals",
-//								Variable: "aws:SourceVpc",
-//								Values: []string{
-//									"vpc-1a2b3c4d",
+//						Conditions: iam.GetPolicyDocumentStatementConditionArray{
+//							&iam.GetPolicyDocumentStatementConditionArgs{
+//								Test:     pulumi.String("StringEquals"),
+//								Variable: pulumi.String("aws:SourceVpc"),
+//								Values: pulumi.StringArray{
+//									pulumi.String("vpc-1a2b3c4d"),
 //								},
 //							},
 //						},
 //					},
 //				},
 //			}, nil)
-//			if err != nil {
-//				return err
-//			}
 //			_, err = bedrock.NewAgentcoreResourcePolicy(ctx, "example", &bedrock.AgentcoreResourcePolicyArgs{
-//				Policy:      pulumi.String(example.Json),
+//				Policy:      example.Json(),
 //				ResourceArn: exampleAgentcoreAgentRuntime.AgentRuntimeArn,
 //			})
 //			if err != nil {

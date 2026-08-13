@@ -12,11 +12,14 @@ namespace Pulumi.Aws.Odb.Inputs
 
     public sealed class NetworkManagedServiceZeroEtlAccessGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// CIDR range for the Zero-ETL access.
+        /// </summary>
         [Input("cidr", required: true)]
         public Input<string> Cidr { get; set; } = null!;
 
         /// <summary>
-        /// Status of the network resource.
+        /// Status of the Zero-ETL access.
         /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;

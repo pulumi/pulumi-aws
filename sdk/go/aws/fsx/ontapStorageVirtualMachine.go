@@ -125,7 +125,7 @@ type OntapStorageVirtualMachine struct {
 	ActiveDirectoryConfiguration OntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput `pulumi:"activeDirectoryConfiguration"`
 	// Amazon Resource Name of the storage virtual machine.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+	// Endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See `endpoints` below.
 	Endpoints OntapStorageVirtualMachineEndpointArrayOutput `pulumi:"endpoints"`
 	// ID of the Amazon FSx ONTAP File System that this SVM will be created on.
 	FileSystemId pulumi.StringOutput `pulumi:"fileSystemId"`
@@ -191,7 +191,7 @@ type ontapStorageVirtualMachineState struct {
 	ActiveDirectoryConfiguration *OntapStorageVirtualMachineActiveDirectoryConfiguration `pulumi:"activeDirectoryConfiguration"`
 	// Amazon Resource Name of the storage virtual machine.
 	Arn *string `pulumi:"arn"`
-	// Endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+	// Endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See `endpoints` below.
 	Endpoints []OntapStorageVirtualMachineEndpoint `pulumi:"endpoints"`
 	// ID of the Amazon FSx ONTAP File System that this SVM will be created on.
 	FileSystemId *string `pulumi:"fileSystemId"`
@@ -218,7 +218,7 @@ type OntapStorageVirtualMachineState struct {
 	ActiveDirectoryConfiguration OntapStorageVirtualMachineActiveDirectoryConfigurationPtrInput
 	// Amazon Resource Name of the storage virtual machine.
 	Arn pulumi.StringPtrInput
-	// Endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+	// Endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See `endpoints` below.
 	Endpoints OntapStorageVirtualMachineEndpointArrayInput
 	// ID of the Amazon FSx ONTAP File System that this SVM will be created on.
 	FileSystemId pulumi.StringPtrInput
@@ -378,7 +378,7 @@ func (o OntapStorageVirtualMachineOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *OntapStorageVirtualMachine) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+// Endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See `endpoints` below.
 func (o OntapStorageVirtualMachineOutput) Endpoints() OntapStorageVirtualMachineEndpointArrayOutput {
 	return o.ApplyT(func(v *OntapStorageVirtualMachine) OntapStorageVirtualMachineEndpointArrayOutput { return v.Endpoints }).(OntapStorageVirtualMachineEndpointArrayOutput)
 }

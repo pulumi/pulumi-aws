@@ -67,14 +67,14 @@ public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerArg
     }
 
     /**
-     * Configuration restricting which workloads may use this authorizer. See `allowedWorkloadConfiguration` below.
+     * Configuration restricting which workloads may use this authorizer. See `allowedWorkloadConfiguration` Block below.
      * 
      */
     @Import(name="allowedWorkloadConfiguration")
     private @Nullable Output<AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs> allowedWorkloadConfiguration;
 
     /**
-     * @return Configuration restricting which workloads may use this authorizer. See `allowedWorkloadConfiguration` below.
+     * @return Configuration restricting which workloads may use this authorizer. See `allowedWorkloadConfiguration` Block below.
      * 
      */
     public Optional<Output<AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs>> allowedWorkloadConfiguration() {
@@ -82,14 +82,14 @@ public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerArg
     }
 
     /**
-     * Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` below.
+     * Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` Block below.
      * 
      */
     @Import(name="customClaims")
     private @Nullable Output<List<AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs>> customClaims;
 
     /**
-     * @return Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` below.
+     * @return Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` Block below.
      * 
      */
     public Optional<Output<List<AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs>>> customClaims() {
@@ -112,14 +112,14 @@ public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerArg
     }
 
     /**
-     * Private endpoint used to reach the authorization server. See `privateEndpoint` below.
+     * Private endpoint used to reach the authorization server. See `privateEndpoint` Block below.
      * 
      */
     @Import(name="privateEndpoint")
     private @Nullable Output<AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs> privateEndpoint;
 
     /**
-     * @return Private endpoint used to reach the authorization server. See `privateEndpoint` below.
+     * @return Private endpoint used to reach the authorization server. See `privateEndpoint` Block below.
      * 
      */
     public Optional<Output<AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs>> privateEndpoint() {
@@ -127,14 +127,14 @@ public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerArg
     }
 
     /**
-     * Overrides for the private endpoints used to reach the authorization server. See `privateEndpointOverrides` below.
+     * Overrides for the private endpoints used to reach the authorization server. See `privateEndpointOverrides` Block below.
      * 
      */
     @Import(name="privateEndpointOverrides")
     private @Nullable Output<List<AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs>> privateEndpointOverrides;
 
     /**
-     * @return Overrides for the private endpoints used to reach the authorization server. See `privateEndpointOverrides` below.
+     * @return Overrides for the private endpoints used to reach the authorization server. See `privateEndpointOverrides` Block below.
      * 
      */
     public Optional<Output<List<AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs>>> privateEndpointOverrides() {
@@ -266,7 +266,7 @@ public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerArg
         }
 
         /**
-         * @param allowedWorkloadConfiguration Configuration restricting which workloads may use this authorizer. See `allowedWorkloadConfiguration` below.
+         * @param allowedWorkloadConfiguration Configuration restricting which workloads may use this authorizer. See `allowedWorkloadConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -277,7 +277,7 @@ public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerArg
         }
 
         /**
-         * @param allowedWorkloadConfiguration Configuration restricting which workloads may use this authorizer. See `allowedWorkloadConfiguration` below.
+         * @param allowedWorkloadConfiguration Configuration restricting which workloads may use this authorizer. See `allowedWorkloadConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -287,7 +287,7 @@ public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerArg
         }
 
         /**
-         * @param customClaims Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` below.
+         * @param customClaims Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` Block below.
          * 
          * @return builder
          * 
@@ -298,7 +298,7 @@ public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerArg
         }
 
         /**
-         * @param customClaims Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` below.
+         * @param customClaims Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` Block below.
          * 
          * @return builder
          * 
@@ -308,7 +308,7 @@ public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerArg
         }
 
         /**
-         * @param customClaims Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` below.
+         * @param customClaims Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` Block below.
          * 
          * @return builder
          * 
@@ -339,7 +339,7 @@ public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerArg
         }
 
         /**
-         * @param privateEndpoint Private endpoint used to reach the authorization server. See `privateEndpoint` below.
+         * @param privateEndpoint Private endpoint used to reach the authorization server. See `privateEndpoint` Block below.
          * 
          * @return builder
          * 
@@ -350,7 +350,7 @@ public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerArg
         }
 
         /**
-         * @param privateEndpoint Private endpoint used to reach the authorization server. See `privateEndpoint` below.
+         * @param privateEndpoint Private endpoint used to reach the authorization server. See `privateEndpoint` Block below.
          * 
          * @return builder
          * 
@@ -360,7 +360,7 @@ public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerArg
         }
 
         /**
-         * @param privateEndpointOverrides Overrides for the private endpoints used to reach the authorization server. See `privateEndpointOverrides` below.
+         * @param privateEndpointOverrides Overrides for the private endpoints used to reach the authorization server. See `privateEndpointOverrides` Block below.
          * 
          * @return builder
          * 
@@ -371,7 +371,7 @@ public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerArg
         }
 
         /**
-         * @param privateEndpointOverrides Overrides for the private endpoints used to reach the authorization server. See `privateEndpointOverrides` below.
+         * @param privateEndpointOverrides Overrides for the private endpoints used to reach the authorization server. See `privateEndpointOverrides` Block below.
          * 
          * @return builder
          * 
@@ -381,7 +381,7 @@ public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerArg
         }
 
         /**
-         * @param privateEndpointOverrides Overrides for the private endpoints used to reach the authorization server. See `privateEndpointOverrides` below.
+         * @param privateEndpointOverrides Overrides for the private endpoints used to reach the authorization server. See `privateEndpointOverrides` Block below.
          * 
          * @return builder
          * 

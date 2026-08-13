@@ -15,14 +15,14 @@ public final class AccessHomeDirectoryMappingArgs extends com.pulumi.resources.R
     public static final AccessHomeDirectoryMappingArgs Empty = new AccessHomeDirectoryMappingArgs();
 
     /**
-     * Represents an entry and a target.
+     * Logical directory entry that appears to your user.
      * 
      */
     @Import(name="entry", required=true)
     private Output<String> entry;
 
     /**
-     * @return Represents an entry and a target.
+     * @return Logical directory entry that appears to your user.
      * 
      */
     public Output<String> entry() {
@@ -30,14 +30,14 @@ public final class AccessHomeDirectoryMappingArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Represents the map target.
+     * Map target that maps the entry to an actual S3 path.
      * 
      */
     @Import(name="target", required=true)
     private Output<String> target;
 
     /**
-     * @return Represents the map target.
+     * @return Map target that maps the entry to an actual S3 path.
      * 
      */
     public Output<String> target() {
@@ -70,7 +70,7 @@ public final class AccessHomeDirectoryMappingArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param entry Represents an entry and a target.
+         * @param entry Logical directory entry that appears to your user.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class AccessHomeDirectoryMappingArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param entry Represents an entry and a target.
+         * @param entry Logical directory entry that appears to your user.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class AccessHomeDirectoryMappingArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param target Represents the map target.
+         * @param target Map target that maps the entry to an actual S3 path.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class AccessHomeDirectoryMappingArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param target Represents the map target.
+         * @param target Map target that maps the entry to an actual S3 path.
          * 
          * @return builder
          * 

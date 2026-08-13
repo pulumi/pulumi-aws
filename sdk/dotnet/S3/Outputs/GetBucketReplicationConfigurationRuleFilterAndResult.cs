@@ -18,7 +18,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly string Prefix;
         /// <summary>
-        /// Unordered list of tags that identify a subset of objects to which the rule applies. Each tag has a `Key` and a `Value`.
+        /// List of tags that identify a subset of objects to which the rule applies. See `Tag` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBucketReplicationConfigurationRuleFilterAndTagResult> Tags;
 

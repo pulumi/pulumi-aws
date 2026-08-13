@@ -14,9 +14,17 @@ public final class WebAppWebAppUnitArgs extends com.pulumi.resources.ResourceArg
 
     public static final WebAppWebAppUnitArgs Empty = new WebAppWebAppUnitArgs();
 
+    /**
+     * Number of units of concurrent connections.
+     * 
+     */
     @Import(name="provisioned", required=true)
     private Output<Integer> provisioned;
 
+    /**
+     * @return Number of units of concurrent connections.
+     * 
+     */
     public Output<Integer> provisioned() {
         return this.provisioned;
     }
@@ -45,11 +53,23 @@ public final class WebAppWebAppUnitArgs extends com.pulumi.resources.ResourceArg
             $ = new WebAppWebAppUnitArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param provisioned Number of units of concurrent connections.
+         * 
+         * @return builder
+         * 
+         */
         public Builder provisioned(Output<Integer> provisioned) {
             $.provisioned = provisioned;
             return this;
         }
 
+        /**
+         * @param provisioned Number of units of concurrent connections.
+         * 
+         * @return builder
+         * 
+         */
         public Builder provisioned(Integer provisioned) {
             return provisioned(Output.of(provisioned));
         }

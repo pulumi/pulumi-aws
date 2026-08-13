@@ -184,7 +184,7 @@ namespace Pulumi.Aws.Efs
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Throughput mode for the file system. Defaults to `Bursting`. Valid values: `Bursting`, `Provisioned`, or `Elastic`. When using `Provisioned`, also set `ProvisionedThroughputInMibps`.
+        /// Throughput mode for the file system. Defaults to `Bursting`, matching the [`CreateFileSystem`](https://docs.aws.amazon.com/efs/latest/ug/API_CreateFileSystem.html) API default. Note that AWS [recommends `Elastic` for most use cases](https://docs.aws.amazon.com/efs/latest/ug/managing-throughput.html), and `Elastic` is the default in the Amazon EFS console. Valid values: `Bursting`, `Provisioned`, or `Elastic`. When using `Provisioned`, also set `ProvisionedThroughputInMibps`.
         /// </summary>
         [Output("throughputMode")]
         public Output<string?> ThroughputMode { get; private set; } = null!;
@@ -311,7 +311,7 @@ namespace Pulumi.Aws.Efs
         }
 
         /// <summary>
-        /// Throughput mode for the file system. Defaults to `Bursting`. Valid values: `Bursting`, `Provisioned`, or `Elastic`. When using `Provisioned`, also set `ProvisionedThroughputInMibps`.
+        /// Throughput mode for the file system. Defaults to `Bursting`, matching the [`CreateFileSystem`](https://docs.aws.amazon.com/efs/latest/ug/API_CreateFileSystem.html) API default. Note that AWS [recommends `Elastic` for most use cases](https://docs.aws.amazon.com/efs/latest/ug/managing-throughput.html), and `Elastic` is the default in the Amazon EFS console. Valid values: `Bursting`, `Provisioned`, or `Elastic`. When using `Provisioned`, also set `ProvisionedThroughputInMibps`.
         /// </summary>
         [Input("throughputMode")]
         public Input<string>? ThroughputMode { get; set; }
@@ -460,7 +460,7 @@ namespace Pulumi.Aws.Efs
         }
 
         /// <summary>
-        /// Throughput mode for the file system. Defaults to `Bursting`. Valid values: `Bursting`, `Provisioned`, or `Elastic`. When using `Provisioned`, also set `ProvisionedThroughputInMibps`.
+        /// Throughput mode for the file system. Defaults to `Bursting`, matching the [`CreateFileSystem`](https://docs.aws.amazon.com/efs/latest/ug/API_CreateFileSystem.html) API default. Note that AWS [recommends `Elastic` for most use cases](https://docs.aws.amazon.com/efs/latest/ug/managing-throughput.html), and `Elastic` is the default in the Amazon EFS console. Valid values: `Bursting`, `Provisioned`, or `Elastic`. When using `Provisioned`, also set `ProvisionedThroughputInMibps`.
         /// </summary>
         [Input("throughputMode")]
         public Input<string>? ThroughputMode { get; set; }

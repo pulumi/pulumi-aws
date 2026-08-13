@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         }
 
         /// <summary>
-        /// Configuration restricting which workloads may use this authorizer. See `AllowedWorkloadConfiguration` below.
+        /// Configuration restricting which workloads may use this authorizer. See `AllowedWorkloadConfiguration` Block below.
         /// </summary>
         [Input("allowedWorkloadConfiguration")]
         public Input<Inputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs>? AllowedWorkloadConfiguration { get; set; }
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs>? _customClaims;
 
         /// <summary>
-        /// Repeatable block to define a custom claim validation name, value, and operation. See `CustomClaim` below.
+        /// Repeatable block to define a custom claim validation name, value, and operation. See `CustomClaim` Block below.
         /// </summary>
         public InputList<Inputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs> CustomClaims
         {
@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<string> DiscoveryUrl { get; set; } = null!;
 
         /// <summary>
-        /// Private endpoint used to reach the authorization server. See `PrivateEndpoint` below.
+        /// Private endpoint used to reach the authorization server. See `PrivateEndpoint` Block below.
         /// </summary>
         [Input("privateEndpoint")]
         public Input<Inputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs>? PrivateEndpoint { get; set; }
@@ -82,7 +82,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs>? _privateEndpointOverrides;
 
         /// <summary>
-        /// Overrides for the private endpoints used to reach the authorization server. See `PrivateEndpointOverrides` below.
+        /// Overrides for the private endpoints used to reach the authorization server. See `PrivateEndpointOverrides` Block below.
         /// </summary>
         public InputList<Inputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs> PrivateEndpointOverrides
         {

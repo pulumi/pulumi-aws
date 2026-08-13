@@ -18,15 +18,15 @@ namespace Pulumi.Aws.ArcRegionSwitch.Outputs
         /// </summary>
         public readonly string CapacityMonitoringApproach;
         /// <summary>
-        /// List of EKS clusters. See EKS Clusters below.
+        /// EKS clusters. See `EksClusters` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.PlanWorkflowStepParallelConfigStepEksResourceScalingConfigEksCluster> EksClusters;
         /// <summary>
-        /// Kubernetes resource type. See Kubernetes Resource Type below.
+        /// Kubernetes resource type. See `KubernetesResourceType` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.PlanWorkflowStepParallelConfigStepEksResourceScalingConfigKubernetesResourceType> KubernetesResourceTypes;
         /// <summary>
-        /// List of scaling resources. See Scaling Resources below.
+        /// Scaling resources. See `ScalingResources` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResource> ScalingResources;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Outputs
         /// </summary>
         public readonly int? TimeoutMinutes;
         /// <summary>
-        /// Ungraceful behavior configuration. See Ungraceful Capacity below.
+        /// Ungraceful behavior configuration. See `workflow.step.eks_resource_scaling_config.ungraceful` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.PlanWorkflowStepParallelConfigStepEksResourceScalingConfigUngraceful> Ungracefuls;
 

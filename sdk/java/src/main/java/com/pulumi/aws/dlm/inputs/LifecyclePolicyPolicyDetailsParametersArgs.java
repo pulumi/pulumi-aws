@@ -6,6 +6,8 @@ package com.pulumi.aws.dlm.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -31,6 +33,21 @@ public final class LifecyclePolicyPolicyDetailsParametersArgs extends com.pulumi
     }
 
     /**
+     * Map specifies whether to exclude volumes that have specific tags.
+     * 
+     */
+    @Import(name="excludeDataVolumeTags")
+    private @Nullable Output<Map<String,String>> excludeDataVolumeTags;
+
+    /**
+     * @return Map specifies whether to exclude volumes that have specific tags.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> excludeDataVolumeTags() {
+        return Optional.ofNullable(this.excludeDataVolumeTags);
+    }
+
+    /**
      * Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted when the lifecycle policy runs. `true` indicates that targeted instances are not rebooted when the policy runs. `false` indicates that target instances are rebooted when the policy runs. The default is `true` (instances are not rebooted).
      * 
      */
@@ -49,6 +66,7 @@ public final class LifecyclePolicyPolicyDetailsParametersArgs extends com.pulumi
 
     private LifecyclePolicyPolicyDetailsParametersArgs(LifecyclePolicyPolicyDetailsParametersArgs $) {
         this.excludeBootVolume = $.excludeBootVolume;
+        this.excludeDataVolumeTags = $.excludeDataVolumeTags;
         this.noReboot = $.noReboot;
     }
 
@@ -89,6 +107,27 @@ public final class LifecyclePolicyPolicyDetailsParametersArgs extends com.pulumi
          */
         public Builder excludeBootVolume(Boolean excludeBootVolume) {
             return excludeBootVolume(Output.of(excludeBootVolume));
+        }
+
+        /**
+         * @param excludeDataVolumeTags Map specifies whether to exclude volumes that have specific tags.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder excludeDataVolumeTags(@Nullable Output<Map<String,String>> excludeDataVolumeTags) {
+            $.excludeDataVolumeTags = excludeDataVolumeTags;
+            return this;
+        }
+
+        /**
+         * @param excludeDataVolumeTags Map specifies whether to exclude volumes that have specific tags.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder excludeDataVolumeTags(Map<String,String> excludeDataVolumeTags) {
+            return excludeDataVolumeTags(Output.of(excludeDataVolumeTags));
         }
 
         /**

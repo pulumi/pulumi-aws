@@ -19,14 +19,14 @@ public final class PlaceIndexArgs extends com.pulumi.resources.ResourceArgs {
     public static final PlaceIndexArgs Empty = new PlaceIndexArgs();
 
     /**
-     * Specifies the geospatial data provider for the new place index.
+     * Geospatial data provider for the new place index.
      * 
      */
     @Import(name="dataSource", required=true)
     private Output<String> dataSource;
 
     /**
-     * @return Specifies the geospatial data provider for the new place index.
+     * @return Geospatial data provider for the new place index.
      * 
      */
     public Output<String> dataSource() {
@@ -49,14 +49,14 @@ public final class PlaceIndexArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The optional description for the place index resource.
+     * Optional description for the place index resource.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The optional description for the place index resource.
+     * @return Optional description for the place index resource.
      * 
      */
     public Optional<Output<String>> description() {
@@ -64,7 +64,7 @@ public final class PlaceIndexArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the place index resource.
+     * Name of the place index resource.
      * 
      * The following arguments are optional:
      * 
@@ -73,7 +73,7 @@ public final class PlaceIndexArgs extends com.pulumi.resources.ResourceArgs {
     private Output<String> indexName;
 
     /**
-     * @return The name of the place index resource.
+     * @return Name of the place index resource.
      * 
      * The following arguments are optional:
      * 
@@ -142,7 +142,7 @@ public final class PlaceIndexArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataSource Specifies the geospatial data provider for the new place index.
+         * @param dataSource Geospatial data provider for the new place index.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class PlaceIndexArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataSource Specifies the geospatial data provider for the new place index.
+         * @param dataSource Geospatial data provider for the new place index.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class PlaceIndexArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The optional description for the place index resource.
+         * @param description Optional description for the place index resource.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class PlaceIndexArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The optional description for the place index resource.
+         * @param description Optional description for the place index resource.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class PlaceIndexArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param indexName The name of the place index resource.
+         * @param indexName Name of the place index resource.
          * 
          * The following arguments are optional:
          * 
@@ -218,7 +218,7 @@ public final class PlaceIndexArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param indexName The name of the place index resource.
+         * @param indexName Name of the place index resource.
          * 
          * The following arguments are optional:
          * 

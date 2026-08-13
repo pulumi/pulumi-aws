@@ -282,7 +282,7 @@ namespace Pulumi.Aws.Odb
         public Output<string> HostnamePrefixComputed { get; private set; } = null!;
 
         /// <summary>
-        /// Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
+        /// Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster. See `IormConfigCache` Block below.
         /// </summary>
         [Output("iormConfigCaches")]
         public Output<ImmutableArray<Outputs.CloudVmClusterIormConfigCache>> IormConfigCaches { get; private set; } = null!;
@@ -787,7 +787,7 @@ namespace Pulumi.Aws.Odb
         private InputList<Inputs.CloudVmClusterIormConfigCacheGetArgs>? _iormConfigCaches;
 
         /// <summary>
-        /// Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
+        /// Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster. See `IormConfigCache` Block below.
         /// </summary>
         public InputList<Inputs.CloudVmClusterIormConfigCacheGetArgs> IormConfigCaches
         {

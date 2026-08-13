@@ -34,7 +34,7 @@ class BucketNotificationArgs:
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.bool] eventbridge: Whether to enable Amazon EventBridge notifications. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketNotificationLambdaFunctionArgs']]] lambda_functions: Used to configure notifications to a Lambda Function. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['BucketNotificationLambdaFunctionArgs']]] lambda_functions: Notification configuration to a Lambda Function. See below.
         :param pulumi.Input[Sequence[pulumi.Input['BucketNotificationQueueArgs']]] queues: Notification configuration to SQS Queue. See below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['BucketNotificationTopicArgs']]] topics: Notification configuration to SNS Topic. See below.
@@ -81,7 +81,7 @@ class BucketNotificationArgs:
     @pulumi.getter(name="lambdaFunctions")
     def lambda_functions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BucketNotificationLambdaFunctionArgs']]]]:
         """
-        Used to configure notifications to a Lambda Function. See below.
+        Notification configuration to a Lambda Function. See below.
         """
         return pulumi.get(self, "lambda_functions")
 
@@ -142,7 +142,7 @@ class _BucketNotificationState:
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.bool] eventbridge: Whether to enable Amazon EventBridge notifications. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketNotificationLambdaFunctionArgs']]] lambda_functions: Used to configure notifications to a Lambda Function. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['BucketNotificationLambdaFunctionArgs']]] lambda_functions: Notification configuration to a Lambda Function. See below.
         :param pulumi.Input[Sequence[pulumi.Input['BucketNotificationQueueArgs']]] queues: Notification configuration to SQS Queue. See below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['BucketNotificationTopicArgs']]] topics: Notification configuration to SNS Topic. See below.
@@ -190,7 +190,7 @@ class _BucketNotificationState:
     @pulumi.getter(name="lambdaFunctions")
     def lambda_functions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BucketNotificationLambdaFunctionArgs']]]]:
         """
-        Used to configure notifications to a Lambda Function. See below.
+        Notification configuration to a Lambda Function. See below.
         """
         return pulumi.get(self, "lambda_functions")
 
@@ -555,7 +555,7 @@ class BucketNotification(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.bool] eventbridge: Whether to enable Amazon EventBridge notifications. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketNotificationLambdaFunctionArgs', 'BucketNotificationLambdaFunctionArgsDict']]]] lambda_functions: Used to configure notifications to a Lambda Function. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketNotificationLambdaFunctionArgs', 'BucketNotificationLambdaFunctionArgsDict']]]] lambda_functions: Notification configuration to a Lambda Function. See below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BucketNotificationQueueArgs', 'BucketNotificationQueueArgsDict']]]] queues: Notification configuration to SQS Queue. See below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BucketNotificationTopicArgs', 'BucketNotificationTopicArgsDict']]]] topics: Notification configuration to SNS Topic. See below.
@@ -932,7 +932,7 @@ class BucketNotification(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.bool] eventbridge: Whether to enable Amazon EventBridge notifications. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketNotificationLambdaFunctionArgs', 'BucketNotificationLambdaFunctionArgsDict']]]] lambda_functions: Used to configure notifications to a Lambda Function. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketNotificationLambdaFunctionArgs', 'BucketNotificationLambdaFunctionArgsDict']]]] lambda_functions: Notification configuration to a Lambda Function. See below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BucketNotificationQueueArgs', 'BucketNotificationQueueArgsDict']]]] queues: Notification configuration to SQS Queue. See below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BucketNotificationTopicArgs', 'BucketNotificationTopicArgsDict']]]] topics: Notification configuration to SNS Topic. See below.
@@ -971,7 +971,7 @@ class BucketNotification(pulumi.CustomResource):
     @pulumi.getter(name="lambdaFunctions")
     def lambda_functions(self) -> pulumi.Output[Optional[Sequence['outputs.BucketNotificationLambdaFunction']]]:
         """
-        Used to configure notifications to a Lambda Function. See below.
+        Notification configuration to a Lambda Function. See below.
         """
         return pulumi.get(self, "lambda_functions")
 

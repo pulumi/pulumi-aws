@@ -212,15 +212,15 @@ namespace Pulumi.Aws.AppStream
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
-        /// Name of the image builder that was used to created the private image. If the image is sharedthen the value is null.
+        /// Name of the image builder that was used to created the private image. If the image is shared then the value is null.
         /// </summary>
         public readonly string ImageBuilderName;
         /// <summary>
-        /// Boolean to indicate whether an image builder can be launched from this image.
+        /// Whether an image builder can be launched from this image.
         /// </summary>
         public readonly bool ImageBuilderSupported;
         /// <summary>
-        /// List of strings describing the image permissions containing the following:
+        /// List of objects describing the image permissions containing the following:
         /// </summary>
         public readonly ImmutableArray<Outputs.GetImageImagePermissionResult> ImagePermissions;
         public readonly bool? MostRecent;

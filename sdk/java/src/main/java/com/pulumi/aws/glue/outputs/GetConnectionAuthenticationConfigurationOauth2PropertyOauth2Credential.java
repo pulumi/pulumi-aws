@@ -10,21 +10,53 @@ import java.util.Objects;
 
 @CustomType
 public final class GetConnectionAuthenticationConfigurationOauth2PropertyOauth2Credential {
+    /**
+     * @return Access token used for OAuth2 authentication.
+     * 
+     */
     private String accessToken;
+    /**
+     * @return JWT token used for OAuth2 authentication.
+     * 
+     */
     private String jwtToken;
+    /**
+     * @return Refresh token used for OAuth2 authentication.
+     * 
+     */
     private String refreshToken;
+    /**
+     * @return Client secret of the user-managed client application.
+     * 
+     */
     private String userManagedClientApplicationClientSecret;
 
     private GetConnectionAuthenticationConfigurationOauth2PropertyOauth2Credential() {}
+    /**
+     * @return Access token used for OAuth2 authentication.
+     * 
+     */
     public String accessToken() {
         return this.accessToken;
     }
+    /**
+     * @return JWT token used for OAuth2 authentication.
+     * 
+     */
     public String jwtToken() {
         return this.jwtToken;
     }
+    /**
+     * @return Refresh token used for OAuth2 authentication.
+     * 
+     */
     public String refreshToken() {
         return this.refreshToken;
     }
+    /**
+     * @return Client secret of the user-managed client application.
+     * 
+     */
     public String userManagedClientApplicationClientSecret() {
         return this.userManagedClientApplicationClientSecret;
     }

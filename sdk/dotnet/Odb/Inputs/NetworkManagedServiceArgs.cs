@@ -38,6 +38,10 @@ namespace Pulumi.Aws.Odb.Inputs
 
         [Input("managedS3BackupAccesses", required: true)]
         private InputList<Inputs.NetworkManagedServiceManagedS3BackupAccessArgs>? _managedS3BackupAccesses;
+
+        /// <summary>
+        /// Managed S3 backup access configuration. See `ManagedS3BackupAccess` Block below.
+        /// </summary>
         public InputList<Inputs.NetworkManagedServiceManagedS3BackupAccessArgs> ManagedS3BackupAccesses
         {
             get => _managedS3BackupAccesses ?? (_managedS3BackupAccesses = new InputList<Inputs.NetworkManagedServiceManagedS3BackupAccessArgs>());
@@ -46,12 +50,19 @@ namespace Pulumi.Aws.Odb.Inputs
 
         [Input("managedServiceIpv4Cidrs", required: true)]
         private InputList<string>? _managedServiceIpv4Cidrs;
+
+        /// <summary>
+        /// List of IPv4 CIDR ranges used by the managed services.
+        /// </summary>
         public InputList<string> ManagedServiceIpv4Cidrs
         {
             get => _managedServiceIpv4Cidrs ?? (_managedServiceIpv4Cidrs = new InputList<string>());
             set => _managedServiceIpv4Cidrs = value;
         }
 
+        /// <summary>
+        /// ARN of the resource gateway.
+        /// </summary>
         [Input("resourceGatewayArn", required: true)]
         public Input<string> ResourceGatewayArn { get; set; } = null!;
 
@@ -67,11 +78,18 @@ namespace Pulumi.Aws.Odb.Inputs
             set => _s3Accesses = value;
         }
 
+        /// <summary>
+        /// ARN of the service network.
+        /// </summary>
         [Input("serviceNetworkArn", required: true)]
         public Input<string> ServiceNetworkArn { get; set; } = null!;
 
         [Input("serviceNetworkEndpoints", required: true)]
         private InputList<Inputs.NetworkManagedServiceServiceNetworkEndpointArgs>? _serviceNetworkEndpoints;
+
+        /// <summary>
+        /// Service network endpoint configuration. See `ServiceNetworkEndpoint` Block below.
+        /// </summary>
         public InputList<Inputs.NetworkManagedServiceServiceNetworkEndpointArgs> ServiceNetworkEndpoints
         {
             get => _serviceNetworkEndpoints ?? (_serviceNetworkEndpoints = new InputList<Inputs.NetworkManagedServiceServiceNetworkEndpointArgs>());

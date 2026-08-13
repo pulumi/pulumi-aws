@@ -16,14 +16,14 @@ public final class PlaceIndexDataSourceConfigurationArgs extends com.pulumi.reso
     public static final PlaceIndexDataSourceConfigurationArgs Empty = new PlaceIndexDataSourceConfigurationArgs();
 
     /**
-     * Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
+     * How the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
      * 
      */
     @Import(name="intendedUse")
     private @Nullable Output<String> intendedUse;
 
     /**
-     * @return Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
+     * @return How the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
      * 
      */
     public Optional<Output<String>> intendedUse() {
@@ -55,7 +55,7 @@ public final class PlaceIndexDataSourceConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param intendedUse Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
+         * @param intendedUse How the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class PlaceIndexDataSourceConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param intendedUse Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
+         * @param intendedUse How the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
          * 
          * @return builder
          * 

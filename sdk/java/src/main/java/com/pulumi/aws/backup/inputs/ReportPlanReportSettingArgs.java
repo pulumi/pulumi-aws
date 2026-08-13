@@ -19,14 +19,14 @@ public final class ReportPlanReportSettingArgs extends com.pulumi.resources.Reso
     public static final ReportPlanReportSettingArgs Empty = new ReportPlanReportSettingArgs();
 
     /**
-     * Specifies the list of accounts a report covers.
+     * List of accounts a report covers.
      * 
      */
     @Import(name="accounts")
     private @Nullable Output<List<String>> accounts;
 
     /**
-     * @return Specifies the list of accounts a report covers.
+     * @return List of accounts a report covers.
      * 
      */
     public Optional<Output<List<String>>> accounts() {
@@ -34,14 +34,14 @@ public final class ReportPlanReportSettingArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Specifies the Amazon Resource Names (ARNs) of the frameworks a report covers.
+     * Amazon Resource Names (ARNs) of the frameworks a report covers.
      * 
      */
     @Import(name="frameworkArns")
     private @Nullable Output<List<String>> frameworkArns;
 
     /**
-     * @return Specifies the Amazon Resource Names (ARNs) of the frameworks a report covers.
+     * @return Amazon Resource Names (ARNs) of the frameworks a report covers.
      * 
      */
     public Optional<Output<List<String>>> frameworkArns() {
@@ -49,14 +49,14 @@ public final class ReportPlanReportSettingArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Specifies the number of frameworks a report covers.
+     * Number of frameworks a report covers.
      * 
      */
     @Import(name="numberOfFrameworks")
     private @Nullable Output<Integer> numberOfFrameworks;
 
     /**
-     * @return Specifies the number of frameworks a report covers.
+     * @return Number of frameworks a report covers.
      * 
      */
     public Optional<Output<Integer>> numberOfFrameworks() {
@@ -64,14 +64,14 @@ public final class ReportPlanReportSettingArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Specifies the list of Organizational Units a report covers.
+     * List of Organizational Units a report covers.
      * 
      */
     @Import(name="organizationUnits")
     private @Nullable Output<List<String>> organizationUnits;
 
     /**
-     * @return Specifies the list of Organizational Units a report covers.
+     * @return List of Organizational Units a report covers.
      * 
      */
     public Optional<Output<List<String>>> organizationUnits() {
@@ -79,14 +79,14 @@ public final class ReportPlanReportSettingArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Specifies the list of regions a report covers.
+     * List of regions a report covers.
      * 
      */
     @Import(name="regions")
     private @Nullable Output<List<String>> regions;
 
     /**
-     * @return Specifies the list of regions a report covers.
+     * @return List of regions a report covers.
      * 
      */
     public Optional<Output<List<String>>> regions() {
@@ -94,14 +94,14 @@ public final class ReportPlanReportSettingArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Identifies the report template for the report. Reports are built using a report template. The report templates are: `RESOURCE_COMPLIANCE_REPORT` | `CONTROL_COMPLIANCE_REPORT` | `BACKUP_JOB_REPORT` | `COPY_JOB_REPORT` | `RESTORE_JOB_REPORT`.
+     * Report template for the report. Reports are built using a report template. The report templates are: `RESOURCE_COMPLIANCE_REPORT` | `CONTROL_COMPLIANCE_REPORT` | `BACKUP_JOB_REPORT` | `COPY_JOB_REPORT` | `RESTORE_JOB_REPORT`.
      * 
      */
     @Import(name="reportTemplate", required=true)
     private Output<String> reportTemplate;
 
     /**
-     * @return Identifies the report template for the report. Reports are built using a report template. The report templates are: `RESOURCE_COMPLIANCE_REPORT` | `CONTROL_COMPLIANCE_REPORT` | `BACKUP_JOB_REPORT` | `COPY_JOB_REPORT` | `RESTORE_JOB_REPORT`.
+     * @return Report template for the report. Reports are built using a report template. The report templates are: `RESOURCE_COMPLIANCE_REPORT` | `CONTROL_COMPLIANCE_REPORT` | `BACKUP_JOB_REPORT` | `COPY_JOB_REPORT` | `RESTORE_JOB_REPORT`.
      * 
      */
     public Output<String> reportTemplate() {
@@ -138,7 +138,7 @@ public final class ReportPlanReportSettingArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param accounts Specifies the list of accounts a report covers.
+         * @param accounts List of accounts a report covers.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class ReportPlanReportSettingArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param accounts Specifies the list of accounts a report covers.
+         * @param accounts List of accounts a report covers.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class ReportPlanReportSettingArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param accounts Specifies the list of accounts a report covers.
+         * @param accounts List of accounts a report covers.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class ReportPlanReportSettingArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param frameworkArns Specifies the Amazon Resource Names (ARNs) of the frameworks a report covers.
+         * @param frameworkArns Amazon Resource Names (ARNs) of the frameworks a report covers.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class ReportPlanReportSettingArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param frameworkArns Specifies the Amazon Resource Names (ARNs) of the frameworks a report covers.
+         * @param frameworkArns Amazon Resource Names (ARNs) of the frameworks a report covers.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class ReportPlanReportSettingArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param frameworkArns Specifies the Amazon Resource Names (ARNs) of the frameworks a report covers.
+         * @param frameworkArns Amazon Resource Names (ARNs) of the frameworks a report covers.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class ReportPlanReportSettingArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param numberOfFrameworks Specifies the number of frameworks a report covers.
+         * @param numberOfFrameworks Number of frameworks a report covers.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class ReportPlanReportSettingArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param numberOfFrameworks Specifies the number of frameworks a report covers.
+         * @param numberOfFrameworks Number of frameworks a report covers.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class ReportPlanReportSettingArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param organizationUnits Specifies the list of Organizational Units a report covers.
+         * @param organizationUnits List of Organizational Units a report covers.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class ReportPlanReportSettingArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param organizationUnits Specifies the list of Organizational Units a report covers.
+         * @param organizationUnits List of Organizational Units a report covers.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class ReportPlanReportSettingArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param organizationUnits Specifies the list of Organizational Units a report covers.
+         * @param organizationUnits List of Organizational Units a report covers.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class ReportPlanReportSettingArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param regions Specifies the list of regions a report covers.
+         * @param regions List of regions a report covers.
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class ReportPlanReportSettingArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param regions Specifies the list of regions a report covers.
+         * @param regions List of regions a report covers.
          * 
          * @return builder
          * 
@@ -273,7 +273,7 @@ public final class ReportPlanReportSettingArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param regions Specifies the list of regions a report covers.
+         * @param regions List of regions a report covers.
          * 
          * @return builder
          * 
@@ -283,7 +283,7 @@ public final class ReportPlanReportSettingArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param reportTemplate Identifies the report template for the report. Reports are built using a report template. The report templates are: `RESOURCE_COMPLIANCE_REPORT` | `CONTROL_COMPLIANCE_REPORT` | `BACKUP_JOB_REPORT` | `COPY_JOB_REPORT` | `RESTORE_JOB_REPORT`.
+         * @param reportTemplate Report template for the report. Reports are built using a report template. The report templates are: `RESOURCE_COMPLIANCE_REPORT` | `CONTROL_COMPLIANCE_REPORT` | `BACKUP_JOB_REPORT` | `COPY_JOB_REPORT` | `RESTORE_JOB_REPORT`.
          * 
          * @return builder
          * 
@@ -294,7 +294,7 @@ public final class ReportPlanReportSettingArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param reportTemplate Identifies the report template for the report. Reports are built using a report template. The report templates are: `RESOURCE_COMPLIANCE_REPORT` | `CONTROL_COMPLIANCE_REPORT` | `BACKUP_JOB_REPORT` | `COPY_JOB_REPORT` | `RESTORE_JOB_REPORT`.
+         * @param reportTemplate Report template for the report. Reports are built using a report template. The report templates are: `RESOURCE_COMPLIANCE_REPORT` | `CONTROL_COMPLIANCE_REPORT` | `BACKUP_JOB_REPORT` | `COPY_JOB_REPORT` | `RESTORE_JOB_REPORT`.
          * 
          * @return builder
          * 

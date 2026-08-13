@@ -197,6 +197,52 @@ import (
 //
 // ```
 //
+// ### With Managed Memory
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := bedrock.NewAgentcoreHarness(ctx, "example", &bedrock.AgentcoreHarnessArgs{
+//				HarnessName:      pulumi.String("my_harness"),
+//				ExecutionRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//				Model: &bedrock.AgentcoreHarnessModelArgs{
+//					BedrockModelConfig: &bedrock.AgentcoreHarnessModelBedrockModelConfigArgs{
+//						ModelId: pulumi.String("anthropic.claude-sonnet-4-20250514"),
+//					},
+//				},
+//				SystemPrompts: bedrock.AgentcoreHarnessSystemPromptArray{
+//					&bedrock.AgentcoreHarnessSystemPromptArgs{
+//						Text: pulumi.String("You are a helpful assistant."),
+//					},
+//				},
+//				Memory: &bedrock.AgentcoreHarnessMemoryArgs{
+//					ManagedMemoryConfiguration: &bedrock.AgentcoreHarnessMemoryManagedMemoryConfigurationArgs{
+//						EventExpiryDuration: pulumi.Int(14),
+//						Strategies: pulumi.StringArray{
+//							pulumi.String("SEMANTIC"),
+//							pulumi.String("SUMMARIZATION"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ### Identity Schema
@@ -222,13 +268,13 @@ type AgentcoreHarness struct {
 	AllowedTools pulumi.StringArrayOutput `pulumi:"allowedTools"`
 	// ARN of the Harness.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Authorization configuration for authenticating requests. See `authorizerConfiguration` below.
+	// Authorization configuration for authenticating requests. See `authorizerConfiguration` Block below.
 	AuthorizerConfiguration AgentcoreHarnessAuthorizerConfigurationPtrOutput `pulumi:"authorizerConfiguration"`
-	// Environment artifact configuration. See `environmentArtifact` below.
+	// Environment artifact configuration. See `environmentArtifact` Block below.
 	EnvironmentArtifact AgentcoreHarnessEnvironmentArtifactPtrOutput `pulumi:"environmentArtifact"`
 	// Map of environment variables.
 	EnvironmentVariables pulumi.StringMapOutput `pulumi:"environmentVariables"`
-	// Compute environment configuration. See `environment` below.
+	// Compute environment configuration. See `environment` Block below.
 	Environments AgentcoreHarnessEnvironmentArrayOutput `pulumi:"environments"`
 	// ARN of the IAM role that the harness assumes to access AWS services.
 	ExecutionRoleArn pulumi.StringOutput `pulumi:"executionRoleArn"`
@@ -240,17 +286,19 @@ type AgentcoreHarness struct {
 	MaxIterations pulumi.IntOutput `pulumi:"maxIterations"`
 	// Maximum number of tokens in the model response.
 	MaxTokens pulumi.IntPtrOutput `pulumi:"maxTokens"`
-	// Memory configuration. See `memory` below.
+	// Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`.
 	Memory AgentcoreHarnessMemoryPtrOutput `pulumi:"memory"`
-	// Model configuration for the harness. See `model` below.
+	// Actual deployed memory configuration.
+	MemoryActuals AgentcoreHarnessMemoryActualArrayOutput `pulumi:"memoryActuals"`
+	// Model configuration for the harness. See `model` Block below.
 	//
 	// The following arguments are optional:
 	Model AgentcoreHarnessModelOutput `pulumi:"model"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Skill configurations. See `skill` below.
+	// Skill configurations. See `skill` Block below.
 	Skills AgentcoreHarnessSkillArrayOutput `pulumi:"skills"`
-	// System prompt blocks for the harness. See `systemPrompt` below.
+	// System prompt blocks for the harness. See `systemPrompt` Block below.
 	SystemPrompts AgentcoreHarnessSystemPromptArrayOutput `pulumi:"systemPrompts"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -259,9 +307,9 @@ type AgentcoreHarness struct {
 	// Timeout in seconds for the harness execution.
 	TimeoutSeconds pulumi.IntOutput                  `pulumi:"timeoutSeconds"`
 	Timeouts       AgentcoreHarnessTimeoutsPtrOutput `pulumi:"timeouts"`
-	// Tool configurations. See `tool` below.
+	// Tool configurations. See `tool` Block below.
 	Tools AgentcoreHarnessToolArrayOutput `pulumi:"tools"`
-	// Truncation configuration for conversation history. See `truncation` below.
+	// Truncation configuration for conversation history. See `truncation` Block below.
 	Truncations AgentcoreHarnessTruncationArrayOutput `pulumi:"truncations"`
 }
 
@@ -315,13 +363,13 @@ type agentcoreHarnessState struct {
 	AllowedTools []string `pulumi:"allowedTools"`
 	// ARN of the Harness.
 	Arn *string `pulumi:"arn"`
-	// Authorization configuration for authenticating requests. See `authorizerConfiguration` below.
+	// Authorization configuration for authenticating requests. See `authorizerConfiguration` Block below.
 	AuthorizerConfiguration *AgentcoreHarnessAuthorizerConfiguration `pulumi:"authorizerConfiguration"`
-	// Environment artifact configuration. See `environmentArtifact` below.
+	// Environment artifact configuration. See `environmentArtifact` Block below.
 	EnvironmentArtifact *AgentcoreHarnessEnvironmentArtifact `pulumi:"environmentArtifact"`
 	// Map of environment variables.
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
-	// Compute environment configuration. See `environment` below.
+	// Compute environment configuration. See `environment` Block below.
 	Environments []AgentcoreHarnessEnvironment `pulumi:"environments"`
 	// ARN of the IAM role that the harness assumes to access AWS services.
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
@@ -333,17 +381,19 @@ type agentcoreHarnessState struct {
 	MaxIterations *int `pulumi:"maxIterations"`
 	// Maximum number of tokens in the model response.
 	MaxTokens *int `pulumi:"maxTokens"`
-	// Memory configuration. See `memory` below.
+	// Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`.
 	Memory *AgentcoreHarnessMemory `pulumi:"memory"`
-	// Model configuration for the harness. See `model` below.
+	// Actual deployed memory configuration.
+	MemoryActuals []AgentcoreHarnessMemoryActual `pulumi:"memoryActuals"`
+	// Model configuration for the harness. See `model` Block below.
 	//
 	// The following arguments are optional:
 	Model *AgentcoreHarnessModel `pulumi:"model"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Skill configurations. See `skill` below.
+	// Skill configurations. See `skill` Block below.
 	Skills []AgentcoreHarnessSkill `pulumi:"skills"`
-	// System prompt blocks for the harness. See `systemPrompt` below.
+	// System prompt blocks for the harness. See `systemPrompt` Block below.
 	SystemPrompts []AgentcoreHarnessSystemPrompt `pulumi:"systemPrompts"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -352,9 +402,9 @@ type agentcoreHarnessState struct {
 	// Timeout in seconds for the harness execution.
 	TimeoutSeconds *int                      `pulumi:"timeoutSeconds"`
 	Timeouts       *AgentcoreHarnessTimeouts `pulumi:"timeouts"`
-	// Tool configurations. See `tool` below.
+	// Tool configurations. See `tool` Block below.
 	Tools []AgentcoreHarnessTool `pulumi:"tools"`
-	// Truncation configuration for conversation history. See `truncation` below.
+	// Truncation configuration for conversation history. See `truncation` Block below.
 	Truncations []AgentcoreHarnessTruncation `pulumi:"truncations"`
 }
 
@@ -363,13 +413,13 @@ type AgentcoreHarnessState struct {
 	AllowedTools pulumi.StringArrayInput
 	// ARN of the Harness.
 	Arn pulumi.StringPtrInput
-	// Authorization configuration for authenticating requests. See `authorizerConfiguration` below.
+	// Authorization configuration for authenticating requests. See `authorizerConfiguration` Block below.
 	AuthorizerConfiguration AgentcoreHarnessAuthorizerConfigurationPtrInput
-	// Environment artifact configuration. See `environmentArtifact` below.
+	// Environment artifact configuration. See `environmentArtifact` Block below.
 	EnvironmentArtifact AgentcoreHarnessEnvironmentArtifactPtrInput
 	// Map of environment variables.
 	EnvironmentVariables pulumi.StringMapInput
-	// Compute environment configuration. See `environment` below.
+	// Compute environment configuration. See `environment` Block below.
 	Environments AgentcoreHarnessEnvironmentArrayInput
 	// ARN of the IAM role that the harness assumes to access AWS services.
 	ExecutionRoleArn pulumi.StringPtrInput
@@ -381,17 +431,19 @@ type AgentcoreHarnessState struct {
 	MaxIterations pulumi.IntPtrInput
 	// Maximum number of tokens in the model response.
 	MaxTokens pulumi.IntPtrInput
-	// Memory configuration. See `memory` below.
+	// Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`.
 	Memory AgentcoreHarnessMemoryPtrInput
-	// Model configuration for the harness. See `model` below.
+	// Actual deployed memory configuration.
+	MemoryActuals AgentcoreHarnessMemoryActualArrayInput
+	// Model configuration for the harness. See `model` Block below.
 	//
 	// The following arguments are optional:
 	Model AgentcoreHarnessModelPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Skill configurations. See `skill` below.
+	// Skill configurations. See `skill` Block below.
 	Skills AgentcoreHarnessSkillArrayInput
-	// System prompt blocks for the harness. See `systemPrompt` below.
+	// System prompt blocks for the harness. See `systemPrompt` Block below.
 	SystemPrompts AgentcoreHarnessSystemPromptArrayInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -400,9 +452,9 @@ type AgentcoreHarnessState struct {
 	// Timeout in seconds for the harness execution.
 	TimeoutSeconds pulumi.IntPtrInput
 	Timeouts       AgentcoreHarnessTimeoutsPtrInput
-	// Tool configurations. See `tool` below.
+	// Tool configurations. See `tool` Block below.
 	Tools AgentcoreHarnessToolArrayInput
-	// Truncation configuration for conversation history. See `truncation` below.
+	// Truncation configuration for conversation history. See `truncation` Block below.
 	Truncations AgentcoreHarnessTruncationArrayInput
 }
 
@@ -413,13 +465,13 @@ func (AgentcoreHarnessState) ElementType() reflect.Type {
 type agentcoreHarnessArgs struct {
 	// List of tool names allowed for the harness. Use `["*"]` to allow all tools.
 	AllowedTools []string `pulumi:"allowedTools"`
-	// Authorization configuration for authenticating requests. See `authorizerConfiguration` below.
+	// Authorization configuration for authenticating requests. See `authorizerConfiguration` Block below.
 	AuthorizerConfiguration *AgentcoreHarnessAuthorizerConfiguration `pulumi:"authorizerConfiguration"`
-	// Environment artifact configuration. See `environmentArtifact` below.
+	// Environment artifact configuration. See `environmentArtifact` Block below.
 	EnvironmentArtifact *AgentcoreHarnessEnvironmentArtifact `pulumi:"environmentArtifact"`
 	// Map of environment variables.
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
-	// Compute environment configuration. See `environment` below.
+	// Compute environment configuration. See `environment` Block below.
 	Environments []AgentcoreHarnessEnvironment `pulumi:"environments"`
 	// ARN of the IAM role that the harness assumes to access AWS services.
 	ExecutionRoleArn string `pulumi:"executionRoleArn"`
@@ -429,26 +481,26 @@ type agentcoreHarnessArgs struct {
 	MaxIterations *int `pulumi:"maxIterations"`
 	// Maximum number of tokens in the model response.
 	MaxTokens *int `pulumi:"maxTokens"`
-	// Memory configuration. See `memory` below.
+	// Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`.
 	Memory *AgentcoreHarnessMemory `pulumi:"memory"`
-	// Model configuration for the harness. See `model` below.
+	// Model configuration for the harness. See `model` Block below.
 	//
 	// The following arguments are optional:
 	Model AgentcoreHarnessModel `pulumi:"model"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Skill configurations. See `skill` below.
+	// Skill configurations. See `skill` Block below.
 	Skills []AgentcoreHarnessSkill `pulumi:"skills"`
-	// System prompt blocks for the harness. See `systemPrompt` below.
+	// System prompt blocks for the harness. See `systemPrompt` Block below.
 	SystemPrompts []AgentcoreHarnessSystemPrompt `pulumi:"systemPrompts"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Timeout in seconds for the harness execution.
 	TimeoutSeconds *int                      `pulumi:"timeoutSeconds"`
 	Timeouts       *AgentcoreHarnessTimeouts `pulumi:"timeouts"`
-	// Tool configurations. See `tool` below.
+	// Tool configurations. See `tool` Block below.
 	Tools []AgentcoreHarnessTool `pulumi:"tools"`
-	// Truncation configuration for conversation history. See `truncation` below.
+	// Truncation configuration for conversation history. See `truncation` Block below.
 	Truncations []AgentcoreHarnessTruncation `pulumi:"truncations"`
 }
 
@@ -456,13 +508,13 @@ type agentcoreHarnessArgs struct {
 type AgentcoreHarnessArgs struct {
 	// List of tool names allowed for the harness. Use `["*"]` to allow all tools.
 	AllowedTools pulumi.StringArrayInput
-	// Authorization configuration for authenticating requests. See `authorizerConfiguration` below.
+	// Authorization configuration for authenticating requests. See `authorizerConfiguration` Block below.
 	AuthorizerConfiguration AgentcoreHarnessAuthorizerConfigurationPtrInput
-	// Environment artifact configuration. See `environmentArtifact` below.
+	// Environment artifact configuration. See `environmentArtifact` Block below.
 	EnvironmentArtifact AgentcoreHarnessEnvironmentArtifactPtrInput
 	// Map of environment variables.
 	EnvironmentVariables pulumi.StringMapInput
-	// Compute environment configuration. See `environment` below.
+	// Compute environment configuration. See `environment` Block below.
 	Environments AgentcoreHarnessEnvironmentArrayInput
 	// ARN of the IAM role that the harness assumes to access AWS services.
 	ExecutionRoleArn pulumi.StringInput
@@ -472,26 +524,26 @@ type AgentcoreHarnessArgs struct {
 	MaxIterations pulumi.IntPtrInput
 	// Maximum number of tokens in the model response.
 	MaxTokens pulumi.IntPtrInput
-	// Memory configuration. See `memory` below.
+	// Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`.
 	Memory AgentcoreHarnessMemoryPtrInput
-	// Model configuration for the harness. See `model` below.
+	// Model configuration for the harness. See `model` Block below.
 	//
 	// The following arguments are optional:
 	Model AgentcoreHarnessModelInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Skill configurations. See `skill` below.
+	// Skill configurations. See `skill` Block below.
 	Skills AgentcoreHarnessSkillArrayInput
-	// System prompt blocks for the harness. See `systemPrompt` below.
+	// System prompt blocks for the harness. See `systemPrompt` Block below.
 	SystemPrompts AgentcoreHarnessSystemPromptArrayInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Timeout in seconds for the harness execution.
 	TimeoutSeconds pulumi.IntPtrInput
 	Timeouts       AgentcoreHarnessTimeoutsPtrInput
-	// Tool configurations. See `tool` below.
+	// Tool configurations. See `tool` Block below.
 	Tools AgentcoreHarnessToolArrayInput
-	// Truncation configuration for conversation history. See `truncation` below.
+	// Truncation configuration for conversation history. See `truncation` Block below.
 	Truncations AgentcoreHarnessTruncationArrayInput
 }
 
@@ -592,14 +644,14 @@ func (o AgentcoreHarnessOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreHarness) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Authorization configuration for authenticating requests. See `authorizerConfiguration` below.
+// Authorization configuration for authenticating requests. See `authorizerConfiguration` Block below.
 func (o AgentcoreHarnessOutput) AuthorizerConfiguration() AgentcoreHarnessAuthorizerConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentcoreHarness) AgentcoreHarnessAuthorizerConfigurationPtrOutput {
 		return v.AuthorizerConfiguration
 	}).(AgentcoreHarnessAuthorizerConfigurationPtrOutput)
 }
 
-// Environment artifact configuration. See `environmentArtifact` below.
+// Environment artifact configuration. See `environmentArtifact` Block below.
 func (o AgentcoreHarnessOutput) EnvironmentArtifact() AgentcoreHarnessEnvironmentArtifactPtrOutput {
 	return o.ApplyT(func(v *AgentcoreHarness) AgentcoreHarnessEnvironmentArtifactPtrOutput { return v.EnvironmentArtifact }).(AgentcoreHarnessEnvironmentArtifactPtrOutput)
 }
@@ -609,7 +661,7 @@ func (o AgentcoreHarnessOutput) EnvironmentVariables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AgentcoreHarness) pulumi.StringMapOutput { return v.EnvironmentVariables }).(pulumi.StringMapOutput)
 }
 
-// Compute environment configuration. See `environment` below.
+// Compute environment configuration. See `environment` Block below.
 func (o AgentcoreHarnessOutput) Environments() AgentcoreHarnessEnvironmentArrayOutput {
 	return o.ApplyT(func(v *AgentcoreHarness) AgentcoreHarnessEnvironmentArrayOutput { return v.Environments }).(AgentcoreHarnessEnvironmentArrayOutput)
 }
@@ -639,12 +691,17 @@ func (o AgentcoreHarnessOutput) MaxTokens() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AgentcoreHarness) pulumi.IntPtrOutput { return v.MaxTokens }).(pulumi.IntPtrOutput)
 }
 
-// Memory configuration. See `memory` below.
+// Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`.
 func (o AgentcoreHarnessOutput) Memory() AgentcoreHarnessMemoryPtrOutput {
 	return o.ApplyT(func(v *AgentcoreHarness) AgentcoreHarnessMemoryPtrOutput { return v.Memory }).(AgentcoreHarnessMemoryPtrOutput)
 }
 
-// Model configuration for the harness. See `model` below.
+// Actual deployed memory configuration.
+func (o AgentcoreHarnessOutput) MemoryActuals() AgentcoreHarnessMemoryActualArrayOutput {
+	return o.ApplyT(func(v *AgentcoreHarness) AgentcoreHarnessMemoryActualArrayOutput { return v.MemoryActuals }).(AgentcoreHarnessMemoryActualArrayOutput)
+}
+
+// Model configuration for the harness. See `model` Block below.
 //
 // The following arguments are optional:
 func (o AgentcoreHarnessOutput) Model() AgentcoreHarnessModelOutput {
@@ -656,12 +713,12 @@ func (o AgentcoreHarnessOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreHarness) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Skill configurations. See `skill` below.
+// Skill configurations. See `skill` Block below.
 func (o AgentcoreHarnessOutput) Skills() AgentcoreHarnessSkillArrayOutput {
 	return o.ApplyT(func(v *AgentcoreHarness) AgentcoreHarnessSkillArrayOutput { return v.Skills }).(AgentcoreHarnessSkillArrayOutput)
 }
 
-// System prompt blocks for the harness. See `systemPrompt` below.
+// System prompt blocks for the harness. See `systemPrompt` Block below.
 func (o AgentcoreHarnessOutput) SystemPrompts() AgentcoreHarnessSystemPromptArrayOutput {
 	return o.ApplyT(func(v *AgentcoreHarness) AgentcoreHarnessSystemPromptArrayOutput { return v.SystemPrompts }).(AgentcoreHarnessSystemPromptArrayOutput)
 }
@@ -685,12 +742,12 @@ func (o AgentcoreHarnessOutput) Timeouts() AgentcoreHarnessTimeoutsPtrOutput {
 	return o.ApplyT(func(v *AgentcoreHarness) AgentcoreHarnessTimeoutsPtrOutput { return v.Timeouts }).(AgentcoreHarnessTimeoutsPtrOutput)
 }
 
-// Tool configurations. See `tool` below.
+// Tool configurations. See `tool` Block below.
 func (o AgentcoreHarnessOutput) Tools() AgentcoreHarnessToolArrayOutput {
 	return o.ApplyT(func(v *AgentcoreHarness) AgentcoreHarnessToolArrayOutput { return v.Tools }).(AgentcoreHarnessToolArrayOutput)
 }
 
-// Truncation configuration for conversation history. See `truncation` below.
+// Truncation configuration for conversation history. See `truncation` Block below.
 func (o AgentcoreHarnessOutput) Truncations() AgentcoreHarnessTruncationArrayOutput {
 	return o.ApplyT(func(v *AgentcoreHarness) AgentcoreHarnessTruncationArrayOutput { return v.Truncations }).(AgentcoreHarnessTruncationArrayOutput)
 }

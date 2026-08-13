@@ -47,19 +47,32 @@ __all__ = [
 
 class AccountThrottleSettingArgsDict(TypedDict):
     burst_limit: pulumi.Input[_builtins.int]
+    """
+    Absolute maximum number of times API Gateway allows the API to be called per second.
+    """
     rate_limit: pulumi.Input[_builtins.float]
+    """
+    Number of times API Gateway allows the API to be called per second on average.
+    """
 
 @pulumi.input_type
 class AccountThrottleSettingArgs:
     def __init__(__self__, *,
                  burst_limit: pulumi.Input[_builtins.int],
                  rate_limit: pulumi.Input[_builtins.float]):
+        """
+        :param pulumi.Input[_builtins.int] burst_limit: Absolute maximum number of times API Gateway allows the API to be called per second.
+        :param pulumi.Input[_builtins.float] rate_limit: Number of times API Gateway allows the API to be called per second on average.
+        """
         pulumi.set(__self__, "burst_limit", burst_limit)
         pulumi.set(__self__, "rate_limit", rate_limit)
 
     @_builtins.property
     @pulumi.getter(name="burstLimit")
     def burst_limit(self) -> pulumi.Input[_builtins.int]:
+        """
+        Absolute maximum number of times API Gateway allows the API to be called per second.
+        """
         return pulumi.get(self, "burst_limit")
 
     @burst_limit.setter
@@ -69,6 +82,9 @@ class AccountThrottleSettingArgs:
     @_builtins.property
     @pulumi.getter(name="rateLimit")
     def rate_limit(self) -> pulumi.Input[_builtins.float]:
+        """
+        Number of times API Gateway allows the API to be called per second on average.
+        """
         return pulumi.get(self, "rate_limit")
 
     @rate_limit.setter

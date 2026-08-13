@@ -10,6 +10,7 @@ import com.pulumi.aws.bedrock.outputs.AgentcoreHarnessAuthorizerConfiguration;
 import com.pulumi.aws.bedrock.outputs.AgentcoreHarnessEnvironment;
 import com.pulumi.aws.bedrock.outputs.AgentcoreHarnessEnvironmentArtifact;
 import com.pulumi.aws.bedrock.outputs.AgentcoreHarnessMemory;
+import com.pulumi.aws.bedrock.outputs.AgentcoreHarnessMemoryActual;
 import com.pulumi.aws.bedrock.outputs.AgentcoreHarnessModel;
 import com.pulumi.aws.bedrock.outputs.AgentcoreHarnessSkill;
 import com.pulumi.aws.bedrock.outputs.AgentcoreHarnessSystemPrompt;
@@ -198,6 +199,61 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### With Managed Memory
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.bedrock.AgentcoreHarness;
+ * import com.pulumi.aws.bedrock.AgentcoreHarnessArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreHarnessModelArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreHarnessModelBedrockModelConfigArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreHarnessSystemPromptArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreHarnessMemoryArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreHarnessMemoryManagedMemoryConfigurationArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new AgentcoreHarness("example", AgentcoreHarnessArgs.builder()
+ *             .harnessName("my_harness")
+ *             .executionRoleArn(exampleAwsIamRole.arn())
+ *             .model(AgentcoreHarnessModelArgs.builder()
+ *                 .bedrockModelConfig(AgentcoreHarnessModelBedrockModelConfigArgs.builder()
+ *                     .modelId("anthropic.claude-sonnet-4-20250514")
+ *                     .build())
+ *                 .build())
+ *             .systemPrompts(AgentcoreHarnessSystemPromptArgs.builder()
+ *                 .text("You are a helpful assistant.")
+ *                 .build())
+ *             .memory(AgentcoreHarnessMemoryArgs.builder()
+ *                 .managedMemoryConfiguration(AgentcoreHarnessMemoryManagedMemoryConfigurationArgs.builder()
+ *                     .eventExpiryDuration(14)
+ *                     .strategies(                    
+ *                         "SEMANTIC",
+ *                         "SUMMARIZATION")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * ### Identity Schema
@@ -249,28 +305,28 @@ public class AgentcoreHarness extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Authorization configuration for authenticating requests. See `authorizerConfiguration` below.
+     * Authorization configuration for authenticating requests. See `authorizerConfiguration` Block below.
      * 
      */
     @Export(name="authorizerConfiguration", refs={AgentcoreHarnessAuthorizerConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ AgentcoreHarnessAuthorizerConfiguration> authorizerConfiguration;
 
     /**
-     * @return Authorization configuration for authenticating requests. See `authorizerConfiguration` below.
+     * @return Authorization configuration for authenticating requests. See `authorizerConfiguration` Block below.
      * 
      */
     public Output<Optional<AgentcoreHarnessAuthorizerConfiguration>> authorizerConfiguration() {
         return Codegen.optional(this.authorizerConfiguration);
     }
     /**
-     * Environment artifact configuration. See `environmentArtifact` below.
+     * Environment artifact configuration. See `environmentArtifact` Block below.
      * 
      */
     @Export(name="environmentArtifact", refs={AgentcoreHarnessEnvironmentArtifact.class}, tree="[0]")
     private Output</* @Nullable */ AgentcoreHarnessEnvironmentArtifact> environmentArtifact;
 
     /**
-     * @return Environment artifact configuration. See `environmentArtifact` below.
+     * @return Environment artifact configuration. See `environmentArtifact` Block below.
      * 
      */
     public Output<Optional<AgentcoreHarnessEnvironmentArtifact>> environmentArtifact() {
@@ -291,14 +347,14 @@ public class AgentcoreHarness extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.environmentVariables);
     }
     /**
-     * Compute environment configuration. See `environment` below.
+     * Compute environment configuration. See `environment` Block below.
      * 
      */
     @Export(name="environments", refs={List.class,AgentcoreHarnessEnvironment.class}, tree="[0,1]")
     private Output<List<AgentcoreHarnessEnvironment>> environments;
 
     /**
-     * @return Compute environment configuration. See `environment` below.
+     * @return Compute environment configuration. See `environment` Block below.
      * 
      */
     public Output<List<AgentcoreHarnessEnvironment>> environments() {
@@ -375,21 +431,35 @@ public class AgentcoreHarness extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.maxTokens);
     }
     /**
-     * Memory configuration. See `memory` below.
+     * Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`.
      * 
      */
     @Export(name="memory", refs={AgentcoreHarnessMemory.class}, tree="[0]")
     private Output</* @Nullable */ AgentcoreHarnessMemory> memory;
 
     /**
-     * @return Memory configuration. See `memory` below.
+     * @return Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`.
      * 
      */
     public Output<Optional<AgentcoreHarnessMemory>> memory() {
         return Codegen.optional(this.memory);
     }
     /**
-     * Model configuration for the harness. See `model` below.
+     * Actual deployed memory configuration.
+     * 
+     */
+    @Export(name="memoryActuals", refs={List.class,AgentcoreHarnessMemoryActual.class}, tree="[0,1]")
+    private Output<List<AgentcoreHarnessMemoryActual>> memoryActuals;
+
+    /**
+     * @return Actual deployed memory configuration.
+     * 
+     */
+    public Output<List<AgentcoreHarnessMemoryActual>> memoryActuals() {
+        return this.memoryActuals;
+    }
+    /**
+     * Model configuration for the harness. See `model` Block below.
      * 
      * The following arguments are optional:
      * 
@@ -398,7 +468,7 @@ public class AgentcoreHarness extends com.pulumi.resources.CustomResource {
     private Output<AgentcoreHarnessModel> model;
 
     /**
-     * @return Model configuration for the harness. See `model` below.
+     * @return Model configuration for the harness. See `model` Block below.
      * 
      * The following arguments are optional:
      * 
@@ -421,28 +491,28 @@ public class AgentcoreHarness extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Skill configurations. See `skill` below.
+     * Skill configurations. See `skill` Block below.
      * 
      */
     @Export(name="skills", refs={List.class,AgentcoreHarnessSkill.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AgentcoreHarnessSkill>> skills;
 
     /**
-     * @return Skill configurations. See `skill` below.
+     * @return Skill configurations. See `skill` Block below.
      * 
      */
     public Output<Optional<List<AgentcoreHarnessSkill>>> skills() {
         return Codegen.optional(this.skills);
     }
     /**
-     * System prompt blocks for the harness. See `systemPrompt` below.
+     * System prompt blocks for the harness. See `systemPrompt` Block below.
      * 
      */
     @Export(name="systemPrompts", refs={List.class,AgentcoreHarnessSystemPrompt.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AgentcoreHarnessSystemPrompt>> systemPrompts;
 
     /**
-     * @return System prompt blocks for the harness. See `systemPrompt` below.
+     * @return System prompt blocks for the harness. See `systemPrompt` Block below.
      * 
      */
     public Output<Optional<List<AgentcoreHarnessSystemPrompt>>> systemPrompts() {
@@ -497,28 +567,28 @@ public class AgentcoreHarness extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.timeouts);
     }
     /**
-     * Tool configurations. See `tool` below.
+     * Tool configurations. See `tool` Block below.
      * 
      */
     @Export(name="tools", refs={List.class,AgentcoreHarnessTool.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AgentcoreHarnessTool>> tools;
 
     /**
-     * @return Tool configurations. See `tool` below.
+     * @return Tool configurations. See `tool` Block below.
      * 
      */
     public Output<Optional<List<AgentcoreHarnessTool>>> tools() {
         return Codegen.optional(this.tools);
     }
     /**
-     * Truncation configuration for conversation history. See `truncation` below.
+     * Truncation configuration for conversation history. See `truncation` Block below.
      * 
      */
     @Export(name="truncations", refs={List.class,AgentcoreHarnessTruncation.class}, tree="[0,1]")
     private Output<List<AgentcoreHarnessTruncation>> truncations;
 
     /**
-     * @return Truncation configuration for conversation history. See `truncation` below.
+     * @return Truncation configuration for conversation history. See `truncation` Block below.
      * 
      */
     public Output<List<AgentcoreHarnessTruncation>> truncations() {

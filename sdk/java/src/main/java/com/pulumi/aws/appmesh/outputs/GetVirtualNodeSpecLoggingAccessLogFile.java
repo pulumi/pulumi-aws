@@ -12,13 +12,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualNodeSpecLoggingAccessLogFile {
+    /**
+     * @return Format for the logs. See `spec.logging.access_log.file.format` Block for details.
+     * 
+     */
     private List<GetVirtualNodeSpecLoggingAccessLogFileFormat> formats;
+    /**
+     * @return File path to write access logs to.
+     * 
+     */
     private String path;
 
     private GetVirtualNodeSpecLoggingAccessLogFile() {}
+    /**
+     * @return Format for the logs. See `spec.logging.access_log.file.format` Block for details.
+     * 
+     */
     public List<GetVirtualNodeSpecLoggingAccessLogFileFormat> formats() {
         return this.formats;
     }
+    /**
+     * @return File path to write access logs to.
+     * 
+     */
     public String path() {
         return this.path;
     }

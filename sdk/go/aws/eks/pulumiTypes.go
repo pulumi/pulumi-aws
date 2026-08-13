@@ -2555,6 +2555,1148 @@ func (o ClusterIdentityOidcArrayOutput) Index(i pulumi.IntInput) ClusterIdentity
 	}).(ClusterIdentityOidcOutput)
 }
 
+type ClusterKubeApiServerConfig struct {
+	// The duration that Kubernetes events are retained. Must be a single-unit duration (e.g., `30m`, `1h`). Valid range: `10m` to `60m`. Default is `1h`.
+	EventTtl *string `pulumi:"eventTtl"`
+	// Configuration block for the port range available for NodePort services. Detailed below.
+	ServiceNodePortRange *ClusterKubeApiServerConfigServiceNodePortRange `pulumi:"serviceNodePortRange"`
+}
+
+// ClusterKubeApiServerConfigInput is an input type that accepts ClusterKubeApiServerConfigArgs and ClusterKubeApiServerConfigOutput values.
+// You can construct a concrete instance of `ClusterKubeApiServerConfigInput` via:
+//
+//	ClusterKubeApiServerConfigArgs{...}
+type ClusterKubeApiServerConfigInput interface {
+	pulumi.Input
+
+	ToClusterKubeApiServerConfigOutput() ClusterKubeApiServerConfigOutput
+	ToClusterKubeApiServerConfigOutputWithContext(context.Context) ClusterKubeApiServerConfigOutput
+}
+
+type ClusterKubeApiServerConfigArgs struct {
+	// The duration that Kubernetes events are retained. Must be a single-unit duration (e.g., `30m`, `1h`). Valid range: `10m` to `60m`. Default is `1h`.
+	EventTtl pulumi.StringPtrInput `pulumi:"eventTtl"`
+	// Configuration block for the port range available for NodePort services. Detailed below.
+	ServiceNodePortRange ClusterKubeApiServerConfigServiceNodePortRangePtrInput `pulumi:"serviceNodePortRange"`
+}
+
+func (ClusterKubeApiServerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKubeApiServerConfig)(nil)).Elem()
+}
+
+func (i ClusterKubeApiServerConfigArgs) ToClusterKubeApiServerConfigOutput() ClusterKubeApiServerConfigOutput {
+	return i.ToClusterKubeApiServerConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterKubeApiServerConfigArgs) ToClusterKubeApiServerConfigOutputWithContext(ctx context.Context) ClusterKubeApiServerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubeApiServerConfigOutput)
+}
+
+func (i ClusterKubeApiServerConfigArgs) ToClusterKubeApiServerConfigPtrOutput() ClusterKubeApiServerConfigPtrOutput {
+	return i.ToClusterKubeApiServerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterKubeApiServerConfigArgs) ToClusterKubeApiServerConfigPtrOutputWithContext(ctx context.Context) ClusterKubeApiServerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubeApiServerConfigOutput).ToClusterKubeApiServerConfigPtrOutputWithContext(ctx)
+}
+
+// ClusterKubeApiServerConfigPtrInput is an input type that accepts ClusterKubeApiServerConfigArgs, ClusterKubeApiServerConfigPtr and ClusterKubeApiServerConfigPtrOutput values.
+// You can construct a concrete instance of `ClusterKubeApiServerConfigPtrInput` via:
+//
+//	        ClusterKubeApiServerConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterKubeApiServerConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterKubeApiServerConfigPtrOutput() ClusterKubeApiServerConfigPtrOutput
+	ToClusterKubeApiServerConfigPtrOutputWithContext(context.Context) ClusterKubeApiServerConfigPtrOutput
+}
+
+type clusterKubeApiServerConfigPtrType ClusterKubeApiServerConfigArgs
+
+func ClusterKubeApiServerConfigPtr(v *ClusterKubeApiServerConfigArgs) ClusterKubeApiServerConfigPtrInput {
+	return (*clusterKubeApiServerConfigPtrType)(v)
+}
+
+func (*clusterKubeApiServerConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterKubeApiServerConfig)(nil)).Elem()
+}
+
+func (i *clusterKubeApiServerConfigPtrType) ToClusterKubeApiServerConfigPtrOutput() ClusterKubeApiServerConfigPtrOutput {
+	return i.ToClusterKubeApiServerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterKubeApiServerConfigPtrType) ToClusterKubeApiServerConfigPtrOutputWithContext(ctx context.Context) ClusterKubeApiServerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubeApiServerConfigPtrOutput)
+}
+
+type ClusterKubeApiServerConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterKubeApiServerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKubeApiServerConfig)(nil)).Elem()
+}
+
+func (o ClusterKubeApiServerConfigOutput) ToClusterKubeApiServerConfigOutput() ClusterKubeApiServerConfigOutput {
+	return o
+}
+
+func (o ClusterKubeApiServerConfigOutput) ToClusterKubeApiServerConfigOutputWithContext(ctx context.Context) ClusterKubeApiServerConfigOutput {
+	return o
+}
+
+func (o ClusterKubeApiServerConfigOutput) ToClusterKubeApiServerConfigPtrOutput() ClusterKubeApiServerConfigPtrOutput {
+	return o.ToClusterKubeApiServerConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterKubeApiServerConfigOutput) ToClusterKubeApiServerConfigPtrOutputWithContext(ctx context.Context) ClusterKubeApiServerConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterKubeApiServerConfig) *ClusterKubeApiServerConfig {
+		return &v
+	}).(ClusterKubeApiServerConfigPtrOutput)
+}
+
+// The duration that Kubernetes events are retained. Must be a single-unit duration (e.g., `30m`, `1h`). Valid range: `10m` to `60m`. Default is `1h`.
+func (o ClusterKubeApiServerConfigOutput) EventTtl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterKubeApiServerConfig) *string { return v.EventTtl }).(pulumi.StringPtrOutput)
+}
+
+// Configuration block for the port range available for NodePort services. Detailed below.
+func (o ClusterKubeApiServerConfigOutput) ServiceNodePortRange() ClusterKubeApiServerConfigServiceNodePortRangePtrOutput {
+	return o.ApplyT(func(v ClusterKubeApiServerConfig) *ClusterKubeApiServerConfigServiceNodePortRange {
+		return v.ServiceNodePortRange
+	}).(ClusterKubeApiServerConfigServiceNodePortRangePtrOutput)
+}
+
+type ClusterKubeApiServerConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterKubeApiServerConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterKubeApiServerConfig)(nil)).Elem()
+}
+
+func (o ClusterKubeApiServerConfigPtrOutput) ToClusterKubeApiServerConfigPtrOutput() ClusterKubeApiServerConfigPtrOutput {
+	return o
+}
+
+func (o ClusterKubeApiServerConfigPtrOutput) ToClusterKubeApiServerConfigPtrOutputWithContext(ctx context.Context) ClusterKubeApiServerConfigPtrOutput {
+	return o
+}
+
+func (o ClusterKubeApiServerConfigPtrOutput) Elem() ClusterKubeApiServerConfigOutput {
+	return o.ApplyT(func(v *ClusterKubeApiServerConfig) ClusterKubeApiServerConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterKubeApiServerConfig
+		return ret
+	}).(ClusterKubeApiServerConfigOutput)
+}
+
+// The duration that Kubernetes events are retained. Must be a single-unit duration (e.g., `30m`, `1h`). Valid range: `10m` to `60m`. Default is `1h`.
+func (o ClusterKubeApiServerConfigPtrOutput) EventTtl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterKubeApiServerConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EventTtl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration block for the port range available for NodePort services. Detailed below.
+func (o ClusterKubeApiServerConfigPtrOutput) ServiceNodePortRange() ClusterKubeApiServerConfigServiceNodePortRangePtrOutput {
+	return o.ApplyT(func(v *ClusterKubeApiServerConfig) *ClusterKubeApiServerConfigServiceNodePortRange {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceNodePortRange
+	}).(ClusterKubeApiServerConfigServiceNodePortRangePtrOutput)
+}
+
+type ClusterKubeApiServerConfigServiceNodePortRange struct {
+	// The maximum port number in the range. Valid range: `10260` to `32767`. Default is `32767`. Must be greater than or equal to `minPort`.
+	MaxPort *int `pulumi:"maxPort"`
+	// The minimum port number in the range. Valid range: `10260` to `32767`. Default is `30000`.
+	MinPort *int `pulumi:"minPort"`
+}
+
+// ClusterKubeApiServerConfigServiceNodePortRangeInput is an input type that accepts ClusterKubeApiServerConfigServiceNodePortRangeArgs and ClusterKubeApiServerConfigServiceNodePortRangeOutput values.
+// You can construct a concrete instance of `ClusterKubeApiServerConfigServiceNodePortRangeInput` via:
+//
+//	ClusterKubeApiServerConfigServiceNodePortRangeArgs{...}
+type ClusterKubeApiServerConfigServiceNodePortRangeInput interface {
+	pulumi.Input
+
+	ToClusterKubeApiServerConfigServiceNodePortRangeOutput() ClusterKubeApiServerConfigServiceNodePortRangeOutput
+	ToClusterKubeApiServerConfigServiceNodePortRangeOutputWithContext(context.Context) ClusterKubeApiServerConfigServiceNodePortRangeOutput
+}
+
+type ClusterKubeApiServerConfigServiceNodePortRangeArgs struct {
+	// The maximum port number in the range. Valid range: `10260` to `32767`. Default is `32767`. Must be greater than or equal to `minPort`.
+	MaxPort pulumi.IntPtrInput `pulumi:"maxPort"`
+	// The minimum port number in the range. Valid range: `10260` to `32767`. Default is `30000`.
+	MinPort pulumi.IntPtrInput `pulumi:"minPort"`
+}
+
+func (ClusterKubeApiServerConfigServiceNodePortRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKubeApiServerConfigServiceNodePortRange)(nil)).Elem()
+}
+
+func (i ClusterKubeApiServerConfigServiceNodePortRangeArgs) ToClusterKubeApiServerConfigServiceNodePortRangeOutput() ClusterKubeApiServerConfigServiceNodePortRangeOutput {
+	return i.ToClusterKubeApiServerConfigServiceNodePortRangeOutputWithContext(context.Background())
+}
+
+func (i ClusterKubeApiServerConfigServiceNodePortRangeArgs) ToClusterKubeApiServerConfigServiceNodePortRangeOutputWithContext(ctx context.Context) ClusterKubeApiServerConfigServiceNodePortRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubeApiServerConfigServiceNodePortRangeOutput)
+}
+
+func (i ClusterKubeApiServerConfigServiceNodePortRangeArgs) ToClusterKubeApiServerConfigServiceNodePortRangePtrOutput() ClusterKubeApiServerConfigServiceNodePortRangePtrOutput {
+	return i.ToClusterKubeApiServerConfigServiceNodePortRangePtrOutputWithContext(context.Background())
+}
+
+func (i ClusterKubeApiServerConfigServiceNodePortRangeArgs) ToClusterKubeApiServerConfigServiceNodePortRangePtrOutputWithContext(ctx context.Context) ClusterKubeApiServerConfigServiceNodePortRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubeApiServerConfigServiceNodePortRangeOutput).ToClusterKubeApiServerConfigServiceNodePortRangePtrOutputWithContext(ctx)
+}
+
+// ClusterKubeApiServerConfigServiceNodePortRangePtrInput is an input type that accepts ClusterKubeApiServerConfigServiceNodePortRangeArgs, ClusterKubeApiServerConfigServiceNodePortRangePtr and ClusterKubeApiServerConfigServiceNodePortRangePtrOutput values.
+// You can construct a concrete instance of `ClusterKubeApiServerConfigServiceNodePortRangePtrInput` via:
+//
+//	        ClusterKubeApiServerConfigServiceNodePortRangeArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterKubeApiServerConfigServiceNodePortRangePtrInput interface {
+	pulumi.Input
+
+	ToClusterKubeApiServerConfigServiceNodePortRangePtrOutput() ClusterKubeApiServerConfigServiceNodePortRangePtrOutput
+	ToClusterKubeApiServerConfigServiceNodePortRangePtrOutputWithContext(context.Context) ClusterKubeApiServerConfigServiceNodePortRangePtrOutput
+}
+
+type clusterKubeApiServerConfigServiceNodePortRangePtrType ClusterKubeApiServerConfigServiceNodePortRangeArgs
+
+func ClusterKubeApiServerConfigServiceNodePortRangePtr(v *ClusterKubeApiServerConfigServiceNodePortRangeArgs) ClusterKubeApiServerConfigServiceNodePortRangePtrInput {
+	return (*clusterKubeApiServerConfigServiceNodePortRangePtrType)(v)
+}
+
+func (*clusterKubeApiServerConfigServiceNodePortRangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterKubeApiServerConfigServiceNodePortRange)(nil)).Elem()
+}
+
+func (i *clusterKubeApiServerConfigServiceNodePortRangePtrType) ToClusterKubeApiServerConfigServiceNodePortRangePtrOutput() ClusterKubeApiServerConfigServiceNodePortRangePtrOutput {
+	return i.ToClusterKubeApiServerConfigServiceNodePortRangePtrOutputWithContext(context.Background())
+}
+
+func (i *clusterKubeApiServerConfigServiceNodePortRangePtrType) ToClusterKubeApiServerConfigServiceNodePortRangePtrOutputWithContext(ctx context.Context) ClusterKubeApiServerConfigServiceNodePortRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubeApiServerConfigServiceNodePortRangePtrOutput)
+}
+
+type ClusterKubeApiServerConfigServiceNodePortRangeOutput struct{ *pulumi.OutputState }
+
+func (ClusterKubeApiServerConfigServiceNodePortRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKubeApiServerConfigServiceNodePortRange)(nil)).Elem()
+}
+
+func (o ClusterKubeApiServerConfigServiceNodePortRangeOutput) ToClusterKubeApiServerConfigServiceNodePortRangeOutput() ClusterKubeApiServerConfigServiceNodePortRangeOutput {
+	return o
+}
+
+func (o ClusterKubeApiServerConfigServiceNodePortRangeOutput) ToClusterKubeApiServerConfigServiceNodePortRangeOutputWithContext(ctx context.Context) ClusterKubeApiServerConfigServiceNodePortRangeOutput {
+	return o
+}
+
+func (o ClusterKubeApiServerConfigServiceNodePortRangeOutput) ToClusterKubeApiServerConfigServiceNodePortRangePtrOutput() ClusterKubeApiServerConfigServiceNodePortRangePtrOutput {
+	return o.ToClusterKubeApiServerConfigServiceNodePortRangePtrOutputWithContext(context.Background())
+}
+
+func (o ClusterKubeApiServerConfigServiceNodePortRangeOutput) ToClusterKubeApiServerConfigServiceNodePortRangePtrOutputWithContext(ctx context.Context) ClusterKubeApiServerConfigServiceNodePortRangePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterKubeApiServerConfigServiceNodePortRange) *ClusterKubeApiServerConfigServiceNodePortRange {
+		return &v
+	}).(ClusterKubeApiServerConfigServiceNodePortRangePtrOutput)
+}
+
+// The maximum port number in the range. Valid range: `10260` to `32767`. Default is `32767`. Must be greater than or equal to `minPort`.
+func (o ClusterKubeApiServerConfigServiceNodePortRangeOutput) MaxPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterKubeApiServerConfigServiceNodePortRange) *int { return v.MaxPort }).(pulumi.IntPtrOutput)
+}
+
+// The minimum port number in the range. Valid range: `10260` to `32767`. Default is `30000`.
+func (o ClusterKubeApiServerConfigServiceNodePortRangeOutput) MinPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterKubeApiServerConfigServiceNodePortRange) *int { return v.MinPort }).(pulumi.IntPtrOutput)
+}
+
+type ClusterKubeApiServerConfigServiceNodePortRangePtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterKubeApiServerConfigServiceNodePortRangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterKubeApiServerConfigServiceNodePortRange)(nil)).Elem()
+}
+
+func (o ClusterKubeApiServerConfigServiceNodePortRangePtrOutput) ToClusterKubeApiServerConfigServiceNodePortRangePtrOutput() ClusterKubeApiServerConfigServiceNodePortRangePtrOutput {
+	return o
+}
+
+func (o ClusterKubeApiServerConfigServiceNodePortRangePtrOutput) ToClusterKubeApiServerConfigServiceNodePortRangePtrOutputWithContext(ctx context.Context) ClusterKubeApiServerConfigServiceNodePortRangePtrOutput {
+	return o
+}
+
+func (o ClusterKubeApiServerConfigServiceNodePortRangePtrOutput) Elem() ClusterKubeApiServerConfigServiceNodePortRangeOutput {
+	return o.ApplyT(func(v *ClusterKubeApiServerConfigServiceNodePortRange) ClusterKubeApiServerConfigServiceNodePortRange {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterKubeApiServerConfigServiceNodePortRange
+		return ret
+	}).(ClusterKubeApiServerConfigServiceNodePortRangeOutput)
+}
+
+// The maximum port number in the range. Valid range: `10260` to `32767`. Default is `32767`. Must be greater than or equal to `minPort`.
+func (o ClusterKubeApiServerConfigServiceNodePortRangePtrOutput) MaxPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterKubeApiServerConfigServiceNodePortRange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxPort
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum port number in the range. Valid range: `10260` to `32767`. Default is `30000`.
+func (o ClusterKubeApiServerConfigServiceNodePortRangePtrOutput) MinPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterKubeApiServerConfigServiceNodePortRange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinPort
+	}).(pulumi.IntPtrOutput)
+}
+
+type ClusterKubeControllerManagerConfig struct {
+	// Configuration block for the horizontal pod autoscaler controller. Detailed below.
+	//
+	// > **NOTE:** The `horizontalPodAutoscalerControllerConfig` requires a Provisioned Control Plane scaling tier (e.g., `tier-xl` or higher). It cannot be configured on clusters using the `standard` tier.
+	HorizontalPodAutoscalerControllerConfig *ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig `pulumi:"horizontalPodAutoscalerControllerConfig"`
+}
+
+// ClusterKubeControllerManagerConfigInput is an input type that accepts ClusterKubeControllerManagerConfigArgs and ClusterKubeControllerManagerConfigOutput values.
+// You can construct a concrete instance of `ClusterKubeControllerManagerConfigInput` via:
+//
+//	ClusterKubeControllerManagerConfigArgs{...}
+type ClusterKubeControllerManagerConfigInput interface {
+	pulumi.Input
+
+	ToClusterKubeControllerManagerConfigOutput() ClusterKubeControllerManagerConfigOutput
+	ToClusterKubeControllerManagerConfigOutputWithContext(context.Context) ClusterKubeControllerManagerConfigOutput
+}
+
+type ClusterKubeControllerManagerConfigArgs struct {
+	// Configuration block for the horizontal pod autoscaler controller. Detailed below.
+	//
+	// > **NOTE:** The `horizontalPodAutoscalerControllerConfig` requires a Provisioned Control Plane scaling tier (e.g., `tier-xl` or higher). It cannot be configured on clusters using the `standard` tier.
+	HorizontalPodAutoscalerControllerConfig ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrInput `pulumi:"horizontalPodAutoscalerControllerConfig"`
+}
+
+func (ClusterKubeControllerManagerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKubeControllerManagerConfig)(nil)).Elem()
+}
+
+func (i ClusterKubeControllerManagerConfigArgs) ToClusterKubeControllerManagerConfigOutput() ClusterKubeControllerManagerConfigOutput {
+	return i.ToClusterKubeControllerManagerConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterKubeControllerManagerConfigArgs) ToClusterKubeControllerManagerConfigOutputWithContext(ctx context.Context) ClusterKubeControllerManagerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubeControllerManagerConfigOutput)
+}
+
+func (i ClusterKubeControllerManagerConfigArgs) ToClusterKubeControllerManagerConfigPtrOutput() ClusterKubeControllerManagerConfigPtrOutput {
+	return i.ToClusterKubeControllerManagerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterKubeControllerManagerConfigArgs) ToClusterKubeControllerManagerConfigPtrOutputWithContext(ctx context.Context) ClusterKubeControllerManagerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubeControllerManagerConfigOutput).ToClusterKubeControllerManagerConfigPtrOutputWithContext(ctx)
+}
+
+// ClusterKubeControllerManagerConfigPtrInput is an input type that accepts ClusterKubeControllerManagerConfigArgs, ClusterKubeControllerManagerConfigPtr and ClusterKubeControllerManagerConfigPtrOutput values.
+// You can construct a concrete instance of `ClusterKubeControllerManagerConfigPtrInput` via:
+//
+//	        ClusterKubeControllerManagerConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterKubeControllerManagerConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterKubeControllerManagerConfigPtrOutput() ClusterKubeControllerManagerConfigPtrOutput
+	ToClusterKubeControllerManagerConfigPtrOutputWithContext(context.Context) ClusterKubeControllerManagerConfigPtrOutput
+}
+
+type clusterKubeControllerManagerConfigPtrType ClusterKubeControllerManagerConfigArgs
+
+func ClusterKubeControllerManagerConfigPtr(v *ClusterKubeControllerManagerConfigArgs) ClusterKubeControllerManagerConfigPtrInput {
+	return (*clusterKubeControllerManagerConfigPtrType)(v)
+}
+
+func (*clusterKubeControllerManagerConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterKubeControllerManagerConfig)(nil)).Elem()
+}
+
+func (i *clusterKubeControllerManagerConfigPtrType) ToClusterKubeControllerManagerConfigPtrOutput() ClusterKubeControllerManagerConfigPtrOutput {
+	return i.ToClusterKubeControllerManagerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterKubeControllerManagerConfigPtrType) ToClusterKubeControllerManagerConfigPtrOutputWithContext(ctx context.Context) ClusterKubeControllerManagerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubeControllerManagerConfigPtrOutput)
+}
+
+type ClusterKubeControllerManagerConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterKubeControllerManagerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKubeControllerManagerConfig)(nil)).Elem()
+}
+
+func (o ClusterKubeControllerManagerConfigOutput) ToClusterKubeControllerManagerConfigOutput() ClusterKubeControllerManagerConfigOutput {
+	return o
+}
+
+func (o ClusterKubeControllerManagerConfigOutput) ToClusterKubeControllerManagerConfigOutputWithContext(ctx context.Context) ClusterKubeControllerManagerConfigOutput {
+	return o
+}
+
+func (o ClusterKubeControllerManagerConfigOutput) ToClusterKubeControllerManagerConfigPtrOutput() ClusterKubeControllerManagerConfigPtrOutput {
+	return o.ToClusterKubeControllerManagerConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterKubeControllerManagerConfigOutput) ToClusterKubeControllerManagerConfigPtrOutputWithContext(ctx context.Context) ClusterKubeControllerManagerConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterKubeControllerManagerConfig) *ClusterKubeControllerManagerConfig {
+		return &v
+	}).(ClusterKubeControllerManagerConfigPtrOutput)
+}
+
+// Configuration block for the horizontal pod autoscaler controller. Detailed below.
+//
+// > **NOTE:** The `horizontalPodAutoscalerControllerConfig` requires a Provisioned Control Plane scaling tier (e.g., `tier-xl` or higher). It cannot be configured on clusters using the `standard` tier.
+func (o ClusterKubeControllerManagerConfigOutput) HorizontalPodAutoscalerControllerConfig() ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrOutput {
+	return o.ApplyT(func(v ClusterKubeControllerManagerConfig) *ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig {
+		return v.HorizontalPodAutoscalerControllerConfig
+	}).(ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrOutput)
+}
+
+type ClusterKubeControllerManagerConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterKubeControllerManagerConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterKubeControllerManagerConfig)(nil)).Elem()
+}
+
+func (o ClusterKubeControllerManagerConfigPtrOutput) ToClusterKubeControllerManagerConfigPtrOutput() ClusterKubeControllerManagerConfigPtrOutput {
+	return o
+}
+
+func (o ClusterKubeControllerManagerConfigPtrOutput) ToClusterKubeControllerManagerConfigPtrOutputWithContext(ctx context.Context) ClusterKubeControllerManagerConfigPtrOutput {
+	return o
+}
+
+func (o ClusterKubeControllerManagerConfigPtrOutput) Elem() ClusterKubeControllerManagerConfigOutput {
+	return o.ApplyT(func(v *ClusterKubeControllerManagerConfig) ClusterKubeControllerManagerConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterKubeControllerManagerConfig
+		return ret
+	}).(ClusterKubeControllerManagerConfigOutput)
+}
+
+// Configuration block for the horizontal pod autoscaler controller. Detailed below.
+//
+// > **NOTE:** The `horizontalPodAutoscalerControllerConfig` requires a Provisioned Control Plane scaling tier (e.g., `tier-xl` or higher). It cannot be configured on clusters using the `standard` tier.
+func (o ClusterKubeControllerManagerConfigPtrOutput) HorizontalPodAutoscalerControllerConfig() ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrOutput {
+	return o.ApplyT(func(v *ClusterKubeControllerManagerConfig) *ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig {
+		if v == nil {
+			return nil
+		}
+		return v.HorizontalPodAutoscalerControllerConfig
+	}).(ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrOutput)
+}
+
+type ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig struct {
+	// The interval between each sync of the horizontal pod autoscaler. Must be a single-unit duration (e.g., `10s`, `15s`). Valid range: `10s` to `15s`. Default is `15s`.
+	HorizontalPodAutoscalerSyncPeriod *string `pulumi:"horizontalPodAutoscalerSyncPeriod"`
+}
+
+// ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigInput is an input type that accepts ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs and ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput values.
+// You can construct a concrete instance of `ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigInput` via:
+//
+//	ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs{...}
+type ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigInput interface {
+	pulumi.Input
+
+	ToClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput() ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput
+	ToClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutputWithContext(context.Context) ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput
+}
+
+type ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs struct {
+	// The interval between each sync of the horizontal pod autoscaler. Must be a single-unit duration (e.g., `10s`, `15s`). Valid range: `10s` to `15s`. Default is `15s`.
+	HorizontalPodAutoscalerSyncPeriod pulumi.StringPtrInput `pulumi:"horizontalPodAutoscalerSyncPeriod"`
+}
+
+func (ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig)(nil)).Elem()
+}
+
+func (i ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs) ToClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput() ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput {
+	return i.ToClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs) ToClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutputWithContext(ctx context.Context) ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput)
+}
+
+func (i ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs) ToClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrOutput() ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrOutput {
+	return i.ToClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs) ToClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrOutputWithContext(ctx context.Context) ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput).ToClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrOutputWithContext(ctx)
+}
+
+// ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrInput is an input type that accepts ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs, ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtr and ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrOutput values.
+// You can construct a concrete instance of `ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrInput` via:
+//
+//	        ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrOutput() ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrOutput
+	ToClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrOutputWithContext(context.Context) ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrOutput
+}
+
+type clusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrType ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs
+
+func ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtr(v *ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs) ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrInput {
+	return (*clusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrType)(v)
+}
+
+func (*clusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig)(nil)).Elem()
+}
+
+func (i *clusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrType) ToClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrOutput() ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrOutput {
+	return i.ToClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrType) ToClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrOutputWithContext(ctx context.Context) ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrOutput)
+}
+
+type ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig)(nil)).Elem()
+}
+
+func (o ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput) ToClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput() ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput {
+	return o
+}
+
+func (o ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput) ToClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutputWithContext(ctx context.Context) ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput {
+	return o
+}
+
+func (o ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput) ToClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrOutput() ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrOutput {
+	return o.ToClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput) ToClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrOutputWithContext(ctx context.Context) ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig) *ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig {
+		return &v
+	}).(ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrOutput)
+}
+
+// The interval between each sync of the horizontal pod autoscaler. Must be a single-unit duration (e.g., `10s`, `15s`). Valid range: `10s` to `15s`. Default is `15s`.
+func (o ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput) HorizontalPodAutoscalerSyncPeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig) *string {
+		return v.HorizontalPodAutoscalerSyncPeriod
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig)(nil)).Elem()
+}
+
+func (o ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrOutput) ToClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrOutput() ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrOutput {
+	return o
+}
+
+func (o ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrOutput) ToClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrOutputWithContext(ctx context.Context) ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrOutput {
+	return o
+}
+
+func (o ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrOutput) Elem() ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput {
+	return o.ApplyT(func(v *ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig) ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig
+		return ret
+	}).(ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput)
+}
+
+// The interval between each sync of the horizontal pod autoscaler. Must be a single-unit duration (e.g., `10s`, `15s`). Valid range: `10s` to `15s`. Default is `15s`.
+func (o ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrOutput) HorizontalPodAutoscalerSyncPeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HorizontalPodAutoscalerSyncPeriod
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterKubeSchedulerConfig struct {
+	// Configuration block for the NodeResourcesFit scheduler plugin. Detailed below.
+	NodeResourcesFit *ClusterKubeSchedulerConfigNodeResourcesFit `pulumi:"nodeResourcesFit"`
+}
+
+// ClusterKubeSchedulerConfigInput is an input type that accepts ClusterKubeSchedulerConfigArgs and ClusterKubeSchedulerConfigOutput values.
+// You can construct a concrete instance of `ClusterKubeSchedulerConfigInput` via:
+//
+//	ClusterKubeSchedulerConfigArgs{...}
+type ClusterKubeSchedulerConfigInput interface {
+	pulumi.Input
+
+	ToClusterKubeSchedulerConfigOutput() ClusterKubeSchedulerConfigOutput
+	ToClusterKubeSchedulerConfigOutputWithContext(context.Context) ClusterKubeSchedulerConfigOutput
+}
+
+type ClusterKubeSchedulerConfigArgs struct {
+	// Configuration block for the NodeResourcesFit scheduler plugin. Detailed below.
+	NodeResourcesFit ClusterKubeSchedulerConfigNodeResourcesFitPtrInput `pulumi:"nodeResourcesFit"`
+}
+
+func (ClusterKubeSchedulerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKubeSchedulerConfig)(nil)).Elem()
+}
+
+func (i ClusterKubeSchedulerConfigArgs) ToClusterKubeSchedulerConfigOutput() ClusterKubeSchedulerConfigOutput {
+	return i.ToClusterKubeSchedulerConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterKubeSchedulerConfigArgs) ToClusterKubeSchedulerConfigOutputWithContext(ctx context.Context) ClusterKubeSchedulerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubeSchedulerConfigOutput)
+}
+
+func (i ClusterKubeSchedulerConfigArgs) ToClusterKubeSchedulerConfigPtrOutput() ClusterKubeSchedulerConfigPtrOutput {
+	return i.ToClusterKubeSchedulerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterKubeSchedulerConfigArgs) ToClusterKubeSchedulerConfigPtrOutputWithContext(ctx context.Context) ClusterKubeSchedulerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubeSchedulerConfigOutput).ToClusterKubeSchedulerConfigPtrOutputWithContext(ctx)
+}
+
+// ClusterKubeSchedulerConfigPtrInput is an input type that accepts ClusterKubeSchedulerConfigArgs, ClusterKubeSchedulerConfigPtr and ClusterKubeSchedulerConfigPtrOutput values.
+// You can construct a concrete instance of `ClusterKubeSchedulerConfigPtrInput` via:
+//
+//	        ClusterKubeSchedulerConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterKubeSchedulerConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterKubeSchedulerConfigPtrOutput() ClusterKubeSchedulerConfigPtrOutput
+	ToClusterKubeSchedulerConfigPtrOutputWithContext(context.Context) ClusterKubeSchedulerConfigPtrOutput
+}
+
+type clusterKubeSchedulerConfigPtrType ClusterKubeSchedulerConfigArgs
+
+func ClusterKubeSchedulerConfigPtr(v *ClusterKubeSchedulerConfigArgs) ClusterKubeSchedulerConfigPtrInput {
+	return (*clusterKubeSchedulerConfigPtrType)(v)
+}
+
+func (*clusterKubeSchedulerConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterKubeSchedulerConfig)(nil)).Elem()
+}
+
+func (i *clusterKubeSchedulerConfigPtrType) ToClusterKubeSchedulerConfigPtrOutput() ClusterKubeSchedulerConfigPtrOutput {
+	return i.ToClusterKubeSchedulerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterKubeSchedulerConfigPtrType) ToClusterKubeSchedulerConfigPtrOutputWithContext(ctx context.Context) ClusterKubeSchedulerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubeSchedulerConfigPtrOutput)
+}
+
+type ClusterKubeSchedulerConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterKubeSchedulerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKubeSchedulerConfig)(nil)).Elem()
+}
+
+func (o ClusterKubeSchedulerConfigOutput) ToClusterKubeSchedulerConfigOutput() ClusterKubeSchedulerConfigOutput {
+	return o
+}
+
+func (o ClusterKubeSchedulerConfigOutput) ToClusterKubeSchedulerConfigOutputWithContext(ctx context.Context) ClusterKubeSchedulerConfigOutput {
+	return o
+}
+
+func (o ClusterKubeSchedulerConfigOutput) ToClusterKubeSchedulerConfigPtrOutput() ClusterKubeSchedulerConfigPtrOutput {
+	return o.ToClusterKubeSchedulerConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterKubeSchedulerConfigOutput) ToClusterKubeSchedulerConfigPtrOutputWithContext(ctx context.Context) ClusterKubeSchedulerConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterKubeSchedulerConfig) *ClusterKubeSchedulerConfig {
+		return &v
+	}).(ClusterKubeSchedulerConfigPtrOutput)
+}
+
+// Configuration block for the NodeResourcesFit scheduler plugin. Detailed below.
+func (o ClusterKubeSchedulerConfigOutput) NodeResourcesFit() ClusterKubeSchedulerConfigNodeResourcesFitPtrOutput {
+	return o.ApplyT(func(v ClusterKubeSchedulerConfig) *ClusterKubeSchedulerConfigNodeResourcesFit {
+		return v.NodeResourcesFit
+	}).(ClusterKubeSchedulerConfigNodeResourcesFitPtrOutput)
+}
+
+type ClusterKubeSchedulerConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterKubeSchedulerConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterKubeSchedulerConfig)(nil)).Elem()
+}
+
+func (o ClusterKubeSchedulerConfigPtrOutput) ToClusterKubeSchedulerConfigPtrOutput() ClusterKubeSchedulerConfigPtrOutput {
+	return o
+}
+
+func (o ClusterKubeSchedulerConfigPtrOutput) ToClusterKubeSchedulerConfigPtrOutputWithContext(ctx context.Context) ClusterKubeSchedulerConfigPtrOutput {
+	return o
+}
+
+func (o ClusterKubeSchedulerConfigPtrOutput) Elem() ClusterKubeSchedulerConfigOutput {
+	return o.ApplyT(func(v *ClusterKubeSchedulerConfig) ClusterKubeSchedulerConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterKubeSchedulerConfig
+		return ret
+	}).(ClusterKubeSchedulerConfigOutput)
+}
+
+// Configuration block for the NodeResourcesFit scheduler plugin. Detailed below.
+func (o ClusterKubeSchedulerConfigPtrOutput) NodeResourcesFit() ClusterKubeSchedulerConfigNodeResourcesFitPtrOutput {
+	return o.ApplyT(func(v *ClusterKubeSchedulerConfig) *ClusterKubeSchedulerConfigNodeResourcesFit {
+		if v == nil {
+			return nil
+		}
+		return v.NodeResourcesFit
+	}).(ClusterKubeSchedulerConfigNodeResourcesFitPtrOutput)
+}
+
+type ClusterKubeSchedulerConfigNodeResourcesFit struct {
+	// Configuration block for the scoring strategy used to rank nodes during scheduling. Detailed below.
+	ScoringStrategy *ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategy `pulumi:"scoringStrategy"`
+}
+
+// ClusterKubeSchedulerConfigNodeResourcesFitInput is an input type that accepts ClusterKubeSchedulerConfigNodeResourcesFitArgs and ClusterKubeSchedulerConfigNodeResourcesFitOutput values.
+// You can construct a concrete instance of `ClusterKubeSchedulerConfigNodeResourcesFitInput` via:
+//
+//	ClusterKubeSchedulerConfigNodeResourcesFitArgs{...}
+type ClusterKubeSchedulerConfigNodeResourcesFitInput interface {
+	pulumi.Input
+
+	ToClusterKubeSchedulerConfigNodeResourcesFitOutput() ClusterKubeSchedulerConfigNodeResourcesFitOutput
+	ToClusterKubeSchedulerConfigNodeResourcesFitOutputWithContext(context.Context) ClusterKubeSchedulerConfigNodeResourcesFitOutput
+}
+
+type ClusterKubeSchedulerConfigNodeResourcesFitArgs struct {
+	// Configuration block for the scoring strategy used to rank nodes during scheduling. Detailed below.
+	ScoringStrategy ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrInput `pulumi:"scoringStrategy"`
+}
+
+func (ClusterKubeSchedulerConfigNodeResourcesFitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKubeSchedulerConfigNodeResourcesFit)(nil)).Elem()
+}
+
+func (i ClusterKubeSchedulerConfigNodeResourcesFitArgs) ToClusterKubeSchedulerConfigNodeResourcesFitOutput() ClusterKubeSchedulerConfigNodeResourcesFitOutput {
+	return i.ToClusterKubeSchedulerConfigNodeResourcesFitOutputWithContext(context.Background())
+}
+
+func (i ClusterKubeSchedulerConfigNodeResourcesFitArgs) ToClusterKubeSchedulerConfigNodeResourcesFitOutputWithContext(ctx context.Context) ClusterKubeSchedulerConfigNodeResourcesFitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubeSchedulerConfigNodeResourcesFitOutput)
+}
+
+func (i ClusterKubeSchedulerConfigNodeResourcesFitArgs) ToClusterKubeSchedulerConfigNodeResourcesFitPtrOutput() ClusterKubeSchedulerConfigNodeResourcesFitPtrOutput {
+	return i.ToClusterKubeSchedulerConfigNodeResourcesFitPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterKubeSchedulerConfigNodeResourcesFitArgs) ToClusterKubeSchedulerConfigNodeResourcesFitPtrOutputWithContext(ctx context.Context) ClusterKubeSchedulerConfigNodeResourcesFitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubeSchedulerConfigNodeResourcesFitOutput).ToClusterKubeSchedulerConfigNodeResourcesFitPtrOutputWithContext(ctx)
+}
+
+// ClusterKubeSchedulerConfigNodeResourcesFitPtrInput is an input type that accepts ClusterKubeSchedulerConfigNodeResourcesFitArgs, ClusterKubeSchedulerConfigNodeResourcesFitPtr and ClusterKubeSchedulerConfigNodeResourcesFitPtrOutput values.
+// You can construct a concrete instance of `ClusterKubeSchedulerConfigNodeResourcesFitPtrInput` via:
+//
+//	        ClusterKubeSchedulerConfigNodeResourcesFitArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterKubeSchedulerConfigNodeResourcesFitPtrInput interface {
+	pulumi.Input
+
+	ToClusterKubeSchedulerConfigNodeResourcesFitPtrOutput() ClusterKubeSchedulerConfigNodeResourcesFitPtrOutput
+	ToClusterKubeSchedulerConfigNodeResourcesFitPtrOutputWithContext(context.Context) ClusterKubeSchedulerConfigNodeResourcesFitPtrOutput
+}
+
+type clusterKubeSchedulerConfigNodeResourcesFitPtrType ClusterKubeSchedulerConfigNodeResourcesFitArgs
+
+func ClusterKubeSchedulerConfigNodeResourcesFitPtr(v *ClusterKubeSchedulerConfigNodeResourcesFitArgs) ClusterKubeSchedulerConfigNodeResourcesFitPtrInput {
+	return (*clusterKubeSchedulerConfigNodeResourcesFitPtrType)(v)
+}
+
+func (*clusterKubeSchedulerConfigNodeResourcesFitPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterKubeSchedulerConfigNodeResourcesFit)(nil)).Elem()
+}
+
+func (i *clusterKubeSchedulerConfigNodeResourcesFitPtrType) ToClusterKubeSchedulerConfigNodeResourcesFitPtrOutput() ClusterKubeSchedulerConfigNodeResourcesFitPtrOutput {
+	return i.ToClusterKubeSchedulerConfigNodeResourcesFitPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterKubeSchedulerConfigNodeResourcesFitPtrType) ToClusterKubeSchedulerConfigNodeResourcesFitPtrOutputWithContext(ctx context.Context) ClusterKubeSchedulerConfigNodeResourcesFitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubeSchedulerConfigNodeResourcesFitPtrOutput)
+}
+
+type ClusterKubeSchedulerConfigNodeResourcesFitOutput struct{ *pulumi.OutputState }
+
+func (ClusterKubeSchedulerConfigNodeResourcesFitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKubeSchedulerConfigNodeResourcesFit)(nil)).Elem()
+}
+
+func (o ClusterKubeSchedulerConfigNodeResourcesFitOutput) ToClusterKubeSchedulerConfigNodeResourcesFitOutput() ClusterKubeSchedulerConfigNodeResourcesFitOutput {
+	return o
+}
+
+func (o ClusterKubeSchedulerConfigNodeResourcesFitOutput) ToClusterKubeSchedulerConfigNodeResourcesFitOutputWithContext(ctx context.Context) ClusterKubeSchedulerConfigNodeResourcesFitOutput {
+	return o
+}
+
+func (o ClusterKubeSchedulerConfigNodeResourcesFitOutput) ToClusterKubeSchedulerConfigNodeResourcesFitPtrOutput() ClusterKubeSchedulerConfigNodeResourcesFitPtrOutput {
+	return o.ToClusterKubeSchedulerConfigNodeResourcesFitPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterKubeSchedulerConfigNodeResourcesFitOutput) ToClusterKubeSchedulerConfigNodeResourcesFitPtrOutputWithContext(ctx context.Context) ClusterKubeSchedulerConfigNodeResourcesFitPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterKubeSchedulerConfigNodeResourcesFit) *ClusterKubeSchedulerConfigNodeResourcesFit {
+		return &v
+	}).(ClusterKubeSchedulerConfigNodeResourcesFitPtrOutput)
+}
+
+// Configuration block for the scoring strategy used to rank nodes during scheduling. Detailed below.
+func (o ClusterKubeSchedulerConfigNodeResourcesFitOutput) ScoringStrategy() ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrOutput {
+	return o.ApplyT(func(v ClusterKubeSchedulerConfigNodeResourcesFit) *ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategy {
+		return v.ScoringStrategy
+	}).(ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrOutput)
+}
+
+type ClusterKubeSchedulerConfigNodeResourcesFitPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterKubeSchedulerConfigNodeResourcesFitPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterKubeSchedulerConfigNodeResourcesFit)(nil)).Elem()
+}
+
+func (o ClusterKubeSchedulerConfigNodeResourcesFitPtrOutput) ToClusterKubeSchedulerConfigNodeResourcesFitPtrOutput() ClusterKubeSchedulerConfigNodeResourcesFitPtrOutput {
+	return o
+}
+
+func (o ClusterKubeSchedulerConfigNodeResourcesFitPtrOutput) ToClusterKubeSchedulerConfigNodeResourcesFitPtrOutputWithContext(ctx context.Context) ClusterKubeSchedulerConfigNodeResourcesFitPtrOutput {
+	return o
+}
+
+func (o ClusterKubeSchedulerConfigNodeResourcesFitPtrOutput) Elem() ClusterKubeSchedulerConfigNodeResourcesFitOutput {
+	return o.ApplyT(func(v *ClusterKubeSchedulerConfigNodeResourcesFit) ClusterKubeSchedulerConfigNodeResourcesFit {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterKubeSchedulerConfigNodeResourcesFit
+		return ret
+	}).(ClusterKubeSchedulerConfigNodeResourcesFitOutput)
+}
+
+// Configuration block for the scoring strategy used to rank nodes during scheduling. Detailed below.
+func (o ClusterKubeSchedulerConfigNodeResourcesFitPtrOutput) ScoringStrategy() ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrOutput {
+	return o.ApplyT(func(v *ClusterKubeSchedulerConfigNodeResourcesFit) *ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategy {
+		if v == nil {
+			return nil
+		}
+		return v.ScoringStrategy
+	}).(ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrOutput)
+}
+
+type ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategy struct {
+	// List of resource weight configuration blocks for scoring nodes. Detailed below.
+	Resources []ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResource `pulumi:"resources"`
+	// The scoring strategy type. Valid values are `LeastAllocated` and `MostAllocated`. Default is `LeastAllocated`.
+	Type *string `pulumi:"type"`
+}
+
+// ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyInput is an input type that accepts ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArgs and ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput values.
+// You can construct a concrete instance of `ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyInput` via:
+//
+//	ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArgs{...}
+type ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyInput interface {
+	pulumi.Input
+
+	ToClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput() ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput
+	ToClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutputWithContext(context.Context) ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput
+}
+
+type ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArgs struct {
+	// List of resource weight configuration blocks for scoring nodes. Detailed below.
+	Resources ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayInput `pulumi:"resources"`
+	// The scoring strategy type. Valid values are `LeastAllocated` and `MostAllocated`. Default is `LeastAllocated`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategy)(nil)).Elem()
+}
+
+func (i ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArgs) ToClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput() ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput {
+	return i.ToClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutputWithContext(context.Background())
+}
+
+func (i ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArgs) ToClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutputWithContext(ctx context.Context) ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput)
+}
+
+func (i ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArgs) ToClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrOutput() ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrOutput {
+	return i.ToClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArgs) ToClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrOutputWithContext(ctx context.Context) ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput).ToClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrOutputWithContext(ctx)
+}
+
+// ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrInput is an input type that accepts ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArgs, ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtr and ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrOutput values.
+// You can construct a concrete instance of `ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrInput` via:
+//
+//	        ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrInput interface {
+	pulumi.Input
+
+	ToClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrOutput() ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrOutput
+	ToClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrOutputWithContext(context.Context) ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrOutput
+}
+
+type clusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrType ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArgs
+
+func ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtr(v *ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArgs) ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrInput {
+	return (*clusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrType)(v)
+}
+
+func (*clusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategy)(nil)).Elem()
+}
+
+func (i *clusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrType) ToClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrOutput() ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrOutput {
+	return i.ToClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrType) ToClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrOutputWithContext(ctx context.Context) ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrOutput)
+}
+
+type ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput struct{ *pulumi.OutputState }
+
+func (ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategy)(nil)).Elem()
+}
+
+func (o ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput) ToClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput() ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput {
+	return o
+}
+
+func (o ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput) ToClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutputWithContext(ctx context.Context) ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput {
+	return o
+}
+
+func (o ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput) ToClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrOutput() ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrOutput {
+	return o.ToClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput) ToClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrOutputWithContext(ctx context.Context) ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategy) *ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategy {
+		return &v
+	}).(ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrOutput)
+}
+
+// List of resource weight configuration blocks for scoring nodes. Detailed below.
+func (o ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput) Resources() ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutput {
+	return o.ApplyT(func(v ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategy) []ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResource {
+		return v.Resources
+	}).(ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutput)
+}
+
+// The scoring strategy type. Valid values are `LeastAllocated` and `MostAllocated`. Default is `LeastAllocated`.
+func (o ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategy) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategy)(nil)).Elem()
+}
+
+func (o ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrOutput) ToClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrOutput() ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrOutput {
+	return o
+}
+
+func (o ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrOutput) ToClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrOutputWithContext(ctx context.Context) ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrOutput {
+	return o
+}
+
+func (o ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrOutput) Elem() ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput {
+	return o.ApplyT(func(v *ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategy) ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategy {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategy
+		return ret
+	}).(ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput)
+}
+
+// List of resource weight configuration blocks for scoring nodes. Detailed below.
+func (o ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrOutput) Resources() ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutput {
+	return o.ApplyT(func(v *ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategy) []ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResource {
+		if v == nil {
+			return nil
+		}
+		return v.Resources
+	}).(ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutput)
+}
+
+// The scoring strategy type. Valid values are `LeastAllocated` and `MostAllocated`. Default is `LeastAllocated`.
+func (o ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResource struct {
+	// The name of the resource (e.g., `cpu`, `memory`, `nvidia.com/gpu`).
+	Name *string `pulumi:"name"`
+	// The weight assigned to the resource for scoring. Must be between `1` and `100`.
+	Weight *int `pulumi:"weight"`
+}
+
+// ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceInput is an input type that accepts ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArgs and ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutput values.
+// You can construct a concrete instance of `ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceInput` via:
+//
+//	ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArgs{...}
+type ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceInput interface {
+	pulumi.Input
+
+	ToClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutput() ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutput
+	ToClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutputWithContext(context.Context) ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutput
+}
+
+type ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArgs struct {
+	// The name of the resource (e.g., `cpu`, `memory`, `nvidia.com/gpu`).
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The weight assigned to the resource for scoring. Must be between `1` and `100`.
+	Weight pulumi.IntPtrInput `pulumi:"weight"`
+}
+
+func (ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResource)(nil)).Elem()
+}
+
+func (i ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArgs) ToClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutput() ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutput {
+	return i.ToClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutputWithContext(context.Background())
+}
+
+func (i ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArgs) ToClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutputWithContext(ctx context.Context) ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutput)
+}
+
+// ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayInput is an input type that accepts ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArray and ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutput values.
+// You can construct a concrete instance of `ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayInput` via:
+//
+//	ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArray{ ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArgs{...} }
+type ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayInput interface {
+	pulumi.Input
+
+	ToClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutput() ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutput
+	ToClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutputWithContext(context.Context) ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutput
+}
+
+type ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArray []ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceInput
+
+func (ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResource)(nil)).Elem()
+}
+
+func (i ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArray) ToClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutput() ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutput {
+	return i.ToClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArray) ToClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutputWithContext(ctx context.Context) ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutput)
+}
+
+type ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutput struct{ *pulumi.OutputState }
+
+func (ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResource)(nil)).Elem()
+}
+
+func (o ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutput) ToClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutput() ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutput {
+	return o
+}
+
+func (o ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutput) ToClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutputWithContext(ctx context.Context) ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutput {
+	return o
+}
+
+// The name of the resource (e.g., `cpu`, `memory`, `nvidia.com/gpu`).
+func (o ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResource) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The weight assigned to the resource for scoring. Must be between `1` and `100`.
+func (o ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutput) Weight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResource) *int { return v.Weight }).(pulumi.IntPtrOutput)
+}
+
+type ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResource)(nil)).Elem()
+}
+
+func (o ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutput) ToClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutput() ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutput {
+	return o
+}
+
+func (o ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutput) ToClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutputWithContext(ctx context.Context) ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutput {
+	return o
+}
+
+func (o ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutput) Index(i pulumi.IntInput) ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResource {
+		return vs[0].([]ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResource)[vs[1].(int)]
+	}).(ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutput)
+}
+
 type ClusterKubernetesNetworkConfig struct {
 	// Configuration block with elastic load balancing configuration for the cluster. Detailed below.
 	ElasticLoadBalancing *ClusterKubernetesNetworkConfigElasticLoadBalancing `pulumi:"elasticLoadBalancing"`
@@ -7466,6 +8608,830 @@ func (o GetClusterIdentityOidcArrayOutput) Index(i pulumi.IntInput) GetClusterId
 	}).(GetClusterIdentityOidcOutput)
 }
 
+type GetClusterKubeApiServerConfig struct {
+	// The duration that Kubernetes events are retained.
+	EventTtl string `pulumi:"eventTtl"`
+	// The port range for NodePort services.
+	ServiceNodePortRanges []GetClusterKubeApiServerConfigServiceNodePortRange `pulumi:"serviceNodePortRanges"`
+}
+
+// GetClusterKubeApiServerConfigInput is an input type that accepts GetClusterKubeApiServerConfigArgs and GetClusterKubeApiServerConfigOutput values.
+// You can construct a concrete instance of `GetClusterKubeApiServerConfigInput` via:
+//
+//	GetClusterKubeApiServerConfigArgs{...}
+type GetClusterKubeApiServerConfigInput interface {
+	pulumi.Input
+
+	ToGetClusterKubeApiServerConfigOutput() GetClusterKubeApiServerConfigOutput
+	ToGetClusterKubeApiServerConfigOutputWithContext(context.Context) GetClusterKubeApiServerConfigOutput
+}
+
+type GetClusterKubeApiServerConfigArgs struct {
+	// The duration that Kubernetes events are retained.
+	EventTtl pulumi.StringInput `pulumi:"eventTtl"`
+	// The port range for NodePort services.
+	ServiceNodePortRanges GetClusterKubeApiServerConfigServiceNodePortRangeArrayInput `pulumi:"serviceNodePortRanges"`
+}
+
+func (GetClusterKubeApiServerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterKubeApiServerConfig)(nil)).Elem()
+}
+
+func (i GetClusterKubeApiServerConfigArgs) ToGetClusterKubeApiServerConfigOutput() GetClusterKubeApiServerConfigOutput {
+	return i.ToGetClusterKubeApiServerConfigOutputWithContext(context.Background())
+}
+
+func (i GetClusterKubeApiServerConfigArgs) ToGetClusterKubeApiServerConfigOutputWithContext(ctx context.Context) GetClusterKubeApiServerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterKubeApiServerConfigOutput)
+}
+
+// GetClusterKubeApiServerConfigArrayInput is an input type that accepts GetClusterKubeApiServerConfigArray and GetClusterKubeApiServerConfigArrayOutput values.
+// You can construct a concrete instance of `GetClusterKubeApiServerConfigArrayInput` via:
+//
+//	GetClusterKubeApiServerConfigArray{ GetClusterKubeApiServerConfigArgs{...} }
+type GetClusterKubeApiServerConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterKubeApiServerConfigArrayOutput() GetClusterKubeApiServerConfigArrayOutput
+	ToGetClusterKubeApiServerConfigArrayOutputWithContext(context.Context) GetClusterKubeApiServerConfigArrayOutput
+}
+
+type GetClusterKubeApiServerConfigArray []GetClusterKubeApiServerConfigInput
+
+func (GetClusterKubeApiServerConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterKubeApiServerConfig)(nil)).Elem()
+}
+
+func (i GetClusterKubeApiServerConfigArray) ToGetClusterKubeApiServerConfigArrayOutput() GetClusterKubeApiServerConfigArrayOutput {
+	return i.ToGetClusterKubeApiServerConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterKubeApiServerConfigArray) ToGetClusterKubeApiServerConfigArrayOutputWithContext(ctx context.Context) GetClusterKubeApiServerConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterKubeApiServerConfigArrayOutput)
+}
+
+type GetClusterKubeApiServerConfigOutput struct{ *pulumi.OutputState }
+
+func (GetClusterKubeApiServerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterKubeApiServerConfig)(nil)).Elem()
+}
+
+func (o GetClusterKubeApiServerConfigOutput) ToGetClusterKubeApiServerConfigOutput() GetClusterKubeApiServerConfigOutput {
+	return o
+}
+
+func (o GetClusterKubeApiServerConfigOutput) ToGetClusterKubeApiServerConfigOutputWithContext(ctx context.Context) GetClusterKubeApiServerConfigOutput {
+	return o
+}
+
+// The duration that Kubernetes events are retained.
+func (o GetClusterKubeApiServerConfigOutput) EventTtl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterKubeApiServerConfig) string { return v.EventTtl }).(pulumi.StringOutput)
+}
+
+// The port range for NodePort services.
+func (o GetClusterKubeApiServerConfigOutput) ServiceNodePortRanges() GetClusterKubeApiServerConfigServiceNodePortRangeArrayOutput {
+	return o.ApplyT(func(v GetClusterKubeApiServerConfig) []GetClusterKubeApiServerConfigServiceNodePortRange {
+		return v.ServiceNodePortRanges
+	}).(GetClusterKubeApiServerConfigServiceNodePortRangeArrayOutput)
+}
+
+type GetClusterKubeApiServerConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterKubeApiServerConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterKubeApiServerConfig)(nil)).Elem()
+}
+
+func (o GetClusterKubeApiServerConfigArrayOutput) ToGetClusterKubeApiServerConfigArrayOutput() GetClusterKubeApiServerConfigArrayOutput {
+	return o
+}
+
+func (o GetClusterKubeApiServerConfigArrayOutput) ToGetClusterKubeApiServerConfigArrayOutputWithContext(ctx context.Context) GetClusterKubeApiServerConfigArrayOutput {
+	return o
+}
+
+func (o GetClusterKubeApiServerConfigArrayOutput) Index(i pulumi.IntInput) GetClusterKubeApiServerConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterKubeApiServerConfig {
+		return vs[0].([]GetClusterKubeApiServerConfig)[vs[1].(int)]
+	}).(GetClusterKubeApiServerConfigOutput)
+}
+
+type GetClusterKubeApiServerConfigServiceNodePortRange struct {
+	// The maximum port number in the range.
+	MaxPort int `pulumi:"maxPort"`
+	// The minimum port number in the range.
+	MinPort int `pulumi:"minPort"`
+}
+
+// GetClusterKubeApiServerConfigServiceNodePortRangeInput is an input type that accepts GetClusterKubeApiServerConfigServiceNodePortRangeArgs and GetClusterKubeApiServerConfigServiceNodePortRangeOutput values.
+// You can construct a concrete instance of `GetClusterKubeApiServerConfigServiceNodePortRangeInput` via:
+//
+//	GetClusterKubeApiServerConfigServiceNodePortRangeArgs{...}
+type GetClusterKubeApiServerConfigServiceNodePortRangeInput interface {
+	pulumi.Input
+
+	ToGetClusterKubeApiServerConfigServiceNodePortRangeOutput() GetClusterKubeApiServerConfigServiceNodePortRangeOutput
+	ToGetClusterKubeApiServerConfigServiceNodePortRangeOutputWithContext(context.Context) GetClusterKubeApiServerConfigServiceNodePortRangeOutput
+}
+
+type GetClusterKubeApiServerConfigServiceNodePortRangeArgs struct {
+	// The maximum port number in the range.
+	MaxPort pulumi.IntInput `pulumi:"maxPort"`
+	// The minimum port number in the range.
+	MinPort pulumi.IntInput `pulumi:"minPort"`
+}
+
+func (GetClusterKubeApiServerConfigServiceNodePortRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterKubeApiServerConfigServiceNodePortRange)(nil)).Elem()
+}
+
+func (i GetClusterKubeApiServerConfigServiceNodePortRangeArgs) ToGetClusterKubeApiServerConfigServiceNodePortRangeOutput() GetClusterKubeApiServerConfigServiceNodePortRangeOutput {
+	return i.ToGetClusterKubeApiServerConfigServiceNodePortRangeOutputWithContext(context.Background())
+}
+
+func (i GetClusterKubeApiServerConfigServiceNodePortRangeArgs) ToGetClusterKubeApiServerConfigServiceNodePortRangeOutputWithContext(ctx context.Context) GetClusterKubeApiServerConfigServiceNodePortRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterKubeApiServerConfigServiceNodePortRangeOutput)
+}
+
+// GetClusterKubeApiServerConfigServiceNodePortRangeArrayInput is an input type that accepts GetClusterKubeApiServerConfigServiceNodePortRangeArray and GetClusterKubeApiServerConfigServiceNodePortRangeArrayOutput values.
+// You can construct a concrete instance of `GetClusterKubeApiServerConfigServiceNodePortRangeArrayInput` via:
+//
+//	GetClusterKubeApiServerConfigServiceNodePortRangeArray{ GetClusterKubeApiServerConfigServiceNodePortRangeArgs{...} }
+type GetClusterKubeApiServerConfigServiceNodePortRangeArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterKubeApiServerConfigServiceNodePortRangeArrayOutput() GetClusterKubeApiServerConfigServiceNodePortRangeArrayOutput
+	ToGetClusterKubeApiServerConfigServiceNodePortRangeArrayOutputWithContext(context.Context) GetClusterKubeApiServerConfigServiceNodePortRangeArrayOutput
+}
+
+type GetClusterKubeApiServerConfigServiceNodePortRangeArray []GetClusterKubeApiServerConfigServiceNodePortRangeInput
+
+func (GetClusterKubeApiServerConfigServiceNodePortRangeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterKubeApiServerConfigServiceNodePortRange)(nil)).Elem()
+}
+
+func (i GetClusterKubeApiServerConfigServiceNodePortRangeArray) ToGetClusterKubeApiServerConfigServiceNodePortRangeArrayOutput() GetClusterKubeApiServerConfigServiceNodePortRangeArrayOutput {
+	return i.ToGetClusterKubeApiServerConfigServiceNodePortRangeArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterKubeApiServerConfigServiceNodePortRangeArray) ToGetClusterKubeApiServerConfigServiceNodePortRangeArrayOutputWithContext(ctx context.Context) GetClusterKubeApiServerConfigServiceNodePortRangeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterKubeApiServerConfigServiceNodePortRangeArrayOutput)
+}
+
+type GetClusterKubeApiServerConfigServiceNodePortRangeOutput struct{ *pulumi.OutputState }
+
+func (GetClusterKubeApiServerConfigServiceNodePortRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterKubeApiServerConfigServiceNodePortRange)(nil)).Elem()
+}
+
+func (o GetClusterKubeApiServerConfigServiceNodePortRangeOutput) ToGetClusterKubeApiServerConfigServiceNodePortRangeOutput() GetClusterKubeApiServerConfigServiceNodePortRangeOutput {
+	return o
+}
+
+func (o GetClusterKubeApiServerConfigServiceNodePortRangeOutput) ToGetClusterKubeApiServerConfigServiceNodePortRangeOutputWithContext(ctx context.Context) GetClusterKubeApiServerConfigServiceNodePortRangeOutput {
+	return o
+}
+
+// The maximum port number in the range.
+func (o GetClusterKubeApiServerConfigServiceNodePortRangeOutput) MaxPort() pulumi.IntOutput {
+	return o.ApplyT(func(v GetClusterKubeApiServerConfigServiceNodePortRange) int { return v.MaxPort }).(pulumi.IntOutput)
+}
+
+// The minimum port number in the range.
+func (o GetClusterKubeApiServerConfigServiceNodePortRangeOutput) MinPort() pulumi.IntOutput {
+	return o.ApplyT(func(v GetClusterKubeApiServerConfigServiceNodePortRange) int { return v.MinPort }).(pulumi.IntOutput)
+}
+
+type GetClusterKubeApiServerConfigServiceNodePortRangeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterKubeApiServerConfigServiceNodePortRangeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterKubeApiServerConfigServiceNodePortRange)(nil)).Elem()
+}
+
+func (o GetClusterKubeApiServerConfigServiceNodePortRangeArrayOutput) ToGetClusterKubeApiServerConfigServiceNodePortRangeArrayOutput() GetClusterKubeApiServerConfigServiceNodePortRangeArrayOutput {
+	return o
+}
+
+func (o GetClusterKubeApiServerConfigServiceNodePortRangeArrayOutput) ToGetClusterKubeApiServerConfigServiceNodePortRangeArrayOutputWithContext(ctx context.Context) GetClusterKubeApiServerConfigServiceNodePortRangeArrayOutput {
+	return o
+}
+
+func (o GetClusterKubeApiServerConfigServiceNodePortRangeArrayOutput) Index(i pulumi.IntInput) GetClusterKubeApiServerConfigServiceNodePortRangeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterKubeApiServerConfigServiceNodePortRange {
+		return vs[0].([]GetClusterKubeApiServerConfigServiceNodePortRange)[vs[1].(int)]
+	}).(GetClusterKubeApiServerConfigServiceNodePortRangeOutput)
+}
+
+type GetClusterKubeControllerManagerConfig struct {
+	// Configuration for the horizontal pod autoscaler controller.
+	HorizontalPodAutoscalerControllerConfigs []GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig `pulumi:"horizontalPodAutoscalerControllerConfigs"`
+}
+
+// GetClusterKubeControllerManagerConfigInput is an input type that accepts GetClusterKubeControllerManagerConfigArgs and GetClusterKubeControllerManagerConfigOutput values.
+// You can construct a concrete instance of `GetClusterKubeControllerManagerConfigInput` via:
+//
+//	GetClusterKubeControllerManagerConfigArgs{...}
+type GetClusterKubeControllerManagerConfigInput interface {
+	pulumi.Input
+
+	ToGetClusterKubeControllerManagerConfigOutput() GetClusterKubeControllerManagerConfigOutput
+	ToGetClusterKubeControllerManagerConfigOutputWithContext(context.Context) GetClusterKubeControllerManagerConfigOutput
+}
+
+type GetClusterKubeControllerManagerConfigArgs struct {
+	// Configuration for the horizontal pod autoscaler controller.
+	HorizontalPodAutoscalerControllerConfigs GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayInput `pulumi:"horizontalPodAutoscalerControllerConfigs"`
+}
+
+func (GetClusterKubeControllerManagerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterKubeControllerManagerConfig)(nil)).Elem()
+}
+
+func (i GetClusterKubeControllerManagerConfigArgs) ToGetClusterKubeControllerManagerConfigOutput() GetClusterKubeControllerManagerConfigOutput {
+	return i.ToGetClusterKubeControllerManagerConfigOutputWithContext(context.Background())
+}
+
+func (i GetClusterKubeControllerManagerConfigArgs) ToGetClusterKubeControllerManagerConfigOutputWithContext(ctx context.Context) GetClusterKubeControllerManagerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterKubeControllerManagerConfigOutput)
+}
+
+// GetClusterKubeControllerManagerConfigArrayInput is an input type that accepts GetClusterKubeControllerManagerConfigArray and GetClusterKubeControllerManagerConfigArrayOutput values.
+// You can construct a concrete instance of `GetClusterKubeControllerManagerConfigArrayInput` via:
+//
+//	GetClusterKubeControllerManagerConfigArray{ GetClusterKubeControllerManagerConfigArgs{...} }
+type GetClusterKubeControllerManagerConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterKubeControllerManagerConfigArrayOutput() GetClusterKubeControllerManagerConfigArrayOutput
+	ToGetClusterKubeControllerManagerConfigArrayOutputWithContext(context.Context) GetClusterKubeControllerManagerConfigArrayOutput
+}
+
+type GetClusterKubeControllerManagerConfigArray []GetClusterKubeControllerManagerConfigInput
+
+func (GetClusterKubeControllerManagerConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterKubeControllerManagerConfig)(nil)).Elem()
+}
+
+func (i GetClusterKubeControllerManagerConfigArray) ToGetClusterKubeControllerManagerConfigArrayOutput() GetClusterKubeControllerManagerConfigArrayOutput {
+	return i.ToGetClusterKubeControllerManagerConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterKubeControllerManagerConfigArray) ToGetClusterKubeControllerManagerConfigArrayOutputWithContext(ctx context.Context) GetClusterKubeControllerManagerConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterKubeControllerManagerConfigArrayOutput)
+}
+
+type GetClusterKubeControllerManagerConfigOutput struct{ *pulumi.OutputState }
+
+func (GetClusterKubeControllerManagerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterKubeControllerManagerConfig)(nil)).Elem()
+}
+
+func (o GetClusterKubeControllerManagerConfigOutput) ToGetClusterKubeControllerManagerConfigOutput() GetClusterKubeControllerManagerConfigOutput {
+	return o
+}
+
+func (o GetClusterKubeControllerManagerConfigOutput) ToGetClusterKubeControllerManagerConfigOutputWithContext(ctx context.Context) GetClusterKubeControllerManagerConfigOutput {
+	return o
+}
+
+// Configuration for the horizontal pod autoscaler controller.
+func (o GetClusterKubeControllerManagerConfigOutput) HorizontalPodAutoscalerControllerConfigs() GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput {
+	return o.ApplyT(func(v GetClusterKubeControllerManagerConfig) []GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig {
+		return v.HorizontalPodAutoscalerControllerConfigs
+	}).(GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput)
+}
+
+type GetClusterKubeControllerManagerConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterKubeControllerManagerConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterKubeControllerManagerConfig)(nil)).Elem()
+}
+
+func (o GetClusterKubeControllerManagerConfigArrayOutput) ToGetClusterKubeControllerManagerConfigArrayOutput() GetClusterKubeControllerManagerConfigArrayOutput {
+	return o
+}
+
+func (o GetClusterKubeControllerManagerConfigArrayOutput) ToGetClusterKubeControllerManagerConfigArrayOutputWithContext(ctx context.Context) GetClusterKubeControllerManagerConfigArrayOutput {
+	return o
+}
+
+func (o GetClusterKubeControllerManagerConfigArrayOutput) Index(i pulumi.IntInput) GetClusterKubeControllerManagerConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterKubeControllerManagerConfig {
+		return vs[0].([]GetClusterKubeControllerManagerConfig)[vs[1].(int)]
+	}).(GetClusterKubeControllerManagerConfigOutput)
+}
+
+type GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig struct {
+	// The interval between each sync of the horizontal pod autoscaler.
+	HorizontalPodAutoscalerSyncPeriod string `pulumi:"horizontalPodAutoscalerSyncPeriod"`
+}
+
+// GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigInput is an input type that accepts GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs and GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput values.
+// You can construct a concrete instance of `GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigInput` via:
+//
+//	GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs{...}
+type GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigInput interface {
+	pulumi.Input
+
+	ToGetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput() GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput
+	ToGetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutputWithContext(context.Context) GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput
+}
+
+type GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs struct {
+	// The interval between each sync of the horizontal pod autoscaler.
+	HorizontalPodAutoscalerSyncPeriod pulumi.StringInput `pulumi:"horizontalPodAutoscalerSyncPeriod"`
+}
+
+func (GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig)(nil)).Elem()
+}
+
+func (i GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs) ToGetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput() GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput {
+	return i.ToGetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutputWithContext(context.Background())
+}
+
+func (i GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs) ToGetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutputWithContext(ctx context.Context) GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput)
+}
+
+// GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayInput is an input type that accepts GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArray and GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput values.
+// You can construct a concrete instance of `GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayInput` via:
+//
+//	GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArray{ GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs{...} }
+type GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput() GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput
+	ToGetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutputWithContext(context.Context) GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput
+}
+
+type GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArray []GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigInput
+
+func (GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig)(nil)).Elem()
+}
+
+func (i GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArray) ToGetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput() GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput {
+	return i.ToGetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArray) ToGetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutputWithContext(ctx context.Context) GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput)
+}
+
+type GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput struct{ *pulumi.OutputState }
+
+func (GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig)(nil)).Elem()
+}
+
+func (o GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput) ToGetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput() GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput {
+	return o
+}
+
+func (o GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput) ToGetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutputWithContext(ctx context.Context) GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput {
+	return o
+}
+
+// The interval between each sync of the horizontal pod autoscaler.
+func (o GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput) HorizontalPodAutoscalerSyncPeriod() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig) string {
+		return v.HorizontalPodAutoscalerSyncPeriod
+	}).(pulumi.StringOutput)
+}
+
+type GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig)(nil)).Elem()
+}
+
+func (o GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput) ToGetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput() GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput {
+	return o
+}
+
+func (o GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput) ToGetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutputWithContext(ctx context.Context) GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput {
+	return o
+}
+
+func (o GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput) Index(i pulumi.IntInput) GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig {
+		return vs[0].([]GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig)[vs[1].(int)]
+	}).(GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput)
+}
+
+type GetClusterKubeSchedulerConfig struct {
+	// Configuration for the NodeResourcesFit scheduler plugin.
+	NodeResourcesFits []GetClusterKubeSchedulerConfigNodeResourcesFit `pulumi:"nodeResourcesFits"`
+}
+
+// GetClusterKubeSchedulerConfigInput is an input type that accepts GetClusterKubeSchedulerConfigArgs and GetClusterKubeSchedulerConfigOutput values.
+// You can construct a concrete instance of `GetClusterKubeSchedulerConfigInput` via:
+//
+//	GetClusterKubeSchedulerConfigArgs{...}
+type GetClusterKubeSchedulerConfigInput interface {
+	pulumi.Input
+
+	ToGetClusterKubeSchedulerConfigOutput() GetClusterKubeSchedulerConfigOutput
+	ToGetClusterKubeSchedulerConfigOutputWithContext(context.Context) GetClusterKubeSchedulerConfigOutput
+}
+
+type GetClusterKubeSchedulerConfigArgs struct {
+	// Configuration for the NodeResourcesFit scheduler plugin.
+	NodeResourcesFits GetClusterKubeSchedulerConfigNodeResourcesFitArrayInput `pulumi:"nodeResourcesFits"`
+}
+
+func (GetClusterKubeSchedulerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterKubeSchedulerConfig)(nil)).Elem()
+}
+
+func (i GetClusterKubeSchedulerConfigArgs) ToGetClusterKubeSchedulerConfigOutput() GetClusterKubeSchedulerConfigOutput {
+	return i.ToGetClusterKubeSchedulerConfigOutputWithContext(context.Background())
+}
+
+func (i GetClusterKubeSchedulerConfigArgs) ToGetClusterKubeSchedulerConfigOutputWithContext(ctx context.Context) GetClusterKubeSchedulerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterKubeSchedulerConfigOutput)
+}
+
+// GetClusterKubeSchedulerConfigArrayInput is an input type that accepts GetClusterKubeSchedulerConfigArray and GetClusterKubeSchedulerConfigArrayOutput values.
+// You can construct a concrete instance of `GetClusterKubeSchedulerConfigArrayInput` via:
+//
+//	GetClusterKubeSchedulerConfigArray{ GetClusterKubeSchedulerConfigArgs{...} }
+type GetClusterKubeSchedulerConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterKubeSchedulerConfigArrayOutput() GetClusterKubeSchedulerConfigArrayOutput
+	ToGetClusterKubeSchedulerConfigArrayOutputWithContext(context.Context) GetClusterKubeSchedulerConfigArrayOutput
+}
+
+type GetClusterKubeSchedulerConfigArray []GetClusterKubeSchedulerConfigInput
+
+func (GetClusterKubeSchedulerConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterKubeSchedulerConfig)(nil)).Elem()
+}
+
+func (i GetClusterKubeSchedulerConfigArray) ToGetClusterKubeSchedulerConfigArrayOutput() GetClusterKubeSchedulerConfigArrayOutput {
+	return i.ToGetClusterKubeSchedulerConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterKubeSchedulerConfigArray) ToGetClusterKubeSchedulerConfigArrayOutputWithContext(ctx context.Context) GetClusterKubeSchedulerConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterKubeSchedulerConfigArrayOutput)
+}
+
+type GetClusterKubeSchedulerConfigOutput struct{ *pulumi.OutputState }
+
+func (GetClusterKubeSchedulerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterKubeSchedulerConfig)(nil)).Elem()
+}
+
+func (o GetClusterKubeSchedulerConfigOutput) ToGetClusterKubeSchedulerConfigOutput() GetClusterKubeSchedulerConfigOutput {
+	return o
+}
+
+func (o GetClusterKubeSchedulerConfigOutput) ToGetClusterKubeSchedulerConfigOutputWithContext(ctx context.Context) GetClusterKubeSchedulerConfigOutput {
+	return o
+}
+
+// Configuration for the NodeResourcesFit scheduler plugin.
+func (o GetClusterKubeSchedulerConfigOutput) NodeResourcesFits() GetClusterKubeSchedulerConfigNodeResourcesFitArrayOutput {
+	return o.ApplyT(func(v GetClusterKubeSchedulerConfig) []GetClusterKubeSchedulerConfigNodeResourcesFit {
+		return v.NodeResourcesFits
+	}).(GetClusterKubeSchedulerConfigNodeResourcesFitArrayOutput)
+}
+
+type GetClusterKubeSchedulerConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterKubeSchedulerConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterKubeSchedulerConfig)(nil)).Elem()
+}
+
+func (o GetClusterKubeSchedulerConfigArrayOutput) ToGetClusterKubeSchedulerConfigArrayOutput() GetClusterKubeSchedulerConfigArrayOutput {
+	return o
+}
+
+func (o GetClusterKubeSchedulerConfigArrayOutput) ToGetClusterKubeSchedulerConfigArrayOutputWithContext(ctx context.Context) GetClusterKubeSchedulerConfigArrayOutput {
+	return o
+}
+
+func (o GetClusterKubeSchedulerConfigArrayOutput) Index(i pulumi.IntInput) GetClusterKubeSchedulerConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterKubeSchedulerConfig {
+		return vs[0].([]GetClusterKubeSchedulerConfig)[vs[1].(int)]
+	}).(GetClusterKubeSchedulerConfigOutput)
+}
+
+type GetClusterKubeSchedulerConfigNodeResourcesFit struct {
+	// The scoring strategy used to rank nodes during scheduling.
+	ScoringStrategies []GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategy `pulumi:"scoringStrategies"`
+}
+
+// GetClusterKubeSchedulerConfigNodeResourcesFitInput is an input type that accepts GetClusterKubeSchedulerConfigNodeResourcesFitArgs and GetClusterKubeSchedulerConfigNodeResourcesFitOutput values.
+// You can construct a concrete instance of `GetClusterKubeSchedulerConfigNodeResourcesFitInput` via:
+//
+//	GetClusterKubeSchedulerConfigNodeResourcesFitArgs{...}
+type GetClusterKubeSchedulerConfigNodeResourcesFitInput interface {
+	pulumi.Input
+
+	ToGetClusterKubeSchedulerConfigNodeResourcesFitOutput() GetClusterKubeSchedulerConfigNodeResourcesFitOutput
+	ToGetClusterKubeSchedulerConfigNodeResourcesFitOutputWithContext(context.Context) GetClusterKubeSchedulerConfigNodeResourcesFitOutput
+}
+
+type GetClusterKubeSchedulerConfigNodeResourcesFitArgs struct {
+	// The scoring strategy used to rank nodes during scheduling.
+	ScoringStrategies GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayInput `pulumi:"scoringStrategies"`
+}
+
+func (GetClusterKubeSchedulerConfigNodeResourcesFitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterKubeSchedulerConfigNodeResourcesFit)(nil)).Elem()
+}
+
+func (i GetClusterKubeSchedulerConfigNodeResourcesFitArgs) ToGetClusterKubeSchedulerConfigNodeResourcesFitOutput() GetClusterKubeSchedulerConfigNodeResourcesFitOutput {
+	return i.ToGetClusterKubeSchedulerConfigNodeResourcesFitOutputWithContext(context.Background())
+}
+
+func (i GetClusterKubeSchedulerConfigNodeResourcesFitArgs) ToGetClusterKubeSchedulerConfigNodeResourcesFitOutputWithContext(ctx context.Context) GetClusterKubeSchedulerConfigNodeResourcesFitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterKubeSchedulerConfigNodeResourcesFitOutput)
+}
+
+// GetClusterKubeSchedulerConfigNodeResourcesFitArrayInput is an input type that accepts GetClusterKubeSchedulerConfigNodeResourcesFitArray and GetClusterKubeSchedulerConfigNodeResourcesFitArrayOutput values.
+// You can construct a concrete instance of `GetClusterKubeSchedulerConfigNodeResourcesFitArrayInput` via:
+//
+//	GetClusterKubeSchedulerConfigNodeResourcesFitArray{ GetClusterKubeSchedulerConfigNodeResourcesFitArgs{...} }
+type GetClusterKubeSchedulerConfigNodeResourcesFitArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterKubeSchedulerConfigNodeResourcesFitArrayOutput() GetClusterKubeSchedulerConfigNodeResourcesFitArrayOutput
+	ToGetClusterKubeSchedulerConfigNodeResourcesFitArrayOutputWithContext(context.Context) GetClusterKubeSchedulerConfigNodeResourcesFitArrayOutput
+}
+
+type GetClusterKubeSchedulerConfigNodeResourcesFitArray []GetClusterKubeSchedulerConfigNodeResourcesFitInput
+
+func (GetClusterKubeSchedulerConfigNodeResourcesFitArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterKubeSchedulerConfigNodeResourcesFit)(nil)).Elem()
+}
+
+func (i GetClusterKubeSchedulerConfigNodeResourcesFitArray) ToGetClusterKubeSchedulerConfigNodeResourcesFitArrayOutput() GetClusterKubeSchedulerConfigNodeResourcesFitArrayOutput {
+	return i.ToGetClusterKubeSchedulerConfigNodeResourcesFitArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterKubeSchedulerConfigNodeResourcesFitArray) ToGetClusterKubeSchedulerConfigNodeResourcesFitArrayOutputWithContext(ctx context.Context) GetClusterKubeSchedulerConfigNodeResourcesFitArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterKubeSchedulerConfigNodeResourcesFitArrayOutput)
+}
+
+type GetClusterKubeSchedulerConfigNodeResourcesFitOutput struct{ *pulumi.OutputState }
+
+func (GetClusterKubeSchedulerConfigNodeResourcesFitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterKubeSchedulerConfigNodeResourcesFit)(nil)).Elem()
+}
+
+func (o GetClusterKubeSchedulerConfigNodeResourcesFitOutput) ToGetClusterKubeSchedulerConfigNodeResourcesFitOutput() GetClusterKubeSchedulerConfigNodeResourcesFitOutput {
+	return o
+}
+
+func (o GetClusterKubeSchedulerConfigNodeResourcesFitOutput) ToGetClusterKubeSchedulerConfigNodeResourcesFitOutputWithContext(ctx context.Context) GetClusterKubeSchedulerConfigNodeResourcesFitOutput {
+	return o
+}
+
+// The scoring strategy used to rank nodes during scheduling.
+func (o GetClusterKubeSchedulerConfigNodeResourcesFitOutput) ScoringStrategies() GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput {
+	return o.ApplyT(func(v GetClusterKubeSchedulerConfigNodeResourcesFit) []GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategy {
+		return v.ScoringStrategies
+	}).(GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput)
+}
+
+type GetClusterKubeSchedulerConfigNodeResourcesFitArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterKubeSchedulerConfigNodeResourcesFitArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterKubeSchedulerConfigNodeResourcesFit)(nil)).Elem()
+}
+
+func (o GetClusterKubeSchedulerConfigNodeResourcesFitArrayOutput) ToGetClusterKubeSchedulerConfigNodeResourcesFitArrayOutput() GetClusterKubeSchedulerConfigNodeResourcesFitArrayOutput {
+	return o
+}
+
+func (o GetClusterKubeSchedulerConfigNodeResourcesFitArrayOutput) ToGetClusterKubeSchedulerConfigNodeResourcesFitArrayOutputWithContext(ctx context.Context) GetClusterKubeSchedulerConfigNodeResourcesFitArrayOutput {
+	return o
+}
+
+func (o GetClusterKubeSchedulerConfigNodeResourcesFitArrayOutput) Index(i pulumi.IntInput) GetClusterKubeSchedulerConfigNodeResourcesFitOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterKubeSchedulerConfigNodeResourcesFit {
+		return vs[0].([]GetClusterKubeSchedulerConfigNodeResourcesFit)[vs[1].(int)]
+	}).(GetClusterKubeSchedulerConfigNodeResourcesFitOutput)
+}
+
+type GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategy struct {
+	// List of resource weights for scoring nodes.
+	Resources []GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResource `pulumi:"resources"`
+	// The scoring strategy type (`LeastAllocated` or `MostAllocated`).
+	Type string `pulumi:"type"`
+}
+
+// GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyInput is an input type that accepts GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArgs and GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput values.
+// You can construct a concrete instance of `GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyInput` via:
+//
+//	GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArgs{...}
+type GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyInput interface {
+	pulumi.Input
+
+	ToGetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput() GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput
+	ToGetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutputWithContext(context.Context) GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput
+}
+
+type GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArgs struct {
+	// List of resource weights for scoring nodes.
+	Resources GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayInput `pulumi:"resources"`
+	// The scoring strategy type (`LeastAllocated` or `MostAllocated`).
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategy)(nil)).Elem()
+}
+
+func (i GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArgs) ToGetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput() GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput {
+	return i.ToGetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutputWithContext(context.Background())
+}
+
+func (i GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArgs) ToGetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutputWithContext(ctx context.Context) GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput)
+}
+
+// GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayInput is an input type that accepts GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArray and GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput values.
+// You can construct a concrete instance of `GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayInput` via:
+//
+//	GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArray{ GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArgs{...} }
+type GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput() GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput
+	ToGetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutputWithContext(context.Context) GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput
+}
+
+type GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArray []GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyInput
+
+func (GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategy)(nil)).Elem()
+}
+
+func (i GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArray) ToGetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput() GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput {
+	return i.ToGetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArray) ToGetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutputWithContext(ctx context.Context) GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput)
+}
+
+type GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput struct{ *pulumi.OutputState }
+
+func (GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategy)(nil)).Elem()
+}
+
+func (o GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput) ToGetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput() GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput {
+	return o
+}
+
+func (o GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput) ToGetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutputWithContext(ctx context.Context) GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput {
+	return o
+}
+
+// List of resource weights for scoring nodes.
+func (o GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput) Resources() GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutput {
+	return o.ApplyT(func(v GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategy) []GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResource {
+		return v.Resources
+	}).(GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutput)
+}
+
+// The scoring strategy type (`LeastAllocated` or `MostAllocated`).
+func (o GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategy) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategy)(nil)).Elem()
+}
+
+func (o GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput) ToGetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput() GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput {
+	return o
+}
+
+func (o GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput) ToGetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutputWithContext(ctx context.Context) GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput {
+	return o
+}
+
+func (o GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput) Index(i pulumi.IntInput) GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategy {
+		return vs[0].([]GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategy)[vs[1].(int)]
+	}).(GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput)
+}
+
+type GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResource struct {
+	// Name of the cluster.
+	Name string `pulumi:"name"`
+	// The weight assigned to the resource for scoring (1-100).
+	Weight int `pulumi:"weight"`
+}
+
+// GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceInput is an input type that accepts GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArgs and GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutput values.
+// You can construct a concrete instance of `GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceInput` via:
+//
+//	GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArgs{...}
+type GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceInput interface {
+	pulumi.Input
+
+	ToGetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutput() GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutput
+	ToGetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutputWithContext(context.Context) GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutput
+}
+
+type GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArgs struct {
+	// Name of the cluster.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The weight assigned to the resource for scoring (1-100).
+	Weight pulumi.IntInput `pulumi:"weight"`
+}
+
+func (GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResource)(nil)).Elem()
+}
+
+func (i GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArgs) ToGetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutput() GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutput {
+	return i.ToGetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutputWithContext(context.Background())
+}
+
+func (i GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArgs) ToGetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutputWithContext(ctx context.Context) GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutput)
+}
+
+// GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayInput is an input type that accepts GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArray and GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutput values.
+// You can construct a concrete instance of `GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayInput` via:
+//
+//	GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArray{ GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArgs{...} }
+type GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutput() GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutput
+	ToGetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutputWithContext(context.Context) GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutput
+}
+
+type GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArray []GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceInput
+
+func (GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResource)(nil)).Elem()
+}
+
+func (i GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArray) ToGetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutput() GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutput {
+	return i.ToGetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArray) ToGetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutputWithContext(ctx context.Context) GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutput)
+}
+
+type GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutput struct{ *pulumi.OutputState }
+
+func (GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResource)(nil)).Elem()
+}
+
+func (o GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutput) ToGetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutput() GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutput {
+	return o
+}
+
+func (o GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutput) ToGetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutputWithContext(ctx context.Context) GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutput {
+	return o
+}
+
+// Name of the cluster.
+func (o GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResource) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The weight assigned to the resource for scoring (1-100).
+func (o GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutput) Weight() pulumi.IntOutput {
+	return o.ApplyT(func(v GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResource) int { return v.Weight }).(pulumi.IntOutput)
+}
+
+type GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResource)(nil)).Elem()
+}
+
+func (o GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutput) ToGetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutput() GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutput {
+	return o
+}
+
+func (o GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutput) ToGetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutputWithContext(ctx context.Context) GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutput {
+	return o
+}
+
+func (o GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutput) Index(i pulumi.IntInput) GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResource {
+		return vs[0].([]GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResource)[vs[1].(int)]
+	}).(GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutput)
+}
+
 type GetClusterKubernetesNetworkConfig struct {
 	// Contains Elastic Load Balancing configuration for EKS Auto Mode enabled cluster.
 	ElasticLoadBalancings []GetClusterKubernetesNetworkConfigElasticLoadBalancing `pulumi:"elasticLoadBalancings"`
@@ -8628,6 +10594,10 @@ type GetClusterVersionsClusterVersion struct {
 	ClusterType string `pulumi:"clusterType"`
 	// Kubernetes version supported by EKS.
 	ClusterVersion string `pulumi:"clusterVersion"`
+	// Default control plane component configuration and constraints for this version.
+	ControlPlaneComponentConfigs []GetClusterVersionsClusterVersionControlPlaneComponentConfig `pulumi:"controlPlaneComponentConfigs"`
+	// Available provisioned control plane scaling tiers and their capabilities.
+	ControlPlaneScalingTiers []GetClusterVersionsClusterVersionControlPlaneScalingTier `pulumi:"controlPlaneScalingTiers"`
 	// Default eks platform version for the cluster version.
 	DefaultPlatformVersion string `pulumi:"defaultPlatformVersion"`
 	// Default Kubernetes version for the cluster version.
@@ -8662,6 +10632,10 @@ type GetClusterVersionsClusterVersionArgs struct {
 	ClusterType pulumi.StringInput `pulumi:"clusterType"`
 	// Kubernetes version supported by EKS.
 	ClusterVersion pulumi.StringInput `pulumi:"clusterVersion"`
+	// Default control plane component configuration and constraints for this version.
+	ControlPlaneComponentConfigs GetClusterVersionsClusterVersionControlPlaneComponentConfigArrayInput `pulumi:"controlPlaneComponentConfigs"`
+	// Available provisioned control plane scaling tiers and their capabilities.
+	ControlPlaneScalingTiers GetClusterVersionsClusterVersionControlPlaneScalingTierArrayInput `pulumi:"controlPlaneScalingTiers"`
 	// Default eks platform version for the cluster version.
 	DefaultPlatformVersion pulumi.StringInput `pulumi:"defaultPlatformVersion"`
 	// Default Kubernetes version for the cluster version.
@@ -8741,6 +10715,20 @@ func (o GetClusterVersionsClusterVersionOutput) ClusterVersion() pulumi.StringOu
 	return o.ApplyT(func(v GetClusterVersionsClusterVersion) string { return v.ClusterVersion }).(pulumi.StringOutput)
 }
 
+// Default control plane component configuration and constraints for this version.
+func (o GetClusterVersionsClusterVersionOutput) ControlPlaneComponentConfigs() GetClusterVersionsClusterVersionControlPlaneComponentConfigArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersion) []GetClusterVersionsClusterVersionControlPlaneComponentConfig {
+		return v.ControlPlaneComponentConfigs
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigArrayOutput)
+}
+
+// Available provisioned control plane scaling tiers and their capabilities.
+func (o GetClusterVersionsClusterVersionOutput) ControlPlaneScalingTiers() GetClusterVersionsClusterVersionControlPlaneScalingTierArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersion) []GetClusterVersionsClusterVersionControlPlaneScalingTier {
+		return v.ControlPlaneScalingTiers
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierArrayOutput)
+}
+
 // Default eks platform version for the cluster version.
 func (o GetClusterVersionsClusterVersionOutput) DefaultPlatformVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterVersionsClusterVersion) string { return v.DefaultPlatformVersion }).(pulumi.StringOutput)
@@ -8795,6 +10783,5051 @@ func (o GetClusterVersionsClusterVersionArrayOutput) Index(i pulumi.IntInput) Ge
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersion {
 		return vs[0].([]GetClusterVersionsClusterVersion)[vs[1].(int)]
 	}).(GetClusterVersionsClusterVersionOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfig struct {
+	// Kubernetes API server configuration defaults and constraints.
+	KubeApiServerConfigs []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfig `pulumi:"kubeApiServerConfigs"`
+	// Kubernetes controller manager configuration defaults and constraints.
+	KubeControllerManagerConfigs []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfig `pulumi:"kubeControllerManagerConfigs"`
+	// Kubernetes scheduler configuration defaults and constraints.
+	KubeSchedulerConfigs []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfig `pulumi:"kubeSchedulerConfigs"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigArgs and GetClusterVersionsClusterVersionControlPlaneComponentConfigOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigArgs struct {
+	// Kubernetes API server configuration defaults and constraints.
+	KubeApiServerConfigs GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigArrayInput `pulumi:"kubeApiServerConfigs"`
+	// Kubernetes controller manager configuration defaults and constraints.
+	KubeControllerManagerConfigs GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArrayInput `pulumi:"kubeControllerManagerConfigs"`
+	// Kubernetes scheduler configuration defaults and constraints.
+	KubeSchedulerConfigs GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArrayInput `pulumi:"kubeSchedulerConfigs"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfig)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigArray and GetClusterVersionsClusterVersionControlPlaneComponentConfigArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigArray{ GetClusterVersionsClusterVersionControlPlaneComponentConfigArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigArray []GetClusterVersionsClusterVersionControlPlaneComponentConfigInput
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfig)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfig)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigOutput {
+	return o
+}
+
+// Kubernetes API server configuration defaults and constraints.
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigOutput) KubeApiServerConfigs() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfig) []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfig {
+		return v.KubeApiServerConfigs
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigArrayOutput)
+}
+
+// Kubernetes controller manager configuration defaults and constraints.
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigOutput) KubeControllerManagerConfigs() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfig) []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfig {
+		return v.KubeControllerManagerConfigs
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArrayOutput)
+}
+
+// Kubernetes scheduler configuration defaults and constraints.
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigOutput) KubeSchedulerConfigs() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfig) []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfig {
+		return v.KubeSchedulerConfigs
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfig)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneComponentConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneComponentConfig {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneComponentConfig)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfig struct {
+	// Event TTL configuration with default value and constraints.
+	EventTtls []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtl `pulumi:"eventTtls"`
+	// Service node port range configuration with default value and constraints.
+	ServiceNodePortRanges []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRange `pulumi:"serviceNodePortRanges"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigArgs and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigArgs struct {
+	// Event TTL configuration with default value and constraints.
+	EventTtls GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlArrayInput `pulumi:"eventTtls"`
+	// Service node port range configuration with default value and constraints.
+	ServiceNodePortRanges GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeArrayInput `pulumi:"serviceNodePortRanges"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfig)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigArray and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigArray{ GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigArray []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigInput
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfig)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfig)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigOutput {
+	return o
+}
+
+// Event TTL configuration with default value and constraints.
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigOutput) EventTtls() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfig) []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtl {
+		return v.EventTtls
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlArrayOutput)
+}
+
+// Service node port range configuration with default value and constraints.
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigOutput) ServiceNodePortRanges() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfig) []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRange {
+		return v.ServiceNodePortRanges
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfig)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfig {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfig)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtl struct {
+	// Scoring strategy constraints.
+	Constraints []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraint `pulumi:"constraints"`
+	// Default scoring strategy (`type`, `resources`).
+	DefaultValue string `pulumi:"defaultValue"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlArgs and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlArgs struct {
+	// Scoring strategy constraints.
+	Constraints GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintArrayInput `pulumi:"constraints"`
+	// Default scoring strategy (`type`, `resources`).
+	DefaultValue pulumi.StringInput `pulumi:"defaultValue"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtl)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlArray and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlArray{ GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlArray []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlInput
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtl)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtl)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlOutput {
+	return o
+}
+
+// Scoring strategy constraints.
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlOutput) Constraints() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtl) []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraint {
+		return v.Constraints
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintArrayOutput)
+}
+
+// Default scoring strategy (`type`, `resources`).
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlOutput) DefaultValue() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtl) string {
+		return v.DefaultValue
+	}).(pulumi.StringOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtl)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtl {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtl)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraint struct {
+	// The maximum allowed duration.
+	Max string `pulumi:"max"`
+	// The minimum allowed duration.
+	Min string `pulumi:"min"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintArgs and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintArgs struct {
+	// The maximum allowed duration.
+	Max pulumi.StringInput `pulumi:"max"`
+	// The minimum allowed duration.
+	Min pulumi.StringInput `pulumi:"min"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraint)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintArray and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintArray{ GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintArray []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintInput
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraint)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraint)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintOutput {
+	return o
+}
+
+// The maximum allowed duration.
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintOutput) Max() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraint) string {
+		return v.Max
+	}).(pulumi.StringOutput)
+}
+
+// The minimum allowed duration.
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintOutput) Min() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraint) string {
+		return v.Min
+	}).(pulumi.StringOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraint)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraint {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraint)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRange struct {
+	// Scoring strategy constraints.
+	Constraints []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraint `pulumi:"constraints"`
+	// Default scoring strategy (`type`, `resources`).
+	DefaultValues []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValue `pulumi:"defaultValues"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeArgs and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeArgs struct {
+	// Scoring strategy constraints.
+	Constraints GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintArrayInput `pulumi:"constraints"`
+	// Default scoring strategy (`type`, `resources`).
+	DefaultValues GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueArrayInput `pulumi:"defaultValues"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRange)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeArray and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeArray{ GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeArray []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeInput
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRange)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRange)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeOutput {
+	return o
+}
+
+// Scoring strategy constraints.
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeOutput) Constraints() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRange) []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraint {
+		return v.Constraints
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintArrayOutput)
+}
+
+// Default scoring strategy (`type`, `resources`).
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeOutput) DefaultValues() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRange) []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValue {
+		return v.DefaultValues
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRange)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRange {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRange)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraint struct {
+	// The allowed range for the maximum port (`min`, `max`).
+	MaxPorts []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPort `pulumi:"maxPorts"`
+	// The allowed range for the minimum port (`min`, `max`).
+	MinPorts []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPort `pulumi:"minPorts"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintArgs and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintArgs struct {
+	// The allowed range for the maximum port (`min`, `max`).
+	MaxPorts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayInput `pulumi:"maxPorts"`
+	// The allowed range for the minimum port (`min`, `max`).
+	MinPorts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayInput `pulumi:"minPorts"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraint)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintArray and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintArray{ GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintArray []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintInput
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraint)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraint)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintOutput {
+	return o
+}
+
+// The allowed range for the maximum port (`min`, `max`).
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintOutput) MaxPorts() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraint) []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPort {
+		return v.MaxPorts
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayOutput)
+}
+
+// The allowed range for the minimum port (`min`, `max`).
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintOutput) MinPorts() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraint) []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPort {
+		return v.MinPorts
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraint)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraint {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraint)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPort struct {
+	// The maximum allowed duration.
+	Max int `pulumi:"max"`
+	// The minimum allowed duration.
+	Min int `pulumi:"min"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArgs and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArgs struct {
+	// The maximum allowed duration.
+	Max pulumi.IntInput `pulumi:"max"`
+	// The minimum allowed duration.
+	Min pulumi.IntInput `pulumi:"min"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPort)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArray and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArray{ GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArray []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortInput
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPort)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPort)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutput {
+	return o
+}
+
+// The maximum allowed duration.
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutput) Max() pulumi.IntOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPort) int {
+		return v.Max
+	}).(pulumi.IntOutput)
+}
+
+// The minimum allowed duration.
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutput) Min() pulumi.IntOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPort) int {
+		return v.Min
+	}).(pulumi.IntOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPort)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPort {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPort)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPort struct {
+	// The maximum allowed duration.
+	Max int `pulumi:"max"`
+	// The minimum allowed duration.
+	Min int `pulumi:"min"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortArgs and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortArgs struct {
+	// The maximum allowed duration.
+	Max pulumi.IntInput `pulumi:"max"`
+	// The minimum allowed duration.
+	Min pulumi.IntInput `pulumi:"min"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPort)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortArray and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortArray{ GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortArray []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortInput
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPort)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPort)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutput {
+	return o
+}
+
+// The maximum allowed duration.
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutput) Max() pulumi.IntOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPort) int {
+		return v.Max
+	}).(pulumi.IntOutput)
+}
+
+// The minimum allowed duration.
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutput) Min() pulumi.IntOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPort) int {
+		return v.Min
+	}).(pulumi.IntOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPort)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPort {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPort)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValue struct {
+	// The allowed range for the maximum port (`min`, `max`).
+	MaxPort int `pulumi:"maxPort"`
+	// The allowed range for the minimum port (`min`, `max`).
+	MinPort int `pulumi:"minPort"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueArgs and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueArgs struct {
+	// The allowed range for the maximum port (`min`, `max`).
+	MaxPort pulumi.IntInput `pulumi:"maxPort"`
+	// The allowed range for the minimum port (`min`, `max`).
+	MinPort pulumi.IntInput `pulumi:"minPort"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValue)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueArray and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueArray{ GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueArray []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueInput
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValue)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValue)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueOutput {
+	return o
+}
+
+// The allowed range for the maximum port (`min`, `max`).
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueOutput) MaxPort() pulumi.IntOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValue) int {
+		return v.MaxPort
+	}).(pulumi.IntOutput)
+}
+
+// The allowed range for the minimum port (`min`, `max`).
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueOutput) MinPort() pulumi.IntOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValue) int {
+		return v.MinPort
+	}).(pulumi.IntOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValue)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValue {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValue)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfig struct {
+	// HPA controller configuration defaults and constraints.
+	HorizontalPodAutoscalerControllerConfigs []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig `pulumi:"horizontalPodAutoscalerControllerConfigs"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArgs and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArgs struct {
+	// HPA controller configuration defaults and constraints.
+	HorizontalPodAutoscalerControllerConfigs GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayInput `pulumi:"horizontalPodAutoscalerControllerConfigs"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfig)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArray and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArray{ GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArray []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigInput
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfig)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfig)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigOutput {
+	return o
+}
+
+// HPA controller configuration defaults and constraints.
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigOutput) HorizontalPodAutoscalerControllerConfigs() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfig) []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig {
+		return v.HorizontalPodAutoscalerControllerConfigs
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfig)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfig {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfig)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig struct {
+	// HPA sync period configuration with default value and constraints.
+	HorizontalPodAutoscalerSyncPeriods []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriod `pulumi:"horizontalPodAutoscalerSyncPeriods"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs struct {
+	// HPA sync period configuration with default value and constraints.
+	HorizontalPodAutoscalerSyncPeriods GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayInput `pulumi:"horizontalPodAutoscalerSyncPeriods"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArray and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArray{ GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArray []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigInput
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput {
+	return o
+}
+
+// HPA sync period configuration with default value and constraints.
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput) HorizontalPodAutoscalerSyncPeriods() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig) []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriod {
+		return v.HorizontalPodAutoscalerSyncPeriods
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriod struct {
+	// Scoring strategy constraints.
+	Constraints []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraint `pulumi:"constraints"`
+	// Default scoring strategy (`type`, `resources`).
+	DefaultValue string `pulumi:"defaultValue"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArgs and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArgs struct {
+	// Scoring strategy constraints.
+	Constraints GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayInput `pulumi:"constraints"`
+	// Default scoring strategy (`type`, `resources`).
+	DefaultValue pulumi.StringInput `pulumi:"defaultValue"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriod)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArray and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArray{ GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArray []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodInput
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriod)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriod)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutput {
+	return o
+}
+
+// Scoring strategy constraints.
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutput) Constraints() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriod) []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraint {
+		return v.Constraints
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutput)
+}
+
+// Default scoring strategy (`type`, `resources`).
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutput) DefaultValue() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriod) string {
+		return v.DefaultValue
+	}).(pulumi.StringOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriod)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriod {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriod)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraint struct {
+	// The maximum allowed duration.
+	Max string `pulumi:"max"`
+	// The minimum allowed duration.
+	Min string `pulumi:"min"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArgs and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArgs struct {
+	// The maximum allowed duration.
+	Max pulumi.StringInput `pulumi:"max"`
+	// The minimum allowed duration.
+	Min pulumi.StringInput `pulumi:"min"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraint)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArray and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArray{ GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArray []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintInput
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraint)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraint)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutput {
+	return o
+}
+
+// The maximum allowed duration.
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutput) Max() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraint) string {
+		return v.Max
+	}).(pulumi.StringOutput)
+}
+
+// The minimum allowed duration.
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutput) Min() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraint) string {
+		return v.Min
+	}).(pulumi.StringOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraint)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraint {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraint)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfig struct {
+	// NodeResourcesFit plugin configuration with default value and constraints.
+	NodeResourcesFits []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFit `pulumi:"nodeResourcesFits"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArgs and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArgs struct {
+	// NodeResourcesFit plugin configuration with default value and constraints.
+	NodeResourcesFits GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitArrayInput `pulumi:"nodeResourcesFits"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfig)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArray and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArray{ GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArray []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigInput
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfig)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfig)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigOutput {
+	return o
+}
+
+// NodeResourcesFit plugin configuration with default value and constraints.
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigOutput) NodeResourcesFits() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfig) []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFit {
+		return v.NodeResourcesFits
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfig)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfig {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfig)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFit struct {
+	// Allowed values for the strategy type.
+	ScoringStrategies []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategy `pulumi:"scoringStrategies"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitArgs and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitArgs struct {
+	// Allowed values for the strategy type.
+	ScoringStrategies GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayInput `pulumi:"scoringStrategies"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFit)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitArray and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitArray{ GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitArray []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitInput
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFit)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFit)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitOutput {
+	return o
+}
+
+// Allowed values for the strategy type.
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitOutput) ScoringStrategies() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFit) []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategy {
+		return v.ScoringStrategies
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFit)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFit {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFit)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategy struct {
+	// Scoring strategy constraints.
+	Constraints []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraint `pulumi:"constraints"`
+	// Default scoring strategy (`type`, `resources`).
+	DefaultValues []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValue `pulumi:"defaultValues"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyArgs and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyArgs struct {
+	// Scoring strategy constraints.
+	Constraints GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayInput `pulumi:"constraints"`
+	// Default scoring strategy (`type`, `resources`).
+	DefaultValues GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayInput `pulumi:"defaultValues"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategy)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyArray and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyArray{ GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyArray []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyInput
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategy)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategy)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput {
+	return o
+}
+
+// Scoring strategy constraints.
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput) Constraints() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategy) []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraint {
+		return v.Constraints
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayOutput)
+}
+
+// Default scoring strategy (`type`, `resources`).
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput) DefaultValues() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategy) []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValue {
+		return v.DefaultValues
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategy)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategy {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategy)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraint struct {
+	// Constraints for resource names and weights.
+	Resources []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResource `pulumi:"resources"`
+	// Allowed values for the strategy type.
+	ScoringStrategies []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategy `pulumi:"scoringStrategies"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArgs and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArgs struct {
+	// Constraints for resource names and weights.
+	Resources GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayInput `pulumi:"resources"`
+	// Allowed values for the strategy type.
+	ScoringStrategies GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayInput `pulumi:"scoringStrategies"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraint)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArray and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArray{ GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArray []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintInput
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraint)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraint)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutput {
+	return o
+}
+
+// Constraints for resource names and weights.
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutput) Resources() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraint) []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResource {
+		return v.Resources
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayOutput)
+}
+
+// Allowed values for the strategy type.
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutput) ScoringStrategies() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraint) []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategy {
+		return v.ScoringStrategies
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraint)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraint {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraint)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResource struct {
+	Names   []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceName   `pulumi:"names"`
+	Weights []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeight `pulumi:"weights"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArgs and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArgs struct {
+	Names   GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayInput   `pulumi:"names"`
+	Weights GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayInput `pulumi:"weights"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResource)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArray and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArray{ GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArray []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceInput
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResource)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResource)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutput) Names() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResource) []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceName {
+		return v.Names
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayOutput)
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutput) Weights() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResource) []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeight {
+		return v.Weights
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResource)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResource {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResource)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceName struct {
+	AllowedValues []string `pulumi:"allowedValues"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArgs and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArgs struct {
+	AllowedValues pulumi.StringArrayInput `pulumi:"allowedValues"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceName)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArray and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArray{ GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArray []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameInput
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceName)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceName)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameOutput) AllowedValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceName) []string {
+		return v.AllowedValues
+	}).(pulumi.StringArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceName)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceName {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceName)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeight struct {
+	// The maximum allowed duration.
+	Max int `pulumi:"max"`
+	// The minimum allowed duration.
+	Min int `pulumi:"min"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArgs and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArgs struct {
+	// The maximum allowed duration.
+	Max pulumi.IntInput `pulumi:"max"`
+	// The minimum allowed duration.
+	Min pulumi.IntInput `pulumi:"min"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeight)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArray and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArray{ GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArray []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightInput
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeight)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeight)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutput {
+	return o
+}
+
+// The maximum allowed duration.
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutput) Max() pulumi.IntOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeight) int {
+		return v.Max
+	}).(pulumi.IntOutput)
+}
+
+// The minimum allowed duration.
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutput) Min() pulumi.IntOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeight) int {
+		return v.Min
+	}).(pulumi.IntOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeight)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeight {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeight)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategy struct {
+	AllowedValues []string `pulumi:"allowedValues"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArgs and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArgs struct {
+	AllowedValues pulumi.StringArrayInput `pulumi:"allowedValues"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategy)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArray and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArray{ GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArray []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyInput
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategy)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategy)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyOutput) AllowedValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategy) []string {
+		return v.AllowedValues
+	}).(pulumi.StringArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategy)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategy {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategy)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValue struct {
+	// Constraints for resource names and weights.
+	Resources []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResource `pulumi:"resources"`
+	Type      string                                                                                                                              `pulumi:"type"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArgs and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArgs struct {
+	// Constraints for resource names and weights.
+	Resources GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayInput `pulumi:"resources"`
+	Type      pulumi.StringInput                                                                                                                          `pulumi:"type"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValue)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArray and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArray{ GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArray []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueInput
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValue)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValue)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutput {
+	return o
+}
+
+// Constraints for resource names and weights.
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutput) Resources() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValue) []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResource {
+		return v.Resources
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayOutput)
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValue) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValue)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValue {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValue)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResource struct {
+	Name   string `pulumi:"name"`
+	Weight int    `pulumi:"weight"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArgs and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArgs struct {
+	Name   pulumi.StringInput `pulumi:"name"`
+	Weight pulumi.IntInput    `pulumi:"weight"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResource)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArray and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArray{ GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArray []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceInput
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResource)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResource)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResource) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutput) Weight() pulumi.IntOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResource) int {
+		return v.Weight
+	}).(pulumi.IntOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResource)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResource {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResource)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTier struct {
+	// Maximum API request concurrency supported by this tier.
+	ApiRequestConcurrency int `pulumi:"apiRequestConcurrency"`
+	// Maximum cluster database size in GB supported by this tier.
+	ClusterDatabaseSizeGb int `pulumi:"clusterDatabaseSizeGb"`
+	// Control plane component configuration overrides specific to this tier (same structure as `controlPlaneComponentConfig`).
+	ControlPlaneComponentConfigOverrides []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverride `pulumi:"controlPlaneComponentConfigOverrides"`
+	// Maximum pod scheduling rate per second supported by this tier.
+	PodSchedulingRatePerSecond int `pulumi:"podSchedulingRatePerSecond"`
+	// The name of the scaling tier.
+	TierName string `pulumi:"tierName"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierArgs and GetClusterVersionsClusterVersionControlPlaneScalingTierOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneScalingTierInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierArgs struct {
+	// Maximum API request concurrency supported by this tier.
+	ApiRequestConcurrency pulumi.IntInput `pulumi:"apiRequestConcurrency"`
+	// Maximum cluster database size in GB supported by this tier.
+	ClusterDatabaseSizeGb pulumi.IntInput `pulumi:"clusterDatabaseSizeGb"`
+	// Control plane component configuration overrides specific to this tier (same structure as `controlPlaneComponentConfig`).
+	ControlPlaneComponentConfigOverrides GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideArrayInput `pulumi:"controlPlaneComponentConfigOverrides"`
+	// Maximum pod scheduling rate per second supported by this tier.
+	PodSchedulingRatePerSecond pulumi.IntInput `pulumi:"podSchedulingRatePerSecond"`
+	// The name of the scaling tier.
+	TierName pulumi.StringInput `pulumi:"tierName"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTier)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierArray and GetClusterVersionsClusterVersionControlPlaneScalingTierArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierArray{ GetClusterVersionsClusterVersionControlPlaneScalingTierArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneScalingTierArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierArray []GetClusterVersionsClusterVersionControlPlaneScalingTierInput
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTier)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTier)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierOutput {
+	return o
+}
+
+// Maximum API request concurrency supported by this tier.
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierOutput) ApiRequestConcurrency() pulumi.IntOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTier) int { return v.ApiRequestConcurrency }).(pulumi.IntOutput)
+}
+
+// Maximum cluster database size in GB supported by this tier.
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierOutput) ClusterDatabaseSizeGb() pulumi.IntOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTier) int { return v.ClusterDatabaseSizeGb }).(pulumi.IntOutput)
+}
+
+// Control plane component configuration overrides specific to this tier (same structure as `controlPlaneComponentConfig`).
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierOutput) ControlPlaneComponentConfigOverrides() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTier) []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverride {
+		return v.ControlPlaneComponentConfigOverrides
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideArrayOutput)
+}
+
+// Maximum pod scheduling rate per second supported by this tier.
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierOutput) PodSchedulingRatePerSecond() pulumi.IntOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTier) int {
+		return v.PodSchedulingRatePerSecond
+	}).(pulumi.IntOutput)
+}
+
+// The name of the scaling tier.
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierOutput) TierName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTier) string { return v.TierName }).(pulumi.StringOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTier)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneScalingTierOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneScalingTier {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneScalingTier)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverride struct {
+	// Kubernetes API server configuration defaults and constraints.
+	KubeApiServerConfigs []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfig `pulumi:"kubeApiServerConfigs"`
+	// Kubernetes controller manager configuration defaults and constraints.
+	KubeControllerManagerConfigs []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfig `pulumi:"kubeControllerManagerConfigs"`
+	// Kubernetes scheduler configuration defaults and constraints.
+	KubeSchedulerConfigs []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfig `pulumi:"kubeSchedulerConfigs"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideArgs and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideArgs struct {
+	// Kubernetes API server configuration defaults and constraints.
+	KubeApiServerConfigs GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigArrayInput `pulumi:"kubeApiServerConfigs"`
+	// Kubernetes controller manager configuration defaults and constraints.
+	KubeControllerManagerConfigs GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArrayInput `pulumi:"kubeControllerManagerConfigs"`
+	// Kubernetes scheduler configuration defaults and constraints.
+	KubeSchedulerConfigs GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArrayInput `pulumi:"kubeSchedulerConfigs"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverride)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideArray and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideArray{ GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideArray []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideInput
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverride)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverride)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideOutput {
+	return o
+}
+
+// Kubernetes API server configuration defaults and constraints.
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideOutput) KubeApiServerConfigs() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverride) []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfig {
+		return v.KubeApiServerConfigs
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigArrayOutput)
+}
+
+// Kubernetes controller manager configuration defaults and constraints.
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideOutput) KubeControllerManagerConfigs() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverride) []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfig {
+		return v.KubeControllerManagerConfigs
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArrayOutput)
+}
+
+// Kubernetes scheduler configuration defaults and constraints.
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideOutput) KubeSchedulerConfigs() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverride) []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfig {
+		return v.KubeSchedulerConfigs
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverride)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverride {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverride)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfig struct {
+	// Event TTL configuration with default value and constraints.
+	EventTtls []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtl `pulumi:"eventTtls"`
+	// Service node port range configuration with default value and constraints.
+	ServiceNodePortRanges []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRange `pulumi:"serviceNodePortRanges"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigArgs and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigArgs struct {
+	// Event TTL configuration with default value and constraints.
+	EventTtls GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlArrayInput `pulumi:"eventTtls"`
+	// Service node port range configuration with default value and constraints.
+	ServiceNodePortRanges GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeArrayInput `pulumi:"serviceNodePortRanges"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfig)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigArray and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigArray{ GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigArray []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigInput
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfig)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfig)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigOutput {
+	return o
+}
+
+// Event TTL configuration with default value and constraints.
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigOutput) EventTtls() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfig) []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtl {
+		return v.EventTtls
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlArrayOutput)
+}
+
+// Service node port range configuration with default value and constraints.
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigOutput) ServiceNodePortRanges() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfig) []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRange {
+		return v.ServiceNodePortRanges
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfig)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfig {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfig)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtl struct {
+	// Scoring strategy constraints.
+	Constraints []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraint `pulumi:"constraints"`
+	// Default scoring strategy (`type`, `resources`).
+	DefaultValue string `pulumi:"defaultValue"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlArgs and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlArgs struct {
+	// Scoring strategy constraints.
+	Constraints GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintArrayInput `pulumi:"constraints"`
+	// Default scoring strategy (`type`, `resources`).
+	DefaultValue pulumi.StringInput `pulumi:"defaultValue"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtl)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlArray and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlArray{ GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlArray []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlInput
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtl)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtl)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlOutput {
+	return o
+}
+
+// Scoring strategy constraints.
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlOutput) Constraints() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtl) []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraint {
+		return v.Constraints
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintArrayOutput)
+}
+
+// Default scoring strategy (`type`, `resources`).
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlOutput) DefaultValue() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtl) string {
+		return v.DefaultValue
+	}).(pulumi.StringOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtl)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtl {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtl)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraint struct {
+	// The maximum allowed duration.
+	Max string `pulumi:"max"`
+	// The minimum allowed duration.
+	Min string `pulumi:"min"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintArgs and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintArgs struct {
+	// The maximum allowed duration.
+	Max pulumi.StringInput `pulumi:"max"`
+	// The minimum allowed duration.
+	Min pulumi.StringInput `pulumi:"min"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraint)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintArray and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintArray{ GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintArray []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintInput
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraint)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraint)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintOutput {
+	return o
+}
+
+// The maximum allowed duration.
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintOutput) Max() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraint) string {
+		return v.Max
+	}).(pulumi.StringOutput)
+}
+
+// The minimum allowed duration.
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintOutput) Min() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraint) string {
+		return v.Min
+	}).(pulumi.StringOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraint)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraint {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraint)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRange struct {
+	// Scoring strategy constraints.
+	Constraints []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraint `pulumi:"constraints"`
+	// Default scoring strategy (`type`, `resources`).
+	DefaultValues []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValue `pulumi:"defaultValues"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeArgs and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeArgs struct {
+	// Scoring strategy constraints.
+	Constraints GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintArrayInput `pulumi:"constraints"`
+	// Default scoring strategy (`type`, `resources`).
+	DefaultValues GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueArrayInput `pulumi:"defaultValues"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRange)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeArray and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeArray{ GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeArray []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeInput
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRange)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRange)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeOutput {
+	return o
+}
+
+// Scoring strategy constraints.
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeOutput) Constraints() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRange) []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraint {
+		return v.Constraints
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintArrayOutput)
+}
+
+// Default scoring strategy (`type`, `resources`).
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeOutput) DefaultValues() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRange) []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValue {
+		return v.DefaultValues
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRange)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRange {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRange)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraint struct {
+	// The allowed range for the maximum port (`min`, `max`).
+	MaxPorts []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPort `pulumi:"maxPorts"`
+	// The allowed range for the minimum port (`min`, `max`).
+	MinPorts []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPort `pulumi:"minPorts"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintArgs and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintArgs struct {
+	// The allowed range for the maximum port (`min`, `max`).
+	MaxPorts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayInput `pulumi:"maxPorts"`
+	// The allowed range for the minimum port (`min`, `max`).
+	MinPorts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayInput `pulumi:"minPorts"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraint)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintArray and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintArray{ GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintArray []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintInput
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraint)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraint)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintOutput {
+	return o
+}
+
+// The allowed range for the maximum port (`min`, `max`).
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintOutput) MaxPorts() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraint) []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPort {
+		return v.MaxPorts
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayOutput)
+}
+
+// The allowed range for the minimum port (`min`, `max`).
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintOutput) MinPorts() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraint) []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPort {
+		return v.MinPorts
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraint)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraint {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraint)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPort struct {
+	// The maximum allowed duration.
+	Max int `pulumi:"max"`
+	// The minimum allowed duration.
+	Min int `pulumi:"min"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArgs and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArgs struct {
+	// The maximum allowed duration.
+	Max pulumi.IntInput `pulumi:"max"`
+	// The minimum allowed duration.
+	Min pulumi.IntInput `pulumi:"min"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPort)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArray and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArray{ GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArray []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortInput
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPort)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPort)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutput {
+	return o
+}
+
+// The maximum allowed duration.
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutput) Max() pulumi.IntOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPort) int {
+		return v.Max
+	}).(pulumi.IntOutput)
+}
+
+// The minimum allowed duration.
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutput) Min() pulumi.IntOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPort) int {
+		return v.Min
+	}).(pulumi.IntOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPort)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPort {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPort)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPort struct {
+	// The maximum allowed duration.
+	Max int `pulumi:"max"`
+	// The minimum allowed duration.
+	Min int `pulumi:"min"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortArgs and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortArgs struct {
+	// The maximum allowed duration.
+	Max pulumi.IntInput `pulumi:"max"`
+	// The minimum allowed duration.
+	Min pulumi.IntInput `pulumi:"min"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPort)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortArray and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortArray{ GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortArray []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortInput
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPort)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPort)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutput {
+	return o
+}
+
+// The maximum allowed duration.
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutput) Max() pulumi.IntOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPort) int {
+		return v.Max
+	}).(pulumi.IntOutput)
+}
+
+// The minimum allowed duration.
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutput) Min() pulumi.IntOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPort) int {
+		return v.Min
+	}).(pulumi.IntOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPort)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPort {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPort)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValue struct {
+	// The allowed range for the maximum port (`min`, `max`).
+	MaxPort int `pulumi:"maxPort"`
+	// The allowed range for the minimum port (`min`, `max`).
+	MinPort int `pulumi:"minPort"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueArgs and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueArgs struct {
+	// The allowed range for the maximum port (`min`, `max`).
+	MaxPort pulumi.IntInput `pulumi:"maxPort"`
+	// The allowed range for the minimum port (`min`, `max`).
+	MinPort pulumi.IntInput `pulumi:"minPort"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValue)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueArray and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueArray{ GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueArray []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueInput
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValue)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValue)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueOutput {
+	return o
+}
+
+// The allowed range for the maximum port (`min`, `max`).
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueOutput) MaxPort() pulumi.IntOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValue) int {
+		return v.MaxPort
+	}).(pulumi.IntOutput)
+}
+
+// The allowed range for the minimum port (`min`, `max`).
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueOutput) MinPort() pulumi.IntOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValue) int {
+		return v.MinPort
+	}).(pulumi.IntOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValue)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValue {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValue)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfig struct {
+	// HPA controller configuration defaults and constraints.
+	HorizontalPodAutoscalerControllerConfigs []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig `pulumi:"horizontalPodAutoscalerControllerConfigs"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArgs and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArgs struct {
+	// HPA controller configuration defaults and constraints.
+	HorizontalPodAutoscalerControllerConfigs GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayInput `pulumi:"horizontalPodAutoscalerControllerConfigs"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfig)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArray and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArray{ GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArray []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigInput
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfig)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfig)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigOutput {
+	return o
+}
+
+// HPA controller configuration defaults and constraints.
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigOutput) HorizontalPodAutoscalerControllerConfigs() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfig) []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig {
+		return v.HorizontalPodAutoscalerControllerConfigs
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfig)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfig {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfig)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig struct {
+	// HPA sync period configuration with default value and constraints.
+	HorizontalPodAutoscalerSyncPeriods []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriod `pulumi:"horizontalPodAutoscalerSyncPeriods"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs struct {
+	// HPA sync period configuration with default value and constraints.
+	HorizontalPodAutoscalerSyncPeriods GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayInput `pulumi:"horizontalPodAutoscalerSyncPeriods"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArray and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArray{ GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArray []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigInput
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput {
+	return o
+}
+
+// HPA sync period configuration with default value and constraints.
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput) HorizontalPodAutoscalerSyncPeriods() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig) []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriod {
+		return v.HorizontalPodAutoscalerSyncPeriods
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriod struct {
+	// Scoring strategy constraints.
+	Constraints []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraint `pulumi:"constraints"`
+	// Default scoring strategy (`type`, `resources`).
+	DefaultValue string `pulumi:"defaultValue"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArgs and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArgs struct {
+	// Scoring strategy constraints.
+	Constraints GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayInput `pulumi:"constraints"`
+	// Default scoring strategy (`type`, `resources`).
+	DefaultValue pulumi.StringInput `pulumi:"defaultValue"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriod)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArray and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArray{ GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArray []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodInput
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriod)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriod)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutput {
+	return o
+}
+
+// Scoring strategy constraints.
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutput) Constraints() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriod) []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraint {
+		return v.Constraints
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutput)
+}
+
+// Default scoring strategy (`type`, `resources`).
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutput) DefaultValue() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriod) string {
+		return v.DefaultValue
+	}).(pulumi.StringOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriod)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriod {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriod)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraint struct {
+	// The maximum allowed duration.
+	Max string `pulumi:"max"`
+	// The minimum allowed duration.
+	Min string `pulumi:"min"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArgs and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArgs struct {
+	// The maximum allowed duration.
+	Max pulumi.StringInput `pulumi:"max"`
+	// The minimum allowed duration.
+	Min pulumi.StringInput `pulumi:"min"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraint)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArray and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArray{ GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArray []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintInput
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraint)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraint)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutput {
+	return o
+}
+
+// The maximum allowed duration.
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutput) Max() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraint) string {
+		return v.Max
+	}).(pulumi.StringOutput)
+}
+
+// The minimum allowed duration.
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutput) Min() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraint) string {
+		return v.Min
+	}).(pulumi.StringOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraint)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraint {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraint)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfig struct {
+	// NodeResourcesFit plugin configuration with default value and constraints.
+	NodeResourcesFits []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFit `pulumi:"nodeResourcesFits"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArgs and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArgs struct {
+	// NodeResourcesFit plugin configuration with default value and constraints.
+	NodeResourcesFits GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitArrayInput `pulumi:"nodeResourcesFits"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfig)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArray and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArray{ GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArray []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigInput
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfig)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfig)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigOutput {
+	return o
+}
+
+// NodeResourcesFit plugin configuration with default value and constraints.
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigOutput) NodeResourcesFits() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfig) []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFit {
+		return v.NodeResourcesFits
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfig)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfig {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfig)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFit struct {
+	// Allowed values for the strategy type.
+	ScoringStrategies []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategy `pulumi:"scoringStrategies"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitArgs and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitArgs struct {
+	// Allowed values for the strategy type.
+	ScoringStrategies GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayInput `pulumi:"scoringStrategies"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFit)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitArray and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitArray{ GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitArray []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitInput
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFit)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFit)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitOutput {
+	return o
+}
+
+// Allowed values for the strategy type.
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitOutput) ScoringStrategies() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFit) []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategy {
+		return v.ScoringStrategies
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFit)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFit {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFit)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategy struct {
+	// Scoring strategy constraints.
+	Constraints []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraint `pulumi:"constraints"`
+	// Default scoring strategy (`type`, `resources`).
+	DefaultValues []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValue `pulumi:"defaultValues"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyArgs and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyArgs struct {
+	// Scoring strategy constraints.
+	Constraints GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayInput `pulumi:"constraints"`
+	// Default scoring strategy (`type`, `resources`).
+	DefaultValues GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayInput `pulumi:"defaultValues"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategy)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyArray and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyArray{ GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyArray []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyInput
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategy)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategy)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput {
+	return o
+}
+
+// Scoring strategy constraints.
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput) Constraints() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategy) []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraint {
+		return v.Constraints
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayOutput)
+}
+
+// Default scoring strategy (`type`, `resources`).
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput) DefaultValues() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategy) []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValue {
+		return v.DefaultValues
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategy)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategy {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategy)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraint struct {
+	// Constraints for resource names and weights.
+	Resources []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResource `pulumi:"resources"`
+	// Allowed values for the strategy type.
+	ScoringStrategies []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategy `pulumi:"scoringStrategies"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArgs and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArgs struct {
+	// Constraints for resource names and weights.
+	Resources GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayInput `pulumi:"resources"`
+	// Allowed values for the strategy type.
+	ScoringStrategies GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayInput `pulumi:"scoringStrategies"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraint)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArray and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArray{ GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArray []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintInput
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraint)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraint)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutput {
+	return o
+}
+
+// Constraints for resource names and weights.
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutput) Resources() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraint) []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResource {
+		return v.Resources
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayOutput)
+}
+
+// Allowed values for the strategy type.
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutput) ScoringStrategies() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraint) []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategy {
+		return v.ScoringStrategies
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraint)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraint {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraint)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResource struct {
+	Names   []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceName   `pulumi:"names"`
+	Weights []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeight `pulumi:"weights"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArgs and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArgs struct {
+	Names   GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayInput   `pulumi:"names"`
+	Weights GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayInput `pulumi:"weights"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResource)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArray and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArray{ GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArray []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceInput
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResource)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResource)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutput) Names() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResource) []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceName {
+		return v.Names
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayOutput)
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutput) Weights() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResource) []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeight {
+		return v.Weights
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResource)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResource {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResource)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceName struct {
+	AllowedValues []string `pulumi:"allowedValues"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArgs and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArgs struct {
+	AllowedValues pulumi.StringArrayInput `pulumi:"allowedValues"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceName)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArray and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArray{ GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArray []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameInput
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceName)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceName)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameOutput) AllowedValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceName) []string {
+		return v.AllowedValues
+	}).(pulumi.StringArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceName)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceName {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceName)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeight struct {
+	// The maximum allowed duration.
+	Max int `pulumi:"max"`
+	// The minimum allowed duration.
+	Min int `pulumi:"min"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArgs and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArgs struct {
+	// The maximum allowed duration.
+	Max pulumi.IntInput `pulumi:"max"`
+	// The minimum allowed duration.
+	Min pulumi.IntInput `pulumi:"min"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeight)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArray and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArray{ GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArray []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightInput
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeight)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeight)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutput {
+	return o
+}
+
+// The maximum allowed duration.
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutput) Max() pulumi.IntOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeight) int {
+		return v.Max
+	}).(pulumi.IntOutput)
+}
+
+// The minimum allowed duration.
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutput) Min() pulumi.IntOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeight) int {
+		return v.Min
+	}).(pulumi.IntOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeight)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeight {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeight)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategy struct {
+	AllowedValues []string `pulumi:"allowedValues"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArgs and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArgs struct {
+	AllowedValues pulumi.StringArrayInput `pulumi:"allowedValues"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategy)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArray and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArray{ GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArray []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyInput
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategy)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategy)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyOutput) AllowedValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategy) []string {
+		return v.AllowedValues
+	}).(pulumi.StringArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategy)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategy {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategy)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValue struct {
+	// Constraints for resource names and weights.
+	Resources []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResource `pulumi:"resources"`
+	Type      string                                                                                                                                                             `pulumi:"type"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArgs and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArgs struct {
+	// Constraints for resource names and weights.
+	Resources GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayInput `pulumi:"resources"`
+	Type      pulumi.StringInput                                                                                                                                                         `pulumi:"type"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValue)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArray and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArray{ GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArray []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueInput
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValue)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValue)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutput {
+	return o
+}
+
+// Constraints for resource names and weights.
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutput) Resources() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValue) []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResource {
+		return v.Resources
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayOutput)
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValue) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValue)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValue {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValue)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResource struct {
+	Name   string `pulumi:"name"`
+	Weight int    `pulumi:"weight"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArgs and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArgs struct {
+	Name   pulumi.StringInput `pulumi:"name"`
+	Weight pulumi.IntInput    `pulumi:"weight"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResource)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArray and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArray{ GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArray []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceInput
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResource)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResource)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResource) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutput) Weight() pulumi.IntOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResource) int {
+		return v.Weight
+	}).(pulumi.IntOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResource)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResource {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResource)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutput)
 }
 
 type GetClusterVpcConfig struct {
@@ -9930,6 +16963,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterIdentityArrayInput)(nil)).Elem(), ClusterIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterIdentityOidcInput)(nil)).Elem(), ClusterIdentityOidcArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterIdentityOidcArrayInput)(nil)).Elem(), ClusterIdentityOidcArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubeApiServerConfigInput)(nil)).Elem(), ClusterKubeApiServerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubeApiServerConfigPtrInput)(nil)).Elem(), ClusterKubeApiServerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubeApiServerConfigServiceNodePortRangeInput)(nil)).Elem(), ClusterKubeApiServerConfigServiceNodePortRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubeApiServerConfigServiceNodePortRangePtrInput)(nil)).Elem(), ClusterKubeApiServerConfigServiceNodePortRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubeControllerManagerConfigInput)(nil)).Elem(), ClusterKubeControllerManagerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubeControllerManagerConfigPtrInput)(nil)).Elem(), ClusterKubeControllerManagerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigInput)(nil)).Elem(), ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrInput)(nil)).Elem(), ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubeSchedulerConfigInput)(nil)).Elem(), ClusterKubeSchedulerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubeSchedulerConfigPtrInput)(nil)).Elem(), ClusterKubeSchedulerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubeSchedulerConfigNodeResourcesFitInput)(nil)).Elem(), ClusterKubeSchedulerConfigNodeResourcesFitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubeSchedulerConfigNodeResourcesFitPtrInput)(nil)).Elem(), ClusterKubeSchedulerConfigNodeResourcesFitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyInput)(nil)).Elem(), ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrInput)(nil)).Elem(), ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceInput)(nil)).Elem(), ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayInput)(nil)).Elem(), ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubernetesNetworkConfigInput)(nil)).Elem(), ClusterKubernetesNetworkConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubernetesNetworkConfigPtrInput)(nil)).Elem(), ClusterKubernetesNetworkConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubernetesNetworkConfigElasticLoadBalancingInput)(nil)).Elem(), ClusterKubernetesNetworkConfigElasticLoadBalancingArgs{})
@@ -9996,6 +17045,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterIdentityArrayInput)(nil)).Elem(), GetClusterIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterIdentityOidcInput)(nil)).Elem(), GetClusterIdentityOidcArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterIdentityOidcArrayInput)(nil)).Elem(), GetClusterIdentityOidcArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterKubeApiServerConfigInput)(nil)).Elem(), GetClusterKubeApiServerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterKubeApiServerConfigArrayInput)(nil)).Elem(), GetClusterKubeApiServerConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterKubeApiServerConfigServiceNodePortRangeInput)(nil)).Elem(), GetClusterKubeApiServerConfigServiceNodePortRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterKubeApiServerConfigServiceNodePortRangeArrayInput)(nil)).Elem(), GetClusterKubeApiServerConfigServiceNodePortRangeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterKubeControllerManagerConfigInput)(nil)).Elem(), GetClusterKubeControllerManagerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterKubeControllerManagerConfigArrayInput)(nil)).Elem(), GetClusterKubeControllerManagerConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigInput)(nil)).Elem(), GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayInput)(nil)).Elem(), GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterKubeSchedulerConfigInput)(nil)).Elem(), GetClusterKubeSchedulerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterKubeSchedulerConfigArrayInput)(nil)).Elem(), GetClusterKubeSchedulerConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterKubeSchedulerConfigNodeResourcesFitInput)(nil)).Elem(), GetClusterKubeSchedulerConfigNodeResourcesFitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterKubeSchedulerConfigNodeResourcesFitArrayInput)(nil)).Elem(), GetClusterKubeSchedulerConfigNodeResourcesFitArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyInput)(nil)).Elem(), GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayInput)(nil)).Elem(), GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceInput)(nil)).Elem(), GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayInput)(nil)).Elem(), GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterKubernetesNetworkConfigInput)(nil)).Elem(), GetClusterKubernetesNetworkConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterKubernetesNetworkConfigArrayInput)(nil)).Elem(), GetClusterKubernetesNetworkConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterKubernetesNetworkConfigElasticLoadBalancingInput)(nil)).Elem(), GetClusterKubernetesNetworkConfigElasticLoadBalancingArgs{})
@@ -10020,6 +17085,100 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterUpgradePolicyArrayInput)(nil)).Elem(), GetClusterUpgradePolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionInput)(nil)).Elem(), GetClusterVersionsClusterVersionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVpcConfigInput)(nil)).Elem(), GetClusterVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterZonalShiftConfigInput)(nil)).Elem(), GetClusterZonalShiftConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterZonalShiftConfigArrayInput)(nil)).Elem(), GetClusterZonalShiftConfigArray{})
@@ -10075,6 +17234,22 @@ func init() {
 	pulumi.RegisterOutputType(ClusterIdentityArrayOutput{})
 	pulumi.RegisterOutputType(ClusterIdentityOidcOutput{})
 	pulumi.RegisterOutputType(ClusterIdentityOidcArrayOutput{})
+	pulumi.RegisterOutputType(ClusterKubeApiServerConfigOutput{})
+	pulumi.RegisterOutputType(ClusterKubeApiServerConfigPtrOutput{})
+	pulumi.RegisterOutputType(ClusterKubeApiServerConfigServiceNodePortRangeOutput{})
+	pulumi.RegisterOutputType(ClusterKubeApiServerConfigServiceNodePortRangePtrOutput{})
+	pulumi.RegisterOutputType(ClusterKubeControllerManagerConfigOutput{})
+	pulumi.RegisterOutputType(ClusterKubeControllerManagerConfigPtrOutput{})
+	pulumi.RegisterOutputType(ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput{})
+	pulumi.RegisterOutputType(ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrOutput{})
+	pulumi.RegisterOutputType(ClusterKubeSchedulerConfigOutput{})
+	pulumi.RegisterOutputType(ClusterKubeSchedulerConfigPtrOutput{})
+	pulumi.RegisterOutputType(ClusterKubeSchedulerConfigNodeResourcesFitOutput{})
+	pulumi.RegisterOutputType(ClusterKubeSchedulerConfigNodeResourcesFitPtrOutput{})
+	pulumi.RegisterOutputType(ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput{})
+	pulumi.RegisterOutputType(ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyPtrOutput{})
+	pulumi.RegisterOutputType(ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutput{})
+	pulumi.RegisterOutputType(ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutput{})
 	pulumi.RegisterOutputType(ClusterKubernetesNetworkConfigOutput{})
 	pulumi.RegisterOutputType(ClusterKubernetesNetworkConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterKubernetesNetworkConfigElasticLoadBalancingOutput{})
@@ -10141,6 +17316,22 @@ func init() {
 	pulumi.RegisterOutputType(GetClusterIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterIdentityOidcOutput{})
 	pulumi.RegisterOutputType(GetClusterIdentityOidcArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterKubeApiServerConfigOutput{})
+	pulumi.RegisterOutputType(GetClusterKubeApiServerConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterKubeApiServerConfigServiceNodePortRangeOutput{})
+	pulumi.RegisterOutputType(GetClusterKubeApiServerConfigServiceNodePortRangeArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterKubeControllerManagerConfigOutput{})
+	pulumi.RegisterOutputType(GetClusterKubeControllerManagerConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput{})
+	pulumi.RegisterOutputType(GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterKubeSchedulerConfigOutput{})
+	pulumi.RegisterOutputType(GetClusterKubeSchedulerConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterKubeSchedulerConfigNodeResourcesFitOutput{})
+	pulumi.RegisterOutputType(GetClusterKubeSchedulerConfigNodeResourcesFitArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput{})
+	pulumi.RegisterOutputType(GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceOutput{})
+	pulumi.RegisterOutputType(GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResourceArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterKubernetesNetworkConfigOutput{})
 	pulumi.RegisterOutputType(GetClusterKubernetesNetworkConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterKubernetesNetworkConfigElasticLoadBalancingOutput{})
@@ -10165,6 +17356,100 @@ func init() {
 	pulumi.RegisterOutputType(GetClusterUpgradePolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionOutput{})
 	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigEventTtlConstraintArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerConfigServiceNodePortRangeDefaultValueArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigEventTtlConstraintArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMaxPortArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeConstraintMinPortArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeApiServerConfigServiceNodePortRangeDefaultValueArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceNameArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintResourceWeightArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyConstraintScoringStrategyArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyDefaultValueResourceArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterVpcConfigOutput{})
 	pulumi.RegisterOutputType(GetClusterZonalShiftConfigOutput{})
 	pulumi.RegisterOutputType(GetClusterZonalShiftConfigArrayOutput{})

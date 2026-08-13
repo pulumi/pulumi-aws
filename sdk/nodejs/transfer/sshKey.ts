@@ -106,7 +106,7 @@ export class SshKey extends pulumi.CustomResource {
     }
 
     /**
-     * The public key portion of an SSH key pair.
+     * Public key portion of an SSH key pair.
      */
     declare public readonly body: pulumi.Output<string>;
     /**
@@ -114,12 +114,15 @@ export class SshKey extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The Server ID of the Transfer Server (e.g., `s-12345678`)
+     * Server ID of the Transfer Server (e.g., `s-12345678`)
      */
     declare public readonly serverId: pulumi.Output<string>;
+    /**
+     * ID of the SSH public key.
+     */
     declare public /*out*/ readonly sshKeyId: pulumi.Output<string>;
     /**
-     * The name of the user account that is assigned to one or more servers.
+     * Name of the user account that is assigned to one or more servers.
      */
     declare public readonly userName: pulumi.Output<string>;
 
@@ -168,7 +171,7 @@ export class SshKey extends pulumi.CustomResource {
  */
 export interface SshKeyState {
     /**
-     * The public key portion of an SSH key pair.
+     * Public key portion of an SSH key pair.
      */
     body?: pulumi.Input<string | undefined>;
     /**
@@ -176,12 +179,15 @@ export interface SshKeyState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Server ID of the Transfer Server (e.g., `s-12345678`)
+     * Server ID of the Transfer Server (e.g., `s-12345678`)
      */
     serverId?: pulumi.Input<string | undefined>;
+    /**
+     * ID of the SSH public key.
+     */
     sshKeyId?: pulumi.Input<string | undefined>;
     /**
-     * The name of the user account that is assigned to one or more servers.
+     * Name of the user account that is assigned to one or more servers.
      */
     userName?: pulumi.Input<string | undefined>;
 }
@@ -191,7 +197,7 @@ export interface SshKeyState {
  */
 export interface SshKeyArgs {
     /**
-     * The public key portion of an SSH key pair.
+     * Public key portion of an SSH key pair.
      */
     body: pulumi.Input<string>;
     /**
@@ -199,11 +205,11 @@ export interface SshKeyArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Server ID of the Transfer Server (e.g., `s-12345678`)
+     * Server ID of the Transfer Server (e.g., `s-12345678`)
      */
     serverId: pulumi.Input<string>;
     /**
-     * The name of the user account that is assigned to one or more servers.
+     * Name of the user account that is assigned to one or more servers.
      */
     userName: pulumi.Input<string>;
 }

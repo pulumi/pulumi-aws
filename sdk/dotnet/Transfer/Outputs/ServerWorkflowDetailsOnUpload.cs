@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Transfer.Outputs
         /// </summary>
         public readonly string ExecutionRole;
         /// <summary>
-        /// A unique identifier for the workflow.
+        /// Unique identifier for the workflow.
         /// </summary>
         public readonly string WorkflowId;
 

@@ -13,17 +13,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WorkflowOnExceptionStepCustomStepDetails {
     /**
-     * @return The name of the step, used as an identifier.
+     * @return Name of the step, used as an identifier.
      * 
      */
     private @Nullable String name;
     /**
-     * @return Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+     * @return File to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter `${previous.file}` to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter `${original.file}` to use the originally-uploaded file location as input for this step.
      * 
      */
     private @Nullable String sourceFileLocation;
     /**
-     * @return The ARN for the lambda function that is being called.
+     * @return ARN for the lambda function that is being called.
      * 
      */
     private @Nullable String target;
@@ -35,21 +35,21 @@ public final class WorkflowOnExceptionStepCustomStepDetails {
 
     private WorkflowOnExceptionStepCustomStepDetails() {}
     /**
-     * @return The name of the step, used as an identifier.
+     * @return Name of the step, used as an identifier.
      * 
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+     * @return File to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter `${previous.file}` to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter `${original.file}` to use the originally-uploaded file location as input for this step.
      * 
      */
     public Optional<String> sourceFileLocation() {
         return Optional.ofNullable(this.sourceFileLocation);
     }
     /**
-     * @return The ARN for the lambda function that is being called.
+     * @return ARN for the lambda function that is being called.
      * 
      */
     public Optional<String> target() {

@@ -18,14 +18,14 @@ public final class ProfileState extends com.pulumi.resources.ResourceArgs {
     public static final ProfileState Empty = new ProfileState();
 
     /**
-     * The ARN of the profile.
+     * ARN of the profile.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the profile.
+     * @return ARN of the profile.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -33,14 +33,14 @@ public final class ProfileState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
+     * AS2 name as defined in RFC 4130. For inbound transfers this is the AS2 From Header for the AS2 messages sent from the partner. For outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. This ID cannot include spaces.
      * 
      */
     @Import(name="as2Id")
     private @Nullable Output<String> as2Id;
 
     /**
-     * @return The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
+     * @return AS2 name as defined in RFC 4130. For inbound transfers this is the AS2 From Header for the AS2 messages sent from the partner. For outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. This ID cannot include spaces.
      * 
      */
     public Optional<Output<String>> as2Id() {
@@ -48,14 +48,14 @@ public final class ProfileState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The list of certificate Ids from the imported certificate operation.
+     * List of certificate IDs from the imported certificate operation.
      * 
      */
     @Import(name="certificateIds")
     private @Nullable Output<List<String>> certificateIds;
 
     /**
-     * @return The list of certificate Ids from the imported certificate operation.
+     * @return List of certificate IDs from the imported certificate operation.
      * 
      */
     public Optional<Output<List<String>>> certificateIds() {
@@ -63,14 +63,14 @@ public final class ProfileState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The unique identifier for the AS2 profile.
+     * Unique identifier for the AS2 profile.
      * 
      */
     @Import(name="profileId")
     private @Nullable Output<String> profileId;
 
     /**
-     * @return The unique identifier for the AS2 profile.
+     * @return Unique identifier for the AS2 profile.
      * 
      */
     public Optional<Output<String>> profileId() {
@@ -78,14 +78,14 @@ public final class ProfileState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The profile type should be LOCAL or PARTNER.
+     * Profile type. Valid values are `LOCAL` or `PARTNER`.
      * 
      */
     @Import(name="profileType")
     private @Nullable Output<String> profileType;
 
     /**
-     * @return The profile type should be LOCAL or PARTNER.
+     * @return Profile type. Valid values are `LOCAL` or `PARTNER`.
      * 
      */
     public Optional<Output<String>> profileType() {
@@ -108,14 +108,14 @@ public final class ProfileState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -161,7 +161,7 @@ public final class ProfileState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the profile.
+         * @param arn ARN of the profile.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class ProfileState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the profile.
+         * @param arn ARN of the profile.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class ProfileState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param as2Id The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
+         * @param as2Id AS2 name as defined in RFC 4130. For inbound transfers this is the AS2 From Header for the AS2 messages sent from the partner. For outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. This ID cannot include spaces.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class ProfileState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param as2Id The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
+         * @param as2Id AS2 name as defined in RFC 4130. For inbound transfers this is the AS2 From Header for the AS2 messages sent from the partner. For outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. This ID cannot include spaces.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class ProfileState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateIds The list of certificate Ids from the imported certificate operation.
+         * @param certificateIds List of certificate IDs from the imported certificate operation.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class ProfileState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateIds The list of certificate Ids from the imported certificate operation.
+         * @param certificateIds List of certificate IDs from the imported certificate operation.
          * 
          * @return builder
          * 
@@ -224,7 +224,7 @@ public final class ProfileState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateIds The list of certificate Ids from the imported certificate operation.
+         * @param certificateIds List of certificate IDs from the imported certificate operation.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class ProfileState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param profileId The unique identifier for the AS2 profile.
+         * @param profileId Unique identifier for the AS2 profile.
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class ProfileState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param profileId The unique identifier for the AS2 profile.
+         * @param profileId Unique identifier for the AS2 profile.
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class ProfileState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param profileType The profile type should be LOCAL or PARTNER.
+         * @param profileType Profile type. Valid values are `LOCAL` or `PARTNER`.
          * 
          * @return builder
          * 
@@ -266,7 +266,7 @@ public final class ProfileState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param profileType The profile type should be LOCAL or PARTNER.
+         * @param profileType Profile type. Valid values are `LOCAL` or `PARTNER`.
          * 
          * @return builder
          * 
@@ -297,7 +297,7 @@ public final class ProfileState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -308,7 +308,7 @@ public final class ProfileState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

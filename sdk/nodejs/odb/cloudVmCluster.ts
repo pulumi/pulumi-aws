@@ -231,7 +231,7 @@ export class CloudVmCluster extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly hostnamePrefixComputed: pulumi.Output<string>;
     /**
-     * Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
+     * Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster. See `iormConfigCache` Block below.
      */
     declare public /*out*/ readonly iormConfigCaches: pulumi.Output<outputs.odb.CloudVmClusterIormConfigCache[]>;
     /**
@@ -568,7 +568,7 @@ export interface CloudVmClusterState {
      */
     hostnamePrefixComputed?: pulumi.Input<string | undefined>;
     /**
-     * Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
+     * Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster. See `iormConfigCache` Block below.
      */
     iormConfigCaches?: pulumi.Input<pulumi.Input<inputs.odb.CloudVmClusterIormConfigCache>[] | undefined>;
     /**

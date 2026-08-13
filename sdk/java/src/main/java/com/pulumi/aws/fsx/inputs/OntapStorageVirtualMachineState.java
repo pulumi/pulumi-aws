@@ -50,14 +50,14 @@ public final class OntapStorageVirtualMachineState extends com.pulumi.resources.
     }
 
     /**
-     * Endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+     * Endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See `endpoints` below.
      * 
      */
     @Import(name="endpoints")
     private @Nullable Output<List<OntapStorageVirtualMachineEndpointArgs>> endpoints;
 
     /**
-     * @return Endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+     * @return Endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See `endpoints` below.
      * 
      */
     public Optional<Output<List<OntapStorageVirtualMachineEndpointArgs>>> endpoints() {
@@ -277,7 +277,7 @@ public final class OntapStorageVirtualMachineState extends com.pulumi.resources.
         }
 
         /**
-         * @param endpoints Endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+         * @param endpoints Endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See `endpoints` below.
          * 
          * @return builder
          * 
@@ -288,7 +288,7 @@ public final class OntapStorageVirtualMachineState extends com.pulumi.resources.
         }
 
         /**
-         * @param endpoints Endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+         * @param endpoints Endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See `endpoints` below.
          * 
          * @return builder
          * 
@@ -298,7 +298,7 @@ public final class OntapStorageVirtualMachineState extends com.pulumi.resources.
         }
 
         /**
-         * @param endpoints Endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+         * @param endpoints Endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See `endpoints` below.
          * 
          * @return builder
          * 

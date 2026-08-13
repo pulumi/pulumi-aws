@@ -11,17 +11,41 @@ import java.util.Objects;
 
 @CustomType
 public final class GetConnectionPhysicalConnectionRequirement {
+    /**
+     * @return Availability Zone used by the connection.
+     * 
+     */
     private String availabilityZone;
+    /**
+     * @return List of security group IDs used by the connection.
+     * 
+     */
     private List<String> securityGroupIdLists;
+    /**
+     * @return Subnet ID used by the connection.
+     * 
+     */
     private String subnetId;
 
     private GetConnectionPhysicalConnectionRequirement() {}
+    /**
+     * @return Availability Zone used by the connection.
+     * 
+     */
     public String availabilityZone() {
         return this.availabilityZone;
     }
+    /**
+     * @return List of security group IDs used by the connection.
+     * 
+     */
     public List<String> securityGroupIdLists() {
         return this.securityGroupIdLists;
     }
+    /**
+     * @return Subnet ID used by the connection.
+     * 
+     */
     public String subnetId() {
         return this.subnetId;
     }

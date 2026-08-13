@@ -528,6 +528,10 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Base Policy Example
+ * 
+ * The base policy created by `createBasePolicy` looks like the following. This base policy is overridden by the policy you specify in the `aws.networkmanager.CoreNetworkPolicyAttachment` resource.
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws.networkmanager.CoreNetwork` using the core network ID. For example:
@@ -582,14 +586,14 @@ public class CoreNetwork extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.basePolicyRegions);
     }
     /**
-     * Whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. An example of this Pulumi snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown below. This base policy is overridden with the policy that you specify in the `aws.networkmanager.CoreNetworkPolicyAttachment` resource.
+     * Whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. An example of this Terraform snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown in the Base Policy Example section. This base policy is overridden with the policy that you specify in the `aws.networkmanager.CoreNetworkPolicyAttachment` resource.
      * 
      */
     @Export(name="createBasePolicy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> createBasePolicy;
 
     /**
-     * @return Whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. An example of this Pulumi snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown below. This base policy is overridden with the policy that you specify in the `aws.networkmanager.CoreNetworkPolicyAttachment` resource.
+     * @return Whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. An example of this Terraform snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown in the Base Policy Example section. This base policy is overridden with the policy that you specify in the `aws.networkmanager.CoreNetworkPolicyAttachment` resource.
      * 
      */
     public Output<Optional<Boolean>> createBasePolicy() {

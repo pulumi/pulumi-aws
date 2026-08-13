@@ -190,21 +190,21 @@ public class WebApp extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
+     * Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint. See `endpointDetails` Block below.
      * 
      */
     @Export(name="endpointDetails", refs={WebAppEndpointDetails.class}, tree="[0]")
     private Output</* @Nullable */ WebAppEndpointDetails> endpointDetails;
 
     /**
-     * @return Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
+     * @return Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint. See `endpointDetails` Block below.
      * 
      */
     public Output<Optional<WebAppEndpointDetails>> endpointDetails() {
         return Codegen.optional(this.endpointDetails);
     }
     /**
-     * Block for details of the identity provider to use with the web app. See Identity provider details below.
+     * Block for details of the identity provider to use with the web app. See `identityProviderDetails` Block below.
      * 
      * The following arguments are optional:
      * 
@@ -213,7 +213,7 @@ public class WebApp extends com.pulumi.resources.CustomResource {
     private Output<WebAppIdentityProviderDetails> identityProviderDetails;
 
     /**
-     * @return Block for details of the identity provider to use with the web app. See Identity provider details below.
+     * @return Block for details of the identity provider to use with the web app. See `identityProviderDetails` Block below.
      * 
      * The following arguments are optional:
      * 
@@ -270,30 +270,28 @@ public class WebApp extends com.pulumi.resources.CustomResource {
         return this.webAppEndpointPolicy;
     }
     /**
-     * ID of the Wep App resource.
+     * ID of the Web App resource.
      * 
      */
     @Export(name="webAppId", refs={String.class}, tree="[0]")
     private Output<String> webAppId;
 
     /**
-     * @return ID of the Wep App resource.
+     * @return ID of the Web App resource.
      * 
      */
     public Output<String> webAppId() {
         return this.webAppId;
     }
     /**
-     * Block for number of concurrent connections or the user sessions on the web app.
-     * * provisioned - (Optional) Number of units of concurrent connections.
+     * Block for number of concurrent connections or the user sessions on the web app. See `webAppUnits` Block below.
      * 
      */
     @Export(name="webAppUnits", refs={List.class,WebAppWebAppUnit.class}, tree="[0,1]")
     private Output<List<WebAppWebAppUnit>> webAppUnits;
 
     /**
-     * @return Block for number of concurrent connections or the user sessions on the web app.
-     * * provisioned - (Optional) Number of units of concurrent connections.
+     * @return Block for number of concurrent connections or the user sessions on the web app. See `webAppUnits` Block below.
      * 
      */
     public Output<List<WebAppWebAppUnit>> webAppUnits() {

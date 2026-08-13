@@ -1531,7 +1531,7 @@ func (o GetBrokerEncryptionOptionArrayOutput) Index(i pulumi.IntInput) GetBroker
 type GetBrokerEngineTypesBrokerEngineType struct {
 	// MQ engine type to return version details for.
 	EngineType string `pulumi:"engineType"`
-	// List of engine versions. See Engine Versions.
+	// List of engine versions. See `engineVersions` Block.
 	EngineVersions []GetBrokerEngineTypesBrokerEngineTypeEngineVersion `pulumi:"engineVersions"`
 }
 
@@ -1549,7 +1549,7 @@ type GetBrokerEngineTypesBrokerEngineTypeInput interface {
 type GetBrokerEngineTypesBrokerEngineTypeArgs struct {
 	// MQ engine type to return version details for.
 	EngineType pulumi.StringInput `pulumi:"engineType"`
-	// List of engine versions. See Engine Versions.
+	// List of engine versions. See `engineVersions` Block.
 	EngineVersions GetBrokerEngineTypesBrokerEngineTypeEngineVersionArrayInput `pulumi:"engineVersions"`
 }
 
@@ -1609,7 +1609,7 @@ func (o GetBrokerEngineTypesBrokerEngineTypeOutput) EngineType() pulumi.StringOu
 	return o.ApplyT(func(v GetBrokerEngineTypesBrokerEngineType) string { return v.EngineType }).(pulumi.StringOutput)
 }
 
-// List of engine versions. See Engine Versions.
+// List of engine versions. See `engineVersions` Block.
 func (o GetBrokerEngineTypesBrokerEngineTypeOutput) EngineVersions() GetBrokerEngineTypesBrokerEngineTypeEngineVersionArrayOutput {
 	return o.ApplyT(func(v GetBrokerEngineTypesBrokerEngineType) []GetBrokerEngineTypesBrokerEngineTypeEngineVersion {
 		return v.EngineVersions
@@ -2415,7 +2415,7 @@ func (o GetBrokerUserArrayOutput) Index(i pulumi.IntInput) GetBrokerUserOutput {
 }
 
 type GetInstanceTypeOfferingsBrokerInstanceOption struct {
-	// List of available Availability Zones. See Availability Zones below.
+	// List of available Availability Zones. See `availabilityZones` Block below.
 	AvailabilityZones []GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone `pulumi:"availabilityZones"`
 	// Filter response by engine type.
 	EngineType string `pulumi:"engineType"`
@@ -2441,7 +2441,7 @@ type GetInstanceTypeOfferingsBrokerInstanceOptionInput interface {
 }
 
 type GetInstanceTypeOfferingsBrokerInstanceOptionArgs struct {
-	// List of available Availability Zones. See Availability Zones below.
+	// List of available Availability Zones. See `availabilityZones` Block below.
 	AvailabilityZones GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArrayInput `pulumi:"availabilityZones"`
 	// Filter response by engine type.
 	EngineType pulumi.StringInput `pulumi:"engineType"`
@@ -2506,7 +2506,7 @@ func (o GetInstanceTypeOfferingsBrokerInstanceOptionOutput) ToGetInstanceTypeOff
 	return o
 }
 
-// List of available Availability Zones. See Availability Zones below.
+// List of available Availability Zones. See `availabilityZones` Block below.
 func (o GetInstanceTypeOfferingsBrokerInstanceOptionOutput) AvailabilityZones() GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArrayOutput {
 	return o.ApplyT(func(v GetInstanceTypeOfferingsBrokerInstanceOption) []GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone {
 		return v.AvailabilityZones

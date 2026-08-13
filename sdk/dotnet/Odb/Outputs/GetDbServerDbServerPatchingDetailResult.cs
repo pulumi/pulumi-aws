@@ -13,9 +13,21 @@ namespace Pulumi.Aws.Odb.Outputs
     [OutputType]
     public sealed class GetDbServerDbServerPatchingDetailResult
     {
+        /// <summary>
+        /// Estimated time, in minutes, that it takes to patch the database server.
+        /// </summary>
         public readonly int EstimatedPatchDuration;
+        /// <summary>
+        /// Status of the patching operation.
+        /// </summary>
         public readonly string PatchingStatus;
+        /// <summary>
+        /// Date and time when the patching operation ended.
+        /// </summary>
         public readonly string TimePatchingEnded;
+        /// <summary>
+        /// Date and time when the patching operation started.
+        /// </summary>
         public readonly string TimePatchingStarted;
 
         [OutputConstructor]

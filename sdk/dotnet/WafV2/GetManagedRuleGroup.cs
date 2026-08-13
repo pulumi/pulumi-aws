@@ -188,12 +188,12 @@ namespace Pulumi.Aws.WafV2
         /// </summary>
         public readonly string LabelNamespace;
         /// <summary>
-        /// Name of the rule.
+        /// Name of the header.
         /// </summary>
         public readonly string Name;
         public readonly string Region;
         /// <summary>
-        /// High-level information about the rules. See Rules below for details.
+        /// High-level information about the rules. See `Rules` Block below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetManagedRuleGroupRuleResult> Rules;
         public readonly string Scope;

@@ -10,13 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualNodeSpecListenerConnectionPoolHttp {
+    /**
+     * @return Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster.
+     * 
+     */
     private Integer maxConnections;
+    /**
+     * @return Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster.
+     * 
+     */
     private Integer maxPendingRequests;
 
     private GetVirtualNodeSpecListenerConnectionPoolHttp() {}
+    /**
+     * @return Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster.
+     * 
+     */
     public Integer maxConnections() {
         return this.maxConnections;
     }
+    /**
+     * @return Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster.
+     * 
+     */
     public Integer maxPendingRequests() {
         return this.maxPendingRequests;
     }

@@ -13,7 +13,13 @@ namespace Pulumi.Aws.SsoAdmin.Outputs
     [OutputType]
     public sealed class GetApplicationPortalOptionSignInOptionResult
     {
+        /// <summary>
+        /// URL that accepts authentication requests for an application.
+        /// </summary>
         public readonly string ApplicationUrl;
+        /// <summary>
+        /// How IAM Identity Center navigates the user to the target application.
+        /// </summary>
         public readonly string Origin;
 
         [OutputConstructor]

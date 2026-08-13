@@ -47,6 +47,9 @@ __all__ = [
     'GetInstanceMasterUserSecretResult',
     'GetInstancesFilterResult',
     'GetProxyAuthResult',
+    'GetSnapshotsFilterResult',
+    'GetSnapshotsSnapshotResult',
+    'GetSnapshotsSnapshotTagListResult',
 ]
 
 @pulumi.output_type
@@ -1275,12 +1278,12 @@ class ProxyAuth(dict):
                  secret_arn: Optional[_builtins.str] = None,
                  username: Optional[_builtins.str] = None):
         """
-        :param _builtins.str auth_scheme: The type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
-        :param _builtins.str client_password_auth_type: The type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_CACHING_SHA2_PASSWORD`, `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
-        :param _builtins.str description: A user-specified description about the authentication used by a proxy to log in as a specific database user.
+        :param _builtins.str auth_scheme: Type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
+        :param _builtins.str client_password_auth_type: Type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_CACHING_SHA2_PASSWORD`, `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
+        :param _builtins.str description: User-specified description about the authentication used by a proxy to log in as a specific database user.
         :param _builtins.str iam_auth: Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. One of `DISABLED`, `REQUIRED`.
-        :param _builtins.str secret_arn: The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
-        :param _builtins.str username: The name of the database user to which the proxy connects.
+        :param _builtins.str secret_arn: Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+        :param _builtins.str username: Name of the database user to which the proxy connects.
         """
         if auth_scheme is not None:
             pulumi.set(__self__, "auth_scheme", auth_scheme)
@@ -1299,7 +1302,7 @@ class ProxyAuth(dict):
     @pulumi.getter(name="authScheme")
     def auth_scheme(self) -> Optional[_builtins.str]:
         """
-        The type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
+        Type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
         """
         return pulumi.get(self, "auth_scheme")
 
@@ -1307,7 +1310,7 @@ class ProxyAuth(dict):
     @pulumi.getter(name="clientPasswordAuthType")
     def client_password_auth_type(self) -> Optional[_builtins.str]:
         """
-        The type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_CACHING_SHA2_PASSWORD`, `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
+        Type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_CACHING_SHA2_PASSWORD`, `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
         """
         return pulumi.get(self, "client_password_auth_type")
 
@@ -1315,7 +1318,7 @@ class ProxyAuth(dict):
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
         """
-        A user-specified description about the authentication used by a proxy to log in as a specific database user.
+        User-specified description about the authentication used by a proxy to log in as a specific database user.
         """
         return pulumi.get(self, "description")
 
@@ -1331,7 +1334,7 @@ class ProxyAuth(dict):
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+        Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
         """
         return pulumi.get(self, "secret_arn")
 
@@ -1339,7 +1342,7 @@ class ProxyAuth(dict):
     @pulumi.getter
     def username(self) -> Optional[_builtins.str]:
         """
-        The name of the database user to which the proxy connects.
+        Name of the database user to which the proxy connects.
         """
         return pulumi.get(self, "username")
 
@@ -1736,5 +1739,312 @@ class GetProxyAuthResult(dict):
     @pulumi.getter
     def username(self) -> _builtins.str:
         return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class GetSnapshotsFilterResult(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param _builtins.str name: Name of the filter field. Valid values can be found in the RDS DescribeDBSnapshots API Reference.
+        :param Sequence[_builtins.str] values: Set of values accepted for the given filter field. Results will be selected if any given value matches.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the filter field. Valid values can be found in the RDS DescribeDBSnapshots API Reference.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        """
+        Set of values accepted for the given filter field. Results will be selected if any given value matches.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetSnapshotsSnapshotResult(dict):
+    def __init__(__self__, *,
+                 allocated_storage: _builtins.int,
+                 availability_zone: _builtins.str,
+                 db_instance_identifier: _builtins.str,
+                 db_snapshot_arn: _builtins.str,
+                 db_snapshot_identifier: _builtins.str,
+                 encrypted: _builtins.bool,
+                 engine: _builtins.str,
+                 engine_version: _builtins.str,
+                 iops: _builtins.int,
+                 kms_key_id: _builtins.str,
+                 license_model: _builtins.str,
+                 option_group_name: _builtins.str,
+                 original_snapshot_create_time: _builtins.str,
+                 port: _builtins.int,
+                 snapshot_create_time: _builtins.str,
+                 snapshot_type: _builtins.str,
+                 source_db_snapshot_identifier: _builtins.str,
+                 source_region: _builtins.str,
+                 status: _builtins.str,
+                 storage_type: _builtins.str,
+                 tag_lists: Sequence['outputs.GetSnapshotsSnapshotTagListResult'],
+                 vpc_id: _builtins.str):
+        """
+        :param _builtins.int allocated_storage: Allocated storage size in gigabytes (GB).
+        :param _builtins.str availability_zone: Name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
+        :param _builtins.str db_instance_identifier: Returns the list of snapshots created by the specific db_instance.
+        :param _builtins.str db_snapshot_arn: ARN for the DB snapshot.
+        :param _builtins.str db_snapshot_identifier: Returns information on a specific snapshot_id.
+        :param _builtins.bool encrypted: Whether the DB snapshot is encrypted.
+        :param _builtins.str engine: Name of the database engine.
+        :param _builtins.str engine_version: Version of the database engine.
+        :param _builtins.int iops: Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
+        :param _builtins.str kms_key_id: ARN for the KMS encryption key.
+        :param _builtins.str license_model: License model information for the restored DB instance.
+        :param _builtins.str option_group_name: Option group name for the DB snapshot.
+        :param _builtins.str original_snapshot_create_time: Time when the snapshot was taken, in Universal Coordinated Time (UTC). Doesn't change when the snapshot is copied.
+        :param _builtins.int port: Port that the database engine was listening on at the time of the snapshot.
+        :param _builtins.str snapshot_create_time: Time when the snapshot was taken, in Universal Coordinated Time (UTC). Changes when the snapshot is copied.
+        :param _builtins.str snapshot_type: Type of snapshots to be returned. If you don't specify a SnapshotType value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not included in the returned results by default. Possible values are `automated`, `manual`, `shared`, `public` and `awsbackup`.
+        :param _builtins.str source_db_snapshot_identifier: DB snapshot ARN that the DB snapshot was copied from. Only set for cross-account or cross-region copies.
+        :param _builtins.str source_region: Region that the DB snapshot was created in or copied from.
+        :param _builtins.str status: Status of this DB snapshot.
+        :param _builtins.str storage_type: Storage type associated with the DB snapshot.
+        :param Sequence['GetSnapshotsSnapshotTagListArgs'] tag_lists: List of tags attached to the DB snapshot. See `tag_list` below.
+        :param _builtins.str vpc_id: ID of the VPC associated with the DB snapshot.
+        """
+        pulumi.set(__self__, "allocated_storage", allocated_storage)
+        pulumi.set(__self__, "availability_zone", availability_zone)
+        pulumi.set(__self__, "db_instance_identifier", db_instance_identifier)
+        pulumi.set(__self__, "db_snapshot_arn", db_snapshot_arn)
+        pulumi.set(__self__, "db_snapshot_identifier", db_snapshot_identifier)
+        pulumi.set(__self__, "encrypted", encrypted)
+        pulumi.set(__self__, "engine", engine)
+        pulumi.set(__self__, "engine_version", engine_version)
+        pulumi.set(__self__, "iops", iops)
+        pulumi.set(__self__, "kms_key_id", kms_key_id)
+        pulumi.set(__self__, "license_model", license_model)
+        pulumi.set(__self__, "option_group_name", option_group_name)
+        pulumi.set(__self__, "original_snapshot_create_time", original_snapshot_create_time)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "snapshot_create_time", snapshot_create_time)
+        pulumi.set(__self__, "snapshot_type", snapshot_type)
+        pulumi.set(__self__, "source_db_snapshot_identifier", source_db_snapshot_identifier)
+        pulumi.set(__self__, "source_region", source_region)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "storage_type", storage_type)
+        pulumi.set(__self__, "tag_lists", tag_lists)
+        pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @_builtins.property
+    @pulumi.getter(name="allocatedStorage")
+    def allocated_storage(self) -> _builtins.int:
+        """
+        Allocated storage size in gigabytes (GB).
+        """
+        return pulumi.get(self, "allocated_storage")
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> _builtins.str:
+        """
+        Name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @_builtins.property
+    @pulumi.getter(name="dbInstanceIdentifier")
+    def db_instance_identifier(self) -> _builtins.str:
+        """
+        Returns the list of snapshots created by the specific db_instance.
+        """
+        return pulumi.get(self, "db_instance_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="dbSnapshotArn")
+    def db_snapshot_arn(self) -> _builtins.str:
+        """
+        ARN for the DB snapshot.
+        """
+        return pulumi.get(self, "db_snapshot_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="dbSnapshotIdentifier")
+    def db_snapshot_identifier(self) -> _builtins.str:
+        """
+        Returns information on a specific snapshot_id.
+        """
+        return pulumi.get(self, "db_snapshot_identifier")
+
+    @_builtins.property
+    @pulumi.getter
+    def encrypted(self) -> _builtins.bool:
+        """
+        Whether the DB snapshot is encrypted.
+        """
+        return pulumi.get(self, "encrypted")
+
+    @_builtins.property
+    @pulumi.getter
+    def engine(self) -> _builtins.str:
+        """
+        Name of the database engine.
+        """
+        return pulumi.get(self, "engine")
+
+    @_builtins.property
+    @pulumi.getter(name="engineVersion")
+    def engine_version(self) -> _builtins.str:
+        """
+        Version of the database engine.
+        """
+        return pulumi.get(self, "engine_version")
+
+    @_builtins.property
+    @pulumi.getter
+    def iops(self) -> _builtins.int:
+        """
+        Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
+        """
+        return pulumi.get(self, "iops")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> _builtins.str:
+        """
+        ARN for the KMS encryption key.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @_builtins.property
+    @pulumi.getter(name="licenseModel")
+    def license_model(self) -> _builtins.str:
+        """
+        License model information for the restored DB instance.
+        """
+        return pulumi.get(self, "license_model")
+
+    @_builtins.property
+    @pulumi.getter(name="optionGroupName")
+    def option_group_name(self) -> _builtins.str:
+        """
+        Option group name for the DB snapshot.
+        """
+        return pulumi.get(self, "option_group_name")
+
+    @_builtins.property
+    @pulumi.getter(name="originalSnapshotCreateTime")
+    def original_snapshot_create_time(self) -> _builtins.str:
+        """
+        Time when the snapshot was taken, in Universal Coordinated Time (UTC). Doesn't change when the snapshot is copied.
+        """
+        return pulumi.get(self, "original_snapshot_create_time")
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> _builtins.int:
+        """
+        Port that the database engine was listening on at the time of the snapshot.
+        """
+        return pulumi.get(self, "port")
+
+    @_builtins.property
+    @pulumi.getter(name="snapshotCreateTime")
+    def snapshot_create_time(self) -> _builtins.str:
+        """
+        Time when the snapshot was taken, in Universal Coordinated Time (UTC). Changes when the snapshot is copied.
+        """
+        return pulumi.get(self, "snapshot_create_time")
+
+    @_builtins.property
+    @pulumi.getter(name="snapshotType")
+    def snapshot_type(self) -> _builtins.str:
+        """
+        Type of snapshots to be returned. If you don't specify a SnapshotType value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not included in the returned results by default. Possible values are `automated`, `manual`, `shared`, `public` and `awsbackup`.
+        """
+        return pulumi.get(self, "snapshot_type")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceDbSnapshotIdentifier")
+    def source_db_snapshot_identifier(self) -> _builtins.str:
+        """
+        DB snapshot ARN that the DB snapshot was copied from. Only set for cross-account or cross-region copies.
+        """
+        return pulumi.get(self, "source_db_snapshot_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceRegion")
+    def source_region(self) -> _builtins.str:
+        """
+        Region that the DB snapshot was created in or copied from.
+        """
+        return pulumi.get(self, "source_region")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        Status of this DB snapshot.
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> _builtins.str:
+        """
+        Storage type associated with the DB snapshot.
+        """
+        return pulumi.get(self, "storage_type")
+
+    @_builtins.property
+    @pulumi.getter(name="tagLists")
+    def tag_lists(self) -> Sequence['outputs.GetSnapshotsSnapshotTagListResult']:
+        """
+        List of tags attached to the DB snapshot. See `tag_list` below.
+        """
+        return pulumi.get(self, "tag_lists")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> _builtins.str:
+        """
+        ID of the VPC associated with the DB snapshot.
+        """
+        return pulumi.get(self, "vpc_id")
+
+
+@pulumi.output_type
+class GetSnapshotsSnapshotTagListResult(dict):
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 value: _builtins.str):
+        """
+        :param _builtins.str key: Key of the tag.
+        :param _builtins.str value: Value of the tag.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        Key of the tag.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        Value of the tag.
+        """
+        return pulumi.get(self, "value")
 
 

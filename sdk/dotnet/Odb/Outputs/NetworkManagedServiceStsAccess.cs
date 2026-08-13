@@ -13,10 +13,16 @@ namespace Pulumi.Aws.Odb.Outputs
     [OutputType]
     public sealed class NetworkManagedServiceStsAccess
     {
+        /// <summary>
+        /// Domain name for which the DNS queries are forwarded.
+        /// </summary>
         public readonly string DomainName;
+        /// <summary>
+        /// List of IPv4 addresses for the Amazon STS access.
+        /// </summary>
         public readonly ImmutableArray<string> Ipv4Addresses;
         /// <summary>
-        /// Status of the network resource.
+        /// Status of the Zero-ETL access.
         /// </summary>
         public readonly string Status;
         /// <summary>

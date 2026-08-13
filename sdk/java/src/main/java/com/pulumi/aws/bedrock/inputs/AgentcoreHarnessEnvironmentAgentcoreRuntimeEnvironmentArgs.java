@@ -40,14 +40,14 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs ex
     }
 
     /**
-     * Filesystem configurations. See `filesystemConfiguration` below.
+     * Filesystem configurations. See `filesystemConfiguration` Block below.
      * 
      */
     @Import(name="filesystemConfigurations", required=true)
     private Output<List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationArgs>> filesystemConfigurations;
 
     /**
-     * @return Filesystem configurations. See `filesystemConfiguration` below.
+     * @return Filesystem configurations. See `filesystemConfiguration` Block below.
      * 
      */
     public Output<List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationArgs>> filesystemConfigurations() {
@@ -55,14 +55,14 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs ex
     }
 
     /**
-     * Lifecycle configuration. See `lifecycleConfiguration` below.
+     * Lifecycle configuration. See `lifecycleConfiguration` Block below.
      * 
      */
     @Import(name="lifecycleConfigurations", required=true)
     private Output<List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfigurationArgs>> lifecycleConfigurations;
 
     /**
-     * @return Lifecycle configuration. See `lifecycleConfiguration` below.
+     * @return Lifecycle configuration. See `lifecycleConfiguration` Block below.
      * 
      */
     public Output<List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfigurationArgs>> lifecycleConfigurations() {
@@ -70,14 +70,14 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs ex
     }
 
     /**
-     * Network configuration. See `networkConfiguration` below.
+     * Network configuration. See `networkConfiguration` Block below.
      * 
      */
     @Import(name="networkConfigurations", required=true)
     private Output<List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationArgs>> networkConfigurations;
 
     /**
-     * @return Network configuration. See `networkConfiguration` below.
+     * @return Network configuration. See `networkConfiguration` Block below.
      * 
      */
     public Output<List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationArgs>> networkConfigurations() {
@@ -141,7 +141,7 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs ex
         }
 
         /**
-         * @param filesystemConfigurations Filesystem configurations. See `filesystemConfiguration` below.
+         * @param filesystemConfigurations Filesystem configurations. See `filesystemConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs ex
         }
 
         /**
-         * @param filesystemConfigurations Filesystem configurations. See `filesystemConfiguration` below.
+         * @param filesystemConfigurations Filesystem configurations. See `filesystemConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs ex
         }
 
         /**
-         * @param filesystemConfigurations Filesystem configurations. See `filesystemConfiguration` below.
+         * @param filesystemConfigurations Filesystem configurations. See `filesystemConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs ex
         }
 
         /**
-         * @param lifecycleConfigurations Lifecycle configuration. See `lifecycleConfiguration` below.
+         * @param lifecycleConfigurations Lifecycle configuration. See `lifecycleConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs ex
         }
 
         /**
-         * @param lifecycleConfigurations Lifecycle configuration. See `lifecycleConfiguration` below.
+         * @param lifecycleConfigurations Lifecycle configuration. See `lifecycleConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs ex
         }
 
         /**
-         * @param lifecycleConfigurations Lifecycle configuration. See `lifecycleConfiguration` below.
+         * @param lifecycleConfigurations Lifecycle configuration. See `lifecycleConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs ex
         }
 
         /**
-         * @param networkConfigurations Network configuration. See `networkConfiguration` below.
+         * @param networkConfigurations Network configuration. See `networkConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs ex
         }
 
         /**
-         * @param networkConfigurations Network configuration. See `networkConfiguration` below.
+         * @param networkConfigurations Network configuration. See `networkConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -224,7 +224,7 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs ex
         }
 
         /**
-         * @param networkConfigurations Network configuration. See `networkConfiguration` below.
+         * @param networkConfigurations Network configuration. See `networkConfiguration` Block below.
          * 
          * @return builder
          * 

@@ -84,7 +84,7 @@ type GetInferenceProfilesArgs struct {
 
 // A collection of values returned by getInferenceProfiles.
 type GetInferenceProfilesResult struct {
-	// List of inference profile summary objects. See `inferenceProfileSummaries`.
+	// List of inference profile summary objects. See `inferenceProfileSummaries` Block.
 	InferenceProfileSummaries []GetInferenceProfilesInferenceProfileSummary `pulumi:"inferenceProfileSummaries"`
 	Region                    string                                        `pulumi:"region"`
 	// Type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means the inference profile was created by a user.
@@ -127,7 +127,7 @@ func (o GetInferenceProfilesResultOutput) ToGetInferenceProfilesResultOutputWith
 	return o
 }
 
-// List of inference profile summary objects. See `inferenceProfileSummaries`.
+// List of inference profile summary objects. See `inferenceProfileSummaries` Block.
 func (o GetInferenceProfilesResultOutput) InferenceProfileSummaries() GetInferenceProfilesInferenceProfileSummaryArrayOutput {
 	return o.ApplyT(func(v GetInferenceProfilesResult) []GetInferenceProfilesInferenceProfileSummary {
 		return v.InferenceProfileSummaries

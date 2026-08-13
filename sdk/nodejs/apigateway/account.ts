@@ -106,7 +106,7 @@ export class Account extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Account-Level throttle settings, including the burst limit (absolute maximum number of times API Gateway allows the API to be called per second) and the rate limit (number of times API Gateway allows the API to be called per second on average).
+     * Account-Level throttle settings. See `throttleSettings` Block below.
      */
     declare public /*out*/ readonly throttleSettings: pulumi.Output<outputs.apigateway.AccountThrottleSetting[]>;
 
@@ -162,7 +162,7 @@ export interface AccountState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Account-Level throttle settings, including the burst limit (absolute maximum number of times API Gateway allows the API to be called per second) and the rate limit (number of times API Gateway allows the API to be called per second on average).
+     * Account-Level throttle settings. See `throttleSettings` Block below.
      */
     throttleSettings?: pulumi.Input<pulumi.Input<inputs.apigateway.AccountThrottleSetting>[] | undefined>;
 }

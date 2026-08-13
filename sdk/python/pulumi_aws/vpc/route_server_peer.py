@@ -399,20 +399,20 @@ class RouteServerPeer(pulumi.CustomResource):
             tags={
                 "Name": "Test",
             })
-        test_vpc_route_server_association = aws.VpcRouteServerAssociation("test",
+        test_route_server_vpc_association = aws.vpc.RouteServerVpcAssociation("test",
             route_server_id=test.route_server_id,
-            vpc_id=test_aws_vpc.id)
+            vpc_id=test_aws_vpc["id"])
         test_route_server_endpoint = aws.vpc.RouteServerEndpoint("test",
             route_server_id=test.route_server_id,
             subnet_id=test_aws_subnet["id"],
             tags={
                 "Name": "Test Endpoint",
             },
-            opts = pulumi.ResourceOptions(depends_on=[test_vpc_route_server_association]))
+            opts = pulumi.ResourceOptions(depends_on=[test_route_server_vpc_association]))
         test_route_server_propagation = aws.vpc.RouteServerPropagation("test",
             route_server_id=test.route_server_id,
             route_table_id=test_aws_route_table["id"],
-            opts = pulumi.ResourceOptions(depends_on=[test_vpc_route_server_association]))
+            opts = pulumi.ResourceOptions(depends_on=[test_route_server_vpc_association]))
         test_route_server_peer = aws.vpc.RouteServerPeer("test",
             route_server_endpoint_id=test_route_server_endpoint.route_server_endpoint_id,
             peer_address="10.0.1.250",
@@ -483,20 +483,20 @@ class RouteServerPeer(pulumi.CustomResource):
             tags={
                 "Name": "Test",
             })
-        test_vpc_route_server_association = aws.VpcRouteServerAssociation("test",
+        test_route_server_vpc_association = aws.vpc.RouteServerVpcAssociation("test",
             route_server_id=test.route_server_id,
-            vpc_id=test_aws_vpc.id)
+            vpc_id=test_aws_vpc["id"])
         test_route_server_endpoint = aws.vpc.RouteServerEndpoint("test",
             route_server_id=test.route_server_id,
             subnet_id=test_aws_subnet["id"],
             tags={
                 "Name": "Test Endpoint",
             },
-            opts = pulumi.ResourceOptions(depends_on=[test_vpc_route_server_association]))
+            opts = pulumi.ResourceOptions(depends_on=[test_route_server_vpc_association]))
         test_route_server_propagation = aws.vpc.RouteServerPropagation("test",
             route_server_id=test.route_server_id,
             route_table_id=test_aws_route_table["id"],
-            opts = pulumi.ResourceOptions(depends_on=[test_vpc_route_server_association]))
+            opts = pulumi.ResourceOptions(depends_on=[test_route_server_vpc_association]))
         test_route_server_peer = aws.vpc.RouteServerPeer("test",
             route_server_endpoint_id=test_route_server_endpoint.route_server_endpoint_id,
             peer_address="10.0.1.250",

@@ -49,7 +49,7 @@ export interface GetBrokerEngineTypesArgs {
  */
 export interface GetBrokerEngineTypesResult {
     /**
-     * List of available engine types and versions. See Engine Types.
+     * List of available engine types and versions. See `brokerEngineTypes` Block.
      */
     readonly brokerEngineTypes: outputs.mq.GetBrokerEngineTypesBrokerEngineType[];
     /**

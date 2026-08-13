@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *                     .type("*")
  *                     .identifiers("*")
  *                     .build())
- *                 .resources(agentRuntime.example().agentRuntimeArn())
+ *                 .resources(exampleAgentcoreAgentRuntime.agentRuntimeArn())
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                     .test("StringEquals")
  *                     .variable("aws:SourceVpc")
@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAgentcoreResourcePolicy = new AgentcoreResourcePolicy("exampleAgentcoreResourcePolicy", AgentcoreResourcePolicyArgs.builder()
- *             .policy(example.json())
+ *             .policy(example.applyValue(_example -> _example.json()))
  *             .resourceArn(exampleAgentcoreAgentRuntime.agentRuntimeArn())
  *             .build());
  * 

@@ -28,15 +28,35 @@ public final class NetworkManagedService {
      * 
      */
     private List<NetworkManagedServiceKmsAccess> kmsAccesses;
+    /**
+     * @return Managed S3 backup access configuration. See `managedS3BackupAccess` Block below.
+     * 
+     */
     private List<NetworkManagedServiceManagedS3BackupAccess> managedS3BackupAccesses;
+    /**
+     * @return List of IPv4 CIDR ranges used by the managed services.
+     * 
+     */
     private List<String> managedServiceIpv4Cidrs;
+    /**
+     * @return ARN of the resource gateway.
+     * 
+     */
     private String resourceGatewayArn;
     /**
      * @return Configuration for Amazon S3 access from the ODB network.
      * 
      */
     private List<NetworkManagedServiceS3Access> s3Accesses;
+    /**
+     * @return ARN of the service network.
+     * 
+     */
     private String serviceNetworkArn;
+    /**
+     * @return Service network endpoint configuration. See `serviceNetworkEndpoint` Block below.
+     * 
+     */
     private List<NetworkManagedServiceServiceNetworkEndpoint> serviceNetworkEndpoints;
     /**
      * @return Configuration for STS access from the ODB network.
@@ -66,12 +86,24 @@ public final class NetworkManagedService {
     public List<NetworkManagedServiceKmsAccess> kmsAccesses() {
         return this.kmsAccesses;
     }
+    /**
+     * @return Managed S3 backup access configuration. See `managedS3BackupAccess` Block below.
+     * 
+     */
     public List<NetworkManagedServiceManagedS3BackupAccess> managedS3BackupAccesses() {
         return this.managedS3BackupAccesses;
     }
+    /**
+     * @return List of IPv4 CIDR ranges used by the managed services.
+     * 
+     */
     public List<String> managedServiceIpv4Cidrs() {
         return this.managedServiceIpv4Cidrs;
     }
+    /**
+     * @return ARN of the resource gateway.
+     * 
+     */
     public String resourceGatewayArn() {
         return this.resourceGatewayArn;
     }
@@ -82,9 +114,17 @@ public final class NetworkManagedService {
     public List<NetworkManagedServiceS3Access> s3Accesses() {
         return this.s3Accesses;
     }
+    /**
+     * @return ARN of the service network.
+     * 
+     */
     public String serviceNetworkArn() {
         return this.serviceNetworkArn;
     }
+    /**
+     * @return Service network endpoint configuration. See `serviceNetworkEndpoint` Block below.
+     * 
+     */
     public List<NetworkManagedServiceServiceNetworkEndpoint> serviceNetworkEndpoints() {
         return this.serviceNetworkEndpoints;
     }

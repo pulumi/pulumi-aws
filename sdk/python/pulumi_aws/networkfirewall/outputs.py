@@ -16,6 +16,9 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'ContainerAssociationContainerMonitoringConfiguration',
+    'ContainerAssociationContainerMonitoringConfigurationAttributeFilter',
+    'ContainerAssociationTimeouts',
     'FirewallAvailabilityZoneMapping',
     'FirewallEncryptionConfiguration',
     'FirewallFirewallStatus',
@@ -111,6 +114,127 @@ __all__ = [
     'GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceResult',
     'GetFirewallSubnetMappingResult',
 ]
+
+@pulumi.output_type
+class ContainerAssociationContainerMonitoringConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterArn":
+            suggest = "cluster_arn"
+        elif key == "attributeFilters":
+            suggest = "attribute_filters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerAssociationContainerMonitoringConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerAssociationContainerMonitoringConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerAssociationContainerMonitoringConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cluster_arn: _builtins.str,
+                 attribute_filters: Optional[Sequence['outputs.ContainerAssociationContainerMonitoringConfigurationAttributeFilter']] = None):
+        """
+        :param _builtins.str cluster_arn: ARN of the Amazon ECS or Amazon EKS cluster to monitor. The cluster must be in the same Region and account as the container association.
+        :param Sequence['ContainerAssociationContainerMonitoringConfigurationAttributeFilterArgs'] attribute_filters: Key-value pairs that filter which containers within the cluster are monitored. For Amazon EKS, filter by namespace and Kubernetes labels. For Amazon ECS, filter by container instance attributes; attribute filters only match containers on the EC2 launch type, not Fargate. See `attribute_filter` Block below.
+        """
+        pulumi.set(__self__, "cluster_arn", cluster_arn)
+        if attribute_filters is not None:
+            pulumi.set(__self__, "attribute_filters", attribute_filters)
+
+    @_builtins.property
+    @pulumi.getter(name="clusterArn")
+    def cluster_arn(self) -> _builtins.str:
+        """
+        ARN of the Amazon ECS or Amazon EKS cluster to monitor. The cluster must be in the same Region and account as the container association.
+        """
+        return pulumi.get(self, "cluster_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="attributeFilters")
+    def attribute_filters(self) -> Optional[Sequence['outputs.ContainerAssociationContainerMonitoringConfigurationAttributeFilter']]:
+        """
+        Key-value pairs that filter which containers within the cluster are monitored. For Amazon EKS, filter by namespace and Kubernetes labels. For Amazon ECS, filter by container instance attributes; attribute filters only match containers on the EC2 launch type, not Fargate. See `attribute_filter` Block below.
+        """
+        return pulumi.get(self, "attribute_filters")
+
+
+@pulumi.output_type
+class ContainerAssociationContainerMonitoringConfigurationAttributeFilter(dict):
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 value: _builtins.str):
+        """
+        :param _builtins.str key: Key of the container attribute to filter on.
+        :param _builtins.str value: Value of the container attribute to filter on.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        Key of the container attribute to filter on.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        Value of the container attribute to filter on.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ContainerAssociationTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None,
+                 delete: Optional[_builtins.str] = None,
+                 update: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param _builtins.str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param _builtins.str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
 
 @pulumi.output_type
 class FirewallAvailabilityZoneMapping(dict):

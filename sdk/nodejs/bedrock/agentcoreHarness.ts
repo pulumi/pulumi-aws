@@ -113,6 +113,35 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### With Managed Memory
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.bedrock.AgentcoreHarness("example", {
+ *     harnessName: "my_harness",
+ *     executionRoleArn: exampleAwsIamRole.arn,
+ *     model: {
+ *         bedrockModelConfig: {
+ *             modelId: "anthropic.claude-sonnet-4-20250514",
+ *         },
+ *     },
+ *     systemPrompts: [{
+ *         text: "You are a helpful assistant.",
+ *     }],
+ *     memory: {
+ *         managedMemoryConfiguration: {
+ *             eventExpiryDuration: 14,
+ *             strategies: [
+ *                 "SEMANTIC",
+ *                 "SUMMARIZATION",
+ *             ],
+ *         },
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * ### Identity Schema
@@ -169,11 +198,11 @@ export class AgentcoreHarness extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * Authorization configuration for authenticating requests. See `authorizerConfiguration` below.
+     * Authorization configuration for authenticating requests. See `authorizerConfiguration` Block below.
      */
     declare public readonly authorizerConfiguration: pulumi.Output<outputs.bedrock.AgentcoreHarnessAuthorizerConfiguration | undefined>;
     /**
-     * Environment artifact configuration. See `environmentArtifact` below.
+     * Environment artifact configuration. See `environmentArtifact` Block below.
      */
     declare public readonly environmentArtifact: pulumi.Output<outputs.bedrock.AgentcoreHarnessEnvironmentArtifact | undefined>;
     /**
@@ -181,7 +210,7 @@ export class AgentcoreHarness extends pulumi.CustomResource {
      */
     declare public readonly environmentVariables: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Compute environment configuration. See `environment` below.
+     * Compute environment configuration. See `environment` Block below.
      */
     declare public readonly environments: pulumi.Output<outputs.bedrock.AgentcoreHarnessEnvironment[]>;
     /**
@@ -205,11 +234,15 @@ export class AgentcoreHarness extends pulumi.CustomResource {
      */
     declare public readonly maxTokens: pulumi.Output<number | undefined>;
     /**
-     * Memory configuration. See `memory` below.
+     * Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`.
      */
     declare public readonly memory: pulumi.Output<outputs.bedrock.AgentcoreHarnessMemory | undefined>;
     /**
-     * Model configuration for the harness. See `model` below.
+     * Actual deployed memory configuration.
+     */
+    declare public /*out*/ readonly memoryActuals: pulumi.Output<outputs.bedrock.AgentcoreHarnessMemoryActual[]>;
+    /**
+     * Model configuration for the harness. See `model` Block below.
      *
      * The following arguments are optional:
      */
@@ -219,11 +252,11 @@ export class AgentcoreHarness extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Skill configurations. See `skill` below.
+     * Skill configurations. See `skill` Block below.
      */
     declare public readonly skills: pulumi.Output<outputs.bedrock.AgentcoreHarnessSkill[] | undefined>;
     /**
-     * System prompt blocks for the harness. See `systemPrompt` below.
+     * System prompt blocks for the harness. See `systemPrompt` Block below.
      */
     declare public readonly systemPrompts: pulumi.Output<outputs.bedrock.AgentcoreHarnessSystemPrompt[] | undefined>;
     /**
@@ -240,11 +273,11 @@ export class AgentcoreHarness extends pulumi.CustomResource {
     declare public readonly timeoutSeconds: pulumi.Output<number>;
     declare public readonly timeouts: pulumi.Output<outputs.bedrock.AgentcoreHarnessTimeouts | undefined>;
     /**
-     * Tool configurations. See `tool` below.
+     * Tool configurations. See `tool` Block below.
      */
     declare public readonly tools: pulumi.Output<outputs.bedrock.AgentcoreHarnessTool[] | undefined>;
     /**
-     * Truncation configuration for conversation history. See `truncation` below.
+     * Truncation configuration for conversation history. See `truncation` Block below.
      */
     declare public readonly truncations: pulumi.Output<outputs.bedrock.AgentcoreHarnessTruncation[]>;
 
@@ -273,6 +306,7 @@ export class AgentcoreHarness extends pulumi.CustomResource {
             resourceInputs["maxIterations"] = state?.maxIterations;
             resourceInputs["maxTokens"] = state?.maxTokens;
             resourceInputs["memory"] = state?.memory;
+            resourceInputs["memoryActuals"] = state?.memoryActuals;
             resourceInputs["model"] = state?.model;
             resourceInputs["region"] = state?.region;
             resourceInputs["skills"] = state?.skills;
@@ -315,6 +349,7 @@ export class AgentcoreHarness extends pulumi.CustomResource {
             resourceInputs["truncations"] = args?.truncations;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["harnessId"] = undefined /*out*/;
+            resourceInputs["memoryActuals"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -337,11 +372,11 @@ export interface AgentcoreHarnessState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * Authorization configuration for authenticating requests. See `authorizerConfiguration` below.
+     * Authorization configuration for authenticating requests. See `authorizerConfiguration` Block below.
      */
     authorizerConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreHarnessAuthorizerConfiguration | undefined>;
     /**
-     * Environment artifact configuration. See `environmentArtifact` below.
+     * Environment artifact configuration. See `environmentArtifact` Block below.
      */
     environmentArtifact?: pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentArtifact | undefined>;
     /**
@@ -349,7 +384,7 @@ export interface AgentcoreHarnessState {
      */
     environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Compute environment configuration. See `environment` below.
+     * Compute environment configuration. See `environment` Block below.
      */
     environments?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironment>[] | undefined>;
     /**
@@ -373,11 +408,15 @@ export interface AgentcoreHarnessState {
      */
     maxTokens?: pulumi.Input<number | undefined>;
     /**
-     * Memory configuration. See `memory` below.
+     * Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`.
      */
     memory?: pulumi.Input<inputs.bedrock.AgentcoreHarnessMemory | undefined>;
     /**
-     * Model configuration for the harness. See `model` below.
+     * Actual deployed memory configuration.
+     */
+    memoryActuals?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessMemoryActual>[] | undefined>;
+    /**
+     * Model configuration for the harness. See `model` Block below.
      *
      * The following arguments are optional:
      */
@@ -387,11 +426,11 @@ export interface AgentcoreHarnessState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Skill configurations. See `skill` below.
+     * Skill configurations. See `skill` Block below.
      */
     skills?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessSkill>[] | undefined>;
     /**
-     * System prompt blocks for the harness. See `systemPrompt` below.
+     * System prompt blocks for the harness. See `systemPrompt` Block below.
      */
     systemPrompts?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessSystemPrompt>[] | undefined>;
     /**
@@ -408,11 +447,11 @@ export interface AgentcoreHarnessState {
     timeoutSeconds?: pulumi.Input<number | undefined>;
     timeouts?: pulumi.Input<inputs.bedrock.AgentcoreHarnessTimeouts | undefined>;
     /**
-     * Tool configurations. See `tool` below.
+     * Tool configurations. See `tool` Block below.
      */
     tools?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessTool>[] | undefined>;
     /**
-     * Truncation configuration for conversation history. See `truncation` below.
+     * Truncation configuration for conversation history. See `truncation` Block below.
      */
     truncations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessTruncation>[] | undefined>;
 }
@@ -426,11 +465,11 @@ export interface AgentcoreHarnessArgs {
      */
     allowedTools?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Authorization configuration for authenticating requests. See `authorizerConfiguration` below.
+     * Authorization configuration for authenticating requests. See `authorizerConfiguration` Block below.
      */
     authorizerConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreHarnessAuthorizerConfiguration | undefined>;
     /**
-     * Environment artifact configuration. See `environmentArtifact` below.
+     * Environment artifact configuration. See `environmentArtifact` Block below.
      */
     environmentArtifact?: pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentArtifact | undefined>;
     /**
@@ -438,7 +477,7 @@ export interface AgentcoreHarnessArgs {
      */
     environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Compute environment configuration. See `environment` below.
+     * Compute environment configuration. See `environment` Block below.
      */
     environments?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironment>[] | undefined>;
     /**
@@ -458,11 +497,11 @@ export interface AgentcoreHarnessArgs {
      */
     maxTokens?: pulumi.Input<number | undefined>;
     /**
-     * Memory configuration. See `memory` below.
+     * Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`.
      */
     memory?: pulumi.Input<inputs.bedrock.AgentcoreHarnessMemory | undefined>;
     /**
-     * Model configuration for the harness. See `model` below.
+     * Model configuration for the harness. See `model` Block below.
      *
      * The following arguments are optional:
      */
@@ -472,11 +511,11 @@ export interface AgentcoreHarnessArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Skill configurations. See `skill` below.
+     * Skill configurations. See `skill` Block below.
      */
     skills?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessSkill>[] | undefined>;
     /**
-     * System prompt blocks for the harness. See `systemPrompt` below.
+     * System prompt blocks for the harness. See `systemPrompt` Block below.
      */
     systemPrompts?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessSystemPrompt>[] | undefined>;
     /**
@@ -489,11 +528,11 @@ export interface AgentcoreHarnessArgs {
     timeoutSeconds?: pulumi.Input<number | undefined>;
     timeouts?: pulumi.Input<inputs.bedrock.AgentcoreHarnessTimeouts | undefined>;
     /**
-     * Tool configurations. See `tool` below.
+     * Tool configurations. See `tool` Block below.
      */
     tools?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessTool>[] | undefined>;
     /**
-     * Truncation configuration for conversation history. See `truncation` below.
+     * Truncation configuration for conversation history. See `truncation` Block below.
      */
     truncations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessTruncation>[] | undefined>;
 }

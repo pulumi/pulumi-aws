@@ -18,7 +18,7 @@ public final class GetBrokerEngineTypesBrokerEngineType {
      */
     private String engineType;
     /**
-     * @return List of engine versions. See Engine Versions.
+     * @return List of engine versions. See `engineVersions` Block.
      * 
      */
     private List<GetBrokerEngineTypesBrokerEngineTypeEngineVersion> engineVersions;
@@ -32,7 +32,7 @@ public final class GetBrokerEngineTypesBrokerEngineType {
         return this.engineType;
     }
     /**
-     * @return List of engine versions. See Engine Versions.
+     * @return List of engine versions. See `engineVersions` Block.
      * 
      */
     public List<GetBrokerEngineTypesBrokerEngineTypeEngineVersion> engineVersions() {

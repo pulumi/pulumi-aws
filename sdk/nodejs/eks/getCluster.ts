@@ -107,9 +107,24 @@ export interface GetClusterResult {
      */
     readonly identities: outputs.eks.GetClusterIdentity[];
     /**
+     * Configuration for the Kubernetes API server.
+     */
+    readonly kubeApiServerConfigs: outputs.eks.GetClusterKubeApiServerConfig[];
+    /**
+     * Configuration for the Kubernetes controller manager.
+     */
+    readonly kubeControllerManagerConfigs: outputs.eks.GetClusterKubeControllerManagerConfig[];
+    /**
+     * Configuration for the Kubernetes scheduler.
+     */
+    readonly kubeSchedulerConfigs: outputs.eks.GetClusterKubeSchedulerConfig[];
+    /**
      * Nested list containing Kubernetes Network Configuration.
      */
     readonly kubernetesNetworkConfigs: outputs.eks.GetClusterKubernetesNetworkConfig[];
+    /**
+     * The name of the resource (e.g., `cpu`, `memory`).
+     */
     readonly name: string;
     /**
      * Contains Outpost Configuration.

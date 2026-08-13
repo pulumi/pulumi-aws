@@ -93,7 +93,7 @@ class _DomainState:
         :param pulumi.Input[_builtins.bool] is_test_domain: Whether this is the auto-provisioned test domain.
         :param pulumi.Input[_builtins.str] organization_id: Identifier of the WorkMail organization. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] ownership_verification_status: Domain ownership verification status. Values: `PENDING`, `VERIFIED`, `FAILED`.
-        :param pulumi.Input[Sequence[pulumi.Input['DomainRecordArgs']]] records: List of DNS records required for domain verification. See `records` below.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainRecordArgs']]] records: List of DNS records required for domain verification. See `records` Block below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if dkim_verification_status is not None:
@@ -189,7 +189,7 @@ class _DomainState:
     @pulumi.getter
     def records(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DomainRecordArgs']]]]:
         """
-        List of DNS records required for domain verification. See `records` below.
+        List of DNS records required for domain verification. See `records` Block below.
         """
         return pulumi.get(self, "records")
 
@@ -376,7 +376,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] is_test_domain: Whether this is the auto-provisioned test domain.
         :param pulumi.Input[_builtins.str] organization_id: Identifier of the WorkMail organization. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] ownership_verification_status: Domain ownership verification status. Values: `PENDING`, `VERIFIED`, `FAILED`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DomainRecordArgs', 'DomainRecordArgsDict']]]] records: List of DNS records required for domain verification. See `records` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DomainRecordArgs', 'DomainRecordArgsDict']]]] records: List of DNS records required for domain verification. See `records` Block below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -445,7 +445,7 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter
     def records(self) -> pulumi.Output[Sequence['outputs.DomainRecord']]:
         """
-        List of DNS records required for domain verification. See `records` below.
+        List of DNS records required for domain verification. See `records` Block below.
         """
         return pulumi.get(self, "records")
 

@@ -13,12 +13,33 @@ namespace Pulumi.Aws.ArcRegionSwitch.Outputs
     [OutputType]
     public sealed class PlanWorkflowStepParallelConfigStepDocumentDbConfig
     {
+        /// <summary>
+        /// Behavior for global cluster operations. Valid values: `switchoverOnly`, `Failover`.
+        /// </summary>
         public readonly string Behavior;
+        /// <summary>
+        /// ARN of the cross-account role to assume.
+        /// </summary>
         public readonly string? CrossAccountRole;
+        /// <summary>
+        /// List of DocumentDB cluster ARNs.
+        /// </summary>
         public readonly ImmutableArray<string> DatabaseClusterArns;
+        /// <summary>
+        /// External ID for cross-account role assumption.
+        /// </summary>
         public readonly string? ExternalId;
+        /// <summary>
+        /// Global cluster identifier.
+        /// </summary>
         public readonly string GlobalClusterIdentifier;
+        /// <summary>
+        /// Timeout in minutes.
+        /// </summary>
         public readonly int? TimeoutMinutes;
+        /// <summary>
+        /// Ungraceful behavior configuration. See `workflow.step.document_db_config.ungraceful` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.PlanWorkflowStepParallelConfigStepDocumentDbConfigUngraceful> Ungracefuls;
 
         [OutputConstructor]

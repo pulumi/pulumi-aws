@@ -34,14 +34,14 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     public static final GroupArgs Empty = new GroupArgs();
 
     /**
-     * The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
+     * The instance capacity distribution across Availability Zones. See `availabilityZoneDistribution` Block below for more details.
      * 
      */
     @Import(name="availabilityZoneDistribution")
     private @Nullable Output<GroupAvailabilityZoneDistributionArgs> availabilityZoneDistribution;
 
     /**
-     * @return The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
+     * @return The instance capacity distribution across Availability Zones. See `availabilityZoneDistribution` Block below for more details.
      * 
      */
     public Optional<Output<GroupAvailabilityZoneDistributionArgs>> availabilityZoneDistribution() {
@@ -79,14 +79,14 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See Capacity Reservation Specification below for more details.
+     * The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See `capacityReservationSpecification` Block below for more details.
      * 
      */
     @Import(name="capacityReservationSpecification")
     private @Nullable Output<GroupCapacityReservationSpecificationArgs> capacityReservationSpecification;
 
     /**
-     * @return The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See Capacity Reservation Specification below for more details.
+     * @return The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See `capacityReservationSpecification` Block below for more details.
      * 
      */
     public Optional<Output<GroupCapacityReservationSpecificationArgs>> capacityReservationSpecification() {
@@ -362,14 +362,14 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
+     * Nested argument with Launch template specification to use to launch instances. See `launchTemplate` Block below for more details.
      * 
      */
     @Import(name="launchTemplate")
     private @Nullable Output<GroupLaunchTemplateArgs> launchTemplate;
 
     /**
-     * @return Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
+     * @return Nested argument with Launch template specification to use to launch instances. See `launchTemplate` Block below for more details.
      * 
      */
     public Optional<Output<GroupLaunchTemplateArgs>> launchTemplate() {
@@ -477,14 +477,14 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
+     * Configuration block containing settings to define launch targets for Auto Scaling groups. See `mixedInstancesPolicy` Block below for more details.
      * 
      */
     @Import(name="mixedInstancesPolicy")
     private @Nullable Output<GroupMixedInstancesPolicyArgs> mixedInstancesPolicy;
 
     /**
-     * @return Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
+     * @return Configuration block containing settings to define launch targets for Auto Scaling groups. See `mixedInstancesPolicy` Block below for more details.
      * 
      */
     public Optional<Output<GroupMixedInstancesPolicyArgs>> mixedInstancesPolicy() {
@@ -609,14 +609,14 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block(s) containing resource tags. See Tag below for more details.
+     * Configuration block(s) containing resource tags. See `tag` Block below for more details.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<List<GroupTagArgs>> tags;
 
     /**
-     * @return Configuration block(s) containing resource tags. See Tag below for more details.
+     * @return Configuration block(s) containing resource tags. See `tag` Block below for more details.
      * 
      */
     public Optional<Output<List<GroupTagArgs>>> tags() {
@@ -813,7 +813,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZoneDistribution The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
+         * @param availabilityZoneDistribution The instance capacity distribution across Availability Zones. See `availabilityZoneDistribution` Block below for more details.
          * 
          * @return builder
          * 
@@ -824,7 +824,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZoneDistribution The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
+         * @param availabilityZoneDistribution The instance capacity distribution across Availability Zones. See `availabilityZoneDistribution` Block below for more details.
          * 
          * @return builder
          * 
@@ -886,7 +886,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param capacityReservationSpecification The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See Capacity Reservation Specification below for more details.
+         * @param capacityReservationSpecification The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See `capacityReservationSpecification` Block below for more details.
          * 
          * @return builder
          * 
@@ -897,7 +897,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param capacityReservationSpecification The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See Capacity Reservation Specification below for more details.
+         * @param capacityReservationSpecification The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See `capacityReservationSpecification` Block below for more details.
          * 
          * @return builder
          * 
@@ -1297,7 +1297,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param launchTemplate Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
+         * @param launchTemplate Nested argument with Launch template specification to use to launch instances. See `launchTemplate` Block below for more details.
          * 
          * @return builder
          * 
@@ -1308,7 +1308,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param launchTemplate Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
+         * @param launchTemplate Nested argument with Launch template specification to use to launch instances. See `launchTemplate` Block below for more details.
          * 
          * @return builder
          * 
@@ -1485,7 +1485,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mixedInstancesPolicy Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
+         * @param mixedInstancesPolicy Configuration block containing settings to define launch targets for Auto Scaling groups. See `mixedInstancesPolicy` Block below for more details.
          * 
          * @return builder
          * 
@@ -1496,7 +1496,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mixedInstancesPolicy Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
+         * @param mixedInstancesPolicy Configuration block containing settings to define launch targets for Auto Scaling groups. See `mixedInstancesPolicy` Block below for more details.
          * 
          * @return builder
          * 
@@ -1676,7 +1676,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Configuration block(s) containing resource tags. See Tag below for more details.
+         * @param tags Configuration block(s) containing resource tags. See `tag` Block below for more details.
          * 
          * @return builder
          * 
@@ -1687,7 +1687,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Configuration block(s) containing resource tags. See Tag below for more details.
+         * @param tags Configuration block(s) containing resource tags. See `tag` Block below for more details.
          * 
          * @return builder
          * 
@@ -1697,7 +1697,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Configuration block(s) containing resource tags. See Tag below for more details.
+         * @param tags Configuration block(s) containing resource tags. See `tag` Block below for more details.
          * 
          * @return builder
          * 

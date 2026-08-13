@@ -135,14 +135,14 @@ public class AppAuthorizationConnection extends com.pulumi.resources.CustomResou
         return this.region;
     }
     /**
-     * Contains information about an application tenant, such as the application display name and identifier.
+     * Information about an application tenant. See `tenant` Block below.
      * 
      */
     @Export(name="tenants", refs={List.class,AppAuthorizationConnectionTenant.class}, tree="[0,1]")
     private Output<List<AppAuthorizationConnectionTenant>> tenants;
 
     /**
-     * @return Contains information about an application tenant, such as the application display name and identifier.
+     * @return Information about an application tenant. See `tenant` Block below.
      * 
      */
     public Output<List<AppAuthorizationConnectionTenant>> tenants() {

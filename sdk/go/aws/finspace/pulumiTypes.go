@@ -354,7 +354,7 @@ func (o KxClusterCacheStorageConfigurationArrayOutput) Index(i pulumi.IntInput) 
 type KxClusterCapacityConfiguration struct {
 	// Number of instances running in a cluster. Must be at least 1 and at most 5.
 	NodeCount int `pulumi:"nodeCount"`
-	// Determines the hardware of the host computer used for your cluster instance. Valid values are `kx.s.large`, `kx.s.xlarge`, `kx.s.2xlarge`, `kx.s.4xlarge`, `kx.s.8xlarge`, `kx.s.16xlarge`, and `kx.s.32xlarge`.
+	// Hardware of the host computer used for your cluster instance. Valid values are `kx.s.large`, `kx.s.xlarge`, `kx.s.2xlarge`, `kx.s.4xlarge`, `kx.s.8xlarge`, `kx.s.16xlarge`, and `kx.s.32xlarge`.
 	NodeType string `pulumi:"nodeType"`
 }
 
@@ -372,7 +372,7 @@ type KxClusterCapacityConfigurationInput interface {
 type KxClusterCapacityConfigurationArgs struct {
 	// Number of instances running in a cluster. Must be at least 1 and at most 5.
 	NodeCount pulumi.IntInput `pulumi:"nodeCount"`
-	// Determines the hardware of the host computer used for your cluster instance. Valid values are `kx.s.large`, `kx.s.xlarge`, `kx.s.2xlarge`, `kx.s.4xlarge`, `kx.s.8xlarge`, `kx.s.16xlarge`, and `kx.s.32xlarge`.
+	// Hardware of the host computer used for your cluster instance. Valid values are `kx.s.large`, `kx.s.xlarge`, `kx.s.2xlarge`, `kx.s.4xlarge`, `kx.s.8xlarge`, `kx.s.16xlarge`, and `kx.s.32xlarge`.
 	NodeType pulumi.StringInput `pulumi:"nodeType"`
 }
 
@@ -458,7 +458,7 @@ func (o KxClusterCapacityConfigurationOutput) NodeCount() pulumi.IntOutput {
 	return o.ApplyT(func(v KxClusterCapacityConfiguration) int { return v.NodeCount }).(pulumi.IntOutput)
 }
 
-// Determines the hardware of the host computer used for your cluster instance. Valid values are `kx.s.large`, `kx.s.xlarge`, `kx.s.2xlarge`, `kx.s.4xlarge`, `kx.s.8xlarge`, `kx.s.16xlarge`, and `kx.s.32xlarge`.
+// Hardware of the host computer used for your cluster instance. Valid values are `kx.s.large`, `kx.s.xlarge`, `kx.s.2xlarge`, `kx.s.4xlarge`, `kx.s.8xlarge`, `kx.s.16xlarge`, and `kx.s.32xlarge`.
 func (o KxClusterCapacityConfigurationOutput) NodeType() pulumi.StringOutput {
 	return o.ApplyT(func(v KxClusterCapacityConfiguration) string { return v.NodeType }).(pulumi.StringOutput)
 }
@@ -497,7 +497,7 @@ func (o KxClusterCapacityConfigurationPtrOutput) NodeCount() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-// Determines the hardware of the host computer used for your cluster instance. Valid values are `kx.s.large`, `kx.s.xlarge`, `kx.s.2xlarge`, `kx.s.4xlarge`, `kx.s.8xlarge`, `kx.s.16xlarge`, and `kx.s.32xlarge`.
+// Hardware of the host computer used for your cluster instance. Valid values are `kx.s.large`, `kx.s.xlarge`, `kx.s.2xlarge`, `kx.s.4xlarge`, `kx.s.8xlarge`, `kx.s.16xlarge`, and `kx.s.32xlarge`.
 func (o KxClusterCapacityConfigurationPtrOutput) NodeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KxClusterCapacityConfiguration) *string {
 		if v == nil {

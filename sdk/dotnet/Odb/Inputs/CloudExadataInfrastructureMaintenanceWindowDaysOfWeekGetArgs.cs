@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Odb.Inputs
 
     public sealed class CloudExadataInfrastructureMaintenanceWindowDaysOfWeekGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of the day of the week. Valid values are `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY`, `SATURDAY`, and `SUNDAY`.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

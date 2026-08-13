@@ -91,18 +91,33 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
+     * The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN. Required for VPC-based Client VPN endpoints. Not applicable for Transit Gateway-based Client VPN endpoints.
      * 
      */
     @Import(name="targetVpcSubnetId")
     private @Nullable Output<String> targetVpcSubnetId;
 
     /**
-     * @return The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
+     * @return The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN. Required for VPC-based Client VPN endpoints. Not applicable for Transit Gateway-based Client VPN endpoints.
      * 
      */
     public Optional<Output<String>> targetVpcSubnetId() {
         return Optional.ofNullable(this.targetVpcSubnetId);
+    }
+
+    /**
+     * The ID of the Transit Gateway attachment, if the route targets a Transit Gateway-based Client VPN endpoint.
+     * 
+     */
+    @Import(name="transitGatewayAttachmentId")
+    private @Nullable Output<String> transitGatewayAttachmentId;
+
+    /**
+     * @return The ID of the Transit Gateway attachment, if the route targets a Transit Gateway-based Client VPN endpoint.
+     * 
+     */
+    public Optional<Output<String>> transitGatewayAttachmentId() {
+        return Optional.ofNullable(this.transitGatewayAttachmentId);
     }
 
     /**
@@ -129,6 +144,7 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
         this.origin = $.origin;
         this.region = $.region;
         this.targetVpcSubnetId = $.targetVpcSubnetId;
+        this.transitGatewayAttachmentId = $.transitGatewayAttachmentId;
         this.type = $.type;
     }
 
@@ -256,7 +272,7 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetVpcSubnetId The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
+         * @param targetVpcSubnetId The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN. Required for VPC-based Client VPN endpoints. Not applicable for Transit Gateway-based Client VPN endpoints.
          * 
          * @return builder
          * 
@@ -267,13 +283,34 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetVpcSubnetId The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
+         * @param targetVpcSubnetId The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN. Required for VPC-based Client VPN endpoints. Not applicable for Transit Gateway-based Client VPN endpoints.
          * 
          * @return builder
          * 
          */
         public Builder targetVpcSubnetId(String targetVpcSubnetId) {
             return targetVpcSubnetId(Output.of(targetVpcSubnetId));
+        }
+
+        /**
+         * @param transitGatewayAttachmentId The ID of the Transit Gateway attachment, if the route targets a Transit Gateway-based Client VPN endpoint.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder transitGatewayAttachmentId(@Nullable Output<String> transitGatewayAttachmentId) {
+            $.transitGatewayAttachmentId = transitGatewayAttachmentId;
+            return this;
+        }
+
+        /**
+         * @param transitGatewayAttachmentId The ID of the Transit Gateway attachment, if the route targets a Transit Gateway-based Client VPN endpoint.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder transitGatewayAttachmentId(String transitGatewayAttachmentId) {
+            return transitGatewayAttachmentId(Output.of(transitGatewayAttachmentId));
         }
 
         /**

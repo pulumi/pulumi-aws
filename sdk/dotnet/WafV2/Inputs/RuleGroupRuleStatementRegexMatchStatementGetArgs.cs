@@ -18,6 +18,18 @@ namespace Pulumi.Aws.WafV2.Inputs
         [Input("fieldToMatch")]
         public Input<Inputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchGetArgs>? FieldToMatch { get; set; }
 
+        [Input("preParseTextTransformations")]
+        private InputList<Inputs.RuleGroupRuleStatementRegexMatchStatementPreParseTextTransformationGetArgs>? _preParseTextTransformations;
+
+        /// <summary>
+        /// Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `TextTransformation` is applied. Supported only when `FieldToMatch` specifies `SingleQueryArgument` or `AllQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+        /// </summary>
+        public InputList<Inputs.RuleGroupRuleStatementRegexMatchStatementPreParseTextTransformationGetArgs> PreParseTextTransformations
+        {
+            get => _preParseTextTransformations ?? (_preParseTextTransformations = new InputList<Inputs.RuleGroupRuleStatementRegexMatchStatementPreParseTextTransformationGetArgs>());
+            set => _preParseTextTransformations = value;
+        }
+
         /// <summary>
         /// The string representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can't be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
         /// </summary>

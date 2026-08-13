@@ -4,6 +4,8 @@
 package com.pulumi.aws.bedrock.outputs;
 
 import com.pulumi.aws.bedrock.outputs.AgentcoreHarnessMemoryAgentcoreMemoryConfiguration;
+import com.pulumi.aws.bedrock.outputs.AgentcoreHarnessMemoryDisabled;
+import com.pulumi.aws.bedrock.outputs.AgentcoreHarnessMemoryManagedMemoryConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import java.util.Objects;
 import java.util.Optional;
@@ -12,18 +14,42 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreHarnessMemory {
     /**
-     * @return AgentCore memory configuration. See `agentcoreMemoryConfiguration` below.
+     * @return AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `agentcoreMemoryConfiguration` Block below.
      * 
      */
     private @Nullable AgentcoreHarnessMemoryAgentcoreMemoryConfiguration agentcoreMemoryConfiguration;
+    /**
+     * @return Explicitly disable memory for this harness. See `disabled` Block below.
+     * 
+     */
+    private @Nullable AgentcoreHarnessMemoryDisabled disabled;
+    /**
+     * @return Managed memory configuration. Creates and manages a memory resource automatically. See `managedMemoryConfiguration` Block below.
+     * 
+     */
+    private @Nullable AgentcoreHarnessMemoryManagedMemoryConfiguration managedMemoryConfiguration;
 
     private AgentcoreHarnessMemory() {}
     /**
-     * @return AgentCore memory configuration. See `agentcoreMemoryConfiguration` below.
+     * @return AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `agentcoreMemoryConfiguration` Block below.
      * 
      */
     public Optional<AgentcoreHarnessMemoryAgentcoreMemoryConfiguration> agentcoreMemoryConfiguration() {
         return Optional.ofNullable(this.agentcoreMemoryConfiguration);
+    }
+    /**
+     * @return Explicitly disable memory for this harness. See `disabled` Block below.
+     * 
+     */
+    public Optional<AgentcoreHarnessMemoryDisabled> disabled() {
+        return Optional.ofNullable(this.disabled);
+    }
+    /**
+     * @return Managed memory configuration. Creates and manages a memory resource automatically. See `managedMemoryConfiguration` Block below.
+     * 
+     */
+    public Optional<AgentcoreHarnessMemoryManagedMemoryConfiguration> managedMemoryConfiguration() {
+        return Optional.ofNullable(this.managedMemoryConfiguration);
     }
 
     public static Builder builder() {
@@ -36,10 +62,14 @@ public final class AgentcoreHarnessMemory {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable AgentcoreHarnessMemoryAgentcoreMemoryConfiguration agentcoreMemoryConfiguration;
+        private @Nullable AgentcoreHarnessMemoryDisabled disabled;
+        private @Nullable AgentcoreHarnessMemoryManagedMemoryConfiguration managedMemoryConfiguration;
         public Builder() {}
         public Builder(AgentcoreHarnessMemory defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.agentcoreMemoryConfiguration = defaults.agentcoreMemoryConfiguration;
+    	      this.disabled = defaults.disabled;
+    	      this.managedMemoryConfiguration = defaults.managedMemoryConfiguration;
         }
 
         @CustomType.Setter
@@ -48,9 +78,23 @@ public final class AgentcoreHarnessMemory {
             this.agentcoreMemoryConfiguration = agentcoreMemoryConfiguration;
             return this;
         }
+        @CustomType.Setter
+        public Builder disabled(@Nullable AgentcoreHarnessMemoryDisabled disabled) {
+
+            this.disabled = disabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder managedMemoryConfiguration(@Nullable AgentcoreHarnessMemoryManagedMemoryConfiguration managedMemoryConfiguration) {
+
+            this.managedMemoryConfiguration = managedMemoryConfiguration;
+            return this;
+        }
         public AgentcoreHarnessMemory build() {
             final var _resultValue = new AgentcoreHarnessMemory();
             _resultValue.agentcoreMemoryConfiguration = agentcoreMemoryConfiguration;
+            _resultValue.disabled = disabled;
+            _resultValue.managedMemoryConfiguration = managedMemoryConfiguration;
             return _resultValue;
         }
     }

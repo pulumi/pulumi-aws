@@ -11,6 +11,10 @@ import java.util.Objects;
 
 @CustomType
 public final class NetworkManagedServiceCrossRegionS3RestoreSourcesAccess {
+    /**
+     * @return List of IPv4 addresses for the Amazon STS access.
+     * 
+     */
     private List<String> ipv4Addresses;
     /**
      * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -18,12 +22,16 @@ public final class NetworkManagedServiceCrossRegionS3RestoreSourcesAccess {
      */
     private String region;
     /**
-     * @return Status of the network resource.
+     * @return Status of the Zero-ETL access.
      * 
      */
     private String status;
 
     private NetworkManagedServiceCrossRegionS3RestoreSourcesAccess() {}
+    /**
+     * @return List of IPv4 addresses for the Amazon STS access.
+     * 
+     */
     public List<String> ipv4Addresses() {
         return this.ipv4Addresses;
     }
@@ -35,7 +43,7 @@ public final class NetworkManagedServiceCrossRegionS3RestoreSourcesAccess {
         return this.region;
     }
     /**
-     * @return Status of the network resource.
+     * @return Status of the Zero-ETL access.
      * 
      */
     public String status() {

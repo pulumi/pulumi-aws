@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly int? MessagesCount;
         /// <summary>
-        /// Retrieval configuration parameters. See `RetrievalConfig` below.
+        /// Retrieval configuration parameters. See `RetrievalConfig` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfig? RetrievalConfig;
 
