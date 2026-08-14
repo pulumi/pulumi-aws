@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Use the `awsKendraIndexBlockList` resource to manage an AWS Kendra block list used for query suggestions for an index.
+ * Use the `aws.kendra.QuerySuggestionsBlockList` resource to manage an AWS Kendra block list used for query suggestions for an index.
  *
  * ## Example Usage
  *

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kendra
 {
     /// <summary>
-    /// Use the `AwsKendraIndexBlockList` resource to manage an AWS Kendra block list used for query suggestions for an index.
+    /// Use the `aws.kendra.QuerySuggestionsBlockList` resource to manage an AWS Kendra block list used for query suggestions for an index.
     /// 
     /// ## Example Usage
     /// 

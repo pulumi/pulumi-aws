@@ -283,7 +283,7 @@ import (
 //
 // ### Use default EKS scraper configuration
 //
-// You can use the data source `awsPrometheusScraperConfiguration` to use a
+// You can use the data source `amp.getDefaultScraperConfiguration` to use a
 // service managed scrape configuration.
 //
 // ```go
@@ -298,7 +298,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := amp.GetDefaultScraperConfiguration(ctx, &amp.GetDefaultScraperConfigurationArgs{}, nil)
+//			example, err := amp.GetDefaultScraperConfiguration(ctx, &amp.GetDefaultScraperConfigurationArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -308,7 +308,7 @@ import (
 //						WorkspaceArn: pulumi.Any(exampleAwsPrometheusWorkspace.Arn),
 //					},
 //				},
-//				ScrapeConfiguration: pulumi.Any(exampleAwsPrometheusScraperConfiguration.Configuration),
+//				ScrapeConfiguration: pulumi.String(example.Configuration),
 //				Source: &amp.ScraperSourceArgs{
 //					Eks: &amp.ScraperSourceEksArgs{
 //						ClusterArn: pulumi.Any(exampleAwsEksCluster.Arn),

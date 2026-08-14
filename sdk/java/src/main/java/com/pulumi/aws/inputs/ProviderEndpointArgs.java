@@ -1549,6 +1549,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="directoryservicedata")
+    private @Nullable Output<String> directoryservicedata;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> directoryservicedata() {
+        return Optional.ofNullable(this.directoryservicedata);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="dlm")
     private @Nullable Output<String> dlm;
 
@@ -2578,6 +2593,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      */
     public Optional<Output<String>> lambda() {
         return Optional.ofNullable(this.lambda);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
+    @Import(name="lambdacore")
+    private @Nullable Output<String> lambdacore;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> lambdacore() {
+        return Optional.ofNullable(this.lambdacore);
     }
 
     /**
@@ -4860,6 +4890,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.devopsguru = $.devopsguru;
         this.directconnect = $.directconnect;
         this.directoryservice = $.directoryservice;
+        this.directoryservicedata = $.directoryservicedata;
         this.dlm = $.dlm;
         this.dms = $.dms;
         this.docdb = $.docdb;
@@ -4929,6 +4960,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.kms = $.kms;
         this.lakeformation = $.lakeformation;
         this.lambda = $.lambda;
+        this.lambdacore = $.lambdacore;
         this.lambdamicrovms = $.lambdamicrovms;
         this.launchwizard = $.launchwizard;
         this.lex = $.lex;
@@ -7237,6 +7269,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
+         * @param directoryservicedata Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder directoryservicedata(@Nullable Output<String> directoryservicedata) {
+            $.directoryservicedata = directoryservicedata;
+            return this;
+        }
+
+        /**
+         * @param directoryservicedata Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder directoryservicedata(String directoryservicedata) {
+            return directoryservicedata(Output.of(directoryservicedata));
+        }
+
+        /**
          * @param dlm Use this to override the default service endpoint URL
          * 
          * @return builder
@@ -8683,6 +8736,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder lambda(String lambda) {
             return lambda(Output.of(lambda));
+        }
+
+        /**
+         * @param lambdacore Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder lambdacore(@Nullable Output<String> lambdacore) {
+            $.lambdacore = lambdacore;
+            return this;
+        }
+
+        /**
+         * @param lambdacore Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder lambdacore(String lambdacore) {
+            return lambdacore(Output.of(lambdacore));
         }
 
         /**

@@ -202,7 +202,7 @@ import * as utilities from "../utilities";
  *
  * ### Use default EKS scraper configuration
  *
- * You can use the data source `awsPrometheusScraperConfiguration` to use a
+ * You can use the data source `aws.amp.getDefaultScraperConfiguration` to use a
  * service managed scrape configuration.
  *
  * ```typescript
@@ -216,7 +216,7 @@ import * as utilities from "../utilities";
  *             workspaceArn: exampleAwsPrometheusWorkspace.arn,
  *         },
  *     },
- *     scrapeConfiguration: exampleAwsPrometheusScraperConfiguration.configuration,
+ *     scrapeConfiguration: example.then(example => example.configuration),
  *     source: {
  *         eks: {
  *             clusterArn: exampleAwsEksCluster.arn,

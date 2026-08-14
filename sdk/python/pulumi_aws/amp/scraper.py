@@ -577,7 +577,7 @@ class Scraper(pulumi.CustomResource):
 
         ### Use default EKS scraper configuration
 
-        You can use the data source `aws_prometheus_scraper_configuration` to use a
+        You can use the data source `amp_get_default_scraper_configuration` to use a
         service managed scrape configuration.
 
         ```python
@@ -591,7 +591,7 @@ class Scraper(pulumi.CustomResource):
                     "workspace_arn": example_aws_prometheus_workspace["arn"],
                 },
             },
-            scrape_configuration=example_aws_prometheus_scraper_configuration["configuration"],
+            scrape_configuration=example.configuration,
             source={
                 "eks": {
                     "cluster_arn": example_aws_eks_cluster["arn"],
@@ -899,7 +899,7 @@ class Scraper(pulumi.CustomResource):
 
         ### Use default EKS scraper configuration
 
-        You can use the data source `aws_prometheus_scraper_configuration` to use a
+        You can use the data source `amp_get_default_scraper_configuration` to use a
         service managed scrape configuration.
 
         ```python
@@ -913,7 +913,7 @@ class Scraper(pulumi.CustomResource):
                     "workspace_arn": example_aws_prometheus_workspace["arn"],
                 },
             },
-            scrape_configuration=example_aws_prometheus_scraper_configuration["configuration"],
+            scrape_configuration=example.configuration,
             source={
                 "eks": {
                     "cluster_arn": example_aws_eks_cluster["arn"],

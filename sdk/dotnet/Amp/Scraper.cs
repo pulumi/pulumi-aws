@@ -258,7 +258,7 @@ namespace Pulumi.Aws.Amp
     /// 
     /// ### Use default EKS scraper configuration
     /// 
-    /// You can use the data source `AwsPrometheusScraperConfiguration` to use a
+    /// You can use the data source `aws.amp.getDefaultScraperConfiguration` to use a
     /// service managed scrape configuration.
     /// 
     /// ```csharp
@@ -280,7 +280,7 @@ namespace Pulumi.Aws.Amp
     ///                 WorkspaceArn = exampleAwsPrometheusWorkspace.Arn,
     ///             },
     ///         },
-    ///         ScrapeConfiguration = exampleAwsPrometheusScraperConfiguration.Configuration,
+    ///         ScrapeConfiguration = example.Apply(getDefaultScraperConfigurationResult =&gt; getDefaultScraperConfigurationResult.Configuration),
     ///         Source = new Aws.Amp.Inputs.ScraperSourceArgs
     ///         {
     ///             Eks = new Aws.Amp.Inputs.ScraperSourceEksArgs

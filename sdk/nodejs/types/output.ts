@@ -31813,6 +31813,10 @@ export namespace config {
         /**
          * Use this to override the default service endpoint URL
          */
+        directoryservicedata?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         dlm?: string;
         /**
          * Use this to override the default service endpoint URL
@@ -32086,6 +32090,10 @@ export namespace config {
          * Use this to override the default service endpoint URL
          */
         lambda?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
+        lambdacore?: string;
         /**
          * Use this to override the default service endpoint URL
          */
@@ -98476,6 +98484,53 @@ export namespace resiliencehub {
          * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
          */
         update?: string;
+    }
+
+    export interface V2InputSourceResourceConfiguration {
+        /**
+         * CloudFormation stack ARN.
+         */
+        cfnStackArn?: string;
+        /**
+         * S3 URL.
+         */
+        designFileS3Url?: string;
+        /**
+         * EKS configuration. See `eks` Block below.
+         */
+        eks?: outputs.resiliencehub.V2InputSourceResourceConfigurationEks;
+        /**
+         * Resource tags used for discovery. See `resourceTag` Block below.
+         */
+        resourceTags?: outputs.resiliencehub.V2InputSourceResourceConfigurationResourceTag[];
+        /**
+         * S3 URL.
+         *
+         * Exactly one attribute must be configured.
+         */
+        tfStateFileUrl?: string;
+    }
+
+    export interface V2InputSourceResourceConfigurationEks {
+        /**
+         * Cluster ARN.
+         */
+        clusterArn: string;
+        /**
+         * List of Kubernetes namespaces within the EKS cluster.
+         */
+        namespaces: string[];
+    }
+
+    export interface V2InputSourceResourceConfigurationResourceTag {
+        /**
+         * Tag key.
+         */
+        key: string;
+        /**
+         * List of tag values.
+         */
+        values: string[];
     }
 
     export interface V2PolicyAvailabilitySlo {

@@ -33,7 +33,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewVolumeAttachment(ctx, "test", &ec2.VolumeAttachmentArgs{
+//			testVolumeAttachment, err := ec2.NewVolumeAttachment(ctx, "test", &ec2.VolumeAttachmentArgs{
 //				DeviceName: pulumi.String("/dev/xvdb"),
 //				VolumeId:   pulumi.Any(testAwsEbsVolume.Id),
 //				InstanceId: pulumi.Any(testAwsInstance.Id),
@@ -41,15 +41,12 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			test, err := storagegateway.GetLocalDisk(ctx, &storagegateway.GetLocalDiskArgs{
-//				DiskNode:   pulumi.StringRef(testAwsVolumeAttachment.DeviceName),
-//				GatewayArn: testAwsStoragegatewayGateway.Arn,
+//			test := storagegateway.GetLocalDiskOutput(ctx, storagegateway.GetLocalDiskOutputArgs{
+//				DiskNode:   testVolumeAttachment.DeviceName,
+//				GatewayArn: pulumi.Any(testAwsStoragegatewayGateway.Arn),
 //			}, nil)
-//			if err != nil {
-//				return err
-//			}
 //			_, err = storagegateway.NewCache(ctx, "test", &storagegateway.CacheArgs{
-//				DiskId:     pulumi.String(test.DiskId),
+//				DiskId:     test.DiskId(),
 //				GatewayArn: pulumi.Any(testAwsStoragegatewayGateway.Arn),
 //			})
 //			if err != nil {

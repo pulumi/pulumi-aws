@@ -540,6 +540,8 @@ type Endpoints struct {
 	// Use this to override the default service endpoint URL
 	Directoryservice *string `pulumi:"directoryservice"`
 	// Use this to override the default service endpoint URL
+	Directoryservicedata *string `pulumi:"directoryservicedata"`
+	// Use this to override the default service endpoint URL
 	Dlm *string `pulumi:"dlm"`
 	// Use this to override the default service endpoint URL
 	Dms *string `pulumi:"dms"`
@@ -677,6 +679,8 @@ type Endpoints struct {
 	Lakeformation *string `pulumi:"lakeformation"`
 	// Use this to override the default service endpoint URL
 	Lambda *string `pulumi:"lambda"`
+	// Use this to override the default service endpoint URL
+	Lambdacore *string `pulumi:"lambdacore"`
 	// Use this to override the default service endpoint URL
 	Lambdamicrovms *string `pulumi:"lambdamicrovms"`
 	// Use this to override the default service endpoint URL
@@ -1186,6 +1190,8 @@ type EndpointsArgs struct {
 	// Use this to override the default service endpoint URL
 	Directoryservice pulumi.StringPtrInput `pulumi:"directoryservice"`
 	// Use this to override the default service endpoint URL
+	Directoryservicedata pulumi.StringPtrInput `pulumi:"directoryservicedata"`
+	// Use this to override the default service endpoint URL
 	Dlm pulumi.StringPtrInput `pulumi:"dlm"`
 	// Use this to override the default service endpoint URL
 	Dms pulumi.StringPtrInput `pulumi:"dms"`
@@ -1323,6 +1329,8 @@ type EndpointsArgs struct {
 	Lakeformation pulumi.StringPtrInput `pulumi:"lakeformation"`
 	// Use this to override the default service endpoint URL
 	Lambda pulumi.StringPtrInput `pulumi:"lambda"`
+	// Use this to override the default service endpoint URL
+	Lambdacore pulumi.StringPtrInput `pulumi:"lambdacore"`
 	// Use this to override the default service endpoint URL
 	Lambdamicrovms pulumi.StringPtrInput `pulumi:"lambdamicrovms"`
 	// Use this to override the default service endpoint URL
@@ -2177,6 +2185,11 @@ func (o EndpointsOutput) Directoryservice() pulumi.StringPtrOutput {
 }
 
 // Use this to override the default service endpoint URL
+func (o EndpointsOutput) Directoryservicedata() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Directoryservicedata }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Dlm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Dlm }).(pulumi.StringPtrOutput)
 }
@@ -2519,6 +2532,11 @@ func (o EndpointsOutput) Lakeformation() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o EndpointsOutput) Lambda() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Lambda }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o EndpointsOutput) Lambdacore() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Lambdacore }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL
