@@ -2989,6 +2989,8 @@ github.com/aws/aws-sdk-go-v2/service/directconnect v1.44.2 h1:gwnbzXvPk4/7Uba0Bw
 github.com/aws/aws-sdk-go-v2/service/directconnect v1.44.2/go.mod h1:xuM5d+eTbmowB2AGPW5bJ8wRz+UJXj4HaVG9s76zZX8=
 github.com/aws/aws-sdk-go-v2/service/directoryservice v1.41.5 h1:DV9J+BBmQHOwa9LJ6wmWJeDVos/lpPu44bzLJRHJXMo=
 github.com/aws/aws-sdk-go-v2/service/directoryservice v1.41.5/go.mod h1:ZiPbvooMOkB/ckw3+wUfnh1BpN+Ybi2k5WTLIf85E3w=
+github.com/aws/aws-sdk-go-v2/service/directoryservicedata v1.10.5 h1:Yai8rooqod/w5CQGAk/AThnIYFF+BGtZY2u1Ru0GZxE=
+github.com/aws/aws-sdk-go-v2/service/directoryservicedata v1.10.5/go.mod h1:D7A+i2m6Hya71Bi7LOGuduou7iTbcLyVTIHvOTO5tLI=
 github.com/aws/aws-sdk-go-v2/service/dlm v1.40.0 h1:RxXIrJYuFXgLePZh64iSE+H6vFFG/2Or9HoE02fJ/tQ=
 github.com/aws/aws-sdk-go-v2/service/dlm v1.40.0/go.mod h1:nZLMLgDCF2RHEue0tRe0MonFn/Ws+hlPBnQ/qBX/ces=
 github.com/aws/aws-sdk-go-v2/service/docdb v1.51.5 h1:ZEfde44PzSHrCOq32yIByW5vAn8x3SNDs28Z0ok9erQ=
@@ -3124,6 +3126,8 @@ github.com/aws/aws-sdk-go-v2/service/lakeformation v1.50.5 h1:dcTlmC567yYjp2A64J
 github.com/aws/aws-sdk-go-v2/service/lakeformation v1.50.5/go.mod h1:tbpD3A7Dh5L2ie3Dqh/VsruVPlXBqqdp6iFjAxcSReU=
 github.com/aws/aws-sdk-go-v2/service/lambda v1.101.3 h1:JxKvYBJCfQ+v2IDHxoE9TAjPs8MwFPuRL29fZxVEez4=
 github.com/aws/aws-sdk-go-v2/service/lambda v1.101.3/go.mod h1:Sib34fFU1S2xI6Ft3xEdhCjwKoh3z5GREnIGAOYVXos=
+github.com/aws/aws-sdk-go-v2/service/lambdacore v1.2.5 h1:aXRQqV7Gh2yVMJxzSJrEaWhSJwhZv4LYMSz3TyDjsJI=
+github.com/aws/aws-sdk-go-v2/service/lambdacore v1.2.5/go.mod h1:aPNREqPeDOWzV+fmU3u7Uktq3F0ryfKlPRD4tB+76CM=
 github.com/aws/aws-sdk-go-v2/service/lambdamicrovms v1.2.5 h1:p9nw/hXe7Q/89Q6q96gzhV9V02wO/w02VtS54/y9uGA=
 github.com/aws/aws-sdk-go-v2/service/lambdamicrovms v1.2.5/go.mod h1:vAuBcAkrPH1XicBB5cpsijcRma9waOnrrKh93Bhknio=
 github.com/aws/aws-sdk-go-v2/service/launchwizard v1.17.5 h1:PaFuWYbtXKjglVDYDtNREFPfHFhYu7TNnZrscy4dHNk=

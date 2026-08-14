@@ -10847,6 +10847,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "resiliencehub/v2InputSource",
+  "fqn": "pulumi_aws.resiliencehub",
+  "classes": {
+   "aws:resiliencehub/v2InputSource:V2InputSource": "V2InputSource"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "resiliencehub/v2Policy",
   "fqn": "pulumi_aws.resiliencehub",
   "classes": {

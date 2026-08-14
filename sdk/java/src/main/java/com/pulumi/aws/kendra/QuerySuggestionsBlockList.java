@@ -17,7 +17,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Use the `awsKendraIndexBlockList` resource to manage an AWS Kendra block list used for query suggestions for an index.
+ * Use the `aws.kendra.QuerySuggestionsBlockList` resource to manage an AWS Kendra block list used for query suggestions for an index.
  * 
  * ## Example Usage
  * 

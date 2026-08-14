@@ -63,12 +63,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         final var test = StoragegatewayFunctions.getLocalDisk(GetLocalDiskArgs.builder()
- *             .diskNode(testAwsVolumeAttachment.deviceName())
+ *             .diskNode(testVolumeAttachment.deviceName())
  *             .gatewayArn(testAwsStoragegatewayGateway.arn())
  *             .build());
  * 
  *         var testCache = new Cache("testCache", CacheArgs.builder()
- *             .diskId(test.diskId())
+ *             .diskId(test.applyValue(_test -> _test.diskId()))
  *             .gatewayArn(testAwsStoragegatewayGateway.arn())
  *             .build());
  * 

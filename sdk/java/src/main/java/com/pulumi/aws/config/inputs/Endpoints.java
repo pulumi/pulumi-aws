@@ -525,6 +525,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String directoryservicedata;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String dlm;
     /**
      * @return Use this to override the default service endpoint URL
@@ -866,6 +871,11 @@ public final class Endpoints {
      * 
      */
     private @Nullable String lambda;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    private @Nullable String lambdacore;
     /**
      * @return Use this to override the default service endpoint URL
      * 
@@ -2311,6 +2321,13 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    public Optional<String> directoryservicedata() {
+        return Optional.ofNullable(this.directoryservicedata);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> dlm() {
         return Optional.ofNullable(this.dlm);
     }
@@ -2789,6 +2806,13 @@ public final class Endpoints {
      */
     public Optional<String> lambda() {
         return Optional.ofNullable(this.lambda);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<String> lambdacore() {
+        return Optional.ofNullable(this.lambdacore);
     }
     /**
      * @return Use this to override the default service endpoint URL
@@ -3917,6 +3941,7 @@ public final class Endpoints {
         private @Nullable String devopsguru;
         private @Nullable String directconnect;
         private @Nullable String directoryservice;
+        private @Nullable String directoryservicedata;
         private @Nullable String dlm;
         private @Nullable String dms;
         private @Nullable String docdb;
@@ -3986,6 +4011,7 @@ public final class Endpoints {
         private @Nullable String kms;
         private @Nullable String lakeformation;
         private @Nullable String lambda;
+        private @Nullable String lambdacore;
         private @Nullable String lambdamicrovms;
         private @Nullable String launchwizard;
         private @Nullable String lex;
@@ -4236,6 +4262,7 @@ public final class Endpoints {
     	      this.devopsguru = defaults.devopsguru;
     	      this.directconnect = defaults.directconnect;
     	      this.directoryservice = defaults.directoryservice;
+    	      this.directoryservicedata = defaults.directoryservicedata;
     	      this.dlm = defaults.dlm;
     	      this.dms = defaults.dms;
     	      this.docdb = defaults.docdb;
@@ -4305,6 +4332,7 @@ public final class Endpoints {
     	      this.kms = defaults.kms;
     	      this.lakeformation = defaults.lakeformation;
     	      this.lambda = defaults.lambda;
+    	      this.lambdacore = defaults.lambdacore;
     	      this.lambdamicrovms = defaults.lambdamicrovms;
     	      this.launchwizard = defaults.launchwizard;
     	      this.lex = defaults.lex;
@@ -5065,6 +5093,12 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder directoryservicedata(@Nullable String directoryservicedata) {
+
+            this.directoryservicedata = directoryservicedata;
+            return this;
+        }
+        @CustomType.Setter
         public Builder dlm(@Nullable String dlm) {
 
             this.dlm = dlm;
@@ -5476,6 +5510,12 @@ public final class Endpoints {
         public Builder lambda(@Nullable String lambda) {
 
             this.lambda = lambda;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder lambdacore(@Nullable String lambdacore) {
+
+            this.lambdacore = lambdacore;
             return this;
         }
         @CustomType.Setter
@@ -6452,6 +6492,7 @@ public final class Endpoints {
             _resultValue.devopsguru = devopsguru;
             _resultValue.directconnect = directconnect;
             _resultValue.directoryservice = directoryservice;
+            _resultValue.directoryservicedata = directoryservicedata;
             _resultValue.dlm = dlm;
             _resultValue.dms = dms;
             _resultValue.docdb = docdb;
@@ -6521,6 +6562,7 @@ public final class Endpoints {
             _resultValue.kms = kms;
             _resultValue.lakeformation = lakeformation;
             _resultValue.lambda = lambda;
+            _resultValue.lambdacore = lambdacore;
             _resultValue.lambdamicrovms = lambdamicrovms;
             _resultValue.launchwizard = launchwizard;
             _resultValue.lex = lex;

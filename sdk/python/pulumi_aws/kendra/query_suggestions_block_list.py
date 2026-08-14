@@ -316,7 +316,7 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Use the `aws_kendra_index_block_list` resource to manage an AWS Kendra block list used for query suggestions for an index.
+        Use the `kendra.QuerySuggestionsBlockList` resource to manage an AWS Kendra block list used for query suggestions for an index.
 
         ## Example Usage
 
@@ -363,7 +363,7 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
                  args: QuerySuggestionsBlockListArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Use the `aws_kendra_index_block_list` resource to manage an AWS Kendra block list used for query suggestions for an index.
+        Use the `kendra.QuerySuggestionsBlockList` resource to manage an AWS Kendra block list used for query suggestions for an index.
 
         ## Example Usage
 

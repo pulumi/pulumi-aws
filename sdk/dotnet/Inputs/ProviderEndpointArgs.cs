@@ -627,6 +627,12 @@ namespace Pulumi.Aws.Inputs
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
+        [Input("directoryservicedata")]
+        public Input<string>? Directoryservicedata { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("dlm")]
         public Input<string>? Dlm { get; set; }
 
@@ -1037,6 +1043,12 @@ namespace Pulumi.Aws.Inputs
         /// </summary>
         [Input("lambda")]
         public Input<string>? Lambda { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
+        [Input("lambdacore")]
+        public Input<string>? Lambdacore { get; set; }
 
         /// <summary>
         /// Use this to override the default service endpoint URL

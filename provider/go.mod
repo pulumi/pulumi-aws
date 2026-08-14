@@ -148,6 +148,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/devopsguru v1.43.5 // indirect
 	github.com/aws/aws-sdk-go-v2/service/directconnect v1.44.2 // indirect
 	github.com/aws/aws-sdk-go-v2/service/directoryservice v1.41.5 // indirect
+	github.com/aws/aws-sdk-go-v2/service/directoryservicedata v1.10.5 // indirect
 	github.com/aws/aws-sdk-go-v2/service/dlm v1.40.0 // indirect
 	github.com/aws/aws-sdk-go-v2/service/docdb v1.51.5 // indirect
 	github.com/aws/aws-sdk-go-v2/service/docdbelastic v1.23.5 // indirect
@@ -212,6 +213,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/kms v1.55.5 // indirect
 	github.com/aws/aws-sdk-go-v2/service/lakeformation v1.50.5 // indirect
 	github.com/aws/aws-sdk-go-v2/service/lambda v1.101.3 // indirect
+	github.com/aws/aws-sdk-go-v2/service/lambdacore v1.2.5 // indirect
 	github.com/aws/aws-sdk-go-v2/service/lambdamicrovms v1.2.5 // indirect
 	github.com/aws/aws-sdk-go-v2/service/launchwizard v1.17.5 // indirect
 	github.com/aws/aws-sdk-go-v2/service/lexmodelbuildingservice v1.38.5 // indirect

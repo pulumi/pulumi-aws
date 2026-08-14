@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .encryptionAtRest(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs.builder()
  *                     .catalogEncryptionMode("SSE-KMS")
- *                     .catalogEncryptionServiceRole(role.test().arn())
+ *                     .catalogEncryptionServiceRole(testAwsIamRole.arn())
  *                     .sseAwsKmsKeyId(test.arn())
  *                     .build())
  *                 .build())

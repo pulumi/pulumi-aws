@@ -36,7 +36,7 @@ import (
 //					},
 //					EncryptionAtRest: &glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs{
 //						CatalogEncryptionMode:        pulumi.String("SSE-KMS"),
-//						CatalogEncryptionServiceRole: pulumi.Any(role.Test.Arn),
+//						CatalogEncryptionServiceRole: pulumi.Any(testAwsIamRole.Arn),
 //						SseAwsKmsKeyId:               pulumi.Any(test.Arn),
 //					},
 //				},

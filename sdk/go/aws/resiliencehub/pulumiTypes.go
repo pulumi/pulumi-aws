@@ -1014,6 +1014,491 @@ func (o ResiliencyPolicyTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type V2InputSourceResourceConfiguration struct {
+	// CloudFormation stack ARN.
+	CfnStackArn *string `pulumi:"cfnStackArn"`
+	// S3 URL.
+	DesignFileS3Url *string `pulumi:"designFileS3Url"`
+	// EKS configuration. See `eks` Block below.
+	Eks *V2InputSourceResourceConfigurationEks `pulumi:"eks"`
+	// Resource tags used for discovery. See `resourceTag` Block below.
+	ResourceTags []V2InputSourceResourceConfigurationResourceTag `pulumi:"resourceTags"`
+	// S3 URL.
+	//
+	// Exactly one attribute must be configured.
+	TfStateFileUrl *string `pulumi:"tfStateFileUrl"`
+}
+
+// V2InputSourceResourceConfigurationInput is an input type that accepts V2InputSourceResourceConfigurationArgs and V2InputSourceResourceConfigurationOutput values.
+// You can construct a concrete instance of `V2InputSourceResourceConfigurationInput` via:
+//
+//	V2InputSourceResourceConfigurationArgs{...}
+type V2InputSourceResourceConfigurationInput interface {
+	pulumi.Input
+
+	ToV2InputSourceResourceConfigurationOutput() V2InputSourceResourceConfigurationOutput
+	ToV2InputSourceResourceConfigurationOutputWithContext(context.Context) V2InputSourceResourceConfigurationOutput
+}
+
+type V2InputSourceResourceConfigurationArgs struct {
+	// CloudFormation stack ARN.
+	CfnStackArn pulumi.StringPtrInput `pulumi:"cfnStackArn"`
+	// S3 URL.
+	DesignFileS3Url pulumi.StringPtrInput `pulumi:"designFileS3Url"`
+	// EKS configuration. See `eks` Block below.
+	Eks V2InputSourceResourceConfigurationEksPtrInput `pulumi:"eks"`
+	// Resource tags used for discovery. See `resourceTag` Block below.
+	ResourceTags V2InputSourceResourceConfigurationResourceTagArrayInput `pulumi:"resourceTags"`
+	// S3 URL.
+	//
+	// Exactly one attribute must be configured.
+	TfStateFileUrl pulumi.StringPtrInput `pulumi:"tfStateFileUrl"`
+}
+
+func (V2InputSourceResourceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*V2InputSourceResourceConfiguration)(nil)).Elem()
+}
+
+func (i V2InputSourceResourceConfigurationArgs) ToV2InputSourceResourceConfigurationOutput() V2InputSourceResourceConfigurationOutput {
+	return i.ToV2InputSourceResourceConfigurationOutputWithContext(context.Background())
+}
+
+func (i V2InputSourceResourceConfigurationArgs) ToV2InputSourceResourceConfigurationOutputWithContext(ctx context.Context) V2InputSourceResourceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2InputSourceResourceConfigurationOutput)
+}
+
+func (i V2InputSourceResourceConfigurationArgs) ToV2InputSourceResourceConfigurationPtrOutput() V2InputSourceResourceConfigurationPtrOutput {
+	return i.ToV2InputSourceResourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i V2InputSourceResourceConfigurationArgs) ToV2InputSourceResourceConfigurationPtrOutputWithContext(ctx context.Context) V2InputSourceResourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2InputSourceResourceConfigurationOutput).ToV2InputSourceResourceConfigurationPtrOutputWithContext(ctx)
+}
+
+// V2InputSourceResourceConfigurationPtrInput is an input type that accepts V2InputSourceResourceConfigurationArgs, V2InputSourceResourceConfigurationPtr and V2InputSourceResourceConfigurationPtrOutput values.
+// You can construct a concrete instance of `V2InputSourceResourceConfigurationPtrInput` via:
+//
+//	        V2InputSourceResourceConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type V2InputSourceResourceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToV2InputSourceResourceConfigurationPtrOutput() V2InputSourceResourceConfigurationPtrOutput
+	ToV2InputSourceResourceConfigurationPtrOutputWithContext(context.Context) V2InputSourceResourceConfigurationPtrOutput
+}
+
+type v2inputSourceResourceConfigurationPtrType V2InputSourceResourceConfigurationArgs
+
+func V2InputSourceResourceConfigurationPtr(v *V2InputSourceResourceConfigurationArgs) V2InputSourceResourceConfigurationPtrInput {
+	return (*v2inputSourceResourceConfigurationPtrType)(v)
+}
+
+func (*v2inputSourceResourceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**V2InputSourceResourceConfiguration)(nil)).Elem()
+}
+
+func (i *v2inputSourceResourceConfigurationPtrType) ToV2InputSourceResourceConfigurationPtrOutput() V2InputSourceResourceConfigurationPtrOutput {
+	return i.ToV2InputSourceResourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *v2inputSourceResourceConfigurationPtrType) ToV2InputSourceResourceConfigurationPtrOutputWithContext(ctx context.Context) V2InputSourceResourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2InputSourceResourceConfigurationPtrOutput)
+}
+
+type V2InputSourceResourceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (V2InputSourceResourceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*V2InputSourceResourceConfiguration)(nil)).Elem()
+}
+
+func (o V2InputSourceResourceConfigurationOutput) ToV2InputSourceResourceConfigurationOutput() V2InputSourceResourceConfigurationOutput {
+	return o
+}
+
+func (o V2InputSourceResourceConfigurationOutput) ToV2InputSourceResourceConfigurationOutputWithContext(ctx context.Context) V2InputSourceResourceConfigurationOutput {
+	return o
+}
+
+func (o V2InputSourceResourceConfigurationOutput) ToV2InputSourceResourceConfigurationPtrOutput() V2InputSourceResourceConfigurationPtrOutput {
+	return o.ToV2InputSourceResourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o V2InputSourceResourceConfigurationOutput) ToV2InputSourceResourceConfigurationPtrOutputWithContext(ctx context.Context) V2InputSourceResourceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v V2InputSourceResourceConfiguration) *V2InputSourceResourceConfiguration {
+		return &v
+	}).(V2InputSourceResourceConfigurationPtrOutput)
+}
+
+// CloudFormation stack ARN.
+func (o V2InputSourceResourceConfigurationOutput) CfnStackArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v V2InputSourceResourceConfiguration) *string { return v.CfnStackArn }).(pulumi.StringPtrOutput)
+}
+
+// S3 URL.
+func (o V2InputSourceResourceConfigurationOutput) DesignFileS3Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v V2InputSourceResourceConfiguration) *string { return v.DesignFileS3Url }).(pulumi.StringPtrOutput)
+}
+
+// EKS configuration. See `eks` Block below.
+func (o V2InputSourceResourceConfigurationOutput) Eks() V2InputSourceResourceConfigurationEksPtrOutput {
+	return o.ApplyT(func(v V2InputSourceResourceConfiguration) *V2InputSourceResourceConfigurationEks { return v.Eks }).(V2InputSourceResourceConfigurationEksPtrOutput)
+}
+
+// Resource tags used for discovery. See `resourceTag` Block below.
+func (o V2InputSourceResourceConfigurationOutput) ResourceTags() V2InputSourceResourceConfigurationResourceTagArrayOutput {
+	return o.ApplyT(func(v V2InputSourceResourceConfiguration) []V2InputSourceResourceConfigurationResourceTag {
+		return v.ResourceTags
+	}).(V2InputSourceResourceConfigurationResourceTagArrayOutput)
+}
+
+// S3 URL.
+//
+// Exactly one attribute must be configured.
+func (o V2InputSourceResourceConfigurationOutput) TfStateFileUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v V2InputSourceResourceConfiguration) *string { return v.TfStateFileUrl }).(pulumi.StringPtrOutput)
+}
+
+type V2InputSourceResourceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (V2InputSourceResourceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**V2InputSourceResourceConfiguration)(nil)).Elem()
+}
+
+func (o V2InputSourceResourceConfigurationPtrOutput) ToV2InputSourceResourceConfigurationPtrOutput() V2InputSourceResourceConfigurationPtrOutput {
+	return o
+}
+
+func (o V2InputSourceResourceConfigurationPtrOutput) ToV2InputSourceResourceConfigurationPtrOutputWithContext(ctx context.Context) V2InputSourceResourceConfigurationPtrOutput {
+	return o
+}
+
+func (o V2InputSourceResourceConfigurationPtrOutput) Elem() V2InputSourceResourceConfigurationOutput {
+	return o.ApplyT(func(v *V2InputSourceResourceConfiguration) V2InputSourceResourceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret V2InputSourceResourceConfiguration
+		return ret
+	}).(V2InputSourceResourceConfigurationOutput)
+}
+
+// CloudFormation stack ARN.
+func (o V2InputSourceResourceConfigurationPtrOutput) CfnStackArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *V2InputSourceResourceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CfnStackArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// S3 URL.
+func (o V2InputSourceResourceConfigurationPtrOutput) DesignFileS3Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *V2InputSourceResourceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DesignFileS3Url
+	}).(pulumi.StringPtrOutput)
+}
+
+// EKS configuration. See `eks` Block below.
+func (o V2InputSourceResourceConfigurationPtrOutput) Eks() V2InputSourceResourceConfigurationEksPtrOutput {
+	return o.ApplyT(func(v *V2InputSourceResourceConfiguration) *V2InputSourceResourceConfigurationEks {
+		if v == nil {
+			return nil
+		}
+		return v.Eks
+	}).(V2InputSourceResourceConfigurationEksPtrOutput)
+}
+
+// Resource tags used for discovery. See `resourceTag` Block below.
+func (o V2InputSourceResourceConfigurationPtrOutput) ResourceTags() V2InputSourceResourceConfigurationResourceTagArrayOutput {
+	return o.ApplyT(func(v *V2InputSourceResourceConfiguration) []V2InputSourceResourceConfigurationResourceTag {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceTags
+	}).(V2InputSourceResourceConfigurationResourceTagArrayOutput)
+}
+
+// S3 URL.
+//
+// Exactly one attribute must be configured.
+func (o V2InputSourceResourceConfigurationPtrOutput) TfStateFileUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *V2InputSourceResourceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TfStateFileUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+type V2InputSourceResourceConfigurationEks struct {
+	// Cluster ARN.
+	ClusterArn string `pulumi:"clusterArn"`
+	// List of Kubernetes namespaces within the EKS cluster.
+	Namespaces []string `pulumi:"namespaces"`
+}
+
+// V2InputSourceResourceConfigurationEksInput is an input type that accepts V2InputSourceResourceConfigurationEksArgs and V2InputSourceResourceConfigurationEksOutput values.
+// You can construct a concrete instance of `V2InputSourceResourceConfigurationEksInput` via:
+//
+//	V2InputSourceResourceConfigurationEksArgs{...}
+type V2InputSourceResourceConfigurationEksInput interface {
+	pulumi.Input
+
+	ToV2InputSourceResourceConfigurationEksOutput() V2InputSourceResourceConfigurationEksOutput
+	ToV2InputSourceResourceConfigurationEksOutputWithContext(context.Context) V2InputSourceResourceConfigurationEksOutput
+}
+
+type V2InputSourceResourceConfigurationEksArgs struct {
+	// Cluster ARN.
+	ClusterArn pulumi.StringInput `pulumi:"clusterArn"`
+	// List of Kubernetes namespaces within the EKS cluster.
+	Namespaces pulumi.StringArrayInput `pulumi:"namespaces"`
+}
+
+func (V2InputSourceResourceConfigurationEksArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*V2InputSourceResourceConfigurationEks)(nil)).Elem()
+}
+
+func (i V2InputSourceResourceConfigurationEksArgs) ToV2InputSourceResourceConfigurationEksOutput() V2InputSourceResourceConfigurationEksOutput {
+	return i.ToV2InputSourceResourceConfigurationEksOutputWithContext(context.Background())
+}
+
+func (i V2InputSourceResourceConfigurationEksArgs) ToV2InputSourceResourceConfigurationEksOutputWithContext(ctx context.Context) V2InputSourceResourceConfigurationEksOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2InputSourceResourceConfigurationEksOutput)
+}
+
+func (i V2InputSourceResourceConfigurationEksArgs) ToV2InputSourceResourceConfigurationEksPtrOutput() V2InputSourceResourceConfigurationEksPtrOutput {
+	return i.ToV2InputSourceResourceConfigurationEksPtrOutputWithContext(context.Background())
+}
+
+func (i V2InputSourceResourceConfigurationEksArgs) ToV2InputSourceResourceConfigurationEksPtrOutputWithContext(ctx context.Context) V2InputSourceResourceConfigurationEksPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2InputSourceResourceConfigurationEksOutput).ToV2InputSourceResourceConfigurationEksPtrOutputWithContext(ctx)
+}
+
+// V2InputSourceResourceConfigurationEksPtrInput is an input type that accepts V2InputSourceResourceConfigurationEksArgs, V2InputSourceResourceConfigurationEksPtr and V2InputSourceResourceConfigurationEksPtrOutput values.
+// You can construct a concrete instance of `V2InputSourceResourceConfigurationEksPtrInput` via:
+//
+//	        V2InputSourceResourceConfigurationEksArgs{...}
+//
+//	or:
+//
+//	        nil
+type V2InputSourceResourceConfigurationEksPtrInput interface {
+	pulumi.Input
+
+	ToV2InputSourceResourceConfigurationEksPtrOutput() V2InputSourceResourceConfigurationEksPtrOutput
+	ToV2InputSourceResourceConfigurationEksPtrOutputWithContext(context.Context) V2InputSourceResourceConfigurationEksPtrOutput
+}
+
+type v2inputSourceResourceConfigurationEksPtrType V2InputSourceResourceConfigurationEksArgs
+
+func V2InputSourceResourceConfigurationEksPtr(v *V2InputSourceResourceConfigurationEksArgs) V2InputSourceResourceConfigurationEksPtrInput {
+	return (*v2inputSourceResourceConfigurationEksPtrType)(v)
+}
+
+func (*v2inputSourceResourceConfigurationEksPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**V2InputSourceResourceConfigurationEks)(nil)).Elem()
+}
+
+func (i *v2inputSourceResourceConfigurationEksPtrType) ToV2InputSourceResourceConfigurationEksPtrOutput() V2InputSourceResourceConfigurationEksPtrOutput {
+	return i.ToV2InputSourceResourceConfigurationEksPtrOutputWithContext(context.Background())
+}
+
+func (i *v2inputSourceResourceConfigurationEksPtrType) ToV2InputSourceResourceConfigurationEksPtrOutputWithContext(ctx context.Context) V2InputSourceResourceConfigurationEksPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2InputSourceResourceConfigurationEksPtrOutput)
+}
+
+type V2InputSourceResourceConfigurationEksOutput struct{ *pulumi.OutputState }
+
+func (V2InputSourceResourceConfigurationEksOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*V2InputSourceResourceConfigurationEks)(nil)).Elem()
+}
+
+func (o V2InputSourceResourceConfigurationEksOutput) ToV2InputSourceResourceConfigurationEksOutput() V2InputSourceResourceConfigurationEksOutput {
+	return o
+}
+
+func (o V2InputSourceResourceConfigurationEksOutput) ToV2InputSourceResourceConfigurationEksOutputWithContext(ctx context.Context) V2InputSourceResourceConfigurationEksOutput {
+	return o
+}
+
+func (o V2InputSourceResourceConfigurationEksOutput) ToV2InputSourceResourceConfigurationEksPtrOutput() V2InputSourceResourceConfigurationEksPtrOutput {
+	return o.ToV2InputSourceResourceConfigurationEksPtrOutputWithContext(context.Background())
+}
+
+func (o V2InputSourceResourceConfigurationEksOutput) ToV2InputSourceResourceConfigurationEksPtrOutputWithContext(ctx context.Context) V2InputSourceResourceConfigurationEksPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v V2InputSourceResourceConfigurationEks) *V2InputSourceResourceConfigurationEks {
+		return &v
+	}).(V2InputSourceResourceConfigurationEksPtrOutput)
+}
+
+// Cluster ARN.
+func (o V2InputSourceResourceConfigurationEksOutput) ClusterArn() pulumi.StringOutput {
+	return o.ApplyT(func(v V2InputSourceResourceConfigurationEks) string { return v.ClusterArn }).(pulumi.StringOutput)
+}
+
+// List of Kubernetes namespaces within the EKS cluster.
+func (o V2InputSourceResourceConfigurationEksOutput) Namespaces() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v V2InputSourceResourceConfigurationEks) []string { return v.Namespaces }).(pulumi.StringArrayOutput)
+}
+
+type V2InputSourceResourceConfigurationEksPtrOutput struct{ *pulumi.OutputState }
+
+func (V2InputSourceResourceConfigurationEksPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**V2InputSourceResourceConfigurationEks)(nil)).Elem()
+}
+
+func (o V2InputSourceResourceConfigurationEksPtrOutput) ToV2InputSourceResourceConfigurationEksPtrOutput() V2InputSourceResourceConfigurationEksPtrOutput {
+	return o
+}
+
+func (o V2InputSourceResourceConfigurationEksPtrOutput) ToV2InputSourceResourceConfigurationEksPtrOutputWithContext(ctx context.Context) V2InputSourceResourceConfigurationEksPtrOutput {
+	return o
+}
+
+func (o V2InputSourceResourceConfigurationEksPtrOutput) Elem() V2InputSourceResourceConfigurationEksOutput {
+	return o.ApplyT(func(v *V2InputSourceResourceConfigurationEks) V2InputSourceResourceConfigurationEks {
+		if v != nil {
+			return *v
+		}
+		var ret V2InputSourceResourceConfigurationEks
+		return ret
+	}).(V2InputSourceResourceConfigurationEksOutput)
+}
+
+// Cluster ARN.
+func (o V2InputSourceResourceConfigurationEksPtrOutput) ClusterArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *V2InputSourceResourceConfigurationEks) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClusterArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of Kubernetes namespaces within the EKS cluster.
+func (o V2InputSourceResourceConfigurationEksPtrOutput) Namespaces() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *V2InputSourceResourceConfigurationEks) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Namespaces
+	}).(pulumi.StringArrayOutput)
+}
+
+type V2InputSourceResourceConfigurationResourceTag struct {
+	// Tag key.
+	Key string `pulumi:"key"`
+	// List of tag values.
+	Values []string `pulumi:"values"`
+}
+
+// V2InputSourceResourceConfigurationResourceTagInput is an input type that accepts V2InputSourceResourceConfigurationResourceTagArgs and V2InputSourceResourceConfigurationResourceTagOutput values.
+// You can construct a concrete instance of `V2InputSourceResourceConfigurationResourceTagInput` via:
+//
+//	V2InputSourceResourceConfigurationResourceTagArgs{...}
+type V2InputSourceResourceConfigurationResourceTagInput interface {
+	pulumi.Input
+
+	ToV2InputSourceResourceConfigurationResourceTagOutput() V2InputSourceResourceConfigurationResourceTagOutput
+	ToV2InputSourceResourceConfigurationResourceTagOutputWithContext(context.Context) V2InputSourceResourceConfigurationResourceTagOutput
+}
+
+type V2InputSourceResourceConfigurationResourceTagArgs struct {
+	// Tag key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// List of tag values.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (V2InputSourceResourceConfigurationResourceTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*V2InputSourceResourceConfigurationResourceTag)(nil)).Elem()
+}
+
+func (i V2InputSourceResourceConfigurationResourceTagArgs) ToV2InputSourceResourceConfigurationResourceTagOutput() V2InputSourceResourceConfigurationResourceTagOutput {
+	return i.ToV2InputSourceResourceConfigurationResourceTagOutputWithContext(context.Background())
+}
+
+func (i V2InputSourceResourceConfigurationResourceTagArgs) ToV2InputSourceResourceConfigurationResourceTagOutputWithContext(ctx context.Context) V2InputSourceResourceConfigurationResourceTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2InputSourceResourceConfigurationResourceTagOutput)
+}
+
+// V2InputSourceResourceConfigurationResourceTagArrayInput is an input type that accepts V2InputSourceResourceConfigurationResourceTagArray and V2InputSourceResourceConfigurationResourceTagArrayOutput values.
+// You can construct a concrete instance of `V2InputSourceResourceConfigurationResourceTagArrayInput` via:
+//
+//	V2InputSourceResourceConfigurationResourceTagArray{ V2InputSourceResourceConfigurationResourceTagArgs{...} }
+type V2InputSourceResourceConfigurationResourceTagArrayInput interface {
+	pulumi.Input
+
+	ToV2InputSourceResourceConfigurationResourceTagArrayOutput() V2InputSourceResourceConfigurationResourceTagArrayOutput
+	ToV2InputSourceResourceConfigurationResourceTagArrayOutputWithContext(context.Context) V2InputSourceResourceConfigurationResourceTagArrayOutput
+}
+
+type V2InputSourceResourceConfigurationResourceTagArray []V2InputSourceResourceConfigurationResourceTagInput
+
+func (V2InputSourceResourceConfigurationResourceTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]V2InputSourceResourceConfigurationResourceTag)(nil)).Elem()
+}
+
+func (i V2InputSourceResourceConfigurationResourceTagArray) ToV2InputSourceResourceConfigurationResourceTagArrayOutput() V2InputSourceResourceConfigurationResourceTagArrayOutput {
+	return i.ToV2InputSourceResourceConfigurationResourceTagArrayOutputWithContext(context.Background())
+}
+
+func (i V2InputSourceResourceConfigurationResourceTagArray) ToV2InputSourceResourceConfigurationResourceTagArrayOutputWithContext(ctx context.Context) V2InputSourceResourceConfigurationResourceTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2InputSourceResourceConfigurationResourceTagArrayOutput)
+}
+
+type V2InputSourceResourceConfigurationResourceTagOutput struct{ *pulumi.OutputState }
+
+func (V2InputSourceResourceConfigurationResourceTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*V2InputSourceResourceConfigurationResourceTag)(nil)).Elem()
+}
+
+func (o V2InputSourceResourceConfigurationResourceTagOutput) ToV2InputSourceResourceConfigurationResourceTagOutput() V2InputSourceResourceConfigurationResourceTagOutput {
+	return o
+}
+
+func (o V2InputSourceResourceConfigurationResourceTagOutput) ToV2InputSourceResourceConfigurationResourceTagOutputWithContext(ctx context.Context) V2InputSourceResourceConfigurationResourceTagOutput {
+	return o
+}
+
+// Tag key.
+func (o V2InputSourceResourceConfigurationResourceTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v V2InputSourceResourceConfigurationResourceTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// List of tag values.
+func (o V2InputSourceResourceConfigurationResourceTagOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v V2InputSourceResourceConfigurationResourceTag) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type V2InputSourceResourceConfigurationResourceTagArrayOutput struct{ *pulumi.OutputState }
+
+func (V2InputSourceResourceConfigurationResourceTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]V2InputSourceResourceConfigurationResourceTag)(nil)).Elem()
+}
+
+func (o V2InputSourceResourceConfigurationResourceTagArrayOutput) ToV2InputSourceResourceConfigurationResourceTagArrayOutput() V2InputSourceResourceConfigurationResourceTagArrayOutput {
+	return o
+}
+
+func (o V2InputSourceResourceConfigurationResourceTagArrayOutput) ToV2InputSourceResourceConfigurationResourceTagArrayOutputWithContext(ctx context.Context) V2InputSourceResourceConfigurationResourceTagArrayOutput {
+	return o
+}
+
+func (o V2InputSourceResourceConfigurationResourceTagArrayOutput) Index(i pulumi.IntInput) V2InputSourceResourceConfigurationResourceTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) V2InputSourceResourceConfigurationResourceTag {
+		return vs[0].([]V2InputSourceResourceConfigurationResourceTag)[vs[1].(int)]
+	}).(V2InputSourceResourceConfigurationResourceTagOutput)
+}
+
 type V2PolicyAvailabilitySlo struct {
 	// Availability target as a percentage (e.g., `99.9`).
 	Target float64 `pulumi:"target"`
@@ -2553,6 +3038,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResiliencyPolicyPolicySoftwarePtrInput)(nil)).Elem(), ResiliencyPolicyPolicySoftwareArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResiliencyPolicyTimeoutsInput)(nil)).Elem(), ResiliencyPolicyTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResiliencyPolicyTimeoutsPtrInput)(nil)).Elem(), ResiliencyPolicyTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*V2InputSourceResourceConfigurationInput)(nil)).Elem(), V2InputSourceResourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*V2InputSourceResourceConfigurationPtrInput)(nil)).Elem(), V2InputSourceResourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*V2InputSourceResourceConfigurationEksInput)(nil)).Elem(), V2InputSourceResourceConfigurationEksArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*V2InputSourceResourceConfigurationEksPtrInput)(nil)).Elem(), V2InputSourceResourceConfigurationEksArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*V2InputSourceResourceConfigurationResourceTagInput)(nil)).Elem(), V2InputSourceResourceConfigurationResourceTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*V2InputSourceResourceConfigurationResourceTagArrayInput)(nil)).Elem(), V2InputSourceResourceConfigurationResourceTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2PolicyAvailabilitySloInput)(nil)).Elem(), V2PolicyAvailabilitySloArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2PolicyAvailabilitySloPtrInput)(nil)).Elem(), V2PolicyAvailabilitySloArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2PolicyDataRecoveryInput)(nil)).Elem(), V2PolicyDataRecoveryArgs{})
@@ -2589,6 +3080,12 @@ func init() {
 	pulumi.RegisterOutputType(ResiliencyPolicyPolicySoftwarePtrOutput{})
 	pulumi.RegisterOutputType(ResiliencyPolicyTimeoutsOutput{})
 	pulumi.RegisterOutputType(ResiliencyPolicyTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(V2InputSourceResourceConfigurationOutput{})
+	pulumi.RegisterOutputType(V2InputSourceResourceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(V2InputSourceResourceConfigurationEksOutput{})
+	pulumi.RegisterOutputType(V2InputSourceResourceConfigurationEksPtrOutput{})
+	pulumi.RegisterOutputType(V2InputSourceResourceConfigurationResourceTagOutput{})
+	pulumi.RegisterOutputType(V2InputSourceResourceConfigurationResourceTagArrayOutput{})
 	pulumi.RegisterOutputType(V2PolicyAvailabilitySloOutput{})
 	pulumi.RegisterOutputType(V2PolicyAvailabilitySloPtrOutput{})
 	pulumi.RegisterOutputType(V2PolicyDataRecoveryOutput{})

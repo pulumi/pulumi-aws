@@ -796,6 +796,10 @@ class ProviderEndpointArgsDict(TypedDict):
     """
     Use this to override the default service endpoint URL
     """
+    directoryservicedata: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Use this to override the default service endpoint URL
+    """
     dlm: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Use this to override the default service endpoint URL
@@ -1069,6 +1073,10 @@ class ProviderEndpointArgsDict(TypedDict):
     Use this to override the default service endpoint URL
     """
     lambda_: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    lambdacore: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Use this to override the default service endpoint URL
     """
@@ -1758,6 +1766,7 @@ class ProviderEndpointArgs:
                  devopsguru: pulumi.Input[Optional[_builtins.str]] = None,
                  directconnect: pulumi.Input[Optional[_builtins.str]] = None,
                  directoryservice: pulumi.Input[Optional[_builtins.str]] = None,
+                 directoryservicedata: pulumi.Input[Optional[_builtins.str]] = None,
                  dlm: pulumi.Input[Optional[_builtins.str]] = None,
                  dms: pulumi.Input[Optional[_builtins.str]] = None,
                  docdb: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1827,6 +1836,7 @@ class ProviderEndpointArgs:
                  kms: pulumi.Input[Optional[_builtins.str]] = None,
                  lakeformation: pulumi.Input[Optional[_builtins.str]] = None,
                  lambda_: pulumi.Input[Optional[_builtins.str]] = None,
+                 lambdacore: pulumi.Input[Optional[_builtins.str]] = None,
                  lambdamicrovms: pulumi.Input[Optional[_builtins.str]] = None,
                  launchwizard: pulumi.Input[Optional[_builtins.str]] = None,
                  lex: pulumi.Input[Optional[_builtins.str]] = None,
@@ -2075,6 +2085,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[_builtins.str] devopsguru: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] directconnect: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] directoryservice: Use this to override the default service endpoint URL
+        :param pulumi.Input[_builtins.str] directoryservicedata: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] dlm: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] dms: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] docdb: Use this to override the default service endpoint URL
@@ -2144,6 +2155,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[_builtins.str] kms: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] lakeformation: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] lambda_: Use this to override the default service endpoint URL
+        :param pulumi.Input[_builtins.str] lambdacore: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] lambdamicrovms: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] launchwizard: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] lex: Use this to override the default service endpoint URL
@@ -2494,6 +2506,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "directconnect", directconnect)
         if directoryservice is not None:
             pulumi.set(__self__, "directoryservice", directoryservice)
+        if directoryservicedata is not None:
+            pulumi.set(__self__, "directoryservicedata", directoryservicedata)
         if dlm is not None:
             pulumi.set(__self__, "dlm", dlm)
         if dms is not None:
@@ -2632,6 +2646,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "lakeformation", lakeformation)
         if lambda_ is not None:
             pulumi.set(__self__, "lambda_", lambda_)
+        if lambdacore is not None:
+            pulumi.set(__self__, "lambdacore", lambdacore)
         if lambdamicrovms is not None:
             pulumi.set(__self__, "lambdamicrovms", lambdamicrovms)
         if launchwizard is not None:
@@ -4149,6 +4165,18 @@ class ProviderEndpointArgs:
 
     @_builtins.property
     @pulumi.getter
+    def directoryservicedata(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "directoryservicedata")
+
+    @directoryservicedata.setter
+    def directoryservicedata(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "directoryservicedata", value)
+
+    @_builtins.property
+    @pulumi.getter
     def dlm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Use this to override the default service endpoint URL
@@ -4974,6 +5002,18 @@ class ProviderEndpointArgs:
     @lambda_.setter
     def lambda_(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lambda_", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def lambdacore(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "lambdacore")
+
+    @lambdacore.setter
+    def lambdacore(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "lambdacore", value)
 
     @_builtins.property
     @pulumi.getter

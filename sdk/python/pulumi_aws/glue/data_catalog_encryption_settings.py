@@ -157,7 +157,7 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
             },
             "encryption_at_rest": {
                 "catalog_encryption_mode": "SSE-KMS",
-                "catalog_encryption_service_role": role["test"]["arn"],
+                "catalog_encryption_service_role": test_aws_iam_role["arn"],
                 "sse_aws_kms_key_id": test["arn"],
             },
         })
@@ -200,7 +200,7 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
             },
             "encryption_at_rest": {
                 "catalog_encryption_mode": "SSE-KMS",
-                "catalog_encryption_service_role": role["test"]["arn"],
+                "catalog_encryption_service_role": test_aws_iam_role["arn"],
                 "sse_aws_kms_key_id": test["arn"],
             },
         })

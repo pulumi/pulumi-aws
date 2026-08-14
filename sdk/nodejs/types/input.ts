@@ -557,6 +557,10 @@ export interface ProviderEndpoint {
     /**
      * Use this to override the default service endpoint URL
      */
+    directoryservicedata?: pulumi.Input<string | undefined>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     dlm?: pulumi.Input<string | undefined>;
     /**
      * Use this to override the default service endpoint URL
@@ -830,6 +834,10 @@ export interface ProviderEndpoint {
      * Use this to override the default service endpoint URL
      */
     lambda?: pulumi.Input<string | undefined>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
+    lambdacore?: pulumi.Input<string | undefined>;
     /**
      * Use this to override the default service endpoint URL
      */
@@ -85914,6 +85922,53 @@ export namespace resiliencehub {
          * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
          */
         update?: pulumi.Input<string | undefined>;
+    }
+
+    export interface V2InputSourceResourceConfiguration {
+        /**
+         * CloudFormation stack ARN.
+         */
+        cfnStackArn?: pulumi.Input<string | undefined>;
+        /**
+         * S3 URL.
+         */
+        designFileS3Url?: pulumi.Input<string | undefined>;
+        /**
+         * EKS configuration. See `eks` Block below.
+         */
+        eks?: pulumi.Input<inputs.resiliencehub.V2InputSourceResourceConfigurationEks | undefined>;
+        /**
+         * Resource tags used for discovery. See `resourceTag` Block below.
+         */
+        resourceTags?: pulumi.Input<pulumi.Input<inputs.resiliencehub.V2InputSourceResourceConfigurationResourceTag>[] | undefined>;
+        /**
+         * S3 URL.
+         *
+         * Exactly one attribute must be configured.
+         */
+        tfStateFileUrl?: pulumi.Input<string | undefined>;
+    }
+
+    export interface V2InputSourceResourceConfigurationEks {
+        /**
+         * Cluster ARN.
+         */
+        clusterArn: pulumi.Input<string>;
+        /**
+         * List of Kubernetes namespaces within the EKS cluster.
+         */
+        namespaces: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface V2InputSourceResourceConfigurationResourceTag {
+        /**
+         * Tag key.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * List of tag values.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface V2PolicyAvailabilitySlo {

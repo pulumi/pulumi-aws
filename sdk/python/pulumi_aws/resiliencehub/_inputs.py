@@ -27,6 +27,12 @@ __all__ = [
     'ResiliencyPolicyPolicySoftwareArgsDict',
     'ResiliencyPolicyTimeoutsArgs',
     'ResiliencyPolicyTimeoutsArgsDict',
+    'V2InputSourceResourceConfigurationArgs',
+    'V2InputSourceResourceConfigurationArgsDict',
+    'V2InputSourceResourceConfigurationEksArgs',
+    'V2InputSourceResourceConfigurationEksArgsDict',
+    'V2InputSourceResourceConfigurationResourceTagArgs',
+    'V2InputSourceResourceConfigurationResourceTagArgsDict',
     'V2PolicyAvailabilitySloArgs',
     'V2PolicyAvailabilitySloArgsDict',
     'V2PolicyDataRecoveryArgs',
@@ -393,6 +399,215 @@ class ResiliencyPolicyTimeoutsArgs:
     @update.setter
     def update(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update", value)
+
+
+class V2InputSourceResourceConfigurationArgsDict(TypedDict):
+    cfn_stack_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    CloudFormation stack ARN.
+    """
+    design_file_s3_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    S3 URL.
+    """
+    eks: NotRequired[pulumi.Input[Optional['V2InputSourceResourceConfigurationEksArgsDict']]]
+    """
+    EKS configuration. See `eks` Block below.
+    """
+    resource_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2InputSourceResourceConfigurationResourceTagArgsDict']]]]]
+    """
+    Resource tags used for discovery. See `resource_tag` Block below.
+    """
+    tf_state_file_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    S3 URL.
+
+    Exactly one attribute must be configured.
+    """
+
+@pulumi.input_type
+class V2InputSourceResourceConfigurationArgs:
+    def __init__(__self__, *,
+                 cfn_stack_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 design_file_s3_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 eks: pulumi.Input[Optional['V2InputSourceResourceConfigurationEksArgs']] = None,
+                 resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input['V2InputSourceResourceConfigurationResourceTagArgs']]]] = None,
+                 tf_state_file_url: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] cfn_stack_arn: CloudFormation stack ARN.
+        :param pulumi.Input[_builtins.str] design_file_s3_url: S3 URL.
+        :param pulumi.Input['V2InputSourceResourceConfigurationEksArgs'] eks: EKS configuration. See `eks` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['V2InputSourceResourceConfigurationResourceTagArgs']]] resource_tags: Resource tags used for discovery. See `resource_tag` Block below.
+        :param pulumi.Input[_builtins.str] tf_state_file_url: S3 URL.
+               
+               Exactly one attribute must be configured.
+        """
+        if cfn_stack_arn is not None:
+            pulumi.set(__self__, "cfn_stack_arn", cfn_stack_arn)
+        if design_file_s3_url is not None:
+            pulumi.set(__self__, "design_file_s3_url", design_file_s3_url)
+        if eks is not None:
+            pulumi.set(__self__, "eks", eks)
+        if resource_tags is not None:
+            pulumi.set(__self__, "resource_tags", resource_tags)
+        if tf_state_file_url is not None:
+            pulumi.set(__self__, "tf_state_file_url", tf_state_file_url)
+
+    @_builtins.property
+    @pulumi.getter(name="cfnStackArn")
+    def cfn_stack_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        CloudFormation stack ARN.
+        """
+        return pulumi.get(self, "cfn_stack_arn")
+
+    @cfn_stack_arn.setter
+    def cfn_stack_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "cfn_stack_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="designFileS3Url")
+    def design_file_s3_url(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        S3 URL.
+        """
+        return pulumi.get(self, "design_file_s3_url")
+
+    @design_file_s3_url.setter
+    def design_file_s3_url(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "design_file_s3_url", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def eks(self) -> pulumi.Input[Optional['V2InputSourceResourceConfigurationEksArgs']]:
+        """
+        EKS configuration. See `eks` Block below.
+        """
+        return pulumi.get(self, "eks")
+
+    @eks.setter
+    def eks(self, value: pulumi.Input[Optional['V2InputSourceResourceConfigurationEksArgs']]):
+        pulumi.set(self, "eks", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceTags")
+    def resource_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['V2InputSourceResourceConfigurationResourceTagArgs']]]]:
+        """
+        Resource tags used for discovery. See `resource_tag` Block below.
+        """
+        return pulumi.get(self, "resource_tags")
+
+    @resource_tags.setter
+    def resource_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['V2InputSourceResourceConfigurationResourceTagArgs']]]]):
+        pulumi.set(self, "resource_tags", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tfStateFileUrl")
+    def tf_state_file_url(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        S3 URL.
+
+        Exactly one attribute must be configured.
+        """
+        return pulumi.get(self, "tf_state_file_url")
+
+    @tf_state_file_url.setter
+    def tf_state_file_url(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "tf_state_file_url", value)
+
+
+class V2InputSourceResourceConfigurationEksArgsDict(TypedDict):
+    cluster_arn: pulumi.Input[_builtins.str]
+    """
+    Cluster ARN.
+    """
+    namespaces: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of Kubernetes namespaces within the EKS cluster.
+    """
+
+@pulumi.input_type
+class V2InputSourceResourceConfigurationEksArgs:
+    def __init__(__self__, *,
+                 cluster_arn: pulumi.Input[_builtins.str],
+                 namespaces: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[_builtins.str] cluster_arn: Cluster ARN.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] namespaces: List of Kubernetes namespaces within the EKS cluster.
+        """
+        pulumi.set(__self__, "cluster_arn", cluster_arn)
+        pulumi.set(__self__, "namespaces", namespaces)
+
+    @_builtins.property
+    @pulumi.getter(name="clusterArn")
+    def cluster_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        Cluster ARN.
+        """
+        return pulumi.get(self, "cluster_arn")
+
+    @cluster_arn.setter
+    def cluster_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "cluster_arn", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def namespaces(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        List of Kubernetes namespaces within the EKS cluster.
+        """
+        return pulumi.get(self, "namespaces")
+
+    @namespaces.setter
+    def namespaces(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "namespaces", value)
+
+
+class V2InputSourceResourceConfigurationResourceTagArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    Tag key.
+    """
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of tag values.
+    """
+
+@pulumi.input_type
+class V2InputSourceResourceConfigurationResourceTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[_builtins.str],
+                 values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[_builtins.str] key: Tag key.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: List of tag values.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[_builtins.str]:
+        """
+        Tag key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        List of tag values.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "values", value)
 
 
 class V2PolicyAvailabilitySloArgsDict(TypedDict):

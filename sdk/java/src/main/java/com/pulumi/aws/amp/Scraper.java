@@ -323,7 +323,7 @@ import javax.annotation.Nullable;
  * 
  * ### Use default EKS scraper configuration
  * 
- * You can use the data source `awsPrometheusScraperConfiguration` to use a
+ * You can use the data source `aws.amp.getDefaultScraperConfiguration` to use a
  * service managed scrape configuration.
  * 
  * <pre>
@@ -363,7 +363,7 @@ import javax.annotation.Nullable;
  *                     .workspaceArn(exampleAwsPrometheusWorkspace.arn())
  *                     .build())
  *                 .build())
- *             .scrapeConfiguration(exampleAwsPrometheusScraperConfiguration.configuration())
+ *             .scrapeConfiguration(example.configuration())
  *             .source(ScraperSourceArgs.builder()
  *                 .eks(ScraperSourceEksArgs.builder()
  *                     .clusterArn(exampleAwsEksCluster.arn())

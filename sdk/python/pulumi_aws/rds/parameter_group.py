@@ -450,10 +450,21 @@ class ParameterGroup(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `name` (String) Name of the DB parameter group.
+
+        #### Optional
+
+        - `account_id` (String) AWS Account where this resource is managed.
+        - `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import DB Parameter groups using the `name`. For example:
 
         ```sh
-        $ pulumi import aws:rds/parameterGroup:ParameterGroup rds_pg rds-pg
+        $ pulumi import aws:rds/parameterGroup:ParameterGroup example rds-pg
         ```
 
 
@@ -582,10 +593,21 @@ class ParameterGroup(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `name` (String) Name of the DB parameter group.
+
+        #### Optional
+
+        - `account_id` (String) AWS Account where this resource is managed.
+        - `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import DB Parameter groups using the `name`. For example:
 
         ```sh
-        $ pulumi import aws:rds/parameterGroup:ParameterGroup rds_pg rds-pg
+        $ pulumi import aws:rds/parameterGroup:ParameterGroup example rds-pg
         ```
 
 

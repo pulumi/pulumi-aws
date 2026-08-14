@@ -10,6 +10,7 @@ from .get_v2_policy import *
 from .get_v2_service import *
 from .get_v2_system import *
 from .resiliency_policy import *
+from .v2_input_source import *
 from .v2_policy import *
 from .v2_service import *
 from .v2_system import *

@@ -226,10 +226,10 @@ index 4d2b6497edc..43809ea48af 100644
  				names.AttrSkipDestroy: {
  					Type:     schema.TypeBool,
 diff --git a/internal/service/rds/parameter_group.go b/internal/service/rds/parameter_group.go
-index 7f48def53f2..b8633716cf5 100644
+index d3f714e6432..206f56f0fd2 100644
 --- a/internal/service/rds/parameter_group.go
 +++ b/internal/service/rds/parameter_group.go
-@@ -56,7 +56,7 @@ func resourceParameterGroup() *schema.Resource {
+@@ -58,7 +58,7 @@ func resourceParameterGroup() *schema.Resource {
  					Type:     schema.TypeString,
  					Optional: true,
  					ForceNew: true,

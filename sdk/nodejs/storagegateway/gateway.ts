@@ -25,12 +25,12 @@ import * as utilities from "../utilities";
  *     volumeId: testAwsEbsVolume.id,
  *     instanceId: testAwsInstance.id,
  * });
- * const test = aws.storagegateway.getLocalDisk({
- *     diskNode: testAwsVolumeAttachment.deviceName,
+ * const test = aws.storagegateway.getLocalDiskOutput({
+ *     diskNode: testVolumeAttachment.deviceName,
  *     gatewayArn: testAwsStoragegatewayGateway.arn,
  * });
  * const testCache = new aws.storagegateway.Cache("test", {
- *     diskId: test.then(test => test.diskId),
+ *     diskId: test.diskId,
  *     gatewayArn: testAwsStoragegatewayGateway.arn,
  * });
  * ```

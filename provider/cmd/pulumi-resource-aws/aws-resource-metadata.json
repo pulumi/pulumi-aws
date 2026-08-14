@@ -4470,6 +4470,9 @@
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
   },
+  "aws_resiliencehubv2_input_source": {
+    "hasUsableRegion": true
+  },
   "aws_resiliencehubv2_policy": {
     "hasInputName": true,
     "hasUsableRegion": true,

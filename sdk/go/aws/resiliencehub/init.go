@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:resiliencehub/resiliencyPolicy:ResiliencyPolicy":
 		r = &ResiliencyPolicy{}
+	case "aws:resiliencehub/v2InputSource:V2InputSource":
+		r = &V2InputSource{}
 	case "aws:resiliencehub/v2Policy:V2Policy":
 		r = &V2Policy{}
 	case "aws:resiliencehub/v2Service:V2Service":
@@ -45,6 +47,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"resiliencehub/resiliencyPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"resiliencehub/v2InputSource",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

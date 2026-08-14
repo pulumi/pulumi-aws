@@ -25,6 +25,11 @@ export type ResiliencyPolicy = import("./resiliencyPolicy").ResiliencyPolicy;
 export const ResiliencyPolicy: typeof import("./resiliencyPolicy").ResiliencyPolicy = null as any;
 utilities.lazyLoad(exports, ["ResiliencyPolicy"], () => require("./resiliencyPolicy"));
 
+export { V2InputSourceArgs, V2InputSourceState } from "./v2inputSource";
+export type V2InputSource = import("./v2inputSource").V2InputSource;
+export const V2InputSource: typeof import("./v2inputSource").V2InputSource = null as any;
+utilities.lazyLoad(exports, ["V2InputSource"], () => require("./v2inputSource"));
+
 export { V2PolicyArgs, V2PolicyState } from "./v2policy";
 export type V2Policy = import("./v2policy").V2Policy;
 export const V2Policy: typeof import("./v2policy").V2Policy = null as any;
@@ -47,6 +52,8 @@ const _module = {
         switch (type) {
             case "aws:resiliencehub/resiliencyPolicy:ResiliencyPolicy":
                 return new ResiliencyPolicy(name, <any>undefined, { urn })
+            case "aws:resiliencehub/v2InputSource:V2InputSource":
+                return new V2InputSource(name, <any>undefined, { urn })
             case "aws:resiliencehub/v2Policy:V2Policy":
                 return new V2Policy(name, <any>undefined, { urn })
             case "aws:resiliencehub/v2Service:V2Service":
@@ -59,6 +66,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "resiliencehub/resiliencyPolicy", _module)
+pulumi.runtime.registerResourceModule("aws", "resiliencehub/v2InputSource", _module)
 pulumi.runtime.registerResourceModule("aws", "resiliencehub/v2Policy", _module)
 pulumi.runtime.registerResourceModule("aws", "resiliencehub/v2Service", _module)
 pulumi.runtime.registerResourceModule("aws", "resiliencehub/v2System", _module)
