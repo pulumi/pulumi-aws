@@ -43,6 +43,7 @@ var extraTypes = map[string]schema.ComplexTypeSpec{
 			{Value: "ap-southeast-3", Name: "APSoutheast3"}, // Asia Pacific (Jakarta)
 			{Value: "ap-southeast-4", Name: "APSoutheast4"}, // Asia Pacific (Melbourne)
 			{Value: "ap-southeast-5", Name: "APSoutheast5"}, // Asia Pacific (Malaysia)
+			{Value: "ap-southeast-6", Name: "APSoutheast6"}, // Asia Pacific (New Zealand)
 			{Value: "ap-southeast-7", Name: "APSoutheast7"}, // Asia Pacific (Thailand)
 			{Value: "ca-central-1", Name: "CACentral"},      // Canada (Central)
 			{Value: "ca-west-1", Name: "CAWest1"},           // Canada (Calgary)
