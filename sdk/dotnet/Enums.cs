@@ -33,6 +33,7 @@ namespace Pulumi.Aws
         public static Region APSoutheast3 { get; } = new Region("ap-southeast-3");
         public static Region APSoutheast4 { get; } = new Region("ap-southeast-4");
         public static Region APSoutheast5 { get; } = new Region("ap-southeast-5");
+        public static Region APSoutheast6 { get; } = new Region("ap-southeast-6");
         public static Region APSoutheast7 { get; } = new Region("ap-southeast-7");
         public static Region CACentral { get; } = new Region("ca-central-1");
         public static Region CAWest1 { get; } = new Region("ca-west-1");
@@ -55,12 +56,16 @@ namespace Pulumi.Aws
         public static Region USWest2 { get; } = new Region("us-west-2");
         public static Region CNNorth1 { get; } = new Region("cn-north-1");
         public static Region CNNorthwest1 { get; } = new Region("cn-northwest-1");
+        public static Region EUSCDEEast1 { get; } = new Region("eusc-de-east-1");
         public static Region USGovEast1 { get; } = new Region("us-gov-east-1");
         public static Region USGovWest1 { get; } = new Region("us-gov-west-1");
         public static Region USISOEast1 { get; } = new Region("us-iso-east-1");
         public static Region USISOWest1 { get; } = new Region("us-iso-west-1");
         public static Region USISOBEast1 { get; } = new Region("us-isob-east-1");
+        public static Region USISOBWest1 { get; } = new Region("us-isob-west-1");
         public static Region EUISOEWest1 { get; } = new Region("eu-isoe-west-1");
+        public static Region USISOFEast1 { get; } = new Region("us-isof-east-1");
+        public static Region USISOFSouth1 { get; } = new Region("us-isof-south-1");
 
         public static bool operator ==(Region left, Region right) => left.Equals(right);
         public static bool operator !=(Region left, Region right) => !left.Equals(right);

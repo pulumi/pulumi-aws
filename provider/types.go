@@ -43,6 +43,7 @@ var extraTypes = map[string]schema.ComplexTypeSpec{
 			{Value: "ap-southeast-3", Name: "APSoutheast3"}, // Asia Pacific (Jakarta)
 			{Value: "ap-southeast-4", Name: "APSoutheast4"}, // Asia Pacific (Melbourne)
 			{Value: "ap-southeast-5", Name: "APSoutheast5"}, // Asia Pacific (Malaysia)
+			{Value: "ap-southeast-6", Name: "APSoutheast6"}, // Asia Pacific (New Zealand)
 			{Value: "ap-southeast-7", Name: "APSoutheast7"}, // Asia Pacific (Thailand)
 			{Value: "ca-central-1", Name: "CACentral"},      // Canada (Central)
 			{Value: "ca-west-1", Name: "CAWest1"},           // Canada (Calgary)
@@ -66,6 +67,8 @@ var extraTypes = map[string]schema.ComplexTypeSpec{
 			// aws-cn partition
 			{Value: "cn-north-1", Name: "CNNorth1"},         // China (Beijing)
 			{Value: "cn-northwest-1", Name: "CNNorthwest1"}, // China (Ningxia)
+			// aws-eusc partition
+			{Value: "eusc-de-east-1", Name: "EUSCDEEast1"}, // AWS European Sovereign Cloud (Germany)
 			// aws-us-gov partition
 			{Value: "us-gov-east-1", Name: "USGovEast1"}, // AWS GovCloud (US-East)
 			{Value: "us-gov-west-1", Name: "USGovWest1"}, // AWS GovCloud (US-West)
@@ -74,8 +77,12 @@ var extraTypes = map[string]schema.ComplexTypeSpec{
 			{Value: "us-iso-west-1", Name: "USISOWest1"}, // US ISO West
 			// aws-iso-b partition
 			{Value: "us-isob-east-1", Name: "USISOBEast1"}, // US ISOB East (Ohio)
+			{Value: "us-isob-west-1", Name: "USISOBWest1"}, // US ISOB West
 			// aws-iso-e partition
 			{Value: "eu-isoe-west-1", Name: "EUISOEWest1"}, // EU ISOE West
+			// aws-iso-f partition
+			{Value: "us-isof-east-1", Name: "USISOFEast1"},   // US ISOF East
+			{Value: "us-isof-south-1", Name: "USISOFSouth1"}, // US ISOF South
 		},
 	},
 	"aws:autoscaling/MetricsGranularity:MetricsGranularity": {
