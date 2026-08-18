@@ -27,6 +27,7 @@ const (
 	RegionAPSoutheast3 = Region("ap-southeast-3")
 	RegionAPSoutheast4 = Region("ap-southeast-4")
 	RegionAPSoutheast5 = Region("ap-southeast-5")
+	RegionAPSoutheast6 = Region("ap-southeast-6")
 	RegionAPSoutheast7 = Region("ap-southeast-7")
 	RegionCACentral    = Region("ca-central-1")
 	RegionCAWest1      = Region("ca-west-1")
@@ -49,12 +50,16 @@ const (
 	RegionUSWest2      = Region("us-west-2")
 	RegionCNNorth1     = Region("cn-north-1")
 	RegionCNNorthwest1 = Region("cn-northwest-1")
+	RegionEUSCDEEast1  = Region("eusc-de-east-1")
 	RegionUSGovEast1   = Region("us-gov-east-1")
 	RegionUSGovWest1   = Region("us-gov-west-1")
 	RegionUSISOEast1   = Region("us-iso-east-1")
 	RegionUSISOWest1   = Region("us-iso-west-1")
 	RegionUSISOBEast1  = Region("us-isob-east-1")
+	RegionUSISOBWest1  = Region("us-isob-west-1")
 	RegionEUISOEWest1  = Region("eu-isoe-west-1")
+	RegionUSISOFEast1  = Region("us-isof-east-1")
+	RegionUSISOFSouth1 = Region("us-isof-south-1")
 )
 
 func (Region) ElementType() reflect.Type {
@@ -192,6 +197,7 @@ func (o RegionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulum
 //	RegionAPSoutheast3
 //	RegionAPSoutheast4
 //	RegionAPSoutheast5
+//	RegionAPSoutheast6
 //	RegionAPSoutheast7
 //	RegionCACentral
 //	RegionCAWest1
@@ -214,12 +220,16 @@ func (o RegionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulum
 //	RegionUSWest2
 //	RegionCNNorth1
 //	RegionCNNorthwest1
+//	RegionEUSCDEEast1
 //	RegionUSGovEast1
 //	RegionUSGovWest1
 //	RegionUSISOEast1
 //	RegionUSISOWest1
 //	RegionUSISOBEast1
+//	RegionUSISOBWest1
 //	RegionEUISOEWest1
+//	RegionUSISOFEast1
+//	RegionUSISOFSouth1
 type RegionInput interface {
 	pulumi.Input
 

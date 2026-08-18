@@ -42,6 +42,7 @@ export const Region = {
     APSoutheast3: "ap-southeast-3",
     APSoutheast4: "ap-southeast-4",
     APSoutheast5: "ap-southeast-5",
+    APSoutheast6: "ap-southeast-6",
     APSoutheast7: "ap-southeast-7",
     CACentral: "ca-central-1",
     CAWest1: "ca-west-1",
@@ -64,12 +65,16 @@ export const Region = {
     USWest2: "us-west-2",
     CNNorth1: "cn-north-1",
     CNNorthwest1: "cn-northwest-1",
+    EUSCDEEast1: "eusc-de-east-1",
     USGovEast1: "us-gov-east-1",
     USGovWest1: "us-gov-west-1",
     USISOEast1: "us-iso-east-1",
     USISOWest1: "us-iso-west-1",
     USISOBEast1: "us-isob-east-1",
+    USISOBWest1: "us-isob-west-1",
     EUISOEWest1: "eu-isoe-west-1",
+    USISOFEast1: "us-isof-east-1",
+    USISOFSouth1: "us-isof-south-1",
 } as const;
 
 /**
