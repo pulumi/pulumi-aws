@@ -1140,6 +1140,280 @@ func (o IngressPointTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type RelayAuthentication struct {
+	// No authentication is required to connect to the SMTP server.
+	NoAuthentication *RelayAuthenticationNoAuthentication `pulumi:"noAuthentication"`
+	// ARN of the Secrets Manager secret containing the SMTP credentials.
+	SecretArn *string `pulumi:"secretArn"`
+}
+
+// RelayAuthenticationInput is an input type that accepts RelayAuthenticationArgs and RelayAuthenticationOutput values.
+// You can construct a concrete instance of `RelayAuthenticationInput` via:
+//
+//	RelayAuthenticationArgs{...}
+type RelayAuthenticationInput interface {
+	pulumi.Input
+
+	ToRelayAuthenticationOutput() RelayAuthenticationOutput
+	ToRelayAuthenticationOutputWithContext(context.Context) RelayAuthenticationOutput
+}
+
+type RelayAuthenticationArgs struct {
+	// No authentication is required to connect to the SMTP server.
+	NoAuthentication RelayAuthenticationNoAuthenticationPtrInput `pulumi:"noAuthentication"`
+	// ARN of the Secrets Manager secret containing the SMTP credentials.
+	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
+}
+
+func (RelayAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RelayAuthentication)(nil)).Elem()
+}
+
+func (i RelayAuthenticationArgs) ToRelayAuthenticationOutput() RelayAuthenticationOutput {
+	return i.ToRelayAuthenticationOutputWithContext(context.Background())
+}
+
+func (i RelayAuthenticationArgs) ToRelayAuthenticationOutputWithContext(ctx context.Context) RelayAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RelayAuthenticationOutput)
+}
+
+func (i RelayAuthenticationArgs) ToRelayAuthenticationPtrOutput() RelayAuthenticationPtrOutput {
+	return i.ToRelayAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i RelayAuthenticationArgs) ToRelayAuthenticationPtrOutputWithContext(ctx context.Context) RelayAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RelayAuthenticationOutput).ToRelayAuthenticationPtrOutputWithContext(ctx)
+}
+
+// RelayAuthenticationPtrInput is an input type that accepts RelayAuthenticationArgs, RelayAuthenticationPtr and RelayAuthenticationPtrOutput values.
+// You can construct a concrete instance of `RelayAuthenticationPtrInput` via:
+//
+//	        RelayAuthenticationArgs{...}
+//
+//	or:
+//
+//	        nil
+type RelayAuthenticationPtrInput interface {
+	pulumi.Input
+
+	ToRelayAuthenticationPtrOutput() RelayAuthenticationPtrOutput
+	ToRelayAuthenticationPtrOutputWithContext(context.Context) RelayAuthenticationPtrOutput
+}
+
+type relayAuthenticationPtrType RelayAuthenticationArgs
+
+func RelayAuthenticationPtr(v *RelayAuthenticationArgs) RelayAuthenticationPtrInput {
+	return (*relayAuthenticationPtrType)(v)
+}
+
+func (*relayAuthenticationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RelayAuthentication)(nil)).Elem()
+}
+
+func (i *relayAuthenticationPtrType) ToRelayAuthenticationPtrOutput() RelayAuthenticationPtrOutput {
+	return i.ToRelayAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i *relayAuthenticationPtrType) ToRelayAuthenticationPtrOutputWithContext(ctx context.Context) RelayAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RelayAuthenticationPtrOutput)
+}
+
+type RelayAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (RelayAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RelayAuthentication)(nil)).Elem()
+}
+
+func (o RelayAuthenticationOutput) ToRelayAuthenticationOutput() RelayAuthenticationOutput {
+	return o
+}
+
+func (o RelayAuthenticationOutput) ToRelayAuthenticationOutputWithContext(ctx context.Context) RelayAuthenticationOutput {
+	return o
+}
+
+func (o RelayAuthenticationOutput) ToRelayAuthenticationPtrOutput() RelayAuthenticationPtrOutput {
+	return o.ToRelayAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (o RelayAuthenticationOutput) ToRelayAuthenticationPtrOutputWithContext(ctx context.Context) RelayAuthenticationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RelayAuthentication) *RelayAuthentication {
+		return &v
+	}).(RelayAuthenticationPtrOutput)
+}
+
+// No authentication is required to connect to the SMTP server.
+func (o RelayAuthenticationOutput) NoAuthentication() RelayAuthenticationNoAuthenticationPtrOutput {
+	return o.ApplyT(func(v RelayAuthentication) *RelayAuthenticationNoAuthentication { return v.NoAuthentication }).(RelayAuthenticationNoAuthenticationPtrOutput)
+}
+
+// ARN of the Secrets Manager secret containing the SMTP credentials.
+func (o RelayAuthenticationOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RelayAuthentication) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
+}
+
+type RelayAuthenticationPtrOutput struct{ *pulumi.OutputState }
+
+func (RelayAuthenticationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RelayAuthentication)(nil)).Elem()
+}
+
+func (o RelayAuthenticationPtrOutput) ToRelayAuthenticationPtrOutput() RelayAuthenticationPtrOutput {
+	return o
+}
+
+func (o RelayAuthenticationPtrOutput) ToRelayAuthenticationPtrOutputWithContext(ctx context.Context) RelayAuthenticationPtrOutput {
+	return o
+}
+
+func (o RelayAuthenticationPtrOutput) Elem() RelayAuthenticationOutput {
+	return o.ApplyT(func(v *RelayAuthentication) RelayAuthentication {
+		if v != nil {
+			return *v
+		}
+		var ret RelayAuthentication
+		return ret
+	}).(RelayAuthenticationOutput)
+}
+
+// No authentication is required to connect to the SMTP server.
+func (o RelayAuthenticationPtrOutput) NoAuthentication() RelayAuthenticationNoAuthenticationPtrOutput {
+	return o.ApplyT(func(v *RelayAuthentication) *RelayAuthenticationNoAuthentication {
+		if v == nil {
+			return nil
+		}
+		return v.NoAuthentication
+	}).(RelayAuthenticationNoAuthenticationPtrOutput)
+}
+
+// ARN of the Secrets Manager secret containing the SMTP credentials.
+func (o RelayAuthenticationPtrOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RelayAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type RelayAuthenticationNoAuthentication struct {
+}
+
+// RelayAuthenticationNoAuthenticationInput is an input type that accepts RelayAuthenticationNoAuthenticationArgs and RelayAuthenticationNoAuthenticationOutput values.
+// You can construct a concrete instance of `RelayAuthenticationNoAuthenticationInput` via:
+//
+//	RelayAuthenticationNoAuthenticationArgs{...}
+type RelayAuthenticationNoAuthenticationInput interface {
+	pulumi.Input
+
+	ToRelayAuthenticationNoAuthenticationOutput() RelayAuthenticationNoAuthenticationOutput
+	ToRelayAuthenticationNoAuthenticationOutputWithContext(context.Context) RelayAuthenticationNoAuthenticationOutput
+}
+
+type RelayAuthenticationNoAuthenticationArgs struct {
+}
+
+func (RelayAuthenticationNoAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RelayAuthenticationNoAuthentication)(nil)).Elem()
+}
+
+func (i RelayAuthenticationNoAuthenticationArgs) ToRelayAuthenticationNoAuthenticationOutput() RelayAuthenticationNoAuthenticationOutput {
+	return i.ToRelayAuthenticationNoAuthenticationOutputWithContext(context.Background())
+}
+
+func (i RelayAuthenticationNoAuthenticationArgs) ToRelayAuthenticationNoAuthenticationOutputWithContext(ctx context.Context) RelayAuthenticationNoAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RelayAuthenticationNoAuthenticationOutput)
+}
+
+func (i RelayAuthenticationNoAuthenticationArgs) ToRelayAuthenticationNoAuthenticationPtrOutput() RelayAuthenticationNoAuthenticationPtrOutput {
+	return i.ToRelayAuthenticationNoAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i RelayAuthenticationNoAuthenticationArgs) ToRelayAuthenticationNoAuthenticationPtrOutputWithContext(ctx context.Context) RelayAuthenticationNoAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RelayAuthenticationNoAuthenticationOutput).ToRelayAuthenticationNoAuthenticationPtrOutputWithContext(ctx)
+}
+
+// RelayAuthenticationNoAuthenticationPtrInput is an input type that accepts RelayAuthenticationNoAuthenticationArgs, RelayAuthenticationNoAuthenticationPtr and RelayAuthenticationNoAuthenticationPtrOutput values.
+// You can construct a concrete instance of `RelayAuthenticationNoAuthenticationPtrInput` via:
+//
+//	        RelayAuthenticationNoAuthenticationArgs{...}
+//
+//	or:
+//
+//	        nil
+type RelayAuthenticationNoAuthenticationPtrInput interface {
+	pulumi.Input
+
+	ToRelayAuthenticationNoAuthenticationPtrOutput() RelayAuthenticationNoAuthenticationPtrOutput
+	ToRelayAuthenticationNoAuthenticationPtrOutputWithContext(context.Context) RelayAuthenticationNoAuthenticationPtrOutput
+}
+
+type relayAuthenticationNoAuthenticationPtrType RelayAuthenticationNoAuthenticationArgs
+
+func RelayAuthenticationNoAuthenticationPtr(v *RelayAuthenticationNoAuthenticationArgs) RelayAuthenticationNoAuthenticationPtrInput {
+	return (*relayAuthenticationNoAuthenticationPtrType)(v)
+}
+
+func (*relayAuthenticationNoAuthenticationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RelayAuthenticationNoAuthentication)(nil)).Elem()
+}
+
+func (i *relayAuthenticationNoAuthenticationPtrType) ToRelayAuthenticationNoAuthenticationPtrOutput() RelayAuthenticationNoAuthenticationPtrOutput {
+	return i.ToRelayAuthenticationNoAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i *relayAuthenticationNoAuthenticationPtrType) ToRelayAuthenticationNoAuthenticationPtrOutputWithContext(ctx context.Context) RelayAuthenticationNoAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RelayAuthenticationNoAuthenticationPtrOutput)
+}
+
+type RelayAuthenticationNoAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (RelayAuthenticationNoAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RelayAuthenticationNoAuthentication)(nil)).Elem()
+}
+
+func (o RelayAuthenticationNoAuthenticationOutput) ToRelayAuthenticationNoAuthenticationOutput() RelayAuthenticationNoAuthenticationOutput {
+	return o
+}
+
+func (o RelayAuthenticationNoAuthenticationOutput) ToRelayAuthenticationNoAuthenticationOutputWithContext(ctx context.Context) RelayAuthenticationNoAuthenticationOutput {
+	return o
+}
+
+func (o RelayAuthenticationNoAuthenticationOutput) ToRelayAuthenticationNoAuthenticationPtrOutput() RelayAuthenticationNoAuthenticationPtrOutput {
+	return o.ToRelayAuthenticationNoAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (o RelayAuthenticationNoAuthenticationOutput) ToRelayAuthenticationNoAuthenticationPtrOutputWithContext(ctx context.Context) RelayAuthenticationNoAuthenticationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RelayAuthenticationNoAuthentication) *RelayAuthenticationNoAuthentication {
+		return &v
+	}).(RelayAuthenticationNoAuthenticationPtrOutput)
+}
+
+type RelayAuthenticationNoAuthenticationPtrOutput struct{ *pulumi.OutputState }
+
+func (RelayAuthenticationNoAuthenticationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RelayAuthenticationNoAuthentication)(nil)).Elem()
+}
+
+func (o RelayAuthenticationNoAuthenticationPtrOutput) ToRelayAuthenticationNoAuthenticationPtrOutput() RelayAuthenticationNoAuthenticationPtrOutput {
+	return o
+}
+
+func (o RelayAuthenticationNoAuthenticationPtrOutput) ToRelayAuthenticationNoAuthenticationPtrOutputWithContext(ctx context.Context) RelayAuthenticationNoAuthenticationPtrOutput {
+	return o
+}
+
+func (o RelayAuthenticationNoAuthenticationPtrOutput) Elem() RelayAuthenticationNoAuthenticationOutput {
+	return o.ApplyT(func(v *RelayAuthenticationNoAuthentication) RelayAuthenticationNoAuthentication {
+		if v != nil {
+			return *v
+		}
+		var ret RelayAuthenticationNoAuthentication
+		return ret
+	}).(RelayAuthenticationNoAuthenticationOutput)
+}
+
 type RuleSetRule struct {
 	// One or more actions to execute when all conditions match. Between 1 and 10 actions are supported. Each action must contain exactly one action configuration. See `action` Block.
 	Actions []RuleSetRuleAction `pulumi:"actions"`
@@ -11126,6 +11400,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IngressPointNetworkConfigurationPublicNetworkConfigurationPtrInput)(nil)).Elem(), IngressPointNetworkConfigurationPublicNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IngressPointTimeoutsInput)(nil)).Elem(), IngressPointTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IngressPointTimeoutsPtrInput)(nil)).Elem(), IngressPointTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RelayAuthenticationInput)(nil)).Elem(), RelayAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RelayAuthenticationPtrInput)(nil)).Elem(), RelayAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RelayAuthenticationNoAuthenticationInput)(nil)).Elem(), RelayAuthenticationNoAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RelayAuthenticationNoAuthenticationPtrInput)(nil)).Elem(), RelayAuthenticationNoAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleInput)(nil)).Elem(), RuleSetRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleArrayInput)(nil)).Elem(), RuleSetRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleActionInput)(nil)).Elem(), RuleSetRuleActionArgs{})
@@ -11262,6 +11540,10 @@ func init() {
 	pulumi.RegisterOutputType(IngressPointNetworkConfigurationPublicNetworkConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(IngressPointTimeoutsOutput{})
 	pulumi.RegisterOutputType(IngressPointTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(RelayAuthenticationOutput{})
+	pulumi.RegisterOutputType(RelayAuthenticationPtrOutput{})
+	pulumi.RegisterOutputType(RelayAuthenticationNoAuthenticationOutput{})
+	pulumi.RegisterOutputType(RelayAuthenticationNoAuthenticationPtrOutput{})
 	pulumi.RegisterOutputType(RuleSetRuleOutput{})
 	pulumi.RegisterOutputType(RuleSetRuleArrayOutput{})
 	pulumi.RegisterOutputType(RuleSetRuleActionOutput{})

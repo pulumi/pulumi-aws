@@ -35,7 +35,8 @@ class Smsvoicev2PhoneNumberArgs:
                  timeouts: pulumi.Input[Optional['Smsvoicev2PhoneNumberTimeoutsArgs']] = None,
                  two_way_channel_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  two_way_channel_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 two_way_channel_role: pulumi.Input[Optional[_builtins.str]] = None):
+                 two_way_channel_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 wait_for_active: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Smsvoicev2PhoneNumber resource.
 
@@ -55,6 +56,7 @@ class Smsvoicev2PhoneNumberArgs:
         :param pulumi.Input[_builtins.str] two_way_channel_arn: Configuration for two-way SMS. Specify an ARN to receive incoming SMS messages, or `connect.[region].amazonaws.com` (with `[region]` replaced by the AWS Region of the Amazon Connect instance) to set Amazon Connect as the inbound destination.
         :param pulumi.Input[_builtins.bool] two_way_channel_enabled: Whether two-way messaging is enabled. When `true`, you can receive incoming text messages from your end recipients. If omitted, AWS sets this to `false`.
         :param pulumi.Input[_builtins.str] two_way_channel_role: IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
+        :param pulumi.Input[_builtins.bool] wait_for_active: Whether to wait for the phone number to reach `ACTIVE` status before considering the resource created or updated. Defaults to `true`. Set to `false` for number types gated on carrier or registration approval (for example, `TEN_DLC`, `TOLL_FREE`, or any number submitted with `registration_id`), which can remain `PENDING` for days or weeks. When `false`, `pulumi up` returns once AWS accepts the phone number request; track activation with the `status` attribute.
         """
         pulumi.set(__self__, "iso_country_code", iso_country_code)
         pulumi.set(__self__, "message_type", message_type)
@@ -82,6 +84,8 @@ class Smsvoicev2PhoneNumberArgs:
             pulumi.set(__self__, "two_way_channel_enabled", two_way_channel_enabled)
         if two_way_channel_role is not None:
             pulumi.set(__self__, "two_way_channel_role", two_way_channel_role)
+        if wait_for_active is not None:
+            pulumi.set(__self__, "wait_for_active", wait_for_active)
 
     @_builtins.property
     @pulumi.getter(name="isoCountryCode")
@@ -262,6 +266,18 @@ class Smsvoicev2PhoneNumberArgs:
     def two_way_channel_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "two_way_channel_role", value)
 
+    @_builtins.property
+    @pulumi.getter(name="waitForActive")
+    def wait_for_active(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to wait for the phone number to reach `ACTIVE` status before considering the resource created or updated. Defaults to `true`. Set to `false` for number types gated on carrier or registration approval (for example, `TEN_DLC`, `TOLL_FREE`, or any number submitted with `registration_id`), which can remain `PENDING` for days or weeks. When `false`, `pulumi up` returns once AWS accepts the phone number request; track activation with the `status` attribute.
+        """
+        return pulumi.get(self, "wait_for_active")
+
+    @wait_for_active.setter
+    def wait_for_active(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "wait_for_active", value)
+
 
 @pulumi.input_type
 class _Smsvoicev2PhoneNumberState:
@@ -279,12 +295,14 @@ class _Smsvoicev2PhoneNumberState:
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  registration_id: pulumi.Input[Optional[_builtins.str]] = None,
                  self_managed_opt_outs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: pulumi.Input[Optional['Smsvoicev2PhoneNumberTimeoutsArgs']] = None,
                  two_way_channel_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  two_way_channel_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 two_way_channel_role: pulumi.Input[Optional[_builtins.str]] = None):
+                 two_way_channel_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 wait_for_active: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Smsvoicev2PhoneNumber resources.
 
@@ -303,11 +321,13 @@ class _Smsvoicev2PhoneNumberState:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] registration_id: Use this field to attach your phone number for an external registration process.
         :param pulumi.Input[_builtins.bool] self_managed_opt_outs_enabled: When set to `false` an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the opt-out list. When set to true you’re responsible for responding to HELP and STOP requests. You’re also responsible for tracking and honoring opt-out request.
+        :param pulumi.Input[_builtins.str] status: Status of the phone number. Possible values are `PENDING`, `ACTIVE`, `ASSOCIATING`, `DISASSOCIATING`, and `DELETED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] two_way_channel_arn: Configuration for two-way SMS. Specify an ARN to receive incoming SMS messages, or `connect.[region].amazonaws.com` (with `[region]` replaced by the AWS Region of the Amazon Connect instance) to set Amazon Connect as the inbound destination.
         :param pulumi.Input[_builtins.bool] two_way_channel_enabled: Whether two-way messaging is enabled. When `true`, you can receive incoming text messages from your end recipients. If omitted, AWS sets this to `false`.
         :param pulumi.Input[_builtins.str] two_way_channel_role: IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
+        :param pulumi.Input[_builtins.bool] wait_for_active: Whether to wait for the phone number to reach `ACTIVE` status before considering the resource created or updated. Defaults to `true`. Set to `false` for number types gated on carrier or registration approval (for example, `TEN_DLC`, `TOLL_FREE`, or any number submitted with `registration_id`), which can remain `PENDING` for days or weeks. When `false`, `pulumi up` returns once AWS accepts the phone number request; track activation with the `status` attribute.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -335,6 +355,8 @@ class _Smsvoicev2PhoneNumberState:
             pulumi.set(__self__, "registration_id", registration_id)
         if self_managed_opt_outs_enabled is not None:
             pulumi.set(__self__, "self_managed_opt_outs_enabled", self_managed_opt_outs_enabled)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -347,6 +369,8 @@ class _Smsvoicev2PhoneNumberState:
             pulumi.set(__self__, "two_way_channel_enabled", two_way_channel_enabled)
         if two_way_channel_role is not None:
             pulumi.set(__self__, "two_way_channel_role", two_way_channel_role)
+        if wait_for_active is not None:
+            pulumi.set(__self__, "wait_for_active", wait_for_active)
 
     @_builtins.property
     @pulumi.getter
@@ -508,6 +532,18 @@ class _Smsvoicev2PhoneNumberState:
 
     @_builtins.property
     @pulumi.getter
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Status of the phone number. Possible values are `PENDING`, `ACTIVE`, `ASSOCIATING`, `DISASSOCIATING`, and `DELETED`.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "status", value)
+
+    @_builtins.property
+    @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -575,6 +611,18 @@ class _Smsvoicev2PhoneNumberState:
     def two_way_channel_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "two_way_channel_role", value)
 
+    @_builtins.property
+    @pulumi.getter(name="waitForActive")
+    def wait_for_active(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to wait for the phone number to reach `ACTIVE` status before considering the resource created or updated. Defaults to `true`. Set to `false` for number types gated on carrier or registration approval (for example, `TEN_DLC`, `TOLL_FREE`, or any number submitted with `registration_id`), which can remain `PENDING` for days or weeks. When `false`, `pulumi up` returns once AWS accepts the phone number request; track activation with the `status` attribute.
+        """
+        return pulumi.get(self, "wait_for_active")
+
+    @wait_for_active.setter
+    def wait_for_active(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "wait_for_active", value)
+
 
 @pulumi.type_token("aws:pinpoint/smsvoicev2PhoneNumber:Smsvoicev2PhoneNumber")
 class Smsvoicev2PhoneNumber(pulumi.CustomResource):
@@ -597,6 +645,7 @@ class Smsvoicev2PhoneNumber(pulumi.CustomResource):
                  two_way_channel_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  two_way_channel_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  two_way_channel_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 wait_for_active: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages an AWS End User Messaging SMS phone number.
@@ -641,6 +690,7 @@ class Smsvoicev2PhoneNumber(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] two_way_channel_arn: Configuration for two-way SMS. Specify an ARN to receive incoming SMS messages, or `connect.[region].amazonaws.com` (with `[region]` replaced by the AWS Region of the Amazon Connect instance) to set Amazon Connect as the inbound destination.
         :param pulumi.Input[_builtins.bool] two_way_channel_enabled: Whether two-way messaging is enabled. When `true`, you can receive incoming text messages from your end recipients. If omitted, AWS sets this to `false`.
         :param pulumi.Input[_builtins.str] two_way_channel_role: IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
+        :param pulumi.Input[_builtins.bool] wait_for_active: Whether to wait for the phone number to reach `ACTIVE` status before considering the resource created or updated. Defaults to `true`. Set to `false` for number types gated on carrier or registration approval (for example, `TEN_DLC`, `TOLL_FREE`, or any number submitted with `registration_id`), which can remain `PENDING` for days or weeks. When `false`, `pulumi up` returns once AWS accepts the phone number request; track activation with the `status` attribute.
         """
         ...
     @overload
@@ -703,6 +753,7 @@ class Smsvoicev2PhoneNumber(pulumi.CustomResource):
                  two_way_channel_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  two_way_channel_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  two_way_channel_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 wait_for_active: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -735,9 +786,11 @@ class Smsvoicev2PhoneNumber(pulumi.CustomResource):
             __props__.__dict__["two_way_channel_arn"] = two_way_channel_arn
             __props__.__dict__["two_way_channel_enabled"] = two_way_channel_enabled
             __props__.__dict__["two_way_channel_role"] = two_way_channel_role
+            __props__.__dict__["wait_for_active"] = wait_for_active
             __props__.__dict__["arn"] = None
             __props__.__dict__["monthly_leasing_price"] = None
             __props__.__dict__["phone_number"] = None
+            __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
         super(Smsvoicev2PhoneNumber, __self__).__init__(
             'aws:pinpoint/smsvoicev2PhoneNumber:Smsvoicev2PhoneNumber',
@@ -762,12 +815,14 @@ class Smsvoicev2PhoneNumber(pulumi.CustomResource):
             region: pulumi.Input[Optional[_builtins.str]] = None,
             registration_id: pulumi.Input[Optional[_builtins.str]] = None,
             self_managed_opt_outs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             timeouts: pulumi.Input[Optional[Union['Smsvoicev2PhoneNumberTimeoutsArgs', 'Smsvoicev2PhoneNumberTimeoutsArgsDict']]] = None,
             two_way_channel_arn: pulumi.Input[Optional[_builtins.str]] = None,
             two_way_channel_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            two_way_channel_role: pulumi.Input[Optional[_builtins.str]] = None) -> 'Smsvoicev2PhoneNumber':
+            two_way_channel_role: pulumi.Input[Optional[_builtins.str]] = None,
+            wait_for_active: pulumi.Input[Optional[_builtins.bool]] = None) -> 'Smsvoicev2PhoneNumber':
         """
         Get an existing Smsvoicev2PhoneNumber resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -790,11 +845,13 @@ class Smsvoicev2PhoneNumber(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] registration_id: Use this field to attach your phone number for an external registration process.
         :param pulumi.Input[_builtins.bool] self_managed_opt_outs_enabled: When set to `false` an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the opt-out list. When set to true you’re responsible for responding to HELP and STOP requests. You’re also responsible for tracking and honoring opt-out request.
+        :param pulumi.Input[_builtins.str] status: Status of the phone number. Possible values are `PENDING`, `ACTIVE`, `ASSOCIATING`, `DISASSOCIATING`, and `DELETED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] two_way_channel_arn: Configuration for two-way SMS. Specify an ARN to receive incoming SMS messages, or `connect.[region].amazonaws.com` (with `[region]` replaced by the AWS Region of the Amazon Connect instance) to set Amazon Connect as the inbound destination.
         :param pulumi.Input[_builtins.bool] two_way_channel_enabled: Whether two-way messaging is enabled. When `true`, you can receive incoming text messages from your end recipients. If omitted, AWS sets this to `false`.
         :param pulumi.Input[_builtins.str] two_way_channel_role: IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
+        :param pulumi.Input[_builtins.bool] wait_for_active: Whether to wait for the phone number to reach `ACTIVE` status before considering the resource created or updated. Defaults to `true`. Set to `false` for number types gated on carrier or registration approval (for example, `TEN_DLC`, `TOLL_FREE`, or any number submitted with `registration_id`), which can remain `PENDING` for days or weeks. When `false`, `pulumi up` returns once AWS accepts the phone number request; track activation with the `status` attribute.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -813,12 +870,14 @@ class Smsvoicev2PhoneNumber(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         __props__.__dict__["registration_id"] = registration_id
         __props__.__dict__["self_managed_opt_outs_enabled"] = self_managed_opt_outs_enabled
+        __props__.__dict__["status"] = status
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["timeouts"] = timeouts
         __props__.__dict__["two_way_channel_arn"] = two_way_channel_arn
         __props__.__dict__["two_way_channel_enabled"] = two_way_channel_enabled
         __props__.__dict__["two_way_channel_role"] = two_way_channel_role
+        __props__.__dict__["wait_for_active"] = wait_for_active
         return Smsvoicev2PhoneNumber(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -929,6 +988,14 @@ class Smsvoicev2PhoneNumber(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
+    def status(self) -> pulumi.Output[_builtins.str]:
+        """
+        Status of the phone number. Possible values are `PENDING`, `ACTIVE`, `ASSOCIATING`, `DISASSOCIATING`, and `DELETED`.
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -971,4 +1038,12 @@ class Smsvoicev2PhoneNumber(pulumi.CustomResource):
         IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
         """
         return pulumi.get(self, "two_way_channel_role")
+
+    @_builtins.property
+    @pulumi.getter(name="waitForActive")
+    def wait_for_active(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Whether to wait for the phone number to reach `ACTIVE` status before considering the resource created or updated. Defaults to `true`. Set to `false` for number types gated on carrier or registration approval (for example, `TEN_DLC`, `TOLL_FREE`, or any number submitted with `registration_id`), which can remain `PENDING` for days or weeks. When `false`, `pulumi up` returns once AWS accepts the phone number request; track activation with the `status` attribute.
+        """
+        return pulumi.get(self, "wait_for_active")
 

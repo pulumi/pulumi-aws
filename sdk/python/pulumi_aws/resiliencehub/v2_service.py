@@ -23,6 +23,7 @@ class V2ServiceArgs:
     def __init__(__self__, *,
                  permission_model: pulumi.Input['V2ServicePermissionModelArgs'],
                  regions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 associated_systems: pulumi.Input[Optional[Sequence[pulumi.Input['V2ServiceAssociatedSystemArgs']]]] = None,
                  dependency_discovery: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -37,6 +38,7 @@ class V2ServiceArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: List of AWS regions where the service operates.
                
                The following arguments are optional:
+        :param pulumi.Input[Sequence[pulumi.Input['V2ServiceAssociatedSystemArgs']]] associated_systems: Systems to associate with the service. See `associated_system` Block below.
         :param pulumi.Input[_builtins.str] dependency_discovery: Dependency discovery. Valid values: `ENABLED`, `DISABLED`.
         :param pulumi.Input[_builtins.str] description: Description of the service.
         :param pulumi.Input[_builtins.str] kms_key_id: KMS key ARN.
@@ -47,6 +49,8 @@ class V2ServiceArgs:
         """
         pulumi.set(__self__, "permission_model", permission_model)
         pulumi.set(__self__, "regions", regions)
+        if associated_systems is not None:
+            pulumi.set(__self__, "associated_systems", associated_systems)
         if dependency_discovery is not None:
             pulumi.set(__self__, "dependency_discovery", dependency_discovery)
         if description is not None:
@@ -87,6 +91,18 @@ class V2ServiceArgs:
     @regions.setter
     def regions(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         pulumi.set(self, "regions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="associatedSystems")
+    def associated_systems(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['V2ServiceAssociatedSystemArgs']]]]:
+        """
+        Systems to associate with the service. See `associated_system` Block below.
+        """
+        return pulumi.get(self, "associated_systems")
+
+    @associated_systems.setter
+    def associated_systems(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['V2ServiceAssociatedSystemArgs']]]]):
+        pulumi.set(self, "associated_systems", value)
 
     @_builtins.property
     @pulumi.getter(name="dependencyDiscovery")
@@ -177,6 +193,7 @@ class V2ServiceArgs:
 class _V2ServiceState:
     def __init__(__self__, *,
                  arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 associated_systems: pulumi.Input[Optional[Sequence[pulumi.Input['V2ServiceAssociatedSystemArgs']]]] = None,
                  dependency_discovery: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -191,6 +208,7 @@ class _V2ServiceState:
         Input properties used for looking up and filtering V2Service resources.
 
         :param pulumi.Input[_builtins.str] arn: ARN of the service.
+        :param pulumi.Input[Sequence[pulumi.Input['V2ServiceAssociatedSystemArgs']]] associated_systems: Systems to associate with the service. See `associated_system` Block below.
         :param pulumi.Input[_builtins.str] dependency_discovery: Dependency discovery. Valid values: `ENABLED`, `DISABLED`.
         :param pulumi.Input[_builtins.str] description: Description of the service.
         :param pulumi.Input[_builtins.str] kms_key_id: KMS key ARN.
@@ -206,6 +224,8 @@ class _V2ServiceState:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if associated_systems is not None:
+            pulumi.set(__self__, "associated_systems", associated_systems)
         if dependency_discovery is not None:
             pulumi.set(__self__, "dependency_discovery", dependency_discovery)
         if description is not None:
@@ -238,6 +258,18 @@ class _V2ServiceState:
     @arn.setter
     def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="associatedSystems")
+    def associated_systems(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['V2ServiceAssociatedSystemArgs']]]]:
+        """
+        Systems to associate with the service. See `associated_system` Block below.
+        """
+        return pulumi.get(self, "associated_systems")
+
+    @associated_systems.setter
+    def associated_systems(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['V2ServiceAssociatedSystemArgs']]]]):
+        pulumi.set(self, "associated_systems", value)
 
     @_builtins.property
     @pulumi.getter(name="dependencyDiscovery")
@@ -368,6 +400,7 @@ class V2Service(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 associated_systems: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2ServiceAssociatedSystemArgs', 'V2ServiceAssociatedSystemArgsDict']]]]] = None,
                  dependency_discovery: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -426,6 +459,24 @@ class V2Service(pulumi.CustomResource):
             })
         ```
 
+        ### With Associated Systems
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.resiliencehub.V2System("example", name="example-system")
+        example_v2_service = aws.resiliencehub.V2Service("example",
+            name="example-service",
+            regions=["us-west-2"],
+            permission_model={
+                "invoker_role_name": "AWSResilienceHubAssessmentRole",
+            },
+            associated_systems=[{
+                "system_arn": example.arn,
+            }])
+        ```
+
         ## Import
 
         ### Identity Schema
@@ -443,6 +494,7 @@ class V2Service(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['V2ServiceAssociatedSystemArgs', 'V2ServiceAssociatedSystemArgsDict']]]] associated_systems: Systems to associate with the service. See `associated_system` Block below.
         :param pulumi.Input[_builtins.str] dependency_discovery: Dependency discovery. Valid values: `ENABLED`, `DISABLED`.
         :param pulumi.Input[_builtins.str] description: Description of the service.
         :param pulumi.Input[_builtins.str] kms_key_id: KMS key ARN.
@@ -509,6 +561,24 @@ class V2Service(pulumi.CustomResource):
             })
         ```
 
+        ### With Associated Systems
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.resiliencehub.V2System("example", name="example-system")
+        example_v2_service = aws.resiliencehub.V2Service("example",
+            name="example-service",
+            regions=["us-west-2"],
+            permission_model={
+                "invoker_role_name": "AWSResilienceHubAssessmentRole",
+            },
+            associated_systems=[{
+                "system_arn": example.arn,
+            }])
+        ```
+
         ## Import
 
         ### Identity Schema
@@ -539,6 +609,7 @@ class V2Service(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 associated_systems: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2ServiceAssociatedSystemArgs', 'V2ServiceAssociatedSystemArgsDict']]]]] = None,
                  dependency_discovery: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -557,6 +628,7 @@ class V2Service(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = V2ServiceArgs.__new__(V2ServiceArgs)
 
+            __props__.__dict__["associated_systems"] = associated_systems
             __props__.__dict__["dependency_discovery"] = dependency_discovery
             __props__.__dict__["description"] = description
             __props__.__dict__["kms_key_id"] = kms_key_id
@@ -583,6 +655,7 @@ class V2Service(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
+            associated_systems: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2ServiceAssociatedSystemArgs', 'V2ServiceAssociatedSystemArgsDict']]]]] = None,
             dependency_discovery: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -601,6 +674,7 @@ class V2Service(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the service.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['V2ServiceAssociatedSystemArgs', 'V2ServiceAssociatedSystemArgsDict']]]] associated_systems: Systems to associate with the service. See `associated_system` Block below.
         :param pulumi.Input[_builtins.str] dependency_discovery: Dependency discovery. Valid values: `ENABLED`, `DISABLED`.
         :param pulumi.Input[_builtins.str] description: Description of the service.
         :param pulumi.Input[_builtins.str] kms_key_id: KMS key ARN.
@@ -619,6 +693,7 @@ class V2Service(pulumi.CustomResource):
         __props__ = _V2ServiceState.__new__(_V2ServiceState)
 
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["associated_systems"] = associated_systems
         __props__.__dict__["dependency_discovery"] = dependency_discovery
         __props__.__dict__["description"] = description
         __props__.__dict__["kms_key_id"] = kms_key_id
@@ -638,6 +713,14 @@ class V2Service(pulumi.CustomResource):
         ARN of the service.
         """
         return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="associatedSystems")
+    def associated_systems(self) -> pulumi.Output[Optional[Sequence['outputs.V2ServiceAssociatedSystem']]]:
+        """
+        Systems to associate with the service. See `associated_system` Block below.
+        """
+        return pulumi.get(self, "associated_systems")
 
     @_builtins.property
     @pulumi.getter(name="dependencyDiscovery")

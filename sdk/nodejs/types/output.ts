@@ -1051,7 +1051,7 @@ export namespace alb {
          */
         queryStrings?: outputs.alb.ListenerRuleConditionQueryString[];
         /**
-         * Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
+         * Source IP address to match. For ALB, use `values` to specify CIDR ranges. For NLB, use `ipAddressType` to match the IP address type (`ipv4` or `ipv6`). Source IP block fields documented below.
          *
          * > **NOTE::** Exactly one of `hostHeader`, `httpHeader`, `httpRequestMethod`, `pathPattern`, `queryString` or `sourceIp` must be set per condition.
          */
@@ -1111,7 +1111,14 @@ export namespace alb {
     }
 
     export interface ListenerRuleConditionSourceIp {
-        values: string[];
+        /**
+         * IP address type for Network Load Balancers. Valid values are `ipv4` and `ipv6`.
+         */
+        ipAddressType?: string;
+        /**
+         * List of source IP addresses in CIDR format for Application Load Balancers. Both IPv4 and IPv6 addresses can be used. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
+         */
+        values?: string[];
     }
 
     export interface ListenerRuleTransform {
@@ -19463,17 +19470,145 @@ export namespace bedrock {
         /**
          * AgentCore runtime environment configuration. See `agentcoreRuntimeEnvironment` Block below.
          */
-        agentcoreRuntimeEnvironments: outputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment[];
+        agentcoreRuntimeEnvironments?: outputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment[];
     }
 
-    export interface AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment {
+    export interface AgentcoreHarnessEnvironmentActual {
+        /**
+         * AgentCore runtime environment configuration. See `agentcoreRuntimeEnvironment` Block below.
+         */
+        agentcoreRuntimeEnvironments: outputs.bedrock.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment[];
+    }
+
+    export interface AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment {
+        /**
+         * ARN of the agent runtime the service provisions for the harness.
+         */
         agentRuntimeArn: string;
+        /**
+         * ID of the agent runtime the service provisions for the harness.
+         */
         agentRuntimeId: string;
+        /**
+         * Name of the agent runtime the service derives for the harness.
+         */
         agentRuntimeName: string;
         /**
          * Filesystem configurations. See `filesystemConfiguration` Block below.
+         *
+         * The following attributes are exported under `agentcoreRuntimeEnvironment`:
          */
-        filesystemConfigurations: outputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfiguration[];
+        filesystemConfigurations: outputs.bedrock.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfiguration[];
+        /**
+         * Lifecycle configuration. See `lifecycleConfiguration` Block below.
+         */
+        lifecycleConfigurations: outputs.bedrock.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfiguration[];
+        /**
+         * Network configuration. See `networkConfiguration` Block below.
+         */
+        networkConfigurations: outputs.bedrock.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfiguration[];
+    }
+
+    export interface AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfiguration {
+        /**
+         * Amazon EFS access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `efsAccessPoint` Block below.
+         */
+        efsAccessPoints: outputs.bedrock.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint[];
+        /**
+         * Amazon S3 Files access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `s3FilesAccessPoint` Block below.
+         */
+        s3FilesAccessPoints: outputs.bedrock.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint[];
+        /**
+         * Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `sessionStorage` Block below.
+         */
+        sessionStorages: outputs.bedrock.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage[];
+    }
+
+    export interface AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint {
+        /**
+         * ARN of the Amazon EFS access point to mount into the agent runtime.
+         */
+        accessPointArn: string;
+        /**
+         * Mount path for the EFS access point inside the agent runtime. Must be under `/mnt` with exactly one subdirectory level (for example, `/mnt/data`).
+         */
+        mountPath: string;
+    }
+
+    export interface AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint {
+        /**
+         * ARN of the Amazon S3 Files access point to mount into the agent runtime.
+         */
+        accessPointArn: string;
+        /**
+         * Mount path for the S3 Files access point inside the agent runtime. Must be under `/mnt` with exactly one subdirectory level (for example, `/mnt/data`).
+         */
+        mountPath: string;
+    }
+
+    export interface AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage {
+        /**
+         * Mount path for the session storage filesystem inside the agent runtime. Must be under `/mnt` with exactly one subdirectory level (for example, `/mnt/data`).
+         */
+        mountPath: string;
+    }
+
+    export interface AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfiguration {
+        /**
+         * Timeout in seconds for idle sessions.
+         */
+        idleRuntimeSessionTimeout: number;
+        /**
+         * Maximum lifetime of the instance in seconds.
+         */
+        maxLifetime: number;
+    }
+
+    export interface AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfiguration {
+        /**
+         * Network mode. Valid values: `PUBLIC`, `VPC`.
+         */
+        networkMode: string;
+        /**
+         * VPC configuration. See `networkModeConfig` Block below.
+         */
+        networkModeConfigs: outputs.bedrock.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig[];
+    }
+
+    export interface AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig {
+        /**
+         * Whether to require an S3 endpoint for the service in the VPC.
+         */
+        requireServiceS3Endpoint: boolean;
+        /**
+         * Security groups for the VPC.
+         */
+        securityGroups: string[];
+        /**
+         * Subnets for the VPC.
+         */
+        subnets: string[];
+    }
+
+    export interface AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment {
+        /**
+         * ARN of the agent runtime the service provisions for the harness.
+         */
+        agentRuntimeArn: string;
+        /**
+         * ID of the agent runtime the service provisions for the harness.
+         */
+        agentRuntimeId: string;
+        /**
+         * Name of the agent runtime the service derives for the harness.
+         */
+        agentRuntimeName: string;
+        /**
+         * Filesystem configurations. See `filesystemConfiguration` Block below.
+         *
+         * The following attributes are exported under `agentcoreRuntimeEnvironment`:
+         */
+        filesystemConfigurations?: outputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfiguration[];
         /**
          * Lifecycle configuration. See `lifecycleConfiguration` Block below.
          */
@@ -19481,22 +19616,22 @@ export namespace bedrock {
         /**
          * Network configuration. See `networkConfiguration` Block below.
          */
-        networkConfigurations: outputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration[];
+        networkConfigurations?: outputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration[];
     }
 
     export interface AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfiguration {
         /**
          * Amazon EFS access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `efsAccessPoint` Block below.
          */
-        efsAccessPoints: outputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint[];
+        efsAccessPoints?: outputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint[];
         /**
          * Amazon S3 Files access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `s3FilesAccessPoint` Block below.
          */
-        s3FilesAccessPoints: outputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint[];
+        s3FilesAccessPoints?: outputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint[];
         /**
          * Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `sessionStorage` Block below.
          */
-        sessionStorages: outputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage[];
+        sessionStorages?: outputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage[];
     }
 
     export interface AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint {
@@ -19547,7 +19682,7 @@ export namespace bedrock {
         /**
          * VPC configuration. See `networkModeConfig` Block below.
          */
-        networkModeConfigs: outputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig[];
+        networkModeConfigs?: outputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig[];
     }
 
     export interface AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig {
@@ -31413,11 +31548,19 @@ export namespace config {
         /**
          * Use this to override the default service endpoint URL
          */
+        accountaccess?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         acm?: string;
         /**
          * Use this to override the default service endpoint URL
          */
         acmpca?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
+        agentregistry?: string;
         /**
          * Use this to override the default service endpoint URL
          */
@@ -38624,6 +38767,21 @@ export namespace dsql {
          * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
          */
         create?: string;
+    }
+
+    export interface ClusterPolicyTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: string;
     }
 
     export interface ClusterTimeouts {
@@ -67629,6 +67787,47 @@ export namespace lambda {
         untrustedArtifactOnDeployment: string;
     }
 
+    export interface CoreNetworkConnectorConfiguration {
+        /**
+         * Configuration for routing egress traffic through a VPC. See `vpcEgressConfiguration` Block below.
+         */
+        vpcEgressConfiguration?: outputs.lambda.CoreNetworkConnectorConfigurationVpcEgressConfiguration;
+    }
+
+    export interface CoreNetworkConnectorConfigurationVpcEgressConfiguration {
+        /**
+         * Compute resource types that may use this connector. Valid values: `MicroVm`.
+         */
+        associatedComputeResourceTypes: string[];
+        /**
+         * Network protocol. Valid values: `IPv4`, `DualStack`.
+         */
+        networkProtocol: string;
+        /**
+         * Set of security group IDs applied to the connector's ENIs.
+         */
+        securityGroupIds: string[];
+        /**
+         * Set of subnet IDs where the connector provisions its ENIs.
+         */
+        subnetIds: string[];
+    }
+
+    export interface CoreNetworkConnectorTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: string;
+    }
+
     export interface EventSourceMappingAmazonManagedKafkaEventSourceConfig {
         /**
          * Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [AmazonManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_AmazonManagedKafkaEventSourceConfig.html).
@@ -68191,6 +68390,35 @@ export namespace lambda {
         vpcId: string;
     }
 
+    export interface MicrovmsImageCodeArtifact {
+        /**
+         * S3 URI of the zip archive containing the application code and Dockerfile (e.g., `s3://bucket/code.zip`).
+         */
+        uri: string;
+    }
+
+    export interface MicrovmsImageCpuConfiguration {
+        /**
+         * CPU architecture for the MicroVM. Valid values are `x8664` and `arm64`.
+         */
+        architecture: string;
+    }
+
+    export interface MicrovmsImageTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: string;
+    }
+
 }
 
 export namespace lb {
@@ -68483,7 +68711,7 @@ export namespace lb {
          */
         name: string;
         /**
-         * Set of `key`-`value` pairs indicating the query string parameters to match.
+         * Set of source IP addresses in CIDR format for Application Load Balancers
          */
         values: string[];
     }
@@ -68541,7 +68769,8 @@ export namespace lb {
          */
         queryStrings?: outputs.lb.GetListenerRuleConditionQueryString[];
         /**
-         * Contains a single attribute `values`, which contains a set of source IPs in CIDR notation.
+         * Source IP address to match.
+         * Detailed below.
          */
         sourceIps?: outputs.lb.GetListenerRuleConditionSourceIp[];
     }
@@ -68552,7 +68781,7 @@ export namespace lb {
          */
         regexValues: string[];
         /**
-         * Set of `key`-`value` pairs indicating the query string parameters to match.
+         * Set of source IP addresses in CIDR format for Application Load Balancers
          */
         values: string[];
     }
@@ -68567,14 +68796,14 @@ export namespace lb {
          */
         regexValues: string[];
         /**
-         * Set of `key`-`value` pairs indicating the query string parameters to match.
+         * Set of source IP addresses in CIDR format for Application Load Balancers
          */
         values: string[];
     }
 
     export interface GetListenerRuleConditionHttpRequestMethod {
         /**
-         * Set of `key`-`value` pairs indicating the query string parameters to match.
+         * Set of source IP addresses in CIDR format for Application Load Balancers
          */
         values: string[];
     }
@@ -68585,14 +68814,14 @@ export namespace lb {
          */
         regexValues: string[];
         /**
-         * Set of `key`-`value` pairs indicating the query string parameters to match.
+         * Set of source IP addresses in CIDR format for Application Load Balancers
          */
         values: string[];
     }
 
     export interface GetListenerRuleConditionQueryString {
         /**
-         * Set of `key`-`value` pairs indicating the query string parameters to match.
+         * Set of source IP addresses in CIDR format for Application Load Balancers
          */
         values?: outputs.lb.GetListenerRuleConditionQueryStringValue[];
     }
@@ -68610,7 +68839,11 @@ export namespace lb {
 
     export interface GetListenerRuleConditionSourceIp {
         /**
-         * Set of `key`-`value` pairs indicating the query string parameters to match.
+         * IP address type for Network Load Balancers.
+         */
+        ipAddressType: string;
+        /**
+         * Set of source IP addresses in CIDR format for Application Load Balancers
          */
         values: string[];
     }
@@ -69235,7 +69468,7 @@ export namespace lb {
          */
         queryStrings?: outputs.lb.ListenerRuleConditionQueryString[];
         /**
-         * Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
+         * Source IP address to match. For ALB, use `values` to specify CIDR ranges. For NLB, use `ipAddressType` to match the IP address type (`ipv4` or `ipv6`). Source IP block fields documented below.
          *
          * > **NOTE::** Exactly one of `hostHeader`, `httpHeader`, `httpRequestMethod`, `pathPattern`, `queryString` or `sourceIp` must be set per condition.
          */
@@ -69295,7 +69528,14 @@ export namespace lb {
     }
 
     export interface ListenerRuleConditionSourceIp {
-        values: string[];
+        /**
+         * IP address type for Network Load Balancers. Valid values are `ipv4` and `ipv6`.
+         */
+        ipAddressType?: string;
+        /**
+         * List of source IP addresses in CIDR format for Application Load Balancers. Both IPv4 and IPv6 addresses can be used. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
+         */
+        values?: string[];
     }
 
     export interface ListenerRuleTransform {
@@ -83424,6 +83664,20 @@ export namespace mailmanager {
         update?: string;
     }
 
+    export interface RelayAuthentication {
+        /**
+         * No authentication is required to connect to the SMTP server.
+         */
+        noAuthentication?: outputs.mailmanager.RelayAuthenticationNoAuthentication;
+        /**
+         * ARN of the Secrets Manager secret containing the SMTP credentials.
+         */
+        secretArn?: string;
+    }
+
+    export interface RelayAuthenticationNoAuthentication {
+    }
+
     export interface RuleSetRule {
         /**
          * One or more actions to execute when all conditions match. Between 1 and 10 actions are supported. Each action must contain exactly one action configuration. See `action` Block.
@@ -90467,6 +90721,10 @@ export namespace observabilityadmin {
          */
         encryptionConflictResolutionStrategy?: string;
         /**
+         * Determines which newly created destination log groups are encrypted with `kmsKeyArn` when `encryptionStrategy` is `CUSTOMER_MANAGED`. Valid values: `ENCRYPTED_SOURCE_ONLY` (default), `NEW_DESTINATION_LOG_GROUPS`. Not valid when `encryptionStrategy` is `AWS_OWNED`.
+         */
+        encryptionScope: string;
+        /**
          * Encryption strategy for logs. Valid values: `AWS_OWNED`, `CUSTOMER_MANAGED`.
          */
         encryptionStrategy: string;
@@ -91977,6 +92235,21 @@ export namespace odb {
          * URL of the OCI VCN for the ODB network.
          */
         ociVcnUrl: string;
+    }
+
+    export interface IamRoleAssociationTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: string;
     }
 
     export interface NetworkManagedService {
@@ -98384,6 +98657,13 @@ export namespace resiliencehub {
         rtoInMinutes: number;
     }
 
+    export interface GetV2ServiceAssociatedSystem {
+        /**
+         * ARN of the associated system.
+         */
+        systemArn: string;
+    }
+
     export interface GetV2ServicePermissionModel {
         /**
          * Cross-account IAM role. See `crossAccountRole` Block below.
@@ -98575,6 +98855,13 @@ export namespace resiliencehub {
          * Recovery time objective in minutes.
          */
         rtoInMinutes?: number;
+    }
+
+    export interface V2ServiceAssociatedSystem {
+        /**
+         * ARN of the system to associate with the service.
+         */
+        systemArn: string;
     }
 
     export interface V2ServicePermissionModel {

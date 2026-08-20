@@ -34,6 +34,7 @@ class OpenZfsFileSystemArgs:
                  endpoint_ip_address_range: pulumi.Input[Optional[_builtins.str]] = None,
                  final_backup_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_type: pulumi.Input[Optional[_builtins.str]] = None,
                  preferred_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  read_cache_configuration: pulumi.Input[Optional['OpenZfsFileSystemReadCacheConfigurationArgs']] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -63,6 +64,7 @@ class OpenZfsFileSystemArgs:
         :param pulumi.Input[_builtins.str] endpoint_ip_address_range: (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] final_backup_tags: Map of tags to apply to the file system's final backup.
         :param pulumi.Input[_builtins.str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
+        :param pulumi.Input[_builtins.str] network_type: Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
         :param pulumi.Input[_builtins.str] preferred_subnet_id: (Multi-AZ only) Required when `deployment_type` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
         :param pulumi.Input['OpenZfsFileSystemReadCacheConfigurationArgs'] read_cache_configuration: Configuration block for optional provisioned SSD read cache on file systems that use the Intelligent-Tiering storage class. Required when `storage_type` is set to `INTELLIGENT_TIERING`. See `read_cache_configuration` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -98,6 +100,8 @@ class OpenZfsFileSystemArgs:
             pulumi.set(__self__, "final_backup_tags", final_backup_tags)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if network_type is not None:
+            pulumi.set(__self__, "network_type", network_type)
         if preferred_subnet_id is not None:
             pulumi.set(__self__, "preferred_subnet_id", preferred_subnet_id)
         if read_cache_configuration is not None:
@@ -280,6 +284,18 @@ class OpenZfsFileSystemArgs:
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+        """
+        return pulumi.get(self, "network_type")
+
+    @network_type.setter
+    def network_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "network_type", value)
+
+    @_builtins.property
     @pulumi.getter(name="preferredSubnetId")
     def preferred_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -430,6 +446,7 @@ class _OpenZfsFileSystemState:
                  final_backup_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  network_interface_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 network_type: pulumi.Input[Optional[_builtins.str]] = None,
                  owner_id: pulumi.Input[Optional[_builtins.str]] = None,
                  preferred_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  read_cache_configuration: pulumi.Input[Optional['OpenZfsFileSystemReadCacheConfigurationArgs']] = None,
@@ -465,6 +482,7 @@ class _OpenZfsFileSystemState:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] final_backup_tags: Map of tags to apply to the file system's final backup.
         :param pulumi.Input[_builtins.str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_interface_ids: Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
+        :param pulumi.Input[_builtins.str] network_type: Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
         :param pulumi.Input[_builtins.str] owner_id: AWS account identifier that created the file system.
         :param pulumi.Input[_builtins.str] preferred_subnet_id: (Multi-AZ only) Required when `deployment_type` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
         :param pulumi.Input['OpenZfsFileSystemReadCacheConfigurationArgs'] read_cache_configuration: Configuration block for optional provisioned SSD read cache on file systems that use the Intelligent-Tiering storage class. Required when `storage_type` is set to `INTELLIGENT_TIERING`. See `read_cache_configuration` Block for details.
@@ -515,6 +533,8 @@ class _OpenZfsFileSystemState:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if network_interface_ids is not None:
             pulumi.set(__self__, "network_interface_ids", network_interface_ids)
+        if network_type is not None:
+            pulumi.set(__self__, "network_type", network_type)
         if owner_id is not None:
             pulumi.set(__self__, "owner_id", owner_id)
         if preferred_subnet_id is not None:
@@ -729,6 +749,18 @@ class _OpenZfsFileSystemState:
     @network_interface_ids.setter
     def network_interface_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "network_interface_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+        """
+        return pulumi.get(self, "network_type")
+
+    @network_type.setter
+    def network_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "network_type", value)
 
     @_builtins.property
     @pulumi.getter(name="ownerId")
@@ -954,6 +986,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
                  endpoint_ip_address_range: pulumi.Input[Optional[_builtins.str]] = None,
                  final_backup_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_type: pulumi.Input[Optional[_builtins.str]] = None,
                  preferred_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  read_cache_configuration: pulumi.Input[Optional[Union['OpenZfsFileSystemReadCacheConfigurationArgs', 'OpenZfsFileSystemReadCacheConfigurationArgsDict']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1016,6 +1049,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] endpoint_ip_address_range: (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] final_backup_tags: Map of tags to apply to the file system's final backup.
         :param pulumi.Input[_builtins.str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
+        :param pulumi.Input[_builtins.str] network_type: Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
         :param pulumi.Input[_builtins.str] preferred_subnet_id: (Multi-AZ only) Required when `deployment_type` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
         :param pulumi.Input[Union['OpenZfsFileSystemReadCacheConfigurationArgs', 'OpenZfsFileSystemReadCacheConfigurationArgsDict']] read_cache_configuration: Configuration block for optional provisioned SSD read cache on file systems that use the Intelligent-Tiering storage class. Required when `storage_type` is set to `INTELLIGENT_TIERING`. See `read_cache_configuration` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -1099,6 +1133,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
                  endpoint_ip_address_range: pulumi.Input[Optional[_builtins.str]] = None,
                  final_backup_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_type: pulumi.Input[Optional[_builtins.str]] = None,
                  preferred_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  read_cache_configuration: pulumi.Input[Optional[Union['OpenZfsFileSystemReadCacheConfigurationArgs', 'OpenZfsFileSystemReadCacheConfigurationArgsDict']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1134,6 +1169,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
             __props__.__dict__["endpoint_ip_address_range"] = endpoint_ip_address_range
             __props__.__dict__["final_backup_tags"] = final_backup_tags
             __props__.__dict__["kms_key_id"] = kms_key_id
+            __props__.__dict__["network_type"] = network_type
             __props__.__dict__["preferred_subnet_id"] = preferred_subnet_id
             __props__.__dict__["read_cache_configuration"] = read_cache_configuration
             __props__.__dict__["region"] = region
@@ -1184,6 +1220,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
             final_backup_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
             network_interface_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            network_type: pulumi.Input[Optional[_builtins.str]] = None,
             owner_id: pulumi.Input[Optional[_builtins.str]] = None,
             preferred_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
             read_cache_configuration: pulumi.Input[Optional[Union['OpenZfsFileSystemReadCacheConfigurationArgs', 'OpenZfsFileSystemReadCacheConfigurationArgsDict']]] = None,
@@ -1223,6 +1260,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] final_backup_tags: Map of tags to apply to the file system's final backup.
         :param pulumi.Input[_builtins.str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_interface_ids: Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
+        :param pulumi.Input[_builtins.str] network_type: Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
         :param pulumi.Input[_builtins.str] owner_id: AWS account identifier that created the file system.
         :param pulumi.Input[_builtins.str] preferred_subnet_id: (Multi-AZ only) Required when `deployment_type` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
         :param pulumi.Input[Union['OpenZfsFileSystemReadCacheConfigurationArgs', 'OpenZfsFileSystemReadCacheConfigurationArgsDict']] read_cache_configuration: Configuration block for optional provisioned SSD read cache on file systems that use the Intelligent-Tiering storage class. Required when `storage_type` is set to `INTELLIGENT_TIERING`. See `read_cache_configuration` Block for details.
@@ -1262,6 +1300,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
         __props__.__dict__["final_backup_tags"] = final_backup_tags
         __props__.__dict__["kms_key_id"] = kms_key_id
         __props__.__dict__["network_interface_ids"] = network_interface_ids
+        __props__.__dict__["network_type"] = network_type
         __props__.__dict__["owner_id"] = owner_id
         __props__.__dict__["preferred_subnet_id"] = preferred_subnet_id
         __props__.__dict__["read_cache_configuration"] = read_cache_configuration
@@ -1400,6 +1439,14 @@ class OpenZfsFileSystem(pulumi.CustomResource):
         Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
         """
         return pulumi.get(self, "network_interface_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> pulumi.Output[_builtins.str]:
+        """
+        Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+        """
+        return pulumi.get(self, "network_type")
 
     @_builtins.property
     @pulumi.getter(name="ownerId")

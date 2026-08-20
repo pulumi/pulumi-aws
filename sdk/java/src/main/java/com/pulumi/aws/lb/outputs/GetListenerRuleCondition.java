@@ -46,7 +46,8 @@ public final class GetListenerRuleCondition {
      */
     private @Nullable List<GetListenerRuleConditionQueryString> queryStrings;
     /**
-     * @return Contains a single attribute `values`, which contains a set of source IPs in CIDR notation.
+     * @return Source IP address to match.
+     * Detailed below.
      * 
      */
     private @Nullable List<GetListenerRuleConditionSourceIp> sourceIps;
@@ -92,7 +93,8 @@ public final class GetListenerRuleCondition {
         return this.queryStrings == null ? List.of() : this.queryStrings;
     }
     /**
-     * @return Contains a single attribute `values`, which contains a set of source IPs in CIDR notation.
+     * @return Source IP address to match.
+     * Detailed below.
      * 
      */
     public List<GetListenerRuleConditionSourceIp> sourceIps() {

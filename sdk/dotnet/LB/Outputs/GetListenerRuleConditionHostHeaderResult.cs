@@ -18,7 +18,7 @@ namespace Pulumi.Aws.LB.Outputs
         /// </summary>
         public readonly ImmutableArray<string> RegexValues;
         /// <summary>
-        /// Set of `Key`-`Value` pairs indicating the query string parameters to match.
+        /// Set of source IP addresses in CIDR format for Application Load Balancers
         /// </summary>
         public readonly ImmutableArray<string> Values;
 

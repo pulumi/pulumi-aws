@@ -12,14 +12,14 @@ import java.util.Objects;
 @CustomType
 public final class GetListenerRuleConditionHttpRequestMethod {
     /**
-     * @return Set of `key`-`value` pairs indicating the query string parameters to match.
+     * @return Set of source IP addresses in CIDR format for Application Load Balancers
      * 
      */
     private List<String> values;
 
     private GetListenerRuleConditionHttpRequestMethod() {}
     /**
-     * @return Set of `key`-`value` pairs indicating the query string parameters to match.
+     * @return Set of source IP addresses in CIDR format for Application Load Balancers
      * 
      */
     public List<String> values() {

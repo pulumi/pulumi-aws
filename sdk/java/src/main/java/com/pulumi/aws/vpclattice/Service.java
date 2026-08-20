@@ -11,6 +11,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -137,6 +138,20 @@ public class Service extends com.pulumi.resources.CustomResource {
      */
     public Output<List<ServiceDnsEntry>> dnsEntries() {
         return this.dnsEntries;
+    }
+    /**
+     * Amount of time, in seconds, that a connection can remain idle (no data sent) before VPC Lattice closes it. The valid range is 60 to 600 seconds. Default is 60 seconds.
+     * 
+     */
+    @Export(name="idleTimeoutSeconds", refs={Integer.class}, tree="[0]")
+    private Output<Integer> idleTimeoutSeconds;
+
+    /**
+     * @return Amount of time, in seconds, that a connection can remain idle (no data sent) before VPC Lattice closes it. The valid range is 60 to 600 seconds. Default is 60 seconds.
+     * 
+     */
+    public Output<Integer> idleTimeoutSeconds() {
+        return this.idleTimeoutSeconds;
     }
     /**
      * Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can&#39;t use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.

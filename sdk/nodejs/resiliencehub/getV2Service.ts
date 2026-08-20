@@ -51,6 +51,10 @@ export interface GetV2ServiceArgs {
 export interface GetV2ServiceResult {
     readonly arn: string;
     /**
+     * Systems associated with the service. See `associatedSystem` Block below.
+     */
+    readonly associatedSystems: outputs.resiliencehub.GetV2ServiceAssociatedSystem[];
+    /**
      * Description of the service.
      */
     readonly description: string;

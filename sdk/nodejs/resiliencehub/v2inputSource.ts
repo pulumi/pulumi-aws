@@ -14,8 +14,6 @@ import * as utilities from "../utilities";
  *
  * > **Note:** This resource does not support in-place updates. Any change to the resource configuration will destroy and recreate the input source.
  *
- * > **Note:** The referenced resources (CloudFormation stacks, S3 state files, EKS clusters) must exist before creating the input source. Use `dependsOn` to ensure proper ordering.
- *
  * ## Example Usage
  *
  * ### CloudFormation Stack

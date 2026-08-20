@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.resiliencehub;
 
+import com.pulumi.aws.resiliencehub.inputs.V2ServiceAssociatedSystemArgs;
 import com.pulumi.aws.resiliencehub.inputs.V2ServicePermissionModelArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -18,6 +19,21 @@ import javax.annotation.Nullable;
 public final class V2ServiceArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final V2ServiceArgs Empty = new V2ServiceArgs();
+
+    /**
+     * Systems to associate with the service. See `associatedSystem` Block below.
+     * 
+     */
+    @Import(name="associatedSystems")
+    private @Nullable Output<List<V2ServiceAssociatedSystemArgs>> associatedSystems;
+
+    /**
+     * @return Systems to associate with the service. See `associatedSystem` Block below.
+     * 
+     */
+    public Optional<Output<List<V2ServiceAssociatedSystemArgs>>> associatedSystems() {
+        return Optional.ofNullable(this.associatedSystems);
+    }
 
     /**
      * Dependency discovery. Valid values: `ENABLED`, `DISABLED`.
@@ -161,6 +177,7 @@ public final class V2ServiceArgs extends com.pulumi.resources.ResourceArgs {
     private V2ServiceArgs() {}
 
     private V2ServiceArgs(V2ServiceArgs $) {
+        this.associatedSystems = $.associatedSystems;
         this.dependencyDiscovery = $.dependencyDiscovery;
         this.description = $.description;
         this.kmsKeyId = $.kmsKeyId;
@@ -188,6 +205,37 @@ public final class V2ServiceArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(V2ServiceArgs defaults) {
             $ = new V2ServiceArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param associatedSystems Systems to associate with the service. See `associatedSystem` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder associatedSystems(@Nullable Output<List<V2ServiceAssociatedSystemArgs>> associatedSystems) {
+            $.associatedSystems = associatedSystems;
+            return this;
+        }
+
+        /**
+         * @param associatedSystems Systems to associate with the service. See `associatedSystem` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder associatedSystems(List<V2ServiceAssociatedSystemArgs> associatedSystems) {
+            return associatedSystems(Output.of(associatedSystems));
+        }
+
+        /**
+         * @param associatedSystems Systems to associate with the service. See `associatedSystem` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder associatedSystems(V2ServiceAssociatedSystemArgs... associatedSystems) {
+            return associatedSystems(List.of(associatedSystems));
         }
 
         /**

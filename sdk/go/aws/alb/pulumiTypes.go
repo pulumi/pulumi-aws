@@ -4088,7 +4088,7 @@ type ListenerRuleCondition struct {
 	PathPattern *ListenerRuleConditionPathPattern `pulumi:"pathPattern"`
 	// Query strings to match. Query String block fields documented below.
 	QueryStrings []ListenerRuleConditionQueryString `pulumi:"queryStrings"`
-	// Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
+	// Source IP address to match. For ALB, use `values` to specify CIDR ranges. For NLB, use `ipAddressType` to match the IP address type (`ipv4` or `ipv6`). Source IP block fields documented below.
 	//
 	// > **NOTE::** Exactly one of `hostHeader`, `httpHeader`, `httpRequestMethod`, `pathPattern`, `queryString` or `sourceIp` must be set per condition.
 	SourceIp *ListenerRuleConditionSourceIp `pulumi:"sourceIp"`
@@ -4116,7 +4116,7 @@ type ListenerRuleConditionArgs struct {
 	PathPattern ListenerRuleConditionPathPatternPtrInput `pulumi:"pathPattern"`
 	// Query strings to match. Query String block fields documented below.
 	QueryStrings ListenerRuleConditionQueryStringArrayInput `pulumi:"queryStrings"`
-	// Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
+	// Source IP address to match. For ALB, use `values` to specify CIDR ranges. For NLB, use `ipAddressType` to match the IP address type (`ipv4` or `ipv6`). Source IP block fields documented below.
 	//
 	// > **NOTE::** Exactly one of `hostHeader`, `httpHeader`, `httpRequestMethod`, `pathPattern`, `queryString` or `sourceIp` must be set per condition.
 	SourceIp ListenerRuleConditionSourceIpPtrInput `pulumi:"sourceIp"`
@@ -4198,7 +4198,7 @@ func (o ListenerRuleConditionOutput) QueryStrings() ListenerRuleConditionQuerySt
 	return o.ApplyT(func(v ListenerRuleCondition) []ListenerRuleConditionQueryString { return v.QueryStrings }).(ListenerRuleConditionQueryStringArrayOutput)
 }
 
-// Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
+// Source IP address to match. For ALB, use `values` to specify CIDR ranges. For NLB, use `ipAddressType` to match the IP address type (`ipv4` or `ipv6`). Source IP block fields documented below.
 //
 // > **NOTE::** Exactly one of `hostHeader`, `httpHeader`, `httpRequestMethod`, `pathPattern`, `queryString` or `sourceIp` must be set per condition.
 func (o ListenerRuleConditionOutput) SourceIp() ListenerRuleConditionSourceIpPtrOutput {
@@ -4952,6 +4952,9 @@ func (o ListenerRuleConditionQueryStringArrayOutput) Index(i pulumi.IntInput) Li
 }
 
 type ListenerRuleConditionSourceIp struct {
+	// IP address type for Network Load Balancers. Valid values are `ipv4` and `ipv6`.
+	IpAddressType *string `pulumi:"ipAddressType"`
+	// List of source IP addresses in CIDR format for Application Load Balancers. Both IPv4 and IPv6 addresses can be used. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
 	Values []string `pulumi:"values"`
 }
 
@@ -4967,6 +4970,9 @@ type ListenerRuleConditionSourceIpInput interface {
 }
 
 type ListenerRuleConditionSourceIpArgs struct {
+	// IP address type for Network Load Balancers. Valid values are `ipv4` and `ipv6`.
+	IpAddressType pulumi.StringPtrInput `pulumi:"ipAddressType"`
+	// List of source IP addresses in CIDR format for Application Load Balancers. Both IPv4 and IPv6 addresses can be used. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -5047,6 +5053,12 @@ func (o ListenerRuleConditionSourceIpOutput) ToListenerRuleConditionSourceIpPtrO
 	}).(ListenerRuleConditionSourceIpPtrOutput)
 }
 
+// IP address type for Network Load Balancers. Valid values are `ipv4` and `ipv6`.
+func (o ListenerRuleConditionSourceIpOutput) IpAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListenerRuleConditionSourceIp) *string { return v.IpAddressType }).(pulumi.StringPtrOutput)
+}
+
+// List of source IP addresses in CIDR format for Application Load Balancers. Both IPv4 and IPv6 addresses can be used. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
 func (o ListenerRuleConditionSourceIpOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ListenerRuleConditionSourceIp) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -5075,6 +5087,17 @@ func (o ListenerRuleConditionSourceIpPtrOutput) Elem() ListenerRuleConditionSour
 	}).(ListenerRuleConditionSourceIpOutput)
 }
 
+// IP address type for Network Load Balancers. Valid values are `ipv4` and `ipv6`.
+func (o ListenerRuleConditionSourceIpPtrOutput) IpAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ListenerRuleConditionSourceIp) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IpAddressType
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of source IP addresses in CIDR format for Application Load Balancers. Both IPv4 and IPv6 addresses can be used. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
 func (o ListenerRuleConditionSourceIpPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ListenerRuleConditionSourceIp) []string {
 		if v == nil {

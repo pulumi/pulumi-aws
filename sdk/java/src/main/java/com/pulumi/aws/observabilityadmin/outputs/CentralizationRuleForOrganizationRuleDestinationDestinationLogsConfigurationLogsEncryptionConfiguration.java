@@ -18,6 +18,11 @@ public final class CentralizationRuleForOrganizationRuleDestinationDestinationLo
      */
     private @Nullable String encryptionConflictResolutionStrategy;
     /**
+     * @return Determines which newly created destination log groups are encrypted with `kmsKeyArn` when `encryptionStrategy` is `CUSTOMER_MANAGED`. Valid values: `ENCRYPTED_SOURCE_ONLY` (default), `NEW_DESTINATION_LOG_GROUPS`. Not valid when `encryptionStrategy` is `AWS_OWNED`.
+     * 
+     */
+    private @Nullable String encryptionScope;
+    /**
      * @return Encryption strategy for logs. Valid values: `AWS_OWNED`, `CUSTOMER_MANAGED`.
      * 
      */
@@ -35,6 +40,13 @@ public final class CentralizationRuleForOrganizationRuleDestinationDestinationLo
      */
     public Optional<String> encryptionConflictResolutionStrategy() {
         return Optional.ofNullable(this.encryptionConflictResolutionStrategy);
+    }
+    /**
+     * @return Determines which newly created destination log groups are encrypted with `kmsKeyArn` when `encryptionStrategy` is `CUSTOMER_MANAGED`. Valid values: `ENCRYPTED_SOURCE_ONLY` (default), `NEW_DESTINATION_LOG_GROUPS`. Not valid when `encryptionStrategy` is `AWS_OWNED`.
+     * 
+     */
+    public Optional<String> encryptionScope() {
+        return Optional.ofNullable(this.encryptionScope);
     }
     /**
      * @return Encryption strategy for logs. Valid values: `AWS_OWNED`, `CUSTOMER_MANAGED`.
@@ -61,12 +73,14 @@ public final class CentralizationRuleForOrganizationRuleDestinationDestinationLo
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String encryptionConflictResolutionStrategy;
+        private @Nullable String encryptionScope;
         private String encryptionStrategy;
         private @Nullable String kmsKeyArn;
         public Builder() {}
         public Builder(CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.encryptionConflictResolutionStrategy = defaults.encryptionConflictResolutionStrategy;
+    	      this.encryptionScope = defaults.encryptionScope;
     	      this.encryptionStrategy = defaults.encryptionStrategy;
     	      this.kmsKeyArn = defaults.kmsKeyArn;
         }
@@ -75,6 +89,12 @@ public final class CentralizationRuleForOrganizationRuleDestinationDestinationLo
         public Builder encryptionConflictResolutionStrategy(@Nullable String encryptionConflictResolutionStrategy) {
 
             this.encryptionConflictResolutionStrategy = encryptionConflictResolutionStrategy;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder encryptionScope(@Nullable String encryptionScope) {
+
+            this.encryptionScope = encryptionScope;
             return this;
         }
         @CustomType.Setter
@@ -94,6 +114,7 @@ public final class CentralizationRuleForOrganizationRuleDestinationDestinationLo
         public CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfiguration build() {
             final var _resultValue = new CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfiguration();
             _resultValue.encryptionConflictResolutionStrategy = encryptionConflictResolutionStrategy;
+            _resultValue.encryptionScope = encryptionScope;
             _resultValue.encryptionStrategy = encryptionStrategy;
             _resultValue.kmsKeyArn = kmsKeyArn;
             return _resultValue;

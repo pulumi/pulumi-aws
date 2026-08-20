@@ -49,6 +49,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="accountaccess")
+    private @Nullable Output<String> accountaccess;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> accountaccess() {
+        return Optional.ofNullable(this.accountaccess);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="acm")
     private @Nullable Output<String> acm;
 
@@ -73,6 +88,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      */
     public Optional<Output<String>> acmpca() {
         return Optional.ofNullable(this.acmpca);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
+    @Import(name="agentregistry")
+    private @Nullable Output<String> agentregistry;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> agentregistry() {
+        return Optional.ofNullable(this.agentregistry);
     }
 
     /**
@@ -4790,8 +4820,10 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
     private ProviderEndpointArgs(ProviderEndpointArgs $) {
         this.accessanalyzer = $.accessanalyzer;
         this.account = $.account;
+        this.accountaccess = $.accountaccess;
         this.acm = $.acm;
         this.acmpca = $.acmpca;
+        this.agentregistry = $.agentregistry;
         this.amg = $.amg;
         this.amp = $.amp;
         this.amplify = $.amplify;
@@ -5169,6 +5201,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
+         * @param accountaccess Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accountaccess(@Nullable Output<String> accountaccess) {
+            $.accountaccess = accountaccess;
+            return this;
+        }
+
+        /**
+         * @param accountaccess Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accountaccess(String accountaccess) {
+            return accountaccess(Output.of(accountaccess));
+        }
+
+        /**
          * @param acm Use this to override the default service endpoint URL
          * 
          * @return builder
@@ -5208,6 +5261,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder acmpca(String acmpca) {
             return acmpca(Output.of(acmpca));
+        }
+
+        /**
+         * @param agentregistry Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder agentregistry(@Nullable Output<String> agentregistry) {
+            $.agentregistry = agentregistry;
+            return this;
+        }
+
+        /**
+         * @param agentregistry Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder agentregistry(String agentregistry) {
+            return agentregistry(Output.of(agentregistry));
         }
 
         /**

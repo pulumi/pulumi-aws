@@ -103,6 +103,10 @@ export interface GetOntapFileSystemResult {
      */
     readonly networkInterfaceIds: string[];
     /**
+     * Network type (`IPV4` or `DUAL`).
+     */
+    readonly networkType: string;
+    /**
      * AWS account identifier that created the file system.
      */
     readonly ownerId: string;

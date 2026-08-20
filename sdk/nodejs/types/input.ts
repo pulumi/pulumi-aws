@@ -157,11 +157,19 @@ export interface ProviderEndpoint {
     /**
      * Use this to override the default service endpoint URL
      */
+    accountaccess?: pulumi.Input<string | undefined>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     acm?: pulumi.Input<string | undefined>;
     /**
      * Use this to override the default service endpoint URL
      */
     acmpca?: pulumi.Input<string | undefined>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
+    agentregistry?: pulumi.Input<string | undefined>;
     /**
      * Use this to override the default service endpoint URL
      */
@@ -2237,7 +2245,7 @@ export namespace alb {
          */
         queryStrings?: pulumi.Input<pulumi.Input<inputs.alb.ListenerRuleConditionQueryString>[] | undefined>;
         /**
-         * Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
+         * Source IP address to match. For ALB, use `values` to specify CIDR ranges. For NLB, use `ipAddressType` to match the IP address type (`ipv4` or `ipv6`). Source IP block fields documented below.
          *
          * > **NOTE::** Exactly one of `hostHeader`, `httpHeader`, `httpRequestMethod`, `pathPattern`, `queryString` or `sourceIp` must be set per condition.
          */
@@ -2297,7 +2305,14 @@ export namespace alb {
     }
 
     export interface ListenerRuleConditionSourceIp {
-        values: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * IP address type for Network Load Balancers. Valid values are `ipv4` and `ipv6`.
+         */
+        ipAddressType?: pulumi.Input<string | undefined>;
+        /**
+         * List of source IP addresses in CIDR format for Application Load Balancers. Both IPv4 and IPv6 addresses can be used. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface ListenerRuleTransform {
@@ -17620,40 +17635,168 @@ export namespace bedrock {
         /**
          * AgentCore runtime environment configuration. See `agentcoreRuntimeEnvironment` Block below.
          */
-        agentcoreRuntimeEnvironments: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment>[]>;
+        agentcoreRuntimeEnvironments?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment>[] | undefined>;
     }
 
-    export interface AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment {
+    export interface AgentcoreHarnessEnvironmentActual {
+        /**
+         * AgentCore runtime environment configuration. See `agentcoreRuntimeEnvironment` Block below.
+         */
+        agentcoreRuntimeEnvironments: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment>[]>;
+    }
+
+    export interface AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment {
+        /**
+         * ARN of the agent runtime the service provisions for the harness.
+         */
         agentRuntimeArn: pulumi.Input<string>;
+        /**
+         * ID of the agent runtime the service provisions for the harness.
+         */
         agentRuntimeId: pulumi.Input<string>;
+        /**
+         * Name of the agent runtime the service derives for the harness.
+         */
         agentRuntimeName: pulumi.Input<string>;
         /**
          * Filesystem configurations. See `filesystemConfiguration` Block below.
+         *
+         * The following attributes are exported under `agentcoreRuntimeEnvironment`:
          */
-        filesystemConfigurations: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfiguration>[]>;
+        filesystemConfigurations: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfiguration>[]>;
         /**
          * Lifecycle configuration. See `lifecycleConfiguration` Block below.
          */
-        lifecycleConfigurations: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfiguration>[]>;
+        lifecycleConfigurations: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfiguration>[]>;
         /**
          * Network configuration. See `networkConfiguration` Block below.
          */
-        networkConfigurations: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration>[]>;
+        networkConfigurations: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfiguration>[]>;
+    }
+
+    export interface AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfiguration {
+        /**
+         * Amazon EFS access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `efsAccessPoint` Block below.
+         */
+        efsAccessPoints: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint>[]>;
+        /**
+         * Amazon S3 Files access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `s3FilesAccessPoint` Block below.
+         */
+        s3FilesAccessPoints: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint>[]>;
+        /**
+         * Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `sessionStorage` Block below.
+         */
+        sessionStorages: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage>[]>;
+    }
+
+    export interface AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint {
+        /**
+         * ARN of the Amazon EFS access point to mount into the agent runtime.
+         */
+        accessPointArn: pulumi.Input<string>;
+        /**
+         * Mount path for the EFS access point inside the agent runtime. Must be under `/mnt` with exactly one subdirectory level (for example, `/mnt/data`).
+         */
+        mountPath: pulumi.Input<string>;
+    }
+
+    export interface AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint {
+        /**
+         * ARN of the Amazon S3 Files access point to mount into the agent runtime.
+         */
+        accessPointArn: pulumi.Input<string>;
+        /**
+         * Mount path for the S3 Files access point inside the agent runtime. Must be under `/mnt` with exactly one subdirectory level (for example, `/mnt/data`).
+         */
+        mountPath: pulumi.Input<string>;
+    }
+
+    export interface AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage {
+        /**
+         * Mount path for the session storage filesystem inside the agent runtime. Must be under `/mnt` with exactly one subdirectory level (for example, `/mnt/data`).
+         */
+        mountPath: pulumi.Input<string>;
+    }
+
+    export interface AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfiguration {
+        /**
+         * Timeout in seconds for idle sessions.
+         */
+        idleRuntimeSessionTimeout: pulumi.Input<number>;
+        /**
+         * Maximum lifetime of the instance in seconds.
+         */
+        maxLifetime: pulumi.Input<number>;
+    }
+
+    export interface AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfiguration {
+        /**
+         * Network mode. Valid values: `PUBLIC`, `VPC`.
+         */
+        networkMode: pulumi.Input<string>;
+        /**
+         * VPC configuration. See `networkModeConfig` Block below.
+         */
+        networkModeConfigs: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig>[]>;
+    }
+
+    export interface AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig {
+        /**
+         * Whether to require an S3 endpoint for the service in the VPC.
+         */
+        requireServiceS3Endpoint: pulumi.Input<boolean>;
+        /**
+         * Security groups for the VPC.
+         */
+        securityGroups: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Subnets for the VPC.
+         */
+        subnets: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment {
+        /**
+         * ARN of the agent runtime the service provisions for the harness.
+         */
+        agentRuntimeArn?: pulumi.Input<string | undefined>;
+        /**
+         * ID of the agent runtime the service provisions for the harness.
+         */
+        agentRuntimeId?: pulumi.Input<string | undefined>;
+        /**
+         * Name of the agent runtime the service derives for the harness.
+         */
+        agentRuntimeName?: pulumi.Input<string | undefined>;
+        /**
+         * Filesystem configurations. See `filesystemConfiguration` Block below.
+         *
+         * The following attributes are exported under `agentcoreRuntimeEnvironment`:
+         */
+        filesystemConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfiguration>[] | undefined>;
+        /**
+         * Lifecycle configuration. See `lifecycleConfiguration` Block below.
+         */
+        lifecycleConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfiguration>[] | undefined>;
+        /**
+         * Network configuration. See `networkConfiguration` Block below.
+         */
+        networkConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration>[] | undefined>;
     }
 
     export interface AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfiguration {
         /**
          * Amazon EFS access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `efsAccessPoint` Block below.
          */
-        efsAccessPoints: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint>[]>;
+        efsAccessPoints?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint>[] | undefined>;
         /**
          * Amazon S3 Files access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `s3FilesAccessPoint` Block below.
          */
-        s3FilesAccessPoints: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint>[]>;
+        s3FilesAccessPoints?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint>[] | undefined>;
         /**
          * Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `sessionStorage` Block below.
          */
-        sessionStorages: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage>[]>;
+        sessionStorages?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage>[] | undefined>;
     }
 
     export interface AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint {
@@ -17704,14 +17847,14 @@ export namespace bedrock {
         /**
          * VPC configuration. See `networkModeConfig` Block below.
          */
-        networkModeConfigs: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig>[]>;
+        networkModeConfigs?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig>[] | undefined>;
     }
 
     export interface AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig {
         /**
          * Whether to require an S3 endpoint for the service in the VPC.
          */
-        requireServiceS3Endpoint: pulumi.Input<boolean>;
+        requireServiceS3Endpoint?: pulumi.Input<boolean | undefined>;
         /**
          * Security groups for the VPC.
          */
@@ -32871,6 +33014,21 @@ export namespace dsql {
          * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
          */
         create?: pulumi.Input<string | undefined>;
+    }
+
+    export interface ClusterPolicyTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string | undefined>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string | undefined>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string | undefined>;
     }
 
     export interface ClusterTimeouts {
@@ -57320,6 +57478,47 @@ export namespace lambda {
         untrustedArtifactOnDeployment: pulumi.Input<string>;
     }
 
+    export interface CoreNetworkConnectorConfiguration {
+        /**
+         * Configuration for routing egress traffic through a VPC. See `vpcEgressConfiguration` Block below.
+         */
+        vpcEgressConfiguration?: pulumi.Input<inputs.lambda.CoreNetworkConnectorConfigurationVpcEgressConfiguration | undefined>;
+    }
+
+    export interface CoreNetworkConnectorConfigurationVpcEgressConfiguration {
+        /**
+         * Compute resource types that may use this connector. Valid values: `MicroVm`.
+         */
+        associatedComputeResourceTypes: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Network protocol. Valid values: `IPv4`, `DualStack`.
+         */
+        networkProtocol?: pulumi.Input<string | undefined>;
+        /**
+         * Set of security group IDs applied to the connector's ENIs.
+         */
+        securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Set of subnet IDs where the connector provisions its ENIs.
+         */
+        subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface CoreNetworkConnectorTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string | undefined>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string | undefined>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string | undefined>;
+    }
+
     export interface EventSourceMappingAmazonManagedKafkaEventSourceConfig {
         /**
          * Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [AmazonManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_AmazonManagedKafkaEventSourceConfig.html).
@@ -57727,6 +57926,34 @@ export namespace lambda {
         vpcId?: pulumi.Input<string | undefined>;
     }
 
+    export interface MicrovmsImageCodeArtifact {
+        /**
+         * S3 URI of the zip archive containing the application code and Dockerfile (e.g., `s3://bucket/code.zip`).
+         */
+        uri: pulumi.Input<string>;
+    }
+
+    export interface MicrovmsImageCpuConfiguration {
+        /**
+         * CPU architecture for the MicroVM. Valid values are `x8664` and `arm64`.
+         */
+        architecture: pulumi.Input<string>;
+    }
+
+    export interface MicrovmsImageTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string | undefined>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string | undefined>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string | undefined>;
+    }
 }
 
 export namespace lb {
@@ -58114,7 +58341,7 @@ export namespace lb {
          */
         name?: string;
         /**
-         * Set of `key`-`value` pairs indicating the query string parameters to match.
+         * Set of source IP addresses in CIDR format for Application Load Balancers
          */
         values?: string[];
     }
@@ -58129,7 +58356,7 @@ export namespace lb {
          */
         name?: pulumi.Input<string | undefined>;
         /**
-         * Set of `key`-`value` pairs indicating the query string parameters to match.
+         * Set of source IP addresses in CIDR format for Application Load Balancers
          */
         values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
@@ -58214,7 +58441,8 @@ export namespace lb {
          */
         queryStrings?: inputs.lb.GetListenerRuleConditionQueryString[];
         /**
-         * Contains a single attribute `values`, which contains a set of source IPs in CIDR notation.
+         * Source IP address to match.
+         * Detailed below.
          */
         sourceIps?: inputs.lb.GetListenerRuleConditionSourceIp[];
     }
@@ -58245,7 +58473,8 @@ export namespace lb {
          */
         queryStrings?: pulumi.Input<pulumi.Input<inputs.lb.GetListenerRuleConditionQueryStringArgs>[] | undefined>;
         /**
-         * Contains a single attribute `values`, which contains a set of source IPs in CIDR notation.
+         * Source IP address to match.
+         * Detailed below.
          */
         sourceIps?: pulumi.Input<pulumi.Input<inputs.lb.GetListenerRuleConditionSourceIpArgs>[] | undefined>;
     }
@@ -58256,7 +58485,7 @@ export namespace lb {
          */
         regexValues?: string[];
         /**
-         * Set of `key`-`value` pairs indicating the query string parameters to match.
+         * Set of source IP addresses in CIDR format for Application Load Balancers
          */
         values?: string[];
     }
@@ -58267,7 +58496,7 @@ export namespace lb {
          */
         regexValues?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * Set of `key`-`value` pairs indicating the query string parameters to match.
+         * Set of source IP addresses in CIDR format for Application Load Balancers
          */
         values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
@@ -58282,7 +58511,7 @@ export namespace lb {
          */
         regexValues?: string[];
         /**
-         * Set of `key`-`value` pairs indicating the query string parameters to match.
+         * Set of source IP addresses in CIDR format for Application Load Balancers
          */
         values?: string[];
     }
@@ -58297,21 +58526,21 @@ export namespace lb {
          */
         regexValues?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * Set of `key`-`value` pairs indicating the query string parameters to match.
+         * Set of source IP addresses in CIDR format for Application Load Balancers
          */
         values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface GetListenerRuleConditionHttpRequestMethod {
         /**
-         * Set of `key`-`value` pairs indicating the query string parameters to match.
+         * Set of source IP addresses in CIDR format for Application Load Balancers
          */
         values?: string[];
     }
 
     export interface GetListenerRuleConditionHttpRequestMethodArgs {
         /**
-         * Set of `key`-`value` pairs indicating the query string parameters to match.
+         * Set of source IP addresses in CIDR format for Application Load Balancers
          */
         values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
@@ -58322,7 +58551,7 @@ export namespace lb {
          */
         regexValues?: string[];
         /**
-         * Set of `key`-`value` pairs indicating the query string parameters to match.
+         * Set of source IP addresses in CIDR format for Application Load Balancers
          */
         values?: string[];
     }
@@ -58333,21 +58562,21 @@ export namespace lb {
          */
         regexValues?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * Set of `key`-`value` pairs indicating the query string parameters to match.
+         * Set of source IP addresses in CIDR format for Application Load Balancers
          */
         values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface GetListenerRuleConditionQueryString {
         /**
-         * Set of `key`-`value` pairs indicating the query string parameters to match.
+         * Set of source IP addresses in CIDR format for Application Load Balancers
          */
         values?: inputs.lb.GetListenerRuleConditionQueryStringValue[];
     }
 
     export interface GetListenerRuleConditionQueryStringArgs {
         /**
-         * Set of `key`-`value` pairs indicating the query string parameters to match.
+         * Set of source IP addresses in CIDR format for Application Load Balancers
          */
         values?: pulumi.Input<pulumi.Input<inputs.lb.GetListenerRuleConditionQueryStringValueArgs>[] | undefined>;
     }
@@ -58376,14 +58605,22 @@ export namespace lb {
 
     export interface GetListenerRuleConditionSourceIp {
         /**
-         * Set of `key`-`value` pairs indicating the query string parameters to match.
+         * IP address type for Network Load Balancers.
+         */
+        ipAddressType?: string;
+        /**
+         * Set of source IP addresses in CIDR format for Application Load Balancers
          */
         values?: string[];
     }
 
     export interface GetListenerRuleConditionSourceIpArgs {
         /**
-         * Set of `key`-`value` pairs indicating the query string parameters to match.
+         * IP address type for Network Load Balancers.
+         */
+        ipAddressType?: pulumi.Input<string | undefined>;
+        /**
+         * Set of source IP addresses in CIDR format for Application Load Balancers
          */
         values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
@@ -59010,7 +59247,7 @@ export namespace lb {
          */
         queryStrings?: pulumi.Input<pulumi.Input<inputs.lb.ListenerRuleConditionQueryString>[] | undefined>;
         /**
-         * Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
+         * Source IP address to match. For ALB, use `values` to specify CIDR ranges. For NLB, use `ipAddressType` to match the IP address type (`ipv4` or `ipv6`). Source IP block fields documented below.
          *
          * > **NOTE::** Exactly one of `hostHeader`, `httpHeader`, `httpRequestMethod`, `pathPattern`, `queryString` or `sourceIp` must be set per condition.
          */
@@ -59070,7 +59307,14 @@ export namespace lb {
     }
 
     export interface ListenerRuleConditionSourceIp {
-        values: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * IP address type for Network Load Balancers. Valid values are `ipv4` and `ipv6`.
+         */
+        ipAddressType?: pulumi.Input<string | undefined>;
+        /**
+         * List of source IP addresses in CIDR format for Application Load Balancers. Both IPv4 and IPv6 addresses can be used. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface ListenerRuleTransform {
@@ -73116,6 +73360,20 @@ export namespace mailmanager {
         update?: pulumi.Input<string | undefined>;
     }
 
+    export interface RelayAuthentication {
+        /**
+         * No authentication is required to connect to the SMTP server.
+         */
+        noAuthentication?: pulumi.Input<inputs.mailmanager.RelayAuthenticationNoAuthentication | undefined>;
+        /**
+         * ARN of the Secrets Manager secret containing the SMTP credentials.
+         */
+        secretArn?: pulumi.Input<string | undefined>;
+    }
+
+    export interface RelayAuthenticationNoAuthentication {
+    }
+
     export interface RuleSetRule {
         /**
          * One or more actions to execute when all conditions match. Between 1 and 10 actions are supported. Each action must contain exactly one action configuration. See `action` Block.
@@ -79742,6 +80000,10 @@ export namespace observabilityadmin {
          */
         encryptionConflictResolutionStrategy?: pulumi.Input<string | undefined>;
         /**
+         * Determines which newly created destination log groups are encrypted with `kmsKeyArn` when `encryptionStrategy` is `CUSTOMER_MANAGED`. Valid values: `ENCRYPTED_SOURCE_ONLY` (default), `NEW_DESTINATION_LOG_GROUPS`. Not valid when `encryptionStrategy` is `AWS_OWNED`.
+         */
+        encryptionScope?: pulumi.Input<string | undefined>;
+        /**
          * Encryption strategy for logs. Valid values: `AWS_OWNED`, `CUSTOMER_MANAGED`.
          */
         encryptionStrategy: pulumi.Input<string>;
@@ -80625,6 +80887,21 @@ export namespace odb {
     }
 
     export interface CloudVmClusterTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string | undefined>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string | undefined>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string | undefined>;
+    }
+
+    export interface IamRoleAssociationTimeouts {
         /**
          * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
          */
@@ -86013,6 +86290,13 @@ export namespace resiliencehub {
          * Recovery time objective in minutes.
          */
         rtoInMinutes?: pulumi.Input<number | undefined>;
+    }
+
+    export interface V2ServiceAssociatedSystem {
+        /**
+         * ARN of the system to associate with the service.
+         */
+        systemArn: pulumi.Input<string>;
     }
 
     export interface V2ServicePermissionModel {

@@ -58,6 +58,25 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### With Associated Systems
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.resiliencehub.V2System("example", {name: "example-system"});
+ * const exampleV2Service = new aws.resiliencehub.V2Service("example", {
+ *     name: "example-service",
+ *     regions: ["us-west-2"],
+ *     permissionModel: {
+ *         invokerRoleName: "AWSResilienceHubAssessmentRole",
+ *     },
+ *     associatedSystems: [{
+ *         systemArn: example.arn,
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * ### Identity Schema
@@ -104,6 +123,10 @@ export class V2Service extends pulumi.CustomResource {
      * ARN of the service.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
+     * Systems to associate with the service. See `associatedSystem` Block below.
+     */
+    declare public readonly associatedSystems: pulumi.Output<outputs.resiliencehub.V2ServiceAssociatedSystem[] | undefined>;
     /**
      * Dependency discovery. Valid values: `ENABLED`, `DISABLED`.
      */
@@ -161,6 +184,7 @@ export class V2Service extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as V2ServiceState | undefined;
             resourceInputs["arn"] = state?.arn;
+            resourceInputs["associatedSystems"] = state?.associatedSystems;
             resourceInputs["dependencyDiscovery"] = state?.dependencyDiscovery;
             resourceInputs["description"] = state?.description;
             resourceInputs["kmsKeyId"] = state?.kmsKeyId;
@@ -179,6 +203,7 @@ export class V2Service extends pulumi.CustomResource {
             if (args?.regions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'regions'");
             }
+            resourceInputs["associatedSystems"] = args?.associatedSystems;
             resourceInputs["dependencyDiscovery"] = args?.dependencyDiscovery;
             resourceInputs["description"] = args?.description;
             resourceInputs["kmsKeyId"] = args?.kmsKeyId;
@@ -204,6 +229,10 @@ export interface V2ServiceState {
      * ARN of the service.
      */
     arn?: pulumi.Input<string | undefined>;
+    /**
+     * Systems to associate with the service. See `associatedSystem` Block below.
+     */
+    associatedSystems?: pulumi.Input<pulumi.Input<inputs.resiliencehub.V2ServiceAssociatedSystem>[] | undefined>;
     /**
      * Dependency discovery. Valid values: `ENABLED`, `DISABLED`.
      */
@@ -252,6 +281,10 @@ export interface V2ServiceState {
  * The set of arguments for constructing a V2Service resource.
  */
 export interface V2ServiceArgs {
+    /**
+     * Systems to associate with the service. See `associatedSystem` Block below.
+     */
+    associatedSystems?: pulumi.Input<pulumi.Input<inputs.resiliencehub.V2ServiceAssociatedSystem>[] | undefined>;
     /**
      * Dependency discovery. Valid values: `ENABLED`, `DISABLED`.
      */

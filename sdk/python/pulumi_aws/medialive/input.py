@@ -534,6 +534,17 @@ class Input(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `id` (String) ID of the MediaLive Input.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import MediaLive Input using the `id`. For example:
 
         ```sh
@@ -591,6 +602,17 @@ class Input(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `id` (String) ID of the MediaLive Input.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import MediaLive Input using the `id`. For example:
 

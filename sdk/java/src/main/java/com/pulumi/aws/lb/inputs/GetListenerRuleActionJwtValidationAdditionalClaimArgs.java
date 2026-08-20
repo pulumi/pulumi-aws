@@ -46,14 +46,14 @@ public final class GetListenerRuleActionJwtValidationAdditionalClaimArgs extends
     }
 
     /**
-     * Set of `key`-`value` pairs indicating the query string parameters to match.
+     * Set of source IP addresses in CIDR format for Application Load Balancers
      * 
      */
     @Import(name="values", required=true)
     private Output<List<String>> values;
 
     /**
-     * @return Set of `key`-`value` pairs indicating the query string parameters to match.
+     * @return Set of source IP addresses in CIDR format for Application Load Balancers
      * 
      */
     public Output<List<String>> values() {
@@ -129,7 +129,7 @@ public final class GetListenerRuleActionJwtValidationAdditionalClaimArgs extends
         }
 
         /**
-         * @param values Set of `key`-`value` pairs indicating the query string parameters to match.
+         * @param values Set of source IP addresses in CIDR format for Application Load Balancers
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class GetListenerRuleActionJwtValidationAdditionalClaimArgs extends
         }
 
         /**
-         * @param values Set of `key`-`value` pairs indicating the query string parameters to match.
+         * @param values Set of source IP addresses in CIDR format for Application Load Balancers
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class GetListenerRuleActionJwtValidationAdditionalClaimArgs extends
         }
 
         /**
-         * @param values Set of `key`-`value` pairs indicating the query string parameters to match.
+         * @param values Set of source IP addresses in CIDR format for Application Load Balancers
          * 
          * @return builder
          * 

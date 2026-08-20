@@ -27,7 +27,7 @@ class GetOntapFileSystemResult:
     """
     A collection of values returned by getOntapFileSystem.
     """
-    def __init__(__self__, arn=None, automatic_backup_retention_days=None, daily_automatic_backup_start_time=None, deployment_type=None, disk_iops_configurations=None, dns_name=None, endpoint_ip_address_range=None, endpoints=None, ha_pairs=None, id=None, kms_key_id=None, network_interface_ids=None, owner_id=None, preferred_subnet_id=None, region=None, route_table_ids=None, storage_capacity=None, storage_type=None, subnet_ids=None, tags=None, throughput_capacity=None, throughput_capacity_per_ha_pair=None, vpc_id=None, weekly_maintenance_start_time=None):
+    def __init__(__self__, arn=None, automatic_backup_retention_days=None, daily_automatic_backup_start_time=None, deployment_type=None, disk_iops_configurations=None, dns_name=None, endpoint_ip_address_range=None, endpoints=None, ha_pairs=None, id=None, kms_key_id=None, network_interface_ids=None, network_type=None, owner_id=None, preferred_subnet_id=None, region=None, route_table_ids=None, storage_capacity=None, storage_type=None, subnet_ids=None, tags=None, throughput_capacity=None, throughput_capacity_per_ha_pair=None, vpc_id=None, weekly_maintenance_start_time=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -64,6 +64,9 @@ class GetOntapFileSystemResult:
         if network_interface_ids and not isinstance(network_interface_ids, list):
             raise TypeError("Expected argument 'network_interface_ids' to be a list")
         pulumi.set(__self__, "network_interface_ids", network_interface_ids)
+        if network_type and not isinstance(network_type, str):
+            raise TypeError("Expected argument 'network_type' to be a str")
+        pulumi.set(__self__, "network_type", network_type)
         if owner_id and not isinstance(owner_id, str):
             raise TypeError("Expected argument 'owner_id' to be a str")
         pulumi.set(__self__, "owner_id", owner_id)
@@ -198,6 +201,14 @@ class GetOntapFileSystemResult:
         return pulumi.get(self, "network_interface_ids")
 
     @_builtins.property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> _builtins.str:
+        """
+        Network type (`IPV4` or `DUAL`).
+        """
+        return pulumi.get(self, "network_type")
+
+    @_builtins.property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> _builtins.str:
         """
@@ -309,6 +320,7 @@ class AwaitableGetOntapFileSystemResult(GetOntapFileSystemResult):
             id=self.id,
             kms_key_id=self.kms_key_id,
             network_interface_ids=self.network_interface_ids,
+            network_type=self.network_type,
             owner_id=self.owner_id,
             preferred_subnet_id=self.preferred_subnet_id,
             region=self.region,
@@ -366,6 +378,7 @@ def get_ontap_file_system(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
         network_interface_ids=pulumi.get(__ret__, 'network_interface_ids'),
+        network_type=pulumi.get(__ret__, 'network_type'),
         owner_id=pulumi.get(__ret__, 'owner_id'),
         preferred_subnet_id=pulumi.get(__ret__, 'preferred_subnet_id'),
         region=pulumi.get(__ret__, 'region'),
@@ -420,6 +433,7 @@ def get_ontap_file_system_output(id: pulumi.Input[Optional[_builtins.str]] = Non
         id=pulumi.get(__response__, 'id'),
         kms_key_id=pulumi.get(__response__, 'kms_key_id'),
         network_interface_ids=pulumi.get(__response__, 'network_interface_ids'),
+        network_type=pulumi.get(__response__, 'network_type'),
         owner_id=pulumi.get(__response__, 'owner_id'),
         preferred_subnet_id=pulumi.get(__response__, 'preferred_subnet_id'),
         region=pulumi.get(__response__, 'region'),

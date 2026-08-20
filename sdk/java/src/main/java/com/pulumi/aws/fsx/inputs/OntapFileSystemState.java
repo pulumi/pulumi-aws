@@ -201,6 +201,21 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+     * 
+     */
+    @Import(name="networkType")
+    private @Nullable Output<String> networkType;
+
+    /**
+     * @return Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+     * 
+     */
+    public Optional<Output<String>> networkType() {
+        return Optional.ofNullable(this.networkType);
+    }
+
+    /**
      * AWS account identifier that created the file system.
      * 
      */
@@ -425,6 +440,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         this.haPairs = $.haPairs;
         this.kmsKeyId = $.kmsKeyId;
         this.networkInterfaceIds = $.networkInterfaceIds;
+        this.networkType = $.networkType;
         this.ownerId = $.ownerId;
         this.preferredSubnetId = $.preferredSubnetId;
         this.region = $.region;
@@ -729,6 +745,27 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
          */
         public Builder networkInterfaceIds(String... networkInterfaceIds) {
             return networkInterfaceIds(List.of(networkInterfaceIds));
+        }
+
+        /**
+         * @param networkType Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkType(@Nullable Output<String> networkType) {
+            $.networkType = networkType;
+            return this;
+        }
+
+        /**
+         * @param networkType Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkType(String networkType) {
+            return networkType(Output.of(networkType));
         }
 
         /**

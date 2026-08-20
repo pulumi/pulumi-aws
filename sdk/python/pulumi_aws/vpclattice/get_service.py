@@ -27,7 +27,7 @@ class GetServiceResult:
     """
     A collection of values returned by getService.
     """
-    def __init__(__self__, arn=None, auth_type=None, certificate_arn=None, custom_domain_name=None, dns_entries=None, id=None, name=None, region=None, service_identifier=None, status=None, tags=None):
+    def __init__(__self__, arn=None, auth_type=None, certificate_arn=None, custom_domain_name=None, dns_entries=None, id=None, idle_timeout_seconds=None, name=None, region=None, service_identifier=None, status=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -46,6 +46,9 @@ class GetServiceResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if idle_timeout_seconds and not isinstance(idle_timeout_seconds, int):
+            raise TypeError("Expected argument 'idle_timeout_seconds' to be a int")
+        pulumi.set(__self__, "idle_timeout_seconds", idle_timeout_seconds)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -111,6 +114,14 @@ class GetServiceResult:
         return pulumi.get(self, "id")
 
     @_builtins.property
+    @pulumi.getter(name="idleTimeoutSeconds")
+    def idle_timeout_seconds(self) -> _builtins.int:
+        """
+        Amount of time, in seconds, that a connection can remain idle (no data sent) before VPC Lattice closes it.
+        """
+        return pulumi.get(self, "idle_timeout_seconds")
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
         return pulumi.get(self, "name")
@@ -154,6 +165,7 @@ class AwaitableGetServiceResult(GetServiceResult):
             custom_domain_name=self.custom_domain_name,
             dns_entries=self.dns_entries,
             id=self.id,
+            idle_timeout_seconds=self.idle_timeout_seconds,
             name=self.name,
             region=self.region,
             service_identifier=self.service_identifier,
@@ -201,6 +213,7 @@ def get_service(name: Optional[_builtins.str] = None,
         custom_domain_name=pulumi.get(__ret__, 'custom_domain_name'),
         dns_entries=pulumi.get(__ret__, 'dns_entries'),
         id=pulumi.get(__ret__, 'id'),
+        idle_timeout_seconds=pulumi.get(__ret__, 'idle_timeout_seconds'),
         name=pulumi.get(__ret__, 'name'),
         region=pulumi.get(__ret__, 'region'),
         service_identifier=pulumi.get(__ret__, 'service_identifier'),
@@ -245,6 +258,7 @@ def get_service_output(name: pulumi.Input[Optional[Optional[_builtins.str]]] = N
         custom_domain_name=pulumi.get(__response__, 'custom_domain_name'),
         dns_entries=pulumi.get(__response__, 'dns_entries'),
         id=pulumi.get(__response__, 'id'),
+        idle_timeout_seconds=pulumi.get(__response__, 'idle_timeout_seconds'),
         name=pulumi.get(__response__, 'name'),
         region=pulumi.get(__response__, 'region'),
         service_identifier=pulumi.get(__response__, 'service_identifier'),

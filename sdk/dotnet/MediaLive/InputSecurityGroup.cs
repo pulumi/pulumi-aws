@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.MediaLive
 {
     /// <summary>
-    /// Resource for managing an AWS MediaLive InputSecurityGroup.
+    /// Manages an AWS MediaLive Input Security Group.
     /// 
     /// ## Example Usage
     /// 
@@ -44,7 +44,18 @@ namespace Pulumi.Aws.MediaLive
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import MediaLive InputSecurityGroup using the `Id`. For example:
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Id` - (String) ID of the Input Security Group.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
+    /// Using `pulumi import`, import MediaLive Input Security Group using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:medialive/inputSecurityGroup:InputSecurityGroup example 123456
@@ -72,7 +83,7 @@ namespace Pulumi.Aws.MediaLive
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the InputSecurityGroup. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -144,7 +155,7 @@ namespace Pulumi.Aws.MediaLive
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the InputSecurityGroup. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -202,7 +213,7 @@ namespace Pulumi.Aws.MediaLive
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the InputSecurityGroup. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

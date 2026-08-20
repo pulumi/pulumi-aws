@@ -97,6 +97,49 @@ import (
 //
 // ```
 //
+// ### With Associated Systems
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/resiliencehub"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := resiliencehub.NewV2System(ctx, "example", &resiliencehub.V2SystemArgs{
+//				Name: pulumi.String("example-system"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = resiliencehub.NewV2Service(ctx, "example", &resiliencehub.V2ServiceArgs{
+//				Name: pulumi.String("example-service"),
+//				Regions: pulumi.StringArray{
+//					pulumi.String("us-west-2"),
+//				},
+//				PermissionModel: &resiliencehub.V2ServicePermissionModelArgs{
+//					InvokerRoleName: pulumi.String("AWSResilienceHubAssessmentRole"),
+//				},
+//				AssociatedSystems: resiliencehub.V2ServiceAssociatedSystemArray{
+//					&resiliencehub.V2ServiceAssociatedSystemArgs{
+//						SystemArn: example.Arn,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ### Identity Schema
@@ -115,6 +158,8 @@ type V2Service struct {
 
 	// ARN of the service.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Systems to associate with the service. See `associatedSystem` Block below.
+	AssociatedSystems V2ServiceAssociatedSystemArrayOutput `pulumi:"associatedSystems"`
 	// Dependency discovery. Valid values: `ENABLED`, `DISABLED`.
 	DependencyDiscovery pulumi.StringOutput `pulumi:"dependencyDiscovery"`
 	// Description of the service.
@@ -177,6 +222,8 @@ func GetV2Service(ctx *pulumi.Context,
 type v2serviceState struct {
 	// ARN of the service.
 	Arn *string `pulumi:"arn"`
+	// Systems to associate with the service. See `associatedSystem` Block below.
+	AssociatedSystems []V2ServiceAssociatedSystem `pulumi:"associatedSystems"`
 	// Dependency discovery. Valid values: `ENABLED`, `DISABLED`.
 	DependencyDiscovery *string `pulumi:"dependencyDiscovery"`
 	// Description of the service.
@@ -204,6 +251,8 @@ type v2serviceState struct {
 type V2ServiceState struct {
 	// ARN of the service.
 	Arn pulumi.StringPtrInput
+	// Systems to associate with the service. See `associatedSystem` Block below.
+	AssociatedSystems V2ServiceAssociatedSystemArrayInput
 	// Dependency discovery. Valid values: `ENABLED`, `DISABLED`.
 	DependencyDiscovery pulumi.StringPtrInput
 	// Description of the service.
@@ -233,6 +282,8 @@ func (V2ServiceState) ElementType() reflect.Type {
 }
 
 type v2serviceArgs struct {
+	// Systems to associate with the service. See `associatedSystem` Block below.
+	AssociatedSystems []V2ServiceAssociatedSystem `pulumi:"associatedSystems"`
 	// Dependency discovery. Valid values: `ENABLED`, `DISABLED`.
 	DependencyDiscovery *string `pulumi:"dependencyDiscovery"`
 	// Description of the service.
@@ -257,6 +308,8 @@ type v2serviceArgs struct {
 
 // The set of arguments for constructing a V2Service resource.
 type V2ServiceArgs struct {
+	// Systems to associate with the service. See `associatedSystem` Block below.
+	AssociatedSystems V2ServiceAssociatedSystemArrayInput
 	// Dependency discovery. Valid values: `ENABLED`, `DISABLED`.
 	DependencyDiscovery pulumi.StringPtrInput
 	// Description of the service.
@@ -369,6 +422,11 @@ func (o V2ServiceOutput) ToV2ServiceOutputWithContext(ctx context.Context) V2Ser
 // ARN of the service.
 func (o V2ServiceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *V2Service) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Systems to associate with the service. See `associatedSystem` Block below.
+func (o V2ServiceOutput) AssociatedSystems() V2ServiceAssociatedSystemArrayOutput {
+	return o.ApplyT(func(v *V2Service) V2ServiceAssociatedSystemArrayOutput { return v.AssociatedSystems }).(V2ServiceAssociatedSystemArrayOutput)
 }
 
 // Dependency discovery. Valid values: `ENABLED`, `DISABLED`.

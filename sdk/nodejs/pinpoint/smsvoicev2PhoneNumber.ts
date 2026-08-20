@@ -115,6 +115,10 @@ export class Smsvoicev2PhoneNumber extends pulumi.CustomResource {
      */
     declare public readonly selfManagedOptOutsEnabled: pulumi.Output<boolean>;
     /**
+     * Status of the phone number. Possible values are `PENDING`, `ACTIVE`, `ASSOCIATING`, `DISASSOCIATING`, and `DELETED`.
+     */
+    declare public /*out*/ readonly status: pulumi.Output<string>;
+    /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
@@ -135,6 +139,10 @@ export class Smsvoicev2PhoneNumber extends pulumi.CustomResource {
      * IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
      */
     declare public readonly twoWayChannelRole: pulumi.Output<string>;
+    /**
+     * Whether to wait for the phone number to reach `ACTIVE` status before considering the resource created or updated. Defaults to `true`. Set to `false` for number types gated on carrier or registration approval (for example, `TEN_DLC`, `TOLL_FREE`, or any number submitted with `registrationId`), which can remain `PENDING` for days or weeks. When `false`, `pulumi up` returns once AWS accepts the phone number request; track activation with the `status` attribute.
+     */
+    declare public readonly waitForActive: pulumi.Output<boolean>;
 
     /**
      * Create a Smsvoicev2PhoneNumber resource with the given unique name, arguments, and options.
@@ -162,12 +170,14 @@ export class Smsvoicev2PhoneNumber extends pulumi.CustomResource {
             resourceInputs["region"] = state?.region;
             resourceInputs["registrationId"] = state?.registrationId;
             resourceInputs["selfManagedOptOutsEnabled"] = state?.selfManagedOptOutsEnabled;
+            resourceInputs["status"] = state?.status;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
             resourceInputs["timeouts"] = state?.timeouts;
             resourceInputs["twoWayChannelArn"] = state?.twoWayChannelArn;
             resourceInputs["twoWayChannelEnabled"] = state?.twoWayChannelEnabled;
             resourceInputs["twoWayChannelRole"] = state?.twoWayChannelRole;
+            resourceInputs["waitForActive"] = state?.waitForActive;
         } else {
             const args = argsOrState as Smsvoicev2PhoneNumberArgs | undefined;
             if (args?.isoCountryCode === undefined && !opts.urn) {
@@ -197,9 +207,11 @@ export class Smsvoicev2PhoneNumber extends pulumi.CustomResource {
             resourceInputs["twoWayChannelArn"] = args?.twoWayChannelArn;
             resourceInputs["twoWayChannelEnabled"] = args?.twoWayChannelEnabled;
             resourceInputs["twoWayChannelRole"] = args?.twoWayChannelRole;
+            resourceInputs["waitForActive"] = args?.waitForActive;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["monthlyLeasingPrice"] = undefined /*out*/;
             resourceInputs["phoneNumber"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -266,6 +278,10 @@ export interface Smsvoicev2PhoneNumberState {
      */
     selfManagedOptOutsEnabled?: pulumi.Input<boolean | undefined>;
     /**
+     * Status of the phone number. Possible values are `PENDING`, `ACTIVE`, `ASSOCIATING`, `DISASSOCIATING`, and `DELETED`.
+     */
+    status?: pulumi.Input<string | undefined>;
+    /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
@@ -286,6 +302,10 @@ export interface Smsvoicev2PhoneNumberState {
      * IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
      */
     twoWayChannelRole?: pulumi.Input<string | undefined>;
+    /**
+     * Whether to wait for the phone number to reach `ACTIVE` status before considering the resource created or updated. Defaults to `true`. Set to `false` for number types gated on carrier or registration approval (for example, `TEN_DLC`, `TOLL_FREE`, or any number submitted with `registrationId`), which can remain `PENDING` for days or weeks. When `false`, `pulumi up` returns once AWS accepts the phone number request; track activation with the `status` attribute.
+     */
+    waitForActive?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -351,4 +371,8 @@ export interface Smsvoicev2PhoneNumberArgs {
      * IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
      */
     twoWayChannelRole?: pulumi.Input<string | undefined>;
+    /**
+     * Whether to wait for the phone number to reach `ACTIVE` status before considering the resource created or updated. Defaults to `true`. Set to `false` for number types gated on carrier or registration approval (for example, `TEN_DLC`, `TOLL_FREE`, or any number submitted with `registrationId`), which can remain `PENDING` for days or weeks. When `false`, `pulumi up` returns once AWS accepts the phone number request; track activation with the `status` attribute.
+     */
+    waitForActive?: pulumi.Input<boolean | undefined>;
 }

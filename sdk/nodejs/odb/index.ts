@@ -80,6 +80,11 @@ export const getGiVersions: typeof import("./getGiVersions").getGiVersions = nul
 export const getGiVersionsOutput: typeof import("./getGiVersions").getGiVersionsOutput = null as any;
 utilities.lazyLoad(exports, ["getGiVersions","getGiVersionsOutput"], () => require("./getGiVersions"));
 
+export { GetIamRoleAssociationArgs, GetIamRoleAssociationResult, GetIamRoleAssociationOutputArgs } from "./getIamRoleAssociation";
+export const getIamRoleAssociation: typeof import("./getIamRoleAssociation").getIamRoleAssociation = null as any;
+export const getIamRoleAssociationOutput: typeof import("./getIamRoleAssociation").getIamRoleAssociationOutput = null as any;
+utilities.lazyLoad(exports, ["getIamRoleAssociation","getIamRoleAssociationOutput"], () => require("./getIamRoleAssociation"));
+
 export { GetNetworkArgs, GetNetworkResult, GetNetworkOutputArgs } from "./getNetwork";
 export const getNetwork: typeof import("./getNetwork").getNetwork = null as any;
 export const getNetworkOutput: typeof import("./getNetwork").getNetworkOutput = null as any;
@@ -99,6 +104,11 @@ export { GetNetworksArgs, GetNetworksResult, GetNetworksOutputArgs } from "./get
 export const getNetworks: typeof import("./getNetworks").getNetworks = null as any;
 export const getNetworksOutput: typeof import("./getNetworks").getNetworksOutput = null as any;
 utilities.lazyLoad(exports, ["getNetworks","getNetworksOutput"], () => require("./getNetworks"));
+
+export { IamRoleAssociationArgs, IamRoleAssociationState } from "./iamRoleAssociation";
+export type IamRoleAssociation = import("./iamRoleAssociation").IamRoleAssociation;
+export const IamRoleAssociation: typeof import("./iamRoleAssociation").IamRoleAssociation = null as any;
+utilities.lazyLoad(exports, ["IamRoleAssociation"], () => require("./iamRoleAssociation"));
 
 export { NetworkArgs, NetworkState } from "./network";
 export type Network = import("./network").Network;
@@ -121,6 +131,8 @@ const _module = {
                 return new CloudExadataInfrastructure(name, <any>undefined, { urn })
             case "aws:odb/cloudVmCluster:CloudVmCluster":
                 return new CloudVmCluster(name, <any>undefined, { urn })
+            case "aws:odb/iamRoleAssociation:IamRoleAssociation":
+                return new IamRoleAssociation(name, <any>undefined, { urn })
             case "aws:odb/network:Network":
                 return new Network(name, <any>undefined, { urn })
             case "aws:odb/networkPeeringConnection:NetworkPeeringConnection":
@@ -133,5 +145,6 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "odb/cloudAutonomousVmCluster", _module)
 pulumi.runtime.registerResourceModule("aws", "odb/cloudExadataInfrastructure", _module)
 pulumi.runtime.registerResourceModule("aws", "odb/cloudVmCluster", _module)
+pulumi.runtime.registerResourceModule("aws", "odb/iamRoleAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "odb/network", _module)
 pulumi.runtime.registerResourceModule("aws", "odb/networkPeeringConnection", _module)

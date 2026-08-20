@@ -141,6 +141,21 @@ public final class OntapFileSystemArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+     * 
+     */
+    @Import(name="networkType")
+    private @Nullable Output<String> networkType;
+
+    /**
+     * @return Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+     * 
+     */
+    public Optional<Output<String>> networkType() {
+        return Optional.ofNullable(this.networkType);
+    }
+
+    /**
      * ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
      * 
      */
@@ -316,6 +331,7 @@ public final class OntapFileSystemArgs extends com.pulumi.resources.ResourceArgs
         this.fsxAdminPassword = $.fsxAdminPassword;
         this.haPairs = $.haPairs;
         this.kmsKeyId = $.kmsKeyId;
+        this.networkType = $.networkType;
         this.preferredSubnetId = $.preferredSubnetId;
         this.region = $.region;
         this.routeTableIds = $.routeTableIds;
@@ -513,6 +529,27 @@ public final class OntapFileSystemArgs extends com.pulumi.resources.ResourceArgs
          */
         public Builder kmsKeyId(String kmsKeyId) {
             return kmsKeyId(Output.of(kmsKeyId));
+        }
+
+        /**
+         * @param networkType Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkType(@Nullable Output<String> networkType) {
+            $.networkType = networkType;
+            return this;
+        }
+
+        /**
+         * @param networkType Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkType(String networkType) {
+            return networkType(Output.of(networkType));
         }
 
         /**

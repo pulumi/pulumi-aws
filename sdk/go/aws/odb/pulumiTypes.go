@@ -1966,6 +1966,181 @@ func (o CloudVmClusterTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type IamRoleAssociationTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// IamRoleAssociationTimeoutsInput is an input type that accepts IamRoleAssociationTimeoutsArgs and IamRoleAssociationTimeoutsOutput values.
+// You can construct a concrete instance of `IamRoleAssociationTimeoutsInput` via:
+//
+//	IamRoleAssociationTimeoutsArgs{...}
+type IamRoleAssociationTimeoutsInput interface {
+	pulumi.Input
+
+	ToIamRoleAssociationTimeoutsOutput() IamRoleAssociationTimeoutsOutput
+	ToIamRoleAssociationTimeoutsOutputWithContext(context.Context) IamRoleAssociationTimeoutsOutput
+}
+
+type IamRoleAssociationTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (IamRoleAssociationTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IamRoleAssociationTimeouts)(nil)).Elem()
+}
+
+func (i IamRoleAssociationTimeoutsArgs) ToIamRoleAssociationTimeoutsOutput() IamRoleAssociationTimeoutsOutput {
+	return i.ToIamRoleAssociationTimeoutsOutputWithContext(context.Background())
+}
+
+func (i IamRoleAssociationTimeoutsArgs) ToIamRoleAssociationTimeoutsOutputWithContext(ctx context.Context) IamRoleAssociationTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IamRoleAssociationTimeoutsOutput)
+}
+
+func (i IamRoleAssociationTimeoutsArgs) ToIamRoleAssociationTimeoutsPtrOutput() IamRoleAssociationTimeoutsPtrOutput {
+	return i.ToIamRoleAssociationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i IamRoleAssociationTimeoutsArgs) ToIamRoleAssociationTimeoutsPtrOutputWithContext(ctx context.Context) IamRoleAssociationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IamRoleAssociationTimeoutsOutput).ToIamRoleAssociationTimeoutsPtrOutputWithContext(ctx)
+}
+
+// IamRoleAssociationTimeoutsPtrInput is an input type that accepts IamRoleAssociationTimeoutsArgs, IamRoleAssociationTimeoutsPtr and IamRoleAssociationTimeoutsPtrOutput values.
+// You can construct a concrete instance of `IamRoleAssociationTimeoutsPtrInput` via:
+//
+//	        IamRoleAssociationTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type IamRoleAssociationTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToIamRoleAssociationTimeoutsPtrOutput() IamRoleAssociationTimeoutsPtrOutput
+	ToIamRoleAssociationTimeoutsPtrOutputWithContext(context.Context) IamRoleAssociationTimeoutsPtrOutput
+}
+
+type iamRoleAssociationTimeoutsPtrType IamRoleAssociationTimeoutsArgs
+
+func IamRoleAssociationTimeoutsPtr(v *IamRoleAssociationTimeoutsArgs) IamRoleAssociationTimeoutsPtrInput {
+	return (*iamRoleAssociationTimeoutsPtrType)(v)
+}
+
+func (*iamRoleAssociationTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IamRoleAssociationTimeouts)(nil)).Elem()
+}
+
+func (i *iamRoleAssociationTimeoutsPtrType) ToIamRoleAssociationTimeoutsPtrOutput() IamRoleAssociationTimeoutsPtrOutput {
+	return i.ToIamRoleAssociationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *iamRoleAssociationTimeoutsPtrType) ToIamRoleAssociationTimeoutsPtrOutputWithContext(ctx context.Context) IamRoleAssociationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IamRoleAssociationTimeoutsPtrOutput)
+}
+
+type IamRoleAssociationTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (IamRoleAssociationTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IamRoleAssociationTimeouts)(nil)).Elem()
+}
+
+func (o IamRoleAssociationTimeoutsOutput) ToIamRoleAssociationTimeoutsOutput() IamRoleAssociationTimeoutsOutput {
+	return o
+}
+
+func (o IamRoleAssociationTimeoutsOutput) ToIamRoleAssociationTimeoutsOutputWithContext(ctx context.Context) IamRoleAssociationTimeoutsOutput {
+	return o
+}
+
+func (o IamRoleAssociationTimeoutsOutput) ToIamRoleAssociationTimeoutsPtrOutput() IamRoleAssociationTimeoutsPtrOutput {
+	return o.ToIamRoleAssociationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o IamRoleAssociationTimeoutsOutput) ToIamRoleAssociationTimeoutsPtrOutputWithContext(ctx context.Context) IamRoleAssociationTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IamRoleAssociationTimeouts) *IamRoleAssociationTimeouts {
+		return &v
+	}).(IamRoleAssociationTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o IamRoleAssociationTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IamRoleAssociationTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o IamRoleAssociationTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IamRoleAssociationTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o IamRoleAssociationTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IamRoleAssociationTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type IamRoleAssociationTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (IamRoleAssociationTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IamRoleAssociationTimeouts)(nil)).Elem()
+}
+
+func (o IamRoleAssociationTimeoutsPtrOutput) ToIamRoleAssociationTimeoutsPtrOutput() IamRoleAssociationTimeoutsPtrOutput {
+	return o
+}
+
+func (o IamRoleAssociationTimeoutsPtrOutput) ToIamRoleAssociationTimeoutsPtrOutputWithContext(ctx context.Context) IamRoleAssociationTimeoutsPtrOutput {
+	return o
+}
+
+func (o IamRoleAssociationTimeoutsPtrOutput) Elem() IamRoleAssociationTimeoutsOutput {
+	return o.ApplyT(func(v *IamRoleAssociationTimeouts) IamRoleAssociationTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret IamRoleAssociationTimeouts
+		return ret
+	}).(IamRoleAssociationTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o IamRoleAssociationTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IamRoleAssociationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o IamRoleAssociationTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IamRoleAssociationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o IamRoleAssociationTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IamRoleAssociationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type NetworkManagedService struct {
 	// List of regions enabled for cross-region restore in the ODB network.
 	CrossRegionS3RestoreSourcesAccesses []NetworkManagedServiceCrossRegionS3RestoreSourcesAccess `pulumi:"crossRegionS3RestoreSourcesAccesses"`
@@ -7493,6 +7668,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudVmClusterIormConfigCacheDbPlanArrayInput)(nil)).Elem(), CloudVmClusterIormConfigCacheDbPlanArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudVmClusterTimeoutsInput)(nil)).Elem(), CloudVmClusterTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudVmClusterTimeoutsPtrInput)(nil)).Elem(), CloudVmClusterTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IamRoleAssociationTimeoutsInput)(nil)).Elem(), IamRoleAssociationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IamRoleAssociationTimeoutsPtrInput)(nil)).Elem(), IamRoleAssociationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagedServiceInput)(nil)).Elem(), NetworkManagedServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagedServiceArrayInput)(nil)).Elem(), NetworkManagedServiceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagedServiceCrossRegionS3RestoreSourcesAccessInput)(nil)).Elem(), NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArgs{})
@@ -7601,6 +7778,8 @@ func init() {
 	pulumi.RegisterOutputType(CloudVmClusterIormConfigCacheDbPlanArrayOutput{})
 	pulumi.RegisterOutputType(CloudVmClusterTimeoutsOutput{})
 	pulumi.RegisterOutputType(CloudVmClusterTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(IamRoleAssociationTimeoutsOutput{})
+	pulumi.RegisterOutputType(IamRoleAssociationTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(NetworkManagedServiceOutput{})
 	pulumi.RegisterOutputType(NetworkManagedServiceArrayOutput{})
 	pulumi.RegisterOutputType(NetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutput{})

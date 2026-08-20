@@ -16,14 +16,29 @@ public final class GetListenerRuleConditionSourceIpArgs extends com.pulumi.resou
     public static final GetListenerRuleConditionSourceIpArgs Empty = new GetListenerRuleConditionSourceIpArgs();
 
     /**
-     * Set of `key`-`value` pairs indicating the query string parameters to match.
+     * IP address type for Network Load Balancers.
+     * 
+     */
+    @Import(name="ipAddressType", required=true)
+    private Output<String> ipAddressType;
+
+    /**
+     * @return IP address type for Network Load Balancers.
+     * 
+     */
+    public Output<String> ipAddressType() {
+        return this.ipAddressType;
+    }
+
+    /**
+     * Set of source IP addresses in CIDR format for Application Load Balancers
      * 
      */
     @Import(name="values", required=true)
     private Output<List<String>> values;
 
     /**
-     * @return Set of `key`-`value` pairs indicating the query string parameters to match.
+     * @return Set of source IP addresses in CIDR format for Application Load Balancers
      * 
      */
     public Output<List<String>> values() {
@@ -33,6 +48,7 @@ public final class GetListenerRuleConditionSourceIpArgs extends com.pulumi.resou
     private GetListenerRuleConditionSourceIpArgs() {}
 
     private GetListenerRuleConditionSourceIpArgs(GetListenerRuleConditionSourceIpArgs $) {
+        this.ipAddressType = $.ipAddressType;
         this.values = $.values;
     }
 
@@ -55,7 +71,28 @@ public final class GetListenerRuleConditionSourceIpArgs extends com.pulumi.resou
         }
 
         /**
-         * @param values Set of `key`-`value` pairs indicating the query string parameters to match.
+         * @param ipAddressType IP address type for Network Load Balancers.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipAddressType(Output<String> ipAddressType) {
+            $.ipAddressType = ipAddressType;
+            return this;
+        }
+
+        /**
+         * @param ipAddressType IP address type for Network Load Balancers.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipAddressType(String ipAddressType) {
+            return ipAddressType(Output.of(ipAddressType));
+        }
+
+        /**
+         * @param values Set of source IP addresses in CIDR format for Application Load Balancers
          * 
          * @return builder
          * 
@@ -66,7 +103,7 @@ public final class GetListenerRuleConditionSourceIpArgs extends com.pulumi.resou
         }
 
         /**
-         * @param values Set of `key`-`value` pairs indicating the query string parameters to match.
+         * @param values Set of source IP addresses in CIDR format for Application Load Balancers
          * 
          * @return builder
          * 
@@ -76,7 +113,7 @@ public final class GetListenerRuleConditionSourceIpArgs extends com.pulumi.resou
         }
 
         /**
-         * @param values Set of `key`-`value` pairs indicating the query string parameters to match.
+         * @param values Set of source IP addresses in CIDR format for Application Load Balancers
          * 
          * @return builder
          * 
@@ -86,6 +123,9 @@ public final class GetListenerRuleConditionSourceIpArgs extends com.pulumi.resou
         }
 
         public GetListenerRuleConditionSourceIpArgs build() {
+            if ($.ipAddressType == null) {
+                throw new MissingRequiredPropertyException("GetListenerRuleConditionSourceIpArgs", "ipAddressType");
+            }
             if ($.values == null) {
                 throw new MissingRequiredPropertyException("GetListenerRuleConditionSourceIpArgs", "values");
             }

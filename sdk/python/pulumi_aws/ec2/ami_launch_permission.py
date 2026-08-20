@@ -279,6 +279,21 @@ class AmiLaunchPermission(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `image_id` (String) ID of the AMI.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `group` (String) Name of the group for the launch permission.
+        * `launch_permission_account_id` (String) AWS account ID for the launch permission.
+        * `organization_arn` (String) ARN of an organization for the launch permission.
+        * `organizational_unit_arn` (String) ARN of an organizational unit for the launch permission.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import AMI Launch Permissions using `[ACCOUNT-ID|GROUP-NAME|ORGANIZATION-ARN|ORGANIZATIONAL-UNIT-ARN]/IMAGE-ID`. For example:
 
         ```sh
@@ -341,6 +356,21 @@ class AmiLaunchPermission(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `image_id` (String) ID of the AMI.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `group` (String) Name of the group for the launch permission.
+        * `launch_permission_account_id` (String) AWS account ID for the launch permission.
+        * `organization_arn` (String) ARN of an organization for the launch permission.
+        * `organizational_unit_arn` (String) ARN of an organizational unit for the launch permission.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import AMI Launch Permissions using `[ACCOUNT-ID|GROUP-NAME|ORGANIZATION-ARN|ORGANIZATIONAL-UNIT-ARN]/IMAGE-ID`. For example:
 

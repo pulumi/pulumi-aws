@@ -32,6 +32,7 @@ class OntapFileSystemArgs:
                  fsx_admin_password: pulumi.Input[Optional[_builtins.str]] = None,
                  ha_pairs: pulumi.Input[Optional[_builtins.int]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_type: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  route_table_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -54,6 +55,7 @@ class OntapFileSystemArgs:
         :param pulumi.Input[_builtins.str] fsx_admin_password: ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
         :param pulumi.Input[_builtins.int] ha_pairs: Number of ha_pairs to deploy for the file system. Valid value is 1 for `SINGLE_AZ_1` or `MULTI_AZ_1` and `MULTI_AZ_2`. Valid values are 1 through 12 for `SINGLE_AZ_2`.
         :param pulumi.Input[_builtins.str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
+        :param pulumi.Input[_builtins.str] network_type: Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] route_table_ids: VPC route tables in which your file system's endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
@@ -81,6 +83,8 @@ class OntapFileSystemArgs:
             pulumi.set(__self__, "ha_pairs", ha_pairs)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if network_type is not None:
+            pulumi.set(__self__, "network_type", network_type)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if route_table_ids is not None:
@@ -231,6 +235,18 @@ class OntapFileSystemArgs:
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+        """
+        return pulumi.get(self, "network_type")
+
+    @network_type.setter
+    def network_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "network_type", value)
+
+    @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -342,6 +358,7 @@ class _OntapFileSystemState:
                  ha_pairs: pulumi.Input[Optional[_builtins.int]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  network_interface_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 network_type: pulumi.Input[Optional[_builtins.str]] = None,
                  owner_id: pulumi.Input[Optional[_builtins.str]] = None,
                  preferred_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -371,6 +388,7 @@ class _OntapFileSystemState:
         :param pulumi.Input[_builtins.int] ha_pairs: Number of ha_pairs to deploy for the file system. Valid value is 1 for `SINGLE_AZ_1` or `MULTI_AZ_1` and `MULTI_AZ_2`. Valid values are 1 through 12 for `SINGLE_AZ_2`.
         :param pulumi.Input[_builtins.str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_interface_ids: Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
+        :param pulumi.Input[_builtins.str] network_type: Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
         :param pulumi.Input[_builtins.str] owner_id: AWS account identifier that created the file system.
         :param pulumi.Input[_builtins.str] preferred_subnet_id: ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -410,6 +428,8 @@ class _OntapFileSystemState:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if network_interface_ids is not None:
             pulumi.set(__self__, "network_interface_ids", network_interface_ids)
+        if network_type is not None:
+            pulumi.set(__self__, "network_type", network_type)
         if owner_id is not None:
             pulumi.set(__self__, "owner_id", owner_id)
         if preferred_subnet_id is not None:
@@ -582,6 +602,18 @@ class _OntapFileSystemState:
     @network_interface_ids.setter
     def network_interface_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "network_interface_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+        """
+        return pulumi.get(self, "network_type")
+
+    @network_type.setter
+    def network_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "network_type", value)
 
     @_builtins.property
     @pulumi.getter(name="ownerId")
@@ -766,6 +798,7 @@ class OntapFileSystem(pulumi.CustomResource):
                  fsx_admin_password: pulumi.Input[Optional[_builtins.str]] = None,
                  ha_pairs: pulumi.Input[Optional[_builtins.int]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_type: pulumi.Input[Optional[_builtins.str]] = None,
                  preferred_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  route_table_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -869,6 +902,7 @@ class OntapFileSystem(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] fsx_admin_password: ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
         :param pulumi.Input[_builtins.int] ha_pairs: Number of ha_pairs to deploy for the file system. Valid value is 1 for `SINGLE_AZ_1` or `MULTI_AZ_1` and `MULTI_AZ_2`. Valid values are 1 through 12 for `SINGLE_AZ_2`.
         :param pulumi.Input[_builtins.str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
+        :param pulumi.Input[_builtins.str] network_type: Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
         :param pulumi.Input[_builtins.str] preferred_subnet_id: ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] route_table_ids: VPC route tables in which your file system's endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
@@ -991,6 +1025,7 @@ class OntapFileSystem(pulumi.CustomResource):
                  fsx_admin_password: pulumi.Input[Optional[_builtins.str]] = None,
                  ha_pairs: pulumi.Input[Optional[_builtins.int]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_type: pulumi.Input[Optional[_builtins.str]] = None,
                  preferred_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  route_table_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -1021,6 +1056,7 @@ class OntapFileSystem(pulumi.CustomResource):
             __props__.__dict__["fsx_admin_password"] = None if fsx_admin_password is None else pulumi.Output.secret(fsx_admin_password)
             __props__.__dict__["ha_pairs"] = ha_pairs
             __props__.__dict__["kms_key_id"] = kms_key_id
+            __props__.__dict__["network_type"] = network_type
             if preferred_subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'preferred_subnet_id'")
             __props__.__dict__["preferred_subnet_id"] = preferred_subnet_id
@@ -1069,6 +1105,7 @@ class OntapFileSystem(pulumi.CustomResource):
             ha_pairs: pulumi.Input[Optional[_builtins.int]] = None,
             kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
             network_interface_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            network_type: pulumi.Input[Optional[_builtins.str]] = None,
             owner_id: pulumi.Input[Optional[_builtins.str]] = None,
             preferred_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1102,6 +1139,7 @@ class OntapFileSystem(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] ha_pairs: Number of ha_pairs to deploy for the file system. Valid value is 1 for `SINGLE_AZ_1` or `MULTI_AZ_1` and `MULTI_AZ_2`. Valid values are 1 through 12 for `SINGLE_AZ_2`.
         :param pulumi.Input[_builtins.str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_interface_ids: Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
+        :param pulumi.Input[_builtins.str] network_type: Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
         :param pulumi.Input[_builtins.str] owner_id: AWS account identifier that created the file system.
         :param pulumi.Input[_builtins.str] preferred_subnet_id: ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -1133,6 +1171,7 @@ class OntapFileSystem(pulumi.CustomResource):
         __props__.__dict__["ha_pairs"] = ha_pairs
         __props__.__dict__["kms_key_id"] = kms_key_id
         __props__.__dict__["network_interface_ids"] = network_interface_ids
+        __props__.__dict__["network_type"] = network_type
         __props__.__dict__["owner_id"] = owner_id
         __props__.__dict__["preferred_subnet_id"] = preferred_subnet_id
         __props__.__dict__["region"] = region
@@ -1244,6 +1283,14 @@ class OntapFileSystem(pulumi.CustomResource):
         Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
         """
         return pulumi.get(self, "network_interface_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> pulumi.Output[_builtins.str]:
+        """
+        Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+        """
+        return pulumi.get(self, "network_type")
 
     @_builtins.property
     @pulumi.getter(name="ownerId")

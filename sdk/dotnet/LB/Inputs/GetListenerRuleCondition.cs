@@ -80,7 +80,8 @@ namespace Pulumi.Aws.LB.Inputs
         private List<Inputs.GetListenerRuleConditionSourceIpArgs>? _sourceIps;
 
         /// <summary>
-        /// Contains a single attribute `Values`, which contains a set of source IPs in CIDR notation.
+        /// Source IP address to match.
+        /// Detailed below.
         /// </summary>
         public List<Inputs.GetListenerRuleConditionSourceIpArgs> SourceIps
         {

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource for managing an AWS MediaLive InputSecurityGroup.
+ * Manages an AWS MediaLive Input Security Group.
  *
  * ## Example Usage
  *
@@ -30,7 +30,18 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import MediaLive InputSecurityGroup using the `id`. For example:
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `id` - (String) ID of the Input Security Group.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
+ * Using `pulumi import`, import MediaLive Input Security Group using the `id`. For example:
  *
  * ```sh
  * $ pulumi import aws:medialive/inputSecurityGroup:InputSecurityGroup example 123456
@@ -77,7 +88,7 @@ export class InputSecurityGroup extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
@@ -141,7 +152,7 @@ export interface InputSecurityGroupState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
@@ -162,7 +173,7 @@ export interface InputSecurityGroupArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**

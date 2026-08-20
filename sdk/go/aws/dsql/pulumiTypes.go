@@ -412,6 +412,181 @@ func (o ClusterPeeringTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ClusterPolicyTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// ClusterPolicyTimeoutsInput is an input type that accepts ClusterPolicyTimeoutsArgs and ClusterPolicyTimeoutsOutput values.
+// You can construct a concrete instance of `ClusterPolicyTimeoutsInput` via:
+//
+//	ClusterPolicyTimeoutsArgs{...}
+type ClusterPolicyTimeoutsInput interface {
+	pulumi.Input
+
+	ToClusterPolicyTimeoutsOutput() ClusterPolicyTimeoutsOutput
+	ToClusterPolicyTimeoutsOutputWithContext(context.Context) ClusterPolicyTimeoutsOutput
+}
+
+type ClusterPolicyTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (ClusterPolicyTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterPolicyTimeouts)(nil)).Elem()
+}
+
+func (i ClusterPolicyTimeoutsArgs) ToClusterPolicyTimeoutsOutput() ClusterPolicyTimeoutsOutput {
+	return i.ToClusterPolicyTimeoutsOutputWithContext(context.Background())
+}
+
+func (i ClusterPolicyTimeoutsArgs) ToClusterPolicyTimeoutsOutputWithContext(ctx context.Context) ClusterPolicyTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterPolicyTimeoutsOutput)
+}
+
+func (i ClusterPolicyTimeoutsArgs) ToClusterPolicyTimeoutsPtrOutput() ClusterPolicyTimeoutsPtrOutput {
+	return i.ToClusterPolicyTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterPolicyTimeoutsArgs) ToClusterPolicyTimeoutsPtrOutputWithContext(ctx context.Context) ClusterPolicyTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterPolicyTimeoutsOutput).ToClusterPolicyTimeoutsPtrOutputWithContext(ctx)
+}
+
+// ClusterPolicyTimeoutsPtrInput is an input type that accepts ClusterPolicyTimeoutsArgs, ClusterPolicyTimeoutsPtr and ClusterPolicyTimeoutsPtrOutput values.
+// You can construct a concrete instance of `ClusterPolicyTimeoutsPtrInput` via:
+//
+//	        ClusterPolicyTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterPolicyTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToClusterPolicyTimeoutsPtrOutput() ClusterPolicyTimeoutsPtrOutput
+	ToClusterPolicyTimeoutsPtrOutputWithContext(context.Context) ClusterPolicyTimeoutsPtrOutput
+}
+
+type clusterPolicyTimeoutsPtrType ClusterPolicyTimeoutsArgs
+
+func ClusterPolicyTimeoutsPtr(v *ClusterPolicyTimeoutsArgs) ClusterPolicyTimeoutsPtrInput {
+	return (*clusterPolicyTimeoutsPtrType)(v)
+}
+
+func (*clusterPolicyTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterPolicyTimeouts)(nil)).Elem()
+}
+
+func (i *clusterPolicyTimeoutsPtrType) ToClusterPolicyTimeoutsPtrOutput() ClusterPolicyTimeoutsPtrOutput {
+	return i.ToClusterPolicyTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterPolicyTimeoutsPtrType) ToClusterPolicyTimeoutsPtrOutputWithContext(ctx context.Context) ClusterPolicyTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterPolicyTimeoutsPtrOutput)
+}
+
+type ClusterPolicyTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (ClusterPolicyTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterPolicyTimeouts)(nil)).Elem()
+}
+
+func (o ClusterPolicyTimeoutsOutput) ToClusterPolicyTimeoutsOutput() ClusterPolicyTimeoutsOutput {
+	return o
+}
+
+func (o ClusterPolicyTimeoutsOutput) ToClusterPolicyTimeoutsOutputWithContext(ctx context.Context) ClusterPolicyTimeoutsOutput {
+	return o
+}
+
+func (o ClusterPolicyTimeoutsOutput) ToClusterPolicyTimeoutsPtrOutput() ClusterPolicyTimeoutsPtrOutput {
+	return o.ToClusterPolicyTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterPolicyTimeoutsOutput) ToClusterPolicyTimeoutsPtrOutputWithContext(ctx context.Context) ClusterPolicyTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterPolicyTimeouts) *ClusterPolicyTimeouts {
+		return &v
+	}).(ClusterPolicyTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ClusterPolicyTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterPolicyTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o ClusterPolicyTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterPolicyTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ClusterPolicyTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterPolicyTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type ClusterPolicyTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterPolicyTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterPolicyTimeouts)(nil)).Elem()
+}
+
+func (o ClusterPolicyTimeoutsPtrOutput) ToClusterPolicyTimeoutsPtrOutput() ClusterPolicyTimeoutsPtrOutput {
+	return o
+}
+
+func (o ClusterPolicyTimeoutsPtrOutput) ToClusterPolicyTimeoutsPtrOutputWithContext(ctx context.Context) ClusterPolicyTimeoutsPtrOutput {
+	return o
+}
+
+func (o ClusterPolicyTimeoutsPtrOutput) Elem() ClusterPolicyTimeoutsOutput {
+	return o.ApplyT(func(v *ClusterPolicyTimeouts) ClusterPolicyTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterPolicyTimeouts
+		return ret
+	}).(ClusterPolicyTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ClusterPolicyTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterPolicyTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o ClusterPolicyTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterPolicyTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ClusterPolicyTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterPolicyTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type ClusterTimeouts struct {
 	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 	Create *string `pulumi:"create"`
@@ -594,6 +769,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterMultiRegionPropertiesPtrInput)(nil)).Elem(), ClusterMultiRegionPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterPeeringTimeoutsInput)(nil)).Elem(), ClusterPeeringTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterPeeringTimeoutsPtrInput)(nil)).Elem(), ClusterPeeringTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterPolicyTimeoutsInput)(nil)).Elem(), ClusterPolicyTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterPolicyTimeoutsPtrInput)(nil)).Elem(), ClusterPolicyTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterTimeoutsInput)(nil)).Elem(), ClusterTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterTimeoutsPtrInput)(nil)).Elem(), ClusterTimeoutsArgs{})
 	pulumi.RegisterOutputType(ClusterEncryptionDetailOutput{})
@@ -602,6 +779,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterMultiRegionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ClusterPeeringTimeoutsOutput{})
 	pulumi.RegisterOutputType(ClusterPeeringTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(ClusterPolicyTimeoutsOutput{})
+	pulumi.RegisterOutputType(ClusterPolicyTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(ClusterTimeoutsOutput{})
 	pulumi.RegisterOutputType(ClusterTimeoutsPtrOutput{})
 }

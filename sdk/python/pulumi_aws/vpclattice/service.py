@@ -24,6 +24,7 @@ class ServiceArgs:
                  auth_type: pulumi.Input[Optional[_builtins.str]] = None,
                  certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  custom_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 idle_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
@@ -33,6 +34,7 @@ class ServiceArgs:
         :param pulumi.Input[_builtins.str] auth_type: Type of IAM policy. Either `NONE` or `AWS_IAM`.
         :param pulumi.Input[_builtins.str] certificate_arn: Amazon Resource Name (ARN) of the certificate.
         :param pulumi.Input[_builtins.str] custom_domain_name: Custom domain name of the service.
+        :param pulumi.Input[_builtins.int] idle_timeout_seconds: Amount of time, in seconds, that a connection can remain idle (no data sent) before VPC Lattice closes it. The valid range is 60 to 600 seconds. Default is 60 seconds.
         :param pulumi.Input[_builtins.str] name: Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
                
                The following arguments are optional:
@@ -45,6 +47,8 @@ class ServiceArgs:
             pulumi.set(__self__, "certificate_arn", certificate_arn)
         if custom_domain_name is not None:
             pulumi.set(__self__, "custom_domain_name", custom_domain_name)
+        if idle_timeout_seconds is not None:
+            pulumi.set(__self__, "idle_timeout_seconds", idle_timeout_seconds)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if region is not None:
@@ -87,6 +91,18 @@ class ServiceArgs:
     @custom_domain_name.setter
     def custom_domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_domain_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="idleTimeoutSeconds")
+    def idle_timeout_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Amount of time, in seconds, that a connection can remain idle (no data sent) before VPC Lattice closes it. The valid range is 60 to 600 seconds. Default is 60 seconds.
+        """
+        return pulumi.get(self, "idle_timeout_seconds")
+
+    @idle_timeout_seconds.setter
+    def idle_timeout_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "idle_timeout_seconds", value)
 
     @_builtins.property
     @pulumi.getter
@@ -135,6 +151,7 @@ class _ServiceState:
                  certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  custom_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                  dns_entries: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceDnsEntryArgs']]]] = None,
+                 idle_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
@@ -148,6 +165,7 @@ class _ServiceState:
         :param pulumi.Input[_builtins.str] certificate_arn: Amazon Resource Name (ARN) of the certificate.
         :param pulumi.Input[_builtins.str] custom_domain_name: Custom domain name of the service.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceDnsEntryArgs']]] dns_entries: DNS name of the service.
+        :param pulumi.Input[_builtins.int] idle_timeout_seconds: Amount of time, in seconds, that a connection can remain idle (no data sent) before VPC Lattice closes it. The valid range is 60 to 600 seconds. Default is 60 seconds.
         :param pulumi.Input[_builtins.str] name: Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
                
                The following arguments are optional:
@@ -166,6 +184,8 @@ class _ServiceState:
             pulumi.set(__self__, "custom_domain_name", custom_domain_name)
         if dns_entries is not None:
             pulumi.set(__self__, "dns_entries", dns_entries)
+        if idle_timeout_seconds is not None:
+            pulumi.set(__self__, "idle_timeout_seconds", idle_timeout_seconds)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if region is not None:
@@ -236,6 +256,18 @@ class _ServiceState:
     @dns_entries.setter
     def dns_entries(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceDnsEntryArgs']]]]):
         pulumi.set(self, "dns_entries", value)
+
+    @_builtins.property
+    @pulumi.getter(name="idleTimeoutSeconds")
+    def idle_timeout_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Amount of time, in seconds, that a connection can remain idle (no data sent) before VPC Lattice closes it. The valid range is 60 to 600 seconds. Default is 60 seconds.
+        """
+        return pulumi.get(self, "idle_timeout_seconds")
+
+    @idle_timeout_seconds.setter
+    def idle_timeout_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "idle_timeout_seconds", value)
 
     @_builtins.property
     @pulumi.getter
@@ -309,6 +341,7 @@ class Service(pulumi.CustomResource):
                  auth_type: pulumi.Input[Optional[_builtins.str]] = None,
                  certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  custom_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 idle_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -344,6 +377,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] auth_type: Type of IAM policy. Either `NONE` or `AWS_IAM`.
         :param pulumi.Input[_builtins.str] certificate_arn: Amazon Resource Name (ARN) of the certificate.
         :param pulumi.Input[_builtins.str] custom_domain_name: Custom domain name of the service.
+        :param pulumi.Input[_builtins.int] idle_timeout_seconds: Amount of time, in seconds, that a connection can remain idle (no data sent) before VPC Lattice closes it. The valid range is 60 to 600 seconds. Default is 60 seconds.
         :param pulumi.Input[_builtins.str] name: Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
                
                The following arguments are optional:
@@ -400,6 +434,7 @@ class Service(pulumi.CustomResource):
                  auth_type: pulumi.Input[Optional[_builtins.str]] = None,
                  certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  custom_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 idle_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -415,6 +450,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["auth_type"] = auth_type
             __props__.__dict__["certificate_arn"] = certificate_arn
             __props__.__dict__["custom_domain_name"] = custom_domain_name
+            __props__.__dict__["idle_timeout_seconds"] = idle_timeout_seconds
             __props__.__dict__["name"] = name
             __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
@@ -437,6 +473,7 @@ class Service(pulumi.CustomResource):
             certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
             custom_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
             dns_entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceDnsEntryArgs', 'ServiceDnsEntryArgsDict']]]]] = None,
+            idle_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
@@ -454,6 +491,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] certificate_arn: Amazon Resource Name (ARN) of the certificate.
         :param pulumi.Input[_builtins.str] custom_domain_name: Custom domain name of the service.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceDnsEntryArgs', 'ServiceDnsEntryArgsDict']]]] dns_entries: DNS name of the service.
+        :param pulumi.Input[_builtins.int] idle_timeout_seconds: Amount of time, in seconds, that a connection can remain idle (no data sent) before VPC Lattice closes it. The valid range is 60 to 600 seconds. Default is 60 seconds.
         :param pulumi.Input[_builtins.str] name: Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
                
                The following arguments are optional:
@@ -471,6 +509,7 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["certificate_arn"] = certificate_arn
         __props__.__dict__["custom_domain_name"] = custom_domain_name
         __props__.__dict__["dns_entries"] = dns_entries
+        __props__.__dict__["idle_timeout_seconds"] = idle_timeout_seconds
         __props__.__dict__["name"] = name
         __props__.__dict__["region"] = region
         __props__.__dict__["status"] = status
@@ -517,6 +556,14 @@ class Service(pulumi.CustomResource):
         DNS name of the service.
         """
         return pulumi.get(self, "dns_entries")
+
+    @_builtins.property
+    @pulumi.getter(name="idleTimeoutSeconds")
+    def idle_timeout_seconds(self) -> pulumi.Output[_builtins.int]:
+        """
+        Amount of time, in seconds, that a connection can remain idle (no data sent) before VPC Lattice closes it. The valid range is 60 to 600 seconds. Default is 60 seconds.
+        """
+        return pulumi.get(self, "idle_timeout_seconds")
 
     @_builtins.property
     @pulumi.getter

@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetListenerRuleConditionQueryString {
     /**
-     * @return Set of `key`-`value` pairs indicating the query string parameters to match.
+     * @return Set of source IP addresses in CIDR format for Application Load Balancers
      * 
      */
     private @Nullable List<GetListenerRuleConditionQueryStringValue> values;
 
     private GetListenerRuleConditionQueryString() {}
     /**
-     * @return Set of `key`-`value` pairs indicating the query string parameters to match.
+     * @return Set of source IP addresses in CIDR format for Application Load Balancers
      * 
      */
     public List<GetListenerRuleConditionQueryStringValue> values() {

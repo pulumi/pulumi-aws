@@ -20,6 +20,11 @@ export type CodeSigningConfig = import("./codeSigningConfig").CodeSigningConfig;
 export const CodeSigningConfig: typeof import("./codeSigningConfig").CodeSigningConfig = null as any;
 utilities.lazyLoad(exports, ["CodeSigningConfig"], () => require("./codeSigningConfig"));
 
+export { CoreNetworkConnectorArgs, CoreNetworkConnectorState } from "./coreNetworkConnector";
+export type CoreNetworkConnector = import("./coreNetworkConnector").CoreNetworkConnector;
+export const CoreNetworkConnector: typeof import("./coreNetworkConnector").CoreNetworkConnector = null as any;
+utilities.lazyLoad(exports, ["CoreNetworkConnector"], () => require("./coreNetworkConnector"));
+
 export { EventSourceMappingArgs, EventSourceMappingState } from "./eventSourceMapping";
 export type EventSourceMapping = import("./eventSourceMapping").EventSourceMapping;
 export const EventSourceMapping: typeof import("./eventSourceMapping").EventSourceMapping = null as any;
@@ -101,6 +106,11 @@ export type LayerVersionPermission = import("./layerVersionPermission").LayerVer
 export const LayerVersionPermission: typeof import("./layerVersionPermission").LayerVersionPermission = null as any;
 utilities.lazyLoad(exports, ["LayerVersionPermission"], () => require("./layerVersionPermission"));
 
+export { MicrovmsImageArgs, MicrovmsImageState } from "./microvmsImage";
+export type MicrovmsImage = import("./microvmsImage").MicrovmsImage;
+export const MicrovmsImage: typeof import("./microvmsImage").MicrovmsImage = null as any;
+utilities.lazyLoad(exports, ["MicrovmsImage"], () => require("./microvmsImage"));
+
 export { PermissionArgs, PermissionState } from "./permission";
 export type Permission = import("./permission").Permission;
 export const Permission: typeof import("./permission").Permission = null as any;
@@ -131,6 +141,8 @@ const _module = {
                 return new CapacityProvider(name, <any>undefined, { urn })
             case "aws:lambda/codeSigningConfig:CodeSigningConfig":
                 return new CodeSigningConfig(name, <any>undefined, { urn })
+            case "aws:lambda/coreNetworkConnector:CoreNetworkConnector":
+                return new CoreNetworkConnector(name, <any>undefined, { urn })
             case "aws:lambda/eventSourceMapping:EventSourceMapping":
                 return new EventSourceMapping(name, <any>undefined, { urn })
             case "aws:lambda/function:Function":
@@ -149,6 +161,8 @@ const _module = {
                 return new LayerVersion(name, <any>undefined, { urn })
             case "aws:lambda/layerVersionPermission:LayerVersionPermission":
                 return new LayerVersionPermission(name, <any>undefined, { urn })
+            case "aws:lambda/microvmsImage:MicrovmsImage":
+                return new MicrovmsImage(name, <any>undefined, { urn })
             case "aws:lambda/permission:Permission":
                 return new Permission(name, <any>undefined, { urn })
             case "aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig":
@@ -163,6 +177,7 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "lambda/alias", _module)
 pulumi.runtime.registerResourceModule("aws", "lambda/capacityProvider", _module)
 pulumi.runtime.registerResourceModule("aws", "lambda/codeSigningConfig", _module)
+pulumi.runtime.registerResourceModule("aws", "lambda/coreNetworkConnector", _module)
 pulumi.runtime.registerResourceModule("aws", "lambda/eventSourceMapping", _module)
 pulumi.runtime.registerResourceModule("aws", "lambda/function", _module)
 pulumi.runtime.registerResourceModule("aws", "lambda/functionEventInvokeConfig", _module)
@@ -172,6 +187,7 @@ pulumi.runtime.registerResourceModule("aws", "lambda/functionUrl", _module)
 pulumi.runtime.registerResourceModule("aws", "lambda/invocation", _module)
 pulumi.runtime.registerResourceModule("aws", "lambda/layerVersion", _module)
 pulumi.runtime.registerResourceModule("aws", "lambda/layerVersionPermission", _module)
+pulumi.runtime.registerResourceModule("aws", "lambda/microvmsImage", _module)
 pulumi.runtime.registerResourceModule("aws", "lambda/permission", _module)
 pulumi.runtime.registerResourceModule("aws", "lambda/provisionedConcurrencyConfig", _module)
 pulumi.runtime.registerResourceModule("aws", "lambda/runtimeManagementConfig", _module)

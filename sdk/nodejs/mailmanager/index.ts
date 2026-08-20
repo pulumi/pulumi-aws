@@ -10,6 +10,11 @@ export type IngressPoint = import("./ingressPoint").IngressPoint;
 export const IngressPoint: typeof import("./ingressPoint").IngressPoint = null as any;
 utilities.lazyLoad(exports, ["IngressPoint"], () => require("./ingressPoint"));
 
+export { RelayArgs, RelayState } from "./relay";
+export type Relay = import("./relay").Relay;
+export const Relay: typeof import("./relay").Relay = null as any;
+utilities.lazyLoad(exports, ["Relay"], () => require("./relay"));
+
 export { RuleSetArgs, RuleSetState } from "./ruleSet";
 export type RuleSet = import("./ruleSet").RuleSet;
 export const RuleSet: typeof import("./ruleSet").RuleSet = null as any;
@@ -27,6 +32,8 @@ const _module = {
         switch (type) {
             case "aws:mailmanager/ingressPoint:IngressPoint":
                 return new IngressPoint(name, <any>undefined, { urn })
+            case "aws:mailmanager/relay:Relay":
+                return new Relay(name, <any>undefined, { urn })
             case "aws:mailmanager/ruleSet:RuleSet":
                 return new RuleSet(name, <any>undefined, { urn })
             case "aws:mailmanager/trafficPolicy:TrafficPolicy":
@@ -37,5 +44,6 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "mailmanager/ingressPoint", _module)
+pulumi.runtime.registerResourceModule("aws", "mailmanager/relay", _module)
 pulumi.runtime.registerResourceModule("aws", "mailmanager/ruleSet", _module)
 pulumi.runtime.registerResourceModule("aws", "mailmanager/trafficPolicy", _module)

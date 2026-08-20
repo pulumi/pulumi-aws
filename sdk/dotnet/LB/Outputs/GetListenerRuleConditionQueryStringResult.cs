@@ -14,7 +14,7 @@ namespace Pulumi.Aws.LB.Outputs
     public sealed class GetListenerRuleConditionQueryStringResult
     {
         /// <summary>
-        /// Set of `Key`-`Value` pairs indicating the query string parameters to match.
+        /// Set of source IP addresses in CIDR format for Application Load Balancers
         /// </summary>
         public readonly ImmutableArray<Outputs.GetListenerRuleConditionQueryStringValueResult> Values;
 

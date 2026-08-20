@@ -270,11 +270,13 @@ type AgentcoreHarness struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Authorization configuration for authenticating requests. See `authorizerConfiguration` Block below.
 	AuthorizerConfiguration AgentcoreHarnessAuthorizerConfigurationPtrOutput `pulumi:"authorizerConfiguration"`
+	// Actual deployed environment configuration.
+	EnvironmentActuals AgentcoreHarnessEnvironmentActualArrayOutput `pulumi:"environmentActuals"`
 	// Environment artifact configuration. See `environmentArtifact` Block below.
 	EnvironmentArtifact AgentcoreHarnessEnvironmentArtifactPtrOutput `pulumi:"environmentArtifact"`
 	// Map of environment variables.
 	EnvironmentVariables pulumi.StringMapOutput `pulumi:"environmentVariables"`
-	// Compute environment configuration. See `environment` Block below.
+	// Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
 	Environments AgentcoreHarnessEnvironmentArrayOutput `pulumi:"environments"`
 	// ARN of the IAM role that the harness assumes to access AWS services.
 	ExecutionRoleArn pulumi.StringOutput `pulumi:"executionRoleArn"`
@@ -286,7 +288,7 @@ type AgentcoreHarness struct {
 	MaxIterations pulumi.IntOutput `pulumi:"maxIterations"`
 	// Maximum number of tokens in the model response.
 	MaxTokens pulumi.IntPtrOutput `pulumi:"maxTokens"`
-	// Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`.
+	// Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`. Clearing this value will reset the memory configuration to default values.
 	Memory AgentcoreHarnessMemoryPtrOutput `pulumi:"memory"`
 	// Actual deployed memory configuration.
 	MemoryActuals AgentcoreHarnessMemoryActualArrayOutput `pulumi:"memoryActuals"`
@@ -365,11 +367,13 @@ type agentcoreHarnessState struct {
 	Arn *string `pulumi:"arn"`
 	// Authorization configuration for authenticating requests. See `authorizerConfiguration` Block below.
 	AuthorizerConfiguration *AgentcoreHarnessAuthorizerConfiguration `pulumi:"authorizerConfiguration"`
+	// Actual deployed environment configuration.
+	EnvironmentActuals []AgentcoreHarnessEnvironmentActual `pulumi:"environmentActuals"`
 	// Environment artifact configuration. See `environmentArtifact` Block below.
 	EnvironmentArtifact *AgentcoreHarnessEnvironmentArtifact `pulumi:"environmentArtifact"`
 	// Map of environment variables.
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
-	// Compute environment configuration. See `environment` Block below.
+	// Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
 	Environments []AgentcoreHarnessEnvironment `pulumi:"environments"`
 	// ARN of the IAM role that the harness assumes to access AWS services.
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
@@ -381,7 +385,7 @@ type agentcoreHarnessState struct {
 	MaxIterations *int `pulumi:"maxIterations"`
 	// Maximum number of tokens in the model response.
 	MaxTokens *int `pulumi:"maxTokens"`
-	// Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`.
+	// Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`. Clearing this value will reset the memory configuration to default values.
 	Memory *AgentcoreHarnessMemory `pulumi:"memory"`
 	// Actual deployed memory configuration.
 	MemoryActuals []AgentcoreHarnessMemoryActual `pulumi:"memoryActuals"`
@@ -415,11 +419,13 @@ type AgentcoreHarnessState struct {
 	Arn pulumi.StringPtrInput
 	// Authorization configuration for authenticating requests. See `authorizerConfiguration` Block below.
 	AuthorizerConfiguration AgentcoreHarnessAuthorizerConfigurationPtrInput
+	// Actual deployed environment configuration.
+	EnvironmentActuals AgentcoreHarnessEnvironmentActualArrayInput
 	// Environment artifact configuration. See `environmentArtifact` Block below.
 	EnvironmentArtifact AgentcoreHarnessEnvironmentArtifactPtrInput
 	// Map of environment variables.
 	EnvironmentVariables pulumi.StringMapInput
-	// Compute environment configuration. See `environment` Block below.
+	// Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
 	Environments AgentcoreHarnessEnvironmentArrayInput
 	// ARN of the IAM role that the harness assumes to access AWS services.
 	ExecutionRoleArn pulumi.StringPtrInput
@@ -431,7 +437,7 @@ type AgentcoreHarnessState struct {
 	MaxIterations pulumi.IntPtrInput
 	// Maximum number of tokens in the model response.
 	MaxTokens pulumi.IntPtrInput
-	// Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`.
+	// Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`. Clearing this value will reset the memory configuration to default values.
 	Memory AgentcoreHarnessMemoryPtrInput
 	// Actual deployed memory configuration.
 	MemoryActuals AgentcoreHarnessMemoryActualArrayInput
@@ -471,7 +477,7 @@ type agentcoreHarnessArgs struct {
 	EnvironmentArtifact *AgentcoreHarnessEnvironmentArtifact `pulumi:"environmentArtifact"`
 	// Map of environment variables.
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
-	// Compute environment configuration. See `environment` Block below.
+	// Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
 	Environments []AgentcoreHarnessEnvironment `pulumi:"environments"`
 	// ARN of the IAM role that the harness assumes to access AWS services.
 	ExecutionRoleArn string `pulumi:"executionRoleArn"`
@@ -481,7 +487,7 @@ type agentcoreHarnessArgs struct {
 	MaxIterations *int `pulumi:"maxIterations"`
 	// Maximum number of tokens in the model response.
 	MaxTokens *int `pulumi:"maxTokens"`
-	// Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`.
+	// Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`. Clearing this value will reset the memory configuration to default values.
 	Memory *AgentcoreHarnessMemory `pulumi:"memory"`
 	// Model configuration for the harness. See `model` Block below.
 	//
@@ -514,7 +520,7 @@ type AgentcoreHarnessArgs struct {
 	EnvironmentArtifact AgentcoreHarnessEnvironmentArtifactPtrInput
 	// Map of environment variables.
 	EnvironmentVariables pulumi.StringMapInput
-	// Compute environment configuration. See `environment` Block below.
+	// Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
 	Environments AgentcoreHarnessEnvironmentArrayInput
 	// ARN of the IAM role that the harness assumes to access AWS services.
 	ExecutionRoleArn pulumi.StringInput
@@ -524,7 +530,7 @@ type AgentcoreHarnessArgs struct {
 	MaxIterations pulumi.IntPtrInput
 	// Maximum number of tokens in the model response.
 	MaxTokens pulumi.IntPtrInput
-	// Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`.
+	// Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`. Clearing this value will reset the memory configuration to default values.
 	Memory AgentcoreHarnessMemoryPtrInput
 	// Model configuration for the harness. See `model` Block below.
 	//
@@ -651,6 +657,11 @@ func (o AgentcoreHarnessOutput) AuthorizerConfiguration() AgentcoreHarnessAuthor
 	}).(AgentcoreHarnessAuthorizerConfigurationPtrOutput)
 }
 
+// Actual deployed environment configuration.
+func (o AgentcoreHarnessOutput) EnvironmentActuals() AgentcoreHarnessEnvironmentActualArrayOutput {
+	return o.ApplyT(func(v *AgentcoreHarness) AgentcoreHarnessEnvironmentActualArrayOutput { return v.EnvironmentActuals }).(AgentcoreHarnessEnvironmentActualArrayOutput)
+}
+
 // Environment artifact configuration. See `environmentArtifact` Block below.
 func (o AgentcoreHarnessOutput) EnvironmentArtifact() AgentcoreHarnessEnvironmentArtifactPtrOutput {
 	return o.ApplyT(func(v *AgentcoreHarness) AgentcoreHarnessEnvironmentArtifactPtrOutput { return v.EnvironmentArtifact }).(AgentcoreHarnessEnvironmentArtifactPtrOutput)
@@ -661,7 +672,7 @@ func (o AgentcoreHarnessOutput) EnvironmentVariables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AgentcoreHarness) pulumi.StringMapOutput { return v.EnvironmentVariables }).(pulumi.StringMapOutput)
 }
 
-// Compute environment configuration. See `environment` Block below.
+// Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
 func (o AgentcoreHarnessOutput) Environments() AgentcoreHarnessEnvironmentArrayOutput {
 	return o.ApplyT(func(v *AgentcoreHarness) AgentcoreHarnessEnvironmentArrayOutput { return v.Environments }).(AgentcoreHarnessEnvironmentArrayOutput)
 }
@@ -691,7 +702,7 @@ func (o AgentcoreHarnessOutput) MaxTokens() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AgentcoreHarness) pulumi.IntPtrOutput { return v.MaxTokens }).(pulumi.IntPtrOutput)
 }
 
-// Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`.
+// Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`. Clearing this value will reset the memory configuration to default values.
 func (o AgentcoreHarnessOutput) Memory() AgentcoreHarnessMemoryPtrOutput {
 	return o.ApplyT(func(v *AgentcoreHarness) AgentcoreHarnessMemoryPtrOutput { return v.Memory }).(AgentcoreHarnessMemoryPtrOutput)
 }

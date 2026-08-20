@@ -50,6 +50,11 @@ export type ConnectorV2 = import("./connectorV2").ConnectorV2;
 export const ConnectorV2: typeof import("./connectorV2").ConnectorV2 = null as any;
 utilities.lazyLoad(exports, ["ConnectorV2"], () => require("./connectorV2"));
 
+export { FeatureV2Args, FeatureV2State } from "./featureV2";
+export type FeatureV2 = import("./featureV2").FeatureV2;
+export const FeatureV2: typeof import("./featureV2").FeatureV2 = null as any;
+utilities.lazyLoad(exports, ["FeatureV2"], () => require("./featureV2"));
+
 export { FindingAggregatorArgs, FindingAggregatorState } from "./findingAggregator";
 export type FindingAggregator = import("./findingAggregator").FindingAggregator;
 export const FindingAggregator: typeof import("./findingAggregator").FindingAggregator = null as any;
@@ -138,6 +143,8 @@ const _module = {
                 return new ConfigurationPolicyAssociation(name, <any>undefined, { urn })
             case "aws:securityhub/connectorV2:ConnectorV2":
                 return new ConnectorV2(name, <any>undefined, { urn })
+            case "aws:securityhub/featureV2:FeatureV2":
+                return new FeatureV2(name, <any>undefined, { urn })
             case "aws:securityhub/findingAggregator:FindingAggregator":
                 return new FindingAggregator(name, <any>undefined, { urn })
             case "aws:securityhub/insight:Insight":
@@ -172,6 +179,7 @@ pulumi.runtime.registerResourceModule("aws", "securityhub/automationRuleV2", _mo
 pulumi.runtime.registerResourceModule("aws", "securityhub/configurationPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "securityhub/configurationPolicyAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "securityhub/connectorV2", _module)
+pulumi.runtime.registerResourceModule("aws", "securityhub/featureV2", _module)
 pulumi.runtime.registerResourceModule("aws", "securityhub/findingAggregator", _module)
 pulumi.runtime.registerResourceModule("aws", "securityhub/insight", _module)
 pulumi.runtime.registerResourceModule("aws", "securityhub/inviteAccepter", _module)

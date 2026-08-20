@@ -90,14 +90,14 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Compute environment configuration. See `environment` Block below.
+     * Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
      * 
      */
     @Import(name="environments")
     private @Nullable Output<List<AgentcoreHarnessEnvironmentArgs>> environments;
 
     /**
-     * @return Compute environment configuration. See `environment` Block below.
+     * @return Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
      * 
      */
     public Optional<Output<List<AgentcoreHarnessEnvironmentArgs>>> environments() {
@@ -165,14 +165,14 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`.
+     * Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`. Clearing this value will reset the memory configuration to default values.
      * 
      */
     @Import(name="memory")
     private @Nullable Output<AgentcoreHarnessMemoryArgs> memory;
 
     /**
-     * @return Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`.
+     * @return Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`. Clearing this value will reset the memory configuration to default values.
      * 
      */
     public Optional<Output<AgentcoreHarnessMemoryArgs>> memory() {
@@ -447,7 +447,7 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param environments Compute environment configuration. See `environment` Block below.
+         * @param environments Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
          * 
          * @return builder
          * 
@@ -458,7 +458,7 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param environments Compute environment configuration. See `environment` Block below.
+         * @param environments Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
          * 
          * @return builder
          * 
@@ -468,7 +468,7 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param environments Compute environment configuration. See `environment` Block below.
+         * @param environments Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
          * 
          * @return builder
          * 
@@ -562,7 +562,7 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param memory Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`.
+         * @param memory Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`. Clearing this value will reset the memory configuration to default values.
          * 
          * @return builder
          * 
@@ -573,7 +573,7 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param memory Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`.
+         * @param memory Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`. Clearing this value will reset the memory configuration to default values.
          * 
          * @return builder
          * 

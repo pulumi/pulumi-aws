@@ -86,6 +86,17 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `channelId` (String) ID of the MediaLive Channel.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
  * Using `pulumi import`, import MediaLive Channel using the `channelId`. For example:
  *
  * ```sh

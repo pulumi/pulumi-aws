@@ -18,6 +18,10 @@ namespace Pulumi.Aws.Observabilityadmin.Outputs
         /// </summary>
         public readonly string? EncryptionConflictResolutionStrategy;
         /// <summary>
+        /// Determines which newly created destination log groups are encrypted with `KmsKeyArn` when `EncryptionStrategy` is `CUSTOMER_MANAGED`. Valid values: `ENCRYPTED_SOURCE_ONLY` (default), `NEW_DESTINATION_LOG_GROUPS`. Not valid when `EncryptionStrategy` is `AWS_OWNED`.
+        /// </summary>
+        public readonly string? EncryptionScope;
+        /// <summary>
         /// Encryption strategy for logs. Valid values: `AWS_OWNED`, `CUSTOMER_MANAGED`.
         /// </summary>
         public readonly string EncryptionStrategy;
@@ -30,11 +34,14 @@ namespace Pulumi.Aws.Observabilityadmin.Outputs
         private CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfiguration(
             string? encryptionConflictResolutionStrategy,
 
+            string? encryptionScope,
+
             string encryptionStrategy,
 
             string? kmsKeyArn)
         {
             EncryptionConflictResolutionStrategy = encryptionConflictResolutionStrategy;
+            EncryptionScope = encryptionScope;
             EncryptionStrategy = encryptionStrategy;
             KmsKeyArn = kmsKeyArn;
         }

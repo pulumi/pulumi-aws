@@ -17,7 +17,7 @@ public final class GetListenerRuleConditionHostHeader {
      */
     private List<String> regexValues;
     /**
-     * @return Set of `key`-`value` pairs indicating the query string parameters to match.
+     * @return Set of source IP addresses in CIDR format for Application Load Balancers
      * 
      */
     private List<String> values;
@@ -31,7 +31,7 @@ public final class GetListenerRuleConditionHostHeader {
         return this.regexValues;
     }
     /**
-     * @return Set of `key`-`value` pairs indicating the query string parameters to match.
+     * @return Set of source IP addresses in CIDR format for Application Load Balancers
      * 
      */
     public List<String> values() {

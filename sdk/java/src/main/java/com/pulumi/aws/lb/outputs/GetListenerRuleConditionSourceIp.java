@@ -12,14 +12,26 @@ import java.util.Objects;
 @CustomType
 public final class GetListenerRuleConditionSourceIp {
     /**
-     * @return Set of `key`-`value` pairs indicating the query string parameters to match.
+     * @return IP address type for Network Load Balancers.
+     * 
+     */
+    private String ipAddressType;
+    /**
+     * @return Set of source IP addresses in CIDR format for Application Load Balancers
      * 
      */
     private List<String> values;
 
     private GetListenerRuleConditionSourceIp() {}
     /**
-     * @return Set of `key`-`value` pairs indicating the query string parameters to match.
+     * @return IP address type for Network Load Balancers.
+     * 
+     */
+    public String ipAddressType() {
+        return this.ipAddressType;
+    }
+    /**
+     * @return Set of source IP addresses in CIDR format for Application Load Balancers
      * 
      */
     public List<String> values() {
@@ -35,13 +47,23 @@ public final class GetListenerRuleConditionSourceIp {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String ipAddressType;
         private List<String> values;
         public Builder() {}
         public Builder(GetListenerRuleConditionSourceIp defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.ipAddressType = defaults.ipAddressType;
     	      this.values = defaults.values;
         }
 
+        @CustomType.Setter
+        public Builder ipAddressType(String ipAddressType) {
+            if (ipAddressType == null) {
+              throw new MissingRequiredPropertyException("GetListenerRuleConditionSourceIp", "ipAddressType");
+            }
+            this.ipAddressType = ipAddressType;
+            return this;
+        }
         @CustomType.Setter
         public Builder values(List<String> values) {
             if (values == null) {
@@ -55,6 +77,7 @@ public final class GetListenerRuleConditionSourceIp {
         }
         public GetListenerRuleConditionSourceIp build() {
             final var _resultValue = new GetListenerRuleConditionSourceIp();
+            _resultValue.ipAddressType = ipAddressType;
             _resultValue.values = values;
             return _resultValue;
         }

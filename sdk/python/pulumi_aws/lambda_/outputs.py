@@ -26,6 +26,9 @@ __all__ = [
     'CapacityProviderVpcConfig',
     'CodeSigningConfigAllowedPublishers',
     'CodeSigningConfigPolicies',
+    'CoreNetworkConnectorConfiguration',
+    'CoreNetworkConnectorConfigurationVpcEgressConfiguration',
+    'CoreNetworkConnectorTimeouts',
     'EventSourceMappingAmazonManagedKafkaEventSourceConfig',
     'EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfig',
     'EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig',
@@ -63,6 +66,9 @@ __all__ = [
     'FunctionTracingConfig',
     'FunctionUrlCors',
     'FunctionVpcConfig',
+    'MicrovmsImageCodeArtifact',
+    'MicrovmsImageCpuConfiguration',
+    'MicrovmsImageTimeouts',
     'GetCodeSigningConfigAllowedPublisherResult',
     'GetCodeSigningConfigPolicyResult',
     'GetFunctionCapacityProviderConfigResult',
@@ -477,6 +483,160 @@ class CodeSigningConfigPolicies(dict):
         Code signing configuration policy for deployment validation failure. If you set the policy to `Enforce`, Lambda blocks the deployment request if code-signing validation checks fail. If you set the policy to `Warn`, Lambda allows the deployment and creates a CloudWatch log. Valid values: `Warn`, `Enforce`. Default value: `Warn`.
         """
         return pulumi.get(self, "untrusted_artifact_on_deployment")
+
+
+@pulumi.output_type
+class CoreNetworkConnectorConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vpcEgressConfiguration":
+            suggest = "vpc_egress_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CoreNetworkConnectorConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CoreNetworkConnectorConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CoreNetworkConnectorConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 vpc_egress_configuration: Optional['outputs.CoreNetworkConnectorConfigurationVpcEgressConfiguration'] = None):
+        """
+        :param 'CoreNetworkConnectorConfigurationVpcEgressConfigurationArgs' vpc_egress_configuration: Configuration for routing egress traffic through a VPC. See `vpc_egress_configuration` Block below.
+        """
+        if vpc_egress_configuration is not None:
+            pulumi.set(__self__, "vpc_egress_configuration", vpc_egress_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcEgressConfiguration")
+    def vpc_egress_configuration(self) -> Optional['outputs.CoreNetworkConnectorConfigurationVpcEgressConfiguration']:
+        """
+        Configuration for routing egress traffic through a VPC. See `vpc_egress_configuration` Block below.
+        """
+        return pulumi.get(self, "vpc_egress_configuration")
+
+
+@pulumi.output_type
+class CoreNetworkConnectorConfigurationVpcEgressConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "associatedComputeResourceTypes":
+            suggest = "associated_compute_resource_types"
+        elif key == "securityGroupIds":
+            suggest = "security_group_ids"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+        elif key == "networkProtocol":
+            suggest = "network_protocol"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CoreNetworkConnectorConfigurationVpcEgressConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CoreNetworkConnectorConfigurationVpcEgressConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CoreNetworkConnectorConfigurationVpcEgressConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 associated_compute_resource_types: Sequence[_builtins.str],
+                 security_group_ids: Sequence[_builtins.str],
+                 subnet_ids: Sequence[_builtins.str],
+                 network_protocol: Optional[_builtins.str] = None):
+        """
+        :param Sequence[_builtins.str] associated_compute_resource_types: Compute resource types that may use this connector. Valid values: `MicroVm`.
+        :param Sequence[_builtins.str] security_group_ids: Set of security group IDs applied to the connector's ENIs.
+        :param Sequence[_builtins.str] subnet_ids: Set of subnet IDs where the connector provisions its ENIs.
+        :param _builtins.str network_protocol: Network protocol. Valid values: `IPv4`, `DualStack`.
+        """
+        pulumi.set(__self__, "associated_compute_resource_types", associated_compute_resource_types)
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if network_protocol is not None:
+            pulumi.set(__self__, "network_protocol", network_protocol)
+
+    @_builtins.property
+    @pulumi.getter(name="associatedComputeResourceTypes")
+    def associated_compute_resource_types(self) -> Sequence[_builtins.str]:
+        """
+        Compute resource types that may use this connector. Valid values: `MicroVm`.
+        """
+        return pulumi.get(self, "associated_compute_resource_types")
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Sequence[_builtins.str]:
+        """
+        Set of security group IDs applied to the connector's ENIs.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Sequence[_builtins.str]:
+        """
+        Set of subnet IDs where the connector provisions its ENIs.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="networkProtocol")
+    def network_protocol(self) -> Optional[_builtins.str]:
+        """
+        Network protocol. Valid values: `IPv4`, `DualStack`.
+        """
+        return pulumi.get(self, "network_protocol")
+
+
+@pulumi.output_type
+class CoreNetworkConnectorTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None,
+                 delete: Optional[_builtins.str] = None,
+                 update: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param _builtins.str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param _builtins.str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
 
 
 @pulumi.output_type
@@ -2038,6 +2198,85 @@ class FunctionVpcConfig(dict):
         ID of the VPC.
         """
         return pulumi.get(self, "vpc_id")
+
+
+@pulumi.output_type
+class MicrovmsImageCodeArtifact(dict):
+    def __init__(__self__, *,
+                 uri: _builtins.str):
+        """
+        :param _builtins.str uri: S3 URI of the zip archive containing the application code and Dockerfile (e.g., `s3://bucket/code.zip`).
+        """
+        pulumi.set(__self__, "uri", uri)
+
+    @_builtins.property
+    @pulumi.getter
+    def uri(self) -> _builtins.str:
+        """
+        S3 URI of the zip archive containing the application code and Dockerfile (e.g., `s3://bucket/code.zip`).
+        """
+        return pulumi.get(self, "uri")
+
+
+@pulumi.output_type
+class MicrovmsImageCpuConfiguration(dict):
+    def __init__(__self__, *,
+                 architecture: _builtins.str):
+        """
+        :param _builtins.str architecture: CPU architecture for the MicroVM. Valid values are `x86_64` and `arm64`.
+        """
+        pulumi.set(__self__, "architecture", architecture)
+
+    @_builtins.property
+    @pulumi.getter
+    def architecture(self) -> _builtins.str:
+        """
+        CPU architecture for the MicroVM. Valid values are `x86_64` and `arm64`.
+        """
+        return pulumi.get(self, "architecture")
+
+
+@pulumi.output_type
+class MicrovmsImageTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None,
+                 delete: Optional[_builtins.str] = None,
+                 update: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param _builtins.str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param _builtins.str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
 
 
 @pulumi.output_type

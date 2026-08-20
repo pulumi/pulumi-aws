@@ -12,11 +12,17 @@ namespace Pulumi.Aws.LB.Inputs
 
     public sealed class GetListenerRuleConditionSourceIpArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// IP address type for Network Load Balancers.
+        /// </summary>
+        [Input("ipAddressType", required: true)]
+        public string IpAddressType { get; set; } = null!;
+
         [Input("values", required: true)]
         private List<string>? _values;
 
         /// <summary>
-        /// Set of `Key`-`Value` pairs indicating the query string parameters to match.
+        /// Set of source IP addresses in CIDR format for Application Load Balancers
         /// </summary>
         public List<string> Values
         {

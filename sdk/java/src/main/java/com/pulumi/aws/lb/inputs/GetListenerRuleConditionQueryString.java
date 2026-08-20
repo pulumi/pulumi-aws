@@ -16,14 +16,14 @@ public final class GetListenerRuleConditionQueryString extends com.pulumi.resour
     public static final GetListenerRuleConditionQueryString Empty = new GetListenerRuleConditionQueryString();
 
     /**
-     * Set of `key`-`value` pairs indicating the query string parameters to match.
+     * Set of source IP addresses in CIDR format for Application Load Balancers
      * 
      */
     @Import(name="values")
     private @Nullable List<GetListenerRuleConditionQueryStringValue> values;
 
     /**
-     * @return Set of `key`-`value` pairs indicating the query string parameters to match.
+     * @return Set of source IP addresses in CIDR format for Application Load Balancers
      * 
      */
     public Optional<List<GetListenerRuleConditionQueryStringValue>> values() {
@@ -55,7 +55,7 @@ public final class GetListenerRuleConditionQueryString extends com.pulumi.resour
         }
 
         /**
-         * @param values Set of `key`-`value` pairs indicating the query string parameters to match.
+         * @param values Set of source IP addresses in CIDR format for Application Load Balancers
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class GetListenerRuleConditionQueryString extends com.pulumi.resour
         }
 
         /**
-         * @param values Set of `key`-`value` pairs indicating the query string parameters to match.
+         * @param values Set of source IP addresses in CIDR format for Application Load Balancers
          * 
          * @return builder
          * 

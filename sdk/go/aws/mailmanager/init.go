@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:mailmanager/ingressPoint:IngressPoint":
 		r = &IngressPoint{}
+	case "aws:mailmanager/relay:Relay":
+		r = &Relay{}
 	case "aws:mailmanager/ruleSet:RuleSet":
 		r = &RuleSet{}
 	case "aws:mailmanager/trafficPolicy:TrafficPolicy":
@@ -43,6 +45,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"mailmanager/ingressPoint",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"mailmanager/relay",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

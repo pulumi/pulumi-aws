@@ -15,8 +15,8 @@ namespace Pulumi.Aws.Bedrock.Inputs
         /// <summary>
         /// Whether to require an S3 endpoint for the service in the VPC.
         /// </summary>
-        [Input("requireServiceS3Endpoint", required: true)]
-        public Input<bool> RequireServiceS3Endpoint { get; set; } = null!;
+        [Input("requireServiceS3Endpoint")]
+        public Input<bool>? RequireServiceS3Endpoint { get; set; }
 
         [Input("securityGroups", required: true)]
         private InputList<string>? _securityGroups;

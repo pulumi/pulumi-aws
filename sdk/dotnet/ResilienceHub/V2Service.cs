@@ -84,6 +84,44 @@ namespace Pulumi.Aws.ResilienceHub
     /// });
     /// ```
     /// 
+    /// ### With Associated Systems
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.ResilienceHub.V2System("example", new()
+    ///     {
+    ///         Name = "example-system",
+    ///     });
+    /// 
+    ///     var exampleV2Service = new Aws.ResilienceHub.V2Service("example", new()
+    ///     {
+    ///         Name = "example-service",
+    ///         Regions = new[]
+    ///         {
+    ///             "us-west-2",
+    ///         },
+    ///         PermissionModel = new Aws.ResilienceHub.Inputs.V2ServicePermissionModelArgs
+    ///         {
+    ///             InvokerRoleName = "AWSResilienceHubAssessmentRole",
+    ///         },
+    ///         AssociatedSystems = new[]
+    ///         {
+    ///             new Aws.ResilienceHub.Inputs.V2ServiceAssociatedSystemArgs
+    ///             {
+    ///                 SystemArn = example.Arn,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ### Identity Schema
@@ -106,6 +144,12 @@ namespace Pulumi.Aws.ResilienceHub
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
+        /// Systems to associate with the service. See `AssociatedSystem` Block below.
+        /// </summary>
+        [Output("associatedSystems")]
+        public Output<ImmutableArray<Outputs.V2ServiceAssociatedSystem>> AssociatedSystems { get; private set; } = null!;
 
         /// <summary>
         /// Dependency discovery. Valid values: `ENABLED`, `DISABLED`.
@@ -215,6 +259,18 @@ namespace Pulumi.Aws.ResilienceHub
 
     public sealed class V2ServiceArgs : global::Pulumi.ResourceArgs
     {
+        [Input("associatedSystems")]
+        private InputList<Inputs.V2ServiceAssociatedSystemArgs>? _associatedSystems;
+
+        /// <summary>
+        /// Systems to associate with the service. See `AssociatedSystem` Block below.
+        /// </summary>
+        public InputList<Inputs.V2ServiceAssociatedSystemArgs> AssociatedSystems
+        {
+            get => _associatedSystems ?? (_associatedSystems = new InputList<Inputs.V2ServiceAssociatedSystemArgs>());
+            set => _associatedSystems = value;
+        }
+
         /// <summary>
         /// Dependency discovery. Valid values: `ENABLED`, `DISABLED`.
         /// </summary>
@@ -296,6 +352,18 @@ namespace Pulumi.Aws.ResilienceHub
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        [Input("associatedSystems")]
+        private InputList<Inputs.V2ServiceAssociatedSystemGetArgs>? _associatedSystems;
+
+        /// <summary>
+        /// Systems to associate with the service. See `AssociatedSystem` Block below.
+        /// </summary>
+        public InputList<Inputs.V2ServiceAssociatedSystemGetArgs> AssociatedSystems
+        {
+            get => _associatedSystems ?? (_associatedSystems = new InputList<Inputs.V2ServiceAssociatedSystemGetArgs>());
+            set => _associatedSystems = value;
+        }
 
         /// <summary>
         /// Dependency discovery. Valid values: `ENABLED`, `DISABLED`.

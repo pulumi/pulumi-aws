@@ -391,6 +391,15 @@ __all__ = [
     'AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource',
     'AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource',
     'AgentcoreHarnessEnvironment',
+    'AgentcoreHarnessEnvironmentActual',
+    'AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment',
+    'AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfiguration',
+    'AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint',
+    'AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint',
+    'AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage',
+    'AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfiguration',
+    'AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfiguration',
+    'AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig',
     'AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment',
     'AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfiguration',
     'AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint',
@@ -18539,19 +18548,506 @@ class AgentcoreHarnessEnvironment(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 agentcore_runtime_environments: Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment']):
+                 agentcore_runtime_environments: Optional[Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment']] = None):
         """
         :param Sequence['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs'] agentcore_runtime_environments: AgentCore runtime environment configuration. See `agentcore_runtime_environment` Block below.
+        """
+        if agentcore_runtime_environments is not None:
+            pulumi.set(__self__, "agentcore_runtime_environments", agentcore_runtime_environments)
+
+    @_builtins.property
+    @pulumi.getter(name="agentcoreRuntimeEnvironments")
+    def agentcore_runtime_environments(self) -> Optional[Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment']]:
+        """
+        AgentCore runtime environment configuration. See `agentcore_runtime_environment` Block below.
+        """
+        return pulumi.get(self, "agentcore_runtime_environments")
+
+
+@pulumi.output_type
+class AgentcoreHarnessEnvironmentActual(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "agentcoreRuntimeEnvironments":
+            suggest = "agentcore_runtime_environments"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreHarnessEnvironmentActual. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreHarnessEnvironmentActual.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreHarnessEnvironmentActual.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 agentcore_runtime_environments: Sequence['outputs.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment']):
+        """
+        :param Sequence['AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArgs'] agentcore_runtime_environments: AgentCore runtime environment configuration. See `agentcore_runtime_environment` Block below.
         """
         pulumi.set(__self__, "agentcore_runtime_environments", agentcore_runtime_environments)
 
     @_builtins.property
     @pulumi.getter(name="agentcoreRuntimeEnvironments")
-    def agentcore_runtime_environments(self) -> Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment']:
+    def agentcore_runtime_environments(self) -> Sequence['outputs.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment']:
         """
         AgentCore runtime environment configuration. See `agentcore_runtime_environment` Block below.
         """
         return pulumi.get(self, "agentcore_runtime_environments")
+
+
+@pulumi.output_type
+class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "agentRuntimeArn":
+            suggest = "agent_runtime_arn"
+        elif key == "agentRuntimeId":
+            suggest = "agent_runtime_id"
+        elif key == "agentRuntimeName":
+            suggest = "agent_runtime_name"
+        elif key == "filesystemConfigurations":
+            suggest = "filesystem_configurations"
+        elif key == "lifecycleConfigurations":
+            suggest = "lifecycle_configurations"
+        elif key == "networkConfigurations":
+            suggest = "network_configurations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 agent_runtime_arn: _builtins.str,
+                 agent_runtime_id: _builtins.str,
+                 agent_runtime_name: _builtins.str,
+                 filesystem_configurations: Sequence['outputs.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfiguration'],
+                 lifecycle_configurations: Sequence['outputs.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfiguration'],
+                 network_configurations: Sequence['outputs.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfiguration']):
+        """
+        :param _builtins.str agent_runtime_arn: ARN of the agent runtime the service provisions for the harness.
+        :param _builtins.str agent_runtime_id: ID of the agent runtime the service provisions for the harness.
+        :param _builtins.str agent_runtime_name: Name of the agent runtime the service derives for the harness.
+        :param Sequence['AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArgs'] filesystem_configurations: Filesystem configurations. See `filesystem_configuration` Block below.
+               
+               The following attributes are exported under `agentcore_runtime_environment`:
+        :param Sequence['AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArgs'] lifecycle_configurations: Lifecycle configuration. See `lifecycle_configuration` Block below.
+        :param Sequence['AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArgs'] network_configurations: Network configuration. See `network_configuration` Block below.
+        """
+        pulumi.set(__self__, "agent_runtime_arn", agent_runtime_arn)
+        pulumi.set(__self__, "agent_runtime_id", agent_runtime_id)
+        pulumi.set(__self__, "agent_runtime_name", agent_runtime_name)
+        pulumi.set(__self__, "filesystem_configurations", filesystem_configurations)
+        pulumi.set(__self__, "lifecycle_configurations", lifecycle_configurations)
+        pulumi.set(__self__, "network_configurations", network_configurations)
+
+    @_builtins.property
+    @pulumi.getter(name="agentRuntimeArn")
+    def agent_runtime_arn(self) -> _builtins.str:
+        """
+        ARN of the agent runtime the service provisions for the harness.
+        """
+        return pulumi.get(self, "agent_runtime_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="agentRuntimeId")
+    def agent_runtime_id(self) -> _builtins.str:
+        """
+        ID of the agent runtime the service provisions for the harness.
+        """
+        return pulumi.get(self, "agent_runtime_id")
+
+    @_builtins.property
+    @pulumi.getter(name="agentRuntimeName")
+    def agent_runtime_name(self) -> _builtins.str:
+        """
+        Name of the agent runtime the service derives for the harness.
+        """
+        return pulumi.get(self, "agent_runtime_name")
+
+    @_builtins.property
+    @pulumi.getter(name="filesystemConfigurations")
+    def filesystem_configurations(self) -> Sequence['outputs.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfiguration']:
+        """
+        Filesystem configurations. See `filesystem_configuration` Block below.
+
+        The following attributes are exported under `agentcore_runtime_environment`:
+        """
+        return pulumi.get(self, "filesystem_configurations")
+
+    @_builtins.property
+    @pulumi.getter(name="lifecycleConfigurations")
+    def lifecycle_configurations(self) -> Sequence['outputs.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfiguration']:
+        """
+        Lifecycle configuration. See `lifecycle_configuration` Block below.
+        """
+        return pulumi.get(self, "lifecycle_configurations")
+
+    @_builtins.property
+    @pulumi.getter(name="networkConfigurations")
+    def network_configurations(self) -> Sequence['outputs.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfiguration']:
+        """
+        Network configuration. See `network_configuration` Block below.
+        """
+        return pulumi.get(self, "network_configurations")
+
+
+@pulumi.output_type
+class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "efsAccessPoints":
+            suggest = "efs_access_points"
+        elif key == "s3FilesAccessPoints":
+            suggest = "s3_files_access_points"
+        elif key == "sessionStorages":
+            suggest = "session_storages"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 efs_access_points: Sequence['outputs.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint'],
+                 s3_files_access_points: Sequence['outputs.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint'],
+                 session_storages: Sequence['outputs.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage']):
+        """
+        :param Sequence['AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArgs'] efs_access_points: Amazon EFS access point to mount as shared file storage. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `efs_access_point` Block below.
+        :param Sequence['AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArgs'] s3_files_access_points: Amazon S3 Files access point to mount as shared file storage. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `s3_files_access_point` Block below.
+        :param Sequence['AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArgs'] session_storages: Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `session_storage` Block below.
+        """
+        pulumi.set(__self__, "efs_access_points", efs_access_points)
+        pulumi.set(__self__, "s3_files_access_points", s3_files_access_points)
+        pulumi.set(__self__, "session_storages", session_storages)
+
+    @_builtins.property
+    @pulumi.getter(name="efsAccessPoints")
+    def efs_access_points(self) -> Sequence['outputs.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint']:
+        """
+        Amazon EFS access point to mount as shared file storage. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `efs_access_point` Block below.
+        """
+        return pulumi.get(self, "efs_access_points")
+
+    @_builtins.property
+    @pulumi.getter(name="s3FilesAccessPoints")
+    def s3_files_access_points(self) -> Sequence['outputs.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint']:
+        """
+        Amazon S3 Files access point to mount as shared file storage. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `s3_files_access_point` Block below.
+        """
+        return pulumi.get(self, "s3_files_access_points")
+
+    @_builtins.property
+    @pulumi.getter(name="sessionStorages")
+    def session_storages(self) -> Sequence['outputs.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage']:
+        """
+        Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `session_storage` Block below.
+        """
+        return pulumi.get(self, "session_storages")
+
+
+@pulumi.output_type
+class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessPointArn":
+            suggest = "access_point_arn"
+        elif key == "mountPath":
+            suggest = "mount_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_point_arn: _builtins.str,
+                 mount_path: _builtins.str):
+        """
+        :param _builtins.str access_point_arn: ARN of the Amazon EFS access point to mount into the agent runtime.
+        :param _builtins.str mount_path: Mount path for the EFS access point inside the agent runtime. Must be under `/mnt` with exactly one subdirectory level (for example, `/mnt/data`).
+        """
+        pulumi.set(__self__, "access_point_arn", access_point_arn)
+        pulumi.set(__self__, "mount_path", mount_path)
+
+    @_builtins.property
+    @pulumi.getter(name="accessPointArn")
+    def access_point_arn(self) -> _builtins.str:
+        """
+        ARN of the Amazon EFS access point to mount into the agent runtime.
+        """
+        return pulumi.get(self, "access_point_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> _builtins.str:
+        """
+        Mount path for the EFS access point inside the agent runtime. Must be under `/mnt` with exactly one subdirectory level (for example, `/mnt/data`).
+        """
+        return pulumi.get(self, "mount_path")
+
+
+@pulumi.output_type
+class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessPointArn":
+            suggest = "access_point_arn"
+        elif key == "mountPath":
+            suggest = "mount_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_point_arn: _builtins.str,
+                 mount_path: _builtins.str):
+        """
+        :param _builtins.str access_point_arn: ARN of the Amazon S3 Files access point to mount into the agent runtime.
+        :param _builtins.str mount_path: Mount path for the S3 Files access point inside the agent runtime. Must be under `/mnt` with exactly one subdirectory level (for example, `/mnt/data`).
+        """
+        pulumi.set(__self__, "access_point_arn", access_point_arn)
+        pulumi.set(__self__, "mount_path", mount_path)
+
+    @_builtins.property
+    @pulumi.getter(name="accessPointArn")
+    def access_point_arn(self) -> _builtins.str:
+        """
+        ARN of the Amazon S3 Files access point to mount into the agent runtime.
+        """
+        return pulumi.get(self, "access_point_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> _builtins.str:
+        """
+        Mount path for the S3 Files access point inside the agent runtime. Must be under `/mnt` with exactly one subdirectory level (for example, `/mnt/data`).
+        """
+        return pulumi.get(self, "mount_path")
+
+
+@pulumi.output_type
+class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mountPath":
+            suggest = "mount_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 mount_path: _builtins.str):
+        """
+        :param _builtins.str mount_path: Mount path for the session storage filesystem inside the agent runtime. Must be under `/mnt` with exactly one subdirectory level (for example, `/mnt/data`).
+        """
+        pulumi.set(__self__, "mount_path", mount_path)
+
+    @_builtins.property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> _builtins.str:
+        """
+        Mount path for the session storage filesystem inside the agent runtime. Must be under `/mnt` with exactly one subdirectory level (for example, `/mnt/data`).
+        """
+        return pulumi.get(self, "mount_path")
+
+
+@pulumi.output_type
+class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "idleRuntimeSessionTimeout":
+            suggest = "idle_runtime_session_timeout"
+        elif key == "maxLifetime":
+            suggest = "max_lifetime"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 idle_runtime_session_timeout: _builtins.int,
+                 max_lifetime: _builtins.int):
+        """
+        :param _builtins.int idle_runtime_session_timeout: Timeout in seconds for idle sessions.
+        :param _builtins.int max_lifetime: Maximum lifetime of the instance in seconds.
+        """
+        pulumi.set(__self__, "idle_runtime_session_timeout", idle_runtime_session_timeout)
+        pulumi.set(__self__, "max_lifetime", max_lifetime)
+
+    @_builtins.property
+    @pulumi.getter(name="idleRuntimeSessionTimeout")
+    def idle_runtime_session_timeout(self) -> _builtins.int:
+        """
+        Timeout in seconds for idle sessions.
+        """
+        return pulumi.get(self, "idle_runtime_session_timeout")
+
+    @_builtins.property
+    @pulumi.getter(name="maxLifetime")
+    def max_lifetime(self) -> _builtins.int:
+        """
+        Maximum lifetime of the instance in seconds.
+        """
+        return pulumi.get(self, "max_lifetime")
+
+
+@pulumi.output_type
+class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "networkMode":
+            suggest = "network_mode"
+        elif key == "networkModeConfigs":
+            suggest = "network_mode_configs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 network_mode: _builtins.str,
+                 network_mode_configs: Sequence['outputs.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig']):
+        """
+        :param _builtins.str network_mode: Network mode. Valid values: `PUBLIC`, `VPC`.
+        :param Sequence['AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs'] network_mode_configs: VPC configuration. See `network_mode_config` Block below.
+        """
+        pulumi.set(__self__, "network_mode", network_mode)
+        pulumi.set(__self__, "network_mode_configs", network_mode_configs)
+
+    @_builtins.property
+    @pulumi.getter(name="networkMode")
+    def network_mode(self) -> _builtins.str:
+        """
+        Network mode. Valid values: `PUBLIC`, `VPC`.
+        """
+        return pulumi.get(self, "network_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="networkModeConfigs")
+    def network_mode_configs(self) -> Sequence['outputs.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig']:
+        """
+        VPC configuration. See `network_mode_config` Block below.
+        """
+        return pulumi.get(self, "network_mode_configs")
+
+
+@pulumi.output_type
+class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "requireServiceS3Endpoint":
+            suggest = "require_service_s3_endpoint"
+        elif key == "securityGroups":
+            suggest = "security_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 require_service_s3_endpoint: _builtins.bool,
+                 security_groups: Sequence[_builtins.str],
+                 subnets: Sequence[_builtins.str]):
+        """
+        :param _builtins.bool require_service_s3_endpoint: Whether to require an S3 endpoint for the service in the VPC.
+        :param Sequence[_builtins.str] security_groups: Security groups for the VPC.
+        :param Sequence[_builtins.str] subnets: Subnets for the VPC.
+        """
+        pulumi.set(__self__, "require_service_s3_endpoint", require_service_s3_endpoint)
+        pulumi.set(__self__, "security_groups", security_groups)
+        pulumi.set(__self__, "subnets", subnets)
+
+    @_builtins.property
+    @pulumi.getter(name="requireServiceS3Endpoint")
+    def require_service_s3_endpoint(self) -> _builtins.bool:
+        """
+        Whether to require an S3 endpoint for the service in the VPC.
+        """
+        return pulumi.get(self, "require_service_s3_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> Sequence[_builtins.str]:
+        """
+        Security groups for the VPC.
+        """
+        return pulumi.get(self, "security_groups")
+
+    @_builtins.property
+    @pulumi.getter
+    def subnets(self) -> Sequence[_builtins.str]:
+        """
+        Subnets for the VPC.
+        """
+        return pulumi.get(self, "subnets")
 
 
 @pulumi.output_type
@@ -18584,50 +19080,72 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 agent_runtime_arn: _builtins.str,
-                 agent_runtime_id: _builtins.str,
-                 agent_runtime_name: _builtins.str,
-                 filesystem_configurations: Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfiguration'],
-                 lifecycle_configurations: Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfiguration'],
-                 network_configurations: Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration']):
+                 agent_runtime_arn: Optional[_builtins.str] = None,
+                 agent_runtime_id: Optional[_builtins.str] = None,
+                 agent_runtime_name: Optional[_builtins.str] = None,
+                 filesystem_configurations: Optional[Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfiguration']] = None,
+                 lifecycle_configurations: Optional[Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfiguration']] = None,
+                 network_configurations: Optional[Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration']] = None):
         """
+        :param _builtins.str agent_runtime_arn: ARN of the agent runtime the service provisions for the harness.
+        :param _builtins.str agent_runtime_id: ID of the agent runtime the service provisions for the harness.
+        :param _builtins.str agent_runtime_name: Name of the agent runtime the service derives for the harness.
         :param Sequence['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationArgs'] filesystem_configurations: Filesystem configurations. See `filesystem_configuration` Block below.
+               
+               The following attributes are exported under `agentcore_runtime_environment`:
         :param Sequence['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfigurationArgs'] lifecycle_configurations: Lifecycle configuration. See `lifecycle_configuration` Block below.
         :param Sequence['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationArgs'] network_configurations: Network configuration. See `network_configuration` Block below.
         """
-        pulumi.set(__self__, "agent_runtime_arn", agent_runtime_arn)
-        pulumi.set(__self__, "agent_runtime_id", agent_runtime_id)
-        pulumi.set(__self__, "agent_runtime_name", agent_runtime_name)
-        pulumi.set(__self__, "filesystem_configurations", filesystem_configurations)
-        pulumi.set(__self__, "lifecycle_configurations", lifecycle_configurations)
-        pulumi.set(__self__, "network_configurations", network_configurations)
+        if agent_runtime_arn is not None:
+            pulumi.set(__self__, "agent_runtime_arn", agent_runtime_arn)
+        if agent_runtime_id is not None:
+            pulumi.set(__self__, "agent_runtime_id", agent_runtime_id)
+        if agent_runtime_name is not None:
+            pulumi.set(__self__, "agent_runtime_name", agent_runtime_name)
+        if filesystem_configurations is not None:
+            pulumi.set(__self__, "filesystem_configurations", filesystem_configurations)
+        if lifecycle_configurations is not None:
+            pulumi.set(__self__, "lifecycle_configurations", lifecycle_configurations)
+        if network_configurations is not None:
+            pulumi.set(__self__, "network_configurations", network_configurations)
 
     @_builtins.property
     @pulumi.getter(name="agentRuntimeArn")
-    def agent_runtime_arn(self) -> _builtins.str:
+    def agent_runtime_arn(self) -> Optional[_builtins.str]:
+        """
+        ARN of the agent runtime the service provisions for the harness.
+        """
         return pulumi.get(self, "agent_runtime_arn")
 
     @_builtins.property
     @pulumi.getter(name="agentRuntimeId")
-    def agent_runtime_id(self) -> _builtins.str:
+    def agent_runtime_id(self) -> Optional[_builtins.str]:
+        """
+        ID of the agent runtime the service provisions for the harness.
+        """
         return pulumi.get(self, "agent_runtime_id")
 
     @_builtins.property
     @pulumi.getter(name="agentRuntimeName")
-    def agent_runtime_name(self) -> _builtins.str:
+    def agent_runtime_name(self) -> Optional[_builtins.str]:
+        """
+        Name of the agent runtime the service derives for the harness.
+        """
         return pulumi.get(self, "agent_runtime_name")
 
     @_builtins.property
     @pulumi.getter(name="filesystemConfigurations")
-    def filesystem_configurations(self) -> Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfiguration']:
+    def filesystem_configurations(self) -> Optional[Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfiguration']]:
         """
         Filesystem configurations. See `filesystem_configuration` Block below.
+
+        The following attributes are exported under `agentcore_runtime_environment`:
         """
         return pulumi.get(self, "filesystem_configurations")
 
     @_builtins.property
     @pulumi.getter(name="lifecycleConfigurations")
-    def lifecycle_configurations(self) -> Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfiguration']:
+    def lifecycle_configurations(self) -> Optional[Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfiguration']]:
         """
         Lifecycle configuration. See `lifecycle_configuration` Block below.
         """
@@ -18635,7 +19153,7 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment(dict):
 
     @_builtins.property
     @pulumi.getter(name="networkConfigurations")
-    def network_configurations(self) -> Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration']:
+    def network_configurations(self) -> Optional[Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration']]:
         """
         Network configuration. See `network_configuration` Block below.
         """
@@ -18666,21 +19184,24 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurat
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 efs_access_points: Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint'],
-                 s3_files_access_points: Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint'],
-                 session_storages: Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage']):
+                 efs_access_points: Optional[Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint']] = None,
+                 s3_files_access_points: Optional[Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint']] = None,
+                 session_storages: Optional[Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage']] = None):
         """
         :param Sequence['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArgs'] efs_access_points: Amazon EFS access point to mount as shared file storage. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `efs_access_point` Block below.
         :param Sequence['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArgs'] s3_files_access_points: Amazon S3 Files access point to mount as shared file storage. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `s3_files_access_point` Block below.
         :param Sequence['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArgs'] session_storages: Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `session_storage` Block below.
         """
-        pulumi.set(__self__, "efs_access_points", efs_access_points)
-        pulumi.set(__self__, "s3_files_access_points", s3_files_access_points)
-        pulumi.set(__self__, "session_storages", session_storages)
+        if efs_access_points is not None:
+            pulumi.set(__self__, "efs_access_points", efs_access_points)
+        if s3_files_access_points is not None:
+            pulumi.set(__self__, "s3_files_access_points", s3_files_access_points)
+        if session_storages is not None:
+            pulumi.set(__self__, "session_storages", session_storages)
 
     @_builtins.property
     @pulumi.getter(name="efsAccessPoints")
-    def efs_access_points(self) -> Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint']:
+    def efs_access_points(self) -> Optional[Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint']]:
         """
         Amazon EFS access point to mount as shared file storage. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `efs_access_point` Block below.
         """
@@ -18688,7 +19209,7 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurat
 
     @_builtins.property
     @pulumi.getter(name="s3FilesAccessPoints")
-    def s3_files_access_points(self) -> Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint']:
+    def s3_files_access_points(self) -> Optional[Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint']]:
         """
         Amazon S3 Files access point to mount as shared file storage. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `s3_files_access_point` Block below.
         """
@@ -18696,7 +19217,7 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurat
 
     @_builtins.property
     @pulumi.getter(name="sessionStorages")
-    def session_storages(self) -> Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage']:
+    def session_storages(self) -> Optional[Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage']]:
         """
         Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `session_storage` Block below.
         """
@@ -18905,13 +19426,14 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration
 
     def __init__(__self__, *,
                  network_mode: _builtins.str,
-                 network_mode_configs: Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig']):
+                 network_mode_configs: Optional[Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig']] = None):
         """
         :param _builtins.str network_mode: Network mode. Valid values: `PUBLIC`, `VPC`.
         :param Sequence['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs'] network_mode_configs: VPC configuration. See `network_mode_config` Block below.
         """
         pulumi.set(__self__, "network_mode", network_mode)
-        pulumi.set(__self__, "network_mode_configs", network_mode_configs)
+        if network_mode_configs is not None:
+            pulumi.set(__self__, "network_mode_configs", network_mode_configs)
 
     @_builtins.property
     @pulumi.getter(name="networkMode")
@@ -18923,7 +19445,7 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration
 
     @_builtins.property
     @pulumi.getter(name="networkModeConfigs")
-    def network_mode_configs(self) -> Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig']:
+    def network_mode_configs(self) -> Optional[Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig']]:
         """
         VPC configuration. See `network_mode_config` Block below.
         """
@@ -18935,10 +19457,10 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "requireServiceS3Endpoint":
-            suggest = "require_service_s3_endpoint"
-        elif key == "securityGroups":
+        if key == "securityGroups":
             suggest = "security_groups"
+        elif key == "requireServiceS3Endpoint":
+            suggest = "require_service_s3_endpoint"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig. Access the value via the '{suggest}' property getter instead.")
@@ -18952,25 +19474,18 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 require_service_s3_endpoint: _builtins.bool,
                  security_groups: Sequence[_builtins.str],
-                 subnets: Sequence[_builtins.str]):
+                 subnets: Sequence[_builtins.str],
+                 require_service_s3_endpoint: Optional[_builtins.bool] = None):
         """
-        :param _builtins.bool require_service_s3_endpoint: Whether to require an S3 endpoint for the service in the VPC.
         :param Sequence[_builtins.str] security_groups: Security groups for the VPC.
         :param Sequence[_builtins.str] subnets: Subnets for the VPC.
+        :param _builtins.bool require_service_s3_endpoint: Whether to require an S3 endpoint for the service in the VPC.
         """
-        pulumi.set(__self__, "require_service_s3_endpoint", require_service_s3_endpoint)
         pulumi.set(__self__, "security_groups", security_groups)
         pulumi.set(__self__, "subnets", subnets)
-
-    @_builtins.property
-    @pulumi.getter(name="requireServiceS3Endpoint")
-    def require_service_s3_endpoint(self) -> _builtins.bool:
-        """
-        Whether to require an S3 endpoint for the service in the VPC.
-        """
-        return pulumi.get(self, "require_service_s3_endpoint")
+        if require_service_s3_endpoint is not None:
+            pulumi.set(__self__, "require_service_s3_endpoint", require_service_s3_endpoint)
 
     @_builtins.property
     @pulumi.getter(name="securityGroups")
@@ -18987,6 +19502,14 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration
         Subnets for the VPC.
         """
         return pulumi.get(self, "subnets")
+
+    @_builtins.property
+    @pulumi.getter(name="requireServiceS3Endpoint")
+    def require_service_s3_endpoint(self) -> Optional[_builtins.bool]:
+        """
+        Whether to require an S3 endpoint for the service in the VPC.
+        """
+        return pulumi.get(self, "require_service_s3_endpoint")
 
 
 @pulumi.output_type

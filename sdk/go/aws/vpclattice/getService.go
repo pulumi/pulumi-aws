@@ -75,10 +75,12 @@ type LookupServiceResult struct {
 	// List of objects with DNS names.
 	DnsEntries []GetServiceDnsEntry `pulumi:"dnsEntries"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                string `pulumi:"id"`
-	Name              string `pulumi:"name"`
-	Region            string `pulumi:"region"`
-	ServiceIdentifier string `pulumi:"serviceIdentifier"`
+	Id string `pulumi:"id"`
+	// Amount of time, in seconds, that a connection can remain idle (no data sent) before VPC Lattice closes it.
+	IdleTimeoutSeconds int    `pulumi:"idleTimeoutSeconds"`
+	Name               string `pulumi:"name"`
+	Region             string `pulumi:"region"`
+	ServiceIdentifier  string `pulumi:"serviceIdentifier"`
 	// Status of the service.
 	Status string `pulumi:"status"`
 	// List of tags associated with the service.
@@ -153,6 +155,11 @@ func (o LookupServiceResultOutput) DnsEntries() GetServiceDnsEntryArrayOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o LookupServiceResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Amount of time, in seconds, that a connection can remain idle (no data sent) before VPC Lattice closes it.
+func (o LookupServiceResultOutput) IdleTimeoutSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupServiceResult) int { return v.IdleTimeoutSeconds }).(pulumi.IntOutput)
 }
 
 func (o LookupServiceResultOutput) Name() pulumi.StringOutput {

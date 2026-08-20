@@ -131,6 +131,10 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly networkInterfaceIds: pulumi.Output<string[]>;
     /**
+     * Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+     */
+    declare public readonly networkType: pulumi.Output<string>;
+    /**
      * AWS account identifier that created the file system.
      */
     declare public /*out*/ readonly ownerId: pulumi.Output<string>;
@@ -229,6 +233,7 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
             resourceInputs["finalBackupTags"] = state?.finalBackupTags;
             resourceInputs["kmsKeyId"] = state?.kmsKeyId;
             resourceInputs["networkInterfaceIds"] = state?.networkInterfaceIds;
+            resourceInputs["networkType"] = state?.networkType;
             resourceInputs["ownerId"] = state?.ownerId;
             resourceInputs["preferredSubnetId"] = state?.preferredSubnetId;
             resourceInputs["readCacheConfiguration"] = state?.readCacheConfiguration;
@@ -268,6 +273,7 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
             resourceInputs["endpointIpAddressRange"] = args?.endpointIpAddressRange;
             resourceInputs["finalBackupTags"] = args?.finalBackupTags;
             resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["networkType"] = args?.networkType;
             resourceInputs["preferredSubnetId"] = args?.preferredSubnetId;
             resourceInputs["readCacheConfiguration"] = args?.readCacheConfiguration;
             resourceInputs["region"] = args?.region;
@@ -359,6 +365,10 @@ export interface OpenZfsFileSystemState {
      * Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
      */
     networkInterfaceIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
+     * Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+     */
+    networkType?: pulumi.Input<string | undefined>;
     /**
      * AWS account identifier that created the file system.
      */
@@ -479,6 +489,10 @@ export interface OpenZfsFileSystemArgs {
      * ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
      */
     kmsKeyId?: pulumi.Input<string | undefined>;
+    /**
+     * Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+     */
+    networkType?: pulumi.Input<string | undefined>;
     /**
      * (Multi-AZ only) Required when `deploymentType` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
      */

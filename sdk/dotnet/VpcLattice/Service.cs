@@ -76,6 +76,12 @@ namespace Pulumi.Aws.VpcLattice
         public Output<ImmutableArray<Outputs.ServiceDnsEntry>> DnsEntries { get; private set; } = null!;
 
         /// <summary>
+        /// Amount of time, in seconds, that a connection can remain idle (no data sent) before VPC Lattice closes it. The valid range is 60 to 600 seconds. Default is 60 seconds.
+        /// </summary>
+        [Output("idleTimeoutSeconds")]
+        public Output<int> IdleTimeoutSeconds { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
         /// 
         /// The following arguments are optional:
@@ -172,6 +178,12 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? CustomDomainName { get; set; }
 
         /// <summary>
+        /// Amount of time, in seconds, that a connection can remain idle (no data sent) before VPC Lattice closes it. The valid range is 60 to 600 seconds. Default is 60 seconds.
+        /// </summary>
+        [Input("idleTimeoutSeconds")]
+        public Input<int>? IdleTimeoutSeconds { get; set; }
+
+        /// <summary>
         /// Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
         /// 
         /// The following arguments are optional:
@@ -240,6 +252,12 @@ namespace Pulumi.Aws.VpcLattice
             get => _dnsEntries ?? (_dnsEntries = new InputList<Inputs.ServiceDnsEntryGetArgs>());
             set => _dnsEntries = value;
         }
+
+        /// <summary>
+        /// Amount of time, in seconds, that a connection can remain idle (no data sent) before VPC Lattice closes it. The valid range is 60 to 600 seconds. Default is 60 seconds.
+        /// </summary>
+        [Input("idleTimeoutSeconds")]
+        public Input<int>? IdleTimeoutSeconds { get; set; }
 
         /// <summary>
         /// Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.

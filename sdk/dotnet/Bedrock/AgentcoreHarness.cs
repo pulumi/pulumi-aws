@@ -282,6 +282,12 @@ namespace Pulumi.Aws.Bedrock
         public Output<Outputs.AgentcoreHarnessAuthorizerConfiguration?> AuthorizerConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// Actual deployed environment configuration.
+        /// </summary>
+        [Output("environmentActuals")]
+        public Output<ImmutableArray<Outputs.AgentcoreHarnessEnvironmentActual>> EnvironmentActuals { get; private set; } = null!;
+
+        /// <summary>
         /// Environment artifact configuration. See `EnvironmentArtifact` Block below.
         /// </summary>
         [Output("environmentArtifact")]
@@ -294,7 +300,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<ImmutableDictionary<string, string>?> EnvironmentVariables { get; private set; } = null!;
 
         /// <summary>
-        /// Compute environment configuration. See `Environment` Block below.
+        /// Compute environment configuration. See `Environment` Block below.If not specified, configured values can be found in `EnvironmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
         /// </summary>
         [Output("environments")]
         public Output<ImmutableArray<Outputs.AgentcoreHarnessEnvironment>> Environments { get; private set; } = null!;
@@ -330,7 +336,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<int?> MaxTokens { get; private set; } = null!;
 
         /// <summary>
-        /// Memory configuration. See `Memory` Block below. If not specified, configured values can be found in `MemoryActual`.
+        /// Memory configuration. See `Memory` Block below. If not specified, configured values can be found in `MemoryActual`. Clearing this value will reset the memory configuration to default values.
         /// </summary>
         [Output("memory")]
         public Output<Outputs.AgentcoreHarnessMemory?> Memory { get; private set; } = null!;
@@ -494,7 +500,7 @@ namespace Pulumi.Aws.Bedrock
         private InputList<Inputs.AgentcoreHarnessEnvironmentArgs>? _environments;
 
         /// <summary>
-        /// Compute environment configuration. See `Environment` Block below.
+        /// Compute environment configuration. See `Environment` Block below.If not specified, configured values can be found in `EnvironmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
         /// </summary>
         public InputList<Inputs.AgentcoreHarnessEnvironmentArgs> Environments
         {
@@ -527,7 +533,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<int>? MaxTokens { get; set; }
 
         /// <summary>
-        /// Memory configuration. See `Memory` Block below. If not specified, configured values can be found in `MemoryActual`.
+        /// Memory configuration. See `Memory` Block below. If not specified, configured values can be found in `MemoryActual`. Clearing this value will reset the memory configuration to default values.
         /// </summary>
         [Input("memory")]
         public Input<Inputs.AgentcoreHarnessMemoryArgs>? Memory { get; set; }
@@ -647,6 +653,18 @@ namespace Pulumi.Aws.Bedrock
         [Input("authorizerConfiguration")]
         public Input<Inputs.AgentcoreHarnessAuthorizerConfigurationGetArgs>? AuthorizerConfiguration { get; set; }
 
+        [Input("environmentActuals")]
+        private InputList<Inputs.AgentcoreHarnessEnvironmentActualGetArgs>? _environmentActuals;
+
+        /// <summary>
+        /// Actual deployed environment configuration.
+        /// </summary>
+        public InputList<Inputs.AgentcoreHarnessEnvironmentActualGetArgs> EnvironmentActuals
+        {
+            get => _environmentActuals ?? (_environmentActuals = new InputList<Inputs.AgentcoreHarnessEnvironmentActualGetArgs>());
+            set => _environmentActuals = value;
+        }
+
         /// <summary>
         /// Environment artifact configuration. See `EnvironmentArtifact` Block below.
         /// </summary>
@@ -673,7 +691,7 @@ namespace Pulumi.Aws.Bedrock
         private InputList<Inputs.AgentcoreHarnessEnvironmentGetArgs>? _environments;
 
         /// <summary>
-        /// Compute environment configuration. See `Environment` Block below.
+        /// Compute environment configuration. See `Environment` Block below.If not specified, configured values can be found in `EnvironmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
         /// </summary>
         public InputList<Inputs.AgentcoreHarnessEnvironmentGetArgs> Environments
         {
@@ -712,7 +730,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<int>? MaxTokens { get; set; }
 
         /// <summary>
-        /// Memory configuration. See `Memory` Block below. If not specified, configured values can be found in `MemoryActual`.
+        /// Memory configuration. See `Memory` Block below. If not specified, configured values can be found in `MemoryActual`. Clearing this value will reset the memory configuration to default values.
         /// </summary>
         [Input("memory")]
         public Input<Inputs.AgentcoreHarnessMemoryGetArgs>? Memory { get; set; }

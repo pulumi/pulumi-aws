@@ -248,10 +248,22 @@ class MultiplexProgram(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `multiplex_id` (String) ID of the Multiplex.
+        * `program_name` (String) Unique program name.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import MediaLive MultiplexProgram using the `id`, or a combination of "`program_name`/`multiplex_id`". For example:
 
         ```sh
-        $ pulumi import aws:medialive/multiplexProgram:MultiplexProgram example example_program/1234567
+        $ pulumi import aws:medialive/multiplexProgram:MultiplexProgram example example_program/12345678
         ```
 
 
@@ -312,10 +324,22 @@ class MultiplexProgram(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `multiplex_id` (String) ID of the Multiplex.
+        * `program_name` (String) Unique program name.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import MediaLive MultiplexProgram using the `id`, or a combination of "`program_name`/`multiplex_id`". For example:
 
         ```sh
-        $ pulumi import aws:medialive/multiplexProgram:MultiplexProgram example example_program/1234567
+        $ pulumi import aws:medialive/multiplexProgram:MultiplexProgram example example_program/12345678
         ```
 
 

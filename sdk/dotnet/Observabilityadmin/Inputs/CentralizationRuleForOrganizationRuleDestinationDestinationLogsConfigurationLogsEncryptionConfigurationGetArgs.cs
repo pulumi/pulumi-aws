@@ -19,6 +19,12 @@ namespace Pulumi.Aws.Observabilityadmin.Inputs
         public Input<string>? EncryptionConflictResolutionStrategy { get; set; }
 
         /// <summary>
+        /// Determines which newly created destination log groups are encrypted with `KmsKeyArn` when `EncryptionStrategy` is `CUSTOMER_MANAGED`. Valid values: `ENCRYPTED_SOURCE_ONLY` (default), `NEW_DESTINATION_LOG_GROUPS`. Not valid when `EncryptionStrategy` is `AWS_OWNED`.
+        /// </summary>
+        [Input("encryptionScope")]
+        public Input<string>? EncryptionScope { get; set; }
+
+        /// <summary>
         /// Encryption strategy for logs. Valid values: `AWS_OWNED`, `CUSTOMER_MANAGED`.
         /// </summary>
         [Input("encryptionStrategy", required: true)]

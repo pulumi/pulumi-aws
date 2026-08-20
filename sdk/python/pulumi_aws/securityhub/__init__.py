@@ -15,6 +15,7 @@ from .automation_rule_v2 import *
 from .configuration_policy import *
 from .configuration_policy_association import *
 from .connector_v2 import *
+from .feature_v2 import *
 from .finding_aggregator import *
 from .get_enabled_standards import *
 from .get_security_controls import *

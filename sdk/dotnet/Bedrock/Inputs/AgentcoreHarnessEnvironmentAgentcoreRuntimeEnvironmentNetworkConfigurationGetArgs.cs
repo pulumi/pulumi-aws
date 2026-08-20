@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         [Input("networkMode", required: true)]
         public Input<string> NetworkMode { get; set; } = null!;
 
-        [Input("networkModeConfigs", required: true)]
+        [Input("networkModeConfigs")]
         private InputList<Inputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigGetArgs>? _networkModeConfigs;
 
         /// <summary>

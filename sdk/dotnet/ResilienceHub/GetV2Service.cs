@@ -137,6 +137,10 @@ namespace Pulumi.Aws.ResilienceHub
     {
         public readonly string Arn;
         /// <summary>
+        /// Systems associated with the service. See `AssociatedSystem` Block below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetV2ServiceAssociatedSystemResult> AssociatedSystems;
+        /// <summary>
         /// Description of the service.
         /// </summary>
         public readonly string Description;
@@ -170,6 +174,8 @@ namespace Pulumi.Aws.ResilienceHub
         private GetV2ServiceResult(
             string arn,
 
+            ImmutableArray<Outputs.GetV2ServiceAssociatedSystemResult> associatedSystems,
+
             string description,
 
             string kmsKeyId,
@@ -187,6 +193,7 @@ namespace Pulumi.Aws.ResilienceHub
             ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
+            AssociatedSystems = associatedSystems;
             Description = description;
             KmsKeyId = kmsKeyId;
             Name = name;

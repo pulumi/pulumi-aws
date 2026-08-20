@@ -61,6 +61,8 @@ type LookupV2ServiceArgs struct {
 // A collection of values returned by getV2Service.
 type LookupV2ServiceResult struct {
 	Arn string `pulumi:"arn"`
+	// Systems associated with the service. See `associatedSystem` Block below.
+	AssociatedSystems []GetV2ServiceAssociatedSystem `pulumi:"associatedSystems"`
 	// Description of the service.
 	Description string `pulumi:"description"`
 	// KMS key ARN.
@@ -116,6 +118,11 @@ func (o LookupV2ServiceResultOutput) ToLookupV2ServiceResultOutputWithContext(ct
 
 func (o LookupV2ServiceResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupV2ServiceResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Systems associated with the service. See `associatedSystem` Block below.
+func (o LookupV2ServiceResultOutput) AssociatedSystems() GetV2ServiceAssociatedSystemArrayOutput {
+	return o.ApplyT(func(v LookupV2ServiceResult) []GetV2ServiceAssociatedSystem { return v.AssociatedSystems }).(GetV2ServiceAssociatedSystemArrayOutput)
 }
 
 // Description of the service.

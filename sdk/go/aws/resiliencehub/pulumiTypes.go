@@ -2123,6 +2123,103 @@ func (o V2PolicyMultiRegionPtrOutput) RtoInMinutes() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+type V2ServiceAssociatedSystem struct {
+	// ARN of the system to associate with the service.
+	SystemArn string `pulumi:"systemArn"`
+}
+
+// V2ServiceAssociatedSystemInput is an input type that accepts V2ServiceAssociatedSystemArgs and V2ServiceAssociatedSystemOutput values.
+// You can construct a concrete instance of `V2ServiceAssociatedSystemInput` via:
+//
+//	V2ServiceAssociatedSystemArgs{...}
+type V2ServiceAssociatedSystemInput interface {
+	pulumi.Input
+
+	ToV2ServiceAssociatedSystemOutput() V2ServiceAssociatedSystemOutput
+	ToV2ServiceAssociatedSystemOutputWithContext(context.Context) V2ServiceAssociatedSystemOutput
+}
+
+type V2ServiceAssociatedSystemArgs struct {
+	// ARN of the system to associate with the service.
+	SystemArn pulumi.StringInput `pulumi:"systemArn"`
+}
+
+func (V2ServiceAssociatedSystemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*V2ServiceAssociatedSystem)(nil)).Elem()
+}
+
+func (i V2ServiceAssociatedSystemArgs) ToV2ServiceAssociatedSystemOutput() V2ServiceAssociatedSystemOutput {
+	return i.ToV2ServiceAssociatedSystemOutputWithContext(context.Background())
+}
+
+func (i V2ServiceAssociatedSystemArgs) ToV2ServiceAssociatedSystemOutputWithContext(ctx context.Context) V2ServiceAssociatedSystemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2ServiceAssociatedSystemOutput)
+}
+
+// V2ServiceAssociatedSystemArrayInput is an input type that accepts V2ServiceAssociatedSystemArray and V2ServiceAssociatedSystemArrayOutput values.
+// You can construct a concrete instance of `V2ServiceAssociatedSystemArrayInput` via:
+//
+//	V2ServiceAssociatedSystemArray{ V2ServiceAssociatedSystemArgs{...} }
+type V2ServiceAssociatedSystemArrayInput interface {
+	pulumi.Input
+
+	ToV2ServiceAssociatedSystemArrayOutput() V2ServiceAssociatedSystemArrayOutput
+	ToV2ServiceAssociatedSystemArrayOutputWithContext(context.Context) V2ServiceAssociatedSystemArrayOutput
+}
+
+type V2ServiceAssociatedSystemArray []V2ServiceAssociatedSystemInput
+
+func (V2ServiceAssociatedSystemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]V2ServiceAssociatedSystem)(nil)).Elem()
+}
+
+func (i V2ServiceAssociatedSystemArray) ToV2ServiceAssociatedSystemArrayOutput() V2ServiceAssociatedSystemArrayOutput {
+	return i.ToV2ServiceAssociatedSystemArrayOutputWithContext(context.Background())
+}
+
+func (i V2ServiceAssociatedSystemArray) ToV2ServiceAssociatedSystemArrayOutputWithContext(ctx context.Context) V2ServiceAssociatedSystemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2ServiceAssociatedSystemArrayOutput)
+}
+
+type V2ServiceAssociatedSystemOutput struct{ *pulumi.OutputState }
+
+func (V2ServiceAssociatedSystemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*V2ServiceAssociatedSystem)(nil)).Elem()
+}
+
+func (o V2ServiceAssociatedSystemOutput) ToV2ServiceAssociatedSystemOutput() V2ServiceAssociatedSystemOutput {
+	return o
+}
+
+func (o V2ServiceAssociatedSystemOutput) ToV2ServiceAssociatedSystemOutputWithContext(ctx context.Context) V2ServiceAssociatedSystemOutput {
+	return o
+}
+
+// ARN of the system to associate with the service.
+func (o V2ServiceAssociatedSystemOutput) SystemArn() pulumi.StringOutput {
+	return o.ApplyT(func(v V2ServiceAssociatedSystem) string { return v.SystemArn }).(pulumi.StringOutput)
+}
+
+type V2ServiceAssociatedSystemArrayOutput struct{ *pulumi.OutputState }
+
+func (V2ServiceAssociatedSystemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]V2ServiceAssociatedSystem)(nil)).Elem()
+}
+
+func (o V2ServiceAssociatedSystemArrayOutput) ToV2ServiceAssociatedSystemArrayOutput() V2ServiceAssociatedSystemArrayOutput {
+	return o
+}
+
+func (o V2ServiceAssociatedSystemArrayOutput) ToV2ServiceAssociatedSystemArrayOutputWithContext(ctx context.Context) V2ServiceAssociatedSystemArrayOutput {
+	return o
+}
+
+func (o V2ServiceAssociatedSystemArrayOutput) Index(i pulumi.IntInput) V2ServiceAssociatedSystemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) V2ServiceAssociatedSystem {
+		return vs[0].([]V2ServiceAssociatedSystem)[vs[1].(int)]
+	}).(V2ServiceAssociatedSystemOutput)
+}
+
 type V2ServicePermissionModel struct {
 	// Cross-account IAM role. See `crossAccountRole` Block below.
 	CrossAccountRoles []V2ServicePermissionModelCrossAccountRole `pulumi:"crossAccountRoles"`
@@ -2811,6 +2908,103 @@ func (o GetV2PolicyMultiRegionArrayOutput) Index(i pulumi.IntInput) GetV2PolicyM
 	}).(GetV2PolicyMultiRegionOutput)
 }
 
+type GetV2ServiceAssociatedSystem struct {
+	// ARN of the associated system.
+	SystemArn string `pulumi:"systemArn"`
+}
+
+// GetV2ServiceAssociatedSystemInput is an input type that accepts GetV2ServiceAssociatedSystemArgs and GetV2ServiceAssociatedSystemOutput values.
+// You can construct a concrete instance of `GetV2ServiceAssociatedSystemInput` via:
+//
+//	GetV2ServiceAssociatedSystemArgs{...}
+type GetV2ServiceAssociatedSystemInput interface {
+	pulumi.Input
+
+	ToGetV2ServiceAssociatedSystemOutput() GetV2ServiceAssociatedSystemOutput
+	ToGetV2ServiceAssociatedSystemOutputWithContext(context.Context) GetV2ServiceAssociatedSystemOutput
+}
+
+type GetV2ServiceAssociatedSystemArgs struct {
+	// ARN of the associated system.
+	SystemArn pulumi.StringInput `pulumi:"systemArn"`
+}
+
+func (GetV2ServiceAssociatedSystemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetV2ServiceAssociatedSystem)(nil)).Elem()
+}
+
+func (i GetV2ServiceAssociatedSystemArgs) ToGetV2ServiceAssociatedSystemOutput() GetV2ServiceAssociatedSystemOutput {
+	return i.ToGetV2ServiceAssociatedSystemOutputWithContext(context.Background())
+}
+
+func (i GetV2ServiceAssociatedSystemArgs) ToGetV2ServiceAssociatedSystemOutputWithContext(ctx context.Context) GetV2ServiceAssociatedSystemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetV2ServiceAssociatedSystemOutput)
+}
+
+// GetV2ServiceAssociatedSystemArrayInput is an input type that accepts GetV2ServiceAssociatedSystemArray and GetV2ServiceAssociatedSystemArrayOutput values.
+// You can construct a concrete instance of `GetV2ServiceAssociatedSystemArrayInput` via:
+//
+//	GetV2ServiceAssociatedSystemArray{ GetV2ServiceAssociatedSystemArgs{...} }
+type GetV2ServiceAssociatedSystemArrayInput interface {
+	pulumi.Input
+
+	ToGetV2ServiceAssociatedSystemArrayOutput() GetV2ServiceAssociatedSystemArrayOutput
+	ToGetV2ServiceAssociatedSystemArrayOutputWithContext(context.Context) GetV2ServiceAssociatedSystemArrayOutput
+}
+
+type GetV2ServiceAssociatedSystemArray []GetV2ServiceAssociatedSystemInput
+
+func (GetV2ServiceAssociatedSystemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetV2ServiceAssociatedSystem)(nil)).Elem()
+}
+
+func (i GetV2ServiceAssociatedSystemArray) ToGetV2ServiceAssociatedSystemArrayOutput() GetV2ServiceAssociatedSystemArrayOutput {
+	return i.ToGetV2ServiceAssociatedSystemArrayOutputWithContext(context.Background())
+}
+
+func (i GetV2ServiceAssociatedSystemArray) ToGetV2ServiceAssociatedSystemArrayOutputWithContext(ctx context.Context) GetV2ServiceAssociatedSystemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetV2ServiceAssociatedSystemArrayOutput)
+}
+
+type GetV2ServiceAssociatedSystemOutput struct{ *pulumi.OutputState }
+
+func (GetV2ServiceAssociatedSystemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetV2ServiceAssociatedSystem)(nil)).Elem()
+}
+
+func (o GetV2ServiceAssociatedSystemOutput) ToGetV2ServiceAssociatedSystemOutput() GetV2ServiceAssociatedSystemOutput {
+	return o
+}
+
+func (o GetV2ServiceAssociatedSystemOutput) ToGetV2ServiceAssociatedSystemOutputWithContext(ctx context.Context) GetV2ServiceAssociatedSystemOutput {
+	return o
+}
+
+// ARN of the associated system.
+func (o GetV2ServiceAssociatedSystemOutput) SystemArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetV2ServiceAssociatedSystem) string { return v.SystemArn }).(pulumi.StringOutput)
+}
+
+type GetV2ServiceAssociatedSystemArrayOutput struct{ *pulumi.OutputState }
+
+func (GetV2ServiceAssociatedSystemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetV2ServiceAssociatedSystem)(nil)).Elem()
+}
+
+func (o GetV2ServiceAssociatedSystemArrayOutput) ToGetV2ServiceAssociatedSystemArrayOutput() GetV2ServiceAssociatedSystemArrayOutput {
+	return o
+}
+
+func (o GetV2ServiceAssociatedSystemArrayOutput) ToGetV2ServiceAssociatedSystemArrayOutputWithContext(ctx context.Context) GetV2ServiceAssociatedSystemArrayOutput {
+	return o
+}
+
+func (o GetV2ServiceAssociatedSystemArrayOutput) Index(i pulumi.IntInput) GetV2ServiceAssociatedSystemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetV2ServiceAssociatedSystem {
+		return vs[0].([]GetV2ServiceAssociatedSystem)[vs[1].(int)]
+	}).(GetV2ServiceAssociatedSystemOutput)
+}
+
 type GetV2ServicePermissionModel struct {
 	// Cross-account IAM role. See `crossAccountRole` Block below.
 	CrossAccountRoles []GetV2ServicePermissionModelCrossAccountRole `pulumi:"crossAccountRoles"`
@@ -3052,6 +3246,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*V2PolicyMultiAzPtrInput)(nil)).Elem(), V2PolicyMultiAzArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2PolicyMultiRegionInput)(nil)).Elem(), V2PolicyMultiRegionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2PolicyMultiRegionPtrInput)(nil)).Elem(), V2PolicyMultiRegionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*V2ServiceAssociatedSystemInput)(nil)).Elem(), V2ServiceAssociatedSystemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*V2ServiceAssociatedSystemArrayInput)(nil)).Elem(), V2ServiceAssociatedSystemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2ServicePermissionModelInput)(nil)).Elem(), V2ServicePermissionModelArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2ServicePermissionModelPtrInput)(nil)).Elem(), V2ServicePermissionModelArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2ServicePermissionModelCrossAccountRoleInput)(nil)).Elem(), V2ServicePermissionModelCrossAccountRoleArgs{})
@@ -3064,6 +3260,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetV2PolicyMultiAzArrayInput)(nil)).Elem(), GetV2PolicyMultiAzArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetV2PolicyMultiRegionInput)(nil)).Elem(), GetV2PolicyMultiRegionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetV2PolicyMultiRegionArrayInput)(nil)).Elem(), GetV2PolicyMultiRegionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetV2ServiceAssociatedSystemInput)(nil)).Elem(), GetV2ServiceAssociatedSystemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetV2ServiceAssociatedSystemArrayInput)(nil)).Elem(), GetV2ServiceAssociatedSystemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetV2ServicePermissionModelInput)(nil)).Elem(), GetV2ServicePermissionModelArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetV2ServicePermissionModelArrayInput)(nil)).Elem(), GetV2ServicePermissionModelArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetV2ServicePermissionModelCrossAccountRoleInput)(nil)).Elem(), GetV2ServicePermissionModelCrossAccountRoleArgs{})
@@ -3094,6 +3292,8 @@ func init() {
 	pulumi.RegisterOutputType(V2PolicyMultiAzPtrOutput{})
 	pulumi.RegisterOutputType(V2PolicyMultiRegionOutput{})
 	pulumi.RegisterOutputType(V2PolicyMultiRegionPtrOutput{})
+	pulumi.RegisterOutputType(V2ServiceAssociatedSystemOutput{})
+	pulumi.RegisterOutputType(V2ServiceAssociatedSystemArrayOutput{})
 	pulumi.RegisterOutputType(V2ServicePermissionModelOutput{})
 	pulumi.RegisterOutputType(V2ServicePermissionModelPtrOutput{})
 	pulumi.RegisterOutputType(V2ServicePermissionModelCrossAccountRoleOutput{})
@@ -3106,6 +3306,8 @@ func init() {
 	pulumi.RegisterOutputType(GetV2PolicyMultiAzArrayOutput{})
 	pulumi.RegisterOutputType(GetV2PolicyMultiRegionOutput{})
 	pulumi.RegisterOutputType(GetV2PolicyMultiRegionArrayOutput{})
+	pulumi.RegisterOutputType(GetV2ServiceAssociatedSystemOutput{})
+	pulumi.RegisterOutputType(GetV2ServiceAssociatedSystemArrayOutput{})
 	pulumi.RegisterOutputType(GetV2ServicePermissionModelOutput{})
 	pulumi.RegisterOutputType(GetV2ServicePermissionModelArrayOutput{})
 	pulumi.RegisterOutputType(GetV2ServicePermissionModelCrossAccountRoleOutput{})

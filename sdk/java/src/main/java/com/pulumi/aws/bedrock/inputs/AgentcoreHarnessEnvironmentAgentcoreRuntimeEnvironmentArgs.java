@@ -8,80 +8,109 @@ import com.pulumi.aws.bedrock.inputs.AgentcoreHarnessEnvironmentAgentcoreRuntime
 import com.pulumi.aws.bedrock.inputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs Empty = new AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs();
 
-    @Import(name="agentRuntimeArn", required=true)
-    private Output<String> agentRuntimeArn;
+    /**
+     * ARN of the agent runtime the service provisions for the harness.
+     * 
+     */
+    @Import(name="agentRuntimeArn")
+    private @Nullable Output<String> agentRuntimeArn;
 
-    public Output<String> agentRuntimeArn() {
-        return this.agentRuntimeArn;
+    /**
+     * @return ARN of the agent runtime the service provisions for the harness.
+     * 
+     */
+    public Optional<Output<String>> agentRuntimeArn() {
+        return Optional.ofNullable(this.agentRuntimeArn);
     }
 
-    @Import(name="agentRuntimeId", required=true)
-    private Output<String> agentRuntimeId;
+    /**
+     * ID of the agent runtime the service provisions for the harness.
+     * 
+     */
+    @Import(name="agentRuntimeId")
+    private @Nullable Output<String> agentRuntimeId;
 
-    public Output<String> agentRuntimeId() {
-        return this.agentRuntimeId;
+    /**
+     * @return ID of the agent runtime the service provisions for the harness.
+     * 
+     */
+    public Optional<Output<String>> agentRuntimeId() {
+        return Optional.ofNullable(this.agentRuntimeId);
     }
 
-    @Import(name="agentRuntimeName", required=true)
-    private Output<String> agentRuntimeName;
+    /**
+     * Name of the agent runtime the service derives for the harness.
+     * 
+     */
+    @Import(name="agentRuntimeName")
+    private @Nullable Output<String> agentRuntimeName;
 
-    public Output<String> agentRuntimeName() {
-        return this.agentRuntimeName;
+    /**
+     * @return Name of the agent runtime the service derives for the harness.
+     * 
+     */
+    public Optional<Output<String>> agentRuntimeName() {
+        return Optional.ofNullable(this.agentRuntimeName);
     }
 
     /**
      * Filesystem configurations. See `filesystemConfiguration` Block below.
      * 
+     * The following attributes are exported under `agentcoreRuntimeEnvironment`:
+     * 
      */
-    @Import(name="filesystemConfigurations", required=true)
-    private Output<List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationArgs>> filesystemConfigurations;
+    @Import(name="filesystemConfigurations")
+    private @Nullable Output<List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationArgs>> filesystemConfigurations;
 
     /**
      * @return Filesystem configurations. See `filesystemConfiguration` Block below.
      * 
+     * The following attributes are exported under `agentcoreRuntimeEnvironment`:
+     * 
      */
-    public Output<List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationArgs>> filesystemConfigurations() {
-        return this.filesystemConfigurations;
+    public Optional<Output<List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationArgs>>> filesystemConfigurations() {
+        return Optional.ofNullable(this.filesystemConfigurations);
     }
 
     /**
      * Lifecycle configuration. See `lifecycleConfiguration` Block below.
      * 
      */
-    @Import(name="lifecycleConfigurations", required=true)
-    private Output<List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfigurationArgs>> lifecycleConfigurations;
+    @Import(name="lifecycleConfigurations")
+    private @Nullable Output<List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfigurationArgs>> lifecycleConfigurations;
 
     /**
      * @return Lifecycle configuration. See `lifecycleConfiguration` Block below.
      * 
      */
-    public Output<List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfigurationArgs>> lifecycleConfigurations() {
-        return this.lifecycleConfigurations;
+    public Optional<Output<List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfigurationArgs>>> lifecycleConfigurations() {
+        return Optional.ofNullable(this.lifecycleConfigurations);
     }
 
     /**
      * Network configuration. See `networkConfiguration` Block below.
      * 
      */
-    @Import(name="networkConfigurations", required=true)
-    private Output<List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationArgs>> networkConfigurations;
+    @Import(name="networkConfigurations")
+    private @Nullable Output<List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationArgs>> networkConfigurations;
 
     /**
      * @return Network configuration. See `networkConfiguration` Block below.
      * 
      */
-    public Output<List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationArgs>> networkConfigurations() {
-        return this.networkConfigurations;
+    public Optional<Output<List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationArgs>>> networkConfigurations() {
+        return Optional.ofNullable(this.networkConfigurations);
     }
 
     private AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs() {}
@@ -113,29 +142,65 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs ex
             $ = new AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder agentRuntimeArn(Output<String> agentRuntimeArn) {
+        /**
+         * @param agentRuntimeArn ARN of the agent runtime the service provisions for the harness.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder agentRuntimeArn(@Nullable Output<String> agentRuntimeArn) {
             $.agentRuntimeArn = agentRuntimeArn;
             return this;
         }
 
+        /**
+         * @param agentRuntimeArn ARN of the agent runtime the service provisions for the harness.
+         * 
+         * @return builder
+         * 
+         */
         public Builder agentRuntimeArn(String agentRuntimeArn) {
             return agentRuntimeArn(Output.of(agentRuntimeArn));
         }
 
-        public Builder agentRuntimeId(Output<String> agentRuntimeId) {
+        /**
+         * @param agentRuntimeId ID of the agent runtime the service provisions for the harness.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder agentRuntimeId(@Nullable Output<String> agentRuntimeId) {
             $.agentRuntimeId = agentRuntimeId;
             return this;
         }
 
+        /**
+         * @param agentRuntimeId ID of the agent runtime the service provisions for the harness.
+         * 
+         * @return builder
+         * 
+         */
         public Builder agentRuntimeId(String agentRuntimeId) {
             return agentRuntimeId(Output.of(agentRuntimeId));
         }
 
-        public Builder agentRuntimeName(Output<String> agentRuntimeName) {
+        /**
+         * @param agentRuntimeName Name of the agent runtime the service derives for the harness.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder agentRuntimeName(@Nullable Output<String> agentRuntimeName) {
             $.agentRuntimeName = agentRuntimeName;
             return this;
         }
 
+        /**
+         * @param agentRuntimeName Name of the agent runtime the service derives for the harness.
+         * 
+         * @return builder
+         * 
+         */
         public Builder agentRuntimeName(String agentRuntimeName) {
             return agentRuntimeName(Output.of(agentRuntimeName));
         }
@@ -143,16 +208,20 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs ex
         /**
          * @param filesystemConfigurations Filesystem configurations. See `filesystemConfiguration` Block below.
          * 
+         * The following attributes are exported under `agentcoreRuntimeEnvironment`:
+         * 
          * @return builder
          * 
          */
-        public Builder filesystemConfigurations(Output<List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationArgs>> filesystemConfigurations) {
+        public Builder filesystemConfigurations(@Nullable Output<List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationArgs>> filesystemConfigurations) {
             $.filesystemConfigurations = filesystemConfigurations;
             return this;
         }
 
         /**
          * @param filesystemConfigurations Filesystem configurations. See `filesystemConfiguration` Block below.
+         * 
+         * The following attributes are exported under `agentcoreRuntimeEnvironment`:
          * 
          * @return builder
          * 
@@ -163,6 +232,8 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs ex
 
         /**
          * @param filesystemConfigurations Filesystem configurations. See `filesystemConfiguration` Block below.
+         * 
+         * The following attributes are exported under `agentcoreRuntimeEnvironment`:
          * 
          * @return builder
          * 
@@ -177,7 +248,7 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs ex
          * @return builder
          * 
          */
-        public Builder lifecycleConfigurations(Output<List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfigurationArgs>> lifecycleConfigurations) {
+        public Builder lifecycleConfigurations(@Nullable Output<List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfigurationArgs>> lifecycleConfigurations) {
             $.lifecycleConfigurations = lifecycleConfigurations;
             return this;
         }
@@ -208,7 +279,7 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs ex
          * @return builder
          * 
          */
-        public Builder networkConfigurations(Output<List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationArgs>> networkConfigurations) {
+        public Builder networkConfigurations(@Nullable Output<List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationArgs>> networkConfigurations) {
             $.networkConfigurations = networkConfigurations;
             return this;
         }
@@ -234,24 +305,6 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs ex
         }
 
         public AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs build() {
-            if ($.agentRuntimeArn == null) {
-                throw new MissingRequiredPropertyException("AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs", "agentRuntimeArn");
-            }
-            if ($.agentRuntimeId == null) {
-                throw new MissingRequiredPropertyException("AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs", "agentRuntimeId");
-            }
-            if ($.agentRuntimeName == null) {
-                throw new MissingRequiredPropertyException("AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs", "agentRuntimeName");
-            }
-            if ($.filesystemConfigurations == null) {
-                throw new MissingRequiredPropertyException("AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs", "filesystemConfigurations");
-            }
-            if ($.lifecycleConfigurations == null) {
-                throw new MissingRequiredPropertyException("AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs", "lifecycleConfigurations");
-            }
-            if ($.networkConfigurations == null) {
-                throw new MissingRequiredPropertyException("AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs", "networkConfigurations");
-            }
             return $;
         }
     }

@@ -18,7 +18,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Resource for managing an AWS MediaLive InputSecurityGroup.
+ * Manages an AWS MediaLive Input Security Group.
  * 
  * ## Example Usage
  * 
@@ -61,7 +61,18 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import MediaLive InputSecurityGroup using the `id`. For example:
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `id` - (String) ID of the Input Security Group.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
+ * Using `pulumi import`, import MediaLive Input Security Group using the `id`. For example:
  * 
  * ```sh
  * $ pulumi import aws:medialive/inputSecurityGroup:InputSecurityGroup example 123456
@@ -113,14 +124,14 @@ public class InputSecurityGroup extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

@@ -87,6 +87,11 @@ public final class GetWindowsFileSystemResult {
      */
     private List<String> networkInterfaceIds;
     /**
+     * @return Network type (`IPV4` or `DUAL`).
+     * 
+     */
+    private String networkType;
+    /**
      * @return AWS account identifier that created the file system.
      * 
      */
@@ -248,6 +253,13 @@ public final class GetWindowsFileSystemResult {
         return this.networkInterfaceIds;
     }
     /**
+     * @return Network type (`IPV4` or `DUAL`).
+     * 
+     */
+    public String networkType() {
+        return this.networkType;
+    }
+    /**
      * @return AWS account identifier that created the file system.
      * 
      */
@@ -358,6 +370,7 @@ public final class GetWindowsFileSystemResult {
         private String id;
         private String kmsKeyId;
         private List<String> networkInterfaceIds;
+        private String networkType;
         private String ownerId;
         private String preferredFileServerIp;
         private String preferredSubnetId;
@@ -388,6 +401,7 @@ public final class GetWindowsFileSystemResult {
     	      this.id = defaults.id;
     	      this.kmsKeyId = defaults.kmsKeyId;
     	      this.networkInterfaceIds = defaults.networkInterfaceIds;
+    	      this.networkType = defaults.networkType;
     	      this.ownerId = defaults.ownerId;
     	      this.preferredFileServerIp = defaults.preferredFileServerIp;
     	      this.preferredSubnetId = defaults.preferredSubnetId;
@@ -528,6 +542,14 @@ public final class GetWindowsFileSystemResult {
             return networkInterfaceIds(List.of(networkInterfaceIds));
         }
         @CustomType.Setter
+        public Builder networkType(String networkType) {
+            if (networkType == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFileSystemResult", "networkType");
+            }
+            this.networkType = networkType;
+            return this;
+        }
+        @CustomType.Setter
         public Builder ownerId(String ownerId) {
             if (ownerId == null) {
               throw new MissingRequiredPropertyException("GetWindowsFileSystemResult", "ownerId");
@@ -653,6 +675,7 @@ public final class GetWindowsFileSystemResult {
             _resultValue.id = id;
             _resultValue.kmsKeyId = kmsKeyId;
             _resultValue.networkInterfaceIds = networkInterfaceIds;
+            _resultValue.networkType = networkType;
             _resultValue.ownerId = ownerId;
             _resultValue.preferredFileServerIp = preferredFileServerIp;
             _resultValue.preferredSubnetId = preferredSubnetId;

@@ -399,6 +399,20 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
         return this.networkInterfaceIds;
     }
     /**
+     * Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+     * 
+     */
+    @Export(name="networkType", refs={String.class}, tree="[0]")
+    private Output<String> networkType;
+
+    /**
+     * @return Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+     * 
+     */
+    public Output<String> networkType() {
+        return this.networkType;
+    }
+    /**
      * AWS account identifier that created the file system.
      * 
      */
