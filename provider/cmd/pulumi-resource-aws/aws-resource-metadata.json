@@ -1849,6 +1849,9 @@
   "aws_dsql_cluster_peering": {
     "hasUsableRegion": true
   },
+  "aws_dsql_cluster_policy": {
+    "hasUsableRegion": true
+  },
   "aws_dx_bgp_peer": {
     "hasUsableRegion": true
   },
@@ -3270,6 +3273,15 @@
   "aws_lambda_runtime_management_config": {
     "hasUsableRegion": true
   },
+  "aws_lambdacore_network_connector": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_lambdamicrovms_image": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
   "aws_launch_configuration": {
     "hasInputName": true,
     "hasUsableRegion": true
@@ -3543,6 +3555,11 @@
     "hasUsableRegion": true
   },
   "aws_mailmanager_ingress_point": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_mailmanager_relay": {
     "hasInputName": true,
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
@@ -3927,6 +3944,9 @@
   "aws_odb_cloud_vm_cluster": {
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
+  },
+  "aws_odb_iam_role_association": {
+    "hasUsableRegion": true
   },
   "aws_odb_network": {
     "hasUsableRegion": true,
@@ -4470,6 +4490,9 @@
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
   },
+  "aws_resiliencehubv2_assertion": {
+    "hasUsableRegion": true
+  },
   "aws_resiliencehubv2_input_source": {
     "hasUsableRegion": true
   },
@@ -4483,10 +4506,18 @@
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
   },
+  "aws_resiliencehubv2_service_function": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
   "aws_resiliencehubv2_system": {
     "hasInputName": true,
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
+  },
+  "aws_resiliencehubv2_user_journey": {
+    "hasInputName": true,
+    "hasUsableRegion": true
   },
   "aws_resourceexplorer2_index": {
     "hasUsableRegion": true,
@@ -5133,6 +5164,9 @@
     "hasInputName": true,
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
+  },
+  "aws_securityhub_feature_v2": {
+    "hasUsableRegion": true
   },
   "aws_securityhub_finding_aggregator": {
     "hasUsableRegion": true
