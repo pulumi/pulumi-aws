@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("efsAccessPoints", required: true)]
+        [Input("efsAccessPoints")]
         private InputList<Inputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointGetArgs>? _efsAccessPoints;
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
             set => _efsAccessPoints = value;
         }
 
-        [Input("s3FilesAccessPoints", required: true)]
+        [Input("s3FilesAccessPoints")]
         private InputList<Inputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointGetArgs>? _s3FilesAccessPoints;
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
             set => _s3FilesAccessPoints = value;
         }
 
-        [Input("sessionStorages", required: true)]
+        [Input("sessionStorages")]
         private InputList<Inputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageGetArgs>? _sessionStorages;
 
         /// <summary>

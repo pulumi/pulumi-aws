@@ -12,8 +12,18 @@ namespace Pulumi.Aws.LB.Inputs
 
     public sealed class ListenerRuleConditionSourceIpGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("values", required: true)]
+        /// <summary>
+        /// IP address type for Network Load Balancers. Valid values are `Ipv4` and `Ipv6`.
+        /// </summary>
+        [Input("ipAddressType")]
+        public Input<string>? IpAddressType { get; set; }
+
+        [Input("values")]
         private InputList<string>? _values;
+
+        /// <summary>
+        /// List of source IP addresses in CIDR format for Application Load Balancers. Both IPv4 and IPv6 addresses can be used. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `HttpHeader` condition instead.
+        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());

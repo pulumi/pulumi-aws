@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS MediaLive InputSecurityGroup.
+// Manages an AWS MediaLive Input Security Group.
 //
 // ## Example Usage
 //
@@ -51,7 +51,18 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import MediaLive InputSecurityGroup using the `id`. For example:
+// ### Identity Schema
+//
+// #### Required
+//
+// * `id` - (String) ID of the Input Security Group.
+//
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
+//
+// Using `pulumi import`, import MediaLive Input Security Group using the `id`. For example:
 //
 // ```sh
 // $ pulumi import aws:medialive/inputSecurityGroup:InputSecurityGroup example 123456
@@ -65,7 +76,7 @@ type InputSecurityGroup struct {
 	Inputs pulumi.StringArrayOutput `pulumi:"inputs"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Whitelist rules. See Whitelist Rules for more details.
@@ -113,7 +124,7 @@ type inputSecurityGroupState struct {
 	Inputs []string `pulumi:"inputs"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Whitelist rules. See Whitelist Rules for more details.
@@ -129,7 +140,7 @@ type InputSecurityGroupState struct {
 	Inputs pulumi.StringArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// Whitelist rules. See Whitelist Rules for more details.
@@ -145,7 +156,7 @@ func (InputSecurityGroupState) ElementType() reflect.Type {
 type inputSecurityGroupArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Whitelist rules. See Whitelist Rules for more details.
 	//
@@ -157,7 +168,7 @@ type inputSecurityGroupArgs struct {
 type InputSecurityGroupArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Whitelist rules. See Whitelist Rules for more details.
 	//
@@ -267,7 +278,7 @@ func (o InputSecurityGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *InputSecurityGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o InputSecurityGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *InputSecurityGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

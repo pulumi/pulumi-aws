@@ -189,6 +189,21 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+     * 
+     */
+    @Import(name="networkType")
+    private @Nullable Output<String> networkType;
+
+    /**
+     * @return Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+     * 
+     */
+    public Optional<Output<String>> networkType() {
+        return Optional.ofNullable(this.networkType);
+    }
+
+    /**
      * (Multi-AZ only) Required when `deploymentType` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
      * 
      */
@@ -401,6 +416,7 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         this.endpointIpAddressRange = $.endpointIpAddressRange;
         this.finalBackupTags = $.finalBackupTags;
         this.kmsKeyId = $.kmsKeyId;
+        this.networkType = $.networkType;
         this.preferredSubnetId = $.preferredSubnetId;
         this.readCacheConfiguration = $.readCacheConfiguration;
         this.region = $.region;
@@ -673,6 +689,27 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder kmsKeyId(String kmsKeyId) {
             return kmsKeyId(Output.of(kmsKeyId));
+        }
+
+        /**
+         * @param networkType Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkType(@Nullable Output<String> networkType) {
+            $.networkType = networkType;
+            return this;
+        }
+
+        /**
+         * @param networkType Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkType(String networkType) {
+            return networkType(Output.of(networkType));
         }
 
         /**

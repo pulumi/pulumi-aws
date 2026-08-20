@@ -32,6 +32,21 @@ public final class CentralizationRuleForOrganizationRuleDestinationDestinationLo
     }
 
     /**
+     * Determines which newly created destination log groups are encrypted with `kmsKeyArn` when `encryptionStrategy` is `CUSTOMER_MANAGED`. Valid values: `ENCRYPTED_SOURCE_ONLY` (default), `NEW_DESTINATION_LOG_GROUPS`. Not valid when `encryptionStrategy` is `AWS_OWNED`.
+     * 
+     */
+    @Import(name="encryptionScope")
+    private @Nullable Output<String> encryptionScope;
+
+    /**
+     * @return Determines which newly created destination log groups are encrypted with `kmsKeyArn` when `encryptionStrategy` is `CUSTOMER_MANAGED`. Valid values: `ENCRYPTED_SOURCE_ONLY` (default), `NEW_DESTINATION_LOG_GROUPS`. Not valid when `encryptionStrategy` is `AWS_OWNED`.
+     * 
+     */
+    public Optional<Output<String>> encryptionScope() {
+        return Optional.ofNullable(this.encryptionScope);
+    }
+
+    /**
      * Encryption strategy for logs. Valid values: `AWS_OWNED`, `CUSTOMER_MANAGED`.
      * 
      */
@@ -65,6 +80,7 @@ public final class CentralizationRuleForOrganizationRuleDestinationDestinationLo
 
     private CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgs(CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgs $) {
         this.encryptionConflictResolutionStrategy = $.encryptionConflictResolutionStrategy;
+        this.encryptionScope = $.encryptionScope;
         this.encryptionStrategy = $.encryptionStrategy;
         this.kmsKeyArn = $.kmsKeyArn;
     }
@@ -106,6 +122,27 @@ public final class CentralizationRuleForOrganizationRuleDestinationDestinationLo
          */
         public Builder encryptionConflictResolutionStrategy(String encryptionConflictResolutionStrategy) {
             return encryptionConflictResolutionStrategy(Output.of(encryptionConflictResolutionStrategy));
+        }
+
+        /**
+         * @param encryptionScope Determines which newly created destination log groups are encrypted with `kmsKeyArn` when `encryptionStrategy` is `CUSTOMER_MANAGED`. Valid values: `ENCRYPTED_SOURCE_ONLY` (default), `NEW_DESTINATION_LOG_GROUPS`. Not valid when `encryptionStrategy` is `AWS_OWNED`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionScope(@Nullable Output<String> encryptionScope) {
+            $.encryptionScope = encryptionScope;
+            return this;
+        }
+
+        /**
+         * @param encryptionScope Determines which newly created destination log groups are encrypted with `kmsKeyArn` when `encryptionStrategy` is `CUSTOMER_MANAGED`. Valid values: `ENCRYPTED_SOURCE_ONLY` (default), `NEW_DESTINATION_LOG_GROUPS`. Not valid when `encryptionStrategy` is `AWS_OWNED`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionScope(String encryptionScope) {
+            return encryptionScope(Output.of(encryptionScope));
         }
 
         /**

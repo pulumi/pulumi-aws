@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CapacityProvider{}
 	case "aws:lambda/codeSigningConfig:CodeSigningConfig":
 		r = &CodeSigningConfig{}
+	case "aws:lambda/coreNetworkConnector:CoreNetworkConnector":
+		r = &CoreNetworkConnector{}
 	case "aws:lambda/eventSourceMapping:EventSourceMapping":
 		r = &EventSourceMapping{}
 	case "aws:lambda/function:Function":
@@ -45,6 +47,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LayerVersion{}
 	case "aws:lambda/layerVersionPermission:LayerVersionPermission":
 		r = &LayerVersionPermission{}
+	case "aws:lambda/microvmsImage:MicrovmsImage":
+		r = &MicrovmsImage{}
 	case "aws:lambda/permission:Permission":
 		r = &Permission{}
 	case "aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig":
@@ -77,6 +81,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"lambda/codeSigningConfig",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"lambda/coreNetworkConnector",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -122,6 +131,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"lambda/layerVersionPermission",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"lambda/microvmsImage",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

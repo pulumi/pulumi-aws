@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreHarnessEnvironmentGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("agentcoreRuntimeEnvironments", required: true)]
+        [Input("agentcoreRuntimeEnvironments")]
         private InputList<Inputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentGetArgs>? _agentcoreRuntimeEnvironments;
 
         /// <summary>

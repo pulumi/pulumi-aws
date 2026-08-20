@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// <summary>
         /// Whether to require an S3 endpoint for the service in the VPC.
         /// </summary>
-        public readonly bool RequireServiceS3Endpoint;
+        public readonly bool? RequireServiceS3Endpoint;
         /// <summary>
         /// Security groups for the VPC.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
 
         [OutputConstructor]
         private AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig(
-            bool requireServiceS3Endpoint,
+            bool? requireServiceS3Endpoint,
 
             ImmutableArray<string> securityGroups,
 

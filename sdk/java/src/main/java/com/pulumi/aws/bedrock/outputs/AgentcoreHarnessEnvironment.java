@@ -5,9 +5,9 @@ package com.pulumi.aws.bedrock.outputs;
 
 import com.pulumi.aws.bedrock.outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment;
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreHarnessEnvironment {
@@ -15,7 +15,7 @@ public final class AgentcoreHarnessEnvironment {
      * @return AgentCore runtime environment configuration. See `agentcoreRuntimeEnvironment` Block below.
      * 
      */
-    private List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment> agentcoreRuntimeEnvironments;
+    private @Nullable List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment> agentcoreRuntimeEnvironments;
 
     private AgentcoreHarnessEnvironment() {}
     /**
@@ -23,7 +23,7 @@ public final class AgentcoreHarnessEnvironment {
      * 
      */
     public List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment> agentcoreRuntimeEnvironments() {
-        return this.agentcoreRuntimeEnvironments;
+        return this.agentcoreRuntimeEnvironments == null ? List.of() : this.agentcoreRuntimeEnvironments;
     }
 
     public static Builder builder() {
@@ -35,7 +35,7 @@ public final class AgentcoreHarnessEnvironment {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment> agentcoreRuntimeEnvironments;
+        private @Nullable List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment> agentcoreRuntimeEnvironments;
         public Builder() {}
         public Builder(AgentcoreHarnessEnvironment defaults) {
     	      Objects.requireNonNull(defaults);
@@ -43,10 +43,8 @@ public final class AgentcoreHarnessEnvironment {
         }
 
         @CustomType.Setter
-        public Builder agentcoreRuntimeEnvironments(List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment> agentcoreRuntimeEnvironments) {
-            if (agentcoreRuntimeEnvironments == null) {
-              throw new MissingRequiredPropertyException("AgentcoreHarnessEnvironment", "agentcoreRuntimeEnvironments");
-            }
+        public Builder agentcoreRuntimeEnvironments(@Nullable List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment> agentcoreRuntimeEnvironments) {
+
             this.agentcoreRuntimeEnvironments = agentcoreRuntimeEnvironments;
             return this;
         }

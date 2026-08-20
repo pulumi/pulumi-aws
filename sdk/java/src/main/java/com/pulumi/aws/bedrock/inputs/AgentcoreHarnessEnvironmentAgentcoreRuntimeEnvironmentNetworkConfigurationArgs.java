@@ -10,6 +10,8 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationArgs extends com.pulumi.resources.ResourceArgs {
@@ -35,15 +37,15 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetwork
      * VPC configuration. See `networkModeConfig` Block below.
      * 
      */
-    @Import(name="networkModeConfigs", required=true)
-    private Output<List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs>> networkModeConfigs;
+    @Import(name="networkModeConfigs")
+    private @Nullable Output<List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs>> networkModeConfigs;
 
     /**
      * @return VPC configuration. See `networkModeConfig` Block below.
      * 
      */
-    public Output<List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs>> networkModeConfigs() {
-        return this.networkModeConfigs;
+    public Optional<Output<List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs>>> networkModeConfigs() {
+        return Optional.ofNullable(this.networkModeConfigs);
     }
 
     private AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationArgs() {}
@@ -98,7 +100,7 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetwork
          * @return builder
          * 
          */
-        public Builder networkModeConfigs(Output<List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs>> networkModeConfigs) {
+        public Builder networkModeConfigs(@Nullable Output<List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs>> networkModeConfigs) {
             $.networkModeConfigs = networkModeConfigs;
             return this;
         }
@@ -126,9 +128,6 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetwork
         public AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationArgs build() {
             if ($.networkMode == null) {
                 throw new MissingRequiredPropertyException("AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationArgs", "networkMode");
-            }
-            if ($.networkModeConfigs == null) {
-                throw new MissingRequiredPropertyException("AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationArgs", "networkModeConfigs");
             }
             return $;
         }

@@ -168,6 +168,10 @@ export class OntapFileSystem extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly networkInterfaceIds: pulumi.Output<string[]>;
     /**
+     * Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+     */
+    declare public readonly networkType: pulumi.Output<string>;
+    /**
      * AWS account identifier that created the file system.
      */
     declare public /*out*/ readonly ownerId: pulumi.Output<string>;
@@ -249,6 +253,7 @@ export class OntapFileSystem extends pulumi.CustomResource {
             resourceInputs["haPairs"] = state?.haPairs;
             resourceInputs["kmsKeyId"] = state?.kmsKeyId;
             resourceInputs["networkInterfaceIds"] = state?.networkInterfaceIds;
+            resourceInputs["networkType"] = state?.networkType;
             resourceInputs["ownerId"] = state?.ownerId;
             resourceInputs["preferredSubnetId"] = state?.preferredSubnetId;
             resourceInputs["region"] = state?.region;
@@ -285,6 +290,7 @@ export class OntapFileSystem extends pulumi.CustomResource {
             resourceInputs["fsxAdminPassword"] = args?.fsxAdminPassword ? pulumi.secret(args.fsxAdminPassword) : undefined;
             resourceInputs["haPairs"] = args?.haPairs;
             resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["networkType"] = args?.networkType;
             resourceInputs["preferredSubnetId"] = args?.preferredSubnetId;
             resourceInputs["region"] = args?.region;
             resourceInputs["routeTableIds"] = args?.routeTableIds;
@@ -363,6 +369,10 @@ export interface OntapFileSystemState {
      * Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
      */
     networkInterfaceIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
+     * Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+     */
+    networkType?: pulumi.Input<string | undefined>;
     /**
      * AWS account identifier that created the file system.
      */
@@ -457,6 +467,10 @@ export interface OntapFileSystemArgs {
      * ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
      */
     kmsKeyId?: pulumi.Input<string | undefined>;
+    /**
+     * Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+     */
+    networkType?: pulumi.Input<string | undefined>;
     /**
      * ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
      */

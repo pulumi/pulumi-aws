@@ -12,20 +12,31 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs : global::Pulumi.ResourceArgs
     {
-        [Input("agentRuntimeArn", required: true)]
-        public Input<string> AgentRuntimeArn { get; set; } = null!;
+        /// <summary>
+        /// ARN of the agent runtime the service provisions for the harness.
+        /// </summary>
+        [Input("agentRuntimeArn")]
+        public Input<string>? AgentRuntimeArn { get; set; }
 
-        [Input("agentRuntimeId", required: true)]
-        public Input<string> AgentRuntimeId { get; set; } = null!;
+        /// <summary>
+        /// ID of the agent runtime the service provisions for the harness.
+        /// </summary>
+        [Input("agentRuntimeId")]
+        public Input<string>? AgentRuntimeId { get; set; }
 
-        [Input("agentRuntimeName", required: true)]
-        public Input<string> AgentRuntimeName { get; set; } = null!;
+        /// <summary>
+        /// Name of the agent runtime the service derives for the harness.
+        /// </summary>
+        [Input("agentRuntimeName")]
+        public Input<string>? AgentRuntimeName { get; set; }
 
-        [Input("filesystemConfigurations", required: true)]
+        [Input("filesystemConfigurations")]
         private InputList<Inputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationArgs>? _filesystemConfigurations;
 
         /// <summary>
         /// Filesystem configurations. See `FilesystemConfiguration` Block below.
+        /// 
+        /// The following attributes are exported under `AgentcoreRuntimeEnvironment`:
         /// </summary>
         public InputList<Inputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationArgs> FilesystemConfigurations
         {
@@ -33,7 +44,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
             set => _filesystemConfigurations = value;
         }
 
-        [Input("lifecycleConfigurations", required: true)]
+        [Input("lifecycleConfigurations")]
         private InputList<Inputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfigurationArgs>? _lifecycleConfigurations;
 
         /// <summary>
@@ -45,7 +56,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
             set => _lifecycleConfigurations = value;
         }
 
-        [Input("networkConfigurations", required: true)]
+        [Input("networkConfigurations")]
         private InputList<Inputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationArgs>? _networkConfigurations;
 
         /// <summary>

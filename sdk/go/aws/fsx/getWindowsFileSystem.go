@@ -90,6 +90,8 @@ type LookupWindowsFileSystemResult struct {
 	KmsKeyId string `pulumi:"kmsKeyId"`
 	// Set of network interface identifiers for the file system.
 	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
+	// Network type (`IPV4` or `DUAL`).
+	NetworkType string `pulumi:"networkType"`
 	// AWS account identifier that created the file system.
 	OwnerId string `pulumi:"ownerId"`
 	// IP address of the primary, or preferred, file server.
@@ -227,6 +229,11 @@ func (o LookupWindowsFileSystemResultOutput) KmsKeyId() pulumi.StringOutput {
 // Set of network interface identifiers for the file system.
 func (o LookupWindowsFileSystemResultOutput) NetworkInterfaceIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupWindowsFileSystemResult) []string { return v.NetworkInterfaceIds }).(pulumi.StringArrayOutput)
+}
+
+// Network type (`IPV4` or `DUAL`).
+func (o LookupWindowsFileSystemResultOutput) NetworkType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWindowsFileSystemResult) string { return v.NetworkType }).(pulumi.StringOutput)
 }
 
 // AWS account identifier that created the file system.

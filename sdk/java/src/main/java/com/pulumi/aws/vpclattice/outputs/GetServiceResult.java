@@ -6,6 +6,7 @@ package com.pulumi.aws.vpclattice.outputs;
 import com.pulumi.aws.vpclattice.outputs.GetServiceDnsEntry;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -43,6 +44,11 @@ public final class GetServiceResult {
      * 
      */
     private String id;
+    /**
+     * @return Amount of time, in seconds, that a connection can remain idle (no data sent) before VPC Lattice closes it.
+     * 
+     */
+    private Integer idleTimeoutSeconds;
     private String name;
     private String region;
     private String serviceIdentifier;
@@ -100,6 +106,13 @@ public final class GetServiceResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Amount of time, in seconds, that a connection can remain idle (no data sent) before VPC Lattice closes it.
+     * 
+     */
+    public Integer idleTimeoutSeconds() {
+        return this.idleTimeoutSeconds;
+    }
     public String name() {
         return this.name;
     }
@@ -139,6 +152,7 @@ public final class GetServiceResult {
         private String customDomainName;
         private List<GetServiceDnsEntry> dnsEntries;
         private String id;
+        private Integer idleTimeoutSeconds;
         private String name;
         private String region;
         private String serviceIdentifier;
@@ -153,6 +167,7 @@ public final class GetServiceResult {
     	      this.customDomainName = defaults.customDomainName;
     	      this.dnsEntries = defaults.dnsEntries;
     	      this.id = defaults.id;
+    	      this.idleTimeoutSeconds = defaults.idleTimeoutSeconds;
     	      this.name = defaults.name;
     	      this.region = defaults.region;
     	      this.serviceIdentifier = defaults.serviceIdentifier;
@@ -212,6 +227,14 @@ public final class GetServiceResult {
             return this;
         }
         @CustomType.Setter
+        public Builder idleTimeoutSeconds(Integer idleTimeoutSeconds) {
+            if (idleTimeoutSeconds == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "idleTimeoutSeconds");
+            }
+            this.idleTimeoutSeconds = idleTimeoutSeconds;
+            return this;
+        }
+        @CustomType.Setter
         public Builder name(String name) {
             if (name == null) {
               throw new MissingRequiredPropertyException("GetServiceResult", "name");
@@ -259,6 +282,7 @@ public final class GetServiceResult {
             _resultValue.customDomainName = customDomainName;
             _resultValue.dnsEntries = dnsEntries;
             _resultValue.id = id;
+            _resultValue.idleTimeoutSeconds = idleTimeoutSeconds;
             _resultValue.name = name;
             _resultValue.region = region;
             _resultValue.serviceIdentifier = serviceIdentifier;

@@ -5,26 +5,51 @@ package com.pulumi.aws.alb.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ListenerRuleConditionSourceIpArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ListenerRuleConditionSourceIpArgs Empty = new ListenerRuleConditionSourceIpArgs();
 
-    @Import(name="values", required=true)
-    private Output<List<String>> values;
+    /**
+     * IP address type for Network Load Balancers. Valid values are `ipv4` and `ipv6`.
+     * 
+     */
+    @Import(name="ipAddressType")
+    private @Nullable Output<String> ipAddressType;
 
-    public Output<List<String>> values() {
-        return this.values;
+    /**
+     * @return IP address type for Network Load Balancers. Valid values are `ipv4` and `ipv6`.
+     * 
+     */
+    public Optional<Output<String>> ipAddressType() {
+        return Optional.ofNullable(this.ipAddressType);
+    }
+
+    /**
+     * List of source IP addresses in CIDR format for Application Load Balancers. Both IPv4 and IPv6 addresses can be used. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
+     * 
+     */
+    @Import(name="values")
+    private @Nullable Output<List<String>> values;
+
+    /**
+     * @return List of source IP addresses in CIDR format for Application Load Balancers. Both IPv4 and IPv6 addresses can be used. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
+     * 
+     */
+    public Optional<Output<List<String>>> values() {
+        return Optional.ofNullable(this.values);
     }
 
     private ListenerRuleConditionSourceIpArgs() {}
 
     private ListenerRuleConditionSourceIpArgs(ListenerRuleConditionSourceIpArgs $) {
+        this.ipAddressType = $.ipAddressType;
         this.values = $.values;
     }
 
@@ -46,23 +71,59 @@ public final class ListenerRuleConditionSourceIpArgs extends com.pulumi.resource
             $ = new ListenerRuleConditionSourceIpArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder values(Output<List<String>> values) {
+        /**
+         * @param ipAddressType IP address type for Network Load Balancers. Valid values are `ipv4` and `ipv6`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipAddressType(@Nullable Output<String> ipAddressType) {
+            $.ipAddressType = ipAddressType;
+            return this;
+        }
+
+        /**
+         * @param ipAddressType IP address type for Network Load Balancers. Valid values are `ipv4` and `ipv6`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipAddressType(String ipAddressType) {
+            return ipAddressType(Output.of(ipAddressType));
+        }
+
+        /**
+         * @param values List of source IP addresses in CIDR format for Application Load Balancers. Both IPv4 and IPv6 addresses can be used. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder values(@Nullable Output<List<String>> values) {
             $.values = values;
             return this;
         }
 
+        /**
+         * @param values List of source IP addresses in CIDR format for Application Load Balancers. Both IPv4 and IPv6 addresses can be used. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
+         * 
+         * @return builder
+         * 
+         */
         public Builder values(List<String> values) {
             return values(Output.of(values));
         }
 
+        /**
+         * @param values List of source IP addresses in CIDR format for Application Load Balancers. Both IPv4 and IPv6 addresses can be used. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
+         * 
+         * @return builder
+         * 
+         */
         public Builder values(String... values) {
             return values(List.of(values));
         }
 
         public ListenerRuleConditionSourceIpArgs build() {
-            if ($.values == null) {
-                throw new MissingRequiredPropertyException("ListenerRuleConditionSourceIpArgs", "values");
-            }
             return $;
         }
     }

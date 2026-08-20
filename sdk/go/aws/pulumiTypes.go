@@ -568,9 +568,13 @@ type ProviderEndpoint struct {
 	// Use this to override the default service endpoint URL
 	Account *string `pulumi:"account"`
 	// Use this to override the default service endpoint URL
+	Accountaccess *string `pulumi:"accountaccess"`
+	// Use this to override the default service endpoint URL
 	Acm *string `pulumi:"acm"`
 	// Use this to override the default service endpoint URL
 	Acmpca *string `pulumi:"acmpca"`
+	// Use this to override the default service endpoint URL
+	Agentregistry *string `pulumi:"agentregistry"`
 	// Use this to override the default service endpoint URL
 	Amg *string `pulumi:"amg"`
 	// Use this to override the default service endpoint URL
@@ -1218,9 +1222,13 @@ type ProviderEndpointArgs struct {
 	// Use this to override the default service endpoint URL
 	Account pulumi.StringPtrInput `pulumi:"account"`
 	// Use this to override the default service endpoint URL
+	Accountaccess pulumi.StringPtrInput `pulumi:"accountaccess"`
+	// Use this to override the default service endpoint URL
 	Acm pulumi.StringPtrInput `pulumi:"acm"`
 	// Use this to override the default service endpoint URL
 	Acmpca pulumi.StringPtrInput `pulumi:"acmpca"`
+	// Use this to override the default service endpoint URL
+	Agentregistry pulumi.StringPtrInput `pulumi:"agentregistry"`
 	// Use this to override the default service endpoint URL
 	Amg pulumi.StringPtrInput `pulumi:"amg"`
 	// Use this to override the default service endpoint URL
@@ -1913,6 +1921,11 @@ func (o ProviderEndpointOutput) Account() pulumi.StringPtrOutput {
 }
 
 // Use this to override the default service endpoint URL
+func (o ProviderEndpointOutput) Accountaccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Accountaccess }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
 func (o ProviderEndpointOutput) Acm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Acm }).(pulumi.StringPtrOutput)
 }
@@ -1920,6 +1933,11 @@ func (o ProviderEndpointOutput) Acm() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o ProviderEndpointOutput) Acmpca() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Acmpca }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o ProviderEndpointOutput) Agentregistry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Agentregistry }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL

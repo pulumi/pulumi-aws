@@ -82,6 +82,10 @@ export class Service extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly dnsEntries: pulumi.Output<outputs.vpclattice.ServiceDnsEntry[]>;
     /**
+     * Amount of time, in seconds, that a connection can remain idle (no data sent) before VPC Lattice closes it. The valid range is 60 to 600 seconds. Default is 60 seconds.
+     */
+    declare public readonly idleTimeoutSeconds: pulumi.Output<number>;
+    /**
      * Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
      *
      * The following arguments are optional:
@@ -122,6 +126,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["certificateArn"] = state?.certificateArn;
             resourceInputs["customDomainName"] = state?.customDomainName;
             resourceInputs["dnsEntries"] = state?.dnsEntries;
+            resourceInputs["idleTimeoutSeconds"] = state?.idleTimeoutSeconds;
             resourceInputs["name"] = state?.name;
             resourceInputs["region"] = state?.region;
             resourceInputs["status"] = state?.status;
@@ -132,6 +137,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["authType"] = args?.authType;
             resourceInputs["certificateArn"] = args?.certificateArn;
             resourceInputs["customDomainName"] = args?.customDomainName;
+            resourceInputs["idleTimeoutSeconds"] = args?.idleTimeoutSeconds;
             resourceInputs["name"] = args?.name;
             resourceInputs["region"] = args?.region;
             resourceInputs["tags"] = args?.tags;
@@ -169,6 +175,10 @@ export interface ServiceState {
      * DNS name of the service.
      */
     dnsEntries?: pulumi.Input<pulumi.Input<inputs.vpclattice.ServiceDnsEntry>[] | undefined>;
+    /**
+     * Amount of time, in seconds, that a connection can remain idle (no data sent) before VPC Lattice closes it. The valid range is 60 to 600 seconds. Default is 60 seconds.
+     */
+    idleTimeoutSeconds?: pulumi.Input<number | undefined>;
     /**
      * Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
      *
@@ -209,6 +219,10 @@ export interface ServiceArgs {
      * Custom domain name of the service.
      */
     customDomainName?: pulumi.Input<string | undefined>;
+    /**
+     * Amount of time, in seconds, that a connection can remain idle (no data sent) before VPC Lattice closes it. The valid range is 60 to 600 seconds. Default is 60 seconds.
+     */
+    idleTimeoutSeconds?: pulumi.Input<number | undefined>;
     /**
      * Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
      *

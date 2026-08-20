@@ -25,6 +25,11 @@ export type ResiliencyPolicy = import("./resiliencyPolicy").ResiliencyPolicy;
 export const ResiliencyPolicy: typeof import("./resiliencyPolicy").ResiliencyPolicy = null as any;
 utilities.lazyLoad(exports, ["ResiliencyPolicy"], () => require("./resiliencyPolicy"));
 
+export { V2AssertionArgs, V2AssertionState } from "./v2assertion";
+export type V2Assertion = import("./v2assertion").V2Assertion;
+export const V2Assertion: typeof import("./v2assertion").V2Assertion = null as any;
+utilities.lazyLoad(exports, ["V2Assertion"], () => require("./v2assertion"));
+
 export { V2InputSourceArgs, V2InputSourceState } from "./v2inputSource";
 export type V2InputSource = import("./v2inputSource").V2InputSource;
 export const V2InputSource: typeof import("./v2inputSource").V2InputSource = null as any;
@@ -40,10 +45,20 @@ export type V2Service = import("./v2service").V2Service;
 export const V2Service: typeof import("./v2service").V2Service = null as any;
 utilities.lazyLoad(exports, ["V2Service"], () => require("./v2service"));
 
+export { V2ServiceFunctionArgs, V2ServiceFunctionState } from "./v2serviceFunction";
+export type V2ServiceFunction = import("./v2serviceFunction").V2ServiceFunction;
+export const V2ServiceFunction: typeof import("./v2serviceFunction").V2ServiceFunction = null as any;
+utilities.lazyLoad(exports, ["V2ServiceFunction"], () => require("./v2serviceFunction"));
+
 export { V2SystemArgs, V2SystemState } from "./v2system";
 export type V2System = import("./v2system").V2System;
 export const V2System: typeof import("./v2system").V2System = null as any;
 utilities.lazyLoad(exports, ["V2System"], () => require("./v2system"));
+
+export { V2UserJourneyArgs, V2UserJourneyState } from "./v2userJourney";
+export type V2UserJourney = import("./v2userJourney").V2UserJourney;
+export const V2UserJourney: typeof import("./v2userJourney").V2UserJourney = null as any;
+utilities.lazyLoad(exports, ["V2UserJourney"], () => require("./v2userJourney"));
 
 
 const _module = {
@@ -52,21 +67,30 @@ const _module = {
         switch (type) {
             case "aws:resiliencehub/resiliencyPolicy:ResiliencyPolicy":
                 return new ResiliencyPolicy(name, <any>undefined, { urn })
+            case "aws:resiliencehub/v2Assertion:V2Assertion":
+                return new V2Assertion(name, <any>undefined, { urn })
             case "aws:resiliencehub/v2InputSource:V2InputSource":
                 return new V2InputSource(name, <any>undefined, { urn })
             case "aws:resiliencehub/v2Policy:V2Policy":
                 return new V2Policy(name, <any>undefined, { urn })
             case "aws:resiliencehub/v2Service:V2Service":
                 return new V2Service(name, <any>undefined, { urn })
+            case "aws:resiliencehub/v2ServiceFunction:V2ServiceFunction":
+                return new V2ServiceFunction(name, <any>undefined, { urn })
             case "aws:resiliencehub/v2System:V2System":
                 return new V2System(name, <any>undefined, { urn })
+            case "aws:resiliencehub/v2UserJourney:V2UserJourney":
+                return new V2UserJourney(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("aws", "resiliencehub/resiliencyPolicy", _module)
+pulumi.runtime.registerResourceModule("aws", "resiliencehub/v2Assertion", _module)
 pulumi.runtime.registerResourceModule("aws", "resiliencehub/v2InputSource", _module)
 pulumi.runtime.registerResourceModule("aws", "resiliencehub/v2Policy", _module)
 pulumi.runtime.registerResourceModule("aws", "resiliencehub/v2Service", _module)
+pulumi.runtime.registerResourceModule("aws", "resiliencehub/v2ServiceFunction", _module)
 pulumi.runtime.registerResourceModule("aws", "resiliencehub/v2System", _module)
+pulumi.runtime.registerResourceModule("aws", "resiliencehub/v2UserJourney", _module)

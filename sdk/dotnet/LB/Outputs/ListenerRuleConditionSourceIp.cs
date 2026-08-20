@@ -13,11 +13,22 @@ namespace Pulumi.Aws.LB.Outputs
     [OutputType]
     public sealed class ListenerRuleConditionSourceIp
     {
+        /// <summary>
+        /// IP address type for Network Load Balancers. Valid values are `Ipv4` and `Ipv6`.
+        /// </summary>
+        public readonly string? IpAddressType;
+        /// <summary>
+        /// List of source IP addresses in CIDR format for Application Load Balancers. Both IPv4 and IPv6 addresses can be used. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `HttpHeader` condition instead.
+        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]
-        private ListenerRuleConditionSourceIp(ImmutableArray<string> values)
+        private ListenerRuleConditionSourceIp(
+            string? ipAddressType,
+
+            ImmutableArray<string> values)
         {
+            IpAddressType = ipAddressType;
             Values = values;
         }
     }

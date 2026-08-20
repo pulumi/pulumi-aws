@@ -4088,7 +4088,7 @@ type ListenerRuleCondition struct {
 	PathPattern *ListenerRuleConditionPathPattern `pulumi:"pathPattern"`
 	// Query strings to match. Query String block fields documented below.
 	QueryStrings []ListenerRuleConditionQueryString `pulumi:"queryStrings"`
-	// Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
+	// Source IP address to match. For ALB, use `values` to specify CIDR ranges. For NLB, use `ipAddressType` to match the IP address type (`ipv4` or `ipv6`). Source IP block fields documented below.
 	//
 	// > **NOTE::** Exactly one of `hostHeader`, `httpHeader`, `httpRequestMethod`, `pathPattern`, `queryString` or `sourceIp` must be set per condition.
 	SourceIp *ListenerRuleConditionSourceIp `pulumi:"sourceIp"`
@@ -4116,7 +4116,7 @@ type ListenerRuleConditionArgs struct {
 	PathPattern ListenerRuleConditionPathPatternPtrInput `pulumi:"pathPattern"`
 	// Query strings to match. Query String block fields documented below.
 	QueryStrings ListenerRuleConditionQueryStringArrayInput `pulumi:"queryStrings"`
-	// Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
+	// Source IP address to match. For ALB, use `values` to specify CIDR ranges. For NLB, use `ipAddressType` to match the IP address type (`ipv4` or `ipv6`). Source IP block fields documented below.
 	//
 	// > **NOTE::** Exactly one of `hostHeader`, `httpHeader`, `httpRequestMethod`, `pathPattern`, `queryString` or `sourceIp` must be set per condition.
 	SourceIp ListenerRuleConditionSourceIpPtrInput `pulumi:"sourceIp"`
@@ -4198,7 +4198,7 @@ func (o ListenerRuleConditionOutput) QueryStrings() ListenerRuleConditionQuerySt
 	return o.ApplyT(func(v ListenerRuleCondition) []ListenerRuleConditionQueryString { return v.QueryStrings }).(ListenerRuleConditionQueryStringArrayOutput)
 }
 
-// Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
+// Source IP address to match. For ALB, use `values` to specify CIDR ranges. For NLB, use `ipAddressType` to match the IP address type (`ipv4` or `ipv6`). Source IP block fields documented below.
 //
 // > **NOTE::** Exactly one of `hostHeader`, `httpHeader`, `httpRequestMethod`, `pathPattern`, `queryString` or `sourceIp` must be set per condition.
 func (o ListenerRuleConditionOutput) SourceIp() ListenerRuleConditionSourceIpPtrOutput {
@@ -4952,6 +4952,9 @@ func (o ListenerRuleConditionQueryStringArrayOutput) Index(i pulumi.IntInput) Li
 }
 
 type ListenerRuleConditionSourceIp struct {
+	// IP address type for Network Load Balancers. Valid values are `ipv4` and `ipv6`.
+	IpAddressType *string `pulumi:"ipAddressType"`
+	// List of source IP addresses in CIDR format for Application Load Balancers. Both IPv4 and IPv6 addresses can be used. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
 	Values []string `pulumi:"values"`
 }
 
@@ -4967,6 +4970,9 @@ type ListenerRuleConditionSourceIpInput interface {
 }
 
 type ListenerRuleConditionSourceIpArgs struct {
+	// IP address type for Network Load Balancers. Valid values are `ipv4` and `ipv6`.
+	IpAddressType pulumi.StringPtrInput `pulumi:"ipAddressType"`
+	// List of source IP addresses in CIDR format for Application Load Balancers. Both IPv4 and IPv6 addresses can be used. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -5047,6 +5053,12 @@ func (o ListenerRuleConditionSourceIpOutput) ToListenerRuleConditionSourceIpPtrO
 	}).(ListenerRuleConditionSourceIpPtrOutput)
 }
 
+// IP address type for Network Load Balancers. Valid values are `ipv4` and `ipv6`.
+func (o ListenerRuleConditionSourceIpOutput) IpAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListenerRuleConditionSourceIp) *string { return v.IpAddressType }).(pulumi.StringPtrOutput)
+}
+
+// List of source IP addresses in CIDR format for Application Load Balancers. Both IPv4 and IPv6 addresses can be used. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
 func (o ListenerRuleConditionSourceIpOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ListenerRuleConditionSourceIp) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -5075,6 +5087,17 @@ func (o ListenerRuleConditionSourceIpPtrOutput) Elem() ListenerRuleConditionSour
 	}).(ListenerRuleConditionSourceIpOutput)
 }
 
+// IP address type for Network Load Balancers. Valid values are `ipv4` and `ipv6`.
+func (o ListenerRuleConditionSourceIpPtrOutput) IpAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ListenerRuleConditionSourceIp) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IpAddressType
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of source IP addresses in CIDR format for Application Load Balancers. Both IPv4 and IPv6 addresses can be used. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
 func (o ListenerRuleConditionSourceIpPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ListenerRuleConditionSourceIp) []string {
 		if v == nil {
@@ -10349,7 +10372,7 @@ type GetListenerRuleActionJwtValidationAdditionalClaim struct {
 	Format string `pulumi:"format"`
 	// Name of the claim to validate.
 	Name string `pulumi:"name"`
-	// Set of `key`-`value` pairs indicating the query string parameters to match.
+	// Set of source IP addresses in CIDR format for Application Load Balancers
 	Values []string `pulumi:"values"`
 }
 
@@ -10369,7 +10392,7 @@ type GetListenerRuleActionJwtValidationAdditionalClaimArgs struct {
 	Format pulumi.StringInput `pulumi:"format"`
 	// Name of the claim to validate.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Set of `key`-`value` pairs indicating the query string parameters to match.
+	// Set of source IP addresses in CIDR format for Application Load Balancers
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -10434,7 +10457,7 @@ func (o GetListenerRuleActionJwtValidationAdditionalClaimOutput) Name() pulumi.S
 	return o.ApplyT(func(v GetListenerRuleActionJwtValidationAdditionalClaim) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Set of `key`-`value` pairs indicating the query string parameters to match.
+// Set of source IP addresses in CIDR format for Application Load Balancers
 func (o GetListenerRuleActionJwtValidationAdditionalClaimOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetListenerRuleActionJwtValidationAdditionalClaim) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -10616,7 +10639,8 @@ type GetListenerRuleCondition struct {
 	// Query string parameters to match.
 	// Detailed below.
 	QueryStrings []GetListenerRuleConditionQueryString `pulumi:"queryStrings"`
-	// Contains a single attribute `values`, which contains a set of source IPs in CIDR notation.
+	// Source IP address to match.
+	// Detailed below.
 	SourceIps []GetListenerRuleConditionSourceIp `pulumi:"sourceIps"`
 }
 
@@ -10646,7 +10670,8 @@ type GetListenerRuleConditionArgs struct {
 	// Query string parameters to match.
 	// Detailed below.
 	QueryStrings GetListenerRuleConditionQueryStringArrayInput `pulumi:"queryStrings"`
-	// Contains a single attribute `values`, which contains a set of source IPs in CIDR notation.
+	// Source IP address to match.
+	// Detailed below.
 	SourceIps GetListenerRuleConditionSourceIpArrayInput `pulumi:"sourceIps"`
 }
 
@@ -10732,7 +10757,8 @@ func (o GetListenerRuleConditionOutput) QueryStrings() GetListenerRuleConditionQ
 	return o.ApplyT(func(v GetListenerRuleCondition) []GetListenerRuleConditionQueryString { return v.QueryStrings }).(GetListenerRuleConditionQueryStringArrayOutput)
 }
 
-// Contains a single attribute `values`, which contains a set of source IPs in CIDR notation.
+// Source IP address to match.
+// Detailed below.
 func (o GetListenerRuleConditionOutput) SourceIps() GetListenerRuleConditionSourceIpArrayOutput {
 	return o.ApplyT(func(v GetListenerRuleCondition) []GetListenerRuleConditionSourceIp { return v.SourceIps }).(GetListenerRuleConditionSourceIpArrayOutput)
 }
@@ -10760,7 +10786,7 @@ func (o GetListenerRuleConditionArrayOutput) Index(i pulumi.IntInput) GetListene
 type GetListenerRuleConditionHostHeader struct {
 	// Set of regular expressions to compare against the request URL.
 	RegexValues []string `pulumi:"regexValues"`
-	// Set of `key`-`value` pairs indicating the query string parameters to match.
+	// Set of source IP addresses in CIDR format for Application Load Balancers
 	Values []string `pulumi:"values"`
 }
 
@@ -10778,7 +10804,7 @@ type GetListenerRuleConditionHostHeaderInput interface {
 type GetListenerRuleConditionHostHeaderArgs struct {
 	// Set of regular expressions to compare against the request URL.
 	RegexValues pulumi.StringArrayInput `pulumi:"regexValues"`
-	// Set of `key`-`value` pairs indicating the query string parameters to match.
+	// Set of source IP addresses in CIDR format for Application Load Balancers
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -10838,7 +10864,7 @@ func (o GetListenerRuleConditionHostHeaderOutput) RegexValues() pulumi.StringArr
 	return o.ApplyT(func(v GetListenerRuleConditionHostHeader) []string { return v.RegexValues }).(pulumi.StringArrayOutput)
 }
 
-// Set of `key`-`value` pairs indicating the query string parameters to match.
+// Set of source IP addresses in CIDR format for Application Load Balancers
 func (o GetListenerRuleConditionHostHeaderOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetListenerRuleConditionHostHeader) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -10868,7 +10894,7 @@ type GetListenerRuleConditionHttpHeader struct {
 	HttpHeaderName string `pulumi:"httpHeaderName"`
 	// Set of regular expressions to compare against the request URL.
 	RegexValues []string `pulumi:"regexValues"`
-	// Set of `key`-`value` pairs indicating the query string parameters to match.
+	// Set of source IP addresses in CIDR format for Application Load Balancers
 	Values []string `pulumi:"values"`
 }
 
@@ -10888,7 +10914,7 @@ type GetListenerRuleConditionHttpHeaderArgs struct {
 	HttpHeaderName pulumi.StringInput `pulumi:"httpHeaderName"`
 	// Set of regular expressions to compare against the request URL.
 	RegexValues pulumi.StringArrayInput `pulumi:"regexValues"`
-	// Set of `key`-`value` pairs indicating the query string parameters to match.
+	// Set of source IP addresses in CIDR format for Application Load Balancers
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -10953,7 +10979,7 @@ func (o GetListenerRuleConditionHttpHeaderOutput) RegexValues() pulumi.StringArr
 	return o.ApplyT(func(v GetListenerRuleConditionHttpHeader) []string { return v.RegexValues }).(pulumi.StringArrayOutput)
 }
 
-// Set of `key`-`value` pairs indicating the query string parameters to match.
+// Set of source IP addresses in CIDR format for Application Load Balancers
 func (o GetListenerRuleConditionHttpHeaderOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetListenerRuleConditionHttpHeader) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -10979,7 +11005,7 @@ func (o GetListenerRuleConditionHttpHeaderArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetListenerRuleConditionHttpRequestMethod struct {
-	// Set of `key`-`value` pairs indicating the query string parameters to match.
+	// Set of source IP addresses in CIDR format for Application Load Balancers
 	Values []string `pulumi:"values"`
 }
 
@@ -10995,7 +11021,7 @@ type GetListenerRuleConditionHttpRequestMethodInput interface {
 }
 
 type GetListenerRuleConditionHttpRequestMethodArgs struct {
-	// Set of `key`-`value` pairs indicating the query string parameters to match.
+	// Set of source IP addresses in CIDR format for Application Load Balancers
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -11050,7 +11076,7 @@ func (o GetListenerRuleConditionHttpRequestMethodOutput) ToGetListenerRuleCondit
 	return o
 }
 
-// Set of `key`-`value` pairs indicating the query string parameters to match.
+// Set of source IP addresses in CIDR format for Application Load Balancers
 func (o GetListenerRuleConditionHttpRequestMethodOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetListenerRuleConditionHttpRequestMethod) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -11078,7 +11104,7 @@ func (o GetListenerRuleConditionHttpRequestMethodArrayOutput) Index(i pulumi.Int
 type GetListenerRuleConditionPathPattern struct {
 	// Set of regular expressions to compare against the request URL.
 	RegexValues []string `pulumi:"regexValues"`
-	// Set of `key`-`value` pairs indicating the query string parameters to match.
+	// Set of source IP addresses in CIDR format for Application Load Balancers
 	Values []string `pulumi:"values"`
 }
 
@@ -11096,7 +11122,7 @@ type GetListenerRuleConditionPathPatternInput interface {
 type GetListenerRuleConditionPathPatternArgs struct {
 	// Set of regular expressions to compare against the request URL.
 	RegexValues pulumi.StringArrayInput `pulumi:"regexValues"`
-	// Set of `key`-`value` pairs indicating the query string parameters to match.
+	// Set of source IP addresses in CIDR format for Application Load Balancers
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -11156,7 +11182,7 @@ func (o GetListenerRuleConditionPathPatternOutput) RegexValues() pulumi.StringAr
 	return o.ApplyT(func(v GetListenerRuleConditionPathPattern) []string { return v.RegexValues }).(pulumi.StringArrayOutput)
 }
 
-// Set of `key`-`value` pairs indicating the query string parameters to match.
+// Set of source IP addresses in CIDR format for Application Load Balancers
 func (o GetListenerRuleConditionPathPatternOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetListenerRuleConditionPathPattern) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -11182,7 +11208,7 @@ func (o GetListenerRuleConditionPathPatternArrayOutput) Index(i pulumi.IntInput)
 }
 
 type GetListenerRuleConditionQueryString struct {
-	// Set of `key`-`value` pairs indicating the query string parameters to match.
+	// Set of source IP addresses in CIDR format for Application Load Balancers
 	Values []GetListenerRuleConditionQueryStringValue `pulumi:"values"`
 }
 
@@ -11198,7 +11224,7 @@ type GetListenerRuleConditionQueryStringInput interface {
 }
 
 type GetListenerRuleConditionQueryStringArgs struct {
-	// Set of `key`-`value` pairs indicating the query string parameters to match.
+	// Set of source IP addresses in CIDR format for Application Load Balancers
 	Values GetListenerRuleConditionQueryStringValueArrayInput `pulumi:"values"`
 }
 
@@ -11253,7 +11279,7 @@ func (o GetListenerRuleConditionQueryStringOutput) ToGetListenerRuleConditionQue
 	return o
 }
 
-// Set of `key`-`value` pairs indicating the query string parameters to match.
+// Set of source IP addresses in CIDR format for Application Load Balancers
 func (o GetListenerRuleConditionQueryStringOutput) Values() GetListenerRuleConditionQueryStringValueArrayOutput {
 	return o.ApplyT(func(v GetListenerRuleConditionQueryString) []GetListenerRuleConditionQueryStringValue {
 		return v.Values
@@ -11387,7 +11413,9 @@ func (o GetListenerRuleConditionQueryStringValueArrayOutput) Index(i pulumi.IntI
 }
 
 type GetListenerRuleConditionSourceIp struct {
-	// Set of `key`-`value` pairs indicating the query string parameters to match.
+	// IP address type for Network Load Balancers.
+	IpAddressType string `pulumi:"ipAddressType"`
+	// Set of source IP addresses in CIDR format for Application Load Balancers
 	Values []string `pulumi:"values"`
 }
 
@@ -11403,7 +11431,9 @@ type GetListenerRuleConditionSourceIpInput interface {
 }
 
 type GetListenerRuleConditionSourceIpArgs struct {
-	// Set of `key`-`value` pairs indicating the query string parameters to match.
+	// IP address type for Network Load Balancers.
+	IpAddressType pulumi.StringInput `pulumi:"ipAddressType"`
+	// Set of source IP addresses in CIDR format for Application Load Balancers
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -11458,7 +11488,12 @@ func (o GetListenerRuleConditionSourceIpOutput) ToGetListenerRuleConditionSource
 	return o
 }
 
-// Set of `key`-`value` pairs indicating the query string parameters to match.
+// IP address type for Network Load Balancers.
+func (o GetListenerRuleConditionSourceIpOutput) IpAddressType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerRuleConditionSourceIp) string { return v.IpAddressType }).(pulumi.StringOutput)
+}
+
+// Set of source IP addresses in CIDR format for Application Load Balancers
 func (o GetListenerRuleConditionSourceIpOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetListenerRuleConditionSourceIp) []string { return v.Values }).(pulumi.StringArrayOutput)
 }

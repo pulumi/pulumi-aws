@@ -41,6 +41,8 @@ __all__ = [
     'V2PolicyMultiAzArgsDict',
     'V2PolicyMultiRegionArgs',
     'V2PolicyMultiRegionArgsDict',
+    'V2ServiceAssociatedSystemArgs',
+    'V2ServiceAssociatedSystemArgsDict',
     'V2ServicePermissionModelArgs',
     'V2ServicePermissionModelArgsDict',
     'V2ServicePermissionModelCrossAccountRoleArgs',
@@ -800,6 +802,34 @@ class V2PolicyMultiRegionArgs:
     @rto_in_minutes.setter
     def rto_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "rto_in_minutes", value)
+
+
+class V2ServiceAssociatedSystemArgsDict(TypedDict):
+    system_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the system to associate with the service.
+    """
+
+@pulumi.input_type
+class V2ServiceAssociatedSystemArgs:
+    def __init__(__self__, *,
+                 system_arn: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] system_arn: ARN of the system to associate with the service.
+        """
+        pulumi.set(__self__, "system_arn", system_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="systemArn")
+    def system_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the system to associate with the service.
+        """
+        return pulumi.get(self, "system_arn")
+
+    @system_arn.setter
+    def system_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "system_arn", value)
 
 
 class V2ServicePermissionModelArgsDict(TypedDict):

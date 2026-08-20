@@ -114,6 +114,8 @@ type OpenZfsFileSystem struct {
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
 	NetworkInterfaceIds pulumi.StringArrayOutput `pulumi:"networkInterfaceIds"`
+	// Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+	NetworkType pulumi.StringOutput `pulumi:"networkType"`
 	// AWS account identifier that created the file system.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// (Multi-AZ only) Required when `deploymentType` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
@@ -221,6 +223,8 @@ type openZfsFileSystemState struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
 	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
+	// Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+	NetworkType *string `pulumi:"networkType"`
 	// AWS account identifier that created the file system.
 	OwnerId *string `pulumi:"ownerId"`
 	// (Multi-AZ only) Required when `deploymentType` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
@@ -290,6 +294,8 @@ type OpenZfsFileSystemState struct {
 	KmsKeyId pulumi.StringPtrInput
 	// Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
 	NetworkInterfaceIds pulumi.StringArrayInput
+	// Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+	NetworkType pulumi.StringPtrInput
 	// AWS account identifier that created the file system.
 	OwnerId pulumi.StringPtrInput
 	// (Multi-AZ only) Required when `deploymentType` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
@@ -355,6 +361,8 @@ type openZfsFileSystemArgs struct {
 	FinalBackupTags map[string]string `pulumi:"finalBackupTags"`
 	// ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+	NetworkType *string `pulumi:"networkType"`
 	// (Multi-AZ only) Required when `deploymentType` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
 	PreferredSubnetId *string `pulumi:"preferredSubnetId"`
 	// Configuration block for optional provisioned SSD read cache on file systems that use the Intelligent-Tiering storage class. Required when `storageType` is set to `INTELLIGENT_TIERING`. See `readCacheConfiguration` Block for details.
@@ -409,6 +417,8 @@ type OpenZfsFileSystemArgs struct {
 	FinalBackupTags pulumi.StringMapInput
 	// ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
 	KmsKeyId pulumi.StringPtrInput
+	// Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+	NetworkType pulumi.StringPtrInput
 	// (Multi-AZ only) Required when `deploymentType` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
 	PreferredSubnetId pulumi.StringPtrInput
 	// Configuration block for optional provisioned SSD read cache on file systems that use the Intelligent-Tiering storage class. Required when `storageType` is set to `INTELLIGENT_TIERING`. See `readCacheConfiguration` Block for details.
@@ -601,6 +611,11 @@ func (o OpenZfsFileSystemOutput) KmsKeyId() pulumi.StringOutput {
 // Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
 func (o OpenZfsFileSystemOutput) NetworkInterfaceIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringArrayOutput { return v.NetworkInterfaceIds }).(pulumi.StringArrayOutput)
+}
+
+// Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+func (o OpenZfsFileSystemOutput) NetworkType() pulumi.StringOutput {
+	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringOutput { return v.NetworkType }).(pulumi.StringOutput)
 }
 
 // AWS account identifier that created the file system.

@@ -75,6 +75,21 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `ImageId` (String) ID of the AMI.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Group` (String) Name of the group for the launch permission.
+    /// * `LaunchPermissionAccountId` (String) AWS account ID for the launch permission.
+    /// * `OrganizationArn` (String) ARN of an organization for the launch permission.
+    /// * `OrganizationalUnitArn` (String) ARN of an organizational unit for the launch permission.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import AMI Launch Permissions using `[ACCOUNT-ID|GROUP-NAME|ORGANIZATION-ARN|ORGANIZATIONAL-UNIT-ARN]/IMAGE-ID`. For example:
     /// 
     /// ```sh

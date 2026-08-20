@@ -14,13 +14,21 @@ namespace Pulumi.Aws.LB.Outputs
     public sealed class GetListenerRuleConditionSourceIpResult
     {
         /// <summary>
-        /// Set of `Key`-`Value` pairs indicating the query string parameters to match.
+        /// IP address type for Network Load Balancers.
+        /// </summary>
+        public readonly string IpAddressType;
+        /// <summary>
+        /// Set of source IP addresses in CIDR format for Application Load Balancers
         /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]
-        private GetListenerRuleConditionSourceIpResult(ImmutableArray<string> values)
+        private GetListenerRuleConditionSourceIpResult(
+            string ipAddressType,
+
+            ImmutableArray<string> values)
         {
+            IpAddressType = ipAddressType;
             Values = values;
         }
     }

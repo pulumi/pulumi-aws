@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CloudExadataInfrastructure{}
 	case "aws:odb/cloudVmCluster:CloudVmCluster":
 		r = &CloudVmCluster{}
+	case "aws:odb/iamRoleAssociation:IamRoleAssociation":
+		r = &IamRoleAssociation{}
 	case "aws:odb/network:Network":
 		r = &Network{}
 	case "aws:odb/networkPeeringConnection:NetworkPeeringConnection":
@@ -57,6 +59,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"odb/cloudVmCluster",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"odb/iamRoleAssociation",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

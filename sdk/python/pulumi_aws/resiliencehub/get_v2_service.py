@@ -27,10 +27,13 @@ class GetV2ServiceResult:
     """
     A collection of values returned by getV2Service.
     """
-    def __init__(__self__, arn=None, description=None, kms_key_id=None, name=None, permission_models=None, policy_arn=None, region=None, regions=None, tags=None):
+    def __init__(__self__, arn=None, associated_systems=None, description=None, kms_key_id=None, name=None, permission_models=None, policy_arn=None, region=None, regions=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if associated_systems and not isinstance(associated_systems, list):
+            raise TypeError("Expected argument 'associated_systems' to be a list")
+        pulumi.set(__self__, "associated_systems", associated_systems)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -60,6 +63,14 @@ class GetV2ServiceResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="associatedSystems")
+    def associated_systems(self) -> Sequence['outputs.GetV2ServiceAssociatedSystemResult']:
+        """
+        Systems associated with the service. See `associated_system` Block below.
+        """
+        return pulumi.get(self, "associated_systems")
 
     @_builtins.property
     @pulumi.getter
@@ -130,6 +141,7 @@ class AwaitableGetV2ServiceResult(GetV2ServiceResult):
             yield self
         return GetV2ServiceResult(
             arn=self.arn,
+            associated_systems=self.associated_systems,
             description=self.description,
             kms_key_id=self.kms_key_id,
             name=self.name,
@@ -169,6 +181,7 @@ def get_v2_service(arn: Optional[_builtins.str] = None,
 
     return AwaitableGetV2ServiceResult(
         arn=pulumi.get(__ret__, 'arn'),
+        associated_systems=pulumi.get(__ret__, 'associated_systems'),
         description=pulumi.get(__ret__, 'description'),
         kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
         name=pulumi.get(__ret__, 'name'),
@@ -205,6 +218,7 @@ def get_v2_service_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws:resiliencehub/getV2Service:getV2Service', __args__, opts=opts, typ=GetV2ServiceResult)
     return __ret__.apply(lambda __response__: GetV2ServiceResult(
         arn=pulumi.get(__response__, 'arn'),
+        associated_systems=pulumi.get(__response__, 'associated_systems'),
         description=pulumi.get(__response__, 'description'),
         kms_key_id=pulumi.get(__response__, 'kms_key_id'),
         name=pulumi.get(__response__, 'name'),

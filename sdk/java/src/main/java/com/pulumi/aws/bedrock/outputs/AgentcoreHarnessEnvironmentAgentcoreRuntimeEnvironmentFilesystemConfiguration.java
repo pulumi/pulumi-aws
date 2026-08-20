@@ -7,9 +7,9 @@ import com.pulumi.aws.bedrock.outputs.AgentcoreHarnessEnvironmentAgentcoreRuntim
 import com.pulumi.aws.bedrock.outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint;
 import com.pulumi.aws.bedrock.outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage;
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfiguration {
@@ -17,17 +17,17 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesys
      * @return Amazon EFS access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `efsAccessPoint` Block below.
      * 
      */
-    private List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint> efsAccessPoints;
+    private @Nullable List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint> efsAccessPoints;
     /**
      * @return Amazon S3 Files access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `s3FilesAccessPoint` Block below.
      * 
      */
-    private List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint> s3FilesAccessPoints;
+    private @Nullable List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint> s3FilesAccessPoints;
     /**
      * @return Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `sessionStorage` Block below.
      * 
      */
-    private List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage> sessionStorages;
+    private @Nullable List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage> sessionStorages;
 
     private AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfiguration() {}
     /**
@@ -35,21 +35,21 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesys
      * 
      */
     public List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint> efsAccessPoints() {
-        return this.efsAccessPoints;
+        return this.efsAccessPoints == null ? List.of() : this.efsAccessPoints;
     }
     /**
      * @return Amazon S3 Files access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `s3FilesAccessPoint` Block below.
      * 
      */
     public List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint> s3FilesAccessPoints() {
-        return this.s3FilesAccessPoints;
+        return this.s3FilesAccessPoints == null ? List.of() : this.s3FilesAccessPoints;
     }
     /**
      * @return Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `sessionStorage` Block below.
      * 
      */
     public List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage> sessionStorages() {
-        return this.sessionStorages;
+        return this.sessionStorages == null ? List.of() : this.sessionStorages;
     }
 
     public static Builder builder() {
@@ -61,9 +61,9 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesys
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint> efsAccessPoints;
-        private List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint> s3FilesAccessPoints;
-        private List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage> sessionStorages;
+        private @Nullable List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint> efsAccessPoints;
+        private @Nullable List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint> s3FilesAccessPoints;
+        private @Nullable List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage> sessionStorages;
         public Builder() {}
         public Builder(AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -73,10 +73,8 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesys
         }
 
         @CustomType.Setter
-        public Builder efsAccessPoints(List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint> efsAccessPoints) {
-            if (efsAccessPoints == null) {
-              throw new MissingRequiredPropertyException("AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfiguration", "efsAccessPoints");
-            }
+        public Builder efsAccessPoints(@Nullable List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint> efsAccessPoints) {
+
             this.efsAccessPoints = efsAccessPoints;
             return this;
         }
@@ -84,10 +82,8 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesys
             return efsAccessPoints(List.of(efsAccessPoints));
         }
         @CustomType.Setter
-        public Builder s3FilesAccessPoints(List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint> s3FilesAccessPoints) {
-            if (s3FilesAccessPoints == null) {
-              throw new MissingRequiredPropertyException("AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfiguration", "s3FilesAccessPoints");
-            }
+        public Builder s3FilesAccessPoints(@Nullable List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint> s3FilesAccessPoints) {
+
             this.s3FilesAccessPoints = s3FilesAccessPoints;
             return this;
         }
@@ -95,10 +91,8 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesys
             return s3FilesAccessPoints(List.of(s3FilesAccessPoints));
         }
         @CustomType.Setter
-        public Builder sessionStorages(List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage> sessionStorages) {
-            if (sessionStorages == null) {
-              throw new MissingRequiredPropertyException("AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfiguration", "sessionStorages");
-            }
+        public Builder sessionStorages(@Nullable List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage> sessionStorages) {
+
             this.sessionStorages = sessionStorages;
             return this;
         }

@@ -71,10 +71,22 @@ namespace Pulumi.Aws.MediaLive
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `MultiplexId` (String) ID of the Multiplex.
+    /// * `ProgramName` (String) Unique program name.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import MediaLive MultiplexProgram using the `Id`, or a combination of "`ProgramName`/`MultiplexId`". For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:medialive/multiplexProgram:MultiplexProgram example example_program/1234567
+    /// $ pulumi import aws:medialive/multiplexProgram:MultiplexProgram example example_program/12345678
     /// ```
     /// </summary>
     [AwsResourceType("aws:medialive/multiplexProgram:MultiplexProgram")]

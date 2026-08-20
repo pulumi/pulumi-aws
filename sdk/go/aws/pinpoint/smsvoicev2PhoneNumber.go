@@ -83,6 +83,8 @@ type Smsvoicev2PhoneNumber struct {
 	RegistrationId pulumi.StringPtrOutput `pulumi:"registrationId"`
 	// When set to `false` an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the opt-out list. When set to true you’re responsible for responding to HELP and STOP requests. You’re also responsible for tracking and honoring opt-out request.
 	SelfManagedOptOutsEnabled pulumi.BoolOutput `pulumi:"selfManagedOptOutsEnabled"`
+	// Status of the phone number. Possible values are `PENDING`, `ACTIVE`, `ASSOCIATING`, `DISASSOCIATING`, and `DELETED`.
+	Status pulumi.StringOutput `pulumi:"status"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -94,6 +96,8 @@ type Smsvoicev2PhoneNumber struct {
 	TwoWayChannelEnabled pulumi.BoolOutput `pulumi:"twoWayChannelEnabled"`
 	// IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
 	TwoWayChannelRole pulumi.StringOutput `pulumi:"twoWayChannelRole"`
+	// Whether to wait for the phone number to reach `ACTIVE` status before considering the resource created or updated. Defaults to `true`. Set to `false` for number types gated on carrier or registration approval (for example, `TEN_DLC`, `TOLL_FREE`, or any number submitted with `registrationId`), which can remain `PENDING` for days or weeks. When `false`, `pulumi up` returns once AWS accepts the phone number request; track activation with the `status` attribute.
+	WaitForActive pulumi.BoolOutput `pulumi:"waitForActive"`
 }
 
 // NewSmsvoicev2PhoneNumber registers a new resource with the given unique name, arguments, and options.
@@ -166,6 +170,8 @@ type smsvoicev2PhoneNumberState struct {
 	RegistrationId *string `pulumi:"registrationId"`
 	// When set to `false` an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the opt-out list. When set to true you’re responsible for responding to HELP and STOP requests. You’re also responsible for tracking and honoring opt-out request.
 	SelfManagedOptOutsEnabled *bool `pulumi:"selfManagedOptOutsEnabled"`
+	// Status of the phone number. Possible values are `PENDING`, `ACTIVE`, `ASSOCIATING`, `DISASSOCIATING`, and `DELETED`.
+	Status *string `pulumi:"status"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -177,6 +183,8 @@ type smsvoicev2PhoneNumberState struct {
 	TwoWayChannelEnabled *bool `pulumi:"twoWayChannelEnabled"`
 	// IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
 	TwoWayChannelRole *string `pulumi:"twoWayChannelRole"`
+	// Whether to wait for the phone number to reach `ACTIVE` status before considering the resource created or updated. Defaults to `true`. Set to `false` for number types gated on carrier or registration approval (for example, `TEN_DLC`, `TOLL_FREE`, or any number submitted with `registrationId`), which can remain `PENDING` for days or weeks. When `false`, `pulumi up` returns once AWS accepts the phone number request; track activation with the `status` attribute.
+	WaitForActive *bool `pulumi:"waitForActive"`
 }
 
 type Smsvoicev2PhoneNumberState struct {
@@ -208,6 +216,8 @@ type Smsvoicev2PhoneNumberState struct {
 	RegistrationId pulumi.StringPtrInput
 	// When set to `false` an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the opt-out list. When set to true you’re responsible for responding to HELP and STOP requests. You’re also responsible for tracking and honoring opt-out request.
 	SelfManagedOptOutsEnabled pulumi.BoolPtrInput
+	// Status of the phone number. Possible values are `PENDING`, `ACTIVE`, `ASSOCIATING`, `DISASSOCIATING`, and `DELETED`.
+	Status pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -219,6 +229,8 @@ type Smsvoicev2PhoneNumberState struct {
 	TwoWayChannelEnabled pulumi.BoolPtrInput
 	// IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
 	TwoWayChannelRole pulumi.StringPtrInput
+	// Whether to wait for the phone number to reach `ACTIVE` status before considering the resource created or updated. Defaults to `true`. Set to `false` for number types gated on carrier or registration approval (for example, `TEN_DLC`, `TOLL_FREE`, or any number submitted with `registrationId`), which can remain `PENDING` for days or weeks. When `false`, `pulumi up` returns once AWS accepts the phone number request; track activation with the `status` attribute.
+	WaitForActive pulumi.BoolPtrInput
 }
 
 func (Smsvoicev2PhoneNumberState) ElementType() reflect.Type {
@@ -257,6 +269,8 @@ type smsvoicev2PhoneNumberArgs struct {
 	TwoWayChannelEnabled *bool `pulumi:"twoWayChannelEnabled"`
 	// IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
 	TwoWayChannelRole *string `pulumi:"twoWayChannelRole"`
+	// Whether to wait for the phone number to reach `ACTIVE` status before considering the resource created or updated. Defaults to `true`. Set to `false` for number types gated on carrier or registration approval (for example, `TEN_DLC`, `TOLL_FREE`, or any number submitted with `registrationId`), which can remain `PENDING` for days or weeks. When `false`, `pulumi up` returns once AWS accepts the phone number request; track activation with the `status` attribute.
+	WaitForActive *bool `pulumi:"waitForActive"`
 }
 
 // The set of arguments for constructing a Smsvoicev2PhoneNumber resource.
@@ -292,6 +306,8 @@ type Smsvoicev2PhoneNumberArgs struct {
 	TwoWayChannelEnabled pulumi.BoolPtrInput
 	// IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
 	TwoWayChannelRole pulumi.StringPtrInput
+	// Whether to wait for the phone number to reach `ACTIVE` status before considering the resource created or updated. Defaults to `true`. Set to `false` for number types gated on carrier or registration approval (for example, `TEN_DLC`, `TOLL_FREE`, or any number submitted with `registrationId`), which can remain `PENDING` for days or weeks. When `false`, `pulumi up` returns once AWS accepts the phone number request; track activation with the `status` attribute.
+	WaitForActive pulumi.BoolPtrInput
 }
 
 func (Smsvoicev2PhoneNumberArgs) ElementType() reflect.Type {
@@ -448,6 +464,11 @@ func (o Smsvoicev2PhoneNumberOutput) SelfManagedOptOutsEnabled() pulumi.BoolOutp
 	return o.ApplyT(func(v *Smsvoicev2PhoneNumber) pulumi.BoolOutput { return v.SelfManagedOptOutsEnabled }).(pulumi.BoolOutput)
 }
 
+// Status of the phone number. Possible values are `PENDING`, `ACTIVE`, `ASSOCIATING`, `DISASSOCIATING`, and `DELETED`.
+func (o Smsvoicev2PhoneNumberOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *Smsvoicev2PhoneNumber) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o Smsvoicev2PhoneNumberOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Smsvoicev2PhoneNumber) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
@@ -475,6 +496,11 @@ func (o Smsvoicev2PhoneNumberOutput) TwoWayChannelEnabled() pulumi.BoolOutput {
 // IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
 func (o Smsvoicev2PhoneNumberOutput) TwoWayChannelRole() pulumi.StringOutput {
 	return o.ApplyT(func(v *Smsvoicev2PhoneNumber) pulumi.StringOutput { return v.TwoWayChannelRole }).(pulumi.StringOutput)
+}
+
+// Whether to wait for the phone number to reach `ACTIVE` status before considering the resource created or updated. Defaults to `true`. Set to `false` for number types gated on carrier or registration approval (for example, `TEN_DLC`, `TOLL_FREE`, or any number submitted with `registrationId`), which can remain `PENDING` for days or weeks. When `false`, `pulumi up` returns once AWS accepts the phone number request; track activation with the `status` attribute.
+func (o Smsvoicev2PhoneNumberOutput) WaitForActive() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Smsvoicev2PhoneNumber) pulumi.BoolOutput { return v.WaitForActive }).(pulumi.BoolOutput)
 }
 
 type Smsvoicev2PhoneNumberArrayOutput struct{ *pulumi.OutputState }

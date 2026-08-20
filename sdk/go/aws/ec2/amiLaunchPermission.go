@@ -104,6 +104,21 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// * `imageId` (String) ID of the AMI.
+//
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `group` (String) Name of the group for the launch permission.
+// * `launchPermissionAccountId` (String) AWS account ID for the launch permission.
+// * `organizationArn` (String) ARN of an organization for the launch permission.
+// * `organizationalUnitArn` (String) ARN of an organizational unit for the launch permission.
+// * `region` (String) Region where this resource is managed.
+//
 // Using `pulumi import`, import AMI Launch Permissions using `[ACCOUNT-ID|GROUP-NAME|ORGANIZATION-ARN|ORGANIZATIONAL-UNIT-ARN]/IMAGE-ID`. For example:
 //
 // ```sh

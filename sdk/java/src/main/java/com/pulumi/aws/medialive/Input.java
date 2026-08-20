@@ -74,6 +74,17 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `id` (String) ID of the MediaLive Input.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
  * Using `pulumi import`, import MediaLive Input using the `id`. For example:
  * 
  * ```sh

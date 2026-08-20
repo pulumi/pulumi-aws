@@ -4671,6 +4671,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "dsql/clusterPolicy",
+  "fqn": "pulumi_aws.dsql",
+  "classes": {
+   "aws:dsql/clusterPolicy:ClusterPolicy": "ClusterPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "dynamodb/contributorInsights",
   "fqn": "pulumi_aws.dynamodb",
   "classes": {
@@ -8175,6 +8183,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "lambda/coreNetworkConnector",
+  "fqn": "pulumi_aws.lambda_",
+  "classes": {
+   "aws:lambda/coreNetworkConnector:CoreNetworkConnector": "CoreNetworkConnector"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "lambda/eventSourceMapping",
   "fqn": "pulumi_aws.lambda_",
   "classes": {
@@ -8243,6 +8259,14 @@ _utilities.register(
   "fqn": "pulumi_aws.lambda_",
   "classes": {
    "aws:lambda/layerVersionPermission:LayerVersionPermission": "LayerVersionPermission"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "lambda/microvmsImage",
+  "fqn": "pulumi_aws.lambda_",
+  "classes": {
+   "aws:lambda/microvmsImage:MicrovmsImage": "MicrovmsImage"
   }
  },
  {
@@ -8779,6 +8803,14 @@ _utilities.register(
   "fqn": "pulumi_aws.mailmanager",
   "classes": {
    "aws:mailmanager/ingressPoint:IngressPoint": "IngressPoint"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "mailmanager/relay",
+  "fqn": "pulumi_aws.mailmanager",
+  "classes": {
+   "aws:mailmanager/relay:Relay": "Relay"
   }
  },
  {
@@ -9595,6 +9627,14 @@ _utilities.register(
   "fqn": "pulumi_aws.odb",
   "classes": {
    "aws:odb/cloudVmCluster:CloudVmCluster": "CloudVmCluster"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "odb/iamRoleAssociation",
+  "fqn": "pulumi_aws.odb",
+  "classes": {
+   "aws:odb/iamRoleAssociation:IamRoleAssociation": "IamRoleAssociation"
   }
  },
  {
@@ -10847,6 +10887,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "resiliencehub/v2Assertion",
+  "fqn": "pulumi_aws.resiliencehub",
+  "classes": {
+   "aws:resiliencehub/v2Assertion:V2Assertion": "V2Assertion"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "resiliencehub/v2InputSource",
   "fqn": "pulumi_aws.resiliencehub",
   "classes": {
@@ -10871,10 +10919,26 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "resiliencehub/v2ServiceFunction",
+  "fqn": "pulumi_aws.resiliencehub",
+  "classes": {
+   "aws:resiliencehub/v2ServiceFunction:V2ServiceFunction": "V2ServiceFunction"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "resiliencehub/v2System",
   "fqn": "pulumi_aws.resiliencehub",
   "classes": {
    "aws:resiliencehub/v2System:V2System": "V2System"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "resiliencehub/v2UserJourney",
+  "fqn": "pulumi_aws.resiliencehub",
+  "classes": {
+   "aws:resiliencehub/v2UserJourney:V2UserJourney": "V2UserJourney"
   }
  },
  {
@@ -12291,6 +12355,14 @@ _utilities.register(
   "fqn": "pulumi_aws.securityhub",
   "classes": {
    "aws:securityhub/connectorV2:ConnectorV2": "ConnectorV2"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "securityhub/featureV2",
+  "fqn": "pulumi_aws.securityhub",
+  "classes": {
+   "aws:securityhub/featureV2:FeatureV2": "FeatureV2"
   }
  },
  {

@@ -9,6 +9,7 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration {
@@ -21,7 +22,7 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetwork
      * @return VPC configuration. See `networkModeConfig` Block below.
      * 
      */
-    private List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig> networkModeConfigs;
+    private @Nullable List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig> networkModeConfigs;
 
     private AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration() {}
     /**
@@ -36,7 +37,7 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetwork
      * 
      */
     public List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig> networkModeConfigs() {
-        return this.networkModeConfigs;
+        return this.networkModeConfigs == null ? List.of() : this.networkModeConfigs;
     }
 
     public static Builder builder() {
@@ -49,7 +50,7 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetwork
     @CustomType.Builder
     public static final class Builder {
         private String networkMode;
-        private List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig> networkModeConfigs;
+        private @Nullable List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig> networkModeConfigs;
         public Builder() {}
         public Builder(AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -66,10 +67,8 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetwork
             return this;
         }
         @CustomType.Setter
-        public Builder networkModeConfigs(List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig> networkModeConfigs) {
-            if (networkModeConfigs == null) {
-              throw new MissingRequiredPropertyException("AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration", "networkModeConfigs");
-            }
+        public Builder networkModeConfigs(@Nullable List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig> networkModeConfigs) {
+
             this.networkModeConfigs = networkModeConfigs;
             return this;
         }

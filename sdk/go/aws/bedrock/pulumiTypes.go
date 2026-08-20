@@ -56829,11 +56829,1050 @@ func (o AgentcoreHarnessEnvironmentArrayOutput) Index(i pulumi.IntInput) Agentco
 	}).(AgentcoreHarnessEnvironmentOutput)
 }
 
-type AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment struct {
-	AgentRuntimeArn  string `pulumi:"agentRuntimeArn"`
-	AgentRuntimeId   string `pulumi:"agentRuntimeId"`
+type AgentcoreHarnessEnvironmentActual struct {
+	// AgentCore runtime environment configuration. See `agentcoreRuntimeEnvironment` Block below.
+	AgentcoreRuntimeEnvironments []AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment `pulumi:"agentcoreRuntimeEnvironments"`
+}
+
+// AgentcoreHarnessEnvironmentActualInput is an input type that accepts AgentcoreHarnessEnvironmentActualArgs and AgentcoreHarnessEnvironmentActualOutput values.
+// You can construct a concrete instance of `AgentcoreHarnessEnvironmentActualInput` via:
+//
+//	AgentcoreHarnessEnvironmentActualArgs{...}
+type AgentcoreHarnessEnvironmentActualInput interface {
+	pulumi.Input
+
+	ToAgentcoreHarnessEnvironmentActualOutput() AgentcoreHarnessEnvironmentActualOutput
+	ToAgentcoreHarnessEnvironmentActualOutputWithContext(context.Context) AgentcoreHarnessEnvironmentActualOutput
+}
+
+type AgentcoreHarnessEnvironmentActualArgs struct {
+	// AgentCore runtime environment configuration. See `agentcoreRuntimeEnvironment` Block below.
+	AgentcoreRuntimeEnvironments AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArrayInput `pulumi:"agentcoreRuntimeEnvironments"`
+}
+
+func (AgentcoreHarnessEnvironmentActualArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreHarnessEnvironmentActual)(nil)).Elem()
+}
+
+func (i AgentcoreHarnessEnvironmentActualArgs) ToAgentcoreHarnessEnvironmentActualOutput() AgentcoreHarnessEnvironmentActualOutput {
+	return i.ToAgentcoreHarnessEnvironmentActualOutputWithContext(context.Background())
+}
+
+func (i AgentcoreHarnessEnvironmentActualArgs) ToAgentcoreHarnessEnvironmentActualOutputWithContext(ctx context.Context) AgentcoreHarnessEnvironmentActualOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreHarnessEnvironmentActualOutput)
+}
+
+// AgentcoreHarnessEnvironmentActualArrayInput is an input type that accepts AgentcoreHarnessEnvironmentActualArray and AgentcoreHarnessEnvironmentActualArrayOutput values.
+// You can construct a concrete instance of `AgentcoreHarnessEnvironmentActualArrayInput` via:
+//
+//	AgentcoreHarnessEnvironmentActualArray{ AgentcoreHarnessEnvironmentActualArgs{...} }
+type AgentcoreHarnessEnvironmentActualArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreHarnessEnvironmentActualArrayOutput() AgentcoreHarnessEnvironmentActualArrayOutput
+	ToAgentcoreHarnessEnvironmentActualArrayOutputWithContext(context.Context) AgentcoreHarnessEnvironmentActualArrayOutput
+}
+
+type AgentcoreHarnessEnvironmentActualArray []AgentcoreHarnessEnvironmentActualInput
+
+func (AgentcoreHarnessEnvironmentActualArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreHarnessEnvironmentActual)(nil)).Elem()
+}
+
+func (i AgentcoreHarnessEnvironmentActualArray) ToAgentcoreHarnessEnvironmentActualArrayOutput() AgentcoreHarnessEnvironmentActualArrayOutput {
+	return i.ToAgentcoreHarnessEnvironmentActualArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreHarnessEnvironmentActualArray) ToAgentcoreHarnessEnvironmentActualArrayOutputWithContext(ctx context.Context) AgentcoreHarnessEnvironmentActualArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreHarnessEnvironmentActualArrayOutput)
+}
+
+type AgentcoreHarnessEnvironmentActualOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreHarnessEnvironmentActualOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreHarnessEnvironmentActual)(nil)).Elem()
+}
+
+func (o AgentcoreHarnessEnvironmentActualOutput) ToAgentcoreHarnessEnvironmentActualOutput() AgentcoreHarnessEnvironmentActualOutput {
+	return o
+}
+
+func (o AgentcoreHarnessEnvironmentActualOutput) ToAgentcoreHarnessEnvironmentActualOutputWithContext(ctx context.Context) AgentcoreHarnessEnvironmentActualOutput {
+	return o
+}
+
+// AgentCore runtime environment configuration. See `agentcoreRuntimeEnvironment` Block below.
+func (o AgentcoreHarnessEnvironmentActualOutput) AgentcoreRuntimeEnvironments() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArrayOutput {
+	return o.ApplyT(func(v AgentcoreHarnessEnvironmentActual) []AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment {
+		return v.AgentcoreRuntimeEnvironments
+	}).(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArrayOutput)
+}
+
+type AgentcoreHarnessEnvironmentActualArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreHarnessEnvironmentActualArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreHarnessEnvironmentActual)(nil)).Elem()
+}
+
+func (o AgentcoreHarnessEnvironmentActualArrayOutput) ToAgentcoreHarnessEnvironmentActualArrayOutput() AgentcoreHarnessEnvironmentActualArrayOutput {
+	return o
+}
+
+func (o AgentcoreHarnessEnvironmentActualArrayOutput) ToAgentcoreHarnessEnvironmentActualArrayOutputWithContext(ctx context.Context) AgentcoreHarnessEnvironmentActualArrayOutput {
+	return o
+}
+
+func (o AgentcoreHarnessEnvironmentActualArrayOutput) Index(i pulumi.IntInput) AgentcoreHarnessEnvironmentActualOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreHarnessEnvironmentActual {
+		return vs[0].([]AgentcoreHarnessEnvironmentActual)[vs[1].(int)]
+	}).(AgentcoreHarnessEnvironmentActualOutput)
+}
+
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment struct {
+	// ARN of the agent runtime the service provisions for the harness.
+	AgentRuntimeArn string `pulumi:"agentRuntimeArn"`
+	// ID of the agent runtime the service provisions for the harness.
+	AgentRuntimeId string `pulumi:"agentRuntimeId"`
+	// Name of the agent runtime the service derives for the harness.
 	AgentRuntimeName string `pulumi:"agentRuntimeName"`
 	// Filesystem configurations. See `filesystemConfiguration` Block below.
+	//
+	// The following attributes are exported under `agentcoreRuntimeEnvironment`:
+	FilesystemConfigurations []AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfiguration `pulumi:"filesystemConfigurations"`
+	// Lifecycle configuration. See `lifecycleConfiguration` Block below.
+	LifecycleConfigurations []AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfiguration `pulumi:"lifecycleConfigurations"`
+	// Network configuration. See `networkConfiguration` Block below.
+	NetworkConfigurations []AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfiguration `pulumi:"networkConfigurations"`
+}
+
+// AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentInput is an input type that accepts AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArgs and AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentOutput values.
+// You can construct a concrete instance of `AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentInput` via:
+//
+//	AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArgs{...}
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentInput interface {
+	pulumi.Input
+
+	ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentOutput
+	ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentOutputWithContext(context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentOutput
+}
+
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArgs struct {
+	// ARN of the agent runtime the service provisions for the harness.
+	AgentRuntimeArn pulumi.StringInput `pulumi:"agentRuntimeArn"`
+	// ID of the agent runtime the service provisions for the harness.
+	AgentRuntimeId pulumi.StringInput `pulumi:"agentRuntimeId"`
+	// Name of the agent runtime the service derives for the harness.
+	AgentRuntimeName pulumi.StringInput `pulumi:"agentRuntimeName"`
+	// Filesystem configurations. See `filesystemConfiguration` Block below.
+	//
+	// The following attributes are exported under `agentcoreRuntimeEnvironment`:
+	FilesystemConfigurations AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArrayInput `pulumi:"filesystemConfigurations"`
+	// Lifecycle configuration. See `lifecycleConfiguration` Block below.
+	LifecycleConfigurations AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArrayInput `pulumi:"lifecycleConfigurations"`
+	// Network configuration. See `networkConfiguration` Block below.
+	NetworkConfigurations AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArrayInput `pulumi:"networkConfigurations"`
+}
+
+func (AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment)(nil)).Elem()
+}
+
+func (i AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArgs) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentOutput {
+	return i.ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentOutputWithContext(context.Background())
+}
+
+func (i AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArgs) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentOutputWithContext(ctx context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentOutput)
+}
+
+// AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArrayInput is an input type that accepts AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArray and AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArrayOutput values.
+// You can construct a concrete instance of `AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArrayInput` via:
+//
+//	AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArray{ AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArgs{...} }
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArrayOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArrayOutput
+	ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArrayOutputWithContext(context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArrayOutput
+}
+
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArray []AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentInput
+
+func (AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment)(nil)).Elem()
+}
+
+func (i AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArray) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArrayOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArrayOutput {
+	return i.ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArray) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArrayOutputWithContext(ctx context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArrayOutput)
+}
+
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment)(nil)).Elem()
+}
+
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentOutput) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentOutput {
+	return o
+}
+
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentOutput) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentOutputWithContext(ctx context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentOutput {
+	return o
+}
+
+// ARN of the agent runtime the service provisions for the harness.
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentOutput) AgentRuntimeArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment) string { return v.AgentRuntimeArn }).(pulumi.StringOutput)
+}
+
+// ID of the agent runtime the service provisions for the harness.
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentOutput) AgentRuntimeId() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment) string { return v.AgentRuntimeId }).(pulumi.StringOutput)
+}
+
+// Name of the agent runtime the service derives for the harness.
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentOutput) AgentRuntimeName() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment) string { return v.AgentRuntimeName }).(pulumi.StringOutput)
+}
+
+// Filesystem configurations. See `filesystemConfiguration` Block below.
+//
+// The following attributes are exported under `agentcoreRuntimeEnvironment`:
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentOutput) FilesystemConfigurations() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArrayOutput {
+	return o.ApplyT(func(v AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment) []AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfiguration {
+		return v.FilesystemConfigurations
+	}).(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArrayOutput)
+}
+
+// Lifecycle configuration. See `lifecycleConfiguration` Block below.
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentOutput) LifecycleConfigurations() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArrayOutput {
+	return o.ApplyT(func(v AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment) []AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfiguration {
+		return v.LifecycleConfigurations
+	}).(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArrayOutput)
+}
+
+// Network configuration. See `networkConfiguration` Block below.
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentOutput) NetworkConfigurations() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArrayOutput {
+	return o.ApplyT(func(v AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment) []AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfiguration {
+		return v.NetworkConfigurations
+	}).(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArrayOutput)
+}
+
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment)(nil)).Elem()
+}
+
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArrayOutput) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArrayOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArrayOutput {
+	return o
+}
+
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArrayOutput) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArrayOutputWithContext(ctx context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArrayOutput {
+	return o
+}
+
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArrayOutput) Index(i pulumi.IntInput) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment {
+		return vs[0].([]AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment)[vs[1].(int)]
+	}).(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentOutput)
+}
+
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfiguration struct {
+	// Amazon EFS access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `efsAccessPoint` Block below.
+	EfsAccessPoints []AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint `pulumi:"efsAccessPoints"`
+	// Amazon S3 Files access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `s3FilesAccessPoint` Block below.
+	S3FilesAccessPoints []AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint `pulumi:"s3FilesAccessPoints"`
+	// Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `sessionStorage` Block below.
+	SessionStorages []AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage `pulumi:"sessionStorages"`
+}
+
+// AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationInput is an input type that accepts AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArgs and AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationOutput values.
+// You can construct a concrete instance of `AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationInput` via:
+//
+//	AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArgs{...}
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationOutput
+	ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationOutputWithContext(context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationOutput
+}
+
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArgs struct {
+	// Amazon EFS access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `efsAccessPoint` Block below.
+	EfsAccessPoints AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArrayInput `pulumi:"efsAccessPoints"`
+	// Amazon S3 Files access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `s3FilesAccessPoint` Block below.
+	S3FilesAccessPoints AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArrayInput `pulumi:"s3FilesAccessPoints"`
+	// Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `sessionStorage` Block below.
+	SessionStorages AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArrayInput `pulumi:"sessionStorages"`
+}
+
+func (AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfiguration)(nil)).Elem()
+}
+
+func (i AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArgs) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationOutput {
+	return i.ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArgs) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationOutputWithContext(ctx context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationOutput)
+}
+
+// AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArrayInput is an input type that accepts AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArray and AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArrayOutput values.
+// You can construct a concrete instance of `AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArrayInput` via:
+//
+//	AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArray{ AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArgs{...} }
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArrayOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArrayOutput
+	ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArrayOutputWithContext(context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArrayOutput
+}
+
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArray []AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationInput
+
+func (AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfiguration)(nil)).Elem()
+}
+
+func (i AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArray) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArrayOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArrayOutput {
+	return i.ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArray) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArrayOutputWithContext(ctx context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArrayOutput)
+}
+
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationOutput) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationOutput {
+	return o
+}
+
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationOutput) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationOutputWithContext(ctx context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationOutput {
+	return o
+}
+
+// Amazon EFS access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `efsAccessPoint` Block below.
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationOutput) EfsAccessPoints() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArrayOutput {
+	return o.ApplyT(func(v AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfiguration) []AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint {
+		return v.EfsAccessPoints
+	}).(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArrayOutput)
+}
+
+// Amazon S3 Files access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `s3FilesAccessPoint` Block below.
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationOutput) S3FilesAccessPoints() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArrayOutput {
+	return o.ApplyT(func(v AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfiguration) []AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint {
+		return v.S3FilesAccessPoints
+	}).(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArrayOutput)
+}
+
+// Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `sessionStorage` Block below.
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationOutput) SessionStorages() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArrayOutput {
+	return o.ApplyT(func(v AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfiguration) []AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage {
+		return v.SessionStorages
+	}).(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArrayOutput)
+}
+
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArrayOutput) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArrayOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArrayOutput {
+	return o
+}
+
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArrayOutput) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArrayOutputWithContext(ctx context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArrayOutput {
+	return o
+}
+
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArrayOutput) Index(i pulumi.IntInput) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfiguration {
+		return vs[0].([]AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfiguration)[vs[1].(int)]
+	}).(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationOutput)
+}
+
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint struct {
+	// ARN of the Amazon EFS access point to mount into the agent runtime.
+	AccessPointArn string `pulumi:"accessPointArn"`
+	// Mount path for the EFS access point inside the agent runtime. Must be under `/mnt` with exactly one subdirectory level (for example, `/mnt/data`).
+	MountPath string `pulumi:"mountPath"`
+}
+
+// AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointInput is an input type that accepts AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArgs and AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointOutput values.
+// You can construct a concrete instance of `AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointInput` via:
+//
+//	AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArgs{...}
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointInput interface {
+	pulumi.Input
+
+	ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointOutput
+	ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointOutputWithContext(context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointOutput
+}
+
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArgs struct {
+	// ARN of the Amazon EFS access point to mount into the agent runtime.
+	AccessPointArn pulumi.StringInput `pulumi:"accessPointArn"`
+	// Mount path for the EFS access point inside the agent runtime. Must be under `/mnt` with exactly one subdirectory level (for example, `/mnt/data`).
+	MountPath pulumi.StringInput `pulumi:"mountPath"`
+}
+
+func (AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint)(nil)).Elem()
+}
+
+func (i AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArgs) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointOutput {
+	return i.ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointOutputWithContext(context.Background())
+}
+
+func (i AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArgs) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointOutputWithContext(ctx context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointOutput)
+}
+
+// AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArrayInput is an input type that accepts AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArray and AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArrayOutput values.
+// You can construct a concrete instance of `AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArrayInput` via:
+//
+//	AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArray{ AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArgs{...} }
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArrayOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArrayOutput
+	ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArrayOutputWithContext(context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArrayOutput
+}
+
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArray []AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointInput
+
+func (AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint)(nil)).Elem()
+}
+
+func (i AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArray) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArrayOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArrayOutput {
+	return i.ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArray) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArrayOutputWithContext(ctx context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArrayOutput)
+}
+
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint)(nil)).Elem()
+}
+
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointOutput) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointOutput {
+	return o
+}
+
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointOutput) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointOutputWithContext(ctx context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointOutput {
+	return o
+}
+
+// ARN of the Amazon EFS access point to mount into the agent runtime.
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointOutput) AccessPointArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint) string {
+		return v.AccessPointArn
+	}).(pulumi.StringOutput)
+}
+
+// Mount path for the EFS access point inside the agent runtime. Must be under `/mnt` with exactly one subdirectory level (for example, `/mnt/data`).
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointOutput) MountPath() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint) string {
+		return v.MountPath
+	}).(pulumi.StringOutput)
+}
+
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint)(nil)).Elem()
+}
+
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArrayOutput) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArrayOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArrayOutput {
+	return o
+}
+
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArrayOutput) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArrayOutputWithContext(ctx context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArrayOutput {
+	return o
+}
+
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArrayOutput) Index(i pulumi.IntInput) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint {
+		return vs[0].([]AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint)[vs[1].(int)]
+	}).(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointOutput)
+}
+
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint struct {
+	// ARN of the Amazon S3 Files access point to mount into the agent runtime.
+	AccessPointArn string `pulumi:"accessPointArn"`
+	// Mount path for the S3 Files access point inside the agent runtime. Must be under `/mnt` with exactly one subdirectory level (for example, `/mnt/data`).
+	MountPath string `pulumi:"mountPath"`
+}
+
+// AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointInput is an input type that accepts AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArgs and AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointOutput values.
+// You can construct a concrete instance of `AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointInput` via:
+//
+//	AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArgs{...}
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointInput interface {
+	pulumi.Input
+
+	ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointOutput
+	ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointOutputWithContext(context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointOutput
+}
+
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArgs struct {
+	// ARN of the Amazon S3 Files access point to mount into the agent runtime.
+	AccessPointArn pulumi.StringInput `pulumi:"accessPointArn"`
+	// Mount path for the S3 Files access point inside the agent runtime. Must be under `/mnt` with exactly one subdirectory level (for example, `/mnt/data`).
+	MountPath pulumi.StringInput `pulumi:"mountPath"`
+}
+
+func (AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint)(nil)).Elem()
+}
+
+func (i AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArgs) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointOutput {
+	return i.ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointOutputWithContext(context.Background())
+}
+
+func (i AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArgs) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointOutputWithContext(ctx context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointOutput)
+}
+
+// AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArrayInput is an input type that accepts AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArray and AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArrayOutput values.
+// You can construct a concrete instance of `AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArrayInput` via:
+//
+//	AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArray{ AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArgs{...} }
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArrayOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArrayOutput
+	ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArrayOutputWithContext(context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArrayOutput
+}
+
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArray []AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointInput
+
+func (AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint)(nil)).Elem()
+}
+
+func (i AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArray) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArrayOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArrayOutput {
+	return i.ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArray) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArrayOutputWithContext(ctx context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArrayOutput)
+}
+
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint)(nil)).Elem()
+}
+
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointOutput) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointOutput {
+	return o
+}
+
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointOutput) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointOutputWithContext(ctx context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointOutput {
+	return o
+}
+
+// ARN of the Amazon S3 Files access point to mount into the agent runtime.
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointOutput) AccessPointArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint) string {
+		return v.AccessPointArn
+	}).(pulumi.StringOutput)
+}
+
+// Mount path for the S3 Files access point inside the agent runtime. Must be under `/mnt` with exactly one subdirectory level (for example, `/mnt/data`).
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointOutput) MountPath() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint) string {
+		return v.MountPath
+	}).(pulumi.StringOutput)
+}
+
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint)(nil)).Elem()
+}
+
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArrayOutput) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArrayOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArrayOutput {
+	return o
+}
+
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArrayOutput) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArrayOutputWithContext(ctx context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArrayOutput {
+	return o
+}
+
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArrayOutput) Index(i pulumi.IntInput) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint {
+		return vs[0].([]AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint)[vs[1].(int)]
+	}).(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointOutput)
+}
+
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage struct {
+	// Mount path for the session storage filesystem inside the agent runtime. Must be under `/mnt` with exactly one subdirectory level (for example, `/mnt/data`).
+	MountPath string `pulumi:"mountPath"`
+}
+
+// AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageInput is an input type that accepts AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArgs and AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageOutput values.
+// You can construct a concrete instance of `AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageInput` via:
+//
+//	AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArgs{...}
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageInput interface {
+	pulumi.Input
+
+	ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageOutput
+	ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageOutputWithContext(context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageOutput
+}
+
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArgs struct {
+	// Mount path for the session storage filesystem inside the agent runtime. Must be under `/mnt` with exactly one subdirectory level (for example, `/mnt/data`).
+	MountPath pulumi.StringInput `pulumi:"mountPath"`
+}
+
+func (AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage)(nil)).Elem()
+}
+
+func (i AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArgs) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageOutput {
+	return i.ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageOutputWithContext(context.Background())
+}
+
+func (i AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArgs) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageOutputWithContext(ctx context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageOutput)
+}
+
+// AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArrayInput is an input type that accepts AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArray and AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArrayOutput values.
+// You can construct a concrete instance of `AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArrayInput` via:
+//
+//	AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArray{ AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArgs{...} }
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArrayOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArrayOutput
+	ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArrayOutputWithContext(context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArrayOutput
+}
+
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArray []AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageInput
+
+func (AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage)(nil)).Elem()
+}
+
+func (i AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArray) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArrayOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArrayOutput {
+	return i.ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArray) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArrayOutputWithContext(ctx context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArrayOutput)
+}
+
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage)(nil)).Elem()
+}
+
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageOutput) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageOutput {
+	return o
+}
+
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageOutput) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageOutputWithContext(ctx context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageOutput {
+	return o
+}
+
+// Mount path for the session storage filesystem inside the agent runtime. Must be under `/mnt` with exactly one subdirectory level (for example, `/mnt/data`).
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageOutput) MountPath() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage) string {
+		return v.MountPath
+	}).(pulumi.StringOutput)
+}
+
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage)(nil)).Elem()
+}
+
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArrayOutput) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArrayOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArrayOutput {
+	return o
+}
+
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArrayOutput) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArrayOutputWithContext(ctx context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArrayOutput {
+	return o
+}
+
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArrayOutput) Index(i pulumi.IntInput) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage {
+		return vs[0].([]AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage)[vs[1].(int)]
+	}).(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageOutput)
+}
+
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfiguration struct {
+	// Timeout in seconds for idle sessions.
+	IdleRuntimeSessionTimeout int `pulumi:"idleRuntimeSessionTimeout"`
+	// Maximum lifetime of the instance in seconds.
+	MaxLifetime int `pulumi:"maxLifetime"`
+}
+
+// AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationInput is an input type that accepts AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArgs and AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationOutput values.
+// You can construct a concrete instance of `AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationInput` via:
+//
+//	AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArgs{...}
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationOutput
+	ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationOutputWithContext(context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationOutput
+}
+
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArgs struct {
+	// Timeout in seconds for idle sessions.
+	IdleRuntimeSessionTimeout pulumi.IntInput `pulumi:"idleRuntimeSessionTimeout"`
+	// Maximum lifetime of the instance in seconds.
+	MaxLifetime pulumi.IntInput `pulumi:"maxLifetime"`
+}
+
+func (AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfiguration)(nil)).Elem()
+}
+
+func (i AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArgs) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationOutput {
+	return i.ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArgs) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationOutputWithContext(ctx context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationOutput)
+}
+
+// AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArrayInput is an input type that accepts AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArray and AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArrayOutput values.
+// You can construct a concrete instance of `AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArrayInput` via:
+//
+//	AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArray{ AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArgs{...} }
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArrayOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArrayOutput
+	ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArrayOutputWithContext(context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArrayOutput
+}
+
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArray []AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationInput
+
+func (AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfiguration)(nil)).Elem()
+}
+
+func (i AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArray) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArrayOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArrayOutput {
+	return i.ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArray) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArrayOutputWithContext(ctx context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArrayOutput)
+}
+
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationOutput) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationOutput {
+	return o
+}
+
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationOutput) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationOutputWithContext(ctx context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationOutput {
+	return o
+}
+
+// Timeout in seconds for idle sessions.
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationOutput) IdleRuntimeSessionTimeout() pulumi.IntOutput {
+	return o.ApplyT(func(v AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfiguration) int {
+		return v.IdleRuntimeSessionTimeout
+	}).(pulumi.IntOutput)
+}
+
+// Maximum lifetime of the instance in seconds.
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationOutput) MaxLifetime() pulumi.IntOutput {
+	return o.ApplyT(func(v AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfiguration) int {
+		return v.MaxLifetime
+	}).(pulumi.IntOutput)
+}
+
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArrayOutput) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArrayOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArrayOutput {
+	return o
+}
+
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArrayOutput) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArrayOutputWithContext(ctx context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArrayOutput {
+	return o
+}
+
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArrayOutput) Index(i pulumi.IntInput) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfiguration {
+		return vs[0].([]AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfiguration)[vs[1].(int)]
+	}).(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationOutput)
+}
+
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfiguration struct {
+	// Network mode. Valid values: `PUBLIC`, `VPC`.
+	NetworkMode string `pulumi:"networkMode"`
+	// VPC configuration. See `networkModeConfig` Block below.
+	NetworkModeConfigs []AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig `pulumi:"networkModeConfigs"`
+}
+
+// AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationInput is an input type that accepts AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArgs and AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationOutput values.
+// You can construct a concrete instance of `AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationInput` via:
+//
+//	AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArgs{...}
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationOutput
+	ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationOutputWithContext(context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationOutput
+}
+
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArgs struct {
+	// Network mode. Valid values: `PUBLIC`, `VPC`.
+	NetworkMode pulumi.StringInput `pulumi:"networkMode"`
+	// VPC configuration. See `networkModeConfig` Block below.
+	NetworkModeConfigs AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArrayInput `pulumi:"networkModeConfigs"`
+}
+
+func (AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfiguration)(nil)).Elem()
+}
+
+func (i AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArgs) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationOutput {
+	return i.ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArgs) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationOutputWithContext(ctx context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationOutput)
+}
+
+// AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArrayInput is an input type that accepts AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArray and AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArrayOutput values.
+// You can construct a concrete instance of `AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArrayInput` via:
+//
+//	AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArray{ AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArgs{...} }
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArrayOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArrayOutput
+	ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArrayOutputWithContext(context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArrayOutput
+}
+
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArray []AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationInput
+
+func (AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfiguration)(nil)).Elem()
+}
+
+func (i AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArray) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArrayOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArrayOutput {
+	return i.ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArray) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArrayOutputWithContext(ctx context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArrayOutput)
+}
+
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationOutput) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationOutput {
+	return o
+}
+
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationOutput) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationOutputWithContext(ctx context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationOutput {
+	return o
+}
+
+// Network mode. Valid values: `PUBLIC`, `VPC`.
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationOutput) NetworkMode() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfiguration) string {
+		return v.NetworkMode
+	}).(pulumi.StringOutput)
+}
+
+// VPC configuration. See `networkModeConfig` Block below.
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationOutput) NetworkModeConfigs() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArrayOutput {
+	return o.ApplyT(func(v AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfiguration) []AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig {
+		return v.NetworkModeConfigs
+	}).(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArrayOutput)
+}
+
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArrayOutput) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArrayOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArrayOutput {
+	return o
+}
+
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArrayOutput) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArrayOutputWithContext(ctx context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArrayOutput {
+	return o
+}
+
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArrayOutput) Index(i pulumi.IntInput) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfiguration {
+		return vs[0].([]AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfiguration)[vs[1].(int)]
+	}).(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationOutput)
+}
+
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig struct {
+	// Whether to require an S3 endpoint for the service in the VPC.
+	RequireServiceS3Endpoint bool `pulumi:"requireServiceS3Endpoint"`
+	// Security groups for the VPC.
+	SecurityGroups []string `pulumi:"securityGroups"`
+	// Subnets for the VPC.
+	Subnets []string `pulumi:"subnets"`
+}
+
+// AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigInput is an input type that accepts AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs and AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigOutput values.
+// You can construct a concrete instance of `AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigInput` via:
+//
+//	AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs{...}
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigInput interface {
+	pulumi.Input
+
+	ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigOutput
+	ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigOutputWithContext(context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigOutput
+}
+
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs struct {
+	// Whether to require an S3 endpoint for the service in the VPC.
+	RequireServiceS3Endpoint pulumi.BoolInput `pulumi:"requireServiceS3Endpoint"`
+	// Security groups for the VPC.
+	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
+	// Subnets for the VPC.
+	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
+}
+
+func (AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig)(nil)).Elem()
+}
+
+func (i AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigOutput {
+	return i.ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigOutputWithContext(context.Background())
+}
+
+func (i AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigOutputWithContext(ctx context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigOutput)
+}
+
+// AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArrayInput is an input type that accepts AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArray and AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArrayOutput values.
+// You can construct a concrete instance of `AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArrayInput` via:
+//
+//	AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArray{ AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs{...} }
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArrayOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArrayOutput
+	ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArrayOutputWithContext(context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArrayOutput
+}
+
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArray []AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigInput
+
+func (AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig)(nil)).Elem()
+}
+
+func (i AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArray) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArrayOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArrayOutput {
+	return i.ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArray) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArrayOutputWithContext(ctx context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArrayOutput)
+}
+
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig)(nil)).Elem()
+}
+
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigOutput) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigOutput {
+	return o
+}
+
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigOutput) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigOutputWithContext(ctx context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigOutput {
+	return o
+}
+
+// Whether to require an S3 endpoint for the service in the VPC.
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigOutput) RequireServiceS3Endpoint() pulumi.BoolOutput {
+	return o.ApplyT(func(v AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig) bool {
+		return v.RequireServiceS3Endpoint
+	}).(pulumi.BoolOutput)
+}
+
+// Security groups for the VPC.
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig) []string {
+		return v.SecurityGroups
+	}).(pulumi.StringArrayOutput)
+}
+
+// Subnets for the VPC.
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig) []string {
+		return v.Subnets
+	}).(pulumi.StringArrayOutput)
+}
+
+type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig)(nil)).Elem()
+}
+
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArrayOutput) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArrayOutput() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArrayOutput {
+	return o
+}
+
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArrayOutput) ToAgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArrayOutputWithContext(ctx context.Context) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArrayOutput {
+	return o
+}
+
+func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArrayOutput) Index(i pulumi.IntInput) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig {
+		return vs[0].([]AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig)[vs[1].(int)]
+	}).(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigOutput)
+}
+
+type AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment struct {
+	// ARN of the agent runtime the service provisions for the harness.
+	AgentRuntimeArn *string `pulumi:"agentRuntimeArn"`
+	// ID of the agent runtime the service provisions for the harness.
+	AgentRuntimeId *string `pulumi:"agentRuntimeId"`
+	// Name of the agent runtime the service derives for the harness.
+	AgentRuntimeName *string `pulumi:"agentRuntimeName"`
+	// Filesystem configurations. See `filesystemConfiguration` Block below.
+	//
+	// The following attributes are exported under `agentcoreRuntimeEnvironment`:
 	FilesystemConfigurations []AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfiguration `pulumi:"filesystemConfigurations"`
 	// Lifecycle configuration. See `lifecycleConfiguration` Block below.
 	LifecycleConfigurations []AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfiguration `pulumi:"lifecycleConfigurations"`
@@ -56853,10 +57892,15 @@ type AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentInput interface {
 }
 
 type AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs struct {
-	AgentRuntimeArn  pulumi.StringInput `pulumi:"agentRuntimeArn"`
-	AgentRuntimeId   pulumi.StringInput `pulumi:"agentRuntimeId"`
-	AgentRuntimeName pulumi.StringInput `pulumi:"agentRuntimeName"`
+	// ARN of the agent runtime the service provisions for the harness.
+	AgentRuntimeArn pulumi.StringPtrInput `pulumi:"agentRuntimeArn"`
+	// ID of the agent runtime the service provisions for the harness.
+	AgentRuntimeId pulumi.StringPtrInput `pulumi:"agentRuntimeId"`
+	// Name of the agent runtime the service derives for the harness.
+	AgentRuntimeName pulumi.StringPtrInput `pulumi:"agentRuntimeName"`
 	// Filesystem configurations. See `filesystemConfiguration` Block below.
+	//
+	// The following attributes are exported under `agentcoreRuntimeEnvironment`:
 	FilesystemConfigurations AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationArrayInput `pulumi:"filesystemConfigurations"`
 	// Lifecycle configuration. See `lifecycleConfiguration` Block below.
 	LifecycleConfigurations AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfigurationArrayInput `pulumi:"lifecycleConfigurations"`
@@ -56915,19 +57959,24 @@ func (o AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentOutput) ToAgentcor
 	return o
 }
 
-func (o AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentOutput) AgentRuntimeArn() pulumi.StringOutput {
-	return o.ApplyT(func(v AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment) string { return v.AgentRuntimeArn }).(pulumi.StringOutput)
+// ARN of the agent runtime the service provisions for the harness.
+func (o AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentOutput) AgentRuntimeArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment) *string { return v.AgentRuntimeArn }).(pulumi.StringPtrOutput)
 }
 
-func (o AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentOutput) AgentRuntimeId() pulumi.StringOutput {
-	return o.ApplyT(func(v AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment) string { return v.AgentRuntimeId }).(pulumi.StringOutput)
+// ID of the agent runtime the service provisions for the harness.
+func (o AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentOutput) AgentRuntimeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment) *string { return v.AgentRuntimeId }).(pulumi.StringPtrOutput)
 }
 
-func (o AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentOutput) AgentRuntimeName() pulumi.StringOutput {
-	return o.ApplyT(func(v AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment) string { return v.AgentRuntimeName }).(pulumi.StringOutput)
+// Name of the agent runtime the service derives for the harness.
+func (o AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentOutput) AgentRuntimeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment) *string { return v.AgentRuntimeName }).(pulumi.StringPtrOutput)
 }
 
 // Filesystem configurations. See `filesystemConfiguration` Block below.
+//
+// The following attributes are exported under `agentcoreRuntimeEnvironment`:
 func (o AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentOutput) FilesystemConfigurations() AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationArrayOutput {
 	return o.ApplyT(func(v AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment) []AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfiguration {
 		return v.FilesystemConfigurations
@@ -57630,7 +58679,7 @@ func (o AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurati
 
 type AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig struct {
 	// Whether to require an S3 endpoint for the service in the VPC.
-	RequireServiceS3Endpoint bool `pulumi:"requireServiceS3Endpoint"`
+	RequireServiceS3Endpoint *bool `pulumi:"requireServiceS3Endpoint"`
 	// Security groups for the VPC.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// Subnets for the VPC.
@@ -57650,7 +58699,7 @@ type AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationN
 
 type AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs struct {
 	// Whether to require an S3 endpoint for the service in the VPC.
-	RequireServiceS3Endpoint pulumi.BoolInput `pulumi:"requireServiceS3Endpoint"`
+	RequireServiceS3Endpoint pulumi.BoolPtrInput `pulumi:"requireServiceS3Endpoint"`
 	// Security groups for the VPC.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
 	// Subnets for the VPC.
@@ -57709,10 +58758,10 @@ func (o AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurati
 }
 
 // Whether to require an S3 endpoint for the service in the VPC.
-func (o AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigOutput) RequireServiceS3Endpoint() pulumi.BoolOutput {
-	return o.ApplyT(func(v AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig) bool {
+func (o AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigOutput) RequireServiceS3Endpoint() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig) *bool {
 		return v.RequireServiceS3Endpoint
-	}).(pulumi.BoolOutput)
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Security groups for the VPC.
@@ -73759,993 +74808,6 @@ func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArra
 	}).(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricOutput)
 }
 
-type EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinition struct {
-	// Prompt that instructs the evaluator model how to rate the model or RAG source under evaluation.
-	Instructions string `pulumi:"instructions"`
-	// Name for the custom metric. Must be unique in your AWS Region.
-	Name string `pulumi:"name"`
-	// One or more items defining the rating scale for the custom metric. See `ratingScale` Block below.
-	RatingScales []EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScale `pulumi:"ratingScales"`
-}
-
-// EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionInput is an input type that accepts EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionArgs and EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionOutput values.
-// You can construct a concrete instance of `EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionInput` via:
-//
-//	EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionArgs{...}
-type EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionInput interface {
-	pulumi.Input
-
-	ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionOutput() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionOutput
-	ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionOutputWithContext(context.Context) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionOutput
-}
-
-type EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionArgs struct {
-	// Prompt that instructs the evaluator model how to rate the model or RAG source under evaluation.
-	Instructions pulumi.StringInput `pulumi:"instructions"`
-	// Name for the custom metric. Must be unique in your AWS Region.
-	Name pulumi.StringInput `pulumi:"name"`
-	// One or more items defining the rating scale for the custom metric. See `ratingScale` Block below.
-	RatingScales EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArrayInput `pulumi:"ratingScales"`
-}
-
-func (EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinition)(nil)).Elem()
-}
-
-func (i EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionArgs) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionOutput() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionOutput {
-	return i.ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionOutputWithContext(context.Background())
-}
-
-func (i EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionArgs) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionOutput)
-}
-
-type EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionOutput struct{ *pulumi.OutputState }
-
-func (EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinition)(nil)).Elem()
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionOutput) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionOutput() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionOutput {
-	return o
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionOutput) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionOutput {
-	return o
-}
-
-// Prompt that instructs the evaluator model how to rate the model or RAG source under evaluation.
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionOutput) Instructions() pulumi.StringOutput {
-	return o.ApplyT(func(v EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinition) string {
-		return v.Instructions
-	}).(pulumi.StringOutput)
-}
-
-// Name for the custom metric. Must be unique in your AWS Region.
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinition) string {
-		return v.Name
-	}).(pulumi.StringOutput)
-}
-
-// One or more items defining the rating scale for the custom metric. See `ratingScale` Block below.
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionOutput) RatingScales() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArrayOutput {
-	return o.ApplyT(func(v EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinition) []EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScale {
-		return v.RatingScales
-	}).(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArrayOutput)
-}
-
-type EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScale struct {
-	// Definition for one rating in the custom metric rating scale.
-	Definition string `pulumi:"definition"`
-	// Value for one rating in the custom metric rating scale. See `value` Block below.
-	Value EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValue `pulumi:"value"`
-}
-
-// EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleInput is an input type that accepts EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArgs and EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleOutput values.
-// You can construct a concrete instance of `EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleInput` via:
-//
-//	EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArgs{...}
-type EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleInput interface {
-	pulumi.Input
-
-	ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleOutput() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleOutput
-	ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleOutputWithContext(context.Context) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleOutput
-}
-
-type EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArgs struct {
-	// Definition for one rating in the custom metric rating scale.
-	Definition pulumi.StringInput `pulumi:"definition"`
-	// Value for one rating in the custom metric rating scale. See `value` Block below.
-	Value EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValueInput `pulumi:"value"`
-}
-
-func (EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScale)(nil)).Elem()
-}
-
-func (i EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArgs) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleOutput() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleOutput {
-	return i.ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleOutputWithContext(context.Background())
-}
-
-func (i EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArgs) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleOutput)
-}
-
-// EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArrayInput is an input type that accepts EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArray and EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArrayOutput values.
-// You can construct a concrete instance of `EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArrayInput` via:
-//
-//	EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArray{ EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArgs{...} }
-type EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArrayInput interface {
-	pulumi.Input
-
-	ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArrayOutput() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArrayOutput
-	ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArrayOutputWithContext(context.Context) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArrayOutput
-}
-
-type EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArray []EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleInput
-
-func (EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScale)(nil)).Elem()
-}
-
-func (i EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArray) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArrayOutput() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArrayOutput {
-	return i.ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArrayOutputWithContext(context.Background())
-}
-
-func (i EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArray) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArrayOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArrayOutput)
-}
-
-type EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleOutput struct{ *pulumi.OutputState }
-
-func (EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScale)(nil)).Elem()
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleOutput) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleOutput() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleOutput {
-	return o
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleOutput) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleOutput {
-	return o
-}
-
-// Definition for one rating in the custom metric rating scale.
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleOutput) Definition() pulumi.StringOutput {
-	return o.ApplyT(func(v EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScale) string {
-		return v.Definition
-	}).(pulumi.StringOutput)
-}
-
-// Value for one rating in the custom metric rating scale. See `value` Block below.
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleOutput) Value() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValueOutput {
-	return o.ApplyT(func(v EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScale) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValue {
-		return v.Value
-	}).(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValueOutput)
-}
-
-type EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArrayOutput struct{ *pulumi.OutputState }
-
-func (EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScale)(nil)).Elem()
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArrayOutput) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArrayOutput() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArrayOutput {
-	return o
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArrayOutput) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArrayOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArrayOutput {
-	return o
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArrayOutput) Index(i pulumi.IntInput) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScale {
-		return vs[0].([]EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScale)[vs[1].(int)]
-	}).(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleOutput)
-}
-
-type EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValue struct {
-	// Floating point number representing the rating value.
-	FloatValue *float64 `pulumi:"floatValue"`
-	// String representing the rating value.
-	StringValue *string `pulumi:"stringValue"`
-}
-
-// EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValueInput is an input type that accepts EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValueArgs and EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValueOutput values.
-// You can construct a concrete instance of `EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValueInput` via:
-//
-//	EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValueArgs{...}
-type EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValueInput interface {
-	pulumi.Input
-
-	ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValueOutput() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValueOutput
-	ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValueOutputWithContext(context.Context) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValueOutput
-}
-
-type EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValueArgs struct {
-	// Floating point number representing the rating value.
-	FloatValue pulumi.Float64PtrInput `pulumi:"floatValue"`
-	// String representing the rating value.
-	StringValue pulumi.StringPtrInput `pulumi:"stringValue"`
-}
-
-func (EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValueArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValue)(nil)).Elem()
-}
-
-func (i EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValueArgs) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValueOutput() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValueOutput {
-	return i.ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValueOutputWithContext(context.Background())
-}
-
-func (i EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValueArgs) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValueOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValueOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValueOutput)
-}
-
-type EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValueOutput struct{ *pulumi.OutputState }
-
-func (EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValueOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValue)(nil)).Elem()
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValueOutput) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValueOutput() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValueOutput {
-	return o
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValueOutput) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValueOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValueOutput {
-	return o
-}
-
-// Floating point number representing the rating value.
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValueOutput) FloatValue() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValue) *float64 {
-		return v.FloatValue
-	}).(pulumi.Float64PtrOutput)
-}
-
-// String representing the rating value.
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValueOutput) StringValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValue) *string {
-		return v.StringValue
-	}).(pulumi.StringPtrOutput)
-}
-
-type EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfig struct {
-	// Evaluator model. See `bedrockEvaluatorModel` Block below.
-	BedrockEvaluatorModel EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModel `pulumi:"bedrockEvaluatorModel"`
-}
-
-// EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigInput is an input type that accepts EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigArgs and EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigOutput values.
-// You can construct a concrete instance of `EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigInput` via:
-//
-//	EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigArgs{...}
-type EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigInput interface {
-	pulumi.Input
-
-	ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigOutput() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigOutput
-	ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigOutputWithContext(context.Context) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigOutput
-}
-
-type EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigArgs struct {
-	// Evaluator model. See `bedrockEvaluatorModel` Block below.
-	BedrockEvaluatorModel EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelInput `pulumi:"bedrockEvaluatorModel"`
-}
-
-func (EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfig)(nil)).Elem()
-}
-
-func (i EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigArgs) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigOutput() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigOutput {
-	return i.ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigOutputWithContext(context.Background())
-}
-
-func (i EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigArgs) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigOutput)
-}
-
-func (i EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigArgs) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtrOutput() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtrOutput {
-	return i.ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtrOutputWithContext(context.Background())
-}
-
-func (i EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigArgs) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtrOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigOutput).ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtrOutputWithContext(ctx)
-}
-
-// EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtrInput is an input type that accepts EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigArgs, EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtr and EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtrOutput values.
-// You can construct a concrete instance of `EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtrInput` via:
-//
-//	        EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigArgs{...}
-//
-//	or:
-//
-//	        nil
-type EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtrInput interface {
-	pulumi.Input
-
-	ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtrOutput() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtrOutput
-	ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtrOutputWithContext(context.Context) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtrOutput
-}
-
-type evaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtrType EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigArgs
-
-func EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtr(v *EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigArgs) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtrInput {
-	return (*evaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtrType)(v)
-}
-
-func (*evaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfig)(nil)).Elem()
-}
-
-func (i *evaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtrType) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtrOutput() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtrOutput {
-	return i.ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *evaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtrType) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtrOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtrOutput)
-}
-
-type EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigOutput struct{ *pulumi.OutputState }
-
-func (EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfig)(nil)).Elem()
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigOutput) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigOutput() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigOutput {
-	return o
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigOutput) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigOutput {
-	return o
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigOutput) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtrOutput() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtrOutput {
-	return o.ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtrOutputWithContext(context.Background())
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigOutput) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtrOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfig) *EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfig {
-		return &v
-	}).(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtrOutput)
-}
-
-// Evaluator model. See `bedrockEvaluatorModel` Block below.
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigOutput) BedrockEvaluatorModel() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelOutput {
-	return o.ApplyT(func(v EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfig) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModel {
-		return v.BedrockEvaluatorModel
-	}).(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelOutput)
-}
-
-type EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfig)(nil)).Elem()
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtrOutput) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtrOutput() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtrOutput {
-	return o
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtrOutput) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtrOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtrOutput {
-	return o
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtrOutput) Elem() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigOutput {
-	return o.ApplyT(func(v *EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfig) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfig {
-		if v != nil {
-			return *v
-		}
-		var ret EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfig
-		return ret
-	}).(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigOutput)
-}
-
-// Evaluator model. See `bedrockEvaluatorModel` Block below.
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtrOutput) BedrockEvaluatorModel() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtrOutput {
-	return o.ApplyT(func(v *EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfig) *EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModel {
-		if v == nil {
-			return nil
-		}
-		return &v.BedrockEvaluatorModel
-	}).(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtrOutput)
-}
-
-type EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModel struct {
-	// Identifier of the Amazon Bedrock model, or inference profile, used to compute the metrics.
-	ModelIdentifier string `pulumi:"modelIdentifier"`
-}
-
-// EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelInput is an input type that accepts EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelArgs and EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelOutput values.
-// You can construct a concrete instance of `EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelInput` via:
-//
-//	EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelArgs{...}
-type EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelInput interface {
-	pulumi.Input
-
-	ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelOutput() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelOutput
-	ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelOutputWithContext(context.Context) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelOutput
-}
-
-type EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelArgs struct {
-	// Identifier of the Amazon Bedrock model, or inference profile, used to compute the metrics.
-	ModelIdentifier pulumi.StringInput `pulumi:"modelIdentifier"`
-}
-
-func (EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModel)(nil)).Elem()
-}
-
-func (i EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelArgs) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelOutput() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelOutput {
-	return i.ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelOutputWithContext(context.Background())
-}
-
-func (i EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelArgs) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelOutput)
-}
-
-func (i EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelArgs) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtrOutput() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtrOutput {
-	return i.ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtrOutputWithContext(context.Background())
-}
-
-func (i EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelArgs) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtrOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelOutput).ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtrOutputWithContext(ctx)
-}
-
-// EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtrInput is an input type that accepts EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelArgs, EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtr and EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtrOutput values.
-// You can construct a concrete instance of `EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtrInput` via:
-//
-//	        EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelArgs{...}
-//
-//	or:
-//
-//	        nil
-type EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtrInput interface {
-	pulumi.Input
-
-	ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtrOutput() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtrOutput
-	ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtrOutputWithContext(context.Context) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtrOutput
-}
-
-type evaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtrType EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelArgs
-
-func EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtr(v *EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelArgs) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtrInput {
-	return (*evaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtrType)(v)
-}
-
-func (*evaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModel)(nil)).Elem()
-}
-
-func (i *evaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtrType) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtrOutput() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtrOutput {
-	return i.ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtrOutputWithContext(context.Background())
-}
-
-func (i *evaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtrType) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtrOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtrOutput)
-}
-
-type EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelOutput struct{ *pulumi.OutputState }
-
-func (EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModel)(nil)).Elem()
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelOutput) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelOutput() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelOutput {
-	return o
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelOutput) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelOutput {
-	return o
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelOutput) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtrOutput() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtrOutput {
-	return o.ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtrOutputWithContext(context.Background())
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelOutput) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtrOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModel) *EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModel {
-		return &v
-	}).(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtrOutput)
-}
-
-// Identifier of the Amazon Bedrock model, or inference profile, used to compute the metrics.
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelOutput) ModelIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModel) string {
-		return v.ModelIdentifier
-	}).(pulumi.StringOutput)
-}
-
-type EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtrOutput struct{ *pulumi.OutputState }
-
-func (EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModel)(nil)).Elem()
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtrOutput) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtrOutput() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtrOutput {
-	return o
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtrOutput) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtrOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtrOutput {
-	return o
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtrOutput) Elem() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelOutput {
-	return o.ApplyT(func(v *EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModel) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModel {
-		if v != nil {
-			return *v
-		}
-		var ret EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModel
-		return ret
-	}).(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelOutput)
-}
-
-// Identifier of the Amazon Bedrock model, or inference profile, used to compute the metrics.
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtrOutput) ModelIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModel) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ModelIdentifier
-	}).(pulumi.StringPtrOutput)
-}
-
-type EvaluationJobEvaluationConfigAutomatedDatasetMetricConfig struct {
-	// Prompt dataset to use. See `dataset` Block below.
-	Dataset EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDataset `pulumi:"dataset"`
-	// Names of the metrics to use for the evaluation job.
-	MetricNames []string `pulumi:"metricNames"`
-	// Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`.
-	TaskType string `pulumi:"taskType"`
-}
-
-// EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigInput is an input type that accepts EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArgs and EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigOutput values.
-// You can construct a concrete instance of `EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigInput` via:
-//
-//	EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArgs{...}
-type EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigInput interface {
-	pulumi.Input
-
-	ToEvaluationJobEvaluationConfigAutomatedDatasetMetricConfigOutput() EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigOutput
-	ToEvaluationJobEvaluationConfigAutomatedDatasetMetricConfigOutputWithContext(context.Context) EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigOutput
-}
-
-type EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArgs struct {
-	// Prompt dataset to use. See `dataset` Block below.
-	Dataset EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetInput `pulumi:"dataset"`
-	// Names of the metrics to use for the evaluation job.
-	MetricNames pulumi.StringArrayInput `pulumi:"metricNames"`
-	// Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`.
-	TaskType pulumi.StringInput `pulumi:"taskType"`
-}
-
-func (EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedDatasetMetricConfig)(nil)).Elem()
-}
-
-func (i EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArgs) ToEvaluationJobEvaluationConfigAutomatedDatasetMetricConfigOutput() EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigOutput {
-	return i.ToEvaluationJobEvaluationConfigAutomatedDatasetMetricConfigOutputWithContext(context.Background())
-}
-
-func (i EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArgs) ToEvaluationJobEvaluationConfigAutomatedDatasetMetricConfigOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigOutput)
-}
-
-// EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArrayInput is an input type that accepts EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArray and EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArrayOutput values.
-// You can construct a concrete instance of `EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArrayInput` via:
-//
-//	EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArray{ EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArgs{...} }
-type EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArrayInput interface {
-	pulumi.Input
-
-	ToEvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArrayOutput() EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArrayOutput
-	ToEvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArrayOutputWithContext(context.Context) EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArrayOutput
-}
-
-type EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArray []EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigInput
-
-func (EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EvaluationJobEvaluationConfigAutomatedDatasetMetricConfig)(nil)).Elem()
-}
-
-func (i EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArray) ToEvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArrayOutput() EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArrayOutput {
-	return i.ToEvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArrayOutputWithContext(context.Background())
-}
-
-func (i EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArray) ToEvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArrayOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArrayOutput)
-}
-
-type EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigOutput struct{ *pulumi.OutputState }
-
-func (EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedDatasetMetricConfig)(nil)).Elem()
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigOutput) ToEvaluationJobEvaluationConfigAutomatedDatasetMetricConfigOutput() EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigOutput {
-	return o
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigOutput) ToEvaluationJobEvaluationConfigAutomatedDatasetMetricConfigOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigOutput {
-	return o
-}
-
-// Prompt dataset to use. See `dataset` Block below.
-func (o EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigOutput) Dataset() EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetOutput {
-	return o.ApplyT(func(v EvaluationJobEvaluationConfigAutomatedDatasetMetricConfig) EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDataset {
-		return v.Dataset
-	}).(EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetOutput)
-}
-
-// Names of the metrics to use for the evaluation job.
-func (o EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigOutput) MetricNames() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v EvaluationJobEvaluationConfigAutomatedDatasetMetricConfig) []string { return v.MetricNames }).(pulumi.StringArrayOutput)
-}
-
-// Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`.
-func (o EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigOutput) TaskType() pulumi.StringOutput {
-	return o.ApplyT(func(v EvaluationJobEvaluationConfigAutomatedDatasetMetricConfig) string { return v.TaskType }).(pulumi.StringOutput)
-}
-
-type EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArrayOutput struct{ *pulumi.OutputState }
-
-func (EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EvaluationJobEvaluationConfigAutomatedDatasetMetricConfig)(nil)).Elem()
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArrayOutput) ToEvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArrayOutput() EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArrayOutput {
-	return o
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArrayOutput) ToEvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArrayOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArrayOutput {
-	return o
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArrayOutput) Index(i pulumi.IntInput) EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EvaluationJobEvaluationConfigAutomatedDatasetMetricConfig {
-		return vs[0].([]EvaluationJobEvaluationConfigAutomatedDatasetMetricConfig)[vs[1].(int)]
-	}).(EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigOutput)
-}
-
-type EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDataset struct {
-	// Location of a custom prompt dataset. See `datasetLocation` Block below.
-	DatasetLocation *EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocation `pulumi:"datasetLocation"`
-	// Name of a built-in prompt dataset, for example `Builtin.Bold`, or a label for a custom prompt dataset.
-	Name string `pulumi:"name"`
-}
-
-// EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetInput is an input type that accepts EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetArgs and EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetOutput values.
-// You can construct a concrete instance of `EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetInput` via:
-//
-//	EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetArgs{...}
-type EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetInput interface {
-	pulumi.Input
-
-	ToEvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetOutput() EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetOutput
-	ToEvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetOutputWithContext(context.Context) EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetOutput
-}
-
-type EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetArgs struct {
-	// Location of a custom prompt dataset. See `datasetLocation` Block below.
-	DatasetLocation EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtrInput `pulumi:"datasetLocation"`
-	// Name of a built-in prompt dataset, for example `Builtin.Bold`, or a label for a custom prompt dataset.
-	Name pulumi.StringInput `pulumi:"name"`
-}
-
-func (EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDataset)(nil)).Elem()
-}
-
-func (i EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetArgs) ToEvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetOutput() EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetOutput {
-	return i.ToEvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetOutputWithContext(context.Background())
-}
-
-func (i EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetArgs) ToEvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetOutput)
-}
-
-type EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetOutput struct{ *pulumi.OutputState }
-
-func (EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDataset)(nil)).Elem()
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetOutput) ToEvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetOutput() EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetOutput {
-	return o
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetOutput) ToEvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetOutput {
-	return o
-}
-
-// Location of a custom prompt dataset. See `datasetLocation` Block below.
-func (o EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetOutput) DatasetLocation() EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtrOutput {
-	return o.ApplyT(func(v EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDataset) *EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocation {
-		return v.DatasetLocation
-	}).(EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtrOutput)
-}
-
-// Name of a built-in prompt dataset, for example `Builtin.Bold`, or a label for a custom prompt dataset.
-func (o EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDataset) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocation struct {
-	// S3 URI of the custom prompt dataset.
-	S3Uri string `pulumi:"s3Uri"`
-}
-
-// EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationInput is an input type that accepts EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationArgs and EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationOutput values.
-// You can construct a concrete instance of `EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationInput` via:
-//
-//	EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationArgs{...}
-type EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationInput interface {
-	pulumi.Input
-
-	ToEvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationOutput() EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationOutput
-	ToEvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationOutputWithContext(context.Context) EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationOutput
-}
-
-type EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationArgs struct {
-	// S3 URI of the custom prompt dataset.
-	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
-}
-
-func (EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocation)(nil)).Elem()
-}
-
-func (i EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationArgs) ToEvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationOutput() EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationOutput {
-	return i.ToEvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationOutputWithContext(context.Background())
-}
-
-func (i EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationArgs) ToEvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationOutput)
-}
-
-func (i EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationArgs) ToEvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtrOutput() EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtrOutput {
-	return i.ToEvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtrOutputWithContext(context.Background())
-}
-
-func (i EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationArgs) ToEvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtrOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationOutput).ToEvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtrOutputWithContext(ctx)
-}
-
-// EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtrInput is an input type that accepts EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationArgs, EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtr and EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtrOutput values.
-// You can construct a concrete instance of `EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtrInput` via:
-//
-//	        EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationArgs{...}
-//
-//	or:
-//
-//	        nil
-type EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtrInput interface {
-	pulumi.Input
-
-	ToEvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtrOutput() EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtrOutput
-	ToEvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtrOutputWithContext(context.Context) EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtrOutput
-}
-
-type evaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtrType EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationArgs
-
-func EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtr(v *EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationArgs) EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtrInput {
-	return (*evaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtrType)(v)
-}
-
-func (*evaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocation)(nil)).Elem()
-}
-
-func (i *evaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtrType) ToEvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtrOutput() EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtrOutput {
-	return i.ToEvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtrOutputWithContext(context.Background())
-}
-
-func (i *evaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtrType) ToEvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtrOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtrOutput)
-}
-
-type EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationOutput struct{ *pulumi.OutputState }
-
-func (EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocation)(nil)).Elem()
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationOutput) ToEvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationOutput() EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationOutput {
-	return o
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationOutput) ToEvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationOutput {
-	return o
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationOutput) ToEvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtrOutput() EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtrOutput {
-	return o.ToEvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtrOutputWithContext(context.Background())
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationOutput) ToEvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtrOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocation) *EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocation {
-		return &v
-	}).(EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtrOutput)
-}
-
-// S3 URI of the custom prompt dataset.
-func (o EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationOutput) S3Uri() pulumi.StringOutput {
-	return o.ApplyT(func(v EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocation) string {
-		return v.S3Uri
-	}).(pulumi.StringOutput)
-}
-
-type EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtrOutput struct{ *pulumi.OutputState }
-
-func (EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocation)(nil)).Elem()
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtrOutput) ToEvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtrOutput() EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtrOutput {
-	return o
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtrOutput) ToEvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtrOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtrOutput {
-	return o
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtrOutput) Elem() EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationOutput {
-	return o.ApplyT(func(v *EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocation) EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocation {
-		if v != nil {
-			return *v
-		}
-		var ret EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocation
-		return ret
-	}).(EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationOutput)
-}
-
-// S3 URI of the custom prompt dataset.
-func (o EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtrOutput) S3Uri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocation) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.S3Uri
-	}).(pulumi.StringPtrOutput)
-}
-
-type EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfig struct {
-	// Evaluator model. See `bedrockEvaluatorModel` Block below.
-	BedrockEvaluatorModel EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModel `pulumi:"bedrockEvaluatorModel"`
-}
-
-// EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigInput is an input type that accepts EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigArgs and EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigOutput values.
-// You can construct a concrete instance of `EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigInput` via:
-//
-//	EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigArgs{...}
-type EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigInput interface {
-	pulumi.Input
-
-	ToEvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigOutput() EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigOutput
-	ToEvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigOutputWithContext(context.Context) EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigOutput
-}
-
-type EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigArgs struct {
-	// Evaluator model. See `bedrockEvaluatorModel` Block below.
-	BedrockEvaluatorModel EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelInput `pulumi:"bedrockEvaluatorModel"`
-}
-
-func (EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfig)(nil)).Elem()
-}
-
-func (i EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigArgs) ToEvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigOutput() EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigOutput {
-	return i.ToEvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigOutputWithContext(context.Background())
-}
-
-func (i EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigArgs) ToEvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigOutput)
-}
-
-func (i EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigArgs) ToEvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrOutput() EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrOutput {
-	return i.ToEvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrOutputWithContext(context.Background())
-}
-
-func (i EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigArgs) ToEvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigOutput).ToEvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrOutputWithContext(ctx)
-}
-
-// EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrInput is an input type that accepts EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigArgs, EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtr and EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrOutput values.
-// You can construct a concrete instance of `EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrInput` via:
-//
-//	        EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigArgs{...}
-//
-//	or:
-//
-//	        nil
-type EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrInput interface {
-	pulumi.Input
-
-	ToEvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrOutput() EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrOutput
-	ToEvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrOutputWithContext(context.Context) EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrOutput
-}
-
-type evaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrType EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigArgs
-
-func EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtr(v *EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigArgs) EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrInput {
-	return (*evaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrType)(v)
-}
-
-func (*evaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfig)(nil)).Elem()
-}
-
-func (i *evaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrType) ToEvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrOutput() EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrOutput {
-	return i.ToEvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *evaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrType) ToEvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrOutput)
-}
-
-type EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigOutput struct{ *pulumi.OutputState }
-
-func (EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfig)(nil)).Elem()
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigOutput) ToEvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigOutput() EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigOutput {
-	return o
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigOutput) ToEvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigOutput {
-	return o
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigOutput) ToEvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrOutput() EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrOutput {
-	return o.ToEvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrOutputWithContext(context.Background())
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigOutput) ToEvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfig) *EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfig {
-		return &v
-	}).(EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrOutput)
-}
-
-// Evaluator model. See `bedrockEvaluatorModel` Block below.
-func (o EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigOutput) BedrockEvaluatorModel() EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelOutput {
-	return o.ApplyT(func(v EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfig) EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModel {
-		return v.BedrockEvaluatorModel
-	}).(EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelOutput)
-}
-
-type EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfig)(nil)).Elem()
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrOutput) ToEvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrOutput() EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrOutput {
-	return o
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrOutput) ToEvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrOutput {
-	return o
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrOutput) Elem() EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigOutput {
-	return o.ApplyT(func(v *EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfig) EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfig {
-		if v != nil {
-			return *v
-		}
-		var ret EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfig
-		return ret
-	}).(EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigOutput)
-}
-
-// Evaluator model. See `bedrockEvaluatorModel` Block below.
-func (o EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrOutput) BedrockEvaluatorModel() EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtrOutput {
-	return o.ApplyT(func(v *EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfig) *EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModel {
-		if v == nil {
-			return nil
-		}
-		return &v.BedrockEvaluatorModel
-	}).(EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentActionGroupActionGroupExecutorInput)(nil)).Elem(), AgentAgentActionGroupActionGroupExecutorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentActionGroupActionGroupExecutorPtrInput)(nil)).Elem(), AgentAgentActionGroupActionGroupExecutorArgs{})
@@ -75483,6 +75545,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrInput)(nil)).Elem(), AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreHarnessEnvironmentInput)(nil)).Elem(), AgentcoreHarnessEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreHarnessEnvironmentArrayInput)(nil)).Elem(), AgentcoreHarnessEnvironmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreHarnessEnvironmentActualInput)(nil)).Elem(), AgentcoreHarnessEnvironmentActualArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreHarnessEnvironmentActualArrayInput)(nil)).Elem(), AgentcoreHarnessEnvironmentActualArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentInput)(nil)).Elem(), AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArrayInput)(nil)).Elem(), AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationInput)(nil)).Elem(), AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArrayInput)(nil)).Elem(), AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointInput)(nil)).Elem(), AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArrayInput)(nil)).Elem(), AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointInput)(nil)).Elem(), AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArrayInput)(nil)).Elem(), AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageInput)(nil)).Elem(), AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArrayInput)(nil)).Elem(), AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationInput)(nil)).Elem(), AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArrayInput)(nil)).Elem(), AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationInput)(nil)).Elem(), AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArrayInput)(nil)).Elem(), AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigInput)(nil)).Elem(), AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArrayInput)(nil)).Elem(), AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentInput)(nil)).Elem(), AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArrayInput)(nil)).Elem(), AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationInput)(nil)).Elem(), AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationArgs{})
@@ -75711,21 +75791,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrInput)(nil)).Elem(), EvaluationJobEvaluationConfigAutomatedCustomMetricConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricInput)(nil)).Elem(), EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArrayInput)(nil)).Elem(), EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionInput)(nil)).Elem(), EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleInput)(nil)).Elem(), EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArrayInput)(nil)).Elem(), EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValueInput)(nil)).Elem(), EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValueArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigInput)(nil)).Elem(), EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtrInput)(nil)).Elem(), EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelInput)(nil)).Elem(), EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtrInput)(nil)).Elem(), EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigInput)(nil)).Elem(), EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArrayInput)(nil)).Elem(), EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetInput)(nil)).Elem(), EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationInput)(nil)).Elem(), EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtrInput)(nil)).Elem(), EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigInput)(nil)).Elem(), EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrInput)(nil)).Elem(), EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigArgs{})
 	pulumi.RegisterOutputType(AgentAgentActionGroupActionGroupExecutorOutput{})
 	pulumi.RegisterOutputType(AgentAgentActionGroupActionGroupExecutorPtrOutput{})
 	pulumi.RegisterOutputType(AgentAgentActionGroupApiSchemaOutput{})
@@ -76462,6 +76527,24 @@ func init() {
 	pulumi.RegisterOutputType(AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput{})
 	pulumi.RegisterOutputType(AgentcoreHarnessEnvironmentOutput{})
 	pulumi.RegisterOutputType(AgentcoreHarnessEnvironmentArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreHarnessEnvironmentActualOutput{})
+	pulumi.RegisterOutputType(AgentcoreHarnessEnvironmentActualArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentOutput{})
+	pulumi.RegisterOutputType(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointOutput{})
+	pulumi.RegisterOutputType(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointOutput{})
+	pulumi.RegisterOutputType(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageOutput{})
+	pulumi.RegisterOutputType(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigOutput{})
+	pulumi.RegisterOutputType(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArrayOutput{})
 	pulumi.RegisterOutputType(AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentOutput{})
 	pulumi.RegisterOutputType(AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArrayOutput{})
 	pulumi.RegisterOutputType(AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationOutput{})
@@ -76690,19 +76773,4 @@ func init() {
 	pulumi.RegisterOutputType(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrOutput{})
 	pulumi.RegisterOutputType(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricOutput{})
 	pulumi.RegisterOutputType(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArrayOutput{})
-	pulumi.RegisterOutputType(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionOutput{})
-	pulumi.RegisterOutputType(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleOutput{})
-	pulumi.RegisterOutputType(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArrayOutput{})
-	pulumi.RegisterOutputType(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValueOutput{})
-	pulumi.RegisterOutputType(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigOutput{})
-	pulumi.RegisterOutputType(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtrOutput{})
-	pulumi.RegisterOutputType(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelOutput{})
-	pulumi.RegisterOutputType(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelPtrOutput{})
-	pulumi.RegisterOutputType(EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigOutput{})
-	pulumi.RegisterOutputType(EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArrayOutput{})
-	pulumi.RegisterOutputType(EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetOutput{})
-	pulumi.RegisterOutputType(EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationOutput{})
-	pulumi.RegisterOutputType(EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationPtrOutput{})
-	pulumi.RegisterOutputType(EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigOutput{})
-	pulumi.RegisterOutputType(EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrOutput{})
 }

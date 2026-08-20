@@ -330,6 +330,8 @@ class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurati
             suggest = "encryption_strategy"
         elif key == "encryptionConflictResolutionStrategy":
             suggest = "encryption_conflict_resolution_strategy"
+        elif key == "encryptionScope":
+            suggest = "encryption_scope"
         elif key == "kmsKeyArn":
             suggest = "kms_key_arn"
 
@@ -347,15 +349,19 @@ class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurati
     def __init__(__self__, *,
                  encryption_strategy: _builtins.str,
                  encryption_conflict_resolution_strategy: Optional[_builtins.str] = None,
+                 encryption_scope: Optional[_builtins.str] = None,
                  kms_key_arn: Optional[_builtins.str] = None):
         """
         :param _builtins.str encryption_strategy: Encryption strategy for logs. Valid values: `AWS_OWNED`, `CUSTOMER_MANAGED`.
         :param _builtins.str encryption_conflict_resolution_strategy: Strategy for resolving encryption conflicts. Valid values: `ALLOW`, `SKIP`.
+        :param _builtins.str encryption_scope: Determines which newly created destination log groups are encrypted with `kms_key_arn` when `encryption_strategy` is `CUSTOMER_MANAGED`. Valid values: `ENCRYPTED_SOURCE_ONLY` (default), `NEW_DESTINATION_LOG_GROUPS`. Not valid when `encryption_strategy` is `AWS_OWNED`.
         :param _builtins.str kms_key_arn: ARN of the KMS key to use for encryption when `encryption_strategy` is `CUSTOMER_MANAGED`.
         """
         pulumi.set(__self__, "encryption_strategy", encryption_strategy)
         if encryption_conflict_resolution_strategy is not None:
             pulumi.set(__self__, "encryption_conflict_resolution_strategy", encryption_conflict_resolution_strategy)
+        if encryption_scope is not None:
+            pulumi.set(__self__, "encryption_scope", encryption_scope)
         if kms_key_arn is not None:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
 
@@ -374,6 +380,14 @@ class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurati
         Strategy for resolving encryption conflicts. Valid values: `ALLOW`, `SKIP`.
         """
         return pulumi.get(self, "encryption_conflict_resolution_strategy")
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionScope")
+    def encryption_scope(self) -> Optional[_builtins.str]:
+        """
+        Determines which newly created destination log groups are encrypted with `kms_key_arn` when `encryption_strategy` is `CUSTOMER_MANAGED`. Valid values: `ENCRYPTED_SOURCE_ONLY` (default), `NEW_DESTINATION_LOG_GROUPS`. Not valid when `encryption_strategy` is `AWS_OWNED`.
+        """
+        return pulumi.get(self, "encryption_scope")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")

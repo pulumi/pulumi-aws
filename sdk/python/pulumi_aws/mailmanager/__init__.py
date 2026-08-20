@@ -7,6 +7,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .ingress_point import *
+from .relay import *
 from .rule_set import *
 from .traffic_policy import *
 from ._inputs import *

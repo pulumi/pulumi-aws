@@ -241,6 +241,21 @@ public final class Smsvoicev2PhoneNumberArgs extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.twoWayChannelRole);
     }
 
+    /**
+     * Whether to wait for the phone number to reach `ACTIVE` status before considering the resource created or updated. Defaults to `true`. Set to `false` for number types gated on carrier or registration approval (for example, `TEN_DLC`, `TOLL_FREE`, or any number submitted with `registrationId`), which can remain `PENDING` for days or weeks. When `false`, `pulumi up` returns once AWS accepts the phone number request; track activation with the `status` attribute.
+     * 
+     */
+    @Import(name="waitForActive")
+    private @Nullable Output<Boolean> waitForActive;
+
+    /**
+     * @return Whether to wait for the phone number to reach `ACTIVE` status before considering the resource created or updated. Defaults to `true`. Set to `false` for number types gated on carrier or registration approval (for example, `TEN_DLC`, `TOLL_FREE`, or any number submitted with `registrationId`), which can remain `PENDING` for days or weeks. When `false`, `pulumi up` returns once AWS accepts the phone number request; track activation with the `status` attribute.
+     * 
+     */
+    public Optional<Output<Boolean>> waitForActive() {
+        return Optional.ofNullable(this.waitForActive);
+    }
+
     private Smsvoicev2PhoneNumberArgs() {}
 
     private Smsvoicev2PhoneNumberArgs(Smsvoicev2PhoneNumberArgs $) {
@@ -259,6 +274,7 @@ public final class Smsvoicev2PhoneNumberArgs extends com.pulumi.resources.Resour
         this.twoWayChannelArn = $.twoWayChannelArn;
         this.twoWayChannelEnabled = $.twoWayChannelEnabled;
         this.twoWayChannelRole = $.twoWayChannelRole;
+        this.waitForActive = $.waitForActive;
     }
 
     public static Builder builder() {
@@ -594,6 +610,27 @@ public final class Smsvoicev2PhoneNumberArgs extends com.pulumi.resources.Resour
          */
         public Builder twoWayChannelRole(String twoWayChannelRole) {
             return twoWayChannelRole(Output.of(twoWayChannelRole));
+        }
+
+        /**
+         * @param waitForActive Whether to wait for the phone number to reach `ACTIVE` status before considering the resource created or updated. Defaults to `true`. Set to `false` for number types gated on carrier or registration approval (for example, `TEN_DLC`, `TOLL_FREE`, or any number submitted with `registrationId`), which can remain `PENDING` for days or weeks. When `false`, `pulumi up` returns once AWS accepts the phone number request; track activation with the `status` attribute.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder waitForActive(@Nullable Output<Boolean> waitForActive) {
+            $.waitForActive = waitForActive;
+            return this;
+        }
+
+        /**
+         * @param waitForActive Whether to wait for the phone number to reach `ACTIVE` status before considering the resource created or updated. Defaults to `true`. Set to `false` for number types gated on carrier or registration approval (for example, `TEN_DLC`, `TOLL_FREE`, or any number submitted with `registrationId`), which can remain `PENDING` for days or weeks. When `false`, `pulumi up` returns once AWS accepts the phone number request; track activation with the `status` attribute.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder waitForActive(Boolean waitForActive) {
+            return waitForActive(Output.of(waitForActive));
         }
 
         public Smsvoicev2PhoneNumberArgs build() {

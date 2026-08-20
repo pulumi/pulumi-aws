@@ -27,6 +27,12 @@ namespace Pulumi.Aws.Inputs
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
+        [Input("accountaccess")]
+        public Input<string>? Accountaccess { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("acm")]
         public Input<string>? Acm { get; set; }
 
@@ -35,6 +41,12 @@ namespace Pulumi.Aws.Inputs
         /// </summary>
         [Input("acmpca")]
         public Input<string>? Acmpca { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
+        [Input("agentregistry")]
+        public Input<string>? Agentregistry { get; set; }
 
         /// <summary>
         /// Use this to override the default service endpoint URL

@@ -219,6 +219,21 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
     }
 
     /**
+     * Status of the phone number. Possible values are `PENDING`, `ACTIVE`, `ASSOCIATING`, `DISASSOCIATING`, and `DELETED`.
+     * 
+     */
+    @Import(name="status")
+    private @Nullable Output<String> status;
+
+    /**
+     * @return Status of the phone number. Possible values are `PENDING`, `ACTIVE`, `ASSOCIATING`, `DISASSOCIATING`, and `DELETED`.
+     * 
+     */
+    public Optional<Output<String>> status() {
+        return Optional.ofNullable(this.status);
+    }
+
+    /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -300,6 +315,21 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.twoWayChannelRole);
     }
 
+    /**
+     * Whether to wait for the phone number to reach `ACTIVE` status before considering the resource created or updated. Defaults to `true`. Set to `false` for number types gated on carrier or registration approval (for example, `TEN_DLC`, `TOLL_FREE`, or any number submitted with `registrationId`), which can remain `PENDING` for days or weeks. When `false`, `pulumi up` returns once AWS accepts the phone number request; track activation with the `status` attribute.
+     * 
+     */
+    @Import(name="waitForActive")
+    private @Nullable Output<Boolean> waitForActive;
+
+    /**
+     * @return Whether to wait for the phone number to reach `ACTIVE` status before considering the resource created or updated. Defaults to `true`. Set to `false` for number types gated on carrier or registration approval (for example, `TEN_DLC`, `TOLL_FREE`, or any number submitted with `registrationId`), which can remain `PENDING` for days or weeks. When `false`, `pulumi up` returns once AWS accepts the phone number request; track activation with the `status` attribute.
+     * 
+     */
+    public Optional<Output<Boolean>> waitForActive() {
+        return Optional.ofNullable(this.waitForActive);
+    }
+
     private Smsvoicev2PhoneNumberState() {}
 
     private Smsvoicev2PhoneNumberState(Smsvoicev2PhoneNumberState $) {
@@ -316,12 +346,14 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
         this.region = $.region;
         this.registrationId = $.registrationId;
         this.selfManagedOptOutsEnabled = $.selfManagedOptOutsEnabled;
+        this.status = $.status;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.timeouts = $.timeouts;
         this.twoWayChannelArn = $.twoWayChannelArn;
         this.twoWayChannelEnabled = $.twoWayChannelEnabled;
         this.twoWayChannelRole = $.twoWayChannelRole;
+        this.waitForActive = $.waitForActive;
     }
 
     public static Builder builder() {
@@ -630,6 +662,27 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
         }
 
         /**
+         * @param status Status of the phone number. Possible values are `PENDING`, `ACTIVE`, `ASSOCIATING`, `DISASSOCIATING`, and `DELETED`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder status(@Nullable Output<String> status) {
+            $.status = status;
+            return this;
+        }
+
+        /**
+         * @param status Status of the phone number. Possible values are `PENDING`, `ACTIVE`, `ASSOCIATING`, `DISASSOCIATING`, and `DELETED`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder status(String status) {
+            return status(Output.of(status));
+        }
+
+        /**
          * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
@@ -741,6 +794,27 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
          */
         public Builder twoWayChannelRole(String twoWayChannelRole) {
             return twoWayChannelRole(Output.of(twoWayChannelRole));
+        }
+
+        /**
+         * @param waitForActive Whether to wait for the phone number to reach `ACTIVE` status before considering the resource created or updated. Defaults to `true`. Set to `false` for number types gated on carrier or registration approval (for example, `TEN_DLC`, `TOLL_FREE`, or any number submitted with `registrationId`), which can remain `PENDING` for days or weeks. When `false`, `pulumi up` returns once AWS accepts the phone number request; track activation with the `status` attribute.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder waitForActive(@Nullable Output<Boolean> waitForActive) {
+            $.waitForActive = waitForActive;
+            return this;
+        }
+
+        /**
+         * @param waitForActive Whether to wait for the phone number to reach `ACTIVE` status before considering the resource created or updated. Defaults to `true`. Set to `false` for number types gated on carrier or registration approval (for example, `TEN_DLC`, `TOLL_FREE`, or any number submitted with `registrationId`), which can remain `PENDING` for days or weeks. When `false`, `pulumi up` returns once AWS accepts the phone number request; track activation with the `status` attribute.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder waitForActive(Boolean waitForActive) {
+            return waitForActive(Output.of(waitForActive));
         }
 
         public Smsvoicev2PhoneNumberState build() {

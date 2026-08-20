@@ -8,5 +8,6 @@ import typing
 # Export this package's modules as members:
 from .cluster import *
 from .cluster_peering import *
+from .cluster_policy import *
 from ._inputs import *
 from . import outputs

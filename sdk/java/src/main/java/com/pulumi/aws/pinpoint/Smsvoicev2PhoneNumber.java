@@ -255,6 +255,20 @@ public class Smsvoicev2PhoneNumber extends com.pulumi.resources.CustomResource {
         return this.selfManagedOptOutsEnabled;
     }
     /**
+     * Status of the phone number. Possible values are `PENDING`, `ACTIVE`, `ASSOCIATING`, `DISASSOCIATING`, and `DELETED`.
+     * 
+     */
+    @Export(name="status", refs={String.class}, tree="[0]")
+    private Output<String> status;
+
+    /**
+     * @return Status of the phone number. Possible values are `PENDING`, `ACTIVE`, `ASSOCIATING`, `DISASSOCIATING`, and `DELETED`.
+     * 
+     */
+    public Output<String> status() {
+        return this.status;
+    }
+    /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -329,6 +343,20 @@ public class Smsvoicev2PhoneNumber extends com.pulumi.resources.CustomResource {
      */
     public Output<String> twoWayChannelRole() {
         return this.twoWayChannelRole;
+    }
+    /**
+     * Whether to wait for the phone number to reach `ACTIVE` status before considering the resource created or updated. Defaults to `true`. Set to `false` for number types gated on carrier or registration approval (for example, `TEN_DLC`, `TOLL_FREE`, or any number submitted with `registrationId`), which can remain `PENDING` for days or weeks. When `false`, `pulumi up` returns once AWS accepts the phone number request; track activation with the `status` attribute.
+     * 
+     */
+    @Export(name="waitForActive", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> waitForActive;
+
+    /**
+     * @return Whether to wait for the phone number to reach `ACTIVE` status before considering the resource created or updated. Defaults to `true`. Set to `false` for number types gated on carrier or registration approval (for example, `TEN_DLC`, `TOLL_FREE`, or any number submitted with `registrationId`), which can remain `PENDING` for days or weeks. When `false`, `pulumi up` returns once AWS accepts the phone number request; track activation with the `status` attribute.
+     * 
+     */
+    public Output<Boolean> waitForActive() {
+        return this.waitForActive;
     }
 
     /**

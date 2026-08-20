@@ -28,6 +28,8 @@ import com.pulumi.aws.odb.inputs.GetDbSystemShapesArgs;
 import com.pulumi.aws.odb.inputs.GetDbSystemShapesPlainArgs;
 import com.pulumi.aws.odb.inputs.GetGiVersionsArgs;
 import com.pulumi.aws.odb.inputs.GetGiVersionsPlainArgs;
+import com.pulumi.aws.odb.inputs.GetIamRoleAssociationArgs;
+import com.pulumi.aws.odb.inputs.GetIamRoleAssociationPlainArgs;
 import com.pulumi.aws.odb.inputs.GetNetworkArgs;
 import com.pulumi.aws.odb.inputs.GetNetworkPeeringConnectionArgs;
 import com.pulumi.aws.odb.inputs.GetNetworkPeeringConnectionPlainArgs;
@@ -48,6 +50,7 @@ import com.pulumi.aws.odb.outputs.GetDbServerResult;
 import com.pulumi.aws.odb.outputs.GetDbServersResult;
 import com.pulumi.aws.odb.outputs.GetDbSystemShapesResult;
 import com.pulumi.aws.odb.outputs.GetGiVersionsResult;
+import com.pulumi.aws.odb.outputs.GetIamRoleAssociationResult;
 import com.pulumi.aws.odb.outputs.GetNetworkPeeringConnectionResult;
 import com.pulumi.aws.odb.outputs.GetNetworkPeeringConnectionsResult;
 import com.pulumi.aws.odb.outputs.GetNetworkResult;
@@ -2890,6 +2893,221 @@ public final class OdbFunctions {
      */
     public static CompletableFuture<GetGiVersionsResult> getGiVersionsPlain(GetGiVersionsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:odb/getGiVersions:getGiVersions", TypeShape.of(GetGiVersionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about an AWS Oracle Database{@literal @}AWS Associate Disassociate IAM Role.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.odb.OdbFunctions;
+     * import com.pulumi.aws.odb.inputs.GetIamRoleAssociationArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OdbFunctions.getIamRoleAssociation(GetIamRoleAssociationArgs.builder()
+     *             .iamRoleArn("arn:aws:iam::123456789012:role/odb-iam-role-example")
+     *             .resourceArn("arn:aws:odb:us-east-1:123456789012:cloud-vm-cluster/odb-example-cluster-id")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetIamRoleAssociationResult> getIamRoleAssociation(GetIamRoleAssociationArgs args) {
+        return getIamRoleAssociation(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about an AWS Oracle Database{@literal @}AWS Associate Disassociate IAM Role.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.odb.OdbFunctions;
+     * import com.pulumi.aws.odb.inputs.GetIamRoleAssociationArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OdbFunctions.getIamRoleAssociation(GetIamRoleAssociationArgs.builder()
+     *             .iamRoleArn("arn:aws:iam::123456789012:role/odb-iam-role-example")
+     *             .resourceArn("arn:aws:odb:us-east-1:123456789012:cloud-vm-cluster/odb-example-cluster-id")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetIamRoleAssociationResult> getIamRoleAssociationPlain(GetIamRoleAssociationPlainArgs args) {
+        return getIamRoleAssociationPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about an AWS Oracle Database{@literal @}AWS Associate Disassociate IAM Role.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.odb.OdbFunctions;
+     * import com.pulumi.aws.odb.inputs.GetIamRoleAssociationArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OdbFunctions.getIamRoleAssociation(GetIamRoleAssociationArgs.builder()
+     *             .iamRoleArn("arn:aws:iam::123456789012:role/odb-iam-role-example")
+     *             .resourceArn("arn:aws:odb:us-east-1:123456789012:cloud-vm-cluster/odb-example-cluster-id")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetIamRoleAssociationResult> getIamRoleAssociation(GetIamRoleAssociationArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:odb/getIamRoleAssociation:getIamRoleAssociation", TypeShape.of(GetIamRoleAssociationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about an AWS Oracle Database{@literal @}AWS Associate Disassociate IAM Role.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.odb.OdbFunctions;
+     * import com.pulumi.aws.odb.inputs.GetIamRoleAssociationArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OdbFunctions.getIamRoleAssociation(GetIamRoleAssociationArgs.builder()
+     *             .iamRoleArn("arn:aws:iam::123456789012:role/odb-iam-role-example")
+     *             .resourceArn("arn:aws:odb:us-east-1:123456789012:cloud-vm-cluster/odb-example-cluster-id")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetIamRoleAssociationResult> getIamRoleAssociation(GetIamRoleAssociationArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:odb/getIamRoleAssociation:getIamRoleAssociation", TypeShape.of(GetIamRoleAssociationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about an AWS Oracle Database{@literal @}AWS Associate Disassociate IAM Role.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.odb.OdbFunctions;
+     * import com.pulumi.aws.odb.inputs.GetIamRoleAssociationArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OdbFunctions.getIamRoleAssociation(GetIamRoleAssociationArgs.builder()
+     *             .iamRoleArn("arn:aws:iam::123456789012:role/odb-iam-role-example")
+     *             .resourceArn("arn:aws:odb:us-east-1:123456789012:cloud-vm-cluster/odb-example-cluster-id")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetIamRoleAssociationResult> getIamRoleAssociationPlain(GetIamRoleAssociationPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:odb/getIamRoleAssociation:getIamRoleAssociation", TypeShape.of(GetIamRoleAssociationResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data source for to retrieve network resource in AWS for Oracle Database{@literal @}AWS.

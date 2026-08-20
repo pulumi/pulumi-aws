@@ -231,6 +231,12 @@ namespace Pulumi.Aws.Fsx
         public Output<ImmutableArray<string>> NetworkInterfaceIds { get; private set; } = null!;
 
         /// <summary>
+        /// Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+        /// </summary>
+        [Output("networkType")]
+        public Output<string> NetworkType { get; private set; } = null!;
+
+        /// <summary>
         /// AWS account identifier that created the file system.
         /// </summary>
         [Output("ownerId")]
@@ -453,6 +459,12 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
+        /// Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+        /// </summary>
+        [Input("networkType")]
+        public Input<string>? NetworkType { get; set; }
+
+        /// <summary>
         /// Subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
         /// </summary>
         [Input("preferredSubnetId")]
@@ -647,6 +659,12 @@ namespace Pulumi.Aws.Fsx
             get => _networkInterfaceIds ?? (_networkInterfaceIds = new InputList<string>());
             set => _networkInterfaceIds = value;
         }
+
+        /// <summary>
+        /// Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+        /// </summary>
+        [Input("networkType")]
+        public Input<string>? NetworkType { get; set; }
 
         /// <summary>
         /// AWS account identifier that created the file system.

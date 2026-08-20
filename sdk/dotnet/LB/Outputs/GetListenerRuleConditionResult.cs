@@ -38,7 +38,8 @@ namespace Pulumi.Aws.LB.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetListenerRuleConditionQueryStringResult> QueryStrings;
         /// <summary>
-        /// Contains a single attribute `Values`, which contains a set of source IPs in CIDR notation.
+        /// Source IP address to match.
+        /// Detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetListenerRuleConditionSourceIpResult> SourceIps;
 

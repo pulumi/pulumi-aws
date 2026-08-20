@@ -29,12 +29,14 @@ __all__ = [
     'V2PolicyDataRecovery',
     'V2PolicyMultiAz',
     'V2PolicyMultiRegion',
+    'V2ServiceAssociatedSystem',
     'V2ServicePermissionModel',
     'V2ServicePermissionModelCrossAccountRole',
     'GetV2PolicyAvailabilitySloResult',
     'GetV2PolicyDataRecoveryResult',
     'GetV2PolicyMultiAzResult',
     'GetV2PolicyMultiRegionResult',
+    'GetV2ServiceAssociatedSystemResult',
     'GetV2ServicePermissionModelResult',
     'GetV2ServicePermissionModelCrossAccountRoleResult',
 ]
@@ -608,6 +610,41 @@ class V2PolicyMultiRegion(dict):
 
 
 @pulumi.output_type
+class V2ServiceAssociatedSystem(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "systemArn":
+            suggest = "system_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2ServiceAssociatedSystem. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2ServiceAssociatedSystem.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2ServiceAssociatedSystem.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 system_arn: _builtins.str):
+        """
+        :param _builtins.str system_arn: ARN of the system to associate with the service.
+        """
+        pulumi.set(__self__, "system_arn", system_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="systemArn")
+    def system_arn(self) -> _builtins.str:
+        """
+        ARN of the system to associate with the service.
+        """
+        return pulumi.get(self, "system_arn")
+
+
+@pulumi.output_type
 class V2ServicePermissionModel(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -819,6 +856,24 @@ class GetV2PolicyMultiRegionResult(dict):
         Recovery time objective in minutes.
         """
         return pulumi.get(self, "rto_in_minutes")
+
+
+@pulumi.output_type
+class GetV2ServiceAssociatedSystemResult(dict):
+    def __init__(__self__, *,
+                 system_arn: _builtins.str):
+        """
+        :param _builtins.str system_arn: ARN of the associated system.
+        """
+        pulumi.set(__self__, "system_arn", system_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="systemArn")
+    def system_arn(self) -> _builtins.str:
+        """
+        ARN of the associated system.
+        """
+        return pulumi.get(self, "system_arn")
 
 
 @pulumi.output_type

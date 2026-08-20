@@ -396,11 +396,19 @@ class ProviderEndpointArgsDict(TypedDict):
     """
     Use this to override the default service endpoint URL
     """
+    accountaccess: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Use this to override the default service endpoint URL
+    """
     acm: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Use this to override the default service endpoint URL
     """
     acmpca: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    agentregistry: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Use this to override the default service endpoint URL
     """
@@ -1666,8 +1674,10 @@ class ProviderEndpointArgs:
     def __init__(__self__, *,
                  accessanalyzer: pulumi.Input[Optional[_builtins.str]] = None,
                  account: pulumi.Input[Optional[_builtins.str]] = None,
+                 accountaccess: pulumi.Input[Optional[_builtins.str]] = None,
                  acm: pulumi.Input[Optional[_builtins.str]] = None,
                  acmpca: pulumi.Input[Optional[_builtins.str]] = None,
+                 agentregistry: pulumi.Input[Optional[_builtins.str]] = None,
                  amg: pulumi.Input[Optional[_builtins.str]] = None,
                  amp: pulumi.Input[Optional[_builtins.str]] = None,
                  amplify: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1985,8 +1995,10 @@ class ProviderEndpointArgs:
         """
         :param pulumi.Input[_builtins.str] accessanalyzer: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] account: Use this to override the default service endpoint URL
+        :param pulumi.Input[_builtins.str] accountaccess: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] acm: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] acmpca: Use this to override the default service endpoint URL
+        :param pulumi.Input[_builtins.str] agentregistry: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] amg: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] amp: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] amplify: Use this to override the default service endpoint URL
@@ -2306,10 +2318,14 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "accessanalyzer", accessanalyzer)
         if account is not None:
             pulumi.set(__self__, "account", account)
+        if accountaccess is not None:
+            pulumi.set(__self__, "accountaccess", accountaccess)
         if acm is not None:
             pulumi.set(__self__, "acm", acm)
         if acmpca is not None:
             pulumi.set(__self__, "acmpca", acmpca)
+        if agentregistry is not None:
+            pulumi.set(__self__, "agentregistry", agentregistry)
         if amg is not None:
             pulumi.set(__self__, "amg", amg)
         if amp is not None:
@@ -2965,6 +2981,18 @@ class ProviderEndpointArgs:
 
     @_builtins.property
     @pulumi.getter
+    def accountaccess(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "accountaccess")
+
+    @accountaccess.setter
+    def accountaccess(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "accountaccess", value)
+
+    @_builtins.property
+    @pulumi.getter
     def acm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Use this to override the default service endpoint URL
@@ -2986,6 +3014,18 @@ class ProviderEndpointArgs:
     @acmpca.setter
     def acmpca(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "acmpca", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def agentregistry(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "agentregistry")
+
+    @agentregistry.setter
+    def agentregistry(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "agentregistry", value)
 
     @_builtins.property
     @pulumi.getter

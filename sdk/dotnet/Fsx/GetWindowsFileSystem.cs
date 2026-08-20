@@ -216,6 +216,10 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         public readonly ImmutableArray<string> NetworkInterfaceIds;
         /// <summary>
+        /// Network type (`IPV4` or `DUAL`).
+        /// </summary>
+        public readonly string NetworkType;
+        /// <summary>
         /// AWS account identifier that created the file system.
         /// </summary>
         public readonly string OwnerId;
@@ -295,6 +299,8 @@ namespace Pulumi.Aws.Fsx
 
             ImmutableArray<string> networkInterfaceIds,
 
+            string networkType,
+
             string ownerId,
 
             string preferredFileServerIp,
@@ -335,6 +341,7 @@ namespace Pulumi.Aws.Fsx
             Id = id;
             KmsKeyId = kmsKeyId;
             NetworkInterfaceIds = networkInterfaceIds;
+            NetworkType = networkType;
             OwnerId = ownerId;
             PreferredFileServerIp = preferredFileServerIp;
             PreferredSubnetId = preferredSubnetId;

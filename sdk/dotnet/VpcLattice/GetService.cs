@@ -195,6 +195,10 @@ namespace Pulumi.Aws.VpcLattice
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Amount of time, in seconds, that a connection can remain idle (no data sent) before VPC Lattice closes it.
+        /// </summary>
+        public readonly int IdleTimeoutSeconds;
         public readonly string Name;
         public readonly string Region;
         public readonly string ServiceIdentifier;
@@ -221,6 +225,8 @@ namespace Pulumi.Aws.VpcLattice
 
             string id,
 
+            int idleTimeoutSeconds,
+
             string name,
 
             string region,
@@ -237,6 +243,7 @@ namespace Pulumi.Aws.VpcLattice
             CustomDomainName = customDomainName;
             DnsEntries = dnsEntries;
             Id = id;
+            IdleTimeoutSeconds = idleTimeoutSeconds;
             Name = name;
             Region = region;
             ServiceIdentifier = serviceIdentifier;

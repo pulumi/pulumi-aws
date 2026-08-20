@@ -5,6 +5,7 @@ package com.pulumi.aws.vpclattice;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -62,6 +63,21 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Amount of time, in seconds, that a connection can remain idle (no data sent) before VPC Lattice closes it. The valid range is 60 to 600 seconds. Default is 60 seconds.
+     * 
+     */
+    @Import(name="idleTimeoutSeconds")
+    private @Nullable Output<Integer> idleTimeoutSeconds;
+
+    /**
+     * @return Amount of time, in seconds, that a connection can remain idle (no data sent) before VPC Lattice closes it. The valid range is 60 to 600 seconds. Default is 60 seconds.
+     * 
+     */
+    public Optional<Output<Integer>> idleTimeoutSeconds() {
+        return Optional.ofNullable(this.idleTimeoutSeconds);
+    }
+
+    /**
      * Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can&#39;t use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
      * 
      * The following arguments are optional:
@@ -116,6 +132,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         this.authType = $.authType;
         this.certificateArn = $.certificateArn;
         this.customDomainName = $.customDomainName;
+        this.idleTimeoutSeconds = $.idleTimeoutSeconds;
         this.name = $.name;
         this.region = $.region;
         this.tags = $.tags;
@@ -200,6 +217,27 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder customDomainName(String customDomainName) {
             return customDomainName(Output.of(customDomainName));
+        }
+
+        /**
+         * @param idleTimeoutSeconds Amount of time, in seconds, that a connection can remain idle (no data sent) before VPC Lattice closes it. The valid range is 60 to 600 seconds. Default is 60 seconds.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder idleTimeoutSeconds(@Nullable Output<Integer> idleTimeoutSeconds) {
+            $.idleTimeoutSeconds = idleTimeoutSeconds;
+            return this;
+        }
+
+        /**
+         * @param idleTimeoutSeconds Amount of time, in seconds, that a connection can remain idle (no data sent) before VPC Lattice closes it. The valid range is 60 to 600 seconds. Default is 60 seconds.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder idleTimeoutSeconds(Integer idleTimeoutSeconds) {
+            return idleTimeoutSeconds(Output.of(idleTimeoutSeconds));
         }
 
         /**

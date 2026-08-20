@@ -21,10 +21,12 @@ from .get_db_server import *
 from .get_db_servers import *
 from .get_db_system_shapes import *
 from .get_gi_versions import *
+from .get_iam_role_association import *
 from .get_network import *
 from .get_network_peering_connection import *
 from .get_network_peering_connections import *
 from .get_networks import *
+from .iam_role_association import *
 from .network import *
 from .network_peering_connection import *
 from ._inputs import *

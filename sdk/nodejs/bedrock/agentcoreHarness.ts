@@ -202,6 +202,10 @@ export class AgentcoreHarness extends pulumi.CustomResource {
      */
     declare public readonly authorizerConfiguration: pulumi.Output<outputs.bedrock.AgentcoreHarnessAuthorizerConfiguration | undefined>;
     /**
+     * Actual deployed environment configuration.
+     */
+    declare public /*out*/ readonly environmentActuals: pulumi.Output<outputs.bedrock.AgentcoreHarnessEnvironmentActual[]>;
+    /**
      * Environment artifact configuration. See `environmentArtifact` Block below.
      */
     declare public readonly environmentArtifact: pulumi.Output<outputs.bedrock.AgentcoreHarnessEnvironmentArtifact | undefined>;
@@ -210,9 +214,9 @@ export class AgentcoreHarness extends pulumi.CustomResource {
      */
     declare public readonly environmentVariables: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Compute environment configuration. See `environment` Block below.
+     * Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
      */
-    declare public readonly environments: pulumi.Output<outputs.bedrock.AgentcoreHarnessEnvironment[]>;
+    declare public readonly environments: pulumi.Output<outputs.bedrock.AgentcoreHarnessEnvironment[] | undefined>;
     /**
      * ARN of the IAM role that the harness assumes to access AWS services.
      */
@@ -234,7 +238,7 @@ export class AgentcoreHarness extends pulumi.CustomResource {
      */
     declare public readonly maxTokens: pulumi.Output<number | undefined>;
     /**
-     * Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`.
+     * Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`. Clearing this value will reset the memory configuration to default values.
      */
     declare public readonly memory: pulumi.Output<outputs.bedrock.AgentcoreHarnessMemory | undefined>;
     /**
@@ -297,6 +301,7 @@ export class AgentcoreHarness extends pulumi.CustomResource {
             resourceInputs["allowedTools"] = state?.allowedTools;
             resourceInputs["arn"] = state?.arn;
             resourceInputs["authorizerConfiguration"] = state?.authorizerConfiguration;
+            resourceInputs["environmentActuals"] = state?.environmentActuals;
             resourceInputs["environmentArtifact"] = state?.environmentArtifact;
             resourceInputs["environmentVariables"] = state?.environmentVariables;
             resourceInputs["environments"] = state?.environments;
@@ -348,6 +353,7 @@ export class AgentcoreHarness extends pulumi.CustomResource {
             resourceInputs["tools"] = args?.tools;
             resourceInputs["truncations"] = args?.truncations;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["environmentActuals"] = undefined /*out*/;
             resourceInputs["harnessId"] = undefined /*out*/;
             resourceInputs["memoryActuals"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -376,6 +382,10 @@ export interface AgentcoreHarnessState {
      */
     authorizerConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreHarnessAuthorizerConfiguration | undefined>;
     /**
+     * Actual deployed environment configuration.
+     */
+    environmentActuals?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentActual>[] | undefined>;
+    /**
      * Environment artifact configuration. See `environmentArtifact` Block below.
      */
     environmentArtifact?: pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentArtifact | undefined>;
@@ -384,7 +394,7 @@ export interface AgentcoreHarnessState {
      */
     environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Compute environment configuration. See `environment` Block below.
+     * Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
      */
     environments?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironment>[] | undefined>;
     /**
@@ -408,7 +418,7 @@ export interface AgentcoreHarnessState {
      */
     maxTokens?: pulumi.Input<number | undefined>;
     /**
-     * Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`.
+     * Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`. Clearing this value will reset the memory configuration to default values.
      */
     memory?: pulumi.Input<inputs.bedrock.AgentcoreHarnessMemory | undefined>;
     /**
@@ -477,7 +487,7 @@ export interface AgentcoreHarnessArgs {
      */
     environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Compute environment configuration. See `environment` Block below.
+     * Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
      */
     environments?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironment>[] | undefined>;
     /**
@@ -497,7 +507,7 @@ export interface AgentcoreHarnessArgs {
      */
     maxTokens?: pulumi.Input<number | undefined>;
     /**
-     * Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`.
+     * Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`. Clearing this value will reset the memory configuration to default values.
      */
     memory?: pulumi.Input<inputs.bedrock.AgentcoreHarnessMemory | undefined>;
     /**

@@ -8,6 +8,7 @@ import com.pulumi.aws.bedrock.AgentcoreHarnessArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreHarnessState;
 import com.pulumi.aws.bedrock.outputs.AgentcoreHarnessAuthorizerConfiguration;
 import com.pulumi.aws.bedrock.outputs.AgentcoreHarnessEnvironment;
+import com.pulumi.aws.bedrock.outputs.AgentcoreHarnessEnvironmentActual;
 import com.pulumi.aws.bedrock.outputs.AgentcoreHarnessEnvironmentArtifact;
 import com.pulumi.aws.bedrock.outputs.AgentcoreHarnessMemory;
 import com.pulumi.aws.bedrock.outputs.AgentcoreHarnessMemoryActual;
@@ -319,6 +320,20 @@ public class AgentcoreHarness extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.authorizerConfiguration);
     }
     /**
+     * Actual deployed environment configuration.
+     * 
+     */
+    @Export(name="environmentActuals", refs={List.class,AgentcoreHarnessEnvironmentActual.class}, tree="[0,1]")
+    private Output<List<AgentcoreHarnessEnvironmentActual>> environmentActuals;
+
+    /**
+     * @return Actual deployed environment configuration.
+     * 
+     */
+    public Output<List<AgentcoreHarnessEnvironmentActual>> environmentActuals() {
+        return this.environmentActuals;
+    }
+    /**
      * Environment artifact configuration. See `environmentArtifact` Block below.
      * 
      */
@@ -347,18 +362,18 @@ public class AgentcoreHarness extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.environmentVariables);
     }
     /**
-     * Compute environment configuration. See `environment` Block below.
+     * Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
      * 
      */
     @Export(name="environments", refs={List.class,AgentcoreHarnessEnvironment.class}, tree="[0,1]")
-    private Output<List<AgentcoreHarnessEnvironment>> environments;
+    private Output</* @Nullable */ List<AgentcoreHarnessEnvironment>> environments;
 
     /**
-     * @return Compute environment configuration. See `environment` Block below.
+     * @return Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
      * 
      */
-    public Output<List<AgentcoreHarnessEnvironment>> environments() {
-        return this.environments;
+    public Output<Optional<List<AgentcoreHarnessEnvironment>>> environments() {
+        return Codegen.optional(this.environments);
     }
     /**
      * ARN of the IAM role that the harness assumes to access AWS services.
@@ -431,14 +446,14 @@ public class AgentcoreHarness extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.maxTokens);
     }
     /**
-     * Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`.
+     * Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`. Clearing this value will reset the memory configuration to default values.
      * 
      */
     @Export(name="memory", refs={AgentcoreHarnessMemory.class}, tree="[0]")
     private Output</* @Nullable */ AgentcoreHarnessMemory> memory;
 
     /**
-     * @return Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`.
+     * @return Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`. Clearing this value will reset the memory configuration to default values.
      * 
      */
     public Output<Optional<AgentcoreHarnessMemory>> memory() {

@@ -104,14 +104,16 @@ public final class GetListenerRuleCondition extends com.pulumi.resources.InvokeA
     }
 
     /**
-     * Contains a single attribute `values`, which contains a set of source IPs in CIDR notation.
+     * Source IP address to match.
+     * Detailed below.
      * 
      */
     @Import(name="sourceIps")
     private @Nullable List<GetListenerRuleConditionSourceIp> sourceIps;
 
     /**
-     * @return Contains a single attribute `values`, which contains a set of source IPs in CIDR notation.
+     * @return Source IP address to match.
+     * Detailed below.
      * 
      */
     public Optional<List<GetListenerRuleConditionSourceIp>> sourceIps() {
@@ -261,7 +263,8 @@ public final class GetListenerRuleCondition extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param sourceIps Contains a single attribute `values`, which contains a set of source IPs in CIDR notation.
+         * @param sourceIps Source IP address to match.
+         * Detailed below.
          * 
          * @return builder
          * 
@@ -272,7 +275,8 @@ public final class GetListenerRuleCondition extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param sourceIps Contains a single attribute `values`, which contains a set of source IPs in CIDR notation.
+         * @param sourceIps Source IP address to match.
+         * Detailed below.
          * 
          * @return builder
          * 

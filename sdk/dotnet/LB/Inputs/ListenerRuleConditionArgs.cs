@@ -49,7 +49,7 @@ namespace Pulumi.Aws.LB.Inputs
         }
 
         /// <summary>
-        /// Contains a single `Values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `HttpHeader` condition instead.
+        /// Source IP address to match. For ALB, use `Values` to specify CIDR ranges. For NLB, use `IpAddressType` to match the IP address type (`Ipv4` or `Ipv6`). Source IP block fields documented below.
         /// 
         /// &gt; **NOTE::** Exactly one of `HostHeader`, `HttpHeader`, `HttpRequestMethod`, `PathPattern`, `QueryString` or `SourceIp` must be set per condition.
         /// </summary>

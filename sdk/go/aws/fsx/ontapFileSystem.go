@@ -204,6 +204,8 @@ type OntapFileSystem struct {
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
 	NetworkInterfaceIds pulumi.StringArrayOutput `pulumi:"networkInterfaceIds"`
+	// Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+	NetworkType pulumi.StringOutput `pulumi:"networkType"`
 	// AWS account identifier that created the file system.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
@@ -307,6 +309,8 @@ type ontapFileSystemState struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
 	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
+	// Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+	NetworkType *string `pulumi:"networkType"`
 	// AWS account identifier that created the file system.
 	OwnerId *string `pulumi:"ownerId"`
 	// ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
@@ -362,6 +366,8 @@ type OntapFileSystemState struct {
 	KmsKeyId pulumi.StringPtrInput
 	// Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
 	NetworkInterfaceIds pulumi.StringArrayInput
+	// Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+	NetworkType pulumi.StringPtrInput
 	// AWS account identifier that created the file system.
 	OwnerId pulumi.StringPtrInput
 	// ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
@@ -413,6 +419,8 @@ type ontapFileSystemArgs struct {
 	HaPairs *int `pulumi:"haPairs"`
 	// ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+	NetworkType *string `pulumi:"networkType"`
 	// ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
 	PreferredSubnetId string `pulumi:"preferredSubnetId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -455,6 +463,8 @@ type OntapFileSystemArgs struct {
 	HaPairs pulumi.IntPtrInput
 	// ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
 	KmsKeyId pulumi.StringPtrInput
+	// Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+	NetworkType pulumi.StringPtrInput
 	// ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
 	PreferredSubnetId pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -624,6 +634,11 @@ func (o OntapFileSystemOutput) KmsKeyId() pulumi.StringOutput {
 // Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
 func (o OntapFileSystemOutput) NetworkInterfaceIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OntapFileSystem) pulumi.StringArrayOutput { return v.NetworkInterfaceIds }).(pulumi.StringArrayOutput)
+}
+
+// Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+func (o OntapFileSystemOutput) NetworkType() pulumi.StringOutput {
+	return o.ApplyT(func(v *OntapFileSystem) pulumi.StringOutput { return v.NetworkType }).(pulumi.StringOutput)
 }
 
 // AWS account identifier that created the file system.

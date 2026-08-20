@@ -4,6 +4,7 @@
 package com.pulumi.aws.bedrock.inputs;
 
 import com.pulumi.aws.bedrock.inputs.AgentcoreHarnessAuthorizerConfigurationArgs;
+import com.pulumi.aws.bedrock.inputs.AgentcoreHarnessEnvironmentActualArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreHarnessEnvironmentArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreHarnessEnvironmentArtifactArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreHarnessMemoryActualArgs;
@@ -75,6 +76,21 @@ public final class AgentcoreHarnessState extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * Actual deployed environment configuration.
+     * 
+     */
+    @Import(name="environmentActuals")
+    private @Nullable Output<List<AgentcoreHarnessEnvironmentActualArgs>> environmentActuals;
+
+    /**
+     * @return Actual deployed environment configuration.
+     * 
+     */
+    public Optional<Output<List<AgentcoreHarnessEnvironmentActualArgs>>> environmentActuals() {
+        return Optional.ofNullable(this.environmentActuals);
+    }
+
+    /**
      * Environment artifact configuration. See `environmentArtifact` Block below.
      * 
      */
@@ -105,14 +121,14 @@ public final class AgentcoreHarnessState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Compute environment configuration. See `environment` Block below.
+     * Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
      * 
      */
     @Import(name="environments")
     private @Nullable Output<List<AgentcoreHarnessEnvironmentArgs>> environments;
 
     /**
-     * @return Compute environment configuration. See `environment` Block below.
+     * @return Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
      * 
      */
     public Optional<Output<List<AgentcoreHarnessEnvironmentArgs>>> environments() {
@@ -195,14 +211,14 @@ public final class AgentcoreHarnessState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`.
+     * Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`. Clearing this value will reset the memory configuration to default values.
      * 
      */
     @Import(name="memory")
     private @Nullable Output<AgentcoreHarnessMemoryArgs> memory;
 
     /**
-     * @return Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`.
+     * @return Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`. Clearing this value will reset the memory configuration to default values.
      * 
      */
     public Optional<Output<AgentcoreHarnessMemoryArgs>> memory() {
@@ -376,6 +392,7 @@ public final class AgentcoreHarnessState extends com.pulumi.resources.ResourceAr
         this.allowedTools = $.allowedTools;
         this.arn = $.arn;
         this.authorizerConfiguration = $.authorizerConfiguration;
+        this.environmentActuals = $.environmentActuals;
         this.environmentArtifact = $.environmentArtifact;
         this.environmentVariables = $.environmentVariables;
         this.environments = $.environments;
@@ -490,6 +507,37 @@ public final class AgentcoreHarnessState extends com.pulumi.resources.ResourceAr
         }
 
         /**
+         * @param environmentActuals Actual deployed environment configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder environmentActuals(@Nullable Output<List<AgentcoreHarnessEnvironmentActualArgs>> environmentActuals) {
+            $.environmentActuals = environmentActuals;
+            return this;
+        }
+
+        /**
+         * @param environmentActuals Actual deployed environment configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder environmentActuals(List<AgentcoreHarnessEnvironmentActualArgs> environmentActuals) {
+            return environmentActuals(Output.of(environmentActuals));
+        }
+
+        /**
+         * @param environmentActuals Actual deployed environment configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder environmentActuals(AgentcoreHarnessEnvironmentActualArgs... environmentActuals) {
+            return environmentActuals(List.of(environmentActuals));
+        }
+
+        /**
          * @param environmentArtifact Environment artifact configuration. See `environmentArtifact` Block below.
          * 
          * @return builder
@@ -532,7 +580,7 @@ public final class AgentcoreHarnessState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param environments Compute environment configuration. See `environment` Block below.
+         * @param environments Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
          * 
          * @return builder
          * 
@@ -543,7 +591,7 @@ public final class AgentcoreHarnessState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param environments Compute environment configuration. See `environment` Block below.
+         * @param environments Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
          * 
          * @return builder
          * 
@@ -553,7 +601,7 @@ public final class AgentcoreHarnessState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param environments Compute environment configuration. See `environment` Block below.
+         * @param environments Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
          * 
          * @return builder
          * 
@@ -668,7 +716,7 @@ public final class AgentcoreHarnessState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param memory Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`.
+         * @param memory Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`. Clearing this value will reset the memory configuration to default values.
          * 
          * @return builder
          * 
@@ -679,7 +727,7 @@ public final class AgentcoreHarnessState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param memory Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`.
+         * @param memory Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`. Clearing this value will reset the memory configuration to default values.
          * 
          * @return builder
          * 

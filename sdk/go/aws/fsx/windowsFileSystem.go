@@ -199,6 +199,8 @@ type WindowsFileSystem struct {
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// Set of Elastic Network Interface identifiers from which the file system is accessible.
 	NetworkInterfaceIds pulumi.StringArrayOutput `pulumi:"networkInterfaceIds"`
+	// Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+	NetworkType pulumi.StringOutput `pulumi:"networkType"`
 	// AWS account identifier that created the file system.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// IP address of the primary, or preferred, file server.
@@ -299,6 +301,8 @@ type windowsFileSystemState struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Set of Elastic Network Interface identifiers from which the file system is accessible.
 	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
+	// Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+	NetworkType *string `pulumi:"networkType"`
 	// AWS account identifier that created the file system.
 	OwnerId *string `pulumi:"ownerId"`
 	// IP address of the primary, or preferred, file server.
@@ -364,6 +368,8 @@ type WindowsFileSystemState struct {
 	KmsKeyId pulumi.StringPtrInput
 	// Set of Elastic Network Interface identifiers from which the file system is accessible.
 	NetworkInterfaceIds pulumi.StringArrayInput
+	// Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+	NetworkType pulumi.StringPtrInput
 	// AWS account identifier that created the file system.
 	OwnerId pulumi.StringPtrInput
 	// IP address of the primary, or preferred, file server.
@@ -427,6 +433,8 @@ type windowsFileSystemArgs struct {
 	FinalBackupTags map[string]string `pulumi:"finalBackupTags"`
 	// ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+	NetworkType *string `pulumi:"networkType"`
 	// Subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
 	PreferredSubnetId *string `pulumi:"preferredSubnetId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -477,6 +485,8 @@ type WindowsFileSystemArgs struct {
 	FinalBackupTags pulumi.StringMapInput
 	// ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
 	KmsKeyId pulumi.StringPtrInput
+	// Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+	NetworkType pulumi.StringPtrInput
 	// Subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
 	PreferredSubnetId pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -662,6 +672,11 @@ func (o WindowsFileSystemOutput) KmsKeyId() pulumi.StringOutput {
 // Set of Elastic Network Interface identifiers from which the file system is accessible.
 func (o WindowsFileSystemOutput) NetworkInterfaceIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WindowsFileSystem) pulumi.StringArrayOutput { return v.NetworkInterfaceIds }).(pulumi.StringArrayOutput)
+}
+
+// Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+func (o WindowsFileSystemOutput) NetworkType() pulumi.StringOutput {
+	return o.ApplyT(func(v *WindowsFileSystem) pulumi.StringOutput { return v.NetworkType }).(pulumi.StringOutput)
 }
 
 // AWS account identifier that created the file system.

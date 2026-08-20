@@ -34,6 +34,7 @@ class WindowsFileSystemArgs:
                  disk_iops_configuration: pulumi.Input[Optional['WindowsFileSystemDiskIopsConfigurationArgs']] = None,
                  final_backup_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_type: pulumi.Input[Optional[_builtins.str]] = None,
                  preferred_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -61,6 +62,7 @@ class WindowsFileSystemArgs:
         :param pulumi.Input['WindowsFileSystemDiskIopsConfigurationArgs'] disk_iops_configuration: SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `disk_iops_configuration` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] final_backup_tags: Map of tags to apply to the file system's final backup.
         :param pulumi.Input[_builtins.str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
+        :param pulumi.Input[_builtins.str] network_type: Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
         :param pulumi.Input[_builtins.str] preferred_subnet_id: Subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
@@ -95,6 +97,8 @@ class WindowsFileSystemArgs:
             pulumi.set(__self__, "final_backup_tags", final_backup_tags)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if network_type is not None:
+            pulumi.set(__self__, "network_type", network_type)
         if preferred_subnet_id is not None:
             pulumi.set(__self__, "preferred_subnet_id", preferred_subnet_id)
         if region is not None:
@@ -273,6 +277,18 @@ class WindowsFileSystemArgs:
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+        """
+        return pulumi.get(self, "network_type")
+
+    @network_type.setter
+    def network_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "network_type", value)
+
+    @_builtins.property
     @pulumi.getter(name="preferredSubnetId")
     def preferred_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -398,6 +414,7 @@ class _WindowsFileSystemState:
                  final_backup_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  network_interface_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 network_type: pulumi.Input[Optional[_builtins.str]] = None,
                  owner_id: pulumi.Input[Optional[_builtins.str]] = None,
                  preferred_file_server_ip: pulumi.Input[Optional[_builtins.str]] = None,
                  preferred_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -431,6 +448,7 @@ class _WindowsFileSystemState:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] final_backup_tags: Map of tags to apply to the file system's final backup.
         :param pulumi.Input[_builtins.str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_interface_ids: Set of Elastic Network Interface identifiers from which the file system is accessible.
+        :param pulumi.Input[_builtins.str] network_type: Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
         :param pulumi.Input[_builtins.str] owner_id: AWS account identifier that created the file system.
         :param pulumi.Input[_builtins.str] preferred_file_server_ip: IP address of the primary, or preferred, file server.
         :param pulumi.Input[_builtins.str] preferred_subnet_id: Subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
@@ -478,6 +496,8 @@ class _WindowsFileSystemState:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if network_interface_ids is not None:
             pulumi.set(__self__, "network_interface_ids", network_interface_ids)
+        if network_type is not None:
+            pulumi.set(__self__, "network_type", network_type)
         if owner_id is not None:
             pulumi.set(__self__, "owner_id", owner_id)
         if preferred_file_server_ip is not None:
@@ -678,6 +698,18 @@ class _WindowsFileSystemState:
     @network_interface_ids.setter
     def network_interface_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "network_interface_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+        """
+        return pulumi.get(self, "network_type")
+
+    @network_type.setter
+    def network_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "network_type", value)
 
     @_builtins.property
     @pulumi.getter(name="ownerId")
@@ -891,6 +923,7 @@ class WindowsFileSystem(pulumi.CustomResource):
                  disk_iops_configuration: pulumi.Input[Optional[Union['WindowsFileSystemDiskIopsConfigurationArgs', 'WindowsFileSystemDiskIopsConfigurationArgsDict']]] = None,
                  final_backup_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_type: pulumi.Input[Optional[_builtins.str]] = None,
                  preferred_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -1002,6 +1035,7 @@ class WindowsFileSystem(pulumi.CustomResource):
         :param pulumi.Input[Union['WindowsFileSystemDiskIopsConfigurationArgs', 'WindowsFileSystemDiskIopsConfigurationArgsDict']] disk_iops_configuration: SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `disk_iops_configuration` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] final_backup_tags: Map of tags to apply to the file system's final backup.
         :param pulumi.Input[_builtins.str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
+        :param pulumi.Input[_builtins.str] network_type: Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
         :param pulumi.Input[_builtins.str] preferred_subnet_id: Subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
@@ -1134,6 +1168,7 @@ class WindowsFileSystem(pulumi.CustomResource):
                  disk_iops_configuration: pulumi.Input[Optional[Union['WindowsFileSystemDiskIopsConfigurationArgs', 'WindowsFileSystemDiskIopsConfigurationArgsDict']]] = None,
                  final_backup_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_type: pulumi.Input[Optional[_builtins.str]] = None,
                  preferred_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -1165,6 +1200,7 @@ class WindowsFileSystem(pulumi.CustomResource):
             __props__.__dict__["disk_iops_configuration"] = disk_iops_configuration
             __props__.__dict__["final_backup_tags"] = final_backup_tags
             __props__.__dict__["kms_key_id"] = kms_key_id
+            __props__.__dict__["network_type"] = network_type
             __props__.__dict__["preferred_subnet_id"] = preferred_subnet_id
             __props__.__dict__["region"] = region
             __props__.__dict__["security_group_ids"] = security_group_ids
@@ -1212,6 +1248,7 @@ class WindowsFileSystem(pulumi.CustomResource):
             final_backup_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
             network_interface_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            network_type: pulumi.Input[Optional[_builtins.str]] = None,
             owner_id: pulumi.Input[Optional[_builtins.str]] = None,
             preferred_file_server_ip: pulumi.Input[Optional[_builtins.str]] = None,
             preferred_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1249,6 +1286,7 @@ class WindowsFileSystem(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] final_backup_tags: Map of tags to apply to the file system's final backup.
         :param pulumi.Input[_builtins.str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_interface_ids: Set of Elastic Network Interface identifiers from which the file system is accessible.
+        :param pulumi.Input[_builtins.str] network_type: Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
         :param pulumi.Input[_builtins.str] owner_id: AWS account identifier that created the file system.
         :param pulumi.Input[_builtins.str] preferred_file_server_ip: IP address of the primary, or preferred, file server.
         :param pulumi.Input[_builtins.str] preferred_subnet_id: Subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
@@ -1286,6 +1324,7 @@ class WindowsFileSystem(pulumi.CustomResource):
         __props__.__dict__["final_backup_tags"] = final_backup_tags
         __props__.__dict__["kms_key_id"] = kms_key_id
         __props__.__dict__["network_interface_ids"] = network_interface_ids
+        __props__.__dict__["network_type"] = network_type
         __props__.__dict__["owner_id"] = owner_id
         __props__.__dict__["preferred_file_server_ip"] = preferred_file_server_ip
         __props__.__dict__["preferred_subnet_id"] = preferred_subnet_id
@@ -1415,6 +1454,14 @@ class WindowsFileSystem(pulumi.CustomResource):
         Set of Elastic Network Interface identifiers from which the file system is accessible.
         """
         return pulumi.get(self, "network_interface_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> pulumi.Output[_builtins.str]:
+        """
+        Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+        """
+        return pulumi.get(self, "network_type")
 
     @_builtins.property
     @pulumi.getter(name="ownerId")

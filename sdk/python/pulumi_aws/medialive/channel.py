@@ -630,6 +630,17 @@ class Channel(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `channel_id` (String) ID of the MediaLive Channel.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import MediaLive Channel using the `channel_id`. For example:
 
         ```sh
@@ -739,6 +750,17 @@ class Channel(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `channel_id` (String) ID of the MediaLive Channel.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import MediaLive Channel using the `channel_id`. For example:
 

@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.resiliencehub.outputs;
 
+import com.pulumi.aws.resiliencehub.outputs.GetV2ServiceAssociatedSystem;
 import com.pulumi.aws.resiliencehub.outputs.GetV2ServicePermissionModel;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -14,6 +15,11 @@ import java.util.Objects;
 @CustomType
 public final class GetV2ServiceResult {
     private String arn;
+    /**
+     * @return Systems associated with the service. See `associatedSystem` Block below.
+     * 
+     */
+    private List<GetV2ServiceAssociatedSystem> associatedSystems;
     /**
      * @return Description of the service.
      * 
@@ -54,6 +60,13 @@ public final class GetV2ServiceResult {
     private GetV2ServiceResult() {}
     public String arn() {
         return this.arn;
+    }
+    /**
+     * @return Systems associated with the service. See `associatedSystem` Block below.
+     * 
+     */
+    public List<GetV2ServiceAssociatedSystem> associatedSystems() {
+        return this.associatedSystems;
     }
     /**
      * @return Description of the service.
@@ -118,6 +131,7 @@ public final class GetV2ServiceResult {
     @CustomType.Builder
     public static final class Builder {
         private String arn;
+        private List<GetV2ServiceAssociatedSystem> associatedSystems;
         private String description;
         private String kmsKeyId;
         private String name;
@@ -130,6 +144,7 @@ public final class GetV2ServiceResult {
         public Builder(GetV2ServiceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
+    	      this.associatedSystems = defaults.associatedSystems;
     	      this.description = defaults.description;
     	      this.kmsKeyId = defaults.kmsKeyId;
     	      this.name = defaults.name;
@@ -147,6 +162,17 @@ public final class GetV2ServiceResult {
             }
             this.arn = arn;
             return this;
+        }
+        @CustomType.Setter
+        public Builder associatedSystems(List<GetV2ServiceAssociatedSystem> associatedSystems) {
+            if (associatedSystems == null) {
+              throw new MissingRequiredPropertyException("GetV2ServiceResult", "associatedSystems");
+            }
+            this.associatedSystems = associatedSystems;
+            return this;
+        }
+        public Builder associatedSystems(GetV2ServiceAssociatedSystem... associatedSystems) {
+            return associatedSystems(List.of(associatedSystems));
         }
         @CustomType.Setter
         public Builder description(String description) {
@@ -221,6 +247,7 @@ public final class GetV2ServiceResult {
         public GetV2ServiceResult build() {
             final var _resultValue = new GetV2ServiceResult();
             _resultValue.arn = arn;
+            _resultValue.associatedSystems = associatedSystems;
             _resultValue.description = description;
             _resultValue.kmsKeyId = kmsKeyId;
             _resultValue.name = name;

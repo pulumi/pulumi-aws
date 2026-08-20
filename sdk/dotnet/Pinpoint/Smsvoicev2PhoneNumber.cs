@@ -128,6 +128,12 @@ namespace Pulumi.Aws.Pinpoint
         public Output<bool> SelfManagedOptOutsEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// Status of the phone number. Possible values are `PENDING`, `ACTIVE`, `ASSOCIATING`, `DISASSOCIATING`, and `DELETED`.
+        /// </summary>
+        [Output("status")]
+        public Output<string> Status { get; private set; } = null!;
+
+        /// <summary>
         /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -159,6 +165,12 @@ namespace Pulumi.Aws.Pinpoint
         /// </summary>
         [Output("twoWayChannelRole")]
         public Output<string> TwoWayChannelRole { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether to wait for the phone number to reach `ACTIVE` status before considering the resource created or updated. Defaults to `True`. Set to `False` for number types gated on carrier or registration approval (for example, `TEN_DLC`, `TOLL_FREE`, or any number submitted with `RegistrationId`), which can remain `PENDING` for days or weeks. When `False`, `pulumi up` returns once AWS accepts the phone number request; track activation with the `Status` attribute.
+        /// </summary>
+        [Output("waitForActive")]
+        public Output<bool> WaitForActive { get; private set; } = null!;
 
 
         /// <summary>
@@ -307,6 +319,12 @@ namespace Pulumi.Aws.Pinpoint
         [Input("twoWayChannelRole")]
         public Input<string>? TwoWayChannelRole { get; set; }
 
+        /// <summary>
+        /// Whether to wait for the phone number to reach `ACTIVE` status before considering the resource created or updated. Defaults to `True`. Set to `False` for number types gated on carrier or registration approval (for example, `TEN_DLC`, `TOLL_FREE`, or any number submitted with `RegistrationId`), which can remain `PENDING` for days or weeks. When `False`, `pulumi up` returns once AWS accepts the phone number request; track activation with the `Status` attribute.
+        /// </summary>
+        [Input("waitForActive")]
+        public Input<bool>? WaitForActive { get; set; }
+
         public Smsvoicev2PhoneNumberArgs()
         {
         }
@@ -401,6 +419,12 @@ namespace Pulumi.Aws.Pinpoint
         [Input("selfManagedOptOutsEnabled")]
         public Input<bool>? SelfManagedOptOutsEnabled { get; set; }
 
+        /// <summary>
+        /// Status of the phone number. Possible values are `PENDING`, `ACTIVE`, `ASSOCIATING`, `DISASSOCIATING`, and `DELETED`.
+        /// </summary>
+        [Input("status")]
+        public Input<string>? Status { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -445,6 +469,12 @@ namespace Pulumi.Aws.Pinpoint
         /// </summary>
         [Input("twoWayChannelRole")]
         public Input<string>? TwoWayChannelRole { get; set; }
+
+        /// <summary>
+        /// Whether to wait for the phone number to reach `ACTIVE` status before considering the resource created or updated. Defaults to `True`. Set to `False` for number types gated on carrier or registration approval (for example, `TEN_DLC`, `TOLL_FREE`, or any number submitted with `RegistrationId`), which can remain `PENDING` for days or weeks. When `False`, `pulumi up` returns once AWS accepts the phone number request; track activation with the `Status` attribute.
+        /// </summary>
+        [Input("waitForActive")]
+        public Input<bool>? WaitForActive { get; set; }
 
         public Smsvoicev2PhoneNumberState()
         {

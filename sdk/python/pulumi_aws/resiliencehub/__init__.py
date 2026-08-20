@@ -10,9 +10,12 @@ from .get_v2_policy import *
 from .get_v2_service import *
 from .get_v2_system import *
 from .resiliency_policy import *
+from .v2_assertion import *
 from .v2_input_source import *
 from .v2_policy import *
 from .v2_service import *
+from .v2_service_function import *
 from .v2_system import *
+from .v2_user_journey import *
 from ._inputs import *
 from . import outputs

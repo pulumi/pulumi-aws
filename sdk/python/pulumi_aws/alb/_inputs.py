@@ -2402,7 +2402,7 @@ class ListenerRuleConditionArgsDict(TypedDict):
     """
     source_ip: NotRequired[pulumi.Input[Optional['ListenerRuleConditionSourceIpArgsDict']]]
     """
-    Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http_header` condition instead.
+    Source IP address to match. For ALB, use `values` to specify CIDR ranges. For NLB, use `ip_address_type` to match the IP address type (`ipv4` or `ipv6`). Source IP block fields documented below.
 
     > **NOTE::** Exactly one of `host_header`, `http_header`, `http_request_method`, `path_pattern`, `query_string` or `source_ip` must be set per condition.
     """
@@ -2422,7 +2422,7 @@ class ListenerRuleConditionArgs:
         :param pulumi.Input['ListenerRuleConditionHttpRequestMethodArgs'] http_request_method: Contains a single `values` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
         :param pulumi.Input['ListenerRuleConditionPathPatternArgs'] path_pattern: Path patterns to match against the request URL. Path Pattern block fields documented below.
         :param pulumi.Input[Sequence[pulumi.Input['ListenerRuleConditionQueryStringArgs']]] query_strings: Query strings to match. Query String block fields documented below.
-        :param pulumi.Input['ListenerRuleConditionSourceIpArgs'] source_ip: Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http_header` condition instead.
+        :param pulumi.Input['ListenerRuleConditionSourceIpArgs'] source_ip: Source IP address to match. For ALB, use `values` to specify CIDR ranges. For NLB, use `ip_address_type` to match the IP address type (`ipv4` or `ipv6`). Source IP block fields documented below.
                
                > **NOTE::** Exactly one of `host_header`, `http_header`, `http_request_method`, `path_pattern`, `query_string` or `source_ip` must be set per condition.
         """
@@ -2503,7 +2503,7 @@ class ListenerRuleConditionArgs:
     @pulumi.getter(name="sourceIp")
     def source_ip(self) -> pulumi.Input[Optional['ListenerRuleConditionSourceIpArgs']]:
         """
-        Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http_header` condition instead.
+        Source IP address to match. For ALB, use `values` to specify CIDR ranges. For NLB, use `ip_address_type` to match the IP address type (`ipv4` or `ipv6`). Source IP block fields documented below.
 
         > **NOTE::** Exactly one of `host_header`, `http_header`, `http_request_method`, `path_pattern`, `query_string` or `source_ip` must be set per condition.
         """
@@ -2748,21 +2748,51 @@ class ListenerRuleConditionQueryStringArgs:
 
 
 class ListenerRuleConditionSourceIpArgsDict(TypedDict):
-    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    ip_address_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    IP address type for Network Load Balancers. Valid values are `ipv4` and `ipv6`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    List of source IP addresses in CIDR format for Application Load Balancers. Both IPv4 and IPv6 addresses can be used. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http_header` condition instead.
+    """
 
 @pulumi.input_type
 class ListenerRuleConditionSourceIpArgs:
     def __init__(__self__, *,
-                 values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
-        pulumi.set(__self__, "values", values)
+                 ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] ip_address_type: IP address type for Network Load Balancers. Valid values are `ipv4` and `ipv6`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: List of source IP addresses in CIDR format for Application Load Balancers. Both IPv4 and IPv6 addresses can be used. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http_header` condition instead.
+        """
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        IP address type for Network Load Balancers. Valid values are `ipv4` and `ipv6`.
+        """
+        return pulumi.get(self, "ip_address_type")
+
+    @ip_address_type.setter
+    def ip_address_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "ip_address_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of source IP addresses in CIDR format for Application Load Balancers. Both IPv4 and IPv6 addresses can be used. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http_header` condition instead.
+        """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 

@@ -180,6 +180,10 @@ export class WindowsFileSystem extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly networkInterfaceIds: pulumi.Output<string[]>;
     /**
+     * Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+     */
+    declare public readonly networkType: pulumi.Output<string>;
+    /**
      * AWS account identifier that created the file system.
      */
     declare public /*out*/ readonly ownerId: pulumi.Output<string>;
@@ -273,6 +277,7 @@ export class WindowsFileSystem extends pulumi.CustomResource {
             resourceInputs["finalBackupTags"] = state?.finalBackupTags;
             resourceInputs["kmsKeyId"] = state?.kmsKeyId;
             resourceInputs["networkInterfaceIds"] = state?.networkInterfaceIds;
+            resourceInputs["networkType"] = state?.networkType;
             resourceInputs["ownerId"] = state?.ownerId;
             resourceInputs["preferredFileServerIp"] = state?.preferredFileServerIp;
             resourceInputs["preferredSubnetId"] = state?.preferredSubnetId;
@@ -308,6 +313,7 @@ export class WindowsFileSystem extends pulumi.CustomResource {
             resourceInputs["diskIopsConfiguration"] = args?.diskIopsConfiguration;
             resourceInputs["finalBackupTags"] = args?.finalBackupTags;
             resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["networkType"] = args?.networkType;
             resourceInputs["preferredSubnetId"] = args?.preferredSubnetId;
             resourceInputs["region"] = args?.region;
             resourceInputs["securityGroupIds"] = args?.securityGroupIds;
@@ -393,6 +399,10 @@ export interface WindowsFileSystemState {
      * Set of Elastic Network Interface identifiers from which the file system is accessible.
      */
     networkInterfaceIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
+     * Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+     */
+    networkType?: pulumi.Input<string | undefined>;
     /**
      * AWS account identifier that created the file system.
      */
@@ -509,6 +519,10 @@ export interface WindowsFileSystemArgs {
      * ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
      */
     kmsKeyId?: pulumi.Input<string | undefined>;
+    /**
+     * Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+     */
+    networkType?: pulumi.Input<string | undefined>;
     /**
      * Subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
      */

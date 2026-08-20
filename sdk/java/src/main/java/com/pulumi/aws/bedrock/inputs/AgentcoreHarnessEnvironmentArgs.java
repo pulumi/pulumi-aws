@@ -6,9 +6,10 @@ package com.pulumi.aws.bedrock.inputs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class AgentcoreHarnessEnvironmentArgs extends com.pulumi.resources.ResourceArgs {
@@ -19,15 +20,15 @@ public final class AgentcoreHarnessEnvironmentArgs extends com.pulumi.resources.
      * AgentCore runtime environment configuration. See `agentcoreRuntimeEnvironment` Block below.
      * 
      */
-    @Import(name="agentcoreRuntimeEnvironments", required=true)
-    private Output<List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs>> agentcoreRuntimeEnvironments;
+    @Import(name="agentcoreRuntimeEnvironments")
+    private @Nullable Output<List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs>> agentcoreRuntimeEnvironments;
 
     /**
      * @return AgentCore runtime environment configuration. See `agentcoreRuntimeEnvironment` Block below.
      * 
      */
-    public Output<List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs>> agentcoreRuntimeEnvironments() {
-        return this.agentcoreRuntimeEnvironments;
+    public Optional<Output<List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs>>> agentcoreRuntimeEnvironments() {
+        return Optional.ofNullable(this.agentcoreRuntimeEnvironments);
     }
 
     private AgentcoreHarnessEnvironmentArgs() {}
@@ -60,7 +61,7 @@ public final class AgentcoreHarnessEnvironmentArgs extends com.pulumi.resources.
          * @return builder
          * 
          */
-        public Builder agentcoreRuntimeEnvironments(Output<List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs>> agentcoreRuntimeEnvironments) {
+        public Builder agentcoreRuntimeEnvironments(@Nullable Output<List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs>> agentcoreRuntimeEnvironments) {
             $.agentcoreRuntimeEnvironments = agentcoreRuntimeEnvironments;
             return this;
         }
@@ -86,9 +87,6 @@ public final class AgentcoreHarnessEnvironmentArgs extends com.pulumi.resources.
         }
 
         public AgentcoreHarnessEnvironmentArgs build() {
-            if ($.agentcoreRuntimeEnvironments == null) {
-                throw new MissingRequiredPropertyException("AgentcoreHarnessEnvironmentArgs", "agentcoreRuntimeEnvironments");
-            }
             return $;
         }
     }

@@ -23,6 +23,8 @@ __all__ = [
     'IngressPointNetworkConfigurationPrivateNetworkConfiguration',
     'IngressPointNetworkConfigurationPublicNetworkConfiguration',
     'IngressPointTimeouts',
+    'RelayAuthentication',
+    'RelayAuthenticationNoAuthentication',
     'RuleSetRule',
     'RuleSetRuleAction',
     'RuleSetRuleActionAddHeader',
@@ -426,6 +428,62 @@ class IngressPointTimeouts(dict):
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "update")
+
+
+@pulumi.output_type
+class RelayAuthentication(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "noAuthentication":
+            suggest = "no_authentication"
+        elif key == "secretArn":
+            suggest = "secret_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RelayAuthentication. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RelayAuthentication.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RelayAuthentication.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 no_authentication: Optional['outputs.RelayAuthenticationNoAuthentication'] = None,
+                 secret_arn: Optional[_builtins.str] = None):
+        """
+        :param 'RelayAuthenticationNoAuthenticationArgs' no_authentication: No authentication is required to connect to the SMTP server.
+        :param _builtins.str secret_arn: ARN of the Secrets Manager secret containing the SMTP credentials.
+        """
+        if no_authentication is not None:
+            pulumi.set(__self__, "no_authentication", no_authentication)
+        if secret_arn is not None:
+            pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="noAuthentication")
+    def no_authentication(self) -> Optional['outputs.RelayAuthenticationNoAuthentication']:
+        """
+        No authentication is required to connect to the SMTP server.
+        """
+        return pulumi.get(self, "no_authentication")
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> Optional[_builtins.str]:
+        """
+        ARN of the Secrets Manager secret containing the SMTP credentials.
+        """
+        return pulumi.get(self, "secret_arn")
+
+
+@pulumi.output_type
+class RelayAuthenticationNoAuthentication(dict):
+    def __init__(__self__):
+        pass
 
 
 @pulumi.output_type

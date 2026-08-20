@@ -76,6 +76,11 @@ public final class GetOntapFileSystemResult {
      */
     private List<String> networkInterfaceIds;
     /**
+     * @return Network type (`IPV4` or `DUAL`).
+     * 
+     */
+    private String networkType;
+    /**
      * @return AWS account identifier that created the file system.
      * 
      */
@@ -218,6 +223,13 @@ public final class GetOntapFileSystemResult {
         return this.networkInterfaceIds;
     }
     /**
+     * @return Network type (`IPV4` or `DUAL`).
+     * 
+     */
+    public String networkType() {
+        return this.networkType;
+    }
+    /**
      * @return AWS account identifier that created the file system.
      * 
      */
@@ -319,6 +331,7 @@ public final class GetOntapFileSystemResult {
         private String id;
         private String kmsKeyId;
         private List<String> networkInterfaceIds;
+        private String networkType;
         private String ownerId;
         private String preferredSubnetId;
         private String region;
@@ -346,6 +359,7 @@ public final class GetOntapFileSystemResult {
     	      this.id = defaults.id;
     	      this.kmsKeyId = defaults.kmsKeyId;
     	      this.networkInterfaceIds = defaults.networkInterfaceIds;
+    	      this.networkType = defaults.networkType;
     	      this.ownerId = defaults.ownerId;
     	      this.preferredSubnetId = defaults.preferredSubnetId;
     	      this.region = defaults.region;
@@ -466,6 +480,14 @@ public final class GetOntapFileSystemResult {
             return networkInterfaceIds(List.of(networkInterfaceIds));
         }
         @CustomType.Setter
+        public Builder networkType(String networkType) {
+            if (networkType == null) {
+              throw new MissingRequiredPropertyException("GetOntapFileSystemResult", "networkType");
+            }
+            this.networkType = networkType;
+            return this;
+        }
+        @CustomType.Setter
         public Builder ownerId(String ownerId) {
             if (ownerId == null) {
               throw new MissingRequiredPropertyException("GetOntapFileSystemResult", "ownerId");
@@ -581,6 +603,7 @@ public final class GetOntapFileSystemResult {
             _resultValue.id = id;
             _resultValue.kmsKeyId = kmsKeyId;
             _resultValue.networkInterfaceIds = networkInterfaceIds;
+            _resultValue.networkType = networkType;
             _resultValue.ownerId = ownerId;
             _resultValue.preferredSubnetId = preferredSubnetId;
             _resultValue.region = region;

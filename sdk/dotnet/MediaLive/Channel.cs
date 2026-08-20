@@ -138,6 +138,17 @@ namespace Pulumi.Aws.MediaLive
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `ChannelId` (String) ID of the MediaLive Channel.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import MediaLive Channel using the `ChannelId`. For example:
     /// 
     /// ```sh

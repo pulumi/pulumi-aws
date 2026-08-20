@@ -6,6 +6,7 @@ package com.pulumi.aws.resiliencehub;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.resiliencehub.V2ServiceArgs;
 import com.pulumi.aws.resiliencehub.inputs.V2ServiceState;
+import com.pulumi.aws.resiliencehub.outputs.V2ServiceAssociatedSystem;
 import com.pulumi.aws.resiliencehub.outputs.V2ServicePermissionModel;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -115,6 +116,54 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### With Associated Systems
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.resiliencehub.V2System;
+ * import com.pulumi.aws.resiliencehub.V2SystemArgs;
+ * import com.pulumi.aws.resiliencehub.V2Service;
+ * import com.pulumi.aws.resiliencehub.V2ServiceArgs;
+ * import com.pulumi.aws.resiliencehub.inputs.V2ServicePermissionModelArgs;
+ * import com.pulumi.aws.resiliencehub.inputs.V2ServiceAssociatedSystemArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new V2System("example", V2SystemArgs.builder()
+ *             .name("example-system")
+ *             .build());
+ * 
+ *         var exampleV2Service = new V2Service("exampleV2Service", V2ServiceArgs.builder()
+ *             .name("example-service")
+ *             .regions("us-west-2")
+ *             .permissionModel(V2ServicePermissionModelArgs.builder()
+ *                 .invokerRoleName("AWSResilienceHubAssessmentRole")
+ *                 .build())
+ *             .associatedSystems(V2ServiceAssociatedSystemArgs.builder()
+ *                 .systemArn(example.arn())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * ### Identity Schema
@@ -145,6 +194,20 @@ public class V2Service extends com.pulumi.resources.CustomResource {
      */
     public Output<String> arn() {
         return this.arn;
+    }
+    /**
+     * Systems to associate with the service. See `associatedSystem` Block below.
+     * 
+     */
+    @Export(name="associatedSystems", refs={List.class,V2ServiceAssociatedSystem.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<V2ServiceAssociatedSystem>> associatedSystems;
+
+    /**
+     * @return Systems to associate with the service. See `associatedSystem` Block below.
+     * 
+     */
+    public Output<Optional<List<V2ServiceAssociatedSystem>>> associatedSystems() {
+        return Codegen.optional(this.associatedSystems);
     }
     /**
      * Dependency discovery. Valid values: `ENABLED`, `DISABLED`.

@@ -308,6 +308,17 @@ class Multiplex(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `id` (String) ID of the MediaLive Multiplex.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import MediaLive Multiplex using the `id`. For example:
 
         ```sh
@@ -363,6 +374,17 @@ class Multiplex(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `id` (String) ID of the MediaLive Multiplex.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import MediaLive Multiplex using the `id`. For example:
 

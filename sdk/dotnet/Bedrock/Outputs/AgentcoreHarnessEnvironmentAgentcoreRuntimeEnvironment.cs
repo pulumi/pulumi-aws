@@ -13,11 +13,22 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment
     {
-        public readonly string AgentRuntimeArn;
-        public readonly string AgentRuntimeId;
-        public readonly string AgentRuntimeName;
+        /// <summary>
+        /// ARN of the agent runtime the service provisions for the harness.
+        /// </summary>
+        public readonly string? AgentRuntimeArn;
+        /// <summary>
+        /// ID of the agent runtime the service provisions for the harness.
+        /// </summary>
+        public readonly string? AgentRuntimeId;
+        /// <summary>
+        /// Name of the agent runtime the service derives for the harness.
+        /// </summary>
+        public readonly string? AgentRuntimeName;
         /// <summary>
         /// Filesystem configurations. See `FilesystemConfiguration` Block below.
+        /// 
+        /// The following attributes are exported under `AgentcoreRuntimeEnvironment`:
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfiguration> FilesystemConfigurations;
         /// <summary>
@@ -31,11 +42,11 @@ namespace Pulumi.Aws.Bedrock.Outputs
 
         [OutputConstructor]
         private AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment(
-            string agentRuntimeArn,
+            string? agentRuntimeArn,
 
-            string agentRuntimeId,
+            string? agentRuntimeId,
 
-            string agentRuntimeName,
+            string? agentRuntimeName,
 
             ImmutableArray<Outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfiguration> filesystemConfigurations,
 

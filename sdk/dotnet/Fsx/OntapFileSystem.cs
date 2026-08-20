@@ -217,6 +217,12 @@ namespace Pulumi.Aws.Fsx
         public Output<ImmutableArray<string>> NetworkInterfaceIds { get; private set; } = null!;
 
         /// <summary>
+        /// Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+        /// </summary>
+        [Output("networkType")]
+        public Output<string> NetworkType { get; private set; } = null!;
+
+        /// <summary>
         /// AWS account identifier that created the file system.
         /// </summary>
         [Output("ownerId")]
@@ -409,6 +415,12 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
+        /// Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+        /// </summary>
+        [Input("networkType")]
+        public Input<string>? NetworkType { get; set; }
+
+        /// <summary>
         /// ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
         /// </summary>
         [Input("preferredSubnetId", required: true)]
@@ -599,6 +611,12 @@ namespace Pulumi.Aws.Fsx
             get => _networkInterfaceIds ?? (_networkInterfaceIds = new InputList<string>());
             set => _networkInterfaceIds = value;
         }
+
+        /// <summary>
+        /// Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+        /// </summary>
+        [Input("networkType")]
+        public Input<string>? NetworkType { get; set; }
 
         /// <summary>
         /// AWS account identifier that created the file system.

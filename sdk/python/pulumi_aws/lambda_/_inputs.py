@@ -34,6 +34,12 @@ __all__ = [
     'CodeSigningConfigAllowedPublishersArgsDict',
     'CodeSigningConfigPoliciesArgs',
     'CodeSigningConfigPoliciesArgsDict',
+    'CoreNetworkConnectorConfigurationArgs',
+    'CoreNetworkConnectorConfigurationArgsDict',
+    'CoreNetworkConnectorConfigurationVpcEgressConfigurationArgs',
+    'CoreNetworkConnectorConfigurationVpcEgressConfigurationArgsDict',
+    'CoreNetworkConnectorTimeoutsArgs',
+    'CoreNetworkConnectorTimeoutsArgsDict',
     'EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs',
     'EventSourceMappingAmazonManagedKafkaEventSourceConfigArgsDict',
     'EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigArgs',
@@ -108,6 +114,12 @@ __all__ = [
     'FunctionUrlCorsArgsDict',
     'FunctionVpcConfigArgs',
     'FunctionVpcConfigArgsDict',
+    'MicrovmsImageCodeArtifactArgs',
+    'MicrovmsImageCodeArtifactArgsDict',
+    'MicrovmsImageCpuConfigurationArgs',
+    'MicrovmsImageCpuConfigurationArgsDict',
+    'MicrovmsImageTimeoutsArgs',
+    'MicrovmsImageTimeoutsArgsDict',
 ]
 
 class AliasRoutingConfigArgsDict(TypedDict):
@@ -516,6 +528,190 @@ class CodeSigningConfigPoliciesArgs:
     @untrusted_artifact_on_deployment.setter
     def untrusted_artifact_on_deployment(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "untrusted_artifact_on_deployment", value)
+
+
+class CoreNetworkConnectorConfigurationArgsDict(TypedDict):
+    vpc_egress_configuration: NotRequired[pulumi.Input[Optional['CoreNetworkConnectorConfigurationVpcEgressConfigurationArgsDict']]]
+    """
+    Configuration for routing egress traffic through a VPC. See `vpc_egress_configuration` Block below.
+    """
+
+@pulumi.input_type
+class CoreNetworkConnectorConfigurationArgs:
+    def __init__(__self__, *,
+                 vpc_egress_configuration: pulumi.Input[Optional['CoreNetworkConnectorConfigurationVpcEgressConfigurationArgs']] = None):
+        """
+        :param pulumi.Input['CoreNetworkConnectorConfigurationVpcEgressConfigurationArgs'] vpc_egress_configuration: Configuration for routing egress traffic through a VPC. See `vpc_egress_configuration` Block below.
+        """
+        if vpc_egress_configuration is not None:
+            pulumi.set(__self__, "vpc_egress_configuration", vpc_egress_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcEgressConfiguration")
+    def vpc_egress_configuration(self) -> pulumi.Input[Optional['CoreNetworkConnectorConfigurationVpcEgressConfigurationArgs']]:
+        """
+        Configuration for routing egress traffic through a VPC. See `vpc_egress_configuration` Block below.
+        """
+        return pulumi.get(self, "vpc_egress_configuration")
+
+    @vpc_egress_configuration.setter
+    def vpc_egress_configuration(self, value: pulumi.Input[Optional['CoreNetworkConnectorConfigurationVpcEgressConfigurationArgs']]):
+        pulumi.set(self, "vpc_egress_configuration", value)
+
+
+class CoreNetworkConnectorConfigurationVpcEgressConfigurationArgsDict(TypedDict):
+    associated_compute_resource_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Compute resource types that may use this connector. Valid values: `MicroVm`.
+    """
+    security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Set of security group IDs applied to the connector's ENIs.
+    """
+    subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Set of subnet IDs where the connector provisions its ENIs.
+    """
+    network_protocol: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Network protocol. Valid values: `IPv4`, `DualStack`.
+    """
+
+@pulumi.input_type
+class CoreNetworkConnectorConfigurationVpcEgressConfigurationArgs:
+    def __init__(__self__, *,
+                 associated_compute_resource_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 network_protocol: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] associated_compute_resource_types: Compute resource types that may use this connector. Valid values: `MicroVm`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: Set of security group IDs applied to the connector's ENIs.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: Set of subnet IDs where the connector provisions its ENIs.
+        :param pulumi.Input[_builtins.str] network_protocol: Network protocol. Valid values: `IPv4`, `DualStack`.
+        """
+        pulumi.set(__self__, "associated_compute_resource_types", associated_compute_resource_types)
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if network_protocol is not None:
+            pulumi.set(__self__, "network_protocol", network_protocol)
+
+    @_builtins.property
+    @pulumi.getter(name="associatedComputeResourceTypes")
+    def associated_compute_resource_types(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Compute resource types that may use this connector. Valid values: `MicroVm`.
+        """
+        return pulumi.get(self, "associated_compute_resource_types")
+
+    @associated_compute_resource_types.setter
+    def associated_compute_resource_types(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "associated_compute_resource_types", value)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Set of security group IDs applied to the connector's ENIs.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Set of subnet IDs where the connector provisions its ENIs.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "subnet_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkProtocol")
+    def network_protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Network protocol. Valid values: `IPv4`, `DualStack`.
+        """
+        return pulumi.get(self, "network_protocol")
+
+    @network_protocol.setter
+    def network_protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "network_protocol", value)
+
+
+class CoreNetworkConnectorTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+
+@pulumi.input_type
+class CoreNetworkConnectorTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param pulumi.Input[_builtins.str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "create", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "delete", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "update", value)
 
 
 class EventSourceMappingAmazonManagedKafkaEventSourceConfigArgsDict(TypedDict):
@@ -2309,5 +2505,130 @@ class FunctionVpcConfigArgs:
     @vpc_id.setter
     def vpc_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_id", value)
+
+
+class MicrovmsImageCodeArtifactArgsDict(TypedDict):
+    uri: pulumi.Input[_builtins.str]
+    """
+    S3 URI of the zip archive containing the application code and Dockerfile (e.g., `s3://bucket/code.zip`).
+    """
+
+@pulumi.input_type
+class MicrovmsImageCodeArtifactArgs:
+    def __init__(__self__, *,
+                 uri: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] uri: S3 URI of the zip archive containing the application code and Dockerfile (e.g., `s3://bucket/code.zip`).
+        """
+        pulumi.set(__self__, "uri", uri)
+
+    @_builtins.property
+    @pulumi.getter
+    def uri(self) -> pulumi.Input[_builtins.str]:
+        """
+        S3 URI of the zip archive containing the application code and Dockerfile (e.g., `s3://bucket/code.zip`).
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "uri", value)
+
+
+class MicrovmsImageCpuConfigurationArgsDict(TypedDict):
+    architecture: pulumi.Input[_builtins.str]
+    """
+    CPU architecture for the MicroVM. Valid values are `x86_64` and `arm64`.
+    """
+
+@pulumi.input_type
+class MicrovmsImageCpuConfigurationArgs:
+    def __init__(__self__, *,
+                 architecture: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] architecture: CPU architecture for the MicroVM. Valid values are `x86_64` and `arm64`.
+        """
+        pulumi.set(__self__, "architecture", architecture)
+
+    @_builtins.property
+    @pulumi.getter
+    def architecture(self) -> pulumi.Input[_builtins.str]:
+        """
+        CPU architecture for the MicroVM. Valid values are `x86_64` and `arm64`.
+        """
+        return pulumi.get(self, "architecture")
+
+    @architecture.setter
+    def architecture(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "architecture", value)
+
+
+class MicrovmsImageTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+
+@pulumi.input_type
+class MicrovmsImageTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param pulumi.Input[_builtins.str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "create", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "delete", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "update", value)
 
 

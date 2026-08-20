@@ -9,6 +9,8 @@ import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig {
@@ -16,7 +18,7 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetwork
      * @return Whether to require an S3 endpoint for the service in the VPC.
      * 
      */
-    private Boolean requireServiceS3Endpoint;
+    private @Nullable Boolean requireServiceS3Endpoint;
     /**
      * @return Security groups for the VPC.
      * 
@@ -33,8 +35,8 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetwork
      * @return Whether to require an S3 endpoint for the service in the VPC.
      * 
      */
-    public Boolean requireServiceS3Endpoint() {
-        return this.requireServiceS3Endpoint;
+    public Optional<Boolean> requireServiceS3Endpoint() {
+        return Optional.ofNullable(this.requireServiceS3Endpoint);
     }
     /**
      * @return Security groups for the VPC.
@@ -60,7 +62,7 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetwork
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean requireServiceS3Endpoint;
+        private @Nullable Boolean requireServiceS3Endpoint;
         private List<String> securityGroups;
         private List<String> subnets;
         public Builder() {}
@@ -72,10 +74,8 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetwork
         }
 
         @CustomType.Setter
-        public Builder requireServiceS3Endpoint(Boolean requireServiceS3Endpoint) {
-            if (requireServiceS3Endpoint == null) {
-              throw new MissingRequiredPropertyException("AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig", "requireServiceS3Endpoint");
-            }
+        public Builder requireServiceS3Endpoint(@Nullable Boolean requireServiceS3Endpoint) {
+
             this.requireServiceS3Endpoint = requireServiceS3Endpoint;
             return this;
         }

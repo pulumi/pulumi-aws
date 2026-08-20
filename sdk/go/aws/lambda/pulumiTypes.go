@@ -1232,6 +1232,516 @@ func (o CodeSigningConfigPoliciesPtrOutput) UntrustedArtifactOnDeployment() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
+type CoreNetworkConnectorConfiguration struct {
+	// Configuration for routing egress traffic through a VPC. See `vpcEgressConfiguration` Block below.
+	VpcEgressConfiguration *CoreNetworkConnectorConfigurationVpcEgressConfiguration `pulumi:"vpcEgressConfiguration"`
+}
+
+// CoreNetworkConnectorConfigurationInput is an input type that accepts CoreNetworkConnectorConfigurationArgs and CoreNetworkConnectorConfigurationOutput values.
+// You can construct a concrete instance of `CoreNetworkConnectorConfigurationInput` via:
+//
+//	CoreNetworkConnectorConfigurationArgs{...}
+type CoreNetworkConnectorConfigurationInput interface {
+	pulumi.Input
+
+	ToCoreNetworkConnectorConfigurationOutput() CoreNetworkConnectorConfigurationOutput
+	ToCoreNetworkConnectorConfigurationOutputWithContext(context.Context) CoreNetworkConnectorConfigurationOutput
+}
+
+type CoreNetworkConnectorConfigurationArgs struct {
+	// Configuration for routing egress traffic through a VPC. See `vpcEgressConfiguration` Block below.
+	VpcEgressConfiguration CoreNetworkConnectorConfigurationVpcEgressConfigurationPtrInput `pulumi:"vpcEgressConfiguration"`
+}
+
+func (CoreNetworkConnectorConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CoreNetworkConnectorConfiguration)(nil)).Elem()
+}
+
+func (i CoreNetworkConnectorConfigurationArgs) ToCoreNetworkConnectorConfigurationOutput() CoreNetworkConnectorConfigurationOutput {
+	return i.ToCoreNetworkConnectorConfigurationOutputWithContext(context.Background())
+}
+
+func (i CoreNetworkConnectorConfigurationArgs) ToCoreNetworkConnectorConfigurationOutputWithContext(ctx context.Context) CoreNetworkConnectorConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CoreNetworkConnectorConfigurationOutput)
+}
+
+func (i CoreNetworkConnectorConfigurationArgs) ToCoreNetworkConnectorConfigurationPtrOutput() CoreNetworkConnectorConfigurationPtrOutput {
+	return i.ToCoreNetworkConnectorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CoreNetworkConnectorConfigurationArgs) ToCoreNetworkConnectorConfigurationPtrOutputWithContext(ctx context.Context) CoreNetworkConnectorConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CoreNetworkConnectorConfigurationOutput).ToCoreNetworkConnectorConfigurationPtrOutputWithContext(ctx)
+}
+
+// CoreNetworkConnectorConfigurationPtrInput is an input type that accepts CoreNetworkConnectorConfigurationArgs, CoreNetworkConnectorConfigurationPtr and CoreNetworkConnectorConfigurationPtrOutput values.
+// You can construct a concrete instance of `CoreNetworkConnectorConfigurationPtrInput` via:
+//
+//	        CoreNetworkConnectorConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type CoreNetworkConnectorConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCoreNetworkConnectorConfigurationPtrOutput() CoreNetworkConnectorConfigurationPtrOutput
+	ToCoreNetworkConnectorConfigurationPtrOutputWithContext(context.Context) CoreNetworkConnectorConfigurationPtrOutput
+}
+
+type coreNetworkConnectorConfigurationPtrType CoreNetworkConnectorConfigurationArgs
+
+func CoreNetworkConnectorConfigurationPtr(v *CoreNetworkConnectorConfigurationArgs) CoreNetworkConnectorConfigurationPtrInput {
+	return (*coreNetworkConnectorConfigurationPtrType)(v)
+}
+
+func (*coreNetworkConnectorConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CoreNetworkConnectorConfiguration)(nil)).Elem()
+}
+
+func (i *coreNetworkConnectorConfigurationPtrType) ToCoreNetworkConnectorConfigurationPtrOutput() CoreNetworkConnectorConfigurationPtrOutput {
+	return i.ToCoreNetworkConnectorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *coreNetworkConnectorConfigurationPtrType) ToCoreNetworkConnectorConfigurationPtrOutputWithContext(ctx context.Context) CoreNetworkConnectorConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CoreNetworkConnectorConfigurationPtrOutput)
+}
+
+type CoreNetworkConnectorConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CoreNetworkConnectorConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CoreNetworkConnectorConfiguration)(nil)).Elem()
+}
+
+func (o CoreNetworkConnectorConfigurationOutput) ToCoreNetworkConnectorConfigurationOutput() CoreNetworkConnectorConfigurationOutput {
+	return o
+}
+
+func (o CoreNetworkConnectorConfigurationOutput) ToCoreNetworkConnectorConfigurationOutputWithContext(ctx context.Context) CoreNetworkConnectorConfigurationOutput {
+	return o
+}
+
+func (o CoreNetworkConnectorConfigurationOutput) ToCoreNetworkConnectorConfigurationPtrOutput() CoreNetworkConnectorConfigurationPtrOutput {
+	return o.ToCoreNetworkConnectorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CoreNetworkConnectorConfigurationOutput) ToCoreNetworkConnectorConfigurationPtrOutputWithContext(ctx context.Context) CoreNetworkConnectorConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CoreNetworkConnectorConfiguration) *CoreNetworkConnectorConfiguration {
+		return &v
+	}).(CoreNetworkConnectorConfigurationPtrOutput)
+}
+
+// Configuration for routing egress traffic through a VPC. See `vpcEgressConfiguration` Block below.
+func (o CoreNetworkConnectorConfigurationOutput) VpcEgressConfiguration() CoreNetworkConnectorConfigurationVpcEgressConfigurationPtrOutput {
+	return o.ApplyT(func(v CoreNetworkConnectorConfiguration) *CoreNetworkConnectorConfigurationVpcEgressConfiguration {
+		return v.VpcEgressConfiguration
+	}).(CoreNetworkConnectorConfigurationVpcEgressConfigurationPtrOutput)
+}
+
+type CoreNetworkConnectorConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CoreNetworkConnectorConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CoreNetworkConnectorConfiguration)(nil)).Elem()
+}
+
+func (o CoreNetworkConnectorConfigurationPtrOutput) ToCoreNetworkConnectorConfigurationPtrOutput() CoreNetworkConnectorConfigurationPtrOutput {
+	return o
+}
+
+func (o CoreNetworkConnectorConfigurationPtrOutput) ToCoreNetworkConnectorConfigurationPtrOutputWithContext(ctx context.Context) CoreNetworkConnectorConfigurationPtrOutput {
+	return o
+}
+
+func (o CoreNetworkConnectorConfigurationPtrOutput) Elem() CoreNetworkConnectorConfigurationOutput {
+	return o.ApplyT(func(v *CoreNetworkConnectorConfiguration) CoreNetworkConnectorConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CoreNetworkConnectorConfiguration
+		return ret
+	}).(CoreNetworkConnectorConfigurationOutput)
+}
+
+// Configuration for routing egress traffic through a VPC. See `vpcEgressConfiguration` Block below.
+func (o CoreNetworkConnectorConfigurationPtrOutput) VpcEgressConfiguration() CoreNetworkConnectorConfigurationVpcEgressConfigurationPtrOutput {
+	return o.ApplyT(func(v *CoreNetworkConnectorConfiguration) *CoreNetworkConnectorConfigurationVpcEgressConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.VpcEgressConfiguration
+	}).(CoreNetworkConnectorConfigurationVpcEgressConfigurationPtrOutput)
+}
+
+type CoreNetworkConnectorConfigurationVpcEgressConfiguration struct {
+	// Compute resource types that may use this connector. Valid values: `MicroVm`.
+	AssociatedComputeResourceTypes []string `pulumi:"associatedComputeResourceTypes"`
+	// Network protocol. Valid values: `IPv4`, `DualStack`.
+	NetworkProtocol *string `pulumi:"networkProtocol"`
+	// Set of security group IDs applied to the connector's ENIs.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// Set of subnet IDs where the connector provisions its ENIs.
+	SubnetIds []string `pulumi:"subnetIds"`
+}
+
+// CoreNetworkConnectorConfigurationVpcEgressConfigurationInput is an input type that accepts CoreNetworkConnectorConfigurationVpcEgressConfigurationArgs and CoreNetworkConnectorConfigurationVpcEgressConfigurationOutput values.
+// You can construct a concrete instance of `CoreNetworkConnectorConfigurationVpcEgressConfigurationInput` via:
+//
+//	CoreNetworkConnectorConfigurationVpcEgressConfigurationArgs{...}
+type CoreNetworkConnectorConfigurationVpcEgressConfigurationInput interface {
+	pulumi.Input
+
+	ToCoreNetworkConnectorConfigurationVpcEgressConfigurationOutput() CoreNetworkConnectorConfigurationVpcEgressConfigurationOutput
+	ToCoreNetworkConnectorConfigurationVpcEgressConfigurationOutputWithContext(context.Context) CoreNetworkConnectorConfigurationVpcEgressConfigurationOutput
+}
+
+type CoreNetworkConnectorConfigurationVpcEgressConfigurationArgs struct {
+	// Compute resource types that may use this connector. Valid values: `MicroVm`.
+	AssociatedComputeResourceTypes pulumi.StringArrayInput `pulumi:"associatedComputeResourceTypes"`
+	// Network protocol. Valid values: `IPv4`, `DualStack`.
+	NetworkProtocol pulumi.StringPtrInput `pulumi:"networkProtocol"`
+	// Set of security group IDs applied to the connector's ENIs.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// Set of subnet IDs where the connector provisions its ENIs.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+}
+
+func (CoreNetworkConnectorConfigurationVpcEgressConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CoreNetworkConnectorConfigurationVpcEgressConfiguration)(nil)).Elem()
+}
+
+func (i CoreNetworkConnectorConfigurationVpcEgressConfigurationArgs) ToCoreNetworkConnectorConfigurationVpcEgressConfigurationOutput() CoreNetworkConnectorConfigurationVpcEgressConfigurationOutput {
+	return i.ToCoreNetworkConnectorConfigurationVpcEgressConfigurationOutputWithContext(context.Background())
+}
+
+func (i CoreNetworkConnectorConfigurationVpcEgressConfigurationArgs) ToCoreNetworkConnectorConfigurationVpcEgressConfigurationOutputWithContext(ctx context.Context) CoreNetworkConnectorConfigurationVpcEgressConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CoreNetworkConnectorConfigurationVpcEgressConfigurationOutput)
+}
+
+func (i CoreNetworkConnectorConfigurationVpcEgressConfigurationArgs) ToCoreNetworkConnectorConfigurationVpcEgressConfigurationPtrOutput() CoreNetworkConnectorConfigurationVpcEgressConfigurationPtrOutput {
+	return i.ToCoreNetworkConnectorConfigurationVpcEgressConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CoreNetworkConnectorConfigurationVpcEgressConfigurationArgs) ToCoreNetworkConnectorConfigurationVpcEgressConfigurationPtrOutputWithContext(ctx context.Context) CoreNetworkConnectorConfigurationVpcEgressConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CoreNetworkConnectorConfigurationVpcEgressConfigurationOutput).ToCoreNetworkConnectorConfigurationVpcEgressConfigurationPtrOutputWithContext(ctx)
+}
+
+// CoreNetworkConnectorConfigurationVpcEgressConfigurationPtrInput is an input type that accepts CoreNetworkConnectorConfigurationVpcEgressConfigurationArgs, CoreNetworkConnectorConfigurationVpcEgressConfigurationPtr and CoreNetworkConnectorConfigurationVpcEgressConfigurationPtrOutput values.
+// You can construct a concrete instance of `CoreNetworkConnectorConfigurationVpcEgressConfigurationPtrInput` via:
+//
+//	        CoreNetworkConnectorConfigurationVpcEgressConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type CoreNetworkConnectorConfigurationVpcEgressConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCoreNetworkConnectorConfigurationVpcEgressConfigurationPtrOutput() CoreNetworkConnectorConfigurationVpcEgressConfigurationPtrOutput
+	ToCoreNetworkConnectorConfigurationVpcEgressConfigurationPtrOutputWithContext(context.Context) CoreNetworkConnectorConfigurationVpcEgressConfigurationPtrOutput
+}
+
+type coreNetworkConnectorConfigurationVpcEgressConfigurationPtrType CoreNetworkConnectorConfigurationVpcEgressConfigurationArgs
+
+func CoreNetworkConnectorConfigurationVpcEgressConfigurationPtr(v *CoreNetworkConnectorConfigurationVpcEgressConfigurationArgs) CoreNetworkConnectorConfigurationVpcEgressConfigurationPtrInput {
+	return (*coreNetworkConnectorConfigurationVpcEgressConfigurationPtrType)(v)
+}
+
+func (*coreNetworkConnectorConfigurationVpcEgressConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CoreNetworkConnectorConfigurationVpcEgressConfiguration)(nil)).Elem()
+}
+
+func (i *coreNetworkConnectorConfigurationVpcEgressConfigurationPtrType) ToCoreNetworkConnectorConfigurationVpcEgressConfigurationPtrOutput() CoreNetworkConnectorConfigurationVpcEgressConfigurationPtrOutput {
+	return i.ToCoreNetworkConnectorConfigurationVpcEgressConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *coreNetworkConnectorConfigurationVpcEgressConfigurationPtrType) ToCoreNetworkConnectorConfigurationVpcEgressConfigurationPtrOutputWithContext(ctx context.Context) CoreNetworkConnectorConfigurationVpcEgressConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CoreNetworkConnectorConfigurationVpcEgressConfigurationPtrOutput)
+}
+
+type CoreNetworkConnectorConfigurationVpcEgressConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CoreNetworkConnectorConfigurationVpcEgressConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CoreNetworkConnectorConfigurationVpcEgressConfiguration)(nil)).Elem()
+}
+
+func (o CoreNetworkConnectorConfigurationVpcEgressConfigurationOutput) ToCoreNetworkConnectorConfigurationVpcEgressConfigurationOutput() CoreNetworkConnectorConfigurationVpcEgressConfigurationOutput {
+	return o
+}
+
+func (o CoreNetworkConnectorConfigurationVpcEgressConfigurationOutput) ToCoreNetworkConnectorConfigurationVpcEgressConfigurationOutputWithContext(ctx context.Context) CoreNetworkConnectorConfigurationVpcEgressConfigurationOutput {
+	return o
+}
+
+func (o CoreNetworkConnectorConfigurationVpcEgressConfigurationOutput) ToCoreNetworkConnectorConfigurationVpcEgressConfigurationPtrOutput() CoreNetworkConnectorConfigurationVpcEgressConfigurationPtrOutput {
+	return o.ToCoreNetworkConnectorConfigurationVpcEgressConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CoreNetworkConnectorConfigurationVpcEgressConfigurationOutput) ToCoreNetworkConnectorConfigurationVpcEgressConfigurationPtrOutputWithContext(ctx context.Context) CoreNetworkConnectorConfigurationVpcEgressConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CoreNetworkConnectorConfigurationVpcEgressConfiguration) *CoreNetworkConnectorConfigurationVpcEgressConfiguration {
+		return &v
+	}).(CoreNetworkConnectorConfigurationVpcEgressConfigurationPtrOutput)
+}
+
+// Compute resource types that may use this connector. Valid values: `MicroVm`.
+func (o CoreNetworkConnectorConfigurationVpcEgressConfigurationOutput) AssociatedComputeResourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CoreNetworkConnectorConfigurationVpcEgressConfiguration) []string {
+		return v.AssociatedComputeResourceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Network protocol. Valid values: `IPv4`, `DualStack`.
+func (o CoreNetworkConnectorConfigurationVpcEgressConfigurationOutput) NetworkProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CoreNetworkConnectorConfigurationVpcEgressConfiguration) *string { return v.NetworkProtocol }).(pulumi.StringPtrOutput)
+}
+
+// Set of security group IDs applied to the connector's ENIs.
+func (o CoreNetworkConnectorConfigurationVpcEgressConfigurationOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CoreNetworkConnectorConfigurationVpcEgressConfiguration) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// Set of subnet IDs where the connector provisions its ENIs.
+func (o CoreNetworkConnectorConfigurationVpcEgressConfigurationOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CoreNetworkConnectorConfigurationVpcEgressConfiguration) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+type CoreNetworkConnectorConfigurationVpcEgressConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CoreNetworkConnectorConfigurationVpcEgressConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CoreNetworkConnectorConfigurationVpcEgressConfiguration)(nil)).Elem()
+}
+
+func (o CoreNetworkConnectorConfigurationVpcEgressConfigurationPtrOutput) ToCoreNetworkConnectorConfigurationVpcEgressConfigurationPtrOutput() CoreNetworkConnectorConfigurationVpcEgressConfigurationPtrOutput {
+	return o
+}
+
+func (o CoreNetworkConnectorConfigurationVpcEgressConfigurationPtrOutput) ToCoreNetworkConnectorConfigurationVpcEgressConfigurationPtrOutputWithContext(ctx context.Context) CoreNetworkConnectorConfigurationVpcEgressConfigurationPtrOutput {
+	return o
+}
+
+func (o CoreNetworkConnectorConfigurationVpcEgressConfigurationPtrOutput) Elem() CoreNetworkConnectorConfigurationVpcEgressConfigurationOutput {
+	return o.ApplyT(func(v *CoreNetworkConnectorConfigurationVpcEgressConfiguration) CoreNetworkConnectorConfigurationVpcEgressConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CoreNetworkConnectorConfigurationVpcEgressConfiguration
+		return ret
+	}).(CoreNetworkConnectorConfigurationVpcEgressConfigurationOutput)
+}
+
+// Compute resource types that may use this connector. Valid values: `MicroVm`.
+func (o CoreNetworkConnectorConfigurationVpcEgressConfigurationPtrOutput) AssociatedComputeResourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CoreNetworkConnectorConfigurationVpcEgressConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AssociatedComputeResourceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Network protocol. Valid values: `IPv4`, `DualStack`.
+func (o CoreNetworkConnectorConfigurationVpcEgressConfigurationPtrOutput) NetworkProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CoreNetworkConnectorConfigurationVpcEgressConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkProtocol
+	}).(pulumi.StringPtrOutput)
+}
+
+// Set of security group IDs applied to the connector's ENIs.
+func (o CoreNetworkConnectorConfigurationVpcEgressConfigurationPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CoreNetworkConnectorConfigurationVpcEgressConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Set of subnet IDs where the connector provisions its ENIs.
+func (o CoreNetworkConnectorConfigurationVpcEgressConfigurationPtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CoreNetworkConnectorConfigurationVpcEgressConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
+type CoreNetworkConnectorTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// CoreNetworkConnectorTimeoutsInput is an input type that accepts CoreNetworkConnectorTimeoutsArgs and CoreNetworkConnectorTimeoutsOutput values.
+// You can construct a concrete instance of `CoreNetworkConnectorTimeoutsInput` via:
+//
+//	CoreNetworkConnectorTimeoutsArgs{...}
+type CoreNetworkConnectorTimeoutsInput interface {
+	pulumi.Input
+
+	ToCoreNetworkConnectorTimeoutsOutput() CoreNetworkConnectorTimeoutsOutput
+	ToCoreNetworkConnectorTimeoutsOutputWithContext(context.Context) CoreNetworkConnectorTimeoutsOutput
+}
+
+type CoreNetworkConnectorTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (CoreNetworkConnectorTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CoreNetworkConnectorTimeouts)(nil)).Elem()
+}
+
+func (i CoreNetworkConnectorTimeoutsArgs) ToCoreNetworkConnectorTimeoutsOutput() CoreNetworkConnectorTimeoutsOutput {
+	return i.ToCoreNetworkConnectorTimeoutsOutputWithContext(context.Background())
+}
+
+func (i CoreNetworkConnectorTimeoutsArgs) ToCoreNetworkConnectorTimeoutsOutputWithContext(ctx context.Context) CoreNetworkConnectorTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CoreNetworkConnectorTimeoutsOutput)
+}
+
+func (i CoreNetworkConnectorTimeoutsArgs) ToCoreNetworkConnectorTimeoutsPtrOutput() CoreNetworkConnectorTimeoutsPtrOutput {
+	return i.ToCoreNetworkConnectorTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i CoreNetworkConnectorTimeoutsArgs) ToCoreNetworkConnectorTimeoutsPtrOutputWithContext(ctx context.Context) CoreNetworkConnectorTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CoreNetworkConnectorTimeoutsOutput).ToCoreNetworkConnectorTimeoutsPtrOutputWithContext(ctx)
+}
+
+// CoreNetworkConnectorTimeoutsPtrInput is an input type that accepts CoreNetworkConnectorTimeoutsArgs, CoreNetworkConnectorTimeoutsPtr and CoreNetworkConnectorTimeoutsPtrOutput values.
+// You can construct a concrete instance of `CoreNetworkConnectorTimeoutsPtrInput` via:
+//
+//	        CoreNetworkConnectorTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type CoreNetworkConnectorTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToCoreNetworkConnectorTimeoutsPtrOutput() CoreNetworkConnectorTimeoutsPtrOutput
+	ToCoreNetworkConnectorTimeoutsPtrOutputWithContext(context.Context) CoreNetworkConnectorTimeoutsPtrOutput
+}
+
+type coreNetworkConnectorTimeoutsPtrType CoreNetworkConnectorTimeoutsArgs
+
+func CoreNetworkConnectorTimeoutsPtr(v *CoreNetworkConnectorTimeoutsArgs) CoreNetworkConnectorTimeoutsPtrInput {
+	return (*coreNetworkConnectorTimeoutsPtrType)(v)
+}
+
+func (*coreNetworkConnectorTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CoreNetworkConnectorTimeouts)(nil)).Elem()
+}
+
+func (i *coreNetworkConnectorTimeoutsPtrType) ToCoreNetworkConnectorTimeoutsPtrOutput() CoreNetworkConnectorTimeoutsPtrOutput {
+	return i.ToCoreNetworkConnectorTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *coreNetworkConnectorTimeoutsPtrType) ToCoreNetworkConnectorTimeoutsPtrOutputWithContext(ctx context.Context) CoreNetworkConnectorTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CoreNetworkConnectorTimeoutsPtrOutput)
+}
+
+type CoreNetworkConnectorTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (CoreNetworkConnectorTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CoreNetworkConnectorTimeouts)(nil)).Elem()
+}
+
+func (o CoreNetworkConnectorTimeoutsOutput) ToCoreNetworkConnectorTimeoutsOutput() CoreNetworkConnectorTimeoutsOutput {
+	return o
+}
+
+func (o CoreNetworkConnectorTimeoutsOutput) ToCoreNetworkConnectorTimeoutsOutputWithContext(ctx context.Context) CoreNetworkConnectorTimeoutsOutput {
+	return o
+}
+
+func (o CoreNetworkConnectorTimeoutsOutput) ToCoreNetworkConnectorTimeoutsPtrOutput() CoreNetworkConnectorTimeoutsPtrOutput {
+	return o.ToCoreNetworkConnectorTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o CoreNetworkConnectorTimeoutsOutput) ToCoreNetworkConnectorTimeoutsPtrOutputWithContext(ctx context.Context) CoreNetworkConnectorTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CoreNetworkConnectorTimeouts) *CoreNetworkConnectorTimeouts {
+		return &v
+	}).(CoreNetworkConnectorTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o CoreNetworkConnectorTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CoreNetworkConnectorTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o CoreNetworkConnectorTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CoreNetworkConnectorTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o CoreNetworkConnectorTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CoreNetworkConnectorTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type CoreNetworkConnectorTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (CoreNetworkConnectorTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CoreNetworkConnectorTimeouts)(nil)).Elem()
+}
+
+func (o CoreNetworkConnectorTimeoutsPtrOutput) ToCoreNetworkConnectorTimeoutsPtrOutput() CoreNetworkConnectorTimeoutsPtrOutput {
+	return o
+}
+
+func (o CoreNetworkConnectorTimeoutsPtrOutput) ToCoreNetworkConnectorTimeoutsPtrOutputWithContext(ctx context.Context) CoreNetworkConnectorTimeoutsPtrOutput {
+	return o
+}
+
+func (o CoreNetworkConnectorTimeoutsPtrOutput) Elem() CoreNetworkConnectorTimeoutsOutput {
+	return o.ApplyT(func(v *CoreNetworkConnectorTimeouts) CoreNetworkConnectorTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret CoreNetworkConnectorTimeouts
+		return ret
+	}).(CoreNetworkConnectorTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o CoreNetworkConnectorTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CoreNetworkConnectorTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o CoreNetworkConnectorTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CoreNetworkConnectorTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o CoreNetworkConnectorTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CoreNetworkConnectorTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type EventSourceMappingAmazonManagedKafkaEventSourceConfig struct {
 	// Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [AmazonManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_AmazonManagedKafkaEventSourceConfig.html).
 	ConsumerGroupId *string `pulumi:"consumerGroupId"`
@@ -6780,6 +7290,415 @@ func (o FunctionVpcConfigPtrOutput) VpcId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type MicrovmsImageCodeArtifact struct {
+	// S3 URI of the zip archive containing the application code and Dockerfile (e.g., `s3://bucket/code.zip`).
+	Uri string `pulumi:"uri"`
+}
+
+// MicrovmsImageCodeArtifactInput is an input type that accepts MicrovmsImageCodeArtifactArgs and MicrovmsImageCodeArtifactOutput values.
+// You can construct a concrete instance of `MicrovmsImageCodeArtifactInput` via:
+//
+//	MicrovmsImageCodeArtifactArgs{...}
+type MicrovmsImageCodeArtifactInput interface {
+	pulumi.Input
+
+	ToMicrovmsImageCodeArtifactOutput() MicrovmsImageCodeArtifactOutput
+	ToMicrovmsImageCodeArtifactOutputWithContext(context.Context) MicrovmsImageCodeArtifactOutput
+}
+
+type MicrovmsImageCodeArtifactArgs struct {
+	// S3 URI of the zip archive containing the application code and Dockerfile (e.g., `s3://bucket/code.zip`).
+	Uri pulumi.StringInput `pulumi:"uri"`
+}
+
+func (MicrovmsImageCodeArtifactArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MicrovmsImageCodeArtifact)(nil)).Elem()
+}
+
+func (i MicrovmsImageCodeArtifactArgs) ToMicrovmsImageCodeArtifactOutput() MicrovmsImageCodeArtifactOutput {
+	return i.ToMicrovmsImageCodeArtifactOutputWithContext(context.Background())
+}
+
+func (i MicrovmsImageCodeArtifactArgs) ToMicrovmsImageCodeArtifactOutputWithContext(ctx context.Context) MicrovmsImageCodeArtifactOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MicrovmsImageCodeArtifactOutput)
+}
+
+func (i MicrovmsImageCodeArtifactArgs) ToMicrovmsImageCodeArtifactPtrOutput() MicrovmsImageCodeArtifactPtrOutput {
+	return i.ToMicrovmsImageCodeArtifactPtrOutputWithContext(context.Background())
+}
+
+func (i MicrovmsImageCodeArtifactArgs) ToMicrovmsImageCodeArtifactPtrOutputWithContext(ctx context.Context) MicrovmsImageCodeArtifactPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MicrovmsImageCodeArtifactOutput).ToMicrovmsImageCodeArtifactPtrOutputWithContext(ctx)
+}
+
+// MicrovmsImageCodeArtifactPtrInput is an input type that accepts MicrovmsImageCodeArtifactArgs, MicrovmsImageCodeArtifactPtr and MicrovmsImageCodeArtifactPtrOutput values.
+// You can construct a concrete instance of `MicrovmsImageCodeArtifactPtrInput` via:
+//
+//	        MicrovmsImageCodeArtifactArgs{...}
+//
+//	or:
+//
+//	        nil
+type MicrovmsImageCodeArtifactPtrInput interface {
+	pulumi.Input
+
+	ToMicrovmsImageCodeArtifactPtrOutput() MicrovmsImageCodeArtifactPtrOutput
+	ToMicrovmsImageCodeArtifactPtrOutputWithContext(context.Context) MicrovmsImageCodeArtifactPtrOutput
+}
+
+type microvmsImageCodeArtifactPtrType MicrovmsImageCodeArtifactArgs
+
+func MicrovmsImageCodeArtifactPtr(v *MicrovmsImageCodeArtifactArgs) MicrovmsImageCodeArtifactPtrInput {
+	return (*microvmsImageCodeArtifactPtrType)(v)
+}
+
+func (*microvmsImageCodeArtifactPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MicrovmsImageCodeArtifact)(nil)).Elem()
+}
+
+func (i *microvmsImageCodeArtifactPtrType) ToMicrovmsImageCodeArtifactPtrOutput() MicrovmsImageCodeArtifactPtrOutput {
+	return i.ToMicrovmsImageCodeArtifactPtrOutputWithContext(context.Background())
+}
+
+func (i *microvmsImageCodeArtifactPtrType) ToMicrovmsImageCodeArtifactPtrOutputWithContext(ctx context.Context) MicrovmsImageCodeArtifactPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MicrovmsImageCodeArtifactPtrOutput)
+}
+
+type MicrovmsImageCodeArtifactOutput struct{ *pulumi.OutputState }
+
+func (MicrovmsImageCodeArtifactOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MicrovmsImageCodeArtifact)(nil)).Elem()
+}
+
+func (o MicrovmsImageCodeArtifactOutput) ToMicrovmsImageCodeArtifactOutput() MicrovmsImageCodeArtifactOutput {
+	return o
+}
+
+func (o MicrovmsImageCodeArtifactOutput) ToMicrovmsImageCodeArtifactOutputWithContext(ctx context.Context) MicrovmsImageCodeArtifactOutput {
+	return o
+}
+
+func (o MicrovmsImageCodeArtifactOutput) ToMicrovmsImageCodeArtifactPtrOutput() MicrovmsImageCodeArtifactPtrOutput {
+	return o.ToMicrovmsImageCodeArtifactPtrOutputWithContext(context.Background())
+}
+
+func (o MicrovmsImageCodeArtifactOutput) ToMicrovmsImageCodeArtifactPtrOutputWithContext(ctx context.Context) MicrovmsImageCodeArtifactPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MicrovmsImageCodeArtifact) *MicrovmsImageCodeArtifact {
+		return &v
+	}).(MicrovmsImageCodeArtifactPtrOutput)
+}
+
+// S3 URI of the zip archive containing the application code and Dockerfile (e.g., `s3://bucket/code.zip`).
+func (o MicrovmsImageCodeArtifactOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v MicrovmsImageCodeArtifact) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+type MicrovmsImageCodeArtifactPtrOutput struct{ *pulumi.OutputState }
+
+func (MicrovmsImageCodeArtifactPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MicrovmsImageCodeArtifact)(nil)).Elem()
+}
+
+func (o MicrovmsImageCodeArtifactPtrOutput) ToMicrovmsImageCodeArtifactPtrOutput() MicrovmsImageCodeArtifactPtrOutput {
+	return o
+}
+
+func (o MicrovmsImageCodeArtifactPtrOutput) ToMicrovmsImageCodeArtifactPtrOutputWithContext(ctx context.Context) MicrovmsImageCodeArtifactPtrOutput {
+	return o
+}
+
+func (o MicrovmsImageCodeArtifactPtrOutput) Elem() MicrovmsImageCodeArtifactOutput {
+	return o.ApplyT(func(v *MicrovmsImageCodeArtifact) MicrovmsImageCodeArtifact {
+		if v != nil {
+			return *v
+		}
+		var ret MicrovmsImageCodeArtifact
+		return ret
+	}).(MicrovmsImageCodeArtifactOutput)
+}
+
+// S3 URI of the zip archive containing the application code and Dockerfile (e.g., `s3://bucket/code.zip`).
+func (o MicrovmsImageCodeArtifactPtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MicrovmsImageCodeArtifact) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+type MicrovmsImageCpuConfiguration struct {
+	// CPU architecture for the MicroVM. Valid values are `x8664` and `arm64`.
+	Architecture string `pulumi:"architecture"`
+}
+
+// MicrovmsImageCpuConfigurationInput is an input type that accepts MicrovmsImageCpuConfigurationArgs and MicrovmsImageCpuConfigurationOutput values.
+// You can construct a concrete instance of `MicrovmsImageCpuConfigurationInput` via:
+//
+//	MicrovmsImageCpuConfigurationArgs{...}
+type MicrovmsImageCpuConfigurationInput interface {
+	pulumi.Input
+
+	ToMicrovmsImageCpuConfigurationOutput() MicrovmsImageCpuConfigurationOutput
+	ToMicrovmsImageCpuConfigurationOutputWithContext(context.Context) MicrovmsImageCpuConfigurationOutput
+}
+
+type MicrovmsImageCpuConfigurationArgs struct {
+	// CPU architecture for the MicroVM. Valid values are `x8664` and `arm64`.
+	Architecture pulumi.StringInput `pulumi:"architecture"`
+}
+
+func (MicrovmsImageCpuConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MicrovmsImageCpuConfiguration)(nil)).Elem()
+}
+
+func (i MicrovmsImageCpuConfigurationArgs) ToMicrovmsImageCpuConfigurationOutput() MicrovmsImageCpuConfigurationOutput {
+	return i.ToMicrovmsImageCpuConfigurationOutputWithContext(context.Background())
+}
+
+func (i MicrovmsImageCpuConfigurationArgs) ToMicrovmsImageCpuConfigurationOutputWithContext(ctx context.Context) MicrovmsImageCpuConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MicrovmsImageCpuConfigurationOutput)
+}
+
+// MicrovmsImageCpuConfigurationArrayInput is an input type that accepts MicrovmsImageCpuConfigurationArray and MicrovmsImageCpuConfigurationArrayOutput values.
+// You can construct a concrete instance of `MicrovmsImageCpuConfigurationArrayInput` via:
+//
+//	MicrovmsImageCpuConfigurationArray{ MicrovmsImageCpuConfigurationArgs{...} }
+type MicrovmsImageCpuConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToMicrovmsImageCpuConfigurationArrayOutput() MicrovmsImageCpuConfigurationArrayOutput
+	ToMicrovmsImageCpuConfigurationArrayOutputWithContext(context.Context) MicrovmsImageCpuConfigurationArrayOutput
+}
+
+type MicrovmsImageCpuConfigurationArray []MicrovmsImageCpuConfigurationInput
+
+func (MicrovmsImageCpuConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MicrovmsImageCpuConfiguration)(nil)).Elem()
+}
+
+func (i MicrovmsImageCpuConfigurationArray) ToMicrovmsImageCpuConfigurationArrayOutput() MicrovmsImageCpuConfigurationArrayOutput {
+	return i.ToMicrovmsImageCpuConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i MicrovmsImageCpuConfigurationArray) ToMicrovmsImageCpuConfigurationArrayOutputWithContext(ctx context.Context) MicrovmsImageCpuConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MicrovmsImageCpuConfigurationArrayOutput)
+}
+
+type MicrovmsImageCpuConfigurationOutput struct{ *pulumi.OutputState }
+
+func (MicrovmsImageCpuConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MicrovmsImageCpuConfiguration)(nil)).Elem()
+}
+
+func (o MicrovmsImageCpuConfigurationOutput) ToMicrovmsImageCpuConfigurationOutput() MicrovmsImageCpuConfigurationOutput {
+	return o
+}
+
+func (o MicrovmsImageCpuConfigurationOutput) ToMicrovmsImageCpuConfigurationOutputWithContext(ctx context.Context) MicrovmsImageCpuConfigurationOutput {
+	return o
+}
+
+// CPU architecture for the MicroVM. Valid values are `x8664` and `arm64`.
+func (o MicrovmsImageCpuConfigurationOutput) Architecture() pulumi.StringOutput {
+	return o.ApplyT(func(v MicrovmsImageCpuConfiguration) string { return v.Architecture }).(pulumi.StringOutput)
+}
+
+type MicrovmsImageCpuConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (MicrovmsImageCpuConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MicrovmsImageCpuConfiguration)(nil)).Elem()
+}
+
+func (o MicrovmsImageCpuConfigurationArrayOutput) ToMicrovmsImageCpuConfigurationArrayOutput() MicrovmsImageCpuConfigurationArrayOutput {
+	return o
+}
+
+func (o MicrovmsImageCpuConfigurationArrayOutput) ToMicrovmsImageCpuConfigurationArrayOutputWithContext(ctx context.Context) MicrovmsImageCpuConfigurationArrayOutput {
+	return o
+}
+
+func (o MicrovmsImageCpuConfigurationArrayOutput) Index(i pulumi.IntInput) MicrovmsImageCpuConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MicrovmsImageCpuConfiguration {
+		return vs[0].([]MicrovmsImageCpuConfiguration)[vs[1].(int)]
+	}).(MicrovmsImageCpuConfigurationOutput)
+}
+
+type MicrovmsImageTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// MicrovmsImageTimeoutsInput is an input type that accepts MicrovmsImageTimeoutsArgs and MicrovmsImageTimeoutsOutput values.
+// You can construct a concrete instance of `MicrovmsImageTimeoutsInput` via:
+//
+//	MicrovmsImageTimeoutsArgs{...}
+type MicrovmsImageTimeoutsInput interface {
+	pulumi.Input
+
+	ToMicrovmsImageTimeoutsOutput() MicrovmsImageTimeoutsOutput
+	ToMicrovmsImageTimeoutsOutputWithContext(context.Context) MicrovmsImageTimeoutsOutput
+}
+
+type MicrovmsImageTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (MicrovmsImageTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MicrovmsImageTimeouts)(nil)).Elem()
+}
+
+func (i MicrovmsImageTimeoutsArgs) ToMicrovmsImageTimeoutsOutput() MicrovmsImageTimeoutsOutput {
+	return i.ToMicrovmsImageTimeoutsOutputWithContext(context.Background())
+}
+
+func (i MicrovmsImageTimeoutsArgs) ToMicrovmsImageTimeoutsOutputWithContext(ctx context.Context) MicrovmsImageTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MicrovmsImageTimeoutsOutput)
+}
+
+func (i MicrovmsImageTimeoutsArgs) ToMicrovmsImageTimeoutsPtrOutput() MicrovmsImageTimeoutsPtrOutput {
+	return i.ToMicrovmsImageTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i MicrovmsImageTimeoutsArgs) ToMicrovmsImageTimeoutsPtrOutputWithContext(ctx context.Context) MicrovmsImageTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MicrovmsImageTimeoutsOutput).ToMicrovmsImageTimeoutsPtrOutputWithContext(ctx)
+}
+
+// MicrovmsImageTimeoutsPtrInput is an input type that accepts MicrovmsImageTimeoutsArgs, MicrovmsImageTimeoutsPtr and MicrovmsImageTimeoutsPtrOutput values.
+// You can construct a concrete instance of `MicrovmsImageTimeoutsPtrInput` via:
+//
+//	        MicrovmsImageTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type MicrovmsImageTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToMicrovmsImageTimeoutsPtrOutput() MicrovmsImageTimeoutsPtrOutput
+	ToMicrovmsImageTimeoutsPtrOutputWithContext(context.Context) MicrovmsImageTimeoutsPtrOutput
+}
+
+type microvmsImageTimeoutsPtrType MicrovmsImageTimeoutsArgs
+
+func MicrovmsImageTimeoutsPtr(v *MicrovmsImageTimeoutsArgs) MicrovmsImageTimeoutsPtrInput {
+	return (*microvmsImageTimeoutsPtrType)(v)
+}
+
+func (*microvmsImageTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MicrovmsImageTimeouts)(nil)).Elem()
+}
+
+func (i *microvmsImageTimeoutsPtrType) ToMicrovmsImageTimeoutsPtrOutput() MicrovmsImageTimeoutsPtrOutput {
+	return i.ToMicrovmsImageTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *microvmsImageTimeoutsPtrType) ToMicrovmsImageTimeoutsPtrOutputWithContext(ctx context.Context) MicrovmsImageTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MicrovmsImageTimeoutsPtrOutput)
+}
+
+type MicrovmsImageTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (MicrovmsImageTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MicrovmsImageTimeouts)(nil)).Elem()
+}
+
+func (o MicrovmsImageTimeoutsOutput) ToMicrovmsImageTimeoutsOutput() MicrovmsImageTimeoutsOutput {
+	return o
+}
+
+func (o MicrovmsImageTimeoutsOutput) ToMicrovmsImageTimeoutsOutputWithContext(ctx context.Context) MicrovmsImageTimeoutsOutput {
+	return o
+}
+
+func (o MicrovmsImageTimeoutsOutput) ToMicrovmsImageTimeoutsPtrOutput() MicrovmsImageTimeoutsPtrOutput {
+	return o.ToMicrovmsImageTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o MicrovmsImageTimeoutsOutput) ToMicrovmsImageTimeoutsPtrOutputWithContext(ctx context.Context) MicrovmsImageTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MicrovmsImageTimeouts) *MicrovmsImageTimeouts {
+		return &v
+	}).(MicrovmsImageTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o MicrovmsImageTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MicrovmsImageTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o MicrovmsImageTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MicrovmsImageTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o MicrovmsImageTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MicrovmsImageTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type MicrovmsImageTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (MicrovmsImageTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MicrovmsImageTimeouts)(nil)).Elem()
+}
+
+func (o MicrovmsImageTimeoutsPtrOutput) ToMicrovmsImageTimeoutsPtrOutput() MicrovmsImageTimeoutsPtrOutput {
+	return o
+}
+
+func (o MicrovmsImageTimeoutsPtrOutput) ToMicrovmsImageTimeoutsPtrOutputWithContext(ctx context.Context) MicrovmsImageTimeoutsPtrOutput {
+	return o
+}
+
+func (o MicrovmsImageTimeoutsPtrOutput) Elem() MicrovmsImageTimeoutsOutput {
+	return o.ApplyT(func(v *MicrovmsImageTimeouts) MicrovmsImageTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret MicrovmsImageTimeouts
+		return ret
+	}).(MicrovmsImageTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o MicrovmsImageTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MicrovmsImageTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o MicrovmsImageTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MicrovmsImageTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o MicrovmsImageTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MicrovmsImageTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetCodeSigningConfigAllowedPublisher struct {
 	// Set of ARNs for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
 	SigningProfileVersionArns []string `pulumi:"signingProfileVersionArns"`
@@ -8117,6 +9036,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigAllowedPublishersPtrInput)(nil)).Elem(), CodeSigningConfigAllowedPublishersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigPoliciesInput)(nil)).Elem(), CodeSigningConfigPoliciesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigPoliciesPtrInput)(nil)).Elem(), CodeSigningConfigPoliciesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CoreNetworkConnectorConfigurationInput)(nil)).Elem(), CoreNetworkConnectorConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CoreNetworkConnectorConfigurationPtrInput)(nil)).Elem(), CoreNetworkConnectorConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CoreNetworkConnectorConfigurationVpcEgressConfigurationInput)(nil)).Elem(), CoreNetworkConnectorConfigurationVpcEgressConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CoreNetworkConnectorConfigurationVpcEgressConfigurationPtrInput)(nil)).Elem(), CoreNetworkConnectorConfigurationVpcEgressConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CoreNetworkConnectorTimeoutsInput)(nil)).Elem(), CoreNetworkConnectorTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CoreNetworkConnectorTimeoutsPtrInput)(nil)).Elem(), CoreNetworkConnectorTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingAmazonManagedKafkaEventSourceConfigInput)(nil)).Elem(), EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrInput)(nil)).Elem(), EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigInput)(nil)).Elem(), EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigArgs{})
@@ -8191,6 +9116,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionUrlCorsPtrInput)(nil)).Elem(), FunctionUrlCorsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionVpcConfigInput)(nil)).Elem(), FunctionVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionVpcConfigPtrInput)(nil)).Elem(), FunctionVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmsImageCodeArtifactInput)(nil)).Elem(), MicrovmsImageCodeArtifactArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmsImageCodeArtifactPtrInput)(nil)).Elem(), MicrovmsImageCodeArtifactArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmsImageCpuConfigurationInput)(nil)).Elem(), MicrovmsImageCpuConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmsImageCpuConfigurationArrayInput)(nil)).Elem(), MicrovmsImageCpuConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmsImageTimeoutsInput)(nil)).Elem(), MicrovmsImageTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmsImageTimeoutsPtrInput)(nil)).Elem(), MicrovmsImageTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCodeSigningConfigAllowedPublisherInput)(nil)).Elem(), GetCodeSigningConfigAllowedPublisherArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCodeSigningConfigAllowedPublisherArrayInput)(nil)).Elem(), GetCodeSigningConfigAllowedPublisherArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCodeSigningConfigPolicyInput)(nil)).Elem(), GetCodeSigningConfigPolicyArgs{})
@@ -8233,6 +9164,12 @@ func init() {
 	pulumi.RegisterOutputType(CodeSigningConfigAllowedPublishersPtrOutput{})
 	pulumi.RegisterOutputType(CodeSigningConfigPoliciesOutput{})
 	pulumi.RegisterOutputType(CodeSigningConfigPoliciesPtrOutput{})
+	pulumi.RegisterOutputType(CoreNetworkConnectorConfigurationOutput{})
+	pulumi.RegisterOutputType(CoreNetworkConnectorConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(CoreNetworkConnectorConfigurationVpcEgressConfigurationOutput{})
+	pulumi.RegisterOutputType(CoreNetworkConnectorConfigurationVpcEgressConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(CoreNetworkConnectorTimeoutsOutput{})
+	pulumi.RegisterOutputType(CoreNetworkConnectorTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigOutput{})
@@ -8307,6 +9244,12 @@ func init() {
 	pulumi.RegisterOutputType(FunctionUrlCorsPtrOutput{})
 	pulumi.RegisterOutputType(FunctionVpcConfigOutput{})
 	pulumi.RegisterOutputType(FunctionVpcConfigPtrOutput{})
+	pulumi.RegisterOutputType(MicrovmsImageCodeArtifactOutput{})
+	pulumi.RegisterOutputType(MicrovmsImageCodeArtifactPtrOutput{})
+	pulumi.RegisterOutputType(MicrovmsImageCpuConfigurationOutput{})
+	pulumi.RegisterOutputType(MicrovmsImageCpuConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(MicrovmsImageTimeoutsOutput{})
+	pulumi.RegisterOutputType(MicrovmsImageTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(GetCodeSigningConfigAllowedPublisherOutput{})
 	pulumi.RegisterOutputType(GetCodeSigningConfigAllowedPublisherArrayOutput{})
 	pulumi.RegisterOutputType(GetCodeSigningConfigPolicyOutput{})

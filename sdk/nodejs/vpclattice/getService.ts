@@ -84,6 +84,10 @@ export interface GetServiceResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Amount of time, in seconds, that a connection can remain idle (no data sent) before VPC Lattice closes it.
+     */
+    readonly idleTimeoutSeconds: number;
     readonly name: string;
     readonly region: string;
     readonly serviceIdentifier: string;

@@ -468,11 +468,19 @@ namespace Pulumi.Aws
             /// <summary>
             /// Use this to override the default service endpoint URL
             /// </summary>
+                public string? Accountaccess { get; set; } = null!;
+            /// <summary>
+            /// Use this to override the default service endpoint URL
+            /// </summary>
                 public string? Acm { get; set; } = null!;
             /// <summary>
             /// Use this to override the default service endpoint URL
             /// </summary>
                 public string? Acmpca { get; set; } = null!;
+            /// <summary>
+            /// Use this to override the default service endpoint URL
+            /// </summary>
+                public string? Agentregistry { get; set; } = null!;
             /// <summary>
             /// Use this to override the default service endpoint URL
             /// </summary>

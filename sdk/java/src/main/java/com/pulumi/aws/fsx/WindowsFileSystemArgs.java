@@ -189,6 +189,21 @@ public final class WindowsFileSystemArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+     * 
+     */
+    @Import(name="networkType")
+    private @Nullable Output<String> networkType;
+
+    /**
+     * @return Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+     * 
+     */
+    public Optional<Output<String>> networkType() {
+        return Optional.ofNullable(this.networkType);
+    }
+
+    /**
      * Subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
      * 
      */
@@ -371,6 +386,7 @@ public final class WindowsFileSystemArgs extends com.pulumi.resources.ResourceAr
         this.diskIopsConfiguration = $.diskIopsConfiguration;
         this.finalBackupTags = $.finalBackupTags;
         this.kmsKeyId = $.kmsKeyId;
+        this.networkType = $.networkType;
         this.preferredSubnetId = $.preferredSubnetId;
         this.region = $.region;
         this.securityGroupIds = $.securityGroupIds;
@@ -641,6 +657,27 @@ public final class WindowsFileSystemArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder kmsKeyId(String kmsKeyId) {
             return kmsKeyId(Output.of(kmsKeyId));
+        }
+
+        /**
+         * @param networkType Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkType(@Nullable Output<String> networkType) {
+            $.networkType = networkType;
+            return this;
+        }
+
+        /**
+         * @param networkType Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkType(String networkType) {
+            return networkType(Output.of(networkType));
         }
 
         /**

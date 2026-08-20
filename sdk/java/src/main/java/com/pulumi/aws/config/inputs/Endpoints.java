@@ -25,12 +25,22 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String accountaccess;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String acm;
     /**
      * @return Use this to override the default service endpoint URL
      * 
      */
     private @Nullable String acmpca;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    private @Nullable String agentregistry;
     /**
      * @return Use this to override the default service endpoint URL
      * 
@@ -1621,6 +1631,13 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    public Optional<String> accountaccess() {
+        return Optional.ofNullable(this.accountaccess);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> acm() {
         return Optional.ofNullable(this.acm);
     }
@@ -1630,6 +1647,13 @@ public final class Endpoints {
      */
     public Optional<String> acmpca() {
         return Optional.ofNullable(this.acmpca);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<String> agentregistry() {
+        return Optional.ofNullable(this.agentregistry);
     }
     /**
      * @return Use this to override the default service endpoint URL
@@ -3841,8 +3865,10 @@ public final class Endpoints {
     public static final class Builder {
         private @Nullable String accessanalyzer;
         private @Nullable String account;
+        private @Nullable String accountaccess;
         private @Nullable String acm;
         private @Nullable String acmpca;
+        private @Nullable String agentregistry;
         private @Nullable String amg;
         private @Nullable String amp;
         private @Nullable String amplify;
@@ -4162,8 +4188,10 @@ public final class Endpoints {
     	      Objects.requireNonNull(defaults);
     	      this.accessanalyzer = defaults.accessanalyzer;
     	      this.account = defaults.account;
+    	      this.accountaccess = defaults.accountaccess;
     	      this.acm = defaults.acm;
     	      this.acmpca = defaults.acmpca;
+    	      this.agentregistry = defaults.agentregistry;
     	      this.amg = defaults.amg;
     	      this.amp = defaults.amp;
     	      this.amplify = defaults.amplify;
@@ -4493,6 +4521,12 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder accountaccess(@Nullable String accountaccess) {
+
+            this.accountaccess = accountaccess;
+            return this;
+        }
+        @CustomType.Setter
         public Builder acm(@Nullable String acm) {
 
             this.acm = acm;
@@ -4502,6 +4536,12 @@ public final class Endpoints {
         public Builder acmpca(@Nullable String acmpca) {
 
             this.acmpca = acmpca;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder agentregistry(@Nullable String agentregistry) {
+
+            this.agentregistry = agentregistry;
             return this;
         }
         @CustomType.Setter
@@ -6392,8 +6432,10 @@ public final class Endpoints {
             final var _resultValue = new Endpoints();
             _resultValue.accessanalyzer = accessanalyzer;
             _resultValue.account = account;
+            _resultValue.accountaccess = accountaccess;
             _resultValue.acm = acm;
             _resultValue.acmpca = acmpca;
+            _resultValue.agentregistry = agentregistry;
             _resultValue.amg = amg;
             _resultValue.amp = amp;
             _resultValue.amplify = amplify;

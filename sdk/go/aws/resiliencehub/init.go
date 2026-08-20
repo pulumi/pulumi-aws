@@ -23,14 +23,20 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:resiliencehub/resiliencyPolicy:ResiliencyPolicy":
 		r = &ResiliencyPolicy{}
+	case "aws:resiliencehub/v2Assertion:V2Assertion":
+		r = &V2Assertion{}
 	case "aws:resiliencehub/v2InputSource:V2InputSource":
 		r = &V2InputSource{}
 	case "aws:resiliencehub/v2Policy:V2Policy":
 		r = &V2Policy{}
 	case "aws:resiliencehub/v2Service:V2Service":
 		r = &V2Service{}
+	case "aws:resiliencehub/v2ServiceFunction:V2ServiceFunction":
+		r = &V2ServiceFunction{}
 	case "aws:resiliencehub/v2System:V2System":
 		r = &V2System{}
+	case "aws:resiliencehub/v2UserJourney:V2UserJourney":
+		r = &V2UserJourney{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -51,6 +57,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"resiliencehub/v2Assertion",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"resiliencehub/v2InputSource",
 		&module{version},
 	)
@@ -66,7 +77,17 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"resiliencehub/v2ServiceFunction",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"resiliencehub/v2System",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"resiliencehub/v2UserJourney",
 		&module{version},
 	)
 }

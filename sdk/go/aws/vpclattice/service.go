@@ -63,6 +63,8 @@ type Service struct {
 	CustomDomainName pulumi.StringPtrOutput `pulumi:"customDomainName"`
 	// DNS name of the service.
 	DnsEntries ServiceDnsEntryArrayOutput `pulumi:"dnsEntries"`
+	// Amount of time, in seconds, that a connection can remain idle (no data sent) before VPC Lattice closes it. The valid range is 60 to 600 seconds. Default is 60 seconds.
+	IdleTimeoutSeconds pulumi.IntOutput `pulumi:"idleTimeoutSeconds"`
 	// Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
 	//
 	// The following arguments are optional:
@@ -117,6 +119,8 @@ type serviceState struct {
 	CustomDomainName *string `pulumi:"customDomainName"`
 	// DNS name of the service.
 	DnsEntries []ServiceDnsEntry `pulumi:"dnsEntries"`
+	// Amount of time, in seconds, that a connection can remain idle (no data sent) before VPC Lattice closes it. The valid range is 60 to 600 seconds. Default is 60 seconds.
+	IdleTimeoutSeconds *int `pulumi:"idleTimeoutSeconds"`
 	// Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
 	//
 	// The following arguments are optional:
@@ -142,6 +146,8 @@ type ServiceState struct {
 	CustomDomainName pulumi.StringPtrInput
 	// DNS name of the service.
 	DnsEntries ServiceDnsEntryArrayInput
+	// Amount of time, in seconds, that a connection can remain idle (no data sent) before VPC Lattice closes it. The valid range is 60 to 600 seconds. Default is 60 seconds.
+	IdleTimeoutSeconds pulumi.IntPtrInput
 	// Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
 	//
 	// The following arguments are optional:
@@ -167,6 +173,8 @@ type serviceArgs struct {
 	CertificateArn *string `pulumi:"certificateArn"`
 	// Custom domain name of the service.
 	CustomDomainName *string `pulumi:"customDomainName"`
+	// Amount of time, in seconds, that a connection can remain idle (no data sent) before VPC Lattice closes it. The valid range is 60 to 600 seconds. Default is 60 seconds.
+	IdleTimeoutSeconds *int `pulumi:"idleTimeoutSeconds"`
 	// Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
 	//
 	// The following arguments are optional:
@@ -185,6 +193,8 @@ type ServiceArgs struct {
 	CertificateArn pulumi.StringPtrInput
 	// Custom domain name of the service.
 	CustomDomainName pulumi.StringPtrInput
+	// Amount of time, in seconds, that a connection can remain idle (no data sent) before VPC Lattice closes it. The valid range is 60 to 600 seconds. Default is 60 seconds.
+	IdleTimeoutSeconds pulumi.IntPtrInput
 	// Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
 	//
 	// The following arguments are optional:
@@ -305,6 +315,11 @@ func (o ServiceOutput) CustomDomainName() pulumi.StringPtrOutput {
 // DNS name of the service.
 func (o ServiceOutput) DnsEntries() ServiceDnsEntryArrayOutput {
 	return o.ApplyT(func(v *Service) ServiceDnsEntryArrayOutput { return v.DnsEntries }).(ServiceDnsEntryArrayOutput)
+}
+
+// Amount of time, in seconds, that a connection can remain idle (no data sent) before VPC Lattice closes it. The valid range is 60 to 600 seconds. Default is 60 seconds.
+func (o ServiceOutput) IdleTimeoutSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v *Service) pulumi.IntOutput { return v.IdleTimeoutSeconds }).(pulumi.IntOutput)
 }
 
 // Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.

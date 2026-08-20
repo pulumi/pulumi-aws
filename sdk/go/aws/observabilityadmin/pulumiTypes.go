@@ -854,6 +854,8 @@ func (o CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigura
 type CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfiguration struct {
 	// Strategy for resolving encryption conflicts. Valid values: `ALLOW`, `SKIP`.
 	EncryptionConflictResolutionStrategy *string `pulumi:"encryptionConflictResolutionStrategy"`
+	// Determines which newly created destination log groups are encrypted with `kmsKeyArn` when `encryptionStrategy` is `CUSTOMER_MANAGED`. Valid values: `ENCRYPTED_SOURCE_ONLY` (default), `NEW_DESTINATION_LOG_GROUPS`. Not valid when `encryptionStrategy` is `AWS_OWNED`.
+	EncryptionScope *string `pulumi:"encryptionScope"`
 	// Encryption strategy for logs. Valid values: `AWS_OWNED`, `CUSTOMER_MANAGED`.
 	EncryptionStrategy string `pulumi:"encryptionStrategy"`
 	// ARN of the KMS key to use for encryption when `encryptionStrategy` is `CUSTOMER_MANAGED`.
@@ -874,6 +876,8 @@ type CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfiguratio
 type CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgs struct {
 	// Strategy for resolving encryption conflicts. Valid values: `ALLOW`, `SKIP`.
 	EncryptionConflictResolutionStrategy pulumi.StringPtrInput `pulumi:"encryptionConflictResolutionStrategy"`
+	// Determines which newly created destination log groups are encrypted with `kmsKeyArn` when `encryptionStrategy` is `CUSTOMER_MANAGED`. Valid values: `ENCRYPTED_SOURCE_ONLY` (default), `NEW_DESTINATION_LOG_GROUPS`. Not valid when `encryptionStrategy` is `AWS_OWNED`.
+	EncryptionScope pulumi.StringPtrInput `pulumi:"encryptionScope"`
 	// Encryption strategy for logs. Valid values: `AWS_OWNED`, `CUSTOMER_MANAGED`.
 	EncryptionStrategy pulumi.StringInput `pulumi:"encryptionStrategy"`
 	// ARN of the KMS key to use for encryption when `encryptionStrategy` is `CUSTOMER_MANAGED`.
@@ -964,6 +968,13 @@ func (o CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigura
 	}).(pulumi.StringPtrOutput)
 }
 
+// Determines which newly created destination log groups are encrypted with `kmsKeyArn` when `encryptionStrategy` is `CUSTOMER_MANAGED`. Valid values: `ENCRYPTED_SOURCE_ONLY` (default), `NEW_DESTINATION_LOG_GROUPS`. Not valid when `encryptionStrategy` is `AWS_OWNED`.
+func (o CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationOutput) EncryptionScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfiguration) *string {
+		return v.EncryptionScope
+	}).(pulumi.StringPtrOutput)
+}
+
 // Encryption strategy for logs. Valid values: `AWS_OWNED`, `CUSTOMER_MANAGED`.
 func (o CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationOutput) EncryptionStrategy() pulumi.StringOutput {
 	return o.ApplyT(func(v CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfiguration) string {
@@ -1009,6 +1020,16 @@ func (o CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigura
 			return nil
 		}
 		return v.EncryptionConflictResolutionStrategy
+	}).(pulumi.StringPtrOutput)
+}
+
+// Determines which newly created destination log groups are encrypted with `kmsKeyArn` when `encryptionStrategy` is `CUSTOMER_MANAGED`. Valid values: `ENCRYPTED_SOURCE_ONLY` (default), `NEW_DESTINATION_LOG_GROUPS`. Not valid when `encryptionStrategy` is `AWS_OWNED`.
+func (o CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationPtrOutput) EncryptionScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionScope
 	}).(pulumi.StringPtrOutput)
 }
 

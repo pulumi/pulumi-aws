@@ -4,18 +4,39 @@
 package com.pulumi.aws.lb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class ListenerRuleConditionSourceIp {
-    private List<String> values;
+    /**
+     * @return IP address type for Network Load Balancers. Valid values are `ipv4` and `ipv6`.
+     * 
+     */
+    private @Nullable String ipAddressType;
+    /**
+     * @return List of source IP addresses in CIDR format for Application Load Balancers. Both IPv4 and IPv6 addresses can be used. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
+     * 
+     */
+    private @Nullable List<String> values;
 
     private ListenerRuleConditionSourceIp() {}
+    /**
+     * @return IP address type for Network Load Balancers. Valid values are `ipv4` and `ipv6`.
+     * 
+     */
+    public Optional<String> ipAddressType() {
+        return Optional.ofNullable(this.ipAddressType);
+    }
+    /**
+     * @return List of source IP addresses in CIDR format for Application Load Balancers. Both IPv4 and IPv6 addresses can be used. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
+     * 
+     */
     public List<String> values() {
-        return this.values;
+        return this.values == null ? List.of() : this.values;
     }
 
     public static Builder builder() {
@@ -27,18 +48,24 @@ public final class ListenerRuleConditionSourceIp {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> values;
+        private @Nullable String ipAddressType;
+        private @Nullable List<String> values;
         public Builder() {}
         public Builder(ListenerRuleConditionSourceIp defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.ipAddressType = defaults.ipAddressType;
     	      this.values = defaults.values;
         }
 
         @CustomType.Setter
-        public Builder values(List<String> values) {
-            if (values == null) {
-              throw new MissingRequiredPropertyException("ListenerRuleConditionSourceIp", "values");
-            }
+        public Builder ipAddressType(@Nullable String ipAddressType) {
+
+            this.ipAddressType = ipAddressType;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder values(@Nullable List<String> values) {
+
             this.values = values;
             return this;
         }
@@ -47,6 +74,7 @@ public final class ListenerRuleConditionSourceIp {
         }
         public ListenerRuleConditionSourceIp build() {
             final var _resultValue = new ListenerRuleConditionSourceIp();
+            _resultValue.ipAddressType = ipAddressType;
             _resultValue.values = values;
             return _resultValue;
         }

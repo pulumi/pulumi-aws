@@ -52,10 +52,10 @@ class AgentcoreHarnessArgs:
         :param pulumi.Input['AgentcoreHarnessAuthorizerConfigurationArgs'] authorizer_configuration: Authorization configuration for authenticating requests. See `authorizer_configuration` Block below.
         :param pulumi.Input['AgentcoreHarnessEnvironmentArtifactArgs'] environment_artifact: Environment artifact configuration. See `environment_artifact` Block below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Map of environment variables.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentArgs']]] environments: Compute environment configuration. See `environment` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentArgs']]] environments: Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environment_actual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
         :param pulumi.Input[_builtins.int] max_iterations: Maximum number of iterations the agent loop can perform.
         :param pulumi.Input[_builtins.int] max_tokens: Maximum number of tokens in the model response.
-        :param pulumi.Input['AgentcoreHarnessMemoryArgs'] memory: Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memory_actual`.
+        :param pulumi.Input['AgentcoreHarnessMemoryArgs'] memory: Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memory_actual`. Clearing this value will reset the memory configuration to default values.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessSkillArgs']]] skills: Skill configurations. See `skill` Block below.
         :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessSystemPromptArgs']]] system_prompts: System prompt blocks for the harness. See `system_prompt` Block below.
@@ -190,7 +190,7 @@ class AgentcoreHarnessArgs:
     @pulumi.getter
     def environments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentArgs']]]]:
         """
-        Compute environment configuration. See `environment` Block below.
+        Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environment_actual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
         """
         return pulumi.get(self, "environments")
 
@@ -226,7 +226,7 @@ class AgentcoreHarnessArgs:
     @pulumi.getter
     def memory(self) -> pulumi.Input[Optional['AgentcoreHarnessMemoryArgs']]:
         """
-        Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memory_actual`.
+        Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memory_actual`. Clearing this value will reset the memory configuration to default values.
         """
         return pulumi.get(self, "memory")
 
@@ -334,6 +334,7 @@ class _AgentcoreHarnessState:
                  allowed_tools: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  arn: pulumi.Input[Optional[_builtins.str]] = None,
                  authorizer_configuration: pulumi.Input[Optional['AgentcoreHarnessAuthorizerConfigurationArgs']] = None,
+                 environment_actuals: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentActualArgs']]]] = None,
                  environment_artifact: pulumi.Input[Optional['AgentcoreHarnessEnvironmentArtifactArgs']] = None,
                  environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  environments: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentArgs']]]] = None,
@@ -360,15 +361,16 @@ class _AgentcoreHarnessState:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_tools: List of tool names allowed for the harness. Use `["*"]` to allow all tools.
         :param pulumi.Input[_builtins.str] arn: ARN of the Harness.
         :param pulumi.Input['AgentcoreHarnessAuthorizerConfigurationArgs'] authorizer_configuration: Authorization configuration for authenticating requests. See `authorizer_configuration` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentActualArgs']]] environment_actuals: Actual deployed environment configuration.
         :param pulumi.Input['AgentcoreHarnessEnvironmentArtifactArgs'] environment_artifact: Environment artifact configuration. See `environment_artifact` Block below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Map of environment variables.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentArgs']]] environments: Compute environment configuration. See `environment` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentArgs']]] environments: Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environment_actual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that the harness assumes to access AWS services.
         :param pulumi.Input[_builtins.str] harness_id: Unique identifier of the Harness.
         :param pulumi.Input[_builtins.str] harness_name: Name of the harness. Must be 1-40 characters, alphanumeric and underscores only.
         :param pulumi.Input[_builtins.int] max_iterations: Maximum number of iterations the agent loop can perform.
         :param pulumi.Input[_builtins.int] max_tokens: Maximum number of tokens in the model response.
-        :param pulumi.Input['AgentcoreHarnessMemoryArgs'] memory: Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memory_actual`.
+        :param pulumi.Input['AgentcoreHarnessMemoryArgs'] memory: Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memory_actual`. Clearing this value will reset the memory configuration to default values.
         :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessMemoryActualArgs']]] memory_actuals: Actual deployed memory configuration.
         :param pulumi.Input['AgentcoreHarnessModelArgs'] model: Model configuration for the harness. See `model` Block below.
                
@@ -388,6 +390,8 @@ class _AgentcoreHarnessState:
             pulumi.set(__self__, "arn", arn)
         if authorizer_configuration is not None:
             pulumi.set(__self__, "authorizer_configuration", authorizer_configuration)
+        if environment_actuals is not None:
+            pulumi.set(__self__, "environment_actuals", environment_actuals)
         if environment_artifact is not None:
             pulumi.set(__self__, "environment_artifact", environment_artifact)
         if environment_variables is not None:
@@ -466,6 +470,18 @@ class _AgentcoreHarnessState:
         pulumi.set(self, "authorizer_configuration", value)
 
     @_builtins.property
+    @pulumi.getter(name="environmentActuals")
+    def environment_actuals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentActualArgs']]]]:
+        """
+        Actual deployed environment configuration.
+        """
+        return pulumi.get(self, "environment_actuals")
+
+    @environment_actuals.setter
+    def environment_actuals(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentActualArgs']]]]):
+        pulumi.set(self, "environment_actuals", value)
+
+    @_builtins.property
     @pulumi.getter(name="environmentArtifact")
     def environment_artifact(self) -> pulumi.Input[Optional['AgentcoreHarnessEnvironmentArtifactArgs']]:
         """
@@ -493,7 +509,7 @@ class _AgentcoreHarnessState:
     @pulumi.getter
     def environments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentArgs']]]]:
         """
-        Compute environment configuration. See `environment` Block below.
+        Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environment_actual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
         """
         return pulumi.get(self, "environments")
 
@@ -565,7 +581,7 @@ class _AgentcoreHarnessState:
     @pulumi.getter
     def memory(self) -> pulumi.Input[Optional['AgentcoreHarnessMemoryArgs']]:
         """
-        Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memory_actual`.
+        Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memory_actual`. Clearing this value will reset the memory configuration to default values.
         """
         return pulumi.get(self, "memory")
 
@@ -887,12 +903,12 @@ class AgentcoreHarness(pulumi.CustomResource):
         :param pulumi.Input[Union['AgentcoreHarnessAuthorizerConfigurationArgs', 'AgentcoreHarnessAuthorizerConfigurationArgsDict']] authorizer_configuration: Authorization configuration for authenticating requests. See `authorizer_configuration` Block below.
         :param pulumi.Input[Union['AgentcoreHarnessEnvironmentArtifactArgs', 'AgentcoreHarnessEnvironmentArtifactArgsDict']] environment_artifact: Environment artifact configuration. See `environment_artifact` Block below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Map of environment variables.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessEnvironmentArgs', 'AgentcoreHarnessEnvironmentArgsDict']]]] environments: Compute environment configuration. See `environment` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessEnvironmentArgs', 'AgentcoreHarnessEnvironmentArgsDict']]]] environments: Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environment_actual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that the harness assumes to access AWS services.
         :param pulumi.Input[_builtins.str] harness_name: Name of the harness. Must be 1-40 characters, alphanumeric and underscores only.
         :param pulumi.Input[_builtins.int] max_iterations: Maximum number of iterations the agent loop can perform.
         :param pulumi.Input[_builtins.int] max_tokens: Maximum number of tokens in the model response.
-        :param pulumi.Input[Union['AgentcoreHarnessMemoryArgs', 'AgentcoreHarnessMemoryArgsDict']] memory: Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memory_actual`.
+        :param pulumi.Input[Union['AgentcoreHarnessMemoryArgs', 'AgentcoreHarnessMemoryArgsDict']] memory: Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memory_actual`. Clearing this value will reset the memory configuration to default values.
         :param pulumi.Input[Union['AgentcoreHarnessModelArgs', 'AgentcoreHarnessModelArgsDict']] model: Model configuration for the harness. See `model` Block below.
                
                The following arguments are optional:
@@ -1129,6 +1145,7 @@ class AgentcoreHarness(pulumi.CustomResource):
             __props__.__dict__["tools"] = tools
             __props__.__dict__["truncations"] = truncations
             __props__.__dict__["arn"] = None
+            __props__.__dict__["environment_actuals"] = None
             __props__.__dict__["harness_id"] = None
             __props__.__dict__["memory_actuals"] = None
             __props__.__dict__["tags_all"] = None
@@ -1147,6 +1164,7 @@ class AgentcoreHarness(pulumi.CustomResource):
             allowed_tools: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             authorizer_configuration: pulumi.Input[Optional[Union['AgentcoreHarnessAuthorizerConfigurationArgs', 'AgentcoreHarnessAuthorizerConfigurationArgsDict']]] = None,
+            environment_actuals: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreHarnessEnvironmentActualArgs', 'AgentcoreHarnessEnvironmentActualArgsDict']]]]] = None,
             environment_artifact: pulumi.Input[Optional[Union['AgentcoreHarnessEnvironmentArtifactArgs', 'AgentcoreHarnessEnvironmentArtifactArgsDict']]] = None,
             environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             environments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreHarnessEnvironmentArgs', 'AgentcoreHarnessEnvironmentArgsDict']]]]] = None,
@@ -1177,15 +1195,16 @@ class AgentcoreHarness(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_tools: List of tool names allowed for the harness. Use `["*"]` to allow all tools.
         :param pulumi.Input[_builtins.str] arn: ARN of the Harness.
         :param pulumi.Input[Union['AgentcoreHarnessAuthorizerConfigurationArgs', 'AgentcoreHarnessAuthorizerConfigurationArgsDict']] authorizer_configuration: Authorization configuration for authenticating requests. See `authorizer_configuration` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessEnvironmentActualArgs', 'AgentcoreHarnessEnvironmentActualArgsDict']]]] environment_actuals: Actual deployed environment configuration.
         :param pulumi.Input[Union['AgentcoreHarnessEnvironmentArtifactArgs', 'AgentcoreHarnessEnvironmentArtifactArgsDict']] environment_artifact: Environment artifact configuration. See `environment_artifact` Block below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Map of environment variables.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessEnvironmentArgs', 'AgentcoreHarnessEnvironmentArgsDict']]]] environments: Compute environment configuration. See `environment` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessEnvironmentArgs', 'AgentcoreHarnessEnvironmentArgsDict']]]] environments: Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environment_actual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that the harness assumes to access AWS services.
         :param pulumi.Input[_builtins.str] harness_id: Unique identifier of the Harness.
         :param pulumi.Input[_builtins.str] harness_name: Name of the harness. Must be 1-40 characters, alphanumeric and underscores only.
         :param pulumi.Input[_builtins.int] max_iterations: Maximum number of iterations the agent loop can perform.
         :param pulumi.Input[_builtins.int] max_tokens: Maximum number of tokens in the model response.
-        :param pulumi.Input[Union['AgentcoreHarnessMemoryArgs', 'AgentcoreHarnessMemoryArgsDict']] memory: Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memory_actual`.
+        :param pulumi.Input[Union['AgentcoreHarnessMemoryArgs', 'AgentcoreHarnessMemoryArgsDict']] memory: Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memory_actual`. Clearing this value will reset the memory configuration to default values.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessMemoryActualArgs', 'AgentcoreHarnessMemoryActualArgsDict']]]] memory_actuals: Actual deployed memory configuration.
         :param pulumi.Input[Union['AgentcoreHarnessModelArgs', 'AgentcoreHarnessModelArgsDict']] model: Model configuration for the harness. See `model` Block below.
                
@@ -1206,6 +1225,7 @@ class AgentcoreHarness(pulumi.CustomResource):
         __props__.__dict__["allowed_tools"] = allowed_tools
         __props__.__dict__["arn"] = arn
         __props__.__dict__["authorizer_configuration"] = authorizer_configuration
+        __props__.__dict__["environment_actuals"] = environment_actuals
         __props__.__dict__["environment_artifact"] = environment_artifact
         __props__.__dict__["environment_variables"] = environment_variables
         __props__.__dict__["environments"] = environments
@@ -1253,6 +1273,14 @@ class AgentcoreHarness(pulumi.CustomResource):
         return pulumi.get(self, "authorizer_configuration")
 
     @_builtins.property
+    @pulumi.getter(name="environmentActuals")
+    def environment_actuals(self) -> pulumi.Output[Sequence['outputs.AgentcoreHarnessEnvironmentActual']]:
+        """
+        Actual deployed environment configuration.
+        """
+        return pulumi.get(self, "environment_actuals")
+
+    @_builtins.property
     @pulumi.getter(name="environmentArtifact")
     def environment_artifact(self) -> pulumi.Output[Optional['outputs.AgentcoreHarnessEnvironmentArtifact']]:
         """
@@ -1270,9 +1298,9 @@ class AgentcoreHarness(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def environments(self) -> pulumi.Output[Sequence['outputs.AgentcoreHarnessEnvironment']]:
+    def environments(self) -> pulumi.Output[Optional[Sequence['outputs.AgentcoreHarnessEnvironment']]]:
         """
-        Compute environment configuration. See `environment` Block below.
+        Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environment_actual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
         """
         return pulumi.get(self, "environments")
 
@@ -1320,7 +1348,7 @@ class AgentcoreHarness(pulumi.CustomResource):
     @pulumi.getter
     def memory(self) -> pulumi.Output[Optional['outputs.AgentcoreHarnessMemory']]:
         """
-        Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memory_actual`.
+        Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memory_actual`. Clearing this value will reset the memory configuration to default values.
         """
         return pulumi.get(self, "memory")
 

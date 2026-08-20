@@ -86,6 +86,8 @@ type LookupOntapFileSystemResult struct {
 	KmsKeyId string `pulumi:"kmsKeyId"`
 	// IDs of the elastic network interfaces from which a specific file system is accessible.
 	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
+	// Network type (`IPV4` or `DUAL`).
+	NetworkType string `pulumi:"networkType"`
 	// AWS account identifier that created the file system.
 	OwnerId string `pulumi:"ownerId"`
 	// Subnet in which you want the preferred file server to be located.
@@ -209,6 +211,11 @@ func (o LookupOntapFileSystemResultOutput) KmsKeyId() pulumi.StringOutput {
 // IDs of the elastic network interfaces from which a specific file system is accessible.
 func (o LookupOntapFileSystemResultOutput) NetworkInterfaceIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupOntapFileSystemResult) []string { return v.NetworkInterfaceIds }).(pulumi.StringArrayOutput)
+}
+
+// Network type (`IPV4` or `DUAL`).
+func (o LookupOntapFileSystemResultOutput) NetworkType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOntapFileSystemResult) string { return v.NetworkType }).(pulumi.StringOutput)
 }
 
 // AWS account identifier that created the file system.

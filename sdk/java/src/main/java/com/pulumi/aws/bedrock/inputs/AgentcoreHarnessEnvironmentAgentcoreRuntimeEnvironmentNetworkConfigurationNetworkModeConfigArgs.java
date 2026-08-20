@@ -10,6 +10,8 @@ import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs extends com.pulumi.resources.ResourceArgs {
@@ -20,15 +22,15 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetwork
      * Whether to require an S3 endpoint for the service in the VPC.
      * 
      */
-    @Import(name="requireServiceS3Endpoint", required=true)
-    private Output<Boolean> requireServiceS3Endpoint;
+    @Import(name="requireServiceS3Endpoint")
+    private @Nullable Output<Boolean> requireServiceS3Endpoint;
 
     /**
      * @return Whether to require an S3 endpoint for the service in the VPC.
      * 
      */
-    public Output<Boolean> requireServiceS3Endpoint() {
-        return this.requireServiceS3Endpoint;
+    public Optional<Output<Boolean>> requireServiceS3Endpoint() {
+        return Optional.ofNullable(this.requireServiceS3Endpoint);
     }
 
     /**
@@ -93,7 +95,7 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetwork
          * @return builder
          * 
          */
-        public Builder requireServiceS3Endpoint(Output<Boolean> requireServiceS3Endpoint) {
+        public Builder requireServiceS3Endpoint(@Nullable Output<Boolean> requireServiceS3Endpoint) {
             $.requireServiceS3Endpoint = requireServiceS3Endpoint;
             return this;
         }
@@ -171,9 +173,6 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetwork
         }
 
         public AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs build() {
-            if ($.requireServiceS3Endpoint == null) {
-                throw new MissingRequiredPropertyException("AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs", "requireServiceS3Endpoint");
-            }
             if ($.securityGroups == null) {
                 throw new MissingRequiredPropertyException("AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs", "securityGroups");
             }

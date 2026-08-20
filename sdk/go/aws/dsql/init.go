@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Cluster{}
 	case "aws:dsql/clusterPeering:ClusterPeering":
 		r = &ClusterPeering{}
+	case "aws:dsql/clusterPolicy:ClusterPolicy":
+		r = &ClusterPolicy{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -46,6 +48,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"dsql/clusterPeering",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"dsql/clusterPolicy",
 		&module{version},
 	)
 }
