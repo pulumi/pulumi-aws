@@ -87,6 +87,24 @@ func TestAutomaticTokenMappings(t *testing.T) {
 	assert.Equal(t, "aws:index/arnBuild:arnBuild", function.Tok.String())
 }
 
+// TestECRCredentialsHasInlineDocs ensures the aws_ecr_credentials shim data source, which has no
+// upstream documentation of its own, ships inline docs instead of an empty/missing docs page.
+// See https://github.com/pulumi/pulumi-aws/issues/1817.
+func TestECRCredentialsHasInlineDocs(t *testing.T) {
+	t.Parallel()
+
+	p := Provider()
+
+	ds, ok := p.DataSources["aws_ecr_credentials"]
+	require.True(t, ok, "aws_ecr_credentials data source should be registered")
+	require.NotNil(t, ds.Docs, "aws_ecr_credentials should have docs configured")
+	assert.NotEmpty(t, ds.Docs.Markdown, "aws_ecr_credentials should provide inline markdown docs")
+	assert.False(t, ds.Docs.AllowMissing,
+		"aws_ecr_credentials should no longer rely on AllowMissing now that inline docs exist")
+	assert.Contains(t, string(ds.Docs.Markdown), "registry_id",
+		"docs should describe the registry_id argument")
+}
+
 func Test_parseAssumeRoles(t *testing.T) {
 	t.Parallel()
 

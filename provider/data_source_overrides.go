@@ -5,6 +5,59 @@ import (
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/info"
 )
 
+// ecrCredentialsMarkdown documents the aws_ecr_credentials data source. This data source is a
+// Pulumi-side shim over the upstream aws_ecr_authorization_token data source (see
+// addLegacyECRCredentialsDataSource in resources.go), retained for v6 backwards compatibility. It
+// has no upstream documentation of its own, so we supply it here rather than allowing the docs to be
+// missing. The schema documented below reflects the shim's overrides: registry_id is required and
+// region is not exposed.
+//
+// The field names below intentionally use Terraform snake_case (for example, `registry_id`). The
+// bridge's docs pipeline matches bullet points against schema property names and translates them to
+// the target language; camelCase names would not be recognized. See argumentBulletRegexp in the
+// bridge's pkg/tfgen/docs.go.
+const ecrCredentialsMarkdown = `---
+subcategory: "ECR (Elastic Container Registry)"
+layout: "aws"
+page_title: "AWS: aws_ecr_credentials"
+description: |-
+    Retrieve temporary credentials for authenticating with a private ECR registry.
+---
+
+# Data Source: aws_ecr_credentials
+
+Use this data source to retrieve temporary credentials that can be used to authenticate with a
+private Amazon Elastic Container Registry (ECR) registry.
+
+This data source is maintained for backwards compatibility. It wraps the same underlying AWS API as
+` + "`aws_ecr_authorization_token`" + `, which new programs should prefer.
+
+## Example Usage
+
+` + "```terraform" + `
+data "aws_ecr_credentials" "example" {
+  registry_id = "123456789012"
+}
+` + "```" + `
+
+## Argument Reference
+
+This data source supports the following arguments:
+
+* ` + "`registry_id`" + ` - (Required) AWS account ID of the ECR registry to retrieve credentials for.
+
+## Attribute Reference
+
+This data source exports the following attributes in addition to the arguments above:
+
+* ` + "`authorization_token`" + ` - Temporary IAM authentication credentials to access the ECR registry, encoded in base64 in the form of ` + "`user_name:password`" + `.
+* ` + "`expires_at`" + ` - Time in UTC RFC3339 format when the authorization token expires.
+* ` + "`id`" + ` - AWS account ID of the ECR registry (the registry ID).
+* ` + "`password`" + ` - Password decoded from the authorization token.
+* ` + "`proxy_endpoint`" + ` - Registry URL to use in the docker login command.
+* ` + "`user_name`" + ` - User name decoded from the authorization token.
+`
+
 func dataSourceOverrides() map[string]*tfbridge.DataSourceInfo {
 	return map[string]*tfbridge.DataSourceInfo{
 		// AWS
@@ -141,7 +194,7 @@ func dataSourceOverrides() map[string]*tfbridge.DataSourceInfo {
 		// Elastic Container Registry
 		"aws_ecr_credentials": {
 			Docs: &info.Doc{
-				AllowMissing: true,
+				Markdown: []byte(ecrCredentialsMarkdown),
 			},
 			Fields: map[string]*info.Schema{
 				"registry_id": {
