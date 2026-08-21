@@ -232,7 +232,7 @@ To do this, you will need to complete the following steps:
 
 #### Configure OIDC between Pulumi and AWS
 
-Refer to the [Configuring OpenID Connect for AWS Guide](/docs/pulumi-cloud/oidc/aws/) for the step-by-step process on how to do this. Note that when adding your configuration to your environment file, you can also define your AWS region in the `environmentVariables` section:
+Refer to the [Configuring OpenID Connect for AWS Guide](/docs/esc/guides/configuring-oidc/aws/) for the step-by-step process on how to do this. Note that when adding your configuration to your environment file, you can also define your AWS region in the `environmentVariables` section:
 
 ```yaml
 values:
