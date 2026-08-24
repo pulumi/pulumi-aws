@@ -75,6 +75,11 @@ jobs:
         github_token: ${{ steps.app-auth.outputs.token }}
         # also save this cache since we are using a different mise env.
         cache_save: true
+    - name: Setup Go cache
+      uses: ./.github/actions/setup-go-cache
+      with:
+        cache-key: integration-tests
+        save: ${{ matrix.current-shard == 0 }}
     - name: Prepare local workspace
       run: make prepare_local_workspace
       env:
