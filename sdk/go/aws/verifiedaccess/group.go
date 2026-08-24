@@ -64,10 +64,10 @@ import (
 //				return err
 //			}
 //			_, err = verifiedaccess.NewGroup(ctx, "test", &verifiedaccess.GroupArgs{
-//				VerifiedaccessInstanceId: pulumi.Any(testAwsVerifiedaccessInstanceTrustProviderAttachment.VerifiedaccessInstanceId),
 //				SseConfiguration: &verifiedaccess.GroupSseConfigurationArgs{
 //					KmsKeyArn: testKey.Arn,
 //				},
+//				VerifiedaccessInstanceId: pulumi.Any(testAwsVerifiedaccessInstanceTrustProviderAttachment.VerifiedaccessInstanceId),
 //			})
 //			if err != nil {
 //				return err

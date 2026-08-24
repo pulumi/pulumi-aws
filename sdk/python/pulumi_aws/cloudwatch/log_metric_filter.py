@@ -253,14 +253,14 @@ class LogMetricFilter(pulumi.CustomResource):
 
         dada = aws.cloudwatch.LogGroup("dada", name="MyApp/access.log")
         yada = aws.cloudwatch.LogMetricFilter("yada",
-            name="MyAppAccessCount",
-            pattern="",
-            log_group_name=dada.name,
             metric_transformation={
                 "name": "EventCount",
                 "namespace": "YourNamespace",
                 "value": "1",
-            })
+            },
+            name="MyAppAccessCount",
+            pattern="",
+            log_group_name=dada.name)
         ```
 
         ## Import
@@ -311,14 +311,14 @@ class LogMetricFilter(pulumi.CustomResource):
 
         dada = aws.cloudwatch.LogGroup("dada", name="MyApp/access.log")
         yada = aws.cloudwatch.LogMetricFilter("yada",
-            name="MyAppAccessCount",
-            pattern="",
-            log_group_name=dada.name,
             metric_transformation={
                 "name": "EventCount",
                 "namespace": "YourNamespace",
                 "value": "1",
-            })
+            },
+            name="MyAppAccessCount",
+            pattern="",
+            log_group_name=dada.name)
         ```
 
         ## Import

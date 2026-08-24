@@ -25,7 +25,6 @@ namespace Pulumi.Aws.Sagemaker
     /// {
     ///     var example = new Aws.Sagemaker.HumanTaskUI("example", new()
     ///     {
-    ///         HumanTaskUiName = "example",
     ///         UiTemplate = new Aws.Sagemaker.Inputs.HumanTaskUIUiTemplateArgs
     ///         {
     ///             Content = Std.File.Invoke(new()
@@ -33,6 +32,7 @@ namespace Pulumi.Aws.Sagemaker
     ///                 Input = "sagemaker-human-task-ui-template.html",
     ///             }).Apply(invoke =&gt; invoke.Result),
     ///         },
+    ///         HumanTaskUiName = "example",
     ///     });
     /// 
     /// });

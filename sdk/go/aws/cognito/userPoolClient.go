@@ -123,7 +123,6 @@ import (
 //			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -132,6 +131,7 @@ import (
 //								},
 //							},
 //						},
+//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"sts:AssumeRole",
 //						},
@@ -149,14 +149,14 @@ import (
 //				return err
 //			}
 //			_, err = cognito.NewUserPoolClient(ctx, "test", &cognito.UserPoolClientArgs{
-//				Name:       pulumi.String("pool_client"),
-//				UserPoolId: testUserPool.ID().ToIDOutput().ToStringOutput(),
 //				AnalyticsConfiguration: &cognito.UserPoolClientAnalyticsConfigurationArgs{
 //					ApplicationId:  testApp.ApplicationId,
 //					ExternalId:     pulumi.String("some_id"),
 //					RoleArn:        testRole.Arn,
 //					UserDataShared: pulumi.Bool(true),
 //				},
+//				Name:       pulumi.String("pool_client"),
+//				UserPoolId: testUserPool.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -264,14 +264,14 @@ import (
 //				return err
 //			}
 //			_, err = cognito.NewUserPoolClient(ctx, "userpool_client", &cognito.UserPoolClientArgs{
+//				RefreshTokenRotation: &cognito.UserPoolClientRefreshTokenRotationArgs{
+//					Feature:                 pulumi.String("ENABLED"),
+//					RetryGracePeriodSeconds: pulumi.Int(10),
+//				},
 //				Name:       pulumi.String("client"),
 //				UserPoolId: pool.ID().ToIDOutput().ToStringOutput(),
 //				ExplicitAuthFlows: pulumi.StringArray{
 //					pulumi.String("ADMIN_NO_SRP_AUTH"),
-//				},
-//				RefreshTokenRotation: &cognito.UserPoolClientRefreshTokenRotationArgs{
-//					Feature:                 pulumi.String("ENABLED"),
-//					RetryGracePeriodSeconds: pulumi.Int(10),
 //				},
 //			})
 //			if err != nil {

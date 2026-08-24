@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3.BucketWebsiteConfiguration("example", {
- *     bucket: exampleAwsS3Bucket.id,
  *     indexDocument: {
  *         suffix: "index.html",
  *     },
@@ -36,6 +35,7 @@ import * as utilities from "../utilities";
  *             replaceKeyPrefixWith: "documents/",
  *         },
  *     }],
+ *     bucket: exampleAwsS3Bucket.id,
  * });
  * ```
  *
@@ -46,13 +46,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3.BucketWebsiteConfiguration("example", {
- *     bucket: exampleAwsS3Bucket.id,
  *     indexDocument: {
  *         suffix: "index.html",
  *     },
  *     errorDocument: {
  *         key: "error.html",
  *     },
+ *     bucket: exampleAwsS3Bucket.id,
  *     routingRuleDetails: `[{
  *     \\"Condition\\": {
  *         \\"KeyPrefixEquals\\": \\"docs/\\"

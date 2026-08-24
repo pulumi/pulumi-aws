@@ -25,15 +25,10 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var test = new Aws.Connect.HoursOfOperation("test", new()
     ///     {
-    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-    ///         Name = "Office Hours",
-    ///         Description = "Monday office hours",
-    ///         TimeZone = "EST",
     ///         Configs = new[]
     ///         {
     ///             new Aws.Connect.Inputs.HoursOfOperationConfigArgs
     ///             {
-    ///                 Day = "MONDAY",
     ///                 EndTime = new Aws.Connect.Inputs.HoursOfOperationConfigEndTimeArgs
     ///                 {
     ///                     Hours = 23,
@@ -44,10 +39,10 @@ namespace Pulumi.Aws.Connect
     ///                     Hours = 8,
     ///                     Minutes = 0,
     ///                 },
+    ///                 Day = "MONDAY",
     ///             },
     ///             new Aws.Connect.Inputs.HoursOfOperationConfigArgs
     ///             {
-    ///                 Day = "TUESDAY",
     ///                 EndTime = new Aws.Connect.Inputs.HoursOfOperationConfigEndTimeArgs
     ///                 {
     ///                     Hours = 21,
@@ -58,8 +53,13 @@ namespace Pulumi.Aws.Connect
     ///                     Hours = 9,
     ///                     Minutes = 0,
     ///                 },
+    ///                 Day = "TUESDAY",
     ///             },
     ///         },
+    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+    ///         Name = "Office Hours",
+    ///         Description = "Monday office hours",
+    ///         TimeZone = "EST",
     ///         Tags = 
     ///         {
     ///             { "Name", "Example Hours of Operation" },

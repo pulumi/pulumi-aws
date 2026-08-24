@@ -36,13 +36,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.kendra.Index("example", {
- *     name: "example",
- *     edition: "DEVELOPER_EDITION",
- *     roleArn: _this.arn,
  *     capacityUnits: {
  *         queryCapacityUnits: 2,
  *         storageCapacityUnits: 2,
  *     },
+ *     name: "example",
+ *     edition: "DEVELOPER_EDITION",
+ *     roleArn: _this.arn,
  * });
  * ```
  *
@@ -53,11 +53,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.kendra.Index("example", {
- *     name: "example",
- *     roleArn: thisAwsIamRole.arn,
  *     serverSideEncryptionConfiguration: {
  *         kmsKeyId: _this.arn,
  *     },
+ *     name: "example",
+ *     roleArn: thisAwsIamRole.arn,
  * });
  * ```
  *
@@ -68,11 +68,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.kendra.Index("example", {
- *     name: "example",
- *     roleArn: _this.arn,
  *     userGroupResolutionConfiguration: {
  *         userGroupResolutionMode: "AWS_SSO",
  *     },
+ *     name: "example",
+ *     roleArn: _this.arn,
  * });
  * ```
  *
@@ -87,12 +87,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.kendra.Index("example", {
- *     name: "example",
- *     roleArn: _this.arn,
  *     documentMetadataConfigurationUpdates: [
  *         {
- *             name: "_authors",
- *             type: "STRING_LIST_VALUE",
  *             search: {
  *                 displayable: false,
  *                 facetable: false,
@@ -102,10 +98,10 @@ import * as utilities from "../utilities";
  *             relevance: {
  *                 importance: 1,
  *             },
+ *             name: "_authors",
+ *             type: "STRING_LIST_VALUE",
  *         },
  *         {
- *             name: "_category",
- *             type: "STRING_VALUE",
  *             search: {
  *                 displayable: false,
  *                 facetable: false,
@@ -116,10 +112,10 @@ import * as utilities from "../utilities";
  *                 importance: 1,
  *                 valuesImportanceMap: {},
  *             },
+ *             name: "_category",
+ *             type: "STRING_VALUE",
  *         },
  *         {
- *             name: "_created_at",
- *             type: "DATE_VALUE",
  *             search: {
  *                 displayable: false,
  *                 facetable: false,
@@ -132,10 +128,10 @@ import * as utilities from "../utilities";
  *                 duration: "25920000s",
  *                 rankOrder: "ASCENDING",
  *             },
+ *             name: "_created_at",
+ *             type: "DATE_VALUE",
  *         },
  *         {
- *             name: "_data_source_id",
- *             type: "STRING_VALUE",
  *             search: {
  *                 displayable: false,
  *                 facetable: false,
@@ -146,10 +142,10 @@ import * as utilities from "../utilities";
  *                 importance: 1,
  *                 valuesImportanceMap: {},
  *             },
+ *             name: "_data_source_id",
+ *             type: "STRING_VALUE",
  *         },
  *         {
- *             name: "_document_title",
- *             type: "STRING_VALUE",
  *             search: {
  *                 displayable: true,
  *                 facetable: false,
@@ -160,10 +156,10 @@ import * as utilities from "../utilities";
  *                 importance: 2,
  *                 valuesImportanceMap: {},
  *             },
+ *             name: "_document_title",
+ *             type: "STRING_VALUE",
  *         },
  *         {
- *             name: "_excerpt_page_number",
- *             type: "LONG_VALUE",
  *             search: {
  *                 displayable: false,
  *                 facetable: false,
@@ -174,10 +170,24 @@ import * as utilities from "../utilities";
  *                 importance: 2,
  *                 rankOrder: "ASCENDING",
  *             },
+ *             name: "_excerpt_page_number",
+ *             type: "LONG_VALUE",
  *         },
  *         {
+ *             search: {
+ *                 displayable: false,
+ *                 facetable: false,
+ *                 searchable: false,
+ *                 sortable: true,
+ *             },
+ *             relevance: {
+ *                 importance: 1,
+ *                 valuesImportanceMap: {},
+ *             },
  *             name: "_faq_id",
  *             type: "STRING_VALUE",
+ *         },
+ *         {
  *             search: {
  *                 displayable: false,
  *                 facetable: false,
@@ -188,10 +198,10 @@ import * as utilities from "../utilities";
  *                 importance: 1,
  *                 valuesImportanceMap: {},
  *             },
- *         },
- *         {
  *             name: "_file_type",
  *             type: "STRING_VALUE",
+ *         },
+ *         {
  *             search: {
  *                 displayable: false,
  *                 facetable: false,
@@ -202,24 +212,10 @@ import * as utilities from "../utilities";
  *                 importance: 1,
  *                 valuesImportanceMap: {},
  *             },
- *         },
- *         {
  *             name: "_language_code",
  *             type: "STRING_VALUE",
- *             search: {
- *                 displayable: false,
- *                 facetable: false,
- *                 searchable: false,
- *                 sortable: true,
- *             },
- *             relevance: {
- *                 importance: 1,
- *                 valuesImportanceMap: {},
- *             },
  *         },
  *         {
- *             name: "_last_updated_at",
- *             type: "DATE_VALUE",
  *             search: {
  *                 displayable: false,
  *                 facetable: false,
@@ -232,10 +228,10 @@ import * as utilities from "../utilities";
  *                 duration: "25920000s",
  *                 rankOrder: "ASCENDING",
  *             },
+ *             name: "_last_updated_at",
+ *             type: "DATE_VALUE",
  *         },
  *         {
- *             name: "_source_uri",
- *             type: "STRING_VALUE",
  *             search: {
  *                 displayable: true,
  *                 facetable: false,
@@ -246,10 +242,24 @@ import * as utilities from "../utilities";
  *                 importance: 1,
  *                 valuesImportanceMap: {},
  *             },
+ *             name: "_source_uri",
+ *             type: "STRING_VALUE",
  *         },
  *         {
+ *             search: {
+ *                 displayable: false,
+ *                 facetable: false,
+ *                 searchable: false,
+ *                 sortable: true,
+ *             },
+ *             relevance: {
+ *                 importance: 1,
+ *                 valuesImportanceMap: {},
+ *             },
  *             name: "_tenant_id",
  *             type: "STRING_VALUE",
+ *         },
+ *         {
  *             search: {
  *                 displayable: false,
  *                 facetable: false,
@@ -260,24 +270,10 @@ import * as utilities from "../utilities";
  *                 importance: 1,
  *                 valuesImportanceMap: {},
  *             },
- *         },
- *         {
  *             name: "_version",
  *             type: "STRING_VALUE",
- *             search: {
- *                 displayable: false,
- *                 facetable: false,
- *                 searchable: false,
- *                 sortable: true,
- *             },
- *             relevance: {
- *                 importance: 1,
- *                 valuesImportanceMap: {},
- *             },
  *         },
  *         {
- *             name: "_view_count",
- *             type: "LONG_VALUE",
  *             search: {
  *                 displayable: false,
  *                 facetable: false,
@@ -288,8 +284,12 @@ import * as utilities from "../utilities";
  *                 importance: 1,
  *                 rankOrder: "ASCENDING",
  *             },
+ *             name: "_view_count",
+ *             type: "LONG_VALUE",
  *         },
  *     ],
+ *     name: "example",
+ *     roleArn: _this.arn,
  * });
  * ```
  *
@@ -302,25 +302,35 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.kendra.Index("example", {
- *     name: "example",
- *     roleArn: _this.arn,
  *     documentMetadataConfigurationUpdates: [
  *         {
+ *             search: {
+ *                 displayable: false,
+ *                 facetable: false,
+ *                 searchable: false,
+ *                 sortable: false,
+ *             },
+ *             relevance: {
+ *                 importance: 1,
+ *             },
  *             name: "_authors",
  *             type: "STRING_LIST_VALUE",
+ *         },
+ *         {
  *             search: {
  *                 displayable: false,
  *                 facetable: false,
  *                 searchable: false,
- *                 sortable: false,
+ *                 sortable: true,
  *             },
  *             relevance: {
  *                 importance: 1,
+ *                 valuesImportanceMap: {},
  *             },
- *         },
- *         {
  *             name: "_category",
  *             type: "STRING_VALUE",
+ *         },
+ *         {
  *             search: {
  *                 displayable: false,
  *                 facetable: false,
@@ -328,13 +338,15 @@ import * as utilities from "../utilities";
  *                 sortable: true,
  *             },
  *             relevance: {
+ *                 freshness: false,
  *                 importance: 1,
- *                 valuesImportanceMap: {},
+ *                 duration: "25920000s",
+ *                 rankOrder: "ASCENDING",
  *             },
- *         },
- *         {
  *             name: "_created_at",
  *             type: "DATE_VALUE",
+ *         },
+ *         {
  *             search: {
  *                 displayable: false,
  *                 facetable: false,
@@ -342,57 +354,55 @@ import * as utilities from "../utilities";
  *                 sortable: true,
  *             },
  *             relevance: {
- *                 freshness: false,
  *                 importance: 1,
- *                 duration: "25920000s",
- *                 rankOrder: "ASCENDING",
+ *                 valuesImportanceMap: {},
  *             },
- *         },
- *         {
  *             name: "_data_source_id",
  *             type: "STRING_VALUE",
+ *         },
+ *         {
  *             search: {
- *                 displayable: false,
+ *                 displayable: true,
  *                 facetable: false,
- *                 searchable: false,
+ *                 searchable: true,
  *                 sortable: true,
  *             },
  *             relevance: {
- *                 importance: 1,
+ *                 importance: 2,
  *                 valuesImportanceMap: {},
  *             },
- *         },
- *         {
  *             name: "_document_title",
  *             type: "STRING_VALUE",
+ *         },
+ *         {
  *             search: {
- *                 displayable: true,
+ *                 displayable: false,
  *                 facetable: false,
- *                 searchable: true,
- *                 sortable: true,
+ *                 searchable: false,
+ *                 sortable: false,
  *             },
  *             relevance: {
  *                 importance: 2,
- *                 valuesImportanceMap: {},
+ *                 rankOrder: "ASCENDING",
  *             },
- *         },
- *         {
  *             name: "_excerpt_page_number",
  *             type: "LONG_VALUE",
+ *         },
+ *         {
  *             search: {
  *                 displayable: false,
  *                 facetable: false,
  *                 searchable: false,
- *                 sortable: false,
+ *                 sortable: true,
  *             },
  *             relevance: {
- *                 importance: 2,
- *                 rankOrder: "ASCENDING",
+ *                 importance: 1,
+ *                 valuesImportanceMap: {},
  *             },
- *         },
- *         {
  *             name: "_faq_id",
  *             type: "STRING_VALUE",
+ *         },
+ *         {
  *             search: {
  *                 displayable: false,
  *                 facetable: false,
@@ -403,10 +413,10 @@ import * as utilities from "../utilities";
  *                 importance: 1,
  *                 valuesImportanceMap: {},
  *             },
- *         },
- *         {
  *             name: "_file_type",
  *             type: "STRING_VALUE",
+ *         },
+ *         {
  *             search: {
  *                 displayable: false,
  *                 facetable: false,
@@ -417,10 +427,10 @@ import * as utilities from "../utilities";
  *                 importance: 1,
  *                 valuesImportanceMap: {},
  *             },
- *         },
- *         {
  *             name: "_language_code",
  *             type: "STRING_VALUE",
+ *         },
+ *         {
  *             search: {
  *                 displayable: false,
  *                 facetable: false,
@@ -428,43 +438,43 @@ import * as utilities from "../utilities";
  *                 sortable: true,
  *             },
  *             relevance: {
+ *                 freshness: false,
  *                 importance: 1,
- *                 valuesImportanceMap: {},
+ *                 duration: "25920000s",
+ *                 rankOrder: "ASCENDING",
  *             },
- *         },
- *         {
  *             name: "_last_updated_at",
  *             type: "DATE_VALUE",
- *             search: {
- *                 displayable: false,
- *                 facetable: false,
- *                 searchable: false,
- *                 sortable: true,
- *             },
- *             relevance: {
- *                 freshness: false,
- *                 importance: 1,
- *                 duration: "25920000s",
- *                 rankOrder: "ASCENDING",
- *             },
  *         },
  *         {
+ *             search: {
+ *                 displayable: true,
+ *                 facetable: false,
+ *                 searchable: false,
+ *                 sortable: false,
+ *             },
+ *             relevance: {
+ *                 importance: 1,
+ *                 valuesImportanceMap: {},
+ *             },
  *             name: "_source_uri",
  *             type: "STRING_VALUE",
+ *         },
+ *         {
  *             search: {
- *                 displayable: true,
+ *                 displayable: false,
  *                 facetable: false,
  *                 searchable: false,
- *                 sortable: false,
+ *                 sortable: true,
  *             },
  *             relevance: {
  *                 importance: 1,
  *                 valuesImportanceMap: {},
  *             },
- *         },
- *         {
  *             name: "_tenant_id",
  *             type: "STRING_VALUE",
+ *         },
+ *         {
  *             search: {
  *                 displayable: false,
  *                 facetable: false,
@@ -475,24 +485,10 @@ import * as utilities from "../utilities";
  *                 importance: 1,
  *                 valuesImportanceMap: {},
  *             },
- *         },
- *         {
  *             name: "_version",
  *             type: "STRING_VALUE",
- *             search: {
- *                 displayable: false,
- *                 facetable: false,
- *                 searchable: false,
- *                 sortable: true,
- *             },
- *             relevance: {
- *                 importance: 1,
- *                 valuesImportanceMap: {},
- *             },
  *         },
  *         {
- *             name: "_view_count",
- *             type: "LONG_VALUE",
  *             search: {
  *                 displayable: false,
  *                 facetable: false,
@@ -503,10 +499,10 @@ import * as utilities from "../utilities";
  *                 importance: 1,
  *                 rankOrder: "ASCENDING",
  *             },
+ *             name: "_view_count",
+ *             type: "LONG_VALUE",
  *         },
  *         {
- *             name: "example-string-value",
- *             type: "STRING_VALUE",
  *             search: {
  *                 displayable: true,
  *                 facetable: true,
@@ -517,10 +513,10 @@ import * as utilities from "../utilities";
  *                 importance: 1,
  *                 valuesImportanceMap: {},
  *             },
+ *             name: "example-string-value",
+ *             type: "STRING_VALUE",
  *         },
  *         {
- *             name: "example-long-value",
- *             type: "LONG_VALUE",
  *             search: {
  *                 displayable: true,
  *                 facetable: true,
@@ -531,10 +527,10 @@ import * as utilities from "../utilities";
  *                 importance: 1,
  *                 rankOrder: "ASCENDING",
  *             },
+ *             name: "example-long-value",
+ *             type: "LONG_VALUE",
  *         },
  *         {
- *             name: "example-string-list-value",
- *             type: "STRING_LIST_VALUE",
  *             search: {
  *                 displayable: true,
  *                 facetable: true,
@@ -544,10 +540,10 @@ import * as utilities from "../utilities";
  *             relevance: {
  *                 importance: 1,
  *             },
+ *             name: "example-string-list-value",
+ *             type: "STRING_LIST_VALUE",
  *         },
  *         {
- *             name: "example-date-value",
- *             type: "DATE_VALUE",
  *             search: {
  *                 displayable: true,
  *                 facetable: true,
@@ -560,8 +556,12 @@ import * as utilities from "../utilities";
  *                 duration: "25920000s",
  *                 rankOrder: "ASCENDING",
  *             },
+ *             name: "example-date-value",
+ *             type: "DATE_VALUE",
  *         },
  *     ],
+ *     name: "example",
+ *     roleArn: _this.arn,
  * });
  * ```
  *
@@ -572,14 +572,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.kendra.Index("example", {
- *     name: "example",
- *     roleArn: _this.arn,
  *     userTokenConfigurations: {
  *         jsonTokenTypeConfiguration: {
  *             groupAttributeField: "groups",
  *             userNameAttributeField: "username",
  *         },
  *     },
+ *     name: "example",
+ *     roleArn: _this.arn,
  * });
  * ```
  *

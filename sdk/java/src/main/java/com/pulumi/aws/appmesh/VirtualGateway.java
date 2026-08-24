@@ -49,8 +49,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new VirtualGateway("example", VirtualGatewayArgs.builder()
- *             .name("example-virtual-gateway")
- *             .meshName("example-service-mesh")
  *             .spec(VirtualGatewaySpecArgs.builder()
  *                 .listeners(VirtualGatewaySpecListenerArgs.builder()
  *                     .portMapping(VirtualGatewaySpecListenerPortMappingArgs.builder()
@@ -59,6 +57,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
+ *             .name("example-virtual-gateway")
+ *             .meshName("example-service-mesh")
  *             .tags(Map.of("Environment", "test"))
  *             .build());
  * 
@@ -79,14 +79,14 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.appmesh.VirtualGateway;
  * import com.pulumi.aws.appmesh.VirtualGatewayArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecLoggingArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecLoggingAccessLogArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecLoggingAccessLogFileArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecListenerArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecListenerPortMappingArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecListenerTlsArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecListenerTlsCertificateArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecListenerTlsCertificateAcmArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecLoggingArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecLoggingAccessLogArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecLoggingAccessLogFileArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -101,9 +101,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new VirtualGateway("example", VirtualGatewayArgs.builder()
- *             .name("example-virtual-gateway")
- *             .meshName("example-service-mesh")
  *             .spec(VirtualGatewaySpecArgs.builder()
+ *                 .logging(VirtualGatewaySpecLoggingArgs.builder()
+ *                     .accessLog(VirtualGatewaySpecLoggingAccessLogArgs.builder()
+ *                         .file(VirtualGatewaySpecLoggingAccessLogFileArgs.builder()
+ *                             .path("/var/log/access.log")
+ *                             .build())
+ *                         .build())
+ *                     .build())
  *                 .listeners(VirtualGatewaySpecListenerArgs.builder()
  *                     .portMapping(VirtualGatewaySpecListenerPortMappingArgs.builder()
  *                         .port(8080)
@@ -118,14 +123,9 @@ import javax.annotation.Nullable;
  *                         .mode("STRICT")
  *                         .build())
  *                     .build())
- *                 .logging(VirtualGatewaySpecLoggingArgs.builder()
- *                     .accessLog(VirtualGatewaySpecLoggingAccessLogArgs.builder()
- *                         .file(VirtualGatewaySpecLoggingAccessLogFileArgs.builder()
- *                             .path("/var/log/access.log")
- *                             .build())
- *                         .build())
- *                     .build())
  *                 .build())
+ *             .name("example-virtual-gateway")
+ *             .meshName("example-service-mesh")
  *             .build());
  * 
  *     }

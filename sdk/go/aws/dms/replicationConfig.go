@@ -31,6 +31,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := dms.NewReplicationConfig(ctx, "name", &dms.ReplicationConfigArgs{
+//				ComputeConfig: &dms.ReplicationConfigComputeConfigArgs{
+//					ReplicationSubnetGroupId:   pulumi.Any(_default.ReplicationSubnetGroupId),
+//					MaxCapacityUnits:           pulumi.Int(64),
+//					MinCapacityUnits:           pulumi.Int(2),
+//					PreferredMaintenanceWindow: pulumi.String("sun:23:45-mon:00:30"),
+//				},
 //				ReplicationConfigIdentifier: pulumi.String("test-dms-serverless-replication-tf"),
 //				ResourceIdentifier:          pulumi.String("test-dms-serverless-replication-tf"),
 //				ReplicationType:             pulumi.String("cdc"),
@@ -38,12 +44,6 @@ import (
 //				TargetEndpointArn:           pulumi.Any(target.EndpointArn),
 //				TableMappings:               pulumi.String("  {\n    \\\"rules\\\":[{\\\"rule-type\\\":\\\"selection\\\",\\\"rule-id\\\":\\\"1\\\",\\\"rule-name\\\":\\\"1\\\",\\\"rule-action\\\":\\\"include\\\",\\\"object-locator\\\":{\\\"schema-name\\\":\\\"%%\\\",\\\"table-name\\\":\\\"%%\\\"}}]\n  }\n"),
 //				StartReplication:            pulumi.Bool(true),
-//				ComputeConfig: &dms.ReplicationConfigComputeConfigArgs{
-//					ReplicationSubnetGroupId:   pulumi.Any(_default.ReplicationSubnetGroupId),
-//					MaxCapacityUnits:           pulumi.Int(64),
-//					MinCapacityUnits:           pulumi.Int(2),
-//					PreferredMaintenanceWindow: pulumi.String("sun:23:45-mon:00:30"),
-//				},
 //			})
 //			if err != nil {
 //				return err

@@ -407,13 +407,13 @@ class AlarmMuteRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudwatch.AlarmMuteRule("example",
-            name="example",
             rule={
                 "schedule": {
                     "duration": "PT4H",
                     "expression": "cron(0 2 * * *)",
                 },
-            })
+            },
+            name="example")
         ```
 
         ### With Start/Expire Dates Option
@@ -432,10 +432,6 @@ class AlarmMuteRule(pulumi.CustomResource):
             statistic="Average",
             threshold=float(80))
         example_alarm_mute_rule = aws.cloudwatch.AlarmMuteRule("example",
-            name="example",
-            description="Mute alarms during maintenance window",
-            start_date="2026-01-01T00:00:00Z",
-            expire_date="2026-12-31T23:59:00Z",
             rule={
                 "schedule": {
                     "duration": "PT4H",
@@ -446,6 +442,10 @@ class AlarmMuteRule(pulumi.CustomResource):
             mute_targets={
                 "alarm_names": [example.name],
             },
+            name="example",
+            description="Mute alarms during maintenance window",
+            start_date="2026-01-01T00:00:00Z",
+            expire_date="2026-12-31T23:59:00Z",
             tags={
                 "Environment": "production",
             })
@@ -460,13 +460,13 @@ class AlarmMuteRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudwatch.AlarmMuteRule("example",
-            name="example",
             rule={
                 "schedule": {
                     "duration": "PT4H",
                     "expression": "at(2026-12-31T23:59:59)",
                 },
-            })
+            },
+            name="example")
         ```
 
         ## Import
@@ -520,13 +520,13 @@ class AlarmMuteRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudwatch.AlarmMuteRule("example",
-            name="example",
             rule={
                 "schedule": {
                     "duration": "PT4H",
                     "expression": "cron(0 2 * * *)",
                 },
-            })
+            },
+            name="example")
         ```
 
         ### With Start/Expire Dates Option
@@ -545,10 +545,6 @@ class AlarmMuteRule(pulumi.CustomResource):
             statistic="Average",
             threshold=float(80))
         example_alarm_mute_rule = aws.cloudwatch.AlarmMuteRule("example",
-            name="example",
-            description="Mute alarms during maintenance window",
-            start_date="2026-01-01T00:00:00Z",
-            expire_date="2026-12-31T23:59:00Z",
             rule={
                 "schedule": {
                     "duration": "PT4H",
@@ -559,6 +555,10 @@ class AlarmMuteRule(pulumi.CustomResource):
             mute_targets={
                 "alarm_names": [example.name],
             },
+            name="example",
+            description="Mute alarms during maintenance window",
+            start_date="2026-01-01T00:00:00Z",
+            expire_date="2026-12-31T23:59:00Z",
             tags={
                 "Environment": "production",
             })
@@ -573,13 +573,13 @@ class AlarmMuteRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudwatch.AlarmMuteRule("example",
-            name="example",
             rule={
                 "schedule": {
                     "duration": "PT4H",
                     "expression": "at(2026-12-31T23:59:59)",
                 },
-            })
+            },
+            name="example")
         ```
 
         ## Import

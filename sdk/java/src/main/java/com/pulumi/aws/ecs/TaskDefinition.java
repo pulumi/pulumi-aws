@@ -39,8 +39,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ecs.TaskDefinition;
  * import com.pulumi.aws.ecs.TaskDefinitionArgs;
- * import com.pulumi.aws.ecs.inputs.TaskDefinitionVolumeArgs;
  * import com.pulumi.aws.ecs.inputs.TaskDefinitionPlacementConstraintArgs;
+ * import com.pulumi.aws.ecs.inputs.TaskDefinitionVolumeArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.ArrayList;
  * import java.util.Arrays;
@@ -56,6 +56,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var service = new TaskDefinition("service", TaskDefinitionArgs.builder()
+ *             .placementConstraints(TaskDefinitionPlacementConstraintArgs.builder()
+ *                 .type("memberOf")
+ *                 .expression("attribute:ecs.availability-zone in [us-west-2a, us-west-2b]")
+ *                 .build())
+ *             .volumes(TaskDefinitionVolumeArgs.builder()
+ *                 .name("service-storage")
+ *                 .hostPath("/ecs/service-storage")
+ *                 .build())
  *             .family("service")
  *             .containerDefinitions(serializeJson(
  *                 jsonArray(
@@ -82,14 +90,6 @@ import javax.annotation.Nullable;
  *                         )))
  *                     )
  *                 )))
- *             .volumes(TaskDefinitionVolumeArgs.builder()
- *                 .name("service-storage")
- *                 .hostPath("/ecs/service-storage")
- *                 .build())
- *             .placementConstraints(TaskDefinitionPlacementConstraintArgs.builder()
- *                 .type("memberOf")
- *                 .expression("attribute:ecs.availability-zone in [us-west-2a, us-west-2b]")
- *                 .build())
  *             .build());
  * 
  *     }
@@ -125,10 +125,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var service = new TaskDefinition("service", TaskDefinitionArgs.builder()
- *             .family("service")
- *             .containerDefinitions(StdFunctions.file(FileArgs.builder()
- *                 .input("task-definitions/service.json")
- *                 .build()).result())
  *             .proxyConfiguration(TaskDefinitionProxyConfigurationArgs.builder()
  *                 .type("APPMESH")
  *                 .containerName("applicationContainerName")
@@ -140,6 +136,10 @@ import javax.annotation.Nullable;
  *                     Map.entry("ProxyIngressPort", "15000")
  *                 ))
  *                 .build())
+ *             .family("service")
+ *             .containerDefinitions(StdFunctions.file(FileArgs.builder()
+ *                 .input("task-definitions/service.json")
+ *                 .build()).result())
  *             .build());
  * 
  *     }
@@ -176,12 +176,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var service = new TaskDefinition("service", TaskDefinitionArgs.builder()
- *             .family("service")
- *             .containerDefinitions(StdFunctions.file(FileArgs.builder()
- *                 .input("task-definitions/service.json")
- *                 .build()).result())
  *             .volumes(TaskDefinitionVolumeArgs.builder()
- *                 .name("service-storage")
  *                 .dockerVolumeConfiguration(TaskDefinitionVolumeDockerVolumeConfigurationArgs.builder()
  *                     .scope("shared")
  *                     .autoprovision(true)
@@ -192,7 +187,12 @@ import javax.annotation.Nullable;
  *                         Map.entry("o", String.format("addr=%s,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport", fs.dnsName()))
  *                     ))
  *                     .build())
+ *                 .name("service-storage")
  *                 .build())
+ *             .family("service")
+ *             .containerDefinitions(StdFunctions.file(FileArgs.builder()
+ *                 .input("task-definitions/service.json")
+ *                 .build()).result())
  *             .build());
  * 
  *     }
@@ -230,23 +230,23 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var service = new TaskDefinition("service", TaskDefinitionArgs.builder()
- *             .family("service")
- *             .containerDefinitions(StdFunctions.file(FileArgs.builder()
- *                 .input("task-definitions/service.json")
- *                 .build()).result())
  *             .volumes(TaskDefinitionVolumeArgs.builder()
- *                 .name("service-storage")
  *                 .efsVolumeConfiguration(TaskDefinitionVolumeEfsVolumeConfigurationArgs.builder()
- *                     .fileSystemId(fs.id())
- *                     .rootDirectory("/opt/data")
- *                     .transitEncryption("ENABLED")
- *                     .transitEncryptionPort(2999)
  *                     .authorizationConfig(TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs.builder()
  *                         .accessPointId(test.id())
  *                         .iam("ENABLED")
  *                         .build())
+ *                     .fileSystemId(fs.id())
+ *                     .rootDirectory("/opt/data")
+ *                     .transitEncryption("ENABLED")
+ *                     .transitEncryptionPort(2999)
  *                     .build())
+ *                 .name("service-storage")
  *                 .build())
+ *             .family("service")
+ *             .containerDefinitions(StdFunctions.file(FileArgs.builder()
+ *                 .input("task-definitions/service.json")
+ *                 .build()).result())
  *             .build());
  * 
  *     }
@@ -296,21 +296,21 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var service = new TaskDefinition("service", TaskDefinitionArgs.builder()
- *             .family("service")
- *             .containerDefinitions(StdFunctions.file(FileArgs.builder()
- *                 .input("task-definitions/service.json")
- *                 .build()).result())
  *             .volumes(TaskDefinitionVolumeArgs.builder()
- *                 .name("service-storage")
  *                 .fsxWindowsFileServerVolumeConfiguration(TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs.builder()
- *                     .fileSystemId(testAwsFsxWindowsFileSystem.id())
- *                     .rootDirectory("\\data")
  *                     .authorizationConfig(TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs.builder()
  *                         .credentialsParameter(test.arn())
  *                         .domain(testAwsDirectoryServiceDirectory.name())
  *                         .build())
+ *                     .fileSystemId(testAwsFsxWindowsFileSystem.id())
+ *                     .rootDirectory("\\data")
  *                     .build())
+ *                 .name("service-storage")
  *                 .build())
+ *             .family("service")
+ *             .containerDefinitions(StdFunctions.file(FileArgs.builder()
+ *                 .input("task-definitions/service.json")
+ *                 .build()).result())
  *             .build());
  * 
  *     }
@@ -399,6 +399,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new TaskDefinition("test", TaskDefinitionArgs.builder()
+ *             .runtimePlatform(TaskDefinitionRuntimePlatformArgs.builder()
+ *                 .operatingSystemFamily("WINDOWS_SERVER_2019_CORE")
+ *                 .cpuArchitecture("X86_64")
+ *                 .build())
  *             .family("test")
  *             .requiresCompatibilities("FARGATE")
  *             .networkMode("awsvpc")
@@ -415,10 +419,6 @@ import javax.annotation.Nullable;
  *   }
  * ]
  *             """)
- *             .runtimePlatform(TaskDefinitionRuntimePlatformArgs.builder()
- *                 .operatingSystemFamily("WINDOWS_SERVER_2019_CORE")
- *                 .cpuArchitecture("X86_64")
- *                 .build())
  *             .build());
  * 
  *     }

@@ -20,12 +20,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.connect.UserHierarchyStructure("example", {
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
  *     hierarchyStructure: {
  *         levelOne: {
  *             name: "levelone",
  *         },
  *     },
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
  * });
  * ```
  *
@@ -36,7 +36,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.connect.UserHierarchyStructure("example", {
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
  *     hierarchyStructure: {
  *         levelOne: {
  *             name: "levelone",
@@ -54,6 +53,7 @@ import * as utilities from "../utilities";
  *             name: "levelfive",
  *         },
  *     },
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
  * });
  * ```
  *

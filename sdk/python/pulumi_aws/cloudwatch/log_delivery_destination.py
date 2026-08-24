@@ -285,10 +285,10 @@ class LogDeliveryDestination(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudwatch.LogDeliveryDestination("example",
-            name="example",
             delivery_destination_configuration={
                 "destination_resource_arn": example_aws_cloudwatch_log_group["arn"],
-            })
+            },
+            name="example")
         ```
 
         ### X-Ray Trace Delivery
@@ -349,10 +349,10 @@ class LogDeliveryDestination(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudwatch.LogDeliveryDestination("example",
-            name="example",
             delivery_destination_configuration={
                 "destination_resource_arn": example_aws_cloudwatch_log_group["arn"],
-            })
+            },
+            name="example")
         ```
 
         ### X-Ray Trace Delivery

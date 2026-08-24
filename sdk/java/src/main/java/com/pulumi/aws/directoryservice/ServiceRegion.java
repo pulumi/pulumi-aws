@@ -64,11 +64,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
- *             .state("available")
  *             .filters(GetAvailabilityZonesFilterArgs.builder()
  *                 .name("opt-in-status")
  *                 .values("opt-in-not-required")
  *                 .build())
+ *             .state("available")
  *             .build());
  * 
  *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()
@@ -91,21 +91,21 @@ import javax.annotation.Nullable;
  *         
  * }
  *         var exampleDirectory = new Directory("exampleDirectory", DirectoryArgs.builder()
- *             .name("example.com")
- *             .password("SuperSecretPassw0rd")
- *             .type("MicrosoftAD")
  *             .vpcSettings(DirectoryVpcSettingsArgs.builder()
  *                 .vpcId(exampleVpc.id())
  *                 .subnetIds(exampleSubnet.stream().map(element -> element.id()).collect(toList()))
  *                 .build())
+ *             .name("example.com")
+ *             .password("SuperSecretPassw0rd")
+ *             .type("MicrosoftAD")
  *             .build());
  * 
  *         final var available-secondary = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
- *             .state("available")
  *             .filters(GetAvailabilityZonesFilterArgs.builder()
  *                 .name("opt-in-status")
  *                 .values("opt-in-not-required")
  *                 .build())
+ *             .state("available")
  *             .build());
  * 
  *         var example_secondary = new Vpc("example-secondary", VpcArgs.builder()
@@ -128,12 +128,12 @@ import javax.annotation.Nullable;
  *         
  * }
  *         var exampleServiceRegion = new ServiceRegion("exampleServiceRegion", ServiceRegionArgs.builder()
- *             .directoryId(exampleDirectory.id())
- *             .regionName(example.region())
  *             .vpcSettings(ServiceRegionVpcSettingsArgs.builder()
  *                 .vpcId(example_secondary.id())
  *                 .subnetIds(example_secondarySubnet.stream().map(element -> element.id()).collect(toList()))
  *                 .build())
+ *             .directoryId(exampleDirectory.id())
+ *             .regionName(example.region())
  *             .tags(Map.of("Name", "Secondary"))
  *             .build());
  * 

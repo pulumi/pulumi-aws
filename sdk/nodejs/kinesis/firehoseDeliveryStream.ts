@@ -23,11 +23,11 @@ import * as utilities from "../utilities";
  * const bucket = new aws.s3.Bucket("bucket", {bucket: "tf-test-bucket"});
  * const firehoseAssumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["firehose.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
@@ -37,11 +37,11 @@ import * as utilities from "../utilities";
  * });
  * const lambdaAssumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["lambda.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
@@ -57,22 +57,22 @@ import * as utilities from "../utilities";
  *     runtime: aws.lambda.Runtime.NodeJS24dX,
  * });
  * const extendedS3Stream = new aws.kinesis.FirehoseDeliveryStream("extended_s3_stream", {
- *     name: "kinesis-firehose-extended-s3-test-stream",
- *     destination: "extended_s3",
  *     extendedS3Configuration: {
- *         roleArn: firehoseRole.arn,
- *         bucketArn: bucket.arn,
  *         processingConfiguration: {
- *             enabled: true,
  *             processors: [{
- *                 type: "Lambda",
  *                 parameters: [{
  *                     parameterName: "LambdaArn",
  *                     parameterValue: pulumi.interpolate`${lambdaProcessor.arn}:$LATEST`,
  *                 }],
+ *                 type: "Lambda",
  *             }],
+ *             enabled: true,
  *         },
+ *         roleArn: firehoseRole.arn,
+ *         bucketArn: bucket.arn,
  *     },
+ *     name: "kinesis-firehose-extended-s3-test-stream",
+ *     destination: "extended_s3",
  * });
  * const bucketAcl = new aws.s3.BucketAcl("bucket_acl", {
  *     bucket: bucket.id,
@@ -89,32 +89,23 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const extendedS3Stream = new aws.kinesis.FirehoseDeliveryStream("extended_s3_stream", {
- *     name: "kinesis-firehose-extended-s3-test-stream",
- *     destination: "extended_s3",
  *     extendedS3Configuration: {
- *         roleArn: firehoseRole.arn,
- *         bucketArn: bucket.arn,
- *         bufferingSize: 64,
  *         dynamicPartitioningConfiguration: {
  *             enabled: true,
  *         },
- *         prefix: "data/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/",
- *         errorOutputPrefix: "errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/",
  *         processingConfiguration: {
- *             enabled: true,
  *             processors: [
  *                 {
- *                     type: "RecordDeAggregation",
  *                     parameters: [{
  *                         parameterName: "SubRecordType",
  *                         parameterValue: "JSON",
  *                     }],
+ *                     type: "RecordDeAggregation",
  *                 },
  *                 {
  *                     type: "AppendDelimiterToRecord",
  *                 },
  *                 {
- *                     type: "MetadataExtraction",
  *                     parameters: [
  *                         {
  *                             parameterName: "JsonParsingEngine",
@@ -125,10 +116,19 @@ import * as utilities from "../utilities";
  *                             parameterValue: "{customer_id:.customer_id}",
  *                         },
  *                     ],
+ *                     type: "MetadataExtraction",
  *                 },
  *             ],
+ *             enabled: true,
  *         },
+ *         roleArn: firehoseRole.arn,
+ *         bucketArn: bucket.arn,
+ *         bufferingSize: 64,
+ *         prefix: "data/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/",
+ *         errorOutputPrefix: "errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/",
  *     },
+ *     name: "kinesis-firehose-extended-s3-test-stream",
+ *     destination: "extended_s3",
  * });
  * ```
  *
@@ -141,21 +141,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const extendedS3Stream = new aws.kinesis.FirehoseDeliveryStream("extended_s3_stream", {
- *     name: "kinesis-firehose-extended-s3-test-stream",
- *     destination: "extended_s3",
  *     extendedS3Configuration: {
- *         roleArn: firehoseRole.arn,
- *         bucketArn: bucket.arn,
- *         bufferingSize: 64,
  *         dynamicPartitioningConfiguration: {
  *             enabled: true,
  *         },
- *         prefix: "data/store_id=!{partitionKeyFromQuery:store_id}/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/",
- *         errorOutputPrefix: "errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/",
  *         processingConfiguration: {
- *             enabled: true,
  *             processors: [{
- *                 type: "MetadataExtraction",
  *                 parameters: [
  *                     {
  *                         parameterName: "JsonParsingEngine",
@@ -166,9 +157,18 @@ import * as utilities from "../utilities";
  *                         parameterValue: "{store_id:.store_id,customer_id:.customer_id}",
  *                     },
  *                 ],
+ *                 type: "MetadataExtraction",
  *             }],
+ *             enabled: true,
  *         },
+ *         roleArn: firehoseRole.arn,
+ *         bucketArn: bucket.arn,
+ *         bufferingSize: 64,
+ *         prefix: "data/store_id=!{partitionKeyFromQuery:store_id}/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/",
+ *         errorOutputPrefix: "errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/",
  *     },
+ *     name: "kinesis-firehose-extended-s3-test-stream",
+ *     destination: "extended_s3",
  * });
  * ```
  *
@@ -187,17 +187,7 @@ import * as utilities from "../utilities";
  *     clusterType: "single-node",
  * });
  * const testStream = new aws.kinesis.FirehoseDeliveryStream("test_stream", {
- *     name: "kinesis-firehose-test-stream",
- *     destination: "redshift",
  *     redshiftConfiguration: {
- *         roleArn: firehoseRole.arn,
- *         clusterJdbcurl: pulumi.interpolate`jdbc:redshift://${testCluster.endpoint}/${testCluster.databaseName}`,
- *         username: "testuser",
- *         password: "T3stPass",
- *         dataTableName: "test-table",
- *         copyOptions: "delimiter '|'",
- *         dataTableColumns: "test-col",
- *         s3BackupMode: "Enabled",
  *         s3Configuration: {
  *             roleArn: firehoseRole.arn,
  *             bucketArn: bucket.arn,
@@ -212,7 +202,17 @@ import * as utilities from "../utilities";
  *             bufferingInterval: 300,
  *             compressionFormat: "GZIP",
  *         },
+ *         roleArn: firehoseRole.arn,
+ *         clusterJdbcurl: pulumi.interpolate`jdbc:redshift://${testCluster.endpoint}/${testCluster.databaseName}`,
+ *         username: "testuser",
+ *         password: "T3stPass",
+ *         dataTableName: "test-table",
+ *         copyOptions: "delimiter '|'",
+ *         dataTableColumns: "test-col",
+ *         s3BackupMode: "Enabled",
  *     },
+ *     name: "kinesis-firehose-test-stream",
+ *     destination: "redshift",
  * });
  * ```
  *
@@ -224,13 +224,7 @@ import * as utilities from "../utilities";
  *
  * const testCluster = new aws.elasticsearch.Domain("test_cluster", {domainName: "firehose-es-test"});
  * const testStream = new aws.kinesis.FirehoseDeliveryStream("test_stream", {
- *     name: "kinesis-firehose-test-stream",
- *     destination: "elasticsearch",
  *     elasticsearchConfiguration: {
- *         domainArn: testCluster.arn,
- *         roleArn: firehoseRole.arn,
- *         indexName: "test",
- *         typeName: "test",
  *         s3Configuration: {
  *             roleArn: firehoseRole.arn,
  *             bucketArn: bucket.arn,
@@ -239,16 +233,22 @@ import * as utilities from "../utilities";
  *             compressionFormat: "GZIP",
  *         },
  *         processingConfiguration: {
- *             enabled: true,
  *             processors: [{
- *                 type: "Lambda",
  *                 parameters: [{
  *                     parameterName: "LambdaArn",
  *                     parameterValue: `${lambdaProcessor.arn}:$LATEST`,
  *                 }],
+ *                 type: "Lambda",
  *             }],
+ *             enabled: true,
  *         },
+ *         domainArn: testCluster.arn,
+ *         roleArn: firehoseRole.arn,
+ *         indexName: "test",
+ *         typeName: "test",
  *     },
+ *     name: "kinesis-firehose-test-stream",
+ *     destination: "elasticsearch",
  * });
  * ```
  *
@@ -259,7 +259,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const testCluster = new aws.elasticsearch.Domain("test_cluster", {
- *     domainName: "es-test",
  *     clusterConfig: {
  *         instanceCount: 2,
  *         zoneAwarenessEnabled: true,
@@ -276,6 +275,7 @@ import * as utilities from "../utilities";
  *             second.id,
  *         ],
  *     },
+ *     domainName: "es-test",
  * });
  * const firehose_elasticsearch = aws.iam.getPolicyDocumentOutput({
  *     statements: [
@@ -309,13 +309,7 @@ import * as utilities from "../utilities";
  *     policy: firehose_elasticsearch.json,
  * });
  * const test = new aws.kinesis.FirehoseDeliveryStream("test", {
- *     name: "kinesis-firehose-es",
- *     destination: "elasticsearch",
  *     elasticsearchConfiguration: {
- *         domainArn: testCluster.arn,
- *         roleArn: firehose.arn,
- *         indexName: "test",
- *         typeName: "test",
  *         s3Configuration: {
  *             roleArn: firehose.arn,
  *             bucketArn: bucket.arn,
@@ -328,7 +322,13 @@ import * as utilities from "../utilities";
  *             securityGroupIds: [first.id],
  *             roleArn: firehose.arn,
  *         },
+ *         domainArn: testCluster.arn,
+ *         roleArn: firehose.arn,
+ *         indexName: "test",
+ *         typeName: "test",
  *     },
+ *     name: "kinesis-firehose-es",
+ *     destination: "elasticsearch",
  * }, {
  *     dependsOn: [firehose_elasticsearchRolePolicy],
  * });
@@ -342,12 +342,7 @@ import * as utilities from "../utilities";
  *
  * const testCluster = new aws.opensearch.Domain("test_cluster", {domainName: "firehose-os-test"});
  * const testStream = new aws.kinesis.FirehoseDeliveryStream("test_stream", {
- *     name: "kinesis-firehose-test-stream",
- *     destination: "opensearch",
  *     opensearchConfiguration: {
- *         domainArn: testCluster.arn,
- *         roleArn: firehoseRole.arn,
- *         indexName: "test",
  *         s3Configuration: {
  *             roleArn: firehoseRole.arn,
  *             bucketArn: bucket.arn,
@@ -356,16 +351,21 @@ import * as utilities from "../utilities";
  *             compressionFormat: "GZIP",
  *         },
  *         processingConfiguration: {
- *             enabled: true,
  *             processors: [{
- *                 type: "Lambda",
  *                 parameters: [{
  *                     parameterName: "LambdaArn",
  *                     parameterValue: `${lambdaProcessor.arn}:$LATEST`,
  *                 }],
+ *                 type: "Lambda",
  *             }],
+ *             enabled: true,
  *         },
+ *         domainArn: testCluster.arn,
+ *         roleArn: firehoseRole.arn,
+ *         indexName: "test",
  *     },
+ *     name: "kinesis-firehose-test-stream",
+ *     destination: "opensearch",
  * });
  * ```
  *
@@ -376,7 +376,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const testCluster = new aws.opensearch.Domain("test_cluster", {
- *     domainName: "es-test",
  *     clusterConfig: {
  *         instanceCount: 2,
  *         zoneAwarenessEnabled: true,
@@ -393,6 +392,7 @@ import * as utilities from "../utilities";
  *             second.id,
  *         ],
  *     },
+ *     domainName: "es-test",
  * });
  * const firehose_opensearch = new aws.iam.RolePolicy("firehose-opensearch", {
  *     name: "opensearch",
@@ -431,12 +431,7 @@ import * as utilities from "../utilities";
  * `,
  * });
  * const test = new aws.kinesis.FirehoseDeliveryStream("test", {
- *     name: "pulumi-kinesis-firehose-os",
- *     destination: "opensearch",
  *     opensearchConfiguration: {
- *         domainArn: testCluster.arn,
- *         roleArn: firehose.arn,
- *         indexName: "test",
  *         s3Configuration: {
  *             roleArn: firehose.arn,
  *             bucketArn: bucket.arn,
@@ -449,7 +444,12 @@ import * as utilities from "../utilities";
  *             securityGroupIds: [first.id],
  *             roleArn: firehose.arn,
  *         },
+ *         domainArn: testCluster.arn,
+ *         roleArn: firehose.arn,
+ *         indexName: "test",
  *     },
+ *     name: "pulumi-kinesis-firehose-os",
+ *     destination: "opensearch",
  * }, {
  *     dependsOn: [firehose_opensearch],
  * });
@@ -463,12 +463,7 @@ import * as utilities from "../utilities";
  *
  * const testCollection = new aws.opensearch.ServerlessCollection("test_collection", {name: "firehose-osserverless-test"});
  * const testStream = new aws.kinesis.FirehoseDeliveryStream("test_stream", {
- *     name: "kinesis-firehose-test-stream",
- *     destination: "opensearchserverless",
  *     opensearchserverlessConfiguration: {
- *         collectionEndpoint: testCollection.collectionEndpoint,
- *         roleArn: firehoseRole.arn,
- *         indexName: "test",
  *         s3Configuration: {
  *             roleArn: firehoseRole.arn,
  *             bucketArn: bucket.arn,
@@ -477,16 +472,21 @@ import * as utilities from "../utilities";
  *             compressionFormat: "GZIP",
  *         },
  *         processingConfiguration: {
- *             enabled: true,
  *             processors: [{
- *                 type: "Lambda",
  *                 parameters: [{
  *                     parameterName: "LambdaArn",
  *                     parameterValue: `${lambdaProcessor.arn}:$LATEST`,
  *                 }],
+ *                 type: "Lambda",
  *             }],
+ *             enabled: true,
  *         },
+ *         collectionEndpoint: testCollection.collectionEndpoint,
+ *         roleArn: firehoseRole.arn,
+ *         indexName: "test",
  *     },
+ *     name: "kinesis-firehose-test-stream",
+ *     destination: "opensearchserverless",
  * });
  * ```
  *
@@ -505,12 +505,6 @@ import * as utilities from "../utilities";
  * });
  * const test = new aws.glue.CatalogDatabase("test", {name: "test"});
  * const testCatalogTable = new aws.glue.CatalogTable("test", {
- *     name: "test",
- *     databaseName: test.name,
- *     parameters: {
- *         format: "parquet",
- *     },
- *     tableType: "EXTERNAL_TABLE",
  *     openTableFormatInput: {
  *         icebergInput: {
  *             metadataOperation: "CREATE",
@@ -518,40 +512,46 @@ import * as utilities from "../utilities";
  *         },
  *     },
  *     storageDescriptor: {
- *         location: pulumi.interpolate`s3://${bucket.id}`,
  *         columns: [{
  *             name: "my_column_1",
  *             type: "int",
  *         }],
+ *         location: pulumi.interpolate`s3://${bucket.id}`,
  *     },
+ *     name: "test",
+ *     databaseName: test.name,
+ *     parameters: {
+ *         format: "parquet",
+ *     },
+ *     tableType: "EXTERNAL_TABLE",
  * });
  * const testStream = new aws.kinesis.FirehoseDeliveryStream("test_stream", {
- *     name: "kinesis-firehose-test-stream",
- *     destination: "iceberg",
  *     icebergConfiguration: {
- *         roleArn: firehoseRole.arn,
- *         catalogArn: Promise.all([currentGetPartition, currentGetRegion, current]).then(([currentGetPartition, currentGetRegion, current]) => `arn:${currentGetPartition.partition}:glue:${currentGetRegion.region}:${current.accountId}:catalog`),
- *         bufferingSize: 10,
- *         bufferingInterval: 400,
  *         s3Configuration: {
  *             roleArn: firehoseRole.arn,
  *             bucketArn: bucket.arn,
+ *         },
+ *         processingConfiguration: {
+ *             processors: [{
+ *                 parameters: [{
+ *                     parameterName: "LambdaArn",
+ *                     parameterValue: `${lambdaProcessor.arn}:$LATEST`,
+ *                 }],
+ *                 type: "Lambda",
+ *             }],
+ *             enabled: true,
  *         },
  *         destinationTableConfigurations: [{
  *             databaseName: test.name,
  *             tableName: testCatalogTable.name,
  *         }],
- *         processingConfiguration: {
- *             enabled: true,
- *             processors: [{
- *                 type: "Lambda",
- *                 parameters: [{
- *                     parameterName: "LambdaArn",
- *                     parameterValue: `${lambdaProcessor.arn}:$LATEST`,
- *                 }],
- *             }],
- *         },
+ *         roleArn: firehoseRole.arn,
+ *         catalogArn: Promise.all([currentGetPartition, currentGetRegion, current]).then(([currentGetPartition, currentGetRegion, current]) => `arn:${currentGetPartition.partition}:glue:${currentGetRegion.region}:${current.accountId}:catalog`),
+ *         bufferingSize: 10,
+ *         bufferingInterval: 400,
  *     },
+ *     name: "kinesis-firehose-test-stream",
+ *     destination: "iceberg",
  * });
  * ```
  *
@@ -562,14 +562,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const testStream = new aws.kinesis.FirehoseDeliveryStream("test_stream", {
- *     name: "kinesis-firehose-test-stream",
- *     destination: "splunk",
  *     splunkConfiguration: {
- *         hecEndpoint: "https://http-inputs-mydomain.splunkcloud.com:443",
- *         hecToken: "51D4DA16-C61B-4F5F-8EC7-ED4301342A4A",
- *         hecAcknowledgmentTimeout: 600,
- *         hecEndpointType: "Event",
- *         s3BackupMode: "FailedEventsOnly",
  *         s3Configuration: {
  *             roleArn: firehose.arn,
  *             bucketArn: bucket.arn,
@@ -577,7 +570,14 @@ import * as utilities from "../utilities";
  *             bufferingInterval: 400,
  *             compressionFormat: "GZIP",
  *         },
+ *         hecEndpoint: "https://http-inputs-mydomain.splunkcloud.com:443",
+ *         hecToken: "51D4DA16-C61B-4F5F-8EC7-ED4301342A4A",
+ *         hecAcknowledgmentTimeout: 600,
+ *         hecEndpointType: "Event",
+ *         s3BackupMode: "FailedEventsOnly",
  *     },
+ *     name: "kinesis-firehose-test-stream",
+ *     destination: "splunk",
  * });
  * ```
  *
@@ -590,16 +590,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const testStream = new aws.kinesis.FirehoseDeliveryStream("test_stream", {
- *     name: "kinesis-firehose-test-stream",
- *     destination: "http_endpoint",
  *     httpEndpointConfiguration: {
- *         url: "https://aws-api.newrelic.com/firehose/v1",
- *         name: "New Relic",
- *         accessKey: "my-key",
- *         bufferingSize: 15,
- *         bufferingInterval: 600,
- *         roleArn: firehose.arn,
- *         s3BackupMode: "FailedDataOnly",
  *         s3Configuration: {
  *             roleArn: firehose.arn,
  *             bucketArn: bucket.arn,
@@ -608,7 +599,6 @@ import * as utilities from "../utilities";
  *             compressionFormat: "GZIP",
  *         },
  *         requestConfiguration: {
- *             contentEncoding: "GZIP",
  *             commonAttributes: [
  *                 {
  *                     name: "testname",
@@ -619,8 +609,18 @@ import * as utilities from "../utilities";
  *                     value: "testvalue2",
  *                 },
  *             ],
+ *             contentEncoding: "GZIP",
  *         },
+ *         url: "https://aws-api.newrelic.com/firehose/v1",
+ *         name: "New Relic",
+ *         accessKey: "my-key",
+ *         bufferingSize: 15,
+ *         bufferingInterval: 600,
+ *         roleArn: firehose.arn,
+ *         s3BackupMode: "FailedDataOnly",
  *     },
+ *     name: "kinesis-firehose-test-stream",
+ *     destination: "http_endpoint",
  * });
  * ```
  *
@@ -631,9 +631,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const exampleSnowflakeDestination = new aws.kinesis.FirehoseDeliveryStream("example_snowflake_destination", {
- *     name: "example-snowflake-destination",
- *     destination: "snowflake",
  *     snowflakeConfiguration: {
+ *         s3Configuration: {
+ *             roleArn: firehose.arn,
+ *             bucketArn: bucket.arn,
+ *             bufferingSize: 10,
+ *             bufferingInterval: 400,
+ *             compressionFormat: "GZIP",
+ *         },
  *         accountUrl: "https://example.snowflakecomputing.com",
  *         bufferingSize: 15,
  *         bufferingInterval: 600,
@@ -643,14 +648,9 @@ import * as utilities from "../utilities";
  *         schema: "example-schema",
  *         table: "example-table",
  *         user: "example-usr",
- *         s3Configuration: {
- *             roleArn: firehose.arn,
- *             bucketArn: bucket.arn,
- *             bufferingSize: 10,
- *             bufferingInterval: 400,
- *             compressionFormat: "GZIP",
- *         },
  *     },
+ *     name: "example-snowflake-destination",
+ *     destination: "snowflake",
  * });
  * ```
  *

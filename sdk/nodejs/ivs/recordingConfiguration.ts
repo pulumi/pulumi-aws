@@ -19,12 +19,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ivs.RecordingConfiguration("example", {
- *     name: "recording_configuration-1",
  *     destinationConfiguration: {
  *         s3: {
  *             bucketName: "ivs-stream-archive",
  *         },
  *     },
+ *     name: "recording_configuration-1",
  * });
  * ```
  *

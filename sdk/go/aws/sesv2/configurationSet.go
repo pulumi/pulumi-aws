@@ -31,7 +31,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sesv2.NewConfigurationSet(ctx, "example", &sesv2.ConfigurationSetArgs{
-//				ConfigurationSetName: pulumi.String("example"),
 //				DeliveryOptions: &sesv2.ConfigurationSetDeliveryOptionsArgs{
 //					MaxDeliverySeconds: pulumi.Int(300),
 //					TlsPolicy:          pulumi.String("REQUIRE"),
@@ -52,6 +51,7 @@ import (
 //					CustomRedirectDomain: pulumi.String("example.com"),
 //					HttpsPolicy:          pulumi.String("REQUIRE"),
 //				},
+//				ConfigurationSetName: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

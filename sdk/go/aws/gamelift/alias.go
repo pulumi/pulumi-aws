@@ -29,12 +29,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := gamelift.NewAlias(ctx, "example", &gamelift.AliasArgs{
-//				Name:        pulumi.String("example-alias"),
-//				Description: pulumi.String("Example Description"),
 //				RoutingStrategy: &gamelift.AliasRoutingStrategyArgs{
 //					Message: pulumi.String("Example Message"),
 //					Type:    pulumi.String("TERMINAL"),
 //				},
+//				Name:        pulumi.String("example-alias"),
+//				Description: pulumi.String("Example Description"),
 //			})
 //			if err != nil {
 //				return err

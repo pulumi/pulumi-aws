@@ -35,11 +35,11 @@ import * as utilities from "../utilities";
  * const exampleBucket = new aws.s3.Bucket("example", {bucketPrefix: "tf-ivschat-logging-bucket"});
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["firehose.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
@@ -48,12 +48,12 @@ import * as utilities from "../utilities";
  *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
  * });
  * const example = new aws.kinesis.FirehoseDeliveryStream("example", {
- *     name: "pulumi-kinesis-firehose-extended-s3-example-stream",
- *     destination: "extended_s3",
  *     extendedS3Configuration: {
  *         roleArn: exampleRole.arn,
  *         bucketArn: exampleBucket.arn,
  *     },
+ *     name: "pulumi-kinesis-firehose-extended-s3-example-stream",
+ *     destination: "extended_s3",
  *     tags: {
  *         LogDeliveryEnabled: "true",
  *     },

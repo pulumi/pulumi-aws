@@ -34,9 +34,7 @@ import (
 //				return err
 //			}
 //			_, err = s3control.NewStorageLensConfiguration(ctx, "example", &s3control.StorageLensConfigurationArgs{
-//				ConfigId: pulumi.String("example-1"),
 //				StorageLensConfiguration: &s3control.StorageLensConfigurationStorageLensConfigurationArgs{
-//					Enabled: pulumi.Bool(true),
 //					AccountLevel: &s3control.StorageLensConfigurationStorageLensConfigurationAccountLevelArgs{
 //						ActivityMetrics: &s3control.StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgs{
 //							Enabled: pulumi.Bool(true),
@@ -52,15 +50,15 @@ import (
 //							Enabled: pulumi.Bool(true),
 //						},
 //						S3BucketDestination: &s3control.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs{
-//							AccountId:           pulumi.String(current.AccountId),
-//							Arn:                 pulumi.Any(target.Arn),
-//							Format:              pulumi.String("CSV"),
-//							OutputSchemaVersion: pulumi.String("V_1"),
 //							Encryption: &s3control.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs{
 //								SseS3s: s3control.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Array{
 //									&s3control.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Args{},
 //								},
 //							},
+//							AccountId:           pulumi.String(current.AccountId),
+//							Arn:                 pulumi.Any(target.Arn),
+//							Format:              pulumi.String("CSV"),
+//							OutputSchemaVersion: pulumi.String("V_1"),
 //						},
 //					},
 //					Exclude: &s3control.StorageLensConfigurationStorageLensConfigurationExcludeArgs{
@@ -72,7 +70,9 @@ import (
 //							pulumi.String("us-east-2"),
 //						},
 //					},
+//					Enabled: pulumi.Bool(true),
 //				},
+//				ConfigId: pulumi.String("example-1"),
 //			})
 //			if err != nil {
 //				return err

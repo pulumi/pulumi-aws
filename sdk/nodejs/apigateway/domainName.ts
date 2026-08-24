@@ -50,14 +50,14 @@ import * as utilities from "../utilities";
  * // Example DNS record using Route53.
  * // Route53 is not specifically required; any DNS host can be used.
  * const exampleRecord = new aws.route53.Record("example", {
- *     name: example.domainName,
- *     type: aws.route53.RecordType.A,
- *     zoneId: exampleAwsRoute53Zone.id,
  *     aliases: [{
  *         evaluateTargetHealth: true,
  *         name: example.cloudfrontDomainName,
  *         zoneId: example.cloudfrontZoneId,
  *     }],
+ *     name: example.domainName,
+ *     type: aws.route53.RecordType.A,
+ *     zoneId: exampleAwsRoute53Zone.id,
  * });
  * ```
  *
@@ -68,23 +68,23 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.apigateway.DomainName("example", {
- *     domainName: "api.example.com",
- *     regionalCertificateArn: exampleAwsAcmCertificateValidation.certificateArn,
  *     endpointConfiguration: {
  *         types: "REGIONAL",
  *     },
+ *     domainName: "api.example.com",
+ *     regionalCertificateArn: exampleAwsAcmCertificateValidation.certificateArn,
  * });
  * // Example DNS record using Route53.
  * // Route53 is not specifically required; any DNS host can be used.
  * const exampleRecord = new aws.route53.Record("example", {
- *     name: example.domainName,
- *     type: aws.route53.RecordType.A,
- *     zoneId: exampleAwsRoute53Zone.id,
  *     aliases: [{
  *         evaluateTargetHealth: true,
  *         name: example.regionalDomainName,
  *         zoneId: example.regionalZoneId,
  *     }],
+ *     name: example.domainName,
+ *     type: aws.route53.RecordType.A,
+ *     zoneId: exampleAwsRoute53Zone.id,
  * });
  * ```
  *
@@ -95,13 +95,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.apigateway.DomainName("example", {
+ *     endpointConfiguration: {
+ *         types: "REGIONAL",
+ *     },
  *     domainName: "api.example.com",
  *     regionalCertificateArn: exampleAwsAcmCertificateValidation.certificateArn,
  *     securityPolicy: "SecurityPolicy_TLS13_1_3_2025_09",
  *     endpointAccessMode: "STRICT",
- *     endpointConfiguration: {
- *         types: "REGIONAL",
- *     },
  * });
  * ```
  *

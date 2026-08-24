@@ -21,14 +21,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const github = new aws.bedrock.AgentcoreOauth2CredentialProvider("github", {
- *     name: "github-oauth-provider",
- *     credentialProviderVendor: "GithubOauth2",
  *     oauth2ProviderConfig: {
  *         githubOauth2ProviderConfig: {
  *             clientId: "your-github-client-id",
  *             clientSecret: "your-github-client-secret",
  *         },
  *     },
+ *     name: "github-oauth-provider",
+ *     credentialProviderVendor: "GithubOauth2",
  * });
  * ```
  *
@@ -39,18 +39,18 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const auth0 = new aws.bedrock.AgentcoreOauth2CredentialProvider("auth0", {
- *     name: "auth0-oauth-provider",
- *     credentialProviderVendor: "CustomOauth2",
  *     customOauth2ProviderConfig: [{
  *         custom: [{
- *             clientIdWo: "auth0-client-id",
- *             clientSecretWo: "auth0-client-secret",
- *             clientCredentialsWoVersion: 1,
  *             oauthDiscovery: [{
  *                 discoveryUrl: "https://dev-company.auth0.com/.well-known/openid-configuration",
  *             }],
+ *             clientIdWo: "auth0-client-id",
+ *             clientSecretWo: "auth0-client-secret",
+ *             clientCredentialsWoVersion: 1,
  *         }],
  *     }],
+ *     name: "auth0-oauth-provider",
+ *     credentialProviderVendor: "CustomOauth2",
  * });
  * ```
  *
@@ -61,13 +61,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const keycloak = new aws.bedrock.AgentcoreOauth2CredentialProvider("keycloak", {
- *     name: "keycloak-oauth-provider",
- *     credentialProviderVendor: "CustomOauth2",
  *     oauth2ProviderConfig: {
  *         customOauth2ProviderConfig: {
- *             clientIdWo: "keycloak-client-id",
- *             clientSecretWo: "keycloak-client-secret",
- *             clientCredentialsWoVersion: 1,
  *             oauthDiscovery: {
  *                 authorizationServerMetadata: {
  *                     issuer: "https://auth.company.com/realms/production",
@@ -79,8 +74,13 @@ import * as utilities from "../utilities";
  *                     ],
  *                 },
  *             },
+ *             clientIdWo: "keycloak-client-id",
+ *             clientSecretWo: "keycloak-client-secret",
+ *             clientCredentialsWoVersion: 1,
  *         },
  *     },
+ *     name: "keycloak-oauth-provider",
+ *     credentialProviderVendor: "CustomOauth2",
  * });
  * ```
  *

@@ -50,6 +50,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new InfrastructureConfiguration("example", InfrastructureConfigurationArgs.builder()
+ *             .logging(InfrastructureConfigurationLoggingArgs.builder()
+ *                 .s3Logs(InfrastructureConfigurationLoggingS3LogsArgs.builder()
+ *                     .s3BucketName(exampleAwsS3Bucket.bucket())
+ *                     .s3KeyPrefix("logs")
+ *                     .build())
+ *                 .build())
  *             .description("example description")
  *             .instanceProfileName(exampleAwsIamInstanceProfile.name())
  *             .instanceTypes(            
@@ -61,12 +67,6 @@ import javax.annotation.Nullable;
  *             .snsTopicArn(exampleAwsSnsTopic.arn())
  *             .subnetId(main.id())
  *             .terminateInstanceOnFailure(true)
- *             .logging(InfrastructureConfigurationLoggingArgs.builder()
- *                 .s3Logs(InfrastructureConfigurationLoggingS3LogsArgs.builder()
- *                     .s3BucketName(exampleAwsS3Bucket.bucket())
- *                     .s3KeyPrefix("logs")
- *                     .build())
- *                 .build())
  *             .tags(Map.of("foo", "bar"))
  *             .build());
  * 

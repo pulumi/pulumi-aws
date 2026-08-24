@@ -28,20 +28,20 @@ namespace Pulumi.Aws.Evidently
     /// {
     ///     var example = new Aws.Evidently.Feature("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Project = exampleAwsEvidentlyProject.Name,
-    ///         Description = "example description",
     ///         Variations = new[]
     ///         {
     ///             new Aws.Evidently.Inputs.FeatureVariationArgs
     ///             {
-    ///                 Name = "Variation1",
     ///                 Value = new Aws.Evidently.Inputs.FeatureVariationValueArgs
     ///                 {
     ///                     StringValue = "example",
     ///                 },
+    ///                 Name = "Variation1",
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         Project = exampleAwsEvidentlyProject.Name,
+    ///         Description = "example description",
     ///         Tags = 
     ///         {
     ///             { "Key1", "example Feature" },
@@ -63,28 +63,28 @@ namespace Pulumi.Aws.Evidently
     /// {
     ///     var example = new Aws.Evidently.Feature("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Project = exampleAwsEvidentlyProject.Name,
-    ///         DefaultVariation = "Variation2",
     ///         Variations = new[]
     ///         {
     ///             new Aws.Evidently.Inputs.FeatureVariationArgs
     ///             {
-    ///                 Name = "Variation1",
     ///                 Value = new Aws.Evidently.Inputs.FeatureVariationValueArgs
     ///                 {
     ///                     StringValue = "exampleval1",
     ///                 },
+    ///                 Name = "Variation1",
     ///             },
     ///             new Aws.Evidently.Inputs.FeatureVariationArgs
     ///             {
-    ///                 Name = "Variation2",
     ///                 Value = new Aws.Evidently.Inputs.FeatureVariationValueArgs
     ///                 {
     ///                     StringValue = "exampleval2",
     ///                 },
+    ///                 Name = "Variation2",
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         Project = exampleAwsEvidentlyProject.Name,
+    ///         DefaultVariation = "Variation2",
     ///     });
     /// 
     /// });
@@ -102,30 +102,30 @@ namespace Pulumi.Aws.Evidently
     /// {
     ///     var example = new Aws.Evidently.Feature("example", new()
     ///     {
+    ///         Variations = new[]
+    ///         {
+    ///             new Aws.Evidently.Inputs.FeatureVariationArgs
+    ///             {
+    ///                 Value = new Aws.Evidently.Inputs.FeatureVariationValueArgs
+    ///                 {
+    ///                     StringValue = "exampleval1",
+    ///                 },
+    ///                 Name = "Variation1",
+    ///             },
+    ///             new Aws.Evidently.Inputs.FeatureVariationArgs
+    ///             {
+    ///                 Value = new Aws.Evidently.Inputs.FeatureVariationValueArgs
+    ///                 {
+    ///                     StringValue = "exampleval2",
+    ///                 },
+    ///                 Name = "Variation2",
+    ///             },
+    ///         },
     ///         Name = "example",
     ///         Project = exampleAwsEvidentlyProject.Name,
     ///         EntityOverrides = 
     ///         {
     ///             { "test1", "Variation1" },
-    ///         },
-    ///         Variations = new[]
-    ///         {
-    ///             new Aws.Evidently.Inputs.FeatureVariationArgs
-    ///             {
-    ///                 Name = "Variation1",
-    ///                 Value = new Aws.Evidently.Inputs.FeatureVariationValueArgs
-    ///                 {
-    ///                     StringValue = "exampleval1",
-    ///                 },
-    ///             },
-    ///             new Aws.Evidently.Inputs.FeatureVariationArgs
-    ///             {
-    ///                 Name = "Variation2",
-    ///                 Value = new Aws.Evidently.Inputs.FeatureVariationValueArgs
-    ///                 {
-    ///                     StringValue = "exampleval2",
-    ///                 },
-    ///             },
     ///         },
     ///     });
     /// 
@@ -144,23 +144,23 @@ namespace Pulumi.Aws.Evidently
     /// {
     ///     var example = new Aws.Evidently.Feature("example", new()
     ///     {
+    ///         Variations = new[]
+    ///         {
+    ///             new Aws.Evidently.Inputs.FeatureVariationArgs
+    ///             {
+    ///                 Value = new Aws.Evidently.Inputs.FeatureVariationValueArgs
+    ///                 {
+    ///                     StringValue = "exampleval1",
+    ///                 },
+    ///                 Name = "Variation1",
+    ///             },
+    ///         },
     ///         Name = "example",
     ///         Project = exampleAwsEvidentlyProject.Name,
     ///         EvaluationStrategy = "ALL_RULES",
     ///         EntityOverrides = 
     ///         {
     ///             { "test1", "Variation1" },
-    ///         },
-    ///         Variations = new[]
-    ///         {
-    ///             new Aws.Evidently.Inputs.FeatureVariationArgs
-    ///             {
-    ///                 Name = "Variation1",
-    ///                 Value = new Aws.Evidently.Inputs.FeatureVariationValueArgs
-    ///                 {
-    ///                     StringValue = "exampleval1",
-    ///                 },
-    ///             },
     ///         },
     ///     });
     /// 

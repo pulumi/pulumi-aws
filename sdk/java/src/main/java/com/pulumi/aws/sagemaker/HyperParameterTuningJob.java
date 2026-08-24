@@ -47,12 +47,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.sagemaker.inputs.HyperParameterTuningJobConfigResourceLimitsArgs;
  * import com.pulumi.aws.sagemaker.inputs.HyperParameterTuningJobTrainingJobDefinitionArgs;
  * import com.pulumi.aws.sagemaker.inputs.HyperParameterTuningJobTrainingJobDefinitionAlgorithmSpecificationArgs;
- * import com.pulumi.aws.sagemaker.inputs.HyperParameterTuningJobTrainingJobDefinitionInputDataConfigArgs;
- * import com.pulumi.aws.sagemaker.inputs.HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceArgs;
- * import com.pulumi.aws.sagemaker.inputs.HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceArgs;
  * import com.pulumi.aws.sagemaker.inputs.HyperParameterTuningJobTrainingJobDefinitionOutputDataConfigArgs;
  * import com.pulumi.aws.sagemaker.inputs.HyperParameterTuningJobTrainingJobDefinitionResourceConfigArgs;
  * import com.pulumi.aws.sagemaker.inputs.HyperParameterTuningJobTrainingJobDefinitionStoppingConditionArgs;
+ * import com.pulumi.aws.sagemaker.inputs.HyperParameterTuningJobTrainingJobDefinitionInputDataConfigArgs;
+ * import com.pulumi.aws.sagemaker.inputs.HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceArgs;
+ * import com.pulumi.aws.sagemaker.inputs.HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -67,9 +67,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new HyperParameterTuningJob("example", HyperParameterTuningJobArgs.builder()
- *             .name("example")
  *             .config(HyperParameterTuningJobConfigArgs.builder()
- *                 .strategy("Bayesian")
  *                 .objective(HyperParameterTuningJobConfigObjectiveArgs.builder()
  *                     .metricName("test:msd")
  *                     .type("Minimize")
@@ -105,40 +103,13 @@ import javax.annotation.Nullable;
  *                     .maxNumberOfTrainingJobs(2)
  *                     .maxParallelTrainingJobs(1)
  *                     .build())
+ *                 .strategy("Bayesian")
  *                 .build())
  *             .trainingJobDefinition(HyperParameterTuningJobTrainingJobDefinitionArgs.builder()
- *                 .roleArn("arn:aws:iam::123456789012:role/example-sagemaker-execution-role")
  *                 .algorithmSpecification(HyperParameterTuningJobTrainingJobDefinitionAlgorithmSpecificationArgs.builder()
  *                     .trainingImage("174872318107.dkr.ecr.us-west-2.amazonaws.com/kmeans:1")
  *                     .trainingInputMode("File")
  *                     .build())
- *                 .staticHyperParameters(Map.ofEntries(
- *                     Map.entry("feature_dim", "3"),
- *                     Map.entry("k", "2")
- *                 ))
- *                 .inputDataConfigs(                
- *                     HyperParameterTuningJobTrainingJobDefinitionInputDataConfigArgs.builder()
- *                         .channelName("train")
- *                         .contentType("text/csv")
- *                         .inputMode("File")
- *                         .dataSource(HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceArgs.builder()
- *                             .s3DataSource(HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceArgs.builder()
- *                                 .s3DataType("S3Prefix")
- *                                 .s3Uri("s3://example-bucket/input/")
- *                                 .build())
- *                             .build())
- *                         .build(),
- *                     HyperParameterTuningJobTrainingJobDefinitionInputDataConfigArgs.builder()
- *                         .channelName("test")
- *                         .contentType("text/csv")
- *                         .inputMode("File")
- *                         .dataSource(HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceArgs.builder()
- *                             .s3DataSource(HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceArgs.builder()
- *                                 .s3DataType("S3Prefix")
- *                                 .s3Uri("s3://example-bucket/input/")
- *                                 .build())
- *                             .build())
- *                         .build())
  *                 .outputDataConfig(HyperParameterTuningJobTrainingJobDefinitionOutputDataConfigArgs.builder()
  *                     .s3OutputPath("s3://example-bucket/output/")
  *                     .build())
@@ -150,7 +121,36 @@ import javax.annotation.Nullable;
  *                 .stoppingCondition(HyperParameterTuningJobTrainingJobDefinitionStoppingConditionArgs.builder()
  *                     .maxRuntimeInSeconds(3600)
  *                     .build())
+ *                 .inputDataConfigs(                
+ *                     HyperParameterTuningJobTrainingJobDefinitionInputDataConfigArgs.builder()
+ *                         .dataSource(HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceArgs.builder()
+ *                             .s3DataSource(HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceArgs.builder()
+ *                                 .s3DataType("S3Prefix")
+ *                                 .s3Uri("s3://example-bucket/input/")
+ *                                 .build())
+ *                             .build())
+ *                         .channelName("train")
+ *                         .contentType("text/csv")
+ *                         .inputMode("File")
+ *                         .build(),
+ *                     HyperParameterTuningJobTrainingJobDefinitionInputDataConfigArgs.builder()
+ *                         .dataSource(HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceArgs.builder()
+ *                             .s3DataSource(HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceArgs.builder()
+ *                                 .s3DataType("S3Prefix")
+ *                                 .s3Uri("s3://example-bucket/input/")
+ *                                 .build())
+ *                             .build())
+ *                         .channelName("test")
+ *                         .contentType("text/csv")
+ *                         .inputMode("File")
+ *                         .build())
+ *                 .roleArn("arn:aws:iam::123456789012:role/example-sagemaker-execution-role")
+ *                 .staticHyperParameters(Map.ofEntries(
+ *                     Map.entry("feature_dim", "3"),
+ *                     Map.entry("k", "2")
+ *                 ))
  *                 .build())
+ *             .name("example")
  *             .build());
  * 
  *     }

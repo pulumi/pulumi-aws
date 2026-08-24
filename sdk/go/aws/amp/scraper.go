@@ -308,13 +308,13 @@ import (
 //						WorkspaceArn: pulumi.Any(exampleAwsPrometheusWorkspace.Arn),
 //					},
 //				},
-//				ScrapeConfiguration: pulumi.String(example.Configuration),
 //				Source: &amp.ScraperSourceArgs{
 //					Eks: &amp.ScraperSourceEksArgs{
 //						ClusterArn: pulumi.Any(exampleAwsEksCluster.Arn),
 //						SubnetIds:  pulumi.Any(exampleAwsEksCluster.VpcConfig[0].SubnetIds),
 //					},
 //				},
+//				ScrapeConfiguration: pulumi.String(example.Configuration),
 //			})
 //			if err != nil {
 //				return err
@@ -366,12 +366,12 @@ import (
 //						SubnetIds:  pulumi.Any(exampleAwsEksCluster.VpcConfig[0].SubnetIds),
 //					},
 //				},
-//				ScrapeConfiguration: pulumi.String("..."),
 //				Destination: &amp.ScraperDestinationArgs{
 //					Amp: &amp.ScraperDestinationAmpArgs{
 //						WorkspaceArn: example.Arn,
 //					},
 //				},
+//				ScrapeConfiguration: pulumi.String("..."),
 //			})
 //			if err != nil {
 //				return err

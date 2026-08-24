@@ -215,10 +215,10 @@ import (
 //				return err
 //			}
 //			exampleBucketVersioning, err := s3.NewBucketVersioning(ctx, "example", &s3.BucketVersioningArgs{
-//				Bucket: examplebucket.ID().ToIDOutput().ToStringOutput(),
 //				VersioningConfiguration: &s3.BucketVersioningVersioningConfigurationArgs{
 //					Status: pulumi.String("Enabled"),
 //				},
+//				Bucket: examplebucket.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

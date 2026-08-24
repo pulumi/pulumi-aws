@@ -62,7 +62,6 @@ import javax.annotation.Nullable;
  * 
  *         var test = new Export("test", ExportArgs.builder()
  *             .export(ExportExportArgs.builder()
- *                 .name("testexample")
  *                 .dataQueries(ExportExportDataQueryArgs.builder()
  *                     .queryStatement("SELECT identity_line_item_id, identity_time_interval, line_item_product_code,line_item_unblended_cost FROM COST_AND_USAGE_REPORT")
  *                     .tableConfigurations(Map.of("COST_AND_USAGE_REPORT", Map.ofEntries(
@@ -75,20 +74,21 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .destinationConfigurations(ExportExportDestinationConfigurationArgs.builder()
  *                     .s3Destinations(ExportExportDestinationConfigurationS3DestinationArgs.builder()
- *                         .s3Bucket(testAwsS3Bucket.bucket())
- *                         .s3Prefix(testAwsS3Bucket.bucketPrefix())
- *                         .s3Region(testAwsS3Bucket.region())
  *                         .s3OutputConfigurations(ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgs.builder()
  *                             .overwrite("OVERWRITE_REPORT")
  *                             .format("TEXT_OR_CSV")
  *                             .compression("GZIP")
  *                             .outputType("CUSTOM")
  *                             .build())
+ *                         .s3Bucket(testAwsS3Bucket.bucket())
+ *                         .s3Prefix(testAwsS3Bucket.bucketPrefix())
+ *                         .s3Region(testAwsS3Bucket.region())
  *                         .build())
  *                     .build())
  *                 .refreshCadences(ExportExportRefreshCadenceArgs.builder()
  *                     .frequency("SYNCHRONOUS")
  *                     .build())
+ *                 .name("testexample")
  *                 .build())
  *             .build());
  * 

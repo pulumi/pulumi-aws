@@ -42,15 +42,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.storagegateway.Gateway("example", {
- *     gatewayIpAddress: "1.2.3.4",
- *     gatewayName: "example",
- *     gatewayTimezone: "GMT",
- *     gatewayType: "FILE_FSX_SMB",
  *     smbActiveDirectorySettings: {
  *         domainName: "corp.example.com",
  *         password: "avoid-plaintext-passwords",
  *         username: "Admin",
  *     },
+ *     gatewayIpAddress: "1.2.3.4",
+ *     gatewayName: "example",
+ *     gatewayTimezone: "GMT",
+ *     gatewayType: "FILE_FSX_SMB",
  * });
  * ```
  *
@@ -126,7 +126,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.storagegateway.Gateway("example", {gatewayIpAddress: sgw.privateIp});
+ * const example = new aws.storagegateway.Gateway("example", {gatewayIpAddress: sgw.privateIp}, {
+ *     ignoreChanges: ["gatewayIpAddress"],
+ * });
  * ```
  */
 export class Gateway extends pulumi.CustomResource {

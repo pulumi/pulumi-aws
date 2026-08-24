@@ -314,8 +314,6 @@ class IngestionDestination(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appfabric.IngestionDestination("example",
-            app_bundle_arn=example_aws_appfabric_app_bundle["arn"],
-            ingestion_arn=example_aws_appfabric_ingestion["arn"],
             processing_configuration={
                 "audit_log": {
                     "format": "json",
@@ -330,7 +328,9 @@ class IngestionDestination(pulumi.CustomResource):
                         },
                     },
                 },
-            })
+            },
+            app_bundle_arn=example_aws_appfabric_app_bundle["arn"],
+            ingestion_arn=example_aws_appfabric_ingestion["arn"])
         ```
 
 
@@ -363,8 +363,6 @@ class IngestionDestination(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appfabric.IngestionDestination("example",
-            app_bundle_arn=example_aws_appfabric_app_bundle["arn"],
-            ingestion_arn=example_aws_appfabric_ingestion["arn"],
             processing_configuration={
                 "audit_log": {
                     "format": "json",
@@ -379,7 +377,9 @@ class IngestionDestination(pulumi.CustomResource):
                         },
                     },
                 },
-            })
+            },
+            app_bundle_arn=example_aws_appfabric_app_bundle["arn"],
+            ingestion_arn=example_aws_appfabric_ingestion["arn"])
         ```
 
 

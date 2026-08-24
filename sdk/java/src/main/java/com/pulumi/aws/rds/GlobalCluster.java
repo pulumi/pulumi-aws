@@ -89,6 +89,7 @@ import javax.annotation.Nullable;
  *             .dbSubnetGroupName("default")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(primaryClusterInstance)
+ *                 .ignoreChanges("replicationSourceIdentifier")
  *                 .build());
  * 
  *         var secondaryClusterInstance = new ClusterInstance("secondaryClusterInstance", ClusterInstanceArgs.builder()
@@ -170,6 +171,7 @@ import javax.annotation.Nullable;
  *             .dbSubnetGroupName("default")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(primaryClusterInstance)
+ *                 .ignoreChanges("replicationSourceIdentifier")
  *                 .build());
  * 
  *         var secondaryClusterInstance = new ClusterInstance("secondaryClusterInstance", ClusterInstanceArgs.builder()
@@ -196,8 +198,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.rds.Cluster;
+ * import com.pulumi.aws.rds.ClusterArgs;
  * import com.pulumi.aws.rds.GlobalCluster;
  * import com.pulumi.aws.rds.GlobalClusterArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -211,7 +215,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Cluster("example");
+ *         var example = new Cluster("example", ClusterArgs.Empty, CustomResourceOptions.builder()
+ *             .ignoreChanges("globalClusterIdentifier")
+ *             .build());
  * 
  *         var exampleGlobalCluster = new GlobalCluster("exampleGlobalCluster", GlobalClusterArgs.builder()
  *             .forceDestroy(true)
@@ -241,6 +247,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.rds.ClusterArgs;
  * import com.pulumi.aws.rds.ClusterInstance;
  * import com.pulumi.aws.rds.ClusterInstanceArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -271,7 +278,9 @@ import javax.annotation.Nullable;
  *             .masterPassword("satsukimae")
  *             .masterUsername("maesatsuki")
  *             .skipFinalSnapshot(true)
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .ignoreChanges("engineVersion")
+ *                 .build());
  * 
  *         var primaryClusterInstance = new ClusterInstance("primaryClusterInstance", ClusterInstanceArgs.builder()
  *             .applyImmediately(true)
@@ -307,6 +316,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.rds.GlobalCluster;
+ * import com.pulumi.aws.rds.GlobalClusterArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -320,7 +331,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new GlobalCluster("example");
+ *         var example = new GlobalCluster("example", GlobalClusterArgs.Empty, CustomResourceOptions.builder()
+ *             .ignoreChanges("sourceDbClusterIdentifier")
+ *             .build());
  * 
  *     }
  * }

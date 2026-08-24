@@ -24,13 +24,10 @@ namespace Pulumi.Aws.CostExplorer
     /// {
     ///     var test = new Aws.CostExplorer.CostCategory("test", new()
     ///     {
-    ///         Name = "NAME",
-    ///         RuleVersion = "CostCategoryExpression.v1",
     ///         Rules = new[]
     ///         {
     ///             new Aws.CostExplorer.Inputs.CostCategoryRuleArgs
     ///             {
-    ///                 Value = "production",
     ///                 Rule = new Aws.CostExplorer.Inputs.CostCategoryRuleRuleArgs
     ///                 {
     ///                     Dimension = new Aws.CostExplorer.Inputs.CostCategoryRuleRuleDimensionArgs
@@ -46,10 +43,10 @@ namespace Pulumi.Aws.CostExplorer
     ///                         },
     ///                     },
     ///                 },
+    ///                 Value = "production",
     ///             },
     ///             new Aws.CostExplorer.Inputs.CostCategoryRuleArgs
     ///             {
-    ///                 Value = "staging",
     ///                 Rule = new Aws.CostExplorer.Inputs.CostCategoryRuleRuleArgs
     ///                 {
     ///                     Dimension = new Aws.CostExplorer.Inputs.CostCategoryRuleRuleDimensionArgs
@@ -65,10 +62,10 @@ namespace Pulumi.Aws.CostExplorer
     ///                         },
     ///                     },
     ///                 },
+    ///                 Value = "staging",
     ///             },
     ///             new Aws.CostExplorer.Inputs.CostCategoryRuleArgs
     ///             {
-    ///                 Value = "testing",
     ///                 Rule = new Aws.CostExplorer.Inputs.CostCategoryRuleRuleArgs
     ///                 {
     ///                     Dimension = new Aws.CostExplorer.Inputs.CostCategoryRuleRuleDimensionArgs
@@ -84,8 +81,11 @@ namespace Pulumi.Aws.CostExplorer
     ///                         },
     ///                     },
     ///                 },
+    ///                 Value = "testing",
     ///             },
     ///         },
+    ///         Name = "NAME",
+    ///         RuleVersion = "CostCategoryExpression.v1",
     ///     });
     /// 
     /// });

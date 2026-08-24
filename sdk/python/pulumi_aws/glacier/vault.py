@@ -273,12 +273,12 @@ class Vault(pulumi.CustomResource):
 
         aws_sns_topic = aws.sns.Topic("aws_sns_topic", name="glacier-sns-topic")
         my_archive = aws.iam.get_policy_document(statements=[{
-            "sid": "add-read-only-perm",
-            "effect": "Allow",
             "principals": [{
                 "type": "*",
                 "identifiers": ["*"],
             }],
+            "sid": "add-read-only-perm",
+            "effect": "Allow",
             "actions": [
                 "glacier:InitiateJob",
                 "glacier:GetJobOutput",
@@ -286,7 +286,6 @@ class Vault(pulumi.CustomResource):
             "resources": ["arn:aws:glacier:eu-west-1:432981146916:vaults/MyArchive"],
         }])
         my_archive_vault = aws.glacier.Vault("my_archive",
-            name="MyArchive",
             notification={
                 "sns_topic": aws_sns_topic.arn,
                 "events": [
@@ -294,6 +293,7 @@ class Vault(pulumi.CustomResource):
                     "InventoryRetrievalCompleted",
                 ],
             },
+            name="MyArchive",
             access_policy=my_archive.json,
             tags={
                 "Test": "MyArchive",
@@ -337,12 +337,12 @@ class Vault(pulumi.CustomResource):
 
         aws_sns_topic = aws.sns.Topic("aws_sns_topic", name="glacier-sns-topic")
         my_archive = aws.iam.get_policy_document(statements=[{
-            "sid": "add-read-only-perm",
-            "effect": "Allow",
             "principals": [{
                 "type": "*",
                 "identifiers": ["*"],
             }],
+            "sid": "add-read-only-perm",
+            "effect": "Allow",
             "actions": [
                 "glacier:InitiateJob",
                 "glacier:GetJobOutput",
@@ -350,7 +350,6 @@ class Vault(pulumi.CustomResource):
             "resources": ["arn:aws:glacier:eu-west-1:432981146916:vaults/MyArchive"],
         }])
         my_archive_vault = aws.glacier.Vault("my_archive",
-            name="MyArchive",
             notification={
                 "sns_topic": aws_sns_topic.arn,
                 "events": [
@@ -358,6 +357,7 @@ class Vault(pulumi.CustomResource):
                     "InventoryRetrievalCompleted",
                 ],
             },
+            name="MyArchive",
             access_policy=my_archive.json,
             tags={
                 "Test": "MyArchive",

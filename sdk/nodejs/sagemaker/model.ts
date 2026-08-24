@@ -20,11 +20,11 @@ import * as utilities from "../utilities";
  *
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         actions: ["sts:AssumeRole"],
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["sagemaker.amazonaws.com"],
  *         }],
+ *         actions: ["sts:AssumeRole"],
  *     }],
  * });
  * const exampleRole = new aws.iam.Role("example", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
@@ -32,11 +32,11 @@ import * as utilities from "../utilities";
  *     repositoryName: "kmeans",
  * });
  * const example = new aws.sagemaker.Model("example", {
- *     name: "my-model",
- *     executionRoleArn: exampleRole.arn,
  *     primaryContainer: {
  *         image: test.then(test => test.registryPath),
  *     },
+ *     name: "my-model",
+ *     executionRoleArn: exampleRole.arn,
  * });
  * ```
  *

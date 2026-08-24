@@ -39,13 +39,13 @@ import (
 //				return err
 //			}
 //			_, err = outposts.NewCapacityTask(ctx, "example", &outposts.CapacityTaskArgs{
-//				OutpostIdentifier: pulumi.String(example.Arns[0]),
 //				InstancePools: outposts.CapacityTaskInstancePoolArray{
 //					&outposts.CapacityTaskInstancePoolArgs{
 //						InstanceType: pulumi.String("m5.large"),
 //						Count:        pulumi.Int(2),
 //					},
 //				},
+//				OutpostIdentifier: pulumi.String(example.Arns[0]),
 //			})
 //			if err != nil {
 //				return err
@@ -77,9 +77,12 @@ import (
 //				return err
 //			}
 //			_, err = outposts.NewCapacityTask(ctx, "example", &outposts.CapacityTaskArgs{
-//				OutpostIdentifier:             pulumi.String("op-1234567890abcdef"),
-//				TaskActionOnBlockingInstances: pulumi.String("WAIT_FOR_EVACUATION"),
-//				AssetId:                       pulumi.String(example.AssetIds[0]),
+//				InstancesToExclude: &outposts.CapacityTaskInstancesToExcludeArgs{
+//					Instances: pulumi.StringArray{
+//						pulumi.String("i-0123456789abcdef0"),
+//						pulumi.String("i-0fedcba9876543210"),
+//					},
+//				},
 //				InstancePools: outposts.CapacityTaskInstancePoolArray{
 //					&outposts.CapacityTaskInstancePoolArgs{
 //						InstanceType: pulumi.String("m5.large"),
@@ -90,13 +93,10 @@ import (
 //						Count:        pulumi.Int(2),
 //					},
 //				},
-//				InstancesToExclude: &outposts.CapacityTaskInstancesToExcludeArgs{
-//					Instances: pulumi.StringArray{
-//						pulumi.String("i-0123456789abcdef0"),
-//						pulumi.String("i-0fedcba9876543210"),
-//					},
-//				},
-//			})
+//				OutpostIdentifier:             pulumi.String("op-1234567890abcdef"),
+//				TaskActionOnBlockingInstances: pulumi.String("WAIT_FOR_EVACUATION"),
+//				AssetId:                       pulumi.String(example.AssetIds[0]),
+//			}, pulumi.Timeouts(&pulumi.CustomTimeouts{Create: "90m", Delete: "15m"}))
 //			if err != nil {
 //				return err
 //			}

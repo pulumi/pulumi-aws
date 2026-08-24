@@ -31,11 +31,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datasync.NewS3Location(ctx, "example", &datasync.S3LocationArgs{
-//				S3BucketArn:  pulumi.Any(exampleAwsS3Bucket.Arn),
-//				Subdirectory: pulumi.String("/example/prefix"),
 //				S3Config: &datasync.S3LocationS3ConfigArgs{
 //					BucketAccessRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				},
+//				S3BucketArn:  pulumi.Any(exampleAwsS3Bucket.Arn),
+//				Subdirectory: pulumi.String("/example/prefix"),
 //			})
 //			if err != nil {
 //				return err
@@ -61,15 +61,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datasync.NewS3Location(ctx, "destination", &datasync.S3LocationArgs{
+//				S3Config: &datasync.S3LocationS3ConfigArgs{
+//					BucketAccessRoleArn: pulumi.Any(example.Arn),
+//				},
 //				AgentArns: pulumi.StringArray{
 //					exampleAwsDatasyncAgent.Arn,
 //				},
 //				S3BucketArn:    pulumi.Any(exampleAwsS3AccessPoint.Arn),
 //				S3StorageClass: pulumi.String("OUTPOSTS"),
 //				Subdirectory:   pulumi.String("/example/prefix"),
-//				S3Config: &datasync.S3LocationS3ConfigArgs{
-//					BucketAccessRoleArn: pulumi.Any(example.Arn),
-//				},
 //			})
 //			if err != nil {
 //				return err

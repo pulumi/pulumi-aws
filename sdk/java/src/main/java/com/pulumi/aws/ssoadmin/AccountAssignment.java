@@ -58,13 +58,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         final var exampleGetGroup = IdentitystoreFunctions.getGroup(GetGroupArgs.builder()
- *             .identityStoreId(example.identityStoreIds()[0])
  *             .alternateIdentifier(GetGroupAlternateIdentifierArgs.builder()
  *                 .uniqueAttribute(GetGroupAlternateIdentifierUniqueAttributeArgs.builder()
  *                     .attributePath("DisplayName")
  *                     .attributeValue("ExampleGroup")
  *                     .build())
  *                 .build())
+ *             .identityStoreId(example.identityStoreIds()[0])
  *             .build());
  * 
  *         var exampleAccountAssignment = new AccountAssignment("exampleAccountAssignment", AccountAssignmentArgs.builder()

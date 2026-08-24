@@ -30,8 +30,6 @@ namespace Pulumi.Aws.Acmpca
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Sid = "1",
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -43,6 +41,8 @@ namespace Pulumi.Aws.Acmpca
     ///                         },
     ///                     },
     ///                 },
+    ///                 Sid = "1",
+    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "acm-pca:DescribeCertificateAuthority",
@@ -58,27 +58,6 @@ namespace Pulumi.Aws.Acmpca
     ///             },
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Sid = "2",
-    ///                 Effect = allow,
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "AWS",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             current.AccountId,
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "acm-pca:IssueCertificate",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     exampleAwsAcmpcaCertificateAuthority.Arn,
-    ///                 },
     ///                 Conditions = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
@@ -90,6 +69,27 @@ namespace Pulumi.Aws.Acmpca
     ///                             "arn:aws:acm-pca:::template/EndEntityCertificate/V1",
     ///                         },
     ///                     },
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "AWS",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             current.AccountId,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Sid = "2",
+    ///                 Effect = allow,
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "acm-pca:IssueCertificate",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     exampleAwsAcmpcaCertificateAuthority.Arn,
     ///                 },
     ///             },
     ///         },

@@ -17,7 +17,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const foo = aws.ec2.getInstance({
- *     instanceId: "i-instanceid",
  *     filters: [
  *         {
  *             name: "image-id",
@@ -28,6 +27,7 @@ import * as utilities from "../utilities";
  *             values: ["instance-name-tag"],
  *         },
  *     ],
+ *     instanceId: "i-instanceid",
  * });
  * ```
  */
@@ -286,7 +286,6 @@ export interface GetInstanceResult {
  * import * as aws from "@pulumi/aws";
  *
  * const foo = aws.ec2.getInstance({
- *     instanceId: "i-instanceid",
  *     filters: [
  *         {
  *             name: "image-id",
@@ -297,6 +296,7 @@ export interface GetInstanceResult {
  *             values: ["instance-name-tag"],
  *         },
  *     ],
+ *     instanceId: "i-instanceid",
  * });
  * ```
  */

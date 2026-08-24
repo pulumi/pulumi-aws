@@ -18,15 +18,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.connect.QuickConnect("test", {
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- *     name: "Example Name",
- *     description: "quick connect phone number",
  *     quickConnectConfig: {
- *         quickConnectType: "PHONE_NUMBER",
  *         phoneConfigs: [{
  *             phoneNumber: "+12345678912",
  *         }],
+ *         quickConnectType: "PHONE_NUMBER",
  *     },
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     name: "Example Name",
+ *     description: "quick connect phone number",
  *     tags: {
  *         Name: "Example Quick Connect",
  *     },

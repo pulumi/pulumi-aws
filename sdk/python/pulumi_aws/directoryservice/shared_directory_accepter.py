@@ -182,11 +182,11 @@ class SharedDirectoryAccepter(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.directoryservice.SharedDirectory("example",
-            directory_id=example_aws_directory_service_directory["id"],
-            notes="example",
             target={
                 "id": receiver["accountId"],
-            })
+            },
+            directory_id=example_aws_directory_service_directory["id"],
+            notes="example")
         example_shared_directory_accepter = aws.directoryservice.SharedDirectoryAccepter("example", shared_directory_id=example.shared_directory_id)
         ```
 
@@ -222,11 +222,11 @@ class SharedDirectoryAccepter(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.directoryservice.SharedDirectory("example",
-            directory_id=example_aws_directory_service_directory["id"],
-            notes="example",
             target={
                 "id": receiver["accountId"],
-            })
+            },
+            directory_id=example_aws_directory_service_directory["id"],
+            notes="example")
         example_shared_directory_accepter = aws.directoryservice.SharedDirectoryAccepter("example", shared_directory_id=example.shared_directory_id)
         ```
 

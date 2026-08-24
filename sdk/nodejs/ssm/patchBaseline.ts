@@ -37,31 +37,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const production = new aws.ssm.PatchBaseline("production", {
- *     name: "patch-baseline",
- *     description: "Patch Baseline Description",
- *     approvedPatches: [
- *         "KB123456",
- *         "KB456789",
- *     ],
- *     rejectedPatches: ["KB987654"],
- *     globalFilters: [
- *         {
- *             key: "PRODUCT",
- *             values: ["WindowsServer2008"],
- *         },
- *         {
- *             key: "CLASSIFICATION",
- *             values: ["ServicePacks"],
- *         },
- *         {
- *             key: "MSRC_SEVERITY",
- *             values: ["Low"],
- *         },
- *     ],
  *     approvalRules: [
  *         {
- *             approveAfterDays: 7,
- *             complianceLevel: "HIGH",
  *             patchFilters: [
  *                 {
  *                     key: "PRODUCT",
@@ -84,15 +61,38 @@ import * as utilities from "../utilities";
  *                     ],
  *                 },
  *             ],
+ *             approveAfterDays: 7,
+ *             complianceLevel: "HIGH",
  *         },
  *         {
- *             approveAfterDays: 7,
  *             patchFilters: [{
  *                 key: "PRODUCT",
  *                 values: ["WindowsServer2012"],
  *             }],
+ *             approveAfterDays: 7,
  *         },
  *     ],
+ *     globalFilters: [
+ *         {
+ *             key: "PRODUCT",
+ *             values: ["WindowsServer2008"],
+ *         },
+ *         {
+ *             key: "CLASSIFICATION",
+ *             values: ["ServicePacks"],
+ *         },
+ *         {
+ *             key: "MSRC_SEVERITY",
+ *             values: ["Low"],
+ *         },
+ *     ],
+ *     name: "patch-baseline",
+ *     description: "Patch Baseline Description",
+ *     approvedPatches: [
+ *         "KB123456",
+ *         "KB456789",
+ *     ],
+ *     rejectedPatches: ["KB987654"],
  * });
  * ```
  *
@@ -103,12 +103,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const windowsOsApps = new aws.ssm.PatchBaseline("windows_os_apps", {
- *     name: "WindowsOSAndMicrosoftApps",
- *     description: "Patch both Windows and Microsoft apps",
- *     operatingSystem: "WINDOWS",
  *     approvalRules: [
  *         {
- *             approveAfterDays: 7,
  *             patchFilters: [
  *                 {
  *                     key: "CLASSIFICATION",
@@ -125,9 +121,9 @@ import * as utilities from "../utilities";
  *                     ],
  *                 },
  *             ],
+ *             approveAfterDays: 7,
  *         },
  *         {
- *             approveAfterDays: 7,
  *             patchFilters: [
  *                 {
  *                     key: "PATCH_SET",
@@ -141,8 +137,12 @@ import * as utilities from "../utilities";
  *                     ],
  *                 },
  *             ],
+ *             approveAfterDays: 7,
  *         },
  *     ],
+ *     name: "WindowsOSAndMicrosoftApps",
+ *     description: "Patch both Windows and Microsoft apps",
+ *     operatingSystem: "WINDOWS",
  * });
  * ```
  *
@@ -154,9 +154,6 @@ import * as utilities from "../utilities";
  *
  * const al201709 = new aws.ssm.PatchBaseline("al_2017_09", {
  *     approvalRules: [{}],
- *     name: "Amazon-Linux-2017.09",
- *     description: "My patch repository for Amazon Linux 2017.09",
- *     operatingSystem: "AMAZON_LINUX",
  *     sources: [{
  *         name: "My-AL2017.09",
  *         products: ["AmazonLinux2017.09"],
@@ -176,6 +173,9 @@ import * as utilities from "../utilities";
  * report_instanceid=yes
  * `,
  *     }],
+ *     name: "Amazon-Linux-2017.09",
+ *     description: "My patch repository for Amazon Linux 2017.09",
+ *     operatingSystem: "AMAZON_LINUX",
  * });
  * ```
  *

@@ -28,7 +28,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const main = new aws.ec2.NetworkAcl("main", {
- *     vpcId: mainAwsVpc.id,
  *     egress: [{
  *         protocol: "tcp",
  *         ruleNo: 200,
@@ -45,6 +44,7 @@ import * as utilities from "../utilities";
  *         fromPort: 80,
  *         toPort: 80,
  *     }],
+ *     vpcId: mainAwsVpc.id,
  *     tags: {
  *         Name: "main",
  *     },

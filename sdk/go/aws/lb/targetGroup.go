@@ -162,15 +162,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lb.NewTargetGroup(ctx, "tcp-example", &lb.TargetGroupArgs{
-//				Name:     pulumi.String("tf-example-lb-nlb-tg"),
-//				Port:     pulumi.Int(25),
-//				Protocol: pulumi.String("TCP"),
-//				VpcId:    pulumi.Any(main.Id),
 //				TargetHealthStates: lb.TargetGroupTargetHealthStateArray{
 //					&lb.TargetGroupTargetHealthStateArgs{
 //						EnableUnhealthyConnectionTermination: pulumi.Bool(false),
 //					},
 //				},
+//				Name:     pulumi.String("tf-example-lb-nlb-tg"),
+//				Port:     pulumi.Int(25),
+//				Protocol: pulumi.String("TCP"),
+//				VpcId:    pulumi.Any(main.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -196,10 +196,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lb.NewTargetGroup(ctx, "tcp-example", &lb.TargetGroupArgs{
-//				Name:     pulumi.String("tf-example-lb-nlb-tg"),
-//				Port:     pulumi.Int(80),
-//				Protocol: pulumi.String("TCP"),
-//				VpcId:    pulumi.Any(main.Id),
 //				TargetGroupHealth: &lb.TargetGroupTargetGroupHealthArgs{
 //					DnsFailover: &lb.TargetGroupTargetGroupHealthDnsFailoverArgs{
 //						MinimumHealthyTargetsCount:      pulumi.String("1"),
@@ -210,6 +206,10 @@ import (
 //						MinimumHealthyTargetsPercentage: pulumi.String("off"),
 //					},
 //				},
+//				Name:     pulumi.String("tf-example-lb-nlb-tg"),
+//				Port:     pulumi.Int(80),
+//				Protocol: pulumi.String("TCP"),
+//				VpcId:    pulumi.Any(main.Id),
 //			})
 //			if err != nil {
 //				return err

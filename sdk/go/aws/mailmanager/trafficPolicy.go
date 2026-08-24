@@ -31,26 +31,26 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := mailmanager.NewTrafficPolicy(ctx, "example", &mailmanager.TrafficPolicyArgs{
-//				DefaultAction: pulumi.String("ALLOW"),
-//				Name:          pulumi.String("example"),
 //				PolicyStatements: mailmanager.TrafficPolicyPolicyStatementArray{
 //					&mailmanager.TrafficPolicyPolicyStatementArgs{
-//						Action: pulumi.String("DENY"),
 //						Conditions: mailmanager.TrafficPolicyPolicyStatementConditionArray{
 //							&mailmanager.TrafficPolicyPolicyStatementConditionArgs{
 //								IpExpression: &mailmanager.TrafficPolicyPolicyStatementConditionIpExpressionArgs{
+//									Evaluate: &mailmanager.TrafficPolicyPolicyStatementConditionIpExpressionEvaluateArgs{
+//										Attribute: pulumi.String("SENDER_IP"),
+//									},
 //									Operator: pulumi.String("CIDR_MATCHES"),
 //									Values: pulumi.StringArray{
 //										pulumi.String("192.0.2.0/24"),
 //									},
-//									Evaluate: &mailmanager.TrafficPolicyPolicyStatementConditionIpExpressionEvaluateArgs{
-//										Attribute: pulumi.String("SENDER_IP"),
-//									},
 //								},
 //							},
 //						},
+//						Action: pulumi.String("DENY"),
 //					},
 //				},
+//				DefaultAction: pulumi.String("ALLOW"),
+//				Name:          pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

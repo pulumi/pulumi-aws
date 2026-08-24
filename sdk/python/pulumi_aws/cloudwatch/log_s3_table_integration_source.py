@@ -180,11 +180,11 @@ class LogS3TableIntegrationSource(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudwatch.LogS3TableIntegrationSource("example",
-            integration_arn=example_aws_observabilityadmin_s3_table_integration["arn"],
             data_source={
                 "name": "*",
                 "type": "*",
-            })
+            },
+            integration_arn=example_aws_observabilityadmin_s3_table_integration["arn"])
         ```
 
         ### Associate a Custom Data Source
@@ -205,11 +205,11 @@ class LogS3TableIntegrationSource(pulumi.CustomResource):
                 "cw:datasource:type": "events",
             })
         example_log_s3_table_integration_source = aws.cloudwatch.LogS3TableIntegrationSource("example",
-            integration_arn=example_aws_observabilityadmin_s3_table_integration["arn"],
             data_source={
                 "name": "myapp",
                 "type": "events",
-            })
+            },
+            integration_arn=example_aws_observabilityadmin_s3_table_integration["arn"])
         ```
 
         ## Import
@@ -260,11 +260,11 @@ class LogS3TableIntegrationSource(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudwatch.LogS3TableIntegrationSource("example",
-            integration_arn=example_aws_observabilityadmin_s3_table_integration["arn"],
             data_source={
                 "name": "*",
                 "type": "*",
-            })
+            },
+            integration_arn=example_aws_observabilityadmin_s3_table_integration["arn"])
         ```
 
         ### Associate a Custom Data Source
@@ -285,11 +285,11 @@ class LogS3TableIntegrationSource(pulumi.CustomResource):
                 "cw:datasource:type": "events",
             })
         example_log_s3_table_integration_source = aws.cloudwatch.LogS3TableIntegrationSource("example",
-            integration_arn=example_aws_observabilityadmin_s3_table_integration["arn"],
             data_source={
                 "name": "myapp",
                 "type": "events",
-            })
+            },
+            integration_arn=example_aws_observabilityadmin_s3_table_integration["arn"])
         ```
 
         ## Import

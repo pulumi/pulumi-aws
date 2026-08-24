@@ -184,12 +184,12 @@ class Policy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.verifiedpermissions.Policy("test",
-            policy_store_id=test_aws_verifiedpermissions_policy_store["id"],
             definition={
                 "static": {
                     "statement": "permit (principal, action == Action::\\"view\\", resource in Album:: \\"test_album\\");",
                 },
-            })
+            },
+            policy_store_id=test_aws_verifiedpermissions_policy_store["id"])
         ```
 
         ## Import
@@ -225,12 +225,12 @@ class Policy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.verifiedpermissions.Policy("test",
-            policy_store_id=test_aws_verifiedpermissions_policy_store["id"],
             definition={
                 "static": {
                     "statement": "permit (principal, action == Action::\\"view\\", resource in Album:: \\"test_album\\");",
                 },
-            })
+            },
+            policy_store_id=test_aws_verifiedpermissions_policy_store["id"])
         ```
 
         ## Import

@@ -26,7 +26,6 @@ namespace Pulumi.Aws.SesV2
     /// {
     ///     var example = new Aws.SesV2.AccountVdmAttributes("example", new()
     ///     {
-    ///         VdmEnabled = "ENABLED",
     ///         DashboardAttributes = new Aws.SesV2.Inputs.AccountVdmAttributesDashboardAttributesArgs
     ///         {
     ///             EngagementMetrics = "ENABLED",
@@ -35,6 +34,7 @@ namespace Pulumi.Aws.SesV2
     ///         {
     ///             OptimizedSharedDelivery = "ENABLED",
     ///         },
+    ///         VdmEnabled = "ENABLED",
     ///     });
     /// 
     /// });

@@ -19,8 +19,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sagemaker.FlowDefinition("example", {
- *     flowDefinitionName: "example",
- *     roleArn: exampleAwsIamRole.arn,
  *     humanLoopConfig: {
  *         humanTaskUiArn: exampleAwsSagemakerHumanTaskUi.arn,
  *         taskAvailabilityLifetimeInSeconds: 1,
@@ -32,6 +30,8 @@ import * as utilities from "../utilities";
  *     outputConfig: {
  *         s3OutputPath: `s3://${exampleAwsS3Bucket.bucket}/`,
  *     },
+ *     flowDefinitionName: "example",
+ *     roleArn: exampleAwsIamRole.arn,
  * });
  * ```
  *
@@ -42,25 +42,25 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sagemaker.FlowDefinition("example", {
- *     flowDefinitionName: "example",
- *     roleArn: exampleAwsIamRole.arn,
  *     humanLoopConfig: {
- *         humanTaskUiArn: exampleAwsSagemakerHumanTaskUi.arn,
- *         taskAvailabilityLifetimeInSeconds: 1,
- *         taskCount: 1,
- *         taskDescription: "example",
- *         taskTitle: "example",
- *         workteamArn: `arn:aws:sagemaker:${current.region}:394669845002:workteam/public-crowd/default`,
  *         publicWorkforceTaskPrice: {
  *             amountInUsd: {
  *                 cents: 1,
  *                 tenthFractionsOfACent: 2,
  *             },
  *         },
+ *         humanTaskUiArn: exampleAwsSagemakerHumanTaskUi.arn,
+ *         taskAvailabilityLifetimeInSeconds: 1,
+ *         taskCount: 1,
+ *         taskDescription: "example",
+ *         taskTitle: "example",
+ *         workteamArn: `arn:aws:sagemaker:${current.region}:394669845002:workteam/public-crowd/default`,
  *     },
  *     outputConfig: {
  *         s3OutputPath: `s3://${exampleAwsS3Bucket.bucket}/`,
  *     },
+ *     flowDefinitionName: "example",
+ *     roleArn: exampleAwsIamRole.arn,
  * });
  * ```
  *
@@ -71,8 +71,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sagemaker.FlowDefinition("example", {
- *     flowDefinitionName: "example",
- *     roleArn: exampleAwsIamRole.arn,
  *     humanLoopConfig: {
  *         humanTaskUiArn: exampleAwsSagemakerHumanTaskUi.arn,
  *         taskAvailabilityLifetimeInSeconds: 1,
@@ -102,6 +100,8 @@ import * as utilities from "../utilities";
  *     outputConfig: {
  *         s3OutputPath: `s3://${exampleAwsS3Bucket.bucket}/`,
  *     },
+ *     flowDefinitionName: "example",
+ *     roleArn: exampleAwsIamRole.arn,
  * });
  * ```
  *

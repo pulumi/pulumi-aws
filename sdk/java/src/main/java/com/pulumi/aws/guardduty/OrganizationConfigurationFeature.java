@@ -53,13 +53,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var eksRuntimeMonitoring = new OrganizationConfigurationFeature("eksRuntimeMonitoring", OrganizationConfigurationFeatureArgs.builder()
- *             .detectorId(example.id())
- *             .name("EKS_RUNTIME_MONITORING")
- *             .autoEnable("ALL")
  *             .additionalConfigurations(OrganizationConfigurationFeatureAdditionalConfigurationArgs.builder()
  *                 .name("EKS_ADDON_MANAGEMENT")
  *                 .autoEnable("NEW")
  *                 .build())
+ *             .detectorId(example.id())
+ *             .name("EKS_RUNTIME_MONITORING")
+ *             .autoEnable("ALL")
  *             .build());
  * 
  *     }

@@ -48,14 +48,14 @@ namespace Pulumi.Aws.ElastiCache
     /// {
     ///     var test = new Aws.ElastiCache.User("test", new()
     ///     {
-    ///         UserId = "testUserId",
-    ///         UserName = "testUserName",
-    ///         AccessString = "on ~* +@all",
-    ///         Engine = "redis",
     ///         AuthenticationMode = new Aws.ElastiCache.Inputs.UserAuthenticationModeArgs
     ///         {
     ///             Type = "iam",
     ///         },
+    ///         UserId = "testUserId",
+    ///         UserName = "testUserName",
+    ///         AccessString = "on ~* +@all",
+    ///         Engine = "redis",
     ///     });
     /// 
     /// });
@@ -71,10 +71,6 @@ namespace Pulumi.Aws.ElastiCache
     /// {
     ///     var test = new Aws.ElastiCache.User("test", new()
     ///     {
-    ///         UserId = "testUserId",
-    ///         UserName = "testUserName",
-    ///         AccessString = "on ~* +@all",
-    ///         Engine = "redis",
     ///         AuthenticationMode = new Aws.ElastiCache.Inputs.UserAuthenticationModeArgs
     ///         {
     ///             Type = "password",
@@ -84,6 +80,10 @@ namespace Pulumi.Aws.ElastiCache
     ///                 "password2",
     ///             },
     ///         },
+    ///         UserId = "testUserId",
+    ///         UserName = "testUserName",
+    ///         AccessString = "on ~* +@all",
+    ///         Engine = "redis",
     ///     });
     /// 
     /// });

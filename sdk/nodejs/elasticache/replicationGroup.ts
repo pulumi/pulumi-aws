@@ -75,6 +75,8 @@ import * as utilities from "../utilities";
  *     numCacheClusters: 2,
  *     parameterGroupName: "default.redis3.2",
  *     port: 6379,
+ * }, {
+ *     ignoreChanges: ["numCacheClusters"],
  * });
  * const replica: aws.elasticache.Cluster[] = [];
  * for (let range = 0; range < 1; range++) {
@@ -114,13 +116,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.elasticache.ReplicationGroup("example", {
- *     replicationGroupId: "tf-redis-cluster",
- *     description: "example description",
- *     nodeType: "cache.t2.small",
- *     port: 6379,
- *     parameterGroupName: "default.redis3.2.cluster.on",
- *     automaticFailoverEnabled: true,
- *     numNodeGroups: 2,
  *     nodeGroupConfigurations: [
  *         {
  *             nodeGroupId: "0001",
@@ -137,6 +132,13 @@ import * as utilities from "../utilities";
  *             slots: "8192-16383",
  *         },
  *     ],
+ *     replicationGroupId: "tf-redis-cluster",
+ *     description: "example description",
+ *     nodeType: "cache.t2.small",
+ *     port: 6379,
+ *     parameterGroupName: "default.redis3.2.cluster.on",
+ *     automaticFailoverEnabled: true,
+ *     numNodeGroups: 2,
  * });
  * ```
  *
@@ -147,14 +149,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.elasticache.ReplicationGroup("test", {
- *     replicationGroupId: "myreplicaciongroup",
- *     description: "test description",
- *     nodeType: "cache.t3.small",
- *     port: 6379,
- *     applyImmediately: true,
- *     autoMinorVersionUpgrade: false,
- *     maintenanceWindow: "tue:06:30-tue:07:30",
- *     snapshotWindow: "01:00-02:00",
  *     logDeliveryConfigurations: [
  *         {
  *             destination: example.name,
@@ -169,6 +163,14 @@ import * as utilities from "../utilities";
  *             logType: "engine-log",
  *         },
  *     ],
+ *     replicationGroupId: "myreplicaciongroup",
+ *     description: "test description",
+ *     nodeType: "cache.t3.small",
+ *     port: 6379,
+ *     applyImmediately: true,
+ *     autoMinorVersionUpgrade: false,
+ *     maintenanceWindow: "tue:06:30-tue:07:30",
+ *     snapshotWindow: "01:00-02:00",
  * });
  * ```
  *

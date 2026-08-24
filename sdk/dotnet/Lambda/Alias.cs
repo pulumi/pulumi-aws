@@ -49,10 +49,6 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     var example = new Aws.Lambda.Alias("example", new()
     ///     {
-    ///         Name = "staging",
-    ///         Description = "Staging environment with traffic splitting",
-    ///         FunctionName = exampleAwsLambdaFunction.FunctionName,
-    ///         FunctionVersion = "2",
     ///         RoutingConfig = new Aws.Lambda.Inputs.AliasRoutingConfigArgs
     ///         {
     ///             AdditionalVersionWeights = 
@@ -60,6 +56,10 @@ namespace Pulumi.Aws.Lambda
     ///                 { "1", 0.1 },
     ///             },
     ///         },
+    ///         Name = "staging",
+    ///         Description = "Staging environment with traffic splitting",
+    ///         FunctionName = exampleAwsLambdaFunction.FunctionName,
+    ///         FunctionVersion = "2",
     ///     });
     /// 
     /// });
@@ -78,10 +78,6 @@ namespace Pulumi.Aws.Lambda
     ///     // Alias for gradual rollout
     ///     var example = new Aws.Lambda.Alias("example", new()
     ///     {
-    ///         Name = "live",
-    ///         Description = "Live traffic with gradual rollout to new version",
-    ///         FunctionName = exampleAwsLambdaFunction.FunctionName,
-    ///         FunctionVersion = "5",
     ///         RoutingConfig = new Aws.Lambda.Inputs.AliasRoutingConfigArgs
     ///         {
     ///             AdditionalVersionWeights = 
@@ -89,6 +85,10 @@ namespace Pulumi.Aws.Lambda
     ///                 { "6", 0.05 },
     ///             },
     ///         },
+    ///         Name = "live",
+    ///         Description = "Live traffic with gradual rollout to new version",
+    ///         FunctionName = exampleAwsLambdaFunction.FunctionName,
+    ///         FunctionVersion = "5",
     ///     });
     /// 
     /// });

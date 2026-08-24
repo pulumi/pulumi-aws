@@ -52,10 +52,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new V2Policy("example", V2PolicyArgs.builder()
- *             .name("example-policy")
  *             .availabilitySlo(V2PolicyAvailabilitySloArgs.builder()
  *                 .target(99.9)
  *                 .build())
+ *             .name("example-policy")
  *             .build());
  * 
  *     }
@@ -91,8 +91,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new V2Policy("example", V2PolicyArgs.builder()
- *             .name("example-policy")
- *             .description("Policy with multi-AZ and data recovery targets")
  *             .availabilitySlo(V2PolicyAvailabilitySloArgs.builder()
  *                 .target(99.99)
  *                 .build())
@@ -104,6 +102,8 @@ import javax.annotation.Nullable;
  *                 .rpoInMinutes(5)
  *                 .rtoInMinutes(10)
  *                 .build())
+ *             .name("example-policy")
+ *             .description("Policy with multi-AZ and data recovery targets")
  *             .tags(Map.of("Environment", "production"))
  *             .build());
  * 
@@ -139,7 +139,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new V2Policy("example", V2PolicyArgs.builder()
- *             .name("example-multi-region-policy")
  *             .availabilitySlo(V2PolicyAvailabilitySloArgs.builder()
  *                 .target(99.95)
  *                 .build())
@@ -148,6 +147,7 @@ import javax.annotation.Nullable;
  *                 .rpoInMinutes(15)
  *                 .rtoInMinutes(30)
  *                 .build())
+ *             .name("example-multi-region-policy")
  *             .build());
  * 
  *     }

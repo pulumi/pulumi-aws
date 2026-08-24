@@ -59,14 +59,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLogDeliveryConfiguration = new LogDeliveryConfiguration("exampleLogDeliveryConfiguration", LogDeliveryConfigurationArgs.builder()
- *             .userPoolId(example.id())
  *             .logConfigurations(LogDeliveryConfigurationLogConfigurationArgs.builder()
- *                 .eventSource("userNotification")
- *                 .logLevel("ERROR")
  *                 .cloudWatchLogsConfiguration(LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationArgs.builder()
  *                     .logGroupArn(exampleLogGroup.arn())
  *                     .build())
+ *                 .eventSource("userNotification")
+ *                 .logLevel("ERROR")
  *                 .build())
+ *             .userPoolId(example.id())
  *             .build());
  * 
  *     }
@@ -169,31 +169,31 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFirehoseDeliveryStream = new FirehoseDeliveryStream("exampleFirehoseDeliveryStream", FirehoseDeliveryStreamArgs.builder()
- *             .name("example-stream")
- *             .destination("extended_s3")
  *             .extendedS3Configuration(FirehoseDeliveryStreamExtendedS3ConfigurationArgs.builder()
  *                 .roleArn(firehose.arn())
  *                 .bucketArn(exampleBucket.arn())
  *                 .build())
+ *             .name("example-stream")
+ *             .destination("extended_s3")
  *             .build());
  * 
  *         var exampleLogDeliveryConfiguration = new LogDeliveryConfiguration("exampleLogDeliveryConfiguration", LogDeliveryConfigurationArgs.builder()
- *             .userPoolId(example.id())
  *             .logConfigurations(            
  *                 LogDeliveryConfigurationLogConfigurationArgs.builder()
- *                     .eventSource("userNotification")
- *                     .logLevel("INFO")
  *                     .cloudWatchLogsConfiguration(LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationArgs.builder()
  *                         .logGroupArn(exampleLogGroup.arn())
  *                         .build())
+ *                     .eventSource("userNotification")
+ *                     .logLevel("INFO")
  *                     .build(),
  *                 LogDeliveryConfigurationLogConfigurationArgs.builder()
- *                     .eventSource("userAuthEvents")
- *                     .logLevel("INFO")
  *                     .firehoseConfiguration(LogDeliveryConfigurationLogConfigurationFirehoseConfigurationArgs.builder()
  *                         .streamArn(exampleFirehoseDeliveryStream.arn())
  *                         .build())
+ *                     .eventSource("userAuthEvents")
+ *                     .logLevel("INFO")
  *                     .build())
+ *             .userPoolId(example.id())
  *             .build());
  * 
  *     }
@@ -242,14 +242,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLogDeliveryConfiguration = new LogDeliveryConfiguration("exampleLogDeliveryConfiguration", LogDeliveryConfigurationArgs.builder()
- *             .userPoolId(example.id())
  *             .logConfigurations(LogDeliveryConfigurationLogConfigurationArgs.builder()
- *                 .eventSource("userAuthEvents")
- *                 .logLevel("INFO")
  *                 .s3Configuration(LogDeliveryConfigurationLogConfigurationS3ConfigurationArgs.builder()
  *                     .bucketArn(exampleBucket.arn())
  *                     .build())
+ *                 .eventSource("userAuthEvents")
+ *                 .logLevel("INFO")
  *                 .build())
+ *             .userPoolId(example.id())
  *             .build());
  * 
  *     }

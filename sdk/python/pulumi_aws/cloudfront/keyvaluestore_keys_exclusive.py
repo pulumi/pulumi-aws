@@ -188,11 +188,11 @@ class KeyvaluestoreKeysExclusive(pulumi.CustomResource):
             name="ExampleKeyValueStore",
             comment="This is an example key value store")
         example_keyvaluestore_keys_exclusive = aws.cloudfront.KeyvaluestoreKeysExclusive("example",
-            key_value_store_arn=example.arn,
             resource_key_value_pairs=[{
                 "key": "Test Key",
                 "value": "Test Value",
-            }])
+            }],
+            key_value_store_arn=example.arn)
         ```
 
         ### Disallow Key Value Pairs
@@ -251,11 +251,11 @@ class KeyvaluestoreKeysExclusive(pulumi.CustomResource):
             name="ExampleKeyValueStore",
             comment="This is an example key value store")
         example_keyvaluestore_keys_exclusive = aws.cloudfront.KeyvaluestoreKeysExclusive("example",
-            key_value_store_arn=example.arn,
             resource_key_value_pairs=[{
                 "key": "Test Key",
                 "value": "Test Value",
-            }])
+            }],
+            key_value_store_arn=example.arn)
         ```
 
         ### Disallow Key Value Pairs

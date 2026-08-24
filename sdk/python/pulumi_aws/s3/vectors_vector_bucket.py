@@ -284,11 +284,11 @@ class VectorsVectorBucket(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.VectorsVectorBucket("example",
-            vector_bucket_name="example-bucket",
             encryption_configurations=[{
                 "sse_type": "aws:kms",
                 "kms_key_arn": example_aws_kms_key["arn"],
-            }])
+            }],
+            vector_bucket_name="example-bucket")
         ```
 
         ## Import
@@ -343,11 +343,11 @@ class VectorsVectorBucket(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.VectorsVectorBucket("example",
-            vector_bucket_name="example-bucket",
             encryption_configurations=[{
                 "sse_type": "aws:kms",
                 "kms_key_arn": example_aws_kms_key["arn"],
-            }])
+            }],
+            vector_bucket_name="example-bucket")
         ```
 
         ## Import

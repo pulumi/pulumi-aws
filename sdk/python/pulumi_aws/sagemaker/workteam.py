@@ -364,16 +364,16 @@ class Workteam(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.Workteam("example",
-            workteam_name="example",
-            workforce_name=example_aws_sagemaker_workforce["id"],
-            description="example",
             member_definitions=[{
                 "cognito_member_definition": {
                     "client_id": example_aws_cognito_user_pool_client["id"],
                     "user_pool": example_aws_cognito_user_pool_domain["userPoolId"],
                     "user_group": example_aws_cognito_user_group["name"],
                 },
-            }])
+            }],
+            workteam_name="example",
+            workforce_name=example_aws_sagemaker_workforce["id"],
+            description="example")
         ```
 
         ### Oidc Usage
@@ -383,14 +383,14 @@ class Workteam(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.Workteam("example",
-            workteam_name="example",
-            workforce_name=example_aws_sagemaker_workforce["id"],
-            description="example",
             member_definitions=[{
                 "oidc_member_definition": {
                     "groups": ["example"],
                 },
-            }])
+            }],
+            workteam_name="example",
+            workforce_name=example_aws_sagemaker_workforce["id"],
+            description="example")
         ```
 
         ## Import
@@ -431,16 +431,16 @@ class Workteam(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.Workteam("example",
-            workteam_name="example",
-            workforce_name=example_aws_sagemaker_workforce["id"],
-            description="example",
             member_definitions=[{
                 "cognito_member_definition": {
                     "client_id": example_aws_cognito_user_pool_client["id"],
                     "user_pool": example_aws_cognito_user_pool_domain["userPoolId"],
                     "user_group": example_aws_cognito_user_group["name"],
                 },
-            }])
+            }],
+            workteam_name="example",
+            workforce_name=example_aws_sagemaker_workforce["id"],
+            description="example")
         ```
 
         ### Oidc Usage
@@ -450,14 +450,14 @@ class Workteam(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.Workteam("example",
-            workteam_name="example",
-            workforce_name=example_aws_sagemaker_workforce["id"],
-            description="example",
             member_definitions=[{
                 "oidc_member_definition": {
                     "groups": ["example"],
                 },
-            }])
+            }],
+            workteam_name="example",
+            workforce_name=example_aws_sagemaker_workforce["id"],
+            description="example")
         ```
 
         ## Import

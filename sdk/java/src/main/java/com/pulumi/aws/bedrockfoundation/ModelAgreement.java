@@ -33,6 +33,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.bedrockfoundation.inputs.GetModelAgreementOffersArgs;
  * import com.pulumi.aws.bedrockfoundation.ModelAgreement;
  * import com.pulumi.aws.bedrockfoundation.ModelAgreementArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -54,7 +55,9 @@ import javax.annotation.Nullable;
  *         var exampleModelAgreement = new ModelAgreement("exampleModelAgreement", ModelAgreementArgs.builder()
  *             .modelId(example.modelId())
  *             .offerToken(example.offers()[0].offerToken())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .ignoreChanges("offerToken")
+ *                 .build());
  * 
  *     }
  * }

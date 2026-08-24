@@ -16,13 +16,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const prefixList = new aws.ec2.ManagedPrefixList("prefix_list", {
- *     name: "example",
- *     addressFamily: "IPv4",
- *     maxEntries: 5,
  *     entries: [{
  *         cidr: "10.0.0.0/8",
  *         description: "Example CIDR",
  *     }],
+ *     name: "example",
+ *     addressFamily: "IPv4",
+ *     maxEntries: 5,
  * });
  * const plAssociation = new aws.networkmanager.PrefixListAssociation("pl_association", {
  *     coreNetworkId: coreNetwork.id,

@@ -30,24 +30,20 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewRoutingProfile(ctx, "example", &connect.RoutingProfileArgs{
-//				InstanceId:             pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-//				Name:                   pulumi.String("example"),
-//				DefaultOutboundQueueId: pulumi.String("12345678-1234-1234-1234-123456789012"),
-//				Description:            pulumi.String("example description"),
 //				MediaConcurrencies: connect.RoutingProfileMediaConcurrencyArray{
 //					&connect.RoutingProfileMediaConcurrencyArgs{
-//						Channel:     pulumi.String("VOICE"),
-//						Concurrency: pulumi.Int(1),
 //						CrossChannelBehavior: &connect.RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs{
 //							BehaviorType: pulumi.String("ROUTE_ANY_CHANNEL"),
 //						},
+//						Channel:     pulumi.String("VOICE"),
+//						Concurrency: pulumi.Int(1),
 //					},
 //					&connect.RoutingProfileMediaConcurrencyArgs{
-//						Channel:     pulumi.String("CHAT"),
-//						Concurrency: pulumi.Int(3),
 //						CrossChannelBehavior: &connect.RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs{
 //							BehaviorType: pulumi.String("ROUTE_CURRENT_CHANNEL_ONLY"),
 //						},
+//						Channel:     pulumi.String("CHAT"),
+//						Concurrency: pulumi.Int(3),
 //					},
 //				},
 //				QueueConfigs: connect.RoutingProfileQueueConfigArray{
@@ -58,6 +54,10 @@ import (
 //						QueueId:  pulumi.String("12345678-1234-1234-1234-123456789012"),
 //					},
 //				},
+//				InstanceId:             pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
+//				Name:                   pulumi.String("example"),
+//				DefaultOutboundQueueId: pulumi.String("12345678-1234-1234-1234-123456789012"),
+//				Description:            pulumi.String("example description"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("Example Routing Profile"),
 //				},

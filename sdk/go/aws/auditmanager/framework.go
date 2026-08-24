@@ -30,10 +30,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := auditmanager.NewFramework(ctx, "test", &auditmanager.FrameworkArgs{
-//				Name: pulumi.String("example"),
 //				ControlSets: auditmanager.FrameworkControlSetArray{
 //					&auditmanager.FrameworkControlSetArgs{
-//						Name: pulumi.String("example"),
 //						Controls: auditmanager.FrameworkControlSetControlArray{
 //							&auditmanager.FrameworkControlSetControlArgs{
 //								Id: pulumi.Any(test1.Id),
@@ -42,8 +40,10 @@ import (
 //								Id: pulumi.Any(test2.Id),
 //							},
 //						},
+//						Name: pulumi.String("example"),
 //					},
 //				},
+//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

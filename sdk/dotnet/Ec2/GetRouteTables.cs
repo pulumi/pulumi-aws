@@ -30,7 +30,6 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var rts = Aws.Ec2.GetRouteTables.Invoke(new()
         ///     {
-        ///         VpcId = vpcId,
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ec2.Inputs.GetRouteTablesFilterInputArgs
@@ -42,6 +41,7 @@ namespace Pulumi.Aws.Ec2
         ///                 },
         ///             },
         ///         },
+        ///         VpcId = vpcId,
         ///     });
         /// 
         ///     var r = new List&lt;Aws.Ec2.Route&gt;();
@@ -84,7 +84,6 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var rts = Aws.Ec2.GetRouteTables.Invoke(new()
         ///     {
-        ///         VpcId = vpcId,
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ec2.Inputs.GetRouteTablesFilterInputArgs
@@ -96,6 +95,7 @@ namespace Pulumi.Aws.Ec2
         ///                 },
         ///             },
         ///         },
+        ///         VpcId = vpcId,
         ///     });
         /// 
         ///     var r = new List&lt;Aws.Ec2.Route&gt;();
@@ -138,7 +138,6 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var rts = Aws.Ec2.GetRouteTables.Invoke(new()
         ///     {
-        ///         VpcId = vpcId,
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ec2.Inputs.GetRouteTablesFilterInputArgs
@@ -150,6 +149,7 @@ namespace Pulumi.Aws.Ec2
         ///                 },
         ///             },
         ///         },
+        ///         VpcId = vpcId,
         ///     });
         /// 
         ///     var r = new List&lt;Aws.Ec2.Route&gt;();

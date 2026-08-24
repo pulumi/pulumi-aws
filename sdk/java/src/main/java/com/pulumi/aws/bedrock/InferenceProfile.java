@@ -55,11 +55,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new InferenceProfile("example", InferenceProfileArgs.builder()
- *             .name("Claude Sonnet for Project 123")
- *             .description("Profile with tag for cost allocation tracking")
  *             .modelSource(InferenceProfileModelSourceArgs.builder()
  *                 .copyFrom("arn:aws:bedrock:us-west-2::foundation-model/anthropic.claude-3-5-sonnet-20241022-v2:0")
  *                 .build())
+ *             .name("Claude Sonnet for Project 123")
+ *             .description("Profile with tag for cost allocation tracking")
  *             .tags(Map.of("ProjectID", "123"))
  *             .build());
  * 

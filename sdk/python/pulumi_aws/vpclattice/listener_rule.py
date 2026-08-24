@@ -368,25 +368,21 @@ class ListenerRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.vpclattice.ListenerRule("example",
-            name="example",
-            listener_identifier=example_aws_vpclattice_listener["listenerId"],
-            service_identifier=example_aws_vpclattice_service["id"],
-            priority=20,
             match={
                 "http_match": {
-                    "header_matches": [{
-                        "name": "example-header",
-                        "case_sensitive": False,
-                        "match": {
-                            "exact": "example-contains",
-                        },
-                    }],
                     "path_match": {
-                        "case_sensitive": True,
                         "match": {
                             "prefix": "/example-path",
                         },
+                        "case_sensitive": True,
                     },
+                    "header_matches": [{
+                        "match": {
+                            "exact": "example-contains",
+                        },
+                        "name": "example-header",
+                        "case_sensitive": False,
+                    }],
                 },
             },
             action={
@@ -402,7 +398,11 @@ class ListenerRule(pulumi.CustomResource):
                         },
                     ],
                 },
-            })
+            },
+            name="example",
+            listener_identifier=example_aws_vpclattice_listener["listenerId"],
+            service_identifier=example_aws_vpclattice_service["id"],
+            priority=20)
         ```
 
         ### Basic Usage
@@ -412,17 +412,13 @@ class ListenerRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.vpclattice.ListenerRule("example",
-            name="example",
-            listener_identifier=example_aws_vpclattice_listener["listenerId"],
-            service_identifier=example_aws_vpclattice_service["id"],
-            priority=10,
             match={
                 "http_match": {
                     "path_match": {
-                        "case_sensitive": False,
                         "match": {
                             "exact": "/example-path",
                         },
+                        "case_sensitive": False,
                     },
                 },
             },
@@ -430,7 +426,11 @@ class ListenerRule(pulumi.CustomResource):
                 "fixed_response": {
                     "status_code": 404,
                 },
-            })
+            },
+            name="example",
+            listener_identifier=example_aws_vpclattice_listener["listenerId"],
+            service_identifier=example_aws_vpclattice_service["id"],
+            priority=10)
         ```
 
         ## Import
@@ -471,25 +471,21 @@ class ListenerRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.vpclattice.ListenerRule("example",
-            name="example",
-            listener_identifier=example_aws_vpclattice_listener["listenerId"],
-            service_identifier=example_aws_vpclattice_service["id"],
-            priority=20,
             match={
                 "http_match": {
-                    "header_matches": [{
-                        "name": "example-header",
-                        "case_sensitive": False,
-                        "match": {
-                            "exact": "example-contains",
-                        },
-                    }],
                     "path_match": {
-                        "case_sensitive": True,
                         "match": {
                             "prefix": "/example-path",
                         },
+                        "case_sensitive": True,
                     },
+                    "header_matches": [{
+                        "match": {
+                            "exact": "example-contains",
+                        },
+                        "name": "example-header",
+                        "case_sensitive": False,
+                    }],
                 },
             },
             action={
@@ -505,7 +501,11 @@ class ListenerRule(pulumi.CustomResource):
                         },
                     ],
                 },
-            })
+            },
+            name="example",
+            listener_identifier=example_aws_vpclattice_listener["listenerId"],
+            service_identifier=example_aws_vpclattice_service["id"],
+            priority=20)
         ```
 
         ### Basic Usage
@@ -515,17 +515,13 @@ class ListenerRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.vpclattice.ListenerRule("example",
-            name="example",
-            listener_identifier=example_aws_vpclattice_listener["listenerId"],
-            service_identifier=example_aws_vpclattice_service["id"],
-            priority=10,
             match={
                 "http_match": {
                     "path_match": {
-                        "case_sensitive": False,
                         "match": {
                             "exact": "/example-path",
                         },
+                        "case_sensitive": False,
                     },
                 },
             },
@@ -533,7 +529,11 @@ class ListenerRule(pulumi.CustomResource):
                 "fixed_response": {
                     "status_code": 404,
                 },
-            })
+            },
+            name="example",
+            listener_identifier=example_aws_vpclattice_listener["listenerId"],
+            service_identifier=example_aws_vpclattice_service["id"],
+            priority=10)
         ```
 
         ## Import

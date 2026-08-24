@@ -341,47 +341,47 @@ class WebApp(pulumi.CustomResource):
         current_get_partition = aws.get_partition()
         example = aws.ssoadmin.get_instances()
         assume_role_transfer = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "actions": [
-                "sts:AssumeRole",
-                "sts:SetContext",
-            ],
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["transfer.amazonaws.com"],
-            }],
             "conditions": [{
                 "test": "StringEquals",
                 "values": [current.account_id],
                 "variable": "aws:SourceAccount",
             }],
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["transfer.amazonaws.com"],
+            }],
+            "effect": "Allow",
+            "actions": [
+                "sts:AssumeRole",
+                "sts:SetContext",
+            ],
         }])
         example_role = aws.iam.Role("example",
             name="example",
             assume_role_policy=assume_role_transfer.json)
         example_get_policy_document = aws.iam.get_policy_document(statements=[
             {
+                "conditions": [{
+                    "test": "StringEquals",
+                    "values": [current.account_id],
+                    "variable": "s3:ResourceAccount",
+                }],
                 "effect": "Allow",
                 "actions": [
                     "s3:GetDataAccess",
                     "s3:ListCallerAccessGrants",
                 ],
                 "resources": [f"arn:{current_get_partition.partition}:s3:{current_get_region.region}:{current.account_id}:access-grants/*"],
+            },
+            {
                 "conditions": [{
                     "test": "StringEquals",
                     "values": [current.account_id],
                     "variable": "s3:ResourceAccount",
                 }],
-            },
-            {
                 "effect": "Allow",
                 "actions": ["s3:ListAccessGrantsInstances"],
                 "resources": ["*"],
-                "conditions": [{
-                    "test": "StringEquals",
-                    "values": [current.account_id],
-                    "variable": "s3:ResourceAccount",
-                }],
             },
         ])
         example_role_policy = aws.iam.RolePolicy("example",
@@ -445,47 +445,47 @@ class WebApp(pulumi.CustomResource):
         current_get_partition = aws.get_partition()
         example = aws.ssoadmin.get_instances()
         assume_role_transfer = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "actions": [
-                "sts:AssumeRole",
-                "sts:SetContext",
-            ],
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["transfer.amazonaws.com"],
-            }],
             "conditions": [{
                 "test": "StringEquals",
                 "values": [current.account_id],
                 "variable": "aws:SourceAccount",
             }],
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["transfer.amazonaws.com"],
+            }],
+            "effect": "Allow",
+            "actions": [
+                "sts:AssumeRole",
+                "sts:SetContext",
+            ],
         }])
         example_role = aws.iam.Role("example",
             name="example",
             assume_role_policy=assume_role_transfer.json)
         example_get_policy_document = aws.iam.get_policy_document(statements=[
             {
+                "conditions": [{
+                    "test": "StringEquals",
+                    "values": [current.account_id],
+                    "variable": "s3:ResourceAccount",
+                }],
                 "effect": "Allow",
                 "actions": [
                     "s3:GetDataAccess",
                     "s3:ListCallerAccessGrants",
                 ],
                 "resources": [f"arn:{current_get_partition.partition}:s3:{current_get_region.region}:{current.account_id}:access-grants/*"],
+            },
+            {
                 "conditions": [{
                     "test": "StringEquals",
                     "values": [current.account_id],
                     "variable": "s3:ResourceAccount",
                 }],
-            },
-            {
                 "effect": "Allow",
                 "actions": ["s3:ListAccessGrantsInstances"],
                 "resources": ["*"],
-                "conditions": [{
-                    "test": "StringEquals",
-                    "values": [current.account_id],
-                    "variable": "s3:ResourceAccount",
-                }],
             },
         ])
         example_role_policy = aws.iam.RolePolicy("example",

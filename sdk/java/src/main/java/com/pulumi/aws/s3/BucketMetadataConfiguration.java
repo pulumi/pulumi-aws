@@ -50,7 +50,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BucketMetadataConfiguration("example", BucketMetadataConfigurationArgs.builder()
- *             .bucket(exampleAwsS3Bucket.bucket())
  *             .metadataConfiguration(BucketMetadataConfigurationMetadataConfigurationArgs.builder()
  *                 .inventoryTableConfiguration(BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationArgs.builder()
  *                     .configurationState("ENABLED")
@@ -62,6 +61,7 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
+ *             .bucket(exampleAwsS3Bucket.bucket())
  *             .build());
  * 
  *     }

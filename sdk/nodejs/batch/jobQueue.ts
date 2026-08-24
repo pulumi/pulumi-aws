@@ -19,9 +19,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const testQueue = new aws.batch.JobQueue("test_queue", {
- *     name: "tf-test-batch-job-queue",
- *     state: "ENABLED",
- *     priority: 1,
  *     computeEnvironmentOrders: [
  *         {
  *             order: 1,
@@ -32,6 +29,9 @@ import * as utilities from "../utilities";
  *             computeEnvironment: testEnvironment2.arn,
  *         },
  *     ],
+ *     name: "tf-test-batch-job-queue",
+ *     state: "ENABLED",
+ *     priority: 1,
  * });
  * ```
  *
@@ -42,21 +42,17 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.batch.SchedulingPolicy("example", {
- *     name: "example",
  *     fairSharePolicy: {
- *         computeReservation: 1,
- *         shareDecaySeconds: 3600,
  *         shareDistributions: [{
  *             shareIdentifier: "A1*",
  *             weightFactor: 0.1,
  *         }],
+ *         computeReservation: 1,
+ *         shareDecaySeconds: 3600,
  *     },
+ *     name: "example",
  * });
  * const exampleJobQueue = new aws.batch.JobQueue("example", {
- *     name: "tf-test-batch-job-queue",
- *     schedulingPolicyArn: example.arn,
- *     state: "ENABLED",
- *     priority: 1,
  *     computeEnvironmentOrders: [
  *         {
  *             order: 1,
@@ -67,6 +63,10 @@ import * as utilities from "../utilities";
  *             computeEnvironment: testEnvironment2.arn,
  *         },
  *     ],
+ *     name: "tf-test-batch-job-queue",
+ *     schedulingPolicyArn: example.arn,
+ *     state: "ENABLED",
+ *     priority: 1,
  * });
  * ```
  *

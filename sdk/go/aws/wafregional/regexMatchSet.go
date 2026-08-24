@@ -38,7 +38,6 @@ import (
 //				return err
 //			}
 //			_, err = wafregional.NewRegexMatchSet(ctx, "example", &wafregional.RegexMatchSetArgs{
-//				Name: pulumi.String("example"),
 //				RegexMatchTuples: wafregional.RegexMatchSetRegexMatchTupleArray{
 //					&wafregional.RegexMatchSetRegexMatchTupleArgs{
 //						FieldToMatch: &wafregional.RegexMatchSetRegexMatchTupleFieldToMatchArgs{
@@ -49,6 +48,7 @@ import (
 //						TextTransformation: pulumi.String("NONE"),
 //					},
 //				},
+//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

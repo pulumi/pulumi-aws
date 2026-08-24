@@ -28,8 +28,6 @@ namespace Pulumi.Aws.Ecr
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Sid = "new policy",
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -41,6 +39,8 @@ namespace Pulumi.Aws.Ecr
     ///                         },
     ///                     },
     ///                 },
+    ///                 Sid = "new policy",
+    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "ecr:GetDownloadUrlForLayer",
@@ -64,6 +64,13 @@ namespace Pulumi.Aws.Ecr
     /// 
     ///     var exampleRepositoryCreationTemplate = new Aws.Ecr.RepositoryCreationTemplate("example", new()
     ///     {
+    ///         EncryptionConfigurations = new[]
+    ///         {
+    ///             new Aws.Ecr.Inputs.RepositoryCreationTemplateEncryptionConfigurationArgs
+    ///             {
+    ///                 EncryptionType = "AES256",
+    ///             },
+    ///         },
     ///         Prefix = "example",
     ///         Description = "An example template",
     ///         ImageTagMutability = "IMMUTABLE",
@@ -71,13 +78,6 @@ namespace Pulumi.Aws.Ecr
     ///         AppliedFors = new[]
     ///         {
     ///             "PULL_THROUGH_CACHE",
-    ///         },
-    ///         EncryptionConfigurations = new[]
-    ///         {
-    ///             new Aws.Ecr.Inputs.RepositoryCreationTemplateEncryptionConfigurationArgs
-    ///             {
-    ///                 EncryptionType = "AES256",
-    ///             },
     ///         },
     ///         RepositoryPolicy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///         LifecyclePolicy = @"{

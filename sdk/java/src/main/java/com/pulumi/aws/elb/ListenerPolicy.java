@@ -54,8 +54,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var wu_tang = new LoadBalancer("wu-tang", LoadBalancerArgs.builder()
- *             .name("wu-tang")
- *             .availabilityZones("us-east-1a")
  *             .listeners(LoadBalancerListenerArgs.builder()
  *                 .instancePort(443)
  *                 .instanceProtocol("http")
@@ -63,13 +61,12 @@ import javax.annotation.Nullable;
  *                 .lbProtocol("https")
  *                 .sslCertificateId("arn:aws:iam::000000000000:server-certificate/wu-tang.net")
  *                 .build())
+ *             .name("wu-tang")
+ *             .availabilityZones("us-east-1a")
  *             .tags(Map.of("Name", "wu-tang"))
  *             .build());
  * 
  *         var wu_tang_ssl = new LoadBalancerPolicy("wu-tang-ssl", LoadBalancerPolicyArgs.builder()
- *             .loadBalancerName(wu_tang.name())
- *             .policyName("wu-tang-ssl")
- *             .policyTypeName("SSLNegotiationPolicyType")
  *             .policyAttributes(            
  *                 LoadBalancerPolicyPolicyAttributeArgs.builder()
  *                     .name("ECDHE-ECDSA-AES128-GCM-SHA256")
@@ -79,6 +76,9 @@ import javax.annotation.Nullable;
  *                     .name("Protocol-TLSv1.2")
  *                     .value("true")
  *                     .build())
+ *             .loadBalancerName(wu_tang.name())
+ *             .policyName("wu-tang-ssl")
+ *             .policyTypeName("SSLNegotiationPolicyType")
  *             .build());
  * 
  *         var wu_tang_listener_policies_443 = new ListenerPolicy("wu-tang-listener-policies-443", ListenerPolicyArgs.builder()
@@ -125,8 +125,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var wu_tang = new LoadBalancer("wu-tang", LoadBalancerArgs.builder()
- *             .name("wu-tang")
- *             .availabilityZones("us-east-1a")
  *             .listeners(LoadBalancerListenerArgs.builder()
  *                 .instancePort(443)
  *                 .instanceProtocol("http")
@@ -134,17 +132,19 @@ import javax.annotation.Nullable;
  *                 .lbProtocol("https")
  *                 .sslCertificateId("arn:aws:iam::000000000000:server-certificate/wu-tang.net")
  *                 .build())
+ *             .name("wu-tang")
+ *             .availabilityZones("us-east-1a")
  *             .tags(Map.of("Name", "wu-tang"))
  *             .build());
  * 
  *         var wu_tang_ssl_tls_1_1 = new LoadBalancerPolicy("wu-tang-ssl-tls-1-1", LoadBalancerPolicyArgs.builder()
- *             .loadBalancerName(wu_tang.name())
- *             .policyName("wu-tang-ssl")
- *             .policyTypeName("SSLNegotiationPolicyType")
  *             .policyAttributes(LoadBalancerPolicyPolicyAttributeArgs.builder()
  *                 .name("Reference-Security-Policy")
  *                 .value("ELBSecurityPolicy-TLS-1-1-2017-01")
  *                 .build())
+ *             .loadBalancerName(wu_tang.name())
+ *             .policyName("wu-tang-ssl")
+ *             .policyTypeName("SSLNegotiationPolicyType")
  *             .build());
  * 
  *         var wu_tang_listener_policies_443 = new ListenerPolicy("wu-tang-listener-policies-443", ListenerPolicyArgs.builder()

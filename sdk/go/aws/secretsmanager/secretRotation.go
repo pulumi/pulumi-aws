@@ -31,11 +31,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := secretsmanager.NewSecretRotation(ctx, "example", &secretsmanager.SecretRotationArgs{
-//				SecretId:          pulumi.Any(exampleAwsSecretsmanagerSecret.Id),
-//				RotationLambdaArn: pulumi.Any(exampleAwsLambdaFunction.Arn),
 //				RotationRules: &secretsmanager.SecretRotationRotationRulesArgs{
 //					AutomaticallyAfterDays: pulumi.Int(30),
 //				},
+//				SecretId:          pulumi.Any(exampleAwsSecretsmanagerSecret.Id),
+//				RotationLambdaArn: pulumi.Any(exampleAwsLambdaFunction.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -70,8 +70,9 @@ import (
 //				return err
 //			}
 //			_, err = secretsmanager.NewSecretRotation(ctx, "example", &secretsmanager.SecretRotationArgs{
-//				SecretId:                      example.ID().ToIDOutput().ToStringOutput(),
-//				ExternalSecretRotationRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//				RotationRules: &secretsmanager.SecretRotationRotationRulesArgs{
+//					AutomaticallyAfterDays: pulumi.Any(rotationDays),
+//				},
 //				ExternalSecretRotationMetadatas: secretsmanager.SecretRotationExternalSecretRotationMetadataArray{
 //					&secretsmanager.SecretRotationExternalSecretRotationMetadataArgs{
 //						Key:   pulumi.String("adminSecretArn"),
@@ -82,9 +83,8 @@ import (
 //						Value: pulumi.String("v65.0"),
 //					},
 //				},
-//				RotationRules: &secretsmanager.SecretRotationRotationRulesArgs{
-//					AutomaticallyAfterDays: pulumi.Any(rotationDays),
-//				},
+//				SecretId:                      example.ID().ToIDOutput().ToStringOutput(),
+//				ExternalSecretRotationRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err

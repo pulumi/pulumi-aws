@@ -50,8 +50,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementConditionArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.s3.BucketPolicy;
  * import com.pulumi.aws.s3.BucketPolicyArgs;
  * import com.pulumi.aws.cloudtrail.Trail;
@@ -87,29 +87,21 @@ import javax.annotation.Nullable;
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(            
  *                 GetPolicyDocumentStatementArgs.builder()
- *                     .sid("AWSCloudTrailAclCheck")
- *                     .effect("Allow")
- *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                         .type("Service")
- *                         .identifiers("cloudtrail.amazonaws.com")
- *                         .build())
- *                     .actions("s3:GetBucketAcl")
- *                     .resources(exampleBucket.arn())
  *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                         .test("StringEquals")
  *                         .variable("aws:SourceArn")
  *                         .values(String.format("arn:%s:cloudtrail:%s:%s:trail/example", currentGetPartition.partition(),currentGetRegion.region(),current.accountId()))
  *                         .build())
- *                     .build(),
- *                 GetPolicyDocumentStatementArgs.builder()
- *                     .sid("AWSCloudTrailWrite")
- *                     .effect("Allow")
  *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                         .type("Service")
  *                         .identifiers("cloudtrail.amazonaws.com")
  *                         .build())
- *                     .actions("s3:PutObject")
- *                     .resources(exampleBucket.arn().applyValue(_arn -> String.format("%s/prefix/AWSLogs/%s/*", _arn,current.accountId())))
+ *                     .sid("AWSCloudTrailAclCheck")
+ *                     .effect("Allow")
+ *                     .actions("s3:GetBucketAcl")
+ *                     .resources(exampleBucket.arn())
+ *                     .build(),
+ *                 GetPolicyDocumentStatementArgs.builder()
  *                     .conditions(                    
  *                         GetPolicyDocumentStatementConditionArgs.builder()
  *                             .test("StringEquals")
@@ -121,6 +113,14 @@ import javax.annotation.Nullable;
  *                             .variable("aws:SourceArn")
  *                             .values(String.format("arn:%s:cloudtrail:%s:%s:trail/example", currentGetPartition.partition(),currentGetRegion.region(),current.accountId()))
  *                             .build())
+ *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                         .type("Service")
+ *                         .identifiers("cloudtrail.amazonaws.com")
+ *                         .build())
+ *                     .sid("AWSCloudTrailWrite")
+ *                     .effect("Allow")
+ *                     .actions("s3:PutObject")
+ *                     .resources(exampleBucket.arn().applyValue(_arn -> String.format("%s/prefix/AWSLogs/%s/*", _arn,current.accountId())))
  *                     .build())
  *             .build());
  * 
@@ -178,12 +178,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Trail("example", TrailArgs.builder()
  *             .eventSelectors(TrailEventSelectorArgs.builder()
- *                 .readWriteType("All")
- *                 .includeManagementEvents(true)
  *                 .dataResources(TrailEventSelectorDataResourceArgs.builder()
  *                     .type("AWS::Lambda::Function")
  *                     .values("arn:aws:lambda")
  *                     .build())
+ *                 .readWriteType("All")
+ *                 .includeManagementEvents(true)
  *                 .build())
  *             .build());
  * 
@@ -220,12 +220,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Trail("example", TrailArgs.builder()
  *             .eventSelectors(TrailEventSelectorArgs.builder()
- *                 .readWriteType("All")
- *                 .includeManagementEvents(true)
  *                 .dataResources(TrailEventSelectorDataResourceArgs.builder()
  *                     .type("AWS::S3::Object")
  *                     .values("arn:aws:s3")
  *                     .build())
+ *                 .readWriteType("All")
+ *                 .includeManagementEvents(true)
  *                 .build())
  *             .build());
  * 
@@ -268,12 +268,12 @@ import javax.annotation.Nullable;
  * 
  *         var example = new Trail("example", TrailArgs.builder()
  *             .eventSelectors(TrailEventSelectorArgs.builder()
- *                 .readWriteType("All")
- *                 .includeManagementEvents(true)
  *                 .dataResources(TrailEventSelectorDataResourceArgs.builder()
  *                     .type("AWS::S3::Object")
  *                     .values(String.format("%s/", important_bucket.arn()))
  *                     .build())
+ *                 .readWriteType("All")
+ *                 .includeManagementEvents(true)
  *                 .build())
  *             .build());
  * 
@@ -321,7 +321,6 @@ import javax.annotation.Nullable;
  *         var example = new Trail("example", TrailArgs.builder()
  *             .advancedEventSelectors(            
  *                 TrailAdvancedEventSelectorArgs.builder()
- *                     .name("Log all S3 objects events except for two S3 buckets")
  *                     .fieldSelectors(                    
  *                         TrailAdvancedEventSelectorFieldSelectorArgs.builder()
  *                             .field("eventCategory")
@@ -337,13 +336,14 @@ import javax.annotation.Nullable;
  *                             .field("resources.type")
  *                             .equals("AWS::S3::Object")
  *                             .build())
+ *                     .name("Log all S3 objects events except for two S3 buckets")
  *                     .build(),
  *                 TrailAdvancedEventSelectorArgs.builder()
- *                     .name("Log readOnly and writeOnly management events")
  *                     .fieldSelectors(TrailAdvancedEventSelectorFieldSelectorArgs.builder()
  *                         .field("eventCategory")
  *                         .equals("Management")
  *                         .build())
+ *                     .name("Log readOnly and writeOnly management events")
  *                     .build())
  *             .build());
  * 
@@ -395,7 +395,6 @@ import javax.annotation.Nullable;
  *         var example = new Trail("example", TrailArgs.builder()
  *             .advancedEventSelectors(            
  *                 TrailAdvancedEventSelectorArgs.builder()
- *                     .name("Log PutObject and DeleteObject events for two S3 buckets")
  *                     .fieldSelectors(                    
  *                         TrailAdvancedEventSelectorFieldSelectorArgs.builder()
  *                             .field("eventCategory")
@@ -421,9 +420,9 @@ import javax.annotation.Nullable;
  *                             .field("resources.type")
  *                             .equals("AWS::S3::Object")
  *                             .build())
+ *                     .name("Log PutObject and DeleteObject events for two S3 buckets")
  *                     .build(),
  *                 TrailAdvancedEventSelectorArgs.builder()
- *                     .name("Log Delete* events for one S3 bucket")
  *                     .fieldSelectors(                    
  *                         TrailAdvancedEventSelectorFieldSelectorArgs.builder()
  *                             .field("eventCategory")
@@ -445,6 +444,7 @@ import javax.annotation.Nullable;
  *                             .field("resources.type")
  *                             .equals("AWS::S3::Object")
  *                             .build())
+ *                     .name("Log Delete* events for one S3 bucket")
  *                     .build())
  *             .build());
  * 

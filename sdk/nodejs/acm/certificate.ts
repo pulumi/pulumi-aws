@@ -31,12 +31,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const cert = new aws.acm.Certificate("cert", {
- *     domainName: "testing.example.com",
- *     validationMethod: "EMAIL",
  *     validationOptions: [{
  *         domainName: "testing.example.com",
  *         validationDomain: "example.com",
  *     }],
+ *     domainName: "testing.example.com",
+ *     validationMethod: "EMAIL",
  * });
  * ```
  *
@@ -49,12 +49,12 @@ import * as utilities from "../utilities";
  *
  * const example = new tls.PrivateKey("example", {algorithm: "RSA"});
  * const exampleSelfSignedCert = new tls.SelfSignedCert("example", {
- *     keyAlgorithm: "RSA",
- *     privateKeyPem: example.privateKeyPem,
  *     subject: [{
  *         commonName: "example.com",
  *         organization: "ACME Examples, Inc",
  *     }],
+ *     keyAlgorithm: "RSA",
+ *     privateKeyPem: example.privateKeyPem,
  *     validityPeriodHours: 12,
  *     allowedUses: [
  *         "key_encipherment",
@@ -77,12 +77,12 @@ import * as utilities from "../utilities";
  *
  * const example = new tls.PrivateKey("example", {algorithm: "RSA"});
  * const exampleSelfSignedCert = new tls.SelfSignedCert("example", {
- *     keyAlgorithm: "RSA",
- *     privateKeyPem: example.privateKeyPem,
  *     subject: [{
  *         commonName: "example.com",
  *         organization: "ACME Examples, Inc",
  *     }],
+ *     keyAlgorithm: "RSA",
+ *     privateKeyPem: example.privateKeyPem,
  *     validityPeriodHours: 12,
  *     allowedUses: [
  *         "key_encipherment",

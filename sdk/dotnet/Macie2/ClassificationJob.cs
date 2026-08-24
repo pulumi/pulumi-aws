@@ -26,8 +26,6 @@ namespace Pulumi.Aws.Macie2
     /// 
     ///     var testClassificationJob = new Aws.Macie2.ClassificationJob("test", new()
     ///     {
-    ///         JobType = "ONE_TIME",
-    ///         Name = "NAME OF THE CLASSIFICATION JOB",
     ///         S3JobDefinition = new Aws.Macie2.Inputs.ClassificationJobS3JobDefinitionArgs
     ///         {
     ///             BucketDefinitions = new[]
@@ -42,6 +40,8 @@ namespace Pulumi.Aws.Macie2
     ///                 },
     ///             },
     ///         },
+    ///         JobType = "ONE_TIME",
+    ///         Name = "NAME OF THE CLASSIFICATION JOB",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

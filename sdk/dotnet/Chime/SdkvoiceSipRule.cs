@@ -26,9 +26,6 @@ namespace Pulumi.Aws.Chime
     /// {
     ///     var example = new Aws.Chime.SdkvoiceSipRule("example", new()
     ///     {
-    ///         Name = "example-sip-rule",
-    ///         TriggerType = "RequestUriHostname",
-    ///         TriggerValue = example_voice_connector.OutboundHostName,
     ///         TargetApplications = new[]
     ///         {
     ///             new Aws.Chime.Inputs.SdkvoiceSipRuleTargetApplicationArgs
@@ -38,6 +35,9 @@ namespace Pulumi.Aws.Chime
     ///                 AwsRegion = "us-east-1",
     ///             },
     ///         },
+    ///         Name = "example-sip-rule",
+    ///         TriggerType = "RequestUriHostname",
+    ///         TriggerValue = example_voice_connector.OutboundHostName,
     ///     });
     /// 
     /// });

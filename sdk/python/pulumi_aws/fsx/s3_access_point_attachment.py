@@ -281,18 +281,18 @@ class S3AccessPointAttachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.fsx.S3AccessPointAttachment("example",
-            name="example-attachment",
-            type="OPENZFS",
             openzfs_configuration={
-                "volume_id": example_aws_fsx_openzfs_volume["id"],
                 "file_system_identity": {
-                    "type": "POSIX",
                     "posix_user": {
                         "uid": 1001,
                         "gid": 1001,
                     },
+                    "type": "POSIX",
                 },
-            })
+                "volume_id": example_aws_fsx_openzfs_volume["id"],
+            },
+            name="example-attachment",
+            type="OPENZFS")
         ```
 
         ## Import
@@ -330,18 +330,18 @@ class S3AccessPointAttachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.fsx.S3AccessPointAttachment("example",
-            name="example-attachment",
-            type="OPENZFS",
             openzfs_configuration={
-                "volume_id": example_aws_fsx_openzfs_volume["id"],
                 "file_system_identity": {
-                    "type": "POSIX",
                     "posix_user": {
                         "uid": 1001,
                         "gid": 1001,
                     },
+                    "type": "POSIX",
                 },
-            })
+                "volume_id": example_aws_fsx_openzfs_volume["id"],
+            },
+            name="example-attachment",
+            type="OPENZFS")
         ```
 
         ## Import

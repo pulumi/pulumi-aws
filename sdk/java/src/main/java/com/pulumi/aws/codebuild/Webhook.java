@@ -57,8 +57,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Webhook("example", WebhookArgs.builder()
- *             .projectName(exampleAwsCodebuildProject.name())
- *             .buildType("BUILD")
  *             .filterGroups(WebhookFilterGroupArgs.builder()
  *                 .filters(                
  *                     WebhookFilterGroupFilterArgs.builder()
@@ -70,6 +68,8 @@ import javax.annotation.Nullable;
  *                         .pattern("master")
  *                         .build())
  *                 .build())
+ *             .projectName(exampleAwsCodebuildProject.name())
+ *             .buildType("BUILD")
  *             .build());
  * 
  *     }
@@ -112,16 +112,16 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRepositoryWebhook = new RepositoryWebhook("exampleRepositoryWebhook", RepositoryWebhookArgs.builder()
- *             .active(true)
- *             .events("push")
- *             .name("example")
- *             .repository(exampleGithubRepository.name())
  *             .configuration(com.pulumi.github.inputs.RepositoryWebhookConfigurationArgs.builder()
  *                 .url(example.payloadUrl())
  *                 .secret(example.secret())
  *                 .contentType("json")
  *                 .insecureSsl(false)
  *                 .build())
+ *             .active(true)
+ *             .events("push")
+ *             .name("example")
+ *             .repository(exampleGithubRepository.name())
  *             .build());
  * 
  *     }
@@ -159,14 +159,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Webhook("example", WebhookArgs.builder()
- *             .projectName(exampleAwsCodebuildProject.name())
- *             .buildType("BUILD")
  *             .filterGroups(WebhookFilterGroupArgs.builder()
  *                 .filters(WebhookFilterGroupFilterArgs.builder()
  *                     .type("EVENT")
  *                     .pattern("WORKFLOW_JOB_QUEUED")
  *                     .build())
  *                 .build())
+ *             .projectName(exampleAwsCodebuildProject.name())
+ *             .buildType("BUILD")
  *             .build());
  * 
  *     }

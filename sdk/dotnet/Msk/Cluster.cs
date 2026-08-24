@@ -89,7 +89,6 @@ namespace Pulumi.Aws.Msk
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -101,6 +100,7 @@ namespace Pulumi.Aws.Msk
     ///                         },
     ///                     },
     ///                 },
+    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "sts:AssumeRole",
@@ -117,39 +117,42 @@ namespace Pulumi.Aws.Msk
     /// 
     ///     var testStream = new Aws.Kinesis.FirehoseDeliveryStream("test_stream", new()
     ///     {
-    ///         Name = "kinesis-firehose-msk-broker-logs-stream",
-    ///         Destination = "extended_s3",
     ///         ExtendedS3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs
     ///         {
     ///             RoleArn = firehoseRole.Arn,
     ///             BucketArn = bucket.Arn,
     ///         },
+    ///         Name = "kinesis-firehose-msk-broker-logs-stream",
+    ///         Destination = "extended_s3",
     ///         Tags = 
     ///         {
     ///             { "LogDeliveryEnabled", "placeholder" },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
+    ///         {
+    ///             "tags[\"LogDeliveryEnabled\"]",
     ///         },
     ///     });
     /// 
     ///     var example = new Aws.Msk.Cluster("example", new()
     ///     {
-    ///         ClusterName = "example",
-    ///         KafkaVersion = "3.8.x",
-    ///         NumberOfBrokerNodes = 3,
     ///         BrokerNodeGroupInfo = new Aws.Msk.Inputs.ClusterBrokerNodeGroupInfoArgs
     ///         {
-    ///             InstanceType = "kafka.m5.large",
-    ///             ClientSubnets = new[]
-    ///             {
-    ///                 subnetAz1.Id,
-    ///                 subnetAz2.Id,
-    ///                 subnetAz3.Id,
-    ///             },
     ///             StorageInfo = new Aws.Msk.Inputs.ClusterBrokerNodeGroupInfoStorageInfoArgs
     ///             {
     ///                 EbsStorageInfo = new Aws.Msk.Inputs.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs
     ///                 {
     ///                     VolumeSize = 1000,
     ///                 },
+    ///             },
+    ///             InstanceType = "kafka.m5.large",
+    ///             ClientSubnets = new[]
+    ///             {
+    ///                 subnetAz1.Id,
+    ///                 subnetAz2.Id,
+    ///                 subnetAz3.Id,
     ///             },
     ///             SecurityGroups = new[]
     ///             {
@@ -196,6 +199,9 @@ namespace Pulumi.Aws.Msk
     ///                 },
     ///             },
     ///         },
+    ///         ClusterName = "example",
+    ///         KafkaVersion = "3.8.x",
+    ///         NumberOfBrokerNodes = 3,
     ///         Tags = 
     ///         {
     ///             { "foo", "bar" },
@@ -222,18 +228,8 @@ namespace Pulumi.Aws.Msk
     /// {
     ///     var example = new Aws.Msk.Cluster("example", new()
     ///     {
-    ///         ClusterName = "example",
-    ///         KafkaVersion = "3.8.x",
-    ///         NumberOfBrokerNodes = 3,
     ///         BrokerNodeGroupInfo = new Aws.Msk.Inputs.ClusterBrokerNodeGroupInfoArgs
     ///         {
-    ///             InstanceType = "kafka.m5.4xlarge",
-    ///             ClientSubnets = new[]
-    ///             {
-    ///                 subnetAz1.Id,
-    ///                 subnetAz2.Id,
-    ///                 subnetAz3.Id,
-    ///             },
     ///             StorageInfo = new Aws.Msk.Inputs.ClusterBrokerNodeGroupInfoStorageInfoArgs
     ///             {
     ///                 EbsStorageInfo = new Aws.Msk.Inputs.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs
@@ -246,11 +242,21 @@ namespace Pulumi.Aws.Msk
     ///                     VolumeSize = 1000,
     ///                 },
     ///             },
+    ///             InstanceType = "kafka.m5.4xlarge",
+    ///             ClientSubnets = new[]
+    ///             {
+    ///                 subnetAz1.Id,
+    ///                 subnetAz2.Id,
+    ///                 subnetAz3.Id,
+    ///             },
     ///             SecurityGroups = new[]
     ///             {
     ///                 sg.Id,
     ///             },
     ///         },
+    ///         ClusterName = "example",
+    ///         KafkaVersion = "3.8.x",
+    ///         NumberOfBrokerNodes = 3,
     ///     });
     /// 
     /// });

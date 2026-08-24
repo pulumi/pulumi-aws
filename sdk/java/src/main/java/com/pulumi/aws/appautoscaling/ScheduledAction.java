@@ -56,15 +56,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var dynamodbScheduledAction = new ScheduledAction("dynamodbScheduledAction", ScheduledActionArgs.builder()
+ *             .scalableTargetAction(ScheduledActionScalableTargetActionArgs.builder()
+ *                 .minCapacity(1)
+ *                 .maxCapacity(200)
+ *                 .build())
  *             .name("dynamodb")
  *             .serviceNamespace(dynamodb.serviceNamespace())
  *             .resourceId(dynamodb.resourceId())
  *             .scalableDimension(dynamodb.scalableDimension())
  *             .schedule("at(2006-01-02T15:04:05)")
- *             .scalableTargetAction(ScheduledActionScalableTargetActionArgs.builder()
- *                 .minCapacity(1)
- *                 .maxCapacity(200)
- *                 .build())
  *             .build());
  * 
  *     }
@@ -108,15 +108,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var ecsScheduledAction = new ScheduledAction("ecsScheduledAction", ScheduledActionArgs.builder()
+ *             .scalableTargetAction(ScheduledActionScalableTargetActionArgs.builder()
+ *                 .minCapacity(1)
+ *                 .maxCapacity(10)
+ *                 .build())
  *             .name("ecs")
  *             .serviceNamespace(ecs.serviceNamespace())
  *             .resourceId(ecs.resourceId())
  *             .scalableDimension(ecs.scalableDimension())
  *             .schedule("at(2006-01-02T15:04:05)")
- *             .scalableTargetAction(ScheduledActionScalableTargetActionArgs.builder()
- *                 .minCapacity(1)
- *                 .maxCapacity(10)
- *                 .build())
  *             .build());
  * 
  *     }

@@ -38,11 +38,11 @@ import * as utilities from "../utilities";
  *     domain: testAwsCodeartifactDomain.domain,
  * });
  * const test = new aws.codeartifact.Repository("test", {
- *     repository: "example",
- *     domain: example.domain,
  *     upstreams: [{
  *         repositoryName: upstream.repository,
  *     }],
+ *     repository: "example",
+ *     domain: example.domain,
  * });
  * ```
  *
@@ -57,11 +57,11 @@ import * as utilities from "../utilities";
  *     domain: testAwsCodeartifactDomain.domain,
  * });
  * const test = new aws.codeartifact.Repository("test", {
- *     repository: "example",
- *     domain: example.domain,
  *     externalConnections: {
  *         externalConnectionName: "public:npmjs",
  *     },
+ *     repository: "example",
+ *     domain: example.domain,
  * });
  * ```
  *

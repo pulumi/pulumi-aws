@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  *     description: "Athena KMS Key",
  * });
  * const testWorkgroup = new aws.athena.Workgroup("test", {
- *     name: "example",
  *     configuration: {
  *         resultConfiguration: {
  *             encryptionConfiguration: {
@@ -28,6 +27,7 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     },
+ *     name: "example",
  * });
  * const hogeDatabase = new aws.athena.Database("hoge", {
  *     name: "users",

@@ -269,11 +269,11 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
             name="vc-name-test",
             require_encryption=True)
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["mediapipelines.chime.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         example_role = aws.iam.Role("example",
@@ -283,31 +283,31 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
             name="ExampleStream",
             shard_count=2)
         example = aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("example",
-            name="ExampleConfig",
-            resource_access_role_arn=example_role.arn,
             elements=[
                 {
-                    "type": "AmazonTranscribeCallAnalyticsProcessor",
                     "amazon_transcribe_call_analytics_processor_configuration": {
                         "language_code": "en-US",
                     },
+                    "type": "AmazonTranscribeCallAnalyticsProcessor",
                 },
                 {
-                    "type": "KinesisDataStreamSink",
                     "kinesis_data_stream_sink_configuration": {
                         "insights_target": example_stream.arn,
                     },
+                    "type": "KinesisDataStreamSink",
                 },
-            ])
+            ],
+            name="ExampleConfig",
+            resource_access_role_arn=example_role.arn)
         default_voice_connector_streaming = aws.chime.VoiceConnectorStreaming("default",
-            disabled=False,
-            voice_connector_id=default.id,
-            data_retention=7,
-            streaming_notification_targets=["SQS"],
             media_insights_configuration={
                 "disabled": False,
                 "configuration_arn": example.arn,
-            })
+            },
+            disabled=False,
+            voice_connector_id=default.id,
+            data_retention=7,
+            streaming_notification_targets=["SQS"])
         ```
 
         ## Import
@@ -364,11 +364,11 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
             name="vc-name-test",
             require_encryption=True)
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["mediapipelines.chime.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         example_role = aws.iam.Role("example",
@@ -378,31 +378,31 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
             name="ExampleStream",
             shard_count=2)
         example = aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("example",
-            name="ExampleConfig",
-            resource_access_role_arn=example_role.arn,
             elements=[
                 {
-                    "type": "AmazonTranscribeCallAnalyticsProcessor",
                     "amazon_transcribe_call_analytics_processor_configuration": {
                         "language_code": "en-US",
                     },
+                    "type": "AmazonTranscribeCallAnalyticsProcessor",
                 },
                 {
-                    "type": "KinesisDataStreamSink",
                     "kinesis_data_stream_sink_configuration": {
                         "insights_target": example_stream.arn,
                     },
+                    "type": "KinesisDataStreamSink",
                 },
-            ])
+            ],
+            name="ExampleConfig",
+            resource_access_role_arn=example_role.arn)
         default_voice_connector_streaming = aws.chime.VoiceConnectorStreaming("default",
-            disabled=False,
-            voice_connector_id=default.id,
-            data_retention=7,
-            streaming_notification_targets=["SQS"],
             media_insights_configuration={
                 "disabled": False,
                 "configuration_arn": example.arn,
-            })
+            },
+            disabled=False,
+            voice_connector_id=default.id,
+            data_retention=7,
+            streaming_notification_targets=["SQS"])
         ```
 
         ## Import

@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.CapacityProvider("example", {
- *     name: "example",
  *     vpcConfig: {
  *         subnetIds: exampleAwsSubnet.map(__item => __item.id),
  *         securityGroupIds: [exampleAwsSecurityGroup.id],
@@ -31,8 +30,14 @@ import * as utilities from "../utilities";
  *     permissionsConfig: {
  *         capacityProviderOperatorRoleArn: exampleAwsIamRole.arn,
  *     },
+ *     name: "example",
  * });
  * const exampleFunction = new aws.lambda.Function("example", {
+ *     capacityProviderConfig: {
+ *         lambdaManagedInstancesCapacityProviderConfig: {
+ *             capacityProviderArn: example.arn,
+ *         },
+ *     },
  *     code: new pulumi.asset.FileArchive("lambda_function.zip"),
  *     name: "example",
  *     role: exampleAwsIamRole.arn,
@@ -41,19 +46,14 @@ import * as utilities from "../utilities";
  *     memorySize: 32768,
  *     publish: true,
  *     publishTo: "LATEST_PUBLISHED",
- *     capacityProviderConfig: {
- *         lambdaManagedInstancesCapacityProviderConfig: {
- *             capacityProviderArn: example.arn,
- *         },
- *     },
  * });
  * const exampleFunctionScalingConfig = new aws.lambda.FunctionScalingConfig("example", {
- *     functionName: exampleFunction.name,
- *     qualifier: "$LATEST.PUBLISHED",
  *     functionScalingConfig: {
  *         minExecutionEnvironments: 3,
  *         maxExecutionEnvironments: 100,
  *     },
+ *     functionName: exampleFunction.name,
+ *     qualifier: "$LATEST.PUBLISHED",
  * });
  * ```
  *

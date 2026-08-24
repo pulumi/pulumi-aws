@@ -62,20 +62,20 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBucketVersioning = new BucketVersioning("exampleBucketVersioning", BucketVersioningArgs.builder()
- *             .bucket(example.id())
  *             .versioningConfiguration(BucketVersioningVersioningConfigurationArgs.builder()
  *                 .status("Enabled")
  *                 .build())
+ *             .bucket(example.id())
  *             .build());
  * 
  *         var exampleBucketObjectLockConfiguration = new BucketObjectLockConfiguration("exampleBucketObjectLockConfiguration", BucketObjectLockConfigurationArgs.builder()
- *             .bucket(example.id())
  *             .rule(BucketObjectLockConfigurationRuleArgs.builder()
  *                 .defaultRetention(BucketObjectLockConfigurationRuleDefaultRetentionArgs.builder()
  *                     .mode("COMPLIANCE")
  *                     .days(5)
  *                     .build())
  *                 .build())
+ *             .bucket(example.id())
  *             .build());
  * 
  *     }

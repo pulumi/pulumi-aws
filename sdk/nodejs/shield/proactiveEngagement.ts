@@ -35,7 +35,6 @@ import * as utilities from "../utilities";
  * });
  * const exampleDrtAccessRoleArnAssociation = new aws.shield.DrtAccessRoleArnAssociation("example", {roleArn: exampleRole.arn});
  * const example = new aws.shield.ProactiveEngagement("example", {
- *     enabled: true,
  *     emergencyContacts: [
  *         {
  *             contactNotes: "Notes",
@@ -48,6 +47,7 @@ import * as utilities from "../utilities";
  *             phoneNumber: "+12358132134",
  *         },
  *     ],
+ *     enabled: true,
  * }, {
  *     dependsOn: [exampleDrtAccessRoleArnAssociation],
  * });

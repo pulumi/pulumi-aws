@@ -17,7 +17,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.dax.ParameterGroup("example", {
- *     name: "example",
  *     parameters: [
  *         {
  *             name: "query-ttl-millis",
@@ -28,6 +27,7 @@ import * as utilities from "../utilities";
  *             value: "100000",
  *         },
  *     ],
+ *     name: "example",
  * });
  * ```
  *

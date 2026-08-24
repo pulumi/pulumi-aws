@@ -470,11 +470,11 @@ class ComputeEnvironment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         ec2_assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["ec2.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         ecs_instance_role = aws.iam.Role("ecs_instance_role",
@@ -487,11 +487,11 @@ class ComputeEnvironment(pulumi.CustomResource):
             name="ecs_instance_role",
             role=ecs_instance_role.name)
         batch_assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["batch.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         aws_batch_service_role = aws.iam.Role("aws_batch_service_role",
@@ -501,13 +501,13 @@ class ComputeEnvironment(pulumi.CustomResource):
             role=aws_batch_service_role.name,
             policy_arn="arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole")
         sample = aws.ec2.SecurityGroup("sample",
-            name="aws_batch_compute_environment_security_group",
             egress=[{
                 "from_port": 0,
                 "to_port": 0,
                 "protocol": "-1",
                 "cidr_blocks": ["0.0.0.0/0"],
-            }])
+            }],
+            name="aws_batch_compute_environment_security_group")
         sample_vpc = aws.ec2.Vpc("sample", cidr_block="10.1.0.0/16")
         sample_subnet = aws.ec2.Subnet("sample",
             vpc_id=sample_vpc.id,
@@ -516,7 +516,6 @@ class ComputeEnvironment(pulumi.CustomResource):
             name="sample",
             strategy=aws.ec2.PlacementStrategy.CLUSTER)
         sample_compute_environment = aws.batch.ComputeEnvironment("sample",
-            name="sample",
             compute_resources={
                 "instance_role": ecs_instance_role_instance_profile.arn,
                 "instance_types": ["c4.large"],
@@ -527,6 +526,7 @@ class ComputeEnvironment(pulumi.CustomResource):
                 "subnets": [sample_subnet.id],
                 "type": "EC2",
             },
+            name="sample",
             service_role=aws_batch_service_role.arn,
             type="MANAGED",
             opts = pulumi.ResourceOptions(depends_on=[aws_batch_service_role_role_policy_attachment]))
@@ -539,13 +539,13 @@ class ComputeEnvironment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         sample = aws.batch.ComputeEnvironment("sample",
-            name="sample",
             compute_resources={
                 "max_vcpus": 16,
                 "security_group_ids": [sample_aws_security_group["id"]],
                 "subnets": [sample_aws_subnet["id"]],
                 "type": "FARGATE",
             },
+            name="sample",
             service_role=aws_batch_service_role_aws_iam_role["arn"],
             type="MANAGED",
             opts = pulumi.ResourceOptions(depends_on=[aws_batch_service_role]))
@@ -558,7 +558,6 @@ class ComputeEnvironment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         sample = aws.batch.ComputeEnvironment("sample",
-            name="sample",
             compute_resources={
                 "allocation_strategy": "BEST_FIT_PROGRESSIVE",
                 "instance_role": ecs_instance["arn"],
@@ -573,6 +572,7 @@ class ComputeEnvironment(pulumi.CustomResource):
                 "job_execution_timeout_minutes": 30,
                 "terminate_jobs_on_update": False,
             },
+            name="sample",
             type="MANAGED")
         ```
 
@@ -628,11 +628,11 @@ class ComputeEnvironment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         ec2_assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["ec2.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         ecs_instance_role = aws.iam.Role("ecs_instance_role",
@@ -645,11 +645,11 @@ class ComputeEnvironment(pulumi.CustomResource):
             name="ecs_instance_role",
             role=ecs_instance_role.name)
         batch_assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["batch.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         aws_batch_service_role = aws.iam.Role("aws_batch_service_role",
@@ -659,13 +659,13 @@ class ComputeEnvironment(pulumi.CustomResource):
             role=aws_batch_service_role.name,
             policy_arn="arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole")
         sample = aws.ec2.SecurityGroup("sample",
-            name="aws_batch_compute_environment_security_group",
             egress=[{
                 "from_port": 0,
                 "to_port": 0,
                 "protocol": "-1",
                 "cidr_blocks": ["0.0.0.0/0"],
-            }])
+            }],
+            name="aws_batch_compute_environment_security_group")
         sample_vpc = aws.ec2.Vpc("sample", cidr_block="10.1.0.0/16")
         sample_subnet = aws.ec2.Subnet("sample",
             vpc_id=sample_vpc.id,
@@ -674,7 +674,6 @@ class ComputeEnvironment(pulumi.CustomResource):
             name="sample",
             strategy=aws.ec2.PlacementStrategy.CLUSTER)
         sample_compute_environment = aws.batch.ComputeEnvironment("sample",
-            name="sample",
             compute_resources={
                 "instance_role": ecs_instance_role_instance_profile.arn,
                 "instance_types": ["c4.large"],
@@ -685,6 +684,7 @@ class ComputeEnvironment(pulumi.CustomResource):
                 "subnets": [sample_subnet.id],
                 "type": "EC2",
             },
+            name="sample",
             service_role=aws_batch_service_role.arn,
             type="MANAGED",
             opts = pulumi.ResourceOptions(depends_on=[aws_batch_service_role_role_policy_attachment]))
@@ -697,13 +697,13 @@ class ComputeEnvironment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         sample = aws.batch.ComputeEnvironment("sample",
-            name="sample",
             compute_resources={
                 "max_vcpus": 16,
                 "security_group_ids": [sample_aws_security_group["id"]],
                 "subnets": [sample_aws_subnet["id"]],
                 "type": "FARGATE",
             },
+            name="sample",
             service_role=aws_batch_service_role_aws_iam_role["arn"],
             type="MANAGED",
             opts = pulumi.ResourceOptions(depends_on=[aws_batch_service_role]))
@@ -716,7 +716,6 @@ class ComputeEnvironment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         sample = aws.batch.ComputeEnvironment("sample",
-            name="sample",
             compute_resources={
                 "allocation_strategy": "BEST_FIT_PROGRESSIVE",
                 "instance_role": ecs_instance["arn"],
@@ -731,6 +730,7 @@ class ComputeEnvironment(pulumi.CustomResource):
                 "job_execution_timeout_minutes": 30,
                 "terminate_jobs_on_update": False,
             },
+            name="sample",
             type="MANAGED")
         ```
 

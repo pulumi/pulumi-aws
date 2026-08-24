@@ -91,15 +91,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new OntapVolume("test", OntapVolumeArgs.builder()
+ *             .tieringPolicy(OntapVolumeTieringPolicyArgs.builder()
+ *                 .name("AUTO")
+ *                 .coolingPeriod(31)
+ *                 .build())
  *             .name("test")
  *             .junctionPath("/test")
  *             .sizeInMegabytes(1024)
  *             .storageEfficiencyEnabled(true)
  *             .storageVirtualMachineId(testAwsFsxOntapStorageVirtualMachine.id())
- *             .tieringPolicy(OntapVolumeTieringPolicyArgs.builder()
- *                 .name("AUTO")
- *                 .coolingPeriod(31)
- *                 .build())
  *             .build());
  * 
  *     }

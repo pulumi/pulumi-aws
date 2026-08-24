@@ -29,22 +29,22 @@ import {Topic} from "./index";
  *
  * const userUpdates = new aws.sns.Topic("user_updates", {name: "user-updates-topic"});
  * const sqsQueuePolicy = aws.iam.getPolicyDocumentOutput({
- *     policyId: "arn:aws:sqs:us-west-2:123456789012:user_updates_queue/SQSDefaultPolicy",
  *     statements: [{
- *         sid: "user_updates_sqs_target",
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["sns.amazonaws.com"],
- *         }],
- *         actions: ["SQS:SendMessage"],
- *         resources: ["arn:aws:sqs:us-west-2:123456789012:user-updates-queue"],
  *         conditions: [{
  *             test: "ArnEquals",
  *             variable: "aws:SourceArn",
  *             values: [userUpdates.arn],
  *         }],
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["sns.amazonaws.com"],
+ *         }],
+ *         sid: "user_updates_sqs_target",
+ *         effect: "Allow",
+ *         actions: ["SQS:SendMessage"],
+ *         resources: ["arn:aws:sqs:us-west-2:123456789012:user-updates-queue"],
  *     }],
+ *     policyId: "arn:aws:sqs:us-west-2:123456789012:user_updates_queue/SQSDefaultPolicy",
  * });
  * const userUpdatesQueue = new aws.sqs.Queue("user_updates_queue", {
  *     name: "user-updates-queue",
@@ -80,9 +80,17 @@ import {Topic} from "./index";
  *     "role-name": "service/service",
  * };
  * const snsTopicPolicy = aws.iam.getPolicyDocument({
- *     policyId: "__default_policy_ID",
  *     statements: [
  *         {
+ *             conditions: [{
+ *                 test: "StringEquals",
+ *                 variable: "AWS:SourceOwner",
+ *                 values: [sns["account-id"]],
+ *             }],
+ *             principals: [{
+ *                 type: "AWS",
+ *                 identifiers: ["*"],
+ *             }],
  *             actions: [
  *                 "SNS:Subscribe",
  *                 "SNS:SetTopicAttributes",
@@ -93,56 +101,48 @@ import {Topic} from "./index";
  *                 "SNS:DeleteTopic",
  *                 "SNS:AddPermission",
  *             ],
- *             conditions: [{
- *                 test: "StringEquals",
- *                 variable: "AWS:SourceOwner",
- *                 values: [sns["account-id"]],
- *             }],
  *             effect: "Allow",
- *             principals: [{
- *                 type: "AWS",
- *                 identifiers: ["*"],
- *             }],
  *             resources: [`arn:aws:sns:${sns.region}:${sns["account-id"]}:${sns.name}`],
  *             sid: "__default_statement_ID",
  *         },
  *         {
- *             actions: [
- *                 "SNS:Subscribe",
- *                 "SNS:Receive",
- *             ],
  *             conditions: [{
  *                 test: "StringLike",
  *                 variable: "SNS:Endpoint",
  *                 values: [`arn:aws:sqs:${sqs.region}:${sqs["account-id"]}:${sqs.name}`],
  *             }],
- *             effect: "Allow",
  *             principals: [{
  *                 type: "AWS",
  *                 identifiers: ["*"],
  *             }],
+ *             actions: [
+ *                 "SNS:Subscribe",
+ *                 "SNS:Receive",
+ *             ],
+ *             effect: "Allow",
  *             resources: [`arn:aws:sns:${sns.region}:${sns["account-id"]}:${sns.name}`],
  *             sid: "__console_sub_0",
  *         },
  *     ],
+ *     policyId: "__default_policy_ID",
  * });
  * const sqsQueuePolicy = aws.iam.getPolicyDocument({
- *     policyId: `arn:aws:sqs:${sqs.region}:${sqs["account-id"]}:${sqs.name}/SQSDefaultPolicy`,
  *     statements: [{
- *         sid: "example-sns-topic",
- *         effect: "Allow",
- *         principals: [{
- *             type: "AWS",
- *             identifiers: ["*"],
- *         }],
- *         actions: ["SQS:SendMessage"],
- *         resources: [`arn:aws:sqs:${sqs.region}:${sqs["account-id"]}:${sqs.name}`],
  *         conditions: [{
  *             test: "ArnEquals",
  *             variable: "aws:SourceArn",
  *             values: [`arn:aws:sns:${sns.region}:${sns["account-id"]}:${sns.name}`],
  *         }],
+ *         principals: [{
+ *             type: "AWS",
+ *             identifiers: ["*"],
+ *         }],
+ *         sid: "example-sns-topic",
+ *         effect: "Allow",
+ *         actions: ["SQS:SendMessage"],
+ *         resources: [`arn:aws:sqs:${sqs.region}:${sqs["account-id"]}:${sqs.name}`],
  *     }],
+ *     policyId: `arn:aws:sqs:${sqs.region}:${sqs["account-id"]}:${sqs.name}/SQSDefaultPolicy`,
  * });
  * const snsTopic = new aws.sns.Topic("sns_topic", {
  *     name: sns.name,

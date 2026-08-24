@@ -31,11 +31,6 @@ namespace Pulumi.Aws.Bedrock
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -46,6 +41,11 @@ namespace Pulumi.Aws.Bedrock
     ///                             "bedrock-agentcore.amazonaws.com",
     ///                         },
     ///                     },
+    ///                 },
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
     ///                 },
     ///             },
     ///         },
@@ -81,8 +81,6 @@ namespace Pulumi.Aws.Bedrock
     /// 
     ///     var exampleAgentcoreHarness = new Aws.Bedrock.AgentcoreHarness("example", new()
     ///     {
-    ///         HarnessName = "example_harness",
-    ///         ExecutionRoleArn = example.Arn,
     ///         Model = new Aws.Bedrock.Inputs.AgentcoreHarnessModelArgs
     ///         {
     ///             BedrockModelConfig = new Aws.Bedrock.Inputs.AgentcoreHarnessModelBedrockModelConfigArgs
@@ -97,6 +95,8 @@ namespace Pulumi.Aws.Bedrock
     ///                 Text = "You are a helpful assistant.",
     ///             },
     ///         },
+    ///         HarnessName = "example_harness",
+    ///         ExecutionRoleArn = example.Arn,
     ///     });
     /// 
     /// });
@@ -115,8 +115,6 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var example = new Aws.Bedrock.AgentcoreHarness("example", new()
     ///     {
-    ///         HarnessName = "example_with_tools",
-    ///         ExecutionRoleArn = exampleAwsIamRole.Arn,
     ///         Model = new Aws.Bedrock.Inputs.AgentcoreHarnessModelArgs
     ///         {
     ///             BedrockModelConfig = new Aws.Bedrock.Inputs.AgentcoreHarnessModelBedrockModelConfigArgs
@@ -133,19 +131,10 @@ namespace Pulumi.Aws.Bedrock
     ///                 Text = "You are a coding assistant.",
     ///             },
     ///         },
-    ///         AllowedTools = new[]
-    ///         {
-    ///             "*",
-    ///         },
-    ///         MaxIterations = 10,
-    ///         MaxTokens = 4096,
-    ///         TimeoutSeconds = 300,
     ///         Tools = new[]
     ///         {
     ///             new Aws.Bedrock.Inputs.AgentcoreHarnessToolArgs
     ///             {
-    ///                 Type = "inline_function",
-    ///                 Name = "get_weather",
     ///                 Config = new Aws.Bedrock.Inputs.AgentcoreHarnessToolConfigArgs
     ///                 {
     ///                     InlineFunction = new Aws.Bedrock.Inputs.AgentcoreHarnessToolConfigInlineFunctionArgs
@@ -169,13 +158,14 @@ namespace Pulumi.Aws.Bedrock
     ///                         }),
     ///                     },
     ///                 },
+    ///                 Type = "inline_function",
+    ///                 Name = "get_weather",
     ///             },
     ///         },
     ///         Truncations = new[]
     ///         {
     ///             new Aws.Bedrock.Inputs.AgentcoreHarnessTruncationArgs
     ///             {
-    ///                 Strategy = "sliding_window",
     ///                 Config = new[]
     ///                 {
     ///                     
@@ -189,8 +179,18 @@ namespace Pulumi.Aws.Bedrock
     ///                         } },
     ///                     },
     ///                 },
+    ///                 Strategy = "sliding_window",
     ///             },
     ///         },
+    ///         HarnessName = "example_with_tools",
+    ///         ExecutionRoleArn = exampleAwsIamRole.Arn,
+    ///         AllowedTools = new[]
+    ///         {
+    ///             "*",
+    ///         },
+    ///         MaxIterations = 10,
+    ///         MaxTokens = 4096,
+    ///         TimeoutSeconds = 300,
     ///     });
     /// 
     /// });
@@ -208,20 +208,11 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var example = new Aws.Bedrock.AgentcoreHarness("example", new()
     ///     {
-    ///         HarnessName = "my_harness",
-    ///         ExecutionRoleArn = exampleAwsIamRole.Arn,
     ///         Model = new Aws.Bedrock.Inputs.AgentcoreHarnessModelArgs
     ///         {
     ///             BedrockModelConfig = new Aws.Bedrock.Inputs.AgentcoreHarnessModelBedrockModelConfigArgs
     ///             {
     ///                 ModelId = "anthropic.claude-sonnet-4-20250514",
-    ///             },
-    ///         },
-    ///         SystemPrompts = new[]
-    ///         {
-    ///             new Aws.Bedrock.Inputs.AgentcoreHarnessSystemPromptArgs
-    ///             {
-    ///                 Text = "You are a helpful assistant.",
     ///             },
     ///         },
     ///         Memory = new Aws.Bedrock.Inputs.AgentcoreHarnessMemoryArgs
@@ -236,6 +227,15 @@ namespace Pulumi.Aws.Bedrock
     ///                 },
     ///             },
     ///         },
+    ///         SystemPrompts = new[]
+    ///         {
+    ///             new Aws.Bedrock.Inputs.AgentcoreHarnessSystemPromptArgs
+    ///             {
+    ///                 Text = "You are a helpful assistant.",
+    ///             },
+    ///         },
+    ///         HarnessName = "my_harness",
+    ///         ExecutionRoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });

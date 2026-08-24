@@ -300,12 +300,12 @@ class RecordingConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ivs.RecordingConfiguration("example",
-            name="recording_configuration-1",
             destination_configuration={
                 "s3": {
                     "bucket_name": "ivs-stream-archive",
                 },
-            })
+            },
+            name="recording_configuration-1")
         ```
 
         ## Import
@@ -350,12 +350,12 @@ class RecordingConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ivs.RecordingConfiguration("example",
-            name="recording_configuration-1",
             destination_configuration={
                 "s3": {
                     "bucket_name": "ivs-stream-archive",
                 },
-            })
+            },
+            name="recording_configuration-1")
         ```
 
         ## Import

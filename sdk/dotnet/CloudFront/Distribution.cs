@@ -63,6 +63,122 @@ namespace Pulumi.Aws.CloudFront
     /// 
     ///     var s3Distribution = new Aws.CloudFront.Distribution("s3_distribution", new()
     ///     {
+    ///         DefaultCacheBehavior = new Aws.CloudFront.Inputs.DistributionDefaultCacheBehaviorArgs
+    ///         {
+    ///             ForwardedValues = new Aws.CloudFront.Inputs.DistributionDefaultCacheBehaviorForwardedValuesArgs
+    ///             {
+    ///                 Cookies = new Aws.CloudFront.Inputs.DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs
+    ///                 {
+    ///                     Forward = "none",
+    ///                 },
+    ///                 QueryString = false,
+    ///             },
+    ///             AllowedMethods = new[]
+    ///             {
+    ///                 "DELETE",
+    ///                 "GET",
+    ///                 "HEAD",
+    ///                 "OPTIONS",
+    ///                 "PATCH",
+    ///                 "POST",
+    ///                 "PUT",
+    ///             },
+    ///             CachedMethods = new[]
+    ///             {
+    ///                 "GET",
+    ///                 "HEAD",
+    ///             },
+    ///             TargetOriginId = s3OriginId,
+    ///             ViewerProtocolPolicy = "allow-all",
+    ///             MinTtl = 0,
+    ///             DefaultTtl = 3600,
+    ///             MaxTtl = 86400,
+    ///         },
+    ///         Restrictions = new Aws.CloudFront.Inputs.DistributionRestrictionsArgs
+    ///         {
+    ///             GeoRestriction = new Aws.CloudFront.Inputs.DistributionRestrictionsGeoRestrictionArgs
+    ///             {
+    ///                 RestrictionType = "whitelist",
+    ///                 Locations = new[]
+    ///                 {
+    ///                     "US",
+    ///                     "CA",
+    ///                     "GB",
+    ///                     "DE",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ViewerCertificate = new Aws.CloudFront.Inputs.DistributionViewerCertificateArgs
+    ///         {
+    ///             AcmCertificateArn = myDomainGetCertificate.Apply(getCertificateResult =&gt; getCertificateResult.Arn),
+    ///             SslSupportMethod = "sni-only",
+    ///         },
+    ///         OrderedCacheBehaviors = new[]
+    ///         {
+    ///             new Aws.CloudFront.Inputs.DistributionOrderedCacheBehaviorArgs
+    ///             {
+    ///                 ForwardedValues = new Aws.CloudFront.Inputs.DistributionOrderedCacheBehaviorForwardedValuesArgs
+    ///                 {
+    ///                     Cookies = new Aws.CloudFront.Inputs.DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs
+    ///                     {
+    ///                         Forward = "none",
+    ///                     },
+    ///                     QueryString = false,
+    ///                     Headers = new[]
+    ///                     {
+    ///                         "Origin",
+    ///                     },
+    ///                 },
+    ///                 PathPattern = "/content/immutable/*",
+    ///                 AllowedMethods = new[]
+    ///                 {
+    ///                     "GET",
+    ///                     "HEAD",
+    ///                     "OPTIONS",
+    ///                 },
+    ///                 CachedMethods = new[]
+    ///                 {
+    ///                     "GET",
+    ///                     "HEAD",
+    ///                     "OPTIONS",
+    ///                 },
+    ///                 TargetOriginId = s3OriginId,
+    ///                 MinTtl = 0,
+    ///                 DefaultTtl = 86400,
+    ///                 MaxTtl = 31536000,
+    ///                 Compress = true,
+    ///                 ViewerProtocolPolicy = "redirect-to-https",
+    ///             },
+    ///             new Aws.CloudFront.Inputs.DistributionOrderedCacheBehaviorArgs
+    ///             {
+    ///                 ForwardedValues = new Aws.CloudFront.Inputs.DistributionOrderedCacheBehaviorForwardedValuesArgs
+    ///                 {
+    ///                     Cookies = new Aws.CloudFront.Inputs.DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs
+    ///                     {
+    ///                         Forward = "none",
+    ///                     },
+    ///                     QueryString = false,
+    ///                 },
+    ///                 PathPattern = "/content/*",
+    ///                 AllowedMethods = new[]
+    ///                 {
+    ///                     "GET",
+    ///                     "HEAD",
+    ///                     "OPTIONS",
+    ///                 },
+    ///                 CachedMethods = new[]
+    ///                 {
+    ///                     "GET",
+    ///                     "HEAD",
+    ///                 },
+    ///                 TargetOriginId = s3OriginId,
+    ///                 MinTtl = 0,
+    ///                 DefaultTtl = 3600,
+    ///                 MaxTtl = 86400,
+    ///                 Compress = true,
+    ///                 ViewerProtocolPolicy = "redirect-to-https",
+    ///             },
+    ///         },
     ///         Origins = new[]
     ///         {
     ///             new Aws.CloudFront.Inputs.DistributionOriginArgs
@@ -81,126 +197,10 @@ namespace Pulumi.Aws.CloudFront
     ///             $"mysite.{myDomain}",
     ///             $"yoursite.{myDomain}",
     ///         },
-    ///         DefaultCacheBehavior = new Aws.CloudFront.Inputs.DistributionDefaultCacheBehaviorArgs
-    ///         {
-    ///             AllowedMethods = new[]
-    ///             {
-    ///                 "DELETE",
-    ///                 "GET",
-    ///                 "HEAD",
-    ///                 "OPTIONS",
-    ///                 "PATCH",
-    ///                 "POST",
-    ///                 "PUT",
-    ///             },
-    ///             CachedMethods = new[]
-    ///             {
-    ///                 "GET",
-    ///                 "HEAD",
-    ///             },
-    ///             TargetOriginId = s3OriginId,
-    ///             ForwardedValues = new Aws.CloudFront.Inputs.DistributionDefaultCacheBehaviorForwardedValuesArgs
-    ///             {
-    ///                 QueryString = false,
-    ///                 Cookies = new Aws.CloudFront.Inputs.DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs
-    ///                 {
-    ///                     Forward = "none",
-    ///                 },
-    ///             },
-    ///             ViewerProtocolPolicy = "allow-all",
-    ///             MinTtl = 0,
-    ///             DefaultTtl = 3600,
-    ///             MaxTtl = 86400,
-    ///         },
-    ///         OrderedCacheBehaviors = new[]
-    ///         {
-    ///             new Aws.CloudFront.Inputs.DistributionOrderedCacheBehaviorArgs
-    ///             {
-    ///                 PathPattern = "/content/immutable/*",
-    ///                 AllowedMethods = new[]
-    ///                 {
-    ///                     "GET",
-    ///                     "HEAD",
-    ///                     "OPTIONS",
-    ///                 },
-    ///                 CachedMethods = new[]
-    ///                 {
-    ///                     "GET",
-    ///                     "HEAD",
-    ///                     "OPTIONS",
-    ///                 },
-    ///                 TargetOriginId = s3OriginId,
-    ///                 ForwardedValues = new Aws.CloudFront.Inputs.DistributionOrderedCacheBehaviorForwardedValuesArgs
-    ///                 {
-    ///                     QueryString = false,
-    ///                     Headers = new[]
-    ///                     {
-    ///                         "Origin",
-    ///                     },
-    ///                     Cookies = new Aws.CloudFront.Inputs.DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs
-    ///                     {
-    ///                         Forward = "none",
-    ///                     },
-    ///                 },
-    ///                 MinTtl = 0,
-    ///                 DefaultTtl = 86400,
-    ///                 MaxTtl = 31536000,
-    ///                 Compress = true,
-    ///                 ViewerProtocolPolicy = "redirect-to-https",
-    ///             },
-    ///             new Aws.CloudFront.Inputs.DistributionOrderedCacheBehaviorArgs
-    ///             {
-    ///                 PathPattern = "/content/*",
-    ///                 AllowedMethods = new[]
-    ///                 {
-    ///                     "GET",
-    ///                     "HEAD",
-    ///                     "OPTIONS",
-    ///                 },
-    ///                 CachedMethods = new[]
-    ///                 {
-    ///                     "GET",
-    ///                     "HEAD",
-    ///                 },
-    ///                 TargetOriginId = s3OriginId,
-    ///                 ForwardedValues = new Aws.CloudFront.Inputs.DistributionOrderedCacheBehaviorForwardedValuesArgs
-    ///                 {
-    ///                     QueryString = false,
-    ///                     Cookies = new Aws.CloudFront.Inputs.DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs
-    ///                     {
-    ///                         Forward = "none",
-    ///                     },
-    ///                 },
-    ///                 MinTtl = 0,
-    ///                 DefaultTtl = 3600,
-    ///                 MaxTtl = 86400,
-    ///                 Compress = true,
-    ///                 ViewerProtocolPolicy = "redirect-to-https",
-    ///             },
-    ///         },
     ///         PriceClass = "PriceClass_200",
-    ///         Restrictions = new Aws.CloudFront.Inputs.DistributionRestrictionsArgs
-    ///         {
-    ///             GeoRestriction = new Aws.CloudFront.Inputs.DistributionRestrictionsGeoRestrictionArgs
-    ///             {
-    ///                 RestrictionType = "whitelist",
-    ///                 Locations = new[]
-    ///                 {
-    ///                     "US",
-    ///                     "CA",
-    ///                     "GB",
-    ///                     "DE",
-    ///                 },
-    ///             },
-    ///         },
     ///         Tags = 
     ///         {
     ///             { "Environment", "production" },
-    ///         },
-    ///         ViewerCertificate = new Aws.CloudFront.Inputs.DistributionViewerCertificateArgs
-    ///         {
-    ///             AcmCertificateArn = myDomainGetCertificate.Apply(getCertificateResult =&gt; getCertificateResult.Arn),
-    ///             SslSupportMethod = "sni-only",
     ///         },
     ///     });
     /// 
@@ -211,28 +211,6 @@ namespace Pulumi.Aws.CloudFront
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Sid = "AllowCloudFrontServicePrincipalReadWrite",
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "cloudfront.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "s3:GetObject",
-    ///                     "s3:PutObject",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     $"{b.Arn}/*",
-    ///                 },
     ///                 Conditions = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
@@ -244,6 +222,28 @@ namespace Pulumi.Aws.CloudFront
     ///                             s3Distribution.Arn,
     ///                         },
     ///                     },
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "cloudfront.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Sid = "AllowCloudFrontServicePrincipalReadWrite",
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "s3:GetObject",
+    ///                     "s3:PutObject",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     $"{b.Arn}/*",
     ///                 },
     ///             },
     ///         },
@@ -268,9 +268,6 @@ namespace Pulumi.Aws.CloudFront
     ///         {
     ///             cloudfront.Add(new Aws.Route53.Record($"cloudfront-{range.Key}", new()
     ///             {
-    ///                 ZoneId = myDomainGetZone.Apply(getZoneResult =&gt; getZoneResult.ZoneId),
-    ///                 Name = range.Value,
-    ///                 Type = Aws.Route53.RecordType.A,
     ///                 Aliases = new[]
     ///                 {
     ///                     new Aws.Route53.Inputs.RecordAliasArgs
@@ -280,6 +277,9 @@ namespace Pulumi.Aws.CloudFront
     ///                         EvaluateTargetHealth = false,
     ///                     },
     ///                 },
+    ///                 ZoneId = myDomainGetZone.Apply(getZoneResult =&gt; getZoneResult.ZoneId),
+    ///                 Name = range.Value,
+    ///                 Type = Aws.Route53.RecordType.A,
     ///             }));
     ///         }
     ///         return 0;
@@ -301,11 +301,14 @@ namespace Pulumi.Aws.CloudFront
     /// {
     ///     var s3Distribution = new Aws.CloudFront.Distribution("s3_distribution", new()
     ///     {
+    ///         DefaultCacheBehavior = new Aws.CloudFront.Inputs.DistributionDefaultCacheBehaviorArgs
+    ///         {
+    ///             TargetOriginId = "groupS3",
+    ///         },
     ///         OriginGroups = new[]
     ///         {
     ///             new Aws.CloudFront.Inputs.DistributionOriginGroupArgs
     ///             {
-    ///                 OriginId = "groupS3",
     ///                 FailoverCriteria = new Aws.CloudFront.Inputs.DistributionOriginGroupFailoverCriteriaArgs
     ///                 {
     ///                     StatusCodes = new[]
@@ -327,32 +330,29 @@ namespace Pulumi.Aws.CloudFront
     ///                         OriginId = "failoverS3",
     ///                     },
     ///                 },
+    ///                 OriginId = "groupS3",
     ///             },
     ///         },
     ///         Origins = new[]
     ///         {
     ///             new Aws.CloudFront.Inputs.DistributionOriginArgs
     ///             {
-    ///                 DomainName = primary.BucketRegionalDomainName,
-    ///                 OriginId = "primaryS3",
     ///                 S3OriginConfig = new Aws.CloudFront.Inputs.DistributionOriginS3OriginConfigArgs
     ///                 {
     ///                     OriginAccessIdentity = @default.CloudfrontAccessIdentityPath,
     ///                 },
+    ///                 DomainName = primary.BucketRegionalDomainName,
+    ///                 OriginId = "primaryS3",
     ///             },
     ///             new Aws.CloudFront.Inputs.DistributionOriginArgs
     ///             {
-    ///                 DomainName = failover.BucketRegionalDomainName,
-    ///                 OriginId = "failoverS3",
     ///                 S3OriginConfig = new Aws.CloudFront.Inputs.DistributionOriginS3OriginConfigArgs
     ///                 {
     ///                     OriginAccessIdentity = @default.CloudfrontAccessIdentityPath,
     ///                 },
+    ///                 DomainName = failover.BucketRegionalDomainName,
+    ///                 OriginId = "failoverS3",
     ///             },
-    ///         },
-    ///         DefaultCacheBehavior = new Aws.CloudFront.Inputs.DistributionDefaultCacheBehaviorArgs
-    ///         {
-    ///             TargetOriginId = "groupS3",
     ///         },
     ///     });
     /// 
@@ -375,22 +375,6 @@ namespace Pulumi.Aws.CloudFront
     /// 
     ///     var s3Distribution = new Aws.CloudFront.Distribution("s3_distribution", new()
     ///     {
-    ///         Origins = new[]
-    ///         {
-    ///             new Aws.CloudFront.Inputs.DistributionOriginArgs
-    ///             {
-    ///                 DomainName = primary.BucketRegionalDomainName,
-    ///                 OriginId = "myS3Origin",
-    ///                 S3OriginConfig = new Aws.CloudFront.Inputs.DistributionOriginS3OriginConfigArgs
-    ///                 {
-    ///                     OriginAccessIdentity = @default.CloudfrontAccessIdentityPath,
-    ///                 },
-    ///             },
-    ///         },
-    ///         Enabled = true,
-    ///         IsIpv6Enabled = true,
-    ///         Comment = "Some comment",
-    ///         DefaultRootObject = "index.html",
     ///         DefaultCacheBehavior = new Aws.CloudFront.Inputs.DistributionDefaultCacheBehaviorArgs
     ///         {
     ///             CachePolicyId = "4135ea2d-6df8-44a3-9df3-4b5a84be39ad",
@@ -426,6 +410,22 @@ namespace Pulumi.Aws.CloudFront
     ///         {
     ///             CloudfrontDefaultCertificate = true,
     ///         },
+    ///         Origins = new[]
+    ///         {
+    ///             new Aws.CloudFront.Inputs.DistributionOriginArgs
+    ///             {
+    ///                 S3OriginConfig = new Aws.CloudFront.Inputs.DistributionOriginS3OriginConfigArgs
+    ///                 {
+    ///                     OriginAccessIdentity = @default.CloudfrontAccessIdentityPath,
+    ///                 },
+    ///                 DomainName = primary.BucketRegionalDomainName,
+    ///                 OriginId = "myS3Origin",
+    ///             },
+    ///         },
+    ///         Enabled = true,
+    ///         IsIpv6Enabled = true,
+    ///         Comment = "Some comment",
+    ///         DefaultRootObject = "index.html",
     ///     });
     /// 
     /// });
@@ -461,20 +461,17 @@ namespace Pulumi.Aws.CloudFront
     /// 
     ///     var exampleLogDeliveryDestination = new Aws.CloudWatch.LogDeliveryDestination("example", new()
     ///     {
-    ///         Region = "us-east-1",
-    ///         Name = "s3-destination",
-    ///         OutputFormat = "parquet",
     ///         DeliveryDestinationConfiguration = new Aws.CloudWatch.Inputs.LogDeliveryDestinationDeliveryDestinationConfigurationArgs
     ///         {
     ///             DestinationResourceArn = exampleBucket.Arn.Apply(arn =&gt; $"{arn}/prefix"),
     ///         },
+    ///         Region = "us-east-1",
+    ///         Name = "s3-destination",
+    ///         OutputFormat = "parquet",
     ///     });
     /// 
     ///     var exampleLogDelivery = new Aws.CloudWatch.LogDelivery("example", new()
     ///     {
-    ///         Region = "us-east-1",
-    ///         DeliverySourceName = exampleLogDeliverySource.Name,
-    ///         DeliveryDestinationArn = exampleLogDeliveryDestination.Arn,
     ///         S3DeliveryConfigurations = new[]
     ///         {
     ///             new Aws.CloudWatch.Inputs.LogDeliveryS3DeliveryConfigurationArgs
@@ -482,6 +479,9 @@ namespace Pulumi.Aws.CloudFront
     ///                 SuffixPath = "/123456678910/{DistributionId}/{yyyy}/{MM}/{dd}/{HH}",
     ///             },
     ///         },
+    ///         Region = "us-east-1",
+    ///         DeliverySourceName = exampleLogDeliverySource.Name,
+    ///         DeliveryDestinationArn = exampleLogDeliveryDestination.Arn,
     ///     });
     /// 
     /// });
@@ -520,13 +520,13 @@ namespace Pulumi.Aws.CloudFront
     /// 
     ///     var exampleLogDeliveryDestination = new Aws.CloudWatch.LogDeliveryDestination("example", new()
     ///     {
-    ///         Region = "us-east-1",
-    ///         Name = "firehose-destination",
-    ///         OutputFormat = "json",
     ///         DeliveryDestinationConfiguration = new Aws.CloudWatch.Inputs.LogDeliveryDestinationDeliveryDestinationConfigurationArgs
     ///         {
     ///             DestinationResourceArn = cloudfrontLogs.Arn,
     ///         },
+    ///         Region = "us-east-1",
+    ///         Name = "firehose-destination",
+    ///         OutputFormat = "json",
     ///     });
     /// 
     ///     var exampleLogDelivery = new Aws.CloudWatch.LogDelivery("example", new()
@@ -569,13 +569,13 @@ namespace Pulumi.Aws.CloudFront
     ///         },
     ///         ViewerMtlsConfig = new Aws.CloudFront.Inputs.DistributionViewerMtlsConfigArgs
     ///         {
-    ///             Mode = "verify",
     ///             TrustStoreConfig = new Aws.CloudFront.Inputs.DistributionViewerMtlsConfigTrustStoreConfigArgs
     ///             {
     ///                 TrustStoreId = exampleTrustStore.Id,
     ///                 AdvertiseTrustStoreCaNames = true,
     ///                 IgnoreCertificateExpiry = false,
     ///             },
+    ///             Mode = "verify",
     ///         },
     ///     });
     /// 

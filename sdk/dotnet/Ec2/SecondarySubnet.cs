@@ -62,7 +62,6 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var available = Aws.GetAvailabilityZones.Invoke(new()
     ///     {
-    ///         State = "available",
     ///         Filters = new[]
     ///         {
     ///             new Aws.Inputs.GetAvailabilityZonesFilterInputArgs
@@ -74,6 +73,7 @@ namespace Pulumi.Aws.Ec2
     ///                 },
     ///             },
     ///         },
+    ///         State = "available",
     ///     });
     /// 
     ///     var example = new Aws.Ec2.SecondaryNetwork("example", new()

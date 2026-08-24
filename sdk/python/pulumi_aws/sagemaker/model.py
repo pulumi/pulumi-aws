@@ -383,20 +383,20 @@ class Model(pulumi.CustomResource):
         import pulumi_aws as aws
 
         assume_role = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["sagemaker.amazonaws.com"],
             }],
+            "actions": ["sts:AssumeRole"],
         }])
         example_role = aws.iam.Role("example", assume_role_policy=assume_role.json)
         test = aws.sagemaker.get_prebuilt_ecr_image(repository_name="kmeans")
         example = aws.sagemaker.Model("example",
-            name="my-model",
-            execution_role_arn=example_role.arn,
             primary_container={
                 "image": test.registry_path,
-            })
+            },
+            name="my-model",
+            execution_role_arn=example_role.arn)
         ```
 
         ## Import
@@ -438,20 +438,20 @@ class Model(pulumi.CustomResource):
         import pulumi_aws as aws
 
         assume_role = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["sagemaker.amazonaws.com"],
             }],
+            "actions": ["sts:AssumeRole"],
         }])
         example_role = aws.iam.Role("example", assume_role_policy=assume_role.json)
         test = aws.sagemaker.get_prebuilt_ecr_image(repository_name="kmeans")
         example = aws.sagemaker.Model("example",
-            name="my-model",
-            execution_role_arn=example_role.arn,
             primary_container={
                 "image": test.registry_path,
-            })
+            },
+            name="my-model",
+            execution_role_arn=example_role.arn)
         ```
 
         ## Import

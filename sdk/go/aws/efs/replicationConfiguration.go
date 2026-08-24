@@ -37,10 +37,10 @@ import (
 //				return err
 //			}
 //			_, err = efs.NewReplicationConfiguration(ctx, "example", &efs.ReplicationConfigurationArgs{
-//				SourceFileSystemId: example.ID().ToIDOutput().ToStringOutput(),
 //				Destination: &efs.ReplicationConfigurationDestinationArgs{
 //					Region: pulumi.String("us-west-2"),
 //				},
+//				SourceFileSystemId: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -70,11 +70,11 @@ import (
 //				return err
 //			}
 //			_, err = efs.NewReplicationConfiguration(ctx, "example", &efs.ReplicationConfigurationArgs{
-//				SourceFileSystemId: example.ID().ToIDOutput().ToStringOutput(),
 //				Destination: &efs.ReplicationConfigurationDestinationArgs{
 //					AvailabilityZoneName: pulumi.String("us-west-2b"),
 //					KmsKeyId:             pulumi.String("1234abcd-12ab-34cd-56ef-1234567890ab"),
 //				},
+//				SourceFileSystemId: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -104,11 +104,11 @@ import (
 //				return err
 //			}
 //			_, err = efs.NewReplicationConfiguration(ctx, "example", &efs.ReplicationConfigurationArgs{
-//				SourceFileSystemId: example.ID().ToIDOutput().ToStringOutput(),
 //				Destination: &efs.ReplicationConfigurationDestinationArgs{
 //					FileSystemId: pulumi.String("fs-1234567890"),
 //					Region:       pulumi.String("us-west-2"),
 //				},
+//				SourceFileSystemId: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

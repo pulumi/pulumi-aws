@@ -1208,6 +1208,11 @@ class CloudVmCluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         with_minimum_parameter = aws.odb.CloudVmCluster("with_minimum_parameter",
+            data_collection_options={
+                "is_diagnostics_events_enabled": False,
+                "is_health_monitoring_enabled": False,
+                "is_incident_logs_enabled": False,
+            },
             display_name="my_vm_cluster",
             cloud_exadata_infrastructure_id="<aws_odb_cloud_exadata_infrastructure_id>",
             cpu_core_count=6,
@@ -1224,12 +1229,7 @@ class CloudVmCluster(pulumi.CustomResource):
                 "db-server-2",
             ],
             db_node_storage_size_in_gbs=120,
-            memory_size_in_gbs=60,
-            data_collection_options={
-                "is_diagnostics_events_enabled": False,
-                "is_health_monitoring_enabled": False,
-                "is_incident_logs_enabled": False,
-            })
+            memory_size_in_gbs=60)
         ```
 
         ### With Optional Arguments
@@ -1239,6 +1239,11 @@ class CloudVmCluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         with_all_parameters = aws.odb.CloudVmCluster("with_all_parameters",
+            data_collection_options={
+                "is_diagnostics_events_enabled": True,
+                "is_health_monitoring_enabled": True,
+                "is_incident_logs_enabled": True,
+            },
             display_name="my_vm_cluster",
             cloud_exadata_infrastructure_id="<aws_odb_cloud_exadata_infrastructure_id>",
             cpu_core_count=6,
@@ -1261,11 +1266,6 @@ class CloudVmCluster(pulumi.CustomResource):
             scan_listener_port_tcp=1521,
             tags={
                 "env": "dev",
-            },
-            data_collection_options={
-                "is_diagnostics_events_enabled": True,
-                "is_health_monitoring_enabled": True,
-                "is_incident_logs_enabled": True,
             })
         ```
 
@@ -1276,6 +1276,11 @@ class CloudVmCluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         gi_version_tag_example = aws.odb.CloudVmCluster("gi_version_tag_example",
+            data_collection_options={
+                "is_diagnostics_events_enabled": True,
+                "is_health_monitoring_enabled": True,
+                "is_incident_logs_enabled": True,
+            },
             display_name="my_vm_cluster",
             cloud_exadata_infrastructure_id="<aws_odb_cloud_exadata_infrastructure_id>",
             cpu_core_count=6,
@@ -1298,11 +1303,6 @@ class CloudVmCluster(pulumi.CustomResource):
             scan_listener_port_tcp=1521,
             tags={
                 "odb:input_gi_version": "23.0.0.0",
-            },
-            data_collection_options={
-                "is_diagnostics_events_enabled": True,
-                "is_health_monitoring_enabled": True,
-                "is_incident_logs_enabled": True,
             })
         ```
 
@@ -1362,6 +1362,11 @@ class CloudVmCluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         with_minimum_parameter = aws.odb.CloudVmCluster("with_minimum_parameter",
+            data_collection_options={
+                "is_diagnostics_events_enabled": False,
+                "is_health_monitoring_enabled": False,
+                "is_incident_logs_enabled": False,
+            },
             display_name="my_vm_cluster",
             cloud_exadata_infrastructure_id="<aws_odb_cloud_exadata_infrastructure_id>",
             cpu_core_count=6,
@@ -1378,12 +1383,7 @@ class CloudVmCluster(pulumi.CustomResource):
                 "db-server-2",
             ],
             db_node_storage_size_in_gbs=120,
-            memory_size_in_gbs=60,
-            data_collection_options={
-                "is_diagnostics_events_enabled": False,
-                "is_health_monitoring_enabled": False,
-                "is_incident_logs_enabled": False,
-            })
+            memory_size_in_gbs=60)
         ```
 
         ### With Optional Arguments
@@ -1393,6 +1393,11 @@ class CloudVmCluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         with_all_parameters = aws.odb.CloudVmCluster("with_all_parameters",
+            data_collection_options={
+                "is_diagnostics_events_enabled": True,
+                "is_health_monitoring_enabled": True,
+                "is_incident_logs_enabled": True,
+            },
             display_name="my_vm_cluster",
             cloud_exadata_infrastructure_id="<aws_odb_cloud_exadata_infrastructure_id>",
             cpu_core_count=6,
@@ -1415,11 +1420,6 @@ class CloudVmCluster(pulumi.CustomResource):
             scan_listener_port_tcp=1521,
             tags={
                 "env": "dev",
-            },
-            data_collection_options={
-                "is_diagnostics_events_enabled": True,
-                "is_health_monitoring_enabled": True,
-                "is_incident_logs_enabled": True,
             })
         ```
 
@@ -1430,6 +1430,11 @@ class CloudVmCluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         gi_version_tag_example = aws.odb.CloudVmCluster("gi_version_tag_example",
+            data_collection_options={
+                "is_diagnostics_events_enabled": True,
+                "is_health_monitoring_enabled": True,
+                "is_incident_logs_enabled": True,
+            },
             display_name="my_vm_cluster",
             cloud_exadata_infrastructure_id="<aws_odb_cloud_exadata_infrastructure_id>",
             cpu_core_count=6,
@@ -1452,11 +1457,6 @@ class CloudVmCluster(pulumi.CustomResource):
             scan_listener_port_tcp=1521,
             tags={
                 "odb:input_gi_version": "23.0.0.0",
-            },
-            data_collection_options={
-                "is_diagnostics_events_enabled": True,
-                "is_health_monitoring_enabled": True,
-                "is_incident_logs_enabled": True,
             })
         ```
 

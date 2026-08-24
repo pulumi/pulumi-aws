@@ -33,8 +33,6 @@ namespace Pulumi.Aws.AppFlow
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Sid = "AllowAppFlowSourceActions",
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -46,6 +44,8 @@ namespace Pulumi.Aws.AppFlow
     ///                         },
     ///                     },
     ///                 },
+    ///                 Sid = "AllowAppFlowSourceActions",
+    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "s3:ListBucket",
@@ -84,8 +84,6 @@ namespace Pulumi.Aws.AppFlow
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Sid = "AllowAppFlowDestinationActions",
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -97,6 +95,8 @@ namespace Pulumi.Aws.AppFlow
     ///                         },
     ///                     },
     ///                 },
+    ///                 Sid = "AllowAppFlowDestinationActions",
+    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "s3:PutObject",
@@ -123,10 +123,8 @@ namespace Pulumi.Aws.AppFlow
     /// 
     ///     var exampleFlow = new Aws.AppFlow.Flow("example", new()
     ///     {
-    ///         Name = "example",
     ///         SourceFlowConfig = new Aws.AppFlow.Inputs.FlowSourceFlowConfigArgs
     ///         {
-    ///             ConnectorType = "S3",
     ///             SourceConnectorProperties = new Aws.AppFlow.Inputs.FlowSourceFlowConfigSourceConnectorPropertiesArgs
     ///             {
     ///                 S3 = new Aws.AppFlow.Inputs.FlowSourceFlowConfigSourceConnectorPropertiesS3Args
@@ -135,17 +133,20 @@ namespace Pulumi.Aws.AppFlow
     ///                     BucketPrefix = "example",
     ///                 },
     ///             },
+    ///             ConnectorType = "S3",
+    ///         },
+    ///         TriggerConfig = new Aws.AppFlow.Inputs.FlowTriggerConfigArgs
+    ///         {
+    ///             TriggerType = "OnDemand",
     ///         },
     ///         DestinationFlowConfigs = new[]
     ///         {
     ///             new Aws.AppFlow.Inputs.FlowDestinationFlowConfigArgs
     ///             {
-    ///                 ConnectorType = "S3",
     ///                 DestinationConnectorProperties = new Aws.AppFlow.Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesArgs
     ///                 {
     ///                     S3 = new Aws.AppFlow.Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args
     ///                     {
-    ///                         BucketName = exampleDestinationBucketPolicy.Bucket,
     ///                         S3OutputFormatConfig = new Aws.AppFlow.Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs
     ///                         {
     ///                             PrefixConfig = new Aws.AppFlow.Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs
@@ -153,20 +154,16 @@ namespace Pulumi.Aws.AppFlow
     ///                                 PrefixType = "PATH",
     ///                             },
     ///                         },
+    ///                         BucketName = exampleDestinationBucketPolicy.Bucket,
     ///                     },
     ///                 },
+    ///                 ConnectorType = "S3",
     ///             },
     ///         },
     ///         Tasks = new[]
     ///         {
     ///             new Aws.AppFlow.Inputs.FlowTaskArgs
     ///             {
-    ///                 SourceFields = new[]
-    ///                 {
-    ///                     "exampleField",
-    ///                 },
-    ///                 DestinationField = "exampleField",
-    ///                 TaskType = "Map",
     ///                 ConnectorOperators = new[]
     ///                 {
     ///                     new Aws.AppFlow.Inputs.FlowTaskConnectorOperatorArgs
@@ -174,12 +171,15 @@ namespace Pulumi.Aws.AppFlow
     ///                         S3 = "NO_OP",
     ///                     },
     ///                 },
+    ///                 SourceFields = new[]
+    ///                 {
+    ///                     "exampleField",
+    ///                 },
+    ///                 DestinationField = "exampleField",
+    ///                 TaskType = "Map",
     ///             },
     ///         },
-    ///         TriggerConfig = new Aws.AppFlow.Inputs.FlowTriggerConfigArgs
-    ///         {
-    ///             TriggerType = "OnDemand",
-    ///         },
+    ///         Name = "example",
     ///     });
     /// 
     /// });

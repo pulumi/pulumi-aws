@@ -393,8 +393,6 @@ class AgentKnowledgeBase(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentKnowledgeBase("example",
-            name="example",
-            role_arn=example_aws_iam_role["arn"],
             knowledge_base_configuration={
                 "vector_knowledge_base_configuration": {
                     "embedding_model_arn": "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0",
@@ -402,17 +400,19 @@ class AgentKnowledgeBase(pulumi.CustomResource):
                 "type": "VECTOR",
             },
             storage_configuration={
-                "type": "OPENSEARCH_SERVERLESS",
                 "opensearch_serverless_configuration": {
-                    "collection_arn": "arn:aws:aoss:us-west-2:123456789012:collection/142bezjddq707i5stcrf",
-                    "vector_index_name": "bedrock-knowledge-base-default-index",
                     "field_mapping": {
                         "vector_field": "bedrock-knowledge-base-default-vector",
                         "text_field": "AMAZON_BEDROCK_TEXT_CHUNK",
                         "metadata_field": "AMAZON_BEDROCK_METADATA",
                     },
+                    "collection_arn": "arn:aws:aoss:us-west-2:123456789012:collection/142bezjddq707i5stcrf",
+                    "vector_index_name": "bedrock-knowledge-base-default-index",
                 },
-            })
+                "type": "OPENSEARCH_SERVERLESS",
+            },
+            name="example",
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         ### Kendra Knowledge Base
@@ -422,14 +422,14 @@ class AgentKnowledgeBase(pulumi.CustomResource):
         import pulumi_aws as aws
 
         kendra_example = aws.bedrock.AgentKnowledgeBase("kendra_example",
-            name="example-kendra-kb",
-            role_arn=example["arn"],
             knowledge_base_configuration={
-                "type": "KENDRA",
                 "kendra_knowledge_base_configuration": {
                     "kendra_index_arn": "arn:aws:kendra:us-east-1:123456789012:index/example-index-id",
                 },
-            })
+                "type": "KENDRA",
+            },
+            name="example-kendra-kb",
+            role_arn=example["arn"])
         ```
 
         ### Structured Data Store
@@ -439,32 +439,32 @@ class AgentKnowledgeBase(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentKnowledgeBase("example",
-            name="example-kb",
-            role_arn=example_aws_iam_role["arn"],
             knowledge_base_configuration={
-                "type": "SQL",
                 "sql_knowledge_base_configuration": {
-                    "type": "REDSHIFT",
                     "redshift_configuration": {
                         "query_engine_configuration": {
-                            "type": "PROVISIONED",
                             "provisioned_configuration": {
-                                "cluster_identifier": example_aws_redshift_cluster["clusterIdentifier"],
                                 "auth_configuration": {
                                     "type": "USERNAME",
                                     "database_user": example_aws_redshift_cluster["masterUsername"],
                                 },
+                                "cluster_identifier": example_aws_redshift_cluster["clusterIdentifier"],
                             },
+                            "type": "PROVISIONED",
                         },
                         "storage_configuration": {
-                            "type": "REDSHIFT",
                             "redshift_configuration": {
                                 "database_name": example_aws_redshift_cluster["databaseName"],
                             },
+                            "type": "REDSHIFT",
                         },
                     },
+                    "type": "REDSHIFT",
                 },
-            })
+                "type": "SQL",
+            },
+            name="example-kb",
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         ### OpenSearch Managed Cluster Configuration
@@ -474,8 +474,6 @@ class AgentKnowledgeBase(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentKnowledgeBase("example",
-            name="example",
-            role_arn=example_aws_iam_role["arn"],
             knowledge_base_configuration={
                 "vector_knowledge_base_configuration": {
                     "embedding_model_arn": "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0",
@@ -483,18 +481,20 @@ class AgentKnowledgeBase(pulumi.CustomResource):
                 "type": "VECTOR",
             },
             storage_configuration={
-                "type": "OPENSEARCH_MANAGED_CLUSTER",
                 "opensearch_managed_cluster_configuration": {
-                    "domain_arn": "arn:aws:es:us-west-2:123456789012:domain/example-domain",
-                    "domain_endpoint": "https://search-example-domain.us-west-2.es.amazonaws.com",
-                    "vector_index_name": "example_index",
                     "field_mapping": {
                         "metadata_field": "metadata",
                         "text_field": "chunks",
                         "vector_field": "embedding",
                     },
+                    "domain_arn": "arn:aws:es:us-west-2:123456789012:domain/example-domain",
+                    "domain_endpoint": "https://search-example-domain.us-west-2.es.amazonaws.com",
+                    "vector_index_name": "example_index",
                 },
-            })
+                "type": "OPENSEARCH_MANAGED_CLUSTER",
+            },
+            name="example",
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         ### With Supplemental Data Storage Configuration
@@ -504,15 +504,10 @@ class AgentKnowledgeBase(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentKnowledgeBase("example",
-            name="example",
-            role_arn=example_aws_iam_role["arn"],
             knowledge_base_configuration={
                 "vector_knowledge_base_configuration": {
-                    "embedding_model_arn": "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0",
                     "embedding_model_configuration": {
                         "bedrock_embedding_model_configuration": {
-                            "dimensions": 1024,
-                            "embedding_data_type": "FLOAT32",
                             "audio": {
                                 "segmentation_configuration": {
                                     "fixed_length_duration": 60,
@@ -523,31 +518,36 @@ class AgentKnowledgeBase(pulumi.CustomResource):
                                     "fixed_length_duration": 60,
                                 },
                             },
+                            "dimensions": 1024,
+                            "embedding_data_type": "FLOAT32",
                         },
                     },
                     "supplemental_data_storage_configuration": {
                         "storage_location": {
-                            "type": "S3",
                             "s3Location": {
                                 "uri": "s3://my-bucket/chunk-processor/",
                             },
+                            "type": "S3",
                         },
                     },
+                    "embedding_model_arn": "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0",
                 },
                 "type": "VECTOR",
             },
             storage_configuration={
-                "type": "OPENSEARCH_SERVERLESS",
                 "opensearch_serverless_configuration": {
-                    "collection_arn": "arn:aws:aoss:us-west-2:123456789012:collection/142bezjddq707i5stcrf",
-                    "vector_index_name": "bedrock-knowledge-base-default-index",
                     "field_mapping": {
                         "vector_field": "bedrock-knowledge-base-default-vector",
                         "text_field": "AMAZON_BEDROCK_TEXT_CHUNK",
                         "metadata_field": "AMAZON_BEDROCK_METADATA",
                     },
+                    "collection_arn": "arn:aws:aoss:us-west-2:123456789012:collection/142bezjddq707i5stcrf",
+                    "vector_index_name": "bedrock-knowledge-base-default-index",
                 },
-            })
+                "type": "OPENSEARCH_SERVERLESS",
+            },
+            name="example",
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         ### S3 Vectors Configuration
@@ -564,26 +564,26 @@ class AgentKnowledgeBase(pulumi.CustomResource):
             dimension=256,
             distance_metric="euclidean")
         example_agent_knowledge_base = aws.bedrock.AgentKnowledgeBase("example",
-            name="example-s3vectors-kb",
-            role_arn=example_aws_iam_role["arn"],
             knowledge_base_configuration={
                 "vector_knowledge_base_configuration": {
-                    "embedding_model_arn": "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0",
                     "embedding_model_configuration": {
                         "bedrock_embedding_model_configuration": {
                             "dimensions": 256,
                             "embedding_data_type": "FLOAT32",
                         },
                     },
+                    "embedding_model_arn": "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0",
                 },
                 "type": "VECTOR",
             },
             storage_configuration={
-                "type": "S3_VECTORS",
                 "s3_vectors_configuration": {
                     "index_arn": example_vectors_index.index_arn,
                 },
-            })
+                "type": "S3_VECTORS",
+            },
+            name="example-s3vectors-kb",
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         ### Managed Knowledge Base
@@ -593,14 +593,14 @@ class AgentKnowledgeBase(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentKnowledgeBase("example",
-            name="example-managed-kb",
-            role_arn=example_aws_iam_role["arn"],
             knowledge_base_configuration={
-                "type": "MANAGED",
                 "managed_knowledge_base_configuration": {
                     "embedding_model_type": "MANAGED",
                 },
-            })
+                "type": "MANAGED",
+            },
+            name="example-managed-kb",
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         ### Managed Knowledge Base with Custom Embedding Model
@@ -610,20 +610,20 @@ class AgentKnowledgeBase(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentKnowledgeBase("example",
-            name="example-managed-multilingual-kb",
-            role_arn=example_aws_iam_role["arn"],
             knowledge_base_configuration={
-                "type": "MANAGED",
                 "managed_knowledge_base_configuration": {
-                    "embedding_model_type": "CUSTOM",
-                    "embedding_model_arn": "arn:aws:bedrock:us-east-1::foundation-model/cohere.embed-multilingual-v3",
                     "embedding_model_configuration": {
                         "bedrock_embedding_model_configuration": {
                             "dimensions": 1024,
                         },
                     },
+                    "embedding_model_type": "CUSTOM",
+                    "embedding_model_arn": "arn:aws:bedrock:us-east-1::foundation-model/cohere.embed-multilingual-v3",
                 },
-            })
+                "type": "MANAGED",
+            },
+            name="example-managed-multilingual-kb",
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         ## Import
@@ -665,8 +665,6 @@ class AgentKnowledgeBase(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentKnowledgeBase("example",
-            name="example",
-            role_arn=example_aws_iam_role["arn"],
             knowledge_base_configuration={
                 "vector_knowledge_base_configuration": {
                     "embedding_model_arn": "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0",
@@ -674,17 +672,19 @@ class AgentKnowledgeBase(pulumi.CustomResource):
                 "type": "VECTOR",
             },
             storage_configuration={
-                "type": "OPENSEARCH_SERVERLESS",
                 "opensearch_serverless_configuration": {
-                    "collection_arn": "arn:aws:aoss:us-west-2:123456789012:collection/142bezjddq707i5stcrf",
-                    "vector_index_name": "bedrock-knowledge-base-default-index",
                     "field_mapping": {
                         "vector_field": "bedrock-knowledge-base-default-vector",
                         "text_field": "AMAZON_BEDROCK_TEXT_CHUNK",
                         "metadata_field": "AMAZON_BEDROCK_METADATA",
                     },
+                    "collection_arn": "arn:aws:aoss:us-west-2:123456789012:collection/142bezjddq707i5stcrf",
+                    "vector_index_name": "bedrock-knowledge-base-default-index",
                 },
-            })
+                "type": "OPENSEARCH_SERVERLESS",
+            },
+            name="example",
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         ### Kendra Knowledge Base
@@ -694,14 +694,14 @@ class AgentKnowledgeBase(pulumi.CustomResource):
         import pulumi_aws as aws
 
         kendra_example = aws.bedrock.AgentKnowledgeBase("kendra_example",
-            name="example-kendra-kb",
-            role_arn=example["arn"],
             knowledge_base_configuration={
-                "type": "KENDRA",
                 "kendra_knowledge_base_configuration": {
                     "kendra_index_arn": "arn:aws:kendra:us-east-1:123456789012:index/example-index-id",
                 },
-            })
+                "type": "KENDRA",
+            },
+            name="example-kendra-kb",
+            role_arn=example["arn"])
         ```
 
         ### Structured Data Store
@@ -711,32 +711,32 @@ class AgentKnowledgeBase(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentKnowledgeBase("example",
-            name="example-kb",
-            role_arn=example_aws_iam_role["arn"],
             knowledge_base_configuration={
-                "type": "SQL",
                 "sql_knowledge_base_configuration": {
-                    "type": "REDSHIFT",
                     "redshift_configuration": {
                         "query_engine_configuration": {
-                            "type": "PROVISIONED",
                             "provisioned_configuration": {
-                                "cluster_identifier": example_aws_redshift_cluster["clusterIdentifier"],
                                 "auth_configuration": {
                                     "type": "USERNAME",
                                     "database_user": example_aws_redshift_cluster["masterUsername"],
                                 },
+                                "cluster_identifier": example_aws_redshift_cluster["clusterIdentifier"],
                             },
+                            "type": "PROVISIONED",
                         },
                         "storage_configuration": {
-                            "type": "REDSHIFT",
                             "redshift_configuration": {
                                 "database_name": example_aws_redshift_cluster["databaseName"],
                             },
+                            "type": "REDSHIFT",
                         },
                     },
+                    "type": "REDSHIFT",
                 },
-            })
+                "type": "SQL",
+            },
+            name="example-kb",
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         ### OpenSearch Managed Cluster Configuration
@@ -746,8 +746,6 @@ class AgentKnowledgeBase(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentKnowledgeBase("example",
-            name="example",
-            role_arn=example_aws_iam_role["arn"],
             knowledge_base_configuration={
                 "vector_knowledge_base_configuration": {
                     "embedding_model_arn": "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0",
@@ -755,18 +753,20 @@ class AgentKnowledgeBase(pulumi.CustomResource):
                 "type": "VECTOR",
             },
             storage_configuration={
-                "type": "OPENSEARCH_MANAGED_CLUSTER",
                 "opensearch_managed_cluster_configuration": {
-                    "domain_arn": "arn:aws:es:us-west-2:123456789012:domain/example-domain",
-                    "domain_endpoint": "https://search-example-domain.us-west-2.es.amazonaws.com",
-                    "vector_index_name": "example_index",
                     "field_mapping": {
                         "metadata_field": "metadata",
                         "text_field": "chunks",
                         "vector_field": "embedding",
                     },
+                    "domain_arn": "arn:aws:es:us-west-2:123456789012:domain/example-domain",
+                    "domain_endpoint": "https://search-example-domain.us-west-2.es.amazonaws.com",
+                    "vector_index_name": "example_index",
                 },
-            })
+                "type": "OPENSEARCH_MANAGED_CLUSTER",
+            },
+            name="example",
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         ### With Supplemental Data Storage Configuration
@@ -776,15 +776,10 @@ class AgentKnowledgeBase(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentKnowledgeBase("example",
-            name="example",
-            role_arn=example_aws_iam_role["arn"],
             knowledge_base_configuration={
                 "vector_knowledge_base_configuration": {
-                    "embedding_model_arn": "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0",
                     "embedding_model_configuration": {
                         "bedrock_embedding_model_configuration": {
-                            "dimensions": 1024,
-                            "embedding_data_type": "FLOAT32",
                             "audio": {
                                 "segmentation_configuration": {
                                     "fixed_length_duration": 60,
@@ -795,31 +790,36 @@ class AgentKnowledgeBase(pulumi.CustomResource):
                                     "fixed_length_duration": 60,
                                 },
                             },
+                            "dimensions": 1024,
+                            "embedding_data_type": "FLOAT32",
                         },
                     },
                     "supplemental_data_storage_configuration": {
                         "storage_location": {
-                            "type": "S3",
                             "s3Location": {
                                 "uri": "s3://my-bucket/chunk-processor/",
                             },
+                            "type": "S3",
                         },
                     },
+                    "embedding_model_arn": "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0",
                 },
                 "type": "VECTOR",
             },
             storage_configuration={
-                "type": "OPENSEARCH_SERVERLESS",
                 "opensearch_serverless_configuration": {
-                    "collection_arn": "arn:aws:aoss:us-west-2:123456789012:collection/142bezjddq707i5stcrf",
-                    "vector_index_name": "bedrock-knowledge-base-default-index",
                     "field_mapping": {
                         "vector_field": "bedrock-knowledge-base-default-vector",
                         "text_field": "AMAZON_BEDROCK_TEXT_CHUNK",
                         "metadata_field": "AMAZON_BEDROCK_METADATA",
                     },
+                    "collection_arn": "arn:aws:aoss:us-west-2:123456789012:collection/142bezjddq707i5stcrf",
+                    "vector_index_name": "bedrock-knowledge-base-default-index",
                 },
-            })
+                "type": "OPENSEARCH_SERVERLESS",
+            },
+            name="example",
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         ### S3 Vectors Configuration
@@ -836,26 +836,26 @@ class AgentKnowledgeBase(pulumi.CustomResource):
             dimension=256,
             distance_metric="euclidean")
         example_agent_knowledge_base = aws.bedrock.AgentKnowledgeBase("example",
-            name="example-s3vectors-kb",
-            role_arn=example_aws_iam_role["arn"],
             knowledge_base_configuration={
                 "vector_knowledge_base_configuration": {
-                    "embedding_model_arn": "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0",
                     "embedding_model_configuration": {
                         "bedrock_embedding_model_configuration": {
                             "dimensions": 256,
                             "embedding_data_type": "FLOAT32",
                         },
                     },
+                    "embedding_model_arn": "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0",
                 },
                 "type": "VECTOR",
             },
             storage_configuration={
-                "type": "S3_VECTORS",
                 "s3_vectors_configuration": {
                     "index_arn": example_vectors_index.index_arn,
                 },
-            })
+                "type": "S3_VECTORS",
+            },
+            name="example-s3vectors-kb",
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         ### Managed Knowledge Base
@@ -865,14 +865,14 @@ class AgentKnowledgeBase(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentKnowledgeBase("example",
-            name="example-managed-kb",
-            role_arn=example_aws_iam_role["arn"],
             knowledge_base_configuration={
-                "type": "MANAGED",
                 "managed_knowledge_base_configuration": {
                     "embedding_model_type": "MANAGED",
                 },
-            })
+                "type": "MANAGED",
+            },
+            name="example-managed-kb",
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         ### Managed Knowledge Base with Custom Embedding Model
@@ -882,20 +882,20 @@ class AgentKnowledgeBase(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentKnowledgeBase("example",
-            name="example-managed-multilingual-kb",
-            role_arn=example_aws_iam_role["arn"],
             knowledge_base_configuration={
-                "type": "MANAGED",
                 "managed_knowledge_base_configuration": {
-                    "embedding_model_type": "CUSTOM",
-                    "embedding_model_arn": "arn:aws:bedrock:us-east-1::foundation-model/cohere.embed-multilingual-v3",
                     "embedding_model_configuration": {
                         "bedrock_embedding_model_configuration": {
                             "dimensions": 1024,
                         },
                     },
+                    "embedding_model_type": "CUSTOM",
+                    "embedding_model_arn": "arn:aws:bedrock:us-east-1::foundation-model/cohere.embed-multilingual-v3",
                 },
-            })
+                "type": "MANAGED",
+            },
+            name="example-managed-multilingual-kb",
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         ## Import

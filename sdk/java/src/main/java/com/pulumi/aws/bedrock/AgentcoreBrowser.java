@@ -53,11 +53,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AgentcoreBrowser("example", AgentcoreBrowserArgs.builder()
- *             .name("example-browser")
- *             .description("Browser for web data extraction")
  *             .networkConfiguration(AgentcoreBrowserNetworkConfigurationArgs.builder()
  *                 .networkMode("PUBLIC")
  *                 .build())
+ *             .name("example-browser")
+ *             .description("Browser for web data extraction")
  *             .build());
  * 
  *     }
@@ -92,17 +92,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var vpcExample = new AgentcoreBrowser("vpcExample", AgentcoreBrowserArgs.builder()
- *             .name("vpc-browser")
- *             .description("Browser with VPC configuration")
  *             .networkConfiguration(AgentcoreBrowserNetworkConfigurationArgs.builder()
- *                 .networkMode("VPC")
  *                 .vpcConfig(AgentcoreBrowserNetworkConfigurationVpcConfigArgs.builder()
  *                     .securityGroups("sg-12345678")
  *                     .subnets(                    
  *                         "subnet-12345678",
  *                         "subnet-87654321")
  *                     .build())
+ *                 .networkMode("VPC")
  *                 .build())
+ *             .name("vpc-browser")
+ *             .description("Browser with VPC configuration")
  *             .build());
  * 
  *     }
@@ -147,12 +147,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .actions("sts:AssumeRole")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("bedrock-agentcore.amazonaws.com")
  *                     .build())
+ *                 .effect("Allow")
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
@@ -166,19 +166,19 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAgentcoreBrowser = new AgentcoreBrowser("exampleAgentcoreBrowser", AgentcoreBrowserArgs.builder()
- *             .name("example-browser")
- *             .description("Browser with recording enabled")
- *             .executionRoleArn(example.arn())
  *             .networkConfiguration(AgentcoreBrowserNetworkConfigurationArgs.builder()
  *                 .networkMode("PUBLIC")
  *                 .build())
  *             .recording(AgentcoreBrowserRecordingArgs.builder()
- *                 .enabled(true)
  *                 .s3Location(AgentcoreBrowserRecordingS3LocationArgs.builder()
  *                     .bucket(recording.bucket())
  *                     .prefix("browser-sessions/")
  *                     .build())
+ *                 .enabled(true)
  *                 .build())
+ *             .name("example-browser")
+ *             .description("Browser with recording enabled")
+ *             .executionRoleArn(example.arn())
  *             .build());
  * 
  *     }

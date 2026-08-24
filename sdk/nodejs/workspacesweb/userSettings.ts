@@ -34,11 +34,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.workspacesweb.UserSettings("example", {
- *     copyAllowed: "Enabled",
- *     downloadAllowed: "Enabled",
- *     pasteAllowed: "Enabled",
- *     printAllowed: "Enabled",
- *     uploadAllowed: "Enabled",
  *     toolbarConfiguration: {
  *         toolbarType: "Docked",
  *         visualMode: "Dark",
@@ -47,6 +42,11 @@ import * as utilities from "../utilities";
  *             "Microphone",
  *         ],
  *     },
+ *     copyAllowed: "Enabled",
+ *     downloadAllowed: "Enabled",
+ *     pasteAllowed: "Enabled",
+ *     printAllowed: "Enabled",
+ *     uploadAllowed: "Enabled",
  * });
  * ```
  *
@@ -61,18 +61,6 @@ import * as utilities from "../utilities";
  *     deletionWindowInDays: 7,
  * });
  * const exampleUserSettings = new aws.workspacesweb.UserSettings("example", {
- *     copyAllowed: "Enabled",
- *     downloadAllowed: "Enabled",
- *     pasteAllowed: "Enabled",
- *     printAllowed: "Enabled",
- *     uploadAllowed: "Enabled",
- *     deepLinkAllowed: "Enabled",
- *     disconnectTimeoutInMinutes: 30,
- *     idleDisconnectTimeoutInMinutes: 15,
- *     customerManagedKey: example.arn,
- *     additionalEncryptionContext: {
- *         Environment: "Production",
- *     },
  *     toolbarConfiguration: {
  *         toolbarType: "Docked",
  *         visualMode: "Dark",
@@ -90,6 +78,18 @@ import * as utilities from "../utilities";
  *         blocklists: [{
  *             domain: "blocked.com",
  *         }],
+ *     },
+ *     copyAllowed: "Enabled",
+ *     downloadAllowed: "Enabled",
+ *     pasteAllowed: "Enabled",
+ *     printAllowed: "Enabled",
+ *     uploadAllowed: "Enabled",
+ *     deepLinkAllowed: "Enabled",
+ *     disconnectTimeoutInMinutes: 30,
+ *     idleDisconnectTimeoutInMinutes: 15,
+ *     customerManagedKey: example.arn,
+ *     additionalEncryptionContext: {
+ *         Environment: "Production",
  *     },
  *     tags: {
  *         Name: "example-user-settings",

@@ -327,12 +327,12 @@ class Table(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.timestreamwrite.Table("example",
-            database_name=example_aws_timestreamwrite_database["databaseName"],
-            table_name="example",
             retention_properties={
                 "magnetic_store_retention_period_in_days": 30,
                 "memory_store_retention_period_in_hours": 8,
             },
+            database_name=example_aws_timestreamwrite_database["databaseName"],
+            table_name="example",
             tags={
                 "Name": "example-timestream-table",
             })
@@ -345,15 +345,15 @@ class Table(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.timestreamwrite.Table("example",
-            database_name=example_aws_timestreamwrite_database["databaseName"],
-            table_name="example",
             schema={
                 "composite_partition_key": {
                     "enforcement_in_record": "REQUIRED",
                     "name": "attr1",
                     "type": "DIMENSION",
                 },
-            })
+            },
+            database_name=example_aws_timestreamwrite_database["databaseName"],
+            table_name="example")
         ```
 
         ## Import
@@ -404,12 +404,12 @@ class Table(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.timestreamwrite.Table("example",
-            database_name=example_aws_timestreamwrite_database["databaseName"],
-            table_name="example",
             retention_properties={
                 "magnetic_store_retention_period_in_days": 30,
                 "memory_store_retention_period_in_hours": 8,
             },
+            database_name=example_aws_timestreamwrite_database["databaseName"],
+            table_name="example",
             tags={
                 "Name": "example-timestream-table",
             })
@@ -422,15 +422,15 @@ class Table(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.timestreamwrite.Table("example",
-            database_name=example_aws_timestreamwrite_database["databaseName"],
-            table_name="example",
             schema={
                 "composite_partition_key": {
                     "enforcement_in_record": "REQUIRED",
                     "name": "attr1",
                     "type": "DIMENSION",
                 },
-            })
+            },
+            database_name=example_aws_timestreamwrite_database["databaseName"],
+            table_name="example")
         ```
 
         ## Import

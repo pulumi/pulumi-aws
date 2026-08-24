@@ -156,8 +156,8 @@ class VpcDhcpOptionsAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         dns_resolver = aws.ec2.VpcDhcpOptionsAssociation("dns_resolver",
-            vpc_id=foo_aws_vpc["id"],
-            dhcp_options_id=foo["id"])
+            vpc_id=foo["id"],
+            dhcp_options_id=foo_aws_vpc_dhcp_options["id"])
         ```
 
         ## Import
@@ -193,8 +193,8 @@ class VpcDhcpOptionsAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         dns_resolver = aws.ec2.VpcDhcpOptionsAssociation("dns_resolver",
-            vpc_id=foo_aws_vpc["id"],
-            dhcp_options_id=foo["id"])
+            vpc_id=foo["id"],
+            dhcp_options_id=foo_aws_vpc_dhcp_options["id"])
         ```
 
         ## Import

@@ -380,10 +380,6 @@ class ResiliencyPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.resiliencehub.ResiliencyPolicy("example",
-            name="testexample",
-            description="testexample",
-            tier="NonCritical",
-            data_location_constraint="AnyLocation",
             policy={
                 "region": {
                     "rpo": "24h",
@@ -401,7 +397,11 @@ class ResiliencyPolicy(pulumi.CustomResource):
                     "rpo": "24h",
                     "rto": "24h",
                 },
-            })
+            },
+            name="testexample",
+            description="testexample",
+            tier="NonCritical",
+            data_location_constraint="AnyLocation")
         ```
 
         ## Import
@@ -445,10 +445,6 @@ class ResiliencyPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.resiliencehub.ResiliencyPolicy("example",
-            name="testexample",
-            description="testexample",
-            tier="NonCritical",
-            data_location_constraint="AnyLocation",
             policy={
                 "region": {
                     "rpo": "24h",
@@ -466,7 +462,11 @@ class ResiliencyPolicy(pulumi.CustomResource):
                     "rpo": "24h",
                     "rto": "24h",
                 },
-            })
+            },
+            name="testexample",
+            description="testexample",
+            tier="NonCritical",
+            data_location_constraint="AnyLocation")
         ```
 
         ## Import

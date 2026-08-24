@@ -529,11 +529,11 @@ class Role(pulumi.CustomResource):
         import pulumi_aws as aws
 
         instance_assume_role_policy = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["ec2.amazonaws.com"],
             }],
+            "actions": ["sts:AssumeRole"],
         }])
         instance = aws.iam.Role("instance",
             name="instance_role",
@@ -557,8 +557,6 @@ class Role(pulumi.CustomResource):
             "resources": ["*"],
         }])
         example = aws.iam.Role("example",
-            name="yak_role",
-            assume_role_policy=instance_assume_role_policy["json"],
             inline_policies=[
                 {
                     "name": "my_inline_policy",
@@ -575,7 +573,9 @@ class Role(pulumi.CustomResource):
                     "name": "policy-8675309",
                     "policy": inline_policy.json,
                 },
-            ])
+            ],
+            name="yak_role",
+            assume_role_policy=instance_assume_role_policy["json"])
         ```
 
         ### Example of Removing Inline Policies
@@ -740,11 +740,11 @@ class Role(pulumi.CustomResource):
         import pulumi_aws as aws
 
         instance_assume_role_policy = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["ec2.amazonaws.com"],
             }],
+            "actions": ["sts:AssumeRole"],
         }])
         instance = aws.iam.Role("instance",
             name="instance_role",
@@ -768,8 +768,6 @@ class Role(pulumi.CustomResource):
             "resources": ["*"],
         }])
         example = aws.iam.Role("example",
-            name="yak_role",
-            assume_role_policy=instance_assume_role_policy["json"],
             inline_policies=[
                 {
                     "name": "my_inline_policy",
@@ -786,7 +784,9 @@ class Role(pulumi.CustomResource):
                     "name": "policy-8675309",
                     "policy": inline_policy.json,
                 },
-            ])
+            ],
+            name="yak_role",
+            assume_role_policy=instance_assume_role_policy["json"])
         ```
 
         ### Example of Removing Inline Policies

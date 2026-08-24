@@ -19,11 +19,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ssm.Association("example", {
- *     name: exampleAwsSsmDocument.name,
  *     targets: [{
  *         key: "InstanceIds",
  *         values: [exampleAwsInstance.id],
  *     }],
+ *     name: exampleAwsSsmDocument.name,
  * });
  * ```
  *
@@ -36,11 +36,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ssm.Association("example", {
- *     name: "AmazonCloudWatch-ManageAgent",
  *     targets: [{
  *         key: "InstanceIds",
  *         values: ["*"],
  *     }],
+ *     name: "AmazonCloudWatch-ManageAgent",
  * });
  * ```
  *
@@ -53,11 +53,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ssm.Association("example", {
- *     name: "AmazonCloudWatch-ManageAgent",
  *     targets: [{
  *         key: "tag:Environment",
  *         values: ["Development"],
  *     }],
+ *     name: "AmazonCloudWatch-ManageAgent",
  * });
  * ```
  *
@@ -70,12 +70,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ssm.Association("example", {
- *     name: exampleAwsSsmDocument.name,
- *     scheduleExpression: "cron(0 2 ? * SUN *)",
  *     targets: [{
  *         key: "InstanceIds",
  *         values: [exampleAwsInstance.id],
  *     }],
+ *     name: exampleAwsSsmDocument.name,
+ *     scheduleExpression: "cron(0 2 ? * SUN *)",
  * });
  * ```
  *
@@ -116,7 +116,6 @@ import * as utilities from "../utilities";
  * });
  * // Removed EC2 provisioning dependencies for brevity
  * const systemUpdate = new aws.ssm.Association("system_update", {
- *     name: "AWS-RunShellScript",
  *     targets: [{
  *         key: "InstanceIds",
  *         values: [
@@ -124,6 +123,7 @@ import * as utilities from "../utilities";
  *             webServer2.id,
  *         ],
  *     }],
+ *     name: "AWS-RunShellScript",
  *     scheduleExpression: "cron(0 2 ? * SUN *)",
  *     parameters: {
  *         commands: std.join({
@@ -163,7 +163,6 @@ import * as utilities from "../utilities";
  *
  * // SSM Association for Webbased Servers
  * const databaseAssociation = new aws.ssm.Association("database_association", {
- *     name: systemUpdate.name,
  *     targets: [{
  *         key: "tag:Role",
  *         values: [
@@ -171,6 +170,7 @@ import * as utilities from "../utilities";
  *             "Database",
  *         ],
  *     }],
+ *     name: systemUpdate.name,
  *     parameters: {
  *         restartServices: "true",
  *     },

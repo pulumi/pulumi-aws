@@ -26,11 +26,11 @@ namespace Pulumi.Aws.CloudWatch
     /// {
     ///     var example = new Aws.CloudWatch.LogDeliveryDestination("example", new()
     ///     {
-    ///         Name = "example",
     ///         DeliveryDestinationConfiguration = new Aws.CloudWatch.Inputs.LogDeliveryDestinationDeliveryDestinationConfigurationArgs
     ///         {
     ///             DestinationResourceArn = exampleAwsCloudwatchLogGroup.Arn,
     ///         },
+    ///         Name = "example",
     ///     });
     /// 
     /// });

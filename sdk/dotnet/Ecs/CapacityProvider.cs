@@ -45,11 +45,8 @@ namespace Pulumi.Aws.Ecs
     /// 
     ///     var exampleCapacityProvider = new Aws.Ecs.CapacityProvider("example", new()
     ///     {
-    ///         Name = "example",
     ///         AutoScalingGroupProvider = new Aws.Ecs.Inputs.CapacityProviderAutoScalingGroupProviderArgs
     ///         {
-    ///             AutoScalingGroupArn = example.Arn,
-    ///             ManagedTerminationProtection = "ENABLED",
     ///             ManagedScaling = new Aws.Ecs.Inputs.CapacityProviderAutoScalingGroupProviderManagedScalingArgs
     ///             {
     ///                 MaximumScalingStepSize = 1000,
@@ -57,7 +54,10 @@ namespace Pulumi.Aws.Ecs
     ///                 Status = "ENABLED",
     ///                 TargetCapacity = 10,
     ///             },
+    ///             AutoScalingGroupArn = example.Arn,
+    ///             ManagedTerminationProtection = "ENABLED",
     ///         },
+    ///         Name = "example",
     ///     });
     /// 
     /// });
@@ -75,16 +75,10 @@ namespace Pulumi.Aws.Ecs
     /// {
     ///     var example = new Aws.Ecs.CapacityProvider("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Cluster = "my-cluster",
     ///         ManagedInstancesProvider = new Aws.Ecs.Inputs.CapacityProviderManagedInstancesProviderArgs
     ///         {
-    ///             InfrastructureRoleArn = ecsInfrastructure.Arn,
-    ///             PropagateTags = "CAPACITY_PROVIDER",
     ///             InstanceLaunchTemplate = new Aws.Ecs.Inputs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs
     ///             {
-    ///                 Ec2InstanceProfileArn = ecsInstance.Arn,
-    ///                 Monitoring = "DETAILED",
     ///                 NetworkConfiguration = new Aws.Ecs.Inputs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationArgs
     ///                 {
     ///                     Subnets = new[]
@@ -122,8 +116,14 @@ namespace Pulumi.Aws.Ecs
     ///                         "amd",
     ///                     },
     ///                 },
+    ///                 Ec2InstanceProfileArn = ecsInstance.Arn,
+    ///                 Monitoring = "DETAILED",
     ///             },
+    ///             InfrastructureRoleArn = ecsInfrastructure.Arn,
+    ///             PropagateTags = "CAPACITY_PROVIDER",
     ///         },
+    ///         Name = "example",
+    ///         Cluster = "my-cluster",
     ///     });
     /// 
     /// });

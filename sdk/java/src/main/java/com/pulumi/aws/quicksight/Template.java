@@ -51,14 +51,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Template("example", TemplateArgs.builder()
- *             .templateId("example-id")
- *             .name("example-name")
- *             .versionDescription("version")
  *             .sourceEntity(TemplateSourceEntityArgs.builder()
  *                 .sourceTemplate(TemplateSourceEntitySourceTemplateArgs.builder()
  *                     .arn(source.arn())
  *                     .build())
  *                 .build())
+ *             .templateId("example-id")
+ *             .name("example-name")
+ *             .versionDescription("version")
  *             .build());
  * 
  *     }
@@ -91,9 +91,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Template("example", TemplateArgs.builder()
- *             .templateId("example-id")
- *             .name("example-name")
- *             .versionDescription("version")
  *             .definition(Map.ofEntries(
  *                 Map.entry("dataSetConfigurations", Arrays.asList(Map.ofEntries(
  *                     Map.entry("dataSetSchema", Map.of("columnSchemaLists", Arrays.asList(                    
@@ -108,30 +105,33 @@ import javax.annotation.Nullable;
  *                     Map.entry("placeholder", "1")
  *                 ))),
  *                 Map.entry("sheets", Arrays.asList(Map.ofEntries(
- *                     Map.entry("title", "Test"),
- *                     Map.entry("sheetId", "Test1"),
  *                     Map.entry("visuals", Arrays.asList(Map.of("barChartVisual", Map.ofEntries(
- *                         Map.entry("visualId", "BarChart"),
  *                         Map.entry("chartConfiguration", Map.of("fieldWells", Map.of("barChartAggregatedFieldWells", Map.ofEntries(
  *                             Map.entry("categories", Arrays.asList(Map.of("categoricalDimensionField", Map.ofEntries(
- *                                 Map.entry("fieldId", "1"),
  *                                 Map.entry("column", Map.ofEntries(
  *                                     Map.entry("columnName", "Column1"),
  *                                     Map.entry("dataSetIdentifier", "1")
- *                                 ))
+ *                                 )),
+ *                                 Map.entry("fieldId", "1")
  *                             )))),
  *                             Map.entry("values", Arrays.asList(Map.of("numericalMeasureField", Map.ofEntries(
- *                                 Map.entry("fieldId", "2"),
  *                                 Map.entry("column", Map.ofEntries(
  *                                     Map.entry("columnName", "Column2"),
  *                                     Map.entry("dataSetIdentifier", "1")
  *                                 )),
- *                                 Map.entry("aggregationFunction", Map.of("simpleNumericalAggregation", "SUM"))
+ *                                 Map.entry("aggregationFunction", Map.of("simpleNumericalAggregation", "SUM")),
+ *                                 Map.entry("fieldId", "2")
  *                             ))))
- *                         ))))
- *                     ))))
+ *                         )))),
+ *                         Map.entry("visualId", "BarChart")
+ *                     )))),
+ *                     Map.entry("title", "Test"),
+ *                     Map.entry("sheetId", "Test1")
  *                 )))
  *             ))
+ *             .templateId("example-id")
+ *             .name("example-name")
+ *             .versionDescription("version")
  *             .build());
  * 
  *     }

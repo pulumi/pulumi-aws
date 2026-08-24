@@ -625,13 +625,13 @@ class LocationHdfs(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.datasync.LocationHdfs("example",
-            agent_arns=[example_aws_datasync_agent["arn"]],
-            authentication_type="SIMPLE",
-            simple_user="example",
             name_nodes=[{
                 "hostname": example_aws_instance["privateDns"],
                 "port": 80,
-            }])
+            }],
+            agent_arns=[example_aws_datasync_agent["arn"]],
+            authentication_type="SIMPLE",
+            simple_user="example")
         ```
 
         ### Kerberos Authentication
@@ -642,12 +642,12 @@ class LocationHdfs(pulumi.CustomResource):
         import pulumi_std as std
 
         example = aws.datasync.LocationHdfs("example",
-            agent_arns=[example_aws_datasync_agent["arn"]],
-            authentication_type="KERBEROS",
             name_nodes=[{
                 "hostname": example_aws_instance["privateDns"],
                 "port": 80,
             }],
+            agent_arns=[example_aws_datasync_agent["arn"]],
+            authentication_type="KERBEROS",
             kerberos_principal="user@example.com",
             kerberos_keytab_base64=std.filebase64(input="user.keytab").result,
             kerberos_krb5_conf=std.file(input="krb5.conf").result)
@@ -705,13 +705,13 @@ class LocationHdfs(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.datasync.LocationHdfs("example",
-            agent_arns=[example_aws_datasync_agent["arn"]],
-            authentication_type="SIMPLE",
-            simple_user="example",
             name_nodes=[{
                 "hostname": example_aws_instance["privateDns"],
                 "port": 80,
-            }])
+            }],
+            agent_arns=[example_aws_datasync_agent["arn"]],
+            authentication_type="SIMPLE",
+            simple_user="example")
         ```
 
         ### Kerberos Authentication
@@ -722,12 +722,12 @@ class LocationHdfs(pulumi.CustomResource):
         import pulumi_std as std
 
         example = aws.datasync.LocationHdfs("example",
-            agent_arns=[example_aws_datasync_agent["arn"]],
-            authentication_type="KERBEROS",
             name_nodes=[{
                 "hostname": example_aws_instance["privateDns"],
                 "port": 80,
             }],
+            agent_arns=[example_aws_datasync_agent["arn"]],
+            authentication_type="KERBEROS",
             kerberos_principal="user@example.com",
             kerberos_keytab_base64=std.filebase64(input="user.keytab").result,
             kerberos_krb5_conf=std.file(input="krb5.conf").result)

@@ -26,12 +26,12 @@ namespace Pulumi.Aws.Ebs
     ///     {
     ///         DiskContainer = new Aws.Ebs.Inputs.SnapshotImportDiskContainerArgs
     ///         {
-    ///             Format = "VHD",
     ///             UserBucket = new Aws.Ebs.Inputs.SnapshotImportDiskContainerUserBucketArgs
     ///             {
     ///                 S3Bucket = "disk-images",
     ///                 S3Key = "source.vhd",
     ///             },
+    ///             Format = "VHD",
     ///         },
     ///         RoleName = "disk-image-import",
     ///         Tags = 

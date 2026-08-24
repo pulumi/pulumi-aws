@@ -49,15 +49,15 @@ namespace Pulumi.Aws.Transfer
     /// {
     ///     var test = new Aws.Transfer.Access("test", new()
     ///     {
-    ///         ExternalId = "S-1-1-12-1234567890-123456789-1234567890-1234",
-    ///         ServerId = testAwsTransferServer.Id,
-    ///         Role = testAwsIamRole.Arn,
-    ///         HomeDirectory = $"/{testAwsEfsFileSystem.Id}/",
     ///         PosixProfile = new Aws.Transfer.Inputs.AccessPosixProfileArgs
     ///         {
     ///             Gid = 1000,
     ///             Uid = 1000,
     ///         },
+    ///         ExternalId = "S-1-1-12-1234567890-123456789-1234567890-1234",
+    ///         ServerId = testAwsTransferServer.Id,
+    ///         Role = testAwsIamRole.Arn,
+    ///         HomeDirectory = $"/{testAwsEfsFileSystem.Id}/",
     ///     });
     /// 
     /// });

@@ -59,7 +59,6 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .stages(            
  *                 PipelineStageArgs.builder()
- *                     .name("Source")
  *                     .actions(PipelineStageActionArgs.builder()
  *                         .name("Source")
  *                         .category("Source")
@@ -73,6 +72,7 @@ import javax.annotation.Nullable;
  *                             Map.entry("BranchName", "main")
  *                         ))
  *                         .build())
+ *                     .name("Source")
  *                     .build(),
  *                 PipelineStageArgs.builder()
  *                     .actions(PipelineStageActionArgs.builder()

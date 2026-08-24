@@ -275,13 +275,13 @@ class TargetGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.vpclattice.TargetGroup("example",
-            name="example",
-            type="INSTANCE",
             config={
                 "vpc_identifier": example_aws_vpc["id"],
                 "port": 443,
                 "protocol": "HTTPS",
-            })
+            },
+            name="example",
+            type="INSTANCE")
         ```
 
         ### Basic usage with Health check
@@ -291,29 +291,29 @@ class TargetGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.vpclattice.TargetGroup("example",
-            name="example",
-            type="IP",
             config={
-                "vpc_identifier": example_aws_vpc["id"],
-                "ip_address_type": "IPV4",
-                "port": 443,
-                "protocol": "HTTPS",
-                "protocol_version": "HTTP1",
                 "health_check": {
+                    "matcher": {
+                        "value": "200-299",
+                    },
                     "enabled": True,
                     "health_check_interval_seconds": 20,
                     "health_check_timeout_seconds": 10,
                     "healthy_threshold_count": 7,
                     "unhealthy_threshold_count": 3,
-                    "matcher": {
-                        "value": "200-299",
-                    },
                     "path": "/instance",
                     "port": 80,
                     "protocol": "HTTP",
                     "protocol_version": "HTTP1",
                 },
-            })
+                "vpc_identifier": example_aws_vpc["id"],
+                "ip_address_type": "IPV4",
+                "port": 443,
+                "protocol": "HTTPS",
+                "protocol_version": "HTTP1",
+            },
+            name="example",
+            type="IP")
         ```
 
         ### ALB
@@ -325,14 +325,14 @@ class TargetGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.vpclattice.TargetGroup("example",
-            name="example",
-            type="ALB",
             config={
                 "vpc_identifier": example_aws_vpc["id"],
                 "port": 443,
                 "protocol": "HTTPS",
                 "protocol_version": "HTTP1",
-            })
+            },
+            name="example",
+            type="ALB")
         ```
 
         ### Lambda
@@ -385,13 +385,13 @@ class TargetGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.vpclattice.TargetGroup("example",
-            name="example",
-            type="INSTANCE",
             config={
                 "vpc_identifier": example_aws_vpc["id"],
                 "port": 443,
                 "protocol": "HTTPS",
-            })
+            },
+            name="example",
+            type="INSTANCE")
         ```
 
         ### Basic usage with Health check
@@ -401,29 +401,29 @@ class TargetGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.vpclattice.TargetGroup("example",
-            name="example",
-            type="IP",
             config={
-                "vpc_identifier": example_aws_vpc["id"],
-                "ip_address_type": "IPV4",
-                "port": 443,
-                "protocol": "HTTPS",
-                "protocol_version": "HTTP1",
                 "health_check": {
+                    "matcher": {
+                        "value": "200-299",
+                    },
                     "enabled": True,
                     "health_check_interval_seconds": 20,
                     "health_check_timeout_seconds": 10,
                     "healthy_threshold_count": 7,
                     "unhealthy_threshold_count": 3,
-                    "matcher": {
-                        "value": "200-299",
-                    },
                     "path": "/instance",
                     "port": 80,
                     "protocol": "HTTP",
                     "protocol_version": "HTTP1",
                 },
-            })
+                "vpc_identifier": example_aws_vpc["id"],
+                "ip_address_type": "IPV4",
+                "port": 443,
+                "protocol": "HTTPS",
+                "protocol_version": "HTTP1",
+            },
+            name="example",
+            type="IP")
         ```
 
         ### ALB
@@ -435,14 +435,14 @@ class TargetGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.vpclattice.TargetGroup("example",
-            name="example",
-            type="ALB",
             config={
                 "vpc_identifier": example_aws_vpc["id"],
                 "port": 443,
                 "protocol": "HTTPS",
                 "protocol_version": "HTTP1",
-            })
+            },
+            name="example",
+            type="ALB")
         ```
 
         ### Lambda

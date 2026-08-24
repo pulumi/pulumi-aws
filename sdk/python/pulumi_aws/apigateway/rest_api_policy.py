@@ -153,18 +153,18 @@ class RestApiPolicy(pulumi.CustomResource):
 
         test_rest_api = aws.apigateway.RestApi("test", name="example-rest-api")
         test = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "AWS",
-                "identifiers": ["*"],
-            }],
-            "actions": ["execute-api:Invoke"],
-            "resources": [test_rest_api.execution_arn.apply(lambda execution_arn: f"{execution_arn}/*")],
             "conditions": [{
                 "test": "IpAddress",
                 "variable": "aws:SourceIp",
                 "values": ["123.123.123.123/32"],
             }],
+            "principals": [{
+                "type": "AWS",
+                "identifiers": ["*"],
+            }],
+            "effect": "Allow",
+            "actions": ["execute-api:Invoke"],
+            "resources": [test_rest_api.execution_arn.apply(lambda execution_arn: f"{execution_arn}/*")],
         }])
         test_rest_api_policy = aws.apigateway.RestApiPolicy("test",
             rest_api_id=test_rest_api.id,
@@ -207,18 +207,18 @@ class RestApiPolicy(pulumi.CustomResource):
 
         test_rest_api = aws.apigateway.RestApi("test", name="example-rest-api")
         test = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "AWS",
-                "identifiers": ["*"],
-            }],
-            "actions": ["execute-api:Invoke"],
-            "resources": [test_rest_api.execution_arn.apply(lambda execution_arn: f"{execution_arn}/*")],
             "conditions": [{
                 "test": "IpAddress",
                 "variable": "aws:SourceIp",
                 "values": ["123.123.123.123/32"],
             }],
+            "principals": [{
+                "type": "AWS",
+                "identifiers": ["*"],
+            }],
+            "effect": "Allow",
+            "actions": ["execute-api:Invoke"],
+            "resources": [test_rest_api.execution_arn.apply(lambda execution_arn: f"{execution_arn}/*")],
         }])
         test_rest_api_policy = aws.apigateway.RestApiPolicy("test",
             rest_api_id=test_rest_api.id,

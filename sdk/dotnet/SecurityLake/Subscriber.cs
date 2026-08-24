@@ -28,8 +28,11 @@ namespace Pulumi.Aws.SecurityLake
     /// {
     ///     var example = new Aws.SecurityLake.Subscriber("example", new()
     ///     {
-    ///         SubscriberName = "example-name",
-    ///         AccessType = "S3",
+    ///         SubscriberIdentity = new Aws.SecurityLake.Inputs.SubscriberSubscriberIdentityArgs
+    ///         {
+    ///             ExternalId = "example",
+    ///             Principal = "1234567890",
+    ///         },
     ///         Sources = new[]
     ///         {
     ///             new Aws.SecurityLake.Inputs.SubscriberSourceArgs
@@ -41,11 +44,8 @@ namespace Pulumi.Aws.SecurityLake
     ///                 },
     ///             },
     ///         },
-    ///         SubscriberIdentity = new Aws.SecurityLake.Inputs.SubscriberSubscriberIdentityArgs
-    ///         {
-    ///             ExternalId = "example",
-    ///             Principal = "1234567890",
-    ///         },
+    ///         SubscriberName = "example-name",
+    ///         AccessType = "S3",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -69,8 +69,11 @@ namespace Pulumi.Aws.SecurityLake
     /// {
     ///     var example = new Aws.SecurityLake.Subscriber("example", new()
     ///     {
-    ///         SubscriberName = "example-name",
-    ///         AccessType = "S3",
+    ///         SubscriberIdentity = new Aws.SecurityLake.Inputs.SubscriberSubscriberIdentityArgs
+    ///         {
+    ///             ExternalId = "example",
+    ///             Principal = "1234567890",
+    ///         },
     ///         Sources = new[]
     ///         {
     ///             new Aws.SecurityLake.Inputs.SubscriberSourceArgs
@@ -90,11 +93,8 @@ namespace Pulumi.Aws.SecurityLake
     ///                 },
     ///             },
     ///         },
-    ///         SubscriberIdentity = new Aws.SecurityLake.Inputs.SubscriberSubscriberIdentityArgs
-    ///         {
-    ///             ExternalId = "example",
-    ///             Principal = "1234567890",
-    ///         },
+    ///         SubscriberName = "example-name",
+    ///         AccessType = "S3",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

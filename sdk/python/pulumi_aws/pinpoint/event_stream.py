@@ -210,11 +210,11 @@ class EventStream(pulumi.CustomResource):
             name="pinpoint-kinesis-test",
             shard_count=1)
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["pinpoint.us-east-1.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         test_role = aws.iam.Role("test_role", assume_role_policy=assume_role.json)
@@ -274,11 +274,11 @@ class EventStream(pulumi.CustomResource):
             name="pinpoint-kinesis-test",
             shard_count=1)
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["pinpoint.us-east-1.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         test_role = aws.iam.Role("test_role", assume_role_policy=assume_role.json)

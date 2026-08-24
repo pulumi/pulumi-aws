@@ -639,17 +639,6 @@ class ReplicationConfigurationTemplate(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.drs.ReplicationConfigurationTemplate("example",
-            associate_default_security_group=False,
-            bandwidth_throttling=12,
-            create_public_ip=False,
-            data_plane_routing="PRIVATE_IP",
-            default_large_staging_disk_type="GP2",
-            ebs_encryption="DEFAULT",
-            ebs_encryption_key_arn="arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
-            replication_server_instance_type="t3.small",
-            replication_servers_security_groups_ids=[__item["id"] for __item in example_aws_security_group],
-            staging_area_subnet_id=example_aws_subnet["id"],
-            use_dedicated_replication_server=False,
             pit_policies=[
                 {
                     "enabled": True,
@@ -672,7 +661,18 @@ class ReplicationConfigurationTemplate(pulumi.CustomResource):
                     "units": "DAY",
                     "rule_id": 3,
                 },
-            ])
+            ],
+            associate_default_security_group=False,
+            bandwidth_throttling=12,
+            create_public_ip=False,
+            data_plane_routing="PRIVATE_IP",
+            default_large_staging_disk_type="GP2",
+            ebs_encryption="DEFAULT",
+            ebs_encryption_key_arn="arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+            replication_server_instance_type="t3.small",
+            replication_servers_security_groups_ids=[__item["id"] for __item in example_aws_security_group],
+            staging_area_subnet_id=example_aws_subnet["id"],
+            use_dedicated_replication_server=False)
         ```
 
         ## Import
@@ -725,17 +725,6 @@ class ReplicationConfigurationTemplate(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.drs.ReplicationConfigurationTemplate("example",
-            associate_default_security_group=False,
-            bandwidth_throttling=12,
-            create_public_ip=False,
-            data_plane_routing="PRIVATE_IP",
-            default_large_staging_disk_type="GP2",
-            ebs_encryption="DEFAULT",
-            ebs_encryption_key_arn="arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
-            replication_server_instance_type="t3.small",
-            replication_servers_security_groups_ids=[__item["id"] for __item in example_aws_security_group],
-            staging_area_subnet_id=example_aws_subnet["id"],
-            use_dedicated_replication_server=False,
             pit_policies=[
                 {
                     "enabled": True,
@@ -758,7 +747,18 @@ class ReplicationConfigurationTemplate(pulumi.CustomResource):
                     "units": "DAY",
                     "rule_id": 3,
                 },
-            ])
+            ],
+            associate_default_security_group=False,
+            bandwidth_throttling=12,
+            create_public_ip=False,
+            data_plane_routing="PRIVATE_IP",
+            default_large_staging_disk_type="GP2",
+            ebs_encryption="DEFAULT",
+            ebs_encryption_key_arn="arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+            replication_server_instance_type="t3.small",
+            replication_servers_security_groups_ids=[__item["id"] for __item in example_aws_security_group],
+            staging_area_subnet_id=example_aws_subnet["id"],
+            use_dedicated_replication_server=False)
         ```
 
         ## Import

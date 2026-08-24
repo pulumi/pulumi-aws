@@ -49,9 +49,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var default_ = new ClusterParameterGroup("default", ClusterParameterGroupArgs.builder()
- *             .name("rds-cluster-pg")
- *             .family("aurora5.6")
- *             .description("RDS default cluster parameter group")
  *             .parameters(            
  *                 ClusterParameterGroupParameterArgs.builder()
  *                     .name("character_set_server")
@@ -61,6 +58,9 @@ import javax.annotation.Nullable;
  *                     .name("character_set_client")
  *                     .value("utf8")
  *                     .build())
+ *             .name("rds-cluster-pg")
+ *             .family("aurora5.6")
+ *             .description("RDS default cluster parameter group")
  *             .build());
  * 
  *     }

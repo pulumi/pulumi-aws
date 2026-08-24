@@ -51,11 +51,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Association("example", AssociationArgs.builder()
- *             .name(exampleAwsSsmDocument.name())
  *             .targets(AssociationTargetArgs.builder()
  *                 .key("InstanceIds")
  *                 .values(exampleAwsInstance.id())
  *                 .build())
+ *             .name(exampleAwsSsmDocument.name())
  *             .build());
  * 
  *     }
@@ -91,11 +91,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Association("example", AssociationArgs.builder()
- *             .name("AmazonCloudWatch-ManageAgent")
  *             .targets(AssociationTargetArgs.builder()
  *                 .key("InstanceIds")
  *                 .values("*")
  *                 .build())
+ *             .name("AmazonCloudWatch-ManageAgent")
  *             .build());
  * 
  *     }
@@ -131,11 +131,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Association("example", AssociationArgs.builder()
- *             .name("AmazonCloudWatch-ManageAgent")
  *             .targets(AssociationTargetArgs.builder()
  *                 .key("tag:Environment")
  *                 .values("Development")
  *                 .build())
+ *             .name("AmazonCloudWatch-ManageAgent")
  *             .build());
  * 
  *     }
@@ -171,12 +171,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Association("example", AssociationArgs.builder()
- *             .name(exampleAwsSsmDocument.name())
- *             .scheduleExpression("cron(0 2 ? * SUN *)")
  *             .targets(AssociationTargetArgs.builder()
  *                 .key("InstanceIds")
  *                 .values(exampleAwsInstance.id())
  *                 .build())
+ *             .name(exampleAwsSsmDocument.name())
+ *             .scheduleExpression("cron(0 2 ? * SUN *)")
  *             .build());
  * 
  *     }
@@ -247,13 +247,13 @@ import javax.annotation.Nullable;
  * 
  *         // Removed EC2 provisioning dependencies for brevity
  *         var systemUpdate = new Association("systemUpdate", AssociationArgs.builder()
- *             .name("AWS-RunShellScript")
  *             .targets(AssociationTargetArgs.builder()
  *                 .key("InstanceIds")
  *                 .values(                
  *                     webServer1.id(),
  *                     webServer2.id())
  *                 .build())
+ *             .name("AWS-RunShellScript")
  *             .scheduleExpression("cron(0 2 ? * SUN *)")
  *             .parameters(Map.ofEntries(
  *                 Map.entry("commands", StdFunctions.join(JoinArgs.builder()
@@ -320,13 +320,13 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // SSM Association for Webbased Servers
  *         var databaseAssociation = new Association("databaseAssociation", AssociationArgs.builder()
- *             .name(systemUpdate.name())
  *             .targets(AssociationTargetArgs.builder()
  *                 .key("tag:Role")
  *                 .values(                
  *                     "WebServer",
  *                     "Database")
  *                 .build())
+ *             .name(systemUpdate.name())
  *             .parameters(Map.of("restartServices", "true"))
  *             .scheduleExpression("cron(0 3 ? * SUN *)")
  *             .build());

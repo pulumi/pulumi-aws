@@ -23,7 +23,6 @@ import {InstanceProfile} from "../iam";
  * import * as aws from "@pulumi/aws";
  *
  * const ubuntu = aws.ec2.getAmi({
- *     mostRecent: true,
  *     filters: [
  *         {
  *             name: "name",
@@ -34,6 +33,7 @@ import {InstanceProfile} from "../iam";
  *             values: ["hvm"],
  *         },
  *     ],
+ *     mostRecent: true,
  *     owners: ["099720109477"],
  * });
  * const asConf = new aws.ec2.LaunchConfiguration("as_conf", {

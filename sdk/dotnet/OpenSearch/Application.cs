@@ -44,7 +44,6 @@ namespace Pulumi.Aws.OpenSearch
     /// {
     ///     var example = new Aws.OpenSearch.Application("example", new()
     ///     {
-    ///         Name = "my-opensearch-app",
     ///         AppConfigs = new[]
     ///         {
     ///             new Aws.OpenSearch.Inputs.ApplicationAppConfigArgs
@@ -58,6 +57,7 @@ namespace Pulumi.Aws.OpenSearch
     ///                 Value = "admin-group",
     ///             },
     ///         },
+    ///         Name = "my-opensearch-app",
     ///         Tags = 
     ///         {
     ///             { "Environment", "production" },
@@ -80,8 +80,6 @@ namespace Pulumi.Aws.OpenSearch
     /// {
     ///     var example = new Aws.OpenSearch.Domain("example", new()
     ///     {
-    ///         DomainName = "example-domain",
-    ///         EngineVersion = "OpenSearch_2.3",
     ///         ClusterConfig = new Aws.OpenSearch.Inputs.DomainClusterConfigArgs
     ///         {
     ///             InstanceType = "t3.small.search",
@@ -91,11 +89,12 @@ namespace Pulumi.Aws.OpenSearch
     ///             EbsEnabled = true,
     ///             VolumeSize = 20,
     ///         },
+    ///         DomainName = "example-domain",
+    ///         EngineVersion = "OpenSearch_2.3",
     ///     });
     /// 
     ///     var exampleApplication = new Aws.OpenSearch.Application("example", new()
     ///     {
-    ///         Name = "my-opensearch-app",
     ///         DataSources = new[]
     ///         {
     ///             new Aws.OpenSearch.Inputs.ApplicationDataSourceArgs
@@ -104,6 +103,7 @@ namespace Pulumi.Aws.OpenSearch
     ///                 DataSourceDescription = "Primary OpenSearch domain for analytics",
     ///             },
     ///         },
+    ///         Name = "my-opensearch-app",
     ///         Tags = 
     ///         {
     ///             { "Environment", "production" },
@@ -236,13 +236,13 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     ///     var exampleApplication = new Aws.OpenSearch.Application("example", new()
     ///     {
-    ///         Name = "my-opensearch-app",
     ///         IamIdentityCenterOptions = new Aws.OpenSearch.Inputs.ApplicationIamIdentityCenterOptionsArgs
     ///         {
     ///             Enabled = true,
     ///             IamIdentityCenterInstanceArn = example.Apply(getInstancesResult =&gt; getInstancesResult.Arns[0]),
     ///             IamRoleForIdentityCenterApplicationArn = opensearchApplication.Arn,
     ///         },
+    ///         Name = "my-opensearch-app",
     ///         Tags = 
     ///         {
     ///             { "Environment", "production" },

@@ -98,12 +98,12 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     ///     var example = new Aws.CloudWatch.EventBus("example", new()
     ///     {
-    ///         Name = "example-event-bus",
     ///         LogConfig = new Aws.CloudWatch.Inputs.EventBusLogConfigArgs
     ///         {
     ///             IncludeDetail = "FULL",
     ///             Level = "TRACE",
     ///         },
+    ///         Name = "example-event-bus",
     ///     });
     /// 
     ///     // CloudWatch Log Delivery Sources for INFO, ERROR, and TRACE logs
@@ -140,26 +140,6 @@ namespace Pulumi.Aws.CloudWatch
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "delivery.logs.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "s3:PutObject",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     $"{exampleBucket.Arn}/AWSLogs/{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}/EventBusLogs/*",
-    ///                 },
     ///                 Conditions = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
@@ -192,6 +172,26 @@ namespace Pulumi.Aws.CloudWatch
     ///                         },
     ///                     },
     ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "delivery.logs.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "s3:PutObject",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     $"{exampleBucket.Arn}/AWSLogs/{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}/EventBusLogs/*",
+    ///                 },
     ///             },
     ///         },
     ///     });
@@ -204,11 +204,11 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     ///     var s3 = new Aws.CloudWatch.LogDeliveryDestination("s3", new()
     ///     {
-    ///         Name = example.Name.Apply(name =&gt; $"EventsDeliveryDestination-{name}-S3"),
     ///         DeliveryDestinationConfiguration = new Aws.CloudWatch.Inputs.LogDeliveryDestinationDeliveryDestinationConfigurationArgs
     ///         {
     ///             DestinationResourceArn = exampleBucket.Arn,
     ///         },
+    ///         Name = example.Name.Apply(name =&gt; $"EventsDeliveryDestination-{name}-S3"),
     ///     });
     /// 
     ///     var s3InfoLogs = new Aws.CloudWatch.LogDelivery("s3_info_logs", new()
@@ -253,27 +253,6 @@ namespace Pulumi.Aws.CloudWatch
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "delivery.logs.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "logs:CreateLogStream",
-    ///                     "logs:PutLogEvents",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     $"{eventBusLogs.Arn}:log-stream:*",
-    ///                 },
     ///                 Conditions = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
@@ -297,6 +276,27 @@ namespace Pulumi.Aws.CloudWatch
     ///                         },
     ///                     },
     ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "delivery.logs.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "logs:CreateLogStream",
+    ///                     "logs:PutLogEvents",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     $"{eventBusLogs.Arn}:log-stream:*",
+    ///                 },
     ///             },
     ///         },
     ///     });
@@ -309,11 +309,11 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     ///     var cwlogsLogDeliveryDestination = new Aws.CloudWatch.LogDeliveryDestination("cwlogs", new()
     ///     {
-    ///         Name = example.Name.Apply(name =&gt; $"EventsDeliveryDestination-{name}-CWLogs"),
     ///         DeliveryDestinationConfiguration = new Aws.CloudWatch.Inputs.LogDeliveryDestinationDeliveryDestinationConfigurationArgs
     ///         {
     ///             DestinationResourceArn = eventBusLogs.Arn,
     ///         },
+    ///         Name = example.Name.Apply(name =&gt; $"EventsDeliveryDestination-{name}-CWLogs"),
     ///     });
     /// 
     ///     var cwlogsInfoLogs = new Aws.CloudWatch.LogDelivery("cwlogs_info_logs", new()
@@ -365,11 +365,11 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     ///     var firehose = new Aws.CloudWatch.LogDeliveryDestination("firehose", new()
     ///     {
-    ///         Name = example.Name.Apply(name =&gt; $"EventsDeliveryDestination-{name}-Firehose"),
     ///         DeliveryDestinationConfiguration = new Aws.CloudWatch.Inputs.LogDeliveryDestinationDeliveryDestinationConfigurationArgs
     ///         {
     ///             DestinationResourceArn = cloudfrontLogs.Arn,
     ///         },
+    ///         Name = example.Name.Apply(name =&gt; $"EventsDeliveryDestination-{name}-Firehose"),
     ///     });
     /// 
     ///     var firehoseInfoLogs = new Aws.CloudWatch.LogDelivery("firehose_info_logs", new()

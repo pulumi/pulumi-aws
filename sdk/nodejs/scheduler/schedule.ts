@@ -23,16 +23,16 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.scheduler.Schedule("example", {
- *     name: "my-schedule",
- *     groupName: "default",
  *     flexibleTimeWindow: {
  *         mode: "OFF",
  *     },
- *     scheduleExpression: "rate(1 hours)",
  *     target: {
  *         arn: exampleAwsSqsQueue.arn,
  *         roleArn: exampleAwsIamRole.arn,
  *     },
+ *     name: "my-schedule",
+ *     groupName: "default",
+ *     scheduleExpression: "rate(1 hours)",
  * });
  * ```
  *
@@ -44,11 +44,9 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.sqs.Queue("example", {});
  * const exampleSchedule = new aws.scheduler.Schedule("example", {
- *     name: "my-schedule",
  *     flexibleTimeWindow: {
  *         mode: "OFF",
  *     },
- *     scheduleExpression: "rate(1 hours)",
  *     target: {
  *         arn: "arn:aws:scheduler:::aws-sdk:sqs:sendMessage",
  *         roleArn: exampleAwsIamRole.arn,
@@ -57,6 +55,8 @@ import * as utilities from "../utilities";
  *             QueueUrl: example.url,
  *         }),
  *     },
+ *     name: "my-schedule",
+ *     scheduleExpression: "rate(1 hours)",
  * });
  * ```
  *

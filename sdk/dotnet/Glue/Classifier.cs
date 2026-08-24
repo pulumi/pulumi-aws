@@ -28,7 +28,6 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.Classifier("example", new()
     ///     {
-    ///         Name = "example",
     ///         CsvClassifier = new Aws.Glue.Inputs.ClassifierCsvClassifierArgs
     ///         {
     ///             AllowSingleColumn = false,
@@ -42,6 +41,7 @@ namespace Pulumi.Aws.Glue
     ///             },
     ///             QuoteSymbol = "'",
     ///         },
+    ///         Name = "example",
     ///     });
     /// 
     /// });
@@ -59,12 +59,12 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.Classifier("example", new()
     ///     {
-    ///         Name = "example",
     ///         GrokClassifier = new Aws.Glue.Inputs.ClassifierGrokClassifierArgs
     ///         {
     ///             Classification = "example",
     ///             GrokPattern = "example",
     ///         },
+    ///         Name = "example",
     ///     });
     /// 
     /// });
@@ -82,11 +82,11 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.Classifier("example", new()
     ///     {
-    ///         Name = "example",
     ///         JsonClassifier = new Aws.Glue.Inputs.ClassifierJsonClassifierArgs
     ///         {
     ///             JsonPath = "example",
     ///         },
+    ///         Name = "example",
     ///     });
     /// 
     /// });
@@ -104,12 +104,12 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.Classifier("example", new()
     ///     {
-    ///         Name = "example",
     ///         XmlClassifier = new Aws.Glue.Inputs.ClassifierXmlClassifierArgs
     ///         {
     ///             Classification = "example",
     ///             RowTag = "example",
     ///         },
+    ///         Name = "example",
     ///     });
     /// 
     /// });

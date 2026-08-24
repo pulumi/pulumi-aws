@@ -1150,7 +1150,8 @@ class LustreFileSystem(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.fsx.LustreFileSystem("example", security_group_ids=[example_aws_security_group["id"]])
+        example = aws.fsx.LustreFileSystem("example", security_group_ids=[example_aws_security_group["id"]],
+        opts = pulumi.ResourceOptions(ignore_changes=["securityGroupIds"]))
         ```
 
 
@@ -1226,7 +1227,8 @@ class LustreFileSystem(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.fsx.LustreFileSystem("example", security_group_ids=[example_aws_security_group["id"]])
+        example = aws.fsx.LustreFileSystem("example", security_group_ids=[example_aws_security_group["id"]],
+        opts = pulumi.ResourceOptions(ignore_changes=["securityGroupIds"]))
         ```
 
 

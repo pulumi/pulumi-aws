@@ -244,14 +244,13 @@ class StandardsControlAssociation(pulumi.CustomResource):
         import pulumi
         from typing import Any
         import pulumi_aws as aws
-        import pulumi_std as std
 
         example = aws.securityhub.Account("example")
         iam1 = aws.securityhub.get_standards_control_associations(security_control_id="IAM.1")
         iam1_standards_control_association: list[aws.securityhub.StandardsControlAssociation] = []
-        for iam1_standards_control_association_range in [{"key": k, "value": v} for [k, v] in enumerate(std.toset(input=[__item.standards_arn for __item in iam1.standards_control_associations]).result)]:
+        for iam1_standards_control_association_range in [{"key": k, "value": v} for [k, v] in enumerate({entry: entry for entry in [__item.standards_arn for __item in iam1.standards_control_associations]})]:
             iam1_standards_control_association.append(aws.securityhub.StandardsControlAssociation(f"iam_1-{iam1_standards_control_association_range['key']}",
-                standards_arn=str(iam1_standards_control_association_range["key"]),
+                standards_arn=iam1_standards_control_association_range["key"],
                 security_control_id=iam1.security_control_id,
                 association_status="DISABLED",
                 updated_reason="Not needed"))
@@ -327,14 +326,13 @@ class StandardsControlAssociation(pulumi.CustomResource):
         import pulumi
         from typing import Any
         import pulumi_aws as aws
-        import pulumi_std as std
 
         example = aws.securityhub.Account("example")
         iam1 = aws.securityhub.get_standards_control_associations(security_control_id="IAM.1")
         iam1_standards_control_association: list[aws.securityhub.StandardsControlAssociation] = []
-        for iam1_standards_control_association_range in [{"key": k, "value": v} for [k, v] in enumerate(std.toset(input=[__item.standards_arn for __item in iam1.standards_control_associations]).result)]:
+        for iam1_standards_control_association_range in [{"key": k, "value": v} for [k, v] in enumerate({entry: entry for entry in [__item.standards_arn for __item in iam1.standards_control_associations]})]:
             iam1_standards_control_association.append(aws.securityhub.StandardsControlAssociation(f"iam_1-{iam1_standards_control_association_range['key']}",
-                standards_arn=str(iam1_standards_control_association_range["key"]),
+                standards_arn=iam1_standards_control_association_range["key"],
                 security_control_id=iam1.security_control_id,
                 association_status="DISABLED",
                 updated_reason="Not needed"))

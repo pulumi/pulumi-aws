@@ -28,7 +28,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     ///     var main = new Aws.Ec2.VpcIpam("main", new()
     ///     {
-    ///         Description = "My IPAM",
     ///         OperatingRegions = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.VpcIpamOperatingRegionArgs
@@ -36,6 +35,7 @@ namespace Pulumi.Aws.Ec2
     ///                 RegionName = current.Apply(getRegionResult =&gt; getRegionResult.Region),
     ///             },
     ///         },
+    ///         Description = "My IPAM",
     ///         Tags = 
     ///         {
     ///             { "Test", "Main" },
@@ -82,13 +82,13 @@ namespace Pulumi.Aws.Ec2
     /// 
     ///     var main = new Aws.Ec2.VpcIpam("main", new()
     ///     {
-    ///         OperatingRegions = .Apply(entries =&gt; entries.Select(entry =&gt; 
+    ///         OperatingRegions = .Select(entry =&gt; 
     ///         {
-    ///             return 
+    ///             return new Aws.Ec2.Inputs.VpcIpamOperatingRegionArgs
     ///             {
-    ///                 { "regionName", entry.Value },
+    ///                 RegionName = entry,
     ///             };
-    ///         }).ToList()),
+    ///         }).ToList(),
     ///         Description = "multi region ipam",
     ///     });
     /// 

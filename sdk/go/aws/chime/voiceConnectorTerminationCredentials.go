@@ -53,13 +53,13 @@ import (
 //				return err
 //			}
 //			_, err = chime.NewVoiceConnectorTerminationCredentials(ctx, "default", &chime.VoiceConnectorTerminationCredentialsArgs{
-//				VoiceConnectorId: _default.ID().ToIDOutput().ToStringOutput(),
 //				Credentials: chime.VoiceConnectorTerminationCredentialsCredentialArray{
 //					&chime.VoiceConnectorTerminationCredentialsCredentialArgs{
 //						Username: pulumi.String("test"),
 //						Password: pulumi.String("test!"),
 //					},
 //				},
+//				VoiceConnectorId: _default.ID().ToIDOutput().ToStringOutput(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				defaultVoiceConnectorTermination,
 //			}))

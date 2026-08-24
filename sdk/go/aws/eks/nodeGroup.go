@@ -32,10 +32,6 @@ import (
 // splat0 = append(splat0, val0.(map[string]interface{})["id"])
 // }
 // _, err := eks.NewNodeGroup(ctx, "example", &eks.NodeGroupArgs{
-// ClusterName: pulumi.Any(exampleAwsEksCluster.Name),
-// NodeGroupName: pulumi.String("example"),
-// NodeRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-// SubnetIds: toPulumiArray(splat0),
 // ScalingConfig: &eks.NodeGroupScalingConfigArgs{
 // DesiredSize: pulumi.Int(1),
 // MaxSize: pulumi.Int(2),
@@ -44,6 +40,10 @@ import (
 // UpdateConfig: &eks.NodeGroupUpdateConfigArgs{
 // MaxUnavailable: pulumi.Int(1),
 // },
+// ClusterName: pulumi.Any(exampleAwsEksCluster.Name),
+// NodeGroupName: pulumi.String("example"),
+// NodeRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+// SubnetIds: toPulumiArray(splat0),
 // }, pulumi.DependsOn([]pulumi.Resource{
 // example_AmazonEKSWorkerNodePolicy,
 // example_AmazonEKSCNIPolicy,
@@ -84,7 +84,9 @@ import (
 //				ScalingConfig: &eks.NodeGroupScalingConfigArgs{
 //					DesiredSize: pulumi.Int(2),
 //				},
-//			})
+//			}, pulumi.IgnoreChanges([]string{
+//				"scalingConfig.desiredSize",
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -92,6 +94,57 @@ import (
 //		})
 //	}
 //
+// ```
+//
+// ### Tracking the latest EKS Node Group AMI releases
+//
+// You can have the node group track the latest version of the Amazon EKS optimized Amazon Linux AMI for a given EKS version by querying an Amazon provided SSM parameter. Replace `standard` in the parameter name below with `nvidia` to retrieve the accelerated AMI version. Replace `x8664` in the parameter name below with `arm64` to retrieve the ARM version.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/eks"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// eksAmiReleaseVersion, err := ssm.LookupParameter(ctx, &ssm.LookupParameterArgs{
+// Name: fmt.Sprintf("/aws/service/eks/optimized-ami/%v/amazon-linux-2023/x86_64/standard/recommended/release_version", exampleAwsEksCluster.Version),
+// }, nil);
+// if err != nil {
+// return err
+// }
+// var splat0 []interface{}
+// for _, val0 := range exampleAwsSubnet {
+// splat0 = append(splat0, val0.(map[string]interface{})["id"])
+// }
+// _, err = eks.NewNodeGroup(ctx, "example", &eks.NodeGroupArgs{
+// ClusterName: pulumi.Any(exampleAwsEksCluster.Name),
+// NodeGroupName: pulumi.String("example"),
+// Version: pulumi.Any(exampleAwsEksCluster.Version),
+// ReleaseVersion: pulumi.Unsecret(eksAmiReleaseVersion.Value).(pulumi.StringPtrOutput),
+// NodeRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+// SubnetIds: toPulumiArray(splat0),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// func toPulumiArray(arr []) pulumi.Array {
+// var pulumiArr pulumi.Array
+// for _, v := range arr {
+// pulumiArr = append(pulumiArr, pulumi.(v))
+// }
+// return pulumiArr
+// }
 // ```
 //
 // ### Example IAM Role for EKS Node Group

@@ -65,20 +65,20 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = ecs.NewTaskDefinition(ctx, "service", &ecs.TaskDefinitionArgs{
-//				Family:               pulumi.String("service"),
-//				ContainerDefinitions: pulumi.String(json0),
-//				Volumes: ecs.TaskDefinitionVolumeArray{
-//					&ecs.TaskDefinitionVolumeArgs{
-//						Name:     pulumi.String("service-storage"),
-//						HostPath: pulumi.String("/ecs/service-storage"),
-//					},
-//				},
 //				PlacementConstraints: ecs.TaskDefinitionPlacementConstraintArray{
 //					&ecs.TaskDefinitionPlacementConstraintArgs{
 //						Type:       pulumi.String("memberOf"),
 //						Expression: pulumi.String("attribute:ecs.availability-zone in [us-west-2a, us-west-2b]"),
 //					},
 //				},
+//				Volumes: ecs.TaskDefinitionVolumeArray{
+//					&ecs.TaskDefinitionVolumeArgs{
+//						Name:     pulumi.String("service-storage"),
+//						HostPath: pulumi.String("/ecs/service-storage"),
+//					},
+//				},
+//				Family:               pulumi.String("service"),
+//				ContainerDefinitions: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
@@ -111,8 +111,6 @@ import (
 //				return err
 //			}
 //			_, err = ecs.NewTaskDefinition(ctx, "service", &ecs.TaskDefinitionArgs{
-//				Family:               pulumi.String("service"),
-//				ContainerDefinitions: pulumi.String(invokeFile.Result),
 //				ProxyConfiguration: &ecs.TaskDefinitionProxyConfigurationArgs{
 //					Type:          pulumi.String("APPMESH"),
 //					ContainerName: pulumi.String("applicationContainerName"),
@@ -124,6 +122,8 @@ import (
 //						"ProxyIngressPort": pulumi.String("15000"),
 //					},
 //				},
+//				Family:               pulumi.String("service"),
+//				ContainerDefinitions: pulumi.String(invokeFile.Result),
 //			})
 //			if err != nil {
 //				return err
@@ -156,11 +156,8 @@ import (
 //				return err
 //			}
 //			_, err = ecs.NewTaskDefinition(ctx, "service", &ecs.TaskDefinitionArgs{
-//				Family:               pulumi.String("service"),
-//				ContainerDefinitions: pulumi.String(invokeFile.Result),
 //				Volumes: ecs.TaskDefinitionVolumeArray{
 //					&ecs.TaskDefinitionVolumeArgs{
-//						Name: pulumi.String("service-storage"),
 //						DockerVolumeConfiguration: &ecs.TaskDefinitionVolumeDockerVolumeConfigurationArgs{
 //							Scope:         pulumi.String("shared"),
 //							Autoprovision: pulumi.Bool(true),
@@ -171,8 +168,11 @@ import (
 //								"o":      pulumi.Sprintf("addr=%v,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport", fs.DnsName),
 //							},
 //						},
+//						Name: pulumi.String("service-storage"),
 //					},
 //				},
+//				Family:               pulumi.String("service"),
+//				ContainerDefinitions: pulumi.String(invokeFile.Result),
 //			})
 //			if err != nil {
 //				return err
@@ -205,23 +205,23 @@ import (
 //				return err
 //			}
 //			_, err = ecs.NewTaskDefinition(ctx, "service", &ecs.TaskDefinitionArgs{
-//				Family:               pulumi.String("service"),
-//				ContainerDefinitions: pulumi.String(invokeFile.Result),
 //				Volumes: ecs.TaskDefinitionVolumeArray{
 //					&ecs.TaskDefinitionVolumeArgs{
-//						Name: pulumi.String("service-storage"),
 //						EfsVolumeConfiguration: &ecs.TaskDefinitionVolumeEfsVolumeConfigurationArgs{
-//							FileSystemId:          pulumi.Any(fs.Id),
-//							RootDirectory:         pulumi.String("/opt/data"),
-//							TransitEncryption:     pulumi.String("ENABLED"),
-//							TransitEncryptionPort: pulumi.Int(2999),
 //							AuthorizationConfig: &ecs.TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs{
 //								AccessPointId: pulumi.Any(test.Id),
 //								Iam:           pulumi.String("ENABLED"),
 //							},
+//							FileSystemId:          pulumi.Any(fs.Id),
+//							RootDirectory:         pulumi.String("/opt/data"),
+//							TransitEncryption:     pulumi.String("ENABLED"),
+//							TransitEncryptionPort: pulumi.Int(2999),
 //						},
+//						Name: pulumi.String("service-storage"),
 //					},
 //				},
+//				Family:               pulumi.String("service"),
+//				ContainerDefinitions: pulumi.String(invokeFile.Result),
 //			})
 //			if err != nil {
 //				return err
@@ -272,21 +272,21 @@ import (
 //				return err
 //			}
 //			_, err = ecs.NewTaskDefinition(ctx, "service", &ecs.TaskDefinitionArgs{
-//				Family:               pulumi.String("service"),
-//				ContainerDefinitions: pulumi.String(invokeFile.Result),
 //				Volumes: ecs.TaskDefinitionVolumeArray{
 //					&ecs.TaskDefinitionVolumeArgs{
-//						Name: pulumi.String("service-storage"),
 //						FsxWindowsFileServerVolumeConfiguration: &ecs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs{
-//							FileSystemId:  pulumi.Any(testAwsFsxWindowsFileSystem.Id),
-//							RootDirectory: pulumi.String("\\data"),
 //							AuthorizationConfig: &ecs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs{
 //								CredentialsParameter: test.Arn,
 //								Domain:               pulumi.Any(testAwsDirectoryServiceDirectory.Name),
 //							},
+//							FileSystemId:  pulumi.Any(testAwsFsxWindowsFileSystem.Id),
+//							RootDirectory: pulumi.String("\\data"),
 //						},
+//						Name: pulumi.String("service-storage"),
 //					},
 //				},
+//				Family:               pulumi.String("service"),
+//				ContainerDefinitions: pulumi.String(invokeFile.Result),
 //			})
 //			if err != nil {
 //				return err
@@ -361,6 +361,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ecs.NewTaskDefinition(ctx, "test", &ecs.TaskDefinitionArgs{
+//				RuntimePlatform: &ecs.TaskDefinitionRuntimePlatformArgs{
+//					OperatingSystemFamily: pulumi.String("WINDOWS_SERVER_2019_CORE"),
+//					CpuArchitecture:       pulumi.String("X86_64"),
+//				},
 //				Family: pulumi.String("test"),
 //				RequiresCompatibilities: pulumi.StringArray{
 //					pulumi.String("FARGATE"),
@@ -380,10 +384,6 @@ import (
 // ]
 // `),
 //
-//				RuntimePlatform: &ecs.TaskDefinitionRuntimePlatformArgs{
-//					OperatingSystemFamily: pulumi.String("WINDOWS_SERVER_2019_CORE"),
-//					CpuArchitecture:       pulumi.String("X86_64"),
-//				},
 //			})
 //			if err != nil {
 //				return err

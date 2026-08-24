@@ -43,13 +43,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.appsync.GraphQLApi("example", {
- *     authenticationType: "AMAZON_COGNITO_USER_POOLS",
- *     name: "example",
  *     userPoolConfig: {
  *         awsRegion: current.region,
  *         defaultAction: "DENY",
  *         userPoolId: exampleAwsCognitoUserPool.id,
  *     },
+ *     authenticationType: "AMAZON_COGNITO_USER_POOLS",
+ *     name: "example",
  * });
  * ```
  *
@@ -60,11 +60,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.appsync.GraphQLApi("example", {
- *     authenticationType: "OPENID_CONNECT",
- *     name: "example",
  *     openidConnectConfig: {
  *         issuer: "https://example.com",
  *     },
+ *     authenticationType: "OPENID_CONNECT",
+ *     name: "example",
  * });
  * ```
  *
@@ -75,11 +75,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.appsync.GraphQLApi("example", {
- *     authenticationType: "AWS_LAMBDA",
- *     name: "example",
  *     lambdaAuthorizerConfig: {
  *         authorizerUri: "arn:aws:lambda:us-east-1:123456789012:function:custom_lambda_authorizer",
  *     },
+ *     authenticationType: "AWS_LAMBDA",
+ *     name: "example",
  * });
  * const appsyncLambdaAuthorizer = new aws.lambda.Permission("appsync_lambda_authorizer", {
  *     statementId: "appsync_lambda_authorizer",
@@ -97,11 +97,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.appsync.GraphQLApi("example", {
- *     authenticationType: "API_KEY",
- *     name: "example",
  *     additionalAuthenticationProviders: [{
  *         authenticationType: "AWS_IAM",
  *     }],
+ *     authenticationType: "API_KEY",
+ *     name: "example",
  * });
  * ```
  *
@@ -132,11 +132,11 @@ import * as utilities from "../utilities";
  *
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["appsync.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
@@ -165,15 +165,15 @@ import * as utilities from "../utilities";
  *     name: "example",
  * });
  * const exampleWebAcl = new aws.wafv2.WebAcl("example", {
- *     name: "managed-rule-example",
- *     description: "Example of a managed rule.",
- *     scope: "REGIONAL",
  *     defaultAction: {
  *         allow: {},
  *     },
+ *     visibilityConfig: {
+ *         cloudwatchMetricsEnabled: false,
+ *         metricName: "friendly-metric-name",
+ *         sampledRequestsEnabled: false,
+ *     },
  *     rules: [{
- *         name: "rule-1",
- *         priority: 1,
  *         overrideAction: {
  *             block: [{}],
  *         },
@@ -188,12 +188,12 @@ import * as utilities from "../utilities";
  *             metricName: "friendly-rule-metric-name",
  *             sampledRequestsEnabled: false,
  *         },
+ *         name: "rule-1",
+ *         priority: 1,
  *     }],
- *     visibilityConfig: {
- *         cloudwatchMetricsEnabled: false,
- *         metricName: "friendly-metric-name",
- *         sampledRequestsEnabled: false,
- *     },
+ *     name: "managed-rule-example",
+ *     description: "Example of a managed rule.",
+ *     scope: "REGIONAL",
  * });
  * const exampleWebAclAssociation = new aws.wafv2.WebAclAssociation("example", {
  *     resourceArn: example.arn,

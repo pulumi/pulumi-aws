@@ -55,6 +55,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var withMinimumParameter = new CloudVmCluster("withMinimumParameter", CloudVmClusterArgs.builder()
+ *             .dataCollectionOptions(CloudVmClusterDataCollectionOptionsArgs.builder()
+ *                 .isDiagnosticsEventsEnabled(false)
+ *                 .isHealthMonitoringEnabled(false)
+ *                 .isIncidentLogsEnabled(false)
+ *                 .build())
  *             .displayName("my_vm_cluster")
  *             .cloudExadataInfrastructureId("<aws_odb_cloud_exadata_infrastructure_id>")
  *             .cpuCoreCount(6)
@@ -71,11 +76,6 @@ import javax.annotation.Nullable;
  *                 "db-server-2")
  *             .dbNodeStorageSizeInGbs(120)
  *             .memorySizeInGbs(60)
- *             .dataCollectionOptions(CloudVmClusterDataCollectionOptionsArgs.builder()
- *                 .isDiagnosticsEventsEnabled(false)
- *                 .isHealthMonitoringEnabled(false)
- *                 .isIncidentLogsEnabled(false)
- *                 .build())
  *             .build());
  * 
  *     }
@@ -109,6 +109,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var withAllParameters = new CloudVmCluster("withAllParameters", CloudVmClusterArgs.builder()
+ *             .dataCollectionOptions(CloudVmClusterDataCollectionOptionsArgs.builder()
+ *                 .isDiagnosticsEventsEnabled(true)
+ *                 .isHealthMonitoringEnabled(true)
+ *                 .isIncidentLogsEnabled(true)
+ *                 .build())
  *             .displayName("my_vm_cluster")
  *             .cloudExadataInfrastructureId("<aws_odb_cloud_exadata_infrastructure_id>")
  *             .cpuCoreCount(6)
@@ -129,11 +134,6 @@ import javax.annotation.Nullable;
  *             .timezone("UTC")
  *             .scanListenerPortTcp(1521)
  *             .tags(Map.of("env", "dev"))
- *             .dataCollectionOptions(CloudVmClusterDataCollectionOptionsArgs.builder()
- *                 .isDiagnosticsEventsEnabled(true)
- *                 .isHealthMonitoringEnabled(true)
- *                 .isIncidentLogsEnabled(true)
- *                 .build())
  *             .build());
  * 
  *     }
@@ -167,6 +167,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var giVersionTagExample = new CloudVmCluster("giVersionTagExample", CloudVmClusterArgs.builder()
+ *             .dataCollectionOptions(CloudVmClusterDataCollectionOptionsArgs.builder()
+ *                 .isDiagnosticsEventsEnabled(true)
+ *                 .isHealthMonitoringEnabled(true)
+ *                 .isIncidentLogsEnabled(true)
+ *                 .build())
  *             .displayName("my_vm_cluster")
  *             .cloudExadataInfrastructureId("<aws_odb_cloud_exadata_infrastructure_id>")
  *             .cpuCoreCount(6)
@@ -187,11 +192,6 @@ import javax.annotation.Nullable;
  *             .timezone("UTC")
  *             .scanListenerPortTcp(1521)
  *             .tags(Map.of("odb:input_gi_version", "23.0.0.0"))
- *             .dataCollectionOptions(CloudVmClusterDataCollectionOptionsArgs.builder()
- *                 .isDiagnosticsEventsEnabled(true)
- *                 .isHealthMonitoringEnabled(true)
- *                 .isIncidentLogsEnabled(true)
- *                 .build())
  *             .build());
  * 
  *     }

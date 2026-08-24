@@ -31,8 +31,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := inspector2.NewFilter(ctx, "example", &inspector2.FilterArgs{
-//				Name:   pulumi.String("test"),
-//				Action: pulumi.String("NONE"),
 //				FilterCriterias: inspector2.FilterFilterCriteriaArray{
 //					&inspector2.FilterFilterCriteriaArgs{
 //						AwsAccountIds: inspector2.FilterFilterCriteriaAwsAccountIdArray{
@@ -43,6 +41,8 @@ import (
 //						},
 //					},
 //				},
+//				Name:   pulumi.String("test"),
+//				Action: pulumi.String("NONE"),
 //			})
 //			if err != nil {
 //				return err

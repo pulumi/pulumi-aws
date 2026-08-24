@@ -32,15 +32,15 @@ namespace Pulumi.Aws.Networkflowmonitor
     ///         {
     ///             new Aws.Networkflowmonitor.Inputs.ScopeTargetArgs
     ///             {
-    ///                 Region = "us-east-1",
     ///                 TargetIdentifier = new Aws.Networkflowmonitor.Inputs.ScopeTargetTargetIdentifierArgs
     ///                 {
-    ///                     TargetType = "ACCOUNT",
     ///                     TargetId = new Aws.Networkflowmonitor.Inputs.ScopeTargetTargetIdentifierTargetIdArgs
     ///                     {
     ///                         AccountId = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
     ///                     },
+    ///                     TargetType = "ACCOUNT",
     ///                 },
+    ///                 Region = "us-east-1",
     ///             },
     ///         },
     ///         Tags = 

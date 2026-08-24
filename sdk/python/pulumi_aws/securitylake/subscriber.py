@@ -439,18 +439,18 @@ class Subscriber(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.securitylake.Subscriber("example",
-            subscriber_name="example-name",
-            access_type="S3",
+            subscriber_identity={
+                "external_id": "example",
+                "principal": "1234567890",
+            },
             sources=[{
                 "aws_log_source_resource": {
                     "source_name": "ROUTE53",
                     "source_version": "1.0",
                 },
             }],
-            subscriber_identity={
-                "external_id": "example",
-                "principal": "1234567890",
-            },
+            subscriber_name="example-name",
+            access_type="S3",
             opts = pulumi.ResourceOptions(depends_on=[example_aws_securitylake_data_lake]))
         ```
 
@@ -461,8 +461,10 @@ class Subscriber(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.securitylake.Subscriber("example",
-            subscriber_name="example-name",
-            access_type="S3",
+            subscriber_identity={
+                "external_id": "example",
+                "principal": "1234567890",
+            },
             sources=[
                 {
                     "aws_log_source_resource": {
@@ -477,10 +479,8 @@ class Subscriber(pulumi.CustomResource):
                     },
                 },
             ],
-            subscriber_identity={
-                "external_id": "example",
-                "principal": "1234567890",
-            },
+            subscriber_name="example-name",
+            access_type="S3",
             opts = pulumi.ResourceOptions(depends_on=[example_aws_securitylake_data_lake]))
         ```
 
@@ -523,18 +523,18 @@ class Subscriber(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.securitylake.Subscriber("example",
-            subscriber_name="example-name",
-            access_type="S3",
+            subscriber_identity={
+                "external_id": "example",
+                "principal": "1234567890",
+            },
             sources=[{
                 "aws_log_source_resource": {
                     "source_name": "ROUTE53",
                     "source_version": "1.0",
                 },
             }],
-            subscriber_identity={
-                "external_id": "example",
-                "principal": "1234567890",
-            },
+            subscriber_name="example-name",
+            access_type="S3",
             opts = pulumi.ResourceOptions(depends_on=[example_aws_securitylake_data_lake]))
         ```
 
@@ -545,8 +545,10 @@ class Subscriber(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.securitylake.Subscriber("example",
-            subscriber_name="example-name",
-            access_type="S3",
+            subscriber_identity={
+                "external_id": "example",
+                "principal": "1234567890",
+            },
             sources=[
                 {
                     "aws_log_source_resource": {
@@ -561,10 +563,8 @@ class Subscriber(pulumi.CustomResource):
                     },
                 },
             ],
-            subscriber_identity={
-                "external_id": "example",
-                "principal": "1234567890",
-            },
+            subscriber_name="example-name",
+            access_type="S3",
             opts = pulumi.ResourceOptions(depends_on=[example_aws_securitylake_data_lake]))
         ```
 

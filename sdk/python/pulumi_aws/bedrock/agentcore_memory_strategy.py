@@ -510,14 +510,7 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         custom_semantic = aws.bedrock.AgentcoreMemoryStrategy("custom_semantic",
-            name="custom-semantic-strategy",
-            memory_id=example["id"],
-            memory_execution_role_arn=example["memoryExecutionRoleArn"],
-            type="CUSTOM",
-            description="Custom semantic processing strategy",
-            namespace_templates=["{sessionId}"],
             configuration={
-                "type": "SEMANTIC_OVERRIDE",
                 "consolidation": {
                     "append_to_prompt": "Focus on extracting key semantic relationships and concepts",
                     "model_id": "anthropic.claude-3-sonnet-20240229-v1:0",
@@ -526,7 +519,14 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
                     "append_to_prompt": "Extract and categorize semantic information",
                     "model_id": "anthropic.claude-3-haiku-20240307-v1:0",
                 },
-            })
+                "type": "SEMANTIC_OVERRIDE",
+            },
+            name="custom-semantic-strategy",
+            memory_id=example["id"],
+            memory_execution_role_arn=example["memoryExecutionRoleArn"],
+            type="CUSTOM",
+            description="Custom semantic processing strategy",
+            namespace_templates=["{sessionId}"])
         ```
 
         ### Custom Strategy with Summary Override
@@ -536,18 +536,18 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         custom_summary = aws.bedrock.AgentcoreMemoryStrategy("custom_summary",
-            name="custom-summary-strategy",
-            memory_id=example["id"],
-            type="CUSTOM",
-            description="Custom summarization strategy",
-            namespace_templates=["summaries"],
             configuration={
-                "type": "SUMMARY_OVERRIDE",
                 "consolidation": {
                     "append_to_prompt": "Create concise summaries while preserving key details",
                     "model_id": "anthropic.claude-3-sonnet-20240229-v1:0",
                 },
-            })
+                "type": "SUMMARY_OVERRIDE",
+            },
+            name="custom-summary-strategy",
+            memory_id=example["id"],
+            type="CUSTOM",
+            description="Custom summarization strategy",
+            namespace_templates=["summaries"])
         ```
 
         ### Custom Strategy with User Preference Override
@@ -557,13 +557,7 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         custom_user_pref = aws.bedrock.AgentcoreMemoryStrategy("custom_user_pref",
-            name="custom-user-preference-strategy",
-            memory_id=example["id"],
-            type="CUSTOM",
-            description="Custom user preference tracking strategy",
-            namespace_templates=["user_prefs"],
             configuration={
-                "type": "USER_PREFERENCE_OVERRIDE",
                 "consolidation": {
                     "append_to_prompt": "Consolidate user preferences and behavioral patterns",
                     "model_id": "anthropic.claude-3-sonnet-20240229-v1:0",
@@ -572,7 +566,13 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
                     "append_to_prompt": "Extract user preferences and interaction patterns",
                     "model_id": "anthropic.claude-3-haiku-20240307-v1:0",
                 },
-            })
+                "type": "USER_PREFERENCE_OVERRIDE",
+            },
+            name="custom-user-preference-strategy",
+            memory_id=example["id"],
+            type="CUSTOM",
+            description="Custom user preference tracking strategy",
+            namespace_templates=["user_prefs"])
         ```
 
         ### Custom Strategy with Episodic Override
@@ -582,14 +582,7 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         custom_episodic = aws.bedrock.AgentcoreMemoryStrategy("custom_episodic",
-            name="custom-episodic-strategy",
-            memory_id=example["id"],
-            memory_execution_role_arn=example["memoryExecutionRoleArn"],
-            type="CUSTOM",
-            description="Custom episodic processing strategy",
-            namespace_templates=["/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}"],
             configuration={
-                "type": "EPISODIC_OVERRIDE",
                 "consolidation": {
                     "append_to_prompt": "Consolidate episodic memories into coherent narratives",
                     "model_id": "anthropic.claude-3-sonnet-20240229-v1:0",
@@ -598,7 +591,14 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
                     "append_to_prompt": "Extract key events and episodes from interactions",
                     "model_id": "anthropic.claude-3-haiku-20240307-v1:0",
                 },
-            })
+                "type": "EPISODIC_OVERRIDE",
+            },
+            name="custom-episodic-strategy",
+            memory_id=example["id"],
+            memory_execution_role_arn=example["memoryExecutionRoleArn"],
+            type="CUSTOM",
+            description="Custom episodic processing strategy",
+            namespace_templates=["/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}"])
         ```
 
         ## Import
@@ -705,14 +705,7 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         custom_semantic = aws.bedrock.AgentcoreMemoryStrategy("custom_semantic",
-            name="custom-semantic-strategy",
-            memory_id=example["id"],
-            memory_execution_role_arn=example["memoryExecutionRoleArn"],
-            type="CUSTOM",
-            description="Custom semantic processing strategy",
-            namespace_templates=["{sessionId}"],
             configuration={
-                "type": "SEMANTIC_OVERRIDE",
                 "consolidation": {
                     "append_to_prompt": "Focus on extracting key semantic relationships and concepts",
                     "model_id": "anthropic.claude-3-sonnet-20240229-v1:0",
@@ -721,7 +714,14 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
                     "append_to_prompt": "Extract and categorize semantic information",
                     "model_id": "anthropic.claude-3-haiku-20240307-v1:0",
                 },
-            })
+                "type": "SEMANTIC_OVERRIDE",
+            },
+            name="custom-semantic-strategy",
+            memory_id=example["id"],
+            memory_execution_role_arn=example["memoryExecutionRoleArn"],
+            type="CUSTOM",
+            description="Custom semantic processing strategy",
+            namespace_templates=["{sessionId}"])
         ```
 
         ### Custom Strategy with Summary Override
@@ -731,18 +731,18 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         custom_summary = aws.bedrock.AgentcoreMemoryStrategy("custom_summary",
-            name="custom-summary-strategy",
-            memory_id=example["id"],
-            type="CUSTOM",
-            description="Custom summarization strategy",
-            namespace_templates=["summaries"],
             configuration={
-                "type": "SUMMARY_OVERRIDE",
                 "consolidation": {
                     "append_to_prompt": "Create concise summaries while preserving key details",
                     "model_id": "anthropic.claude-3-sonnet-20240229-v1:0",
                 },
-            })
+                "type": "SUMMARY_OVERRIDE",
+            },
+            name="custom-summary-strategy",
+            memory_id=example["id"],
+            type="CUSTOM",
+            description="Custom summarization strategy",
+            namespace_templates=["summaries"])
         ```
 
         ### Custom Strategy with User Preference Override
@@ -752,13 +752,7 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         custom_user_pref = aws.bedrock.AgentcoreMemoryStrategy("custom_user_pref",
-            name="custom-user-preference-strategy",
-            memory_id=example["id"],
-            type="CUSTOM",
-            description="Custom user preference tracking strategy",
-            namespace_templates=["user_prefs"],
             configuration={
-                "type": "USER_PREFERENCE_OVERRIDE",
                 "consolidation": {
                     "append_to_prompt": "Consolidate user preferences and behavioral patterns",
                     "model_id": "anthropic.claude-3-sonnet-20240229-v1:0",
@@ -767,7 +761,13 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
                     "append_to_prompt": "Extract user preferences and interaction patterns",
                     "model_id": "anthropic.claude-3-haiku-20240307-v1:0",
                 },
-            })
+                "type": "USER_PREFERENCE_OVERRIDE",
+            },
+            name="custom-user-preference-strategy",
+            memory_id=example["id"],
+            type="CUSTOM",
+            description="Custom user preference tracking strategy",
+            namespace_templates=["user_prefs"])
         ```
 
         ### Custom Strategy with Episodic Override
@@ -777,14 +777,7 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         custom_episodic = aws.bedrock.AgentcoreMemoryStrategy("custom_episodic",
-            name="custom-episodic-strategy",
-            memory_id=example["id"],
-            memory_execution_role_arn=example["memoryExecutionRoleArn"],
-            type="CUSTOM",
-            description="Custom episodic processing strategy",
-            namespace_templates=["/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}"],
             configuration={
-                "type": "EPISODIC_OVERRIDE",
                 "consolidation": {
                     "append_to_prompt": "Consolidate episodic memories into coherent narratives",
                     "model_id": "anthropic.claude-3-sonnet-20240229-v1:0",
@@ -793,7 +786,14 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
                     "append_to_prompt": "Extract key events and episodes from interactions",
                     "model_id": "anthropic.claude-3-haiku-20240307-v1:0",
                 },
-            })
+                "type": "EPISODIC_OVERRIDE",
+            },
+            name="custom-episodic-strategy",
+            memory_id=example["id"],
+            memory_execution_role_arn=example["memoryExecutionRoleArn"],
+            type="CUSTOM",
+            description="Custom episodic processing strategy",
+            namespace_templates=["/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}"])
         ```
 
         ## Import

@@ -88,11 +88,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new UserSettings("example", UserSettingsArgs.builder()
- *             .copyAllowed("Enabled")
- *             .downloadAllowed("Enabled")
- *             .pasteAllowed("Enabled")
- *             .printAllowed("Enabled")
- *             .uploadAllowed("Enabled")
  *             .toolbarConfiguration(UserSettingsToolbarConfigurationArgs.builder()
  *                 .toolbarType("Docked")
  *                 .visualMode("Dark")
@@ -100,6 +95,11 @@ import javax.annotation.Nullable;
  *                     "Webcam",
  *                     "Microphone")
  *                 .build())
+ *             .copyAllowed("Enabled")
+ *             .downloadAllowed("Enabled")
+ *             .pasteAllowed("Enabled")
+ *             .printAllowed("Enabled")
+ *             .uploadAllowed("Enabled")
  *             .build());
  * 
  *     }
@@ -143,16 +143,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleUserSettings = new UserSettings("exampleUserSettings", UserSettingsArgs.builder()
- *             .copyAllowed("Enabled")
- *             .downloadAllowed("Enabled")
- *             .pasteAllowed("Enabled")
- *             .printAllowed("Enabled")
- *             .uploadAllowed("Enabled")
- *             .deepLinkAllowed("Enabled")
- *             .disconnectTimeoutInMinutes(30)
- *             .idleDisconnectTimeoutInMinutes(15)
- *             .customerManagedKey(example.arn())
- *             .additionalEncryptionContext(Map.of("Environment", "Production"))
  *             .toolbarConfiguration(UserSettingsToolbarConfigurationArgs.builder()
  *                 .toolbarType("Docked")
  *                 .visualMode("Dark")
@@ -170,6 +160,16 @@ import javax.annotation.Nullable;
  *                     .domain("blocked.com")
  *                     .build())
  *                 .build())
+ *             .copyAllowed("Enabled")
+ *             .downloadAllowed("Enabled")
+ *             .pasteAllowed("Enabled")
+ *             .printAllowed("Enabled")
+ *             .uploadAllowed("Enabled")
+ *             .deepLinkAllowed("Enabled")
+ *             .disconnectTimeoutInMinutes(30)
+ *             .idleDisconnectTimeoutInMinutes(15)
+ *             .customerManagedKey(example.arn())
+ *             .additionalEncryptionContext(Map.of("Environment", "Production"))
  *             .tags(Map.of("Name", "example-user-settings"))
  *             .build());
  * 

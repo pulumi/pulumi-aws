@@ -398,11 +398,11 @@ class Authorizer(pulumi.CustomResource):
 
         demo_rest_api = aws.apigateway.RestApi("demo", name="auth-demo")
         invocation_assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["apigateway.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         invocation_role = aws.iam.Role("invocation_role",
@@ -410,12 +410,12 @@ class Authorizer(pulumi.CustomResource):
             path="/",
             assume_role_policy=invocation_assume_role.json)
         lambda_assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["lambda.amazonaws.com"],
             }],
+            "effect": "Allow",
+            "actions": ["sts:AssumeRole"],
         }])
         lambda_ = aws.iam.Role("lambda",
             name="demo-lambda",
@@ -482,11 +482,11 @@ class Authorizer(pulumi.CustomResource):
 
         demo_rest_api = aws.apigateway.RestApi("demo", name="auth-demo")
         invocation_assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["apigateway.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         invocation_role = aws.iam.Role("invocation_role",
@@ -494,12 +494,12 @@ class Authorizer(pulumi.CustomResource):
             path="/",
             assume_role_policy=invocation_assume_role.json)
         lambda_assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["lambda.amazonaws.com"],
             }],
+            "effect": "Allow",
+            "actions": ["sts:AssumeRole"],
         }])
         lambda_ = aws.iam.Role("lambda",
             name="demo-lambda",

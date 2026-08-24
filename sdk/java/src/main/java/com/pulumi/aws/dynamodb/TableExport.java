@@ -40,8 +40,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.dynamodb.Table;
  * import com.pulumi.aws.dynamodb.TableArgs;
- * import com.pulumi.aws.dynamodb.inputs.TableAttributeArgs;
  * import com.pulumi.aws.dynamodb.inputs.TablePointInTimeRecoveryArgs;
+ * import com.pulumi.aws.dynamodb.inputs.TableAttributeArgs;
  * import com.pulumi.aws.dynamodb.TableExport;
  * import com.pulumi.aws.dynamodb.TableExportArgs;
  * import java.util.ArrayList;
@@ -63,16 +63,16 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleTable = new Table("exampleTable", TableArgs.builder()
- *             .name("example-table-1")
- *             .billingMode("PAY_PER_REQUEST")
- *             .hashKey("user_id")
+ *             .pointInTimeRecovery(TablePointInTimeRecoveryArgs.builder()
+ *                 .enabled(true)
+ *                 .build())
  *             .attributes(TableAttributeArgs.builder()
  *                 .name("user_id")
  *                 .type("S")
  *                 .build())
- *             .pointInTimeRecovery(TablePointInTimeRecoveryArgs.builder()
- *                 .enabled(true)
- *                 .build())
+ *             .name("example-table-1")
+ *             .billingMode("PAY_PER_REQUEST")
+ *             .hashKey("user_id")
  *             .build());
  * 
  *         var exampleTableExport = new TableExport("exampleTableExport", TableExportArgs.builder()
@@ -146,13 +146,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new TableExport("example", TableExportArgs.builder()
- *             .exportType("INCREMENTAL_EXPORT")
- *             .s3Bucket(exampleAwsS3Bucket.id())
- *             .tableArn(exampleAwsDynamodbTable.arn())
  *             .incrementalExportSpecification(TableExportIncrementalExportSpecificationArgs.builder()
  *                 .exportFromTime("2025-02-09T12:00:00+01:00")
  *                 .exportToTime("2025-02-09T13:00:00+01:00")
  *                 .build())
+ *             .exportType("INCREMENTAL_EXPORT")
+ *             .s3Bucket(exampleAwsS3Bucket.id())
+ *             .tableArn(exampleAwsDynamodbTable.arn())
  *             .build());
  * 
  *     }

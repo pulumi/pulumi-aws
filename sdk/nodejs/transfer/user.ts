@@ -26,11 +26,11 @@ import * as utilities from "../utilities";
  * });
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["transfer.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
@@ -52,14 +52,14 @@ import * as utilities from "../utilities";
  *     policy: foo.then(foo => foo.json),
  * });
  * const fooUser = new aws.transfer.User("foo", {
- *     serverId: fooServer.id,
- *     userName: "tftestuser",
- *     role: fooRole.arn,
- *     homeDirectoryType: "LOGICAL",
  *     homeDirectoryMappings: [{
  *         entry: "/test.pdf",
  *         target: "/bucket3/test-path/tftestuser.pdf",
  *     }],
+ *     serverId: fooServer.id,
+ *     userName: "tftestuser",
+ *     role: fooRole.arn,
+ *     homeDirectoryType: "LOGICAL",
  * });
  * ```
  *
@@ -70,11 +70,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.transfer.User("example", {
- *     homeDirectoryType: "LOGICAL",
  *     homeDirectoryMappings: [{
  *         entry: "/",
  *         target: `/${foo.id}/${Transfer:UserName}`,
  *     }],
+ *     homeDirectoryType: "LOGICAL",
  * });
  * ```
  *

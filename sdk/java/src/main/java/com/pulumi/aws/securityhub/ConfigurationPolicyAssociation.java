@@ -57,27 +57,27 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleOrganizationConfiguration = new OrganizationConfiguration("exampleOrganizationConfiguration", OrganizationConfigurationArgs.builder()
- *             .autoEnable(false)
- *             .autoEnableStandards("NONE")
  *             .organizationConfiguration(OrganizationConfigurationOrganizationConfigurationArgs.builder()
  *                 .configurationType("CENTRAL")
  *                 .build())
+ *             .autoEnable(false)
+ *             .autoEnableStandards("NONE")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
  *                 .build());
  * 
  *         var exampleConfigurationPolicy = new ConfigurationPolicy("exampleConfigurationPolicy", ConfigurationPolicyArgs.builder()
- *             .name("Example")
- *             .description("This is an example configuration policy")
  *             .configurationPolicy(ConfigurationPolicyConfigurationPolicyArgs.builder()
+ *                 .securityControlsConfiguration(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs.builder()
+ *                     .disabledControlIdentifiers()
+ *                     .build())
  *                 .serviceEnabled(true)
  *                 .enabledStandardArns(                
  *                     "arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0",
  *                     "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0")
- *                 .securityControlsConfiguration(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs.builder()
- *                     .disabledControlIdentifiers()
- *                     .build())
  *                 .build())
+ *             .name("Example")
+ *             .description("This is an example configuration policy")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleOrganizationConfiguration)
  *                 .build());

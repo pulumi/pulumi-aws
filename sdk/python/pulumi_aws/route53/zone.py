@@ -417,7 +417,6 @@ class Zone(pulumi.CustomResource):
             enable_dns_hostnames=True,
             enable_dns_support=True)
         private = aws.route53.Zone("private",
-            name="example.com",
             vpcs=[
                 {
                     "vpc_id": primary.id,
@@ -425,7 +424,8 @@ class Zone(pulumi.CustomResource):
                 {
                     "vpc_id": secondary.id,
                 },
-            ])
+            ],
+            name="example.com")
         ```
 
         ## Import
@@ -520,7 +520,6 @@ class Zone(pulumi.CustomResource):
             enable_dns_hostnames=True,
             enable_dns_support=True)
         private = aws.route53.Zone("private",
-            name="example.com",
             vpcs=[
                 {
                     "vpc_id": primary.id,
@@ -528,7 +527,8 @@ class Zone(pulumi.CustomResource):
                 {
                     "vpc_id": secondary.id,
                 },
-            ])
+            ],
+            name="example.com")
         ```
 
         ## Import

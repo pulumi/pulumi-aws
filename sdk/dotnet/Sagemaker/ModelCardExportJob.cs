@@ -26,12 +26,12 @@ namespace Pulumi.Aws.Sagemaker
     /// {
     ///     var example = new Aws.Sagemaker.ModelCardExportJob("example", new()
     ///     {
-    ///         ModelCardExportJobName = "my-model-card-export-job",
-    ///         ModelCardName = exampleAwsSagemakerModelCard.ModelCardName,
     ///         OutputConfig = new Aws.Sagemaker.Inputs.ModelCardExportJobOutputConfigArgs
     ///         {
     ///             S3OutputPath = $"s3://{test.Example}/",
     ///         },
+    ///         ModelCardExportJobName = "my-model-card-export-job",
+    ///         ModelCardName = exampleAwsSagemakerModelCard.ModelCardName,
     ///     });
     /// 
     /// });

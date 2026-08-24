@@ -55,7 +55,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var ubuntu = Ec2Functions.getAmi(GetAmiArgs.builder()
- *             .mostRecent(true)
  *             .filters(            
  *                 GetAmiFilterArgs.builder()
  *                     .name("name")
@@ -65,6 +64,7 @@ import javax.annotation.Nullable;
  *                     .name("virtualization-type")
  *                     .values("hvm")
  *                     .build())
+ *             .mostRecent(true)
  *             .owners("099720109477")
  *             .build());
  * 

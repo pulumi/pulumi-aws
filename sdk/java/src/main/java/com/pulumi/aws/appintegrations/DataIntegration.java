@@ -45,15 +45,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataIntegration("example", DataIntegrationArgs.builder()
- *             .name("example")
- *             .description("example")
- *             .kmsKey(test.arn())
- *             .sourceUri("Salesforce://AppFlow/example")
  *             .scheduleConfig(DataIntegrationScheduleConfigArgs.builder()
  *                 .firstExecutionFrom("1439788442681")
  *                 .object("Account")
  *                 .scheduleExpression("rate(1 hour)")
  *                 .build())
+ *             .name("example")
+ *             .description("example")
+ *             .kmsKey(test.arn())
+ *             .sourceUri("Salesforce://AppFlow/example")
  *             .tags(Map.of("Key1", "Value1"))
  *             .build());
  * 

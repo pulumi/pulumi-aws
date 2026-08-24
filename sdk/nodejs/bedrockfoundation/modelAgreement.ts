@@ -25,6 +25,8 @@ import * as utilities from "../utilities";
  * const exampleModelAgreement = new aws.bedrockfoundation.ModelAgreement("example", {
  *     modelId: example.then(example => example.modelId),
  *     offerToken: example.then(example => example.offers?.[0]?.offerToken),
+ * }, {
+ *     ignoreChanges: ["offerToken"],
  * });
  * ```
  *

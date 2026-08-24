@@ -47,15 +47,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sfnAlias = new Alias("sfnAlias", AliasArgs.builder()
- *             .name("my_sfn_alias")
  *             .routingConfigurations(AliasRoutingConfigurationArgs.builder()
  *                 .stateMachineVersionArn(sfnTest.stateMachineVersionArn())
  *                 .weight(100)
  *                 .build())
+ *             .name("my_sfn_alias")
  *             .build());
  * 
  *         var mySfnAlias = new Alias("mySfnAlias", AliasArgs.builder()
- *             .name("my_sfn_alias")
  *             .routingConfigurations(            
  *                 AliasRoutingConfigurationArgs.builder()
  *                     .stateMachineVersionArn("arn:aws:states:us-east-1:12345:stateMachine:demo:3")
@@ -65,6 +64,7 @@ import javax.annotation.Nullable;
  *                     .stateMachineVersionArn("arn:aws:states:us-east-1:12345:stateMachine:demo:2")
  *                     .weight(50)
  *                     .build())
+ *             .name("my_sfn_alias")
  *             .build());
  * 
  *     }

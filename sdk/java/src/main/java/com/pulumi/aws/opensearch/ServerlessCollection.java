@@ -120,12 +120,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleServerlessCollection = new ServerlessCollection("exampleServerlessCollection", ServerlessCollectionArgs.builder()
- *             .name("example")
- *             .type("SEARCH")
- *             .collectionGroupName(exampleServerlessCollectionGroup.name())
  *             .encryptionConfigs(ServerlessCollectionEncryptionConfigArgs.builder()
  *                 .kmsKeyArn(example.arn())
  *                 .build())
+ *             .name("example")
+ *             .type("SEARCH")
+ *             .collectionGroupName(exampleServerlessCollectionGroup.name())
  *             .build());
  * 
  *     }

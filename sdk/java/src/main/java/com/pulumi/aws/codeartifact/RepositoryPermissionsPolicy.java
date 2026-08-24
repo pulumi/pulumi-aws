@@ -66,11 +66,11 @@ import javax.annotation.Nullable;
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("*")
  *                     .identifiers("*")
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions("codeartifact:ReadFromRepository")
  *                 .resources(exampleRepository.arn())
  *                 .build())

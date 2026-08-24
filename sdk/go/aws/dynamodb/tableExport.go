@@ -45,18 +45,18 @@ import (
 //				return err
 //			}
 //			exampleTable, err := dynamodb.NewTable(ctx, "example", &dynamodb.TableArgs{
-//				Name:        pulumi.String("example-table-1"),
-//				BillingMode: pulumi.String("PAY_PER_REQUEST"),
-//				HashKey:     pulumi.String("user_id"),
+//				PointInTimeRecovery: &dynamodb.TablePointInTimeRecoveryArgs{
+//					Enabled: pulumi.Bool(true),
+//				},
 //				Attributes: dynamodb.TableAttributeArray{
 //					&dynamodb.TableAttributeArgs{
 //						Name: pulumi.String("user_id"),
 //						Type: pulumi.String("S"),
 //					},
 //				},
-//				PointInTimeRecovery: &dynamodb.TablePointInTimeRecoveryArgs{
-//					Enabled: pulumi.Bool(true),
-//				},
+//				Name:        pulumi.String("example-table-1"),
+//				BillingMode: pulumi.String("PAY_PER_REQUEST"),
+//				HashKey:     pulumi.String("user_id"),
 //			})
 //			if err != nil {
 //				return err
@@ -117,13 +117,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := dynamodb.NewTableExport(ctx, "example", &dynamodb.TableExportArgs{
-//				ExportType: pulumi.String("INCREMENTAL_EXPORT"),
-//				S3Bucket:   pulumi.Any(exampleAwsS3Bucket.Id),
-//				TableArn:   pulumi.Any(exampleAwsDynamodbTable.Arn),
 //				IncrementalExportSpecification: &dynamodb.TableExportIncrementalExportSpecificationArgs{
 //					ExportFromTime: pulumi.String("2025-02-09T12:00:00+01:00"),
 //					ExportToTime:   pulumi.String("2025-02-09T13:00:00+01:00"),
 //				},
+//				ExportType: pulumi.String("INCREMENTAL_EXPORT"),
+//				S3Bucket:   pulumi.Any(exampleAwsS3Bucket.Id),
+//				TableArn:   pulumi.Any(exampleAwsDynamodbTable.Arn),
 //			})
 //			if err != nil {
 //				return err

@@ -31,9 +31,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := batch.NewJobQueue(ctx, "test_queue", &batch.JobQueueArgs{
-//				Name:     pulumi.String("tf-test-batch-job-queue"),
-//				State:    pulumi.String("ENABLED"),
-//				Priority: pulumi.Int(1),
 //				ComputeEnvironmentOrders: batch.JobQueueComputeEnvironmentOrderArray{
 //					&batch.JobQueueComputeEnvironmentOrderArgs{
 //						Order:              pulumi.Int(1),
@@ -44,6 +41,9 @@ import (
 //						ComputeEnvironment: pulumi.Any(testEnvironment2.Arn),
 //					},
 //				},
+//				Name:     pulumi.String("tf-test-batch-job-queue"),
+//				State:    pulumi.String("ENABLED"),
+//				Priority: pulumi.Int(1),
 //			})
 //			if err != nil {
 //				return err
@@ -69,26 +69,22 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := batch.NewSchedulingPolicy(ctx, "example", &batch.SchedulingPolicyArgs{
-//				Name: pulumi.String("example"),
 //				FairSharePolicy: &batch.SchedulingPolicyFairSharePolicyArgs{
-//					ComputeReservation: pulumi.Int(1),
-//					ShareDecaySeconds:  pulumi.Int(3600),
 //					ShareDistributions: batch.SchedulingPolicyFairSharePolicyShareDistributionArray{
 //						&batch.SchedulingPolicyFairSharePolicyShareDistributionArgs{
 //							ShareIdentifier: pulumi.String("A1*"),
 //							WeightFactor:    pulumi.Float64(0.1),
 //						},
 //					},
+//					ComputeReservation: pulumi.Int(1),
+//					ShareDecaySeconds:  pulumi.Int(3600),
 //				},
+//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = batch.NewJobQueue(ctx, "example", &batch.JobQueueArgs{
-//				Name:                pulumi.String("tf-test-batch-job-queue"),
-//				SchedulingPolicyArn: example.Arn,
-//				State:               pulumi.String("ENABLED"),
-//				Priority:            pulumi.Int(1),
 //				ComputeEnvironmentOrders: batch.JobQueueComputeEnvironmentOrderArray{
 //					&batch.JobQueueComputeEnvironmentOrderArgs{
 //						Order:              pulumi.Int(1),
@@ -99,6 +95,10 @@ import (
 //						ComputeEnvironment: pulumi.Any(testEnvironment2.Arn),
 //					},
 //				},
+//				Name:                pulumi.String("tf-test-batch-job-queue"),
+//				SchedulingPolicyArn: example.Arn,
+//				State:               pulumi.String("ENABLED"),
+//				Priority:            pulumi.Int(1),
 //			})
 //			if err != nil {
 //				return err

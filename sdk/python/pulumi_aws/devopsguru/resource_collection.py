@@ -196,10 +196,10 @@ class ResourceCollection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.devopsguru.ResourceCollection("example",
-            type="AWS_SERVICE",
             cloudformation={
                 "stack_names": ["*"],
-            })
+            },
+            type="AWS_SERVICE")
         ```
 
         ### CloudFormation Stacks
@@ -209,10 +209,10 @@ class ResourceCollection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.devopsguru.ResourceCollection("example",
-            type="AWS_CLOUD_FORMATION",
             cloudformation={
                 "stack_names": ["ExampleStack"],
-            })
+            },
+            type="AWS_CLOUD_FORMATION")
         ```
 
         ### Tags
@@ -222,11 +222,11 @@ class ResourceCollection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.devopsguru.ResourceCollection("example",
-            type="AWS_TAGS",
             tags={
                 "app_boundary_key": "DevOps-Guru-Example",
                 "tag_values": ["Example-Value"],
-            })
+            },
+            type="AWS_TAGS")
         ```
 
         ### Tags All Resources
@@ -238,11 +238,11 @@ class ResourceCollection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.devopsguru.ResourceCollection("example",
-            type="AWS_TAGS",
             tags={
                 "app_boundary_key": "DevOps-Guru-Example",
                 "tag_values": ["*"],
-            })
+            },
+            type="AWS_TAGS")
         ```
 
         ## Import
@@ -283,10 +283,10 @@ class ResourceCollection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.devopsguru.ResourceCollection("example",
-            type="AWS_SERVICE",
             cloudformation={
                 "stack_names": ["*"],
-            })
+            },
+            type="AWS_SERVICE")
         ```
 
         ### CloudFormation Stacks
@@ -296,10 +296,10 @@ class ResourceCollection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.devopsguru.ResourceCollection("example",
-            type="AWS_CLOUD_FORMATION",
             cloudformation={
                 "stack_names": ["ExampleStack"],
-            })
+            },
+            type="AWS_CLOUD_FORMATION")
         ```
 
         ### Tags
@@ -309,11 +309,11 @@ class ResourceCollection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.devopsguru.ResourceCollection("example",
-            type="AWS_TAGS",
             tags={
                 "app_boundary_key": "DevOps-Guru-Example",
                 "tag_values": ["Example-Value"],
-            })
+            },
+            type="AWS_TAGS")
         ```
 
         ### Tags All Resources
@@ -325,11 +325,11 @@ class ResourceCollection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.devopsguru.ResourceCollection("example",
-            type="AWS_TAGS",
             tags={
                 "app_boundary_key": "DevOps-Guru-Example",
                 "tag_values": ["*"],
-            })
+            },
+            type="AWS_TAGS")
         ```
 
         ## Import

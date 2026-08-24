@@ -20,13 +20,13 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.emrcontainers.JobTemplate("example", {
  *     jobTemplateData: {
- *         executionRoleArn: exampleAwsIamRole.arn,
- *         releaseLabel: "emr-6.10.0-latest",
  *         jobDriver: {
  *             sparkSqlJobDriver: {
  *                 entryPoint: "default",
  *             },
  *         },
+ *         executionRoleArn: exampleAwsIamRole.arn,
+ *         releaseLabel: "emr-6.10.0-latest",
  *     },
  *     name: "example",
  * });

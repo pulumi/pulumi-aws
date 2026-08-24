@@ -823,29 +823,29 @@ class TopicRule(pulumi.CustomResource):
         mytopic = aws.sns.Topic("mytopic", name="mytopic")
         myerrortopic = aws.sns.Topic("myerrortopic", name="myerrortopic")
         rule = aws.iot.TopicRule("rule",
-            name="MyRule",
-            description="Example rule",
-            enabled=True,
-            sql="SELECT * FROM 'topic/test'",
-            sql_version="2016-03-23",
-            sns=[{
-                "message_format": "RAW",
-                "role_arn": role["arn"],
-                "target_arn": mytopic.arn,
-            }],
             error_action={
                 "sns": {
                     "message_format": "RAW",
                     "role_arn": role["arn"],
                     "target_arn": myerrortopic.arn,
                 },
-            })
+            },
+            sns=[{
+                "message_format": "RAW",
+                "role_arn": role["arn"],
+                "target_arn": mytopic.arn,
+            }],
+            name="MyRule",
+            description="Example rule",
+            enabled=True,
+            sql="SELECT * FROM 'topic/test'",
+            sql_version="2016-03-23")
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["iot.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         myrole = aws.iam.Role("myrole",
@@ -900,29 +900,29 @@ class TopicRule(pulumi.CustomResource):
         mytopic = aws.sns.Topic("mytopic", name="mytopic")
         myerrortopic = aws.sns.Topic("myerrortopic", name="myerrortopic")
         rule = aws.iot.TopicRule("rule",
-            name="MyRule",
-            description="Example rule",
-            enabled=True,
-            sql="SELECT * FROM 'topic/test'",
-            sql_version="2016-03-23",
-            sns=[{
-                "message_format": "RAW",
-                "role_arn": role["arn"],
-                "target_arn": mytopic.arn,
-            }],
             error_action={
                 "sns": {
                     "message_format": "RAW",
                     "role_arn": role["arn"],
                     "target_arn": myerrortopic.arn,
                 },
-            })
+            },
+            sns=[{
+                "message_format": "RAW",
+                "role_arn": role["arn"],
+                "target_arn": mytopic.arn,
+            }],
+            name="MyRule",
+            description="Example rule",
+            enabled=True,
+            sql="SELECT * FROM 'topic/test'",
+            sql_version="2016-03-23")
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["iot.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         myrole = aws.iam.Role("myrole",

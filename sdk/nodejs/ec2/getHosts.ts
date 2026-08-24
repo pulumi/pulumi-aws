@@ -41,11 +41,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const outpost = aws.ec2.getHosts({
- *     outpostArn: example.arn,
  *     filters: [{
  *         name: "state",
  *         values: ["available"],
  *     }],
+ *     outpostArn: example.arn,
  * });
  * ```
  */
@@ -129,11 +129,11 @@ export interface GetHostsResult {
  * import * as aws from "@pulumi/aws";
  *
  * const outpost = aws.ec2.getHosts({
- *     outpostArn: example.arn,
  *     filters: [{
  *         name: "state",
  *         values: ["available"],
  *     }],
+ *     outpostArn: example.arn,
  * });
  * ```
  */

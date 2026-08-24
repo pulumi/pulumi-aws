@@ -115,23 +115,6 @@ namespace Pulumi.Aws.DataZone
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                     "sts:TagSession",
-    ///                     "sts:SetContext",
-    ///                 },
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "datazone.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
     ///                 Conditions = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
@@ -152,6 +135,23 @@ namespace Pulumi.Aws.DataZone
     ///                         },
     ///                         Variable = "aws:TagKeys",
     ///                     },
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "datazone.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                     "sts:TagSession",
+    ///                     "sts:SetContext",
     ///                 },
     ///             },
     ///         },
@@ -181,9 +181,17 @@ namespace Pulumi.Aws.DataZone
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Actions = new[]
+    ///                 Conditions = new[]
     ///                 {
-    ///                     "sts:AssumeRole",
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "StringEquals",
+    ///                         Values = new[]
+    ///                         {
+    ///                             current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+    ///                         },
+    ///                         Variable = "aws:SourceAccount",
+    ///                     },
     ///                 },
     ///                 Principals = new[]
     ///                 {
@@ -196,17 +204,9 @@ namespace Pulumi.Aws.DataZone
     ///                         },
     ///                     },
     ///                 },
-    ///                 Conditions = new[]
+    ///                 Actions = new[]
     ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
-    ///                     {
-    ///                         Test = "StringEquals",
-    ///                         Values = new[]
-    ///                         {
-    ///                             current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///                         },
-    ///                         Variable = "aws:SourceAccount",
-    ///                     },
+    ///                     "sts:AssumeRole",
     ///                 },
     ///             },
     ///         },

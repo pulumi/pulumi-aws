@@ -252,12 +252,12 @@ class TestGridProject(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.devicefarm.TestGridProject("example",
-            name="example",
             vpc_config={
                 "vpc_id": example_aws_vpc["id"],
                 "subnet_ids": [__item["id"] for __item in example_aws_subnet],
                 "security_group_ids": [__item["id"] for __item in example_aws_security_group],
-            })
+            },
+            name="example")
         ```
 
         ## Import
@@ -301,12 +301,12 @@ class TestGridProject(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.devicefarm.TestGridProject("example",
-            name="example",
             vpc_config={
                 "vpc_id": example_aws_vpc["id"],
                 "subnet_ids": [__item["id"] for __item in example_aws_subnet],
                 "security_group_ids": [__item["id"] for __item in example_aws_security_group],
-            })
+            },
+            name="example")
         ```
 
         ## Import

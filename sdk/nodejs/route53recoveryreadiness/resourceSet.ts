@@ -17,11 +17,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.route53recoveryreadiness.ResourceSet("example", {
- *     resourceSetName: my_cw_alarm_set,
- *     resourceSetType: "AWS::CloudWatch::Alarm",
  *     resources: [{
  *         resourceArn: exampleAwsCloudwatchMetricAlarm.arn,
  *     }],
+ *     resourceSetName: my_cw_alarm_set,
+ *     resourceSetType: "AWS::CloudWatch::Alarm",
  * });
  * ```
  *

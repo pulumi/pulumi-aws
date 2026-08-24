@@ -15,17 +15,17 @@ import * as utilities from "../utilities";
  *
  * const testTopic = new aws.sns.Topic("test", {name: "backup-vault-events"});
  * const test = aws.iam.getPolicyDocumentOutput({
- *     policyId: "__default_policy_ID",
  *     statements: [{
- *         actions: ["SNS:Publish"],
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["backup.amazonaws.com"],
  *         }],
+ *         actions: ["SNS:Publish"],
+ *         effect: "Allow",
  *         resources: [testTopic.arn],
  *         sid: "__default_statement_ID",
  *     }],
+ *     policyId: "__default_policy_ID",
  * });
  * const testTopicPolicy = new aws.sns.TopicPolicy("test", {
  *     arn: testTopic.arn,

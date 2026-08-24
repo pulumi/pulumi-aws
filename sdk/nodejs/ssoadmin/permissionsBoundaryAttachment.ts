@@ -38,14 +38,14 @@ import * as utilities from "../utilities";
  *     }),
  * });
  * const examplePermissionsBoundaryAttachment = new aws.ssoadmin.PermissionsBoundaryAttachment("example", {
- *     instanceArn: examplePermissionSet.instanceArn,
- *     permissionSetArn: examplePermissionSet.arn,
  *     permissionsBoundary: {
  *         customerManagedPolicyReference: {
  *             name: examplePolicy.name,
  *             path: "/",
  *         },
  *     },
+ *     instanceArn: examplePermissionSet.instanceArn,
+ *     permissionSetArn: examplePermissionSet.arn,
  * });
  * ```
  *
@@ -56,11 +56,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ssoadmin.PermissionsBoundaryAttachment("example", {
- *     instanceArn: exampleAwsSsoadminPermissionSet.instanceArn,
- *     permissionSetArn: exampleAwsSsoadminPermissionSet.arn,
  *     permissionsBoundary: {
  *         managedPolicyArn: "arn:aws:iam::aws:policy/ReadOnlyAccess",
  *     },
+ *     instanceArn: exampleAwsSsoadminPermissionSet.instanceArn,
+ *     permissionSetArn: exampleAwsSsoadminPermissionSet.arn,
  * });
  * ```
  *

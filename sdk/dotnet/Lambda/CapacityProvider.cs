@@ -26,7 +26,6 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     var example = new Aws.Lambda.CapacityProvider("example", new()
     ///     {
-    ///         Name = "example",
     ///         VpcConfig = new Aws.Lambda.Inputs.CapacityProviderVpcConfigArgs
     ///         {
     ///             SubnetIds = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
@@ -39,6 +38,7 @@ namespace Pulumi.Aws.Lambda
     ///         {
     ///             CapacityProviderOperatorRoleArn = exampleAwsIamRole.Arn,
     ///         },
+    ///         Name = "example",
     ///     });
     /// 
     /// });
@@ -56,7 +56,6 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     var example = new Aws.Lambda.CapacityProvider("example", new()
     ///     {
-    ///         Name = "example",
     ///         VpcConfig = new Aws.Lambda.Inputs.CapacityProviderVpcConfigArgs
     ///         {
     ///             SubnetIds = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
@@ -68,21 +67,6 @@ namespace Pulumi.Aws.Lambda
     ///         PermissionsConfig = new Aws.Lambda.Inputs.CapacityProviderPermissionsConfigArgs
     ///         {
     ///             CapacityProviderOperatorRoleArn = exampleAwsIamRole.Arn,
-    ///         },
-    ///         InstanceRequirements = new[]
-    ///         {
-    ///             new Aws.Lambda.Inputs.CapacityProviderInstanceRequirementArgs
-    ///             {
-    ///                 Architectures = new[]
-    ///                 {
-    ///                     "x86_64",
-    ///                 },
-    ///                 AllowedInstanceTypes = new[]
-    ///                 {
-    ///                     "c6i.2xlarge",
-    ///                     "c7i.2xlarge",
-    ///                 },
-    ///             },
     ///         },
     ///         CapacityProviderScalingConfigs = new[]
     ///         {
@@ -99,6 +83,22 @@ namespace Pulumi.Aws.Lambda
     ///                 },
     ///             },
     ///         },
+    ///         InstanceRequirements = new[]
+    ///         {
+    ///             new Aws.Lambda.Inputs.CapacityProviderInstanceRequirementArgs
+    ///             {
+    ///                 Architectures = new[]
+    ///                 {
+    ///                     "x86_64",
+    ///                 },
+    ///                 AllowedInstanceTypes = new[]
+    ///                 {
+    ///                     "c6i.2xlarge",
+    ///                     "c7i.2xlarge",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Name = "example",
     ///     });
     /// 
     /// });

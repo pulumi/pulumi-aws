@@ -19,18 +19,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const cluster = new aws.emr.Cluster("cluster", {
- *     name: "emr-test-arn",
- *     releaseLabel: "emr-4.6.0",
- *     applications: ["Spark"],
- *     additionalInfo: `{
- *   \\"instanceAwsClientConfiguration\\": {
- *     \\"proxyPort\\": 8099,
- *     \\"proxyHost\\": \\"myproxy.example.com\\"
- *   }
- * }
- * `,
- *     terminationProtection: false,
- *     keepJobFlowAliveWhenNoSteps: true,
  *     ec2Attributes: {
  *         subnetId: main.id,
  *         emrManagedMasterSecurityGroup: sg.id,
@@ -41,13 +29,13 @@ import * as utilities from "../utilities";
  *         instanceType: "m4.large",
  *     },
  *     coreInstanceGroup: {
- *         instanceType: "c4.large",
- *         instanceCount: 1,
  *         ebsConfigs: [{
  *             size: 40,
  *             type: "gp2",
  *             volumesPerInstance: 1,
  *         }],
+ *         instanceType: "c4.large",
+ *         instanceCount: 1,
  *         bidPrice: "0.30",
  *         autoscalingPolicy: `{
  * \\"Constraints\\": {
@@ -82,11 +70,6 @@ import * as utilities from "../utilities";
  * }
  * `,
  *     },
- *     ebsRootVolumeSize: 100,
- *     tags: {
- *         role: "rolename",
- *         env: "env",
- *     },
  *     bootstrapActions: [{
  *         path: "s3://elasticmapreduce/bootstrap-actions/run-if",
  *         name: "runif",
@@ -95,6 +78,23 @@ import * as utilities from "../utilities";
  *             "echo running on master node",
  *         ],
  *     }],
+ *     name: "emr-test-arn",
+ *     releaseLabel: "emr-4.6.0",
+ *     applications: ["Spark"],
+ *     additionalInfo: `{
+ *   \\"instanceAwsClientConfiguration\\": {
+ *     \\"proxyPort\\": 8099,
+ *     \\"proxyHost\\": \\"myproxy.example.com\\"
+ *   }
+ * }
+ * `,
+ *     terminationProtection: false,
+ *     keepJobFlowAliveWhenNoSteps: true,
+ *     ebsRootVolumeSize: 100,
+ *     tags: {
+ *         role: "rolename",
+ *         env: "env",
+ *     },
  *     configurationsJson: `  [
  *     {
  *       \\"Classification\\": \\"hadoop-env\\",
@@ -144,38 +144,6 @@ import * as utilities from "../utilities";
  *         targetOnDemandCapacity: 1,
  *     },
  *     coreInstanceFleet: {
- *         instanceTypeConfigs: [
- *             {
- *                 bidPriceAsPercentageOfOnDemandPrice: 80,
- *                 ebsConfigs: [{
- *                     size: 100,
- *                     type: "gp2",
- *                     volumesPerInstance: 1,
- *                 }],
- *                 instanceType: "m3.xlarge",
- *                 weightedCapacity: 1,
- *             },
- *             {
- *                 bidPriceAsPercentageOfOnDemandPrice: 100,
- *                 ebsConfigs: [{
- *                     size: 100,
- *                     type: "gp2",
- *                     volumesPerInstance: 1,
- *                 }],
- *                 instanceType: "m4.xlarge",
- *                 weightedCapacity: 1,
- *             },
- *             {
- *                 bidPriceAsPercentageOfOnDemandPrice: 100,
- *                 ebsConfigs: [{
- *                     size: 100,
- *                     type: "gp2",
- *                     volumesPerInstance: 1,
- *                 }],
- *                 instanceType: "m4.2xlarge",
- *                 weightedCapacity: 2,
- *             },
- *         ],
  *         launchSpecifications: {
  *             spotSpecifications: [{
  *                 allocationStrategy: "capacity-optimized",
@@ -184,35 +152,44 @@ import * as utilities from "../utilities";
  *                 timeoutDurationMinutes: 10,
  *             }],
  *         },
+ *         instanceTypeConfigs: [
+ *             {
+ *                 ebsConfigs: [{
+ *                     size: 100,
+ *                     type: "gp2",
+ *                     volumesPerInstance: 1,
+ *                 }],
+ *                 bidPriceAsPercentageOfOnDemandPrice: 80,
+ *                 instanceType: "m3.xlarge",
+ *                 weightedCapacity: 1,
+ *             },
+ *             {
+ *                 ebsConfigs: [{
+ *                     size: 100,
+ *                     type: "gp2",
+ *                     volumesPerInstance: 1,
+ *                 }],
+ *                 bidPriceAsPercentageOfOnDemandPrice: 100,
+ *                 instanceType: "m4.xlarge",
+ *                 weightedCapacity: 1,
+ *             },
+ *             {
+ *                 ebsConfigs: [{
+ *                     size: 100,
+ *                     type: "gp2",
+ *                     volumesPerInstance: 1,
+ *                 }],
+ *                 bidPriceAsPercentageOfOnDemandPrice: 100,
+ *                 instanceType: "m4.2xlarge",
+ *                 weightedCapacity: 2,
+ *             },
+ *         ],
  *         name: "core fleet",
  *         targetOnDemandCapacity: 2,
  *         targetSpotCapacity: 2,
  *     },
  * });
  * const task = new aws.emr.InstanceFleet("task", {
- *     clusterId: example.id,
- *     instanceTypeConfigs: [
- *         {
- *             bidPriceAsPercentageOfOnDemandPrice: 100,
- *             ebsConfigs: [{
- *                 size: 100,
- *                 type: "gp2",
- *                 volumesPerInstance: 1,
- *             }],
- *             instanceType: "m4.xlarge",
- *             weightedCapacity: 1,
- *         },
- *         {
- *             bidPriceAsPercentageOfOnDemandPrice: 100,
- *             ebsConfigs: [{
- *                 size: 100,
- *                 type: "gp2",
- *                 volumesPerInstance: 1,
- *             }],
- *             instanceType: "m4.2xlarge",
- *             weightedCapacity: 2,
- *         },
- *     ],
  *     launchSpecifications: {
  *         spotSpecifications: [{
  *             allocationStrategy: "capacity-optimized",
@@ -221,6 +198,29 @@ import * as utilities from "../utilities";
  *             timeoutDurationMinutes: 10,
  *         }],
  *     },
+ *     instanceTypeConfigs: [
+ *         {
+ *             ebsConfigs: [{
+ *                 size: 100,
+ *                 type: "gp2",
+ *                 volumesPerInstance: 1,
+ *             }],
+ *             bidPriceAsPercentageOfOnDemandPrice: 100,
+ *             instanceType: "m4.xlarge",
+ *             weightedCapacity: 1,
+ *         },
+ *         {
+ *             ebsConfigs: [{
+ *                 size: 100,
+ *                 type: "gp2",
+ *                 volumesPerInstance: 1,
+ *             }],
+ *             bidPriceAsPercentageOfOnDemandPrice: 100,
+ *             instanceType: "m4.2xlarge",
+ *             weightedCapacity: 2,
+ *         },
+ *     ],
+ *     clusterId: example.id,
  *     name: "task fleet",
  *     targetOnDemandCapacity: 1,
  *     targetSpotCapacity: 1,
@@ -236,13 +236,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.emr.Cluster("example", {steps: [{
- *     actionOnFailure: "TERMINATE_CLUSTER",
- *     name: "Setup Hadoop Debugging",
  *     hadoopJarStep: {
  *         jar: "command-runner.jar",
  *         args: ["state-pusher-script"],
  *     },
- * }]});
+ *     actionOnFailure: "TERMINATE_CLUSTER",
+ *     name: "Setup Hadoop Debugging",
+ * }]}, {
+ *     ignoreChanges: ["steps"],
+ * });
  * ```
  *
  * ### Multiple Node Master Instance Group
@@ -258,8 +260,6 @@ import * as utilities from "../utilities";
  * // Map public IP on launch must be enabled for public (Internet accessible) subnets
  * const example = new aws.ec2.Subnet("example", {mapPublicIpOnLaunch: true});
  * const exampleCluster = new aws.emr.Cluster("example", {
- *     releaseLabel: "emr-5.24.1",
- *     terminationProtection: true,
  *     ec2Attributes: {
  *         subnetId: example.id,
  *     },
@@ -267,6 +267,8 @@ import * as utilities from "../utilities";
  *         instanceCount: 3,
  *     },
  *     coreInstanceGroup: {},
+ *     releaseLabel: "emr-5.24.1",
+ *     terminationProtection: true,
  * });
  * ```
  *
@@ -284,7 +286,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.emr.Cluster("example", {});
+ * const example = new aws.emr.Cluster("example", {}, {
+ *     ignoreChanges: ["kerberosAttributes"],
+ * });
  * ```
  */
 export class Cluster extends pulumi.CustomResource {

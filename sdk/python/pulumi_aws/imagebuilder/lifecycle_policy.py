@@ -404,10 +404,12 @@ class LifecyclePolicy(pulumi.CustomResource):
             policy_arn=f"arn:{current_get_partition.partition}:iam::aws:policy/service-role/EC2ImageBuilderLifecycleExecutionPolicy",
             role=example.name)
         example_lifecycle_policy = aws.imagebuilder.LifecyclePolicy("example",
-            name="name",
-            description="Example description",
-            execution_role=example.arn,
-            resource_type="AMI_IMAGE",
+            resource_selection={
+                "tag_map": {
+                    "key1": "value1",
+                    "key2": "value2",
+                },
+            },
             policy_details=[{
                 "action": {
                     "type": "DELETE",
@@ -419,12 +421,10 @@ class LifecyclePolicy(pulumi.CustomResource):
                     "unit": "YEARS",
                 },
             }],
-            resource_selection={
-                "tag_map": {
-                    "key1": "value1",
-                    "key2": "value2",
-                },
-            },
+            name="name",
+            description="Example description",
+            execution_role=example.arn,
+            resource_type="AMI_IMAGE",
             opts = pulumi.ResourceOptions(depends_on=[example_role_policy_attachment]))
         ```
 
@@ -491,10 +491,12 @@ class LifecyclePolicy(pulumi.CustomResource):
             policy_arn=f"arn:{current_get_partition.partition}:iam::aws:policy/service-role/EC2ImageBuilderLifecycleExecutionPolicy",
             role=example.name)
         example_lifecycle_policy = aws.imagebuilder.LifecyclePolicy("example",
-            name="name",
-            description="Example description",
-            execution_role=example.arn,
-            resource_type="AMI_IMAGE",
+            resource_selection={
+                "tag_map": {
+                    "key1": "value1",
+                    "key2": "value2",
+                },
+            },
             policy_details=[{
                 "action": {
                     "type": "DELETE",
@@ -506,12 +508,10 @@ class LifecyclePolicy(pulumi.CustomResource):
                     "unit": "YEARS",
                 },
             }],
-            resource_selection={
-                "tag_map": {
-                    "key1": "value1",
-                    "key2": "value2",
-                },
-            },
+            name="name",
+            description="Example description",
+            execution_role=example.arn,
+            resource_type="AMI_IMAGE",
             opts = pulumi.ResourceOptions(depends_on=[example_role_policy_attachment]))
         ```
 

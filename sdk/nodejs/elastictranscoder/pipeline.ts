@@ -19,9 +19,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const bar = new aws.elastictranscoder.Pipeline("bar", {
- *     inputBucket: inputBucket.id,
- *     name: "aws_elastictranscoder_pipeline_my_test_",
- *     role: testRole.arn,
  *     contentConfig: {
  *         bucket: contentBucket.id,
  *         storageClass: "Standard",
@@ -30,6 +27,9 @@ import * as utilities from "../utilities";
  *         bucket: thumbBucket.id,
  *         storageClass: "Standard",
  *     },
+ *     inputBucket: inputBucket.id,
+ *     name: "aws_elastictranscoder_pipeline_my_test_",
+ *     role: testRole.arn,
  * });
  * ```
  *

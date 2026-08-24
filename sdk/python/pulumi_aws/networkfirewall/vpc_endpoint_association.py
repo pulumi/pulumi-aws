@@ -341,11 +341,11 @@ class VpcEndpointAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.VpcEndpointAssociation("example",
-            firewall_arn=example_aws_networkfirewall_firewall["arn"],
-            vpc_id=example_aws_vpc["id"],
             subnet_mapping={
                 "subnet_id": example_aws_subnet["id"],
             },
+            firewall_arn=example_aws_networkfirewall_firewall["arn"],
+            vpc_id=example_aws_vpc["id"],
             tags={
                 "Name": "example endpoint",
             })
@@ -389,11 +389,11 @@ class VpcEndpointAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.VpcEndpointAssociation("example",
-            firewall_arn=example_aws_networkfirewall_firewall["arn"],
-            vpc_id=example_aws_vpc["id"],
             subnet_mapping={
                 "subnet_id": example_aws_subnet["id"],
             },
+            firewall_arn=example_aws_networkfirewall_firewall["arn"],
+            vpc_id=example_aws_vpc["id"],
             tags={
                 "Name": "example endpoint",
             })

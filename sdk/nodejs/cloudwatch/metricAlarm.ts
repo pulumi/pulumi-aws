@@ -71,12 +71,6 @@ import {Topic} from "../sns";
  * import * as aws from "@pulumi/aws";
  *
  * const foobar = new aws.cloudwatch.MetricAlarm("foobar", {
- *     name: "test-foobar",
- *     comparisonOperator: "GreaterThanOrEqualToThreshold",
- *     evaluationPeriods: 2,
- *     threshold: 10,
- *     alarmDescription: "Request error rate has exceeded 10%",
- *     insufficientDataActions: [],
  *     metricQueries: [
  *         {
  *             id: "e1",
@@ -85,7 +79,6 @@ import {Topic} from "../sns";
  *             returnData: true,
  *         },
  *         {
- *             id: "m1",
  *             metric: {
  *                 metricName: "RequestCount",
  *                 namespace: "AWS/ApplicationELB",
@@ -96,9 +89,9 @@ import {Topic} from "../sns";
  *                     LoadBalancer: "app/web",
  *                 },
  *             },
+ *             id: "m1",
  *         },
  *         {
- *             id: "m2",
  *             metric: {
  *                 metricName: "HTTPCode_ELB_5XX_Count",
  *                 namespace: "AWS/ApplicationELB",
@@ -109,8 +102,15 @@ import {Topic} from "../sns";
  *                     LoadBalancer: "app/web",
  *                 },
  *             },
+ *             id: "m2",
  *         },
  *     ],
+ *     name: "test-foobar",
+ *     comparisonOperator: "GreaterThanOrEqualToThreshold",
+ *     evaluationPeriods: 2,
+ *     threshold: 10,
+ *     alarmDescription: "Request error rate has exceeded 10%",
+ *     insufficientDataActions: [],
  * });
  * ```
  *
@@ -121,8 +121,6 @@ import {Topic} from "../sns";
  * import * as aws from "@pulumi/aws";
  *
  * const promqlAlarm = new aws.cloudwatch.MetricAlarm("promql_alarm", {
- *     name: "high-cpu-promql",
- *     alarmDescription: "Alarm when average CPU exceeds 80% using PromQL",
  *     evaluationCriteria: {
  *         promqlCriteria: {
  *             query: "avg(cpu_utilization_percent) > 80",
@@ -130,6 +128,8 @@ import {Topic} from "../sns";
  *             recoveryPeriod: 120,
  *         },
  *     },
+ *     name: "high-cpu-promql",
+ *     alarmDescription: "Alarm when average CPU exceeds 80% using PromQL",
  *     evaluationInterval: 30,
  *     alarmActions: [alerts.arn],
  * });
@@ -140,12 +140,6 @@ import {Topic} from "../sns";
  * import * as aws from "@pulumi/aws";
  *
  * const xxAnomalyDetection = new aws.cloudwatch.MetricAlarm("xx_anomaly_detection", {
- *     name: "test-foobar",
- *     comparisonOperator: "GreaterThanUpperThreshold",
- *     evaluationPeriods: 2,
- *     thresholdMetricId: "e1",
- *     alarmDescription: "This metric monitors ec2 cpu utilization",
- *     insufficientDataActions: [],
  *     metricQueries: [
  *         {
  *             id: "e1",
@@ -154,8 +148,6 @@ import {Topic} from "../sns";
  *             label: "CPUUtilization (Expected)",
  *         },
  *         {
- *             id: "m1",
- *             returnData: true,
  *             metric: {
  *                 metricName: "CPUUtilization",
  *                 namespace: "AWS/EC2",
@@ -166,8 +158,16 @@ import {Topic} from "../sns";
  *                     InstanceId: "i-abc123",
  *                 },
  *             },
+ *             id: "m1",
+ *             returnData: true,
  *         },
  *     ],
+ *     name: "test-foobar",
+ *     comparisonOperator: "GreaterThanUpperThreshold",
+ *     evaluationPeriods: 2,
+ *     thresholdMetricId: "e1",
+ *     alarmDescription: "This metric monitors ec2 cpu utilization",
+ *     insufficientDataActions: [],
  * });
  * ```
  *
@@ -178,12 +178,6 @@ import {Topic} from "../sns";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cloudwatch.MetricAlarm("example", {
- *     name: "example-alarm",
- *     alarmDescription: "Triggers if the smallest per-instance maximum load during the evaluation period exceeds the threshold",
- *     comparisonOperator: "GreaterThanThreshold",
- *     evaluationPeriods: 1,
- *     threshold: 0.6,
- *     treatMissingData: "notBreaching",
  *     metricQueries: [{
  *         id: "q1",
  *         expression: `SELECT
@@ -198,6 +192,12 @@ import {Topic} from "../sns";
  *         returnData: true,
  *         label: "Max DB Load of the Least-Loaded RDS Instance",
  *     }],
+ *     name: "example-alarm",
+ *     alarmDescription: "Triggers if the smallest per-instance maximum load during the evaluation period exceeds the threshold",
+ *     comparisonOperator: "GreaterThanThreshold",
+ *     evaluationPeriods: 1,
+ *     threshold: 0.6,
+ *     treatMissingData: "notBreaching",
  * });
  * ```
  *

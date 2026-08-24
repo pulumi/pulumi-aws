@@ -30,15 +30,6 @@ import (
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // _, err := msk.NewServerlessCluster(ctx, "example", &msk.ServerlessClusterArgs{
-// ClusterName: pulumi.String("Example"),
-// VpcConfigs: msk.ServerlessClusterVpcConfigArray{
-// &msk.ServerlessClusterVpcConfigArgs{
-// SubnetIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:3,24-46)),
-// SecurityGroupIds: pulumi.StringArray{
-// exampleAwsSecurityGroup.Id,
-// },
-// },
-// },
 // ClientAuthentication: &msk.ServerlessClusterClientAuthenticationArgs{
 // Sasl: &msk.ServerlessClusterClientAuthenticationSaslArgs{
 // Iam: &msk.ServerlessClusterClientAuthenticationSaslIamArgs{
@@ -46,6 +37,15 @@ import (
 // },
 // },
 // },
+// VpcConfigs: msk.ServerlessClusterVpcConfigArray{
+// &msk.ServerlessClusterVpcConfigArgs{
+// SubnetIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:9,24-46)),
+// SecurityGroupIds: pulumi.StringArray{
+// exampleAwsSecurityGroup.Id,
+// },
+// },
+// },
+// ClusterName: pulumi.String("Example"),
 // })
 // if err != nil {
 // return err

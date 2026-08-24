@@ -32,14 +32,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := opensearch.NewDomain(ctx, "example", &opensearch.DomainArgs{
-//				DomainName:    pulumi.String("example"),
-//				EngineVersion: pulumi.String("OpenSearch_1.1"),
 //				ClusterConfig: &opensearch.DomainClusterConfigArgs{
 //					InstanceType: pulumi.String("r4.large.search"),
 //				},
 //				SnapshotOptions: &opensearch.DomainSnapshotOptionsArgs{
 //					AutomatedSnapshotStartHour: pulumi.Int(23),
 //				},
+//				DomainName:    pulumi.String("example"),
+//				EngineVersion: pulumi.String("OpenSearch_1.1"),
 //				Tags: pulumi.StringMap{
 //					"Domain": pulumi.String("TestDomain"),
 //				},
@@ -54,14 +54,14 @@ import (
 //				return err
 //			}
 //			_, err = opensearch.NewDomainSamlOptions(ctx, "example", &opensearch.DomainSamlOptionsArgs{
-//				DomainName: example.DomainName,
 //				SamlOptions: &opensearch.DomainSamlOptionsSamlOptionsArgs{
-//					Enabled: pulumi.Bool(true),
 //					Idp: &opensearch.DomainSamlOptionsSamlOptionsIdpArgs{
 //						EntityId:        pulumi.String("https://example.com"),
 //						MetadataContent: pulumi.String(invokeFile.Result),
 //					},
+//					Enabled: pulumi.Bool(true),
 //				},
+//				DomainName: example.DomainName,
 //			})
 //			if err != nil {
 //				return err

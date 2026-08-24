@@ -52,12 +52,12 @@ import * as utilities from "../utilities";
  *     source: new pulumi.asset.FileAsset("code.zip"),
  * });
  * const exampleMicrovmsImage = new aws.lambda.MicrovmsImage("example", {
- *     name: "example",
- *     baseImageArn: Promise.all([current, currentGetRegion]).then(([current, currentGetRegion]) => `arn:${current.partition}:lambda:${currentGetRegion.region}:aws:microvm-image:al2023-1`),
- *     buildRoleArn: example.arn,
  *     codeArtifact: {
  *         uri: pulumi.interpolate`s3://${exampleBucket.bucket}/${exampleBucketObjectv2.key}`,
  *     },
+ *     name: "example",
+ *     baseImageArn: Promise.all([current, currentGetRegion]).then(([current, currentGetRegion]) => `arn:${current.partition}:lambda:${currentGetRegion.region}:aws:microvm-image:al2023-1`),
+ *     buildRoleArn: example.arn,
  * });
  * ```
  *

@@ -38,14 +38,14 @@ import (
 //				return err
 //			}
 //			_, err = comprehend.NewDocumentClassifier(ctx, "example", &comprehend.DocumentClassifierArgs{
-//				Name:              pulumi.String("example"),
-//				DataAccessRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-//				LanguageCode:      pulumi.String("en"),
 //				InputDataConfig: &comprehend.DocumentClassifierInputDataConfigArgs{
 //					S3Uri: documents.Key.ApplyT(func(key string) (string, error) {
 //						return fmt.Sprintf("s3://%v/%v", test.Bucket, key), nil
 //					}).(pulumi.StringOutput),
 //				},
+//				Name:              pulumi.String("example"),
+//				DataAccessRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//				LanguageCode:      pulumi.String("en"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleAwsIamRolePolicy,
 //			}))

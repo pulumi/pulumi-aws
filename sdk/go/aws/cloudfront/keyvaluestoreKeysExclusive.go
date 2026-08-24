@@ -42,13 +42,13 @@ import (
 //				return err
 //			}
 //			_, err = cloudfront.NewKeyvaluestoreKeysExclusive(ctx, "example", &cloudfront.KeyvaluestoreKeysExclusiveArgs{
-//				KeyValueStoreArn: example.Arn,
 //				ResourceKeyValuePairs: cloudfront.KeyvaluestoreKeysExclusiveResourceKeyValuePairArray{
 //					&cloudfront.KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs{
 //						Key:   pulumi.String("Test Key"),
 //						Value: pulumi.String("Test Value"),
 //					},
 //				},
+//				KeyValueStoreArn: example.Arn,
 //			})
 //			if err != nil {
 //				return err

@@ -26,12 +26,6 @@ namespace Pulumi.Aws.FinSpace
     /// {
     ///     var example = new Aws.FinSpace.KxCluster("example", new()
     ///     {
-    ///         Name = "my-tf-kx-cluster",
-    ///         EnvironmentId = exampleAwsFinspaceKxEnvironment.Id,
-    ///         Type = "HDB",
-    ///         ReleaseLabel = "1.0",
-    ///         AzMode = "SINGLE",
-    ///         AvailabilityZoneId = "use1-az2",
     ///         CapacityConfiguration = new Aws.FinSpace.Inputs.KxClusterCapacityConfigurationArgs
     ///         {
     ///             NodeType = "kx.s.2xlarge",
@@ -50,6 +44,11 @@ namespace Pulumi.Aws.FinSpace
     ///             },
     ///             IpAddressType = "IP_V4",
     ///         },
+    ///         Code = new Aws.FinSpace.Inputs.KxClusterCodeArgs
+    ///         {
+    ///             S3Bucket = testAwsS3Bucket.Id,
+    ///             S3Key = @object.Key,
+    ///         },
     ///         CacheStorageConfigurations = new[]
     ///         {
     ///             new Aws.FinSpace.Inputs.KxClusterCacheStorageConfigurationArgs
@@ -62,7 +61,6 @@ namespace Pulumi.Aws.FinSpace
     ///         {
     ///             new Aws.FinSpace.Inputs.KxClusterDatabaseArgs
     ///             {
-    ///                 DatabaseName = exampleAwsFinspaceKxDatabase.Name,
     ///                 CacheConfiguration = new[]
     ///                 {
     ///                     
@@ -71,13 +69,15 @@ namespace Pulumi.Aws.FinSpace
     ///                         { "dbPaths", "/" },
     ///                     },
     ///                 },
+    ///                 DatabaseName = exampleAwsFinspaceKxDatabase.Name,
     ///             },
     ///         },
-    ///         Code = new Aws.FinSpace.Inputs.KxClusterCodeArgs
-    ///         {
-    ///             S3Bucket = testAwsS3Bucket.Id,
-    ///             S3Key = @object.Key,
-    ///         },
+    ///         Name = "my-tf-kx-cluster",
+    ///         EnvironmentId = exampleAwsFinspaceKxEnvironment.Id,
+    ///         Type = "HDB",
+    ///         ReleaseLabel = "1.0",
+    ///         AzMode = "SINGLE",
+    ///         AvailabilityZoneId = "use1-az2",
     ///     });
     /// 
     /// });

@@ -29,26 +29,26 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := globalaccelerator.NewCustomRoutingAccelerator(ctx, "example", &globalaccelerator.CustomRoutingAcceleratorArgs{
-//				Name:          pulumi.String("Example"),
-//				IpAddressType: pulumi.String("IPV4"),
-//				Enabled:       pulumi.Bool(true),
 //				Attributes: &globalaccelerator.CustomRoutingAcceleratorAttributesArgs{
 //					FlowLogsEnabled:  pulumi.Bool(true),
 //					FlowLogsS3Bucket: pulumi.String("example-bucket"),
 //					FlowLogsS3Prefix: pulumi.String("flow-logs/"),
 //				},
+//				Name:          pulumi.String("Example"),
+//				IpAddressType: pulumi.String("IPV4"),
+//				Enabled:       pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = globalaccelerator.NewCustomRoutingListener(ctx, "example", &globalaccelerator.CustomRoutingListenerArgs{
-//				AcceleratorArn: example.Arn,
 //				PortRanges: globalaccelerator.CustomRoutingListenerPortRangeArray{
 //					&globalaccelerator.CustomRoutingListenerPortRangeArgs{
 //						FromPort: pulumi.Int(80),
 //						ToPort:   pulumi.Int(80),
 //					},
 //				},
+//				AcceleratorArn: example.Arn,
 //			})
 //			if err != nil {
 //				return err

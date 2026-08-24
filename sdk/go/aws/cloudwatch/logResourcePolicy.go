@@ -34,14 +34,6 @@ import (
 //			elasticsearch_log_publishing_policy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Actions: []string{
-//							"logs:CreateLogStream",
-//							"logs:PutLogEvents",
-//							"logs:PutLogEventsBatch",
-//						},
-//						Resources: []string{
-//							"arn:aws:logs:*",
-//						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Identifiers: []string{
@@ -49,6 +41,14 @@ import (
 //								},
 //								Type: "Service",
 //							},
+//						},
+//						Actions: []string{
+//							"logs:CreateLogStream",
+//							"logs:PutLogEvents",
+//							"logs:PutLogEventsBatch",
+//						},
+//						Resources: []string{
+//							"arn:aws:logs:*",
 //						},
 //					},
 //				},
@@ -87,13 +87,6 @@ import (
 //			route53_query_logging_policy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Actions: []string{
-//							"logs:CreateLogStream",
-//							"logs:PutLogEvents",
-//						},
-//						Resources: []string{
-//							"arn:aws:logs:*:*:log-group:/aws/route53/*",
-//						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Identifiers: []string{
@@ -101,6 +94,13 @@ import (
 //								},
 //								Type: "Service",
 //							},
+//						},
+//						Actions: []string{
+//							"logs:CreateLogStream",
+//							"logs:PutLogEvents",
+//						},
+//						Resources: []string{
+//							"arn:aws:logs:*:*:log-group:/aws/route53/*",
 //						},
 //					},
 //				},

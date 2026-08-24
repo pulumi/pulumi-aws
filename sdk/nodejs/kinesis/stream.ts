@@ -20,6 +20,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const testStream = new aws.kinesis.Stream("test_stream", {
+ *     streamModeDetails: {
+ *         streamMode: "PROVISIONED",
+ *     },
  *     name: "kinesis-test",
  *     shardCount: 1,
  *     retentionPeriod: 48,
@@ -27,9 +30,6 @@ import * as utilities from "../utilities";
  *         "IncomingBytes",
  *         "OutgoingBytes",
  *     ],
- *     streamModeDetails: {
- *         streamMode: "PROVISIONED",
- *     },
  *     tags: {
  *         Environment: "test",
  *     },

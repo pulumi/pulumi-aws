@@ -216,19 +216,19 @@ class Rule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         ipset = aws.waf.IpSet("ipset",
-            name="tfIPSet",
             ip_set_descriptors=[{
                 "type": "IPV4",
                 "value": "192.0.7.0/24",
-            }])
+            }],
+            name="tfIPSet")
         wafrule = aws.waf.Rule("wafrule",
-            name="tfWAFRule",
-            metric_name="tfWAFRule",
             predicates=[{
                 "data_id": ipset.id,
                 "negated": False,
                 "type": "IPMatch",
             }],
+            name="tfWAFRule",
+            metric_name="tfWAFRule",
             opts = pulumi.ResourceOptions(depends_on=[ipset]))
         ```
 
@@ -264,19 +264,19 @@ class Rule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         ipset = aws.waf.IpSet("ipset",
-            name="tfIPSet",
             ip_set_descriptors=[{
                 "type": "IPV4",
                 "value": "192.0.7.0/24",
-            }])
+            }],
+            name="tfIPSet")
         wafrule = aws.waf.Rule("wafrule",
-            name="tfWAFRule",
-            metric_name="tfWAFRule",
             predicates=[{
                 "data_id": ipset.id,
                 "negated": False,
                 "type": "IPMatch",
             }],
+            name="tfWAFRule",
+            metric_name="tfWAFRule",
             opts = pulumi.ResourceOptions(depends_on=[ipset]))
         ```
 

@@ -20,23 +20,19 @@ import * as utilities from "../utilities";
  *
  * // https://docs.aws.amazon.com/sagemaker/latest/dg/sms-named-entity-recg.html#sms-creating-ner-api.
  * const test = new aws.sagemaker.LabelingJob("test", {
- *     labelAttributeName: "label1",
- *     labelingJobName: "my-labeling-job",
- *     roleArn: exampleAwsIamRole.arn,
- *     labelCategoryConfigS3Uri: `s3://${exampleAwsS3Bucket.bucket}/${exampleAwsS3Object.key}`,
  *     humanTaskConfig: {
+ *         uiConfig: {
+ *             humanTaskUiArn: "arn:aws:sagemaker:us-west-2:394669845002:human-task-ui/NamedEntityRecognition",
+ *         },
+ *         annotationConsolidationConfig: {
+ *             annotationConsolidationLambdaArn: "arn:aws:lambda:us-west-2:081040173940:function:ACS-NamedEntityRecognition",
+ *         },
  *         numberOfHumanWorkersPerDataObject: 1,
  *         taskDescription: "Apply the labels provided to specific words or phrases within the larger text block.",
  *         taskTitle: "Named entity Recognition task",
  *         taskTimeLimitInSeconds: 28800,
  *         workteamArn: example.arn,
- *         uiConfig: {
- *             humanTaskUiArn: "arn:aws:sagemaker:us-west-2:394669845002:human-task-ui/NamedEntityRecognition",
- *         },
  *         preHumanTaskLambdaArn: "arn:aws:lambda:us-west-2:081040173940:function:PRE-NamedEntityRecognition",
- *         annotationConsolidationConfig: {
- *             annotationConsolidationLambdaArn: "arn:aws:lambda:us-west-2:081040173940:function:ACS-NamedEntityRecognition",
- *         },
  *     },
  *     inputConfig: {
  *         dataSource: {
@@ -48,6 +44,10 @@ import * as utilities from "../utilities";
  *     outputConfig: {
  *         s3OutputPath: `s3://${exampleAwsS3Bucket.bucket}/`,
  *     },
+ *     labelAttributeName: "label1",
+ *     labelingJobName: "my-labeling-job",
+ *     roleArn: exampleAwsIamRole.arn,
+ *     labelCategoryConfigS3Uri: `s3://${exampleAwsS3Bucket.bucket}/${exampleAwsS3Object.key}`,
  * });
  * ```
  *

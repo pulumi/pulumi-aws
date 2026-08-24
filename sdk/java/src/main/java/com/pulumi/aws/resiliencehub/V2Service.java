@@ -51,11 +51,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new V2Service("example", V2ServiceArgs.builder()
- *             .name("example-service")
- *             .regions("us-west-2")
  *             .permissionModel(V2ServicePermissionModelArgs.builder()
  *                 .invokerRoleName("AWSResilienceHubAssessmentRole")
  *                 .build())
+ *             .name("example-service")
+ *             .regions("us-west-2")
  *             .build());
  * 
  *     }
@@ -92,22 +92,22 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new V2Policy("example", V2PolicyArgs.builder()
- *             .name("example-policy")
  *             .availabilitySlo(V2PolicyAvailabilitySloArgs.builder()
  *                 .target(99.9)
  *                 .build())
+ *             .name("example-policy")
  *             .build());
  * 
  *         var exampleV2Service = new V2Service("exampleV2Service", V2ServiceArgs.builder()
+ *             .permissionModel(V2ServicePermissionModelArgs.builder()
+ *                 .invokerRoleName("AWSResilienceHubAssessmentRole")
+ *                 .build())
  *             .name("example-service")
  *             .description("Production API service")
  *             .policyArn(example.arn())
  *             .regions(            
  *                 "us-west-2",
  *                 "us-east-1")
- *             .permissionModel(V2ServicePermissionModelArgs.builder()
- *                 .invokerRoleName("AWSResilienceHubAssessmentRole")
- *                 .build())
  *             .tags(Map.of("Environment", "production"))
  *             .build());
  * 
@@ -149,14 +149,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleV2Service = new V2Service("exampleV2Service", V2ServiceArgs.builder()
- *             .name("example-service")
- *             .regions("us-west-2")
  *             .permissionModel(V2ServicePermissionModelArgs.builder()
  *                 .invokerRoleName("AWSResilienceHubAssessmentRole")
  *                 .build())
  *             .associatedSystems(V2ServiceAssociatedSystemArgs.builder()
  *                 .systemArn(example.arn())
  *                 .build())
+ *             .name("example-service")
+ *             .regions("us-west-2")
  *             .build());
  * 
  *     }

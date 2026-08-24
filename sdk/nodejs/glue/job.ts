@@ -35,6 +35,17 @@ import * as utilities from "../utilities";
  *     }),
  * });
  * const etlJob = new aws.glue.Job("etl_job", {
+ *     command: {
+ *         scriptLocation: `s3://${glueScripts.bucket}/jobs/etl_job.py`,
+ *         name: "glueetl",
+ *         pythonVersion: "3",
+ *     },
+ *     notificationProperty: {
+ *         notifyDelayAfter: 3,
+ *     },
+ *     executionProperty: {
+ *         maxConcurrentRuns: 1,
+ *     },
  *     name: "example-etl-job",
  *     description: "An example Glue ETL job",
  *     roleArn: glueJobRole.arn,
@@ -45,14 +56,6 @@ import * as utilities from "../utilities";
  *     workerType: "G.1X",
  *     connections: [example.name],
  *     executionClass: "STANDARD",
- *     command: {
- *         scriptLocation: `s3://${glueScripts.bucket}/jobs/etl_job.py`,
- *         name: "glueetl",
- *         pythonVersion: "3",
- *     },
- *     notificationProperty: {
- *         notifyDelayAfter: 3,
- *     },
  *     defaultArguments: {
  *         "--job-language": "python",
  *         "--continuous-log-logGroup": "/aws-glue/jobs",
@@ -60,9 +63,6 @@ import * as utilities from "../utilities";
  *         "--enable-continuous-log-filter": "true",
  *         "--enable-metrics": "",
  *         "--enable-auto-scaling": "true",
- *     },
- *     executionProperty: {
- *         maxConcurrentRuns: 1,
  *     },
  *     tags: {
  *         ManagedBy: "AWS",
@@ -96,6 +96,14 @@ import * as utilities from "../utilities";
  *     }),
  * });
  * const pythonShellJob = new aws.glue.Job("python_shell_job", {
+ *     command: {
+ *         scriptLocation: `s3://${glueScripts.bucket}/jobs/shell_job.py`,
+ *         name: "pythonshell",
+ *         pythonVersion: "3.9",
+ *     },
+ *     executionProperty: {
+ *         maxConcurrentRuns: 1,
+ *     },
  *     name: "example-python-shell-job",
  *     description: "An example Python shell job",
  *     roleArn: glueJobRole.arn,
@@ -103,19 +111,11 @@ import * as utilities from "../utilities";
  *     maxRetries: 0,
  *     timeout: 2880,
  *     connections: [example.name],
- *     command: {
- *         scriptLocation: `s3://${glueScripts.bucket}/jobs/shell_job.py`,
- *         name: "pythonshell",
- *         pythonVersion: "3.9",
- *     },
  *     defaultArguments: {
  *         "--job-language": "python",
  *         "--continuous-log-logGroup": "/aws-glue/jobs",
  *         "--enable-continuous-cloudwatch-log": "true",
  *         "library-set": "analytics",
- *     },
- *     executionProperty: {
- *         maxConcurrentRuns: 1,
  *     },
  *     tags: {
  *         ManagedBy: "AWS",
@@ -135,16 +135,16 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.Job("example", {
- *     name: "example",
- *     roleArn: exampleAwsIamRole.arn,
- *     glueVersion: "4.0",
- *     workerType: "Z.2X",
  *     command: {
  *         name: "glueray",
  *         pythonVersion: "3.9",
  *         runtime: "Ray2.4",
  *         scriptLocation: `s3://${exampleAwsS3Bucket.bucket}/example.py`,
  *     },
+ *     name: "example",
+ *     roleArn: exampleAwsIamRole.arn,
+ *     glueVersion: "4.0",
+ *     workerType: "Z.2X",
  * });
  * ```
  *
@@ -155,11 +155,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.Job("example", {
- *     name: "example",
- *     roleArn: exampleAwsIamRole.arn,
  *     command: {
  *         scriptLocation: `s3://${exampleAwsS3Bucket.bucket}/example.scala`,
  *     },
+ *     name: "example",
+ *     roleArn: exampleAwsIamRole.arn,
  *     defaultArguments: {
  *         "--job-language": "scala",
  *     },
@@ -173,12 +173,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.Job("example", {
- *     name: "example streaming job",
- *     roleArn: exampleAwsIamRole.arn,
  *     command: {
  *         name: "gluestreaming",
  *         scriptLocation: `s3://${exampleAwsS3Bucket.bucket}/example.script`,
  *     },
+ *     name: "example streaming job",
+ *     roleArn: exampleAwsIamRole.arn,
  * });
  * ```
  *

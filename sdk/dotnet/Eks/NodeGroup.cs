@@ -24,10 +24,6 @@ namespace Pulumi.Aws.Eks
     /// {
     ///     var example = new Aws.Eks.NodeGroup("example", new()
     ///     {
-    ///         ClusterName = exampleAwsEksCluster.Name,
-    ///         NodeGroupName = "example",
-    ///         NodeRoleArn = exampleAwsIamRole.Arn,
-    ///         SubnetIds = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
     ///         ScalingConfig = new Aws.Eks.Inputs.NodeGroupScalingConfigArgs
     ///         {
     ///             DesiredSize = 1,
@@ -38,6 +34,10 @@ namespace Pulumi.Aws.Eks
     ///         {
     ///             MaxUnavailable = 1,
     ///         },
+    ///         ClusterName = exampleAwsEksCluster.Name,
+    ///         NodeGroupName = "example",
+    ///         NodeRoleArn = exampleAwsIamRole.Arn,
+    ///         SubnetIds = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -69,6 +69,42 @@ namespace Pulumi.Aws.Eks
     ///         {
     ///             DesiredSize = 2,
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
+    ///         {
+    ///             "scalingConfig.desiredSize",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Tracking the latest EKS Node Group AMI releases
+    /// 
+    /// You can have the node group track the latest version of the Amazon EKS optimized Amazon Linux AMI for a given EKS version by querying an Amazon provided SSM parameter. Replace `Standard` in the parameter name below with `Nvidia` to retrieve the accelerated AMI version. Replace `X8664` in the parameter name below with `Arm64` to retrieve the ARM version.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var eksAmiReleaseVersion = Aws.Ssm.GetParameter.Invoke(new()
+    ///     {
+    ///         Name = $"/aws/service/eks/optimized-ami/{exampleAwsEksCluster.Version}/amazon-linux-2023/x86_64/standard/recommended/release_version",
+    ///     });
+    /// 
+    ///     var example = new Aws.Eks.NodeGroup("example", new()
+    ///     {
+    ///         ClusterName = exampleAwsEksCluster.Name,
+    ///         NodeGroupName = "example",
+    ///         Version = exampleAwsEksCluster.Version,
+    ///         ReleaseVersion = Output.Unsecret(eksAmiReleaseVersion.Apply(getParameterResult =&gt; getParameterResult.Value)),
+    ///         NodeRoleArn = exampleAwsIamRole.Arn,
+    ///         SubnetIds = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
     ///     });
     /// 
     /// });

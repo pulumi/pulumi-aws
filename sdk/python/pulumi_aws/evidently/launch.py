@@ -480,13 +480,6 @@ class Launch(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.evidently.Launch("example",
-            name="example",
-            project=example_aws_evidently_project["name"],
-            groups=[{
-                "feature": example_aws_evidently_feature["name"],
-                "name": "Variation1",
-                "variation": "Variation1",
-            }],
             scheduled_splits_config={
                 "steps": [{
                     "group_weights": {
@@ -494,7 +487,14 @@ class Launch(pulumi.CustomResource):
                     },
                     "start_time": "2024-01-07 01:43:59+00:00",
                 }],
-            })
+            },
+            groups=[{
+                "feature": example_aws_evidently_feature["name"],
+                "name": "Variation1",
+                "variation": "Variation1",
+            }],
+            name="example",
+            project=example_aws_evidently_project["name"])
         ```
 
         ### With description
@@ -504,14 +504,6 @@ class Launch(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.evidently.Launch("example",
-            name="example",
-            project=example_aws_evidently_project["name"],
-            description="example description",
-            groups=[{
-                "feature": example_aws_evidently_feature["name"],
-                "name": "Variation1",
-                "variation": "Variation1",
-            }],
             scheduled_splits_config={
                 "steps": [{
                     "group_weights": {
@@ -519,7 +511,15 @@ class Launch(pulumi.CustomResource):
                     },
                     "start_time": "2024-01-07 01:43:59+00:00",
                 }],
-            })
+            },
+            groups=[{
+                "feature": example_aws_evidently_feature["name"],
+                "name": "Variation1",
+                "variation": "Variation1",
+            }],
+            name="example",
+            project=example_aws_evidently_project["name"],
+            description="example description")
         ```
 
         ### With multiple groups
@@ -529,8 +529,15 @@ class Launch(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.evidently.Launch("example",
-            name="example",
-            project=example_aws_evidently_project["name"],
+            scheduled_splits_config={
+                "steps": [{
+                    "group_weights": {
+                        "Variation1": 0,
+                        "Variation2": 0,
+                    },
+                    "start_time": "2024-01-07 01:43:59+00:00",
+                }],
+            },
             groups=[
                 {
                     "feature": example_aws_evidently_feature["name"],
@@ -545,15 +552,8 @@ class Launch(pulumi.CustomResource):
                     "description": "second-group",
                 },
             ],
-            scheduled_splits_config={
-                "steps": [{
-                    "group_weights": {
-                        "Variation1": 0,
-                        "Variation2": 0,
-                    },
-                    "start_time": "2024-01-07 01:43:59+00:00",
-                }],
-            })
+            name="example",
+            project=example_aws_evidently_project["name"])
         ```
 
         ### With metric_monitors
@@ -563,8 +563,14 @@ class Launch(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.evidently.Launch("example",
-            name="example",
-            project=example_aws_evidently_project["name"],
+            scheduled_splits_config={
+                "steps": [{
+                    "group_weights": {
+                        "Variation1": 0,
+                    },
+                    "start_time": "2024-01-07 01:43:59+00:00",
+                }],
+            },
             groups=[{
                 "feature": example_aws_evidently_feature["name"],
                 "name": "Variation1",
@@ -590,14 +596,8 @@ class Launch(pulumi.CustomResource):
                     },
                 },
             ],
-            scheduled_splits_config={
-                "steps": [{
-                    "group_weights": {
-                        "Variation1": 0,
-                    },
-                    "start_time": "2024-01-07 01:43:59+00:00",
-                }],
-            })
+            name="example",
+            project=example_aws_evidently_project["name"])
         ```
 
         ### With randomization_salt
@@ -607,14 +607,6 @@ class Launch(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.evidently.Launch("example",
-            name="example",
-            project=example_aws_evidently_project["name"],
-            randomization_salt="example randomization salt",
-            groups=[{
-                "feature": example_aws_evidently_feature["name"],
-                "name": "Variation1",
-                "variation": "Variation1",
-            }],
             scheduled_splits_config={
                 "steps": [{
                     "group_weights": {
@@ -622,7 +614,15 @@ class Launch(pulumi.CustomResource):
                     },
                     "start_time": "2024-01-07 01:43:59+00:00",
                 }],
-            })
+            },
+            groups=[{
+                "feature": example_aws_evidently_feature["name"],
+                "name": "Variation1",
+                "variation": "Variation1",
+            }],
+            name="example",
+            project=example_aws_evidently_project["name"],
+            randomization_salt="example randomization salt")
         ```
 
         ### With multiple steps
@@ -632,20 +632,6 @@ class Launch(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.evidently.Launch("example",
-            name="example",
-            project=example_aws_evidently_project["name"],
-            groups=[
-                {
-                    "feature": example_aws_evidently_feature["name"],
-                    "name": "Variation1",
-                    "variation": "Variation1",
-                },
-                {
-                    "feature": example_aws_evidently_feature["name"],
-                    "name": "Variation2",
-                    "variation": "Variation2",
-                },
-            ],
             scheduled_splits_config={
                 "steps": [
                     {
@@ -663,18 +649,7 @@ class Launch(pulumi.CustomResource):
                         "start_time": "2024-01-08 01:43:59+00:00",
                     },
                 ],
-            })
-        ```
-
-        ### With segment overrides
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.evidently.Launch("example",
-            name="example",
-            project=example_aws_evidently_project["name"],
+            },
             groups=[
                 {
                     "feature": example_aws_evidently_feature["name"],
@@ -687,12 +662,19 @@ class Launch(pulumi.CustomResource):
                     "variation": "Variation2",
                 },
             ],
+            name="example",
+            project=example_aws_evidently_project["name"])
+        ```
+
+        ### With segment overrides
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.evidently.Launch("example",
             scheduled_splits_config={
                 "steps": [{
-                    "group_weights": {
-                        "Variation1": 0,
-                        "Variation2": 0,
-                    },
                     "segment_overrides": [
                         {
                             "evaluation_order": 1,
@@ -710,9 +692,27 @@ class Launch(pulumi.CustomResource):
                             },
                         },
                     ],
+                    "group_weights": {
+                        "Variation1": 0,
+                        "Variation2": 0,
+                    },
                     "start_time": "2024-01-08 01:43:59+00:00",
                 }],
-            })
+            },
+            groups=[
+                {
+                    "feature": example_aws_evidently_feature["name"],
+                    "name": "Variation1",
+                    "variation": "Variation1",
+                },
+                {
+                    "feature": example_aws_evidently_feature["name"],
+                    "name": "Variation2",
+                    "variation": "Variation2",
+                },
+            ],
+            name="example",
+            project=example_aws_evidently_project["name"])
         ```
 
         ## Import
@@ -766,13 +766,6 @@ class Launch(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.evidently.Launch("example",
-            name="example",
-            project=example_aws_evidently_project["name"],
-            groups=[{
-                "feature": example_aws_evidently_feature["name"],
-                "name": "Variation1",
-                "variation": "Variation1",
-            }],
             scheduled_splits_config={
                 "steps": [{
                     "group_weights": {
@@ -780,7 +773,14 @@ class Launch(pulumi.CustomResource):
                     },
                     "start_time": "2024-01-07 01:43:59+00:00",
                 }],
-            })
+            },
+            groups=[{
+                "feature": example_aws_evidently_feature["name"],
+                "name": "Variation1",
+                "variation": "Variation1",
+            }],
+            name="example",
+            project=example_aws_evidently_project["name"])
         ```
 
         ### With description
@@ -790,14 +790,6 @@ class Launch(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.evidently.Launch("example",
-            name="example",
-            project=example_aws_evidently_project["name"],
-            description="example description",
-            groups=[{
-                "feature": example_aws_evidently_feature["name"],
-                "name": "Variation1",
-                "variation": "Variation1",
-            }],
             scheduled_splits_config={
                 "steps": [{
                     "group_weights": {
@@ -805,7 +797,15 @@ class Launch(pulumi.CustomResource):
                     },
                     "start_time": "2024-01-07 01:43:59+00:00",
                 }],
-            })
+            },
+            groups=[{
+                "feature": example_aws_evidently_feature["name"],
+                "name": "Variation1",
+                "variation": "Variation1",
+            }],
+            name="example",
+            project=example_aws_evidently_project["name"],
+            description="example description")
         ```
 
         ### With multiple groups
@@ -815,8 +815,15 @@ class Launch(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.evidently.Launch("example",
-            name="example",
-            project=example_aws_evidently_project["name"],
+            scheduled_splits_config={
+                "steps": [{
+                    "group_weights": {
+                        "Variation1": 0,
+                        "Variation2": 0,
+                    },
+                    "start_time": "2024-01-07 01:43:59+00:00",
+                }],
+            },
             groups=[
                 {
                     "feature": example_aws_evidently_feature["name"],
@@ -831,15 +838,8 @@ class Launch(pulumi.CustomResource):
                     "description": "second-group",
                 },
             ],
-            scheduled_splits_config={
-                "steps": [{
-                    "group_weights": {
-                        "Variation1": 0,
-                        "Variation2": 0,
-                    },
-                    "start_time": "2024-01-07 01:43:59+00:00",
-                }],
-            })
+            name="example",
+            project=example_aws_evidently_project["name"])
         ```
 
         ### With metric_monitors
@@ -849,8 +849,14 @@ class Launch(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.evidently.Launch("example",
-            name="example",
-            project=example_aws_evidently_project["name"],
+            scheduled_splits_config={
+                "steps": [{
+                    "group_weights": {
+                        "Variation1": 0,
+                    },
+                    "start_time": "2024-01-07 01:43:59+00:00",
+                }],
+            },
             groups=[{
                 "feature": example_aws_evidently_feature["name"],
                 "name": "Variation1",
@@ -876,14 +882,8 @@ class Launch(pulumi.CustomResource):
                     },
                 },
             ],
-            scheduled_splits_config={
-                "steps": [{
-                    "group_weights": {
-                        "Variation1": 0,
-                    },
-                    "start_time": "2024-01-07 01:43:59+00:00",
-                }],
-            })
+            name="example",
+            project=example_aws_evidently_project["name"])
         ```
 
         ### With randomization_salt
@@ -893,14 +893,6 @@ class Launch(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.evidently.Launch("example",
-            name="example",
-            project=example_aws_evidently_project["name"],
-            randomization_salt="example randomization salt",
-            groups=[{
-                "feature": example_aws_evidently_feature["name"],
-                "name": "Variation1",
-                "variation": "Variation1",
-            }],
             scheduled_splits_config={
                 "steps": [{
                     "group_weights": {
@@ -908,7 +900,15 @@ class Launch(pulumi.CustomResource):
                     },
                     "start_time": "2024-01-07 01:43:59+00:00",
                 }],
-            })
+            },
+            groups=[{
+                "feature": example_aws_evidently_feature["name"],
+                "name": "Variation1",
+                "variation": "Variation1",
+            }],
+            name="example",
+            project=example_aws_evidently_project["name"],
+            randomization_salt="example randomization salt")
         ```
 
         ### With multiple steps
@@ -918,20 +918,6 @@ class Launch(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.evidently.Launch("example",
-            name="example",
-            project=example_aws_evidently_project["name"],
-            groups=[
-                {
-                    "feature": example_aws_evidently_feature["name"],
-                    "name": "Variation1",
-                    "variation": "Variation1",
-                },
-                {
-                    "feature": example_aws_evidently_feature["name"],
-                    "name": "Variation2",
-                    "variation": "Variation2",
-                },
-            ],
             scheduled_splits_config={
                 "steps": [
                     {
@@ -949,18 +935,7 @@ class Launch(pulumi.CustomResource):
                         "start_time": "2024-01-08 01:43:59+00:00",
                     },
                 ],
-            })
-        ```
-
-        ### With segment overrides
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.evidently.Launch("example",
-            name="example",
-            project=example_aws_evidently_project["name"],
+            },
             groups=[
                 {
                     "feature": example_aws_evidently_feature["name"],
@@ -973,12 +948,19 @@ class Launch(pulumi.CustomResource):
                     "variation": "Variation2",
                 },
             ],
+            name="example",
+            project=example_aws_evidently_project["name"])
+        ```
+
+        ### With segment overrides
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.evidently.Launch("example",
             scheduled_splits_config={
                 "steps": [{
-                    "group_weights": {
-                        "Variation1": 0,
-                        "Variation2": 0,
-                    },
                     "segment_overrides": [
                         {
                             "evaluation_order": 1,
@@ -996,9 +978,27 @@ class Launch(pulumi.CustomResource):
                             },
                         },
                     ],
+                    "group_weights": {
+                        "Variation1": 0,
+                        "Variation2": 0,
+                    },
                     "start_time": "2024-01-08 01:43:59+00:00",
                 }],
-            })
+            },
+            groups=[
+                {
+                    "feature": example_aws_evidently_feature["name"],
+                    "name": "Variation1",
+                    "variation": "Variation1",
+                },
+                {
+                    "feature": example_aws_evidently_feature["name"],
+                    "name": "Variation2",
+                    "variation": "Variation2",
+                },
+            ],
+            name="example",
+            project=example_aws_evidently_project["name"])
         ```
 
         ## Import

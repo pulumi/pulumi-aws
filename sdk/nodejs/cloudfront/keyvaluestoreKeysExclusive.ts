@@ -27,11 +27,11 @@ import * as utilities from "../utilities";
  *     comment: "This is an example key value store",
  * });
  * const exampleKeyvaluestoreKeysExclusive = new aws.cloudfront.KeyvaluestoreKeysExclusive("example", {
- *     keyValueStoreArn: example.arn,
  *     resourceKeyValuePairs: [{
  *         key: "Test Key",
  *         value: "Test Value",
  *     }],
+ *     keyValueStoreArn: example.arn,
  * });
  * ```
  *

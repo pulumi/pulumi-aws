@@ -29,18 +29,18 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := fsx.NewS3AccessPointAttachment(ctx, "example", &fsx.S3AccessPointAttachmentArgs{
-//				Name: pulumi.String("example-attachment"),
-//				Type: pulumi.String("OPENZFS"),
 //				OpenzfsConfiguration: &fsx.S3AccessPointAttachmentOpenzfsConfigurationArgs{
-//					VolumeId: pulumi.Any(exampleAwsFsxOpenzfsVolume.Id),
 //					FileSystemIdentity: &fsx.S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityArgs{
-//						Type: pulumi.String("POSIX"),
 //						PosixUser: &fsx.S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityPosixUserArgs{
 //							Uid: pulumi.Int(1001),
 //							Gid: pulumi.Int(1001),
 //						},
+//						Type: pulumi.String("POSIX"),
 //					},
+//					VolumeId: pulumi.Any(exampleAwsFsxOpenzfsVolume.Id),
 //				},
+//				Name: pulumi.String("example-attachment"),
+//				Type: pulumi.String("OPENZFS"),
 //			})
 //			if err != nil {
 //				return err

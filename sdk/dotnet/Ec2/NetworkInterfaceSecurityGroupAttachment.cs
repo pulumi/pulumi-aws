@@ -39,7 +39,6 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var ami = Aws.Ec2.GetAmi.Invoke(new()
     ///     {
-    ///         MostRecent = true,
     ///         Filters = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
@@ -51,6 +50,7 @@ namespace Pulumi.Aws.Ec2
     ///                 },
     ///             },
     ///         },
+    ///         MostRecent = true,
     ///         Owners = new[]
     ///         {
     ///             "amazon",

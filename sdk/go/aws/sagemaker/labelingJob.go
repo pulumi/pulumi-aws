@@ -32,23 +32,19 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// https://docs.aws.amazon.com/sagemaker/latest/dg/sms-named-entity-recg.html#sms-creating-ner-api.
 //			_, err := sagemaker.NewLabelingJob(ctx, "test", &sagemaker.LabelingJobArgs{
-//				LabelAttributeName:       pulumi.String("label1"),
-//				LabelingJobName:          pulumi.String("my-labeling-job"),
-//				RoleArn:                  pulumi.Any(exampleAwsIamRole.Arn),
-//				LabelCategoryConfigS3Uri: pulumi.Sprintf("s3://%v/%v", exampleAwsS3Bucket.Bucket, exampleAwsS3Object.Key),
 //				HumanTaskConfig: &sagemaker.LabelingJobHumanTaskConfigArgs{
+//					UiConfig: &sagemaker.LabelingJobHumanTaskConfigUiConfigArgs{
+//						HumanTaskUiArn: pulumi.String("arn:aws:sagemaker:us-west-2:394669845002:human-task-ui/NamedEntityRecognition"),
+//					},
+//					AnnotationConsolidationConfig: &sagemaker.LabelingJobHumanTaskConfigAnnotationConsolidationConfigArgs{
+//						AnnotationConsolidationLambdaArn: pulumi.String("arn:aws:lambda:us-west-2:081040173940:function:ACS-NamedEntityRecognition"),
+//					},
 //					NumberOfHumanWorkersPerDataObject: pulumi.Int(1),
 //					TaskDescription:                   pulumi.String("Apply the labels provided to specific words or phrases within the larger text block."),
 //					TaskTitle:                         pulumi.String("Named entity Recognition task"),
 //					TaskTimeLimitInSeconds:            pulumi.Int(28800),
 //					WorkteamArn:                       pulumi.Any(example.Arn),
-//					UiConfig: &sagemaker.LabelingJobHumanTaskConfigUiConfigArgs{
-//						HumanTaskUiArn: pulumi.String("arn:aws:sagemaker:us-west-2:394669845002:human-task-ui/NamedEntityRecognition"),
-//					},
-//					PreHumanTaskLambdaArn: pulumi.String("arn:aws:lambda:us-west-2:081040173940:function:PRE-NamedEntityRecognition"),
-//					AnnotationConsolidationConfig: &sagemaker.LabelingJobHumanTaskConfigAnnotationConsolidationConfigArgs{
-//						AnnotationConsolidationLambdaArn: pulumi.String("arn:aws:lambda:us-west-2:081040173940:function:ACS-NamedEntityRecognition"),
-//					},
+//					PreHumanTaskLambdaArn:             pulumi.String("arn:aws:lambda:us-west-2:081040173940:function:PRE-NamedEntityRecognition"),
 //				},
 //				InputConfig: &sagemaker.LabelingJobInputConfigArgs{
 //					DataSource: &sagemaker.LabelingJobInputConfigDataSourceArgs{
@@ -60,6 +56,10 @@ import (
 //				OutputConfig: &sagemaker.LabelingJobOutputConfigArgs{
 //					S3OutputPath: pulumi.Sprintf("s3://%v/", exampleAwsS3Bucket.Bucket),
 //				},
+//				LabelAttributeName:       pulumi.String("label1"),
+//				LabelingJobName:          pulumi.String("my-labeling-job"),
+//				RoleArn:                  pulumi.Any(exampleAwsIamRole.Arn),
+//				LabelCategoryConfigS3Uri: pulumi.Sprintf("s3://%v/%v", exampleAwsS3Bucket.Bucket, exampleAwsS3Object.Key),
 //			})
 //			if err != nil {
 //				return err

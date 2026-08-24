@@ -133,10 +133,6 @@ namespace Pulumi.Aws.TimestreamInfluxDB
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "s3:PutObject",
-    ///                 },
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -147,6 +143,10 @@ namespace Pulumi.Aws.TimestreamInfluxDB
     ///                             "timestream-influxdb.amazonaws.com",
     ///                         },
     ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "s3:PutObject",
     ///                 },
     ///                 Resources = new[]
     ///                 {
@@ -164,6 +164,14 @@ namespace Pulumi.Aws.TimestreamInfluxDB
     /// 
     ///     var exampleDbCluster = new Aws.TimestreamInfluxDB.DbCluster("example", new()
     ///     {
+    ///         LogDeliveryConfiguration = new Aws.TimestreamInfluxDB.Inputs.DbClusterLogDeliveryConfigurationArgs
+    ///         {
+    ///             S3Configuration = new Aws.TimestreamInfluxDB.Inputs.DbClusterLogDeliveryConfigurationS3ConfigurationArgs
+    ///             {
+    ///                 BucketName = exampleBucket.BucketName,
+    ///                 Enabled = true,
+    ///             },
+    ///         },
     ///         AllocatedStorage = 20,
     ///         Bucket = "example-bucket-name",
     ///         DbInstanceType = "db.influx.medium",
@@ -180,14 +188,6 @@ namespace Pulumi.Aws.TimestreamInfluxDB
     ///             exampleAwsSecurityGroup.Id,
     ///         },
     ///         Name = "example-db-cluster",
-    ///         LogDeliveryConfiguration = new Aws.TimestreamInfluxDB.Inputs.DbClusterLogDeliveryConfigurationArgs
-    ///         {
-    ///             S3Configuration = new Aws.TimestreamInfluxDB.Inputs.DbClusterLogDeliveryConfigurationS3ConfigurationArgs
-    ///             {
-    ///                 BucketName = exampleBucket.BucketName,
-    ///                 Enabled = true,
-    ///             },
-    ///         },
     ///     });
     /// 
     /// });
@@ -207,6 +207,11 @@ namespace Pulumi.Aws.TimestreamInfluxDB
     /// {
     ///     var example = new Aws.TimestreamInfluxDB.DbCluster("example", new()
     ///     {
+    ///         MaintenanceSchedule = new Aws.TimestreamInfluxDB.Inputs.DbClusterMaintenanceScheduleArgs
+    ///         {
+    ///             PreferredMaintenanceWindow = "Sun:02:00-Sun:06:00",
+    ///             Timezone = "America/New_York",
+    ///         },
     ///         Name = "example-v3-cluster",
     ///         DbInstanceType = "db.influx.large",
     ///         DbParameterGroupIdentifier = "InfluxDBV3Core",
@@ -218,11 +223,6 @@ namespace Pulumi.Aws.TimestreamInfluxDB
     ///         VpcSecurityGroupIds = new[]
     ///         {
     ///             exampleAwsSecurityGroup.Id,
-    ///         },
-    ///         MaintenanceSchedule = new Aws.TimestreamInfluxDB.Inputs.DbClusterMaintenanceScheduleArgs
-    ///         {
-    ///             PreferredMaintenanceWindow = "Sun:02:00-Sun:06:00",
-    ///             Timezone = "America/New_York",
     ///         },
     ///     });
     /// 

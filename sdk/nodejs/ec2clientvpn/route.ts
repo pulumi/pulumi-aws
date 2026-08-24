@@ -15,16 +15,16 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const exampleEndpoint = new aws.ec2clientvpn.Endpoint("example", {
- *     description: "Example Client VPN endpoint",
- *     serverCertificateArn: exampleAwsAcmCertificate.arn,
- *     clientCidrBlock: "10.0.0.0/16",
+ *     connectionLogOptions: {
+ *         enabled: false,
+ *     },
  *     authenticationOptions: [{
  *         type: "certificate-authentication",
  *         rootCertificateChainArn: exampleAwsAcmCertificate.arn,
  *     }],
- *     connectionLogOptions: {
- *         enabled: false,
- *     },
+ *     description: "Example Client VPN endpoint",
+ *     serverCertificateArn: exampleAwsAcmCertificate.arn,
+ *     clientCidrBlock: "10.0.0.0/16",
  * });
  * const exampleNetworkAssociation = new aws.ec2clientvpn.NetworkAssociation("example", {
  *     clientVpnEndpointId: exampleEndpoint.id,

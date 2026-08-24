@@ -134,6 +134,31 @@ def get_functions(region: Optional[_builtins.str] = None,
     (len(all.function_names)).apply(create_lambda_errors)
     ```
 
+    ### Filter Functions by Name Pattern
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+    import pulumi_std as std
+
+    def can_(fn):
+        try:
+            _result = fn()
+            return True
+        except:
+            return False
+
+
+    # Get all functions
+    all = aws.lambda_.get_functions()
+    api_functions = [name for name in all.function_names if can_(lambda: std.regex(pattern="^api-",
+        string=name).result)]
+    worker_functions = [name for name in all.function_names if can_(lambda: std.regex(pattern="^worker-",
+        string=name).result)]
+    pulumi.export("apiFunctions", api_functions)
+    pulumi.export("workerFunctions", worker_functions)
+    ```
+
     ### Create Function Inventory
 
     ```python
@@ -217,6 +242,31 @@ def get_functions_output(region: pulumi.Input[Optional[Optional[_builtins.str]]]
                 }))
 
     (len(all.function_names)).apply(create_lambda_errors)
+    ```
+
+    ### Filter Functions by Name Pattern
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+    import pulumi_std as std
+
+    def can_(fn):
+        try:
+            _result = fn()
+            return True
+        except:
+            return False
+
+
+    # Get all functions
+    all = aws.lambda_.get_functions()
+    api_functions = [name for name in all.function_names if can_(lambda: std.regex(pattern="^api-",
+        string=name).result)]
+    worker_functions = [name for name in all.function_names if can_(lambda: std.regex(pattern="^worker-",
+        string=name).result)]
+    pulumi.export("apiFunctions", api_functions)
+    pulumi.export("workerFunctions", worker_functions)
     ```
 
     ### Create Function Inventory

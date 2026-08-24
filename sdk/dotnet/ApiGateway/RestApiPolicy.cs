@@ -37,26 +37,6 @@ namespace Pulumi.Aws.ApiGateway
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "AWS",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "*",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "execute-api:Invoke",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     $"{testRestApi.ExecutionArn}/*",
-    ///                 },
     ///                 Conditions = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
@@ -68,6 +48,26 @@ namespace Pulumi.Aws.ApiGateway
     ///                             "123.123.123.123/32",
     ///                         },
     ///                     },
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "AWS",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "*",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "execute-api:Invoke",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     $"{testRestApi.ExecutionArn}/*",
     ///                 },
     ///             },
     ///         },

@@ -45,8 +45,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementConditionArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.sqs.Queue;
  * import com.pulumi.aws.sqs.QueueArgs;
  * import com.pulumi.aws.sns.TopicSubscription;
@@ -69,22 +69,22 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         final var sqsQueuePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .policyId("arn:aws:sqs:us-west-2:123456789012:user_updates_queue/SQSDefaultPolicy")
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid("user_updates_sqs_target")
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("Service")
- *                     .identifiers("sns.amazonaws.com")
- *                     .build())
- *                 .actions("SQS:SendMessage")
- *                 .resources("arn:aws:sqs:us-west-2:123456789012:user-updates-queue")
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                     .test("ArnEquals")
  *                     .variable("aws:SourceArn")
  *                     .values(userUpdates.arn())
  *                     .build())
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type("Service")
+ *                     .identifiers("sns.amazonaws.com")
+ *                     .build())
+ *                 .sid("user_updates_sqs_target")
+ *                 .effect("Allow")
+ *                 .actions("SQS:SendMessage")
+ *                 .resources("arn:aws:sqs:us-west-2:123456789012:user-updates-queue")
  *                 .build())
+ *             .policyId("arn:aws:sqs:us-west-2:123456789012:user_updates_queue/SQSDefaultPolicy")
  *             .build());
  * 
  *         var userUpdatesQueue = new Queue("userUpdatesQueue", QueueArgs.builder()
@@ -153,9 +153,17 @@ import javax.annotation.Nullable;
  *             Map.entry("role-name", "service/service")
  *         ));
  *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .policyId("__default_policy_ID")
  *             .statements(            
  *                 GetPolicyDocumentStatementArgs.builder()
+ *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
+ *                         .test("StringEquals")
+ *                         .variable("AWS:SourceOwner")
+ *                         .values(sns.account-id())
+ *                         .build())
+ *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                         .type("AWS")
+ *                         .identifiers("*")
+ *                         .build())
  *                     .actions(                    
  *                         "SNS:Subscribe",
  *                         "SNS:SetTopicAttributes",
@@ -165,55 +173,47 @@ import javax.annotation.Nullable;
  *                         "SNS:GetTopicAttributes",
  *                         "SNS:DeleteTopic",
  *                         "SNS:AddPermission")
- *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                         .test("StringEquals")
- *                         .variable("AWS:SourceOwner")
- *                         .values(sns.account-id())
- *                         .build())
  *                     .effect("Allow")
- *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                         .type("AWS")
- *                         .identifiers("*")
- *                         .build())
  *                     .resources(String.format("arn:aws:sns:%s:%s:%s", sns.region(),sns.account-id(),sns.name()))
  *                     .sid("__default_statement_ID")
  *                     .build(),
  *                 GetPolicyDocumentStatementArgs.builder()
- *                     .actions(                    
- *                         "SNS:Subscribe",
- *                         "SNS:Receive")
  *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                         .test("StringLike")
  *                         .variable("SNS:Endpoint")
  *                         .values(String.format("arn:aws:sqs:%s:%s:%s", sqs.region(),sqs.account-id(),sqs.name()))
  *                         .build())
- *                     .effect("Allow")
  *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                         .type("AWS")
  *                         .identifiers("*")
  *                         .build())
+ *                     .actions(                    
+ *                         "SNS:Subscribe",
+ *                         "SNS:Receive")
+ *                     .effect("Allow")
  *                     .resources(String.format("arn:aws:sns:%s:%s:%s", sns.region(),sns.account-id(),sns.name()))
  *                     .sid("__console_sub_0")
  *                     .build())
+ *             .policyId("__default_policy_ID")
  *             .build());
  * 
  *         final var sqsQueuePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .policyId(String.format("arn:aws:sqs:%s:%s:%s/SQSDefaultPolicy", sqs.region(),sqs.account-id(),sqs.name()))
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid("example-sns-topic")
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("AWS")
- *                     .identifiers("*")
- *                     .build())
- *                 .actions("SQS:SendMessage")
- *                 .resources(String.format("arn:aws:sqs:%s:%s:%s", sqs.region(),sqs.account-id(),sqs.name()))
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                     .test("ArnEquals")
  *                     .variable("aws:SourceArn")
  *                     .values(String.format("arn:aws:sns:%s:%s:%s", sns.region(),sns.account-id(),sns.name()))
  *                     .build())
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type("AWS")
+ *                     .identifiers("*")
+ *                     .build())
+ *                 .sid("example-sns-topic")
+ *                 .effect("Allow")
+ *                 .actions("SQS:SendMessage")
+ *                 .resources(String.format("arn:aws:sqs:%s:%s:%s", sqs.region(),sqs.account-id(),sqs.name()))
  *                 .build())
+ *             .policyId(String.format("arn:aws:sqs:%s:%s:%s/SQSDefaultPolicy", sqs.region(),sqs.account-id(),sqs.name()))
  *             .build());
  * 
  *         var snsTopic = new Topic("snsTopic", TopicArgs.builder()

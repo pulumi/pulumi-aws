@@ -250,19 +250,19 @@ def get_fleet(name: Optional[_builtins.str] = None,
     import pulumi_aws as aws
 
     test_fleet = aws.codebuild.Fleet("test",
-        base_capacity=2,
-        compute_type="BUILD_GENERAL1_SMALL",
-        environment_type="LINUX_CONTAINER",
-        name="full-example-codebuild-fleet",
-        overflow_behavior="QUEUE",
         scaling_configuration={
-            "max_capacity": 5,
-            "scaling_type": "TARGET_TRACKING_SCALING",
             "target_tracking_scaling_configs": [{
                 "metric_type": "FLEET_UTILIZATION_RATE",
                 "target_value": 97.5,
             }],
-        })
+            "max_capacity": 5,
+            "scaling_type": "TARGET_TRACKING_SCALING",
+        },
+        base_capacity=2,
+        compute_type="BUILD_GENERAL1_SMALL",
+        environment_type="LINUX_CONTAINER",
+        name="full-example-codebuild-fleet",
+        overflow_behavior="QUEUE")
     test = aws.codebuild.get_fleet_output(name=test_fleet.name)
     ```
 
@@ -319,19 +319,19 @@ def get_fleet_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     import pulumi_aws as aws
 
     test_fleet = aws.codebuild.Fleet("test",
-        base_capacity=2,
-        compute_type="BUILD_GENERAL1_SMALL",
-        environment_type="LINUX_CONTAINER",
-        name="full-example-codebuild-fleet",
-        overflow_behavior="QUEUE",
         scaling_configuration={
-            "max_capacity": 5,
-            "scaling_type": "TARGET_TRACKING_SCALING",
             "target_tracking_scaling_configs": [{
                 "metric_type": "FLEET_UTILIZATION_RATE",
                 "target_value": 97.5,
             }],
-        })
+            "max_capacity": 5,
+            "scaling_type": "TARGET_TRACKING_SCALING",
+        },
+        base_capacity=2,
+        compute_type="BUILD_GENERAL1_SMALL",
+        environment_type="LINUX_CONTAINER",
+        name="full-example-codebuild-fleet",
+        overflow_behavior="QUEUE")
     test = aws.codebuild.get_fleet_output(name=test_fleet.name)
     ```
 

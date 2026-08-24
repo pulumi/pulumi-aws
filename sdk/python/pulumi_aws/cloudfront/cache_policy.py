@@ -282,31 +282,31 @@ class CachePolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudfront.CachePolicy("example",
+            parameters_in_cache_key_and_forwarded_to_origin={
+                "cookies_config": {
+                    "cookies": {
+                        "items": ["example"],
+                    },
+                    "cookie_behavior": "whitelist",
+                },
+                "headers_config": {
+                    "headers": {
+                        "items": ["example"],
+                    },
+                    "header_behavior": "whitelist",
+                },
+                "query_strings_config": {
+                    "query_strings": {
+                        "items": ["example"],
+                    },
+                    "query_string_behavior": "whitelist",
+                },
+            },
             name="example-policy",
             comment="test comment",
             default_ttl=50,
             max_ttl=100,
-            min_ttl=1,
-            parameters_in_cache_key_and_forwarded_to_origin={
-                "cookies_config": {
-                    "cookie_behavior": "whitelist",
-                    "cookies": {
-                        "items": ["example"],
-                    },
-                },
-                "headers_config": {
-                    "header_behavior": "whitelist",
-                    "headers": {
-                        "items": ["example"],
-                    },
-                },
-                "query_strings_config": {
-                    "query_string_behavior": "whitelist",
-                    "query_strings": {
-                        "items": ["example"],
-                    },
-                },
-            })
+            min_ttl=1)
         ```
 
         ## Import
@@ -343,31 +343,31 @@ class CachePolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudfront.CachePolicy("example",
+            parameters_in_cache_key_and_forwarded_to_origin={
+                "cookies_config": {
+                    "cookies": {
+                        "items": ["example"],
+                    },
+                    "cookie_behavior": "whitelist",
+                },
+                "headers_config": {
+                    "headers": {
+                        "items": ["example"],
+                    },
+                    "header_behavior": "whitelist",
+                },
+                "query_strings_config": {
+                    "query_strings": {
+                        "items": ["example"],
+                    },
+                    "query_string_behavior": "whitelist",
+                },
+            },
             name="example-policy",
             comment="test comment",
             default_ttl=50,
             max_ttl=100,
-            min_ttl=1,
-            parameters_in_cache_key_and_forwarded_to_origin={
-                "cookies_config": {
-                    "cookie_behavior": "whitelist",
-                    "cookies": {
-                        "items": ["example"],
-                    },
-                },
-                "headers_config": {
-                    "header_behavior": "whitelist",
-                    "headers": {
-                        "items": ["example"],
-                    },
-                },
-                "query_strings_config": {
-                    "query_string_behavior": "whitelist",
-                    "query_strings": {
-                        "items": ["example"],
-                    },
-                },
-            })
+            min_ttl=1)
         ```
 
         ## Import

@@ -39,7 +39,6 @@ namespace Pulumi.Aws.CodePipeline
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -51,6 +50,7 @@ namespace Pulumi.Aws.CodePipeline
     ///                         },
     ///                     },
     ///                 },
+    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "sts:AssumeRole",
@@ -72,26 +72,23 @@ namespace Pulumi.Aws.CodePipeline
     /// 
     ///     var codepipeline = new Aws.CodePipeline.Pipeline("codepipeline", new()
     ///     {
-    ///         Name = "tf-test-pipeline",
-    ///         RoleArn = codepipelineRole.Arn,
     ///         ArtifactStores = new[]
     ///         {
     ///             new Aws.CodePipeline.Inputs.PipelineArtifactStoreArgs
     ///             {
-    ///                 Location = codepipelineBucket.BucketName,
-    ///                 Type = "S3",
     ///                 EncryptionKey = new Aws.CodePipeline.Inputs.PipelineArtifactStoreEncryptionKeyArgs
     ///                 {
     ///                     Id = s3kmskey.Apply(getAliasResult =&gt; getAliasResult.Arn),
     ///                     Type = "KMS",
     ///                 },
+    ///                 Location = codepipelineBucket.BucketName,
+    ///                 Type = "S3",
     ///             },
     ///         },
     ///         Stages = new[]
     ///         {
     ///             new Aws.CodePipeline.Inputs.PipelineStageArgs
     ///             {
-    ///                 Name = "Source",
     ///                 Actions = new[]
     ///                 {
     ///                     new Aws.CodePipeline.Inputs.PipelineStageActionArgs
@@ -113,10 +110,10 @@ namespace Pulumi.Aws.CodePipeline
     ///                         },
     ///                     },
     ///                 },
+    ///                 Name = "Source",
     ///             },
     ///             new Aws.CodePipeline.Inputs.PipelineStageArgs
     ///             {
-    ///                 Name = "Build",
     ///                 Actions = new[]
     ///                 {
     ///                     new Aws.CodePipeline.Inputs.PipelineStageActionArgs
@@ -140,10 +137,10 @@ namespace Pulumi.Aws.CodePipeline
     ///                         },
     ///                     },
     ///                 },
+    ///                 Name = "Build",
     ///             },
     ///             new Aws.CodePipeline.Inputs.PipelineStageArgs
     ///             {
-    ///                 Name = "Deploy",
     ///                 Actions = new[]
     ///                 {
     ///                     new Aws.CodePipeline.Inputs.PipelineStageActionArgs
@@ -167,8 +164,11 @@ namespace Pulumi.Aws.CodePipeline
     ///                         },
     ///                     },
     ///                 },
+    ///                 Name = "Deploy",
     ///             },
     ///         },
+    ///         Name = "tf-test-pipeline",
+    ///         RoleArn = codepipelineRole.Arn,
     ///     });
     /// 
     ///     var codepipelineBucketPab = new Aws.S3.BucketPublicAccessBlock("codepipeline_bucket_pab", new()

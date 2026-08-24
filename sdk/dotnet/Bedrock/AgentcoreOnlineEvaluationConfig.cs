@@ -55,10 +55,6 @@ namespace Pulumi.Aws.Bedrock
     /// 
     ///     var exampleAgentcoreOnlineEvaluationConfig = new Aws.Bedrock.AgentcoreOnlineEvaluationConfig("example", new()
     ///     {
-    ///         OnlineEvaluationConfigName = "my_evaluation_config",
-    ///         Description = "Continuous evaluation of agent performance",
-    ///         EnableOnCreate = true,
-    ///         EvaluationExecutionRoleArn = example.Arn,
     ///         DataSourceConfig = new Aws.Bedrock.Inputs.AgentcoreOnlineEvaluationConfigDataSourceConfigArgs
     ///         {
     ///             CloudwatchLogs = new Aws.Bedrock.Inputs.AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgs
@@ -73,6 +69,13 @@ namespace Pulumi.Aws.Bedrock
     ///                 },
     ///             },
     ///         },
+    ///         Rule = new Aws.Bedrock.Inputs.AgentcoreOnlineEvaluationConfigRuleArgs
+    ///         {
+    ///             SamplingConfig = new Aws.Bedrock.Inputs.AgentcoreOnlineEvaluationConfigRuleSamplingConfigArgs
+    ///             {
+    ///                 SamplingPercentage = 10,
+    ///             },
+    ///         },
     ///         Evaluators = new[]
     ///         {
     ///             new Aws.Bedrock.Inputs.AgentcoreOnlineEvaluationConfigEvaluatorArgs
@@ -84,13 +87,10 @@ namespace Pulumi.Aws.Bedrock
     ///                 EvaluatorId = "Builtin.GoalSuccessRate",
     ///             },
     ///         },
-    ///         Rule = new Aws.Bedrock.Inputs.AgentcoreOnlineEvaluationConfigRuleArgs
-    ///         {
-    ///             SamplingConfig = new Aws.Bedrock.Inputs.AgentcoreOnlineEvaluationConfigRuleSamplingConfigArgs
-    ///             {
-    ///                 SamplingPercentage = 10,
-    ///             },
-    ///         },
+    ///         OnlineEvaluationConfigName = "my_evaluation_config",
+    ///         Description = "Continuous evaluation of agent performance",
+    ///         EnableOnCreate = true,
+    ///         EvaluationExecutionRoleArn = example.Arn,
     ///     });
     /// 
     /// });
@@ -108,9 +108,6 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var filtered = new Aws.Bedrock.AgentcoreOnlineEvaluationConfig("filtered", new()
     ///     {
-    ///         OnlineEvaluationConfigName = "filtered_evaluation",
-    ///         EnableOnCreate = true,
-    ///         EvaluationExecutionRoleArn = exampleAwsIamRole.Arn,
     ///         DataSourceConfig = new Aws.Bedrock.Inputs.AgentcoreOnlineEvaluationConfigDataSourceConfigArgs
     ///         {
     ///             CloudwatchLogs = new Aws.Bedrock.Inputs.AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgs
@@ -125,6 +122,29 @@ namespace Pulumi.Aws.Bedrock
     ///                 },
     ///             },
     ///         },
+    ///         Rule = new Aws.Bedrock.Inputs.AgentcoreOnlineEvaluationConfigRuleArgs
+    ///         {
+    ///             SamplingConfig = new Aws.Bedrock.Inputs.AgentcoreOnlineEvaluationConfigRuleSamplingConfigArgs
+    ///             {
+    ///                 SamplingPercentage = 50,
+    ///             },
+    ///             SessionConfig = new Aws.Bedrock.Inputs.AgentcoreOnlineEvaluationConfigRuleSessionConfigArgs
+    ///             {
+    ///                 SessionTimeoutMinutes = 30,
+    ///             },
+    ///             Filters = new[]
+    ///             {
+    ///                 new Aws.Bedrock.Inputs.AgentcoreOnlineEvaluationConfigRuleFilterArgs
+    ///                 {
+    ///                     Value = new Aws.Bedrock.Inputs.AgentcoreOnlineEvaluationConfigRuleFilterValueArgs
+    ///                     {
+    ///                         StringValue = "production",
+    ///                     },
+    ///                     Key = "environment",
+    ///                     Operator = "Equals",
+    ///                 },
+    ///             },
+    ///         },
     ///         Evaluators = new[]
     ///         {
     ///             new Aws.Bedrock.Inputs.AgentcoreOnlineEvaluationConfigEvaluatorArgs
@@ -132,29 +152,9 @@ namespace Pulumi.Aws.Bedrock
     ///                 EvaluatorId = "Builtin.Helpfulness",
     ///             },
     ///         },
-    ///         Rule = new Aws.Bedrock.Inputs.AgentcoreOnlineEvaluationConfigRuleArgs
-    ///         {
-    ///             SamplingConfig = new Aws.Bedrock.Inputs.AgentcoreOnlineEvaluationConfigRuleSamplingConfigArgs
-    ///             {
-    ///                 SamplingPercentage = 50,
-    ///             },
-    ///             Filters = new[]
-    ///             {
-    ///                 new Aws.Bedrock.Inputs.AgentcoreOnlineEvaluationConfigRuleFilterArgs
-    ///                 {
-    ///                     Key = "environment",
-    ///                     Operator = "Equals",
-    ///                     Value = new Aws.Bedrock.Inputs.AgentcoreOnlineEvaluationConfigRuleFilterValueArgs
-    ///                     {
-    ///                         StringValue = "production",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             SessionConfig = new Aws.Bedrock.Inputs.AgentcoreOnlineEvaluationConfigRuleSessionConfigArgs
-    ///             {
-    ///                 SessionTimeoutMinutes = 30,
-    ///             },
-    ///         },
+    ///         OnlineEvaluationConfigName = "filtered_evaluation",
+    ///         EnableOnCreate = true,
+    ///         EvaluationExecutionRoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });

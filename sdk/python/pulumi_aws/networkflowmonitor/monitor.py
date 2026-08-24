@@ -320,8 +320,6 @@ class Monitor(pulumi.CustomResource):
                 "Name": "example",
             })
         example_monitor = aws.networkflowmonitor.Monitor("example",
-            monitor_name="example-monitor",
-            scope_arn=example_aws_networkflowmonitor_scope["scopeArn"],
             local_resources=[{
                 "type": "AWS::EC2::VPC",
                 "identifier": example.arn,
@@ -330,6 +328,8 @@ class Monitor(pulumi.CustomResource):
                 "type": "AWS::EC2::VPC",
                 "identifier": example.arn,
             }],
+            monitor_name="example-monitor",
+            scope_arn=example_aws_networkflowmonitor_scope["scopeArn"],
             tags={
                 "Name": "example",
             })
@@ -378,8 +378,6 @@ class Monitor(pulumi.CustomResource):
                 "Name": "example",
             })
         example_monitor = aws.networkflowmonitor.Monitor("example",
-            monitor_name="example-monitor",
-            scope_arn=example_aws_networkflowmonitor_scope["scopeArn"],
             local_resources=[{
                 "type": "AWS::EC2::VPC",
                 "identifier": example.arn,
@@ -388,6 +386,8 @@ class Monitor(pulumi.CustomResource):
                 "type": "AWS::EC2::VPC",
                 "identifier": example.arn,
             }],
+            monitor_name="example-monitor",
+            scope_arn=example_aws_networkflowmonitor_scope["scopeArn"],
             tags={
                 "Name": "example",
             })

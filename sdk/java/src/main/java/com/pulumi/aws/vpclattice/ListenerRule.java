@@ -34,10 +34,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.vpclattice.ListenerRuleArgs;
  * import com.pulumi.aws.vpclattice.inputs.ListenerRuleMatchArgs;
  * import com.pulumi.aws.vpclattice.inputs.ListenerRuleMatchHttpMatchArgs;
- * import com.pulumi.aws.vpclattice.inputs.ListenerRuleMatchHttpMatchHeaderMatchArgs;
- * import com.pulumi.aws.vpclattice.inputs.ListenerRuleMatchHttpMatchHeaderMatchMatchArgs;
  * import com.pulumi.aws.vpclattice.inputs.ListenerRuleMatchHttpMatchPathMatchArgs;
  * import com.pulumi.aws.vpclattice.inputs.ListenerRuleMatchHttpMatchPathMatchMatchArgs;
+ * import com.pulumi.aws.vpclattice.inputs.ListenerRuleMatchHttpMatchHeaderMatchArgs;
+ * import com.pulumi.aws.vpclattice.inputs.ListenerRuleMatchHttpMatchHeaderMatchMatchArgs;
  * import com.pulumi.aws.vpclattice.inputs.ListenerRuleActionArgs;
  * import com.pulumi.aws.vpclattice.inputs.ListenerRuleActionForwardArgs;
  * import com.pulumi.aws.vpclattice.inputs.ListenerRuleActionForwardTargetGroupArgs;
@@ -55,24 +55,20 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ListenerRule("example", ListenerRuleArgs.builder()
- *             .name("example")
- *             .listenerIdentifier(exampleAwsVpclatticeListener.listenerId())
- *             .serviceIdentifier(exampleAwsVpclatticeService.id())
- *             .priority(20)
  *             .match(ListenerRuleMatchArgs.builder()
  *                 .httpMatch(ListenerRuleMatchHttpMatchArgs.builder()
- *                     .headerMatches(ListenerRuleMatchHttpMatchHeaderMatchArgs.builder()
- *                         .name("example-header")
- *                         .caseSensitive(false)
- *                         .match(ListenerRuleMatchHttpMatchHeaderMatchMatchArgs.builder()
- *                             .exact("example-contains")
- *                             .build())
- *                         .build())
  *                     .pathMatch(ListenerRuleMatchHttpMatchPathMatchArgs.builder()
- *                         .caseSensitive(true)
  *                         .match(ListenerRuleMatchHttpMatchPathMatchMatchArgs.builder()
  *                             .prefix("/example-path")
  *                             .build())
+ *                         .caseSensitive(true)
+ *                         .build())
+ *                     .headerMatches(ListenerRuleMatchHttpMatchHeaderMatchArgs.builder()
+ *                         .match(ListenerRuleMatchHttpMatchHeaderMatchMatchArgs.builder()
+ *                             .exact("example-contains")
+ *                             .build())
+ *                         .name("example-header")
+ *                         .caseSensitive(false)
  *                         .build())
  *                     .build())
  *                 .build())
@@ -89,6 +85,10 @@ import javax.annotation.Nullable;
  *                             .build())
  *                     .build())
  *                 .build())
+ *             .name("example")
+ *             .listenerIdentifier(exampleAwsVpclatticeListener.listenerId())
+ *             .serviceIdentifier(exampleAwsVpclatticeService.id())
+ *             .priority(20)
  *             .build());
  * 
  *     }
@@ -127,17 +127,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ListenerRule("example", ListenerRuleArgs.builder()
- *             .name("example")
- *             .listenerIdentifier(exampleAwsVpclatticeListener.listenerId())
- *             .serviceIdentifier(exampleAwsVpclatticeService.id())
- *             .priority(10)
  *             .match(ListenerRuleMatchArgs.builder()
  *                 .httpMatch(ListenerRuleMatchHttpMatchArgs.builder()
  *                     .pathMatch(ListenerRuleMatchHttpMatchPathMatchArgs.builder()
- *                         .caseSensitive(false)
  *                         .match(ListenerRuleMatchHttpMatchPathMatchMatchArgs.builder()
  *                             .exact("/example-path")
  *                             .build())
+ *                         .caseSensitive(false)
  *                         .build())
  *                     .build())
  *                 .build())
@@ -146,6 +142,10 @@ import javax.annotation.Nullable;
  *                     .statusCode(404)
  *                     .build())
  *                 .build())
+ *             .name("example")
+ *             .listenerIdentifier(exampleAwsVpclatticeListener.listenerId())
+ *             .serviceIdentifier(exampleAwsVpclatticeService.id())
+ *             .priority(10)
  *             .build());
  * 
  *     }

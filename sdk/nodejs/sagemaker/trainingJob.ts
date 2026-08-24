@@ -19,8 +19,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sagemaker.TrainingJob("example", {
- *     trainingJobName: "example",
- *     roleArn: exampleAwsIamRole.arn,
  *     algorithmSpecification: {
  *         trainingInputMode: "File",
  *         trainingImage: exampleAwsSagemakerPrebuiltEcrImage.registryPath,
@@ -36,6 +34,8 @@ import * as utilities from "../utilities";
  *     stoppingCondition: {
  *         maxRuntimeInSeconds: 3600,
  *     },
+ *     trainingJobName: "example",
+ *     roleArn: exampleAwsIamRole.arn,
  * });
  * ```
  *
@@ -46,8 +46,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sagemaker.TrainingJob("example", {
- *     trainingJobName: "example",
- *     roleArn: exampleAwsIamRole.arn,
  *     algorithmSpecification: {
  *         trainingInputMode: "File",
  *         trainingImage: exampleAwsSagemakerPrebuiltEcrImage.registryPath,
@@ -67,6 +65,8 @@ import * as utilities from "../utilities";
  *         securityGroupIds: [exampleAwsSecurityGroup.id],
  *         subnets: [exampleAwsSubnet.id],
  *     },
+ *     trainingJobName: "example",
+ *     roleArn: exampleAwsIamRole.arn,
  * });
  * ```
  *
@@ -77,26 +77,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sagemaker.TrainingJob("example", {
- *     trainingJobName: "example",
- *     roleArn: exampleAwsIamRole.arn,
  *     algorithmSpecification: {
  *         trainingInputMode: "File",
  *         trainingImage: exampleAwsSagemakerPrebuiltEcrImage.registryPath,
  *         enableSagemakerMetricsTimeSeries: true,
  *     },
- *     hyperParameters: {
- *         mini_batch_size: "200",
- *         epochs: "10",
- *     },
- *     inputDataConfigs: [{
- *         channelName: "train",
- *         dataSource: {
- *             s3DataSource: {
- *                 s3DataType: "S3Prefix",
- *                 s3Uri: `s3://${exampleAwsS3Bucket.bucket}/train/`,
- *             },
- *         },
- *     }],
  *     outputDataConfig: {
  *         s3OutputPath: `s3://${exampleAwsS3Bucket.bucket}/output/`,
  *     },
@@ -108,6 +93,21 @@ import * as utilities from "../utilities";
  *     stoppingCondition: {
  *         maxRuntimeInSeconds: 3600,
  *     },
+ *     inputDataConfigs: [{
+ *         dataSource: {
+ *             s3DataSource: {
+ *                 s3DataType: "S3Prefix",
+ *                 s3Uri: `s3://${exampleAwsS3Bucket.bucket}/train/`,
+ *             },
+ *         },
+ *         channelName: "train",
+ *     }],
+ *     trainingJobName: "example",
+ *     roleArn: exampleAwsIamRole.arn,
+ *     hyperParameters: {
+ *         mini_batch_size: "200",
+ *         epochs: "10",
+ *     },
  * });
  * ```
  *
@@ -118,8 +118,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sagemaker.TrainingJob("example", {
- *     trainingJobName: "example",
- *     roleArn: exampleAwsIamRole.arn,
  *     algorithmSpecification: {
  *         trainingInputMode: "File",
  *         trainingImage: exampleAwsSagemakerPrebuiltEcrImage.registryPath,
@@ -146,6 +144,8 @@ import * as utilities from "../utilities";
  *         localPath: "/opt/ml/output/tensorboard",
  *         s3OutputPath: `s3://${exampleAwsS3Bucket.bucket}/tensorboard/`,
  *     },
+ *     trainingJobName: "example",
+ *     roleArn: exampleAwsIamRole.arn,
  * });
  * ```
  *
@@ -156,12 +156,17 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sagemaker.TrainingJob("example", {
- *     trainingJobName: "example",
- *     roleArn: exampleAwsIamRole.arn,
- *     enableManagedSpotTraining: true,
- *     enableNetworkIsolation: true,
- *     enableInterContainerTrafficEncryption: true,
  *     algorithmSpecification: {
+ *         metricDefinitions: [
+ *             {
+ *                 name: "train:loss",
+ *                 regex: "loss: ([0-9\\.]+)",
+ *             },
+ *             {
+ *                 name: "validation:accuracy",
+ *                 regex: "accuracy: ([0-9\\.]+)",
+ *             },
+ *         ],
  *         trainingInputMode: "File",
  *         trainingImage: trainingImage,
  *         containerEntrypoints: [
@@ -174,24 +179,6 @@ import * as utilities from "../utilities";
  *             "--batch-size",
  *             "128",
  *         ],
- *         metricDefinitions: [
- *             {
- *                 name: "train:loss",
- *                 regex: "loss: ([0-9\\.]+)",
- *             },
- *             {
- *                 name: "validation:accuracy",
- *                 regex: "accuracy: ([0-9\\.]+)",
- *             },
- *         ],
- *     },
- *     environment: {
- *         MODEL_DIR: "/opt/ml/model",
- *         SM_LOG_LEVEL: "20",
- *     },
- *     hyperParameters: {
- *         epochs: "10",
- *         batch_size: "128",
  *     },
  *     outputDataConfig: {
  *         s3OutputPath: `s3://${exampleAwsS3Bucket.bucket}/output/`,
@@ -209,6 +196,19 @@ import * as utilities from "../utilities";
  *         maxRuntimeInSeconds: 3600,
  *         maxWaitTimeInSeconds: 7200,
  *     },
+ *     trainingJobName: "example",
+ *     roleArn: exampleAwsIamRole.arn,
+ *     enableManagedSpotTraining: true,
+ *     enableNetworkIsolation: true,
+ *     enableInterContainerTrafficEncryption: true,
+ *     environment: {
+ *         MODEL_DIR: "/opt/ml/model",
+ *         SM_LOG_LEVEL: "20",
+ *     },
+ *     hyperParameters: {
+ *         epochs: "10",
+ *         batch_size: "128",
+ *     },
  *     tags: {
  *         Environment: "test",
  *         Workload: "training",
@@ -223,38 +223,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sagemaker.TrainingJob("example", {
- *     trainingJobName: "example",
- *     roleArn: exampleAwsIamRole.arn,
  *     algorithmSpecification: {
  *         trainingInputMode: "File",
  *         trainingImage: exampleAwsSagemakerPrebuiltEcrImage.registryPath,
  *     },
- *     inputDataConfigs: [
- *         {
- *             channelName: "train",
- *             contentType: "text/csv",
- *             inputMode: "File",
- *             dataSource: {
- *                 s3DataSource: {
- *                     s3DataDistributionType: "FullyReplicated",
- *                     s3DataType: "S3Prefix",
- *                     s3Uri: `s3://${exampleAwsS3Bucket.bucket}/train/`,
- *                 },
- *             },
- *         },
- *         {
- *             channelName: "validation",
- *             contentType: "text/csv",
- *             inputMode: "File",
- *             dataSource: {
- *                 s3DataSource: {
- *                     s3DataDistributionType: "FullyReplicated",
- *                     s3DataType: "S3Prefix",
- *                     s3Uri: `s3://${exampleAwsS3Bucket.bucket}/validation/`,
- *                 },
- *             },
- *         },
- *     ],
  *     infraCheckConfig: {
  *         enableInfraCheck: true,
  *     },
@@ -272,6 +244,34 @@ import * as utilities from "../utilities";
  *     stoppingCondition: {
  *         maxRuntimeInSeconds: 3600,
  *     },
+ *     inputDataConfigs: [
+ *         {
+ *             dataSource: {
+ *                 s3DataSource: {
+ *                     s3DataDistributionType: "FullyReplicated",
+ *                     s3DataType: "S3Prefix",
+ *                     s3Uri: `s3://${exampleAwsS3Bucket.bucket}/train/`,
+ *                 },
+ *             },
+ *             channelName: "train",
+ *             contentType: "text/csv",
+ *             inputMode: "File",
+ *         },
+ *         {
+ *             dataSource: {
+ *                 s3DataSource: {
+ *                     s3DataDistributionType: "FullyReplicated",
+ *                     s3DataType: "S3Prefix",
+ *                     s3Uri: `s3://${exampleAwsS3Bucket.bucket}/validation/`,
+ *                 },
+ *             },
+ *             channelName: "validation",
+ *             contentType: "text/csv",
+ *             inputMode: "File",
+ *         },
+ *     ],
+ *     trainingJobName: "example",
+ *     roleArn: exampleAwsIamRole.arn,
  * });
  * ```
  *

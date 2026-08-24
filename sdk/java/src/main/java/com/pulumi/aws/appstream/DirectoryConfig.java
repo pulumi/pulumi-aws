@@ -47,8 +47,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DirectoryConfig("example", DirectoryConfigArgs.builder()
- *             .directoryName("NAME OF DIRECTORY")
- *             .organizationalUnitDistinguishedNames("DISTINGUISHED NAME")
  *             .serviceAccountCredentials(DirectoryConfigServiceAccountCredentialsArgs.builder()
  *                 .accountName("NAME OF ACCOUNT")
  *                 .accountPassword("PASSWORD OF ACCOUNT")
@@ -57,6 +55,8 @@ import javax.annotation.Nullable;
  *                 .certificateAuthorityArn("ARN OF CERTIFICATE AUTHORITY")
  *                 .status("STATUS OF CERTIFICATE BASED AUTHENTICATION")
  *                 .build())
+ *             .directoryName("NAME OF DIRECTORY")
+ *             .organizationalUnitDistinguishedNames("DISTINGUISHED NAME")
  *             .build());
  * 
  *     }

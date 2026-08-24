@@ -32,7 +32,6 @@ import (
 //			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -41,6 +40,7 @@ import (
 //								},
 //							},
 //						},
+//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"sts:AssumeRole",
 //						},
@@ -90,14 +90,14 @@ import (
 //				return err
 //			}
 //			_, err = redshift.NewScheduledAction(ctx, "example", &redshift.ScheduledActionArgs{
-//				Name:     pulumi.String("tf-redshift-scheduled-action"),
-//				Schedule: pulumi.String("cron(00 23 * * ? *)"),
-//				IamRole:  exampleRole.Arn,
 //				TargetAction: &redshift.ScheduledActionTargetActionArgs{
 //					PauseCluster: &redshift.ScheduledActionTargetActionPauseClusterArgs{
 //						ClusterIdentifier: pulumi.String("tf-redshift001"),
 //					},
 //				},
+//				Name:     pulumi.String("tf-redshift-scheduled-action"),
+//				Schedule: pulumi.String("cron(00 23 * * ? *)"),
+//				IamRole:  exampleRole.Arn,
 //			})
 //			if err != nil {
 //				return err
@@ -123,9 +123,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := redshift.NewScheduledAction(ctx, "example", &redshift.ScheduledActionArgs{
-//				Name:     pulumi.String("tf-redshift-scheduled-action"),
-//				Schedule: pulumi.String("cron(00 23 * * ? *)"),
-//				IamRole:  pulumi.Any(exampleAwsIamRole.Arn),
 //				TargetAction: &redshift.ScheduledActionTargetActionArgs{
 //					ResizeCluster: &redshift.ScheduledActionTargetActionResizeClusterArgs{
 //						ClusterIdentifier: pulumi.String("tf-redshift001"),
@@ -134,6 +131,9 @@ import (
 //						NumberOfNodes:     pulumi.Int(2),
 //					},
 //				},
+//				Name:     pulumi.String("tf-redshift-scheduled-action"),
+//				Schedule: pulumi.String("cron(00 23 * * ? *)"),
+//				IamRole:  pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err

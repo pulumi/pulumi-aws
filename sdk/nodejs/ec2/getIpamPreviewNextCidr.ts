@@ -24,6 +24,8 @@ import * as utilities from "../utilities";
  * const testVpcIpamPoolCidrAllocation = new aws.ec2.VpcIpamPoolCidrAllocation("test", {
  *     ipamPoolId: testAwsVpcIpamPool.id,
  *     cidr: test.then(test => test.cidr),
+ * }, {
+ *     ignoreChanges: ["cidr"],
  * });
  * ```
  */
@@ -96,6 +98,8 @@ export interface GetIpamPreviewNextCidrResult {
  * const testVpcIpamPoolCidrAllocation = new aws.ec2.VpcIpamPoolCidrAllocation("test", {
  *     ipamPoolId: testAwsVpcIpamPool.id,
  *     cidr: test.then(test => test.cidr),
+ * }, {
+ *     ignoreChanges: ["cidr"],
  * });
  * ```
  */

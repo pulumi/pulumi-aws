@@ -847,10 +847,6 @@ class NodeGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.eks.NodeGroup("example",
-            cluster_name=example_aws_eks_cluster["name"],
-            node_group_name="example",
-            node_role_arn=example_aws_iam_role["arn"],
-            subnet_ids=[__item["id"] for __item in example_aws_subnet],
             scaling_config={
                 "desired_size": 1,
                 "max_size": 2,
@@ -859,6 +855,10 @@ class NodeGroup(pulumi.CustomResource):
             update_config={
                 "max_unavailable": 1,
             },
+            cluster_name=example_aws_eks_cluster["name"],
+            node_group_name="example",
+            node_role_arn=example_aws_iam_role["arn"],
+            subnet_ids=[__item["id"] for __item in example_aws_subnet],
             opts = pulumi.ResourceOptions(depends_on=[
                     example__amazon_eks_worker_node_policy,
                     example__amazon_ekscni_policy,
@@ -876,7 +876,26 @@ class NodeGroup(pulumi.CustomResource):
 
         example = aws.eks.NodeGroup("example", scaling_config={
             "desired_size": 2,
-        })
+        },
+        opts = pulumi.ResourceOptions(ignore_changes=["scalingConfig.desiredSize"]))
+        ```
+
+        ### Tracking the latest EKS Node Group AMI releases
+
+        You can have the node group track the latest version of the Amazon EKS optimized Amazon Linux AMI for a given EKS version by querying an Amazon provided SSM parameter. Replace `standard` in the parameter name below with `nvidia` to retrieve the accelerated AMI version. Replace `x86_64` in the parameter name below with `arm64` to retrieve the ARM version.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        eks_ami_release_version = aws.ssm.get_parameter(name=f"/aws/service/eks/optimized-ami/{example_aws_eks_cluster['version']}/amazon-linux-2023/x86_64/standard/recommended/release_version")
+        example = aws.eks.NodeGroup("example",
+            cluster_name=example_aws_eks_cluster["name"],
+            node_group_name="example",
+            version=example_aws_eks_cluster["version"],
+            release_version=pulumi.Output.unsecret(eks_ami_release_version.value),
+            node_role_arn=example_aws_iam_role["arn"],
+            subnet_ids=[__item["id"] for __item in example_aws_subnet])
         ```
 
         ### Example IAM Role for EKS Node Group
@@ -992,10 +1011,6 @@ class NodeGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.eks.NodeGroup("example",
-            cluster_name=example_aws_eks_cluster["name"],
-            node_group_name="example",
-            node_role_arn=example_aws_iam_role["arn"],
-            subnet_ids=[__item["id"] for __item in example_aws_subnet],
             scaling_config={
                 "desired_size": 1,
                 "max_size": 2,
@@ -1004,6 +1019,10 @@ class NodeGroup(pulumi.CustomResource):
             update_config={
                 "max_unavailable": 1,
             },
+            cluster_name=example_aws_eks_cluster["name"],
+            node_group_name="example",
+            node_role_arn=example_aws_iam_role["arn"],
+            subnet_ids=[__item["id"] for __item in example_aws_subnet],
             opts = pulumi.ResourceOptions(depends_on=[
                     example__amazon_eks_worker_node_policy,
                     example__amazon_ekscni_policy,
@@ -1021,7 +1040,26 @@ class NodeGroup(pulumi.CustomResource):
 
         example = aws.eks.NodeGroup("example", scaling_config={
             "desired_size": 2,
-        })
+        },
+        opts = pulumi.ResourceOptions(ignore_changes=["scalingConfig.desiredSize"]))
+        ```
+
+        ### Tracking the latest EKS Node Group AMI releases
+
+        You can have the node group track the latest version of the Amazon EKS optimized Amazon Linux AMI for a given EKS version by querying an Amazon provided SSM parameter. Replace `standard` in the parameter name below with `nvidia` to retrieve the accelerated AMI version. Replace `x86_64` in the parameter name below with `arm64` to retrieve the ARM version.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        eks_ami_release_version = aws.ssm.get_parameter(name=f"/aws/service/eks/optimized-ami/{example_aws_eks_cluster['version']}/amazon-linux-2023/x86_64/standard/recommended/release_version")
+        example = aws.eks.NodeGroup("example",
+            cluster_name=example_aws_eks_cluster["name"],
+            node_group_name="example",
+            version=example_aws_eks_cluster["version"],
+            release_version=pulumi.Output.unsecret(eks_ami_release_version.value),
+            node_role_arn=example_aws_iam_role["arn"],
+            subnet_ids=[__item["id"] for __item in example_aws_subnet])
         ```
 
         ### Example IAM Role for EKS Node Group

@@ -47,12 +47,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new HumanTaskUI("example", HumanTaskUIArgs.builder()
- *             .humanTaskUiName("example")
  *             .uiTemplate(HumanTaskUIUiTemplateArgs.builder()
  *                 .content(StdFunctions.file(FileArgs.builder()
  *                     .input("sagemaker-human-task-ui-template.html")
  *                     .build()).result())
  *                 .build())
+ *             .humanTaskUiName("example")
  *             .build());
  * 
  *     }

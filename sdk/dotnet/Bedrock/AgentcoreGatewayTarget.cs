@@ -30,11 +30,6 @@ namespace Pulumi.Aws.Bedrock
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -45,6 +40,11 @@ namespace Pulumi.Aws.Bedrock
     ///                             "bedrock-agentcore.amazonaws.com",
     ///                         },
     ///                     },
+    ///                 },
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
     ///                 },
     ///             },
     ///         },
@@ -62,11 +62,6 @@ namespace Pulumi.Aws.Bedrock
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -77,6 +72,11 @@ namespace Pulumi.Aws.Bedrock
     ///                             "lambda.amazonaws.com",
     ///                         },
     ///                     },
+    ///                 },
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
     ///                 },
     ///             },
     ///         },
@@ -99,8 +99,6 @@ namespace Pulumi.Aws.Bedrock
     /// 
     ///     var exampleAgentcoreGateway = new Aws.Bedrock.AgentcoreGateway("example", new()
     ///     {
-    ///         Name = "example-gateway",
-    ///         RoleArn = gatewayRole.Arn,
     ///         AuthorizerConfiguration = new Aws.Bedrock.Inputs.AgentcoreGatewayAuthorizerConfigurationArgs
     ///         {
     ///             CustomJwtAuthorizer = new Aws.Bedrock.Inputs.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs
@@ -108,13 +106,12 @@ namespace Pulumi.Aws.Bedrock
     ///                 DiscoveryUrl = "https://accounts.google.com/.well-known/openid-configuration",
     ///             },
     ///         },
+    ///         Name = "example-gateway",
+    ///         RoleArn = gatewayRole.Arn,
     ///     });
     /// 
     ///     var exampleAgentcoreGatewayTarget = new Aws.Bedrock.AgentcoreGatewayTarget("example", new()
     ///     {
-    ///         Name = "example-target",
-    ///         GatewayIdentifier = exampleAgentcoreGateway.GatewayId,
-    ///         Description = "Lambda function target for processing requests",
     ///         CredentialProviderConfiguration = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetCredentialProviderConfigurationArgs
     ///         {
     ///             GatewayIamRole = null,
@@ -125,19 +122,14 @@ namespace Pulumi.Aws.Bedrock
     ///             {
     ///                 Lambda = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs
     ///                 {
-    ///                     LambdaArn = example.Arn,
     ///                     ToolSchema = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs
     ///                     {
     ///                         InlinePayloads = new[]
     ///                         {
     ///                             new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs
     ///                             {
-    ///                                 Name = "process_request",
-    ///                                 Description = "Process incoming requests",
     ///                                 InputSchema = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs
     ///                                 {
-    ///                                     Type = "object",
-    ///                                     Description = "Request processing schema",
     ///                                     Properties = new[]
     ///                                     {
     ///                                         new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArgs
@@ -149,8 +141,6 @@ namespace Pulumi.Aws.Bedrock
     ///                                         },
     ///                                         new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArgs
     ///                                         {
-    ///                                             Name = "options",
-    ///                                             Type = "object",
     ///                                             Properties = new[]
     ///                                             {
     ///                                                 new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgs
@@ -160,8 +150,6 @@ namespace Pulumi.Aws.Bedrock
     ///                                                 },
     ///                                                 new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgs
     ///                                                 {
-    ///                                                     Name = "tags",
-    ///                                                     Type = "array",
     ///                                                     Items = new[]
     ///                                                     {
     ///                                                         
@@ -169,14 +157,19 @@ namespace Pulumi.Aws.Bedrock
     ///                                                             { "type", "string" },
     ///                                                         },
     ///                                                     },
+    ///                                                     Name = "tags",
+    ///                                                     Type = "array",
     ///                                                 },
     ///                                             },
+    ///                                             Name = "options",
+    ///                                             Type = "object",
     ///                                         },
     ///                                     },
+    ///                                     Type = "object",
+    ///                                     Description = "Request processing schema",
     ///                                 },
     ///                                 OutputSchema = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgs
     ///                                 {
-    ///                                     Type = "object",
     ///                                     Properties = new[]
     ///                                     {
     ///                                         new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArgs
@@ -191,13 +184,20 @@ namespace Pulumi.Aws.Bedrock
     ///                                             Type = "string",
     ///                                         },
     ///                                     },
+    ///                                     Type = "object",
     ///                                 },
+    ///                                 Name = "process_request",
+    ///                                 Description = "Process incoming requests",
     ///                             },
     ///                         },
     ///                     },
+    ///                     LambdaArn = example.Arn,
     ///                 },
     ///             },
     ///         },
+    ///         Name = "example-target",
+    ///         GatewayIdentifier = exampleAgentcoreGateway.GatewayId,
+    ///         Description = "Lambda function target for processing requests",
     ///     });
     /// 
     /// });
@@ -215,9 +215,6 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var apiKeyExample = new Aws.Bedrock.AgentcoreGatewayTarget("api_key_example", new()
     ///     {
-    ///         Name = "api-target",
-    ///         GatewayIdentifier = exampleAwsBedrockagentcoreGateway.GatewayId,
-    ///         Description = "External API target with API key authentication",
     ///         CredentialProviderConfiguration = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetCredentialProviderConfigurationArgs
     ///         {
     ///             ApiKey = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs
@@ -234,26 +231,29 @@ namespace Pulumi.Aws.Bedrock
     ///             {
     ///                 Lambda = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs
     ///                 {
-    ///                     LambdaArn = example.Arn,
     ///                     ToolSchema = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs
     ///                     {
     ///                         InlinePayloads = new[]
     ///                         {
     ///                             new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs
     ///                             {
-    ///                                 Name = "api_tool",
-    ///                                 Description = "External API integration tool",
     ///                                 InputSchema = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs
     ///                                 {
     ///                                     Type = "string",
     ///                                     Description = "Simple string input for API calls",
     ///                                 },
+    ///                                 Name = "api_tool",
+    ///                                 Description = "External API integration tool",
     ///                             },
     ///                         },
     ///                     },
+    ///                     LambdaArn = example.Arn,
     ///                 },
     ///             },
     ///         },
+    ///         Name = "api-target",
+    ///         GatewayIdentifier = exampleAwsBedrockagentcoreGateway.GatewayId,
+    ///         Description = "External API target with API key authentication",
     ///     });
     /// 
     /// });
@@ -271,8 +271,6 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var oauthExample = new Aws.Bedrock.AgentcoreGatewayTarget("oauth_example", new()
     ///     {
-    ///         Name = "oauth-target",
-    ///         GatewayIdentifier = exampleAwsBedrockagentcoreGateway.GatewayId,
     ///         CredentialProviderConfiguration = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetCredentialProviderConfigurationArgs
     ///         {
     ///             Oauth = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs
@@ -297,21 +295,16 @@ namespace Pulumi.Aws.Bedrock
     ///             {
     ///                 Lambda = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs
     ///                 {
-    ///                     LambdaArn = example.Arn,
     ///                     ToolSchema = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs
     ///                     {
     ///                         InlinePayloads = new[]
     ///                         {
     ///                             new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs
     ///                             {
-    ///                                 Name = "oauth_tool",
-    ///                                 Description = "OAuth-authenticated service",
     ///                                 InputSchema = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs
     ///                                 {
-    ///                                     Type = "array",
     ///                                     Items = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsArgs
     ///                                     {
-    ///                                         Type = "object",
     ///                                         Properties = new[]
     ///                                         {
     ///                                             new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArgs
@@ -326,14 +319,21 @@ namespace Pulumi.Aws.Bedrock
     ///                                                 Type = "number",
     ///                                             },
     ///                                         },
+    ///                                         Type = "object",
     ///                                     },
+    ///                                     Type = "array",
     ///                                 },
+    ///                                 Name = "oauth_tool",
+    ///                                 Description = "OAuth-authenticated service",
     ///                             },
     ///                         },
     ///                     },
+    ///                     LambdaArn = example.Arn,
     ///                 },
     ///             },
     ///         },
+    ///         Name = "oauth-target",
+    ///         GatewayIdentifier = exampleAwsBedrockagentcoreGateway.GatewayId,
     ///     });
     /// 
     /// });
@@ -353,8 +353,6 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var sigv4Example = new Aws.Bedrock.AgentcoreGatewayTarget("sigv4_example", new()
     ///     {
-    ///         Name = "sigv4-target",
-    ///         GatewayIdentifier = example.GatewayId,
     ///         CredentialProviderConfiguration = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetCredentialProviderConfigurationArgs
     ///         {
     ///             GatewayIamRole = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs
@@ -372,6 +370,8 @@ namespace Pulumi.Aws.Bedrock
     ///                 },
     ///             },
     ///         },
+    ///         Name = "sigv4-target",
+    ///         GatewayIdentifier = example.GatewayId,
     ///     });
     /// 
     /// });
@@ -390,8 +390,6 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var complexSchema = new Aws.Bedrock.AgentcoreGatewayTarget("complex_schema", new()
     ///     {
-    ///         Name = "complex-target",
-    ///         GatewayIdentifier = exampleAwsBedrockagentcoreGateway.GatewayId,
     ///         CredentialProviderConfiguration = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetCredentialProviderConfigurationArgs
     ///         {
     ///             GatewayIamRole = null,
@@ -402,24 +400,18 @@ namespace Pulumi.Aws.Bedrock
     ///             {
     ///                 Lambda = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs
     ///                 {
-    ///                     LambdaArn = example.Arn,
     ///                     ToolSchema = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs
     ///                     {
     ///                         InlinePayloads = new[]
     ///                         {
     ///                             new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs
     ///                             {
-    ///                                 Name = "complex_tool",
-    ///                                 Description = "Tool with complex nested schema",
     ///                                 InputSchema = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs
     ///                                 {
-    ///                                     Type = "object",
     ///                                     Properties = new[]
     ///                                     {
     ///                                         new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArgs
     ///                                         {
-    ///                                             Name = "profile",
-    ///                                             Type = "object",
     ///                                             Properties = new[]
     ///                                             {
     ///                                                 new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgs
@@ -455,15 +447,23 @@ namespace Pulumi.Aws.Bedrock
     ///                                                     }),
     ///                                                 },
     ///                                             },
+    ///                                             Name = "profile",
+    ///                                             Type = "object",
     ///                                         },
     ///                                     },
+    ///                                     Type = "object",
     ///                                 },
+    ///                                 Name = "complex_tool",
+    ///                                 Description = "Tool with complex nested schema",
     ///                             },
     ///                         },
     ///                     },
+    ///                     LambdaArn = example.Arn,
     ///                 },
     ///             },
     ///         },
+    ///         Name = "complex-target",
+    ///         GatewayIdentifier = exampleAwsBedrockagentcoreGateway.GatewayId,
     ///     });
     /// 
     /// });
@@ -481,9 +481,6 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var mcpWithHeaders = new Aws.Bedrock.AgentcoreGatewayTarget("mcp_with_headers", new()
     ///     {
-    ///         Name = "mcp-target-with-headers",
-    ///         GatewayIdentifier = example.GatewayId,
-    ///         Description = "MCP server target with header propagation",
     ///         TargetConfiguration = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationArgs
     ///         {
     ///             Mcp = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpArgs
@@ -510,6 +507,9 @@ namespace Pulumi.Aws.Bedrock
     ///                 "version",
     ///             },
     ///         },
+    ///         Name = "mcp-target-with-headers",
+    ///         GatewayIdentifier = example.GatewayId,
+    ///         Description = "MCP server target with header propagation",
     ///     });
     /// 
     /// });
@@ -529,8 +529,6 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var example = new Aws.Bedrock.AgentcoreAgentRuntime("example", new()
     ///     {
-    ///         AgentRuntimeName = "example-runtime",
-    ///         RoleArn = runtimeRole.Arn,
     ///         AgentRuntimeArtifact = new Aws.Bedrock.Inputs.AgentcoreAgentRuntimeAgentRuntimeArtifactArgs
     ///         {
     ///             ContainerConfiguration = new Aws.Bedrock.Inputs.AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs
@@ -542,12 +540,12 @@ namespace Pulumi.Aws.Bedrock
     ///         {
     ///             NetworkMode = "PUBLIC",
     ///         },
+    ///         AgentRuntimeName = "example-runtime",
+    ///         RoleArn = runtimeRole.Arn,
     ///     });
     /// 
     ///     var runtime = new Aws.Bedrock.AgentcoreGatewayTarget("runtime", new()
     ///     {
-    ///         Name = "runtime-target",
-    ///         GatewayIdentifier = exampleAwsBedrockagentcoreGateway.GatewayId,
     ///         CredentialProviderConfiguration = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetCredentialProviderConfigurationArgs
     ///         {
     ///             GatewayIamRole = null,
@@ -563,6 +561,8 @@ namespace Pulumi.Aws.Bedrock
     ///                 },
     ///             },
     ///         },
+    ///         Name = "runtime-target",
+    ///         GatewayIdentifier = exampleAwsBedrockagentcoreGateway.GatewayId,
     ///     });
     /// 
     /// });
@@ -580,8 +580,6 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var example = new Aws.Bedrock.AgentcoreGatewayTarget("example", new()
     ///     {
-    ///         GatewayIdentifier = exampleAwsBedrockagentcoreGateway.GatewayId,
-    ///         Name = "my-private-mcp-target",
     ///         TargetConfiguration = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationArgs
     ///         {
     ///             Mcp = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpArgs
@@ -605,6 +603,8 @@ namespace Pulumi.Aws.Bedrock
     ///                 },
     ///             },
     ///         },
+    ///         GatewayIdentifier = exampleAwsBedrockagentcoreGateway.GatewayId,
+    ///         Name = "my-private-mcp-target",
     ///     });
     /// 
     /// });
@@ -624,8 +624,6 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var example = new Aws.Bedrock.AgentcoreGatewayTarget("example", new()
     ///     {
-    ///         GatewayIdentifier = exampleAwsBedrockagentcoreGateway.GatewayId,
-    ///         Name = "my-private-mcp-via-alb",
     ///         TargetConfiguration = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationArgs
     ///         {
     ///             Mcp = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpArgs
@@ -646,6 +644,8 @@ namespace Pulumi.Aws.Bedrock
     ///                 RoutingDomain = mcpAlb.DnsName,
     ///             },
     ///         },
+    ///         GatewayIdentifier = exampleAwsBedrockagentcoreGateway.GatewayId,
+    ///         Name = "my-private-mcp-via-alb",
     ///     });
     /// 
     /// });
@@ -663,8 +663,6 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var example = new Aws.Bedrock.AgentcoreGatewayTarget("example", new()
     ///     {
-    ///         GatewayIdentifier = exampleAwsBedrockagentcoreGateway.GatewayId,
-    ///         Name = "my-private-mcp-self-managed",
     ///         TargetConfiguration = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationArgs
     ///         {
     ///             Mcp = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpArgs
@@ -682,6 +680,8 @@ namespace Pulumi.Aws.Bedrock
     ///                 ResourceConfigurationIdentifier = mcp.Arn,
     ///             },
     ///         },
+    ///         GatewayIdentifier = exampleAwsBedrockagentcoreGateway.GatewayId,
+    ///         Name = "my-private-mcp-self-managed",
     ///     });
     /// 
     /// });

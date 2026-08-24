@@ -38,14 +38,14 @@ import * as utilities from "../utilities";
  *     name: "example.com",
  * });
  * const auth_cognito_A = new aws.route53.Record("auth-cognito-A", {
- *     name: main.domain,
- *     type: aws.route53.RecordType.A,
- *     zoneId: example.then(example => example.zoneId),
  *     aliases: [{
  *         evaluateTargetHealth: false,
  *         name: main.cloudfrontDistribution,
  *         zoneId: main.cloudfrontDistributionZoneId,
  *     }],
+ *     name: main.domain,
+ *     type: aws.route53.RecordType.A,
+ *     zoneId: example.then(example => example.zoneId),
  * });
  * ```
  *

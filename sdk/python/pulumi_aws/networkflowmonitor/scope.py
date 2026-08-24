@@ -236,13 +236,13 @@ class Scope(pulumi.CustomResource):
         current = aws.get_caller_identity()
         example = aws.networkflowmonitor.Scope("example",
             targets=[{
-                "region": "us-east-1",
                 "target_identifier": {
-                    "target_type": "ACCOUNT",
                     "target_id": {
                         "account_id": current.account_id,
                     },
+                    "target_type": "ACCOUNT",
                 },
+                "region": "us-east-1",
             }],
             tags={
                 "Name": "example",
@@ -286,13 +286,13 @@ class Scope(pulumi.CustomResource):
         current = aws.get_caller_identity()
         example = aws.networkflowmonitor.Scope("example",
             targets=[{
-                "region": "us-east-1",
                 "target_identifier": {
-                    "target_type": "ACCOUNT",
                     "target_id": {
                         "account_id": current.account_id,
                     },
+                    "target_type": "ACCOUNT",
                 },
+                "region": "us-east-1",
             }],
             tags={
                 "Name": "example",

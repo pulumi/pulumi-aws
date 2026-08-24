@@ -28,17 +28,17 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := wafregional.NewSizeConstraintSet(ctx, "size_constraint_set", &wafregional.SizeConstraintSetArgs{
-//				Name: pulumi.String("tfsize_constraints"),
 //				SizeConstraints: wafregional.SizeConstraintSetSizeConstraintArray{
 //					&wafregional.SizeConstraintSetSizeConstraintArgs{
-//						TextTransformation: pulumi.String("NONE"),
-//						ComparisonOperator: pulumi.String("EQ"),
-//						Size:               pulumi.Int(4096),
 //						FieldToMatch: &wafregional.SizeConstraintSetSizeConstraintFieldToMatchArgs{
 //							Type: pulumi.String("BODY"),
 //						},
+//						TextTransformation: pulumi.String("NONE"),
+//						ComparisonOperator: pulumi.String("EQ"),
+//						Size:               pulumi.Int(4096),
 //					},
 //				},
+//				Name: pulumi.String("tfsize_constraints"),
 //			})
 //			if err != nil {
 //				return err

@@ -665,8 +665,6 @@ class NatGateway(pulumi.CustomResource):
         for example_eip_range in [{"value": i} for i in range(0, 3)]:
             example_eip.append(aws.ec2.Eip(f"example-{example_eip_range['value']}", domain="vpc"))
         example_nat_gateway = aws.ec2.NatGateway("example",
-            vpc_id=example.id,
-            availability_mode="regional",
             availability_zone_addresses=[
                 {
                     "allocation_ids": [example_eip[0].id],
@@ -679,7 +677,9 @@ class NatGateway(pulumi.CustomResource):
                     ],
                     "availability_zone": available.names[1],
                 },
-            ])
+            ],
+            vpc_id=example.id,
+            availability_mode="regional")
         ```
 
         ## Import
@@ -809,8 +809,6 @@ class NatGateway(pulumi.CustomResource):
         for example_eip_range in [{"value": i} for i in range(0, 3)]:
             example_eip.append(aws.ec2.Eip(f"example-{example_eip_range['value']}", domain="vpc"))
         example_nat_gateway = aws.ec2.NatGateway("example",
-            vpc_id=example.id,
-            availability_mode="regional",
             availability_zone_addresses=[
                 {
                     "allocation_ids": [example_eip[0].id],
@@ -823,7 +821,9 @@ class NatGateway(pulumi.CustomResource):
                     ],
                     "availability_zone": available.names[1],
                 },
-            ])
+            ],
+            vpc_id=example.id,
+            availability_mode="regional")
         ```
 
         ## Import

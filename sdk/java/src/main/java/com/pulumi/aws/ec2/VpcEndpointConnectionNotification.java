@@ -53,11 +53,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var topic = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("vpce.amazonaws.com")
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions("SNS:Publish")
  *                 .resources("arn:aws:sns:*:*:vpce-notification-topic")
  *                 .build())

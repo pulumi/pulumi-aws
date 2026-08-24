@@ -248,12 +248,7 @@ class CatalogTableOptimizer(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.CatalogTableOptimizer("example",
-            catalog_id="123456789012",
-            database_name="example_database",
-            table_name="example_table",
             configuration={
-                "role_arn": "arn:aws:iam::123456789012:role/example-role",
-                "enabled": True,
                 "compaction_configuration": {
                     "iceberg_configuration": {
                         "strategy": "binpack",
@@ -261,7 +256,12 @@ class CatalogTableOptimizer(pulumi.CustomResource):
                         "delete_file_threshold": 1,
                     },
                 },
+                "role_arn": "arn:aws:iam::123456789012:role/example-role",
+                "enabled": True,
             },
+            catalog_id="123456789012",
+            database_name="example_database",
+            table_name="example_table",
             type="compaction")
         ```
 
@@ -272,12 +272,7 @@ class CatalogTableOptimizer(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.CatalogTableOptimizer("example",
-            catalog_id="123456789012",
-            database_name="example_database",
-            table_name="example_table",
             configuration={
-                "role_arn": "arn:aws:iam::123456789012:role/example-role",
-                "enabled": True,
                 "retention_configuration": {
                     "iceberg_configuration": {
                         "snapshot_retention_period_in_days": 7,
@@ -285,7 +280,12 @@ class CatalogTableOptimizer(pulumi.CustomResource):
                         "clean_expired_files": True,
                     },
                 },
+                "role_arn": "arn:aws:iam::123456789012:role/example-role",
+                "enabled": True,
             },
+            catalog_id="123456789012",
+            database_name="example_database",
+            table_name="example_table",
             type="retention")
         ```
 
@@ -296,19 +296,19 @@ class CatalogTableOptimizer(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.CatalogTableOptimizer("example",
-            catalog_id="123456789012",
-            database_name="example_database",
-            table_name="example_table",
             configuration={
-                "role_arn": "arn:aws:iam::123456789012:role/example-role",
-                "enabled": True,
                 "orphan_file_deletion_configuration": {
                     "iceberg_configuration": {
                         "orphan_file_retention_period_in_days": 7,
                         "location": "s3://example-bucket/example_table/",
                     },
                 },
+                "role_arn": "arn:aws:iam::123456789012:role/example-role",
+                "enabled": True,
             },
+            catalog_id="123456789012",
+            database_name="example_database",
+            table_name="example_table",
             type="orphan_file_deletion")
         ```
 
@@ -348,12 +348,7 @@ class CatalogTableOptimizer(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.CatalogTableOptimizer("example",
-            catalog_id="123456789012",
-            database_name="example_database",
-            table_name="example_table",
             configuration={
-                "role_arn": "arn:aws:iam::123456789012:role/example-role",
-                "enabled": True,
                 "compaction_configuration": {
                     "iceberg_configuration": {
                         "strategy": "binpack",
@@ -361,7 +356,12 @@ class CatalogTableOptimizer(pulumi.CustomResource):
                         "delete_file_threshold": 1,
                     },
                 },
+                "role_arn": "arn:aws:iam::123456789012:role/example-role",
+                "enabled": True,
             },
+            catalog_id="123456789012",
+            database_name="example_database",
+            table_name="example_table",
             type="compaction")
         ```
 
@@ -372,12 +372,7 @@ class CatalogTableOptimizer(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.CatalogTableOptimizer("example",
-            catalog_id="123456789012",
-            database_name="example_database",
-            table_name="example_table",
             configuration={
-                "role_arn": "arn:aws:iam::123456789012:role/example-role",
-                "enabled": True,
                 "retention_configuration": {
                     "iceberg_configuration": {
                         "snapshot_retention_period_in_days": 7,
@@ -385,7 +380,12 @@ class CatalogTableOptimizer(pulumi.CustomResource):
                         "clean_expired_files": True,
                     },
                 },
+                "role_arn": "arn:aws:iam::123456789012:role/example-role",
+                "enabled": True,
             },
+            catalog_id="123456789012",
+            database_name="example_database",
+            table_name="example_table",
             type="retention")
         ```
 
@@ -396,19 +396,19 @@ class CatalogTableOptimizer(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.CatalogTableOptimizer("example",
-            catalog_id="123456789012",
-            database_name="example_database",
-            table_name="example_table",
             configuration={
-                "role_arn": "arn:aws:iam::123456789012:role/example-role",
-                "enabled": True,
                 "orphan_file_deletion_configuration": {
                     "iceberg_configuration": {
                         "orphan_file_retention_period_in_days": 7,
                         "location": "s3://example-bucket/example_table/",
                     },
                 },
+                "role_arn": "arn:aws:iam::123456789012:role/example-role",
+                "enabled": True,
             },
+            catalog_id="123456789012",
+            database_name="example_database",
+            table_name="example_table",
             type="orphan_file_deletion")
         ```
 

@@ -26,7 +26,6 @@ namespace Pulumi.Aws.Xray
     /// {
     ///     var example = new Aws.Xray.IndexingRule("example", new()
     ///     {
-    ///         Name = "Default",
     ///         Rule = new Aws.Xray.Inputs.IndexingRuleRuleArgs
     ///         {
     ///             Probabilistic = new Aws.Xray.Inputs.IndexingRuleRuleProbabilisticArgs
@@ -34,6 +33,7 @@ namespace Pulumi.Aws.Xray
     ///                 DesiredSamplingPercentage = 0.66,
     ///             },
     ///         },
+    ///         Name = "Default",
     ///     });
     /// 
     /// });

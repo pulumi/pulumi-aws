@@ -62,10 +62,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := sagemaker.NewCodeRepository(ctx, "example", &sagemaker.CodeRepositoryArgs{
-//				CodeRepositoryName: pulumi.String("my-notebook-instance-code-repo"),
 //				GitConfig: &sagemaker.CodeRepositoryGitConfigArgs{
 //					RepositoryUrl: pulumi.String("https://github.com/github/docs.git"),
 //				},
+//				CodeRepositoryName: pulumi.String("my-notebook-instance-code-repo"),
 //			})
 //			if err != nil {
 //				return err

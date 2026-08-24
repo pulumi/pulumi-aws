@@ -29,6 +29,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewFleet(ctx, "example", &ec2.FleetArgs{
+//				TargetCapacitySpecification: &ec2.FleetTargetCapacitySpecificationArgs{
+//					DefaultTargetCapacityType: pulumi.String("spot"),
+//					TotalTargetCapacity:       pulumi.Int(5),
+//				},
 //				LaunchTemplateConfigs: ec2.FleetLaunchTemplateConfigArray{
 //					&ec2.FleetLaunchTemplateConfigArgs{
 //						LaunchTemplateSpecification: &ec2.FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs{
@@ -36,10 +40,6 @@ import (
 //							Version:          pulumi.Any(exampleAwsLaunchTemplate.LatestVersion),
 //						},
 //					},
-//				},
-//				TargetCapacitySpecification: &ec2.FleetTargetCapacitySpecificationArgs{
-//					DefaultTargetCapacityType: pulumi.String("spot"),
-//					TotalTargetCapacity:       pulumi.Int(5),
 //				},
 //			})
 //			if err != nil {

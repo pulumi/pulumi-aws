@@ -79,11 +79,11 @@ def get_billing_service_account(id: Optional[_builtins.str] = None,
         acl="private")
     allow_billing_logging = aws.iam.get_policy_document_output(statements=[
         {
-            "effect": "Allow",
             "principals": [{
                 "type": "AWS",
                 "identifiers": [main.arn],
             }],
+            "effect": "Allow",
             "actions": [
                 "s3:GetBucketAcl",
                 "s3:GetBucketPolicy",
@@ -91,11 +91,11 @@ def get_billing_service_account(id: Optional[_builtins.str] = None,
             "resources": [billing_logs.arn],
         },
         {
-            "effect": "Allow",
             "principals": [{
                 "type": "AWS",
                 "identifiers": [main.arn],
             }],
+            "effect": "Allow",
             "actions": ["s3:PutObject"],
             "resources": [billing_logs.arn.apply(lambda arn: f"{arn}/*")],
         },
@@ -134,11 +134,11 @@ def get_billing_service_account_output(id: pulumi.Input[Optional[Optional[_built
         acl="private")
     allow_billing_logging = aws.iam.get_policy_document_output(statements=[
         {
-            "effect": "Allow",
             "principals": [{
                 "type": "AWS",
                 "identifiers": [main.arn],
             }],
+            "effect": "Allow",
             "actions": [
                 "s3:GetBucketAcl",
                 "s3:GetBucketPolicy",
@@ -146,11 +146,11 @@ def get_billing_service_account_output(id: pulumi.Input[Optional[Optional[_built
             "resources": [billing_logs.arn],
         },
         {
-            "effect": "Allow",
             "principals": [{
                 "type": "AWS",
                 "identifiers": [main.arn],
             }],
+            "effect": "Allow",
             "actions": ["s3:PutObject"],
             "resources": [billing_logs.arn.apply(lambda arn: f"{arn}/*")],
         },

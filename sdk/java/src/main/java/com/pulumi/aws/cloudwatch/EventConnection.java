@@ -48,15 +48,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new EventConnection("test", EventConnectionArgs.builder()
- *             .name("ngrok-connection")
- *             .description("A connection description")
- *             .authorizationType("API_KEY")
  *             .authParameters(EventConnectionAuthParametersArgs.builder()
  *                 .apiKey(EventConnectionAuthParametersApiKeyArgs.builder()
  *                     .key("x-signature")
  *                     .value("1234")
  *                     .build())
  *                 .build())
+ *             .name("ngrok-connection")
+ *             .description("A connection description")
+ *             .authorizationType("API_KEY")
  *             .build());
  * 
  *     }
@@ -91,15 +91,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new EventConnection("test", EventConnectionArgs.builder()
- *             .name("ngrok-connection")
- *             .description("A connection description")
- *             .authorizationType("BASIC")
  *             .authParameters(EventConnectionAuthParametersArgs.builder()
  *                 .basic(EventConnectionAuthParametersBasicArgs.builder()
  *                     .username("user")
  *                     .password("Pass1234!")
  *                     .build())
  *                 .build())
+ *             .name("ngrok-connection")
+ *             .description("A connection description")
+ *             .authorizationType("BASIC")
  *             .build());
  * 
  *     }
@@ -139,13 +139,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new EventConnection("test", EventConnectionArgs.builder()
- *             .name("ngrok-connection")
- *             .description("A connection description")
- *             .authorizationType("OAUTH_CLIENT_CREDENTIALS")
  *             .authParameters(EventConnectionAuthParametersArgs.builder()
  *                 .oauth(EventConnectionAuthParametersOauthArgs.builder()
- *                     .authorizationEndpoint("https://auth.url.com/endpoint")
- *                     .httpMethod("GET")
  *                     .clientParameters(EventConnectionAuthParametersOauthClientParametersArgs.builder()
  *                         .clientId("1234567890")
  *                         .clientSecret("Pass1234!")
@@ -167,8 +162,13 @@ import javax.annotation.Nullable;
  *                             .isValueSecret(false)
  *                             .build())
  *                         .build())
+ *                     .authorizationEndpoint("https://auth.url.com/endpoint")
+ *                     .httpMethod("GET")
  *                     .build())
  *                 .build())
+ *             .name("ngrok-connection")
+ *             .description("A connection description")
+ *             .authorizationType("OAUTH_CLIENT_CREDENTIALS")
  *             .build());
  * 
  *     }
@@ -207,9 +207,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new EventConnection("test", EventConnectionArgs.builder()
- *             .name("ngrok-connection")
- *             .description("A connection description")
- *             .authorizationType("BASIC")
  *             .authParameters(EventConnectionAuthParametersArgs.builder()
  *                 .basic(EventConnectionAuthParametersBasicArgs.builder()
  *                     .username("user")
@@ -239,6 +236,9 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
+ *             .name("ngrok-connection")
+ *             .description("A connection description")
+ *             .authorizationType("BASIC")
  *             .build());
  * 
  *     }
@@ -278,9 +278,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new EventConnection("test", EventConnectionArgs.builder()
- *             .name("private-api-connection")
- *             .description("A connection to a private API")
- *             .authorizationType("OAUTH_CLIENT_CREDENTIALS")
  *             .authParameters(EventConnectionAuthParametersArgs.builder()
  *                 .connectivityParameters(EventConnectionAuthParametersConnectivityParametersArgs.builder()
  *                     .resourceParameters(EventConnectionAuthParametersConnectivityParametersResourceParametersArgs.builder()
@@ -288,8 +285,6 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .oauth(EventConnectionAuthParametersOauthArgs.builder()
- *                     .authorizationEndpoint("https://private-api.example.com/auth")
- *                     .httpMethod("POST")
  *                     .clientParameters(EventConnectionAuthParametersOauthClientParametersArgs.builder()
  *                         .clientId("1234567890")
  *                         .clientSecret("Pass1234!")
@@ -301,8 +296,13 @@ import javax.annotation.Nullable;
  *                             .isValueSecret(false)
  *                             .build())
  *                         .build())
+ *                     .authorizationEndpoint("https://private-api.example.com/auth")
+ *                     .httpMethod("POST")
  *                     .build())
  *                 .build())
+ *             .name("private-api-connection")
+ *             .description("A connection to a private API")
+ *             .authorizationType("OAUTH_CLIENT_CREDENTIALS")
  *             .build());
  * 
  *     }
@@ -389,15 +389,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testEventConnection = new EventConnection("testEventConnection", EventConnectionArgs.builder()
- *             .name("ngrok-connection")
- *             .description("A connection description")
- *             .authorizationType("BASIC")
  *             .authParameters(EventConnectionAuthParametersArgs.builder()
  *                 .basic(EventConnectionAuthParametersBasicArgs.builder()
  *                     .username("user")
  *                     .password("Pass1234!")
  *                     .build())
  *                 .build())
+ *             .name("ngrok-connection")
+ *             .description("A connection description")
+ *             .authorizationType("BASIC")
  *             .kmsKeyIdentifier(example.id())
  *             .build());
  * 

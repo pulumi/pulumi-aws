@@ -46,14 +46,14 @@ import (
 //				return err
 //			}
 //			_, err = mskconnect.NewCustomPlugin(ctx, "example", &mskconnect.CustomPluginArgs{
-//				Name:        pulumi.String("debezium-example"),
-//				ContentType: pulumi.String("ZIP"),
 //				Location: &mskconnect.CustomPluginLocationArgs{
 //					S3: &mskconnect.CustomPluginLocationS3Args{
 //						BucketArn: example.Arn,
 //						FileKey:   exampleBucketObjectv2.Key,
 //					},
 //				},
+//				Name:        pulumi.String("debezium-example"),
+//				ContentType: pulumi.String("ZIP"),
 //			})
 //			if err != nil {
 //				return err

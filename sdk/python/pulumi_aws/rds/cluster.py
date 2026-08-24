@@ -2552,6 +2552,11 @@ class Cluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.rds.Cluster("example",
+            serverlessv2_scaling_configuration={
+                "max_capacity": float(1),
+                "min_capacity": float(0),
+                "seconds_until_auto_pause": 3600,
+            },
             cluster_identifier="example",
             engine=aws.rds.EngineType.AURORA_POSTGRESQL,
             engine_mode=aws.rds.EngineMode.PROVISIONED,
@@ -2559,12 +2564,7 @@ class Cluster(pulumi.CustomResource):
             database_name="test",
             master_username="test",
             master_password="must_be_eight_characters",
-            storage_encrypted=True,
-            serverlessv2_scaling_configuration={
-                "max_capacity": float(1),
-                "min_capacity": float(0),
-                "seconds_until_auto_pause": 3600,
-            })
+            storage_encrypted=True)
         example_cluster_instance = aws.rds.ClusterInstance("example",
             cluster_identifier=example.id,
             instance_class="db.serverless",
@@ -2620,7 +2620,11 @@ class Cluster(pulumi.CustomResource):
             engine=aws.rds.EngineType.AURORA,
             engine_version="5.6.mysql_aurora.1.22.4",
             cluster_identifier="example",
-            snapshot_identifier=example.id)
+            snapshot_identifier=example.id,
+            opts = pulumi.ResourceOptions(ignore_changes=[
+                    "snapshotIdentifier",
+                    "globalClusterIdentifier",
+                ]))
         example_global_cluster = aws.rds.GlobalCluster("example",
             global_cluster_identifier="example",
             source_db_cluster_identifier=example_cluster.arn,
@@ -2856,6 +2860,11 @@ class Cluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.rds.Cluster("example",
+            serverlessv2_scaling_configuration={
+                "max_capacity": float(1),
+                "min_capacity": float(0),
+                "seconds_until_auto_pause": 3600,
+            },
             cluster_identifier="example",
             engine=aws.rds.EngineType.AURORA_POSTGRESQL,
             engine_mode=aws.rds.EngineMode.PROVISIONED,
@@ -2863,12 +2872,7 @@ class Cluster(pulumi.CustomResource):
             database_name="test",
             master_username="test",
             master_password="must_be_eight_characters",
-            storage_encrypted=True,
-            serverlessv2_scaling_configuration={
-                "max_capacity": float(1),
-                "min_capacity": float(0),
-                "seconds_until_auto_pause": 3600,
-            })
+            storage_encrypted=True)
         example_cluster_instance = aws.rds.ClusterInstance("example",
             cluster_identifier=example.id,
             instance_class="db.serverless",
@@ -2924,7 +2928,11 @@ class Cluster(pulumi.CustomResource):
             engine=aws.rds.EngineType.AURORA,
             engine_version="5.6.mysql_aurora.1.22.4",
             cluster_identifier="example",
-            snapshot_identifier=example.id)
+            snapshot_identifier=example.id,
+            opts = pulumi.ResourceOptions(ignore_changes=[
+                    "snapshotIdentifier",
+                    "globalClusterIdentifier",
+                ]))
         example_global_cluster = aws.rds.GlobalCluster("example",
             global_cluster_identifier="example",
             source_db_cluster_identifier=example_cluster.arn,

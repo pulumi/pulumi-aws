@@ -51,10 +51,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBucketOwnershipControls = new BucketOwnershipControls("exampleBucketOwnershipControls", BucketOwnershipControlsArgs.builder()
- *             .bucket(example.id())
  *             .rule(BucketOwnershipControlsRuleArgs.builder()
  *                 .objectOwnership("BucketOwnerPreferred")
  *                 .build())
+ *             .bucket(example.id())
  *             .build());
  * 
  *     }

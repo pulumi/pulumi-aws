@@ -20,8 +20,6 @@ import * as utilities from "../utilities";
  *
  * const current = aws.getRegion({});
  * const example = current.then(current => aws.route53.getTrafficPolicyDocument({
- *     recordType: "A",
- *     startRule: "site_switch",
  *     endpoints: [
  *         {
  *             id: "my_elb",
@@ -36,15 +34,17 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  *     rules: [{
- *         id: "site_switch",
- *         type: "failover",
  *         primary: {
  *             endpointReference: "my_elb",
  *         },
  *         secondary: {
  *             endpointReference: "site_down_banner",
  *         },
+ *         id: "site_switch",
+ *         type: "failover",
  *     }],
+ *     recordType: "A",
+ *     startRule: "site_switch",
  * }));
  * const exampleTrafficPolicy = new aws.route53.TrafficPolicy("example", {
  *     name: "example",
@@ -62,8 +62,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.route53.getTrafficPolicyDocument({
- *     recordType: "A",
- *     startRule: "geoproximity_rule",
  *     endpoints: [
  *         {
  *             id: "na_endpoint_a",
@@ -88,18 +86,16 @@ import * as utilities from "../utilities";
  *     ],
  *     rules: [
  *         {
- *             id: "na_rule",
- *             type: "failover",
  *             primary: {
  *                 endpointReference: "na_endpoint_a",
  *             },
  *             secondary: {
  *                 endpointReference: "na_endpoint_b",
  *             },
+ *             id: "na_rule",
+ *             type: "failover",
  *         },
  *         {
- *             id: "geoproximity_rule",
- *             type: "geoproximity",
  *             geoProximityLocations: [
  *                 {
  *                     region: "aws:route53:us-west-1",
@@ -120,8 +116,12 @@ import * as utilities from "../utilities";
  *                     endpointReference: "ap_endpoint",
  *                 },
  *             ],
+ *             id: "geoproximity_rule",
+ *             type: "geoproximity",
  *         },
  *     ],
+ *     recordType: "A",
+ *     startRule: "geoproximity_rule",
  * });
  * const exampleTrafficPolicy = new aws.route53.TrafficPolicy("example", {
  *     name: "example",
@@ -205,8 +205,6 @@ export interface GetTrafficPolicyDocumentResult {
  *
  * const current = aws.getRegion({});
  * const example = current.then(current => aws.route53.getTrafficPolicyDocument({
- *     recordType: "A",
- *     startRule: "site_switch",
  *     endpoints: [
  *         {
  *             id: "my_elb",
@@ -221,15 +219,17 @@ export interface GetTrafficPolicyDocumentResult {
  *         },
  *     ],
  *     rules: [{
- *         id: "site_switch",
- *         type: "failover",
  *         primary: {
  *             endpointReference: "my_elb",
  *         },
  *         secondary: {
  *             endpointReference: "site_down_banner",
  *         },
+ *         id: "site_switch",
+ *         type: "failover",
  *     }],
+ *     recordType: "A",
+ *     startRule: "site_switch",
  * }));
  * const exampleTrafficPolicy = new aws.route53.TrafficPolicy("example", {
  *     name: "example",
@@ -247,8 +247,6 @@ export interface GetTrafficPolicyDocumentResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.route53.getTrafficPolicyDocument({
- *     recordType: "A",
- *     startRule: "geoproximity_rule",
  *     endpoints: [
  *         {
  *             id: "na_endpoint_a",
@@ -273,18 +271,16 @@ export interface GetTrafficPolicyDocumentResult {
  *     ],
  *     rules: [
  *         {
- *             id: "na_rule",
- *             type: "failover",
  *             primary: {
  *                 endpointReference: "na_endpoint_a",
  *             },
  *             secondary: {
  *                 endpointReference: "na_endpoint_b",
  *             },
+ *             id: "na_rule",
+ *             type: "failover",
  *         },
  *         {
- *             id: "geoproximity_rule",
- *             type: "geoproximity",
  *             geoProximityLocations: [
  *                 {
  *                     region: "aws:route53:us-west-1",
@@ -305,8 +301,12 @@ export interface GetTrafficPolicyDocumentResult {
  *                     endpointReference: "ap_endpoint",
  *                 },
  *             ],
+ *             id: "geoproximity_rule",
+ *             type: "geoproximity",
  *         },
  *     ],
+ *     recordType: "A",
+ *     startRule: "geoproximity_rule",
  * });
  * const exampleTrafficPolicy = new aws.route53.TrafficPolicy("example", {
  *     name: "example",

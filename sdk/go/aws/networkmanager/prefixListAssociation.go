@@ -32,15 +32,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			prefixList, err := ec2.NewManagedPrefixList(ctx, "prefix_list", &ec2.ManagedPrefixListArgs{
-//				Name:          pulumi.String("example"),
-//				AddressFamily: pulumi.String("IPv4"),
-//				MaxEntries:    pulumi.Int(5),
 //				Entries: ec2.ManagedPrefixListEntryTypeArray{
 //					&ec2.ManagedPrefixListEntryTypeArgs{
 //						Cidr:        pulumi.String("10.0.0.0/8"),
 //						Description: pulumi.String("Example CIDR"),
 //					},
 //				},
+//				Name:          pulumi.String("example"),
+//				AddressFamily: pulumi.String("IPv4"),
+//				MaxEntries:    pulumi.Int(5),
 //			})
 //			if err != nil {
 //				return err

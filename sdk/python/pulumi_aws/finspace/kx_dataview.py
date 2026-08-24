@@ -535,6 +535,10 @@ class KxDataview(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.finspace.KxDataview("example",
+            segment_configurations=[{
+                "volume_name": example_aws_finspace_kx_volume["name"],
+                "db_paths": ["/*"],
+            }],
             name="my-tf-kx-dataview",
             environment_id=example_aws_finspace_kx_environment["id"],
             database_name=example_aws_finspace_kx_database["name"],
@@ -542,10 +546,7 @@ class KxDataview(pulumi.CustomResource):
             description="Terraform managed Kx Dataview",
             az_mode="SINGLE",
             auto_update=True,
-            segment_configurations=[{
-                "volume_name": example_aws_finspace_kx_volume["name"],
-                "db_paths": ["/*"],
-            }])
+            opts = pulumi.ResourceOptions(custom_timeouts=pulumi.CustomTimeouts(create="24h", update="24h", delete="12h")))
         ```
 
         ## Import
@@ -592,6 +593,10 @@ class KxDataview(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.finspace.KxDataview("example",
+            segment_configurations=[{
+                "volume_name": example_aws_finspace_kx_volume["name"],
+                "db_paths": ["/*"],
+            }],
             name="my-tf-kx-dataview",
             environment_id=example_aws_finspace_kx_environment["id"],
             database_name=example_aws_finspace_kx_database["name"],
@@ -599,10 +604,7 @@ class KxDataview(pulumi.CustomResource):
             description="Terraform managed Kx Dataview",
             az_mode="SINGLE",
             auto_update=True,
-            segment_configurations=[{
-                "volume_name": example_aws_finspace_kx_volume["name"],
-                "db_paths": ["/*"],
-            }])
+            opts = pulumi.ResourceOptions(custom_timeouts=pulumi.CustomTimeouts(create="24h", update="24h", delete="12h")))
         ```
 
         ## Import

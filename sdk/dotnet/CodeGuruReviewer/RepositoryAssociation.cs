@@ -27,6 +27,12 @@ namespace Pulumi.Aws.CodeGuruReviewer
     ///     var exampleRepository = new Aws.CodeCommit.Repository("example", new()
     ///     {
     ///         RepositoryName = "example-repo",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
+    ///         {
+    ///             "tags[\"codeguru-reviewer\"]",
+    ///         },
     ///     });
     /// 
     ///     var exampleRepositoryAssociation = new Aws.CodeGuruReviewer.RepositoryAssociation("example", new()

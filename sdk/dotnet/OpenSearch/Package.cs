@@ -43,12 +43,12 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     ///     var examplePackage = new Aws.OpenSearch.Package("example", new()
     ///     {
-    ///         PackageName = "example-txt",
     ///         PackageSource = new Aws.OpenSearch.Inputs.PackagePackageSourceArgs
     ///         {
     ///             S3BucketName = myOpensearchPackages.BucketName,
     ///             S3Key = example.Key,
     ///         },
+    ///         PackageName = "example-txt",
     ///         PackageType = "TXT-DICTIONARY",
     ///     });
     /// 

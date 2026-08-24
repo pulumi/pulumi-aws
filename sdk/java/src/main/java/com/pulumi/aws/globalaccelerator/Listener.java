@@ -48,24 +48,24 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Accelerator("example", AcceleratorArgs.builder()
- *             .name("Example")
- *             .ipAddressType("IPV4")
- *             .enabled(true)
  *             .attributes(AcceleratorAttributesArgs.builder()
  *                 .flowLogsEnabled(true)
  *                 .flowLogsS3Bucket("example-bucket")
  *                 .flowLogsS3Prefix("flow-logs/")
  *                 .build())
+ *             .name("Example")
+ *             .ipAddressType("IPV4")
+ *             .enabled(true)
  *             .build());
  * 
  *         var exampleListener = new Listener("exampleListener", ListenerArgs.builder()
- *             .acceleratorArn(example.arn())
- *             .clientAffinity("SOURCE_IP")
- *             .protocol("TCP")
  *             .portRanges(ListenerPortRangeArgs.builder()
  *                 .fromPort(80)
  *                 .toPort(80)
  *                 .build())
+ *             .acceleratorArn(example.arn())
+ *             .clientAffinity("SOURCE_IP")
+ *             .protocol("TCP")
  *             .build());
  * 
  *     }

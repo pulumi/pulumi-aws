@@ -437,17 +437,17 @@ class FeatureGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.FeatureGroup("example",
-            feature_group_name="example",
-            record_identifier_feature_name="example",
-            event_time_feature_name="example",
-            role_arn=test["arn"],
+            online_store_config={
+                "enable_online_store": True,
+            },
             feature_definitions=[{
                 "feature_name": "example",
                 "feature_type": "String",
             }],
-            online_store_config={
-                "enable_online_store": True,
-            })
+            feature_group_name="example",
+            record_identifier_feature_name="example",
+            event_time_feature_name="example",
+            role_arn=test["arn"])
         ```
 
         ## Import
@@ -490,17 +490,17 @@ class FeatureGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.FeatureGroup("example",
-            feature_group_name="example",
-            record_identifier_feature_name="example",
-            event_time_feature_name="example",
-            role_arn=test["arn"],
+            online_store_config={
+                "enable_online_store": True,
+            },
             feature_definitions=[{
                 "feature_name": "example",
                 "feature_type": "String",
             }],
-            online_store_config={
-                "enable_online_store": True,
-            })
+            feature_group_name="example",
+            record_identifier_feature_name="example",
+            event_time_feature_name="example",
+            role_arn=test["arn"])
         ```
 
         ## Import

@@ -24,7 +24,6 @@ namespace Pulumi.Aws.Waf
     /// {
     ///     var geoMatchSet = new Aws.Waf.GeoMatchSet("geo_match_set", new()
     ///     {
-    ///         Name = "geo_match_set",
     ///         GeoMatchConstraints = new[]
     ///         {
     ///             new Aws.Waf.Inputs.GeoMatchSetGeoMatchConstraintArgs
@@ -38,6 +37,7 @@ namespace Pulumi.Aws.Waf
     ///                 Value = "CA",
     ///             },
     ///         },
+    ///         Name = "geo_match_set",
     ///     });
     /// 
     /// });

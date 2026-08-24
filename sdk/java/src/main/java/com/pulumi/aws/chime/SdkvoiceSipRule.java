@@ -48,14 +48,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new SdkvoiceSipRule("example", SdkvoiceSipRuleArgs.builder()
- *             .name("example-sip-rule")
- *             .triggerType("RequestUriHostname")
- *             .triggerValue(example_voice_connector.outboundHostName())
  *             .targetApplications(SdkvoiceSipRuleTargetApplicationArgs.builder()
  *                 .priority(1)
  *                 .sipMediaApplicationId(example_sma.id())
  *                 .awsRegion("us-east-1")
  *                 .build())
+ *             .name("example-sip-rule")
+ *             .triggerType("RequestUriHostname")
+ *             .triggerValue(example_voice_connector.outboundHostName())
  *             .build());
  * 
  *     }

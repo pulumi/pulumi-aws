@@ -21,10 +21,10 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.s3.Bucket("example", {bucket: "bucket-name"});
  * const exampleBucketAbac = new aws.s3.BucketAbac("example", {
- *     bucket: example.bucket,
  *     abacStatus: {
  *         status: "Enabled",
  *     },
+ *     bucket: example.bucket,
  * });
  * ```
  *

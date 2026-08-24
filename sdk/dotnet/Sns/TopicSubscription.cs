@@ -41,32 +41,10 @@ namespace Pulumi.Aws.Sns
     /// 
     ///     var sqsQueuePolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
-    ///         PolicyId = "arn:aws:sqs:us-west-2:123456789012:user_updates_queue/SQSDefaultPolicy",
     ///         Statements = new[]
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Sid = "user_updates_sqs_target",
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "sns.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "SQS:SendMessage",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     "arn:aws:sqs:us-west-2:123456789012:user-updates-queue",
-    ///                 },
     ///                 Conditions = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
@@ -79,8 +57,30 @@ namespace Pulumi.Aws.Sns
     ///                         },
     ///                     },
     ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "sns.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Sid = "user_updates_sqs_target",
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "SQS:SendMessage",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "arn:aws:sqs:us-west-2:123456789012:user-updates-queue",
+    ///                 },
     ///             },
     ///         },
+    ///         PolicyId = "arn:aws:sqs:us-west-2:123456789012:user_updates_queue/SQSDefaultPolicy",
     ///     });
     /// 
     ///     var userUpdatesQueue = new Aws.Sqs.Queue("user_updates_queue", new()
@@ -129,22 +129,10 @@ namespace Pulumi.Aws.Sns
     ///     };
     ///     var snsTopicPolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
-    ///         PolicyId = "__default_policy_ID",
     ///         Statements = new[]
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "SNS:Subscribe",
-    ///                     "SNS:SetTopicAttributes",
-    ///                     "SNS:RemovePermission",
-    ///                     "SNS:Publish",
-    ///                     "SNS:ListSubscriptionsByTopic",
-    ///                     "SNS:GetTopicAttributes",
-    ///                     "SNS:DeleteTopic",
-    ///                     "SNS:AddPermission",
-    ///                 },
     ///                 Conditions = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
@@ -157,7 +145,6 @@ namespace Pulumi.Aws.Sns
     ///                         },
     ///                     },
     ///                 },
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -169,6 +156,18 @@ namespace Pulumi.Aws.Sns
     ///                         },
     ///                     },
     ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "SNS:Subscribe",
+    ///                     "SNS:SetTopicAttributes",
+    ///                     "SNS:RemovePermission",
+    ///                     "SNS:Publish",
+    ///                     "SNS:ListSubscriptionsByTopic",
+    ///                     "SNS:GetTopicAttributes",
+    ///                     "SNS:DeleteTopic",
+    ///                     "SNS:AddPermission",
+    ///                 },
+    ///                 Effect = "Allow",
     ///                 Resources = new[]
     ///                 {
     ///                     $"arn:aws:sns:{sns.Region}:{sns.Account_id}:{sns.Name}",
@@ -177,11 +176,6 @@ namespace Pulumi.Aws.Sns
     ///             },
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "SNS:Subscribe",
-    ///                     "SNS:Receive",
-    ///                 },
     ///                 Conditions = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
@@ -194,36 +188,6 @@ namespace Pulumi.Aws.Sns
     ///                         },
     ///                     },
     ///                 },
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "AWS",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "*",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     $"arn:aws:sns:{sns.Region}:{sns.Account_id}:{sns.Name}",
-    ///                 },
-    ///                 Sid = "__console_sub_0",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var sqsQueuePolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         PolicyId = $"arn:aws:sqs:{sqs.Region}:{sqs.Account_id}:{sqs.Name}/SQSDefaultPolicy",
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Sid = "example-sns-topic",
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -237,12 +201,26 @@ namespace Pulumi.Aws.Sns
     ///                 },
     ///                 Actions = new[]
     ///                 {
-    ///                     "SQS:SendMessage",
+    ///                     "SNS:Subscribe",
+    ///                     "SNS:Receive",
     ///                 },
+    ///                 Effect = "Allow",
     ///                 Resources = new[]
     ///                 {
-    ///                     $"arn:aws:sqs:{sqs.Region}:{sqs.Account_id}:{sqs.Name}",
+    ///                     $"arn:aws:sns:{sns.Region}:{sns.Account_id}:{sns.Name}",
     ///                 },
+    ///                 Sid = "__console_sub_0",
+    ///             },
+    ///         },
+    ///         PolicyId = "__default_policy_ID",
+    ///     });
+    /// 
+    ///     var sqsQueuePolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
     ///                 Conditions = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
@@ -255,8 +233,30 @@ namespace Pulumi.Aws.Sns
     ///                         },
     ///                     },
     ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "AWS",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "*",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Sid = "example-sns-topic",
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "SQS:SendMessage",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     $"arn:aws:sqs:{sqs.Region}:{sqs.Account_id}:{sqs.Name}",
+    ///                 },
     ///             },
     ///         },
+    ///         PolicyId = $"arn:aws:sqs:{sqs.Region}:{sqs.Account_id}:{sqs.Name}/SQSDefaultPolicy",
     ///     });
     /// 
     ///     var snsTopic = new Aws.Sns.Topic("sns_topic", new()

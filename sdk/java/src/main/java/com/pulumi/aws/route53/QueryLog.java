@@ -71,14 +71,14 @@ import javax.annotation.Nullable;
  *         // to any log group under /aws/route53/*
  *         final var route53-query-logging-policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(                
- *                     "logs:CreateLogStream",
- *                     "logs:PutLogEvents")
- *                 .resources("arn:aws:logs:*:*:log-group:/aws/route53/*")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .identifiers("route53.amazonaws.com")
  *                     .type("Service")
  *                     .build())
+ *                 .actions(                
+ *                     "logs:CreateLogStream",
+ *                     "logs:PutLogEvents")
+ *                 .resources("arn:aws:logs:*:*:log-group:/aws/route53/*")
  *                 .build())
  *             .build());
  * 

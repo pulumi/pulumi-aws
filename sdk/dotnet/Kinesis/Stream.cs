@@ -27,6 +27,10 @@ namespace Pulumi.Aws.Kinesis
     /// {
     ///     var testStream = new Aws.Kinesis.Stream("test_stream", new()
     ///     {
+    ///         StreamModeDetails = new Aws.Kinesis.Inputs.StreamStreamModeDetailsArgs
+    ///         {
+    ///             StreamMode = "PROVISIONED",
+    ///         },
     ///         Name = "kinesis-test",
     ///         ShardCount = 1,
     ///         RetentionPeriod = 48,
@@ -34,10 +38,6 @@ namespace Pulumi.Aws.Kinesis
     ///         {
     ///             "IncomingBytes",
     ///             "OutgoingBytes",
-    ///         },
-    ///         StreamModeDetails = new Aws.Kinesis.Inputs.StreamStreamModeDetailsArgs
-    ///         {
-    ///             StreamMode = "PROVISIONED",
     ///         },
     ///         Tags = 
     ///         {

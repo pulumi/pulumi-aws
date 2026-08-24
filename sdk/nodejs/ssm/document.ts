@@ -94,12 +94,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.ssm.Document("test", {
- *     name: "test_document",
- *     documentType: "Package",
  *     attachmentsSources: [{
  *         key: "SourceUrl",
  *         values: [`s3://${objectBucket.bucket}/test.zip`],
  *     }],
+ *     name: "test_document",
+ *     documentType: "Package",
+ * }, {
+ *     ignoreChanges: ["attachmentsSources"],
  * });
  * ```
  */

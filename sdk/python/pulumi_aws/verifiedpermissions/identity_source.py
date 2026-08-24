@@ -193,13 +193,13 @@ class IdentitySource(pulumi.CustomResource):
             user_pool_id=example_user_pool.id,
             explicit_auth_flows=["ADMIN_NO_SRP_AUTH"])
         example_identity_source = aws.verifiedpermissions.IdentitySource("example",
-            policy_store_id=example.id,
             configuration={
                 "cognito_user_pool_configuration": {
                     "user_pool_arn": example_user_pool.arn,
                     "client_ids": [example_user_pool_client.id],
                 },
-            })
+            },
+            policy_store_id=example.id)
         ```
 
         ### OpenID Connect Configuration Usage
@@ -212,23 +212,23 @@ class IdentitySource(pulumi.CustomResource):
             "mode": "STRICT",
         })
         example_identity_source = aws.verifiedpermissions.IdentitySource("example",
-            policy_store_id=example.id,
             configuration={
                 "open_id_connect_configuration": {
-                    "issuer": "https://auth.example.com",
                     "token_selection": {
                         "access_token_only": {
                             "audiences": ["https://myapp.example.com"],
                             "principal_id_claim": "sub",
                         },
                     },
-                    "entity_id_prefix": "MyOIDCProvider",
                     "group_configuration": {
                         "group_claim": "groups",
                         "group_entity_type": "MyCorp::UserGroup",
                     },
+                    "issuer": "https://auth.example.com",
+                    "entity_id_prefix": "MyOIDCProvider",
                 },
             },
+            policy_store_id=example.id,
             principal_entity_type="MyCorp::User")
         ```
 
@@ -274,13 +274,13 @@ class IdentitySource(pulumi.CustomResource):
             user_pool_id=example_user_pool.id,
             explicit_auth_flows=["ADMIN_NO_SRP_AUTH"])
         example_identity_source = aws.verifiedpermissions.IdentitySource("example",
-            policy_store_id=example.id,
             configuration={
                 "cognito_user_pool_configuration": {
                     "user_pool_arn": example_user_pool.arn,
                     "client_ids": [example_user_pool_client.id],
                 },
-            })
+            },
+            policy_store_id=example.id)
         ```
 
         ### OpenID Connect Configuration Usage
@@ -293,23 +293,23 @@ class IdentitySource(pulumi.CustomResource):
             "mode": "STRICT",
         })
         example_identity_source = aws.verifiedpermissions.IdentitySource("example",
-            policy_store_id=example.id,
             configuration={
                 "open_id_connect_configuration": {
-                    "issuer": "https://auth.example.com",
                     "token_selection": {
                         "access_token_only": {
                             "audiences": ["https://myapp.example.com"],
                             "principal_id_claim": "sub",
                         },
                     },
-                    "entity_id_prefix": "MyOIDCProvider",
                     "group_configuration": {
                         "group_claim": "groups",
                         "group_entity_type": "MyCorp::UserGroup",
                     },
+                    "issuer": "https://auth.example.com",
+                    "entity_id_prefix": "MyOIDCProvider",
                 },
             },
+            policy_store_id=example.id,
             principal_entity_type="MyCorp::User")
         ```
 

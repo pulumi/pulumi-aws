@@ -28,20 +28,20 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.workspacesweb.DataProtectionSettings("example", {
- *     displayName: "example",
- *     description: "Example data protection settings",
  *     inlineRedactionConfiguration: {
- *         globalConfidenceLevel: 2,
- *         globalEnforcedUrls: ["https://example.com"],
  *         inlineRedactionPatterns: [{
- *             builtInPatternId: "ssn",
- *             confidenceLevel: 3,
  *             redactionPlaceHolders: [{
  *                 redactionPlaceHolderType: "CustomText",
  *                 redactionPlaceHolderText: "REDACTED",
  *             }],
+ *             builtInPatternId: "ssn",
+ *             confidenceLevel: 3,
  *         }],
+ *         globalConfidenceLevel: 2,
+ *         globalEnforcedUrls: ["https://example.com"],
  *     },
+ *     displayName: "example",
+ *     description: "Example data protection settings",
  * });
  * ```
  *
@@ -56,29 +56,17 @@ import * as utilities from "../utilities";
  *     deletionWindowInDays: 7,
  * });
  * const exampleDataProtectionSettings = new aws.workspacesweb.DataProtectionSettings("example", {
- *     displayName: "example-complete",
- *     description: "Complete example data protection settings",
- *     customerManagedKey: example.arn,
- *     additionalEncryptionContext: {
- *         Environment: "Production",
- *     },
  *     inlineRedactionConfiguration: {
- *         globalConfidenceLevel: 2,
- *         globalEnforcedUrls: [
- *             "https://example.com",
- *             "https://test.example.com",
- *         ],
- *         globalExemptUrls: ["https://exempt.example.com"],
  *         inlineRedactionPatterns: [
  *             {
- *                 builtInPatternId: "ssn",
- *                 confidenceLevel: 3,
- *                 enforcedUrls: ["https://pattern1.example.com"],
- *                 exemptUrls: ["https://exempt-pattern1.example.com"],
  *                 redactionPlaceHolders: [{
  *                     redactionPlaceHolderType: "CustomText",
  *                     redactionPlaceHolderText: "REDACTED-SSN",
  *                 }],
+ *                 builtInPatternId: "ssn",
+ *                 confidenceLevel: 3,
+ *                 enforcedUrls: ["https://pattern1.example.com"],
+ *                 exemptUrls: ["https://exempt-pattern1.example.com"],
  *             },
  *             {
  *                 customPattern: {
@@ -93,6 +81,18 @@ import * as utilities from "../utilities";
  *                 }],
  *             },
  *         ],
+ *         globalConfidenceLevel: 2,
+ *         globalEnforcedUrls: [
+ *             "https://example.com",
+ *             "https://test.example.com",
+ *         ],
+ *         globalExemptUrls: ["https://exempt.example.com"],
+ *     },
+ *     displayName: "example-complete",
+ *     description: "Complete example data protection settings",
+ *     customerManagedKey: example.arn,
+ *     additionalEncryptionContext: {
+ *         Environment: "Production",
  *     },
  *     tags: {
  *         Name: "example-data-protection-settings",

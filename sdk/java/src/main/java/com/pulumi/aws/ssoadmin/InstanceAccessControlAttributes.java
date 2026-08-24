@@ -50,20 +50,20 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleInstanceAccessControlAttributes = new InstanceAccessControlAttributes("exampleInstanceAccessControlAttributes", InstanceAccessControlAttributesArgs.builder()
- *             .instanceArn(example.arns()[0])
  *             .attributes(            
  *                 InstanceAccessControlAttributesAttributeArgs.builder()
- *                     .key("name")
  *                     .values(InstanceAccessControlAttributesAttributeValueArgs.builder()
  *                         .sources("${path:name.givenName}")
  *                         .build())
+ *                     .key("name")
  *                     .build(),
  *                 InstanceAccessControlAttributesAttributeArgs.builder()
- *                     .key("last")
  *                     .values(InstanceAccessControlAttributesAttributeValueArgs.builder()
  *                         .sources("${path:name.familyName}")
  *                         .build())
+ *                     .key("last")
  *                     .build())
+ *             .instanceArn(example.arns()[0])
  *             .build());
  * 
  *     }

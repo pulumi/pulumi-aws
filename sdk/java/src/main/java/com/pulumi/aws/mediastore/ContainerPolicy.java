@@ -37,8 +37,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementConditionArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.mediastore.ContainerPolicy;
  * import com.pulumi.aws.mediastore.ContainerPolicyArgs;
  * import java.util.ArrayList;
@@ -66,19 +66,19 @@ import javax.annotation.Nullable;
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid("MediaStoreFullAccess")
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("AWS")
- *                     .identifiers(String.format("arn:aws:iam::%s:root", currentGetCallerIdentity.accountId()))
- *                     .build())
- *                 .actions("mediastore:*")
- *                 .resources(exampleContainer.name().applyValue(_name -> String.format("arn:aws:mediastore:%s:%s:container/%s/*", current.region(),currentGetCallerIdentity.accountId(),_name)))
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                     .test("Bool")
  *                     .variable("aws:SecureTransport")
  *                     .values("true")
  *                     .build())
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type("AWS")
+ *                     .identifiers(String.format("arn:aws:iam::%s:root", currentGetCallerIdentity.accountId()))
+ *                     .build())
+ *                 .sid("MediaStoreFullAccess")
+ *                 .effect("Allow")
+ *                 .actions("mediastore:*")
+ *                 .resources(exampleContainer.name().applyValue(_name -> String.format("arn:aws:mediastore:%s:%s:container/%s/*", current.region(),currentGetCallerIdentity.accountId(),_name)))
  *                 .build())
  *             .build());
  * 

@@ -54,7 +54,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var myDetector = new Detector("myDetector", DetectorArgs.builder()
- *             .enable(true)
  *             .datasources(DetectorDatasourcesArgs.builder()
  *                 .s3Logs(DetectorDatasourcesS3LogsArgs.builder()
  *                     .enable(true)
@@ -72,6 +71,7 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
+ *             .enable(true)
  *             .build());
  * 
  *     }

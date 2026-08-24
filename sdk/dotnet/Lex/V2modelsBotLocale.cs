@@ -47,15 +47,15 @@ namespace Pulumi.Aws.Lex
     /// {
     ///     var example = new Aws.Lex.V2modelsBotLocale("example", new()
     ///     {
-    ///         BotId = exampleAwsLexv2modelsBot.Id,
-    ///         BotVersion = "DRAFT",
-    ///         LocaleId = "en_US",
-    ///         NLuIntentConfidenceThreshold = 0.7,
     ///         VoiceSettings = new Aws.Lex.Inputs.V2modelsBotLocaleVoiceSettingsArgs
     ///         {
     ///             VoiceId = "Kendra",
     ///             Engine = "standard",
     ///         },
+    ///         BotId = exampleAwsLexv2modelsBot.Id,
+    ///         BotVersion = "DRAFT",
+    ///         LocaleId = "en_US",
+    ///         NLuIntentConfidenceThreshold = 0.7,
     ///     });
     /// 
     /// });

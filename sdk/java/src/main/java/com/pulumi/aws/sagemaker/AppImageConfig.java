@@ -50,12 +50,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new AppImageConfig("test", AppImageConfigArgs.builder()
- *             .appImageConfigName("example")
  *             .kernelGatewayImageConfig(AppImageConfigKernelGatewayImageConfigArgs.builder()
  *                 .kernelSpecs(AppImageConfigKernelGatewayImageConfigKernelSpecArgs.builder()
  *                     .name("example")
  *                     .build())
  *                 .build())
+ *             .appImageConfigName("example")
  *             .build());
  * 
  *     }
@@ -89,9 +89,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new AppImageConfig("test", AppImageConfigArgs.builder()
- *             .appImageConfigName("example")
  *             .codeEditorAppImageConfig(AppImageConfigCodeEditorAppImageConfigArgs.builder()
  *                 .build())
+ *             .appImageConfigName("example")
  *             .build());
  * 
  *     }
@@ -111,8 +111,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.sagemaker.AppImageConfig;
  * import com.pulumi.aws.sagemaker.AppImageConfigArgs;
  * import com.pulumi.aws.sagemaker.inputs.AppImageConfigKernelGatewayImageConfigArgs;
- * import com.pulumi.aws.sagemaker.inputs.AppImageConfigKernelGatewayImageConfigKernelSpecArgs;
  * import com.pulumi.aws.sagemaker.inputs.AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs;
+ * import com.pulumi.aws.sagemaker.inputs.AppImageConfigKernelGatewayImageConfigKernelSpecArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -127,14 +127,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new AppImageConfig("test", AppImageConfigArgs.builder()
- *             .appImageConfigName("example")
  *             .kernelGatewayImageConfig(AppImageConfigKernelGatewayImageConfigArgs.builder()
+ *                 .fileSystemConfig(AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs.builder()
+ *                     .build())
  *                 .kernelSpecs(AppImageConfigKernelGatewayImageConfigKernelSpecArgs.builder()
  *                     .name("example")
  *                     .build())
- *                 .fileSystemConfig(AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs.builder()
- *                     .build())
  *                 .build())
+ *             .appImageConfigName("example")
  *             .build());
  * 
  *     }

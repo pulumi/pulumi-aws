@@ -47,12 +47,12 @@ import javax.annotation.Nullable;
  *         var example = new Instance("example");
  * 
  *         var exampleTrustProvider = new TrustProvider("exampleTrustProvider", TrustProviderArgs.builder()
- *             .deviceTrustProviderType("jamf")
- *             .policyReferenceName("example")
- *             .trustProviderType("device")
  *             .deviceOptions(TrustProviderDeviceOptionsArgs.builder()
  *                 .tenantId("example")
  *                 .build())
+ *             .deviceTrustProviderType("jamf")
+ *             .policyReferenceName("example")
+ *             .trustProviderType("device")
  *             .build());
  * 
  *         var exampleInstanceTrustProviderAttachment = new InstanceTrustProviderAttachment("exampleInstanceTrustProviderAttachment", InstanceTrustProviderAttachmentArgs.builder()

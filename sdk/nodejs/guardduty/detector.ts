@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const myDetector = new aws.guardduty.Detector("MyDetector", {
- *     enable: true,
  *     datasources: {
  *         s3Logs: {
  *             enable: true,
@@ -37,6 +36,7 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     },
+ *     enable: true,
  * });
  * ```
  *

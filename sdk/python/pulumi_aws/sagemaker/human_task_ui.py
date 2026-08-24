@@ -216,10 +216,10 @@ class HumanTaskUI(pulumi.CustomResource):
         import pulumi_std as std
 
         example = aws.sagemaker.HumanTaskUI("example",
-            human_task_ui_name="example",
             ui_template={
                 "content": std.file(input="sagemaker-human-task-ui-template.html").result,
-            })
+            },
+            human_task_ui_name="example")
         ```
 
         ## Import
@@ -255,10 +255,10 @@ class HumanTaskUI(pulumi.CustomResource):
         import pulumi_std as std
 
         example = aws.sagemaker.HumanTaskUI("example",
-            human_task_ui_name="example",
             ui_template={
                 "content": std.file(input="sagemaker-human-task-ui-template.html").result,
-            })
+            },
+            human_task_ui_name="example")
         ```
 
         ## Import

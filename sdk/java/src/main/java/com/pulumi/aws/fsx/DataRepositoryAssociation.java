@@ -73,9 +73,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDataRepositoryAssociation = new DataRepositoryAssociation("exampleDataRepositoryAssociation", DataRepositoryAssociationArgs.builder()
- *             .fileSystemId(exampleLustreFileSystem.id())
- *             .dataRepositoryPath(example.id().applyValue(_id -> String.format("s3://%s", _id)))
- *             .fileSystemPath("/my-bucket")
  *             .s3(DataRepositoryAssociationS3Args.builder()
  *                 .autoExportPolicy(DataRepositoryAssociationS3AutoExportPolicyArgs.builder()
  *                     .events(                    
@@ -90,6 +87,9 @@ import javax.annotation.Nullable;
  *                         "DELETED")
  *                     .build())
  *                 .build())
+ *             .fileSystemId(exampleLustreFileSystem.id())
+ *             .dataRepositoryPath(example.id().applyValue(_id -> String.format("s3://%s", _id)))
+ *             .fileSystemPath("/my-bucket")
  *             .build());
  * 
  *     }

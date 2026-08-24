@@ -63,7 +63,6 @@ import javax.annotation.Nullable;
  * 
  *         var example = new MultiRegionAccessPoint("example", MultiRegionAccessPointArgs.builder()
  *             .details(MultiRegionAccessPointDetailsArgs.builder()
- *                 .name("example")
  *                 .regions(                
  *                     MultiRegionAccessPointDetailsRegionArgs.builder()
  *                         .bucket(primary.bucket())
@@ -71,11 +70,11 @@ import javax.annotation.Nullable;
  *                     MultiRegionAccessPointDetailsRegionArgs.builder()
  *                         .bucket(secondary.bucket())
  *                         .build())
+ *                 .name("example")
  *                 .build())
  *             .build());
  * 
  *         var exampleMultiRegionAccessPointRoutes = new MultiRegionAccessPointRoutes("exampleMultiRegionAccessPointRoutes", MultiRegionAccessPointRoutesArgs.builder()
- *             .mrap(example.arn())
  *             .routes(            
  *                 MultiRegionAccessPointRoutesRouteArgs.builder()
  *                     .bucket(primary.bucket())
@@ -87,6 +86,7 @@ import javax.annotation.Nullable;
  *                     .region(secondary.bucketRegion())
  *                     .trafficDialPercentage(100)
  *                     .build())
+ *             .mrap(example.arn())
  *             .build());
  * 
  *     }
@@ -120,7 +120,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new MultiRegionAccessPointRoutes("example", MultiRegionAccessPointRoutesArgs.builder()
- *             .mrap(exampleAwsS3controlMultiRegionAccessPoint.arn())
  *             .routes(            
  *                 MultiRegionAccessPointRoutesRouteArgs.builder()
  *                     .bucket(primary.bucket())
@@ -132,6 +131,7 @@ import javax.annotation.Nullable;
  *                     .region(secondary.bucketRegion())
  *                     .trafficDialPercentage(100)
  *                     .build())
+ *             .mrap(exampleAwsS3controlMultiRegionAccessPoint.arn())
  *             .build());
  * 
  *     }

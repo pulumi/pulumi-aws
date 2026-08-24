@@ -65,21 +65,21 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new CentralizationRuleForOrganization("example", CentralizationRuleForOrganizationArgs.builder()
- *             .ruleName("example-centralization-rule")
  *             .rule(CentralizationRuleForOrganizationRuleArgs.builder()
  *                 .destination(CentralizationRuleForOrganizationRuleDestinationArgs.builder()
  *                     .region("eu-west-1")
  *                     .account(current.accountId())
  *                     .build())
  *                 .source(CentralizationRuleForOrganizationRuleSourceArgs.builder()
- *                     .regions("ap-southeast-1")
- *                     .scope(String.format("OrganizationId = '%s'", currentGetOrganization.id()))
  *                     .sourceLogsConfiguration(CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs.builder()
  *                         .encryptedLogGroupStrategy("SKIP")
  *                         .logGroupSelectionCriteria("*")
  *                         .build())
+ *                     .regions("ap-southeast-1")
+ *                     .scope(String.format("OrganizationId = '%s'", currentGetOrganization.id()))
  *                     .build())
  *                 .build())
+ *             .ruleName("example-centralization-rule")
  *             .tags(Map.ofEntries(
  *                 Map.entry("Name", "example-centralization-rule"),
  *                 Map.entry("Environment", "production")
@@ -134,11 +134,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var advanced = new CentralizationRuleForOrganization("advanced", CentralizationRuleForOrganizationArgs.builder()
- *             .ruleName("advanced-centralization-rule")
  *             .rule(CentralizationRuleForOrganizationRuleArgs.builder()
  *                 .destination(CentralizationRuleForOrganizationRuleDestinationArgs.builder()
- *                     .region("eu-west-1")
- *                     .account(current.accountId())
  *                     .destinationLogsConfiguration(CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgs.builder()
  *                         .logsEncryptionConfiguration(CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgs.builder()
  *                             .encryptionStrategy("AWS_OWNED")
@@ -150,18 +147,21 @@ import javax.annotation.Nullable;
  *                             .logGroupNamePattern("/centralized-logs/${source.accountId}/${source.region}/${source.logGroup}")
  *                             .build())
  *                         .build())
+ *                     .region("eu-west-1")
+ *                     .account(current.accountId())
  *                     .build())
  *                 .source(CentralizationRuleForOrganizationRuleSourceArgs.builder()
- *                     .regions(                    
- *                         "ap-southeast-1",
- *                         "us-east-1")
- *                     .scope(String.format("OrganizationId = '%s'", currentGetOrganization.id()))
  *                     .sourceLogsConfiguration(CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs.builder()
  *                         .encryptedLogGroupStrategy("ALLOW")
  *                         .logGroupSelectionCriteria("*")
  *                         .build())
+ *                     .regions(                    
+ *                         "ap-southeast-1",
+ *                         "us-east-1")
+ *                     .scope(String.format("OrganizationId = '%s'", currentGetOrganization.id()))
  *                     .build())
  *                 .build())
+ *             .ruleName("advanced-centralization-rule")
  *             .tags(Map.ofEntries(
  *                 Map.entry("Name", "advanced-centralization-rule"),
  *                 Map.entry("Environment", "production"),
@@ -213,23 +213,23 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var filtered = new CentralizationRuleForOrganization("filtered", CentralizationRuleForOrganizationArgs.builder()
- *             .ruleName("filtered-centralization-rule")
  *             .rule(CentralizationRuleForOrganizationRuleArgs.builder()
  *                 .destination(CentralizationRuleForOrganizationRuleDestinationArgs.builder()
  *                     .region("eu-west-1")
  *                     .account(current.accountId())
  *                     .build())
  *                 .source(CentralizationRuleForOrganizationRuleSourceArgs.builder()
- *                     .regions(                    
- *                         "ap-southeast-1",
- *                         "us-east-1")
- *                     .scope(String.format("OrganizationId = '%s'", currentGetOrganization.id()))
  *                     .sourceLogsConfiguration(CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs.builder()
  *                         .encryptedLogGroupStrategy("ALLOW")
  *                         .logGroupSelectionCriteria("LogGroupName LIKE '/aws/lambda%'")
  *                         .build())
+ *                     .regions(                    
+ *                         "ap-southeast-1",
+ *                         "us-east-1")
+ *                     .scope(String.format("OrganizationId = '%s'", currentGetOrganization.id()))
  *                     .build())
  *                 .build())
+ *             .ruleName("filtered-centralization-rule")
  *             .tags(Map.ofEntries(
  *                 Map.entry("Name", "filtered-centralization-rule"),
  *                 Map.entry("Filter", "lambda-logs")
@@ -282,27 +282,27 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var metrics = new CentralizationRuleForOrganization("metrics", CentralizationRuleForOrganizationArgs.builder()
- *             .ruleName("metrics-centralization-rule")
  *             .rule(CentralizationRuleForOrganizationRuleArgs.builder()
  *                 .destination(CentralizationRuleForOrganizationRuleDestinationArgs.builder()
- *                     .region("eu-west-1")
- *                     .account(current.accountId())
  *                     .destinationMetricsConfiguration(CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationArgs.builder()
  *                         .backupConfiguration(CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationArgs.builder()
  *                             .region("us-west-1")
  *                             .build())
  *                         .build())
+ *                     .region("eu-west-1")
+ *                     .account(current.accountId())
  *                     .build())
  *                 .source(CentralizationRuleForOrganizationRuleSourceArgs.builder()
+ *                     .sourceMetricsConfiguration(CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationArgs.builder()
+ *                         .metricsSelectionCriteria("*")
+ *                         .build())
  *                     .regions(                    
  *                         "ap-southeast-1",
  *                         "us-east-1")
  *                     .scope(String.format("OrganizationId = '%s'", currentGetOrganization.id()))
- *                     .sourceMetricsConfiguration(CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationArgs.builder()
- *                         .metricsSelectionCriteria("*")
- *                         .build())
  *                     .build())
  *                 .build())
+ *             .ruleName("metrics-centralization-rule")
  *             .build());
  * 
  *     }

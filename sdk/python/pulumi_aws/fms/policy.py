@@ -633,10 +633,6 @@ class Policy(pulumi.CustomResource):
             metric_name="WAFRuleGroupExample",
             name="WAF-Rule-Group-Example")
         example = aws.fms.Policy("example",
-            name="FMS-Policy-Example",
-            exclude_resource_tags=False,
-            remediation_enabled=False,
-            resource_type="AWS::ElasticLoadBalancingV2::LoadBalancer",
             security_service_policy_data={
                 "type": "WAF",
                 "managed_service_data": pulumi.Output.json_dumps({
@@ -653,6 +649,10 @@ class Policy(pulumi.CustomResource):
                     "overrideCustomerWebACLAssociation": False,
                 }),
             },
+            name="FMS-Policy-Example",
+            exclude_resource_tags=False,
+            remediation_enabled=False,
+            resource_type="AWS::ElasticLoadBalancingV2::LoadBalancer",
             tags={
                 "Name": "example-fms-policy",
             })
@@ -708,10 +708,6 @@ class Policy(pulumi.CustomResource):
             metric_name="WAFRuleGroupExample",
             name="WAF-Rule-Group-Example")
         example = aws.fms.Policy("example",
-            name="FMS-Policy-Example",
-            exclude_resource_tags=False,
-            remediation_enabled=False,
-            resource_type="AWS::ElasticLoadBalancingV2::LoadBalancer",
             security_service_policy_data={
                 "type": "WAF",
                 "managed_service_data": pulumi.Output.json_dumps({
@@ -728,6 +724,10 @@ class Policy(pulumi.CustomResource):
                     "overrideCustomerWebACLAssociation": False,
                 }),
             },
+            name="FMS-Policy-Example",
+            exclude_resource_tags=False,
+            remediation_enabled=False,
+            resource_type="AWS::ElasticLoadBalancingV2::LoadBalancer",
             tags={
                 "Name": "example-fms-policy",
             })

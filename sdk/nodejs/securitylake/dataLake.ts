@@ -19,13 +19,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.securitylake.DataLake("example", {
- *     metaStoreManagerRoleArn: metaStoreManager.arn,
  *     configuration: {
- *         region: "eu-west-1",
- *         encryptionConfigurations: [{
- *             kmsKeyId: "S3_MANAGED_KEY",
- *         }],
  *         lifecycleConfiguration: {
+ *             expiration: {
+ *                 days: 300,
+ *             },
  *             transitions: [
  *                 {
  *                     days: 31,
@@ -36,11 +34,13 @@ import * as utilities from "../utilities";
  *                     storageClass: "ONEZONE_IA",
  *                 },
  *             ],
- *             expiration: {
- *                 days: 300,
- *             },
  *         },
+ *         encryptionConfigurations: [{
+ *             kmsKeyId: "S3_MANAGED_KEY",
+ *         }],
+ *         region: "eu-west-1",
  *     },
+ *     metaStoreManagerRoleArn: metaStoreManager.arn,
  * });
  * ```
  *
@@ -51,13 +51,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.securitylake.DataLake("example", {
- *     metaStoreManagerRoleArn: metaStoreManager.arn,
  *     configuration: {
- *         region: "eu-west-1",
  *         encryptionConfigurations: [{
  *             kmsKeyId: "S3_MANAGED_KEY",
  *         }],
+ *         region: "eu-west-1",
  *     },
+ *     metaStoreManagerRoleArn: metaStoreManager.arn,
  * });
  * ```
  *

@@ -34,12 +34,12 @@ namespace Pulumi.Aws.Acmpca
     ///     {
     ///         CertificateAuthorityConfiguration = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs
     ///         {
-    ///             KeyAlgorithm = "RSA_4096",
-    ///             SigningAlgorithm = "SHA512WITHRSA",
     ///             Subject = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs
     ///             {
     ///                 CommonName = "example.com",
     ///             },
+    ///             KeyAlgorithm = "RSA_4096",
+    ///             SigningAlgorithm = "SHA512WITHRSA",
     ///         },
     ///         PermanentDeletionTimeInDays = 7,
     ///     });
@@ -51,7 +51,6 @@ namespace Pulumi.Aws.Acmpca
     /// 
     ///     var csr = new Tls.CertRequest("csr", new()
     ///     {
-    ///         PrivateKeyPem = key.PrivateKeyPem,
     ///         Subject = new[]
     ///         {
     ///             
@@ -59,18 +58,19 @@ namespace Pulumi.Aws.Acmpca
     ///                 { "commonName", "example" },
     ///             },
     ///         },
+    ///         PrivateKeyPem = key.PrivateKeyPem,
     ///     });
     /// 
     ///     var example = new Aws.Acmpca.Certificate("example", new()
     ///     {
-    ///         CertificateAuthorityArn = exampleCertificateAuthority.Arn,
-    ///         CertificateSigningRequest = csr.CertRequestPem,
-    ///         SigningAlgorithm = "SHA256WITHRSA",
     ///         Validity = new Aws.Acmpca.Inputs.CertificateValidityArgs
     ///         {
     ///             Type = "YEARS",
     ///             Value = "1",
     ///         },
+    ///         CertificateAuthorityArn = exampleCertificateAuthority.Arn,
+    ///         CertificateSigningRequest = csr.CertRequestPem,
+    ///         SigningAlgorithm = "SHA256WITHRSA",
     ///     });
     /// 
     /// });

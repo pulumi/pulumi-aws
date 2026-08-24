@@ -26,13 +26,13 @@ namespace Pulumi.Aws.CloudFront
     /// {
     ///     var example = new Aws.CloudFront.ConnectionFunction("example", new()
     ///     {
-    ///         Name = "example-connection-function",
-    ///         ConnectionFunctionCode = "function handler(event) { return event.request; }",
     ///         ConnectionFunctionConfig = new Aws.CloudFront.Inputs.ConnectionFunctionConnectionFunctionConfigArgs
     ///         {
     ///             Runtime = "cloudfront-js-2.0",
     ///             Comment = "Example connection function",
     ///         },
+    ///         Name = "example-connection-function",
+    ///         ConnectionFunctionCode = "function handler(event) { return event.request; }",
     ///     });
     /// 
     /// });
@@ -50,13 +50,13 @@ namespace Pulumi.Aws.CloudFront
     /// {
     ///     var example = new Aws.CloudFront.ConnectionFunction("example", new()
     ///     {
-    ///         Name = "example-connection-function",
-    ///         ConnectionFunctionCode = "function handler(event) { return event.request; }",
     ///         ConnectionFunctionConfig = new Aws.CloudFront.Inputs.ConnectionFunctionConnectionFunctionConfigArgs
     ///         {
     ///             Runtime = "cloudfront-js-2.0",
     ///             Comment = "Example connection function",
     ///         },
+    ///         Name = "example-connection-function",
+    ///         ConnectionFunctionCode = "function handler(event) { return event.request; }",
     ///         Publish = true,
     ///     });
     /// 
@@ -81,17 +81,17 @@ namespace Pulumi.Aws.CloudFront
     /// 
     ///     var exampleConnectionFunction = new Aws.CloudFront.ConnectionFunction("example", new()
     ///     {
-    ///         Name = "example-connection-function",
-    ///         ConnectionFunctionCode = "function handler(event) { return event.request; }",
     ///         ConnectionFunctionConfig = new Aws.CloudFront.Inputs.ConnectionFunctionConnectionFunctionConfigArgs
     ///         {
-    ///             Runtime = "cloudfront-js-2.0",
-    ///             Comment = "Example connection function",
     ///             KeyValueStoreAssociation = new Aws.CloudFront.Inputs.ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationArgs
     ///             {
     ///                 KeyValueStoreArn = example.Arn,
     ///             },
+    ///             Runtime = "cloudfront-js-2.0",
+    ///             Comment = "Example connection function",
     ///         },
+    ///         Name = "example-connection-function",
+    ///         ConnectionFunctionCode = "function handler(event) { return event.request; }",
     ///     });
     /// 
     /// });
@@ -109,13 +109,13 @@ namespace Pulumi.Aws.CloudFront
     /// {
     ///     var example = new Aws.CloudFront.ConnectionFunction("example", new()
     ///     {
-    ///         Name = "example-connection-function",
-    ///         ConnectionFunctionCode = "function handler(event) { return event.request; }",
     ///         ConnectionFunctionConfig = new Aws.CloudFront.Inputs.ConnectionFunctionConnectionFunctionConfigArgs
     ///         {
     ///             Runtime = "cloudfront-js-2.0",
     ///             Comment = "Example connection function",
     ///         },
+    ///         Name = "example-connection-function",
+    ///         ConnectionFunctionCode = "function handler(event) { return event.request; }",
     ///         Tags = 
     ///         {
     ///             { "Environment", "production" },

@@ -36,19 +36,19 @@ namespace Pulumi.Aws.Cognito
     /// 
     ///     var exampleLogDeliveryConfiguration = new Aws.Cognito.LogDeliveryConfiguration("example", new()
     ///     {
-    ///         UserPoolId = example.Id,
     ///         LogConfigurations = new[]
     ///         {
     ///             new Aws.Cognito.Inputs.LogDeliveryConfigurationLogConfigurationArgs
     ///             {
-    ///                 EventSource = "userNotification",
-    ///                 LogLevel = "ERROR",
     ///                 CloudWatchLogsConfiguration = new Aws.Cognito.Inputs.LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationArgs
     ///                 {
     ///                     LogGroupArn = exampleLogGroup.Arn,
     ///                 },
+    ///                 EventSource = "userNotification",
+    ///                 LogLevel = "ERROR",
     ///             },
     ///         },
+    ///         UserPoolId = example.Id,
     ///     });
     /// 
     /// });
@@ -136,39 +136,39 @@ namespace Pulumi.Aws.Cognito
     /// 
     ///     var exampleFirehoseDeliveryStream = new Aws.Kinesis.FirehoseDeliveryStream("example", new()
     ///     {
-    ///         Name = "example-stream",
-    ///         Destination = "extended_s3",
     ///         ExtendedS3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs
     ///         {
     ///             RoleArn = firehose.Arn,
     ///             BucketArn = exampleBucket.Arn,
     ///         },
+    ///         Name = "example-stream",
+    ///         Destination = "extended_s3",
     ///     });
     /// 
     ///     var exampleLogDeliveryConfiguration = new Aws.Cognito.LogDeliveryConfiguration("example", new()
     ///     {
-    ///         UserPoolId = example.Id,
     ///         LogConfigurations = new[]
     ///         {
     ///             new Aws.Cognito.Inputs.LogDeliveryConfigurationLogConfigurationArgs
     ///             {
-    ///                 EventSource = "userNotification",
-    ///                 LogLevel = "INFO",
     ///                 CloudWatchLogsConfiguration = new Aws.Cognito.Inputs.LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationArgs
     ///                 {
     ///                     LogGroupArn = exampleLogGroup.Arn,
     ///                 },
+    ///                 EventSource = "userNotification",
+    ///                 LogLevel = "INFO",
     ///             },
     ///             new Aws.Cognito.Inputs.LogDeliveryConfigurationLogConfigurationArgs
     ///             {
-    ///                 EventSource = "userAuthEvents",
-    ///                 LogLevel = "INFO",
     ///                 FirehoseConfiguration = new Aws.Cognito.Inputs.LogDeliveryConfigurationLogConfigurationFirehoseConfigurationArgs
     ///                 {
     ///                     StreamArn = exampleFirehoseDeliveryStream.Arn,
     ///                 },
+    ///                 EventSource = "userAuthEvents",
+    ///                 LogLevel = "INFO",
     ///             },
     ///         },
+    ///         UserPoolId = example.Id,
     ///     });
     /// 
     /// });
@@ -198,19 +198,19 @@ namespace Pulumi.Aws.Cognito
     /// 
     ///     var exampleLogDeliveryConfiguration = new Aws.Cognito.LogDeliveryConfiguration("example", new()
     ///     {
-    ///         UserPoolId = example.Id,
     ///         LogConfigurations = new[]
     ///         {
     ///             new Aws.Cognito.Inputs.LogDeliveryConfigurationLogConfigurationArgs
     ///             {
-    ///                 EventSource = "userAuthEvents",
-    ///                 LogLevel = "INFO",
     ///                 S3Configuration = new Aws.Cognito.Inputs.LogDeliveryConfigurationLogConfigurationS3ConfigurationArgs
     ///                 {
     ///                     BucketArn = exampleBucket.Arn,
     ///                 },
+    ///                 EventSource = "userAuthEvents",
+    ///                 LogLevel = "INFO",
     ///             },
     ///         },
+    ///         UserPoolId = example.Id,
     ///     });
     /// 
     /// });

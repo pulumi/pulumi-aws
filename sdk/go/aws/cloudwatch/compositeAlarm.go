@@ -31,16 +31,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudwatch.NewCompositeAlarm(ctx, "example", &cloudwatch.CompositeAlarmArgs{
-//				AlarmDescription: pulumi.String("This is a composite alarm!"),
-//				AlarmName:        pulumi.String("example-composite-alarm"),
-//				AlarmActions:     pulumi.Any(exampleAwsSnsTopic.Arn),
-//				OkActions:        pulumi.Any(exampleAwsSnsTopic.Arn),
-//				AlarmRule:        pulumi.Sprintf("ALARM(%v) OR\nALARM(%v)\n", alpha.AlarmName, bravo.AlarmName),
 //				ActionsSuppressor: &cloudwatch.CompositeAlarmActionsSuppressorArgs{
 //					Alarm:           pulumi.String("suppressor-alarm"),
 //					ExtensionPeriod: pulumi.Int(10),
 //					WaitPeriod:      pulumi.Int(20),
 //				},
+//				AlarmDescription: pulumi.String("This is a composite alarm!"),
+//				AlarmName:        pulumi.String("example-composite-alarm"),
+//				AlarmActions:     pulumi.Any(exampleAwsSnsTopic.Arn),
+//				OkActions:        pulumi.Any(exampleAwsSnsTopic.Arn),
+//				AlarmRule:        pulumi.Sprintf("ALARM(%v) OR\nALARM(%v)\n", alpha.AlarmName, bravo.AlarmName),
 //			})
 //			if err != nil {
 //				return err

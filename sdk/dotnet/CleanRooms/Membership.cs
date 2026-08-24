@@ -26,11 +26,8 @@ namespace Pulumi.Aws.CleanRooms
     /// {
     ///     var testMembership = new Aws.CleanRooms.Membership("test_membership", new()
     ///     {
-    ///         CollaborationId = "1234abcd-12ab-34cd-56ef-1234567890ab",
-    ///         QueryLogStatus = "DISABLED",
     ///         DefaultResultConfiguration = new Aws.CleanRooms.Inputs.MembershipDefaultResultConfigurationArgs
     ///         {
-    ///             RoleArn = "arn:aws:iam::123456789012:role/role-name",
     ///             OutputConfiguration = new Aws.CleanRooms.Inputs.MembershipDefaultResultConfigurationOutputConfigurationArgs
     ///             {
     ///                 S3 = new Aws.CleanRooms.Inputs.MembershipDefaultResultConfigurationOutputConfigurationS3Args
@@ -40,7 +37,10 @@ namespace Pulumi.Aws.CleanRooms
     ///                     KeyPrefix = "test-prefix",
     ///                 },
     ///             },
+    ///             RoleArn = "arn:aws:iam::123456789012:role/role-name",
     ///         },
+    ///         CollaborationId = "1234abcd-12ab-34cd-56ef-1234567890ab",
+    ///         QueryLogStatus = "DISABLED",
     ///         Tags = 
     ///         {
     ///             { "Project", "Terraform" },

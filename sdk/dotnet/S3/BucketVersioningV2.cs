@@ -45,11 +45,11 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var versioningExample = new Aws.S3.BucketVersioning("versioning_example", new()
     ///     {
-    ///         Bucket = example.Id,
     ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningVersioningConfigurationArgs
     ///         {
     ///             Status = "Enabled",
     ///         },
+    ///         Bucket = example.Id,
     ///     });
     /// 
     /// });
@@ -78,11 +78,11 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var versioningExample = new Aws.S3.BucketVersioning("versioning_example", new()
     ///     {
-    ///         Bucket = example.Id,
     ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningVersioningConfigurationArgs
     ///         {
     ///             Status = "Disabled",
     ///         },
+    ///         Bucket = example.Id,
     ///     });
     /// 
     /// });
@@ -111,11 +111,11 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var exampleBucketVersioning = new Aws.S3.BucketVersioning("example", new()
     ///     {
-    ///         Bucket = example.Id,
     ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningVersioningConfigurationArgs
     ///         {
     ///             Status = "Enabled",
     ///         },
+    ///         Bucket = example.Id,
     ///     });
     /// 
     ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("example", new()

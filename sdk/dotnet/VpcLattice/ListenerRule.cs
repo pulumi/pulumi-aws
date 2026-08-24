@@ -24,32 +24,28 @@ namespace Pulumi.Aws.VpcLattice
     /// {
     ///     var example = new Aws.VpcLattice.ListenerRule("example", new()
     ///     {
-    ///         Name = "example",
-    ///         ListenerIdentifier = exampleAwsVpclatticeListener.ListenerId,
-    ///         ServiceIdentifier = exampleAwsVpclatticeService.Id,
-    ///         Priority = 20,
     ///         Match = new Aws.VpcLattice.Inputs.ListenerRuleMatchArgs
     ///         {
     ///             HttpMatch = new Aws.VpcLattice.Inputs.ListenerRuleMatchHttpMatchArgs
     ///             {
+    ///                 PathMatch = new Aws.VpcLattice.Inputs.ListenerRuleMatchHttpMatchPathMatchArgs
+    ///                 {
+    ///                     Match = new Aws.VpcLattice.Inputs.ListenerRuleMatchHttpMatchPathMatchMatchArgs
+    ///                     {
+    ///                         Prefix = "/example-path",
+    ///                     },
+    ///                     CaseSensitive = true,
+    ///                 },
     ///                 HeaderMatches = new[]
     ///                 {
     ///                     new Aws.VpcLattice.Inputs.ListenerRuleMatchHttpMatchHeaderMatchArgs
     ///                     {
-    ///                         Name = "example-header",
-    ///                         CaseSensitive = false,
     ///                         Match = new Aws.VpcLattice.Inputs.ListenerRuleMatchHttpMatchHeaderMatchMatchArgs
     ///                         {
     ///                             Exact = "example-contains",
     ///                         },
-    ///                     },
-    ///                 },
-    ///                 PathMatch = new Aws.VpcLattice.Inputs.ListenerRuleMatchHttpMatchPathMatchArgs
-    ///                 {
-    ///                     CaseSensitive = true,
-    ///                     Match = new Aws.VpcLattice.Inputs.ListenerRuleMatchHttpMatchPathMatchMatchArgs
-    ///                     {
-    ///                         Prefix = "/example-path",
+    ///                         Name = "example-header",
+    ///                         CaseSensitive = false,
     ///                     },
     ///                 },
     ///             },
@@ -73,6 +69,10 @@ namespace Pulumi.Aws.VpcLattice
     ///                 },
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         ListenerIdentifier = exampleAwsVpclatticeListener.ListenerId,
+    ///         ServiceIdentifier = exampleAwsVpclatticeService.Id,
+    ///         Priority = 20,
     ///     });
     /// 
     /// });
@@ -90,21 +90,17 @@ namespace Pulumi.Aws.VpcLattice
     /// {
     ///     var example = new Aws.VpcLattice.ListenerRule("example", new()
     ///     {
-    ///         Name = "example",
-    ///         ListenerIdentifier = exampleAwsVpclatticeListener.ListenerId,
-    ///         ServiceIdentifier = exampleAwsVpclatticeService.Id,
-    ///         Priority = 10,
     ///         Match = new Aws.VpcLattice.Inputs.ListenerRuleMatchArgs
     ///         {
     ///             HttpMatch = new Aws.VpcLattice.Inputs.ListenerRuleMatchHttpMatchArgs
     ///             {
     ///                 PathMatch = new Aws.VpcLattice.Inputs.ListenerRuleMatchHttpMatchPathMatchArgs
     ///                 {
-    ///                     CaseSensitive = false,
     ///                     Match = new Aws.VpcLattice.Inputs.ListenerRuleMatchHttpMatchPathMatchMatchArgs
     ///                     {
     ///                         Exact = "/example-path",
     ///                     },
+    ///                     CaseSensitive = false,
     ///                 },
     ///             },
     ///         },
@@ -115,6 +111,10 @@ namespace Pulumi.Aws.VpcLattice
     ///                 StatusCode = 404,
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         ListenerIdentifier = exampleAwsVpclatticeListener.ListenerId,
+    ///         ServiceIdentifier = exampleAwsVpclatticeService.Id,
+    ///         Priority = 10,
     ///     });
     /// 
     /// });

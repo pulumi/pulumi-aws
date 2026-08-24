@@ -65,9 +65,6 @@ namespace Pulumi.Aws.NeptuneGraph
     ///     // Security Group for Neptune Graph
     ///     var exampleSecurityGroup = new Aws.Ec2.SecurityGroup("example", new()
     ///     {
-    ///         NamePrefix = "neptune-graph-sg",
-    ///         Description = "Security group for Neptune Graph",
-    ///         VpcId = example.Id,
     ///         Ingress = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.SecurityGroupIngressArgs
@@ -81,6 +78,9 @@ namespace Pulumi.Aws.NeptuneGraph
     ///                 },
     ///             },
     ///         },
+    ///         NamePrefix = "neptune-graph-sg",
+    ///         Description = "Security group for Neptune Graph",
+    ///         VpcId = example.Id,
     ///         Tags = 
     ///         {
     ///             { "Name", "neptune-graph-sg" },

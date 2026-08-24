@@ -31,20 +31,20 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkfirewall.NewContainerAssociation(ctx, "example", &networkfirewall.ContainerAssociationArgs{
-//				ContainerAssociationName: pulumi.String("example-eks-association"),
-//				Type:                     pulumi.String("EKS"),
-//				Description:              pulumi.String("Association for production EKS cluster"),
 //				ContainerMonitoringConfigurations: networkfirewall.ContainerAssociationContainerMonitoringConfigurationArray{
 //					&networkfirewall.ContainerAssociationContainerMonitoringConfigurationArgs{
-//						ClusterArn: pulumi.Any(exampleAwsEksCluster.Arn),
 //						AttributeFilters: networkfirewall.ContainerAssociationContainerMonitoringConfigurationAttributeFilterArray{
 //							&networkfirewall.ContainerAssociationContainerMonitoringConfigurationAttributeFilterArgs{
 //								Key:   pulumi.String("app"),
 //								Value: pulumi.String("backend"),
 //							},
 //						},
+//						ClusterArn: pulumi.Any(exampleAwsEksCluster.Arn),
 //					},
 //				},
+//				ContainerAssociationName: pulumi.String("example-eks-association"),
+//				Type:                     pulumi.String("EKS"),
+//				Description:              pulumi.String("Association for production EKS cluster"),
 //				Tags: pulumi.StringMap{
 //					"Name":        pulumi.String("example"),
 //					"Environment": pulumi.String("production"),
@@ -74,13 +74,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkfirewall.NewContainerAssociation(ctx, "example", &networkfirewall.ContainerAssociationArgs{
-//				ContainerAssociationName: pulumi.String("example-ecs-association"),
-//				Type:                     pulumi.String("ECS"),
 //				ContainerMonitoringConfigurations: networkfirewall.ContainerAssociationContainerMonitoringConfigurationArray{
 //					&networkfirewall.ContainerAssociationContainerMonitoringConfigurationArgs{
 //						ClusterArn: pulumi.Any(exampleAwsEcsCluster.Arn),
 //					},
 //				},
+//				ContainerAssociationName: pulumi.String("example-ecs-association"),
+//				Type:                     pulumi.String("ECS"),
 //			})
 //			if err != nil {
 //				return err

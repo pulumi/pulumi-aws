@@ -87,16 +87,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RestoreTestingSelection("example", RestoreTestingSelectionArgs.builder()
- *             .name("ec2_selection")
- *             .restoreTestingPlanName(exampleAwsBackupRestoreTestingPlan.name())
- *             .protectedResourceType("EC2")
- *             .iamRoleArn(exampleAwsIamRole.arn())
  *             .protectedResourceConditions(RestoreTestingSelectionProtectedResourceConditionsArgs.builder()
  *                 .stringEquals(RestoreTestingSelectionProtectedResourceConditionsStringEqualArgs.builder()
  *                     .key("aws:ResourceTag/backup")
  *                     .value("true")
  *                     .build())
  *                 .build())
+ *             .name("ec2_selection")
+ *             .restoreTestingPlanName(exampleAwsBackupRestoreTestingPlan.name())
+ *             .protectedResourceType("EC2")
+ *             .iamRoleArn(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }

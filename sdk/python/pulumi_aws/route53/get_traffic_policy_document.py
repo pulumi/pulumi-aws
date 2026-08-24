@@ -136,9 +136,7 @@ def get_traffic_policy_document(endpoints: Optional[Sequence[Union['GetTrafficPo
     import pulumi_aws as aws
 
     current = aws.get_region()
-    example = aws.route53.get_traffic_policy_document(record_type="A",
-        start_rule="site_switch",
-        endpoints=[
+    example = aws.route53.get_traffic_policy_document(endpoints=[
             {
                 "id": "my_elb",
                 "type": "elastic-load-balancer",
@@ -152,15 +150,17 @@ def get_traffic_policy_document(endpoints: Optional[Sequence[Union['GetTrafficPo
             },
         ],
         rules=[{
-            "id": "site_switch",
-            "type": "failover",
             "primary": {
                 "endpoint_reference": "my_elb",
             },
             "secondary": {
                 "endpoint_reference": "site_down_banner",
             },
-        }])
+            "id": "site_switch",
+            "type": "failover",
+        }],
+        record_type="A",
+        start_rule="site_switch")
     example_traffic_policy = aws.route53.TrafficPolicy("example",
         name="example",
         comment="example comment",
@@ -175,9 +175,7 @@ def get_traffic_policy_document(endpoints: Optional[Sequence[Union['GetTrafficPo
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.route53.get_traffic_policy_document(record_type="A",
-        start_rule="geoproximity_rule",
-        endpoints=[
+    example = aws.route53.get_traffic_policy_document(endpoints=[
             {
                 "id": "na_endpoint_a",
                 "type": "elastic-load-balancer",
@@ -201,18 +199,16 @@ def get_traffic_policy_document(endpoints: Optional[Sequence[Union['GetTrafficPo
         ],
         rules=[
             {
-                "id": "na_rule",
-                "type": "failover",
                 "primary": {
                     "endpoint_reference": "na_endpoint_a",
                 },
                 "secondary": {
                     "endpoint_reference": "na_endpoint_b",
                 },
+                "id": "na_rule",
+                "type": "failover",
             },
             {
-                "id": "geoproximity_rule",
-                "type": "geoproximity",
                 "geo_proximity_locations": [
                     {
                         "region": "aws:route53:us-west-1",
@@ -233,8 +229,12 @@ def get_traffic_policy_document(endpoints: Optional[Sequence[Union['GetTrafficPo
                         "endpoint_reference": "ap_endpoint",
                     },
                 ],
+                "id": "geoproximity_rule",
+                "type": "geoproximity",
             },
-        ])
+        ],
+        record_type="A",
+        start_rule="geoproximity_rule")
     example_traffic_policy = aws.route53.TrafficPolicy("example",
         name="example",
         comment="example comment",
@@ -287,9 +287,7 @@ def get_traffic_policy_document_output(endpoints: pulumi.Input[Optional[Optional
     import pulumi_aws as aws
 
     current = aws.get_region()
-    example = aws.route53.get_traffic_policy_document(record_type="A",
-        start_rule="site_switch",
-        endpoints=[
+    example = aws.route53.get_traffic_policy_document(endpoints=[
             {
                 "id": "my_elb",
                 "type": "elastic-load-balancer",
@@ -303,15 +301,17 @@ def get_traffic_policy_document_output(endpoints: pulumi.Input[Optional[Optional
             },
         ],
         rules=[{
-            "id": "site_switch",
-            "type": "failover",
             "primary": {
                 "endpoint_reference": "my_elb",
             },
             "secondary": {
                 "endpoint_reference": "site_down_banner",
             },
-        }])
+            "id": "site_switch",
+            "type": "failover",
+        }],
+        record_type="A",
+        start_rule="site_switch")
     example_traffic_policy = aws.route53.TrafficPolicy("example",
         name="example",
         comment="example comment",
@@ -326,9 +326,7 @@ def get_traffic_policy_document_output(endpoints: pulumi.Input[Optional[Optional
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.route53.get_traffic_policy_document(record_type="A",
-        start_rule="geoproximity_rule",
-        endpoints=[
+    example = aws.route53.get_traffic_policy_document(endpoints=[
             {
                 "id": "na_endpoint_a",
                 "type": "elastic-load-balancer",
@@ -352,18 +350,16 @@ def get_traffic_policy_document_output(endpoints: pulumi.Input[Optional[Optional
         ],
         rules=[
             {
-                "id": "na_rule",
-                "type": "failover",
                 "primary": {
                     "endpoint_reference": "na_endpoint_a",
                 },
                 "secondary": {
                     "endpoint_reference": "na_endpoint_b",
                 },
+                "id": "na_rule",
+                "type": "failover",
             },
             {
-                "id": "geoproximity_rule",
-                "type": "geoproximity",
                 "geo_proximity_locations": [
                     {
                         "region": "aws:route53:us-west-1",
@@ -384,8 +380,12 @@ def get_traffic_policy_document_output(endpoints: pulumi.Input[Optional[Optional
                         "endpoint_reference": "ap_endpoint",
                     },
                 ],
+                "id": "geoproximity_rule",
+                "type": "geoproximity",
             },
-        ])
+        ],
+        record_type="A",
+        start_rule="geoproximity_rule")
     example_traffic_policy = aws.route53.TrafficPolicy("example",
         name="example",
         comment="example comment",

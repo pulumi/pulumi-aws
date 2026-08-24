@@ -403,12 +403,6 @@ class GlobalSecondaryIndex(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_table = aws.dynamodb.Table("example",
-            name="example",
-            billing_mode="PROVISIONED",
-            read_capacity=20,
-            write_capacity=20,
-            hash_key="UserId",
-            range_key="GameTitle",
             attributes=[
                 {
                     "name": "UserId",
@@ -418,10 +412,14 @@ class GlobalSecondaryIndex(pulumi.CustomResource):
                     "name": "GameTitle",
                     "type": "S",
                 },
-            ])
+            ],
+            name="example",
+            billing_mode="PROVISIONED",
+            read_capacity=20,
+            write_capacity=20,
+            hash_key="UserId",
+            range_key="GameTitle")
         example = aws.dynamodb.GlobalSecondaryIndex("example",
-            table_name=example_table.name,
-            index_name="GameTitleIndex",
             projection={
                 "projection_type": "INCLUDE",
                 "non_key_attributes": ["UserId"],
@@ -434,7 +432,9 @@ class GlobalSecondaryIndex(pulumi.CustomResource):
                 "attribute_name": "GameTitle",
                 "attribute_type": "S",
                 "key_type": "HASH",
-            }])
+            }],
+            table_name=example_table.name,
+            index_name="GameTitleIndex")
         ```
 
         ### Migrating
@@ -450,10 +450,20 @@ class GlobalSecondaryIndex(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.dynamodb.Table("example",
-            name="example-table",
-            hash_key="example-key",
-            read_capacity=1,
-            write_capacity=1,
+            attributes=[
+                {
+                    "name": "example-key",
+                    "type": "S",
+                },
+                {
+                    "name": "example-gsi-key-1",
+                    "type": "S",
+                },
+                {
+                    "name": "example-gsi-key-2",
+                    "type": "S",
+                },
+            ],
             global_secondary_indexes=[
                 {
                     "name": "example-index-1",
@@ -470,20 +480,10 @@ class GlobalSecondaryIndex(pulumi.CustomResource):
                     "write_capacity": 1,
                 },
             ],
-            attributes=[
-                {
-                    "name": "example-key",
-                    "type": "S",
-                },
-                {
-                    "name": "example-gsi-key-1",
-                    "type": "S",
-                },
-                {
-                    "name": "example-gsi-key-2",
-                    "type": "S",
-                },
-            ])
+            name="example-table",
+            hash_key="example-key",
+            read_capacity=1,
+            write_capacity=1)
         ```
 
         Update the configuration to the following. Note that the schema of `dynamodb.GlobalSecondaryIndex` has some differences with `global_secondary_index` on `dynamodb.Table`.
@@ -541,12 +541,6 @@ class GlobalSecondaryIndex(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_table = aws.dynamodb.Table("example",
-            name="example",
-            billing_mode="PROVISIONED",
-            read_capacity=20,
-            write_capacity=20,
-            hash_key="UserId",
-            range_key="GameTitle",
             attributes=[
                 {
                     "name": "UserId",
@@ -556,10 +550,14 @@ class GlobalSecondaryIndex(pulumi.CustomResource):
                     "name": "GameTitle",
                     "type": "S",
                 },
-            ])
+            ],
+            name="example",
+            billing_mode="PROVISIONED",
+            read_capacity=20,
+            write_capacity=20,
+            hash_key="UserId",
+            range_key="GameTitle")
         example = aws.dynamodb.GlobalSecondaryIndex("example",
-            table_name=example_table.name,
-            index_name="GameTitleIndex",
             projection={
                 "projection_type": "INCLUDE",
                 "non_key_attributes": ["UserId"],
@@ -572,7 +570,9 @@ class GlobalSecondaryIndex(pulumi.CustomResource):
                 "attribute_name": "GameTitle",
                 "attribute_type": "S",
                 "key_type": "HASH",
-            }])
+            }],
+            table_name=example_table.name,
+            index_name="GameTitleIndex")
         ```
 
         ### Migrating
@@ -588,10 +588,20 @@ class GlobalSecondaryIndex(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.dynamodb.Table("example",
-            name="example-table",
-            hash_key="example-key",
-            read_capacity=1,
-            write_capacity=1,
+            attributes=[
+                {
+                    "name": "example-key",
+                    "type": "S",
+                },
+                {
+                    "name": "example-gsi-key-1",
+                    "type": "S",
+                },
+                {
+                    "name": "example-gsi-key-2",
+                    "type": "S",
+                },
+            ],
             global_secondary_indexes=[
                 {
                     "name": "example-index-1",
@@ -608,20 +618,10 @@ class GlobalSecondaryIndex(pulumi.CustomResource):
                     "write_capacity": 1,
                 },
             ],
-            attributes=[
-                {
-                    "name": "example-key",
-                    "type": "S",
-                },
-                {
-                    "name": "example-gsi-key-1",
-                    "type": "S",
-                },
-                {
-                    "name": "example-gsi-key-2",
-                    "type": "S",
-                },
-            ])
+            name="example-table",
+            hash_key="example-key",
+            read_capacity=1,
+            write_capacity=1)
         ```
 
         Update the configuration to the following. Note that the schema of `dynamodb.GlobalSecondaryIndex` has some differences with `global_secondary_index` on `dynamodb.Table`.

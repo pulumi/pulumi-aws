@@ -603,12 +603,12 @@ class StackSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         a_ws_cloud_formation_stack_set_administration_role_assume_role_policy = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
-            "effect": "Allow",
             "principals": [{
                 "identifiers": ["cloudformation.amazonaws.com"],
                 "type": "Service",
             }],
+            "actions": ["sts:AssumeRole"],
+            "effect": "Allow",
         }])
         a_ws_cloud_formation_stack_set_administration_role = aws.iam.Role("AWSCloudFormationStackSetAdministrationRole",
             assume_role_policy=a_ws_cloud_formation_stack_set_administration_role_assume_role_policy.json,
@@ -711,12 +711,12 @@ class StackSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         a_ws_cloud_formation_stack_set_administration_role_assume_role_policy = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
-            "effect": "Allow",
             "principals": [{
                 "identifiers": ["cloudformation.amazonaws.com"],
                 "type": "Service",
             }],
+            "actions": ["sts:AssumeRole"],
+            "effect": "Allow",
         }])
         a_ws_cloud_formation_stack_set_administration_role = aws.iam.Role("AWSCloudFormationStackSetAdministrationRole",
             assume_role_policy=a_ws_cloud_formation_stack_set_administration_role_assume_role_policy.json,

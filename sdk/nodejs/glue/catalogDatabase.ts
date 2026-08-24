@@ -26,13 +26,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.CatalogDatabase("example", {
- *     name: "MyCatalogDatabase",
  *     createTableDefaultPermissions: [{
- *         permissions: ["SELECT"],
  *         principal: {
  *             dataLakePrincipalIdentifier: "IAM_ALLOWED_PRINCIPALS",
  *         },
+ *         permissions: ["SELECT"],
  *     }],
+ *     name: "MyCatalogDatabase",
  * });
  * ```
  *

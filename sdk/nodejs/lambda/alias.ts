@@ -35,15 +35,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.Alias("example", {
- *     name: "staging",
- *     description: "Staging environment with traffic splitting",
- *     functionName: exampleAwsLambdaFunction.functionName,
- *     functionVersion: "2",
  *     routingConfig: {
  *         additionalVersionWeights: {
  *             "1": 0.1,
  *         },
  *     },
+ *     name: "staging",
+ *     description: "Staging environment with traffic splitting",
+ *     functionName: exampleAwsLambdaFunction.functionName,
+ *     functionVersion: "2",
  * });
  * ```
  *
@@ -55,15 +55,15 @@ import * as utilities from "../utilities";
  *
  * // Alias for gradual rollout
  * const example = new aws.lambda.Alias("example", {
- *     name: "live",
- *     description: "Live traffic with gradual rollout to new version",
- *     functionName: exampleAwsLambdaFunction.functionName,
- *     functionVersion: "5",
  *     routingConfig: {
  *         additionalVersionWeights: {
  *             "6": 0.05,
  *         },
  *     },
+ *     name: "live",
+ *     description: "Live traffic with gradual rollout to new version",
+ *     functionName: exampleAwsLambdaFunction.functionName,
+ *     functionVersion: "5",
  * });
  * ```
  *

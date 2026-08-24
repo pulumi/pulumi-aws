@@ -73,8 +73,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudfront.MultitenantDistribution;
  * import com.pulumi.aws.cloudfront.MultitenantDistributionArgs;
- * import com.pulumi.aws.cloudfront.inputs.MultitenantDistributionOriginArgs;
- * import com.pulumi.aws.cloudfront.inputs.MultitenantDistributionOriginCustomOriginConfigArgs;
  * import com.pulumi.aws.cloudfront.inputs.MultitenantDistributionDefaultCacheBehaviorArgs;
  * import com.pulumi.aws.cloudfront.inputs.MultitenantDistributionDefaultCacheBehaviorAllowedMethodsArgs;
  * import com.pulumi.aws.cloudfront.inputs.MultitenantDistributionRestrictionsArgs;
@@ -84,6 +82,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cloudfront.inputs.MultitenantDistributionTenantConfigParameterDefinitionArgs;
  * import com.pulumi.aws.cloudfront.inputs.MultitenantDistributionTenantConfigParameterDefinitionDefinitionArgs;
  * import com.pulumi.aws.cloudfront.inputs.MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArgs;
+ * import com.pulumi.aws.cloudfront.inputs.MultitenantDistributionOriginArgs;
+ * import com.pulumi.aws.cloudfront.inputs.MultitenantDistributionOriginCustomOriginConfigArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -98,22 +98,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new MultitenantDistribution("example", MultitenantDistributionArgs.builder()
- *             .comment("Multi-tenant distribution for my application")
- *             .enabled(true)
- *             .origins(MultitenantDistributionOriginArgs.builder()
- *                 .domainName("example.com")
- *                 .id("example-origin")
- *                 .customOriginConfigs(MultitenantDistributionOriginCustomOriginConfigArgs.builder()
- *                     .httpPort(80)
- *                     .httpsPort(443)
- *                     .originProtocolPolicy("https-only")
- *                     .originSslProtocols("TLSv1.2")
- *                     .build())
- *                 .build())
  *             .defaultCacheBehavior(MultitenantDistributionDefaultCacheBehaviorArgs.builder()
- *                 .targetOriginId("example-origin")
- *                 .viewerProtocolPolicy("redirect-to-https")
- *                 .cachePolicyId(exampleAwsCloudfrontCachePolicy.id())
  *                 .allowedMethods(MultitenantDistributionDefaultCacheBehaviorAllowedMethodsArgs.builder()
  *                     .items(                    
  *                         "DELETE",
@@ -127,6 +112,9 @@ import javax.annotation.Nullable;
  *                         "GET",
  *                         "HEAD")
  *                     .build())
+ *                 .targetOriginId("example-origin")
+ *                 .viewerProtocolPolicy("redirect-to-https")
+ *                 .cachePolicyId(exampleAwsCloudfrontCachePolicy.id())
  *                 .build())
  *             .restrictions(MultitenantDistributionRestrictionsArgs.builder()
  *                 .geoRestriction(MultitenantDistributionRestrictionsGeoRestrictionArgs.builder()
@@ -139,15 +127,27 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .tenantConfig(MultitenantDistributionTenantConfigArgs.builder()
  *                 .parameterDefinitions(MultitenantDistributionTenantConfigParameterDefinitionArgs.builder()
- *                     .name("origin_domain")
  *                     .definitions(MultitenantDistributionTenantConfigParameterDefinitionDefinitionArgs.builder()
  *                         .stringSchemas(MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArgs.builder()
  *                             .required(true)
  *                             .comment("Origin domain parameter for tenants")
  *                             .build())
  *                         .build())
+ *                     .name("origin_domain")
  *                     .build())
  *                 .build())
+ *             .origins(MultitenantDistributionOriginArgs.builder()
+ *                 .customOriginConfigs(MultitenantDistributionOriginCustomOriginConfigArgs.builder()
+ *                     .httpPort(80)
+ *                     .httpsPort(443)
+ *                     .originProtocolPolicy("https-only")
+ *                     .originSslProtocols("TLSv1.2")
+ *                     .build())
+ *                 .domainName("example.com")
+ *                 .id("example-origin")
+ *                 .build())
+ *             .comment("Multi-tenant distribution for my application")
+ *             .enabled(true)
  *             .tags(Map.of("Environment", "production"))
  *             .build());
  * 

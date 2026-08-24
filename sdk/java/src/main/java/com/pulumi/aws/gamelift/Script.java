@@ -45,12 +45,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Script("example", ScriptArgs.builder()
- *             .name("example-script")
  *             .storageLocation(ScriptStorageLocationArgs.builder()
  *                 .bucket(exampleAwsS3Bucket.id())
  *                 .key(exampleAwsS3Object.key())
  *                 .roleArn(exampleAwsIamRole.arn())
  *                 .build())
+ *             .name("example-script")
  *             .build());
  * 
  *     }

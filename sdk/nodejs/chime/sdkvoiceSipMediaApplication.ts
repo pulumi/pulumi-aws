@@ -19,11 +19,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.chime.SdkvoiceSipMediaApplication("example", {
- *     awsRegion: "us-east-1",
- *     name: "example-sip-media-application",
  *     endpoints: {
  *         lambdaArn: test.arn,
  *     },
+ *     awsRegion: "us-east-1",
+ *     name: "example-sip-media-application",
  * });
  * ```
  *

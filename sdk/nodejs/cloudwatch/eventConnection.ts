@@ -19,15 +19,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.cloudwatch.EventConnection("test", {
- *     name: "ngrok-connection",
- *     description: "A connection description",
- *     authorizationType: "API_KEY",
  *     authParameters: {
  *         apiKey: {
  *             key: "x-signature",
  *             value: "1234",
  *         },
  *     },
+ *     name: "ngrok-connection",
+ *     description: "A connection description",
+ *     authorizationType: "API_KEY",
  * });
  * ```
  *
@@ -38,15 +38,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.cloudwatch.EventConnection("test", {
- *     name: "ngrok-connection",
- *     description: "A connection description",
- *     authorizationType: "BASIC",
  *     authParameters: {
  *         basic: {
  *             username: "user",
  *             password: "Pass1234!",
  *         },
  *     },
+ *     name: "ngrok-connection",
+ *     description: "A connection description",
+ *     authorizationType: "BASIC",
  * });
  * ```
  *
@@ -57,13 +57,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.cloudwatch.EventConnection("test", {
- *     name: "ngrok-connection",
- *     description: "A connection description",
- *     authorizationType: "OAUTH_CLIENT_CREDENTIALS",
  *     authParameters: {
  *         oauth: {
- *             authorizationEndpoint: "https://auth.url.com/endpoint",
- *             httpMethod: "GET",
  *             clientParameters: {
  *                 clientId: "1234567890",
  *                 clientSecret: "Pass1234!",
@@ -85,8 +80,13 @@ import * as utilities from "../utilities";
  *                     isValueSecret: false,
  *                 }],
  *             },
+ *             authorizationEndpoint: "https://auth.url.com/endpoint",
+ *             httpMethod: "GET",
  *         },
  *     },
+ *     name: "ngrok-connection",
+ *     description: "A connection description",
+ *     authorizationType: "OAUTH_CLIENT_CREDENTIALS",
  * });
  * ```
  *
@@ -97,9 +97,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.cloudwatch.EventConnection("test", {
- *     name: "ngrok-connection",
- *     description: "A connection description",
- *     authorizationType: "BASIC",
  *     authParameters: {
  *         basic: {
  *             username: "user",
@@ -130,6 +127,9 @@ import * as utilities from "../utilities";
  *             }],
  *         },
  *     },
+ *     name: "ngrok-connection",
+ *     description: "A connection description",
+ *     authorizationType: "BASIC",
  * });
  * ```
  *
@@ -140,9 +140,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.cloudwatch.EventConnection("test", {
- *     name: "private-api-connection",
- *     description: "A connection to a private API",
- *     authorizationType: "OAUTH_CLIENT_CREDENTIALS",
  *     authParameters: {
  *         connectivityParameters: {
  *             resourceParameters: {
@@ -150,8 +147,6 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *         oauth: {
- *             authorizationEndpoint: "https://private-api.example.com/auth",
- *             httpMethod: "POST",
  *             clientParameters: {
  *                 clientId: "1234567890",
  *                 clientSecret: "Pass1234!",
@@ -163,8 +158,13 @@ import * as utilities from "../utilities";
  *                     isValueSecret: false,
  *                 }],
  *             },
+ *             authorizationEndpoint: "https://private-api.example.com/auth",
+ *             httpMethod: "POST",
  *         },
  *     },
+ *     name: "private-api-connection",
+ *     description: "A connection to a private API",
+ *     authorizationType: "OAUTH_CLIENT_CREDENTIALS",
  * });
  * ```
  *
@@ -217,15 +217,15 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const testEventConnection = new aws.cloudwatch.EventConnection("test", {
- *     name: "ngrok-connection",
- *     description: "A connection description",
- *     authorizationType: "BASIC",
  *     authParameters: {
  *         basic: {
  *             username: "user",
  *             password: "Pass1234!",
  *         },
  *     },
+ *     name: "ngrok-connection",
+ *     description: "A connection description",
+ *     authorizationType: "BASIC",
  *     kmsKeyIdentifier: example.id,
  * });
  * ```

@@ -182,15 +182,15 @@ class IdentityPolicy(pulumi.CustomResource):
 
         example_domain_identity = aws.ses.DomainIdentity("example", domain="example.com")
         example = aws.iam.get_policy_document_output(statements=[{
+            "principals": [{
+                "identifiers": ["*"],
+                "type": "AWS",
+            }],
             "actions": [
                 "SES:SendEmail",
                 "SES:SendRawEmail",
             ],
             "resources": [example_domain_identity.arn],
-            "principals": [{
-                "identifiers": ["*"],
-                "type": "AWS",
-            }],
         }])
         example_identity_policy = aws.ses.IdentityPolicy("example",
             identity=example_domain_identity.arn,
@@ -231,15 +231,15 @@ class IdentityPolicy(pulumi.CustomResource):
 
         example_domain_identity = aws.ses.DomainIdentity("example", domain="example.com")
         example = aws.iam.get_policy_document_output(statements=[{
+            "principals": [{
+                "identifiers": ["*"],
+                "type": "AWS",
+            }],
             "actions": [
                 "SES:SendEmail",
                 "SES:SendRawEmail",
             ],
             "resources": [example_domain_identity.arn],
-            "principals": [{
-                "identifiers": ["*"],
-                "type": "AWS",
-            }],
         }])
         example_identity_policy = aws.ses.IdentityPolicy("example",
             identity=example_domain_identity.arn,

@@ -59,10 +59,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new Policy("example", PolicyArgs.builder()
- *             .name("FMS-Policy-Example")
- *             .excludeResourceTags(false)
- *             .remediationEnabled(false)
- *             .resourceType("AWS::ElasticLoadBalancingV2::LoadBalancer")
  *             .securityServicePolicyData(PolicySecurityServicePolicyDataArgs.builder()
  *                 .type("WAF")
  *                 .managedServiceData(exampleRuleGroup.id().applyValue(_id -> serializeJson(
@@ -80,6 +76,10 @@ import javax.annotation.Nullable;
  *                         jsonProperty("overrideCustomerWebACLAssociation", false)
  *                     ))))
  *                 .build())
+ *             .name("FMS-Policy-Example")
+ *             .excludeResourceTags(false)
+ *             .remediationEnabled(false)
+ *             .resourceType("AWS::ElasticLoadBalancingV2::LoadBalancer")
  *             .tags(Map.of("Name", "example-fms-policy"))
  *             .build());
  * 

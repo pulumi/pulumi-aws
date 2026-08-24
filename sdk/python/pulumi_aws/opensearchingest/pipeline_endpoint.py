@@ -218,11 +218,11 @@ class PipelineEndpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearchingest.PipelineEndpoint("example",
-            pipeline_arn=example_aws_osis_pipeline["pipelineArn"],
             vpc_options={
                 "security_group_ids": [example_aws_security_group["id"]],
                 "subnet_ids": [example_aws_subnet["id"]],
-            })
+            },
+            pipeline_arn=example_aws_osis_pipeline["pipelineArn"])
         ```
 
         ## Import
@@ -271,11 +271,11 @@ class PipelineEndpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearchingest.PipelineEndpoint("example",
-            pipeline_arn=example_aws_osis_pipeline["pipelineArn"],
             vpc_options={
                 "security_group_ids": [example_aws_security_group["id"]],
                 "subnet_ids": [example_aws_subnet["id"]],
-            })
+            },
+            pipeline_arn=example_aws_osis_pipeline["pipelineArn"])
         ```
 
         ## Import

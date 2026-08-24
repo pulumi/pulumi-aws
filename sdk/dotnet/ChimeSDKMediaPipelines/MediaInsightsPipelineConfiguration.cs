@@ -37,7 +37,6 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -49,6 +48,7 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines
     ///                         },
     ///                     },
     ///                 },
+    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "sts:AssumeRole",
@@ -65,27 +65,27 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines
     /// 
     ///     var myConfiguration = new Aws.ChimeSDKMediaPipelines.MediaInsightsPipelineConfiguration("my_configuration", new()
     ///     {
-    ///         Name = "MyBasicConfiguration",
-    ///         ResourceAccessRoleArn = callAnalyticsRole.Arn,
     ///         Elements = new[]
     ///         {
     ///             new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementArgs
     ///             {
-    ///                 Type = "AmazonTranscribeCallAnalyticsProcessor",
     ///                 AmazonTranscribeCallAnalyticsProcessorConfiguration = new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs
     ///                 {
     ///                     LanguageCode = "en-US",
     ///                 },
+    ///                 Type = "AmazonTranscribeCallAnalyticsProcessor",
     ///             },
     ///             new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementArgs
     ///             {
-    ///                 Type = "KinesisDataStreamSink",
     ///                 KinesisDataStreamSinkConfiguration = new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs
     ///                 {
     ///                     InsightsTarget = example.Arn,
     ///                 },
+    ///                 Type = "KinesisDataStreamSink",
     ///             },
     ///         },
+    ///         Name = "MyBasicConfiguration",
+    ///         ResourceAccessRoleArn = callAnalyticsRole.Arn,
     ///         Tags = 
     ///         {
     ///             { "Key1", "Value1" },
@@ -114,7 +114,6 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -126,6 +125,7 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines
     ///                         },
     ///                     },
     ///                 },
+    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "sts:AssumeRole",
@@ -142,15 +142,19 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines
     /// 
     ///     var myConfiguration = new Aws.ChimeSDKMediaPipelines.MediaInsightsPipelineConfiguration("my_configuration", new()
     ///     {
-    ///         Name = "MyCallAnalyticsConfiguration",
-    ///         ResourceAccessRoleArn = exampleAwsIamRole.Arn,
     ///         Elements = new[]
     ///         {
     ///             new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementArgs
     ///             {
-    ///                 Type = "AmazonTranscribeCallAnalyticsProcessor",
     ///                 AmazonTranscribeCallAnalyticsProcessorConfiguration = new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs
     ///                 {
+    ///                     PostCallAnalyticsSettings = new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsArgs
+    ///                     {
+    ///                         ContentRedactionOutput = "redacted",
+    ///                         DataAccessRoleArn = postCallRole.Arn,
+    ///                         OutputEncryptionKmsKeyId = "MyKmsKeyId",
+    ///                         OutputLocation = "s3://MyBucket",
+    ///                     },
     ///                     CallAnalyticsStreamCategories = new[]
     ///                     {
     ///                         "category_1",
@@ -163,27 +167,23 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines
     ///                     LanguageModelName = "MyLanguageModel",
     ///                     PartialResultsStability = "high",
     ///                     PiiEntityTypes = "ADDRESS,BANK_ACCOUNT_NUMBER",
-    ///                     PostCallAnalyticsSettings = new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsArgs
-    ///                     {
-    ///                         ContentRedactionOutput = "redacted",
-    ///                         DataAccessRoleArn = postCallRole.Arn,
-    ///                         OutputEncryptionKmsKeyId = "MyKmsKeyId",
-    ///                         OutputLocation = "s3://MyBucket",
-    ///                     },
     ///                     VocabularyFilterMethod = "mask",
     ///                     VocabularyFilterName = "MyVocabularyFilter",
     ///                     VocabularyName = "MyVocabulary",
     ///                 },
+    ///                 Type = "AmazonTranscribeCallAnalyticsProcessor",
     ///             },
     ///             new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementArgs
     ///             {
-    ///                 Type = "KinesisDataStreamSink",
     ///                 KinesisDataStreamSinkConfiguration = new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs
     ///                 {
     ///                     InsightsTarget = example.Arn,
     ///                 },
+    ///                 Type = "KinesisDataStreamSink",
     ///             },
     ///         },
+    ///         Name = "MyCallAnalyticsConfiguration",
+    ///         ResourceAccessRoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });
@@ -201,43 +201,20 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines
     /// {
     ///     var myConfiguration = new Aws.ChimeSDKMediaPipelines.MediaInsightsPipelineConfiguration("my_configuration", new()
     ///     {
-    ///         Name = "MyRealTimeAlertConfiguration",
-    ///         ResourceAccessRoleArn = callAnalyticsRole.Arn,
-    ///         Elements = new[]
-    ///         {
-    ///             new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementArgs
-    ///             {
-    ///                 Type = "AmazonTranscribeCallAnalyticsProcessor",
-    ///                 AmazonTranscribeCallAnalyticsProcessorConfiguration = new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs
-    ///                 {
-    ///                     LanguageCode = "en-US",
-    ///                 },
-    ///             },
-    ///             new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementArgs
-    ///             {
-    ///                 Type = "KinesisDataStreamSink",
-    ///                 KinesisDataStreamSinkConfiguration = new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs
-    ///                 {
-    ///                     InsightsTarget = example.Arn,
-    ///                 },
-    ///             },
-    ///         },
     ///         RealTimeAlertConfiguration = new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs
     ///         {
-    ///             Disabled = false,
     ///             Rules = new[]
     ///             {
     ///                 new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs
     ///                 {
-    ///                     Type = "IssueDetection",
     ///                     IssueDetectionConfiguration = new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationArgs
     ///                     {
     ///                         RuleName = "MyIssueDetectionRule",
     ///                     },
+    ///                     Type = "IssueDetection",
     ///                 },
     ///                 new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs
     ///                 {
-    ///                     Type = "KeywordMatch",
     ///                     KeywordMatchConfiguration = new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationArgs
     ///                     {
     ///                         Keywords = new[]
@@ -248,19 +225,42 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines
     ///                         Negate = false,
     ///                         RuleName = "MyKeywordMatchRule",
     ///                     },
+    ///                     Type = "KeywordMatch",
     ///                 },
     ///                 new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs
     ///                 {
-    ///                     Type = "Sentiment",
     ///                     SentimentConfiguration = new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArgs
     ///                     {
     ///                         RuleName = "MySentimentRule",
     ///                         SentimentType = "NEGATIVE",
     ///                         TimePeriod = 60,
     ///                     },
+    ///                     Type = "Sentiment",
     ///                 },
     ///             },
+    ///             Disabled = false,
     ///         },
+    ///         Elements = new[]
+    ///         {
+    ///             new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementArgs
+    ///             {
+    ///                 AmazonTranscribeCallAnalyticsProcessorConfiguration = new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs
+    ///                 {
+    ///                     LanguageCode = "en-US",
+    ///                 },
+    ///                 Type = "AmazonTranscribeCallAnalyticsProcessor",
+    ///             },
+    ///             new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementArgs
+    ///             {
+    ///                 KinesisDataStreamSinkConfiguration = new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs
+    ///                 {
+    ///                     InsightsTarget = example.Arn,
+    ///                 },
+    ///                 Type = "KinesisDataStreamSink",
+    ///             },
+    ///         },
+    ///         Name = "MyRealTimeAlertConfiguration",
+    ///         ResourceAccessRoleArn = callAnalyticsRole.Arn,
     ///     });
     /// 
     /// });
@@ -278,13 +278,10 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines
     /// {
     ///     var myConfiguration = new Aws.ChimeSDKMediaPipelines.MediaInsightsPipelineConfiguration("my_configuration", new()
     ///     {
-    ///         Name = "MyTranscribeConfiguration",
-    ///         ResourceAccessRoleArn = exampleAwsIamRole.Arn,
     ///         Elements = new[]
     ///         {
     ///             new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementArgs
     ///             {
-    ///                 Type = "AmazonTranscribeProcessor",
     ///                 AmazonTranscribeProcessorConfiguration = new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs
     ///                 {
     ///                     ContentIdentificationType = "PII",
@@ -299,16 +296,19 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines
     ///                     VocabularyFilterName = "MyVocabularyFilter",
     ///                     VocabularyName = "MyVocabulary",
     ///                 },
+    ///                 Type = "AmazonTranscribeProcessor",
     ///             },
     ///             new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementArgs
     ///             {
-    ///                 Type = "KinesisDataStreamSink",
     ///                 KinesisDataStreamSinkConfiguration = new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs
     ///                 {
     ///                     InsightsTarget = example.Arn,
     ///                 },
+    ///                 Type = "KinesisDataStreamSink",
     ///             },
     ///         },
+    ///         Name = "MyTranscribeConfiguration",
+    ///         ResourceAccessRoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });
@@ -326,52 +326,52 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines
     /// {
     ///     var myConfiguration = new Aws.ChimeSDKMediaPipelines.MediaInsightsPipelineConfiguration("my_configuration", new()
     ///     {
-    ///         Name = "MyVoiceAnalyticsConfiguration",
-    ///         ResourceAccessRoleArn = example.Arn,
     ///         Elements = new[]
     ///         {
     ///             new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementArgs
     ///             {
-    ///                 Type = "VoiceAnalyticsProcessor",
     ///                 VoiceAnalyticsProcessorConfiguration = new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationArgs
     ///                 {
     ///                     SpeakerSearchStatus = "Enabled",
     ///                     VoiceToneAnalysisStatus = "Enabled",
     ///                 },
+    ///                 Type = "VoiceAnalyticsProcessor",
     ///             },
     ///             new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementArgs
     ///             {
-    ///                 Type = "LambdaFunctionSink",
     ///                 LambdaFunctionSinkConfiguration = new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationArgs
     ///                 {
     ///                     InsightsTarget = "arn:aws:lambda:us-west-2:1111111111:function:MyFunction",
     ///                 },
+    ///                 Type = "LambdaFunctionSink",
     ///             },
     ///             new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementArgs
     ///             {
-    ///                 Type = "SnsTopicSink",
     ///                 SnsTopicSinkConfiguration = new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationArgs
     ///                 {
     ///                     InsightsTarget = "arn:aws:sns:us-west-2:1111111111:topic/MyTopic",
     ///                 },
+    ///                 Type = "SnsTopicSink",
     ///             },
     ///             new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementArgs
     ///             {
-    ///                 Type = "SqsQueueSink",
     ///                 SqsQueueSinkConfiguration = new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationArgs
     ///                 {
     ///                     InsightsTarget = "arn:aws:sqs:us-west-2:1111111111:queue/MyQueue",
     ///                 },
+    ///                 Type = "SqsQueueSink",
     ///             },
     ///             new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementArgs
     ///             {
-    ///                 Type = "KinesisDataStreamSink",
     ///                 KinesisDataStreamSinkConfiguration = new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs
     ///                 {
     ///                     InsightsTarget = test.Arn,
     ///                 },
+    ///                 Type = "KinesisDataStreamSink",
     ///             },
     ///         },
+    ///         Name = "MyVoiceAnalyticsConfiguration",
+    ///         ResourceAccessRoleArn = example.Arn,
     ///     });
     /// 
     /// });
@@ -389,19 +389,19 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines
     /// {
     ///     var myConfiguration = new Aws.ChimeSDKMediaPipelines.MediaInsightsPipelineConfiguration("my_configuration", new()
     ///     {
-    ///         Name = "MyS3RecordingConfiguration",
-    ///         ResourceAccessRoleArn = example.Arn,
     ///         Elements = new[]
     ///         {
     ///             new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementArgs
     ///             {
-    ///                 Type = "S3RecordingSink",
     ///                 S3RecordingSinkConfiguration = new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationArgs
     ///                 {
     ///                     Destination = "arn:aws:s3:::MyBucket",
     ///                 },
+    ///                 Type = "S3RecordingSink",
     ///             },
     ///         },
+    ///         Name = "MyS3RecordingConfiguration",
+    ///         ResourceAccessRoleArn = example.Arn,
     ///     });
     /// 
     /// });

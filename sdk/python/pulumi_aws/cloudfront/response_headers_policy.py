@@ -321,10 +321,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudfront.ResponseHeadersPolicy("example",
-            name="example-policy",
-            comment="test comment",
             cors_config={
-                "access_control_allow_credentials": True,
                 "access_control_allow_headers": {
                     "items": ["test"],
                 },
@@ -334,8 +331,11 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
                 "access_control_allow_origins": {
                     "items": ["test.example.comtest"],
                 },
+                "access_control_allow_credentials": True,
                 "origin_override": True,
-            })
+            },
+            name="example-policy",
+            comment="test comment")
         ```
 
         ### Custom Headers Config Usage
@@ -345,7 +345,6 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudfront.ResponseHeadersPolicy("example",
-            name="example-headers-policy",
             custom_headers_config={
                 "items": [
                     {
@@ -359,7 +358,8 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
                         "value": "none",
                     },
                 ],
-            })
+            },
+            name="example-headers-policy")
         ```
 
         ### Mixed Config Usage
@@ -371,7 +371,6 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudfront.ResponseHeadersPolicy("example",
-            name="example-headers-policy",
             custom_headers_config={
                 "items": [{
                     "header": "X-Permitted-Cross-Domain-Policies",
@@ -387,7 +386,8 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
             server_timing_headers_config={
                 "enabled": True,
                 "sampling_rate": float(50),
-            })
+            },
+            name="example-headers-policy")
         ```
 
         ## Import
@@ -430,10 +430,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudfront.ResponseHeadersPolicy("example",
-            name="example-policy",
-            comment="test comment",
             cors_config={
-                "access_control_allow_credentials": True,
                 "access_control_allow_headers": {
                     "items": ["test"],
                 },
@@ -443,8 +440,11 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
                 "access_control_allow_origins": {
                     "items": ["test.example.comtest"],
                 },
+                "access_control_allow_credentials": True,
                 "origin_override": True,
-            })
+            },
+            name="example-policy",
+            comment="test comment")
         ```
 
         ### Custom Headers Config Usage
@@ -454,7 +454,6 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudfront.ResponseHeadersPolicy("example",
-            name="example-headers-policy",
             custom_headers_config={
                 "items": [
                     {
@@ -468,7 +467,8 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
                         "value": "none",
                     },
                 ],
-            })
+            },
+            name="example-headers-policy")
         ```
 
         ### Mixed Config Usage
@@ -480,7 +480,6 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudfront.ResponseHeadersPolicy("example",
-            name="example-headers-policy",
             custom_headers_config={
                 "items": [{
                     "header": "X-Permitted-Cross-Domain-Policies",
@@ -496,7 +495,8 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
             server_timing_headers_config={
                 "enabled": True,
                 "sampling_rate": float(50),
-            })
+            },
+            name="example-headers-policy")
         ```
 
         ## Import

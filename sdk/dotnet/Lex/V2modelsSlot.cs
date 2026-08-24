@@ -52,19 +52,10 @@ namespace Pulumi.Aws.Lex
     /// {
     ///     var example = new Aws.Lex.V2modelsSlot("example", new()
     ///     {
-    ///         BotId = test.Id,
-    ///         BotVersion = testAwsLexv2modelsBotLocale.BotVersion,
-    ///         IntentId = testAwsLexv2modelsIntent.IntentId,
-    ///         LocaleId = testAwsLexv2modelsBotLocale.LocaleId,
-    ///         Name = "example",
     ///         ValueElicitationSetting = new Aws.Lex.Inputs.V2modelsSlotValueElicitationSettingArgs
     ///         {
-    ///             SlotConstraint = "Required",
     ///             PromptSpecification = new Aws.Lex.Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationArgs
     ///             {
-    ///                 AllowInterrupt = true,
-    ///                 MaxRetries = 1,
-    ///                 MessageSelectionStrategy = "Random",
     ///                 MessageGroups = new[]
     ///                 {
     ///                     new Aws.Lex.Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupArgs
@@ -82,8 +73,6 @@ namespace Pulumi.Aws.Lex
     ///                 {
     ///                     new Aws.Lex.Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArgs
     ///                     {
-    ///                         AllowInterrupt = true,
-    ///                         MapBlockKey = "Initial",
     ///                         AllowedInputTypes = new Aws.Lex.Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs
     ///                         {
     ///                             AllowAudioInput = true,
@@ -91,7 +80,6 @@ namespace Pulumi.Aws.Lex
     ///                         },
     ///                         AudioAndDtmfInputSpecification = new Aws.Lex.Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs
     ///                         {
-    ///                             StartTimeoutMs = 4000,
     ///                             AudioSpecification = new Aws.Lex.Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs
     ///                             {
     ///                                 EndTimeoutMs = 640,
@@ -104,16 +92,17 @@ namespace Pulumi.Aws.Lex
     ///                                 EndTimeoutMs = 5000,
     ///                                 MaxLength = 513,
     ///                             },
+    ///                             StartTimeoutMs = 4000,
     ///                         },
     ///                         TextInputSpecification = new Aws.Lex.Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgs
     ///                         {
     ///                             StartTimeoutMs = 30000,
     ///                         },
+    ///                         AllowInterrupt = true,
+    ///                         MapBlockKey = "Initial",
     ///                     },
     ///                     new Aws.Lex.Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArgs
     ///                     {
-    ///                         AllowInterrupt = true,
-    ///                         MapBlockKey = "Retry1",
     ///                         AllowedInputTypes = new Aws.Lex.Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs
     ///                         {
     ///                             AllowAudioInput = true,
@@ -121,7 +110,6 @@ namespace Pulumi.Aws.Lex
     ///                         },
     ///                         AudioAndDtmfInputSpecification = new Aws.Lex.Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs
     ///                         {
-    ///                             StartTimeoutMs = 4000,
     ///                             AudioSpecification = new Aws.Lex.Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs
     ///                             {
     ///                                 EndTimeoutMs = 640,
@@ -134,15 +122,27 @@ namespace Pulumi.Aws.Lex
     ///                                 EndTimeoutMs = 5000,
     ///                                 MaxLength = 513,
     ///                             },
+    ///                             StartTimeoutMs = 4000,
     ///                         },
     ///                         TextInputSpecification = new Aws.Lex.Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgs
     ///                         {
     ///                             StartTimeoutMs = 30000,
     ///                         },
+    ///                         AllowInterrupt = true,
+    ///                         MapBlockKey = "Retry1",
     ///                     },
     ///                 },
+    ///                 AllowInterrupt = true,
+    ///                 MaxRetries = 1,
+    ///                 MessageSelectionStrategy = "Random",
     ///             },
+    ///             SlotConstraint = "Required",
     ///         },
+    ///         BotId = test.Id,
+    ///         BotVersion = testAwsLexv2modelsBotLocale.BotVersion,
+    ///         IntentId = testAwsLexv2modelsIntent.IntentId,
+    ///         LocaleId = testAwsLexv2modelsBotLocale.LocaleId,
+    ///         Name = "example",
     ///     });
     /// 
     /// });

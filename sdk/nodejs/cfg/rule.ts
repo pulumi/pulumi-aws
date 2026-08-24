@@ -24,11 +24,11 @@ import * as utilities from "../utilities";
  *
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["config.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
@@ -41,11 +41,11 @@ import * as utilities from "../utilities";
  *     roleArn: rRole.arn,
  * });
  * const r = new aws.cfg.Rule("r", {
- *     name: "example",
  *     source: {
  *         owner: "AWS",
  *         sourceIdentifier: "S3_BUCKET_VERSIONING_ENABLED",
  *     },
+ *     name: "example",
  * }, {
  *     dependsOn: [foo],
  * });
@@ -97,12 +97,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cfg.Rule("example", {
- *     name: "example",
  *     source: {
- *         owner: "CUSTOM_POLICY",
- *         sourceDetails: [{
- *             messageType: "ConfigurationItemChangeNotification",
- *         }],
  *         customPolicyDetails: {
  *             policyRuntime: "guard-2.x.x",
  *             policyText: `\\t  rule tableisactive when
@@ -117,7 +112,12 @@ import * as utilities from "../utilities";
  * \\t  }
  * `,
  *         },
+ *         sourceDetails: [{
+ *             messageType: "ConfigurationItemChangeNotification",
+ *         }],
+ *         owner: "CUSTOM_POLICY",
  *     },
+ *     name: "example",
  * });
  * ```
  *

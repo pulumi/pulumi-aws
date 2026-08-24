@@ -72,13 +72,13 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.networkmanager.GlobalNetworkArgs;
  * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
  * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentArgs;
+ * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyArgs;
+ * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs;
+ * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs;
  * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs;
  * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs;
- * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentSegmentArgs;
  * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentSegmentActionArgs;
- * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyArgs;
- * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs;
- * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs;
+ * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentSegmentArgs;
  * import com.pulumi.awscc.NetworkmanagerCoreNetwork;
  * import com.pulumi.awscc.NetworkmanagerCoreNetworkArgs;
  * import com.pulumi.std.StdFunctions;
@@ -118,18 +118,27 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         final var test = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
+ *             .attachmentPolicies(GetCoreNetworkPolicyDocumentAttachmentPolicyArgs.builder()
+ *                 .action(GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs.builder()
+ *                     .associationMethod("constant")
+ *                     .segment("shared")
+ *                     .build())
+ *                 .conditions(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs.builder()
+ *                     .type("tag-value")
+ *                     .operator("equals")
+ *                     .key("segment")
+ *                     .value("shared")
+ *                     .build())
+ *                 .ruleNumber(1)
+ *                 .conditionLogic("or")
+ *                 .build())
  *             .coreNetworkConfigurations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs.builder()
- *                 .vpnEcmpSupport(false)
- *                 .asnRanges("64512-64555")
  *                 .edgeLocations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs.builder()
  *                     .location(current.region())
  *                     .asn("64512")
  *                     .build())
- *                 .build())
- *             .segments(GetCoreNetworkPolicyDocumentSegmentArgs.builder()
- *                 .name("shared")
- *                 .description("SegmentForSharedServices")
- *                 .requireAttachmentAcceptance(true)
+ *                 .vpnEcmpSupport(false)
+ *                 .asnRanges("64512-64555")
  *                 .build())
  *             .segmentActions(GetCoreNetworkPolicyDocumentSegmentActionArgs.builder()
  *                 .action("share")
@@ -137,19 +146,10 @@ import javax.annotation.Nullable;
  *                 .segment("shared")
  *                 .shareWiths("*")
  *                 .build())
- *             .attachmentPolicies(GetCoreNetworkPolicyDocumentAttachmentPolicyArgs.builder()
- *                 .ruleNumber(1)
- *                 .conditionLogic("or")
- *                 .conditions(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs.builder()
- *                     .type("tag-value")
- *                     .operator("equals")
- *                     .key("segment")
- *                     .value("shared")
- *                     .build())
- *                 .action(GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs.builder()
- *                     .associationMethod("constant")
- *                     .segment("shared")
- *                     .build())
+ *             .segments(GetCoreNetworkPolicyDocumentSegmentArgs.builder()
+ *                 .name("shared")
+ *                 .description("SegmentForSharedServices")
+ *                 .requireAttachmentAcceptance(true)
  *                 .build())
  *             .build());
  * 

@@ -150,10 +150,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     ///     var vpc = new Aws.Ec2.VpcIpamPool("vpc", new()
     ///     {
-    ///         AddressFamily = "ipv4",
-    ///         IpamScopeId = testAwsVpcIpam.PrivateDefaultScopeId,
-    ///         Locale = current.Apply(getRegionResult =&gt; getRegionResult.Region),
-    ///         SourceIpamPoolId = test.Id,
     ///         SourceResource = new Aws.Ec2.Inputs.VpcIpamPoolSourceResourceArgs
     ///         {
     ///             ResourceId = testVpc.Id,
@@ -161,6 +157,10 @@ namespace Pulumi.Aws.Ec2
     ///             ResourceRegion = current.Apply(getRegionResult =&gt; getRegionResult.Region),
     ///             ResourceType = "vpc",
     ///         },
+    ///         AddressFamily = "ipv4",
+    ///         IpamScopeId = testAwsVpcIpam.PrivateDefaultScopeId,
+    ///         Locale = current.Apply(getRegionResult =&gt; getRegionResult.Region),
+    ///         SourceIpamPoolId = test.Id,
     ///     });
     /// 
     /// });

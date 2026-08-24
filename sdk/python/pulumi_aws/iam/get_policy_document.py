@@ -171,8 +171,6 @@ def get_policy_document(override_json: Optional[_builtins.str] = None,
             "resources": ["arn:aws:s3:::*"],
         },
         {
-            "actions": ["s3:ListBucket"],
-            "resources": [f"arn:aws:s3:::{s3_bucket_name}"],
             "conditions": [{
                 "test": "StringLike",
                 "variable": "s3:prefix",
@@ -182,6 +180,8 @@ def get_policy_document(override_json: Optional[_builtins.str] = None,
                     "home/&{aws:username}/",
                 ],
             }],
+            "actions": ["s3:ListBucket"],
+            "resources": [f"arn:aws:s3:::{s3_bucket_name}"],
         },
         {
             "actions": ["s3:*"],
@@ -206,11 +206,6 @@ def get_policy_document(override_json: Optional[_builtins.str] = None,
     import pulumi_aws as aws
 
     example_multiple_condition_keys_and_values = aws.iam.get_policy_document(statements=[{
-        "actions": [
-            "kms:Decrypt",
-            "kms:GenerateDataKey",
-        ],
-        "resources": ["*"],
         "conditions": [
             {
                 "test": "ForAnyValue:StringEquals",
@@ -231,6 +226,11 @@ def get_policy_document(override_json: Optional[_builtins.str] = None,
                 ],
             },
         ],
+        "actions": [
+            "kms:Decrypt",
+            "kms:GenerateDataKey",
+        ],
+        "resources": ["*"],
     }])
     ```
 
@@ -245,7 +245,6 @@ def get_policy_document(override_json: Optional[_builtins.str] = None,
     import pulumi_aws as aws
 
     event_stream_bucket_role_assume_role_policy = aws.iam.get_policy_document(statements=[{
-        "actions": ["sts:AssumeRole"],
         "principals": [
             {
                 "type": "Service",
@@ -263,6 +262,7 @@ def get_policy_document(override_json: Optional[_builtins.str] = None,
                 ],
             },
         ],
+        "actions": ["sts:AssumeRole"],
     }])
     ```
 
@@ -283,15 +283,15 @@ def get_policy_document(override_json: Optional[_builtins.str] = None,
             "resources": ["*"],
         },
     ])
-    source_document_example = aws.iam.get_policy_document(source_policy_documents=[source.json],
-        statements=[{
+    source_document_example = aws.iam.get_policy_document(statements=[{
             "sid": "SidToOverride",
             "actions": ["s3:*"],
             "resources": [
                 "arn:aws:s3:::somebucket",
                 "arn:aws:s3:::somebucket/*",
             ],
-        }])
+        }],
+        source_policy_documents=[source.json])
     ```
 
     `data.aws_iam_policy_document.source_document_example.json` will evaluate to:
@@ -307,8 +307,7 @@ def get_policy_document(override_json: Optional[_builtins.str] = None,
         "actions": ["s3:*"],
         "resources": ["*"],
     }])
-    override_policy_document_example = aws.iam.get_policy_document(override_policy_documents=[override.json],
-        statements=[
+    override_policy_document_example = aws.iam.get_policy_document(statements=[
             {
                 "actions": ["ec2:*"],
                 "resources": ["*"],
@@ -321,7 +320,8 @@ def get_policy_document(override_json: Optional[_builtins.str] = None,
                     "arn:aws:s3:::somebucket/*",
                 ],
             },
-        ])
+        ],
+        override_policy_documents=[override.json])
     ```
 
     `data.aws_iam_policy_document.override_policy_document_example.json` will evaluate to:
@@ -419,17 +419,17 @@ def get_policy_document(override_json: Optional[_builtins.str] = None,
         "actions": ["logs:*"],
         "resources": ["*"],
     }])
-    combined = aws.iam.get_policy_document(override_policy_documents=[
-            policy_one.json,
-            policy_two.json,
-            policy_three.json,
-        ],
-        statements=[{
+    combined = aws.iam.get_policy_document(statements=[{
             "sid": "OverridePlaceHolderTwo",
             "effect": "Deny",
             "actions": ["*"],
             "resources": ["*"],
-        }])
+        }],
+        override_policy_documents=[
+            policy_one.json,
+            policy_two.json,
+            policy_three.json,
+        ])
     ```
 
     `data.aws_iam_policy_document.combined.json` will evaluate to:
@@ -494,8 +494,6 @@ def get_policy_document_output(override_json: pulumi.Input[Optional[Optional[_bu
             "resources": ["arn:aws:s3:::*"],
         },
         {
-            "actions": ["s3:ListBucket"],
-            "resources": [f"arn:aws:s3:::{s3_bucket_name}"],
             "conditions": [{
                 "test": "StringLike",
                 "variable": "s3:prefix",
@@ -505,6 +503,8 @@ def get_policy_document_output(override_json: pulumi.Input[Optional[Optional[_bu
                     "home/&{aws:username}/",
                 ],
             }],
+            "actions": ["s3:ListBucket"],
+            "resources": [f"arn:aws:s3:::{s3_bucket_name}"],
         },
         {
             "actions": ["s3:*"],
@@ -529,11 +529,6 @@ def get_policy_document_output(override_json: pulumi.Input[Optional[Optional[_bu
     import pulumi_aws as aws
 
     example_multiple_condition_keys_and_values = aws.iam.get_policy_document(statements=[{
-        "actions": [
-            "kms:Decrypt",
-            "kms:GenerateDataKey",
-        ],
-        "resources": ["*"],
         "conditions": [
             {
                 "test": "ForAnyValue:StringEquals",
@@ -554,6 +549,11 @@ def get_policy_document_output(override_json: pulumi.Input[Optional[Optional[_bu
                 ],
             },
         ],
+        "actions": [
+            "kms:Decrypt",
+            "kms:GenerateDataKey",
+        ],
+        "resources": ["*"],
     }])
     ```
 
@@ -568,7 +568,6 @@ def get_policy_document_output(override_json: pulumi.Input[Optional[Optional[_bu
     import pulumi_aws as aws
 
     event_stream_bucket_role_assume_role_policy = aws.iam.get_policy_document(statements=[{
-        "actions": ["sts:AssumeRole"],
         "principals": [
             {
                 "type": "Service",
@@ -586,6 +585,7 @@ def get_policy_document_output(override_json: pulumi.Input[Optional[Optional[_bu
                 ],
             },
         ],
+        "actions": ["sts:AssumeRole"],
     }])
     ```
 
@@ -606,15 +606,15 @@ def get_policy_document_output(override_json: pulumi.Input[Optional[Optional[_bu
             "resources": ["*"],
         },
     ])
-    source_document_example = aws.iam.get_policy_document(source_policy_documents=[source.json],
-        statements=[{
+    source_document_example = aws.iam.get_policy_document(statements=[{
             "sid": "SidToOverride",
             "actions": ["s3:*"],
             "resources": [
                 "arn:aws:s3:::somebucket",
                 "arn:aws:s3:::somebucket/*",
             ],
-        }])
+        }],
+        source_policy_documents=[source.json])
     ```
 
     `data.aws_iam_policy_document.source_document_example.json` will evaluate to:
@@ -630,8 +630,7 @@ def get_policy_document_output(override_json: pulumi.Input[Optional[Optional[_bu
         "actions": ["s3:*"],
         "resources": ["*"],
     }])
-    override_policy_document_example = aws.iam.get_policy_document(override_policy_documents=[override.json],
-        statements=[
+    override_policy_document_example = aws.iam.get_policy_document(statements=[
             {
                 "actions": ["ec2:*"],
                 "resources": ["*"],
@@ -644,7 +643,8 @@ def get_policy_document_output(override_json: pulumi.Input[Optional[Optional[_bu
                     "arn:aws:s3:::somebucket/*",
                 ],
             },
-        ])
+        ],
+        override_policy_documents=[override.json])
     ```
 
     `data.aws_iam_policy_document.override_policy_document_example.json` will evaluate to:
@@ -742,17 +742,17 @@ def get_policy_document_output(override_json: pulumi.Input[Optional[Optional[_bu
         "actions": ["logs:*"],
         "resources": ["*"],
     }])
-    combined = aws.iam.get_policy_document(override_policy_documents=[
-            policy_one.json,
-            policy_two.json,
-            policy_three.json,
-        ],
-        statements=[{
+    combined = aws.iam.get_policy_document(statements=[{
             "sid": "OverridePlaceHolderTwo",
             "effect": "Deny",
             "actions": ["*"],
             "resources": ["*"],
-        }])
+        }],
+        override_policy_documents=[
+            policy_one.json,
+            policy_two.json,
+            policy_three.json,
+        ])
     ```
 
     `data.aws_iam_policy_document.combined.json` will evaluate to:

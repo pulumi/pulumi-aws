@@ -33,11 +33,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkfirewall.NewVpcEndpointAssociation(ctx, "example", &networkfirewall.VpcEndpointAssociationArgs{
-//				FirewallArn: pulumi.Any(exampleAwsNetworkfirewallFirewall.Arn),
-//				VpcId:       pulumi.Any(exampleAwsVpc.Id),
 //				SubnetMapping: &networkfirewall.VpcEndpointAssociationSubnetMappingArgs{
 //					SubnetId: pulumi.Any(exampleAwsSubnet.Id),
 //				},
+//				FirewallArn: pulumi.Any(exampleAwsNetworkfirewallFirewall.Arn),
+//				VpcId:       pulumi.Any(exampleAwsVpc.Id),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("example endpoint"),
 //				},

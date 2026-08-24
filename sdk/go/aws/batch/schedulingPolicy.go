@@ -28,10 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := batch.NewSchedulingPolicy(ctx, "example", &batch.SchedulingPolicyArgs{
-//				Name: pulumi.String("example"),
 //				FairSharePolicy: &batch.SchedulingPolicyFairSharePolicyArgs{
-//					ComputeReservation: pulumi.Int(1),
-//					ShareDecaySeconds:  pulumi.Int(3600),
 //					ShareDistributions: batch.SchedulingPolicyFairSharePolicyShareDistributionArray{
 //						&batch.SchedulingPolicyFairSharePolicyShareDistributionArgs{
 //							ShareIdentifier: pulumi.String("A1*"),
@@ -42,7 +39,10 @@ import (
 //							WeightFactor:    pulumi.Float64(0.2),
 //						},
 //					},
+//					ComputeReservation: pulumi.Int(1),
+//					ShareDecaySeconds:  pulumi.Int(3600),
 //				},
+//				Name: pulumi.String("example"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("Example Batch Scheduling Policy"),
 //				},

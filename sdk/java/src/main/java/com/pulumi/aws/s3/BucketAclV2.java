@@ -61,10 +61,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBucketOwnershipControls = new BucketOwnershipControls("exampleBucketOwnershipControls", BucketOwnershipControlsArgs.builder()
- *             .bucket(example.id())
  *             .rule(BucketOwnershipControlsRuleArgs.builder()
  *                 .objectOwnership("BucketOwnerPreferred")
  *                 .build())
+ *             .bucket(example.id())
  *             .build());
  * 
  *         var exampleBucketAcl = new BucketAcl("exampleBucketAcl", BucketAclArgs.builder()
@@ -119,10 +119,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBucketOwnershipControls = new BucketOwnershipControls("exampleBucketOwnershipControls", BucketOwnershipControlsArgs.builder()
- *             .bucket(example.id())
  *             .rule(BucketOwnershipControlsRuleArgs.builder()
  *                 .objectOwnership("BucketOwnerPreferred")
  *                 .build())
+ *             .bucket(example.id())
  *             .build());
  * 
  *         var exampleBucketPublicAccessBlock = new BucketPublicAccessBlock("exampleBucketPublicAccessBlock", BucketPublicAccessBlockArgs.builder()
@@ -165,9 +165,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketAcl;
  * import com.pulumi.aws.s3.BucketAclArgs;
  * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyArgs;
+ * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyOwnerArgs;
  * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyGrantArgs;
  * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyGrantGranteeArgs;
- * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyOwnerArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
@@ -189,15 +189,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBucketOwnershipControls = new BucketOwnershipControls("exampleBucketOwnershipControls", BucketOwnershipControlsArgs.builder()
- *             .bucket(example.id())
  *             .rule(BucketOwnershipControlsRuleArgs.builder()
  *                 .objectOwnership("BucketOwnerPreferred")
  *                 .build())
+ *             .bucket(example.id())
  *             .build());
  * 
  *         var exampleBucketAcl = new BucketAcl("exampleBucketAcl", BucketAclArgs.builder()
- *             .bucket(example.id())
  *             .accessControlPolicy(BucketAclAccessControlPolicyArgs.builder()
+ *                 .owner(BucketAclAccessControlPolicyOwnerArgs.builder()
+ *                     .id(current.id())
+ *                     .build())
  *                 .grants(                
  *                     BucketAclAccessControlPolicyGrantArgs.builder()
  *                         .grantee(BucketAclAccessControlPolicyGrantGranteeArgs.builder()
@@ -213,10 +215,8 @@ import javax.annotation.Nullable;
  *                             .build())
  *                         .permission("READ_ACP")
  *                         .build())
- *                 .owner(BucketAclAccessControlPolicyOwnerArgs.builder()
- *                     .id(current.id())
- *                     .build())
  *                 .build())
+ *             .bucket(example.id())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleBucketOwnershipControls)
  *                 .build());

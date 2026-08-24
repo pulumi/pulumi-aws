@@ -50,17 +50,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var cloudwatch = new EventDestination("cloudwatch", EventDestinationArgs.builder()
+ *             .cloudwatchDestinations(EventDestinationCloudwatchDestinationArgs.builder()
+ *                 .defaultValue("default")
+ *                 .dimensionName("dimension")
+ *                 .valueSource("emailHeader")
+ *                 .build())
  *             .name("event-destination-cloudwatch")
  *             .configurationSetName(example.name())
  *             .enabled(true)
  *             .matchingTypes(            
  *                 "bounce",
  *                 "send")
- *             .cloudwatchDestinations(EventDestinationCloudwatchDestinationArgs.builder()
- *                 .defaultValue("default")
- *                 .dimensionName("dimension")
- *                 .valueSource("emailHeader")
- *                 .build())
  *             .build());
  * 
  *     }
@@ -94,16 +94,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var kinesis = new EventDestination("kinesis", EventDestinationArgs.builder()
+ *             .kinesisDestination(EventDestinationKinesisDestinationArgs.builder()
+ *                 .streamArn(example.arn())
+ *                 .roleArn(exampleAwsIamRole.arn())
+ *                 .build())
  *             .name("event-destination-kinesis")
  *             .configurationSetName(exampleAwsSesConfigurationSet.name())
  *             .enabled(true)
  *             .matchingTypes(            
  *                 "bounce",
  *                 "send")
- *             .kinesisDestination(EventDestinationKinesisDestinationArgs.builder()
- *                 .streamArn(exampleAwsKinesisFirehoseDeliveryStream.arn())
- *                 .roleArn(example.arn())
- *                 .build())
  *             .build());
  * 
  *     }
@@ -137,15 +137,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sns = new EventDestination("sns", EventDestinationArgs.builder()
+ *             .snsDestination(EventDestinationSnsDestinationArgs.builder()
+ *                 .topicArn(example.arn())
+ *                 .build())
  *             .name("event-destination-sns")
  *             .configurationSetName(exampleAwsSesConfigurationSet.name())
  *             .enabled(true)
  *             .matchingTypes(            
  *                 "bounce",
  *                 "send")
- *             .snsDestination(EventDestinationSnsDestinationArgs.builder()
- *                 .topicArn(example.arn())
- *                 .build())
  *             .build());
  * 
  *     }

@@ -201,10 +201,10 @@ class PeeringConnectionOptions(pulumi.CustomResource):
             peer_vpc_id=bar.id,
             auto_accept=True)
         foo_peering_connection_options = aws.ec2.PeeringConnectionOptions("foo",
-            vpc_peering_connection_id=foo_vpc_peering_connection.id,
             accepter={
                 "allow_remote_vpc_dns_resolution": True,
-            })
+            },
+            vpc_peering_connection_id=foo_vpc_peering_connection.id)
         ```
 
         ### Cross-Account Usage
@@ -239,15 +239,15 @@ class PeeringConnectionOptions(pulumi.CustomResource):
                 "Side": "Accepter",
             })
         requester = aws.ec2.PeeringConnectionOptions("requester",
-            vpc_peering_connection_id=peer_vpc_peering_connection_accepter.id,
             requester={
                 "allow_remote_vpc_dns_resolution": True,
-            })
+            },
+            vpc_peering_connection_id=peer_vpc_peering_connection_accepter.id)
         accepter = aws.ec2.PeeringConnectionOptions("accepter",
-            vpc_peering_connection_id=peer_vpc_peering_connection_accepter.id,
             accepter={
                 "allow_remote_vpc_dns_resolution": True,
-            })
+            },
+            vpc_peering_connection_id=peer_vpc_peering_connection_accepter.id)
         ```
 
         ## Import
@@ -299,10 +299,10 @@ class PeeringConnectionOptions(pulumi.CustomResource):
             peer_vpc_id=bar.id,
             auto_accept=True)
         foo_peering_connection_options = aws.ec2.PeeringConnectionOptions("foo",
-            vpc_peering_connection_id=foo_vpc_peering_connection.id,
             accepter={
                 "allow_remote_vpc_dns_resolution": True,
-            })
+            },
+            vpc_peering_connection_id=foo_vpc_peering_connection.id)
         ```
 
         ### Cross-Account Usage
@@ -337,15 +337,15 @@ class PeeringConnectionOptions(pulumi.CustomResource):
                 "Side": "Accepter",
             })
         requester = aws.ec2.PeeringConnectionOptions("requester",
-            vpc_peering_connection_id=peer_vpc_peering_connection_accepter.id,
             requester={
                 "allow_remote_vpc_dns_resolution": True,
-            })
+            },
+            vpc_peering_connection_id=peer_vpc_peering_connection_accepter.id)
         accepter = aws.ec2.PeeringConnectionOptions("accepter",
-            vpc_peering_connection_id=peer_vpc_peering_connection_accepter.id,
             accepter={
                 "allow_remote_vpc_dns_resolution": True,
-            })
+            },
+            vpc_peering_connection_id=peer_vpc_peering_connection_accepter.id)
         ```
 
         ## Import

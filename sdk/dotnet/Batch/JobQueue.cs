@@ -26,9 +26,6 @@ namespace Pulumi.Aws.Batch
     /// {
     ///     var testQueue = new Aws.Batch.JobQueue("test_queue", new()
     ///     {
-    ///         Name = "tf-test-batch-job-queue",
-    ///         State = "ENABLED",
-    ///         Priority = 1,
     ///         ComputeEnvironmentOrders = new[]
     ///         {
     ///             new Aws.Batch.Inputs.JobQueueComputeEnvironmentOrderArgs
@@ -42,6 +39,9 @@ namespace Pulumi.Aws.Batch
     ///                 ComputeEnvironment = testEnvironment2.Arn,
     ///             },
     ///         },
+    ///         Name = "tf-test-batch-job-queue",
+    ///         State = "ENABLED",
+    ///         Priority = 1,
     ///     });
     /// 
     /// });
@@ -59,11 +59,8 @@ namespace Pulumi.Aws.Batch
     /// {
     ///     var example = new Aws.Batch.SchedulingPolicy("example", new()
     ///     {
-    ///         Name = "example",
     ///         FairSharePolicy = new Aws.Batch.Inputs.SchedulingPolicyFairSharePolicyArgs
     ///         {
-    ///             ComputeReservation = 1,
-    ///             ShareDecaySeconds = 3600,
     ///             ShareDistributions = new[]
     ///             {
     ///                 new Aws.Batch.Inputs.SchedulingPolicyFairSharePolicyShareDistributionArgs
@@ -72,15 +69,14 @@ namespace Pulumi.Aws.Batch
     ///                     WeightFactor = 0.1,
     ///                 },
     ///             },
+    ///             ComputeReservation = 1,
+    ///             ShareDecaySeconds = 3600,
     ///         },
+    ///         Name = "example",
     ///     });
     /// 
     ///     var exampleJobQueue = new Aws.Batch.JobQueue("example", new()
     ///     {
-    ///         Name = "tf-test-batch-job-queue",
-    ///         SchedulingPolicyArn = example.Arn,
-    ///         State = "ENABLED",
-    ///         Priority = 1,
     ///         ComputeEnvironmentOrders = new[]
     ///         {
     ///             new Aws.Batch.Inputs.JobQueueComputeEnvironmentOrderArgs
@@ -94,6 +90,10 @@ namespace Pulumi.Aws.Batch
     ///                 ComputeEnvironment = testEnvironment2.Arn,
     ///             },
     ///         },
+    ///         Name = "tf-test-batch-job-queue",
+    ///         SchedulingPolicyArn = example.Arn,
+    ///         State = "ENABLED",
+    ///         Priority = 1,
     ///     });
     /// 
     /// });

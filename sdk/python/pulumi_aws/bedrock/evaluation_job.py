@@ -556,15 +556,13 @@ class EvaluationJob(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.EvaluationJob("example",
-            job_name="example-job",
-            role_arn=example_aws_iam_role["arn"],
             evaluation_config={
                 "automated": {
                     "dataset_metric_configs": [{
-                        "task_type": "Generation",
                         "dataset": {
                             "name": "Builtin.Bold",
                         },
+                        "task_type": "Generation",
                         "metric_names": ["Builtin.Robustness"],
                     }],
                 },
@@ -578,7 +576,9 @@ class EvaluationJob(pulumi.CustomResource):
             },
             output_data_config={
                 "s3_uri": f"s3://{example_aws_s3_bucket['id']}/output/",
-            })
+            },
+            job_name="example-job",
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         ## Import
@@ -632,15 +632,13 @@ class EvaluationJob(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.EvaluationJob("example",
-            job_name="example-job",
-            role_arn=example_aws_iam_role["arn"],
             evaluation_config={
                 "automated": {
                     "dataset_metric_configs": [{
-                        "task_type": "Generation",
                         "dataset": {
                             "name": "Builtin.Bold",
                         },
+                        "task_type": "Generation",
                         "metric_names": ["Builtin.Robustness"],
                     }],
                 },
@@ -654,7 +652,9 @@ class EvaluationJob(pulumi.CustomResource):
             },
             output_data_config={
                 "s3_uri": f"s3://{example_aws_s3_bucket['id']}/output/",
-            })
+            },
+            job_name="example-job",
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         ## Import

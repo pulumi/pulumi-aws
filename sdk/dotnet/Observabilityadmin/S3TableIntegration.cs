@@ -81,11 +81,11 @@ namespace Pulumi.Aws.Observabilityadmin
     /// 
     ///     var exampleS3TableIntegration = new Aws.Observabilityadmin.S3TableIntegration("example", new()
     ///     {
-    ///         RoleArn = example.Arn,
     ///         Encryption = new Aws.Observabilityadmin.Inputs.S3TableIntegrationEncryptionArgs
     ///         {
     ///             SseAlgorithm = "AES256",
     ///         },
+    ///         RoleArn = example.Arn,
     ///     });
     /// 
     /// });
@@ -131,12 +131,12 @@ namespace Pulumi.Aws.Observabilityadmin
     /// 
     ///     var exampleS3TableIntegration = new Aws.Observabilityadmin.S3TableIntegration("example", new()
     ///     {
-    ///         RoleArn = example.Arn,
     ///         Encryption = new Aws.Observabilityadmin.Inputs.S3TableIntegrationEncryptionArgs
     ///         {
     ///             SseAlgorithm = "aws:kms",
     ///             KmsKeyArn = exampleKey.Arn,
     ///         },
+    ///         RoleArn = example.Arn,
     ///     });
     /// 
     /// });

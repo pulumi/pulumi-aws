@@ -51,8 +51,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new FlowDefinition("example", FlowDefinitionArgs.builder()
- *             .flowDefinitionName("example")
- *             .roleArn(exampleAwsIamRole.arn())
  *             .humanLoopConfig(FlowDefinitionHumanLoopConfigArgs.builder()
  *                 .humanTaskUiArn(exampleAwsSagemakerHumanTaskUi.arn())
  *                 .taskAvailabilityLifetimeInSeconds(1)
@@ -64,6 +62,8 @@ import javax.annotation.Nullable;
  *             .outputConfig(FlowDefinitionOutputConfigArgs.builder()
  *                 .s3OutputPath(String.format("s3://%s/", exampleAwsS3Bucket.bucket()))
  *                 .build())
+ *             .flowDefinitionName("example")
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }
@@ -100,25 +100,25 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new FlowDefinition("example", FlowDefinitionArgs.builder()
- *             .flowDefinitionName("example")
- *             .roleArn(exampleAwsIamRole.arn())
  *             .humanLoopConfig(FlowDefinitionHumanLoopConfigArgs.builder()
- *                 .humanTaskUiArn(exampleAwsSagemakerHumanTaskUi.arn())
- *                 .taskAvailabilityLifetimeInSeconds(1)
- *                 .taskCount(1)
- *                 .taskDescription("example")
- *                 .taskTitle("example")
- *                 .workteamArn(String.format("arn:aws:sagemaker:%s:394669845002:workteam/public-crowd/default", current.region()))
  *                 .publicWorkforceTaskPrice(FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs.builder()
  *                     .amountInUsd(FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs.builder()
  *                         .cents(1)
  *                         .tenthFractionsOfACent(2)
  *                         .build())
  *                     .build())
+ *                 .humanTaskUiArn(exampleAwsSagemakerHumanTaskUi.arn())
+ *                 .taskAvailabilityLifetimeInSeconds(1)
+ *                 .taskCount(1)
+ *                 .taskDescription("example")
+ *                 .taskTitle("example")
+ *                 .workteamArn(String.format("arn:aws:sagemaker:%s:394669845002:workteam/public-crowd/default", current.region()))
  *                 .build())
  *             .outputConfig(FlowDefinitionOutputConfigArgs.builder()
  *                 .s3OutputPath(String.format("s3://%s/", exampleAwsS3Bucket.bucket()))
  *                 .build())
+ *             .flowDefinitionName("example")
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }
@@ -156,8 +156,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new FlowDefinition("example", FlowDefinitionArgs.builder()
- *             .flowDefinitionName("example")
- *             .roleArn(exampleAwsIamRole.arn())
  *             .humanLoopConfig(FlowDefinitionHumanLoopConfigArgs.builder()
  *                 .humanTaskUiArn(exampleAwsSagemakerHumanTaskUi.arn())
  *                 .taskAvailabilityLifetimeInSeconds(1)
@@ -188,6 +186,8 @@ import javax.annotation.Nullable;
  *             .outputConfig(FlowDefinitionOutputConfigArgs.builder()
  *                 .s3OutputPath(String.format("s3://%s/", exampleAwsS3Bucket.bucket()))
  *                 .build())
+ *             .flowDefinitionName("example")
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }

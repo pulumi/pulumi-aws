@@ -238,12 +238,12 @@ class ScraperLoggingConfiguration(pulumi.CustomResource):
         \"\"\")
         example_log_group = aws.cloudwatch.LogGroup("example", name="/aws/prometheus/scraper-logs/example")
         example_scraper_logging_configuration = aws.amp.ScraperLoggingConfiguration("example",
-            scraper_id=example.id,
             logging_destination={
                 "cloudwatch_logs": {
                     "log_group_arn": example_log_group.arn.apply(lambda arn: f"{arn}:*"),
                 },
-            })
+            },
+            scraper_id=example.id)
         ```
 
         ### With Scraper Components
@@ -253,16 +253,16 @@ class ScraperLoggingConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.amp.ScraperLoggingConfiguration("example",
-            scraper_id=example_aws_prometheus_scraper["id"],
-            scraper_components=[
-                "COLLECTOR",
-                "EXPORTER",
-            ],
             logging_destination={
                 "cloudwatch_logs": {
                     "log_group_arn": f"{example_aws_cloudwatch_log_group['arn']}:*",
                 },
-            })
+            },
+            scraper_id=example_aws_prometheus_scraper["id"],
+            scraper_components=[
+                "COLLECTOR",
+                "EXPORTER",
+            ])
         ```
 
         ## Import
@@ -332,12 +332,12 @@ class ScraperLoggingConfiguration(pulumi.CustomResource):
         \"\"\")
         example_log_group = aws.cloudwatch.LogGroup("example", name="/aws/prometheus/scraper-logs/example")
         example_scraper_logging_configuration = aws.amp.ScraperLoggingConfiguration("example",
-            scraper_id=example.id,
             logging_destination={
                 "cloudwatch_logs": {
                     "log_group_arn": example_log_group.arn.apply(lambda arn: f"{arn}:*"),
                 },
-            })
+            },
+            scraper_id=example.id)
         ```
 
         ### With Scraper Components
@@ -347,16 +347,16 @@ class ScraperLoggingConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.amp.ScraperLoggingConfiguration("example",
-            scraper_id=example_aws_prometheus_scraper["id"],
-            scraper_components=[
-                "COLLECTOR",
-                "EXPORTER",
-            ],
             logging_destination={
                 "cloudwatch_logs": {
                     "log_group_arn": f"{example_aws_cloudwatch_log_group['arn']}:*",
                 },
-            })
+            },
+            scraper_id=example_aws_prometheus_scraper["id"],
+            scraper_components=[
+                "COLLECTOR",
+                "EXPORTER",
+            ])
         ```
 
         ## Import

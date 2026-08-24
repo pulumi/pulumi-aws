@@ -64,17 +64,17 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
+//				DestinationConfig: &lambda.EventSourceMappingDestinationConfigArgs{
+//					OnFailure: &lambda.EventSourceMappingDestinationConfigOnFailureArgs{
+//						DestinationArn: pulumi.Any(dlq.Arn),
+//					},
+//				},
 //				EventSourceArn:                 pulumi.Any(exampleAwsKinesisStream.Arn),
 //				FunctionName:                   pulumi.Any(exampleAwsLambdaFunction.Arn),
 //				StartingPosition:               pulumi.String("LATEST"),
 //				BatchSize:                      pulumi.Int(100),
 //				MaximumBatchingWindowInSeconds: pulumi.Int(5),
 //				ParallelizationFactor:          pulumi.Int(2),
-//				DestinationConfig: &lambda.EventSourceMappingDestinationConfigArgs{
-//					OnFailure: &lambda.EventSourceMappingDestinationConfigOnFailureArgs{
-//						DestinationArn: pulumi.Any(dlq.Arn),
-//					},
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -100,12 +100,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
-//				EventSourceArn: pulumi.Any(exampleAwsSqsQueue.Arn),
-//				FunctionName:   pulumi.Any(exampleAwsLambdaFunction.Arn),
-//				BatchSize:      pulumi.Int(10),
 //				ScalingConfig: &lambda.EventSourceMappingScalingConfigArgs{
 //					MaximumConcurrency: pulumi.Int(100),
 //				},
+//				EventSourceArn: pulumi.Any(exampleAwsSqsQueue.Arn),
+//				FunctionName:   pulumi.Any(exampleAwsLambdaFunction.Arn),
+//				BatchSize:      pulumi.Int(10),
 //			})
 //			if err != nil {
 //				return err
@@ -154,8 +154,6 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
-//				EventSourceArn: pulumi.Any(exampleAwsSqsQueue.Arn),
-//				FunctionName:   pulumi.Any(exampleAwsLambdaFunction.Arn),
 //				FilterCriteria: &lambda.EventSourceMappingFilterCriteriaArgs{
 //					Filters: lambda.EventSourceMappingFilterCriteriaFilterArray{
 //						&lambda.EventSourceMappingFilterCriteriaFilterArgs{
@@ -163,6 +161,8 @@ import (
 //						},
 //					},
 //				},
+//				EventSourceArn: pulumi.Any(exampleAwsSqsQueue.Arn),
+//				FunctionName:   pulumi.Any(exampleAwsLambdaFunction.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -188,6 +188,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
+//				AmazonManagedKafkaEventSourceConfig: &lambda.EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs{
+//					ConsumerGroupId: pulumi.String("lambda-consumer-group"),
+//				},
 //				EventSourceArn: pulumi.Any(exampleAwsMskCluster.Arn),
 //				FunctionName:   pulumi.Any(exampleAwsLambdaFunction.Arn),
 //				Topics: pulumi.StringArray{
@@ -196,9 +199,6 @@ import (
 //				},
 //				StartingPosition: pulumi.String("TRIM_HORIZON"),
 //				BatchSize:        pulumi.Int(100),
-//				AmazonManagedKafkaEventSourceConfig: &lambda.EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs{
-//					ConsumerGroupId: pulumi.String("lambda-consumer-group"),
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -224,11 +224,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
-//				FunctionName: pulumi.Any(exampleAwsLambdaFunction.Arn),
-//				Topics: pulumi.StringArray{
-//					pulumi.String("orders"),
-//				},
-//				StartingPosition: pulumi.String("TRIM_HORIZON"),
 //				SelfManagedEventSource: &lambda.EventSourceMappingSelfManagedEventSourceArgs{
 //					Endpoints: pulumi.StringMap{
 //						"KAFKA_BOOTSTRAP_SERVERS": pulumi.String("kafka1.example.com:9092,kafka2.example.com:9092"),
@@ -236,6 +231,11 @@ import (
 //				},
 //				SelfManagedKafkaEventSourceConfig: &lambda.EventSourceMappingSelfManagedKafkaEventSourceConfigArgs{
 //					ConsumerGroupId: pulumi.String("lambda-consumer-group"),
+//				},
+//				ProvisionedPollerConfig: &lambda.EventSourceMappingProvisionedPollerConfigArgs{
+//					MaximumPollers:  pulumi.Int(100),
+//					MinimumPollers:  pulumi.Int(10),
+//					PollerGroupName: pulumi.String("group-123"),
 //				},
 //				SourceAccessConfigurations: lambda.EventSourceMappingSourceAccessConfigurationArray{
 //					&lambda.EventSourceMappingSourceAccessConfigurationArgs{
@@ -251,11 +251,11 @@ import (
 //						Uri:  pulumi.Sprintf("security_group:%v", exampleAwsSecurityGroup.Id),
 //					},
 //				},
-//				ProvisionedPollerConfig: &lambda.EventSourceMappingProvisionedPollerConfigArgs{
-//					MaximumPollers:  pulumi.Int(100),
-//					MinimumPollers:  pulumi.Int(10),
-//					PollerGroupName: pulumi.String("group-123"),
+//				FunctionName: pulumi.Any(exampleAwsLambdaFunction.Arn),
+//				Topics: pulumi.StringArray{
+//					pulumi.String("orders"),
 //				},
+//				StartingPosition: pulumi.String("TRIM_HORIZON"),
 //			})
 //			if err != nil {
 //				return err
@@ -281,16 +281,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
-//				EventSourceArn: pulumi.Any(exampleAwsMqBroker.Arn),
-//				FunctionName:   pulumi.Any(exampleAwsLambdaFunction.Arn),
-//				Queues:         pulumi.String("orders"),
-//				BatchSize:      pulumi.Int(10),
 //				SourceAccessConfigurations: lambda.EventSourceMappingSourceAccessConfigurationArray{
 //					&lambda.EventSourceMappingSourceAccessConfigurationArgs{
 //						Type: pulumi.String("BASIC_AUTH"),
 //						Uri:  pulumi.Any(exampleAwsSecretsmanagerSecretVersion.Arn),
 //					},
 //				},
+//				EventSourceArn: pulumi.Any(exampleAwsMqBroker.Arn),
+//				FunctionName:   pulumi.Any(exampleAwsLambdaFunction.Arn),
+//				Queues:         pulumi.String("orders"),
+//				BatchSize:      pulumi.Int(10),
 //			})
 //			if err != nil {
 //				return err
@@ -316,10 +316,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
-//				EventSourceArn: pulumi.Any(exampleAwsMqBroker.Arn),
-//				FunctionName:   pulumi.Any(exampleAwsLambdaFunction.Arn),
-//				Queues:         pulumi.String("orders"),
-//				BatchSize:      pulumi.Int(1),
 //				SourceAccessConfigurations: lambda.EventSourceMappingSourceAccessConfigurationArray{
 //					&lambda.EventSourceMappingSourceAccessConfigurationArgs{
 //						Type: pulumi.String("VIRTUAL_HOST"),
@@ -330,6 +326,10 @@ import (
 //						Uri:  pulumi.Any(exampleAwsSecretsmanagerSecretVersion.Arn),
 //					},
 //				},
+//				EventSourceArn: pulumi.Any(exampleAwsMqBroker.Arn),
+//				FunctionName:   pulumi.Any(exampleAwsLambdaFunction.Arn),
+//				Queues:         pulumi.String("orders"),
+//				BatchSize:      pulumi.Int(1),
 //			})
 //			if err != nil {
 //				return err
@@ -355,9 +355,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
-//				EventSourceArn:   pulumi.Any(exampleAwsDocdbCluster.Arn),
-//				FunctionName:     pulumi.Any(exampleAwsLambdaFunction.Arn),
-//				StartingPosition: pulumi.String("LATEST"),
 //				DocumentDbEventSourceConfig: &lambda.EventSourceMappingDocumentDbEventSourceConfigArgs{
 //					DatabaseName:   pulumi.String("orders"),
 //					CollectionName: pulumi.String("transactions"),
@@ -369,6 +366,9 @@ import (
 //						Uri:  pulumi.Any(exampleAwsSecretsmanagerSecretVersion.Arn),
 //					},
 //				},
+//				EventSourceArn:   pulumi.Any(exampleAwsDocdbCluster.Arn),
+//				FunctionName:     pulumi.Any(exampleAwsLambdaFunction.Arn),
+//				StartingPosition: pulumi.String("LATEST"),
 //			})
 //			if err != nil {
 //				return err

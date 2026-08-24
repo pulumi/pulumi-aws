@@ -51,16 +51,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ContainerRecipe("example", ContainerRecipeArgs.builder()
- *             .name("example")
- *             .version("1.0.0")
- *             .containerType("DOCKER")
- *             .parentImage("arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x")
  *             .targetRepository(ContainerRecipeTargetRepositoryArgs.builder()
  *                 .repositoryName(exampleAwsEcrRepository.name())
  *                 .service("ECR")
  *                 .build())
  *             .components(ContainerRecipeComponentArgs.builder()
- *                 .componentArn(exampleAwsImagebuilderComponent.arn())
  *                 .parameters(                
  *                     ContainerRecipeComponentParameterArgs.builder()
  *                         .name("Parameter1")
@@ -70,7 +65,12 @@ import javax.annotation.Nullable;
  *                         .name("Parameter2")
  *                         .value("Value2")
  *                         .build())
+ *                 .componentArn(exampleAwsImagebuilderComponent.arn())
  *                 .build())
+ *             .name("example")
+ *             .version("1.0.0")
+ *             .containerType("DOCKER")
+ *             .parentImage("arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x")
  *             .dockerfileTemplateData("""
  * FROM {{{ imagebuilder:parentImage }}}
  * {{{ imagebuilder:environments }}}

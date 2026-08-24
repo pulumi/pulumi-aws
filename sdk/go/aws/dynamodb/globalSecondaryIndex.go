@@ -29,12 +29,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			exampleTable, err := dynamodb.NewTable(ctx, "example", &dynamodb.TableArgs{
-//				Name:          pulumi.String("example"),
-//				BillingMode:   pulumi.String("PROVISIONED"),
-//				ReadCapacity:  pulumi.Int(20),
-//				WriteCapacity: pulumi.Int(20),
-//				HashKey:       pulumi.String("UserId"),
-//				RangeKey:      pulumi.String("GameTitle"),
 //				Attributes: dynamodb.TableAttributeArray{
 //					&dynamodb.TableAttributeArgs{
 //						Name: pulumi.String("UserId"),
@@ -45,13 +39,17 @@ import (
 //						Type: pulumi.String("S"),
 //					},
 //				},
+//				Name:          pulumi.String("example"),
+//				BillingMode:   pulumi.String("PROVISIONED"),
+//				ReadCapacity:  pulumi.Int(20),
+//				WriteCapacity: pulumi.Int(20),
+//				HashKey:       pulumi.String("UserId"),
+//				RangeKey:      pulumi.String("GameTitle"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = dynamodb.NewGlobalSecondaryIndex(ctx, "example", &dynamodb.GlobalSecondaryIndexArgs{
-//				TableName: exampleTable.Name,
-//				IndexName: pulumi.String("GameTitleIndex"),
 //				Projection: &dynamodb.GlobalSecondaryIndexProjectionArgs{
 //					ProjectionType: pulumi.String("INCLUDE"),
 //					NonKeyAttributes: pulumi.StringArray{
@@ -69,6 +67,8 @@ import (
 //						KeyType:       pulumi.String("HASH"),
 //					},
 //				},
+//				TableName: exampleTable.Name,
+//				IndexName: pulumi.String("GameTitleIndex"),
 //			})
 //			if err != nil {
 //				return err
@@ -100,10 +100,20 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := dynamodb.NewTable(ctx, "example", &dynamodb.TableArgs{
-//				Name:          pulumi.String("example-table"),
-//				HashKey:       pulumi.String("example-key"),
-//				ReadCapacity:  pulumi.Int(1),
-//				WriteCapacity: pulumi.Int(1),
+//				Attributes: dynamodb.TableAttributeArray{
+//					&dynamodb.TableAttributeArgs{
+//						Name: pulumi.String("example-key"),
+//						Type: pulumi.String("S"),
+//					},
+//					&dynamodb.TableAttributeArgs{
+//						Name: pulumi.String("example-gsi-key-1"),
+//						Type: pulumi.String("S"),
+//					},
+//					&dynamodb.TableAttributeArgs{
+//						Name: pulumi.String("example-gsi-key-2"),
+//						Type: pulumi.String("S"),
+//					},
+//				},
 //				GlobalSecondaryIndexes: dynamodb.TableGlobalSecondaryIndexArray{
 //					&dynamodb.TableGlobalSecondaryIndexArgs{
 //						Name:           pulumi.String("example-index-1"),
@@ -120,20 +130,10 @@ import (
 //						WriteCapacity:  pulumi.Int(1),
 //					},
 //				},
-//				Attributes: dynamodb.TableAttributeArray{
-//					&dynamodb.TableAttributeArgs{
-//						Name: pulumi.String("example-key"),
-//						Type: pulumi.String("S"),
-//					},
-//					&dynamodb.TableAttributeArgs{
-//						Name: pulumi.String("example-gsi-key-1"),
-//						Type: pulumi.String("S"),
-//					},
-//					&dynamodb.TableAttributeArgs{
-//						Name: pulumi.String("example-gsi-key-2"),
-//						Type: pulumi.String("S"),
-//					},
-//				},
+//				Name:          pulumi.String("example-table"),
+//				HashKey:       pulumi.String("example-key"),
+//				ReadCapacity:  pulumi.Int(1),
+//				WriteCapacity: pulumi.Int(1),
 //			})
 //			if err != nil {
 //				return err

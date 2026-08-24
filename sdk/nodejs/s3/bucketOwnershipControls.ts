@@ -20,10 +20,10 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.s3.Bucket("example", {bucket: "example"});
  * const exampleBucketOwnershipControls = new aws.s3.BucketOwnershipControls("example", {
- *     bucket: example.id,
  *     rule: {
  *         objectOwnership: "BucketOwnerPreferred",
  *     },
+ *     bucket: example.id,
  * });
  * ```
  *

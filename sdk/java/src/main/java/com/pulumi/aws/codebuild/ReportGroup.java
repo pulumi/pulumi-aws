@@ -61,12 +61,12 @@ import javax.annotation.Nullable;
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid("Enable IAM User Permissions")
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("AWS")
  *                     .identifiers(String.format("arn:aws:iam::%s:root", current.accountId()))
  *                     .build())
+ *                 .sid("Enable IAM User Permissions")
+ *                 .effect("Allow")
  *                 .actions("kms:*")
  *                 .resources("*")
  *                 .build())
@@ -83,10 +83,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleReportGroup = new ReportGroup("exampleReportGroup", ReportGroupArgs.builder()
- *             .name("my test report group")
- *             .type("TEST")
  *             .exportConfig(ReportGroupExportConfigArgs.builder()
- *                 .type("S3")
  *                 .s3Destination(ReportGroupExportConfigS3DestinationArgs.builder()
  *                     .bucket(exampleBucket.id())
  *                     .encryptionDisabled(false)
@@ -94,7 +91,10 @@ import javax.annotation.Nullable;
  *                     .packaging("NONE")
  *                     .path("/some")
  *                     .build())
+ *                 .type("S3")
  *                 .build())
+ *             .name("my test report group")
+ *             .type("TEST")
  *             .build());
  * 
  *     }

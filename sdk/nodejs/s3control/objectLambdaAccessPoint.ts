@@ -23,18 +23,18 @@ import * as utilities from "../utilities";
  *     name: "example",
  * });
  * const exampleObjectLambdaAccessPoint = new aws.s3control.ObjectLambdaAccessPoint("example", {
- *     name: "example",
  *     configuration: {
- *         supportingAccessPoint: exampleAccessPoint.arn,
  *         transformationConfigurations: [{
- *             actions: ["GetObject"],
  *             contentTransformation: {
  *                 awsLambda: {
  *                     functionArn: exampleAwsLambdaFunction.arn,
  *                 },
  *             },
+ *             actions: ["GetObject"],
  *         }],
+ *         supportingAccessPoint: exampleAccessPoint.arn,
  *     },
+ *     name: "example",
  * });
  * ```
  *

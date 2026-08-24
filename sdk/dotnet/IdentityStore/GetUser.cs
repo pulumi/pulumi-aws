@@ -28,7 +28,6 @@ namespace Pulumi.Aws.IdentityStore
         /// 
         ///     var exampleGetUser = Aws.IdentityStore.GetUser.Invoke(new()
         ///     {
-        ///         IdentityStoreId = example.Apply(getInstancesResult =&gt; getInstancesResult.IdentityStoreIds[0]),
         ///         AlternateIdentifier = new Aws.IdentityStore.Inputs.GetUserAlternateIdentifierInputArgs
         ///         {
         ///             UniqueAttribute = new Aws.IdentityStore.Inputs.GetUserAlternateIdentifierUniqueAttributeInputArgs
@@ -37,6 +36,7 @@ namespace Pulumi.Aws.IdentityStore
         ///                 AttributeValue = "ExampleUser",
         ///             },
         ///         },
+        ///         IdentityStoreId = example.Apply(getInstancesResult =&gt; getInstancesResult.IdentityStoreIds[0]),
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -66,7 +66,6 @@ namespace Pulumi.Aws.IdentityStore
         /// 
         ///     var exampleGetUser = Aws.IdentityStore.GetUser.Invoke(new()
         ///     {
-        ///         IdentityStoreId = example.Apply(getInstancesResult =&gt; getInstancesResult.IdentityStoreIds[0]),
         ///         AlternateIdentifier = new Aws.IdentityStore.Inputs.GetUserAlternateIdentifierInputArgs
         ///         {
         ///             UniqueAttribute = new Aws.IdentityStore.Inputs.GetUserAlternateIdentifierUniqueAttributeInputArgs
@@ -75,6 +74,7 @@ namespace Pulumi.Aws.IdentityStore
         ///                 AttributeValue = "ExampleUser",
         ///             },
         ///         },
+        ///         IdentityStoreId = example.Apply(getInstancesResult =&gt; getInstancesResult.IdentityStoreIds[0]),
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -104,7 +104,6 @@ namespace Pulumi.Aws.IdentityStore
         /// 
         ///     var exampleGetUser = Aws.IdentityStore.GetUser.Invoke(new()
         ///     {
-        ///         IdentityStoreId = example.Apply(getInstancesResult =&gt; getInstancesResult.IdentityStoreIds[0]),
         ///         AlternateIdentifier = new Aws.IdentityStore.Inputs.GetUserAlternateIdentifierInputArgs
         ///         {
         ///             UniqueAttribute = new Aws.IdentityStore.Inputs.GetUserAlternateIdentifierUniqueAttributeInputArgs
@@ -113,6 +112,7 @@ namespace Pulumi.Aws.IdentityStore
         ///                 AttributeValue = "ExampleUser",
         ///             },
         ///         },
+        ///         IdentityStoreId = example.Apply(getInstancesResult =&gt; getInstancesResult.IdentityStoreIds[0]),
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;

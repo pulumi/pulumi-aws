@@ -28,14 +28,14 @@ namespace Pulumi.Aws.ResilienceHub
     /// {
     ///     var example = new Aws.ResilienceHub.V2Service("example", new()
     ///     {
+    ///         PermissionModel = new Aws.ResilienceHub.Inputs.V2ServicePermissionModelArgs
+    ///         {
+    ///             InvokerRoleName = "AWSResilienceHubAssessmentRole",
+    ///         },
     ///         Name = "example-service",
     ///         Regions = new[]
     ///         {
     ///             "us-west-2",
-    ///         },
-    ///         PermissionModel = new Aws.ResilienceHub.Inputs.V2ServicePermissionModelArgs
-    ///         {
-    ///             InvokerRoleName = "AWSResilienceHubAssessmentRole",
     ///         },
     ///     });
     /// 
@@ -54,15 +54,19 @@ namespace Pulumi.Aws.ResilienceHub
     /// {
     ///     var example = new Aws.ResilienceHub.V2Policy("example", new()
     ///     {
-    ///         Name = "example-policy",
     ///         AvailabilitySlo = new Aws.ResilienceHub.Inputs.V2PolicyAvailabilitySloArgs
     ///         {
     ///             Target = 99.9,
     ///         },
+    ///         Name = "example-policy",
     ///     });
     /// 
     ///     var exampleV2Service = new Aws.ResilienceHub.V2Service("example", new()
     ///     {
+    ///         PermissionModel = new Aws.ResilienceHub.Inputs.V2ServicePermissionModelArgs
+    ///         {
+    ///             InvokerRoleName = "AWSResilienceHubAssessmentRole",
+    ///         },
     ///         Name = "example-service",
     ///         Description = "Production API service",
     ///         PolicyArn = example.Arn,
@@ -70,10 +74,6 @@ namespace Pulumi.Aws.ResilienceHub
     ///         {
     ///             "us-west-2",
     ///             "us-east-1",
-    ///         },
-    ///         PermissionModel = new Aws.ResilienceHub.Inputs.V2ServicePermissionModelArgs
-    ///         {
-    ///             InvokerRoleName = "AWSResilienceHubAssessmentRole",
     ///         },
     ///         Tags = 
     ///         {
@@ -101,11 +101,6 @@ namespace Pulumi.Aws.ResilienceHub
     /// 
     ///     var exampleV2Service = new Aws.ResilienceHub.V2Service("example", new()
     ///     {
-    ///         Name = "example-service",
-    ///         Regions = new[]
-    ///         {
-    ///             "us-west-2",
-    ///         },
     ///         PermissionModel = new Aws.ResilienceHub.Inputs.V2ServicePermissionModelArgs
     ///         {
     ///             InvokerRoleName = "AWSResilienceHubAssessmentRole",
@@ -116,6 +111,11 @@ namespace Pulumi.Aws.ResilienceHub
     ///             {
     ///                 SystemArn = example.Arn,
     ///             },
+    ///         },
+    ///         Name = "example-service",
+    ///         Regions = new[]
+    ///         {
+    ///             "us-west-2",
     ///         },
     ///     });
     /// 

@@ -28,20 +28,19 @@ namespace Pulumi.Aws.ImageBuilder
     ///         {
     ///             new Aws.ImageBuilder.Inputs.ImageRecipeBlockDeviceMappingArgs
     ///             {
-    ///                 DeviceName = "/dev/xvdb",
     ///                 Ebs = new Aws.ImageBuilder.Inputs.ImageRecipeBlockDeviceMappingEbsArgs
     ///                 {
     ///                     DeleteOnTermination = "true",
     ///                     VolumeSize = 100,
     ///                     VolumeType = "gp2",
     ///                 },
+    ///                 DeviceName = "/dev/xvdb",
     ///             },
     ///         },
     ///         Components = new[]
     ///         {
     ///             new Aws.ImageBuilder.Inputs.ImageRecipeComponentArgs
     ///             {
-    ///                 ComponentArn = exampleAwsImagebuilderComponent.Arn,
     ///                 Parameters = new[]
     ///                 {
     ///                     new Aws.ImageBuilder.Inputs.ImageRecipeComponentParameterArgs
@@ -55,6 +54,7 @@ namespace Pulumi.Aws.ImageBuilder
     ///                         Value = "Value2",
     ///                     },
     ///                 },
+    ///                 ComponentArn = exampleAwsImagebuilderComponent.Arn,
     ///             },
     ///         },
     ///         Name = "example",

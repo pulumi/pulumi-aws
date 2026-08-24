@@ -30,18 +30,18 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := vpclattice.NewResourceConfiguration(ctx, "example", &vpclattice.ResourceConfigurationArgs{
-//				Name:                      pulumi.String("Example"),
-//				ResourceGatewayIdentifier: pulumi.Any(exampleAwsVpclatticeResourceGateway.Id),
-//				PortRanges: pulumi.StringArray{
-//					pulumi.String("80"),
-//				},
-//				Protocol: pulumi.String("TCP"),
 //				ResourceConfigurationDefinition: &vpclattice.ResourceConfigurationResourceConfigurationDefinitionArgs{
 //					DnsResource: &vpclattice.ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs{
 //						DomainName:    pulumi.String("example.com"),
 //						IpAddressType: pulumi.String("IPV4"),
 //					},
 //				},
+//				Name:                      pulumi.String("Example"),
+//				ResourceGatewayIdentifier: pulumi.Any(exampleAwsVpclatticeResourceGateway.Id),
+//				PortRanges: pulumi.StringArray{
+//					pulumi.String("80"),
+//				},
+//				Protocol: pulumi.String("TCP"),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("Example"),
 //				},
@@ -70,17 +70,17 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := vpclattice.NewResourceConfiguration(ctx, "example", &vpclattice.ResourceConfigurationArgs{
+//				ResourceConfigurationDefinition: &vpclattice.ResourceConfigurationResourceConfigurationDefinitionArgs{
+//					IpResource: &vpclattice.ResourceConfigurationResourceConfigurationDefinitionIpResourceArgs{
+//						IpAddress: pulumi.String("10.0.0.1"),
+//					},
+//				},
 //				Name:                      pulumi.String("Example"),
 //				ResourceGatewayIdentifier: pulumi.Any(exampleAwsVpclatticeResourceGateway.Id),
 //				PortRanges: pulumi.StringArray{
 //					pulumi.String("80"),
 //				},
 //				Protocol: pulumi.String("TCP"),
-//				ResourceConfigurationDefinition: &vpclattice.ResourceConfigurationResourceConfigurationDefinitionArgs{
-//					IpResource: &vpclattice.ResourceConfigurationResourceConfigurationDefinitionIpResourceArgs{
-//						IpAddress: pulumi.String("10.0.0.1"),
-//					},
-//				},
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("Example"),
 //				},
@@ -115,6 +115,12 @@ import (
 //				return err
 //			}
 //			_, err = vpclattice.NewResourceConfiguration(ctx, "example", &vpclattice.ResourceConfigurationArgs{
+//				ResourceConfigurationDefinition: &vpclattice.ResourceConfigurationResourceConfigurationDefinitionArgs{
+//					DnsResource: &vpclattice.ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs{
+//						DomainName:    pulumi.String("test.example.com"),
+//						IpAddressType: pulumi.String("IPV4"),
+//					},
+//				},
 //				Name:                      pulumi.String("Example"),
 //				ResourceGatewayIdentifier: pulumi.Any(exampleAwsVpclatticeResourceGateway.Id),
 //				CustomDomainName:          pulumi.String("custom.example.com"),
@@ -123,12 +129,6 @@ import (
 //					pulumi.String("443"),
 //				},
 //				Protocol: pulumi.String("TCP"),
-//				ResourceConfigurationDefinition: &vpclattice.ResourceConfigurationResourceConfigurationDefinitionArgs{
-//					DnsResource: &vpclattice.ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs{
-//						DomainName:    pulumi.String("test.example.com"),
-//						IpAddressType: pulumi.String("IPV4"),
-//					},
-//				},
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("Example"),
 //				},
@@ -157,14 +157,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := vpclattice.NewResourceConfiguration(ctx, "test", &vpclattice.ResourceConfigurationArgs{
-//				Name:                      pulumi.String("Example"),
-//				ResourceGatewayIdentifier: pulumi.Any(testAwsVpclatticeResourceGateway.Id),
-//				Type:                      pulumi.String("ARN"),
 //				ResourceConfigurationDefinition: &vpclattice.ResourceConfigurationResourceConfigurationDefinitionArgs{
 //					ArnResource: &vpclattice.ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs{
 //						Arn: pulumi.Any(example.Arn),
 //					},
 //				},
+//				Name:                      pulumi.String("Example"),
+//				ResourceGatewayIdentifier: pulumi.Any(testAwsVpclatticeResourceGateway.Id),
+//				Type:                      pulumi.String("ARN"),
 //			})
 //			if err != nil {
 //				return err

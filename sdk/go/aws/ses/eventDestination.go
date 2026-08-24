@@ -31,19 +31,19 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ses.NewEventDestination(ctx, "cloudwatch", &ses.EventDestinationArgs{
-//				Name:                 pulumi.String("event-destination-cloudwatch"),
-//				ConfigurationSetName: pulumi.Any(example.Name),
-//				Enabled:              pulumi.Bool(true),
-//				MatchingTypes: pulumi.StringArray{
-//					pulumi.String("bounce"),
-//					pulumi.String("send"),
-//				},
 //				CloudwatchDestinations: ses.EventDestinationCloudwatchDestinationArray{
 //					&ses.EventDestinationCloudwatchDestinationArgs{
 //						DefaultValue:  pulumi.String("default"),
 //						DimensionName: pulumi.String("dimension"),
 //						ValueSource:   pulumi.String("emailHeader"),
 //					},
+//				},
+//				Name:                 pulumi.String("event-destination-cloudwatch"),
+//				ConfigurationSetName: pulumi.Any(example.Name),
+//				Enabled:              pulumi.Bool(true),
+//				MatchingTypes: pulumi.StringArray{
+//					pulumi.String("bounce"),
+//					pulumi.String("send"),
 //				},
 //			})
 //			if err != nil {
@@ -70,16 +70,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ses.NewEventDestination(ctx, "kinesis", &ses.EventDestinationArgs{
+//				KinesisDestination: &ses.EventDestinationKinesisDestinationArgs{
+//					StreamArn: pulumi.Any(example.Arn),
+//					RoleArn:   pulumi.Any(exampleAwsIamRole.Arn),
+//				},
 //				Name:                 pulumi.String("event-destination-kinesis"),
 //				ConfigurationSetName: pulumi.Any(exampleAwsSesConfigurationSet.Name),
 //				Enabled:              pulumi.Bool(true),
 //				MatchingTypes: pulumi.StringArray{
 //					pulumi.String("bounce"),
 //					pulumi.String("send"),
-//				},
-//				KinesisDestination: &ses.EventDestinationKinesisDestinationArgs{
-//					StreamArn: pulumi.Any(exampleAwsKinesisFirehoseDeliveryStream.Arn),
-//					RoleArn:   pulumi.Any(example.Arn),
 //				},
 //			})
 //			if err != nil {
@@ -106,15 +106,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ses.NewEventDestination(ctx, "sns", &ses.EventDestinationArgs{
+//				SnsDestination: &ses.EventDestinationSnsDestinationArgs{
+//					TopicArn: pulumi.Any(example.Arn),
+//				},
 //				Name:                 pulumi.String("event-destination-sns"),
 //				ConfigurationSetName: pulumi.Any(exampleAwsSesConfigurationSet.Name),
 //				Enabled:              pulumi.Bool(true),
 //				MatchingTypes: pulumi.StringArray{
 //					pulumi.String("bounce"),
 //					pulumi.String("send"),
-//				},
-//				SnsDestination: &ses.EventDestinationSnsDestinationArgs{
-//					TopicArn: pulumi.Any(example.Arn),
 //				},
 //			})
 //			if err != nil {

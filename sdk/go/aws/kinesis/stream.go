@@ -31,15 +31,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kinesis.NewStream(ctx, "test_stream", &kinesis.StreamArgs{
+//				StreamModeDetails: &kinesis.StreamStreamModeDetailsArgs{
+//					StreamMode: pulumi.String("PROVISIONED"),
+//				},
 //				Name:            pulumi.String("kinesis-test"),
 //				ShardCount:      pulumi.Int(1),
 //				RetentionPeriod: pulumi.Int(48),
 //				ShardLevelMetrics: pulumi.StringArray{
 //					pulumi.String("IncomingBytes"),
 //					pulumi.String("OutgoingBytes"),
-//				},
-//				StreamModeDetails: &kinesis.StreamStreamModeDetailsArgs{
-//					StreamMode: pulumi.String("PROVISIONED"),
 //				},
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("test"),

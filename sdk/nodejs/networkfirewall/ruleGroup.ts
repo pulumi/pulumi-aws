@@ -19,9 +19,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.networkfirewall.RuleGroup("example", {
- *     capacity: 100,
- *     name: "example",
- *     type: "STATEFUL",
  *     ruleGroup: {
  *         rulesSource: {
  *             rulesSourceList: {
@@ -31,6 +28,9 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     },
+ *     capacity: 100,
+ *     name: "example",
+ *     type: "STATEFUL",
  *     tags: {
  *         Tag1: "Value1",
  *         Tag2: "Value2",
@@ -49,29 +49,29 @@ import * as utilities from "../utilities";
  *     "1.0.0.1/32",
  * ];
  * const example = new aws.networkfirewall.RuleGroup("example", {
- *     capacity: 50,
- *     description: "Permits http traffic from source",
- *     name: "example",
- *     type: "STATEFUL",
  *     ruleGroup: {
  *         rulesSource: {
- *             statefulRules: ips.map((v, k) => ({key: k, value: v})).map(entry => ({
- *                 action: "PASS",
+ *             statefulRules: ips.map(entry => ({
  *                 header: {
  *                     destination: "ANY",
  *                     destinationPort: "ANY",
  *                     protocol: "HTTP",
  *                     direction: "ANY",
  *                     sourcePort: "ANY",
- *                     source: entry.value,
+ *                     source: entry,
  *                 },
  *                 ruleOptions: [{
  *                     keyword: "sid",
  *                     settings: ["1"],
  *                 }],
+ *                 action: "PASS",
  *             })),
  *         },
  *     },
+ *     capacity: 50,
+ *     description: "Permits http traffic from source",
+ *     name: "example",
+ *     type: "STATEFUL",
  *     tags: {
  *         Name: "permit HTTP from source",
  *     },
@@ -85,13 +85,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.networkfirewall.RuleGroup("example", {
- *     capacity: 100,
- *     name: "example",
- *     type: "STATEFUL",
  *     ruleGroup: {
  *         rulesSource: {
  *             statefulRules: [{
- *                 action: "DROP",
  *                 header: {
  *                     destination: "124.1.1.24/32",
  *                     destinationPort: "53",
@@ -104,9 +100,13 @@ import * as utilities from "../utilities";
  *                     keyword: "sid",
  *                     settings: ["1"],
  *                 }],
+ *                 action: "DROP",
  *             }],
  *         },
  *     },
+ *     capacity: 100,
+ *     name: "example",
+ *     type: "STATEFUL",
  *     tags: {
  *         Tag1: "Value1",
  *         Tag2: "Value2",
@@ -143,14 +143,10 @@ import * as utilities from "../utilities";
  * import * as std from "@pulumi/std";
  *
  * const example = new aws.networkfirewall.RuleGroup("example", {
- *     capacity: 100,
- *     name: "example",
- *     type: "STATEFUL",
  *     ruleGroup: {
  *         ruleVariables: {
  *             ipSets: [
  *                 {
- *                     key: "WEBSERVERS_HOSTS",
  *                     ipSet: {
  *                         definitions: [
  *                             "10.0.0.0/16",
@@ -158,22 +154,23 @@ import * as utilities from "../utilities";
  *                             "192.168.0.0/16",
  *                         ],
  *                     },
+ *                     key: "WEBSERVERS_HOSTS",
  *                 },
  *                 {
- *                     key: "EXTERNAL_HOST",
  *                     ipSet: {
  *                         definitions: ["1.2.3.4/32"],
  *                     },
+ *                     key: "EXTERNAL_HOST",
  *                 },
  *             ],
  *             portSets: [{
- *                 key: "HTTP_PORTS",
  *                 portSet: {
  *                     definitions: [
  *                         "443",
  *                         "80",
  *                     ],
  *                 },
+ *                 key: "HTTP_PORTS",
  *             }],
  *         },
  *         rulesSource: {
@@ -182,6 +179,9 @@ import * as utilities from "../utilities";
  *             }).then(invoke => invoke.result),
  *         },
  *     },
+ *     capacity: 100,
+ *     name: "example",
+ *     type: "STATEFUL",
  *     tags: {
  *         Tag1: "Value1",
  *         Tag2: "Value2",
@@ -196,10 +196,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.networkfirewall.RuleGroup("example", {
- *     description: "Stateless Rate Limiting Rule",
- *     capacity: 100,
- *     name: "example",
- *     type: "STATELESS",
  *     ruleGroup: {
  *         rulesSource: {
  *             statelessRulesAndCustomActions: {
@@ -214,28 +210,22 @@ import * as utilities from "../utilities";
  *                     actionName: "ExampleMetricsAction",
  *                 }],
  *                 statelessRules: [{
- *                     priority: 1,
  *                     ruleDefinition: {
- *                         actions: [
- *                             "aws:pass",
- *                             "ExampleMetricsAction",
- *                         ],
  *                         matchAttributes: {
- *                             sources: [{
- *                                 addressDefinition: "1.2.3.4/32",
- *                             }],
- *                             sourcePorts: [{
+ *                             destinationPorts: [{
  *                                 fromPort: 443,
  *                                 toPort: 443,
  *                             }],
  *                             destinations: [{
  *                                 addressDefinition: "124.1.1.5/32",
  *                             }],
- *                             destinationPorts: [{
+ *                             sourcePorts: [{
  *                                 fromPort: 443,
  *                                 toPort: 443,
  *                             }],
- *                             protocols: [6],
+ *                             sources: [{
+ *                                 addressDefinition: "1.2.3.4/32",
+ *                             }],
  *                             tcpFlags: [{
  *                                 flags: ["SYN"],
  *                                 masks: [
@@ -243,12 +233,22 @@ import * as utilities from "../utilities";
  *                                     "ACK",
  *                                 ],
  *                             }],
+ *                             protocols: [6],
  *                         },
+ *                         actions: [
+ *                             "aws:pass",
+ *                             "ExampleMetricsAction",
+ *                         ],
  *                     },
+ *                     priority: 1,
  *                 }],
  *             },
  *         },
  *     },
+ *     description: "Stateless Rate Limiting Rule",
+ *     capacity: 100,
+ *     name: "example",
+ *     type: "STATELESS",
  *     tags: {
  *         Tag1: "Value1",
  *         Tag2: "Value2",
@@ -263,9 +263,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.networkfirewall.RuleGroup("example", {
- *     capacity: 100,
- *     name: "example",
- *     type: "STATEFUL",
  *     ruleGroup: {
  *         rulesSource: {
  *             rulesSourceList: {
@@ -276,13 +273,16 @@ import * as utilities from "../utilities";
  *         },
  *         referenceSets: {
  *             ipSetReferences: [{
- *                 key: "example",
  *                 ipSetReferences: [{
  *                     referenceArn: _this.arn,
  *                 }],
+ *                 key: "example",
  *             }],
  *         },
  *     },
+ *     capacity: 100,
+ *     name: "example",
+ *     type: "STATEFUL",
  *     tags: {
  *         Tag1: "Value1",
  *         Tag2: "Value2",
@@ -301,13 +301,9 @@ import * as utilities from "../utilities";
  *     key: "rules/custom.rules",
  * });
  * const s3RulesExample = new aws.networkfirewall.RuleGroup("s3_rules_example", {
- *     capacity: 1000,
- *     name: "my-terraform-s3-rules",
- *     type: "STATEFUL",
  *     ruleGroup: {
  *         ruleVariables: {
  *             ipSets: [{
- *                 key: "HOME_NET",
  *                 ipSet: {
  *                     definitions: [
  *                         "10.0.0.0/16",
@@ -315,21 +311,25 @@ import * as utilities from "../utilities";
  *                         "172.16.0.0/12",
  *                     ],
  *                 },
+ *                 key: "HOME_NET",
  *             }],
  *             portSets: [{
- *                 key: "HTTP_PORTS",
  *                 portSet: {
  *                     definitions: [
  *                         "443",
  *                         "80",
  *                     ],
  *                 },
+ *                 key: "HTTP_PORTS",
  *             }],
  *         },
  *         rulesSource: {
  *             rulesString: suricataRules.then(suricataRules => suricataRules.body),
  *         },
  *     },
+ *     capacity: 1000,
+ *     name: "my-terraform-s3-rules",
+ *     type: "STATEFUL",
  *     tags: {
  *         ManagedBy: "terraform",
  *     },

@@ -48,6 +48,51 @@ namespace Pulumi.Aws.ArcRegionSwitch
     /// 
     ///     var examplePlan = new Aws.ArcRegionSwitch.Plan("example", new()
     ///     {
+    ///         Workflows = new[]
+    ///         {
+    ///             new Aws.ArcRegionSwitch.Inputs.PlanWorkflowArgs
+    ///             {
+    ///                 Steps = new[]
+    ///                 {
+    ///                     new Aws.ArcRegionSwitch.Inputs.PlanWorkflowStepArgs
+    ///                     {
+    ///                         ExecutionApprovalConfigs = new[]
+    ///                         {
+    ///                             new Aws.ArcRegionSwitch.Inputs.PlanWorkflowStepExecutionApprovalConfigArgs
+    ///                             {
+    ///                                 ApprovalRole = example.Arn,
+    ///                                 TimeoutMinutes = 60,
+    ///                             },
+    ///                         },
+    ///                         Name = "manual-approval",
+    ///                         ExecutionBlockType = "ManualApproval",
+    ///                     },
+    ///                 },
+    ///                 WorkflowTargetAction = "activate",
+    ///                 WorkflowTargetRegion = "us-west-2",
+    ///             },
+    ///             new Aws.ArcRegionSwitch.Inputs.PlanWorkflowArgs
+    ///             {
+    ///                 Steps = new[]
+    ///                 {
+    ///                     new Aws.ArcRegionSwitch.Inputs.PlanWorkflowStepArgs
+    ///                     {
+    ///                         ExecutionApprovalConfigs = new[]
+    ///                         {
+    ///                             new Aws.ArcRegionSwitch.Inputs.PlanWorkflowStepExecutionApprovalConfigArgs
+    ///                             {
+    ///                                 ApprovalRole = example.Arn,
+    ///                                 TimeoutMinutes = 60,
+    ///                             },
+    ///                         },
+    ///                         Name = "manual-approval",
+    ///                         ExecutionBlockType = "ManualApproval",
+    ///                     },
+    ///                 },
+    ///                 WorkflowTargetAction = "deactivate",
+    ///                 WorkflowTargetRegion = "us-east-1",
+    ///             },
+    ///         },
     ///         Name = "example-plan",
     ///         ExecutionRole = example.Arn,
     ///         RecoveryApproach = "activePassive",
@@ -57,51 +102,6 @@ namespace Pulumi.Aws.ArcRegionSwitch
     ///             "us-west-2",
     ///         },
     ///         PrimaryRegion = "us-east-1",
-    ///         Workflows = new[]
-    ///         {
-    ///             new Aws.ArcRegionSwitch.Inputs.PlanWorkflowArgs
-    ///             {
-    ///                 WorkflowTargetAction = "activate",
-    ///                 WorkflowTargetRegion = "us-west-2",
-    ///                 Steps = new[]
-    ///                 {
-    ///                     new Aws.ArcRegionSwitch.Inputs.PlanWorkflowStepArgs
-    ///                     {
-    ///                         Name = "manual-approval",
-    ///                         ExecutionBlockType = "ManualApproval",
-    ///                         ExecutionApprovalConfigs = new[]
-    ///                         {
-    ///                             new Aws.ArcRegionSwitch.Inputs.PlanWorkflowStepExecutionApprovalConfigArgs
-    ///                             {
-    ///                                 ApprovalRole = example.Arn,
-    ///                                 TimeoutMinutes = 60,
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///             new Aws.ArcRegionSwitch.Inputs.PlanWorkflowArgs
-    ///             {
-    ///                 WorkflowTargetAction = "deactivate",
-    ///                 WorkflowTargetRegion = "us-east-1",
-    ///                 Steps = new[]
-    ///                 {
-    ///                     new Aws.ArcRegionSwitch.Inputs.PlanWorkflowStepArgs
-    ///                     {
-    ///                         Name = "manual-approval",
-    ///                         ExecutionBlockType = "ManualApproval",
-    ///                         ExecutionApprovalConfigs = new[]
-    ///                         {
-    ///                             new Aws.ArcRegionSwitch.Inputs.PlanWorkflowStepExecutionApprovalConfigArgs
-    ///                             {
-    ///                                 ApprovalRole = example.Arn,
-    ///                                 TimeoutMinutes = 60,
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
     ///     });
     /// 
     /// });
@@ -119,16 +119,6 @@ namespace Pulumi.Aws.ArcRegionSwitch
     /// {
     ///     var complex = new Aws.ArcRegionSwitch.Plan("complex", new()
     ///     {
-    ///         Name = "complex-plan",
-    ///         ExecutionRole = exampleAwsIamRole.Arn,
-    ///         RecoveryApproach = "activeActive",
-    ///         Regions = new[]
-    ///         {
-    ///             "us-east-1",
-    ///             "us-west-2",
-    ///         },
-    ///         Description = "Complex plan with multiple execution block types",
-    ///         RecoveryTimeObjectiveMinutes = 60,
     ///         AssociatedAlarms = new[]
     ///         {
     ///             new Aws.ArcRegionSwitch.Inputs.PlanAssociatedAlarmArgs
@@ -138,25 +128,35 @@ namespace Pulumi.Aws.ArcRegionSwitch
     ///                 ResourceIdentifier = "arn:aws:cloudwatch:us-east-1:123456789012:alarm:MyAlarm",
     ///             },
     ///         },
+    ///         Triggers = new[]
+    ///         {
+    ///             new Aws.ArcRegionSwitch.Inputs.PlanTriggerArgs
+    ///             {
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.ArcRegionSwitch.Inputs.PlanTriggerConditionArgs
+    ///                     {
+    ///                         AssociatedAlarmName = "application-health-alarm",
+    ///                         Condition = "red",
+    ///                     },
+    ///                 },
+    ///                 Action = "activate",
+    ///                 TargetRegion = "us-west-2",
+    ///                 MinDelayMinutesBetweenExecutions = 30,
+    ///             },
+    ///         },
     ///         Workflows = new[]
     ///         {
     ///             new Aws.ArcRegionSwitch.Inputs.PlanWorkflowArgs
     ///             {
-    ///                 WorkflowTargetAction = "activate",
-    ///                 WorkflowTargetRegion = "us-west-2",
     ///                 Steps = new[]
     ///                 {
     ///                     new Aws.ArcRegionSwitch.Inputs.PlanWorkflowStepArgs
     ///                     {
-    ///                         Name = "lambda-step",
-    ///                         ExecutionBlockType = "CustomActionLambda",
     ///                         CustomActionLambdaConfigs = new[]
     ///                         {
     ///                             new Aws.ArcRegionSwitch.Inputs.PlanWorkflowStepCustomActionLambdaConfigArgs
     ///                             {
-    ///                                 RegionToRun = "activatingRegion",
-    ///                                 RetryIntervalMinutes = 5,
-    ///                                 TimeoutMinutes = 30,
     ///                                 Lambdas = new[]
     ///                                 {
     ///                                     new Aws.ArcRegionSwitch.Inputs.PlanWorkflowStepCustomActionLambdaConfigLambdaArgs
@@ -164,13 +164,16 @@ namespace Pulumi.Aws.ArcRegionSwitch
     ///                                         Arn = example.Arn,
     ///                                     },
     ///                                 },
+    ///                                 RegionToRun = "activatingRegion",
+    ///                                 RetryIntervalMinutes = 5,
+    ///                                 TimeoutMinutes = 30,
     ///                             },
     ///                         },
+    ///                         Name = "lambda-step",
+    ///                         ExecutionBlockType = "CustomActionLambda",
     ///                     },
     ///                     new Aws.ArcRegionSwitch.Inputs.PlanWorkflowStepArgs
     ///                     {
-    ///                         Name = "parallel-step",
-    ///                         ExecutionBlockType = "Parallel",
     ///                         ParallelConfigs = new[]
     ///                         {
     ///                             new Aws.ArcRegionSwitch.Inputs.PlanWorkflowStepParallelConfigArgs
@@ -179,8 +182,6 @@ namespace Pulumi.Aws.ArcRegionSwitch
     ///                                 {
     ///                                     new Aws.ArcRegionSwitch.Inputs.PlanWorkflowStepParallelConfigStepArgs
     ///                                     {
-    ///                                         Name = "asg-scaling",
-    ///                                         ExecutionBlockType = "EC2AutoScaling",
     ///                                         Ec2AsgCapacityIncreaseConfigs = new[]
     ///                                         {
     ///                                             new Aws.ArcRegionSwitch.Inputs.PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigArgs
@@ -195,11 +196,11 @@ namespace Pulumi.Aws.ArcRegionSwitch
     ///                                                 TargetPercent = 150,
     ///                                             },
     ///                                         },
+    ///                                         Name = "asg-scaling",
+    ///                                         ExecutionBlockType = "EC2AutoScaling",
     ///                                     },
     ///                                     new Aws.ArcRegionSwitch.Inputs.PlanWorkflowStepParallelConfigStepArgs
     ///                                     {
-    ///                                         Name = "ecs-scaling",
-    ///                                         ExecutionBlockType = "ECSServiceScaling",
     ///                                         EcsCapacityIncreaseConfigs = new[]
     ///                                         {
     ///                                             new Aws.ArcRegionSwitch.Inputs.PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigArgs
@@ -215,23 +216,25 @@ namespace Pulumi.Aws.ArcRegionSwitch
     ///                                                 TargetPercent = 200,
     ///                                             },
     ///                                         },
+    ///                                         Name = "ecs-scaling",
+    ///                                         ExecutionBlockType = "ECSServiceScaling",
     ///                                     },
     ///                                 },
     ///                             },
     ///                         },
+    ///                         Name = "parallel-step",
+    ///                         ExecutionBlockType = "Parallel",
     ///                     },
     ///                 },
+    ///                 WorkflowTargetAction = "activate",
+    ///                 WorkflowTargetRegion = "us-west-2",
     ///             },
     ///             new Aws.ArcRegionSwitch.Inputs.PlanWorkflowArgs
     ///             {
-    ///                 WorkflowTargetAction = "deactivate",
-    ///                 WorkflowTargetRegion = "us-east-1",
     ///                 Steps = new[]
     ///                 {
     ///                     new Aws.ArcRegionSwitch.Inputs.PlanWorkflowStepArgs
     ///                     {
-    ///                         Name = "route53-health-check",
-    ///                         ExecutionBlockType = "Route53HealthCheck",
     ///                         Route53HealthCheckConfigs = new[]
     ///                         {
     ///                             new Aws.ArcRegionSwitch.Inputs.PlanWorkflowStepRoute53HealthCheckConfigArgs
@@ -240,27 +243,24 @@ namespace Pulumi.Aws.ArcRegionSwitch
     ///                                 RecordName = "api.example.com",
     ///                             },
     ///                         },
+    ///                         Name = "route53-health-check",
+    ///                         ExecutionBlockType = "Route53HealthCheck",
     ///                     },
     ///                 },
+    ///                 WorkflowTargetAction = "deactivate",
+    ///                 WorkflowTargetRegion = "us-east-1",
     ///             },
     ///         },
-    ///         Triggers = new[]
+    ///         Name = "complex-plan",
+    ///         ExecutionRole = exampleAwsIamRole.Arn,
+    ///         RecoveryApproach = "activeActive",
+    ///         Regions = new[]
     ///         {
-    ///             new Aws.ArcRegionSwitch.Inputs.PlanTriggerArgs
-    ///             {
-    ///                 Action = "activate",
-    ///                 TargetRegion = "us-west-2",
-    ///                 MinDelayMinutesBetweenExecutions = 30,
-    ///                 Conditions = new[]
-    ///                 {
-    ///                     new Aws.ArcRegionSwitch.Inputs.PlanTriggerConditionArgs
-    ///                     {
-    ///                         AssociatedAlarmName = "application-health-alarm",
-    ///                         Condition = "red",
-    ///                     },
-    ///                 },
-    ///             },
+    ///             "us-east-1",
+    ///             "us-west-2",
     ///         },
+    ///         Description = "Complex plan with multiple execution block types",
+    ///         RecoveryTimeObjectiveMinutes = 60,
     ///         Tags = 
     ///         {
     ///             { "Environment", "production" },

@@ -385,15 +385,15 @@ class AccessGrant(pulumi.CustomResource):
             location_scope=f"s3://{example_aws_s3_bucket['bucket']}/prefixA*",
             opts = pulumi.ResourceOptions(depends_on=[example]))
         example_access_grant = aws.s3control.AccessGrant("example",
-            access_grants_location_id=example_access_grants_location.access_grants_location_id,
-            permission="READ",
             access_grants_location_configuration={
                 "s3_sub_prefix": "prefixB*",
             },
             grantee={
                 "grantee_type": "IAM",
                 "grantee_identifier": example_aws_iam_user["arn"],
-            })
+            },
+            access_grants_location_id=example_access_grants_location.access_grants_location_id,
+            permission="READ")
         ```
 
         ## Import
@@ -439,15 +439,15 @@ class AccessGrant(pulumi.CustomResource):
             location_scope=f"s3://{example_aws_s3_bucket['bucket']}/prefixA*",
             opts = pulumi.ResourceOptions(depends_on=[example]))
         example_access_grant = aws.s3control.AccessGrant("example",
-            access_grants_location_id=example_access_grants_location.access_grants_location_id,
-            permission="READ",
             access_grants_location_configuration={
                 "s3_sub_prefix": "prefixB*",
             },
             grantee={
                 "grantee_type": "IAM",
                 "grantee_identifier": example_aws_iam_user["arn"],
-            })
+            },
+            access_grants_location_id=example_access_grants_location.access_grants_location_id,
+            permission="READ")
         ```
 
         ## Import

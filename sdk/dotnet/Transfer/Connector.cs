@@ -26,7 +26,6 @@ namespace Pulumi.Aws.Transfer
     /// {
     ///     var example = new Aws.Transfer.Connector("example", new()
     ///     {
-    ///         AccessRole = test.Arn,
     ///         As2Config = new Aws.Transfer.Inputs.ConnectorAs2ConfigArgs
     ///         {
     ///             Compression = "DISABLED",
@@ -38,6 +37,7 @@ namespace Pulumi.Aws.Transfer
     ///             PartnerProfileId = partner.ProfileId,
     ///             SigningAlgorithm = "NONE",
     ///         },
+    ///         AccessRole = test.Arn,
     ///         Url = "http://www.test.com",
     ///     });
     /// 
@@ -56,7 +56,6 @@ namespace Pulumi.Aws.Transfer
     /// {
     ///     var example = new Aws.Transfer.Connector("example", new()
     ///     {
-    ///         AccessRole = test.Arn,
     ///         SftpConfig = new Aws.Transfer.Inputs.ConnectorSftpConfigArgs
     ///         {
     ///             TrustedHostKeys = new[]
@@ -65,6 +64,7 @@ namespace Pulumi.Aws.Transfer
     ///             },
     ///             UserSecretId = exampleAwsSecretsmanagerSecret.Id,
     ///         },
+    ///         AccessRole = test.Arn,
     ///         Url = "sftp://test.com",
     ///     });
     /// 
@@ -83,7 +83,6 @@ namespace Pulumi.Aws.Transfer
     /// {
     ///     var example = new Aws.Transfer.Connector("example", new()
     ///     {
-    ///         AccessRole = test.Arn,
     ///         SftpConfig = new Aws.Transfer.Inputs.ConnectorSftpConfigArgs
     ///         {
     ///             TrustedHostKeys = new[]
@@ -100,6 +99,7 @@ namespace Pulumi.Aws.Transfer
     ///                 PortNumber = 22,
     ///             },
     ///         },
+    ///         AccessRole = test.Arn,
     ///     });
     /// 
     /// });

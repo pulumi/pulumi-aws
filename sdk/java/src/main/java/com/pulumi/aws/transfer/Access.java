@@ -86,14 +86,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Access("test", AccessArgs.builder()
- *             .externalId("S-1-1-12-1234567890-123456789-1234567890-1234")
- *             .serverId(testAwsTransferServer.id())
- *             .role(testAwsIamRole.arn())
- *             .homeDirectory(String.format("/%s/", testAwsEfsFileSystem.id()))
  *             .posixProfile(AccessPosixProfileArgs.builder()
  *                 .gid(1000)
  *                 .uid(1000)
  *                 .build())
+ *             .externalId("S-1-1-12-1234567890-123456789-1234567890-1234")
+ *             .serverId(testAwsTransferServer.id())
+ *             .role(testAwsIamRole.arn())
+ *             .homeDirectory(String.format("/%s/", testAwsEfsFileSystem.id()))
  *             .build());
  * 
  *     }

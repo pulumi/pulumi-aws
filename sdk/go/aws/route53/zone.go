@@ -126,7 +126,6 @@ import (
 //				return err
 //			}
 //			_, err = route53.NewZone(ctx, "private", &route53.ZoneArgs{
-//				Name: pulumi.String("example.com"),
 //				Vpcs: route53.ZoneVpcArray{
 //					&route53.ZoneVpcArgs{
 //						VpcId: primary.ID().ToIDOutput().ToStringOutput(),
@@ -135,6 +134,7 @@ import (
 //						VpcId: secondary.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
+//				Name: pulumi.String("example.com"),
 //			})
 //			if err != nil {
 //				return err

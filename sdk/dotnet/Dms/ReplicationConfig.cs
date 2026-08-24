@@ -26,6 +26,13 @@ namespace Pulumi.Aws.Dms
     /// {
     ///     var name = new Aws.Dms.ReplicationConfig("name", new()
     ///     {
+    ///         ComputeConfig = new Aws.Dms.Inputs.ReplicationConfigComputeConfigArgs
+    ///         {
+    ///             ReplicationSubnetGroupId = @default.ReplicationSubnetGroupId,
+    ///             MaxCapacityUnits = 64,
+    ///             MinCapacityUnits = 2,
+    ///             PreferredMaintenanceWindow = "sun:23:45-mon:00:30",
+    ///         },
     ///         ReplicationConfigIdentifier = "test-dms-serverless-replication-tf",
     ///         ResourceIdentifier = "test-dms-serverless-replication-tf",
     ///         ReplicationType = "cdc",
@@ -36,13 +43,6 @@ namespace Pulumi.Aws.Dms
     ///   }
     /// ",
     ///         StartReplication = true,
-    ///         ComputeConfig = new Aws.Dms.Inputs.ReplicationConfigComputeConfigArgs
-    ///         {
-    ///             ReplicationSubnetGroupId = @default.ReplicationSubnetGroupId,
-    ///             MaxCapacityUnits = 64,
-    ///             MinCapacityUnits = 2,
-    ///             PreferredMaintenanceWindow = "sun:23:45-mon:00:30",
-    ///         },
     ///     });
     /// 
     /// });

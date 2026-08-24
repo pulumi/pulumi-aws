@@ -26,7 +26,6 @@ namespace Pulumi.Aws.Backup
     /// {
     ///     var example = new Aws.Backup.RestoreTestingPlan("example", new()
     ///     {
-    ///         Name = "example_restore_testing_plan",
     ///         RecoveryPointSelection = new Aws.Backup.Inputs.RestoreTestingPlanRecoveryPointSelectionArgs
     ///         {
     ///             Algorithm = "LATEST_WITHIN_WINDOW",
@@ -39,6 +38,7 @@ namespace Pulumi.Aws.Backup
     ///                 "CONTINUOUS",
     ///             },
     ///         },
+    ///         Name = "example_restore_testing_plan",
     ///         ScheduleExpression = "cron(0 12 ? * * *)",
     ///     });
     /// 

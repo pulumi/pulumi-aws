@@ -66,12 +66,12 @@ import javax.annotation.Nullable;
  *                 .build());
  * 
  *         var exampleConnectorV2 = new ConnectorV2("exampleConnectorV2", ConnectorV2Args.builder()
- *             .name("jira-connector")
  *             .connectorProvider(ConnectorV2ConnectorProviderArgs.builder()
  *                 .jiraCloud(ConnectorV2ConnectorProviderJiraCloudArgs.builder()
  *                     .projectKey("SEC")
  *                     .build())
  *                 .build())
+ *             .name("jira-connector")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAggregatorV2)
  *                 .build());
@@ -110,14 +110,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ConnectorV2("example", ConnectorV2Args.builder()
- *             .name("jira-connector")
- *             .description("Jira Cloud integration for security findings")
- *             .kmsKeyArn(exampleAwsKmsKey.arn())
  *             .connectorProvider(ConnectorV2ConnectorProviderArgs.builder()
  *                 .jiraCloud(ConnectorV2ConnectorProviderJiraCloudArgs.builder()
  *                     .projectKey("SEC")
  *                     .build())
  *                 .build())
+ *             .name("jira-connector")
+ *             .description("Jira Cloud integration for security findings")
+ *             .kmsKeyArn(exampleAwsKmsKey.arn())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAwsSecurityhubAggregatorV2)
  *                 .build());

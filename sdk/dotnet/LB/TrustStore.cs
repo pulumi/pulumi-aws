@@ -33,7 +33,11 @@ namespace Pulumi.Aws.LB
     /// 
     ///     var example = new Aws.LB.Listener("example", new()
     ///     {
-    ///         LoadBalancerArn = exampleAwsLb.Id,
+    ///         MutualAuthentication = new Aws.LB.Inputs.ListenerMutualAuthenticationArgs
+    ///         {
+    ///             Mode = "verify",
+    ///             TrustStoreArn = test.Arn,
+    ///         },
     ///         DefaultActions = new[]
     ///         {
     ///             new Aws.LB.Inputs.ListenerDefaultActionArgs
@@ -42,11 +46,7 @@ namespace Pulumi.Aws.LB
     ///                 Type = "forward",
     ///             },
     ///         },
-    ///         MutualAuthentication = new Aws.LB.Inputs.ListenerMutualAuthenticationArgs
-    ///         {
-    ///             Mode = "verify",
-    ///             TrustStoreArn = test.Arn,
-    ///         },
+    ///         LoadBalancerArn = exampleAwsLb.Id,
     ///     });
     /// 
     /// });

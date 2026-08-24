@@ -19,10 +19,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.connect.getBotAssociation({
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
  *     lexBot: {
  *         name: "Test",
  *     },
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
  * });
  * ```
  */
@@ -77,10 +77,10 @@ export interface GetBotAssociationResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.connect.getBotAssociation({
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
  *     lexBot: {
  *         name: "Test",
  *     },
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
  * });
  * ```
  */

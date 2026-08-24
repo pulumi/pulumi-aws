@@ -33,11 +33,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := codebuild.NewReportGroup(ctx, "example", &codebuild.ReportGroupArgs{
-//				Name: pulumi.String("example"),
-//				Type: pulumi.String("TEST"),
 //				ExportConfig: &codebuild.ReportGroupExportConfigArgs{
 //					Type: pulumi.String("NO_EXPORT"),
 //				},
+//				Name: pulumi.String("example"),
+//				Type: pulumi.String("TEST"),
 //			})
 //			if err != nil {
 //				return err

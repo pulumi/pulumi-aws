@@ -168,7 +168,6 @@ class IpSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         ipset = aws.wafregional.IpSet("ipset",
-            name="tfIPSet",
             ip_set_descriptors=[
                 {
                     "type": "IPV4",
@@ -178,7 +177,8 @@ class IpSet(pulumi.CustomResource):
                     "type": "IPV4",
                     "value": "10.16.16.0/16",
                 },
-            ])
+            ],
+            name="tfIPSet")
         ```
 
         ## Import
@@ -212,7 +212,6 @@ class IpSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         ipset = aws.wafregional.IpSet("ipset",
-            name="tfIPSet",
             ip_set_descriptors=[
                 {
                     "type": "IPV4",
@@ -222,7 +221,8 @@ class IpSet(pulumi.CustomResource):
                     "type": "IPV4",
                     "value": "10.16.16.0/16",
                 },
-            ])
+            ],
+            name="tfIPSet")
         ```
 
         ## Import

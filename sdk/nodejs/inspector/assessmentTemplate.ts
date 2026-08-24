@@ -17,6 +17,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.inspector.AssessmentTemplate("example", {
+ *     eventSubscriptions: [{
+ *         event: "ASSESSMENT_RUN_COMPLETED",
+ *         topicArn: exampleAwsSnsTopic.arn,
+ *     }],
  *     name: "example",
  *     targetArn: exampleAwsInspectorAssessmentTarget.arn,
  *     duration: 3600,
@@ -26,10 +30,6 @@ import * as utilities from "../utilities";
  *         "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ",
  *         "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-vg5GGHSD",
  *     ],
- *     eventSubscriptions: [{
- *         event: "ASSESSMENT_RUN_COMPLETED",
- *         topicArn: exampleAwsSnsTopic.arn,
- *     }],
  * });
  * ```
  *

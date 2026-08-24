@@ -449,11 +449,11 @@ class BudgetAction(pulumi.CustomResource):
             policy=example.json)
         current = aws.get_partition()
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": [f"budgets.{current.dns_suffix}"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         example_role = aws.iam.Role("example",
@@ -467,11 +467,6 @@ class BudgetAction(pulumi.CustomResource):
             time_period_start="2006-01-02_15:04",
             time_unit="MONTHLY")
         example_budget_action = aws.budgets.BudgetAction("example",
-            budget_name=example_budget.name,
-            action_type="APPLY_IAM_POLICY",
-            approval_model="AUTOMATIC",
-            notification_type="ACTUAL",
-            execution_role_arn=example_role.arn,
             action_threshold={
                 "action_threshold_type": "ABSOLUTE_VALUE",
                 "action_threshold_value": float(100),
@@ -486,6 +481,11 @@ class BudgetAction(pulumi.CustomResource):
                 "address": "example@example.example",
                 "subscription_type": "EMAIL",
             }],
+            budget_name=example_budget.name,
+            action_type="APPLY_IAM_POLICY",
+            approval_model="AUTOMATIC",
+            notification_type="ACTUAL",
+            execution_role_arn=example_role.arn,
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",
@@ -540,11 +540,11 @@ class BudgetAction(pulumi.CustomResource):
             policy=example.json)
         current = aws.get_partition()
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": [f"budgets.{current.dns_suffix}"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         example_role = aws.iam.Role("example",
@@ -558,11 +558,6 @@ class BudgetAction(pulumi.CustomResource):
             time_period_start="2006-01-02_15:04",
             time_unit="MONTHLY")
         example_budget_action = aws.budgets.BudgetAction("example",
-            budget_name=example_budget.name,
-            action_type="APPLY_IAM_POLICY",
-            approval_model="AUTOMATIC",
-            notification_type="ACTUAL",
-            execution_role_arn=example_role.arn,
             action_threshold={
                 "action_threshold_type": "ABSOLUTE_VALUE",
                 "action_threshold_value": float(100),
@@ -577,6 +572,11 @@ class BudgetAction(pulumi.CustomResource):
                 "address": "example@example.example",
                 "subscription_type": "EMAIL",
             }],
+            budget_name=example_budget.name,
+            action_type="APPLY_IAM_POLICY",
+            approval_model="AUTOMATIC",
+            notification_type="ACTUAL",
+            execution_role_arn=example_role.arn,
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",

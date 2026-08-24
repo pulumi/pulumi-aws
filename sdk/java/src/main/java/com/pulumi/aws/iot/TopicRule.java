@@ -53,9 +53,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.sns.TopicArgs;
  * import com.pulumi.aws.iot.TopicRule;
  * import com.pulumi.aws.iot.TopicRuleArgs;
- * import com.pulumi.aws.iot.inputs.TopicRuleSnsArgs;
  * import com.pulumi.aws.iot.inputs.TopicRuleErrorActionArgs;
  * import com.pulumi.aws.iot.inputs.TopicRuleErrorActionSnsArgs;
+ * import com.pulumi.aws.iot.inputs.TopicRuleSnsArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
@@ -86,16 +86,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var rule = new TopicRule("rule", TopicRuleArgs.builder()
- *             .name("MyRule")
- *             .description("Example rule")
- *             .enabled(true)
- *             .sql("SELECT * FROM 'topic/test'")
- *             .sqlVersion("2016-03-23")
- *             .sns(TopicRuleSnsArgs.builder()
- *                 .messageFormat("RAW")
- *                 .roleArn(role.arn())
- *                 .targetArn(mytopic.arn())
- *                 .build())
  *             .errorAction(TopicRuleErrorActionArgs.builder()
  *                 .sns(TopicRuleErrorActionSnsArgs.builder()
  *                     .messageFormat("RAW")
@@ -103,15 +93,25 @@ import javax.annotation.Nullable;
  *                     .targetArn(myerrortopic.arn())
  *                     .build())
  *                 .build())
+ *             .sns(TopicRuleSnsArgs.builder()
+ *                 .messageFormat("RAW")
+ *                 .roleArn(role.arn())
+ *                 .targetArn(mytopic.arn())
+ *                 .build())
+ *             .name("MyRule")
+ *             .description("Example rule")
+ *             .enabled(true)
+ *             .sql("SELECT * FROM 'topic/test'")
+ *             .sqlVersion("2016-03-23")
  *             .build());
  * 
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("iot.amazonaws.com")
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());

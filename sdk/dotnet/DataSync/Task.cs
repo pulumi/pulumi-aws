@@ -24,13 +24,13 @@ namespace Pulumi.Aws.DataSync
     /// {
     ///     var example = new Aws.DataSync.Task("example", new()
     ///     {
-    ///         DestinationLocationArn = destination.Arn,
-    ///         Name = "example",
-    ///         SourceLocationArn = source.Arn,
     ///         Options = new Aws.DataSync.Inputs.TaskOptionsArgs
     ///         {
     ///             BytesPerSecond = -1,
     ///         },
+    ///         DestinationLocationArn = destination.Arn,
+    ///         Name = "example",
+    ///         SourceLocationArn = source.Arn,
     ///     });
     /// 
     /// });
@@ -48,13 +48,13 @@ namespace Pulumi.Aws.DataSync
     /// {
     ///     var example = new Aws.DataSync.Task("example", new()
     ///     {
-    ///         DestinationLocationArn = destination.Arn,
-    ///         Name = "example",
-    ///         SourceLocationArn = source.Arn,
     ///         Schedule = new Aws.DataSync.Inputs.TaskScheduleArgs
     ///         {
     ///             ScheduleExpression = "cron(0 12 ? * SUN,WED *)",
     ///         },
+    ///         DestinationLocationArn = destination.Arn,
+    ///         Name = "example",
+    ///         SourceLocationArn = source.Arn,
     ///     });
     /// 
     /// });
@@ -72,9 +72,6 @@ namespace Pulumi.Aws.DataSync
     /// {
     ///     var example = new Aws.DataSync.Task("example", new()
     ///     {
-    ///         DestinationLocationArn = destination.Arn,
-    ///         Name = "example",
-    ///         SourceLocationArn = source.Arn,
     ///         Excludes = new Aws.DataSync.Inputs.TaskExcludesArgs
     ///         {
     ///             FilterType = "SIMPLE_PATTERN",
@@ -85,6 +82,9 @@ namespace Pulumi.Aws.DataSync
     ///             FilterType = "SIMPLE_PATTERN",
     ///             Value = "/folder1|/folder2",
     ///         },
+    ///         DestinationLocationArn = destination.Arn,
+    ///         Name = "example",
+    ///         SourceLocationArn = source.Arn,
     ///     });
     /// 
     /// });
@@ -102,10 +102,6 @@ namespace Pulumi.Aws.DataSync
     /// {
     ///     var example = new Aws.DataSync.Task("example", new()
     ///     {
-    ///         DestinationLocationArn = destination.Arn,
-    ///         Name = "example",
-    ///         SourceLocationArn = source.Arn,
-    ///         TaskMode = "ENHANCED",
     ///         Options = new Aws.DataSync.Inputs.TaskOptionsArgs
     ///         {
     ///             Gid = "NONE",
@@ -113,6 +109,10 @@ namespace Pulumi.Aws.DataSync
     ///             Uid = "NONE",
     ///             VerifyMode = "ONLY_FILES_TRANSFERRED",
     ///         },
+    ///         DestinationLocationArn = destination.Arn,
+    ///         Name = "example",
+    ///         SourceLocationArn = source.Arn,
+    ///         TaskMode = "ENHANCED",
     ///     });
     /// 
     /// });

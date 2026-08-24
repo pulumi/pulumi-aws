@@ -64,29 +64,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Connector("example", ConnectorArgs.builder()
- *             .name("example")
- *             .kafkaconnectVersion("2.7.1")
  *             .capacity(ConnectorCapacityArgs.builder()
  *                 .autoscaling(ConnectorCapacityAutoscalingArgs.builder()
- *                     .mcuCount(1)
- *                     .minWorkerCount(1)
- *                     .maxWorkerCount(2)
  *                     .scaleInPolicy(ConnectorCapacityAutoscalingScaleInPolicyArgs.builder()
  *                         .cpuUtilizationPercentage(20)
  *                         .build())
  *                     .scaleOutPolicy(ConnectorCapacityAutoscalingScaleOutPolicyArgs.builder()
  *                         .cpuUtilizationPercentage(80)
  *                         .build())
+ *                     .mcuCount(1)
+ *                     .minWorkerCount(1)
+ *                     .maxWorkerCount(2)
  *                     .build())
  *                 .build())
- *             .connectorConfiguration(Map.ofEntries(
- *                 Map.entry("connector.class", "com.github.jcustenborder.kafka.connect.simulator.SimulatorSinkConnector"),
- *                 Map.entry("tasks.max", "1"),
- *                 Map.entry("topics", "example")
- *             ))
  *             .kafkaCluster(ConnectorKafkaClusterArgs.builder()
  *                 .apacheKafkaCluster(ConnectorKafkaClusterApacheKafkaClusterArgs.builder()
- *                     .bootstrapServers(exampleAwsMskCluster.bootstrapBrokersTls())
  *                     .vpc(ConnectorKafkaClusterApacheKafkaClusterVpcArgs.builder()
  *                         .securityGroups(exampleAwsSecurityGroup.id())
  *                         .subnets(                        
@@ -94,6 +86,7 @@ import javax.annotation.Nullable;
  *                             example2.id(),
  *                             example3.id())
  *                         .build())
+ *                     .bootstrapServers(exampleAwsMskCluster.bootstrapBrokersTls())
  *                     .build())
  *                 .build())
  *             .kafkaClusterClientAuthentication(ConnectorKafkaClusterClientAuthenticationArgs.builder()
@@ -108,6 +101,13 @@ import javax.annotation.Nullable;
  *                     .revision(exampleAwsMskconnectCustomPlugin.latestRevision())
  *                     .build())
  *                 .build())
+ *             .name("example")
+ *             .kafkaconnectVersion("2.7.1")
+ *             .connectorConfiguration(Map.ofEntries(
+ *                 Map.entry("connector.class", "com.github.jcustenborder.kafka.connect.simulator.SimulatorSinkConnector"),
+ *                 Map.entry("tasks.max", "1"),
+ *                 Map.entry("topics", "example")
+ *             ))
  *             .serviceExecutionRoleArn(exampleAwsIamRole.arn())
  *             .build());
  * 

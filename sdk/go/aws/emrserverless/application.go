@@ -59,21 +59,21 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := emrserverless.NewApplication(ctx, "example", &emrserverless.ApplicationArgs{
-//				Name:         pulumi.String("example"),
-//				ReleaseLabel: pulumi.String("emr-6.6.0"),
-//				Type:         pulumi.String("hive"),
 //				InitialCapacities: emrserverless.ApplicationInitialCapacityArray{
 //					&emrserverless.ApplicationInitialCapacityArgs{
-//						InitialCapacityType: pulumi.String("HiveDriver"),
 //						InitialCapacityConfig: &emrserverless.ApplicationInitialCapacityInitialCapacityConfigArgs{
-//							WorkerCount: pulumi.Int(1),
 //							WorkerConfiguration: &emrserverless.ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs{
 //								Cpu:    pulumi.String("2 vCPU"),
 //								Memory: pulumi.String("10 GB"),
 //							},
+//							WorkerCount: pulumi.Int(1),
 //						},
+//						InitialCapacityType: pulumi.String("HiveDriver"),
 //					},
 //				},
+//				Name:         pulumi.String("example"),
+//				ReleaseLabel: pulumi.String("emr-6.6.0"),
+//				Type:         pulumi.String("hive"),
 //			})
 //			if err != nil {
 //				return err
@@ -99,13 +99,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := emrserverless.NewApplication(ctx, "example", &emrserverless.ApplicationArgs{
-//				Name:         pulumi.String("example"),
-//				ReleaseLabel: pulumi.String("emr-6.6.0"),
-//				Type:         pulumi.String("hive"),
 //				MaximumCapacity: &emrserverless.ApplicationMaximumCapacityArgs{
 //					Cpu:    pulumi.String("2 vCPU"),
 //					Memory: pulumi.String("10 GB"),
 //				},
+//				Name:         pulumi.String("example"),
+//				ReleaseLabel: pulumi.String("emr-6.6.0"),
+//				Type:         pulumi.String("hive"),
 //			})
 //			if err != nil {
 //				return err
@@ -131,14 +131,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := emrserverless.NewApplication(ctx, "example", &emrserverless.ApplicationArgs{
-//				Name:         pulumi.String("example"),
-//				ReleaseLabel: pulumi.String("emr-7.1.0"),
-//				Type:         pulumi.String("spark"),
 //				MonitoringConfiguration: &emrserverless.ApplicationMonitoringConfigurationArgs{
 //					CloudwatchLoggingConfiguration: &emrserverless.ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgs{
-//						Enabled:             pulumi.Bool(true),
-//						LogGroupName:        pulumi.String("/aws/emr-serverless/example"),
-//						LogStreamNamePrefix: pulumi.String("spark-logs"),
 //						LogTypes: emrserverless.ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArray{
 //							&emrserverless.ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArgs{
 //								Name: pulumi.String("SPARK_DRIVER"),
@@ -154,6 +148,9 @@ import (
 //								},
 //							},
 //						},
+//						Enabled:             pulumi.Bool(true),
+//						LogGroupName:        pulumi.String("/aws/emr-serverless/example"),
+//						LogStreamNamePrefix: pulumi.String("spark-logs"),
 //					},
 //					ManagedPersistenceMonitoringConfiguration: &emrserverless.ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationArgs{
 //						Enabled: pulumi.Bool(true),
@@ -162,6 +159,9 @@ import (
 //						RemoteWriteUrl: pulumi.String("https://prometheus-remote-write-endpoint.example.com/api/v1/write"),
 //					},
 //				},
+//				Name:         pulumi.String("example"),
+//				ReleaseLabel: pulumi.String("emr-7.1.0"),
+//				Type:         pulumi.String("spark"),
 //			})
 //			if err != nil {
 //				return err
@@ -187,9 +187,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := emrserverless.NewApplication(ctx, "example", &emrserverless.ApplicationArgs{
-//				Name:         pulumi.String("example"),
-//				ReleaseLabel: pulumi.String("emr-6.8.0"),
-//				Type:         pulumi.String("spark"),
 //				RuntimeConfigurations: emrserverless.ApplicationRuntimeConfigurationArray{
 //					&emrserverless.ApplicationRuntimeConfigurationArgs{
 //						Classification: pulumi.String("spark-executor-log4j2"),
@@ -207,6 +204,9 @@ import (
 //						},
 //					},
 //				},
+//				Name:         pulumi.String("example"),
+//				ReleaseLabel: pulumi.String("emr-6.8.0"),
+//				Type:         pulumi.String("spark"),
 //			})
 //			if err != nil {
 //				return err

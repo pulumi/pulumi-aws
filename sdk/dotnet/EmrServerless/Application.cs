@@ -46,25 +46,25 @@ namespace Pulumi.Aws.EmrServerless
     /// {
     ///     var example = new Aws.EmrServerless.Application("example", new()
     ///     {
-    ///         Name = "example",
-    ///         ReleaseLabel = "emr-6.6.0",
-    ///         Type = "hive",
     ///         InitialCapacities = new[]
     ///         {
     ///             new Aws.EmrServerless.Inputs.ApplicationInitialCapacityArgs
     ///             {
-    ///                 InitialCapacityType = "HiveDriver",
     ///                 InitialCapacityConfig = new Aws.EmrServerless.Inputs.ApplicationInitialCapacityInitialCapacityConfigArgs
     ///                 {
-    ///                     WorkerCount = 1,
     ///                     WorkerConfiguration = new Aws.EmrServerless.Inputs.ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs
     ///                     {
     ///                         Cpu = "2 vCPU",
     ///                         Memory = "10 GB",
     ///                     },
+    ///                     WorkerCount = 1,
     ///                 },
+    ///                 InitialCapacityType = "HiveDriver",
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         ReleaseLabel = "emr-6.6.0",
+    ///         Type = "hive",
     ///     });
     /// 
     /// });
@@ -82,14 +82,14 @@ namespace Pulumi.Aws.EmrServerless
     /// {
     ///     var example = new Aws.EmrServerless.Application("example", new()
     ///     {
-    ///         Name = "example",
-    ///         ReleaseLabel = "emr-6.6.0",
-    ///         Type = "hive",
     ///         MaximumCapacity = new Aws.EmrServerless.Inputs.ApplicationMaximumCapacityArgs
     ///         {
     ///             Cpu = "2 vCPU",
     ///             Memory = "10 GB",
     ///         },
+    ///         Name = "example",
+    ///         ReleaseLabel = "emr-6.6.0",
+    ///         Type = "hive",
     ///     });
     /// 
     /// });
@@ -107,16 +107,10 @@ namespace Pulumi.Aws.EmrServerless
     /// {
     ///     var example = new Aws.EmrServerless.Application("example", new()
     ///     {
-    ///         Name = "example",
-    ///         ReleaseLabel = "emr-7.1.0",
-    ///         Type = "spark",
     ///         MonitoringConfiguration = new Aws.EmrServerless.Inputs.ApplicationMonitoringConfigurationArgs
     ///         {
     ///             CloudwatchLoggingConfiguration = new Aws.EmrServerless.Inputs.ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgs
     ///             {
-    ///                 Enabled = true,
-    ///                 LogGroupName = "/aws/emr-serverless/example",
-    ///                 LogStreamNamePrefix = "spark-logs",
     ///                 LogTypes = new[]
     ///                 {
     ///                     new Aws.EmrServerless.Inputs.ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArgs
@@ -137,6 +131,9 @@ namespace Pulumi.Aws.EmrServerless
     ///                         },
     ///                     },
     ///                 },
+    ///                 Enabled = true,
+    ///                 LogGroupName = "/aws/emr-serverless/example",
+    ///                 LogStreamNamePrefix = "spark-logs",
     ///             },
     ///             ManagedPersistenceMonitoringConfiguration = new Aws.EmrServerless.Inputs.ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationArgs
     ///             {
@@ -147,6 +144,9 @@ namespace Pulumi.Aws.EmrServerless
     ///                 RemoteWriteUrl = "https://prometheus-remote-write-endpoint.example.com/api/v1/write",
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         ReleaseLabel = "emr-7.1.0",
+    ///         Type = "spark",
     ///     });
     /// 
     /// });
@@ -164,9 +164,6 @@ namespace Pulumi.Aws.EmrServerless
     /// {
     ///     var example = new Aws.EmrServerless.Application("example", new()
     ///     {
-    ///         Name = "example",
-    ///         ReleaseLabel = "emr-6.8.0",
-    ///         Type = "spark",
     ///         RuntimeConfigurations = new[]
     ///         {
     ///             new Aws.EmrServerless.Inputs.ApplicationRuntimeConfigurationArgs
@@ -189,6 +186,9 @@ namespace Pulumi.Aws.EmrServerless
     ///                 },
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         ReleaseLabel = "emr-6.8.0",
+    ///         Type = "spark",
     ///     });
     /// 
     /// });

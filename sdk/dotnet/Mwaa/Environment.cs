@@ -28,9 +28,6 @@ namespace Pulumi.Aws.Mwaa
     /// {
     ///     var example = new Aws.Mwaa.Environment("example", new()
     ///     {
-    ///         DagS3Path = "dags/",
-    ///         ExecutionRoleArn = exampleAwsIamRole.Arn,
-    ///         Name = "example",
     ///         NetworkConfiguration = new Aws.Mwaa.Inputs.EnvironmentNetworkConfigurationArgs
     ///         {
     ///             SecurityGroupIds = new[]
@@ -39,6 +36,9 @@ namespace Pulumi.Aws.Mwaa
     ///             },
     ///             SubnetIds = @private.Select(__item =&gt; __item.Id).ToList(),
     ///         },
+    ///         DagS3Path = "dags/",
+    ///         ExecutionRoleArn = exampleAwsIamRole.Arn,
+    ///         Name = "example",
     ///         SourceBucketArn = exampleAwsS3Bucket.Arn,
     ///     });
     /// 
@@ -57,14 +57,6 @@ namespace Pulumi.Aws.Mwaa
     /// {
     ///     var example = new Aws.Mwaa.Environment("example", new()
     ///     {
-    ///         AirflowConfigurationOptions = 
-    ///         {
-    ///             { "core.default_task_retries", "16" },
-    ///             { "core.parallelism", "1" },
-    ///         },
-    ///         DagS3Path = "dags/",
-    ///         ExecutionRoleArn = exampleAwsIamRole.Arn,
-    ///         Name = "example",
     ///         NetworkConfiguration = new Aws.Mwaa.Inputs.EnvironmentNetworkConfigurationArgs
     ///         {
     ///             SecurityGroupIds = new[]
@@ -73,6 +65,14 @@ namespace Pulumi.Aws.Mwaa
     ///             },
     ///             SubnetIds = @private.Select(__item =&gt; __item.Id).ToList(),
     ///         },
+    ///         AirflowConfigurationOptions = 
+    ///         {
+    ///             { "core.default_task_retries", "16" },
+    ///             { "core.parallelism", "1" },
+    ///         },
+    ///         DagS3Path = "dags/",
+    ///         ExecutionRoleArn = exampleAwsIamRole.Arn,
+    ///         Name = "example",
     ///         SourceBucketArn = exampleAwsS3Bucket.Arn,
     ///     });
     /// 
@@ -93,8 +93,6 @@ namespace Pulumi.Aws.Mwaa
     /// {
     ///     var example = new Aws.Mwaa.Environment("example", new()
     ///     {
-    ///         DagS3Path = "dags/",
-    ///         ExecutionRoleArn = exampleAwsIamRole.Arn,
     ///         LoggingConfiguration = new Aws.Mwaa.Inputs.EnvironmentLoggingConfigurationArgs
     ///         {
     ///             DagProcessingLogs = new Aws.Mwaa.Inputs.EnvironmentLoggingConfigurationDagProcessingLogsArgs
@@ -123,7 +121,6 @@ namespace Pulumi.Aws.Mwaa
     ///                 LogLevel = "CRITICAL",
     ///             },
     ///         },
-    ///         Name = "example",
     ///         NetworkConfiguration = new Aws.Mwaa.Inputs.EnvironmentNetworkConfigurationArgs
     ///         {
     ///             SecurityGroupIds = new[]
@@ -132,6 +129,9 @@ namespace Pulumi.Aws.Mwaa
     ///             },
     ///             SubnetIds = @private.Select(__item =&gt; __item.Id).ToList(),
     ///         },
+    ///         DagS3Path = "dags/",
+    ///         ExecutionRoleArn = exampleAwsIamRole.Arn,
+    ///         Name = "example",
     ///         SourceBucketArn = exampleAwsS3Bucket.Arn,
     ///     });
     /// 
@@ -150,9 +150,6 @@ namespace Pulumi.Aws.Mwaa
     /// {
     ///     var example = new Aws.Mwaa.Environment("example", new()
     ///     {
-    ///         DagS3Path = "dags/",
-    ///         ExecutionRoleArn = exampleAwsIamRole.Arn,
-    ///         Name = "example",
     ///         NetworkConfiguration = new Aws.Mwaa.Inputs.EnvironmentNetworkConfigurationArgs
     ///         {
     ///             SecurityGroupIds = new[]
@@ -161,6 +158,9 @@ namespace Pulumi.Aws.Mwaa
     ///             },
     ///             SubnetIds = @private.Select(__item =&gt; __item.Id).ToList(),
     ///         },
+    ///         DagS3Path = "dags/",
+    ///         ExecutionRoleArn = exampleAwsIamRole.Arn,
+    ///         Name = "example",
     ///         SourceBucketArn = exampleAwsS3Bucket.Arn,
     ///         Tags = 
     ///         {

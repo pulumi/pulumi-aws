@@ -30,10 +30,6 @@ namespace Pulumi.Aws.Ecs
         /// {
         ///     var example = Aws.Ecs.GetTaskExecution.Invoke(new()
         ///     {
-        ///         Cluster = exampleAwsEcsCluster.Id,
-        ///         TaskDefinition = exampleAwsEcsTaskDefinition.Arn,
-        ///         DesiredCount = 1,
-        ///         LaunchType = "FARGATE",
         ///         NetworkConfiguration = new Aws.Ecs.Inputs.GetTaskExecutionNetworkConfigurationInputArgs
         ///         {
         ///             Subnets = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
@@ -43,6 +39,10 @@ namespace Pulumi.Aws.Ecs
         ///             },
         ///             AssignPublicIp = false,
         ///         },
+        ///         Cluster = exampleAwsEcsCluster.Id,
+        ///         TaskDefinition = exampleAwsEcsTaskDefinition.Arn,
+        ///         DesiredCount = 1,
+        ///         LaunchType = "FARGATE",
         ///     });
         /// 
         /// });
@@ -70,10 +70,6 @@ namespace Pulumi.Aws.Ecs
         /// {
         ///     var example = Aws.Ecs.GetTaskExecution.Invoke(new()
         ///     {
-        ///         Cluster = exampleAwsEcsCluster.Id,
-        ///         TaskDefinition = exampleAwsEcsTaskDefinition.Arn,
-        ///         DesiredCount = 1,
-        ///         LaunchType = "FARGATE",
         ///         NetworkConfiguration = new Aws.Ecs.Inputs.GetTaskExecutionNetworkConfigurationInputArgs
         ///         {
         ///             Subnets = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
@@ -83,6 +79,10 @@ namespace Pulumi.Aws.Ecs
         ///             },
         ///             AssignPublicIp = false,
         ///         },
+        ///         Cluster = exampleAwsEcsCluster.Id,
+        ///         TaskDefinition = exampleAwsEcsTaskDefinition.Arn,
+        ///         DesiredCount = 1,
+        ///         LaunchType = "FARGATE",
         ///     });
         /// 
         /// });
@@ -110,10 +110,6 @@ namespace Pulumi.Aws.Ecs
         /// {
         ///     var example = Aws.Ecs.GetTaskExecution.Invoke(new()
         ///     {
-        ///         Cluster = exampleAwsEcsCluster.Id,
-        ///         TaskDefinition = exampleAwsEcsTaskDefinition.Arn,
-        ///         DesiredCount = 1,
-        ///         LaunchType = "FARGATE",
         ///         NetworkConfiguration = new Aws.Ecs.Inputs.GetTaskExecutionNetworkConfigurationInputArgs
         ///         {
         ///             Subnets = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
@@ -123,6 +119,10 @@ namespace Pulumi.Aws.Ecs
         ///             },
         ///             AssignPublicIp = false,
         ///         },
+        ///         Cluster = exampleAwsEcsCluster.Id,
+        ///         TaskDefinition = exampleAwsEcsTaskDefinition.Arn,
+        ///         DesiredCount = 1,
+        ///         LaunchType = "FARGATE",
         ///     });
         /// 
         /// });

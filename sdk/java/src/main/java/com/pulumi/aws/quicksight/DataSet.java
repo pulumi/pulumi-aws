@@ -45,8 +45,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.quicksight.DataSetArgs;
  * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapArgs;
  * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapS3SourceArgs;
- * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapS3SourceInputColumnArgs;
  * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapS3SourceUploadSettingsArgs;
+ * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapS3SourceInputColumnArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -61,22 +61,22 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataSet("example", DataSetArgs.builder()
- *             .dataSetId("example-id")
- *             .name("example-name")
- *             .importMode("SPICE")
  *             .physicalTableMaps(DataSetPhysicalTableMapArgs.builder()
- *                 .physicalTableMapId("example-id")
  *                 .s3Source(DataSetPhysicalTableMapS3SourceArgs.builder()
- *                     .dataSourceArn(exampleAwsQuicksightDataSource.arn())
+ *                     .uploadSettings(DataSetPhysicalTableMapS3SourceUploadSettingsArgs.builder()
+ *                         .format("JSON")
+ *                         .build())
  *                     .inputColumns(DataSetPhysicalTableMapS3SourceInputColumnArgs.builder()
  *                         .name("Column1")
  *                         .type("STRING")
  *                         .build())
- *                     .uploadSettings(DataSetPhysicalTableMapS3SourceUploadSettingsArgs.builder()
- *                         .format("JSON")
- *                         .build())
+ *                     .dataSourceArn(exampleAwsQuicksightDataSource.arn())
  *                     .build())
+ *                 .physicalTableMapId("example-id")
  *                 .build())
+ *             .dataSetId("example-id")
+ *             .name("example-name")
+ *             .importMode("SPICE")
  *             .build());
  * 
  *     }
@@ -97,8 +97,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.quicksight.DataSetArgs;
  * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapArgs;
  * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapS3SourceArgs;
- * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapS3SourceInputColumnArgs;
  * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapS3SourceUploadSettingsArgs;
+ * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapS3SourceInputColumnArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -113,23 +113,23 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataSet("example", DataSetArgs.builder()
- *             .dataSetId("example-id")
- *             .name("example-name")
- *             .importMode("SPICE")
- *             .useAs("RLS_RULES")
  *             .physicalTableMaps(DataSetPhysicalTableMapArgs.builder()
- *                 .physicalTableMapId("example-id")
  *                 .s3Source(DataSetPhysicalTableMapS3SourceArgs.builder()
- *                     .dataSourceArn(exampleAwsQuicksightDataSource.arn())
+ *                     .uploadSettings(DataSetPhysicalTableMapS3SourceUploadSettingsArgs.builder()
+ *                         .format("JSON")
+ *                         .build())
  *                     .inputColumns(DataSetPhysicalTableMapS3SourceInputColumnArgs.builder()
  *                         .name("UserName")
  *                         .type("STRING")
  *                         .build())
- *                     .uploadSettings(DataSetPhysicalTableMapS3SourceUploadSettingsArgs.builder()
- *                         .format("JSON")
- *                         .build())
+ *                     .dataSourceArn(exampleAwsQuicksightDataSource.arn())
  *                     .build())
+ *                 .physicalTableMapId("example-id")
  *                 .build())
+ *             .dataSetId("example-id")
+ *             .name("example-name")
+ *             .importMode("SPICE")
+ *             .useAs("RLS_RULES")
  *             .build());
  * 
  *     }
@@ -148,11 +148,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.quicksight.DataSet;
  * import com.pulumi.aws.quicksight.DataSetArgs;
+ * import com.pulumi.aws.quicksight.inputs.DataSetColumnLevelPermissionRuleArgs;
  * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapArgs;
  * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapS3SourceArgs;
- * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapS3SourceInputColumnArgs;
  * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapS3SourceUploadSettingsArgs;
- * import com.pulumi.aws.quicksight.inputs.DataSetColumnLevelPermissionRuleArgs;
+ * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapS3SourceInputColumnArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -167,26 +167,26 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataSet("example", DataSetArgs.builder()
- *             .dataSetId("example-id")
- *             .name("example-name")
- *             .importMode("SPICE")
- *             .physicalTableMaps(DataSetPhysicalTableMapArgs.builder()
- *                 .physicalTableMapId("example-id")
- *                 .s3Source(DataSetPhysicalTableMapS3SourceArgs.builder()
- *                     .dataSourceArn(exampleAwsQuicksightDataSource.arn())
- *                     .inputColumns(DataSetPhysicalTableMapS3SourceInputColumnArgs.builder()
- *                         .name("Column1")
- *                         .type("STRING")
- *                         .build())
- *                     .uploadSettings(DataSetPhysicalTableMapS3SourceUploadSettingsArgs.builder()
- *                         .format("JSON")
- *                         .build())
- *                     .build())
- *                 .build())
  *             .columnLevelPermissionRules(DataSetColumnLevelPermissionRuleArgs.builder()
  *                 .columnNames("Column1")
  *                 .principals(exampleAwsQuicksightUser.arn())
  *                 .build())
+ *             .physicalTableMaps(DataSetPhysicalTableMapArgs.builder()
+ *                 .s3Source(DataSetPhysicalTableMapS3SourceArgs.builder()
+ *                     .uploadSettings(DataSetPhysicalTableMapS3SourceUploadSettingsArgs.builder()
+ *                         .format("JSON")
+ *                         .build())
+ *                     .inputColumns(DataSetPhysicalTableMapS3SourceInputColumnArgs.builder()
+ *                         .name("Column1")
+ *                         .type("STRING")
+ *                         .build())
+ *                     .dataSourceArn(exampleAwsQuicksightDataSource.arn())
+ *                     .build())
+ *                 .physicalTableMapId("example-id")
+ *                 .build())
+ *             .dataSetId("example-id")
+ *             .name("example-name")
+ *             .importMode("SPICE")
  *             .build());
  * 
  *     }
@@ -205,11 +205,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.quicksight.DataSet;
  * import com.pulumi.aws.quicksight.DataSetArgs;
+ * import com.pulumi.aws.quicksight.inputs.DataSetFieldFolderArgs;
  * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapArgs;
  * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapS3SourceArgs;
- * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapS3SourceInputColumnArgs;
  * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapS3SourceUploadSettingsArgs;
- * import com.pulumi.aws.quicksight.inputs.DataSetFieldFolderArgs;
+ * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapS3SourceInputColumnArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -224,27 +224,27 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataSet("example", DataSetArgs.builder()
- *             .dataSetId("example-id")
- *             .name("example-name")
- *             .importMode("SPICE")
- *             .physicalTableMaps(DataSetPhysicalTableMapArgs.builder()
- *                 .physicalTableMapId("example-id")
- *                 .s3Source(DataSetPhysicalTableMapS3SourceArgs.builder()
- *                     .dataSourceArn(exampleAwsQuicksightDataSource.arn())
- *                     .inputColumns(DataSetPhysicalTableMapS3SourceInputColumnArgs.builder()
- *                         .name("Column1")
- *                         .type("STRING")
- *                         .build())
- *                     .uploadSettings(DataSetPhysicalTableMapS3SourceUploadSettingsArgs.builder()
- *                         .format("JSON")
- *                         .build())
- *                     .build())
- *                 .build())
  *             .fieldFolders(DataSetFieldFolderArgs.builder()
  *                 .fieldFoldersId("example-id")
  *                 .columns("Column1")
  *                 .description("example description")
  *                 .build())
+ *             .physicalTableMaps(DataSetPhysicalTableMapArgs.builder()
+ *                 .s3Source(DataSetPhysicalTableMapS3SourceArgs.builder()
+ *                     .uploadSettings(DataSetPhysicalTableMapS3SourceUploadSettingsArgs.builder()
+ *                         .format("JSON")
+ *                         .build())
+ *                     .inputColumns(DataSetPhysicalTableMapS3SourceInputColumnArgs.builder()
+ *                         .name("Column1")
+ *                         .type("STRING")
+ *                         .build())
+ *                     .dataSourceArn(exampleAwsQuicksightDataSource.arn())
+ *                     .build())
+ *                 .physicalTableMapId("example-id")
+ *                 .build())
+ *             .dataSetId("example-id")
+ *             .name("example-name")
+ *             .importMode("SPICE")
  *             .build());
  * 
  *     }
@@ -263,11 +263,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.quicksight.DataSet;
  * import com.pulumi.aws.quicksight.DataSetArgs;
+ * import com.pulumi.aws.quicksight.inputs.DataSetPermissionArgs;
  * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapArgs;
  * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapS3SourceArgs;
- * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapS3SourceInputColumnArgs;
  * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapS3SourceUploadSettingsArgs;
- * import com.pulumi.aws.quicksight.inputs.DataSetPermissionArgs;
+ * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapS3SourceInputColumnArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -282,22 +282,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataSet("example", DataSetArgs.builder()
- *             .dataSetId("example-id")
- *             .name("example-name")
- *             .importMode("SPICE")
- *             .physicalTableMaps(DataSetPhysicalTableMapArgs.builder()
- *                 .physicalTableMapId("example-id")
- *                 .s3Source(DataSetPhysicalTableMapS3SourceArgs.builder()
- *                     .dataSourceArn(exampleAwsQuicksightDataSource.arn())
- *                     .inputColumns(DataSetPhysicalTableMapS3SourceInputColumnArgs.builder()
- *                         .name("Column1")
- *                         .type("STRING")
- *                         .build())
- *                     .uploadSettings(DataSetPhysicalTableMapS3SourceUploadSettingsArgs.builder()
- *                         .format("JSON")
- *                         .build())
- *                     .build())
- *                 .build())
  *             .permissions(DataSetPermissionArgs.builder()
  *                 .actions(                
  *                     "quicksight:DescribeDataSet",
@@ -307,6 +291,22 @@ import javax.annotation.Nullable;
  *                     "quicksight:ListIngestions")
  *                 .principal(exampleAwsQuicksightUser.arn())
  *                 .build())
+ *             .physicalTableMaps(DataSetPhysicalTableMapArgs.builder()
+ *                 .s3Source(DataSetPhysicalTableMapS3SourceArgs.builder()
+ *                     .uploadSettings(DataSetPhysicalTableMapS3SourceUploadSettingsArgs.builder()
+ *                         .format("JSON")
+ *                         .build())
+ *                     .inputColumns(DataSetPhysicalTableMapS3SourceInputColumnArgs.builder()
+ *                         .name("Column1")
+ *                         .type("STRING")
+ *                         .build())
+ *                     .dataSourceArn(exampleAwsQuicksightDataSource.arn())
+ *                     .build())
+ *                 .physicalTableMapId("example-id")
+ *                 .build())
+ *             .dataSetId("example-id")
+ *             .name("example-name")
+ *             .importMode("SPICE")
  *             .build());
  * 
  *     }
@@ -325,12 +325,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.quicksight.DataSet;
  * import com.pulumi.aws.quicksight.DataSetArgs;
- * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapArgs;
- * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapS3SourceArgs;
- * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapS3SourceInputColumnArgs;
- * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapS3SourceUploadSettingsArgs;
  * import com.pulumi.aws.quicksight.inputs.DataSetRowLevelPermissionTagConfigurationArgs;
  * import com.pulumi.aws.quicksight.inputs.DataSetRowLevelPermissionTagConfigurationTagRuleArgs;
+ * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapArgs;
+ * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapS3SourceArgs;
+ * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapS3SourceUploadSettingsArgs;
+ * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapS3SourceInputColumnArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -345,31 +345,31 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataSet("example", DataSetArgs.builder()
- *             .dataSetId("example-id")
- *             .name("example-name")
- *             .importMode("SPICE")
- *             .physicalTableMaps(DataSetPhysicalTableMapArgs.builder()
- *                 .physicalTableMapId("example-id")
- *                 .s3Source(DataSetPhysicalTableMapS3SourceArgs.builder()
- *                     .dataSourceArn(exampleAwsQuicksightDataSource.arn())
- *                     .inputColumns(DataSetPhysicalTableMapS3SourceInputColumnArgs.builder()
- *                         .name("Column1")
- *                         .type("STRING")
- *                         .build())
- *                     .uploadSettings(DataSetPhysicalTableMapS3SourceUploadSettingsArgs.builder()
- *                         .format("JSON")
- *                         .build())
- *                     .build())
- *                 .build())
  *             .rowLevelPermissionTagConfiguration(DataSetRowLevelPermissionTagConfigurationArgs.builder()
- *                 .status("ENABLED")
  *                 .tagRules(DataSetRowLevelPermissionTagConfigurationTagRuleArgs.builder()
  *                     .columnName("Column1")
  *                     .tagKey("tagkey")
  *                     .matchAllValue("*")
  *                     .tagMultiValueDelimiter(",")
  *                     .build())
+ *                 .status("ENABLED")
  *                 .build())
+ *             .physicalTableMaps(DataSetPhysicalTableMapArgs.builder()
+ *                 .s3Source(DataSetPhysicalTableMapS3SourceArgs.builder()
+ *                     .uploadSettings(DataSetPhysicalTableMapS3SourceUploadSettingsArgs.builder()
+ *                         .format("JSON")
+ *                         .build())
+ *                     .inputColumns(DataSetPhysicalTableMapS3SourceInputColumnArgs.builder()
+ *                         .name("Column1")
+ *                         .type("STRING")
+ *                         .build())
+ *                     .dataSourceArn(exampleAwsQuicksightDataSource.arn())
+ *                     .build())
+ *                 .physicalTableMapId("example-id")
+ *                 .build())
+ *             .dataSetId("example-id")
+ *             .name("example-name")
+ *             .importMode("SPICE")
  *             .build());
  * 
  *     }

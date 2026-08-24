@@ -29,12 +29,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := appstream.NewFleet(ctx, "example", &appstream.FleetArgs{
-//				Name:         pulumi.String("NAME"),
-//				ImageName:    pulumi.String("Amazon-AppStream2-Sample-Image-03-11-2023"),
-//				InstanceType: pulumi.String("stream.standard.small"),
 //				ComputeCapacity: &appstream.FleetComputeCapacityArgs{
 //					DesiredInstances: pulumi.Int(1),
 //				},
+//				Name:         pulumi.String("NAME"),
+//				ImageName:    pulumi.String("Amazon-AppStream2-Sample-Image-03-11-2023"),
+//				InstanceType: pulumi.String("stream.standard.small"),
 //			})
 //			if err != nil {
 //				return err

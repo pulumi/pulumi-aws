@@ -24,13 +24,13 @@ namespace Pulumi.Aws.AppStream
     /// {
     ///     var example = new Aws.AppStream.Fleet("example", new()
     ///     {
-    ///         Name = "NAME",
-    ///         ImageName = "Amazon-AppStream2-Sample-Image-03-11-2023",
-    ///         InstanceType = "stream.standard.small",
     ///         ComputeCapacity = new Aws.AppStream.Inputs.FleetComputeCapacityArgs
     ///         {
     ///             DesiredInstances = 1,
     ///         },
+    ///         Name = "NAME",
+    ///         ImageName = "Amazon-AppStream2-Sample-Image-03-11-2023",
+    ///         InstanceType = "stream.standard.small",
     ///     });
     /// 
     ///     var exampleStack = new Aws.AppStream.Stack("example", new()

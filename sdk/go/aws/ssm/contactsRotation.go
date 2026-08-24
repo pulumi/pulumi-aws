@@ -33,20 +33,20 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssm.NewContactsRotation(ctx, "example", &ssm.ContactsRotationArgs{
-//				ContactIds: pulumi.StringArray{
-//					exampleAwsSsmcontactsContact.Arn,
-//				},
-//				Name: pulumi.String("rotation"),
 //				Recurrence: &ssm.ContactsRotationRecurrenceArgs{
-//					NumberOfOnCalls:      pulumi.Int(1),
-//					RecurrenceMultiplier: pulumi.Int(1),
 //					DailySettings: ssm.ContactsRotationRecurrenceDailySettingArray{
 //						&ssm.ContactsRotationRecurrenceDailySettingArgs{
 //							HourOfDay:    pulumi.Int(9),
 //							MinuteOfHour: pulumi.Int(0),
 //						},
 //					},
+//					NumberOfOnCalls:      pulumi.Int(1),
+//					RecurrenceMultiplier: pulumi.Int(1),
 //				},
+//				ContactIds: pulumi.StringArray{
+//					exampleAwsSsmcontactsContact.Arn,
+//				},
+//				Name:       pulumi.String("rotation"),
 //				TimeZoneId: pulumi.String("Australia/Sydney"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleAwsSsmincidentsReplicationSet,
@@ -75,32 +75,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssm.NewContactsRotation(ctx, "example", &ssm.ContactsRotationArgs{
-//				ContactIds: pulumi.StringArray{
-//					exampleAwsSsmcontactsContact.Arn,
-//				},
-//				Name: pulumi.String("rotation"),
 //				Recurrence: &ssm.ContactsRotationRecurrenceArgs{
-//					NumberOfOnCalls:      pulumi.Int(1),
-//					RecurrenceMultiplier: pulumi.Int(1),
-//					WeeklySettings: ssm.ContactsRotationRecurrenceWeeklySettingArray{
-//						&ssm.ContactsRotationRecurrenceWeeklySettingArgs{
-//							DayOfWeek: pulumi.String("WED"),
-//							HandOffTime: &ssm.ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs{
-//								HourOfDay:    pulumi.Int(4),
-//								MinuteOfHour: pulumi.Int(25),
-//							},
-//						},
-//						&ssm.ContactsRotationRecurrenceWeeklySettingArgs{
-//							DayOfWeek: pulumi.String("FRI"),
-//							HandOffTime: &ssm.ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs{
-//								HourOfDay:    pulumi.Int(15),
-//								MinuteOfHour: pulumi.Int(57),
-//							},
-//						},
-//					},
 //					ShiftCoverages: ssm.ContactsRotationRecurrenceShiftCoverageArray{
 //						&ssm.ContactsRotationRecurrenceShiftCoverageArgs{
-//							MapBlockKey: pulumi.String("MON"),
 //							CoverageTimes: ssm.ContactsRotationRecurrenceShiftCoverageCoverageTimeArray{
 //								&ssm.ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs{
 //									Start: &ssm.ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgs{
@@ -113,9 +90,32 @@ import (
 //									},
 //								},
 //							},
+//							MapBlockKey: pulumi.String("MON"),
 //						},
 //					},
+//					WeeklySettings: ssm.ContactsRotationRecurrenceWeeklySettingArray{
+//						&ssm.ContactsRotationRecurrenceWeeklySettingArgs{
+//							HandOffTime: &ssm.ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs{
+//								HourOfDay:    pulumi.Int(4),
+//								MinuteOfHour: pulumi.Int(25),
+//							},
+//							DayOfWeek: pulumi.String("WED"),
+//						},
+//						&ssm.ContactsRotationRecurrenceWeeklySettingArgs{
+//							HandOffTime: &ssm.ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs{
+//								HourOfDay:    pulumi.Int(15),
+//								MinuteOfHour: pulumi.Int(57),
+//							},
+//							DayOfWeek: pulumi.String("FRI"),
+//						},
+//					},
+//					NumberOfOnCalls:      pulumi.Int(1),
+//					RecurrenceMultiplier: pulumi.Int(1),
 //				},
+//				ContactIds: pulumi.StringArray{
+//					exampleAwsSsmcontactsContact.Arn,
+//				},
+//				Name:       pulumi.String("rotation"),
 //				StartTime:  pulumi.String("2023-07-20T02:21:49+00:00"),
 //				TimeZoneId: pulumi.String("Australia/Sydney"),
 //				Tags: pulumi.StringMap{
@@ -149,30 +149,30 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssm.NewContactsRotation(ctx, "example", &ssm.ContactsRotationArgs{
-//				ContactIds: pulumi.StringArray{
-//					exampleAwsSsmcontactsContact.Arn,
-//				},
-//				Name: pulumi.String("rotation"),
 //				Recurrence: &ssm.ContactsRotationRecurrenceArgs{
-//					NumberOfOnCalls:      pulumi.Int(1),
-//					RecurrenceMultiplier: pulumi.Int(1),
 //					MonthlySettings: ssm.ContactsRotationRecurrenceMonthlySettingArray{
 //						&ssm.ContactsRotationRecurrenceMonthlySettingArgs{
-//							DayOfMonth: pulumi.Int(20),
 //							HandOffTime: &ssm.ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs{
 //								HourOfDay:    pulumi.Int(8),
 //								MinuteOfHour: pulumi.Int(0),
 //							},
+//							DayOfMonth: pulumi.Int(20),
 //						},
 //						&ssm.ContactsRotationRecurrenceMonthlySettingArgs{
-//							DayOfMonth: pulumi.Int(13),
 //							HandOffTime: &ssm.ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs{
 //								HourOfDay:    pulumi.Int(12),
 //								MinuteOfHour: pulumi.Int(34),
 //							},
+//							DayOfMonth: pulumi.Int(13),
 //						},
 //					},
+//					NumberOfOnCalls:      pulumi.Int(1),
+//					RecurrenceMultiplier: pulumi.Int(1),
 //				},
+//				ContactIds: pulumi.StringArray{
+//					exampleAwsSsmcontactsContact.Arn,
+//				},
+//				Name:       pulumi.String("rotation"),
 //				TimeZoneId: pulumi.String("Australia/Sydney"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleAwsSsmincidentsReplicationSet,

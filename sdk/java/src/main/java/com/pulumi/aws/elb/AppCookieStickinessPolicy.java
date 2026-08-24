@@ -47,14 +47,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var lb = new LoadBalancer("lb", LoadBalancerArgs.builder()
- *             .name("test-lb")
- *             .availabilityZones("us-east-1a")
  *             .listeners(LoadBalancerListenerArgs.builder()
  *                 .instancePort(8000)
  *                 .instanceProtocol("http")
  *                 .lbPort(80)
  *                 .lbProtocol("http")
  *                 .build())
+ *             .name("test-lb")
+ *             .availabilityZones("us-east-1a")
  *             .build());
  * 
  *         var foo = new AppCookieStickinessPolicy("foo", AppCookieStickinessPolicyArgs.builder()

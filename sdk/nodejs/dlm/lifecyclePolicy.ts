@@ -20,11 +20,11 @@ import * as utilities from "../utilities";
  *
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["dlm.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
@@ -59,13 +59,8 @@ import * as utilities from "../utilities";
  *     policy: dlmLifecycle.then(dlmLifecycle => dlmLifecycle.json),
  * });
  * const example = new aws.dlm.LifecyclePolicy("example", {
- *     description: "example DLM lifecycle policy",
- *     executionRoleArn: dlmLifecycleRole.arn,
- *     state: "ENABLED",
  *     policyDetails: {
- *         resourceTypes: ["VOLUME"],
  *         schedules: [{
- *             name: "2 weeks of daily snapshots",
  *             createRule: {
  *                 interval: 24,
  *                 intervalUnit: "HOURS",
@@ -74,15 +69,20 @@ import * as utilities from "../utilities";
  *             retainRule: {
  *                 count: 14,
  *             },
+ *             name: "2 weeks of daily snapshots",
  *             tagsToAdd: {
  *                 SnapshotCreator: "DLM",
  *             },
  *             copyTags: false,
  *         }],
+ *         resourceTypes: ["VOLUME"],
  *         targetTags: {
  *             Snapshot: "true",
  *         },
  *     },
+ *     description: "example DLM lifecycle policy",
+ *     executionRoleArn: dlmLifecycleRole.arn,
+ *     state: "ENABLED",
  * });
  * ```
  *
@@ -93,13 +93,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.dlm.LifecyclePolicy("example", {
- *     description: "tf-acc-basic",
- *     executionRoleArn: exampleAwsIamRole.arn,
- *     defaultPolicy: "VOLUME",
  *     policyDetails: {
- *         createInterval: 5,
- *         resourceType: "VOLUME",
- *         policyLanguage: "SIMPLIFIED",
  *         exclusions: {
  *             excludeBootVolumes: false,
  *             excludeTags: {
@@ -107,7 +101,13 @@ import * as utilities from "../utilities";
  *             },
  *             excludeVolumeTypes: ["gp2"],
  *         },
+ *         createInterval: 5,
+ *         resourceType: "VOLUME",
+ *         policyLanguage: "SIMPLIFIED",
  *     },
+ *     description: "tf-acc-basic",
+ *     executionRoleArn: exampleAwsIamRole.arn,
+ *     defaultPolicy: "VOLUME",
  * });
  * ```
  *
@@ -121,12 +121,12 @@ import * as utilities from "../utilities";
  * const current = aws.getCallerIdentity({});
  * const key = current.then(current => aws.iam.getPolicyDocument({
  *     statements: [{
- *         sid: "Enable IAM User Permissions",
- *         effect: "Allow",
  *         principals: [{
  *             type: "AWS",
  *             identifiers: [`arn:aws:iam::${current.accountId}:root`],
  *         }],
+ *         sid: "Enable IAM User Permissions",
+ *         effect: "Allow",
  *         actions: ["kms:*"],
  *         resources: ["*"],
  *     }],
@@ -136,13 +136,8 @@ import * as utilities from "../utilities";
  *     policy: key.then(key => key.json),
  * });
  * const example = new aws.dlm.LifecyclePolicy("example", {
- *     description: "example DLM lifecycle policy",
- *     executionRoleArn: dlmLifecycleRole.arn,
- *     state: "ENABLED",
  *     policyDetails: {
- *         resourceTypes: ["VOLUME"],
  *         schedules: [{
- *             name: "2 weeks of daily snapshots",
  *             createRule: {
  *                 interval: 24,
  *                 intervalUnit: "HOURS",
@@ -151,25 +146,30 @@ import * as utilities from "../utilities";
  *             retainRule: {
  *                 count: 14,
  *             },
- *             tagsToAdd: {
- *                 SnapshotCreator: "DLM",
- *             },
- *             copyTags: false,
  *             crossRegionCopyRules: [{
- *                 target: "us-west-2",
- *                 encrypted: true,
- *                 cmkArn: dlmCrossRegionCopyCmk.arn,
- *                 copyTags: true,
  *                 retainRule: {
  *                     interval: 30,
  *                     intervalUnit: "DAYS",
  *                 },
+ *                 target: "us-west-2",
+ *                 encrypted: true,
+ *                 cmkArn: dlmCrossRegionCopyCmk.arn,
+ *                 copyTags: true,
  *             }],
+ *             name: "2 weeks of daily snapshots",
+ *             tagsToAdd: {
+ *                 SnapshotCreator: "DLM",
+ *             },
+ *             copyTags: false,
  *         }],
+ *         resourceTypes: ["VOLUME"],
  *         targetTags: {
  *             Snapshot: "true",
  *         },
  *     },
+ *     description: "example DLM lifecycle policy",
+ *     executionRoleArn: dlmLifecycleRole.arn,
+ *     state: "ENABLED",
  * });
  * ```
  *
@@ -181,12 +181,8 @@ import * as utilities from "../utilities";
  *
  * const current = aws.getCallerIdentity({});
  * const exampleLifecyclePolicy = new aws.dlm.LifecyclePolicy("example", {
- *     description: "tf-acc-basic",
- *     executionRoleArn: exampleAwsIamRole.arn,
  *     policyDetails: {
- *         policyType: "EVENT_BASED_POLICY",
  *         action: {
- *             name: "tf-acc-basic",
  *             crossRegionCopies: [{
  *                 encryptionConfiguration: {},
  *                 retainRule: {
@@ -195,16 +191,20 @@ import * as utilities from "../utilities";
  *                 },
  *                 target: "us-east-1",
  *             }],
+ *             name: "tf-acc-basic",
  *         },
  *         eventSource: {
- *             type: "MANAGED_CWE",
  *             parameters: {
  *                 descriptionRegex: "^.*Created for policy: policy-1234567890abcdef0.*$",
  *                 eventType: "shareSnapshot",
  *                 snapshotOwners: [current.then(current => current.accountId)],
  *             },
+ *             type: "MANAGED_CWE",
  *         },
+ *         policyType: "EVENT_BASED_POLICY",
  *     },
+ *     description: "tf-acc-basic",
+ *     executionRoleArn: exampleAwsIamRole.arn,
  * });
  * const example = aws.iam.getPolicy({
  *     name: "AWSDataLifecycleManagerServiceRole",
@@ -229,28 +229,28 @@ import * as utilities from "../utilities";
  *     policyArn: exampleAwsIamPolicy.arn,
  * });
  * const exampleLifecyclePolicy = new aws.dlm.LifecyclePolicy("example", {
- *     description: "tf-acc-basic",
- *     executionRoleArn: exampleAwsIamRole.arn,
  *     policyDetails: {
- *         resourceTypes: ["INSTANCE"],
  *         schedules: [{
- *             name: "Windows VSS",
  *             createRule: {
- *                 interval: 12,
  *                 scripts: {
  *                     executeOperationOnScriptFailure: false,
  *                     executionHandler: "AWS_VSS_BACKUP",
  *                     maximumRetryCount: 2,
  *                 },
+ *                 interval: 12,
  *             },
  *             retainRule: {
  *                 count: 10,
  *             },
+ *             name: "Windows VSS",
  *         }],
+ *         resourceTypes: ["INSTANCE"],
  *         targetTags: {
  *             tag1: "Windows",
  *         },
  *     },
+ *     description: "tf-acc-basic",
+ *     executionRoleArn: exampleAwsIamRole.arn,
  * });
  * ```
  *

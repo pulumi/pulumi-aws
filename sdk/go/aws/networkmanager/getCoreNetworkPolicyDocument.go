@@ -32,12 +32,42 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkmanager.GetCoreNetworkPolicyDocument(ctx, &networkmanager.GetCoreNetworkPolicyDocumentArgs{
+//				AttachmentPolicies: []networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicy{
+//					{
+//						Action: {
+//							AssociationMethod: pulumi.StringRef("constant"),
+//							Segment:           pulumi.StringRef("shared"),
+//						},
+//						Conditions: []networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicyCondition{
+//							{
+//								Type:     "tag-value",
+//								Operator: pulumi.StringRef("equals"),
+//								Key:      pulumi.StringRef("segment"),
+//								Value:    pulumi.StringRef("shared"),
+//							},
+//						},
+//						RuleNumber:     100,
+//						ConditionLogic: pulumi.StringRef("or"),
+//					},
+//					{
+//						Action: {
+//							AssociationMethod: pulumi.StringRef("constant"),
+//							Segment:           pulumi.StringRef("prod"),
+//						},
+//						Conditions: []networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicyCondition{
+//							{
+//								Type:     "tag-value",
+//								Operator: pulumi.StringRef("equals"),
+//								Key:      pulumi.StringRef("segment"),
+//								Value:    pulumi.StringRef("prod"),
+//							},
+//						},
+//						RuleNumber:     200,
+//						ConditionLogic: pulumi.StringRef("or"),
+//					},
+//				},
 //				CoreNetworkConfigurations: []networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfiguration{
 //					{
-//						VpnEcmpSupport: pulumi.BoolRef(false),
-//						AsnRanges: []string{
-//							"64512-64555",
-//						},
 //						EdgeLocations: []networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation{
 //							{
 //								Location: "us-east-1",
@@ -47,6 +77,20 @@ import (
 //								Location: "eu-central-1",
 //								Asn:      pulumi.StringRef("64513"),
 //							},
+//						},
+//						VpnEcmpSupport: pulumi.BoolRef(false),
+//						AsnRanges: []string{
+//							"64512-64555",
+//						},
+//					},
+//				},
+//				SegmentActions: []networkmanager.GetCoreNetworkPolicyDocumentSegmentAction{
+//					{
+//						Action:  "share",
+//						Mode:    pulumi.StringRef("attachment-route"),
+//						Segment: "shared",
+//						ShareWiths: []string{
+//							"*",
 //						},
 //					},
 //				},
@@ -60,50 +104,6 @@ import (
 //						Name:                        "prod",
 //						Description:                 pulumi.StringRef("Segment for prod services"),
 //						RequireAttachmentAcceptance: pulumi.BoolRef(true),
-//					},
-//				},
-//				SegmentActions: []networkmanager.GetCoreNetworkPolicyDocumentSegmentAction{
-//					{
-//						Action:  "share",
-//						Mode:    pulumi.StringRef("attachment-route"),
-//						Segment: "shared",
-//						ShareWiths: []string{
-//							"*",
-//						},
-//					},
-//				},
-//				AttachmentPolicies: []networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicy{
-//					{
-//						RuleNumber:     100,
-//						ConditionLogic: pulumi.StringRef("or"),
-//						Conditions: []networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicyCondition{
-//							{
-//								Type:     "tag-value",
-//								Operator: pulumi.StringRef("equals"),
-//								Key:      pulumi.StringRef("segment"),
-//								Value:    pulumi.StringRef("shared"),
-//							},
-//						},
-//						Action: {
-//							AssociationMethod: pulumi.StringRef("constant"),
-//							Segment:           pulumi.StringRef("shared"),
-//						},
-//					},
-//					{
-//						RuleNumber:     200,
-//						ConditionLogic: pulumi.StringRef("or"),
-//						Conditions: []networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicyCondition{
-//							{
-//								Type:     "tag-value",
-//								Operator: pulumi.StringRef("equals"),
-//								Key:      pulumi.StringRef("segment"),
-//								Value:    pulumi.StringRef("prod"),
-//							},
-//						},
-//						Action: {
-//							AssociationMethod: pulumi.StringRef("constant"),
-//							Segment:           pulumi.StringRef("prod"),
-//						},
 //					},
 //				},
 //			}, nil)

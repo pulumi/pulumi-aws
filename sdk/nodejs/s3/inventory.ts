@@ -21,9 +21,6 @@ import * as utilities from "../utilities";
  * const test = new aws.s3.Bucket("test", {bucket: "my-tf-test-bucket"});
  * const inventory = new aws.s3.Bucket("inventory", {bucket: "my-tf-inventory-bucket"});
  * const testInventory = new aws.s3.Inventory("test", {
- *     bucket: test.id,
- *     name: "EntireBucketDaily",
- *     includedObjectVersions: "All",
  *     schedule: {
  *         frequency: "Daily",
  *     },
@@ -33,6 +30,9 @@ import * as utilities from "../utilities";
  *             bucketArn: inventory.arn,
  *         },
  *     },
+ *     bucket: test.id,
+ *     name: "EntireBucketDaily",
+ *     includedObjectVersions: "All",
  * });
  * ```
  *
@@ -45,9 +45,6 @@ import * as utilities from "../utilities";
  * const test = new aws.s3.Bucket("test", {bucket: "my-tf-test-bucket"});
  * const inventory = new aws.s3.Bucket("inventory", {bucket: "my-tf-inventory-bucket"});
  * const test_prefix = new aws.s3.Inventory("test-prefix", {
- *     bucket: test.id,
- *     name: "DocumentsWeekly",
- *     includedObjectVersions: "All",
  *     schedule: {
  *         frequency: "Daily",
  *     },
@@ -61,6 +58,9 @@ import * as utilities from "../utilities";
  *             prefix: "inventory",
  *         },
  *     },
+ *     bucket: test.id,
+ *     name: "DocumentsWeekly",
+ *     includedObjectVersions: "All",
  * });
  * ```
  *

@@ -19,11 +19,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sagemaker.DeviceFleet("example", {
- *     deviceFleetName: "example",
- *     roleArn: test.arn,
  *     outputConfig: {
  *         s3OutputLocation: `s3://${exampleAwsS3Bucket.bucket}/prefix/`,
  *     },
+ *     deviceFleetName: "example",
+ *     roleArn: test.arn,
  * });
  * ```
  *

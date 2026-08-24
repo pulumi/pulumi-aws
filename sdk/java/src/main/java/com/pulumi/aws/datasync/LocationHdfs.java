@@ -50,13 +50,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new LocationHdfs("example", LocationHdfsArgs.builder()
- *             .agentArns(exampleAwsDatasyncAgent.arn())
- *             .authenticationType("SIMPLE")
- *             .simpleUser("example")
  *             .nameNodes(LocationHdfsNameNodeArgs.builder()
  *                 .hostname(exampleAwsInstance.privateDns())
  *                 .port(80)
  *                 .build())
+ *             .agentArns(exampleAwsDatasyncAgent.arn())
+ *             .authenticationType("SIMPLE")
+ *             .simpleUser("example")
  *             .build());
  * 
  *     }
@@ -93,12 +93,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) }{{@code
  *         var example = new LocationHdfs("example", LocationHdfsArgs.builder()
- *             .agentArns(exampleAwsDatasyncAgent.arn())
- *             .authenticationType("KERBEROS")
  *             .nameNodes(LocationHdfsNameNodeArgs.builder()
  *                 .hostname(exampleAwsInstance.privateDns())
  *                 .port(80)
  *                 .build())
+ *             .agentArns(exampleAwsDatasyncAgent.arn())
+ *             .authenticationType("KERBEROS")
  *             .kerberosPrincipal("user}{@literal @}{@code example.com")
  *             .kerberosKeytabBase64(StdFunctions.filebase64(Filebase64Args.builder()
  *                 .input("user.keytab")

@@ -56,14 +56,14 @@ public final class ElbFunctions {
      *             .build());
      * 
      *         var www = new Record("www", RecordArgs.builder()
-     *             .zoneId(primary.zoneId())
-     *             .name("example.com")
-     *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsElb.dnsName())
      *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
+     *             .zoneId(primary.zoneId())
+     *             .name("example.com")
+     *             .type("A")
      *             .build());
      * 
      *     }
@@ -110,14 +110,14 @@ public final class ElbFunctions {
      *             .build());
      * 
      *         var www = new Record("www", RecordArgs.builder()
-     *             .zoneId(primary.zoneId())
-     *             .name("example.com")
-     *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsElb.dnsName())
      *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
+     *             .zoneId(primary.zoneId())
+     *             .name("example.com")
+     *             .type("A")
      *             .build());
      * 
      *     }
@@ -164,14 +164,14 @@ public final class ElbFunctions {
      *             .build());
      * 
      *         var www = new Record("www", RecordArgs.builder()
-     *             .zoneId(primary.zoneId())
-     *             .name("example.com")
-     *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsElb.dnsName())
      *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
+     *             .zoneId(primary.zoneId())
+     *             .name("example.com")
+     *             .type("A")
      *             .build());
      * 
      *     }
@@ -218,14 +218,14 @@ public final class ElbFunctions {
      *             .build());
      * 
      *         var www = new Record("www", RecordArgs.builder()
-     *             .zoneId(primary.zoneId())
-     *             .name("example.com")
-     *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsElb.dnsName())
      *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
+     *             .zoneId(primary.zoneId())
+     *             .name("example.com")
+     *             .type("A")
      *             .build());
      * 
      *     }
@@ -272,14 +272,14 @@ public final class ElbFunctions {
      *             .build());
      * 
      *         var www = new Record("www", RecordArgs.builder()
-     *             .zoneId(primary.zoneId())
-     *             .name("example.com")
-     *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsElb.dnsName())
      *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
+     *             .zoneId(primary.zoneId())
+     *             .name("example.com")
+     *             .type("A")
      *             .build());
      * 
      *     }
@@ -326,14 +326,14 @@ public final class ElbFunctions {
      *             .build());
      * 
      *         var www = new Record("www", RecordArgs.builder()
-     *             .zoneId(primary.zoneId())
-     *             .name("example.com")
-     *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsElb.dnsName())
      *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
+     *             .zoneId(primary.zoneId())
+     *             .name("example.com")
+     *             .type("A")
      *             .build());
      * 
      *     }
@@ -380,14 +380,14 @@ public final class ElbFunctions {
      *             .build());
      * 
      *         var www = new Record("www", RecordArgs.builder()
-     *             .zoneId(primary.zoneId())
-     *             .name("example.com")
-     *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsElb.dnsName())
      *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
+     *             .zoneId(primary.zoneId())
+     *             .name("example.com")
+     *             .type("A")
      *             .build());
      * 
      *     }
@@ -697,11 +697,11 @@ public final class ElbFunctions {
      * 
      *         final var allowElbLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .effect("Allow")
      *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                     .type("AWS")
      *                     .identifiers(main.arn())
      *                     .build())
+     *                 .effect("Allow")
      *                 .actions("s3:PutObject")
      *                 .resources(elbLogs.arn().applyValue(_arn -> String.format("%s/AWSLogs/*", _arn)))
      *                 .build())
@@ -713,8 +713,6 @@ public final class ElbFunctions {
      *             .build());
      * 
      *         var bar = new LoadBalancer("bar", LoadBalancerArgs.builder()
-     *             .name("my-foobar-elb")
-     *             .availabilityZones("us-west-2a")
      *             .accessLogs(LoadBalancerAccessLogsArgs.builder()
      *                 .bucket(elbLogs.id())
      *                 .interval(5)
@@ -725,6 +723,8 @@ public final class ElbFunctions {
      *                 .lbPort(80)
      *                 .lbProtocol("http")
      *                 .build())
+     *             .name("my-foobar-elb")
+     *             .availabilityZones("us-west-2a")
      *             .build());
      * 
      *     }
@@ -794,11 +794,11 @@ public final class ElbFunctions {
      * 
      *         final var allowElbLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .effect("Allow")
      *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                     .type("AWS")
      *                     .identifiers(main.arn())
      *                     .build())
+     *                 .effect("Allow")
      *                 .actions("s3:PutObject")
      *                 .resources(elbLogs.arn().applyValue(_arn -> String.format("%s/AWSLogs/*", _arn)))
      *                 .build())
@@ -810,8 +810,6 @@ public final class ElbFunctions {
      *             .build());
      * 
      *         var bar = new LoadBalancer("bar", LoadBalancerArgs.builder()
-     *             .name("my-foobar-elb")
-     *             .availabilityZones("us-west-2a")
      *             .accessLogs(LoadBalancerAccessLogsArgs.builder()
      *                 .bucket(elbLogs.id())
      *                 .interval(5)
@@ -822,6 +820,8 @@ public final class ElbFunctions {
      *                 .lbPort(80)
      *                 .lbProtocol("http")
      *                 .build())
+     *             .name("my-foobar-elb")
+     *             .availabilityZones("us-west-2a")
      *             .build());
      * 
      *     }
@@ -891,11 +891,11 @@ public final class ElbFunctions {
      * 
      *         final var allowElbLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .effect("Allow")
      *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                     .type("AWS")
      *                     .identifiers(main.arn())
      *                     .build())
+     *                 .effect("Allow")
      *                 .actions("s3:PutObject")
      *                 .resources(elbLogs.arn().applyValue(_arn -> String.format("%s/AWSLogs/*", _arn)))
      *                 .build())
@@ -907,8 +907,6 @@ public final class ElbFunctions {
      *             .build());
      * 
      *         var bar = new LoadBalancer("bar", LoadBalancerArgs.builder()
-     *             .name("my-foobar-elb")
-     *             .availabilityZones("us-west-2a")
      *             .accessLogs(LoadBalancerAccessLogsArgs.builder()
      *                 .bucket(elbLogs.id())
      *                 .interval(5)
@@ -919,6 +917,8 @@ public final class ElbFunctions {
      *                 .lbPort(80)
      *                 .lbProtocol("http")
      *                 .build())
+     *             .name("my-foobar-elb")
+     *             .availabilityZones("us-west-2a")
      *             .build());
      * 
      *     }
@@ -988,11 +988,11 @@ public final class ElbFunctions {
      * 
      *         final var allowElbLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .effect("Allow")
      *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                     .type("AWS")
      *                     .identifiers(main.arn())
      *                     .build())
+     *                 .effect("Allow")
      *                 .actions("s3:PutObject")
      *                 .resources(elbLogs.arn().applyValue(_arn -> String.format("%s/AWSLogs/*", _arn)))
      *                 .build())
@@ -1004,8 +1004,6 @@ public final class ElbFunctions {
      *             .build());
      * 
      *         var bar = new LoadBalancer("bar", LoadBalancerArgs.builder()
-     *             .name("my-foobar-elb")
-     *             .availabilityZones("us-west-2a")
      *             .accessLogs(LoadBalancerAccessLogsArgs.builder()
      *                 .bucket(elbLogs.id())
      *                 .interval(5)
@@ -1016,6 +1014,8 @@ public final class ElbFunctions {
      *                 .lbPort(80)
      *                 .lbProtocol("http")
      *                 .build())
+     *             .name("my-foobar-elb")
+     *             .availabilityZones("us-west-2a")
      *             .build());
      * 
      *     }
@@ -1085,11 +1085,11 @@ public final class ElbFunctions {
      * 
      *         final var allowElbLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .effect("Allow")
      *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                     .type("AWS")
      *                     .identifiers(main.arn())
      *                     .build())
+     *                 .effect("Allow")
      *                 .actions("s3:PutObject")
      *                 .resources(elbLogs.arn().applyValue(_arn -> String.format("%s/AWSLogs/*", _arn)))
      *                 .build())
@@ -1101,8 +1101,6 @@ public final class ElbFunctions {
      *             .build());
      * 
      *         var bar = new LoadBalancer("bar", LoadBalancerArgs.builder()
-     *             .name("my-foobar-elb")
-     *             .availabilityZones("us-west-2a")
      *             .accessLogs(LoadBalancerAccessLogsArgs.builder()
      *                 .bucket(elbLogs.id())
      *                 .interval(5)
@@ -1113,6 +1111,8 @@ public final class ElbFunctions {
      *                 .lbPort(80)
      *                 .lbProtocol("http")
      *                 .build())
+     *             .name("my-foobar-elb")
+     *             .availabilityZones("us-west-2a")
      *             .build());
      * 
      *     }
@@ -1182,11 +1182,11 @@ public final class ElbFunctions {
      * 
      *         final var allowElbLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .effect("Allow")
      *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                     .type("AWS")
      *                     .identifiers(main.arn())
      *                     .build())
+     *                 .effect("Allow")
      *                 .actions("s3:PutObject")
      *                 .resources(elbLogs.arn().applyValue(_arn -> String.format("%s/AWSLogs/*", _arn)))
      *                 .build())
@@ -1198,8 +1198,6 @@ public final class ElbFunctions {
      *             .build());
      * 
      *         var bar = new LoadBalancer("bar", LoadBalancerArgs.builder()
-     *             .name("my-foobar-elb")
-     *             .availabilityZones("us-west-2a")
      *             .accessLogs(LoadBalancerAccessLogsArgs.builder()
      *                 .bucket(elbLogs.id())
      *                 .interval(5)
@@ -1210,6 +1208,8 @@ public final class ElbFunctions {
      *                 .lbPort(80)
      *                 .lbProtocol("http")
      *                 .build())
+     *             .name("my-foobar-elb")
+     *             .availabilityZones("us-west-2a")
      *             .build());
      * 
      *     }
@@ -1279,11 +1279,11 @@ public final class ElbFunctions {
      * 
      *         final var allowElbLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .effect("Allow")
      *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                     .type("AWS")
      *                     .identifiers(main.arn())
      *                     .build())
+     *                 .effect("Allow")
      *                 .actions("s3:PutObject")
      *                 .resources(elbLogs.arn().applyValue(_arn -> String.format("%s/AWSLogs/*", _arn)))
      *                 .build())
@@ -1295,8 +1295,6 @@ public final class ElbFunctions {
      *             .build());
      * 
      *         var bar = new LoadBalancer("bar", LoadBalancerArgs.builder()
-     *             .name("my-foobar-elb")
-     *             .availabilityZones("us-west-2a")
      *             .accessLogs(LoadBalancerAccessLogsArgs.builder()
      *                 .bucket(elbLogs.id())
      *                 .interval(5)
@@ -1307,6 +1305,8 @@ public final class ElbFunctions {
      *                 .lbPort(80)
      *                 .lbProtocol("http")
      *                 .build())
+     *             .name("my-foobar-elb")
+     *             .availabilityZones("us-west-2a")
      *             .build());
      * 
      *     }

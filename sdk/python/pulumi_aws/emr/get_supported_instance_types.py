@@ -106,10 +106,10 @@ def get_supported_instance_types(region: Optional[_builtins.str] = None,
     release_label = "emr-6.15.0"
     test = aws.emr.get_supported_instance_types(release_label=release_label)
     test_cluster = aws.emr.Cluster("test",
-        release_label=release_label,
         master_instance_group={
             "instance_type": instance_type,
-        })
+        },
+        release_label=release_label)
     ```
 
 
@@ -156,10 +156,10 @@ def get_supported_instance_types_output(region: pulumi.Input[Optional[Optional[_
     release_label = "emr-6.15.0"
     test = aws.emr.get_supported_instance_types(release_label=release_label)
     test_cluster = aws.emr.Cluster("test",
-        release_label=release_label,
         master_instance_group={
             "instance_type": instance_type,
-        })
+        },
+        release_label=release_label)
     ```
 
 

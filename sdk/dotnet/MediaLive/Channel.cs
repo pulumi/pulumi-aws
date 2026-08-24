@@ -26,40 +26,11 @@ namespace Pulumi.Aws.MediaLive
     /// {
     ///     var example = new Aws.MediaLive.Channel("example", new()
     ///     {
-    ///         Name = "example-channel",
-    ///         ChannelClass = "STANDARD",
-    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         InputSpecification = new Aws.MediaLive.Inputs.ChannelInputSpecificationArgs
     ///         {
     ///             Codec = "AVC",
     ///             InputResolution = "HD",
     ///             MaximumBitrate = "MAX_20_MBPS",
-    ///         },
-    ///         InputAttachments = new[]
-    ///         {
-    ///             new Aws.MediaLive.Inputs.ChannelInputAttachmentArgs
-    ///             {
-    ///                 InputAttachmentName = "example-input",
-    ///                 InputId = exampleAwsMedialiveInput.Id,
-    ///             },
-    ///         },
-    ///         Destinations = new[]
-    ///         {
-    ///             new Aws.MediaLive.Inputs.ChannelDestinationArgs
-    ///             {
-    ///                 Id = "destination",
-    ///                 Settings = new[]
-    ///                 {
-    ///                     new Aws.MediaLive.Inputs.ChannelDestinationSettingArgs
-    ///                     {
-    ///                         Url = $"s3://{main.Id}/test1",
-    ///                     },
-    ///                     new Aws.MediaLive.Inputs.ChannelDestinationSettingArgs
-    ///                     {
-    ///                         Url = $"s3://{main2.Id}/test2",
-    ///                     },
-    ///                 },
-    ///             },
     ///         },
     ///         EncoderSettings = new Aws.MediaLive.Inputs.ChannelEncoderSettingsArgs
     ///         {
@@ -73,13 +44,6 @@ namespace Pulumi.Aws.MediaLive
     ///                 {
     ///                     AudioSelectorName = "example audio selector",
     ///                     Name = "audio-selector",
-    ///                 },
-    ///             },
-    ///             VideoDescriptions = new[]
-    ///             {
-    ///                 new Aws.MediaLive.Inputs.ChannelEncoderSettingsVideoDescriptionArgs
-    ///                 {
-    ///                     Name = "example-video",
     ///                 },
     ///             },
     ///             OutputGroups = new[]
@@ -103,18 +67,10 @@ namespace Pulumi.Aws.MediaLive
     ///                     {
     ///                         new Aws.MediaLive.Inputs.ChannelEncoderSettingsOutputGroupOutputArgs
     ///                         {
-    ///                             OutputName = "example-name",
-    ///                             VideoDescriptionName = "example-video",
-    ///                             AudioDescriptionNames = new[]
-    ///                             {
-    ///                                 "audio-selector",
-    ///                             },
     ///                             OutputSettings = new Aws.MediaLive.Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs
     ///                             {
     ///                                 ArchiveOutputSettings = new Aws.MediaLive.Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArgs
     ///                                 {
-    ///                                     NameModifier = "_1",
-    ///                                     Extension = "m2ts",
     ///                                     ContainerSettings = new Aws.MediaLive.Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArgs
     ///                                     {
     ///                                         M2tsSettings = new Aws.MediaLive.Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs
@@ -124,13 +80,57 @@ namespace Pulumi.Aws.MediaLive
     ///                                             RateMode = "CBR",
     ///                                         },
     ///                                     },
+    ///                                     NameModifier = "_1",
+    ///                                     Extension = "m2ts",
     ///                                 },
+    ///                             },
+    ///                             OutputName = "example-name",
+    ///                             VideoDescriptionName = "example-video",
+    ///                             AudioDescriptionNames = new[]
+    ///                             {
+    ///                                 "audio-selector",
     ///                             },
     ///                         },
     ///                     },
     ///                 },
     ///             },
+    ///             VideoDescriptions = new[]
+    ///             {
+    ///                 new Aws.MediaLive.Inputs.ChannelEncoderSettingsVideoDescriptionArgs
+    ///                 {
+    ///                     Name = "example-video",
+    ///                 },
+    ///             },
     ///         },
+    ///         Destinations = new[]
+    ///         {
+    ///             new Aws.MediaLive.Inputs.ChannelDestinationArgs
+    ///             {
+    ///                 Settings = new[]
+    ///                 {
+    ///                     new Aws.MediaLive.Inputs.ChannelDestinationSettingArgs
+    ///                     {
+    ///                         Url = $"s3://{main.Id}/test1",
+    ///                     },
+    ///                     new Aws.MediaLive.Inputs.ChannelDestinationSettingArgs
+    ///                     {
+    ///                         Url = $"s3://{main2.Id}/test2",
+    ///                     },
+    ///                 },
+    ///                 Id = "destination",
+    ///             },
+    ///         },
+    ///         InputAttachments = new[]
+    ///         {
+    ///             new Aws.MediaLive.Inputs.ChannelInputAttachmentArgs
+    ///             {
+    ///                 InputAttachmentName = "example-input",
+    ///                 InputId = exampleAwsMedialiveInput.Id,
+    ///             },
+    ///         },
+    ///         Name = "example-channel",
+    ///         ChannelClass = "STANDARD",
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });

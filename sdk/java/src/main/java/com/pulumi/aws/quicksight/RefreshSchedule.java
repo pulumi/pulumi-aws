@@ -46,14 +46,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RefreshSchedule("example", RefreshScheduleArgs.builder()
- *             .dataSetId("dataset-id")
- *             .scheduleId("schedule-id")
  *             .schedule(RefreshScheduleScheduleArgs.builder()
- *                 .refreshType("FULL_REFRESH")
  *                 .scheduleFrequency(RefreshScheduleScheduleScheduleFrequencyArgs.builder()
  *                     .interval("HOURLY")
  *                     .build())
+ *                 .refreshType("FULL_REFRESH")
  *                 .build())
+ *             .dataSetId("dataset-id")
+ *             .scheduleId("schedule-id")
  *             .build());
  * 
  *     }
@@ -89,19 +89,19 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RefreshSchedule("example", RefreshScheduleArgs.builder()
- *             .dataSetId("dataset-id")
- *             .scheduleId("schedule-id")
  *             .schedule(RefreshScheduleScheduleArgs.builder()
- *                 .refreshType("INCREMENTAL_REFRESH")
  *                 .scheduleFrequency(RefreshScheduleScheduleScheduleFrequencyArgs.builder()
- *                     .interval("WEEKLY")
- *                     .timeOfTheDay("01:00")
- *                     .timezone("Europe/London")
  *                     .refreshOnDay(RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs.builder()
  *                         .dayOfWeek("MONDAY")
  *                         .build())
+ *                     .interval("WEEKLY")
+ *                     .timeOfTheDay("01:00")
+ *                     .timezone("Europe/London")
  *                     .build())
+ *                 .refreshType("INCREMENTAL_REFRESH")
  *                 .build())
+ *             .dataSetId("dataset-id")
+ *             .scheduleId("schedule-id")
  *             .build());
  * 
  *     }
@@ -137,19 +137,19 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RefreshSchedule("example", RefreshScheduleArgs.builder()
- *             .dataSetId("dataset-id")
- *             .scheduleId("schedule-id")
  *             .schedule(RefreshScheduleScheduleArgs.builder()
- *                 .refreshType("INCREMENTAL_REFRESH")
  *                 .scheduleFrequency(RefreshScheduleScheduleScheduleFrequencyArgs.builder()
- *                     .interval("MONTHLY")
- *                     .timeOfTheDay("01:00")
- *                     .timezone("Europe/London")
  *                     .refreshOnDay(RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs.builder()
  *                         .dayOfMonth("1")
  *                         .build())
+ *                     .interval("MONTHLY")
+ *                     .timeOfTheDay("01:00")
+ *                     .timezone("Europe/London")
  *                     .build())
+ *                 .refreshType("INCREMENTAL_REFRESH")
  *                 .build())
+ *             .dataSetId("dataset-id")
+ *             .scheduleId("schedule-id")
  *             .build());
  * 
  *     }

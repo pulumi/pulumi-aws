@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.CapacityProvider("example", {
- *     name: "example",
  *     vpcConfig: {
  *         subnetIds: exampleAwsSubnet.map(__item => __item.id),
  *         securityGroupIds: [exampleAwsSecurityGroup.id],
@@ -27,6 +26,7 @@ import * as utilities from "../utilities";
  *     permissionsConfig: {
  *         capacityProviderOperatorRoleArn: exampleAwsIamRole.arn,
  *     },
+ *     name: "example",
  * });
  * ```
  *
@@ -37,7 +37,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.CapacityProvider("example", {
- *     name: "example",
  *     vpcConfig: {
  *         subnetIds: exampleAwsSubnet.map(__item => __item.id),
  *         securityGroupIds: [exampleAwsSecurityGroup.id],
@@ -45,13 +44,6 @@ import * as utilities from "../utilities";
  *     permissionsConfig: {
  *         capacityProviderOperatorRoleArn: exampleAwsIamRole.arn,
  *     },
- *     instanceRequirements: [{
- *         architectures: ["x86_64"],
- *         allowedInstanceTypes: [
- *             "c6i.2xlarge",
- *             "c7i.2xlarge",
- *         ],
- *     }],
  *     capacityProviderScalingConfigs: [{
  *         scalingMode: "Manual",
  *         scalingPolicies: [{
@@ -59,6 +51,14 @@ import * as utilities from "../utilities";
  *             targetValue: 50,
  *         }],
  *     }],
+ *     instanceRequirements: [{
+ *         architectures: ["x86_64"],
+ *         allowedInstanceTypes: [
+ *             "c6i.2xlarge",
+ *             "c7i.2xlarge",
+ *         ],
+ *     }],
+ *     name: "example",
  * });
  * ```
  *

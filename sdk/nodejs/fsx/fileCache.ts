@@ -19,12 +19,6 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.fsx.FileCache("example", {
  *     dataRepositoryAssociations: [{
- *         dataRepositoryPath: "nfs://filer.domain.com",
- *         dataRepositorySubdirectories: [
- *             "test",
- *             "test2",
- *         ],
- *         fileCachePath: "/ns1",
  *         nfs: [{
  *             dnsIps: [
  *                 "192.168.0.1",
@@ -32,17 +26,23 @@ import * as utilities from "../utilities";
  *             ],
  *             version: "NFS3",
  *         }],
+ *         dataRepositoryPath: "nfs://filer.domain.com",
+ *         dataRepositorySubdirectories: [
+ *             "test",
+ *             "test2",
+ *         ],
+ *         fileCachePath: "/ns1",
  *     }],
- *     fileCacheType: "LUSTRE",
- *     fileCacheTypeVersion: "2.12",
  *     lustreConfigurations: [{
- *         deploymentType: "CACHE_1",
  *         metadataConfigurations: [{
  *             storageCapacity: 2400,
  *         }],
+ *         deploymentType: "CACHE_1",
  *         perUnitStorageThroughput: 1000,
  *         weeklyMaintenanceStartTime: "2:05:00",
  *     }],
+ *     fileCacheType: "LUSTRE",
+ *     fileCacheTypeVersion: "2.12",
  *     subnetIds: [test1.id],
  *     storageCapacity: 1200,
  * });

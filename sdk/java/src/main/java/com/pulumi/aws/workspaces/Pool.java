@@ -71,14 +71,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePool = new Pool("examplePool", PoolArgs.builder()
+ *             .capacity(PoolCapacityArgs.builder()
+ *                 .desiredUserSessions(10)
+ *                 .build())
  *             .bundleId(example.id())
  *             .poolName("example-pool")
  *             .description("Example WorkSpaces Pool")
  *             .directoryId(exampleDirectory.directoryId())
  *             .runningMode("AUTO_STOP")
- *             .capacity(PoolCapacityArgs.builder()
- *                 .desiredUserSessions(10)
- *                 .build())
  *             .build());
  * 
  *     }
@@ -113,14 +113,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Pool("example", PoolArgs.builder()
+ *             .capacity(PoolCapacityArgs.builder()
+ *                 .desiredUserSessions(10)
+ *                 .build())
  *             .bundleId(exampleAwsWorkspacesBundle.id())
  *             .poolName("example-pool")
  *             .description("Example WorkSpaces Pool with Application Settings")
  *             .directoryId(exampleAwsWorkspacesDirectory.directoryId())
  *             .runningMode("AUTO_STOP")
- *             .capacity(PoolCapacityArgs.builder()
- *                 .desiredUserSessions(10)
- *                 .build())
  *             .applicationSettings(PoolApplicationSettingArgs.builder()
  *                 .status("ENABLED")
  *                 .settingsGroup("my-settings-group")
@@ -159,14 +159,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Pool("example", PoolArgs.builder()
+ *             .capacity(PoolCapacityArgs.builder()
+ *                 .desiredUserSessions(10)
+ *                 .build())
  *             .bundleId(exampleAwsWorkspacesBundle.id())
  *             .poolName("example-pool")
  *             .description("Example WorkSpaces Pool with Timeout Settings")
  *             .directoryId(exampleAwsWorkspacesDirectory.directoryId())
  *             .runningMode("AUTO_STOP")
- *             .capacity(PoolCapacityArgs.builder()
- *                 .desiredUserSessions(10)
- *                 .build())
  *             .timeoutSettings(PoolTimeoutSettingArgs.builder()
  *                 .disconnectTimeoutInSeconds(900)
  *                 .idleDisconnectTimeoutInSeconds(900)

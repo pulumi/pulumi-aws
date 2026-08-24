@@ -433,9 +433,6 @@ class Preset(pulumi.CustomResource):
         import pulumi_aws as aws
 
         bar = aws.elastictranscoder.Preset("bar",
-            container="mp4",
-            description="Sample Preset",
-            name="sample_preset",
             audio={
                 "audio_packing_mode": "SingleTrack",
                 "bit_rate": "96",
@@ -459,12 +456,13 @@ class Preset(pulumi.CustomResource):
                 "padding_policy": "Pad",
                 "sizing_policy": "Fit",
             },
-            video_codec_options={
-                "Profile": "main",
-                "Level": "2.2",
-                "MaxReferenceFrames": "3",
-                "InterlacedMode": "Progressive",
-                "ColorSpaceConversionMode": "None",
+            thumbnails={
+                "format": "png",
+                "interval": "120",
+                "max_width": "auto",
+                "max_height": "auto",
+                "padding_policy": "Pad",
+                "sizing_policy": "Fit",
             },
             video_watermarks=[{
                 "id": "Test",
@@ -478,13 +476,15 @@ class Preset(pulumi.CustomResource):
                 "opacity": "55.5",
                 "target": "Content",
             }],
-            thumbnails={
-                "format": "png",
-                "interval": "120",
-                "max_width": "auto",
-                "max_height": "auto",
-                "padding_policy": "Pad",
-                "sizing_policy": "Fit",
+            container="mp4",
+            description="Sample Preset",
+            name="sample_preset",
+            video_codec_options={
+                "Profile": "main",
+                "Level": "2.2",
+                "MaxReferenceFrames": "3",
+                "InterlacedMode": "Progressive",
+                "ColorSpaceConversionMode": "None",
             })
         ```
 
@@ -530,9 +530,6 @@ class Preset(pulumi.CustomResource):
         import pulumi_aws as aws
 
         bar = aws.elastictranscoder.Preset("bar",
-            container="mp4",
-            description="Sample Preset",
-            name="sample_preset",
             audio={
                 "audio_packing_mode": "SingleTrack",
                 "bit_rate": "96",
@@ -556,12 +553,13 @@ class Preset(pulumi.CustomResource):
                 "padding_policy": "Pad",
                 "sizing_policy": "Fit",
             },
-            video_codec_options={
-                "Profile": "main",
-                "Level": "2.2",
-                "MaxReferenceFrames": "3",
-                "InterlacedMode": "Progressive",
-                "ColorSpaceConversionMode": "None",
+            thumbnails={
+                "format": "png",
+                "interval": "120",
+                "max_width": "auto",
+                "max_height": "auto",
+                "padding_policy": "Pad",
+                "sizing_policy": "Fit",
             },
             video_watermarks=[{
                 "id": "Test",
@@ -575,13 +573,15 @@ class Preset(pulumi.CustomResource):
                 "opacity": "55.5",
                 "target": "Content",
             }],
-            thumbnails={
-                "format": "png",
-                "interval": "120",
-                "max_width": "auto",
-                "max_height": "auto",
-                "padding_policy": "Pad",
-                "sizing_policy": "Fit",
+            container="mp4",
+            description="Sample Preset",
+            name="sample_preset",
+            video_codec_options={
+                "Profile": "main",
+                "Level": "2.2",
+                "MaxReferenceFrames": "3",
+                "InterlacedMode": "Progressive",
+                "ColorSpaceConversionMode": "None",
             })
         ```
 

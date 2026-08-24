@@ -29,11 +29,11 @@ import * as utilities from "../utilities";
  *     }).then(invoke => invoke.result),
  * });
  * const examplePackage = new aws.opensearch.Package("example", {
- *     packageName: "example-txt",
  *     packageSource: {
  *         s3BucketName: myOpensearchPackages.bucket,
  *         s3Key: example.key,
  *     },
+ *     packageName: "example-txt",
  *     packageType: "TXT-DICTIONARY",
  * });
  * ```

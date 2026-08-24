@@ -32,8 +32,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementConditionArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.cloudsearch.DomainServiceAccessPolicy;
  * import com.pulumi.aws.cloudsearch.DomainServiceAccessPolicyArgs;
  * import java.util.ArrayList;
@@ -55,20 +55,20 @@ import javax.annotation.Nullable;
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid("search_only")
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("*")
- *                     .identifiers("*")
- *                     .build())
- *                 .actions(                
- *                     "cloudsearch:search",
- *                     "cloudsearch:document")
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                     .test("IpAddress")
  *                     .variable("aws:SourceIp")
  *                     .values("192.0.2.0/32")
  *                     .build())
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type("*")
+ *                     .identifiers("*")
+ *                     .build())
+ *                 .sid("search_only")
+ *                 .effect("Allow")
+ *                 .actions(                
+ *                     "cloudsearch:search",
+ *                     "cloudsearch:document")
  *                 .build())
  *             .build());
  * 

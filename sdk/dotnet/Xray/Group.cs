@@ -24,13 +24,13 @@ namespace Pulumi.Aws.Xray
     /// {
     ///     var example = new Aws.Xray.Group("example", new()
     ///     {
-    ///         GroupName = "example",
-    ///         FilterExpression = "responsetime &gt; 5",
     ///         InsightsConfiguration = new Aws.Xray.Inputs.GroupInsightsConfigurationArgs
     ///         {
     ///             InsightsEnabled = true,
     ///             NotificationsEnabled = true,
     ///         },
+    ///         GroupName = "example",
+    ///         FilterExpression = "responsetime &gt; 5",
     ///     });
     /// 
     /// });

@@ -20,13 +20,13 @@ import * as utilities from "../utilities";
  *
  * const example = aws.ssoadmin.getInstances({});
  * const exampleGetGroup = example.then(example => aws.identitystore.getGroup({
- *     identityStoreId: example.identityStoreIds?.[0],
  *     alternateIdentifier: {
  *         uniqueAttribute: {
  *             attributePath: "DisplayName",
  *             attributeValue: "ExampleGroup",
  *         },
  *     },
+ *     identityStoreId: example.identityStoreIds?.[0],
  * }));
  * const exampleGetGroupMemberships = Promise.all([example, exampleGetGroup]).then(([example, exampleGetGroup]) => aws.identitystore.getGroupMemberships({
  *     identityStoreId: example.identityStoreIds?.[0],
@@ -92,13 +92,13 @@ export interface GetGroupMembershipsResult {
  *
  * const example = aws.ssoadmin.getInstances({});
  * const exampleGetGroup = example.then(example => aws.identitystore.getGroup({
- *     identityStoreId: example.identityStoreIds?.[0],
  *     alternateIdentifier: {
  *         uniqueAttribute: {
  *             attributePath: "DisplayName",
  *             attributeValue: "ExampleGroup",
  *         },
  *     },
+ *     identityStoreId: example.identityStoreIds?.[0],
  * }));
  * const exampleGetGroupMemberships = Promise.all([example, exampleGetGroup]).then(([example, exampleGetGroup]) => aws.identitystore.getGroupMemberships({
  *     identityStoreId: example.identityStoreIds?.[0],

@@ -68,7 +68,6 @@ import * as utilities from "../utilities";
  *     enableDnsSupport: true,
  * });
  * const _private = new aws.route53.Zone("private", {
- *     name: "example.com",
  *     vpcs: [
  *         {
  *             vpcId: primary.id,
@@ -77,6 +76,7 @@ import * as utilities from "../utilities";
  *             vpcId: secondary.id,
  *         },
  *     ],
+ *     name: "example.com",
  * });
  * ```
  *

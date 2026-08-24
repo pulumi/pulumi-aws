@@ -168,7 +168,6 @@ class VpcEndpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foo = aws.elasticsearch.VpcEndpoint("foo",
-            domain_arn=domain1["arn"],
             vpc_options={
                 "security_group_ids": [
                     test["id"],
@@ -178,7 +177,8 @@ class VpcEndpoint(pulumi.CustomResource):
                     test_aws_subnet["id"],
                     test2_aws_subnet["id"],
                 ],
-            })
+            },
+            domain_arn=domain1["arn"])
         ```
 
         ## Import
@@ -214,7 +214,6 @@ class VpcEndpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foo = aws.elasticsearch.VpcEndpoint("foo",
-            domain_arn=domain1["arn"],
             vpc_options={
                 "security_group_ids": [
                     test["id"],
@@ -224,7 +223,8 @@ class VpcEndpoint(pulumi.CustomResource):
                     test_aws_subnet["id"],
                     test2_aws_subnet["id"],
                 ],
-            })
+            },
+            domain_arn=domain1["arn"])
         ```
 
         ## Import

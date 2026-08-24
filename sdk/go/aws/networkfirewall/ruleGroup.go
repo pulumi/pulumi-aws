@@ -31,9 +31,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkfirewall.NewRuleGroup(ctx, "example", &networkfirewall.RuleGroupArgs{
-//				Capacity: pulumi.Int(100),
-//				Name:     pulumi.String("example"),
-//				Type:     pulumi.String("STATEFUL"),
 //				RuleGroup: &networkfirewall.RuleGroupRuleGroupArgs{
 //					RulesSource: &networkfirewall.RuleGroupRuleGroupRulesSourceArgs{
 //						RulesSourceList: &networkfirewall.RuleGroupRuleGroupRulesSourceRulesSourceListArgs{
@@ -47,6 +44,9 @@ import (
 //						},
 //					},
 //				},
+//				Capacity: pulumi.Int(100),
+//				Name:     pulumi.String("example"),
+//				Type:     pulumi.String("STATEFUL"),
 //				Tags: pulumi.StringMap{
 //					"Tag1": pulumi.String("Value1"),
 //					"Tag2": pulumi.String("Value2"),
@@ -78,14 +78,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkfirewall.NewRuleGroup(ctx, "example", &networkfirewall.RuleGroupArgs{
-//				Capacity: pulumi.Int(100),
-//				Name:     pulumi.String("example"),
-//				Type:     pulumi.String("STATEFUL"),
 //				RuleGroup: &networkfirewall.RuleGroupRuleGroupArgs{
 //					RulesSource: &networkfirewall.RuleGroupRuleGroupRulesSourceArgs{
 //						StatefulRules: networkfirewall.RuleGroupRuleGroupRulesSourceStatefulRuleArray{
 //							&networkfirewall.RuleGroupRuleGroupRulesSourceStatefulRuleArgs{
-//								Action: pulumi.String("DROP"),
 //								Header: &networkfirewall.RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs{
 //									Destination:     pulumi.String("124.1.1.24/32"),
 //									DestinationPort: pulumi.String("53"),
@@ -102,10 +98,14 @@ import (
 //										},
 //									},
 //								},
+//								Action: pulumi.String("DROP"),
 //							},
 //						},
 //					},
 //				},
+//				Capacity: pulumi.Int(100),
+//				Name:     pulumi.String("example"),
+//				Type:     pulumi.String("STATEFUL"),
 //				Tags: pulumi.StringMap{
 //					"Tag1": pulumi.String("Value1"),
 //					"Tag2": pulumi.String("Value2"),
@@ -182,14 +182,10 @@ import (
 //				return err
 //			}
 //			_, err = networkfirewall.NewRuleGroup(ctx, "example", &networkfirewall.RuleGroupArgs{
-//				Capacity: pulumi.Int(100),
-//				Name:     pulumi.String("example"),
-//				Type:     pulumi.String("STATEFUL"),
 //				RuleGroup: &networkfirewall.RuleGroupRuleGroupArgs{
 //					RuleVariables: &networkfirewall.RuleGroupRuleGroupRuleVariablesArgs{
 //						IpSets: networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetArray{
 //							&networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetArgs{
-//								Key: pulumi.String("WEBSERVERS_HOSTS"),
 //								IpSet: &networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs{
 //									Definitions: pulumi.StringArray{
 //										pulumi.String("10.0.0.0/16"),
@@ -197,25 +193,26 @@ import (
 //										pulumi.String("192.168.0.0/16"),
 //									},
 //								},
+//								Key: pulumi.String("WEBSERVERS_HOSTS"),
 //							},
 //							&networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetArgs{
-//								Key: pulumi.String("EXTERNAL_HOST"),
 //								IpSet: &networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs{
 //									Definitions: pulumi.StringArray{
 //										pulumi.String("1.2.3.4/32"),
 //									},
 //								},
+//								Key: pulumi.String("EXTERNAL_HOST"),
 //							},
 //						},
 //						PortSets: networkfirewall.RuleGroupRuleGroupRuleVariablesPortSetArray{
 //							&networkfirewall.RuleGroupRuleGroupRuleVariablesPortSetArgs{
-//								Key: pulumi.String("HTTP_PORTS"),
 //								PortSet: &networkfirewall.RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs{
 //									Definitions: pulumi.StringArray{
 //										pulumi.String("443"),
 //										pulumi.String("80"),
 //									},
 //								},
+//								Key: pulumi.String("HTTP_PORTS"),
 //							},
 //						},
 //					},
@@ -223,6 +220,9 @@ import (
 //						RulesString: pulumi.String(invokeFile.Result),
 //					},
 //				},
+//				Capacity: pulumi.Int(100),
+//				Name:     pulumi.String("example"),
+//				Type:     pulumi.String("STATEFUL"),
 //				Tags: pulumi.StringMap{
 //					"Tag1": pulumi.String("Value1"),
 //					"Tag2": pulumi.String("Value2"),
@@ -252,10 +252,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkfirewall.NewRuleGroup(ctx, "example", &networkfirewall.RuleGroupArgs{
-//				Description: pulumi.String("Stateless Rate Limiting Rule"),
-//				Capacity:    pulumi.Int(100),
-//				Name:        pulumi.String("example"),
-//				Type:        pulumi.String("STATELESS"),
 //				RuleGroup: &networkfirewall.RuleGroupRuleGroupArgs{
 //					RulesSource: &networkfirewall.RuleGroupRuleGroupRulesSourceArgs{
 //						StatelessRulesAndCustomActions: &networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsArgs{
@@ -275,20 +271,10 @@ import (
 //							},
 //							StatelessRules: networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleArray{
 //								&networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleArgs{
-//									Priority: pulumi.Int(1),
 //									RuleDefinition: &networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionArgs{
-//										Actions: pulumi.StringArray{
-//											pulumi.String("aws:pass"),
-//											pulumi.String("ExampleMetricsAction"),
-//										},
 //										MatchAttributes: &networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesArgs{
-//											Sources: networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArray{
-//												&networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArgs{
-//													AddressDefinition: pulumi.String("1.2.3.4/32"),
-//												},
-//											},
-//											SourcePorts: networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArray{
-//												&networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArgs{
+//											DestinationPorts: networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArray{
+//												&networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArgs{
 //													FromPort: pulumi.Int(443),
 //													ToPort:   pulumi.Int(443),
 //												},
@@ -298,14 +284,16 @@ import (
 //													AddressDefinition: pulumi.String("124.1.1.5/32"),
 //												},
 //											},
-//											DestinationPorts: networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArray{
-//												&networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArgs{
+//											SourcePorts: networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArray{
+//												&networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArgs{
 //													FromPort: pulumi.Int(443),
 //													ToPort:   pulumi.Int(443),
 //												},
 //											},
-//											Protocols: pulumi.IntArray{
-//												pulumi.Int(6),
+//											Sources: networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArray{
+//												&networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArgs{
+//													AddressDefinition: pulumi.String("1.2.3.4/32"),
+//												},
 //											},
 //											TcpFlags: networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArray{
 //												&networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArgs{
@@ -318,13 +306,25 @@ import (
 //													},
 //												},
 //											},
+//											Protocols: pulumi.IntArray{
+//												pulumi.Int(6),
+//											},
+//										},
+//										Actions: pulumi.StringArray{
+//											pulumi.String("aws:pass"),
+//											pulumi.String("ExampleMetricsAction"),
 //										},
 //									},
+//									Priority: pulumi.Int(1),
 //								},
 //							},
 //						},
 //					},
 //				},
+//				Description: pulumi.String("Stateless Rate Limiting Rule"),
+//				Capacity:    pulumi.Int(100),
+//				Name:        pulumi.String("example"),
+//				Type:        pulumi.String("STATELESS"),
 //				Tags: pulumi.StringMap{
 //					"Tag1": pulumi.String("Value1"),
 //					"Tag2": pulumi.String("Value2"),
@@ -354,9 +354,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkfirewall.NewRuleGroup(ctx, "example", &networkfirewall.RuleGroupArgs{
-//				Capacity: pulumi.Int(100),
-//				Name:     pulumi.String("example"),
-//				Type:     pulumi.String("STATEFUL"),
 //				RuleGroup: &networkfirewall.RuleGroupRuleGroupArgs{
 //					RulesSource: &networkfirewall.RuleGroupRuleGroupRulesSourceArgs{
 //						RulesSourceList: &networkfirewall.RuleGroupRuleGroupRulesSourceRulesSourceListArgs{
@@ -372,16 +369,19 @@ import (
 //					ReferenceSets: &networkfirewall.RuleGroupRuleGroupReferenceSetsArgs{
 //						IpSetReferences: networkfirewall.RuleGroupRuleGroupReferenceSetsIpSetReferenceArray{
 //							&networkfirewall.RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs{
-//								Key: pulumi.String("example"),
 //								IpSetReferences: networkfirewall.RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArray{
 //									&networkfirewall.RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs{
 //										ReferenceArn: pulumi.Any(this.Arn),
 //									},
 //								},
+//								Key: pulumi.String("example"),
 //							},
 //						},
 //					},
 //				},
+//				Capacity: pulumi.Int(100),
+//				Name:     pulumi.String("example"),
+//				Type:     pulumi.String("STATEFUL"),
 //				Tags: pulumi.StringMap{
 //					"Tag1": pulumi.String("Value1"),
 //					"Tag2": pulumi.String("Value2"),
@@ -419,14 +419,10 @@ import (
 //				return err
 //			}
 //			_, err = networkfirewall.NewRuleGroup(ctx, "s3_rules_example", &networkfirewall.RuleGroupArgs{
-//				Capacity: pulumi.Int(1000),
-//				Name:     pulumi.String("my-terraform-s3-rules"),
-//				Type:     pulumi.String("STATEFUL"),
 //				RuleGroup: &networkfirewall.RuleGroupRuleGroupArgs{
 //					RuleVariables: &networkfirewall.RuleGroupRuleGroupRuleVariablesArgs{
 //						IpSets: networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetArray{
 //							&networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetArgs{
-//								Key: pulumi.String("HOME_NET"),
 //								IpSet: &networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs{
 //									Definitions: pulumi.StringArray{
 //										pulumi.String("10.0.0.0/16"),
@@ -434,17 +430,18 @@ import (
 //										pulumi.String("172.16.0.0/12"),
 //									},
 //								},
+//								Key: pulumi.String("HOME_NET"),
 //							},
 //						},
 //						PortSets: networkfirewall.RuleGroupRuleGroupRuleVariablesPortSetArray{
 //							&networkfirewall.RuleGroupRuleGroupRuleVariablesPortSetArgs{
-//								Key: pulumi.String("HTTP_PORTS"),
 //								PortSet: &networkfirewall.RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs{
 //									Definitions: pulumi.StringArray{
 //										pulumi.String("443"),
 //										pulumi.String("80"),
 //									},
 //								},
+//								Key: pulumi.String("HTTP_PORTS"),
 //							},
 //						},
 //					},
@@ -452,6 +449,9 @@ import (
 //						RulesString: pulumi.String(suricataRules.Body),
 //					},
 //				},
+//				Capacity: pulumi.Int(1000),
+//				Name:     pulumi.String("my-terraform-s3-rules"),
+//				Type:     pulumi.String("STATEFUL"),
 //				Tags: pulumi.StringMap{
 //					"ManagedBy": pulumi.String("terraform"),
 //				},

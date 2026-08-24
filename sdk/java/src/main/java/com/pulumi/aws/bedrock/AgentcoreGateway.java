@@ -61,12 +61,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .actions("sts:AssumeRole")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("bedrock-agentcore.amazonaws.com")
  *                     .build())
+ *                 .effect("Allow")
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
@@ -76,9 +76,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAgentcoreGateway = new AgentcoreGateway("exampleAgentcoreGateway", AgentcoreGatewayArgs.builder()
- *             .name("example-gateway")
- *             .roleArn(example.arn())
- *             .authorizerType("CUSTOM_JWT")
  *             .authorizerConfiguration(AgentcoreGatewayAuthorizerConfigurationArgs.builder()
  *                 .customJwtAuthorizer(AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs.builder()
  *                     .discoveryUrl("https://accounts.google.com/.well-known/openid-configuration")
@@ -87,6 +84,9 @@ import javax.annotation.Nullable;
  *                         "test2")
  *                     .build())
  *                 .build())
+ *             .name("example-gateway")
+ *             .roleArn(example.arn())
+ *             .authorizerType("CUSTOM_JWT")
  *             .protocolType("MCP")
  *             .build());
  * 
@@ -124,10 +124,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AgentcoreGateway("example", AgentcoreGatewayArgs.builder()
- *             .name("mcp-gateway")
- *             .description("Gateway for MCP communication")
- *             .roleArn(exampleAwsIamRole.arn())
- *             .authorizerType("CUSTOM_JWT")
  *             .authorizerConfiguration(AgentcoreGatewayAuthorizerConfigurationArgs.builder()
  *                 .customJwtAuthorizer(AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs.builder()
  *                     .discoveryUrl("https://auth.example.com/.well-known/openid-configuration")
@@ -142,7 +138,6 @@ import javax.annotation.Nullable;
  *                         "email")
  *                     .build())
  *                 .build())
- *             .protocolType("MCP")
  *             .protocolConfiguration(AgentcoreGatewayProtocolConfigurationArgs.builder()
  *                 .mcp(AgentcoreGatewayProtocolConfigurationMcpArgs.builder()
  *                     .instructions("Gateway for handling MCP requests")
@@ -152,6 +147,11 @@ import javax.annotation.Nullable;
  *                         "2025-06-18")
  *                     .build())
  *                 .build())
+ *             .name("mcp-gateway")
+ *             .description("Gateway for MCP communication")
+ *             .roleArn(exampleAwsIamRole.arn())
+ *             .authorizerType("CUSTOM_JWT")
+ *             .protocolType("MCP")
  *             .build());
  * 
  *     }
@@ -199,14 +199,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new AgentcoreGateway("example", AgentcoreGatewayArgs.builder()
- *             .name("gateway-with-interceptor")
- *             .roleArn(exampleAwsIamRole.arn())
- *             .authorizerType("AWS_IAM")
- *             .protocolType("MCP")
  *             .interceptorConfigurations(AgentcoreGatewayInterceptorConfigurationArgs.builder()
- *                 .interceptionPoints(                
- *                     "REQUEST",
- *                     "RESPONSE")
  *                 .interceptor(AgentcoreGatewayInterceptorConfigurationInterceptorArgs.builder()
  *                     .lambda(AgentcoreGatewayInterceptorConfigurationInterceptorLambdaArgs.builder()
  *                         .arn(interceptor.arn())
@@ -215,7 +208,14 @@ import javax.annotation.Nullable;
  *                 .inputConfiguration(AgentcoreGatewayInterceptorConfigurationInputConfigurationArgs.builder()
  *                     .passRequestHeaders(true)
  *                     .build())
+ *                 .interceptionPoints(                
+ *                     "REQUEST",
+ *                     "RESPONSE")
  *                 .build())
+ *             .name("gateway-with-interceptor")
+ *             .roleArn(exampleAwsIamRole.arn())
+ *             .authorizerType("AWS_IAM")
+ *             .protocolType("MCP")
  *             .build());
  * 
  *     }

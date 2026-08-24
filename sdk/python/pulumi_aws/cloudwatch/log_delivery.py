@@ -338,11 +338,11 @@ class LogDelivery(pulumi.CustomResource):
             log_type="ACCESS_LOGS",
             resource_arn=example_aws_cloudfront_distribution["arn"])
         example_log_delivery_destination = aws.cloudwatch.LogDeliveryDestination("example",
-            name="cloudfront-access-logs",
-            output_format="json",
             delivery_destination_configuration={
                 "destination_resource_arn": example_aws_cloudwatch_log_group["arn"],
-            })
+            },
+            name="cloudfront-access-logs",
+            output_format="json")
         example_log_delivery = aws.cloudwatch.LogDelivery("example",
             delivery_source_name=example.name,
             delivery_destination_arn=example_log_delivery_destination.arn,
@@ -426,11 +426,11 @@ class LogDelivery(pulumi.CustomResource):
             log_type="ACCESS_LOGS",
             resource_arn=example_aws_cloudfront_distribution["arn"])
         example_log_delivery_destination = aws.cloudwatch.LogDeliveryDestination("example",
-            name="cloudfront-access-logs",
-            output_format="json",
             delivery_destination_configuration={
                 "destination_resource_arn": example_aws_cloudwatch_log_group["arn"],
-            })
+            },
+            name="cloudfront-access-logs",
+            output_format="json")
         example_log_delivery = aws.cloudwatch.LogDelivery("example",
             delivery_source_name=example.name,
             delivery_destination_arn=example_log_delivery_destination.arn,

@@ -52,6 +52,7 @@ import * as utilities from "../utilities";
  *     dbSubnetGroupName: "default",
  * }, {
  *     dependsOn: [primaryClusterInstance],
+ *     ignoreChanges: ["replicationSourceIdentifier"],
  * });
  * const secondaryClusterInstance = new aws.rds.ClusterInstance("secondary", {
  *     engine: example.engine.apply((x) => aws.rds.EngineType[x]),
@@ -102,6 +103,7 @@ import * as utilities from "../utilities";
  *     dbSubnetGroupName: "default",
  * }, {
  *     dependsOn: [primaryClusterInstance],
+ *     ignoreChanges: ["replicationSourceIdentifier"],
  * });
  * const secondaryClusterInstance = new aws.rds.ClusterInstance("secondary", {
  *     engine: example.engine.apply((x) => aws.rds.EngineType[x]),
@@ -119,7 +121,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.rds.Cluster("example", {});
+ * const example = new aws.rds.Cluster("example", {}, {
+ *     ignoreChanges: ["globalClusterIdentifier"],
+ * });
  * const exampleGlobalCluster = new aws.rds.GlobalCluster("example", {
  *     forceDestroy: true,
  *     globalClusterIdentifier: "example",
@@ -151,6 +155,8 @@ import * as utilities from "../utilities";
  *     masterPassword: "satsukimae",
  *     masterUsername: "maesatsuki",
  *     skipFinalSnapshot: true,
+ * }, {
+ *     ignoreChanges: ["engineVersion"],
  * });
  * const primaryClusterInstance = new aws.rds.ClusterInstance("primary", {
  *     applyImmediately: true,
@@ -178,7 +184,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.rds.GlobalCluster("example", {});
+ * const example = new aws.rds.GlobalCluster("example", {}, {
+ *     ignoreChanges: ["sourceDbClusterIdentifier"],
+ * });
  * ```
  */
 export class GlobalCluster extends pulumi.CustomResource {

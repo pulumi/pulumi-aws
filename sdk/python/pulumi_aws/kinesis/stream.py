@@ -501,6 +501,9 @@ class Stream(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test_stream = aws.kinesis.Stream("test_stream",
+            stream_mode_details={
+                "stream_mode": "PROVISIONED",
+            },
             name="kinesis-test",
             shard_count=1,
             retention_period=48,
@@ -508,9 +511,6 @@ class Stream(pulumi.CustomResource):
                 "IncomingBytes",
                 "OutgoingBytes",
             ],
-            stream_mode_details={
-                "stream_mode": "PROVISIONED",
-            },
             tags={
                 "Environment": "test",
             })
@@ -571,6 +571,9 @@ class Stream(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test_stream = aws.kinesis.Stream("test_stream",
+            stream_mode_details={
+                "stream_mode": "PROVISIONED",
+            },
             name="kinesis-test",
             shard_count=1,
             retention_period=48,
@@ -578,9 +581,6 @@ class Stream(pulumi.CustomResource):
                 "IncomingBytes",
                 "OutgoingBytes",
             ],
-            stream_mode_details={
-                "stream_mode": "PROVISIONED",
-            },
             tags={
                 "Environment": "test",
             })

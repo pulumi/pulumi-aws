@@ -667,12 +667,12 @@ class RestApi(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.apigateway.RestApi("example",
-            name="example",
-            security_policy="SecurityPolicy_TLS13_1_2_PFS_PQ_2025_09",
-            endpoint_access_mode="BASIC",
             endpoint_configuration={
                 "types": "REGIONAL",
-            })
+            },
+            name="example",
+            security_policy="SecurityPolicy_TLS13_1_2_PFS_PQ_2025_09",
+            endpoint_access_mode="BASIC")
         ```
 
         #### Optional
@@ -730,12 +730,12 @@ class RestApi(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.apigateway.RestApi("example",
-            name="example",
-            security_policy="SecurityPolicy_TLS13_1_2_PFS_PQ_2025_09",
-            endpoint_access_mode="BASIC",
             endpoint_configuration={
                 "types": "REGIONAL",
-            })
+            },
+            name="example",
+            security_policy="SecurityPolicy_TLS13_1_2_PFS_PQ_2025_09",
+            endpoint_access_mode="BASIC")
         ```
 
         #### Optional

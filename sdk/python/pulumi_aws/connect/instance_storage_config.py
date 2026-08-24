@@ -201,14 +201,14 @@ class InstanceStorageConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.connect.InstanceStorageConfig("example",
-            instance_id=example_aws_connect_instance["id"],
-            resource_type="CONTACT_TRACE_RECORDS",
             storage_config={
                 "kinesis_firehose_config": {
                     "firehose_arn": example_aws_kinesis_firehose_delivery_stream["arn"],
                 },
                 "storage_type": "KINESIS_FIREHOSE",
-            })
+            },
+            instance_id=example_aws_connect_instance["id"],
+            resource_type="CONTACT_TRACE_RECORDS")
         ```
 
         ### Storage Config Kinesis Stream Config
@@ -218,14 +218,14 @@ class InstanceStorageConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.connect.InstanceStorageConfig("example",
-            instance_id=example_aws_connect_instance["id"],
-            resource_type="CONTACT_TRACE_RECORDS",
             storage_config={
                 "kinesis_stream_config": {
                     "stream_arn": example_aws_kinesis_stream["arn"],
                 },
                 "storage_type": "KINESIS_STREAM",
-            })
+            },
+            instance_id=example_aws_connect_instance["id"],
+            resource_type="CONTACT_TRACE_RECORDS")
         ```
 
         ### Storage Config Kinesis Video Stream Config
@@ -235,19 +235,19 @@ class InstanceStorageConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.connect.InstanceStorageConfig("example",
-            instance_id=example_aws_connect_instance["id"],
-            resource_type="MEDIA_STREAMS",
             storage_config={
                 "kinesis_video_stream_config": {
-                    "prefix": "example",
-                    "retention_period_hours": 3,
                     "encryption_config": {
                         "encryption_type": "KMS",
                         "key_id": example_aws_kms_key["arn"],
                     },
+                    "prefix": "example",
+                    "retention_period_hours": 3,
                 },
                 "storage_type": "KINESIS_VIDEO_STREAM",
-            })
+            },
+            instance_id=example_aws_connect_instance["id"],
+            resource_type="MEDIA_STREAMS")
         ```
 
         ### Storage Config S3 Config
@@ -257,15 +257,15 @@ class InstanceStorageConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.connect.InstanceStorageConfig("example",
-            instance_id=example_aws_connect_instance["id"],
-            resource_type="CHAT_TRANSCRIPTS",
             storage_config={
                 "s3_config": {
                     "bucket_name": example_aws_s3_bucket["id"],
                     "bucket_prefix": "example",
                 },
                 "storage_type": "S3",
-            })
+            },
+            instance_id=example_aws_connect_instance["id"],
+            resource_type="CHAT_TRANSCRIPTS")
         ```
 
         ### Storage Config S3 Config with Encryption Config
@@ -275,19 +275,19 @@ class InstanceStorageConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.connect.InstanceStorageConfig("example",
-            instance_id=example_aws_connect_instance["id"],
-            resource_type="CHAT_TRANSCRIPTS",
             storage_config={
                 "s3_config": {
-                    "bucket_name": example_aws_s3_bucket["id"],
-                    "bucket_prefix": "example",
                     "encryption_config": {
                         "encryption_type": "KMS",
                         "key_id": example_aws_kms_key["arn"],
                     },
+                    "bucket_name": example_aws_s3_bucket["id"],
+                    "bucket_prefix": "example",
                 },
                 "storage_type": "S3",
-            })
+            },
+            instance_id=example_aws_connect_instance["id"],
+            resource_type="CHAT_TRANSCRIPTS")
         ```
 
         ## Import
@@ -325,14 +325,14 @@ class InstanceStorageConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.connect.InstanceStorageConfig("example",
-            instance_id=example_aws_connect_instance["id"],
-            resource_type="CONTACT_TRACE_RECORDS",
             storage_config={
                 "kinesis_firehose_config": {
                     "firehose_arn": example_aws_kinesis_firehose_delivery_stream["arn"],
                 },
                 "storage_type": "KINESIS_FIREHOSE",
-            })
+            },
+            instance_id=example_aws_connect_instance["id"],
+            resource_type="CONTACT_TRACE_RECORDS")
         ```
 
         ### Storage Config Kinesis Stream Config
@@ -342,14 +342,14 @@ class InstanceStorageConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.connect.InstanceStorageConfig("example",
-            instance_id=example_aws_connect_instance["id"],
-            resource_type="CONTACT_TRACE_RECORDS",
             storage_config={
                 "kinesis_stream_config": {
                     "stream_arn": example_aws_kinesis_stream["arn"],
                 },
                 "storage_type": "KINESIS_STREAM",
-            })
+            },
+            instance_id=example_aws_connect_instance["id"],
+            resource_type="CONTACT_TRACE_RECORDS")
         ```
 
         ### Storage Config Kinesis Video Stream Config
@@ -359,19 +359,19 @@ class InstanceStorageConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.connect.InstanceStorageConfig("example",
-            instance_id=example_aws_connect_instance["id"],
-            resource_type="MEDIA_STREAMS",
             storage_config={
                 "kinesis_video_stream_config": {
-                    "prefix": "example",
-                    "retention_period_hours": 3,
                     "encryption_config": {
                         "encryption_type": "KMS",
                         "key_id": example_aws_kms_key["arn"],
                     },
+                    "prefix": "example",
+                    "retention_period_hours": 3,
                 },
                 "storage_type": "KINESIS_VIDEO_STREAM",
-            })
+            },
+            instance_id=example_aws_connect_instance["id"],
+            resource_type="MEDIA_STREAMS")
         ```
 
         ### Storage Config S3 Config
@@ -381,15 +381,15 @@ class InstanceStorageConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.connect.InstanceStorageConfig("example",
-            instance_id=example_aws_connect_instance["id"],
-            resource_type="CHAT_TRANSCRIPTS",
             storage_config={
                 "s3_config": {
                     "bucket_name": example_aws_s3_bucket["id"],
                     "bucket_prefix": "example",
                 },
                 "storage_type": "S3",
-            })
+            },
+            instance_id=example_aws_connect_instance["id"],
+            resource_type="CHAT_TRANSCRIPTS")
         ```
 
         ### Storage Config S3 Config with Encryption Config
@@ -399,19 +399,19 @@ class InstanceStorageConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.connect.InstanceStorageConfig("example",
-            instance_id=example_aws_connect_instance["id"],
-            resource_type="CHAT_TRANSCRIPTS",
             storage_config={
                 "s3_config": {
-                    "bucket_name": example_aws_s3_bucket["id"],
-                    "bucket_prefix": "example",
                     "encryption_config": {
                         "encryption_type": "KMS",
                         "key_id": example_aws_kms_key["arn"],
                     },
+                    "bucket_name": example_aws_s3_bucket["id"],
+                    "bucket_prefix": "example",
                 },
                 "storage_type": "S3",
-            })
+            },
+            instance_id=example_aws_connect_instance["id"],
+            resource_type="CHAT_TRANSCRIPTS")
         ```
 
         ## Import

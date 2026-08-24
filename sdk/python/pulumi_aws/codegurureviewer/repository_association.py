@@ -336,7 +336,8 @@ class RepositoryAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kms.Key("example")
-        example_repository = aws.codecommit.Repository("example", repository_name="example-repo")
+        example_repository = aws.codecommit.Repository("example", repository_name="example-repo",
+        opts = pulumi.ResourceOptions(ignore_changes=["tags[\\"codeguru-reviewer\\"]"]))
         example_repository_association = aws.codegurureviewer.RepositoryAssociation("example",
             repository={
                 "codecommit": {
@@ -374,7 +375,8 @@ class RepositoryAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kms.Key("example")
-        example_repository = aws.codecommit.Repository("example", repository_name="example-repo")
+        example_repository = aws.codecommit.Repository("example", repository_name="example-repo",
+        opts = pulumi.ResourceOptions(ignore_changes=["tags[\\"codeguru-reviewer\\"]"]))
         example_repository_association = aws.codegurureviewer.RepositoryAssociation("example",
             repository={
                 "codecommit": {

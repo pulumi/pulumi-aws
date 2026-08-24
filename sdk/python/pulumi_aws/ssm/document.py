@@ -680,12 +680,13 @@ class Document(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.ssm.Document("test",
-            name="test_document",
-            document_type="Package",
             attachments_sources=[{
                 "key": "SourceUrl",
                 "values": [f"s3://{object_bucket['bucket']}/test.zip"],
-            }])
+            }],
+            name="test_document",
+            document_type="Package",
+            opts = pulumi.ResourceOptions(ignore_changes=["attachmentsSources"]))
         ```
 
 
@@ -793,12 +794,13 @@ class Document(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.ssm.Document("test",
-            name="test_document",
-            document_type="Package",
             attachments_sources=[{
                 "key": "SourceUrl",
                 "values": [f"s3://{object_bucket['bucket']}/test.zip"],
-            }])
+            }],
+            name="test_document",
+            document_type="Package",
+            opts = pulumi.ResourceOptions(ignore_changes=["attachmentsSources"]))
         ```
 
 

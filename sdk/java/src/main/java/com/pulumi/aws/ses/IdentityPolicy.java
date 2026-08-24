@@ -52,14 +52,14 @@ import javax.annotation.Nullable;
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(                
- *                     "SES:SendEmail",
- *                     "SES:SendRawEmail")
- *                 .resources(exampleDomainIdentity.arn())
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .identifiers("*")
  *                     .type("AWS")
  *                     .build())
+ *                 .actions(                
+ *                     "SES:SendEmail",
+ *                     "SES:SendRawEmail")
+ *                 .resources(exampleDomainIdentity.arn())
  *                 .build())
  *             .build());
  * 

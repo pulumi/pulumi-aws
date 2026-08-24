@@ -115,11 +115,11 @@ def get_regions(all_regions: Optional[_builtins.bool] = None,
     import pulumi
     import pulumi_aws as aws
 
-    current = aws.get_regions(all_regions=True,
-        filters=[{
+    current = aws.get_regions(filters=[{
             "name": "opt-in-status",
             "values": ["not-opted-in"],
-        }])
+        }],
+        all_regions=True)
     ```
 
 
@@ -172,11 +172,11 @@ def get_regions_output(all_regions: pulumi.Input[Optional[Optional[_builtins.boo
     import pulumi
     import pulumi_aws as aws
 
-    current = aws.get_regions(all_regions=True,
-        filters=[{
+    current = aws.get_regions(filters=[{
             "name": "opt-in-status",
             "values": ["not-opted-in"],
-        }])
+        }],
+        all_regions=True)
     ```
 
 

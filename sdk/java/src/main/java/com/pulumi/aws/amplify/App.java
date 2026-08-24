@@ -53,6 +53,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) }{{@code
  *         var example = new App("example", AppArgs.builder()
+ *             .customRules(AppCustomRuleArgs.builder()
+ *                 .source("/<*>")
+ *                 .status("404")
+ *                 .target("/index.html")
+ *                 .build())
  *             .name("example")
  *             .repository("https://github.com/example/app")
  *             .buildSpec("""
@@ -73,11 +78,6 @@ import javax.annotation.Nullable;
  *     paths:
  *       - node_modules/**}&#47;{@code *
  *             """)
- *             .customRules(AppCustomRuleArgs.builder()
- *                 .source("/<*>")
- *                 .status("404")
- *                 .target("/index.html")
- *                 .build())
  *             .environmentVariables(Map.of("ENV", "test"))
  *             .build());
  * 
@@ -151,14 +151,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) }{{@code
  *         var example = new App("example", AppArgs.builder()
+ *             .autoBranchCreationConfig(AppAutoBranchCreationConfigArgs.builder()
+ *                 .enableAutoBuild(true)
+ *                 .build())
  *             .name("example")
  *             .enableAutoBranchCreation(true)
  *             .autoBranchCreationPatterns(            
  *                 "*",
  *                 "*}&#47;{@code **")
- *             .autoBranchCreationConfig(AppAutoBranchCreationConfigArgs.builder()
- *                 .enableAutoBuild(true)
- *                 .build())
  *             .build());
  * 
  *     }}{@code
@@ -231,7 +231,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new App("example", AppArgs.builder()
- *             .name("example")
  *             .customRules(            
  *                 AppCustomRuleArgs.builder()
  *                     .source("/api/<*>")
@@ -243,6 +242,7 @@ import javax.annotation.Nullable;
  *                     .status("200")
  *                     .target("/index.html")
  *                     .build())
+ *             .name("example")
  *             .build());
  * 
  *     }
@@ -358,10 +358,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new App("example", AppArgs.builder()
- *             .name("example")
  *             .jobConfig(AppJobConfigArgs.builder()
  *                 .buildComputeType("STANDARD_8GB")
  *                 .build())
+ *             .name("example")
  *             .build());
  * 
  *     }

@@ -548,16 +548,16 @@ class ResourceConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.vpclattice.ResourceConfiguration("example",
-            name="Example",
-            resource_gateway_identifier=example_aws_vpclattice_resource_gateway["id"],
-            port_ranges=["80"],
-            protocol="TCP",
             resource_configuration_definition={
                 "dns_resource": {
                     "domain_name": "example.com",
                     "ip_address_type": "IPV4",
                 },
             },
+            name="Example",
+            resource_gateway_identifier=example_aws_vpclattice_resource_gateway["id"],
+            port_ranges=["80"],
+            protocol="TCP",
             tags={
                 "Environment": "Example",
             })
@@ -570,15 +570,15 @@ class ResourceConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.vpclattice.ResourceConfiguration("example",
-            name="Example",
-            resource_gateway_identifier=example_aws_vpclattice_resource_gateway["id"],
-            port_ranges=["80"],
-            protocol="TCP",
             resource_configuration_definition={
                 "ip_resource": {
                     "ip_address": "10.0.0.1",
                 },
             },
+            name="Example",
+            resource_gateway_identifier=example_aws_vpclattice_resource_gateway["id"],
+            port_ranges=["80"],
+            protocol="TCP",
             tags={
                 "Environment": "Example",
             })
@@ -592,18 +592,18 @@ class ResourceConfiguration(pulumi.CustomResource):
 
         example = aws.vpclattice.DomainVerification("example", domain_name="example.com")
         example_resource_configuration = aws.vpclattice.ResourceConfiguration("example",
-            name="Example",
-            resource_gateway_identifier=example_aws_vpclattice_resource_gateway["id"],
-            custom_domain_name="custom.example.com",
-            domain_verification_id=example.id,
-            port_ranges=["443"],
-            protocol="TCP",
             resource_configuration_definition={
                 "dns_resource": {
                     "domain_name": "test.example.com",
                     "ip_address_type": "IPV4",
                 },
             },
+            name="Example",
+            resource_gateway_identifier=example_aws_vpclattice_resource_gateway["id"],
+            custom_domain_name="custom.example.com",
+            domain_verification_id=example.id,
+            port_ranges=["443"],
+            protocol="TCP",
             tags={
                 "Environment": "Example",
             })
@@ -616,14 +616,14 @@ class ResourceConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.vpclattice.ResourceConfiguration("test",
-            name="Example",
-            resource_gateway_identifier=test_aws_vpclattice_resource_gateway["id"],
-            type="ARN",
             resource_configuration_definition={
                 "arn_resource": {
                     "arn": example["arn"],
                 },
-            })
+            },
+            name="Example",
+            resource_gateway_identifier=test_aws_vpclattice_resource_gateway["id"],
+            type="ARN")
         ```
 
         ## Import
@@ -670,16 +670,16 @@ class ResourceConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.vpclattice.ResourceConfiguration("example",
-            name="Example",
-            resource_gateway_identifier=example_aws_vpclattice_resource_gateway["id"],
-            port_ranges=["80"],
-            protocol="TCP",
             resource_configuration_definition={
                 "dns_resource": {
                     "domain_name": "example.com",
                     "ip_address_type": "IPV4",
                 },
             },
+            name="Example",
+            resource_gateway_identifier=example_aws_vpclattice_resource_gateway["id"],
+            port_ranges=["80"],
+            protocol="TCP",
             tags={
                 "Environment": "Example",
             })
@@ -692,15 +692,15 @@ class ResourceConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.vpclattice.ResourceConfiguration("example",
-            name="Example",
-            resource_gateway_identifier=example_aws_vpclattice_resource_gateway["id"],
-            port_ranges=["80"],
-            protocol="TCP",
             resource_configuration_definition={
                 "ip_resource": {
                     "ip_address": "10.0.0.1",
                 },
             },
+            name="Example",
+            resource_gateway_identifier=example_aws_vpclattice_resource_gateway["id"],
+            port_ranges=["80"],
+            protocol="TCP",
             tags={
                 "Environment": "Example",
             })
@@ -714,18 +714,18 @@ class ResourceConfiguration(pulumi.CustomResource):
 
         example = aws.vpclattice.DomainVerification("example", domain_name="example.com")
         example_resource_configuration = aws.vpclattice.ResourceConfiguration("example",
-            name="Example",
-            resource_gateway_identifier=example_aws_vpclattice_resource_gateway["id"],
-            custom_domain_name="custom.example.com",
-            domain_verification_id=example.id,
-            port_ranges=["443"],
-            protocol="TCP",
             resource_configuration_definition={
                 "dns_resource": {
                     "domain_name": "test.example.com",
                     "ip_address_type": "IPV4",
                 },
             },
+            name="Example",
+            resource_gateway_identifier=example_aws_vpclattice_resource_gateway["id"],
+            custom_domain_name="custom.example.com",
+            domain_verification_id=example.id,
+            port_ranges=["443"],
+            protocol="TCP",
             tags={
                 "Environment": "Example",
             })
@@ -738,14 +738,14 @@ class ResourceConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.vpclattice.ResourceConfiguration("test",
-            name="Example",
-            resource_gateway_identifier=test_aws_vpclattice_resource_gateway["id"],
-            type="ARN",
             resource_configuration_definition={
                 "arn_resource": {
                     "arn": example["arn"],
                 },
-            })
+            },
+            name="Example",
+            resource_gateway_identifier=test_aws_vpclattice_resource_gateway["id"],
+            type="ARN")
         ```
 
         ## Import

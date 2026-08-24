@@ -46,13 +46,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ClusterParameterGroup("example", ClusterParameterGroupArgs.builder()
- *             .family("neptune1")
- *             .name("example")
- *             .description("neptune cluster parameter group")
  *             .parameters(ClusterParameterGroupParameterArgs.builder()
  *                 .name("neptune_enable_audit_log")
  *                 .value("1")
  *                 .build())
+ *             .family("neptune1")
+ *             .name("example")
+ *             .description("neptune cluster parameter group")
  *             .build());
  * 
  *     }

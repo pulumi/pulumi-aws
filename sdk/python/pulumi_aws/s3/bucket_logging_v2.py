@@ -304,31 +304,31 @@ class BucketLoggingV2(pulumi.CustomResource):
         current = aws.get_caller_identity()
         logging = aws.s3.Bucket("logging", bucket="access-logging-bucket")
         logging_bucket_policy = aws.iam.get_policy_document_output(statements=[{
+            "conditions": [{
+                "test": "StringEquals",
+                "variable": "aws:SourceAccount",
+                "values": [current.account_id],
+            }],
             "principals": [{
                 "identifiers": ["logging.s3.amazonaws.com"],
                 "type": "Service",
             }],
             "actions": ["s3:PutObject"],
             "resources": [logging.arn.apply(lambda arn: f"{arn}/*")],
-            "conditions": [{
-                "test": "StringEquals",
-                "variable": "aws:SourceAccount",
-                "values": [current.account_id],
-            }],
         }])
         logging_bucket_policy2 = aws.s3.BucketPolicy("logging",
             bucket=logging.bucket,
             policy=logging_bucket_policy.json)
         example = aws.s3.Bucket("example", bucket="example-bucket")
         example_bucket_logging = aws.s3.BucketLogging("example",
-            bucket=example.bucket,
-            target_bucket=logging.bucket,
-            target_prefix="log/",
             target_object_key_format={
                 "partitioned_prefix": {
                     "partition_date_source": "EventTime",
                 },
-            })
+            },
+            bucket=example.bucket,
+            target_bucket=logging.bucket,
+            target_prefix="log/")
         ```
 
         ### Grant permission by using bucket ACL
@@ -419,31 +419,31 @@ class BucketLoggingV2(pulumi.CustomResource):
         current = aws.get_caller_identity()
         logging = aws.s3.Bucket("logging", bucket="access-logging-bucket")
         logging_bucket_policy = aws.iam.get_policy_document_output(statements=[{
+            "conditions": [{
+                "test": "StringEquals",
+                "variable": "aws:SourceAccount",
+                "values": [current.account_id],
+            }],
             "principals": [{
                 "identifiers": ["logging.s3.amazonaws.com"],
                 "type": "Service",
             }],
             "actions": ["s3:PutObject"],
             "resources": [logging.arn.apply(lambda arn: f"{arn}/*")],
-            "conditions": [{
-                "test": "StringEquals",
-                "variable": "aws:SourceAccount",
-                "values": [current.account_id],
-            }],
         }])
         logging_bucket_policy2 = aws.s3.BucketPolicy("logging",
             bucket=logging.bucket,
             policy=logging_bucket_policy.json)
         example = aws.s3.Bucket("example", bucket="example-bucket")
         example_bucket_logging = aws.s3.BucketLogging("example",
-            bucket=example.bucket,
-            target_bucket=logging.bucket,
-            target_prefix="log/",
             target_object_key_format={
                 "partitioned_prefix": {
                     "partition_date_source": "EventTime",
                 },
-            })
+            },
+            bucket=example.bucket,
+            target_bucket=logging.bucket,
+            target_prefix="log/")
         ```
 
         ### Grant permission by using bucket ACL

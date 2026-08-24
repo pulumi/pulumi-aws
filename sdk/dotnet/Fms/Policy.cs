@@ -33,10 +33,6 @@ namespace Pulumi.Aws.Fms
     /// 
     ///     var example = new Aws.Fms.Policy("example", new()
     ///     {
-    ///         Name = "FMS-Policy-Example",
-    ///         ExcludeResourceTags = false,
-    ///         RemediationEnabled = false,
-    ///         ResourceType = "AWS::ElasticLoadBalancingV2::LoadBalancer",
     ///         SecurityServicePolicyData = new Aws.Fms.Inputs.PolicySecurityServicePolicyDataArgs
     ///         {
     ///             Type = "WAF",
@@ -61,6 +57,10 @@ namespace Pulumi.Aws.Fms
     ///                 ["overrideCustomerWebACLAssociation"] = false,
     ///             })),
     ///         },
+    ///         Name = "FMS-Policy-Example",
+    ///         ExcludeResourceTags = false,
+    ///         RemediationEnabled = false,
+    ///         ResourceType = "AWS::ElasticLoadBalancingV2::LoadBalancer",
     ///         Tags = 
     ///         {
     ///             { "Name", "example-fms-policy" },

@@ -98,17 +98,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new EventSourceMapping("example", EventSourceMappingArgs.builder()
+ *             .destinationConfig(EventSourceMappingDestinationConfigArgs.builder()
+ *                 .onFailure(EventSourceMappingDestinationConfigOnFailureArgs.builder()
+ *                     .destinationArn(dlq.arn())
+ *                     .build())
+ *                 .build())
  *             .eventSourceArn(exampleAwsKinesisStream.arn())
  *             .functionName(exampleAwsLambdaFunction.arn())
  *             .startingPosition("LATEST")
  *             .batchSize(100)
  *             .maximumBatchingWindowInSeconds(5)
  *             .parallelizationFactor(2)
- *             .destinationConfig(EventSourceMappingDestinationConfigArgs.builder()
- *                 .onFailure(EventSourceMappingDestinationConfigOnFailureArgs.builder()
- *                     .destinationArn(dlq.arn())
- *                     .build())
- *                 .build())
  *             .build());
  * 
  *     }
@@ -142,12 +142,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new EventSourceMapping("example", EventSourceMappingArgs.builder()
- *             .eventSourceArn(exampleAwsSqsQueue.arn())
- *             .functionName(exampleAwsLambdaFunction.arn())
- *             .batchSize(10)
  *             .scalingConfig(EventSourceMappingScalingConfigArgs.builder()
  *                 .maximumConcurrency(100)
  *                 .build())
+ *             .eventSourceArn(exampleAwsSqsQueue.arn())
+ *             .functionName(exampleAwsLambdaFunction.arn())
+ *             .batchSize(10)
  *             .build());
  * 
  *     }
@@ -183,8 +183,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new EventSourceMapping("example", EventSourceMappingArgs.builder()
- *             .eventSourceArn(exampleAwsSqsQueue.arn())
- *             .functionName(exampleAwsLambdaFunction.arn())
  *             .filterCriteria(EventSourceMappingFilterCriteriaArgs.builder()
  *                 .filters(EventSourceMappingFilterCriteriaFilterArgs.builder()
  *                     .pattern(serializeJson(
@@ -203,6 +201,8 @@ import javax.annotation.Nullable;
  *                         )))
  *                     .build())
  *                 .build())
+ *             .eventSourceArn(exampleAwsSqsQueue.arn())
+ *             .functionName(exampleAwsLambdaFunction.arn())
  *             .build());
  * 
  *     }
@@ -236,6 +236,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new EventSourceMapping("example", EventSourceMappingArgs.builder()
+ *             .amazonManagedKafkaEventSourceConfig(EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs.builder()
+ *                 .consumerGroupId("lambda-consumer-group")
+ *                 .build())
  *             .eventSourceArn(exampleAwsMskCluster.arn())
  *             .functionName(exampleAwsLambdaFunction.arn())
  *             .topics(            
@@ -243,9 +246,6 @@ import javax.annotation.Nullable;
  *                 "inventory")
  *             .startingPosition("TRIM_HORIZON")
  *             .batchSize(100)
- *             .amazonManagedKafkaEventSourceConfig(EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs.builder()
- *                 .consumerGroupId("lambda-consumer-group")
- *                 .build())
  *             .build());
  * 
  *     }
@@ -266,8 +266,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.lambda.EventSourceMappingArgs;
  * import com.pulumi.aws.lambda.inputs.EventSourceMappingSelfManagedEventSourceArgs;
  * import com.pulumi.aws.lambda.inputs.EventSourceMappingSelfManagedKafkaEventSourceConfigArgs;
- * import com.pulumi.aws.lambda.inputs.EventSourceMappingSourceAccessConfigurationArgs;
  * import com.pulumi.aws.lambda.inputs.EventSourceMappingProvisionedPollerConfigArgs;
+ * import com.pulumi.aws.lambda.inputs.EventSourceMappingSourceAccessConfigurationArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -282,14 +282,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new EventSourceMapping("example", EventSourceMappingArgs.builder()
- *             .functionName(exampleAwsLambdaFunction.arn())
- *             .topics("orders")
- *             .startingPosition("TRIM_HORIZON")
  *             .selfManagedEventSource(EventSourceMappingSelfManagedEventSourceArgs.builder()
  *                 .endpoints(Map.of("KAFKA_BOOTSTRAP_SERVERS", "kafka1.example.com:9092,kafka2.example.com:9092"))
  *                 .build())
  *             .selfManagedKafkaEventSourceConfig(EventSourceMappingSelfManagedKafkaEventSourceConfigArgs.builder()
  *                 .consumerGroupId("lambda-consumer-group")
+ *                 .build())
+ *             .provisionedPollerConfig(EventSourceMappingProvisionedPollerConfigArgs.builder()
+ *                 .maximumPollers(100)
+ *                 .minimumPollers(10)
+ *                 .pollerGroupName("group-123")
  *                 .build())
  *             .sourceAccessConfigurations(            
  *                 EventSourceMappingSourceAccessConfigurationArgs.builder()
@@ -304,11 +306,9 @@ import javax.annotation.Nullable;
  *                     .type("VPC_SECURITY_GROUP")
  *                     .uri(String.format("security_group:%s", exampleAwsSecurityGroup.id()))
  *                     .build())
- *             .provisionedPollerConfig(EventSourceMappingProvisionedPollerConfigArgs.builder()
- *                 .maximumPollers(100)
- *                 .minimumPollers(10)
- *                 .pollerGroupName("group-123")
- *                 .build())
+ *             .functionName(exampleAwsLambdaFunction.arn())
+ *             .topics("orders")
+ *             .startingPosition("TRIM_HORIZON")
  *             .build());
  * 
  *     }
@@ -342,14 +342,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new EventSourceMapping("example", EventSourceMappingArgs.builder()
- *             .eventSourceArn(exampleAwsMqBroker.arn())
- *             .functionName(exampleAwsLambdaFunction.arn())
- *             .queues("orders")
- *             .batchSize(10)
  *             .sourceAccessConfigurations(EventSourceMappingSourceAccessConfigurationArgs.builder()
  *                 .type("BASIC_AUTH")
  *                 .uri(exampleAwsSecretsmanagerSecretVersion.arn())
  *                 .build())
+ *             .eventSourceArn(exampleAwsMqBroker.arn())
+ *             .functionName(exampleAwsLambdaFunction.arn())
+ *             .queues("orders")
+ *             .batchSize(10)
  *             .build());
  * 
  *     }
@@ -383,10 +383,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new EventSourceMapping("example", EventSourceMappingArgs.builder()
- *             .eventSourceArn(exampleAwsMqBroker.arn())
- *             .functionName(exampleAwsLambdaFunction.arn())
- *             .queues("orders")
- *             .batchSize(1)
  *             .sourceAccessConfigurations(            
  *                 EventSourceMappingSourceAccessConfigurationArgs.builder()
  *                     .type("VIRTUAL_HOST")
@@ -396,6 +392,10 @@ import javax.annotation.Nullable;
  *                     .type("BASIC_AUTH")
  *                     .uri(exampleAwsSecretsmanagerSecretVersion.arn())
  *                     .build())
+ *             .eventSourceArn(exampleAwsMqBroker.arn())
+ *             .functionName(exampleAwsLambdaFunction.arn())
+ *             .queues("orders")
+ *             .batchSize(1)
  *             .build());
  * 
  *     }
@@ -430,9 +430,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new EventSourceMapping("example", EventSourceMappingArgs.builder()
- *             .eventSourceArn(exampleAwsDocdbCluster.arn())
- *             .functionName(exampleAwsLambdaFunction.arn())
- *             .startingPosition("LATEST")
  *             .documentDbEventSourceConfig(EventSourceMappingDocumentDbEventSourceConfigArgs.builder()
  *                 .databaseName("orders")
  *                 .collectionName("transactions")
@@ -442,6 +439,9 @@ import javax.annotation.Nullable;
  *                 .type("BASIC_AUTH")
  *                 .uri(exampleAwsSecretsmanagerSecretVersion.arn())
  *                 .build())
+ *             .eventSourceArn(exampleAwsDocdbCluster.arn())
+ *             .functionName(exampleAwsLambdaFunction.arn())
+ *             .startingPosition("LATEST")
  *             .build());
  * 
  *     }

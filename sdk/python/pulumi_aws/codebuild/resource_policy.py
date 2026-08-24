@@ -149,11 +149,11 @@ class ResourcePolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.codebuild.ReportGroup("example",
-            name="example",
-            type="TEST",
             export_config={
                 "type": "NO_EXPORT",
-            })
+            },
+            name="example",
+            type="TEST")
         current = aws.get_partition()
         current_get_caller_identity = aws.get_caller_identity()
         example_resource_policy = aws.codebuild.ResourcePolicy("example",
@@ -216,11 +216,11 @@ class ResourcePolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.codebuild.ReportGroup("example",
-            name="example",
-            type="TEST",
             export_config={
                 "type": "NO_EXPORT",
-            })
+            },
+            name="example",
+            type="TEST")
         current = aws.get_partition()
         current_get_caller_identity = aws.get_caller_identity()
         example_resource_policy = aws.codebuild.ResourcePolicy("example",

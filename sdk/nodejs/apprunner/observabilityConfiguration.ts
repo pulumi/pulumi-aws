@@ -17,10 +17,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.apprunner.ObservabilityConfiguration("example", {
- *     observabilityConfigurationName: "example",
  *     traceConfiguration: {
  *         vendor: "AWSXRAY",
  *     },
+ *     observabilityConfigurationName: "example",
  *     tags: {
  *         Name: "example-apprunner-observability-configuration",
  *     },

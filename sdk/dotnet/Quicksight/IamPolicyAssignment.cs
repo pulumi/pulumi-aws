@@ -26,9 +26,6 @@ namespace Pulumi.Aws.Quicksight
     /// {
     ///     var example = new Aws.Quicksight.IamPolicyAssignment("example", new()
     ///     {
-    ///         AssignmentName = "example",
-    ///         AssignmentStatus = "ENABLED",
-    ///         PolicyArn = exampleAwsIamPolicy.Arn,
     ///         Identities = new Aws.Quicksight.Inputs.IamPolicyAssignmentIdentitiesArgs
     ///         {
     ///             Users = new[]
@@ -36,6 +33,9 @@ namespace Pulumi.Aws.Quicksight
     ///                 exampleAwsQuicksightUser.UserName,
     ///             },
     ///         },
+    ///         AssignmentName = "example",
+    ///         AssignmentStatus = "ENABLED",
+    ///         PolicyArn = exampleAwsIamPolicy.Arn,
     ///     });
     /// 
     /// });

@@ -81,12 +81,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var simple = new Mesh("simple", MeshArgs.builder()
- *             .name("simpleapp")
  *             .spec(MeshSpecArgs.builder()
  *                 .egressFilter(MeshSpecEgressFilterArgs.builder()
  *                     .type("ALLOW_ALL")
  *                     .build())
  *                 .build())
+ *             .name("simpleapp")
  *             .build());
  * 
  *     }

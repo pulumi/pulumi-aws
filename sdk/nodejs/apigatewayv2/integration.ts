@@ -76,20 +76,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.apigatewayv2.Integration("example", {
- *     apiId: exampleAwsApigatewayv2Api.id,
- *     credentialsArn: exampleAwsIamRole.arn,
- *     description: "Example with a load balancer",
- *     integrationType: "HTTP_PROXY",
- *     integrationUri: exampleAwsLbListener.arn,
- *     integrationMethod: "ANY",
- *     connectionType: "VPC_LINK",
- *     connectionId: exampleAwsApigatewayv2VpcLink.id,
  *     tlsConfig: {
  *         serverNameToVerify: "example.com",
- *     },
- *     requestParameters: {
- *         "append:header.authforintegration": "$context.authorizer.authorizerResponse",
- *         "overwrite:path": "staticValueForIntegration",
  *     },
  *     responseParameters: [
  *         {
@@ -105,6 +93,18 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     ],
+ *     apiId: exampleAwsApigatewayv2Api.id,
+ *     credentialsArn: exampleAwsIamRole.arn,
+ *     description: "Example with a load balancer",
+ *     integrationType: "HTTP_PROXY",
+ *     integrationUri: exampleAwsLbListener.arn,
+ *     integrationMethod: "ANY",
+ *     connectionType: "VPC_LINK",
+ *     connectionId: exampleAwsApigatewayv2VpcLink.id,
+ *     requestParameters: {
+ *         "append:header.authforintegration": "$context.authorizer.authorizerResponse",
+ *         "overwrite:path": "staticValueForIntegration",
+ *     },
  * });
  * ```
  *

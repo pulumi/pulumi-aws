@@ -48,15 +48,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CustomRoutingAccelerator("example", CustomRoutingAcceleratorArgs.builder()
- *             .name("Example")
- *             .ipAddressType("IPV4")
- *             .ipAddresses("1.2.3.4")
- *             .enabled(true)
  *             .attributes(CustomRoutingAcceleratorAttributesArgs.builder()
  *                 .flowLogsEnabled(true)
  *                 .flowLogsS3Bucket("example-bucket")
  *                 .flowLogsS3Prefix("flow-logs/")
  *                 .build())
+ *             .name("Example")
+ *             .ipAddressType("IPV4")
+ *             .ipAddresses("1.2.3.4")
+ *             .enabled(true)
  *             .build());
  * 
  *     }

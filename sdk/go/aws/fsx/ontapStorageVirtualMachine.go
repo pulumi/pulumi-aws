@@ -61,10 +61,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := fsx.NewOntapStorageVirtualMachine(ctx, "test", &fsx.OntapStorageVirtualMachineArgs{
-//				FileSystemId: pulumi.Any(testAwsFsxOntapFileSystem.Id),
-//				Name:         pulumi.String("mysvm"),
 //				ActiveDirectoryConfiguration: &fsx.OntapStorageVirtualMachineActiveDirectoryConfigurationArgs{
-//					NetbiosName: pulumi.String("mysvm"),
 //					SelfManagedActiveDirectoryConfiguration: &fsx.OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs{
 //						DnsIps: pulumi.StringArray{
 //							pulumi.String("10.0.0.111"),
@@ -74,7 +71,10 @@ import (
 //						Password:   pulumi.String("avoid-plaintext-passwords"),
 //						Username:   pulumi.String("Admin"),
 //					},
+//					NetbiosName: pulumi.String("mysvm"),
 //				},
+//				FileSystemId: pulumi.Any(testAwsFsxOntapFileSystem.Id),
+//				Name:         pulumi.String("mysvm"),
 //			})
 //			if err != nil {
 //				return err
@@ -109,7 +109,9 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := fsx.NewOntapStorageVirtualMachine(ctx, "example", &fsx.OntapStorageVirtualMachineArgs{
 //				SvmAdminPassword: pulumi.String("avoid-plaintext-passwords"),
-//			})
+//			}, pulumi.IgnoreChanges([]string{
+//				"svmAdminPassword",
+//			}))
 //			if err != nil {
 //				return err
 //			}

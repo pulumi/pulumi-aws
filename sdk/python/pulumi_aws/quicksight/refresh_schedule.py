@@ -241,14 +241,14 @@ class RefreshSchedule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.RefreshSchedule("example",
-            data_set_id="dataset-id",
-            schedule_id="schedule-id",
             schedule={
-                "refresh_type": "FULL_REFRESH",
                 "schedule_frequency": {
                     "interval": "HOURLY",
                 },
-            })
+                "refresh_type": "FULL_REFRESH",
+            },
+            data_set_id="dataset-id",
+            schedule_id="schedule-id")
         ```
 
         ### With Weekly Refresh
@@ -258,19 +258,19 @@ class RefreshSchedule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.RefreshSchedule("example",
-            data_set_id="dataset-id",
-            schedule_id="schedule-id",
             schedule={
-                "refresh_type": "INCREMENTAL_REFRESH",
                 "schedule_frequency": {
-                    "interval": "WEEKLY",
-                    "time_of_the_day": "01:00",
-                    "timezone": "Europe/London",
                     "refresh_on_day": {
                         "day_of_week": "MONDAY",
                     },
+                    "interval": "WEEKLY",
+                    "time_of_the_day": "01:00",
+                    "timezone": "Europe/London",
                 },
-            })
+                "refresh_type": "INCREMENTAL_REFRESH",
+            },
+            data_set_id="dataset-id",
+            schedule_id="schedule-id")
         ```
 
         ### With Monthly Refresh
@@ -280,19 +280,19 @@ class RefreshSchedule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.RefreshSchedule("example",
-            data_set_id="dataset-id",
-            schedule_id="schedule-id",
             schedule={
-                "refresh_type": "INCREMENTAL_REFRESH",
                 "schedule_frequency": {
-                    "interval": "MONTHLY",
-                    "time_of_the_day": "01:00",
-                    "timezone": "Europe/London",
                     "refresh_on_day": {
                         "day_of_month": "1",
                     },
+                    "interval": "MONTHLY",
+                    "time_of_the_day": "01:00",
+                    "timezone": "Europe/London",
                 },
-            })
+                "refresh_type": "INCREMENTAL_REFRESH",
+            },
+            data_set_id="dataset-id",
+            schedule_id="schedule-id")
         ```
 
         ## Import
@@ -332,14 +332,14 @@ class RefreshSchedule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.RefreshSchedule("example",
-            data_set_id="dataset-id",
-            schedule_id="schedule-id",
             schedule={
-                "refresh_type": "FULL_REFRESH",
                 "schedule_frequency": {
                     "interval": "HOURLY",
                 },
-            })
+                "refresh_type": "FULL_REFRESH",
+            },
+            data_set_id="dataset-id",
+            schedule_id="schedule-id")
         ```
 
         ### With Weekly Refresh
@@ -349,19 +349,19 @@ class RefreshSchedule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.RefreshSchedule("example",
-            data_set_id="dataset-id",
-            schedule_id="schedule-id",
             schedule={
-                "refresh_type": "INCREMENTAL_REFRESH",
                 "schedule_frequency": {
-                    "interval": "WEEKLY",
-                    "time_of_the_day": "01:00",
-                    "timezone": "Europe/London",
                     "refresh_on_day": {
                         "day_of_week": "MONDAY",
                     },
+                    "interval": "WEEKLY",
+                    "time_of_the_day": "01:00",
+                    "timezone": "Europe/London",
                 },
-            })
+                "refresh_type": "INCREMENTAL_REFRESH",
+            },
+            data_set_id="dataset-id",
+            schedule_id="schedule-id")
         ```
 
         ### With Monthly Refresh
@@ -371,19 +371,19 @@ class RefreshSchedule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.RefreshSchedule("example",
-            data_set_id="dataset-id",
-            schedule_id="schedule-id",
             schedule={
-                "refresh_type": "INCREMENTAL_REFRESH",
                 "schedule_frequency": {
-                    "interval": "MONTHLY",
-                    "time_of_the_day": "01:00",
-                    "timezone": "Europe/London",
                     "refresh_on_day": {
                         "day_of_month": "1",
                     },
+                    "interval": "MONTHLY",
+                    "time_of_the_day": "01:00",
+                    "timezone": "Europe/London",
                 },
-            })
+                "refresh_type": "INCREMENTAL_REFRESH",
+            },
+            data_set_id="dataset-id",
+            schedule_id="schedule-id")
         ```
 
         ## Import

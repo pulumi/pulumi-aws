@@ -331,8 +331,6 @@ class VirtualGateway(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appmesh.VirtualGateway("example",
-            name="example-virtual-gateway",
-            mesh_name="example-service-mesh",
             spec={
                 "listeners": [{
                     "port_mapping": {
@@ -341,6 +339,8 @@ class VirtualGateway(pulumi.CustomResource):
                     },
                 }],
             },
+            name="example-virtual-gateway",
+            mesh_name="example-service-mesh",
             tags={
                 "Environment": "test",
             })
@@ -353,9 +353,14 @@ class VirtualGateway(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appmesh.VirtualGateway("example",
-            name="example-virtual-gateway",
-            mesh_name="example-service-mesh",
             spec={
+                "logging": {
+                    "access_log": {
+                        "file": {
+                            "path": "/var/log/access.log",
+                        },
+                    },
+                },
                 "listeners": [{
                     "port_mapping": {
                         "port": 8080,
@@ -370,14 +375,9 @@ class VirtualGateway(pulumi.CustomResource):
                         "mode": "STRICT",
                     },
                 }],
-                "logging": {
-                    "access_log": {
-                        "file": {
-                            "path": "/var/log/access.log",
-                        },
-                    },
-                },
-            })
+            },
+            name="example-virtual-gateway",
+            mesh_name="example-service-mesh")
         ```
 
         ## Import
@@ -416,8 +416,6 @@ class VirtualGateway(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appmesh.VirtualGateway("example",
-            name="example-virtual-gateway",
-            mesh_name="example-service-mesh",
             spec={
                 "listeners": [{
                     "port_mapping": {
@@ -426,6 +424,8 @@ class VirtualGateway(pulumi.CustomResource):
                     },
                 }],
             },
+            name="example-virtual-gateway",
+            mesh_name="example-service-mesh",
             tags={
                 "Environment": "test",
             })
@@ -438,9 +438,14 @@ class VirtualGateway(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appmesh.VirtualGateway("example",
-            name="example-virtual-gateway",
-            mesh_name="example-service-mesh",
             spec={
+                "logging": {
+                    "access_log": {
+                        "file": {
+                            "path": "/var/log/access.log",
+                        },
+                    },
+                },
                 "listeners": [{
                     "port_mapping": {
                         "port": 8080,
@@ -455,14 +460,9 @@ class VirtualGateway(pulumi.CustomResource):
                         "mode": "STRICT",
                     },
                 }],
-                "logging": {
-                    "access_log": {
-                        "file": {
-                            "path": "/var/log/access.log",
-                        },
-                    },
-                },
-            })
+            },
+            name="example-virtual-gateway",
+            mesh_name="example-service-mesh")
         ```
 
         ## Import

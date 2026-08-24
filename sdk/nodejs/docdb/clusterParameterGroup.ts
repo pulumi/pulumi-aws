@@ -17,13 +17,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.docdb.ClusterParameterGroup("example", {
- *     family: "docdb3.6",
- *     name: "example",
- *     description: "docdb cluster parameter group",
  *     parameters: [{
  *         name: "tls",
  *         value: "enabled",
  *     }],
+ *     family: "docdb3.6",
+ *     name: "example",
+ *     description: "docdb cluster parameter group",
  * });
  * ```
  *

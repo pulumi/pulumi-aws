@@ -26,7 +26,6 @@ namespace Pulumi.Aws.Pinpoint
     /// {
     ///     var example = new Aws.Pinpoint.App("example", new()
     ///     {
-    ///         Name = "test-app",
     ///         Limits = new Aws.Pinpoint.Inputs.AppLimitsArgs
     ///         {
     ///             MaximumDuration = 600,
@@ -36,6 +35,7 @@ namespace Pulumi.Aws.Pinpoint
     ///             Start = "00:00",
     ///             End = "06:00",
     ///         },
+    ///         Name = "test-app",
     ///     });
     /// 
     /// });

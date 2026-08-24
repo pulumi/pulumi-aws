@@ -169,7 +169,6 @@ class Schema(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.verifiedpermissions.Schema("example",
-            policy_store_id=example_aws_verifiedpermissions_policy_store["policyStoreId"],
             definition={
                 "value": json.dumps({
                     "Namespace": {
@@ -177,7 +176,8 @@ class Schema(pulumi.CustomResource):
                         "actions": {},
                     },
                 }),
-            })
+            },
+            policy_store_id=example_aws_verifiedpermissions_policy_store["policyStoreId"])
         ```
 
         ## Import
@@ -214,7 +214,6 @@ class Schema(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.verifiedpermissions.Schema("example",
-            policy_store_id=example_aws_verifiedpermissions_policy_store["policyStoreId"],
             definition={
                 "value": json.dumps({
                     "Namespace": {
@@ -222,7 +221,8 @@ class Schema(pulumi.CustomResource):
                         "actions": {},
                     },
                 }),
-            })
+            },
+            policy_store_id=example_aws_verifiedpermissions_policy_store["policyStoreId"])
         ```
 
         ## Import

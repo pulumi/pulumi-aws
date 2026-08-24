@@ -51,9 +51,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RuleGroup("example", RuleGroupArgs.builder()
- *             .capacity(100)
- *             .name("example")
- *             .type("STATEFUL")
  *             .ruleGroup(RuleGroupRuleGroupArgs.builder()
  *                 .rulesSource(RuleGroupRuleGroupRulesSourceArgs.builder()
  *                     .rulesSourceList(RuleGroupRuleGroupRulesSourceRulesSourceListArgs.builder()
@@ -63,6 +60,9 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
+ *             .capacity(100)
+ *             .name("example")
+ *             .type("STATEFUL")
  *             .tags(Map.ofEntries(
  *                 Map.entry("Tag1", "Value1"),
  *                 Map.entry("Tag2", "Value2")
@@ -106,13 +106,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RuleGroup("example", RuleGroupArgs.builder()
- *             .capacity(100)
- *             .name("example")
- *             .type("STATEFUL")
  *             .ruleGroup(RuleGroupRuleGroupArgs.builder()
  *                 .rulesSource(RuleGroupRuleGroupRulesSourceArgs.builder()
  *                     .statefulRules(RuleGroupRuleGroupRulesSourceStatefulRuleArgs.builder()
- *                         .action("DROP")
  *                         .header(RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs.builder()
  *                             .destination("124.1.1.24/32")
  *                             .destinationPort("53")
@@ -125,9 +121,13 @@ import javax.annotation.Nullable;
  *                             .keyword("sid")
  *                             .settings("1")
  *                             .build())
+ *                         .action("DROP")
  *                         .build())
  *                     .build())
  *                 .build())
+ *             .capacity(100)
+ *             .name("example")
+ *             .type("STATEFUL")
  *             .tags(Map.ofEntries(
  *                 Map.entry("Tag1", "Value1"),
  *                 Map.entry("Tag2", "Value2")
@@ -217,34 +217,31 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RuleGroup("example", RuleGroupArgs.builder()
- *             .capacity(100)
- *             .name("example")
- *             .type("STATEFUL")
  *             .ruleGroup(RuleGroupRuleGroupArgs.builder()
  *                 .ruleVariables(RuleGroupRuleGroupRuleVariablesArgs.builder()
  *                     .ipSets(                    
  *                         RuleGroupRuleGroupRuleVariablesIpSetArgs.builder()
- *                             .key("WEBSERVERS_HOSTS")
  *                             .ipSet(RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs.builder()
  *                                 .definitions(                                
  *                                     "10.0.0.0/16",
  *                                     "10.0.1.0/24",
  *                                     "192.168.0.0/16")
  *                                 .build())
+ *                             .key("WEBSERVERS_HOSTS")
  *                             .build(),
  *                         RuleGroupRuleGroupRuleVariablesIpSetArgs.builder()
- *                             .key("EXTERNAL_HOST")
  *                             .ipSet(RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs.builder()
  *                                 .definitions("1.2.3.4/32")
  *                                 .build())
+ *                             .key("EXTERNAL_HOST")
  *                             .build())
  *                     .portSets(RuleGroupRuleGroupRuleVariablesPortSetArgs.builder()
- *                         .key("HTTP_PORTS")
  *                         .portSet(RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs.builder()
  *                             .definitions(                            
  *                                 "443",
  *                                 "80")
  *                             .build())
+ *                         .key("HTTP_PORTS")
  *                         .build())
  *                     .build())
  *                 .rulesSource(RuleGroupRuleGroupRulesSourceArgs.builder()
@@ -253,6 +250,9 @@ import javax.annotation.Nullable;
  *                         .build()).result())
  *                     .build())
  *                 .build())
+ *             .capacity(100)
+ *             .name("example")
+ *             .type("STATEFUL")
  *             .tags(Map.ofEntries(
  *                 Map.entry("Tag1", "Value1"),
  *                 Map.entry("Tag2", "Value2")
@@ -285,10 +285,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleArgs;
  * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionArgs;
  * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesArgs;
- * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArgs;
- * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArgs;
- * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArgs;
  * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArgs;
+ * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArgs;
+ * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArgs;
+ * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArgs;
  * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
@@ -304,10 +304,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RuleGroup("example", RuleGroupArgs.builder()
- *             .description("Stateless Rate Limiting Rule")
- *             .capacity(100)
- *             .name("example")
- *             .type("STATELESS")
  *             .ruleGroup(RuleGroupRuleGroupArgs.builder()
  *                 .rulesSource(RuleGroupRuleGroupRulesSourceArgs.builder()
  *                     .statelessRulesAndCustomActions(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsArgs.builder()
@@ -322,39 +318,43 @@ import javax.annotation.Nullable;
  *                             .actionName("ExampleMetricsAction")
  *                             .build())
  *                         .statelessRules(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleArgs.builder()
- *                             .priority(1)
  *                             .ruleDefinition(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionArgs.builder()
- *                                 .actions(                                
- *                                     "aws:pass",
- *                                     "ExampleMetricsAction")
  *                                 .matchAttributes(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesArgs.builder()
- *                                     .sources(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArgs.builder()
- *                                         .addressDefinition("1.2.3.4/32")
- *                                         .build())
- *                                     .sourcePorts(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArgs.builder()
+ *                                     .destinationPorts(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArgs.builder()
  *                                         .fromPort(443)
  *                                         .toPort(443)
  *                                         .build())
  *                                     .destinations(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArgs.builder()
  *                                         .addressDefinition("124.1.1.5/32")
  *                                         .build())
- *                                     .destinationPorts(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArgs.builder()
+ *                                     .sourcePorts(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArgs.builder()
  *                                         .fromPort(443)
  *                                         .toPort(443)
  *                                         .build())
- *                                     .protocols(6)
+ *                                     .sources(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArgs.builder()
+ *                                         .addressDefinition("1.2.3.4/32")
+ *                                         .build())
  *                                     .tcpFlags(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArgs.builder()
  *                                         .flags("SYN")
  *                                         .masks(                                        
  *                                             "SYN",
  *                                             "ACK")
  *                                         .build())
+ *                                     .protocols(6)
  *                                     .build())
+ *                                 .actions(                                
+ *                                     "aws:pass",
+ *                                     "ExampleMetricsAction")
  *                                 .build())
+ *                             .priority(1)
  *                             .build())
  *                         .build())
  *                     .build())
  *                 .build())
+ *             .description("Stateless Rate Limiting Rule")
+ *             .capacity(100)
+ *             .name("example")
+ *             .type("STATELESS")
  *             .tags(Map.ofEntries(
  *                 Map.entry("Tag1", "Value1"),
  *                 Map.entry("Tag2", "Value2")
@@ -397,9 +397,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RuleGroup("example", RuleGroupArgs.builder()
- *             .capacity(100)
- *             .name("example")
- *             .type("STATEFUL")
  *             .ruleGroup(RuleGroupRuleGroupArgs.builder()
  *                 .rulesSource(RuleGroupRuleGroupRulesSourceArgs.builder()
  *                     .rulesSourceList(RuleGroupRuleGroupRulesSourceRulesSourceListArgs.builder()
@@ -410,13 +407,16 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .referenceSets(RuleGroupRuleGroupReferenceSetsArgs.builder()
  *                     .ipSetReferences(RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs.builder()
- *                         .key("example")
  *                         .ipSetReferences(RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs.builder()
  *                             .referenceArn(this_.arn())
  *                             .build())
+ *                         .key("example")
  *                         .build())
  *                     .build())
  *                 .build())
+ *             .capacity(100)
+ *             .name("example")
+ *             .type("STATEFUL")
  *             .tags(Map.ofEntries(
  *                 Map.entry("Tag1", "Value1"),
  *                 Map.entry("Tag2", "Value2")
@@ -467,33 +467,33 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var s3RulesExample = new RuleGroup("s3RulesExample", RuleGroupArgs.builder()
- *             .capacity(1000)
- *             .name("my-terraform-s3-rules")
- *             .type("STATEFUL")
  *             .ruleGroup(RuleGroupRuleGroupArgs.builder()
  *                 .ruleVariables(RuleGroupRuleGroupRuleVariablesArgs.builder()
  *                     .ipSets(RuleGroupRuleGroupRuleVariablesIpSetArgs.builder()
- *                         .key("HOME_NET")
  *                         .ipSet(RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs.builder()
  *                             .definitions(                            
  *                                 "10.0.0.0/16",
  *                                 "192.168.0.0/16",
  *                                 "172.16.0.0/12")
  *                             .build())
+ *                         .key("HOME_NET")
  *                         .build())
  *                     .portSets(RuleGroupRuleGroupRuleVariablesPortSetArgs.builder()
- *                         .key("HTTP_PORTS")
  *                         .portSet(RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs.builder()
  *                             .definitions(                            
  *                                 "443",
  *                                 "80")
  *                             .build())
+ *                         .key("HTTP_PORTS")
  *                         .build())
  *                     .build())
  *                 .rulesSource(RuleGroupRuleGroupRulesSourceArgs.builder()
  *                     .rulesString(suricataRules.body())
  *                     .build())
  *                 .build())
+ *             .capacity(1000)
+ *             .name("my-terraform-s3-rules")
+ *             .type("STATEFUL")
  *             .tags(Map.of("ManagedBy", "terraform"))
  *             .build());
  * 

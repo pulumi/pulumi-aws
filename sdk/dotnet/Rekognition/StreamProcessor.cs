@@ -49,7 +49,6 @@ namespace Pulumi.Aws.Rekognition
     /// 
     ///     var exampleRole = new Aws.Iam.Role("example", new()
     ///     {
-    ///         Name = "example-role",
     ///         InlinePolicies = new[]
     ///         {
     ///             new Aws.Iam.Inputs.RoleInlinePolicyArgs
@@ -101,6 +100,7 @@ namespace Pulumi.Aws.Rekognition
     ///                 })),
     ///             },
     ///         },
+    ///         Name = "example-role",
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["Version"] = "2012-10-17",
@@ -121,8 +121,6 @@ namespace Pulumi.Aws.Rekognition
     /// 
     ///     var exampleStreamProcessor = new Aws.Rekognition.StreamProcessor("example", new()
     ///     {
-    ///         RoleArn = exampleRole.Arn,
-    ///         Name = "example-processor",
     ///         DataSharingPreference = new Aws.Rekognition.Inputs.StreamProcessorDataSharingPreferenceArgs
     ///         {
     ///             OptIn = false,
@@ -156,6 +154,8 @@ namespace Pulumi.Aws.Rekognition
     ///         {
     ///             SnsTopicArn = exampleTopic.Arn,
     ///         },
+    ///         RoleArn = exampleRole.Arn,
+    ///         Name = "example-processor",
     ///     });
     /// 
     /// });
@@ -188,7 +188,6 @@ namespace Pulumi.Aws.Rekognition
     /// 
     ///     var exampleRole = new Aws.Iam.Role("example", new()
     ///     {
-    ///         Name = "example-role",
     ///         InlinePolicies = new[]
     ///         {
     ///             new Aws.Iam.Inputs.RoleInlinePolicyArgs
@@ -228,6 +227,7 @@ namespace Pulumi.Aws.Rekognition
     ///                 })),
     ///             },
     ///         },
+    ///         Name = "example-role",
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["Version"] = "2012-10-17",
@@ -253,11 +253,30 @@ namespace Pulumi.Aws.Rekognition
     /// 
     ///     var exampleStreamProcessor = new Aws.Rekognition.StreamProcessor("example", new()
     ///     {
-    ///         RoleArn = exampleRole.Arn,
-    ///         Name = "example-processor",
     ///         DataSharingPreference = new Aws.Rekognition.Inputs.StreamProcessorDataSharingPreferenceArgs
     ///         {
     ///             OptIn = false,
+    ///         },
+    ///         Input = new Aws.Rekognition.Inputs.StreamProcessorInputArgs
+    ///         {
+    ///             KinesisVideoStream = new Aws.Rekognition.Inputs.StreamProcessorInputKinesisVideoStreamArgs
+    ///             {
+    ///                 Arn = example.Arn,
+    ///             },
+    ///         },
+    ///         Output = new Aws.Rekognition.Inputs.StreamProcessorOutputArgs
+    ///         {
+    ///             KinesisDataStream = new Aws.Rekognition.Inputs.StreamProcessorOutputKinesisDataStreamArgs
+    ///             {
+    ///                 Arn = exampleStream.Arn,
+    ///             },
+    ///         },
+    ///         Settings = new Aws.Rekognition.Inputs.StreamProcessorSettingsArgs
+    ///         {
+    ///             FaceSearch = new Aws.Rekognition.Inputs.StreamProcessorSettingsFaceSearchArgs
+    ///             {
+    ///                 CollectionId = exampleCollection.Id,
+    ///             },
     ///         },
     ///         RegionsOfInterests = new[]
     ///         {
@@ -283,27 +302,8 @@ namespace Pulumi.Aws.Rekognition
     ///                 },
     ///             },
     ///         },
-    ///         Input = new Aws.Rekognition.Inputs.StreamProcessorInputArgs
-    ///         {
-    ///             KinesisVideoStream = new Aws.Rekognition.Inputs.StreamProcessorInputKinesisVideoStreamArgs
-    ///             {
-    ///                 Arn = example.Arn,
-    ///             },
-    ///         },
-    ///         Output = new Aws.Rekognition.Inputs.StreamProcessorOutputArgs
-    ///         {
-    ///             KinesisDataStream = new Aws.Rekognition.Inputs.StreamProcessorOutputKinesisDataStreamArgs
-    ///             {
-    ///                 Arn = exampleStream.Arn,
-    ///             },
-    ///         },
-    ///         Settings = new Aws.Rekognition.Inputs.StreamProcessorSettingsArgs
-    ///         {
-    ///             FaceSearch = new Aws.Rekognition.Inputs.StreamProcessorSettingsFaceSearchArgs
-    ///             {
-    ///                 CollectionId = exampleCollection.Id,
-    ///             },
-    ///         },
+    ///         RoleArn = exampleRole.Arn,
+    ///         Name = "example-processor",
     ///     });
     /// 
     /// });

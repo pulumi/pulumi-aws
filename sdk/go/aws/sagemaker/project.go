@@ -31,10 +31,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewProject(ctx, "example", &sagemaker.ProjectArgs{
-//				ProjectName: pulumi.String("example"),
 //				ServiceCatalogProvisioningDetails: &sagemaker.ProjectServiceCatalogProvisioningDetailsArgs{
 //					ProductId: pulumi.Any(exampleAwsServicecatalogProduct.Id),
 //				},
+//				ProjectName: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

@@ -301,16 +301,16 @@ class FirewallPolicy(pulumi.CustomResource):
         current_get_partition = aws.get_partition()
         current_get_caller_identity = aws.get_caller_identity()
         example = aws.networkfirewall.FirewallPolicy("example",
-            name="example",
             firewall_policy={
-                "stateless_default_actions": ["aws:pass"],
-                "stateless_fragment_default_actions": ["aws:drop"],
                 "stateless_rule_group_references": [{
                     "priority": 1,
                     "resource_arn": example_aws_networkfirewall_rule_group["arn"],
                 }],
+                "stateless_default_actions": ["aws:pass"],
+                "stateless_fragment_default_actions": ["aws:drop"],
                 "tls_inspection_configuration_arn": f"arn:{current_get_partition.partition}:network-firewall:{current.region}:{current_get_caller_identity.account_id}:tls-configuration/example",
             },
+            name="example",
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",
@@ -324,26 +324,26 @@ class FirewallPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.FirewallPolicy("example",
-            name="example",
             firewall_policy={
                 "policy_variables": {
                     "rule_variables": [{
-                        "key": "HOME_NET",
                         "ip_set": {
                             "definitions": [
                                 "10.0.0.0/16",
                                 "10.1.0.0/24",
                             ],
                         },
+                        "key": "HOME_NET",
                     }],
                 },
-                "stateless_default_actions": ["aws:pass"],
-                "stateless_fragment_default_actions": ["aws:drop"],
                 "stateless_rule_group_references": [{
                     "priority": 1,
                     "resource_arn": example_aws_networkfirewall_rule_group["arn"],
                 }],
+                "stateless_default_actions": ["aws:pass"],
+                "stateless_fragment_default_actions": ["aws:drop"],
             },
+            name="example",
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",
@@ -357,13 +357,7 @@ class FirewallPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.FirewallPolicy("example",
-            name="example",
             firewall_policy={
-                "stateless_default_actions": [
-                    "aws:pass",
-                    "ExampleCustomAction",
-                ],
-                "stateless_fragment_default_actions": ["aws:drop"],
                 "stateless_custom_actions": [{
                     "action_definition": {
                         "publish_metric_action": {
@@ -374,7 +368,13 @@ class FirewallPolicy(pulumi.CustomResource):
                     },
                     "action_name": "ExampleCustomAction",
                 }],
-            })
+                "stateless_default_actions": [
+                    "aws:pass",
+                    "ExampleCustomAction",
+                ],
+                "stateless_fragment_default_actions": ["aws:drop"],
+            },
+            name="example")
         ```
 
         ### Policy with Active Threat Defense in Action Order
@@ -386,15 +386,15 @@ class FirewallPolicy(pulumi.CustomResource):
         current = aws.get_region()
         current_get_partition = aws.get_partition()
         example = aws.networkfirewall.FirewallPolicy("example",
-            name="example",
             firewall_policy={
-                "stateless_fragment_default_actions": ["aws:drop"],
-                "stateless_default_actions": ["aws:pass"],
                 "stateful_rule_group_references": [{
                     "deep_threat_inspection": "true",
                     "resource_arn": f"arn:{current_get_partition.partition}:network-firewall:{current.region}:aws-managed:stateful-rulegroup/AttackInfrastructureActionOrder",
                 }],
-            })
+                "stateless_fragment_default_actions": ["aws:drop"],
+                "stateless_default_actions": ["aws:pass"],
+            },
+            name="example")
         ```
 
         ### Policy with Active Threat Defense in Strict Order
@@ -406,10 +406,7 @@ class FirewallPolicy(pulumi.CustomResource):
         current = aws.get_region()
         current_get_partition = aws.get_partition()
         example = aws.networkfirewall.FirewallPolicy("example",
-            name="example",
             firewall_policy={
-                "stateless_fragment_default_actions": ["aws:drop"],
-                "stateless_default_actions": ["aws:pass"],
                 "stateful_engine_options": {
                     "rule_order": "STRICT_ORDER",
                 },
@@ -418,7 +415,10 @@ class FirewallPolicy(pulumi.CustomResource):
                     "priority": 1,
                     "resource_arn": f"arn:{current_get_partition.partition}:network-firewall:{current.region}:aws-managed:stateful-rulegroup/AttackInfrastructureStrictOrder",
                 }],
-            })
+                "stateless_fragment_default_actions": ["aws:drop"],
+                "stateless_default_actions": ["aws:pass"],
+            },
+            name="example")
         ```
 
         ## Import
@@ -458,16 +458,16 @@ class FirewallPolicy(pulumi.CustomResource):
         current_get_partition = aws.get_partition()
         current_get_caller_identity = aws.get_caller_identity()
         example = aws.networkfirewall.FirewallPolicy("example",
-            name="example",
             firewall_policy={
-                "stateless_default_actions": ["aws:pass"],
-                "stateless_fragment_default_actions": ["aws:drop"],
                 "stateless_rule_group_references": [{
                     "priority": 1,
                     "resource_arn": example_aws_networkfirewall_rule_group["arn"],
                 }],
+                "stateless_default_actions": ["aws:pass"],
+                "stateless_fragment_default_actions": ["aws:drop"],
                 "tls_inspection_configuration_arn": f"arn:{current_get_partition.partition}:network-firewall:{current.region}:{current_get_caller_identity.account_id}:tls-configuration/example",
             },
+            name="example",
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",
@@ -481,26 +481,26 @@ class FirewallPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.FirewallPolicy("example",
-            name="example",
             firewall_policy={
                 "policy_variables": {
                     "rule_variables": [{
-                        "key": "HOME_NET",
                         "ip_set": {
                             "definitions": [
                                 "10.0.0.0/16",
                                 "10.1.0.0/24",
                             ],
                         },
+                        "key": "HOME_NET",
                     }],
                 },
-                "stateless_default_actions": ["aws:pass"],
-                "stateless_fragment_default_actions": ["aws:drop"],
                 "stateless_rule_group_references": [{
                     "priority": 1,
                     "resource_arn": example_aws_networkfirewall_rule_group["arn"],
                 }],
+                "stateless_default_actions": ["aws:pass"],
+                "stateless_fragment_default_actions": ["aws:drop"],
             },
+            name="example",
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",
@@ -514,13 +514,7 @@ class FirewallPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.FirewallPolicy("example",
-            name="example",
             firewall_policy={
-                "stateless_default_actions": [
-                    "aws:pass",
-                    "ExampleCustomAction",
-                ],
-                "stateless_fragment_default_actions": ["aws:drop"],
                 "stateless_custom_actions": [{
                     "action_definition": {
                         "publish_metric_action": {
@@ -531,7 +525,13 @@ class FirewallPolicy(pulumi.CustomResource):
                     },
                     "action_name": "ExampleCustomAction",
                 }],
-            })
+                "stateless_default_actions": [
+                    "aws:pass",
+                    "ExampleCustomAction",
+                ],
+                "stateless_fragment_default_actions": ["aws:drop"],
+            },
+            name="example")
         ```
 
         ### Policy with Active Threat Defense in Action Order
@@ -543,15 +543,15 @@ class FirewallPolicy(pulumi.CustomResource):
         current = aws.get_region()
         current_get_partition = aws.get_partition()
         example = aws.networkfirewall.FirewallPolicy("example",
-            name="example",
             firewall_policy={
-                "stateless_fragment_default_actions": ["aws:drop"],
-                "stateless_default_actions": ["aws:pass"],
                 "stateful_rule_group_references": [{
                     "deep_threat_inspection": "true",
                     "resource_arn": f"arn:{current_get_partition.partition}:network-firewall:{current.region}:aws-managed:stateful-rulegroup/AttackInfrastructureActionOrder",
                 }],
-            })
+                "stateless_fragment_default_actions": ["aws:drop"],
+                "stateless_default_actions": ["aws:pass"],
+            },
+            name="example")
         ```
 
         ### Policy with Active Threat Defense in Strict Order
@@ -563,10 +563,7 @@ class FirewallPolicy(pulumi.CustomResource):
         current = aws.get_region()
         current_get_partition = aws.get_partition()
         example = aws.networkfirewall.FirewallPolicy("example",
-            name="example",
             firewall_policy={
-                "stateless_fragment_default_actions": ["aws:drop"],
-                "stateless_default_actions": ["aws:pass"],
                 "stateful_engine_options": {
                     "rule_order": "STRICT_ORDER",
                 },
@@ -575,7 +572,10 @@ class FirewallPolicy(pulumi.CustomResource):
                     "priority": 1,
                     "resource_arn": f"arn:{current_get_partition.partition}:network-firewall:{current.region}:aws-managed:stateful-rulegroup/AttackInfrastructureStrictOrder",
                 }],
-            })
+                "stateless_fragment_default_actions": ["aws:drop"],
+                "stateless_default_actions": ["aws:pass"],
+            },
+            name="example")
         ```
 
         ## Import

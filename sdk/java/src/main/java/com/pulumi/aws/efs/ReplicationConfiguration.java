@@ -50,10 +50,10 @@ import javax.annotation.Nullable;
  *         var example = new FileSystem("example");
  * 
  *         var exampleReplicationConfiguration = new ReplicationConfiguration("exampleReplicationConfiguration", ReplicationConfigurationArgs.builder()
- *             .sourceFileSystemId(example.id())
  *             .destination(ReplicationConfigurationDestinationArgs.builder()
  *                 .region("us-west-2")
  *                 .build())
+ *             .sourceFileSystemId(example.id())
  *             .build());
  * 
  *     }
@@ -90,11 +90,11 @@ import javax.annotation.Nullable;
  *         var example = new FileSystem("example");
  * 
  *         var exampleReplicationConfiguration = new ReplicationConfiguration("exampleReplicationConfiguration", ReplicationConfigurationArgs.builder()
- *             .sourceFileSystemId(example.id())
  *             .destination(ReplicationConfigurationDestinationArgs.builder()
  *                 .availabilityZoneName("us-west-2b")
  *                 .kmsKeyId("1234abcd-12ab-34cd-56ef-1234567890ab")
  *                 .build())
+ *             .sourceFileSystemId(example.id())
  *             .build());
  * 
  *     }
@@ -131,11 +131,11 @@ import javax.annotation.Nullable;
  *         var example = new FileSystem("example");
  * 
  *         var exampleReplicationConfiguration = new ReplicationConfiguration("exampleReplicationConfiguration", ReplicationConfigurationArgs.builder()
- *             .sourceFileSystemId(example.id())
  *             .destination(ReplicationConfigurationDestinationArgs.builder()
  *                 .fileSystemId("fs-1234567890")
  *                 .region("us-west-2")
  *                 .build())
+ *             .sourceFileSystemId(example.id())
  *             .build());
  * 
  *     }

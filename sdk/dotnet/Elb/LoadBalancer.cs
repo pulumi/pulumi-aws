@@ -34,18 +34,19 @@ namespace Pulumi.Aws.Elb
     ///     // Create a new load balancer
     ///     var bar = new Aws.Elb.LoadBalancer("bar", new()
     ///     {
-    ///         Name = "foobar-elb",
-    ///         AvailabilityZones = new[]
-    ///         {
-    ///             "us-west-2a",
-    ///             "us-west-2b",
-    ///             "us-west-2c",
-    ///         },
     ///         AccessLogs = new Aws.Elb.Inputs.LoadBalancerAccessLogsArgs
     ///         {
     ///             Bucket = "foo",
     ///             BucketPrefix = "bar",
     ///             Interval = 60,
+    ///         },
+    ///         HealthCheck = new Aws.Elb.Inputs.LoadBalancerHealthCheckArgs
+    ///         {
+    ///             HealthyThreshold = 2,
+    ///             UnhealthyThreshold = 2,
+    ///             Timeout = 3,
+    ///             Target = "HTTP:8000/",
+    ///             Interval = 30,
     ///         },
     ///         Listeners = new[]
     ///         {
@@ -65,13 +66,12 @@ namespace Pulumi.Aws.Elb
     ///                 SslCertificateId = "arn:aws:iam::123456789012:server-certificate/certName",
     ///             },
     ///         },
-    ///         HealthCheck = new Aws.Elb.Inputs.LoadBalancerHealthCheckArgs
+    ///         Name = "foobar-elb",
+    ///         AvailabilityZones = new[]
     ///         {
-    ///             HealthyThreshold = 2,
-    ///             UnhealthyThreshold = 2,
-    ///             Timeout = 3,
-    ///             Target = "HTTP:8000/",
-    ///             Interval = 30,
+    ///             "us-west-2a",
+    ///             "us-west-2b",
+    ///             "us-west-2c",
     ///         },
     ///         Instances = new[]
     ///         {

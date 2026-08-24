@@ -367,9 +367,12 @@ class AutomationRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.securityhub.AutomationRule("example",
-            description="Elevate finding severity to CRITICAL when specific resources such as an S3 bucket is at risk",
-            rule_name="Elevate severity of findings that relate to important resources",
-            rule_order=1,
+            criteria={
+                "resource_ids": [{
+                    "comparison": "EQUALS",
+                    "value": "arn:aws:s3:::examplebucket/*",
+                }],
+            },
             actions=[{
                 "finding_fields_update": {
                     "severity": {
@@ -387,12 +390,9 @@ class AutomationRule(pulumi.CustomResource):
                 },
                 "type": "FINDING_FIELDS_UPDATE",
             }],
-            criteria={
-                "resource_ids": [{
-                    "comparison": "EQUALS",
-                    "value": "arn:aws:s3:::examplebucket/*",
-                }],
-            })
+            description="Elevate finding severity to CRITICAL when specific resources such as an S3 bucket is at risk",
+            rule_name="Elevate severity of findings that relate to important resources",
+            rule_order=1)
         ```
 
         ## Import
@@ -439,9 +439,12 @@ class AutomationRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.securityhub.AutomationRule("example",
-            description="Elevate finding severity to CRITICAL when specific resources such as an S3 bucket is at risk",
-            rule_name="Elevate severity of findings that relate to important resources",
-            rule_order=1,
+            criteria={
+                "resource_ids": [{
+                    "comparison": "EQUALS",
+                    "value": "arn:aws:s3:::examplebucket/*",
+                }],
+            },
             actions=[{
                 "finding_fields_update": {
                     "severity": {
@@ -459,12 +462,9 @@ class AutomationRule(pulumi.CustomResource):
                 },
                 "type": "FINDING_FIELDS_UPDATE",
             }],
-            criteria={
-                "resource_ids": [{
-                    "comparison": "EQUALS",
-                    "value": "arn:aws:s3:::examplebucket/*",
-                }],
-            })
+            description="Elevate finding severity to CRITICAL when specific resources such as an S3 bucket is at risk",
+            rule_name="Elevate severity of findings that relate to important resources",
+            rule_order=1)
         ```
 
         ## Import

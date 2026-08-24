@@ -32,8 +32,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.FilesSynchronizationConfiguration;
  * import com.pulumi.aws.s3.FilesSynchronizationConfigurationArgs;
- * import com.pulumi.aws.s3.inputs.FilesSynchronizationConfigurationImportDataRuleArgs;
  * import com.pulumi.aws.s3.inputs.FilesSynchronizationConfigurationExpirationDataRuleArgs;
+ * import com.pulumi.aws.s3.inputs.FilesSynchronizationConfigurationImportDataRuleArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -48,15 +48,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new FilesSynchronizationConfiguration("example", FilesSynchronizationConfigurationArgs.builder()
- *             .fileSystemId(exampleAwsS3filesFileSystem.id())
+ *             .expirationDataRules(FilesSynchronizationConfigurationExpirationDataRuleArgs.builder()
+ *                 .daysAfterLastAccess(30)
+ *                 .build())
  *             .importDataRules(FilesSynchronizationConfigurationImportDataRuleArgs.builder()
  *                 .prefix("")
  *                 .sizeLessThan(52673613135872)
  *                 .trigger("ON_FILE_ACCESS")
  *                 .build())
- *             .expirationDataRules(FilesSynchronizationConfigurationExpirationDataRuleArgs.builder()
- *                 .daysAfterLastAccess(30)
- *                 .build())
+ *             .fileSystemId(exampleAwsS3filesFileSystem.id())
  *             .build());
  * 
  *     }

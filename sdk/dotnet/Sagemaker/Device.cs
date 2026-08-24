@@ -26,11 +26,11 @@ namespace Pulumi.Aws.Sagemaker
     /// {
     ///     var example = new Aws.Sagemaker.Device("example", new()
     ///     {
-    ///         DeviceFleetName = exampleAwsSagemakerDeviceFleet.DeviceFleetName,
     ///         DeviceDetails = new Aws.Sagemaker.Inputs.DeviceDeviceArgs
     ///         {
     ///             DeviceName = "example",
     ///         },
+    ///         DeviceFleetName = exampleAwsSagemakerDeviceFleet.DeviceFleetName,
     ///     });
     /// 
     /// });

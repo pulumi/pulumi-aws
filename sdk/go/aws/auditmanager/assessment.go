@@ -31,17 +31,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := auditmanager.NewAssessment(ctx, "test", &auditmanager.AssessmentArgs{
-//				Name: pulumi.String("example"),
 //				AssessmentReportsDestination: &auditmanager.AssessmentAssessmentReportsDestinationArgs{
 //					Destination:     pulumi.Sprintf("s3://%v", testAwsS3Bucket.Id),
 //					DestinationType: pulumi.String("S3"),
-//				},
-//				FrameworkId: pulumi.Any(testAwsAuditmanagerFramework.Id),
-//				Roles: auditmanager.AssessmentRoleArray{
-//					&auditmanager.AssessmentRoleArgs{
-//						RoleArn:  pulumi.Any(testAwsIamRole.Arn),
-//						RoleType: pulumi.String("PROCESS_OWNER"),
-//					},
 //				},
 //				Scope: &auditmanager.AssessmentScopeArgs{
 //					AwsAccounts: auditmanager.AssessmentScopeAwsAccountArray{
@@ -55,6 +47,14 @@ import (
 //						},
 //					},
 //				},
+//				Roles: auditmanager.AssessmentRoleArray{
+//					&auditmanager.AssessmentRoleArgs{
+//						RoleArn:  pulumi.Any(testAwsIamRole.Arn),
+//						RoleType: pulumi.String("PROCESS_OWNER"),
+//					},
+//				},
+//				Name:        pulumi.String("example"),
+//				FrameworkId: pulumi.Any(testAwsAuditmanagerFramework.Id),
 //			})
 //			if err != nil {
 //				return err

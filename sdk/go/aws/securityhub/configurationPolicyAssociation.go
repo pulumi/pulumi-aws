@@ -37,11 +37,11 @@ import (
 //				return err
 //			}
 //			exampleOrganizationConfiguration, err := securityhub.NewOrganizationConfiguration(ctx, "example", &securityhub.OrganizationConfigurationArgs{
-//				AutoEnable:          pulumi.Bool(false),
-//				AutoEnableStandards: pulumi.String("NONE"),
 //				OrganizationConfiguration: &securityhub.OrganizationConfigurationOrganizationConfigurationArgs{
 //					ConfigurationType: pulumi.String("CENTRAL"),
 //				},
+//				AutoEnable:          pulumi.Bool(false),
+//				AutoEnableStandards: pulumi.String("NONE"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				example,
 //			}))
@@ -49,18 +49,18 @@ import (
 //				return err
 //			}
 //			exampleConfigurationPolicy, err := securityhub.NewConfigurationPolicy(ctx, "example", &securityhub.ConfigurationPolicyArgs{
-//				Name:        pulumi.String("Example"),
-//				Description: pulumi.String("This is an example configuration policy"),
 //				ConfigurationPolicy: &securityhub.ConfigurationPolicyConfigurationPolicyArgs{
+//					SecurityControlsConfiguration: &securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs{
+//						DisabledControlIdentifiers: pulumi.StringArray{},
+//					},
 //					ServiceEnabled: pulumi.Bool(true),
 //					EnabledStandardArns: pulumi.StringArray{
 //						pulumi.String("arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0"),
 //						pulumi.String("arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0"),
 //					},
-//					SecurityControlsConfiguration: &securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs{
-//						DisabledControlIdentifiers: pulumi.StringArray{},
-//					},
 //				},
+//				Name:        pulumi.String("Example"),
+//				Description: pulumi.String("This is an example configuration policy"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleOrganizationConfiguration,
 //			}))

@@ -100,12 +100,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Link("example", LinkArgs.builder()
- *             .labelTemplate("$AccountName")
  *             .linkConfiguration(LinkLinkConfigurationArgs.builder()
  *                 .logGroupConfiguration(LinkLinkConfigurationLogGroupConfigurationArgs.builder()
  *                     .filter("LogGroupName LIKE 'aws/lambda/%' OR LogGroupName LIKE 'AWSLogs%'")
  *                     .build())
  *                 .build())
+ *             .labelTemplate("$AccountName")
  *             .resourceTypes("AWS::Logs::LogGroup")
  *             .sinkIdentifier(exampleAwsOamSink.arn())
  *             .build(), CustomResourceOptions.builder()
@@ -145,12 +145,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Link("example", LinkArgs.builder()
- *             .labelTemplate("$AccountName")
  *             .linkConfiguration(LinkLinkConfigurationArgs.builder()
  *                 .metricConfiguration(LinkLinkConfigurationMetricConfigurationArgs.builder()
  *                     .filter("Namespace IN ('AWS/EC2', 'AWS/ELB', 'AWS/S3')")
  *                     .build())
  *                 .build())
+ *             .labelTemplate("$AccountName")
  *             .resourceTypes("AWS::CloudWatch::Metric")
  *             .sinkIdentifier(exampleAwsOamSink.arn())
  *             .build(), CustomResourceOptions.builder()

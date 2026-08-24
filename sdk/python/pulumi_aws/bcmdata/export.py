@@ -178,7 +178,6 @@ class Export(pulumi.CustomResource):
         current = aws.get_caller_identity()
         current_get_partition = aws.get_partition()
         test = aws.bcmdata.Export("test", export={
-            "name": "testexample",
             "data_queries": [{
                 "query_statement": "SELECT identity_line_item_id, identity_time_interval, line_item_product_code,line_item_unblended_cost FROM COST_AND_USAGE_REPORT",
                 "table_configurations": {
@@ -193,20 +192,21 @@ class Export(pulumi.CustomResource):
             }],
             "destination_configurations": [{
                 "s3_destinations": [{
-                    "s3_bucket": test_aws_s3_bucket["bucket"],
-                    "s3_prefix": test_aws_s3_bucket["bucketPrefix"],
-                    "s3_region": test_aws_s3_bucket["region"],
                     "s3_output_configurations": [{
                         "overwrite": "OVERWRITE_REPORT",
                         "format": "TEXT_OR_CSV",
                         "compression": "GZIP",
                         "output_type": "CUSTOM",
                     }],
+                    "s3_bucket": test_aws_s3_bucket["bucket"],
+                    "s3_prefix": test_aws_s3_bucket["bucketPrefix"],
+                    "s3_region": test_aws_s3_bucket["region"],
                 }],
             }],
             "refresh_cadences": [{
                 "frequency": "SYNCHRONOUS",
             }],
+            "name": "testexample",
         })
         ```
 
@@ -250,7 +250,6 @@ class Export(pulumi.CustomResource):
         current = aws.get_caller_identity()
         current_get_partition = aws.get_partition()
         test = aws.bcmdata.Export("test", export={
-            "name": "testexample",
             "data_queries": [{
                 "query_statement": "SELECT identity_line_item_id, identity_time_interval, line_item_product_code,line_item_unblended_cost FROM COST_AND_USAGE_REPORT",
                 "table_configurations": {
@@ -265,20 +264,21 @@ class Export(pulumi.CustomResource):
             }],
             "destination_configurations": [{
                 "s3_destinations": [{
-                    "s3_bucket": test_aws_s3_bucket["bucket"],
-                    "s3_prefix": test_aws_s3_bucket["bucketPrefix"],
-                    "s3_region": test_aws_s3_bucket["region"],
                     "s3_output_configurations": [{
                         "overwrite": "OVERWRITE_REPORT",
                         "format": "TEXT_OR_CSV",
                         "compression": "GZIP",
                         "output_type": "CUSTOM",
                     }],
+                    "s3_bucket": test_aws_s3_bucket["bucket"],
+                    "s3_prefix": test_aws_s3_bucket["bucketPrefix"],
+                    "s3_region": test_aws_s3_bucket["region"],
                 }],
             }],
             "refresh_cadences": [{
                 "frequency": "SYNCHRONOUS",
             }],
+            "name": "testexample",
         })
         ```
 

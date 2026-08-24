@@ -781,15 +781,15 @@ class Canary(pulumi.CustomResource):
         import pulumi_aws as aws
 
         some = aws.synthetics.Canary("some",
+            schedule={
+                "expression": "rate(0 minute)",
+            },
             name="some-canary",
             artifact_s3_location="s3://some-bucket/",
             execution_role_arn="some-role",
             handler="exports.handler",
             zip_file="test-fixtures/lambdatest.zip",
-            runtime_version="syn-1.0",
-            schedule={
-                "expression": "rate(0 minute)",
-            })
+            runtime_version="syn-1.0")
         ```
 
         ## Import
@@ -843,15 +843,15 @@ class Canary(pulumi.CustomResource):
         import pulumi_aws as aws
 
         some = aws.synthetics.Canary("some",
+            schedule={
+                "expression": "rate(0 minute)",
+            },
             name="some-canary",
             artifact_s3_location="s3://some-bucket/",
             execution_role_arn="some-role",
             handler="exports.handler",
             zip_file="test-fixtures/lambdatest.zip",
-            runtime_version="syn-1.0",
-            schedule={
-                "expression": "rate(0 minute)",
-            })
+            runtime_version="syn-1.0")
         ```
 
         ## Import

@@ -27,9 +27,6 @@ namespace Pulumi.Aws.ApiGateway
     /// {
     ///     var example = new Aws.LB.LoadBalancer("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Internal = true,
-    ///         LoadBalancerType = "network",
     ///         SubnetMappings = new[]
     ///         {
     ///             new Aws.LB.Inputs.LoadBalancerSubnetMappingArgs
@@ -37,6 +34,9 @@ namespace Pulumi.Aws.ApiGateway
     ///                 SubnetId = "12345",
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         Internal = true,
+    ///         LoadBalancerType = "network",
     ///     });
     /// 
     ///     var exampleVpcLink = new Aws.ApiGateway.VpcLink("example", new()

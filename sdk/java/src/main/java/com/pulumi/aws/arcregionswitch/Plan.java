@@ -73,6 +73,31 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()
+ *             .workflows(            
+ *                 PlanWorkflowArgs.builder()
+ *                     .steps(PlanWorkflowStepArgs.builder()
+ *                         .executionApprovalConfigs(PlanWorkflowStepExecutionApprovalConfigArgs.builder()
+ *                             .approvalRole(example.arn())
+ *                             .timeoutMinutes(60)
+ *                             .build())
+ *                         .name("manual-approval")
+ *                         .executionBlockType("ManualApproval")
+ *                         .build())
+ *                     .workflowTargetAction("activate")
+ *                     .workflowTargetRegion("us-west-2")
+ *                     .build(),
+ *                 PlanWorkflowArgs.builder()
+ *                     .steps(PlanWorkflowStepArgs.builder()
+ *                         .executionApprovalConfigs(PlanWorkflowStepExecutionApprovalConfigArgs.builder()
+ *                             .approvalRole(example.arn())
+ *                             .timeoutMinutes(60)
+ *                             .build())
+ *                         .name("manual-approval")
+ *                         .executionBlockType("ManualApproval")
+ *                         .build())
+ *                     .workflowTargetAction("deactivate")
+ *                     .workflowTargetRegion("us-east-1")
+ *                     .build())
  *             .name("example-plan")
  *             .executionRole(example.arn())
  *             .recoveryApproach("activePassive")
@@ -80,31 +105,6 @@ import javax.annotation.Nullable;
  *                 "us-east-1",
  *                 "us-west-2")
  *             .primaryRegion("us-east-1")
- *             .workflows(            
- *                 PlanWorkflowArgs.builder()
- *                     .workflowTargetAction("activate")
- *                     .workflowTargetRegion("us-west-2")
- *                     .steps(PlanWorkflowStepArgs.builder()
- *                         .name("manual-approval")
- *                         .executionBlockType("ManualApproval")
- *                         .executionApprovalConfigs(PlanWorkflowStepExecutionApprovalConfigArgs.builder()
- *                             .approvalRole(example.arn())
- *                             .timeoutMinutes(60)
- *                             .build())
- *                         .build())
- *                     .build(),
- *                 PlanWorkflowArgs.builder()
- *                     .workflowTargetAction("deactivate")
- *                     .workflowTargetRegion("us-east-1")
- *                     .steps(PlanWorkflowStepArgs.builder()
- *                         .name("manual-approval")
- *                         .executionBlockType("ManualApproval")
- *                         .executionApprovalConfigs(PlanWorkflowStepExecutionApprovalConfigArgs.builder()
- *                             .approvalRole(example.arn())
- *                             .timeoutMinutes(60)
- *                             .build())
- *                         .build())
- *                     .build())
  *             .build());
  * 
  *     }
@@ -124,6 +124,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.arcregionswitch.Plan;
  * import com.pulumi.aws.arcregionswitch.PlanArgs;
  * import com.pulumi.aws.arcregionswitch.inputs.PlanAssociatedAlarmArgs;
+ * import com.pulumi.aws.arcregionswitch.inputs.PlanTriggerArgs;
+ * import com.pulumi.aws.arcregionswitch.inputs.PlanTriggerConditionArgs;
  * import com.pulumi.aws.arcregionswitch.inputs.PlanWorkflowArgs;
  * import com.pulumi.aws.arcregionswitch.inputs.PlanWorkflowStepArgs;
  * import com.pulumi.aws.arcregionswitch.inputs.PlanWorkflowStepCustomActionLambdaConfigArgs;
@@ -135,8 +137,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.arcregionswitch.inputs.PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigArgs;
  * import com.pulumi.aws.arcregionswitch.inputs.PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigServiceArgs;
  * import com.pulumi.aws.arcregionswitch.inputs.PlanWorkflowStepRoute53HealthCheckConfigArgs;
- * import com.pulumi.aws.arcregionswitch.inputs.PlanTriggerArgs;
- * import com.pulumi.aws.arcregionswitch.inputs.PlanTriggerConditionArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -151,6 +151,78 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var complex = new Plan("complex", PlanArgs.builder()
+ *             .associatedAlarms(PlanAssociatedAlarmArgs.builder()
+ *                 .name("application-health-alarm")
+ *                 .alarmType("applicationHealth")
+ *                 .resourceIdentifier("arn:aws:cloudwatch:us-east-1:123456789012:alarm:MyAlarm")
+ *                 .build())
+ *             .triggers(PlanTriggerArgs.builder()
+ *                 .conditions(PlanTriggerConditionArgs.builder()
+ *                     .associatedAlarmName("application-health-alarm")
+ *                     .condition("red")
+ *                     .build())
+ *                 .action("activate")
+ *                 .targetRegion("us-west-2")
+ *                 .minDelayMinutesBetweenExecutions(30)
+ *                 .build())
+ *             .workflows(            
+ *                 PlanWorkflowArgs.builder()
+ *                     .steps(                    
+ *                         PlanWorkflowStepArgs.builder()
+ *                             .customActionLambdaConfigs(PlanWorkflowStepCustomActionLambdaConfigArgs.builder()
+ *                                 .lambdas(PlanWorkflowStepCustomActionLambdaConfigLambdaArgs.builder()
+ *                                     .arn(example.arn())
+ *                                     .build())
+ *                                 .regionToRun("activatingRegion")
+ *                                 .retryIntervalMinutes(5.0)
+ *                                 .timeoutMinutes(30)
+ *                                 .build())
+ *                             .name("lambda-step")
+ *                             .executionBlockType("CustomActionLambda")
+ *                             .build(),
+ *                         PlanWorkflowStepArgs.builder()
+ *                             .parallelConfigs(PlanWorkflowStepParallelConfigArgs.builder()
+ *                                 .steps(                                
+ *                                     PlanWorkflowStepParallelConfigStepArgs.builder()
+ *                                         .ec2AsgCapacityIncreaseConfigs(PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigArgs.builder()
+ *                                             .asgs(PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigAsgArgs.builder()
+ *                                                 .arn(exampleAwsAutoscalingGroup.arn())
+ *                                                 .build())
+ *                                             .targetPercent(150)
+ *                                             .build())
+ *                                         .name("asg-scaling")
+ *                                         .executionBlockType("EC2AutoScaling")
+ *                                         .build(),
+ *                                     PlanWorkflowStepParallelConfigStepArgs.builder()
+ *                                         .ecsCapacityIncreaseConfigs(PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigArgs.builder()
+ *                                             .services(PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigServiceArgs.builder()
+ *                                                 .clusterArn(exampleAwsEcsCluster.arn())
+ *                                                 .serviceArn(exampleAwsEcsService.arn())
+ *                                                 .build())
+ *                                             .targetPercent(200)
+ *                                             .build())
+ *                                         .name("ecs-scaling")
+ *                                         .executionBlockType("ECSServiceScaling")
+ *                                         .build())
+ *                                 .build())
+ *                             .name("parallel-step")
+ *                             .executionBlockType("Parallel")
+ *                             .build())
+ *                     .workflowTargetAction("activate")
+ *                     .workflowTargetRegion("us-west-2")
+ *                     .build(),
+ *                 PlanWorkflowArgs.builder()
+ *                     .steps(PlanWorkflowStepArgs.builder()
+ *                         .route53HealthCheckConfigs(PlanWorkflowStepRoute53HealthCheckConfigArgs.builder()
+ *                             .hostedZoneId(exampleAwsRoute53Zone.zoneId())
+ *                             .recordName("api.example.com")
+ *                             .build())
+ *                         .name("route53-health-check")
+ *                         .executionBlockType("Route53HealthCheck")
+ *                         .build())
+ *                     .workflowTargetAction("deactivate")
+ *                     .workflowTargetRegion("us-east-1")
+ *                     .build())
  *             .name("complex-plan")
  *             .executionRole(exampleAwsIamRole.arn())
  *             .recoveryApproach("activeActive")
@@ -159,78 +231,6 @@ import javax.annotation.Nullable;
  *                 "us-west-2")
  *             .description("Complex plan with multiple execution block types")
  *             .recoveryTimeObjectiveMinutes(60)
- *             .associatedAlarms(PlanAssociatedAlarmArgs.builder()
- *                 .name("application-health-alarm")
- *                 .alarmType("applicationHealth")
- *                 .resourceIdentifier("arn:aws:cloudwatch:us-east-1:123456789012:alarm:MyAlarm")
- *                 .build())
- *             .workflows(            
- *                 PlanWorkflowArgs.builder()
- *                     .workflowTargetAction("activate")
- *                     .workflowTargetRegion("us-west-2")
- *                     .steps(                    
- *                         PlanWorkflowStepArgs.builder()
- *                             .name("lambda-step")
- *                             .executionBlockType("CustomActionLambda")
- *                             .customActionLambdaConfigs(PlanWorkflowStepCustomActionLambdaConfigArgs.builder()
- *                                 .regionToRun("activatingRegion")
- *                                 .retryIntervalMinutes(5.0)
- *                                 .timeoutMinutes(30)
- *                                 .lambdas(PlanWorkflowStepCustomActionLambdaConfigLambdaArgs.builder()
- *                                     .arn(example.arn())
- *                                     .build())
- *                                 .build())
- *                             .build(),
- *                         PlanWorkflowStepArgs.builder()
- *                             .name("parallel-step")
- *                             .executionBlockType("Parallel")
- *                             .parallelConfigs(PlanWorkflowStepParallelConfigArgs.builder()
- *                                 .steps(                                
- *                                     PlanWorkflowStepParallelConfigStepArgs.builder()
- *                                         .name("asg-scaling")
- *                                         .executionBlockType("EC2AutoScaling")
- *                                         .ec2AsgCapacityIncreaseConfigs(PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigArgs.builder()
- *                                             .asgs(PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigAsgArgs.builder()
- *                                                 .arn(exampleAwsAutoscalingGroup.arn())
- *                                                 .build())
- *                                             .targetPercent(150)
- *                                             .build())
- *                                         .build(),
- *                                     PlanWorkflowStepParallelConfigStepArgs.builder()
- *                                         .name("ecs-scaling")
- *                                         .executionBlockType("ECSServiceScaling")
- *                                         .ecsCapacityIncreaseConfigs(PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigArgs.builder()
- *                                             .services(PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigServiceArgs.builder()
- *                                                 .clusterArn(exampleAwsEcsCluster.arn())
- *                                                 .serviceArn(exampleAwsEcsService.arn())
- *                                                 .build())
- *                                             .targetPercent(200)
- *                                             .build())
- *                                         .build())
- *                                 .build())
- *                             .build())
- *                     .build(),
- *                 PlanWorkflowArgs.builder()
- *                     .workflowTargetAction("deactivate")
- *                     .workflowTargetRegion("us-east-1")
- *                     .steps(PlanWorkflowStepArgs.builder()
- *                         .name("route53-health-check")
- *                         .executionBlockType("Route53HealthCheck")
- *                         .route53HealthCheckConfigs(PlanWorkflowStepRoute53HealthCheckConfigArgs.builder()
- *                             .hostedZoneId(exampleAwsRoute53Zone.zoneId())
- *                             .recordName("api.example.com")
- *                             .build())
- *                         .build())
- *                     .build())
- *             .triggers(PlanTriggerArgs.builder()
- *                 .action("activate")
- *                 .targetRegion("us-west-2")
- *                 .minDelayMinutesBetweenExecutions(30)
- *                 .conditions(PlanTriggerConditionArgs.builder()
- *                     .associatedAlarmName("application-health-alarm")
- *                     .condition("red")
- *                     .build())
- *                 .build())
  *             .tags(Map.of("Environment", "production"))
  *             .build());
  * 

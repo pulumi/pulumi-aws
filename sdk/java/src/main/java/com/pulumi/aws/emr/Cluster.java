@@ -63,19 +63,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var cluster = new Cluster("cluster", ClusterArgs.builder()
- *             .name("emr-test-arn")
- *             .releaseLabel("emr-4.6.0")
- *             .applications("Spark")
- *             .additionalInfo("""
- * {
- *   \"instanceAwsClientConfiguration\": {
- *     \"proxyPort\": 8099,
- *     \"proxyHost\": \"myproxy.example.com\"
- *   }
- * }
- *             """)
- *             .terminationProtection(false)
- *             .keepJobFlowAliveWhenNoSteps(true)
  *             .ec2Attributes(ClusterEc2AttributesArgs.builder()
  *                 .subnetId(main.id())
  *                 .emrManagedMasterSecurityGroup(sg.id())
@@ -86,13 +73,13 @@ import javax.annotation.Nullable;
  *                 .instanceType("m4.large")
  *                 .build())
  *             .coreInstanceGroup(ClusterCoreInstanceGroupArgs.builder()
- *                 .instanceType("c4.large")
- *                 .instanceCount(1)
  *                 .ebsConfigs(ClusterCoreInstanceGroupEbsConfigArgs.builder()
  *                     .size(40)
  *                     .type("gp2")
  *                     .volumesPerInstance(1)
  *                     .build())
+ *                 .instanceType("c4.large")
+ *                 .instanceCount(1)
  *                 .bidPrice("0.30")
  *                 .autoscalingPolicy("""
  * {
@@ -128,11 +115,6 @@ import javax.annotation.Nullable;
  * }
  *                 """)
  *                 .build())
- *             .ebsRootVolumeSize(100)
- *             .tags(Map.ofEntries(
- *                 Map.entry("role", "rolename"),
- *                 Map.entry("env", "env")
- *             ))
  *             .bootstrapActions(ClusterBootstrapActionArgs.builder()
  *                 .path("s3://elasticmapreduce/bootstrap-actions/run-if")
  *                 .name("runif")
@@ -140,6 +122,24 @@ import javax.annotation.Nullable;
  *                     "instance.isMaster=true",
  *                     "echo running on master node")
  *                 .build())
+ *             .name("emr-test-arn")
+ *             .releaseLabel("emr-4.6.0")
+ *             .applications("Spark")
+ *             .additionalInfo("""
+ * {
+ *   \"instanceAwsClientConfiguration\": {
+ *     \"proxyPort\": 8099,
+ *     \"proxyHost\": \"myproxy.example.com\"
+ *   }
+ * }
+ *             """)
+ *             .terminationProtection(false)
+ *             .keepJobFlowAliveWhenNoSteps(true)
+ *             .ebsRootVolumeSize(100)
+ *             .tags(Map.ofEntries(
+ *                 Map.entry("role", "rolename"),
+ *                 Map.entry("env", "env")
+ *             ))
  *             .configurationsJson("""
  *   [
  *     {
@@ -194,16 +194,16 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.emr.inputs.ClusterMasterInstanceFleetArgs;
  * import com.pulumi.aws.emr.inputs.ClusterMasterInstanceFleetInstanceTypeConfigArgs;
  * import com.pulumi.aws.emr.inputs.ClusterCoreInstanceFleetArgs;
- * import com.pulumi.aws.emr.inputs.ClusterCoreInstanceFleetInstanceTypeConfigArgs;
- * import com.pulumi.aws.emr.inputs.ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs;
  * import com.pulumi.aws.emr.inputs.ClusterCoreInstanceFleetLaunchSpecificationsArgs;
  * import com.pulumi.aws.emr.inputs.ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs;
+ * import com.pulumi.aws.emr.inputs.ClusterCoreInstanceFleetInstanceTypeConfigArgs;
+ * import com.pulumi.aws.emr.inputs.ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs;
  * import com.pulumi.aws.emr.InstanceFleet;
  * import com.pulumi.aws.emr.InstanceFleetArgs;
- * import com.pulumi.aws.emr.inputs.InstanceFleetInstanceTypeConfigArgs;
- * import com.pulumi.aws.emr.inputs.InstanceFleetInstanceTypeConfigEbsConfigArgs;
  * import com.pulumi.aws.emr.inputs.InstanceFleetLaunchSpecificationsArgs;
  * import com.pulumi.aws.emr.inputs.InstanceFleetLaunchSpecificationsSpotSpecificationArgs;
+ * import com.pulumi.aws.emr.inputs.InstanceFleetInstanceTypeConfigArgs;
+ * import com.pulumi.aws.emr.inputs.InstanceFleetInstanceTypeConfigEbsConfigArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -225,37 +225,6 @@ import javax.annotation.Nullable;
  *                 .targetOnDemandCapacity(1)
  *                 .build())
  *             .coreInstanceFleet(ClusterCoreInstanceFleetArgs.builder()
- *                 .instanceTypeConfigs(                
- *                     ClusterCoreInstanceFleetInstanceTypeConfigArgs.builder()
- *                         .bidPriceAsPercentageOfOnDemandPrice(80.0)
- *                         .ebsConfigs(ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs.builder()
- *                             .size(100)
- *                             .type("gp2")
- *                             .volumesPerInstance(1)
- *                             .build())
- *                         .instanceType("m3.xlarge")
- *                         .weightedCapacity(1)
- *                         .build(),
- *                     ClusterCoreInstanceFleetInstanceTypeConfigArgs.builder()
- *                         .bidPriceAsPercentageOfOnDemandPrice(100.0)
- *                         .ebsConfigs(ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs.builder()
- *                             .size(100)
- *                             .type("gp2")
- *                             .volumesPerInstance(1)
- *                             .build())
- *                         .instanceType("m4.xlarge")
- *                         .weightedCapacity(1)
- *                         .build(),
- *                     ClusterCoreInstanceFleetInstanceTypeConfigArgs.builder()
- *                         .bidPriceAsPercentageOfOnDemandPrice(100.0)
- *                         .ebsConfigs(ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs.builder()
- *                             .size(100)
- *                             .type("gp2")
- *                             .volumesPerInstance(1)
- *                             .build())
- *                         .instanceType("m4.2xlarge")
- *                         .weightedCapacity(2)
- *                         .build())
  *                 .launchSpecifications(ClusterCoreInstanceFleetLaunchSpecificationsArgs.builder()
  *                     .spotSpecifications(ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs.builder()
  *                         .allocationStrategy("capacity-optimized")
@@ -264,6 +233,37 @@ import javax.annotation.Nullable;
  *                         .timeoutDurationMinutes(10)
  *                         .build())
  *                     .build())
+ *                 .instanceTypeConfigs(                
+ *                     ClusterCoreInstanceFleetInstanceTypeConfigArgs.builder()
+ *                         .ebsConfigs(ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs.builder()
+ *                             .size(100)
+ *                             .type("gp2")
+ *                             .volumesPerInstance(1)
+ *                             .build())
+ *                         .bidPriceAsPercentageOfOnDemandPrice(80.0)
+ *                         .instanceType("m3.xlarge")
+ *                         .weightedCapacity(1)
+ *                         .build(),
+ *                     ClusterCoreInstanceFleetInstanceTypeConfigArgs.builder()
+ *                         .ebsConfigs(ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs.builder()
+ *                             .size(100)
+ *                             .type("gp2")
+ *                             .volumesPerInstance(1)
+ *                             .build())
+ *                         .bidPriceAsPercentageOfOnDemandPrice(100.0)
+ *                         .instanceType("m4.xlarge")
+ *                         .weightedCapacity(1)
+ *                         .build(),
+ *                     ClusterCoreInstanceFleetInstanceTypeConfigArgs.builder()
+ *                         .ebsConfigs(ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs.builder()
+ *                             .size(100)
+ *                             .type("gp2")
+ *                             .volumesPerInstance(1)
+ *                             .build())
+ *                         .bidPriceAsPercentageOfOnDemandPrice(100.0)
+ *                         .instanceType("m4.2xlarge")
+ *                         .weightedCapacity(2)
+ *                         .build())
  *                 .name("core fleet")
  *                 .targetOnDemandCapacity(2)
  *                 .targetSpotCapacity(2)
@@ -271,28 +271,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var task = new InstanceFleet("task", InstanceFleetArgs.builder()
- *             .clusterId(example.id())
- *             .instanceTypeConfigs(            
- *                 InstanceFleetInstanceTypeConfigArgs.builder()
- *                     .bidPriceAsPercentageOfOnDemandPrice(100.0)
- *                     .ebsConfigs(InstanceFleetInstanceTypeConfigEbsConfigArgs.builder()
- *                         .size(100)
- *                         .type("gp2")
- *                         .volumesPerInstance(1)
- *                         .build())
- *                     .instanceType("m4.xlarge")
- *                     .weightedCapacity(1)
- *                     .build(),
- *                 InstanceFleetInstanceTypeConfigArgs.builder()
- *                     .bidPriceAsPercentageOfOnDemandPrice(100.0)
- *                     .ebsConfigs(InstanceFleetInstanceTypeConfigEbsConfigArgs.builder()
- *                         .size(100)
- *                         .type("gp2")
- *                         .volumesPerInstance(1)
- *                         .build())
- *                     .instanceType("m4.2xlarge")
- *                     .weightedCapacity(2)
- *                     .build())
  *             .launchSpecifications(InstanceFleetLaunchSpecificationsArgs.builder()
  *                 .spotSpecifications(InstanceFleetLaunchSpecificationsSpotSpecificationArgs.builder()
  *                     .allocationStrategy("capacity-optimized")
@@ -301,6 +279,28 @@ import javax.annotation.Nullable;
  *                     .timeoutDurationMinutes(10)
  *                     .build())
  *                 .build())
+ *             .instanceTypeConfigs(            
+ *                 InstanceFleetInstanceTypeConfigArgs.builder()
+ *                     .ebsConfigs(InstanceFleetInstanceTypeConfigEbsConfigArgs.builder()
+ *                         .size(100)
+ *                         .type("gp2")
+ *                         .volumesPerInstance(1)
+ *                         .build())
+ *                     .bidPriceAsPercentageOfOnDemandPrice(100.0)
+ *                     .instanceType("m4.xlarge")
+ *                     .weightedCapacity(1)
+ *                     .build(),
+ *                 InstanceFleetInstanceTypeConfigArgs.builder()
+ *                     .ebsConfigs(InstanceFleetInstanceTypeConfigEbsConfigArgs.builder()
+ *                         .size(100)
+ *                         .type("gp2")
+ *                         .volumesPerInstance(1)
+ *                         .build())
+ *                     .bidPriceAsPercentageOfOnDemandPrice(100.0)
+ *                     .instanceType("m4.2xlarge")
+ *                     .weightedCapacity(2)
+ *                     .build())
+ *             .clusterId(example.id())
  *             .name("task fleet")
  *             .targetOnDemandCapacity(1)
  *             .targetSpotCapacity(1)
@@ -326,6 +326,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.emr.ClusterArgs;
  * import com.pulumi.aws.emr.inputs.ClusterStepArgs;
  * import com.pulumi.aws.emr.inputs.ClusterStepHadoopJarStepArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -341,14 +342,16 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Cluster("example", ClusterArgs.builder()
  *             .steps(ClusterStepArgs.builder()
- *                 .actionOnFailure("TERMINATE_CLUSTER")
- *                 .name("Setup Hadoop Debugging")
  *                 .hadoopJarStep(ClusterStepHadoopJarStepArgs.builder()
  *                     .jar("command-runner.jar")
  *                     .args("state-pusher-script")
  *                     .build())
+ *                 .actionOnFailure("TERMINATE_CLUSTER")
+ *                 .name("Setup Hadoop Debugging")
  *                 .build())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .ignoreChanges("steps")
+ *                 .build());
  * 
  *     }
  * }
@@ -394,8 +397,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()
- *             .releaseLabel("emr-5.24.1")
- *             .terminationProtection(true)
  *             .ec2Attributes(ClusterEc2AttributesArgs.builder()
  *                 .subnetId(example.id())
  *                 .build())
@@ -404,6 +405,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .coreInstanceGroup(ClusterCoreInstanceGroupArgs.builder()
  *                 .build())
+ *             .releaseLabel("emr-5.24.1")
+ *             .terminationProtection(true)
  *             .build());
  * 
  *     }
@@ -429,6 +432,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.emr.Cluster;
+ * import com.pulumi.aws.emr.ClusterArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -442,7 +447,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Cluster("example");
+ *         var example = new Cluster("example", ClusterArgs.Empty, CustomResourceOptions.builder()
+ *             .ignoreChanges("kerberosAttributes")
+ *             .build());
  * 
  *     }
  * }

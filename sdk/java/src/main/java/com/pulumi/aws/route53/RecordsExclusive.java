@@ -62,11 +62,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var test = new RecordsExclusive("test", RecordsExclusiveArgs.builder()
- *             .zoneId(testAwsRoute53Zone.zoneId())
  *             .resourceRecordSets(RecordsExclusiveResourceRecordSetArgs.builder()
- *                 .name("subdomain.example.com")
- *                 .type("A")
- *                 .ttl(30)
  *                 .resourceRecords(                
  *                     RecordsExclusiveResourceRecordSetResourceRecordArgs.builder()
  *                         .value("127.0.0.1")
@@ -74,7 +70,11 @@ import javax.annotation.Nullable;
  *                     RecordsExclusiveResourceRecordSetResourceRecordArgs.builder()
  *                         .value("127.0.0.27")
  *                         .build())
+ *                 .name("subdomain.example.com")
+ *                 .type("A")
+ *                 .ttl(30)
  *                 .build())
+ *             .zoneId(testAwsRoute53Zone.zoneId())
  *             .build());
  * 
  *     }

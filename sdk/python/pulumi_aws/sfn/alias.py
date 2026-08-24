@@ -218,13 +218,12 @@ class Alias(pulumi.CustomResource):
         import pulumi_aws as aws
 
         sfn_alias = aws.sfn.Alias("sfn_alias",
-            name="my_sfn_alias",
             routing_configurations=[{
                 "state_machine_version_arn": sfn_test["stateMachineVersionArn"],
                 "weight": 100,
-            }])
+            }],
+            name="my_sfn_alias")
         my_sfn_alias = aws.sfn.Alias("my_sfn_alias",
-            name="my_sfn_alias",
             routing_configurations=[
                 {
                     "state_machine_version_arn": "arn:aws:states:us-east-1:12345:stateMachine:demo:3",
@@ -234,7 +233,8 @@ class Alias(pulumi.CustomResource):
                     "state_machine_version_arn": "arn:aws:states:us-east-1:12345:stateMachine:demo:2",
                     "weight": 50,
                 },
-            ])
+            ],
+            name="my_sfn_alias")
         ```
 
         ## Import
@@ -277,13 +277,12 @@ class Alias(pulumi.CustomResource):
         import pulumi_aws as aws
 
         sfn_alias = aws.sfn.Alias("sfn_alias",
-            name="my_sfn_alias",
             routing_configurations=[{
                 "state_machine_version_arn": sfn_test["stateMachineVersionArn"],
                 "weight": 100,
-            }])
+            }],
+            name="my_sfn_alias")
         my_sfn_alias = aws.sfn.Alias("my_sfn_alias",
-            name="my_sfn_alias",
             routing_configurations=[
                 {
                     "state_machine_version_arn": "arn:aws:states:us-east-1:12345:stateMachine:demo:3",
@@ -293,7 +292,8 @@ class Alias(pulumi.CustomResource):
                     "state_machine_version_arn": "arn:aws:states:us-east-1:12345:stateMachine:demo:2",
                     "weight": 50,
                 },
-            ])
+            ],
+            name="my_sfn_alias")
         ```
 
         ## Import

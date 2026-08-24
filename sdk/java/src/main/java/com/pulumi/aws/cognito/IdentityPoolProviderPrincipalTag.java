@@ -66,13 +66,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleIdentityPool = new IdentityPool("exampleIdentityPool", IdentityPoolArgs.builder()
- *             .identityPoolName("identity pool")
- *             .allowUnauthenticatedIdentities(false)
  *             .cognitoIdentityProviders(IdentityPoolCognitoIdentityProviderArgs.builder()
  *                 .clientId(exampleUserPoolClient.id())
  *                 .providerName(example.endpoint())
  *                 .serverSideTokenCheck(false)
  *                 .build())
+ *             .identityPoolName("identity pool")
+ *             .allowUnauthenticatedIdentities(false)
  *             .build());
  * 
  *         var exampleIdentityPoolProviderPrincipalTag = new IdentityPoolProviderPrincipalTag("exampleIdentityPoolProviderPrincipalTag", IdentityPoolProviderPrincipalTagArgs.builder()

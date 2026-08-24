@@ -45,13 +45,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Build("test", BuildArgs.builder()
- *             .name("example-build")
- *             .operatingSystem("WINDOWS_2012")
  *             .storageLocation(BuildStorageLocationArgs.builder()
  *                 .bucket(testAwsS3Bucket.id())
  *                 .key(testAwsS3Object.key())
  *                 .roleArn(testAwsIamRole.arn())
  *                 .build())
+ *             .name("example-build")
+ *             .operatingSystem("WINDOWS_2012")
  *             .build());
  * 
  *     }

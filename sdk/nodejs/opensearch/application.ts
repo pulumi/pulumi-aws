@@ -28,7 +28,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.opensearch.Application("example", {
- *     name: "my-opensearch-app",
  *     appConfigs: [
  *         {
  *             key: "opensearchDashboards.dashboardAdmin.users",
@@ -39,6 +38,7 @@ import * as utilities from "../utilities";
  *             value: "admin-group",
  *         },
  *     ],
+ *     name: "my-opensearch-app",
  *     tags: {
  *         Environment: "production",
  *         Team: "data-platform",
@@ -53,8 +53,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.opensearch.Domain("example", {
- *     domainName: "example-domain",
- *     engineVersion: "OpenSearch_2.3",
  *     clusterConfig: {
  *         instanceType: "t3.small.search",
  *     },
@@ -62,13 +60,15 @@ import * as utilities from "../utilities";
  *         ebsEnabled: true,
  *         volumeSize: 20,
  *     },
+ *     domainName: "example-domain",
+ *     engineVersion: "OpenSearch_2.3",
  * });
  * const exampleApplication = new aws.opensearch.Application("example", {
- *     name: "my-opensearch-app",
  *     dataSources: [{
  *         dataSourceArn: example.arn,
  *         dataSourceDescription: "Primary OpenSearch domain for analytics",
  *     }],
+ *     name: "my-opensearch-app",
  *     tags: {
  *         Environment: "production",
  *     },
@@ -156,12 +156,12 @@ import * as utilities from "../utilities";
  *     policyArn: opensearchIdentityCenter.arn,
  * });
  * const exampleApplication = new aws.opensearch.Application("example", {
- *     name: "my-opensearch-app",
  *     iamIdentityCenterOptions: {
  *         enabled: true,
  *         iamIdentityCenterInstanceArn: example.then(example => example.arns?.[0]),
  *         iamRoleForIdentityCenterApplicationArn: opensearchApplication.arn,
  *     },
+ *     name: "my-opensearch-app",
  *     tags: {
  *         Environment: "production",
  *     },

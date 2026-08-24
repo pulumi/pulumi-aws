@@ -115,11 +115,11 @@ def get_components(filters: Optional[Sequence[Union['GetComponentsFilterArgs', '
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.imagebuilder.get_components(owner="Self",
-        filters=[{
+    example = aws.imagebuilder.get_components(filters=[{
             "name": "platform",
             "values": ["Linux"],
-        }])
+        }],
+        owner="Self")
     ```
 
 
@@ -154,11 +154,11 @@ def get_components_output(filters: pulumi.Input[Optional[Optional[Sequence[Union
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.imagebuilder.get_components(owner="Self",
-        filters=[{
+    example = aws.imagebuilder.get_components(filters=[{
             "name": "platform",
             "values": ["Linux"],
-        }])
+        }],
+        owner="Self")
     ```
 
 

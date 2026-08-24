@@ -904,16 +904,16 @@ class Subnet(pulumi.CustomResource):
             ipv4_netmask_length=24,
             opts = pulumi.ResourceOptions(depends_on=[test_vpc_ipam_pool_cidr]))
         vpc = aws.ec2.VpcIpamPool("vpc",
-            address_family="ipv4",
-            ipam_scope_id=test.private_default_scope_id,
-            locale=current.region,
-            source_ipam_pool_id=test_vpc_ipam_pool.id,
             source_resource={
                 "resource_id": test_vpc.id,
                 "resource_owner": current_aws_caller_identity["accountId"],
                 "resource_region": current.region,
                 "resource_type": "vpc",
-            })
+            },
+            address_family="ipv4",
+            ipam_scope_id=test.private_default_scope_id,
+            locale=current.region,
+            source_ipam_pool_id=test_vpc_ipam_pool.id)
         vpc_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("vpc",
             ipam_pool_id=vpc.id,
             cidr=test_vpc.cidr_block)
@@ -1041,16 +1041,16 @@ class Subnet(pulumi.CustomResource):
             ipv4_netmask_length=24,
             opts = pulumi.ResourceOptions(depends_on=[test_vpc_ipam_pool_cidr]))
         vpc = aws.ec2.VpcIpamPool("vpc",
-            address_family="ipv4",
-            ipam_scope_id=test.private_default_scope_id,
-            locale=current.region,
-            source_ipam_pool_id=test_vpc_ipam_pool.id,
             source_resource={
                 "resource_id": test_vpc.id,
                 "resource_owner": current_aws_caller_identity["accountId"],
                 "resource_region": current.region,
                 "resource_type": "vpc",
-            })
+            },
+            address_family="ipv4",
+            ipam_scope_id=test.private_default_scope_id,
+            locale=current.region,
+            source_ipam_pool_id=test_vpc_ipam_pool.id)
         vpc_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("vpc",
             ipam_pool_id=vpc.id,
             cidr=test_vpc.cidr_block)

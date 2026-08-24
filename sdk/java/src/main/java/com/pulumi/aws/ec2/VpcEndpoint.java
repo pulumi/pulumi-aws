@@ -202,9 +202,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var ec2 = new VpcEndpoint("ec2", VpcEndpointArgs.builder()
- *             .vpcId(example.id())
- *             .serviceName("com.amazonaws.us-west-2.ec2")
- *             .vpcEndpointType("Interface")
  *             .subnetConfigurations(            
  *                 VpcEndpointSubnetConfigurationArgs.builder()
  *                     .ipv4("10.0.1.10")
@@ -214,6 +211,9 @@ import javax.annotation.Nullable;
  *                     .ipv4("10.0.2.10")
  *                     .subnetId(example2.id())
  *                     .build())
+ *             .vpcId(example.id())
+ *             .serviceName("com.amazonaws.us-west-2.ec2")
+ *             .vpcEndpointType("Interface")
  *             .subnetIds(            
  *                 example1.id(),
  *                 example2.id())

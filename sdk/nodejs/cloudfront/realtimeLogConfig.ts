@@ -20,11 +20,11 @@ import * as utilities from "../utilities";
  *
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["cloudfront.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
@@ -50,19 +50,19 @@ import * as utilities from "../utilities";
  *     policy: example.then(example => example.json),
  * });
  * const exampleRealtimeLogConfig = new aws.cloudfront.RealtimeLogConfig("example", {
+ *     endpoint: {
+ *         kinesisStreamConfig: {
+ *             roleArn: exampleRole.arn,
+ *             streamArn: exampleAwsKinesisStream.arn,
+ *         },
+ *         streamType: "Kinesis",
+ *     },
  *     name: "example",
  *     samplingRate: 75,
  *     fields: [
  *         "timestamp",
  *         "c-ip",
  *     ],
- *     endpoint: {
- *         streamType: "Kinesis",
- *         kinesisStreamConfig: {
- *             roleArn: exampleRole.arn,
- *             streamArn: exampleAwsKinesisStream.arn,
- *         },
- *     },
  * }, {
  *     dependsOn: [exampleRolePolicy],
  * });
@@ -90,6 +90,13 @@ import * as utilities from "../utilities";
  * `,
  * });
  * const exampleRealtimeLogConfig = new aws.cloudfront.RealtimeLogConfig("example", {
+ *     endpoint: {
+ *         kinesisStreamConfig: {
+ *             roleArn: exampleAwsIamRole.arn,
+ *             streamArn: exampleAwsKinesisStream.arn,
+ *         },
+ *         streamType: "Kinesis",
+ *     },
  *     name: "example",
  *     samplingRate: 100,
  *     fields: [
@@ -99,13 +106,6 @@ import * as utilities from "../utilities";
  *         "viewer-request-log-data",
  *         "viewer-response-log-data",
  *     ],
- *     endpoint: {
- *         streamType: "Kinesis",
- *         kinesisStreamConfig: {
- *             roleArn: exampleAwsIamRole.arn,
- *             streamArn: exampleAwsKinesisStream.arn,
- *         },
- *     },
  * }, {
  *     dependsOn: [exampleAwsIamRolePolicy],
  * });

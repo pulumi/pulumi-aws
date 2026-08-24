@@ -49,7 +49,6 @@ namespace Pulumi.Aws.VerifiedPermissions
     /// 
     ///     var exampleIdentitySource = new Aws.VerifiedPermissions.IdentitySource("example", new()
     ///     {
-    ///         PolicyStoreId = example.Id,
     ///         Configuration = new Aws.VerifiedPermissions.Inputs.IdentitySourceConfigurationArgs
     ///         {
     ///             CognitoUserPoolConfiguration = new Aws.VerifiedPermissions.Inputs.IdentitySourceConfigurationCognitoUserPoolConfigurationArgs
@@ -61,6 +60,7 @@ namespace Pulumi.Aws.VerifiedPermissions
     ///                 },
     ///             },
     ///         },
+    ///         PolicyStoreId = example.Id,
     ///     });
     /// 
     /// });
@@ -86,12 +86,10 @@ namespace Pulumi.Aws.VerifiedPermissions
     /// 
     ///     var exampleIdentitySource = new Aws.VerifiedPermissions.IdentitySource("example", new()
     ///     {
-    ///         PolicyStoreId = example.Id,
     ///         Configuration = new Aws.VerifiedPermissions.Inputs.IdentitySourceConfigurationArgs
     ///         {
     ///             OpenIdConnectConfiguration = new Aws.VerifiedPermissions.Inputs.IdentitySourceConfigurationOpenIdConnectConfigurationArgs
     ///             {
-    ///                 Issuer = "https://auth.example.com",
     ///                 TokenSelection = new Aws.VerifiedPermissions.Inputs.IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs
     ///                 {
     ///                     AccessTokenOnly = new Aws.VerifiedPermissions.Inputs.IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs
@@ -103,14 +101,16 @@ namespace Pulumi.Aws.VerifiedPermissions
     ///                         PrincipalIdClaim = "sub",
     ///                     },
     ///                 },
-    ///                 EntityIdPrefix = "MyOIDCProvider",
     ///                 GroupConfiguration = new Aws.VerifiedPermissions.Inputs.IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs
     ///                 {
     ///                     GroupClaim = "groups",
     ///                     GroupEntityType = "MyCorp::UserGroup",
     ///                 },
+    ///                 Issuer = "https://auth.example.com",
+    ///                 EntityIdPrefix = "MyOIDCProvider",
     ///             },
     ///         },
+    ///         PolicyStoreId = example.Id,
     ///         PrincipalEntityType = "MyCorp::User",
     ///     });
     /// 

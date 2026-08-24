@@ -365,14 +365,14 @@ class Access(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.transfer.Access("test",
-            external_id="S-1-1-12-1234567890-123456789-1234567890-1234",
-            server_id=test_aws_transfer_server["id"],
-            role=test_aws_iam_role["arn"],
-            home_directory=f"/{test_aws_efs_file_system['id']}/",
             posix_profile={
                 "gid": 1000,
                 "uid": 1000,
-            })
+            },
+            external_id="S-1-1-12-1234567890-123456789-1234567890-1234",
+            server_id=test_aws_transfer_server["id"],
+            role=test_aws_iam_role["arn"],
+            home_directory=f"/{test_aws_efs_file_system['id']}/")
         ```
 
         ## Import
@@ -429,14 +429,14 @@ class Access(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.transfer.Access("test",
-            external_id="S-1-1-12-1234567890-123456789-1234567890-1234",
-            server_id=test_aws_transfer_server["id"],
-            role=test_aws_iam_role["arn"],
-            home_directory=f"/{test_aws_efs_file_system['id']}/",
             posix_profile={
                 "gid": 1000,
                 "uid": 1000,
-            })
+            },
+            external_id="S-1-1-12-1234567890-123456789-1234567890-1234",
+            server_id=test_aws_transfer_server["id"],
+            role=test_aws_iam_role["arn"],
+            home_directory=f"/{test_aws_efs_file_system['id']}/")
         ```
 
         ## Import

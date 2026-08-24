@@ -306,15 +306,15 @@ class Alias(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.Alias("example",
-            name="staging",
-            description="Staging environment with traffic splitting",
-            function_name=example_aws_lambda_function["functionName"],
-            function_version="2",
             routing_config={
                 "additional_version_weights": {
                     "1": 0.1,
                 },
-            })
+            },
+            name="staging",
+            description="Staging environment with traffic splitting",
+            function_name=example_aws_lambda_function["functionName"],
+            function_version="2")
         ```
 
         ### Blue-Green Deployment Alias
@@ -325,15 +325,15 @@ class Alias(pulumi.CustomResource):
 
         # Alias for gradual rollout
         example = aws.lambda_.Alias("example",
-            name="live",
-            description="Live traffic with gradual rollout to new version",
-            function_name=example_aws_lambda_function["functionName"],
-            function_version="5",
             routing_config={
                 "additional_version_weights": {
                     "6": 0.05,
                 },
-            })
+            },
+            name="live",
+            description="Live traffic with gradual rollout to new version",
+            function_name=example_aws_lambda_function["functionName"],
+            function_version="5")
         ```
 
         ### Development Alias
@@ -402,15 +402,15 @@ class Alias(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.Alias("example",
-            name="staging",
-            description="Staging environment with traffic splitting",
-            function_name=example_aws_lambda_function["functionName"],
-            function_version="2",
             routing_config={
                 "additional_version_weights": {
                     "1": 0.1,
                 },
-            })
+            },
+            name="staging",
+            description="Staging environment with traffic splitting",
+            function_name=example_aws_lambda_function["functionName"],
+            function_version="2")
         ```
 
         ### Blue-Green Deployment Alias
@@ -421,15 +421,15 @@ class Alias(pulumi.CustomResource):
 
         # Alias for gradual rollout
         example = aws.lambda_.Alias("example",
-            name="live",
-            description="Live traffic with gradual rollout to new version",
-            function_name=example_aws_lambda_function["functionName"],
-            function_version="5",
             routing_config={
                 "additional_version_weights": {
                     "6": 0.05,
                 },
-            })
+            },
+            name="live",
+            description="Live traffic with gradual rollout to new version",
+            function_name=example_aws_lambda_function["functionName"],
+            function_version="5")
         ```
 
         ### Development Alias

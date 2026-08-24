@@ -25,12 +25,8 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var test = new Aws.Connect.QuickConnect("test", new()
     ///     {
-    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-    ///         Name = "Example Name",
-    ///         Description = "quick connect phone number",
     ///         QuickConnectConfig = new Aws.Connect.Inputs.QuickConnectQuickConnectConfigArgs
     ///         {
-    ///             QuickConnectType = "PHONE_NUMBER",
     ///             PhoneConfigs = new[]
     ///             {
     ///                 new Aws.Connect.Inputs.QuickConnectQuickConnectConfigPhoneConfigArgs
@@ -38,7 +34,11 @@ namespace Pulumi.Aws.Connect
     ///                     PhoneNumber = "+12345678912",
     ///                 },
     ///             },
+    ///             QuickConnectType = "PHONE_NUMBER",
     ///         },
+    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+    ///         Name = "Example Name",
+    ///         Description = "quick connect phone number",
     ///         Tags = 
     ///         {
     ///             { "Name", "Example Quick Connect" },

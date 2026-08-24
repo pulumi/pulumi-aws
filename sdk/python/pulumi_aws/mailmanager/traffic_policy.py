@@ -324,20 +324,20 @@ class TrafficPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mailmanager.TrafficPolicy("example",
-            default_action="ALLOW",
-            name="example",
             policy_statements=[{
-                "action": "DENY",
                 "conditions": [{
                     "ip_expression": {
-                        "operator": "CIDR_MATCHES",
-                        "values": ["192.0.2.0/24"],
                         "evaluate": {
                             "attribute": "SENDER_IP",
                         },
+                        "operator": "CIDR_MATCHES",
+                        "values": ["192.0.2.0/24"],
                     },
                 }],
-            }])
+                "action": "DENY",
+            }],
+            default_action="ALLOW",
+            name="example")
         ```
 
         ## Import
@@ -389,20 +389,20 @@ class TrafficPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mailmanager.TrafficPolicy("example",
-            default_action="ALLOW",
-            name="example",
             policy_statements=[{
-                "action": "DENY",
                 "conditions": [{
                     "ip_expression": {
-                        "operator": "CIDR_MATCHES",
-                        "values": ["192.0.2.0/24"],
                         "evaluate": {
                             "attribute": "SENDER_IP",
                         },
+                        "operator": "CIDR_MATCHES",
+                        "values": ["192.0.2.0/24"],
                     },
                 }],
-            }])
+                "action": "DENY",
+            }],
+            default_action="ALLOW",
+            name="example")
         ```
 
         ## Import

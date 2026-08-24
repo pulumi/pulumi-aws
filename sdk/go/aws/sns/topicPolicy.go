@@ -38,9 +38,25 @@ import (
 //				return err
 //			}
 //			snsTopicPolicy := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				PolicyId: pulumi.String("__default_policy_ID"),
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
+//						Conditions: iam.GetPolicyDocumentStatementConditionArray{
+//							&iam.GetPolicyDocumentStatementConditionArgs{
+//								Test:     pulumi.String("StringEquals"),
+//								Variable: pulumi.String("AWS:SourceOwner"),
+//								Values: pulumi.StringArray{
+//									account_id,
+//								},
+//							},
+//						},
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Type: pulumi.String("AWS"),
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String("*"),
+//								},
+//							},
+//						},
 //						Actions: pulumi.StringArray{
 //							pulumi.String("SNS:Subscribe"),
 //							pulumi.String("SNS:SetTopicAttributes"),
@@ -52,30 +68,14 @@ import (
 //							pulumi.String("SNS:DeleteTopic"),
 //							pulumi.String("SNS:AddPermission"),
 //						},
-//						Conditions: iam.GetPolicyDocumentStatementConditionArray{
-//							&iam.GetPolicyDocumentStatementConditionArgs{
-//								Test:     pulumi.String("StringEquals"),
-//								Variable: pulumi.String("AWS:SourceOwner"),
-//								Values: pulumi.StringArray{
-//									account_id,
-//								},
-//							},
-//						},
 //						Effect: pulumi.String("Allow"),
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Type: pulumi.String("AWS"),
-//								Identifiers: pulumi.StringArray{
-//									pulumi.String("*"),
-//								},
-//							},
-//						},
 //						Resources: pulumi.StringArray{
 //							test.Arn,
 //						},
 //						Sid: pulumi.String("__default_statement_ID"),
 //					},
 //				},
+//				PolicyId: pulumi.String("__default_policy_ID"),
 //			}, nil)
 //			_, err = sns.NewTopicPolicy(ctx, "default", &sns.TopicPolicyArgs{
 //				Arn:    test.Arn,

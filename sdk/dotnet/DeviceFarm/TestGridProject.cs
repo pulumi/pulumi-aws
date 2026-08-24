@@ -26,13 +26,13 @@ namespace Pulumi.Aws.DeviceFarm
     /// {
     ///     var example = new Aws.DeviceFarm.TestGridProject("example", new()
     ///     {
-    ///         Name = "example",
     ///         VpcConfig = new Aws.DeviceFarm.Inputs.TestGridProjectVpcConfigArgs
     ///         {
     ///             VpcId = exampleAwsVpc.Id,
     ///             SubnetIds = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
     ///             SecurityGroupIds = exampleAwsSecurityGroup.Select(__item =&gt; __item.Id).ToList(),
     ///         },
+    ///         Name = "example",
     ///     });
     /// 
     /// });

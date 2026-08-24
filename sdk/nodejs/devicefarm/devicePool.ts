@@ -17,13 +17,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.devicefarm.DevicePool("example", {
- *     name: "example",
- *     projectArn: exampleAwsDevicefarmProject.arn,
  *     rules: [{
  *         attribute: "OS_VERSION",
  *         operator: "EQUALS",
  *         value: "\"AVAILABLE\"",
  *     }],
+ *     name: "example",
+ *     projectArn: exampleAwsDevicefarmProject.arn,
  * });
  * ```
  *

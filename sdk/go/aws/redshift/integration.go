@@ -33,19 +33,19 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := dynamodb.NewTable(ctx, "example", &dynamodb.TableArgs{
-//				Name:          pulumi.String("dynamodb-table-example"),
-//				ReadCapacity:  pulumi.Int(1),
-//				WriteCapacity: pulumi.Int(1),
-//				HashKey:       pulumi.String("example"),
+//				PointInTimeRecovery: &dynamodb.TablePointInTimeRecoveryArgs{
+//					Enabled: pulumi.Bool(true),
+//				},
 //				Attributes: dynamodb.TableAttributeArray{
 //					&dynamodb.TableAttributeArgs{
 //						Name: pulumi.String("example"),
 //						Type: pulumi.String("S"),
 //					},
 //				},
-//				PointInTimeRecovery: &dynamodb.TablePointInTimeRecoveryArgs{
-//					Enabled: pulumi.Bool(true),
-//				},
+//				Name:          pulumi.String("dynamodb-table-example"),
+//				ReadCapacity:  pulumi.Int(1),
+//				WriteCapacity: pulumi.Int(1),
+//				HashKey:       pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -57,6 +57,12 @@ import (
 //				return err
 //			}
 //			_, err = redshiftserverless.NewWorkgroup(ctx, "example", &redshiftserverless.WorkgroupArgs{
+//				ConfigParameters: redshiftserverless.WorkgroupConfigParameterArray{
+//					&redshiftserverless.WorkgroupConfigParameterArgs{
+//						ParameterKey:   pulumi.String("enable_case_sensitive_identifier"),
+//						ParameterValue: pulumi.String("true"),
+//					},
+//				},
 //				NamespaceName:      exampleNamespace.NamespaceName,
 //				WorkgroupName:      pulumi.String("example-workgroup"),
 //				BaseCapacity:       pulumi.Int(8),
@@ -65,12 +71,6 @@ import (
 //					example1.Id,
 //					example2.Id,
 //					example3.Id,
-//				},
-//				ConfigParameters: redshiftserverless.WorkgroupConfigParameterArray{
-//					&redshiftserverless.WorkgroupConfigParameterArgs{
-//						ParameterKey:   pulumi.String("enable_case_sensitive_identifier"),
-//						ParameterValue: pulumi.String("true"),
-//					},
 //				},
 //			})
 //			if err != nil {

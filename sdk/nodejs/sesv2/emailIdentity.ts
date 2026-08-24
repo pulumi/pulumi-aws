@@ -52,11 +52,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sesv2.EmailIdentity("example", {
- *     emailIdentity: "example.com",
  *     dkimSigningAttributes: {
  *         domainSigningPrivateKey: "MIIJKAIBAAKCAgEA2Se7p8zvnI4yh+Gh9j2rG5e2aRXjg03Y8saiupLnadPH9xvM...",
  *         domainSigningSelector: "example",
  *     },
+ *     emailIdentity: "example.com",
  * });
  * ```
  *

@@ -30,7 +30,6 @@ namespace Pulumi.Aws.Dlm
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -42,6 +41,7 @@ namespace Pulumi.Aws.Dlm
     ///                         },
     ///                     },
     ///                 },
+    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "sts:AssumeRole",
@@ -101,20 +101,12 @@ namespace Pulumi.Aws.Dlm
     /// 
     ///     var example = new Aws.Dlm.LifecyclePolicy("example", new()
     ///     {
-    ///         Description = "example DLM lifecycle policy",
-    ///         ExecutionRoleArn = dlmLifecycleRole.Arn,
-    ///         State = "ENABLED",
     ///         PolicyDetails = new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsArgs
     ///         {
-    ///             ResourceTypes = new[]
-    ///             {
-    ///                 "VOLUME",
-    ///             },
     ///             Schedules = new[]
     ///             {
     ///                 new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsScheduleArgs
     ///                 {
-    ///                     Name = "2 weeks of daily snapshots",
     ///                     CreateRule = new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs
     ///                     {
     ///                         Interval = 24,
@@ -125,6 +117,7 @@ namespace Pulumi.Aws.Dlm
     ///                     {
     ///                         Count = 14,
     ///                     },
+    ///                     Name = "2 weeks of daily snapshots",
     ///                     TagsToAdd = 
     ///                     {
     ///                         { "SnapshotCreator", "DLM" },
@@ -132,11 +125,18 @@ namespace Pulumi.Aws.Dlm
     ///                     CopyTags = false,
     ///                 },
     ///             },
+    ///             ResourceTypes = new[]
+    ///             {
+    ///                 "VOLUME",
+    ///             },
     ///             TargetTags = 
     ///             {
     ///                 { "Snapshot", "true" },
     ///             },
     ///         },
+    ///         Description = "example DLM lifecycle policy",
+    ///         ExecutionRoleArn = dlmLifecycleRole.Arn,
+    ///         State = "ENABLED",
     ///     });
     /// 
     /// });
@@ -154,14 +154,8 @@ namespace Pulumi.Aws.Dlm
     /// {
     ///     var example = new Aws.Dlm.LifecyclePolicy("example", new()
     ///     {
-    ///         Description = "tf-acc-basic",
-    ///         ExecutionRoleArn = exampleAwsIamRole.Arn,
-    ///         DefaultPolicy = "VOLUME",
     ///         PolicyDetails = new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsArgs
     ///         {
-    ///             CreateInterval = 5,
-    ///             ResourceType = "VOLUME",
-    ///             PolicyLanguage = "SIMPLIFIED",
     ///             Exclusions = new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsExclusionsArgs
     ///             {
     ///                 ExcludeBootVolumes = false,
@@ -174,7 +168,13 @@ namespace Pulumi.Aws.Dlm
     ///                     "gp2",
     ///                 },
     ///             },
+    ///             CreateInterval = 5,
+    ///             ResourceType = "VOLUME",
+    ///             PolicyLanguage = "SIMPLIFIED",
     ///         },
+    ///         Description = "tf-acc-basic",
+    ///         ExecutionRoleArn = exampleAwsIamRole.Arn,
+    ///         DefaultPolicy = "VOLUME",
     ///     });
     /// 
     /// });
@@ -199,8 +199,6 @@ namespace Pulumi.Aws.Dlm
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Sid = "Enable IAM User Permissions",
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -212,6 +210,8 @@ namespace Pulumi.Aws.Dlm
     ///                         },
     ///                     },
     ///                 },
+    ///                 Sid = "Enable IAM User Permissions",
+    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "kms:*",
@@ -232,20 +232,12 @@ namespace Pulumi.Aws.Dlm
     /// 
     ///     var example = new Aws.Dlm.LifecyclePolicy("example", new()
     ///     {
-    ///         Description = "example DLM lifecycle policy",
-    ///         ExecutionRoleArn = dlmLifecycleRole.Arn,
-    ///         State = "ENABLED",
     ///         PolicyDetails = new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsArgs
     ///         {
-    ///             ResourceTypes = new[]
-    ///             {
-    ///                 "VOLUME",
-    ///             },
     ///             Schedules = new[]
     ///             {
     ///                 new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsScheduleArgs
     ///                 {
-    ///                     Name = "2 weeks of daily snapshots",
     ///                     CreateRule = new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs
     ///                     {
     ///                         Interval = 24,
@@ -256,33 +248,41 @@ namespace Pulumi.Aws.Dlm
     ///                     {
     ///                         Count = 14,
     ///                     },
-    ///                     TagsToAdd = 
-    ///                     {
-    ///                         { "SnapshotCreator", "DLM" },
-    ///                     },
-    ///                     CopyTags = false,
     ///                     CrossRegionCopyRules = new[]
     ///                     {
     ///                         new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs
     ///                         {
-    ///                             Target = "us-west-2",
-    ///                             Encrypted = true,
-    ///                             CmkArn = dlmCrossRegionCopyCmk.Arn,
-    ///                             CopyTags = true,
     ///                             RetainRule = new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs
     ///                             {
     ///                                 Interval = 30,
     ///                                 IntervalUnit = "DAYS",
     ///                             },
+    ///                             Target = "us-west-2",
+    ///                             Encrypted = true,
+    ///                             CmkArn = dlmCrossRegionCopyCmk.Arn,
+    ///                             CopyTags = true,
     ///                         },
     ///                     },
+    ///                     Name = "2 weeks of daily snapshots",
+    ///                     TagsToAdd = 
+    ///                     {
+    ///                         { "SnapshotCreator", "DLM" },
+    ///                     },
+    ///                     CopyTags = false,
     ///                 },
+    ///             },
+    ///             ResourceTypes = new[]
+    ///             {
+    ///                 "VOLUME",
     ///             },
     ///             TargetTags = 
     ///             {
     ///                 { "Snapshot", "true" },
     ///             },
     ///         },
+    ///         Description = "example DLM lifecycle policy",
+    ///         ExecutionRoleArn = dlmLifecycleRole.Arn,
+    ///         State = "ENABLED",
     ///     });
     /// 
     /// });
@@ -302,14 +302,10 @@ namespace Pulumi.Aws.Dlm
     /// 
     ///     var exampleLifecyclePolicy = new Aws.Dlm.LifecyclePolicy("example", new()
     ///     {
-    ///         Description = "tf-acc-basic",
-    ///         ExecutionRoleArn = exampleAwsIamRole.Arn,
     ///         PolicyDetails = new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsArgs
     ///         {
-    ///             PolicyType = "EVENT_BASED_POLICY",
     ///             Action = new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsActionArgs
     ///             {
-    ///                 Name = "tf-acc-basic",
     ///                 CrossRegionCopies = new[]
     ///                 {
     ///                     new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs
@@ -323,10 +319,10 @@ namespace Pulumi.Aws.Dlm
     ///                         Target = "us-east-1",
     ///                     },
     ///                 },
+    ///                 Name = "tf-acc-basic",
     ///             },
     ///             EventSource = new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsEventSourceArgs
     ///             {
-    ///                 Type = "MANAGED_CWE",
     ///                 Parameters = new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsEventSourceParametersArgs
     ///                 {
     ///                     DescriptionRegex = "^.*Created for policy: policy-1234567890abcdef0.*$",
@@ -336,8 +332,12 @@ namespace Pulumi.Aws.Dlm
     ///                         current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
     ///                     },
     ///                 },
+    ///                 Type = "MANAGED_CWE",
     ///             },
+    ///             PolicyType = "EVENT_BASED_POLICY",
     ///         },
+    ///         Description = "tf-acc-basic",
+    ///         ExecutionRoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     ///     var example = Aws.Iam.GetPolicy.Invoke(new()
@@ -377,40 +377,40 @@ namespace Pulumi.Aws.Dlm
     /// 
     ///     var exampleLifecyclePolicy = new Aws.Dlm.LifecyclePolicy("example", new()
     ///     {
-    ///         Description = "tf-acc-basic",
-    ///         ExecutionRoleArn = exampleAwsIamRole.Arn,
     ///         PolicyDetails = new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsArgs
     ///         {
-    ///             ResourceTypes = new[]
-    ///             {
-    ///                 "INSTANCE",
-    ///             },
     ///             Schedules = new[]
     ///             {
     ///                 new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsScheduleArgs
     ///                 {
-    ///                     Name = "Windows VSS",
     ///                     CreateRule = new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs
     ///                     {
-    ///                         Interval = 12,
     ///                         Scripts = new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsArgs
     ///                         {
     ///                             ExecuteOperationOnScriptFailure = false,
     ///                             ExecutionHandler = "AWS_VSS_BACKUP",
     ///                             MaximumRetryCount = 2,
     ///                         },
+    ///                         Interval = 12,
     ///                     },
     ///                     RetainRule = new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs
     ///                     {
     ///                         Count = 10,
     ///                     },
+    ///                     Name = "Windows VSS",
     ///                 },
+    ///             },
+    ///             ResourceTypes = new[]
+    ///             {
+    ///                 "INSTANCE",
     ///             },
     ///             TargetTags = 
     ///             {
     ///                 { "tag1", "Windows" },
     ///             },
     ///         },
+    ///         Description = "tf-acc-basic",
+    ///         ExecutionRoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });

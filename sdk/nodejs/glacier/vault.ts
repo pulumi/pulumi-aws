@@ -21,12 +21,12 @@ import * as utilities from "../utilities";
  * const awsSnsTopic = new aws.sns.Topic("aws_sns_topic", {name: "glacier-sns-topic"});
  * const myArchive = aws.iam.getPolicyDocument({
  *     statements: [{
- *         sid: "add-read-only-perm",
- *         effect: "Allow",
  *         principals: [{
  *             type: "*",
  *             identifiers: ["*"],
  *         }],
+ *         sid: "add-read-only-perm",
+ *         effect: "Allow",
  *         actions: [
  *             "glacier:InitiateJob",
  *             "glacier:GetJobOutput",
@@ -35,7 +35,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const myArchiveVault = new aws.glacier.Vault("my_archive", {
- *     name: "MyArchive",
  *     notification: {
  *         snsTopic: awsSnsTopic.arn,
  *         events: [
@@ -43,6 +42,7 @@ import * as utilities from "../utilities";
  *             "InventoryRetrievalCompleted",
  *         ],
  *     },
+ *     name: "MyArchive",
  *     accessPolicy: myArchive.then(myArchive => myArchive.json),
  *     tags: {
  *         Test: "MyArchive",

@@ -141,16 +141,16 @@ import (
 //				return err
 //			}
 //			vpc, err := ec2.NewVpcIpamPool(ctx, "vpc", &ec2.VpcIpamPoolArgs{
-//				AddressFamily:    pulumi.String("ipv4"),
-//				IpamScopeId:      test.PrivateDefaultScopeId,
-//				Locale:           pulumi.String(current.Region),
-//				SourceIpamPoolId: testVpcIpamPool.ID().ToIDOutput().ToStringOutput(),
 //				SourceResource: &ec2.VpcIpamPoolSourceResourceArgs{
 //					ResourceId:     testVpc.ID().ToIDOutput().ToStringOutput(),
 //					ResourceOwner:  pulumi.Any(currentAwsCallerIdentity.AccountId),
 //					ResourceRegion: pulumi.String(current.Region),
 //					ResourceType:   pulumi.String("vpc"),
 //				},
+//				AddressFamily:    pulumi.String("ipv4"),
+//				IpamScopeId:      test.PrivateDefaultScopeId,
+//				Locale:           pulumi.String(current.Region),
+//				SourceIpamPoolId: testVpcIpamPool.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

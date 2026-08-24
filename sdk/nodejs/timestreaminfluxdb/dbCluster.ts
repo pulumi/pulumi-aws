@@ -89,11 +89,11 @@ import * as utilities from "../utilities";
  * });
  * const example = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
- *         actions: ["s3:PutObject"],
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["timestream-influxdb.amazonaws.com"],
  *         }],
+ *         actions: ["s3:PutObject"],
  *         resources: [pulumi.interpolate`${exampleBucket.arn}/*`],
  *     }],
  * });
@@ -102,6 +102,12 @@ import * as utilities from "../utilities";
  *     policy: example.json,
  * });
  * const exampleDbCluster = new aws.timestreaminfluxdb.DbCluster("example", {
+ *     logDeliveryConfiguration: {
+ *         s3Configuration: {
+ *             bucketName: exampleBucket.bucket,
+ *             enabled: true,
+ *         },
+ *     },
  *     allocatedStorage: 20,
  *     bucket: "example-bucket-name",
  *     dbInstanceType: "db.influx.medium",
@@ -114,12 +120,6 @@ import * as utilities from "../utilities";
  *     ],
  *     vpcSecurityGroupIds: [exampleAwsSecurityGroup.id],
  *     name: "example-db-cluster",
- *     logDeliveryConfiguration: {
- *         s3Configuration: {
- *             bucketName: exampleBucket.bucket,
- *             enabled: true,
- *         },
- *     },
  * });
  * ```
  *
@@ -132,6 +132,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.timestreaminfluxdb.DbCluster("example", {
+ *     maintenanceSchedule: {
+ *         preferredMaintenanceWindow: "Sun:02:00-Sun:06:00",
+ *         timezone: "America/New_York",
+ *     },
  *     name: "example-v3-cluster",
  *     dbInstanceType: "db.influx.large",
  *     dbParameterGroupIdentifier: "InfluxDBV3Core",
@@ -140,10 +144,6 @@ import * as utilities from "../utilities";
  *         example2.id,
  *     ],
  *     vpcSecurityGroupIds: [exampleAwsSecurityGroup.id],
- *     maintenanceSchedule: {
- *         preferredMaintenanceWindow: "Sun:02:00-Sun:06:00",
- *         timezone: "America/New_York",
- *     },
  * });
  * ```
  *

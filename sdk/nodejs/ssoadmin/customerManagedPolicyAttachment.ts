@@ -38,12 +38,12 @@ import * as utilities from "../utilities";
  *     }),
  * });
  * const exampleCustomerManagedPolicyAttachment = new aws.ssoadmin.CustomerManagedPolicyAttachment("example", {
- *     instanceArn: examplePermissionSet.instanceArn,
- *     permissionSetArn: examplePermissionSet.arn,
  *     customerManagedPolicyReference: {
  *         name: examplePolicy.name,
  *         path: "/",
  *     },
+ *     instanceArn: examplePermissionSet.instanceArn,
+ *     permissionSetArn: examplePermissionSet.arn,
  * });
  * ```
  *

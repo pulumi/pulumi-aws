@@ -34,33 +34,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := emr.NewInstanceFleet(ctx, "task", &emr.InstanceFleetArgs{
-//				ClusterId: pulumi.Any(cluster.Id),
-//				InstanceTypeConfigs: emr.InstanceFleetInstanceTypeConfigArray{
-//					&emr.InstanceFleetInstanceTypeConfigArgs{
-//						BidPriceAsPercentageOfOnDemandPrice: pulumi.Float64(100),
-//						EbsConfigs: emr.InstanceFleetInstanceTypeConfigEbsConfigArray{
-//							&emr.InstanceFleetInstanceTypeConfigEbsConfigArgs{
-//								Size:               pulumi.Int(100),
-//								Type:               pulumi.String("gp2"),
-//								VolumesPerInstance: pulumi.Int(1),
-//							},
-//						},
-//						InstanceType:     pulumi.String("m4.xlarge"),
-//						WeightedCapacity: pulumi.Int(1),
-//					},
-//					&emr.InstanceFleetInstanceTypeConfigArgs{
-//						BidPriceAsPercentageOfOnDemandPrice: pulumi.Float64(100),
-//						EbsConfigs: emr.InstanceFleetInstanceTypeConfigEbsConfigArray{
-//							&emr.InstanceFleetInstanceTypeConfigEbsConfigArgs{
-//								Size:               pulumi.Int(100),
-//								Type:               pulumi.String("gp2"),
-//								VolumesPerInstance: pulumi.Int(1),
-//							},
-//						},
-//						InstanceType:     pulumi.String("m4.2xlarge"),
-//						WeightedCapacity: pulumi.Int(2),
-//					},
-//				},
 //				LaunchSpecifications: &emr.InstanceFleetLaunchSpecificationsArgs{
 //					SpotSpecifications: emr.InstanceFleetLaunchSpecificationsSpotSpecificationArray{
 //						&emr.InstanceFleetLaunchSpecificationsSpotSpecificationArgs{
@@ -71,6 +44,33 @@ import (
 //						},
 //					},
 //				},
+//				InstanceTypeConfigs: emr.InstanceFleetInstanceTypeConfigArray{
+//					&emr.InstanceFleetInstanceTypeConfigArgs{
+//						EbsConfigs: emr.InstanceFleetInstanceTypeConfigEbsConfigArray{
+//							&emr.InstanceFleetInstanceTypeConfigEbsConfigArgs{
+//								Size:               pulumi.Int(100),
+//								Type:               pulumi.String("gp2"),
+//								VolumesPerInstance: pulumi.Int(1),
+//							},
+//						},
+//						BidPriceAsPercentageOfOnDemandPrice: pulumi.Float64(100),
+//						InstanceType:                        pulumi.String("m4.xlarge"),
+//						WeightedCapacity:                    pulumi.Int(1),
+//					},
+//					&emr.InstanceFleetInstanceTypeConfigArgs{
+//						EbsConfigs: emr.InstanceFleetInstanceTypeConfigEbsConfigArray{
+//							&emr.InstanceFleetInstanceTypeConfigEbsConfigArgs{
+//								Size:               pulumi.Int(100),
+//								Type:               pulumi.String("gp2"),
+//								VolumesPerInstance: pulumi.Int(1),
+//							},
+//						},
+//						BidPriceAsPercentageOfOnDemandPrice: pulumi.Float64(100),
+//						InstanceType:                        pulumi.String("m4.2xlarge"),
+//						WeightedCapacity:                    pulumi.Int(2),
+//					},
+//				},
+//				ClusterId:              pulumi.Any(cluster.Id),
 //				Name:                   pulumi.String("task fleet"),
 //				TargetOnDemandCapacity: pulumi.Int(1),
 //				TargetSpotCapacity:     pulumi.Int(1),

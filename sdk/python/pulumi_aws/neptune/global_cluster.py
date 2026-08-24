@@ -385,7 +385,7 @@ class GlobalCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.neptune.Cluster("example")
+        example = aws.neptune.Cluster("example", opts = pulumi.ResourceOptions(ignore_changes=["globalClusterIdentifier"]))
         example_global_cluster = aws.neptune.GlobalCluster("example",
             global_cluster_identifier="example",
             source_db_cluster_identifier=example.arn)
@@ -405,7 +405,7 @@ class GlobalCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.neptune.GlobalCluster("example")
+        example = aws.neptune.GlobalCluster("example", opts = pulumi.ResourceOptions(ignore_changes=["sourceDbClusterIdentifier"]))
         ```
 
 
@@ -477,7 +477,7 @@ class GlobalCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.neptune.Cluster("example")
+        example = aws.neptune.Cluster("example", opts = pulumi.ResourceOptions(ignore_changes=["globalClusterIdentifier"]))
         example_global_cluster = aws.neptune.GlobalCluster("example",
             global_cluster_identifier="example",
             source_db_cluster_identifier=example.arn)
@@ -497,7 +497,7 @@ class GlobalCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.neptune.GlobalCluster("example")
+        example = aws.neptune.GlobalCluster("example", opts = pulumi.ResourceOptions(ignore_changes=["sourceDbClusterIdentifier"]))
         ```
 
 

@@ -221,11 +221,11 @@ class Recorder(pulumi.CustomResource):
         import pulumi_aws as aws
 
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["config.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         r = aws.iam.Role("r",
@@ -243,17 +243,17 @@ class Recorder(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foo = aws.cfg.Recorder("foo",
-            name="example",
-            role_arn=r["arn"],
             recording_group={
-                "all_supported": False,
                 "exclusion_by_resource_types": [{
                     "resource_types": ["AWS::EC2::Instance"],
                 }],
                 "recording_strategies": [{
                     "use_only": "EXCLUSION_BY_RESOURCE_TYPES",
                 }],
-            })
+                "all_supported": False,
+            },
+            name="example",
+            role_arn=r["arn"])
         ```
 
         ### Periodic Recording
@@ -263,8 +263,6 @@ class Recorder(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foo = aws.cfg.Recorder("foo",
-            name="example",
-            role_arn=r["arn"],
             recording_group={
                 "all_supported": False,
                 "include_global_resource_types": False,
@@ -274,13 +272,15 @@ class Recorder(pulumi.CustomResource):
                 ],
             },
             recording_mode={
-                "recording_frequency": "CONTINUOUS",
                 "recording_mode_override": {
                     "description": "Only record EC2 network interfaces daily",
                     "resource_types": ["AWS::EC2::NetworkInterface"],
                     "recording_frequency": "DAILY",
                 },
-            })
+                "recording_frequency": "CONTINUOUS",
+            },
+            name="example",
+            role_arn=r["arn"])
         ```
 
         ## Import
@@ -331,11 +331,11 @@ class Recorder(pulumi.CustomResource):
         import pulumi_aws as aws
 
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["config.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         r = aws.iam.Role("r",
@@ -353,17 +353,17 @@ class Recorder(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foo = aws.cfg.Recorder("foo",
-            name="example",
-            role_arn=r["arn"],
             recording_group={
-                "all_supported": False,
                 "exclusion_by_resource_types": [{
                     "resource_types": ["AWS::EC2::Instance"],
                 }],
                 "recording_strategies": [{
                     "use_only": "EXCLUSION_BY_RESOURCE_TYPES",
                 }],
-            })
+                "all_supported": False,
+            },
+            name="example",
+            role_arn=r["arn"])
         ```
 
         ### Periodic Recording
@@ -373,8 +373,6 @@ class Recorder(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foo = aws.cfg.Recorder("foo",
-            name="example",
-            role_arn=r["arn"],
             recording_group={
                 "all_supported": False,
                 "include_global_resource_types": False,
@@ -384,13 +382,15 @@ class Recorder(pulumi.CustomResource):
                 ],
             },
             recording_mode={
-                "recording_frequency": "CONTINUOUS",
                 "recording_mode_override": {
                     "description": "Only record EC2 network interfaces daily",
                     "resource_types": ["AWS::EC2::NetworkInterface"],
                     "recording_frequency": "DAILY",
                 },
-            })
+                "recording_frequency": "CONTINUOUS",
+            },
+            name="example",
+            role_arn=r["arn"])
         ```
 
         ## Import

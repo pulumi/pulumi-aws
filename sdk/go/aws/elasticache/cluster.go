@@ -139,12 +139,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := elasticache.NewCluster(ctx, "test", &elasticache.ClusterArgs{
-//				ClusterId:        pulumi.String("mycluster"),
-//				Engine:           pulumi.String("redis"),
-//				NodeType:         pulumi.String("cache.t3.micro"),
-//				NumCacheNodes:    pulumi.Int(1),
-//				Port:             pulumi.Int(6379),
-//				ApplyImmediately: pulumi.Bool(true),
 //				LogDeliveryConfigurations: elasticache.ClusterLogDeliveryConfigurationArray{
 //					&elasticache.ClusterLogDeliveryConfigurationArgs{
 //						Destination:     pulumi.Any(example.Name),
@@ -159,6 +153,12 @@ import (
 //						LogType:         pulumi.String("engine-log"),
 //					},
 //				},
+//				ClusterId:        pulumi.String("mycluster"),
+//				Engine:           pulumi.String("redis"),
+//				NodeType:         pulumi.String("cache.t3.micro"),
+//				NumCacheNodes:    pulumi.Int(1),
+//				Port:             pulumi.Int(6379),
+//				ApplyImmediately: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err

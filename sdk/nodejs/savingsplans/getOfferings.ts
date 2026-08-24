@@ -19,11 +19,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.savingsplans.getOfferings({
- *     productType: "EC2",
  *     filters: [{
  *         name: "region",
  *         values: ["us-west-2"],
  *     }],
+ *     productType: "EC2",
  * });
  * ```
  */
@@ -127,11 +127,11 @@ export interface GetOfferingsResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.savingsplans.getOfferings({
- *     productType: "EC2",
  *     filters: [{
  *         name: "region",
  *         values: ["us-west-2"],
  *     }],
+ *     productType: "EC2",
  * });
  * ```
  */

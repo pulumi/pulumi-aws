@@ -31,11 +31,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewMonitoringSchedule(ctx, "test", &sagemaker.MonitoringScheduleArgs{
-//				Name: pulumi.String("my-monitoring-schedule"),
 //				MonitoringScheduleConfig: &sagemaker.MonitoringScheduleMonitoringScheduleConfigArgs{
 //					MonitoringJobDefinitionName: pulumi.Any(testAwsSagemakerDataQualityJobDefinition.Name),
 //					MonitoringType:              pulumi.String("DataQuality"),
 //				},
+//				Name: pulumi.String("my-monitoring-schedule"),
 //			})
 //			if err != nil {
 //				return err

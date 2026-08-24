@@ -36,12 +36,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.securityhub.AutomationRule;
  * import com.pulumi.aws.securityhub.AutomationRuleArgs;
+ * import com.pulumi.aws.securityhub.inputs.AutomationRuleCriteriaArgs;
+ * import com.pulumi.aws.securityhub.inputs.AutomationRuleCriteriaResourceIdArgs;
  * import com.pulumi.aws.securityhub.inputs.AutomationRuleActionArgs;
  * import com.pulumi.aws.securityhub.inputs.AutomationRuleActionFindingFieldsUpdateArgs;
  * import com.pulumi.aws.securityhub.inputs.AutomationRuleActionFindingFieldsUpdateSeverityArgs;
  * import com.pulumi.aws.securityhub.inputs.AutomationRuleActionFindingFieldsUpdateNoteArgs;
- * import com.pulumi.aws.securityhub.inputs.AutomationRuleCriteriaArgs;
- * import com.pulumi.aws.securityhub.inputs.AutomationRuleCriteriaResourceIdArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -56,9 +56,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AutomationRule("example", AutomationRuleArgs.builder()
- *             .description("Elevate finding severity to CRITICAL when specific resources such as an S3 bucket is at risk")
- *             .ruleName("Elevate severity of findings that relate to important resources")
- *             .ruleOrder(1)
+ *             .criteria(AutomationRuleCriteriaArgs.builder()
+ *                 .resourceIds(AutomationRuleCriteriaResourceIdArgs.builder()
+ *                     .comparison("EQUALS")
+ *                     .value("arn:aws:s3:::examplebucket/*")
+ *                     .build())
+ *                 .build())
  *             .actions(AutomationRuleActionArgs.builder()
  *                 .findingFieldsUpdate(AutomationRuleActionFindingFieldsUpdateArgs.builder()
  *                     .severity(AutomationRuleActionFindingFieldsUpdateSeverityArgs.builder()
@@ -74,12 +77,9 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .type("FINDING_FIELDS_UPDATE")
  *                 .build())
- *             .criteria(AutomationRuleCriteriaArgs.builder()
- *                 .resourceIds(AutomationRuleCriteriaResourceIdArgs.builder()
- *                     .comparison("EQUALS")
- *                     .value("arn:aws:s3:::examplebucket/*")
- *                     .build())
- *                 .build())
+ *             .description("Elevate finding severity to CRITICAL when specific resources such as an S3 bucket is at risk")
+ *             .ruleName("Elevate severity of findings that relate to important resources")
+ *             .ruleOrder(1)
  *             .build());
  * 
  *     }

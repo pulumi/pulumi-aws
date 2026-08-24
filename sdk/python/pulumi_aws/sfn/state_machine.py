@@ -610,6 +610,11 @@ class StateMachine(pulumi.CustomResource):
 
         # ...
         sfn_state_machine = aws.sfn.StateMachine("sfn_state_machine",
+            logging_configuration={
+                "log_destination": f"{log_group_for_sfn['arn']}:*",
+                "include_execution_data": True,
+                "level": "ERROR",
+            },
             name="my-state-machine",
             role_arn=iam_for_sfn["arn"],
             definition=f\"\"\"{{
@@ -623,12 +628,7 @@ class StateMachine(pulumi.CustomResource):
             }}
           }}
         }}
-        \"\"\",
-            logging_configuration={
-                "log_destination": f"{log_group_for_sfn['arn']}:*",
-                "include_execution_data": True,
-                "level": "ERROR",
-            })
+        \"\"\")
         ```
 
         ### Encryption
@@ -641,6 +641,11 @@ class StateMachine(pulumi.CustomResource):
 
         # ...
         sfn_state_machine = aws.sfn.StateMachine("sfn_state_machine",
+            encryption_configuration={
+                "kms_key_id": kms_key_for_sfn["arn"],
+                "type": "CUSTOMER_MANAGED_KMS_KEY",
+                "kms_data_key_reuse_period_seconds": 900,
+            },
             name="my-state-machine",
             role_arn=iam_for_sfn["arn"],
             definition=f\"\"\"{{
@@ -654,12 +659,7 @@ class StateMachine(pulumi.CustomResource):
             }}
           }}
         }}
-        \"\"\",
-            encryption_configuration={
-                "kms_key_id": kms_key_for_sfn["arn"],
-                "type": "CUSTOMER_MANAGED_KMS_KEY",
-                "kms_data_key_reuse_period_seconds": 900,
-            })
+        \"\"\")
         ```
 
         ## Import
@@ -787,6 +787,11 @@ class StateMachine(pulumi.CustomResource):
 
         # ...
         sfn_state_machine = aws.sfn.StateMachine("sfn_state_machine",
+            logging_configuration={
+                "log_destination": f"{log_group_for_sfn['arn']}:*",
+                "include_execution_data": True,
+                "level": "ERROR",
+            },
             name="my-state-machine",
             role_arn=iam_for_sfn["arn"],
             definition=f\"\"\"{{
@@ -800,12 +805,7 @@ class StateMachine(pulumi.CustomResource):
             }}
           }}
         }}
-        \"\"\",
-            logging_configuration={
-                "log_destination": f"{log_group_for_sfn['arn']}:*",
-                "include_execution_data": True,
-                "level": "ERROR",
-            })
+        \"\"\")
         ```
 
         ### Encryption
@@ -818,6 +818,11 @@ class StateMachine(pulumi.CustomResource):
 
         # ...
         sfn_state_machine = aws.sfn.StateMachine("sfn_state_machine",
+            encryption_configuration={
+                "kms_key_id": kms_key_for_sfn["arn"],
+                "type": "CUSTOMER_MANAGED_KMS_KEY",
+                "kms_data_key_reuse_period_seconds": 900,
+            },
             name="my-state-machine",
             role_arn=iam_for_sfn["arn"],
             definition=f\"\"\"{{
@@ -831,12 +836,7 @@ class StateMachine(pulumi.CustomResource):
             }}
           }}
         }}
-        \"\"\",
-            encryption_configuration={
-                "kms_key_id": kms_key_for_sfn["arn"],
-                "type": "CUSTOMER_MANAGED_KMS_KEY",
-                "kms_data_key_reuse_period_seconds": 900,
-            })
+        \"\"\")
         ```
 
         ## Import

@@ -152,7 +152,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var private_ = new Zone("private", ZoneArgs.builder()
- *             .name("example.com")
  *             .vpcs(            
  *                 ZoneVpcArgs.builder()
  *                     .vpcId(primary.id())
@@ -160,6 +159,7 @@ import javax.annotation.Nullable;
  *                 ZoneVpcArgs.builder()
  *                     .vpcId(secondary.id())
  *                     .build())
+ *             .name("example.com")
  *             .build());
  * 
  *     }

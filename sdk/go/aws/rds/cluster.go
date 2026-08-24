@@ -204,6 +204,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := rds.NewCluster(ctx, "example", &rds.ClusterArgs{
+//				Serverlessv2ScalingConfiguration: &rds.ClusterServerlessv2ScalingConfigurationArgs{
+//					MaxCapacity:           pulumi.Float64(1),
+//					MinCapacity:           pulumi.Float64(0),
+//					SecondsUntilAutoPause: pulumi.Int(3600),
+//				},
 //				ClusterIdentifier: pulumi.String("example"),
 //				Engine:            pulumi.String(rds.EngineTypeAuroraPostgresql),
 //				EngineMode:        pulumi.String(rds.EngineModeProvisioned),
@@ -212,11 +217,6 @@ import (
 //				MasterUsername:    pulumi.String("test"),
 //				MasterPassword:    pulumi.String("must_be_eight_characters"),
 //				StorageEncrypted:  pulumi.Bool(true),
-//				Serverlessv2ScalingConfiguration: &rds.ClusterServerlessv2ScalingConfigurationArgs{
-//					MaxCapacity:           pulumi.Float64(1),
-//					MinCapacity:           pulumi.Float64(0),
-//					SecondsUntilAutoPause: pulumi.Int(3600),
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -336,7 +336,10 @@ import (
 //				EngineVersion:      pulumi.String("5.6.mysql_aurora.1.22.4"),
 //				ClusterIdentifier:  pulumi.String("example"),
 //				SnapshotIdentifier: pulumi.String(example.Id),
-//			})
+//			}, pulumi.IgnoreChanges([]string{
+//				"snapshotIdentifier",
+//				"globalClusterIdentifier",
+//			}))
 //			if err != nil {
 //				return err
 //			}

@@ -56,11 +56,6 @@ import (
 //				return err
 //			}
 //			_, err = fsx.NewDataRepositoryAssociation(ctx, "example", &fsx.DataRepositoryAssociationArgs{
-//				FileSystemId: exampleLustreFileSystem.ID().ToIDOutput().ToStringOutput(),
-//				DataRepositoryPath: example.ID().ApplyT(func(id pulumi.ID) (string, error) {
-//					return fmt.Sprintf("s3://%v", id), nil
-//				}).(pulumi.StringOutput),
-//				FileSystemPath: pulumi.String("/my-bucket"),
 //				S3: &fsx.DataRepositoryAssociationS3Args{
 //					AutoExportPolicy: &fsx.DataRepositoryAssociationS3AutoExportPolicyArgs{
 //						Events: pulumi.StringArray{
@@ -77,6 +72,11 @@ import (
 //						},
 //					},
 //				},
+//				FileSystemId: exampleLustreFileSystem.ID().ToIDOutput().ToStringOutput(),
+//				DataRepositoryPath: example.ID().ApplyT(func(id pulumi.ID) (string, error) {
+//					return fmt.Sprintf("s3://%v", id), nil
+//				}).(pulumi.StringOutput),
+//				FileSystemPath: pulumi.String("/my-bucket"),
 //			})
 //			if err != nil {
 //				return err

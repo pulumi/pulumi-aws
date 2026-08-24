@@ -26,12 +26,12 @@ namespace Pulumi.Aws.SecretsManager
     /// {
     ///     var example = new Aws.SecretsManager.SecretRotation("example", new()
     ///     {
-    ///         SecretId = exampleAwsSecretsmanagerSecret.Id,
-    ///         RotationLambdaArn = exampleAwsLambdaFunction.Arn,
     ///         RotationRules = new Aws.SecretsManager.Inputs.SecretRotationRotationRulesArgs
     ///         {
     ///             AutomaticallyAfterDays = 30,
     ///         },
+    ///         SecretId = exampleAwsSecretsmanagerSecret.Id,
+    ///         RotationLambdaArn = exampleAwsLambdaFunction.Arn,
     ///     });
     /// 
     /// });
@@ -57,8 +57,10 @@ namespace Pulumi.Aws.SecretsManager
     /// 
     ///     var exampleSecretRotation = new Aws.SecretsManager.SecretRotation("example", new()
     ///     {
-    ///         SecretId = example.Id,
-    ///         ExternalSecretRotationRoleArn = exampleAwsIamRole.Arn,
+    ///         RotationRules = new Aws.SecretsManager.Inputs.SecretRotationRotationRulesArgs
+    ///         {
+    ///             AutomaticallyAfterDays = rotationDays,
+    ///         },
     ///         ExternalSecretRotationMetadatas = new[]
     ///         {
     ///             new Aws.SecretsManager.Inputs.SecretRotationExternalSecretRotationMetadataArgs
@@ -72,10 +74,8 @@ namespace Pulumi.Aws.SecretsManager
     ///                 Value = "v65.0",
     ///             },
     ///         },
-    ///         RotationRules = new Aws.SecretsManager.Inputs.SecretRotationRotationRulesArgs
-    ///         {
-    ///             AutomaticallyAfterDays = rotationDays,
-    ///         },
+    ///         SecretId = example.Id,
+    ///         ExternalSecretRotationRoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });

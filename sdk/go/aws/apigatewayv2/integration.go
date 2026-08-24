@@ -137,20 +137,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := apigatewayv2.NewIntegration(ctx, "example", &apigatewayv2.IntegrationArgs{
-//				ApiId:             pulumi.Any(exampleAwsApigatewayv2Api.Id),
-//				CredentialsArn:    pulumi.Any(exampleAwsIamRole.Arn),
-//				Description:       pulumi.String("Example with a load balancer"),
-//				IntegrationType:   pulumi.String("HTTP_PROXY"),
-//				IntegrationUri:    pulumi.Any(exampleAwsLbListener.Arn),
-//				IntegrationMethod: pulumi.String("ANY"),
-//				ConnectionType:    pulumi.String("VPC_LINK"),
-//				ConnectionId:      pulumi.Any(exampleAwsApigatewayv2VpcLink.Id),
 //				TlsConfig: &apigatewayv2.IntegrationTlsConfigArgs{
 //					ServerNameToVerify: pulumi.String("example.com"),
-//				},
-//				RequestParameters: pulumi.StringMap{
-//					"append:header.authforintegration": pulumi.String("$context.authorizer.authorizerResponse"),
-//					"overwrite:path":                   pulumi.String("staticValueForIntegration"),
 //				},
 //				ResponseParameters: apigatewayv2.IntegrationResponseParameterArray{
 //					&apigatewayv2.IntegrationResponseParameterArgs{
@@ -165,6 +153,18 @@ import (
 //							"overwrite:statuscode": pulumi.String("204"),
 //						},
 //					},
+//				},
+//				ApiId:             pulumi.Any(exampleAwsApigatewayv2Api.Id),
+//				CredentialsArn:    pulumi.Any(exampleAwsIamRole.Arn),
+//				Description:       pulumi.String("Example with a load balancer"),
+//				IntegrationType:   pulumi.String("HTTP_PROXY"),
+//				IntegrationUri:    pulumi.Any(exampleAwsLbListener.Arn),
+//				IntegrationMethod: pulumi.String("ANY"),
+//				ConnectionType:    pulumi.String("VPC_LINK"),
+//				ConnectionId:      pulumi.Any(exampleAwsApigatewayv2VpcLink.Id),
+//				RequestParameters: pulumi.StringMap{
+//					"append:header.authforintegration": pulumi.String("$context.authorizer.authorizerResponse"),
+//					"overwrite:path":                   pulumi.String("staticValueForIntegration"),
 //				},
 //			})
 //			if err != nil {

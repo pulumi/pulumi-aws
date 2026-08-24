@@ -31,11 +31,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := vpclattice.NewTargetGroupAttachment(ctx, "example", &vpclattice.TargetGroupAttachmentArgs{
-//				TargetGroupIdentifier: pulumi.Any(exampleAwsVpclatticeTargetGroup.Id),
 //				Target: &vpclattice.TargetGroupAttachmentTargetArgs{
 //					Id:   pulumi.Any(exampleAwsLb.Arn),
 //					Port: pulumi.Int(80),
 //				},
+//				TargetGroupIdentifier: pulumi.Any(exampleAwsVpclatticeTargetGroup.Id),
 //			})
 //			if err != nil {
 //				return err

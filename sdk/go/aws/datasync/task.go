@@ -29,12 +29,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datasync.NewTask(ctx, "example", &datasync.TaskArgs{
-//				DestinationLocationArn: pulumi.Any(destination.Arn),
-//				Name:                   pulumi.String("example"),
-//				SourceLocationArn:      pulumi.Any(source.Arn),
 //				Options: &datasync.TaskOptionsArgs{
 //					BytesPerSecond: pulumi.Int(-1),
 //				},
+//				DestinationLocationArn: pulumi.Any(destination.Arn),
+//				Name:                   pulumi.String("example"),
+//				SourceLocationArn:      pulumi.Any(source.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -60,12 +60,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datasync.NewTask(ctx, "example", &datasync.TaskArgs{
-//				DestinationLocationArn: pulumi.Any(destination.Arn),
-//				Name:                   pulumi.String("example"),
-//				SourceLocationArn:      pulumi.Any(source.Arn),
 //				Schedule: &datasync.TaskScheduleArgs{
 //					ScheduleExpression: pulumi.String("cron(0 12 ? * SUN,WED *)"),
 //				},
+//				DestinationLocationArn: pulumi.Any(destination.Arn),
+//				Name:                   pulumi.String("example"),
+//				SourceLocationArn:      pulumi.Any(source.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -91,9 +91,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datasync.NewTask(ctx, "example", &datasync.TaskArgs{
-//				DestinationLocationArn: pulumi.Any(destination.Arn),
-//				Name:                   pulumi.String("example"),
-//				SourceLocationArn:      pulumi.Any(source.Arn),
 //				Excludes: &datasync.TaskExcludesArgs{
 //					FilterType: pulumi.String("SIMPLE_PATTERN"),
 //					Value:      pulumi.String("/folder1|/folder2"),
@@ -102,6 +99,9 @@ import (
 //					FilterType: pulumi.String("SIMPLE_PATTERN"),
 //					Value:      pulumi.String("/folder1|/folder2"),
 //				},
+//				DestinationLocationArn: pulumi.Any(destination.Arn),
+//				Name:                   pulumi.String("example"),
+//				SourceLocationArn:      pulumi.Any(source.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -127,16 +127,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datasync.NewTask(ctx, "example", &datasync.TaskArgs{
-//				DestinationLocationArn: pulumi.Any(destination.Arn),
-//				Name:                   pulumi.String("example"),
-//				SourceLocationArn:      pulumi.Any(source.Arn),
-//				TaskMode:               pulumi.String("ENHANCED"),
 //				Options: &datasync.TaskOptionsArgs{
 //					Gid:              pulumi.String("NONE"),
 //					PosixPermissions: pulumi.String("NONE"),
 //					Uid:              pulumi.String("NONE"),
 //					VerifyMode:       pulumi.String("ONLY_FILES_TRANSFERRED"),
 //				},
+//				DestinationLocationArn: pulumi.Any(destination.Arn),
+//				Name:                   pulumi.String("example"),
+//				SourceLocationArn:      pulumi.Any(source.Arn),
+//				TaskMode:               pulumi.String("ENHANCED"),
 //			})
 //			if err != nil {
 //				return err

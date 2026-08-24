@@ -42,18 +42,7 @@ import (
 //				return err
 //			}
 //			_, err = comprehend.NewEntityRecognizer(ctx, "example", &comprehend.EntityRecognizerArgs{
-//				Name:              pulumi.String("example"),
-//				DataAccessRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-//				LanguageCode:      pulumi.String("en"),
 //				InputDataConfig: &comprehend.EntityRecognizerInputDataConfigArgs{
-//					EntityTypes: comprehend.EntityRecognizerInputDataConfigEntityTypeArray{
-//						&comprehend.EntityRecognizerInputDataConfigEntityTypeArgs{
-//							Type: pulumi.String("ENTITY_1"),
-//						},
-//						&comprehend.EntityRecognizerInputDataConfigEntityTypeArgs{
-//							Type: pulumi.String("ENTITY_2"),
-//						},
-//					},
 //					Documents: &comprehend.EntityRecognizerInputDataConfigDocumentsArgs{
 //						S3Uri: documents.Key.ApplyT(func(key string) (string, error) {
 //							return fmt.Sprintf("s3://%v/%v", documentsAwsS3Bucket.Bucket, key), nil
@@ -64,7 +53,18 @@ import (
 //							return fmt.Sprintf("s3://%v/%v", entitiesAwsS3Bucket.Bucket, key), nil
 //						}).(pulumi.StringOutput),
 //					},
+//					EntityTypes: comprehend.EntityRecognizerInputDataConfigEntityTypeArray{
+//						&comprehend.EntityRecognizerInputDataConfigEntityTypeArgs{
+//							Type: pulumi.String("ENTITY_1"),
+//						},
+//						&comprehend.EntityRecognizerInputDataConfigEntityTypeArgs{
+//							Type: pulumi.String("ENTITY_2"),
+//						},
+//					},
 //				},
+//				Name:              pulumi.String("example"),
+//				DataAccessRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//				LanguageCode:      pulumi.String("en"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleAwsIamRolePolicy,
 //			}))

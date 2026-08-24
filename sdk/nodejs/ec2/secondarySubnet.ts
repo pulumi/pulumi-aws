@@ -44,11 +44,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const available = aws.getAvailabilityZones({
- *     state: "available",
  *     filters: [{
  *         name: "opt-in-status",
  *         values: ["opt-in-not-required"],
  *     }],
+ *     state: "available",
  * });
  * const example = new aws.ec2.SecondaryNetwork("example", {
  *     ipv4CidrBlock: "10.0.0.0/16",

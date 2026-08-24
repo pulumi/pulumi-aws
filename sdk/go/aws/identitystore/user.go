@@ -36,9 +36,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := identitystore.NewUser(ctx, "example", &identitystore.UserArgs{
-//				IdentityStoreId: pulumi.Any(exampleAwsSsoadminInstances.IdentityStoreIds[0]),
-//				DisplayName:     pulumi.String("John Doe"),
-//				UserName:        pulumi.String("johndoe"),
 //				Name: &identitystore.UserNameArgs{
 //					GivenName:  pulumi.String("John"),
 //					FamilyName: pulumi.String("Doe"),
@@ -46,6 +43,9 @@ import (
 //				Emails: &identitystore.UserEmailsArgs{
 //					Value: pulumi.String("john@example.com"),
 //				},
+//				IdentityStoreId: pulumi.Any(exampleAwsSsoadminInstances.IdentityStoreIds[0]),
+//				DisplayName:     pulumi.String("John Doe"),
+//				UserName:        pulumi.String("johndoe"),
 //			})
 //			if err != nil {
 //				return err

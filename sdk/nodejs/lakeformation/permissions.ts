@@ -59,23 +59,23 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.glue.CatalogDatabase("example", {name: "sadabate"});
  * const exampleCatalogTable = new aws.glue.CatalogTable("example", {
- *     name: "abelt",
- *     databaseName: test.name,
  *     storageDescriptor: {
  *         columns: [{
  *             name: "event",
  *             type: "string",
  *         }],
  *     },
+ *     name: "abelt",
+ *     databaseName: test.name,
  * });
  * const examplePermissions = new aws.lakeformation.Permissions("example", {
- *     permissions: ["SELECT"],
- *     principal: "arn:aws:iam:us-east-1:123456789012:user/SanHolo",
  *     tableWithColumns: {
  *         databaseName: exampleCatalogTable.databaseName,
  *         name: exampleCatalogTable.name,
  *         columnNames: ["event"],
  *     },
+ *     permissions: ["SELECT"],
+ *     principal: "arn:aws:iam:us-east-1:123456789012:user/SanHolo",
  * });
  * ```
  *
@@ -94,13 +94,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lakeformation.Permissions("example", {
- *     permissions: ["SELECT"],
- *     principal: "123456789012:IAMPrincipals",
  *     tableWithColumns: {
  *         databaseName: exampleAwsGlueCatalogTable.databaseName,
  *         name: exampleAwsGlueCatalogTable.name,
  *         columnNames: ["event"],
  *     },
+ *     permissions: ["SELECT"],
+ *     principal: "123456789012:IAMPrincipals",
  * });
  * ```
  *
@@ -119,11 +119,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lakeformation.Permissions("example", {
- *     principal: workflowRole.arn,
- *     permissions: ["DATA_LOCATION_ACCESS"],
  *     dataLocation: {
  *         arn: exampleAwsLakeformationResource.arn,
  *     },
+ *     principal: workflowRole.arn,
+ *     permissions: ["DATA_LOCATION_ACCESS"],
  * });
  * ```
  *
@@ -134,16 +134,16 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lakeformation.Permissions("example", {
+ *     database: {
+ *         name: exampleAwsGlueCatalogDatabase.name,
+ *         catalogId: "110376042874",
+ *     },
  *     principal: workflowRole.arn,
  *     permissions: [
  *         "CREATE_TABLE",
  *         "ALTER",
  *         "DROP",
  *     ],
- *     database: {
- *         name: exampleAwsGlueCatalogDatabase.name,
- *         catalogId: "110376042874",
- *     },
  * });
  * ```
  *
@@ -154,14 +154,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.lakeformation.Permissions("test", {
- *     principal: salesRole.arn,
- *     permissions: [
- *         "CREATE_TABLE",
- *         "ALTER",
- *         "DROP",
- *     ],
  *     lfTagPolicy: {
- *         resourceType: "DATABASE",
  *         expressions: [
  *             {
  *                 key: "Team",
@@ -175,7 +168,14 @@ import * as utilities from "../utilities";
  *                 ],
  *             },
  *         ],
+ *         resourceType: "DATABASE",
  *     },
+ *     principal: salesRole.arn,
+ *     permissions: [
+ *         "CREATE_TABLE",
+ *         "ALTER",
+ *         "DROP",
+ *     ],
  * });
  * ```
  */

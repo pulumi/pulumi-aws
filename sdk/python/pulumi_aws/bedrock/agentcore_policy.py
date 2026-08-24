@@ -316,14 +316,14 @@ class AgentcorePolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentcorePolicy("example",
-            name="example_policy",
-            policy_engine_id=example_aws_bedrockagentcore_policy_engine["policyEngineId"],
-            description="Allow read access to example resources",
             definition={
                 "cedar": {
                     "statement": "permit(principal, action == Action::\\\\\\"Read\\\\\\", resource);\\n",
                 },
-            })
+            },
+            name="example_policy",
+            policy_engine_id=example_aws_bedrockagentcore_policy_engine["policyEngineId"],
+            description="Allow read access to example resources")
         ```
 
         ## Import
@@ -376,14 +376,14 @@ class AgentcorePolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentcorePolicy("example",
-            name="example_policy",
-            policy_engine_id=example_aws_bedrockagentcore_policy_engine["policyEngineId"],
-            description="Allow read access to example resources",
             definition={
                 "cedar": {
                     "statement": "permit(principal, action == Action::\\\\\\"Read\\\\\\", resource);\\n",
                 },
-            })
+            },
+            name="example_policy",
+            policy_engine_id=example_aws_bedrockagentcore_policy_engine["policyEngineId"],
+            description="Allow read access to example resources")
         ```
 
         ## Import

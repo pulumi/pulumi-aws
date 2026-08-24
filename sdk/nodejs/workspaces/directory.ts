@@ -30,9 +30,6 @@ import * as utilities from "../utilities";
  *     cidrBlock: "10.0.1.0/24",
  * });
  * const exampleDirectory = new aws.directoryservice.Directory("example", {
- *     name: "corp.example.com",
- *     password: "#S1ncerely",
- *     size: "Small",
  *     vpcSettings: {
  *         vpcId: exampleVpc.id,
  *         subnetIds: [
@@ -40,14 +37,17 @@ import * as utilities from "../utilities";
  *             exampleB.id,
  *         ],
  *     },
+ *     name: "corp.example.com",
+ *     password: "#S1ncerely",
+ *     size: "Small",
  * });
  * const workspaces = aws.iam.getPolicyDocument({
  *     statements: [{
- *         actions: ["sts:AssumeRole"],
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["workspaces.amazonaws.com"],
  *         }],
+ *         actions: ["sts:AssumeRole"],
  *     }],
  * });
  * const workspacesDefault = new aws.iam.Role("workspaces_default", {
@@ -73,14 +73,6 @@ import * as utilities from "../utilities";
  *     cidrBlock: "10.0.3.0/24",
  * });
  * const example = new aws.workspaces.Directory("example", {
- *     directoryId: exampleDirectory.id,
- *     subnetIds: [
- *         exampleC.id,
- *         exampleD.id,
- *     ],
- *     tags: {
- *         Example: "true",
- *     },
  *     certificateBasedAuthProperties: {
  *         certificateAuthorityArn: "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012",
  *         status: "ENABLED",
@@ -113,6 +105,14 @@ import * as utilities from "../utilities";
  *         enableMaintenanceMode: true,
  *         userEnabledAsLocalAdministrator: true,
  *     },
+ *     directoryId: exampleDirectory.id,
+ *     subnetIds: [
+ *         exampleC.id,
+ *         exampleD.id,
+ *     ],
+ *     tags: {
+ *         Example: "true",
+ *     },
  * }, {
  *     dependsOn: [
  *         workspacesDefaultServiceAccess,
@@ -128,14 +128,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.workspaces.Directory("example", {
- *     subnetIds: [
- *         exampleC.id,
- *         exampleD.id,
- *     ],
- *     workspaceType: "POOLS",
- *     workspaceDirectoryName: "Pool directory",
- *     workspaceDirectoryDescription: "WorkSpaces Pools directory",
- *     userIdentityType: "CUSTOMER_MANAGED",
  *     activeDirectoryConfig: {
  *         domainName: "example.internal",
  *         serviceAccountSecretArn: exampleAwsSecretsmanagerSecret.arn,
@@ -160,6 +152,14 @@ import * as utilities from "../utilities";
  *         userAccessUrl: "https://sso.example.com/",
  *         status: "ENABLED",
  *     },
+ *     subnetIds: [
+ *         exampleC.id,
+ *         exampleD.id,
+ *     ],
+ *     workspaceType: "POOLS",
+ *     workspaceDirectoryName: "Pool directory",
+ *     workspaceDirectoryDescription: "WorkSpaces Pools directory",
+ *     userIdentityType: "CUSTOMER_MANAGED",
  * });
  * ```
  *

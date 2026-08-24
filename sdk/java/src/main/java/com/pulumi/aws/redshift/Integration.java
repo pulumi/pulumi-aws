@@ -32,8 +32,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.dynamodb.Table;
  * import com.pulumi.aws.dynamodb.TableArgs;
- * import com.pulumi.aws.dynamodb.inputs.TableAttributeArgs;
  * import com.pulumi.aws.dynamodb.inputs.TablePointInTimeRecoveryArgs;
+ * import com.pulumi.aws.dynamodb.inputs.TableAttributeArgs;
  * import com.pulumi.aws.redshiftserverless.Namespace;
  * import com.pulumi.aws.redshiftserverless.NamespaceArgs;
  * import com.pulumi.aws.redshiftserverless.Workgroup;
@@ -55,17 +55,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Table("example", TableArgs.builder()
- *             .name("dynamodb-table-example")
- *             .readCapacity(1)
- *             .writeCapacity(1)
- *             .hashKey("example")
+ *             .pointInTimeRecovery(TablePointInTimeRecoveryArgs.builder()
+ *                 .enabled(true)
+ *                 .build())
  *             .attributes(TableAttributeArgs.builder()
  *                 .name("example")
  *                 .type("S")
  *                 .build())
- *             .pointInTimeRecovery(TablePointInTimeRecoveryArgs.builder()
- *                 .enabled(true)
- *                 .build())
+ *             .name("dynamodb-table-example")
+ *             .readCapacity(1)
+ *             .writeCapacity(1)
+ *             .hashKey("example")
  *             .build());
  * 
  *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()
@@ -73,6 +73,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleWorkgroup = new Workgroup("exampleWorkgroup", WorkgroupArgs.builder()
+ *             .configParameters(WorkgroupConfigParameterArgs.builder()
+ *                 .parameterKey("enable_case_sensitive_identifier")
+ *                 .parameterValue("true")
+ *                 .build())
  *             .namespaceName(exampleNamespace.namespaceName())
  *             .workgroupName("example-workgroup")
  *             .baseCapacity(8)
@@ -81,10 +85,6 @@ import javax.annotation.Nullable;
  *                 example1.id(),
  *                 example2.id(),
  *                 example3.id())
- *             .configParameters(WorkgroupConfigParameterArgs.builder()
- *                 .parameterKey("enable_case_sensitive_identifier")
- *                 .parameterValue("true")
- *                 .build())
  *             .build());
  * 
  *         var exampleIntegration = new Integration("exampleIntegration", IntegrationArgs.builder()

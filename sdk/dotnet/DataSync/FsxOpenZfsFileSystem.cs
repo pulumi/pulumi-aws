@@ -24,11 +24,6 @@ namespace Pulumi.Aws.DataSync
     /// {
     ///     var example = new Aws.DataSync.FsxOpenZfsFileSystem("example", new()
     ///     {
-    ///         FsxFilesystemArn = exampleAwsFsxOpenzfsFileSystem.Arn,
-    ///         SecurityGroupArns = new[]
-    ///         {
-    ///             exampleAwsSecurityGroup.Arn,
-    ///         },
     ///         Protocol = new Aws.DataSync.Inputs.FsxOpenZfsFileSystemProtocolArgs
     ///         {
     ///             Nfs = new Aws.DataSync.Inputs.FsxOpenZfsFileSystemProtocolNfsArgs
@@ -38,6 +33,11 @@ namespace Pulumi.Aws.DataSync
     ///                     Version = "AUTOMATIC",
     ///                 },
     ///             },
+    ///         },
+    ///         FsxFilesystemArn = exampleAwsFsxOpenzfsFileSystem.Arn,
+    ///         SecurityGroupArns = new[]
+    ///         {
+    ///             exampleAwsSecurityGroup.Arn,
     ///         },
     ///     });
     /// 

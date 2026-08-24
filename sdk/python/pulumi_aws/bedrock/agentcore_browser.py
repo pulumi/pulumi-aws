@@ -465,11 +465,11 @@ class AgentcoreBrowser(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentcoreBrowser("example",
-            name="example-browser",
-            description="Browser for web data extraction",
             network_configuration={
                 "network_mode": "PUBLIC",
-            })
+            },
+            name="example-browser",
+            description="Browser for web data extraction")
         ```
 
         ### Browser with VPC Configuration
@@ -479,10 +479,7 @@ class AgentcoreBrowser(pulumi.CustomResource):
         import pulumi_aws as aws
 
         vpc_example = aws.bedrock.AgentcoreBrowser("vpc_example",
-            name="vpc-browser",
-            description="Browser with VPC configuration",
             network_configuration={
-                "network_mode": "VPC",
                 "vpc_config": {
                     "security_groups": ["sg-12345678"],
                     "subnets": [
@@ -490,7 +487,10 @@ class AgentcoreBrowser(pulumi.CustomResource):
                         "subnet-87654321",
                     ],
                 },
-            })
+                "network_mode": "VPC",
+            },
+            name="vpc-browser",
+            description="Browser with VPC configuration")
         ```
 
         ### Browser with Execution Role and Recording
@@ -500,31 +500,31 @@ class AgentcoreBrowser(pulumi.CustomResource):
         import pulumi_aws as aws
 
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["bedrock-agentcore.amazonaws.com"],
             }],
+            "effect": "Allow",
+            "actions": ["sts:AssumeRole"],
         }])
         example = aws.iam.Role("example",
             name="bedrock-agentcore-browser-role",
             assume_role_policy=assume_role.json)
         recording = aws.s3.Bucket("recording", bucket="browser-recording-bucket")
         example_agentcore_browser = aws.bedrock.AgentcoreBrowser("example",
-            name="example-browser",
-            description="Browser with recording enabled",
-            execution_role_arn=example.arn,
             network_configuration={
                 "network_mode": "PUBLIC",
             },
             recording={
-                "enabled": True,
                 "s3_location": {
                     "bucket": recording.bucket,
                     "prefix": "browser-sessions/",
                 },
-            })
+                "enabled": True,
+            },
+            name="example-browser",
+            description="Browser with recording enabled",
+            execution_role_arn=example.arn)
         ```
 
         ## Import
@@ -569,11 +569,11 @@ class AgentcoreBrowser(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentcoreBrowser("example",
-            name="example-browser",
-            description="Browser for web data extraction",
             network_configuration={
                 "network_mode": "PUBLIC",
-            })
+            },
+            name="example-browser",
+            description="Browser for web data extraction")
         ```
 
         ### Browser with VPC Configuration
@@ -583,10 +583,7 @@ class AgentcoreBrowser(pulumi.CustomResource):
         import pulumi_aws as aws
 
         vpc_example = aws.bedrock.AgentcoreBrowser("vpc_example",
-            name="vpc-browser",
-            description="Browser with VPC configuration",
             network_configuration={
-                "network_mode": "VPC",
                 "vpc_config": {
                     "security_groups": ["sg-12345678"],
                     "subnets": [
@@ -594,7 +591,10 @@ class AgentcoreBrowser(pulumi.CustomResource):
                         "subnet-87654321",
                     ],
                 },
-            })
+                "network_mode": "VPC",
+            },
+            name="vpc-browser",
+            description="Browser with VPC configuration")
         ```
 
         ### Browser with Execution Role and Recording
@@ -604,31 +604,31 @@ class AgentcoreBrowser(pulumi.CustomResource):
         import pulumi_aws as aws
 
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["bedrock-agentcore.amazonaws.com"],
             }],
+            "effect": "Allow",
+            "actions": ["sts:AssumeRole"],
         }])
         example = aws.iam.Role("example",
             name="bedrock-agentcore-browser-role",
             assume_role_policy=assume_role.json)
         recording = aws.s3.Bucket("recording", bucket="browser-recording-bucket")
         example_agentcore_browser = aws.bedrock.AgentcoreBrowser("example",
-            name="example-browser",
-            description="Browser with recording enabled",
-            execution_role_arn=example.arn,
             network_configuration={
                 "network_mode": "PUBLIC",
             },
             recording={
-                "enabled": True,
                 "s3_location": {
                     "bucket": recording.bucket,
                     "prefix": "browser-sessions/",
                 },
-            })
+                "enabled": True,
+            },
+            name="example-browser",
+            description="Browser with recording enabled",
+            execution_role_arn=example.arn)
         ```
 
         ## Import

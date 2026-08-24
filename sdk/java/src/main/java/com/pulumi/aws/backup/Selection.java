@@ -60,11 +60,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("backup.amazonaws.com")
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
@@ -114,14 +114,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Selection("example", SelectionArgs.builder()
- *             .iamRoleArn(exampleAwsIamRole.arn())
- *             .name("my_example_backup_selection")
- *             .planId(exampleAwsBackupPlan.id())
  *             .selectionTags(SelectionSelectionTagArgs.builder()
  *                 .type("STRINGEQUALS")
  *                 .key("foo")
  *                 .value("bar")
  *                 .build())
+ *             .iamRoleArn(exampleAwsIamRole.arn())
+ *             .name("my_example_backup_selection")
+ *             .planId(exampleAwsBackupPlan.id())
  *             .build());
  * 
  *     }
@@ -159,10 +159,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Selection("example", SelectionArgs.builder()
- *             .iamRoleArn(exampleAwsIamRole.arn())
- *             .name("my_example_backup_selection")
- *             .planId(exampleAwsBackupPlan.id())
- *             .resources("*")
  *             .conditions(SelectionConditionArgs.builder()
  *                 .stringEquals(SelectionConditionStringEqualArgs.builder()
  *                     .key("aws:ResourceTag/Component")
@@ -181,6 +177,10 @@ import javax.annotation.Nullable;
  *                     .value("test*")
  *                     .build())
  *                 .build())
+ *             .iamRoleArn(exampleAwsIamRole.arn())
+ *             .name("my_example_backup_selection")
+ *             .planId(exampleAwsBackupPlan.id())
+ *             .resources("*")
  *             .build());
  * 
  *     }

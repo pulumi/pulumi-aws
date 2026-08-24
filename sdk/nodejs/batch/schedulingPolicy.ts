@@ -17,10 +17,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.batch.SchedulingPolicy("example", {
- *     name: "example",
  *     fairSharePolicy: {
- *         computeReservation: 1,
- *         shareDecaySeconds: 3600,
  *         shareDistributions: [
  *             {
  *                 shareIdentifier: "A1*",
@@ -31,7 +28,10 @@ import * as utilities from "../utilities";
  *                 weightFactor: 0.2,
  *             },
  *         ],
+ *         computeReservation: 1,
+ *         shareDecaySeconds: 3600,
  *     },
+ *     name: "example",
  *     tags: {
  *         Name: "Example Batch Scheduling Policy",
  *     },

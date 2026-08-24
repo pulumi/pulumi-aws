@@ -19,7 +19,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.apigatewayv2.RoutingRule("example", {
- *     domainName: "test.example.com",
+ *     actions: [{
+ *         invokeApi: {
+ *             apiId: "example-api-id",
+ *             stage: "example-stage",
+ *             stripBasePath: true,
+ *         },
+ *     }],
  *     conditions: [{
  *         matchHeaders: {
  *             anyOf: {
@@ -34,13 +40,7 @@ import * as utilities from "../utilities";
  *             ],
  *         },
  *     }],
- *     actions: [{
- *         invokeApi: {
- *             apiId: "example-api-id",
- *             stage: "example-stage",
- *             stripBasePath: true,
- *         },
- *     }],
+ *     domainName: "test.example.com",
  *     priority: 1,
  * });
  * ```

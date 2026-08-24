@@ -33,36 +33,36 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := fis.NewExperimentTemplate(ctx, "example", &fis.ExperimentTemplateArgs{
-//				Description: pulumi.String("example"),
-//				RoleArn:     pulumi.Any(exampleAwsIamRole.Arn),
+//				Actions: fis.ExperimentTemplateActionArray{
+//					&fis.ExperimentTemplateActionArgs{
+//						Target: &fis.ExperimentTemplateActionTargetArgs{
+//							Key:   pulumi.String("Instances"),
+//							Value: pulumi.String("example-target"),
+//						},
+//						Name:     pulumi.String("example-action"),
+//						ActionId: pulumi.String("aws:ec2:terminate-instances"),
+//					},
+//				},
 //				StopConditions: fis.ExperimentTemplateStopConditionArray{
 //					&fis.ExperimentTemplateStopConditionArgs{
 //						Source: pulumi.String("none"),
 //					},
 //				},
-//				Actions: fis.ExperimentTemplateActionArray{
-//					&fis.ExperimentTemplateActionArgs{
-//						Name:     pulumi.String("example-action"),
-//						ActionId: pulumi.String("aws:ec2:terminate-instances"),
-//						Target: &fis.ExperimentTemplateActionTargetArgs{
-//							Key:   pulumi.String("Instances"),
-//							Value: pulumi.String("example-target"),
-//						},
-//					},
-//				},
 //				Targets: fis.ExperimentTemplateTargetArray{
 //					&fis.ExperimentTemplateTargetArgs{
-//						Name:          pulumi.String("example-target"),
-//						ResourceType:  pulumi.String("aws:ec2:instance"),
-//						SelectionMode: pulumi.String("COUNT(1)"),
 //						ResourceTags: fis.ExperimentTemplateTargetResourceTagArray{
 //							&fis.ExperimentTemplateTargetResourceTagArgs{
 //								Key:   pulumi.String("env"),
 //								Value: pulumi.String("example"),
 //							},
 //						},
+//						Name:          pulumi.String("example-target"),
+//						ResourceType:  pulumi.String("aws:ec2:instance"),
+//						SelectionMode: pulumi.String("COUNT(1)"),
 //					},
 //				},
+//				Description: pulumi.String("example"),
+//				RoleArn:     pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -122,7 +122,6 @@ import (
 //				return err
 //			}
 //			reportAccess, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Version: pulumi.StringRef("2012-10-17"),
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Sid:    pulumi.StringRef("logsDelivery"),
@@ -166,6 +165,7 @@ import (
 //						},
 //					},
 //				},
+//				Version: pulumi.StringRef("2012-10-17"),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -185,36 +185,6 @@ import (
 //				return err
 //			}
 //			_, err = fis.NewExperimentTemplate(ctx, "example", &fis.ExperimentTemplateArgs{
-//				Description: pulumi.String("example"),
-//				RoleArn:     example.Arn,
-//				StopConditions: fis.ExperimentTemplateStopConditionArray{
-//					&fis.ExperimentTemplateStopConditionArgs{
-//						Source: pulumi.String("none"),
-//					},
-//				},
-//				Actions: fis.ExperimentTemplateActionArray{
-//					&fis.ExperimentTemplateActionArgs{
-//						Name:     pulumi.String("example-action"),
-//						ActionId: pulumi.String("aws:ec2:terminate-instances"),
-//						Target: &fis.ExperimentTemplateActionTargetArgs{
-//							Key:   pulumi.String("Instances"),
-//							Value: pulumi.String("example-target"),
-//						},
-//					},
-//				},
-//				Targets: fis.ExperimentTemplateTargetArray{
-//					&fis.ExperimentTemplateTargetArgs{
-//						Name:          pulumi.String("example-target"),
-//						ResourceType:  pulumi.String("aws:ec2:instance"),
-//						SelectionMode: pulumi.String("COUNT(1)"),
-//						ResourceTags: fis.ExperimentTemplateTargetResourceTagArray{
-//							&fis.ExperimentTemplateTargetResourceTagArgs{
-//								Key:   pulumi.String("env"),
-//								Value: pulumi.String("example"),
-//							},
-//						},
-//					},
-//				},
 //				ExperimentReportConfiguration: &fis.ExperimentTemplateExperimentReportConfigurationArgs{
 //					DataSources: &fis.ExperimentTemplateExperimentReportConfigurationDataSourcesArgs{
 //						CloudwatchDashboards: fis.ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArray{
@@ -232,6 +202,36 @@ import (
 //					PostExperimentDuration: pulumi.String("PT10M"),
 //					PreExperimentDuration:  pulumi.String("PT10M"),
 //				},
+//				Actions: fis.ExperimentTemplateActionArray{
+//					&fis.ExperimentTemplateActionArgs{
+//						Target: &fis.ExperimentTemplateActionTargetArgs{
+//							Key:   pulumi.String("Instances"),
+//							Value: pulumi.String("example-target"),
+//						},
+//						Name:     pulumi.String("example-action"),
+//						ActionId: pulumi.String("aws:ec2:terminate-instances"),
+//					},
+//				},
+//				StopConditions: fis.ExperimentTemplateStopConditionArray{
+//					&fis.ExperimentTemplateStopConditionArgs{
+//						Source: pulumi.String("none"),
+//					},
+//				},
+//				Targets: fis.ExperimentTemplateTargetArray{
+//					&fis.ExperimentTemplateTargetArgs{
+//						ResourceTags: fis.ExperimentTemplateTargetResourceTagArray{
+//							&fis.ExperimentTemplateTargetResourceTagArgs{
+//								Key:   pulumi.String("env"),
+//								Value: pulumi.String("example"),
+//							},
+//						},
+//						Name:          pulumi.String("example-target"),
+//						ResourceType:  pulumi.String("aws:ec2:instance"),
+//						SelectionMode: pulumi.String("COUNT(1)"),
+//					},
+//				},
+//				Description: pulumi.String("example"),
+//				RoleArn:     example.Arn,
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("example"),
 //				},

@@ -26,12 +26,12 @@ namespace Pulumi.Aws.Chime
     /// {
     ///     var example = new Aws.Chime.SdkvoiceSipMediaApplication("example", new()
     ///     {
-    ///         AwsRegion = "us-east-1",
-    ///         Name = "example-sip-media-application",
     ///         Endpoints = new Aws.Chime.Inputs.SdkvoiceSipMediaApplicationEndpointsArgs
     ///         {
     ///             LambdaArn = test.Arn,
     ///         },
+    ///         AwsRegion = "us-east-1",
+    ///         Name = "example-sip-media-application",
     ///     });
     /// 
     /// });

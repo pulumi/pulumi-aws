@@ -46,20 +46,20 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var xssMatchSet = new XssMatchSet("xssMatchSet", XssMatchSetArgs.builder()
- *             .name("xss_match_set")
  *             .xssMatchTuples(            
  *                 XssMatchSetXssMatchTupleArgs.builder()
- *                     .textTransformation("NONE")
  *                     .fieldToMatch(XssMatchSetXssMatchTupleFieldToMatchArgs.builder()
  *                         .type("URI")
  *                         .build())
+ *                     .textTransformation("NONE")
  *                     .build(),
  *                 XssMatchSetXssMatchTupleArgs.builder()
- *                     .textTransformation("NONE")
  *                     .fieldToMatch(XssMatchSetXssMatchTupleFieldToMatchArgs.builder()
  *                         .type("QUERY_STRING")
  *                         .build())
+ *                     .textTransformation("NONE")
  *                     .build())
+ *             .name("xss_match_set")
  *             .build());
  * 
  *     }

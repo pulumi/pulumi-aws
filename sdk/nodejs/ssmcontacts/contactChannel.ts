@@ -21,10 +21,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ssmcontacts.ContactChannel("example", {
- *     contactId: "arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
  *     deliveryAddress: {
  *         simpleAddress: "email@example.com",
  *     },
+ *     contactId: "arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
  *     name: "Example contact channel",
  *     type: "EMAIL",
  * });
@@ -41,10 +41,10 @@ import * as utilities from "../utilities";
  *     type: "PERSONAL",
  * });
  * const example = new aws.ssmcontacts.ContactChannel("example", {
- *     contactId: exampleContact.arn,
  *     deliveryAddress: {
  *         simpleAddress: "email@example.com",
  *     },
+ *     contactId: exampleContact.arn,
  *     name: "Example contact channel",
  *     type: "EMAIL",
  * });

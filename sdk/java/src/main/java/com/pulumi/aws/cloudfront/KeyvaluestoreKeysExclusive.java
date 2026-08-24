@@ -59,11 +59,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleKeyvaluestoreKeysExclusive = new KeyvaluestoreKeysExclusive("exampleKeyvaluestoreKeysExclusive", KeyvaluestoreKeysExclusiveArgs.builder()
- *             .keyValueStoreArn(example.arn())
  *             .resourceKeyValuePairs(KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs.builder()
  *                 .key("Test Key")
  *                 .value("Test Value")
  *                 .build())
+ *             .keyValueStoreArn(example.arn())
  *             .build());
  * 
  *     }

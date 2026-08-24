@@ -578,19 +578,6 @@ class ScheduledQuery(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.timestreamquery.ScheduledQuery("example",
-            execution_role_arn=example_aws_iam_role["arn"],
-            name=example_aws_timestreamwrite_table["tableName"],
-            query_string=\"\"\"SELECT region, az, hostname, BIN(time, 15s) AS binned_timestamp,
-        \\tROUND(AVG(cpu_utilization), 2) AS avg_cpu_utilization,
-        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.9), 2) AS p90_cpu_utilization,
-        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.95), 2) AS p95_cpu_utilization,
-        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.99), 2) AS p99_cpu_utilization
-        FROM exampledatabase.exampletable
-        WHERE measure_name = 'metrics' AND time > ago(2h)
-        GROUP BY region, hostname, az, BIN(time, 15s)
-        ORDER BY binned_timestamp ASC
-        LIMIT 5
-        \"\"\",
             error_report_configuration={
                 "s3_configuration": {
                     "bucket_name": example_aws_s3_bucket["bucket"],
@@ -606,25 +593,7 @@ class ScheduledQuery(pulumi.CustomResource):
             },
             target_configuration={
                 "timestream_configuration": {
-                    "database_name": results["databaseName"],
-                    "table_name": results_aws_timestreamwrite_table["tableName"],
-                    "time_column": "binned_timestamp",
-                    "dimension_mappings": [
-                        {
-                            "dimension_value_type": "VARCHAR",
-                            "name": "az",
-                        },
-                        {
-                            "dimension_value_type": "VARCHAR",
-                            "name": "region",
-                        },
-                        {
-                            "dimension_value_type": "VARCHAR",
-                            "name": "hostname",
-                        },
-                    ],
                     "multi_measure_mappings": {
-                        "target_multi_measure_name": "multi-metrics",
                         "multi_measure_attribute_mappings": [
                             {
                                 "measure_value_type": "DOUBLE",
@@ -643,9 +612,40 @@ class ScheduledQuery(pulumi.CustomResource):
                                 "source_column": "p99_cpu_utilization",
                             },
                         ],
+                        "target_multi_measure_name": "multi-metrics",
                     },
+                    "dimension_mappings": [
+                        {
+                            "dimension_value_type": "VARCHAR",
+                            "name": "az",
+                        },
+                        {
+                            "dimension_value_type": "VARCHAR",
+                            "name": "region",
+                        },
+                        {
+                            "dimension_value_type": "VARCHAR",
+                            "name": "hostname",
+                        },
+                    ],
+                    "database_name": results["databaseName"],
+                    "table_name": results_aws_timestreamwrite_table["tableName"],
+                    "time_column": "binned_timestamp",
                 },
-            })
+            },
+            execution_role_arn=example_aws_iam_role["arn"],
+            name=example_aws_timestreamwrite_table["tableName"],
+            query_string=\"\"\"SELECT region, az, hostname, BIN(time, 15s) AS binned_timestamp,
+        \\tROUND(AVG(cpu_utilization), 2) AS avg_cpu_utilization,
+        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.9), 2) AS p90_cpu_utilization,
+        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.95), 2) AS p95_cpu_utilization,
+        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.99), 2) AS p99_cpu_utilization
+        FROM exampledatabase.exampletable
+        WHERE measure_name = 'metrics' AND time > ago(2h)
+        GROUP BY region, hostname, az, BIN(time, 15s)
+        ORDER BY binned_timestamp ASC
+        LIMIT 5
+        \"\"\")
         ```
 
         ### Multi-step Example
@@ -728,26 +728,26 @@ class ScheduledQuery(pulumi.CustomResource):
             }))
         test_database = aws.timestreamwrite.Database("test", database_name="exampledatabase")
         test_table = aws.timestreamwrite.Table("test",
-            database_name=test_database.database_name,
-            table_name="exampletable",
             magnetic_store_write_properties={
                 "enable_magnetic_store_writes": True,
             },
             retention_properties={
                 "magnetic_store_retention_period_in_days": 1,
                 "memory_store_retention_period_in_hours": 1,
-            })
+            },
+            database_name=test_database.database_name,
+            table_name="exampletable")
         results = aws.timestreamwrite.Database("results", database_name="exampledatabase-results")
         results_table = aws.timestreamwrite.Table("results",
-            database_name=results.database_name,
-            table_name="exampletable-results",
             magnetic_store_write_properties={
                 "enable_magnetic_store_writes": True,
             },
             retention_properties={
                 "magnetic_store_retention_period_in_days": 1,
                 "memory_store_retention_period_in_hours": 1,
-            })
+            },
+            database_name=results.database_name,
+            table_name="exampletable-results")
         ```
 
         #### Step 2. Ingest data
@@ -761,19 +761,6 @@ class ScheduledQuery(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.timestreamquery.ScheduledQuery("example",
-            execution_role_arn=example_aws_iam_role["arn"],
-            name=example_aws_timestreamwrite_table["tableName"],
-            query_string=\"\"\"SELECT region, az, hostname, BIN(time, 15s) AS binned_timestamp,
-        \\tROUND(AVG(cpu_utilization), 2) AS avg_cpu_utilization,
-        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.9), 2) AS p90_cpu_utilization,
-        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.95), 2) AS p95_cpu_utilization,
-        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.99), 2) AS p99_cpu_utilization
-        FROM exampledatabase.exampletable
-        WHERE measure_name = 'metrics' AND time > ago(2h)
-        GROUP BY region, hostname, az, BIN(time, 15s)
-        ORDER BY binned_timestamp ASC
-        LIMIT 5
-        \"\"\",
             error_report_configuration={
                 "s3_configuration": {
                     "bucket_name": example_aws_s3_bucket["bucket"],
@@ -789,25 +776,7 @@ class ScheduledQuery(pulumi.CustomResource):
             },
             target_configuration={
                 "timestream_configuration": {
-                    "database_name": results["databaseName"],
-                    "table_name": results_aws_timestreamwrite_table["tableName"],
-                    "time_column": "binned_timestamp",
-                    "dimension_mappings": [
-                        {
-                            "dimension_value_type": "VARCHAR",
-                            "name": "az",
-                        },
-                        {
-                            "dimension_value_type": "VARCHAR",
-                            "name": "region",
-                        },
-                        {
-                            "dimension_value_type": "VARCHAR",
-                            "name": "hostname",
-                        },
-                    ],
                     "multi_measure_mappings": {
-                        "target_multi_measure_name": "multi-metrics",
                         "multi_measure_attribute_mappings": [
                             {
                                 "measure_value_type": "DOUBLE",
@@ -826,9 +795,40 @@ class ScheduledQuery(pulumi.CustomResource):
                                 "source_column": "p99_cpu_utilization",
                             },
                         ],
+                        "target_multi_measure_name": "multi-metrics",
                     },
+                    "dimension_mappings": [
+                        {
+                            "dimension_value_type": "VARCHAR",
+                            "name": "az",
+                        },
+                        {
+                            "dimension_value_type": "VARCHAR",
+                            "name": "region",
+                        },
+                        {
+                            "dimension_value_type": "VARCHAR",
+                            "name": "hostname",
+                        },
+                    ],
+                    "database_name": results["databaseName"],
+                    "table_name": results_aws_timestreamwrite_table["tableName"],
+                    "time_column": "binned_timestamp",
                 },
-            })
+            },
+            execution_role_arn=example_aws_iam_role["arn"],
+            name=example_aws_timestreamwrite_table["tableName"],
+            query_string=\"\"\"SELECT region, az, hostname, BIN(time, 15s) AS binned_timestamp,
+        \\tROUND(AVG(cpu_utilization), 2) AS avg_cpu_utilization,
+        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.9), 2) AS p90_cpu_utilization,
+        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.95), 2) AS p95_cpu_utilization,
+        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.99), 2) AS p99_cpu_utilization
+        FROM exampledatabase.exampletable
+        WHERE measure_name = 'metrics' AND time > ago(2h)
+        GROUP BY region, hostname, az, BIN(time, 15s)
+        ORDER BY binned_timestamp ASC
+        LIMIT 5
+        \"\"\")
         ```
 
         ## Import
@@ -879,19 +879,6 @@ class ScheduledQuery(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.timestreamquery.ScheduledQuery("example",
-            execution_role_arn=example_aws_iam_role["arn"],
-            name=example_aws_timestreamwrite_table["tableName"],
-            query_string=\"\"\"SELECT region, az, hostname, BIN(time, 15s) AS binned_timestamp,
-        \\tROUND(AVG(cpu_utilization), 2) AS avg_cpu_utilization,
-        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.9), 2) AS p90_cpu_utilization,
-        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.95), 2) AS p95_cpu_utilization,
-        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.99), 2) AS p99_cpu_utilization
-        FROM exampledatabase.exampletable
-        WHERE measure_name = 'metrics' AND time > ago(2h)
-        GROUP BY region, hostname, az, BIN(time, 15s)
-        ORDER BY binned_timestamp ASC
-        LIMIT 5
-        \"\"\",
             error_report_configuration={
                 "s3_configuration": {
                     "bucket_name": example_aws_s3_bucket["bucket"],
@@ -907,25 +894,7 @@ class ScheduledQuery(pulumi.CustomResource):
             },
             target_configuration={
                 "timestream_configuration": {
-                    "database_name": results["databaseName"],
-                    "table_name": results_aws_timestreamwrite_table["tableName"],
-                    "time_column": "binned_timestamp",
-                    "dimension_mappings": [
-                        {
-                            "dimension_value_type": "VARCHAR",
-                            "name": "az",
-                        },
-                        {
-                            "dimension_value_type": "VARCHAR",
-                            "name": "region",
-                        },
-                        {
-                            "dimension_value_type": "VARCHAR",
-                            "name": "hostname",
-                        },
-                    ],
                     "multi_measure_mappings": {
-                        "target_multi_measure_name": "multi-metrics",
                         "multi_measure_attribute_mappings": [
                             {
                                 "measure_value_type": "DOUBLE",
@@ -944,9 +913,40 @@ class ScheduledQuery(pulumi.CustomResource):
                                 "source_column": "p99_cpu_utilization",
                             },
                         ],
+                        "target_multi_measure_name": "multi-metrics",
                     },
+                    "dimension_mappings": [
+                        {
+                            "dimension_value_type": "VARCHAR",
+                            "name": "az",
+                        },
+                        {
+                            "dimension_value_type": "VARCHAR",
+                            "name": "region",
+                        },
+                        {
+                            "dimension_value_type": "VARCHAR",
+                            "name": "hostname",
+                        },
+                    ],
+                    "database_name": results["databaseName"],
+                    "table_name": results_aws_timestreamwrite_table["tableName"],
+                    "time_column": "binned_timestamp",
                 },
-            })
+            },
+            execution_role_arn=example_aws_iam_role["arn"],
+            name=example_aws_timestreamwrite_table["tableName"],
+            query_string=\"\"\"SELECT region, az, hostname, BIN(time, 15s) AS binned_timestamp,
+        \\tROUND(AVG(cpu_utilization), 2) AS avg_cpu_utilization,
+        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.9), 2) AS p90_cpu_utilization,
+        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.95), 2) AS p95_cpu_utilization,
+        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.99), 2) AS p99_cpu_utilization
+        FROM exampledatabase.exampletable
+        WHERE measure_name = 'metrics' AND time > ago(2h)
+        GROUP BY region, hostname, az, BIN(time, 15s)
+        ORDER BY binned_timestamp ASC
+        LIMIT 5
+        \"\"\")
         ```
 
         ### Multi-step Example
@@ -1029,26 +1029,26 @@ class ScheduledQuery(pulumi.CustomResource):
             }))
         test_database = aws.timestreamwrite.Database("test", database_name="exampledatabase")
         test_table = aws.timestreamwrite.Table("test",
-            database_name=test_database.database_name,
-            table_name="exampletable",
             magnetic_store_write_properties={
                 "enable_magnetic_store_writes": True,
             },
             retention_properties={
                 "magnetic_store_retention_period_in_days": 1,
                 "memory_store_retention_period_in_hours": 1,
-            })
+            },
+            database_name=test_database.database_name,
+            table_name="exampletable")
         results = aws.timestreamwrite.Database("results", database_name="exampledatabase-results")
         results_table = aws.timestreamwrite.Table("results",
-            database_name=results.database_name,
-            table_name="exampletable-results",
             magnetic_store_write_properties={
                 "enable_magnetic_store_writes": True,
             },
             retention_properties={
                 "magnetic_store_retention_period_in_days": 1,
                 "memory_store_retention_period_in_hours": 1,
-            })
+            },
+            database_name=results.database_name,
+            table_name="exampletable-results")
         ```
 
         #### Step 2. Ingest data
@@ -1062,19 +1062,6 @@ class ScheduledQuery(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.timestreamquery.ScheduledQuery("example",
-            execution_role_arn=example_aws_iam_role["arn"],
-            name=example_aws_timestreamwrite_table["tableName"],
-            query_string=\"\"\"SELECT region, az, hostname, BIN(time, 15s) AS binned_timestamp,
-        \\tROUND(AVG(cpu_utilization), 2) AS avg_cpu_utilization,
-        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.9), 2) AS p90_cpu_utilization,
-        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.95), 2) AS p95_cpu_utilization,
-        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.99), 2) AS p99_cpu_utilization
-        FROM exampledatabase.exampletable
-        WHERE measure_name = 'metrics' AND time > ago(2h)
-        GROUP BY region, hostname, az, BIN(time, 15s)
-        ORDER BY binned_timestamp ASC
-        LIMIT 5
-        \"\"\",
             error_report_configuration={
                 "s3_configuration": {
                     "bucket_name": example_aws_s3_bucket["bucket"],
@@ -1090,25 +1077,7 @@ class ScheduledQuery(pulumi.CustomResource):
             },
             target_configuration={
                 "timestream_configuration": {
-                    "database_name": results["databaseName"],
-                    "table_name": results_aws_timestreamwrite_table["tableName"],
-                    "time_column": "binned_timestamp",
-                    "dimension_mappings": [
-                        {
-                            "dimension_value_type": "VARCHAR",
-                            "name": "az",
-                        },
-                        {
-                            "dimension_value_type": "VARCHAR",
-                            "name": "region",
-                        },
-                        {
-                            "dimension_value_type": "VARCHAR",
-                            "name": "hostname",
-                        },
-                    ],
                     "multi_measure_mappings": {
-                        "target_multi_measure_name": "multi-metrics",
                         "multi_measure_attribute_mappings": [
                             {
                                 "measure_value_type": "DOUBLE",
@@ -1127,9 +1096,40 @@ class ScheduledQuery(pulumi.CustomResource):
                                 "source_column": "p99_cpu_utilization",
                             },
                         ],
+                        "target_multi_measure_name": "multi-metrics",
                     },
+                    "dimension_mappings": [
+                        {
+                            "dimension_value_type": "VARCHAR",
+                            "name": "az",
+                        },
+                        {
+                            "dimension_value_type": "VARCHAR",
+                            "name": "region",
+                        },
+                        {
+                            "dimension_value_type": "VARCHAR",
+                            "name": "hostname",
+                        },
+                    ],
+                    "database_name": results["databaseName"],
+                    "table_name": results_aws_timestreamwrite_table["tableName"],
+                    "time_column": "binned_timestamp",
                 },
-            })
+            },
+            execution_role_arn=example_aws_iam_role["arn"],
+            name=example_aws_timestreamwrite_table["tableName"],
+            query_string=\"\"\"SELECT region, az, hostname, BIN(time, 15s) AS binned_timestamp,
+        \\tROUND(AVG(cpu_utilization), 2) AS avg_cpu_utilization,
+        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.9), 2) AS p90_cpu_utilization,
+        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.95), 2) AS p95_cpu_utilization,
+        \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.99), 2) AS p99_cpu_utilization
+        FROM exampledatabase.exampletable
+        WHERE measure_name = 'metrics' AND time > ago(2h)
+        GROUP BY region, hostname, az, BIN(time, 15s)
+        ORDER BY binned_timestamp ASC
+        LIMIT 5
+        \"\"\")
         ```
 
         ## Import

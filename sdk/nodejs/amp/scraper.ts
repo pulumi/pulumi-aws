@@ -216,13 +216,13 @@ import * as utilities from "../utilities";
  *             workspaceArn: exampleAwsPrometheusWorkspace.arn,
  *         },
  *     },
- *     scrapeConfiguration: example.then(example => example.configuration),
  *     source: {
  *         eks: {
  *             clusterArn: exampleAwsEksCluster.arn,
  *             subnetIds: exampleAwsEksCluster.vpcConfig[0].subnetIds,
  *         },
  *     },
+ *     scrapeConfiguration: example.then(example => example.configuration),
  * });
  * ```
  *
@@ -250,12 +250,12 @@ import * as utilities from "../utilities";
  *             subnetIds: exampleAwsEksCluster.vpcConfig[0].subnetIds,
  *         },
  *     },
- *     scrapeConfiguration: "...",
  *     destination: {
  *         amp: {
  *             workspaceArn: example.arn,
  *         },
  *     },
+ *     scrapeConfiguration: "...",
  * });
  * ```
  *

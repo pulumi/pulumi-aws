@@ -496,12 +496,12 @@ class ServerlessCollection(pulumi.CustomResource):
             name="example-group",
             standby_replicas="ENABLED")
         example_serverless_collection = aws.opensearch.ServerlessCollection("example",
-            name="example",
-            type="SEARCH",
-            collection_group_name=example_serverless_collection_group.name,
             encryption_configs=[{
                 "kms_key_arn": example.arn,
-            }])
+            }],
+            name="example",
+            type="SEARCH",
+            collection_group_name=example_serverless_collection_group.name)
         ```
 
         ## Import
@@ -587,12 +587,12 @@ class ServerlessCollection(pulumi.CustomResource):
             name="example-group",
             standby_replicas="ENABLED")
         example_serverless_collection = aws.opensearch.ServerlessCollection("example",
-            name="example",
-            type="SEARCH",
-            collection_group_name=example_serverless_collection_group.name,
             encryption_configs=[{
                 "kms_key_arn": example.arn,
-            }])
+            }],
+            name="example",
+            type="SEARCH",
+            collection_group_name=example_serverless_collection_group.name)
         ```
 
         ## Import

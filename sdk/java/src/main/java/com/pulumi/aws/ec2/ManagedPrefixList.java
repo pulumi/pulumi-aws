@@ -61,9 +61,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ManagedPrefixList("example", ManagedPrefixListArgs.builder()
- *             .name("All VPC CIDR-s")
- *             .addressFamily("IPv4")
- *             .maxEntries(5)
  *             .entries(            
  *                 ManagedPrefixListEntryArgs.builder()
  *                     .cidr(exampleAwsVpc.cidrBlock())
@@ -73,6 +70,9 @@ import javax.annotation.Nullable;
  *                     .cidr(exampleAwsVpcIpv4CidrBlockAssociation.cidrBlock())
  *                     .description("Secondary")
  *                     .build())
+ *             .name("All VPC CIDR-s")
+ *             .addressFamily("IPv4")
+ *             .maxEntries(5)
  *             .tags(Map.of("Env", "live"))
  *             .build());
  * 

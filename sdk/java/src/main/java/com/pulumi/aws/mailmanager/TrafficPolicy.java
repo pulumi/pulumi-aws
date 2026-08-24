@@ -52,20 +52,20 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new TrafficPolicy("example", TrafficPolicyArgs.builder()
- *             .defaultAction("ALLOW")
- *             .name("example")
  *             .policyStatements(TrafficPolicyPolicyStatementArgs.builder()
- *                 .action("DENY")
  *                 .conditions(TrafficPolicyPolicyStatementConditionArgs.builder()
  *                     .ipExpression(TrafficPolicyPolicyStatementConditionIpExpressionArgs.builder()
- *                         .operator("CIDR_MATCHES")
- *                         .values("192.0.2.0/24")
  *                         .evaluate(TrafficPolicyPolicyStatementConditionIpExpressionEvaluateArgs.builder()
  *                             .attribute("SENDER_IP")
  *                             .build())
+ *                         .operator("CIDR_MATCHES")
+ *                         .values("192.0.2.0/24")
  *                         .build())
  *                     .build())
+ *                 .action("DENY")
  *                 .build())
+ *             .defaultAction("ALLOW")
+ *             .name("example")
  *             .build());
  * 
  *     }

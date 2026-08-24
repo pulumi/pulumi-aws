@@ -26,12 +26,10 @@ namespace Pulumi.Aws.MailManager
     /// {
     ///     var example = new Aws.MailManager.RuleSet("example", new()
     ///     {
-    ///         Name = "example",
     ///         Rules = new[]
     ///         {
     ///             new Aws.MailManager.Inputs.RuleSetRuleArgs
     ///             {
-    ///                 Name = "add-header",
     ///                 Actions = new[]
     ///                 {
     ///                     new Aws.MailManager.Inputs.RuleSetRuleActionArgs
@@ -43,8 +41,10 @@ namespace Pulumi.Aws.MailManager
     ///                         },
     ///                     },
     ///                 },
+    ///                 Name = "add-header",
     ///             },
     ///         },
+    ///         Name = "example",
     ///     });
     /// 
     /// });

@@ -25,26 +25,23 @@ namespace Pulumi.Aws.CodePipeline
     /// {
     ///     var bar = new Aws.CodePipeline.Pipeline("bar", new()
     ///     {
-    ///         Name = "tf-test-pipeline",
-    ///         RoleArn = barAwsIamRole.Arn,
     ///         ArtifactStores = new[]
     ///         {
     ///             new Aws.CodePipeline.Inputs.PipelineArtifactStoreArgs
     ///             {
-    ///                 Location = barAwsS3Bucket.Bucket,
-    ///                 Type = "S3",
     ///                 EncryptionKey = new Aws.CodePipeline.Inputs.PipelineArtifactStoreEncryptionKeyArgs
     ///                 {
     ///                     Id = s3kmskey.Arn,
     ///                     Type = "KMS",
     ///                 },
+    ///                 Location = barAwsS3Bucket.Bucket,
+    ///                 Type = "S3",
     ///             },
     ///         },
     ///         Stages = new[]
     ///         {
     ///             new Aws.CodePipeline.Inputs.PipelineStageArgs
     ///             {
-    ///                 Name = "Source",
     ///                 Actions = new[]
     ///                 {
     ///                     new Aws.CodePipeline.Inputs.PipelineStageActionArgs
@@ -66,10 +63,10 @@ namespace Pulumi.Aws.CodePipeline
     ///                         },
     ///                     },
     ///                 },
+    ///                 Name = "Source",
     ///             },
     ///             new Aws.CodePipeline.Inputs.PipelineStageArgs
     ///             {
-    ///                 Name = "Build",
     ///                 Actions = new[]
     ///                 {
     ///                     new Aws.CodePipeline.Inputs.PipelineStageActionArgs
@@ -89,18 +86,17 @@ namespace Pulumi.Aws.CodePipeline
     ///                         },
     ///                     },
     ///                 },
+    ///                 Name = "Build",
     ///             },
     ///         },
+    ///         Name = "tf-test-pipeline",
+    ///         RoleArn = barAwsIamRole.Arn,
     ///     });
     /// 
     ///     var webhookSecret = "super-secret";
     /// 
     ///     var barWebhook = new Aws.CodePipeline.Webhook("bar", new()
     ///     {
-    ///         Name = "test-webhook-github-bar",
-    ///         Authentication = "GITHUB_HMAC",
-    ///         TargetAction = "Source",
-    ///         TargetPipeline = bar.Name,
     ///         AuthenticationConfiguration = new Aws.CodePipeline.Inputs.WebhookAuthenticationConfigurationArgs
     ///         {
     ///             SecretToken = webhookSecret,
@@ -113,13 +109,15 @@ namespace Pulumi.Aws.CodePipeline
     ///                 MatchEquals = "refs/heads/{Branch}",
     ///             },
     ///         },
+    ///         Name = "test-webhook-github-bar",
+    ///         Authentication = "GITHUB_HMAC",
+    ///         TargetAction = "Source",
+    ///         TargetPipeline = bar.Name,
     ///     });
     /// 
     ///     // Wire the CodePipeline webhook into a GitHub repository.
     ///     var barRepositoryWebhook = new Github.RepositoryWebhook("bar", new()
     ///     {
-    ///         Repository = repo.Name,
-    ///         Name = "web",
     ///         Configuration = new[]
     ///         {
     ///             
@@ -130,6 +128,8 @@ namespace Pulumi.Aws.CodePipeline
     ///                 { "secret", webhookSecret },
     ///             },
     ///         },
+    ///         Repository = repo.Name,
+    ///         Name = "web",
     ///         Events = new[]
     ///         {
     ///             "push",

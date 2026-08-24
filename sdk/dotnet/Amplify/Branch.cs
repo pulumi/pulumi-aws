@@ -140,9 +140,6 @@ namespace Pulumi.Aws.Amplify
     /// 
     ///     var amplifyAppMasterEventTarget = new Aws.CloudWatch.EventTarget("amplify_app_master", new()
     ///     {
-    ///         Rule = amplifyAppMasterEventRule.Name,
-    ///         TargetId = master.BranchName,
-    ///         Arn = amplifyAppMasterTopic.Arn,
     ///         InputTransformer = new Aws.CloudWatch.Inputs.EventTargetInputTransformerArgs
     ///         {
     ///             InputPaths = 
@@ -155,6 +152,9 @@ namespace Pulumi.Aws.Amplify
     ///             },
     ///             InputTemplate = "\"Build notification from the AWS Amplify Console for app: https://&lt;branch&gt;.&lt;appId&gt;.amplifyapp.com/. Your build status is &lt;status&gt;. Go to https://console.aws.amazon.com/amplify/home?region=&lt;region&gt;#&lt;appId&gt;/&lt;branch&gt;/&lt;jobId&gt; to view details on your build. \"",
     ///         },
+    ///         Rule = amplifyAppMasterEventRule.Name,
+    ///         TargetId = master.BranchName,
+    ///         Arn = amplifyAppMasterTopic.Arn,
     ///     });
     /// 
     ///     var amplifyAppMaster = Aws.Iam.GetPolicyDocument.Invoke(new()
@@ -163,12 +163,6 @@ namespace Pulumi.Aws.Amplify
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Sid = $"Allow_Publish_Events {master.Arn}",
-    ///                 Effect = "Allow",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "SNS:Publish",
-    ///                 },
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -179,6 +173,12 @@ namespace Pulumi.Aws.Amplify
     ///                             "events.amazonaws.com",
     ///                         },
     ///                     },
+    ///                 },
+    ///                 Sid = $"Allow_Publish_Events {master.Arn}",
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "SNS:Publish",
     ///                 },
     ///                 Resources = new[]
     ///                 {

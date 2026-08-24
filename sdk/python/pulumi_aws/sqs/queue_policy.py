@@ -156,19 +156,19 @@ class QueuePolicy(pulumi.CustomResource):
 
         q = aws.sqs.Queue("q", name="examplequeue")
         test = aws.iam.get_policy_document_output(statements=[{
-            "sid": "First",
-            "effect": "Allow",
-            "principals": [{
-                "type": "*",
-                "identifiers": ["*"],
-            }],
-            "actions": ["sqs:SendMessage"],
-            "resources": [q.arn],
             "conditions": [{
                 "test": "ArnEquals",
                 "variable": "aws:SourceArn",
                 "values": [example["arn"]],
             }],
+            "principals": [{
+                "type": "*",
+                "identifiers": ["*"],
+            }],
+            "sid": "First",
+            "effect": "Allow",
+            "actions": ["sqs:SendMessage"],
+            "resources": [q.arn],
         }])
         test_queue_policy = aws.sqs.QueuePolicy("test",
             queue_url=q.id,
@@ -249,19 +249,19 @@ class QueuePolicy(pulumi.CustomResource):
 
         q = aws.sqs.Queue("q", name="examplequeue")
         test = aws.iam.get_policy_document_output(statements=[{
-            "sid": "First",
-            "effect": "Allow",
-            "principals": [{
-                "type": "*",
-                "identifiers": ["*"],
-            }],
-            "actions": ["sqs:SendMessage"],
-            "resources": [q.arn],
             "conditions": [{
                 "test": "ArnEquals",
                 "variable": "aws:SourceArn",
                 "values": [example["arn"]],
             }],
+            "principals": [{
+                "type": "*",
+                "identifiers": ["*"],
+            }],
+            "sid": "First",
+            "effect": "Allow",
+            "actions": ["sqs:SendMessage"],
+            "resources": [q.arn],
         }])
         test_queue_policy = aws.sqs.QueuePolicy("test",
             queue_url=q.id,

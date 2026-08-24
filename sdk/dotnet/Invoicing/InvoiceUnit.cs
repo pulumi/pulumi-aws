@@ -24,9 +24,6 @@ namespace Pulumi.Aws.Invoicing
     /// {
     ///     var example = new Aws.Invoicing.InvoiceUnit("example", new()
     ///     {
-    ///         Name = "example-unit",
-    ///         Description = "Example invoice unit",
-    ///         InvoiceReceiver = "123456789012",
     ///         Rules = new[]
     ///         {
     ///             new Aws.Invoicing.Inputs.InvoiceUnitRuleArgs
@@ -37,6 +34,9 @@ namespace Pulumi.Aws.Invoicing
     ///                 },
     ///             },
     ///         },
+    ///         Name = "example-unit",
+    ///         Description = "Example invoice unit",
+    ///         InvoiceReceiver = "123456789012",
     ///         Tags = 
     ///         {
     ///             { "Environment", "production" },

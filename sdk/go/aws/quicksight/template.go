@@ -31,14 +31,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := quicksight.NewTemplate(ctx, "example", &quicksight.TemplateArgs{
-//				TemplateId:         pulumi.String("example-id"),
-//				Name:               pulumi.String("example-name"),
-//				VersionDescription: pulumi.String("version"),
 //				SourceEntity: &quicksight.TemplateSourceEntityArgs{
 //					SourceTemplate: &quicksight.TemplateSourceEntitySourceTemplateArgs{
 //						Arn: pulumi.Any(source.Arn),
 //					},
 //				},
+//				TemplateId:         pulumi.String("example-id"),
+//				Name:               pulumi.String("example-name"),
+//				VersionDescription: pulumi.String("version"),
 //			})
 //			if err != nil {
 //				return err
@@ -64,9 +64,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := quicksight.NewTemplate(ctx, "example", &quicksight.TemplateArgs{
-//				TemplateId:         pulumi.String("example-id"),
-//				Name:               pulumi.String("example-name"),
-//				VersionDescription: pulumi.String("version"),
 //				Definition: map[string][]map[string]interface{}{
 //					"dataSetConfigurations": []map[string]interface{}{
 //						map[string]interface{}{
@@ -87,30 +84,26 @@ import (
 //					},
 //					"sheets": []map[string]interface{}{
 //						map[string]interface{}{
-//							"title":   "Test",
-//							"sheetId": "Test1",
 //							"visuals": []map[string]map[string]interface{}{
 //								map[string]map[string]interface{}{
 //									"barChartVisual": map[string]interface{}{
-//										"visualId": "BarChart",
 //										"chartConfiguration": map[string]map[string]map[string][]map[string]map[string]interface{}{
 //											"fieldWells": map[string]map[string][]map[string]map[string]interface{}{
 //												"barChartAggregatedFieldWells": map[string][]map[string]map[string]interface{}{
 //													"categories": []map[string]map[string]interface{}{
 //														map[string]map[string]interface{}{
 //															"categoricalDimensionField": map[string]interface{}{
-//																"fieldId": "1",
 //																"column": map[string]string{
 //																	"columnName":        "Column1",
 //																	"dataSetIdentifier": "1",
 //																},
+//																"fieldId": "1",
 //															},
 //														},
 //													},
 //													"values": []map[string]map[string]interface{}{
 //														map[string]map[string]interface{}{
 //															"numericalMeasureField": map[string]interface{}{
-//																"fieldId": "2",
 //																"column": map[string]string{
 //																	"columnName":        "Column2",
 //																	"dataSetIdentifier": "1",
@@ -118,18 +111,25 @@ import (
 //																"aggregationFunction": map[string]string{
 //																	"simpleNumericalAggregation": "SUM",
 //																},
+//																"fieldId": "2",
 //															},
 //														},
 //													},
 //												},
 //											},
 //										},
+//										"visualId": "BarChart",
 //									},
 //								},
 //							},
+//							"title":   "Test",
+//							"sheetId": "Test1",
 //						},
 //					},
 //				},
+//				TemplateId:         pulumi.String("example-id"),
+//				Name:               pulumi.String("example-name"),
+//				VersionDescription: pulumi.String("version"),
 //			})
 //			if err != nil {
 //				return err

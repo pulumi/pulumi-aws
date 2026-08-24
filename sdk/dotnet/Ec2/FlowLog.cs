@@ -36,7 +36,6 @@ namespace Pulumi.Aws.Ec2
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -48,6 +47,7 @@ namespace Pulumi.Aws.Ec2
     ///                         },
     ///                     },
     ///                 },
+    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "sts:AssumeRole",
@@ -148,15 +148,15 @@ namespace Pulumi.Aws.Ec2
     /// 
     ///     var example = new Aws.Ec2.FlowLog("example", new()
     ///     {
-    ///         LogDestination = exampleBucket.Arn,
-    ///         LogDestinationType = "s3",
-    ///         TrafficType = "ALL",
-    ///         VpcId = exampleAwsVpc.Id,
     ///         DestinationOptions = new Aws.Ec2.Inputs.FlowLogDestinationOptionsArgs
     ///         {
     ///             FileFormat = "parquet",
     ///             PerHourPartition = true,
     ///         },
+    ///         LogDestination = exampleBucket.Arn,
+    ///         LogDestinationType = "s3",
+    ///         TrafficType = "ALL",
+    ///         VpcId = exampleAwsVpc.Id,
     ///     });
     /// 
     /// });
@@ -184,11 +184,6 @@ namespace Pulumi.Aws.Ec2
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -200,6 +195,11 @@ namespace Pulumi.Aws.Ec2
     ///                         },
     ///                     },
     ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///                 Effect = "Allow",
     ///             },
     ///         },
     ///     });
@@ -217,11 +217,6 @@ namespace Pulumi.Aws.Ec2
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -233,6 +228,11 @@ namespace Pulumi.Aws.Ec2
     ///                         },
     ///                     },
     ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///                 Effect = "Allow",
     ///             },
     ///         },
     ///     });
@@ -249,15 +249,6 @@ namespace Pulumi.Aws.Ec2
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "iam:PassRole",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     srcRole.Arn,
-    ///                 },
     ///                 Conditions = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
@@ -278,6 +269,15 @@ namespace Pulumi.Aws.Ec2
     ///                             src.Arn,
     ///                         },
     ///                     },
+    ///                 },
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "iam:PassRole",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     srcRole.Arn,
     ///                 },
     ///             },
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs

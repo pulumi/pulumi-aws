@@ -72,11 +72,11 @@ import * as utilities from "../utilities";
  *
  * const current = aws.getCallerIdentity({});
  * const example = new aws.cloudwatch.EventBus("example", {
- *     name: "example-event-bus",
  *     logConfig: {
  *         includeDetail: "FULL",
  *         level: "TRACE",
  *     },
+ *     name: "example-event-bus",
  * });
  * // CloudWatch Log Delivery Sources for INFO, ERROR, and TRACE logs
  * const infoLogs = new aws.cloudwatch.LogDeliverySource("info_logs", {
@@ -98,13 +98,6 @@ import * as utilities from "../utilities";
  * const exampleBucket = new aws.s3.Bucket("example", {bucket: "example-event-bus-logs"});
  * const bucket = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["delivery.logs.amazonaws.com"],
- *         }],
- *         actions: ["s3:PutObject"],
- *         resources: [pulumi.all([exampleBucket.arn, current]).apply(([arn, current]) => `${arn}/AWSLogs/${current.accountId}/EventBusLogs/*`)],
  *         conditions: [
  *             {
  *                 test: "StringEquals",
@@ -126,6 +119,13 @@ import * as utilities from "../utilities";
  *                 ],
  *             },
  *         ],
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["delivery.logs.amazonaws.com"],
+ *         }],
+ *         effect: "Allow",
+ *         actions: ["s3:PutObject"],
+ *         resources: [pulumi.all([exampleBucket.arn, current]).apply(([arn, current]) => `${arn}/AWSLogs/${current.accountId}/EventBusLogs/*`)],
  *     }],
  * });
  * const exampleBucketPolicy = new aws.s3.BucketPolicy("example", {
@@ -133,10 +133,10 @@ import * as utilities from "../utilities";
  *     policy: bucket.json,
  * });
  * const s3 = new aws.cloudwatch.LogDeliveryDestination("s3", {
- *     name: pulumi.interpolate`EventsDeliveryDestination-${example.name}-S3`,
  *     deliveryDestinationConfiguration: {
  *         destinationResourceArn: exampleBucket.arn,
  *     },
+ *     name: pulumi.interpolate`EventsDeliveryDestination-${example.name}-S3`,
  * });
  * const s3InfoLogs = new aws.cloudwatch.LogDelivery("s3_info_logs", {
  *     deliveryDestinationArn: s3.arn,
@@ -158,16 +158,6 @@ import * as utilities from "../utilities";
  * const eventBusLogs = new aws.cloudwatch.LogGroup("event_bus_logs", {name: pulumi.interpolate`/aws/vendedlogs/events/event-bus/${example.name}`});
  * const cwlogs = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["delivery.logs.amazonaws.com"],
- *         }],
- *         actions: [
- *             "logs:CreateLogStream",
- *             "logs:PutLogEvents",
- *         ],
- *         resources: [pulumi.interpolate`${eventBusLogs.arn}:log-stream:*`],
  *         conditions: [
  *             {
  *                 test: "StringEquals",
@@ -184,6 +174,16 @@ import * as utilities from "../utilities";
  *                 ],
  *             },
  *         ],
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["delivery.logs.amazonaws.com"],
+ *         }],
+ *         effect: "Allow",
+ *         actions: [
+ *             "logs:CreateLogStream",
+ *             "logs:PutLogEvents",
+ *         ],
+ *         resources: [pulumi.interpolate`${eventBusLogs.arn}:log-stream:*`],
  *     }],
  * });
  * const exampleLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("example", {
@@ -191,10 +191,10 @@ import * as utilities from "../utilities";
  *     policyName: pulumi.interpolate`AWSLogDeliveryWrite-${example.name}`,
  * });
  * const cwlogsLogDeliveryDestination = new aws.cloudwatch.LogDeliveryDestination("cwlogs", {
- *     name: pulumi.interpolate`EventsDeliveryDestination-${example.name}-CWLogs`,
  *     deliveryDestinationConfiguration: {
  *         destinationResourceArn: eventBusLogs.arn,
  *     },
+ *     name: pulumi.interpolate`EventsDeliveryDestination-${example.name}-CWLogs`,
  * });
  * const cwlogsInfoLogs = new aws.cloudwatch.LogDelivery("cwlogs_info_logs", {
  *     deliveryDestinationArn: cwlogsLogDeliveryDestination.arn,
@@ -225,10 +225,10 @@ import * as utilities from "../utilities";
  *     LogDeliveryEnabled: "true",
  * }});
  * const firehose = new aws.cloudwatch.LogDeliveryDestination("firehose", {
- *     name: pulumi.interpolate`EventsDeliveryDestination-${example.name}-Firehose`,
  *     deliveryDestinationConfiguration: {
  *         destinationResourceArn: cloudfrontLogs.arn,
  *     },
+ *     name: pulumi.interpolate`EventsDeliveryDestination-${example.name}-Firehose`,
  * });
  * const firehoseInfoLogs = new aws.cloudwatch.LogDelivery("firehose_info_logs", {
  *     deliveryDestinationArn: firehose.arn,

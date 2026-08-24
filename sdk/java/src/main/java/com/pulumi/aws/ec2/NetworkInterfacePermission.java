@@ -46,13 +46,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new NetworkInterface("example", NetworkInterfaceArgs.builder()
- *             .subnetId(exampleAwsSubnet.id())
- *             .privateIps("10.0.0.50")
- *             .securityGroups(exampleAwsSecurityGroup.id())
  *             .attachments(NetworkInterfaceAttachmentArgs.builder()
  *                 .instance(exampleAwsInstance.id())
  *                 .deviceIndex(1)
  *                 .build())
+ *             .subnetId(exampleAwsSubnet.id())
+ *             .privateIps("10.0.0.50")
+ *             .securityGroups(exampleAwsSecurityGroup.id())
  *             .build());
  * 
  *         var exampleNetworkInterfacePermission = new NetworkInterfacePermission("exampleNetworkInterfacePermission", NetworkInterfacePermissionArgs.builder()

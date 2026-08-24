@@ -536,14 +536,14 @@ class Pool(pulumi.CustomResource):
             workspace_directory_description="Example WorkSpaces Directory for Pools",
             user_identity_type="CUSTOMER_MANAGED")
         example_pool = aws.workspaces.Pool("example",
+            capacity={
+                "desired_user_sessions": 10,
+            },
             bundle_id=example.id,
             pool_name="example-pool",
             description="Example WorkSpaces Pool",
             directory_id=example_directory.directory_id,
-            running_mode="AUTO_STOP",
-            capacity={
-                "desired_user_sessions": 10,
-            })
+            running_mode="AUTO_STOP")
         ```
 
         ### With Application Settings
@@ -553,14 +553,14 @@ class Pool(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.workspaces.Pool("example",
+            capacity={
+                "desired_user_sessions": 10,
+            },
             bundle_id=example_aws_workspaces_bundle["id"],
             pool_name="example-pool",
             description="Example WorkSpaces Pool with Application Settings",
             directory_id=example_aws_workspaces_directory["directoryId"],
             running_mode="AUTO_STOP",
-            capacity={
-                "desired_user_sessions": 10,
-            },
             application_settings=[{
                 "status": "ENABLED",
                 "settings_group": "my-settings-group",
@@ -574,14 +574,14 @@ class Pool(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.workspaces.Pool("example",
+            capacity={
+                "desired_user_sessions": 10,
+            },
             bundle_id=example_aws_workspaces_bundle["id"],
             pool_name="example-pool",
             description="Example WorkSpaces Pool with Timeout Settings",
             directory_id=example_aws_workspaces_directory["directoryId"],
             running_mode="AUTO_STOP",
-            capacity={
-                "desired_user_sessions": 10,
-            },
             timeout_settings=[{
                 "disconnect_timeout_in_seconds": 900,
                 "idle_disconnect_timeout_in_seconds": 900,
@@ -653,14 +653,14 @@ class Pool(pulumi.CustomResource):
             workspace_directory_description="Example WorkSpaces Directory for Pools",
             user_identity_type="CUSTOMER_MANAGED")
         example_pool = aws.workspaces.Pool("example",
+            capacity={
+                "desired_user_sessions": 10,
+            },
             bundle_id=example.id,
             pool_name="example-pool",
             description="Example WorkSpaces Pool",
             directory_id=example_directory.directory_id,
-            running_mode="AUTO_STOP",
-            capacity={
-                "desired_user_sessions": 10,
-            })
+            running_mode="AUTO_STOP")
         ```
 
         ### With Application Settings
@@ -670,14 +670,14 @@ class Pool(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.workspaces.Pool("example",
+            capacity={
+                "desired_user_sessions": 10,
+            },
             bundle_id=example_aws_workspaces_bundle["id"],
             pool_name="example-pool",
             description="Example WorkSpaces Pool with Application Settings",
             directory_id=example_aws_workspaces_directory["directoryId"],
             running_mode="AUTO_STOP",
-            capacity={
-                "desired_user_sessions": 10,
-            },
             application_settings=[{
                 "status": "ENABLED",
                 "settings_group": "my-settings-group",
@@ -691,14 +691,14 @@ class Pool(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.workspaces.Pool("example",
+            capacity={
+                "desired_user_sessions": 10,
+            },
             bundle_id=example_aws_workspaces_bundle["id"],
             pool_name="example-pool",
             description="Example WorkSpaces Pool with Timeout Settings",
             directory_id=example_aws_workspaces_directory["directoryId"],
             running_mode="AUTO_STOP",
-            capacity={
-                "desired_user_sessions": 10,
-            },
             timeout_settings=[{
                 "disconnect_timeout_in_seconds": 900,
                 "idle_disconnect_timeout_in_seconds": 900,

@@ -782,9 +782,6 @@ class EventTarget(pulumi.CustomResource):
             name="kinesis-test",
             shard_count=1)
         yada = aws.cloudwatch.EventTarget("yada",
-            target_id="Yada",
-            rule=console.name,
-            arn=test_stream.arn,
             run_command_targets=[
                 {
                     "key": "tag:Name",
@@ -794,7 +791,10 @@ class EventTarget(pulumi.CustomResource):
                     "key": "InstanceIds",
                     "values": ["i-162058cd308bffec2"],
                 },
-            ])
+            ],
+            target_id="Yada",
+            rule=console.name,
+            arn=test_stream.arn)
         ```
 
         ### SSM Document Usage
@@ -805,11 +805,11 @@ class EventTarget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         ssm_lifecycle_trust = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["events.amazonaws.com"],
             }],
+            "actions": ["sts:AssumeRole"],
         }])
         stop_instance = aws.ssm.Document("stop_instance",
             name="stop_instance",
@@ -829,14 +829,14 @@ class EventTarget(pulumi.CustomResource):
             }))
         ssm_lifecycle = aws.iam.get_policy_document_output(statements=[
             {
-                "effect": "Allow",
-                "actions": ["ssm:SendCommand"],
-                "resources": ["arn:aws:ec2:eu-west-1:1234567890:instance/*"],
                 "conditions": [{
                     "test": "StringEquals",
                     "variable": "ec2:ResourceTag/Terminate",
                     "values": ["*"],
                 }],
+                "effect": "Allow",
+                "actions": ["ssm:SendCommand"],
+                "resources": ["arn:aws:ec2:eu-west-1:1234567890:instance/*"],
             },
             {
                 "effect": "Allow",
@@ -858,14 +858,14 @@ class EventTarget(pulumi.CustomResource):
             description="Stop instances nightly",
             schedule_expression="cron(0 0 * * ? *)")
         stop_instances_event_target = aws.cloudwatch.EventTarget("stop_instances",
-            target_id="StopInstance",
-            arn=stop_instance.arn,
-            rule=stop_instances.name,
-            role_arn=ssm_lifecycle_role.arn,
             run_command_targets=[{
                 "key": "tag:Terminate",
                 "values": ["midnight"],
-            }])
+            }],
+            target_id="StopInstance",
+            arn=stop_instance.arn,
+            rule=stop_instances.name,
+            role_arn=ssm_lifecycle_role.arn)
         ```
 
         ### RunCommand Usage
@@ -879,15 +879,15 @@ class EventTarget(pulumi.CustomResource):
             description="Stop instances nightly",
             schedule_expression="cron(0 0 * * ? *)")
         stop_instances_event_target = aws.cloudwatch.EventTarget("stop_instances",
+            run_command_targets=[{
+                "key": "tag:Terminate",
+                "values": ["midnight"],
+            }],
             target_id="StopInstance",
             arn=f"arn:aws:ssm:{aws_region}::document/AWS-RunShellScript",
             input="{\\"commands\\":[\\"halt\\"]}",
             rule=stop_instances.name,
-            role_arn=ssm_lifecycle["arn"],
-            run_command_targets=[{
-                "key": "tag:Terminate",
-                "values": ["midnight"],
-            }])
+            role_arn=ssm_lifecycle["arn"])
         ```
 
         ### ECS Run Task with Role and Task Override Usage
@@ -899,11 +899,11 @@ class EventTarget(pulumi.CustomResource):
         import pulumi_std as std
 
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["events.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         ecs_events = aws.iam.Role("ecs_events",
@@ -928,14 +928,14 @@ class EventTarget(pulumi.CustomResource):
             role=ecs_events.id,
             policy=ecs_events_run_task_with_any_role.json)
         ecs_scheduled_task = aws.cloudwatch.EventTarget("ecs_scheduled_task",
-            target_id="run-scheduled-task-every-hour",
-            arn=cluster_name["arn"],
-            rule=every_hour["name"],
-            role_arn=ecs_events.arn,
             ecs_target={
                 "task_count": 1,
                 "task_definition_arn": task_name["arn"],
             },
+            target_id="run-scheduled-task-every-hour",
+            arn=cluster_name["arn"],
+            rule=every_hour["name"],
+            role_arn=ecs_events.arn,
             input=json.dumps({
                 "containerOverrides": [{
                     "name": "name-of-container-to-override",
@@ -959,8 +959,6 @@ class EventTarget(pulumi.CustomResource):
             rest_api=example_aws_api_gateway_rest_api["id"],
             deployment=example_deployment.id)
         example = aws.cloudwatch.EventTarget("example",
-            arn=example_stage.execution_arn.apply(lambda execution_arn: f"{execution_arn}/GET"),
-            rule=example_event_rule.id,
             http_target={
                 "query_string_parameters": {
                     "Body": "$.detail.body",
@@ -968,7 +966,9 @@ class EventTarget(pulumi.CustomResource):
                 "header_parameters": {
                     "Env": "Test",
                 },
-            })
+            },
+            arn=example_stage.execution_arn.apply(lambda execution_arn: f"{execution_arn}/GET"),
+            rule=example_event_rule.id)
         ```
 
         ### Cross-Account Event Bus target
@@ -978,11 +978,11 @@ class EventTarget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["events.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         event_bus_invoke_remote_event_bus_role = aws.iam.Role("event_bus_invoke_remote_event_bus",
@@ -1018,8 +1018,6 @@ class EventTarget(pulumi.CustomResource):
 
         example_event_rule = aws.cloudwatch.EventRule("example")
         example = aws.cloudwatch.EventTarget("example",
-            arn=example_aws_lambda_function["arn"],
-            rule=example_event_rule.id,
             input_transformer={
                 "input_paths": {
                     "instance": "$.detail.instance",
@@ -1030,7 +1028,9 @@ class EventTarget(pulumi.CustomResource):
           \\"instance_status\\": <status>
         }
         \"\"\",
-            })
+            },
+            arn=example_aws_lambda_function["arn"],
+            rule=example_event_rule.id)
         ```
 
         ### Input Transformer Usage - Simple String
@@ -1041,15 +1041,15 @@ class EventTarget(pulumi.CustomResource):
 
         example_event_rule = aws.cloudwatch.EventRule("example")
         example = aws.cloudwatch.EventTarget("example",
-            arn=example_aws_lambda_function["arn"],
-            rule=example_event_rule.id,
             input_transformer={
                 "input_paths": {
                     "instance": "$.detail.instance",
                     "status": "$.detail.status",
                 },
                 "input_template": "\\"<instance> is in state <status>\\"",
-            })
+            },
+            arn=example_aws_lambda_function["arn"],
+            rule=example_event_rule.id)
         ```
 
         ### Cloudwatch Log Group Usage
@@ -1073,33 +1073,33 @@ class EventTarget(pulumi.CustomResource):
             })
         example_log_policy = aws.iam.get_policy_document_output(statements=[
             {
+                "principals": [{
+                    "type": "Service",
+                    "identifiers": [
+                        "events.amazonaws.com",
+                        "delivery.logs.amazonaws.com",
+                    ],
+                }],
                 "effect": "Allow",
                 "actions": ["logs:CreateLogStream"],
                 "resources": [example.arn.apply(lambda arn: f"{arn}:*")],
-                "principals": [{
-                    "type": "Service",
-                    "identifiers": [
-                        "events.amazonaws.com",
-                        "delivery.logs.amazonaws.com",
-                    ],
-                }],
             },
             {
-                "effect": "Allow",
-                "actions": ["logs:PutLogEvents"],
-                "resources": [example.arn.apply(lambda arn: f"{arn}:*:*")],
-                "principals": [{
-                    "type": "Service",
-                    "identifiers": [
-                        "events.amazonaws.com",
-                        "delivery.logs.amazonaws.com",
-                    ],
-                }],
                 "conditions": [{
                     "test": "ArnEquals",
                     "values": [example_event_rule.arn],
                     "variable": "aws:SourceArn",
                 }],
+                "principals": [{
+                    "type": "Service",
+                    "identifiers": [
+                        "events.amazonaws.com",
+                        "delivery.logs.amazonaws.com",
+                    ],
+                }],
+                "effect": "Allow",
+                "actions": ["logs:PutLogEvents"],
+                "resources": [example.arn.apply(lambda arn: f"{arn}:*:*")],
             },
         ])
         example_log_resource_policy = aws.cloudwatch.LogResourcePolicy("example",
@@ -1122,11 +1122,11 @@ class EventTarget(pulumi.CustomResource):
             description="schedule_batch_test",
             schedule_expression="rate(5 minutes)")
         appsync_mutation_role_trust = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["events.amazonaws.com"],
             }],
+            "actions": ["sts:AssumeRole"],
         }])
         appsync_mutation_role = aws.iam.Role("appsync_mutation_role",
             name="appsync-mutation-role",
@@ -1156,11 +1156,6 @@ class EventTarget(pulumi.CustomResource):
             }
         \"\"\")
         invoke_appsync_mutation_event_target = aws.cloudwatch.EventTarget("invoke_appsync_mutation",
-            arn=std.replace_output(text=graphql_api.arn,
-                search="apis",
-                replace="endpoints/graphql-api").result,
-            rule=invoke_appsync_mutation.id,
-            role_arn=appsync_mutation_role.arn,
             input_transformer={
                 "input_paths": {
                     "input": "$.detail.input",
@@ -1172,7 +1167,12 @@ class EventTarget(pulumi.CustomResource):
             },
             appsync_target={
                 "graphql_operation": "mutation TestMutation($input:MutationInput!){testMutation(input: $input) {test}}",
-            })
+            },
+            arn=std.replace_output(text=graphql_api.arn,
+                search="apis",
+                replace="endpoints/graphql-api").result,
+            rule=invoke_appsync_mutation.id,
+            role_arn=appsync_mutation_role.arn)
         appsync_mutation_role_policy_document = aws.iam.get_policy_document_output(statements=[{
             "actions": ["appsync:GraphQL"],
             "effect": "Allow",
@@ -1277,9 +1277,6 @@ class EventTarget(pulumi.CustomResource):
             name="kinesis-test",
             shard_count=1)
         yada = aws.cloudwatch.EventTarget("yada",
-            target_id="Yada",
-            rule=console.name,
-            arn=test_stream.arn,
             run_command_targets=[
                 {
                     "key": "tag:Name",
@@ -1289,7 +1286,10 @@ class EventTarget(pulumi.CustomResource):
                     "key": "InstanceIds",
                     "values": ["i-162058cd308bffec2"],
                 },
-            ])
+            ],
+            target_id="Yada",
+            rule=console.name,
+            arn=test_stream.arn)
         ```
 
         ### SSM Document Usage
@@ -1300,11 +1300,11 @@ class EventTarget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         ssm_lifecycle_trust = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["events.amazonaws.com"],
             }],
+            "actions": ["sts:AssumeRole"],
         }])
         stop_instance = aws.ssm.Document("stop_instance",
             name="stop_instance",
@@ -1324,14 +1324,14 @@ class EventTarget(pulumi.CustomResource):
             }))
         ssm_lifecycle = aws.iam.get_policy_document_output(statements=[
             {
-                "effect": "Allow",
-                "actions": ["ssm:SendCommand"],
-                "resources": ["arn:aws:ec2:eu-west-1:1234567890:instance/*"],
                 "conditions": [{
                     "test": "StringEquals",
                     "variable": "ec2:ResourceTag/Terminate",
                     "values": ["*"],
                 }],
+                "effect": "Allow",
+                "actions": ["ssm:SendCommand"],
+                "resources": ["arn:aws:ec2:eu-west-1:1234567890:instance/*"],
             },
             {
                 "effect": "Allow",
@@ -1353,14 +1353,14 @@ class EventTarget(pulumi.CustomResource):
             description="Stop instances nightly",
             schedule_expression="cron(0 0 * * ? *)")
         stop_instances_event_target = aws.cloudwatch.EventTarget("stop_instances",
-            target_id="StopInstance",
-            arn=stop_instance.arn,
-            rule=stop_instances.name,
-            role_arn=ssm_lifecycle_role.arn,
             run_command_targets=[{
                 "key": "tag:Terminate",
                 "values": ["midnight"],
-            }])
+            }],
+            target_id="StopInstance",
+            arn=stop_instance.arn,
+            rule=stop_instances.name,
+            role_arn=ssm_lifecycle_role.arn)
         ```
 
         ### RunCommand Usage
@@ -1374,15 +1374,15 @@ class EventTarget(pulumi.CustomResource):
             description="Stop instances nightly",
             schedule_expression="cron(0 0 * * ? *)")
         stop_instances_event_target = aws.cloudwatch.EventTarget("stop_instances",
+            run_command_targets=[{
+                "key": "tag:Terminate",
+                "values": ["midnight"],
+            }],
             target_id="StopInstance",
             arn=f"arn:aws:ssm:{aws_region}::document/AWS-RunShellScript",
             input="{\\"commands\\":[\\"halt\\"]}",
             rule=stop_instances.name,
-            role_arn=ssm_lifecycle["arn"],
-            run_command_targets=[{
-                "key": "tag:Terminate",
-                "values": ["midnight"],
-            }])
+            role_arn=ssm_lifecycle["arn"])
         ```
 
         ### ECS Run Task with Role and Task Override Usage
@@ -1394,11 +1394,11 @@ class EventTarget(pulumi.CustomResource):
         import pulumi_std as std
 
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["events.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         ecs_events = aws.iam.Role("ecs_events",
@@ -1423,14 +1423,14 @@ class EventTarget(pulumi.CustomResource):
             role=ecs_events.id,
             policy=ecs_events_run_task_with_any_role.json)
         ecs_scheduled_task = aws.cloudwatch.EventTarget("ecs_scheduled_task",
-            target_id="run-scheduled-task-every-hour",
-            arn=cluster_name["arn"],
-            rule=every_hour["name"],
-            role_arn=ecs_events.arn,
             ecs_target={
                 "task_count": 1,
                 "task_definition_arn": task_name["arn"],
             },
+            target_id="run-scheduled-task-every-hour",
+            arn=cluster_name["arn"],
+            rule=every_hour["name"],
+            role_arn=ecs_events.arn,
             input=json.dumps({
                 "containerOverrides": [{
                     "name": "name-of-container-to-override",
@@ -1454,8 +1454,6 @@ class EventTarget(pulumi.CustomResource):
             rest_api=example_aws_api_gateway_rest_api["id"],
             deployment=example_deployment.id)
         example = aws.cloudwatch.EventTarget("example",
-            arn=example_stage.execution_arn.apply(lambda execution_arn: f"{execution_arn}/GET"),
-            rule=example_event_rule.id,
             http_target={
                 "query_string_parameters": {
                     "Body": "$.detail.body",
@@ -1463,7 +1461,9 @@ class EventTarget(pulumi.CustomResource):
                 "header_parameters": {
                     "Env": "Test",
                 },
-            })
+            },
+            arn=example_stage.execution_arn.apply(lambda execution_arn: f"{execution_arn}/GET"),
+            rule=example_event_rule.id)
         ```
 
         ### Cross-Account Event Bus target
@@ -1473,11 +1473,11 @@ class EventTarget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["events.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         event_bus_invoke_remote_event_bus_role = aws.iam.Role("event_bus_invoke_remote_event_bus",
@@ -1513,8 +1513,6 @@ class EventTarget(pulumi.CustomResource):
 
         example_event_rule = aws.cloudwatch.EventRule("example")
         example = aws.cloudwatch.EventTarget("example",
-            arn=example_aws_lambda_function["arn"],
-            rule=example_event_rule.id,
             input_transformer={
                 "input_paths": {
                     "instance": "$.detail.instance",
@@ -1525,7 +1523,9 @@ class EventTarget(pulumi.CustomResource):
           \\"instance_status\\": <status>
         }
         \"\"\",
-            })
+            },
+            arn=example_aws_lambda_function["arn"],
+            rule=example_event_rule.id)
         ```
 
         ### Input Transformer Usage - Simple String
@@ -1536,15 +1536,15 @@ class EventTarget(pulumi.CustomResource):
 
         example_event_rule = aws.cloudwatch.EventRule("example")
         example = aws.cloudwatch.EventTarget("example",
-            arn=example_aws_lambda_function["arn"],
-            rule=example_event_rule.id,
             input_transformer={
                 "input_paths": {
                     "instance": "$.detail.instance",
                     "status": "$.detail.status",
                 },
                 "input_template": "\\"<instance> is in state <status>\\"",
-            })
+            },
+            arn=example_aws_lambda_function["arn"],
+            rule=example_event_rule.id)
         ```
 
         ### Cloudwatch Log Group Usage
@@ -1568,33 +1568,33 @@ class EventTarget(pulumi.CustomResource):
             })
         example_log_policy = aws.iam.get_policy_document_output(statements=[
             {
+                "principals": [{
+                    "type": "Service",
+                    "identifiers": [
+                        "events.amazonaws.com",
+                        "delivery.logs.amazonaws.com",
+                    ],
+                }],
                 "effect": "Allow",
                 "actions": ["logs:CreateLogStream"],
                 "resources": [example.arn.apply(lambda arn: f"{arn}:*")],
-                "principals": [{
-                    "type": "Service",
-                    "identifiers": [
-                        "events.amazonaws.com",
-                        "delivery.logs.amazonaws.com",
-                    ],
-                }],
             },
             {
-                "effect": "Allow",
-                "actions": ["logs:PutLogEvents"],
-                "resources": [example.arn.apply(lambda arn: f"{arn}:*:*")],
-                "principals": [{
-                    "type": "Service",
-                    "identifiers": [
-                        "events.amazonaws.com",
-                        "delivery.logs.amazonaws.com",
-                    ],
-                }],
                 "conditions": [{
                     "test": "ArnEquals",
                     "values": [example_event_rule.arn],
                     "variable": "aws:SourceArn",
                 }],
+                "principals": [{
+                    "type": "Service",
+                    "identifiers": [
+                        "events.amazonaws.com",
+                        "delivery.logs.amazonaws.com",
+                    ],
+                }],
+                "effect": "Allow",
+                "actions": ["logs:PutLogEvents"],
+                "resources": [example.arn.apply(lambda arn: f"{arn}:*:*")],
             },
         ])
         example_log_resource_policy = aws.cloudwatch.LogResourcePolicy("example",
@@ -1617,11 +1617,11 @@ class EventTarget(pulumi.CustomResource):
             description="schedule_batch_test",
             schedule_expression="rate(5 minutes)")
         appsync_mutation_role_trust = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["events.amazonaws.com"],
             }],
+            "actions": ["sts:AssumeRole"],
         }])
         appsync_mutation_role = aws.iam.Role("appsync_mutation_role",
             name="appsync-mutation-role",
@@ -1651,11 +1651,6 @@ class EventTarget(pulumi.CustomResource):
             }
         \"\"\")
         invoke_appsync_mutation_event_target = aws.cloudwatch.EventTarget("invoke_appsync_mutation",
-            arn=std.replace_output(text=graphql_api.arn,
-                search="apis",
-                replace="endpoints/graphql-api").result,
-            rule=invoke_appsync_mutation.id,
-            role_arn=appsync_mutation_role.arn,
             input_transformer={
                 "input_paths": {
                     "input": "$.detail.input",
@@ -1667,7 +1662,12 @@ class EventTarget(pulumi.CustomResource):
             },
             appsync_target={
                 "graphql_operation": "mutation TestMutation($input:MutationInput!){testMutation(input: $input) {test}}",
-            })
+            },
+            arn=std.replace_output(text=graphql_api.arn,
+                search="apis",
+                replace="endpoints/graphql-api").result,
+            rule=invoke_appsync_mutation.id,
+            role_arn=appsync_mutation_role.arn)
         appsync_mutation_role_policy_document = aws.iam.get_policy_document_output(statements=[{
             "actions": ["appsync:GraphQL"],
             "effect": "Allow",

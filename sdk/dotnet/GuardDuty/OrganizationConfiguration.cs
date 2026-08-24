@@ -31,8 +31,6 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     ///     var exampleOrganizationConfiguration = new Aws.GuardDuty.OrganizationConfiguration("example", new()
     ///     {
-    ///         AutoEnableOrganizationMembers = "ALL",
-    ///         DetectorId = example.Id,
     ///         Datasources = new Aws.GuardDuty.Inputs.OrganizationConfigurationDatasourcesArgs
     ///         {
     ///             S3Logs = new Aws.GuardDuty.Inputs.OrganizationConfigurationDatasourcesS3LogsArgs
@@ -57,6 +55,8 @@ namespace Pulumi.Aws.GuardDuty
     ///                 },
     ///             },
     ///         },
+    ///         AutoEnableOrganizationMembers = "ALL",
+    ///         DetectorId = example.Id,
     ///     });
     /// 
     /// });

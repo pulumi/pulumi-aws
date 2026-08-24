@@ -45,13 +45,6 @@ import (
 //			example := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
-//						Actions: pulumi.StringArray{
-//							pulumi.String("sms-voice:SendTextMessage"),
-//						},
-//						Resources: pulumi.StringArray{
-//							exampleSmsvoicev2PhoneNumber.Arn,
-//						},
 //						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
 //							&iam.GetPolicyDocumentStatementPrincipalArgs{
 //								Type: pulumi.String("AWS"),
@@ -59,6 +52,13 @@ import (
 //									pulumi.String("123456789012"),
 //								},
 //							},
+//						},
+//						Effect: pulumi.String("Allow"),
+//						Actions: pulumi.StringArray{
+//							pulumi.String("sms-voice:SendTextMessage"),
+//						},
+//						Resources: pulumi.StringArray{
+//							exampleSmsvoicev2PhoneNumber.Arn,
 //						},
 //					},
 //				},

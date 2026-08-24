@@ -67,12 +67,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .actions("sts:AssumeRole")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("bedrock-agentcore.amazonaws.com")
  *                     .build())
+ *                 .effect("Allow")
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
@@ -103,8 +103,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAgentcoreAgentRuntime = new AgentcoreAgentRuntime("exampleAgentcoreAgentRuntime", AgentcoreAgentRuntimeArgs.builder()
- *             .agentRuntimeName("example_agent_runtime")
- *             .roleArn(example.arn())
  *             .agentRuntimeArtifact(AgentcoreAgentRuntimeAgentRuntimeArtifactArgs.builder()
  *                 .containerConfiguration(AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs.builder()
  *                     .containerUri(String.format("%s:latest", exampleAwsEcrRepository.repositoryUrl()))
@@ -113,6 +111,8 @@ import javax.annotation.Nullable;
  *             .networkConfiguration(AgentcoreAgentRuntimeNetworkConfigurationArgs.builder()
  *                 .networkMode("PUBLIC")
  *                 .build())
+ *             .agentRuntimeName("example_agent_runtime")
+ *             .roleArn(example.arn())
  *             .build());
  * 
  *     }
@@ -151,18 +151,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AgentcoreAgentRuntime("example", AgentcoreAgentRuntimeArgs.builder()
- *             .agentRuntimeName("example_agent_runtime")
- *             .description("Agent runtime with JWT authorization")
- *             .roleArn(exampleAwsIamRole.arn())
  *             .agentRuntimeArtifact(AgentcoreAgentRuntimeAgentRuntimeArtifactArgs.builder()
  *                 .containerConfiguration(AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs.builder()
  *                     .containerUri(String.format("%s:v1.0", exampleAwsEcrRepository.repositoryUrl()))
  *                     .build())
  *                 .build())
- *             .environmentVariables(Map.ofEntries(
- *                 Map.entry("LOG_LEVEL", "INFO"),
- *                 Map.entry("ENV", "production")
- *             ))
  *             .authorizerConfiguration(AgentcoreAgentRuntimeAuthorizerConfigurationArgs.builder()
  *                 .customJwtAuthorizer(AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs.builder()
  *                     .discoveryUrl("https://accounts.google.com/.well-known/openid-configuration")
@@ -183,6 +176,13 @@ import javax.annotation.Nullable;
  *             .protocolConfiguration(AgentcoreAgentRuntimeProtocolConfigurationArgs.builder()
  *                 .serverProtocol("MCP")
  *                 .build())
+ *             .agentRuntimeName("example_agent_runtime")
+ *             .description("Agent runtime with JWT authorization")
+ *             .roleArn(exampleAwsIamRole.arn())
+ *             .environmentVariables(Map.ofEntries(
+ *                 Map.entry("LOG_LEVEL", "INFO"),
+ *                 Map.entry("ENV", "production")
+ *             ))
  *             .build());
  * 
  *     }
@@ -219,9 +219,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AgentcoreAgentRuntime("example", AgentcoreAgentRuntimeArgs.builder()
- *             .agentRuntimeName("example_agui_runtime")
- *             .description("Agent runtime with AG-UI protocol")
- *             .roleArn(exampleAwsIamRole.arn())
  *             .agentRuntimeArtifact(AgentcoreAgentRuntimeAgentRuntimeArtifactArgs.builder()
  *                 .containerConfiguration(AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs.builder()
  *                     .containerUri(String.format("%s:latest", exampleAwsEcrRepository.repositoryUrl()))
@@ -233,6 +230,9 @@ import javax.annotation.Nullable;
  *             .protocolConfiguration(AgentcoreAgentRuntimeProtocolConfigurationArgs.builder()
  *                 .serverProtocol("AGUI")
  *                 .build())
+ *             .agentRuntimeName("example_agui_runtime")
+ *             .description("Agent runtime with AG-UI protocol")
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }
@@ -270,23 +270,23 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AgentcoreAgentRuntime("example", AgentcoreAgentRuntimeArgs.builder()
- *             .agentRuntimeName("example_agent_runtime")
- *             .roleArn(exampleAwsIamRole.arn())
  *             .agentRuntimeArtifact(AgentcoreAgentRuntimeAgentRuntimeArtifactArgs.builder()
  *                 .codeConfiguration(AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArgs.builder()
- *                     .entryPoints("main.py")
- *                     .runtime("PYTHON_3_13")
  *                     .code(AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeArgs.builder()
  *                         .s3(AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Args.builder()
  *                             .bucket("example-bucket")
  *                             .prefix("example-agent-runtime-code.zip")
  *                             .build())
  *                         .build())
+ *                     .entryPoints("main.py")
+ *                     .runtime("PYTHON_3_13")
  *                     .build())
  *                 .build())
  *             .networkConfiguration(AgentcoreAgentRuntimeNetworkConfigurationArgs.builder()
  *                 .networkMode("PUBLIC")
  *                 .build())
+ *             .agentRuntimeName("example_agent_runtime")
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }

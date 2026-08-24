@@ -19,12 +19,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lex.V2modelsBot("example", {
- *     name: "example",
- *     idleSessionTtlInSeconds: 60,
- *     roleArn: exampleAwsIamRole.arn,
  *     dataPrivacies: [{
  *         childDirected: true,
  *     }],
+ *     name: "example",
+ *     idleSessionTtlInSeconds: 60,
+ *     roleArn: exampleAwsIamRole.arn,
  * });
  * const exampleV2modelsBotLocale = new aws.lex.V2modelsBotLocale("example", {
  *     localeId: "en_US",
@@ -55,21 +55,21 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lex.V2modelsSlotType("example", {
- *     botId: exampleAwsLexv2modelsBot.id,
- *     botVersion: exampleAwsLexv2modelsBotLocale.botVersion,
- *     name: "example",
- *     localeId: exampleAwsLexv2modelsBotLocale.localeId,
  *     valueSelectionSetting: {
- *         resolutionStrategy: "OriginalValue",
  *         advancedRecognitionSettings: [{
  *             audioRecognitionStrategy: "UseSlotValuesAsCustomVocabulary",
  *         }],
+ *         resolutionStrategy: "OriginalValue",
  *     },
  *     slotTypeValues: [{
  *         sampleValues: [{
  *             value: "exampleValue",
  *         }],
  *     }],
+ *     botId: exampleAwsLexv2modelsBot.id,
+ *     botVersion: exampleAwsLexv2modelsBotLocale.botVersion,
+ *     name: "example",
+ *     localeId: exampleAwsLexv2modelsBotLocale.localeId,
  * });
  * ```
  *

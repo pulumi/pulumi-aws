@@ -29,7 +29,6 @@ import * as utilities from "../utilities";
  *     awsRegion: "us-west-2",
  * });
  * const group = new aws.chime.VoiceConnectorGroup("group", {
- *     name: "test-group",
  *     connectors: [
  *         {
  *             voiceConnectorId: vc1.id,
@@ -40,6 +39,7 @@ import * as utilities from "../utilities";
  *             priority: 3,
  *         },
  *     ],
+ *     name: "test-group",
  * });
  * ```
  *

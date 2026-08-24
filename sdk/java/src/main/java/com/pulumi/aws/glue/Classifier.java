@@ -51,7 +51,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Classifier("example", ClassifierArgs.builder()
- *             .name("example")
  *             .csvClassifier(ClassifierCsvClassifierArgs.builder()
  *                 .allowSingleColumn(false)
  *                 .containsHeader("PRESENT")
@@ -62,6 +61,7 @@ import javax.annotation.Nullable;
  *                     "example2")
  *                 .quoteSymbol("'")
  *                 .build())
+ *             .name("example")
  *             .build());
  * 
  *     }
@@ -95,11 +95,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Classifier("example", ClassifierArgs.builder()
- *             .name("example")
  *             .grokClassifier(ClassifierGrokClassifierArgs.builder()
  *                 .classification("example")
  *                 .grokPattern("example")
  *                 .build())
+ *             .name("example")
  *             .build());
  * 
  *     }
@@ -133,10 +133,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Classifier("example", ClassifierArgs.builder()
- *             .name("example")
  *             .jsonClassifier(ClassifierJsonClassifierArgs.builder()
  *                 .jsonPath("example")
  *                 .build())
+ *             .name("example")
  *             .build());
  * 
  *     }
@@ -170,11 +170,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Classifier("example", ClassifierArgs.builder()
- *             .name("example")
  *             .xmlClassifier(ClassifierXmlClassifierArgs.builder()
  *                 .classification("example")
  *                 .rowTag("example")
  *                 .build())
+ *             .name("example")
  *             .build());
  * 
  *     }

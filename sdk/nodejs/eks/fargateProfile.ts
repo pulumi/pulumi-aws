@@ -17,13 +17,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.eks.FargateProfile("example", {
+ *     selectors: [{
+ *         namespace: "example",
+ *     }],
  *     clusterName: exampleAwsEksCluster.name,
  *     fargateProfileName: "example",
  *     podExecutionRoleArn: exampleAwsIamRole.arn,
  *     subnetIds: exampleAwsSubnet.map(__item => __item.id),
- *     selectors: [{
- *         namespace: "example",
- *     }],
  * });
  * ```
  *

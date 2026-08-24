@@ -29,15 +29,15 @@ import * as utilities from "../utilities";
  * // to any log group under /aws/route53/*
  * const route53_query_logging_policy = aws.iam.getPolicyDocument({
  *     statements: [{
+ *         principals: [{
+ *             identifiers: ["route53.amazonaws.com"],
+ *             type: "Service",
+ *         }],
  *         actions: [
  *             "logs:CreateLogStream",
  *             "logs:PutLogEvents",
  *         ],
  *         resources: ["arn:aws:logs:*:*:log-group:/aws/route53/*"],
- *         principals: [{
- *             identifiers: ["route53.amazonaws.com"],
- *             type: "Service",
- *         }],
  *     }],
  * });
  * const route53_query_logging_policyLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("route53-query-logging-policy", {

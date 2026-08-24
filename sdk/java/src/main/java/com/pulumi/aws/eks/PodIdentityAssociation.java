@@ -110,11 +110,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("pods.eks.amazonaws.com")
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions(                
  *                     "sts:AssumeRole",
  *                     "sts:TagSession")

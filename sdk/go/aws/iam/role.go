@@ -88,9 +88,6 @@ import (
 //			instanceAssumeRolePolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -98,6 +95,9 @@ import (
 //									"ec2.amazonaws.com",
 //								},
 //							},
+//						},
+//						Actions: []string{
+//							"sts:AssumeRole",
 //						},
 //					},
 //				},
@@ -171,8 +171,6 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = iam.NewRole(ctx, "example", &iam.RoleArgs{
-//				Name:             pulumi.String("yak_role"),
-//				AssumeRolePolicy: pulumi.Any(instanceAssumeRolePolicy.Json),
 //				InlinePolicies: iam.RoleInlinePolicyArray{
 //					&iam.RoleInlinePolicyArgs{
 //						Name:   pulumi.String("my_inline_policy"),
@@ -183,6 +181,8 @@ import (
 //						Policy: pulumi.String(inlinePolicy.Json),
 //					},
 //				},
+//				Name:             pulumi.String("yak_role"),
+//				AssumeRolePolicy: pulumi.Any(instanceAssumeRolePolicy.Json),
 //			})
 //			if err != nil {
 //				return err

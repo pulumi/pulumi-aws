@@ -202,14 +202,14 @@ class PermissionsBoundaryAttachment(pulumi.CustomResource):
                 }],
             }))
         example_permissions_boundary_attachment = aws.ssoadmin.PermissionsBoundaryAttachment("example",
-            instance_arn=example_permission_set.instance_arn,
-            permission_set_arn=example_permission_set.arn,
             permissions_boundary={
                 "customer_managed_policy_reference": {
                     "name": example_policy.name,
                     "path": "/",
                 },
-            })
+            },
+            instance_arn=example_permission_set.instance_arn,
+            permission_set_arn=example_permission_set.arn)
         ```
 
         ### Attaching an AWS-managed policy
@@ -219,11 +219,11 @@ class PermissionsBoundaryAttachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssoadmin.PermissionsBoundaryAttachment("example",
-            instance_arn=example_aws_ssoadmin_permission_set["instanceArn"],
-            permission_set_arn=example_aws_ssoadmin_permission_set["arn"],
             permissions_boundary={
                 "managed_policy_arn": "arn:aws:iam::aws:policy/ReadOnlyAccess",
-            })
+            },
+            instance_arn=example_aws_ssoadmin_permission_set["instanceArn"],
+            permission_set_arn=example_aws_ssoadmin_permission_set["arn"])
         ```
 
         ## Import
@@ -278,14 +278,14 @@ class PermissionsBoundaryAttachment(pulumi.CustomResource):
                 }],
             }))
         example_permissions_boundary_attachment = aws.ssoadmin.PermissionsBoundaryAttachment("example",
-            instance_arn=example_permission_set.instance_arn,
-            permission_set_arn=example_permission_set.arn,
             permissions_boundary={
                 "customer_managed_policy_reference": {
                     "name": example_policy.name,
                     "path": "/",
                 },
-            })
+            },
+            instance_arn=example_permission_set.instance_arn,
+            permission_set_arn=example_permission_set.arn)
         ```
 
         ### Attaching an AWS-managed policy
@@ -295,11 +295,11 @@ class PermissionsBoundaryAttachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssoadmin.PermissionsBoundaryAttachment("example",
-            instance_arn=example_aws_ssoadmin_permission_set["instanceArn"],
-            permission_set_arn=example_aws_ssoadmin_permission_set["arn"],
             permissions_boundary={
                 "managed_policy_arn": "arn:aws:iam::aws:policy/ReadOnlyAccess",
-            })
+            },
+            instance_arn=example_aws_ssoadmin_permission_set["instanceArn"],
+            permission_set_arn=example_aws_ssoadmin_permission_set["arn"])
         ```
 
         ## Import

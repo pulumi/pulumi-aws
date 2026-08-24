@@ -1086,13 +1086,13 @@ class Environment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mwaa.Environment("example",
-            dag_s3_path="dags/",
-            execution_role_arn=example_aws_iam_role["arn"],
-            name="example",
             network_configuration={
                 "security_group_ids": [example_aws_security_group["id"]],
                 "subnet_ids": [__item["id"] for __item in private],
             },
+            dag_s3_path="dags/",
+            execution_role_arn=example_aws_iam_role["arn"],
+            name="example",
             source_bucket_arn=example_aws_s3_bucket["arn"])
         ```
 
@@ -1103,6 +1103,10 @@ class Environment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mwaa.Environment("example",
+            network_configuration={
+                "security_group_ids": [example_aws_security_group["id"]],
+                "subnet_ids": [__item["id"] for __item in private],
+            },
             airflow_configuration_options={
                 "core.default_task_retries": "16",
                 "core.parallelism": "1",
@@ -1110,10 +1114,6 @@ class Environment(pulumi.CustomResource):
             dag_s3_path="dags/",
             execution_role_arn=example_aws_iam_role["arn"],
             name="example",
-            network_configuration={
-                "security_group_ids": [example_aws_security_group["id"]],
-                "subnet_ids": [__item["id"] for __item in private],
-            },
             source_bucket_arn=example_aws_s3_bucket["arn"])
         ```
 
@@ -1126,8 +1126,6 @@ class Environment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mwaa.Environment("example",
-            dag_s3_path="dags/",
-            execution_role_arn=example_aws_iam_role["arn"],
             logging_configuration={
                 "dag_processing_logs": {
                     "enabled": True,
@@ -1150,11 +1148,13 @@ class Environment(pulumi.CustomResource):
                     "log_level": "CRITICAL",
                 },
             },
-            name="example",
             network_configuration={
                 "security_group_ids": [example_aws_security_group["id"]],
                 "subnet_ids": [__item["id"] for __item in private],
             },
+            dag_s3_path="dags/",
+            execution_role_arn=example_aws_iam_role["arn"],
+            name="example",
             source_bucket_arn=example_aws_s3_bucket["arn"])
         ```
 
@@ -1165,13 +1165,13 @@ class Environment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mwaa.Environment("example",
-            dag_s3_path="dags/",
-            execution_role_arn=example_aws_iam_role["arn"],
-            name="example",
             network_configuration={
                 "security_group_ids": [example_aws_security_group["id"]],
                 "subnet_ids": [__item["id"] for __item in private],
             },
+            dag_s3_path="dags/",
+            execution_role_arn=example_aws_iam_role["arn"],
+            name="example",
             source_bucket_arn=example_aws_s3_bucket["arn"],
             tags={
                 "Name": "example",
@@ -1238,13 +1238,13 @@ class Environment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mwaa.Environment("example",
-            dag_s3_path="dags/",
-            execution_role_arn=example_aws_iam_role["arn"],
-            name="example",
             network_configuration={
                 "security_group_ids": [example_aws_security_group["id"]],
                 "subnet_ids": [__item["id"] for __item in private],
             },
+            dag_s3_path="dags/",
+            execution_role_arn=example_aws_iam_role["arn"],
+            name="example",
             source_bucket_arn=example_aws_s3_bucket["arn"])
         ```
 
@@ -1255,6 +1255,10 @@ class Environment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mwaa.Environment("example",
+            network_configuration={
+                "security_group_ids": [example_aws_security_group["id"]],
+                "subnet_ids": [__item["id"] for __item in private],
+            },
             airflow_configuration_options={
                 "core.default_task_retries": "16",
                 "core.parallelism": "1",
@@ -1262,10 +1266,6 @@ class Environment(pulumi.CustomResource):
             dag_s3_path="dags/",
             execution_role_arn=example_aws_iam_role["arn"],
             name="example",
-            network_configuration={
-                "security_group_ids": [example_aws_security_group["id"]],
-                "subnet_ids": [__item["id"] for __item in private],
-            },
             source_bucket_arn=example_aws_s3_bucket["arn"])
         ```
 
@@ -1278,8 +1278,6 @@ class Environment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mwaa.Environment("example",
-            dag_s3_path="dags/",
-            execution_role_arn=example_aws_iam_role["arn"],
             logging_configuration={
                 "dag_processing_logs": {
                     "enabled": True,
@@ -1302,11 +1300,13 @@ class Environment(pulumi.CustomResource):
                     "log_level": "CRITICAL",
                 },
             },
-            name="example",
             network_configuration={
                 "security_group_ids": [example_aws_security_group["id"]],
                 "subnet_ids": [__item["id"] for __item in private],
             },
+            dag_s3_path="dags/",
+            execution_role_arn=example_aws_iam_role["arn"],
+            name="example",
             source_bucket_arn=example_aws_s3_bucket["arn"])
         ```
 
@@ -1317,13 +1317,13 @@ class Environment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mwaa.Environment("example",
-            dag_s3_path="dags/",
-            execution_role_arn=example_aws_iam_role["arn"],
-            name="example",
             network_configuration={
                 "security_group_ids": [example_aws_security_group["id"]],
                 "subnet_ids": [__item["id"] for __item in private],
             },
+            dag_s3_path="dags/",
+            execution_role_arn=example_aws_iam_role["arn"],
+            name="example",
             source_bucket_arn=example_aws_s3_bucket["arn"],
             tags={
                 "Name": "example",

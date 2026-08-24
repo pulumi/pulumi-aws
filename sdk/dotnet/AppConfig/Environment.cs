@@ -34,9 +34,6 @@ namespace Pulumi.Aws.AppConfig
     /// 
     ///     var example = new Aws.AppConfig.Environment("example", new()
     ///     {
-    ///         Name = "example-environment-tf",
-    ///         Description = "Example AppConfig Environment",
-    ///         ApplicationId = exampleApplication.Id,
     ///         Monitors = new[]
     ///         {
     ///             new Aws.AppConfig.Inputs.EnvironmentMonitorArgs
@@ -45,6 +42,9 @@ namespace Pulumi.Aws.AppConfig
     ///                 AlarmRoleArn = exampleAwsIamRole.Arn,
     ///             },
     ///         },
+    ///         Name = "example-environment-tf",
+    ///         Description = "Example AppConfig Environment",
+    ///         ApplicationId = exampleApplication.Id,
     ///         Tags = 
     ///         {
     ///             { "Type", "AppConfig Environment" },

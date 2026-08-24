@@ -119,12 +119,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudwatch.NewMetricAlarm(ctx, "foobar", &cloudwatch.MetricAlarmArgs{
-//				Name:                    pulumi.String("test-foobar"),
-//				ComparisonOperator:      pulumi.String("GreaterThanOrEqualToThreshold"),
-//				EvaluationPeriods:       pulumi.Int(2),
-//				Threshold:               pulumi.Float64(10),
-//				AlarmDescription:        pulumi.String("Request error rate has exceeded 10%"),
-//				InsufficientDataActions: pulumi.Array{},
 //				MetricQueries: cloudwatch.MetricAlarmMetricQueryArray{
 //					&cloudwatch.MetricAlarmMetricQueryArgs{
 //						Id:         pulumi.String("e1"),
@@ -133,7 +127,6 @@ import (
 //						ReturnData: pulumi.Bool(true),
 //					},
 //					&cloudwatch.MetricAlarmMetricQueryArgs{
-//						Id: pulumi.String("m1"),
 //						Metric: &cloudwatch.MetricAlarmMetricQueryMetricArgs{
 //							MetricName: pulumi.String("RequestCount"),
 //							Namespace:  pulumi.String("AWS/ApplicationELB"),
@@ -144,9 +137,9 @@ import (
 //								"LoadBalancer": pulumi.String("app/web"),
 //							},
 //						},
+//						Id: pulumi.String("m1"),
 //					},
 //					&cloudwatch.MetricAlarmMetricQueryArgs{
-//						Id: pulumi.String("m2"),
 //						Metric: &cloudwatch.MetricAlarmMetricQueryMetricArgs{
 //							MetricName: pulumi.String("HTTPCode_ELB_5XX_Count"),
 //							Namespace:  pulumi.String("AWS/ApplicationELB"),
@@ -157,8 +150,15 @@ import (
 //								"LoadBalancer": pulumi.String("app/web"),
 //							},
 //						},
+//						Id: pulumi.String("m2"),
 //					},
 //				},
+//				Name:                    pulumi.String("test-foobar"),
+//				ComparisonOperator:      pulumi.String("GreaterThanOrEqualToThreshold"),
+//				EvaluationPeriods:       pulumi.Int(2),
+//				Threshold:               pulumi.Float64(10),
+//				AlarmDescription:        pulumi.String("Request error rate has exceeded 10%"),
+//				InsufficientDataActions: pulumi.Array{},
 //			})
 //			if err != nil {
 //				return err
@@ -185,8 +185,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudwatch.NewMetricAlarm(ctx, "promql_alarm", &cloudwatch.MetricAlarmArgs{
-//				Name:             pulumi.String("high-cpu-promql"),
-//				AlarmDescription: pulumi.String("Alarm when average CPU exceeds 80% using PromQL"),
 //				EvaluationCriteria: &cloudwatch.MetricAlarmEvaluationCriteriaArgs{
 //					PromqlCriteria: &cloudwatch.MetricAlarmEvaluationCriteriaPromqlCriteriaArgs{
 //						Query:          pulumi.String("avg(cpu_utilization_percent) > 80"),
@@ -194,6 +192,8 @@ import (
 //						RecoveryPeriod: pulumi.Int(120),
 //					},
 //				},
+//				Name:               pulumi.String("high-cpu-promql"),
+//				AlarmDescription:   pulumi.String("Alarm when average CPU exceeds 80% using PromQL"),
 //				EvaluationInterval: pulumi.Int(30),
 //				AlarmActions: pulumi.Array{
 //					alerts.Arn,
@@ -222,12 +222,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudwatch.NewMetricAlarm(ctx, "xx_anomaly_detection", &cloudwatch.MetricAlarmArgs{
-//				Name:                    pulumi.String("test-foobar"),
-//				ComparisonOperator:      pulumi.String("GreaterThanUpperThreshold"),
-//				EvaluationPeriods:       pulumi.Int(2),
-//				ThresholdMetricId:       pulumi.String("e1"),
-//				AlarmDescription:        pulumi.String("This metric monitors ec2 cpu utilization"),
-//				InsufficientDataActions: pulumi.Array{},
 //				MetricQueries: cloudwatch.MetricAlarmMetricQueryArray{
 //					&cloudwatch.MetricAlarmMetricQueryArgs{
 //						Id:         pulumi.String("e1"),
@@ -236,8 +230,6 @@ import (
 //						Label:      pulumi.String("CPUUtilization (Expected)"),
 //					},
 //					&cloudwatch.MetricAlarmMetricQueryArgs{
-//						Id:         pulumi.String("m1"),
-//						ReturnData: pulumi.Bool(true),
 //						Metric: &cloudwatch.MetricAlarmMetricQueryMetricArgs{
 //							MetricName: pulumi.String("CPUUtilization"),
 //							Namespace:  pulumi.String("AWS/EC2"),
@@ -248,8 +240,16 @@ import (
 //								"InstanceId": pulumi.String("i-abc123"),
 //							},
 //						},
+//						Id:         pulumi.String("m1"),
+//						ReturnData: pulumi.Bool(true),
 //					},
 //				},
+//				Name:                    pulumi.String("test-foobar"),
+//				ComparisonOperator:      pulumi.String("GreaterThanUpperThreshold"),
+//				EvaluationPeriods:       pulumi.Int(2),
+//				ThresholdMetricId:       pulumi.String("e1"),
+//				AlarmDescription:        pulumi.String("This metric monitors ec2 cpu utilization"),
+//				InsufficientDataActions: pulumi.Array{},
 //			})
 //			if err != nil {
 //				return err
@@ -275,12 +275,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudwatch.NewMetricAlarm(ctx, "example", &cloudwatch.MetricAlarmArgs{
-//				Name:               pulumi.String("example-alarm"),
-//				AlarmDescription:   pulumi.String("Triggers if the smallest per-instance maximum load during the evaluation period exceeds the threshold"),
-//				ComparisonOperator: pulumi.String("GreaterThanThreshold"),
-//				EvaluationPeriods:  pulumi.Int(1),
-//				Threshold:          pulumi.Float64(0.6),
-//				TreatMissingData:   pulumi.String("notBreaching"),
 //				MetricQueries: cloudwatch.MetricAlarmMetricQueryArray{
 //					&cloudwatch.MetricAlarmMetricQueryArgs{
 //						Id: pulumi.String("q1"),
@@ -299,6 +293,12 @@ import (
 //						Label:      pulumi.String("Max DB Load of the Least-Loaded RDS Instance"),
 //					},
 //				},
+//				Name:               pulumi.String("example-alarm"),
+//				AlarmDescription:   pulumi.String("Triggers if the smallest per-instance maximum load during the evaluation period exceeds the threshold"),
+//				ComparisonOperator: pulumi.String("GreaterThanThreshold"),
+//				EvaluationPeriods:  pulumi.Int(1),
+//				Threshold:          pulumi.Float64(0.6),
+//				TreatMissingData:   pulumi.String("notBreaching"),
 //			})
 //			if err != nil {
 //				return err

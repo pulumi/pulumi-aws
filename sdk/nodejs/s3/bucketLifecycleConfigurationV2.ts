@@ -35,11 +35,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3.BucketLifecycleConfiguration("example", {
- *     bucket: bucket.bucket,
  *     rules: [{
  *         id: "rule-1",
  *         status: "Enabled",
  *     }],
+ *     bucket: bucket.bucket,
  * });
  * ```
  *
@@ -52,12 +52,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3.BucketLifecycleConfiguration("example", {
- *     bucket: bucket.bucket,
  *     rules: [{
- *         id: "rule-1",
  *         filter: {},
+ *         id: "rule-1",
  *         status: "Enabled",
  *     }],
+ *     bucket: bucket.bucket,
  * });
  * ```
  *
@@ -70,14 +70,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3.BucketLifecycleConfiguration("example", {
- *     bucket: bucket.bucket,
  *     rules: [{
- *         id: "rule-1",
  *         filter: {
  *             prefix: "logs/",
  *         },
+ *         id: "rule-1",
  *         status: "Enabled",
  *     }],
+ *     bucket: bucket.bucket,
  * });
  * ```
  *
@@ -88,23 +88,23 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3.BucketLifecycleConfiguration("example", {
- *     bucket: bucket.bucket,
  *     rules: [
  *         {
- *             id: "rule-1",
  *             filter: {
  *                 prefix: "logs/",
  *             },
+ *             id: "rule-1",
  *             status: "Enabled",
  *         },
  *         {
- *             id: "rule-2",
  *             filter: {
  *                 prefix: "tmp/",
  *             },
+ *             id: "rule-2",
  *             status: "Enabled",
  *         },
  *     ],
+ *     bucket: bucket.bucket,
  * });
  * ```
  *
@@ -117,17 +117,17 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3.BucketLifecycleConfiguration("example", {
- *     bucket: bucket.bucket,
  *     rules: [{
- *         id: "rule-1",
  *         filter: {
  *             tag: {
  *                 key: "Name",
  *                 value: "Staging",
  *             },
  *         },
+ *         id: "rule-1",
  *         status: "Enabled",
  *     }],
+ *     bucket: bucket.bucket,
  * });
  * ```
  *
@@ -140,9 +140,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3.BucketLifecycleConfiguration("example", {
- *     bucket: bucket.bucket,
  *     rules: [{
- *         id: "rule-1",
  *         filter: {
  *             and: {
  *                 tags: {
@@ -151,8 +149,10 @@ import * as utilities from "../utilities";
  *                 },
  *             },
  *         },
+ *         id: "rule-1",
  *         status: "Enabled",
  *     }],
+ *     bucket: bucket.bucket,
  * });
  * ```
  *
@@ -165,9 +165,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3.BucketLifecycleConfiguration("example", {
- *     bucket: bucket.bucket,
  *     rules: [{
- *         id: "rule-1",
  *         filter: {
  *             and: {
  *                 prefix: "logs/",
@@ -177,8 +175,10 @@ import * as utilities from "../utilities";
  *                 },
  *             },
  *         },
+ *         id: "rule-1",
  *         status: "Enabled",
  *     }],
+ *     bucket: bucket.bucket,
  * });
  * ```
  *
@@ -191,18 +191,18 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3.BucketLifecycleConfiguration("example", {
- *     bucket: bucket.bucket,
  *     rules: [{
- *         id: "Allow small object transitions",
  *         filter: {
  *             objectSizeGreaterThan: 1,
  *         },
- *         status: "Enabled",
  *         transitions: [{
  *             days: 365,
  *             storageClass: "GLACIER_IR",
  *         }],
+ *         id: "Allow small object transitions",
+ *         status: "Enabled",
  *     }],
+ *     bucket: bucket.bucket,
  * });
  * ```
  *
@@ -215,9 +215,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3.BucketLifecycleConfiguration("example", {
- *     bucket: bucket.bucket,
  *     rules: [{
- *         id: "rule-1",
  *         filter: {
  *             and: {
  *                 prefix: "logs/",
@@ -225,8 +223,10 @@ import * as utilities from "../utilities";
  *                 objectSizeLessThan: 64000,
  *             },
  *         },
+ *         id: "rule-1",
  *         status: "Enabled",
  *     }],
+ *     bucket: bucket.bucket,
  * });
  * ```
  *
@@ -242,10 +242,8 @@ import * as utilities from "../utilities";
  *     acl: "private",
  * });
  * const bucket_config = new aws.s3.BucketLifecycleConfiguration("bucket-config", {
- *     bucket: bucket.bucket,
  *     rules: [
  *         {
- *             id: "log",
  *             expiration: {
  *                 days: 90,
  *             },
@@ -258,7 +256,6 @@ import * as utilities from "../utilities";
  *                     },
  *                 },
  *             },
- *             status: "Enabled",
  *             transitions: [
  *                 {
  *                     days: 30,
@@ -269,18 +266,21 @@ import * as utilities from "../utilities";
  *                     storageClass: "GLACIER",
  *                 },
  *             ],
+ *             id: "log",
+ *             status: "Enabled",
  *         },
  *         {
- *             id: "tmp",
  *             filter: {
  *                 prefix: "tmp/",
  *             },
  *             expiration: {
  *                 date: "2023-01-13T00:00:00Z",
  *             },
+ *             id: "tmp",
  *             status: "Enabled",
  *         },
  *     ],
+ *     bucket: bucket.bucket,
  * });
  * const versioningBucket = new aws.s3.Bucket("versioning_bucket", {bucket: "my-versioning-bucket"});
  * const versioningBucketAcl = new aws.s3.BucketAcl("versioning_bucket_acl", {
@@ -288,15 +288,13 @@ import * as utilities from "../utilities";
  *     acl: "private",
  * });
  * const versioning = new aws.s3.BucketVersioning("versioning", {
- *     bucket: versioningBucket.bucket,
  *     versioningConfiguration: {
  *         status: "Enabled",
  *     },
+ *     bucket: versioningBucket.bucket,
  * });
  * const versioning_bucket_config = new aws.s3.BucketLifecycleConfiguration("versioning-bucket-config", {
- *     bucket: versioningBucket.bucket,
  *     rules: [{
- *         id: "config",
  *         filter: {
  *             prefix: "config/",
  *         },
@@ -313,8 +311,10 @@ import * as utilities from "../utilities";
  *                 storageClass: "GLACIER",
  *             },
  *         ],
+ *         id: "config",
  *         status: "Enabled",
  *     }],
+ *     bucket: versioningBucket.bucket,
  * }, {
  *     dependsOn: [versioning],
  * });

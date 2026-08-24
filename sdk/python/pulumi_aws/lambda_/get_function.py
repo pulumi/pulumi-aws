@@ -566,10 +566,17 @@ def get_function(function_name: Optional[_builtins.str] = None,
     reference = aws.lambda_.get_function(function_name="existing-function")
     # Create new function with similar configuration
     example = aws.lambda_.Function("example",
-        durable_config=single_or_none([{"key": k, "value": v} for k, v in sorted(reference.durable_configs.items())].apply(lambda entries: [{
-            "executionTimeout": entry["value"].execution_timeout,
-            "retentionPeriod": entry["value"].retention_period,
-        } for entry in entries])),
+        vpc_config={
+            "subnet_ids": reference.vpc_config.subnet_ids,
+            "security_group_ids": reference.vpc_config.security_group_ids,
+        },
+        environment={
+            "variables": reference.environment.variables,
+        },
+        durable_config=single_or_none([{
+            "executionTimeout": entry.execution_timeout,
+            "retentionPeriod": entry.retention_period,
+        } for entry in reference.durable_configs]),
         code=pulumi.FileArchive("new-function.zip"),
         name="new-function",
         role=reference.role,
@@ -577,14 +584,7 @@ def get_function(function_name: Optional[_builtins.str] = None,
         runtime=aws.lambda_.Runtime(reference.runtime),
         memory_size=reference.memory_size,
         timeout=reference.timeout,
-        architectures=reference.architectures,
-        vpc_config={
-            "subnet_ids": reference.vpc_config.subnet_ids,
-            "security_group_ids": reference.vpc_config.security_group_ids,
-        },
-        environment={
-            "variables": reference.environment.variables,
-        })
+        architectures=reference.architectures)
     ```
 
     ### Function Version Management
@@ -733,10 +733,17 @@ def get_function_output(function_name: pulumi.Input[Optional[_builtins.str]] = N
     reference = aws.lambda_.get_function(function_name="existing-function")
     # Create new function with similar configuration
     example = aws.lambda_.Function("example",
-        durable_config=single_or_none([{"key": k, "value": v} for k, v in sorted(reference.durable_configs.items())].apply(lambda entries: [{
-            "executionTimeout": entry["value"].execution_timeout,
-            "retentionPeriod": entry["value"].retention_period,
-        } for entry in entries])),
+        vpc_config={
+            "subnet_ids": reference.vpc_config.subnet_ids,
+            "security_group_ids": reference.vpc_config.security_group_ids,
+        },
+        environment={
+            "variables": reference.environment.variables,
+        },
+        durable_config=single_or_none([{
+            "executionTimeout": entry.execution_timeout,
+            "retentionPeriod": entry.retention_period,
+        } for entry in reference.durable_configs]),
         code=pulumi.FileArchive("new-function.zip"),
         name="new-function",
         role=reference.role,
@@ -744,14 +751,7 @@ def get_function_output(function_name: pulumi.Input[Optional[_builtins.str]] = N
         runtime=aws.lambda_.Runtime(reference.runtime),
         memory_size=reference.memory_size,
         timeout=reference.timeout,
-        architectures=reference.architectures,
-        vpc_config={
-            "subnet_ids": reference.vpc_config.subnet_ids,
-            "security_group_ids": reference.vpc_config.security_group_ids,
-        },
-        environment={
-            "variables": reference.environment.variables,
-        })
+        architectures=reference.architectures)
     ```
 
     ### Function Version Management

@@ -18,12 +18,12 @@ import * as utilities from "../utilities";
  *
  * const example = aws.iam.getPolicyDocument({
  *     statements: [{
- *         sid: "new policy",
- *         effect: "Allow",
  *         principals: [{
  *             type: "AWS",
  *             identifiers: ["123456789012"],
  *         }],
+ *         sid: "new policy",
+ *         effect: "Allow",
  *         actions: [
  *             "ecr:GetDownloadUrlForLayer",
  *             "ecr:BatchGetImage",
@@ -43,14 +43,14 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const exampleRepositoryCreationTemplate = new aws.ecr.RepositoryCreationTemplate("example", {
+ *     encryptionConfigurations: [{
+ *         encryptionType: "AES256",
+ *     }],
  *     prefix: "example",
  *     description: "An example template",
  *     imageTagMutability: "IMMUTABLE",
  *     customRoleArn: "arn:aws:iam::123456789012:role/example",
  *     appliedFors: ["PULL_THROUGH_CACHE"],
- *     encryptionConfigurations: [{
- *         encryptionType: "AES256",
- *     }],
  *     repositoryPolicy: example.then(example => example.json),
  *     lifecyclePolicy: `{
  *   \\"rules\\": [

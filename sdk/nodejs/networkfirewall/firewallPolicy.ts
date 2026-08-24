@@ -20,16 +20,16 @@ import * as utilities from "../utilities";
  * const currentGetPartition = aws.getPartition({});
  * const currentGetCallerIdentity = aws.getCallerIdentity({});
  * const example = new aws.networkfirewall.FirewallPolicy("example", {
- *     name: "example",
  *     firewallPolicy: {
- *         statelessDefaultActions: ["aws:pass"],
- *         statelessFragmentDefaultActions: ["aws:drop"],
  *         statelessRuleGroupReferences: [{
  *             priority: 1,
  *             resourceArn: exampleAwsNetworkfirewallRuleGroup.arn,
  *         }],
+ *         statelessDefaultActions: ["aws:pass"],
+ *         statelessFragmentDefaultActions: ["aws:drop"],
  *         tlsInspectionConfigurationArn: Promise.all([currentGetPartition, current, currentGetCallerIdentity]).then(([currentGetPartition, current, currentGetCallerIdentity]) => `arn:${currentGetPartition.partition}:network-firewall:${current.region}:${currentGetCallerIdentity.accountId}:tls-configuration/example`),
  *     },
+ *     name: "example",
  *     tags: {
  *         Tag1: "Value1",
  *         Tag2: "Value2",
@@ -44,26 +44,26 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.networkfirewall.FirewallPolicy("example", {
- *     name: "example",
  *     firewallPolicy: {
  *         policyVariables: {
  *             ruleVariables: [{
- *                 key: "HOME_NET",
  *                 ipSet: {
  *                     definitions: [
  *                         "10.0.0.0/16",
  *                         "10.1.0.0/24",
  *                     ],
  *                 },
+ *                 key: "HOME_NET",
  *             }],
  *         },
- *         statelessDefaultActions: ["aws:pass"],
- *         statelessFragmentDefaultActions: ["aws:drop"],
  *         statelessRuleGroupReferences: [{
  *             priority: 1,
  *             resourceArn: exampleAwsNetworkfirewallRuleGroup.arn,
  *         }],
+ *         statelessDefaultActions: ["aws:pass"],
+ *         statelessFragmentDefaultActions: ["aws:drop"],
  *     },
+ *     name: "example",
  *     tags: {
  *         Tag1: "Value1",
  *         Tag2: "Value2",
@@ -78,13 +78,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.networkfirewall.FirewallPolicy("example", {
- *     name: "example",
  *     firewallPolicy: {
- *         statelessDefaultActions: [
- *             "aws:pass",
- *             "ExampleCustomAction",
- *         ],
- *         statelessFragmentDefaultActions: ["aws:drop"],
  *         statelessCustomActions: [{
  *             actionDefinition: {
  *                 publishMetricAction: {
@@ -95,7 +89,13 @@ import * as utilities from "../utilities";
  *             },
  *             actionName: "ExampleCustomAction",
  *         }],
+ *         statelessDefaultActions: [
+ *             "aws:pass",
+ *             "ExampleCustomAction",
+ *         ],
+ *         statelessFragmentDefaultActions: ["aws:drop"],
  *     },
+ *     name: "example",
  * });
  * ```
  *
@@ -108,15 +108,15 @@ import * as utilities from "../utilities";
  * const current = aws.getRegion({});
  * const currentGetPartition = aws.getPartition({});
  * const example = new aws.networkfirewall.FirewallPolicy("example", {
- *     name: "example",
  *     firewallPolicy: {
- *         statelessFragmentDefaultActions: ["aws:drop"],
- *         statelessDefaultActions: ["aws:pass"],
  *         statefulRuleGroupReferences: [{
  *             deepThreatInspection: "true",
  *             resourceArn: Promise.all([currentGetPartition, current]).then(([currentGetPartition, current]) => `arn:${currentGetPartition.partition}:network-firewall:${current.region}:aws-managed:stateful-rulegroup/AttackInfrastructureActionOrder`),
  *         }],
+ *         statelessFragmentDefaultActions: ["aws:drop"],
+ *         statelessDefaultActions: ["aws:pass"],
  *     },
+ *     name: "example",
  * });
  * ```
  *
@@ -129,10 +129,7 @@ import * as utilities from "../utilities";
  * const current = aws.getRegion({});
  * const currentGetPartition = aws.getPartition({});
  * const example = new aws.networkfirewall.FirewallPolicy("example", {
- *     name: "example",
  *     firewallPolicy: {
- *         statelessFragmentDefaultActions: ["aws:drop"],
- *         statelessDefaultActions: ["aws:pass"],
  *         statefulEngineOptions: {
  *             ruleOrder: "STRICT_ORDER",
  *         },
@@ -141,7 +138,10 @@ import * as utilities from "../utilities";
  *             priority: 1,
  *             resourceArn: Promise.all([currentGetPartition, current]).then(([currentGetPartition, current]) => `arn:${currentGetPartition.partition}:network-firewall:${current.region}:aws-managed:stateful-rulegroup/AttackInfrastructureStrictOrder`),
  *         }],
+ *         statelessFragmentDefaultActions: ["aws:drop"],
+ *         statelessDefaultActions: ["aws:pass"],
  *     },
+ *     name: "example",
  * });
  * ```
  *

@@ -23,10 +23,6 @@ import * as utilities from "../utilities";
  *     name: "WAF-Rule-Group-Example",
  * });
  * const example = new aws.fms.Policy("example", {
- *     name: "FMS-Policy-Example",
- *     excludeResourceTags: false,
- *     remediationEnabled: false,
- *     resourceType: "AWS::ElasticLoadBalancingV2::LoadBalancer",
  *     securityServicePolicyData: {
  *         type: "WAF",
  *         managedServiceData: pulumi.jsonStringify({
@@ -43,6 +39,10 @@ import * as utilities from "../utilities";
  *             overrideCustomerWebACLAssociation: false,
  *         }),
  *     },
+ *     name: "FMS-Policy-Example",
+ *     excludeResourceTags: false,
+ *     remediationEnabled: false,
+ *     resourceType: "AWS::ElasticLoadBalancingV2::LoadBalancer",
  *     tags: {
  *         Name: "example-fms-policy",
  *     },

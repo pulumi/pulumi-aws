@@ -58,12 +58,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new V2modelsBot("example", V2modelsBotArgs.builder()
- *             .name("example")
- *             .idleSessionTtlInSeconds(60)
- *             .roleArn(exampleAwsIamRole.arn())
  *             .dataPrivacies(V2modelsBotDataPrivacyArgs.builder()
  *                 .childDirected(true)
  *                 .build())
+ *             .name("example")
+ *             .idleSessionTtlInSeconds(60)
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .build());
  * 
  *         var exampleV2modelsBotLocale = new V2modelsBotLocale("exampleV2modelsBotLocale", V2modelsBotLocaleArgs.builder()
@@ -119,21 +119,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new V2modelsSlotType("example", V2modelsSlotTypeArgs.builder()
- *             .botId(exampleAwsLexv2modelsBot.id())
- *             .botVersion(exampleAwsLexv2modelsBotLocale.botVersion())
- *             .name("example")
- *             .localeId(exampleAwsLexv2modelsBotLocale.localeId())
  *             .valueSelectionSetting(V2modelsSlotTypeValueSelectionSettingArgs.builder()
- *                 .resolutionStrategy("OriginalValue")
  *                 .advancedRecognitionSettings(V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArgs.builder()
  *                     .audioRecognitionStrategy("UseSlotValuesAsCustomVocabulary")
  *                     .build())
+ *                 .resolutionStrategy("OriginalValue")
  *                 .build())
  *             .slotTypeValues(V2modelsSlotTypeSlotTypeValueArgs.builder()
  *                 .sampleValues(V2modelsSlotTypeSlotTypeValueSampleValueArgs.builder()
  *                     .value("exampleValue")
  *                     .build())
  *                 .build())
+ *             .botId(exampleAwsLexv2modelsBot.id())
+ *             .botVersion(exampleAwsLexv2modelsBotLocale.botVersion())
+ *             .name("example")
+ *             .localeId(exampleAwsLexv2modelsBotLocale.localeId())
  *             .build());
  * 
  *     }

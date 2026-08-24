@@ -49,11 +49,11 @@ namespace Pulumi.Aws.VerifiedAccess
     /// 
     ///     var test = new Aws.VerifiedAccess.Group("test", new()
     ///     {
-    ///         VerifiedaccessInstanceId = testAwsVerifiedaccessInstanceTrustProviderAttachment.VerifiedaccessInstanceId,
     ///         SseConfiguration = new Aws.VerifiedAccess.Inputs.GroupSseConfigurationArgs
     ///         {
     ///             KmsKeyArn = testKey.Arn,
     ///         },
+    ///         VerifiedaccessInstanceId = testAwsVerifiedaccessInstanceTrustProviderAttachment.VerifiedaccessInstanceId,
     ///     });
     /// 
     /// });

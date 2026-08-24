@@ -19,13 +19,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.kendra.QuerySuggestionsBlockList("example", {
- *     indexId: exampleAwsKendraIndex.id,
- *     name: "Example",
- *     roleArn: exampleAwsIamRole.arn,
  *     sourceS3Path: {
  *         bucket: exampleAwsS3Bucket.id,
  *         key: "example/suggestions.txt",
  *     },
+ *     indexId: exampleAwsKendraIndex.id,
+ *     name: "Example",
+ *     roleArn: exampleAwsIamRole.arn,
  *     tags: {
  *         Name: "Example Kendra Index",
  *     },

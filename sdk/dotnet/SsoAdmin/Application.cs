@@ -54,18 +54,18 @@ namespace Pulumi.Aws.SsoAdmin
     /// 
     ///     var exampleApplication = new Aws.SsoAdmin.Application("example", new()
     ///     {
-    ///         Name = "example",
-    ///         ApplicationProviderArn = "arn:aws:sso::aws:applicationProvider/custom",
-    ///         InstanceArn = example.Apply(getInstancesResult =&gt; getInstancesResult.Arns[0]),
     ///         PortalOptions = new Aws.SsoAdmin.Inputs.ApplicationPortalOptionsArgs
     ///         {
-    ///             Visibility = "ENABLED",
     ///             SignInOptions = new Aws.SsoAdmin.Inputs.ApplicationPortalOptionsSignInOptionsArgs
     ///             {
     ///                 ApplicationUrl = "http://example.com",
     ///                 Origin = "APPLICATION",
     ///             },
+    ///             Visibility = "ENABLED",
     ///         },
+    ///         Name = "example",
+    ///         ApplicationProviderArn = "arn:aws:sso::aws:applicationProvider/custom",
+    ///         InstanceArn = example.Apply(getInstancesResult =&gt; getInstancesResult.Arns[0]),
     ///     });
     /// 
     /// });

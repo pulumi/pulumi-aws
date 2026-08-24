@@ -26,9 +26,6 @@ namespace Pulumi.Aws.ElasticTranscoder
     /// {
     ///     var bar = new Aws.ElasticTranscoder.Pipeline("bar", new()
     ///     {
-    ///         InputBucket = inputBucket.Id,
-    ///         Name = "aws_elastictranscoder_pipeline_my_test_",
-    ///         Role = testRole.Arn,
     ///         ContentConfig = new Aws.ElasticTranscoder.Inputs.PipelineContentConfigArgs
     ///         {
     ///             Bucket = contentBucket.Id,
@@ -39,6 +36,9 @@ namespace Pulumi.Aws.ElasticTranscoder
     ///             Bucket = thumbBucket.Id,
     ///             StorageClass = "Standard",
     ///         },
+    ///         InputBucket = inputBucket.Id,
+    ///         Name = "aws_elastictranscoder_pipeline_my_test_",
+    ///         Role = testRole.Arn,
     ///     });
     /// 
     /// });

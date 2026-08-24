@@ -21,11 +21,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.resiliencehub.V2Service("example", {
- *     name: "example-service",
- *     regions: ["us-west-2"],
  *     permissionModel: {
  *         invokerRoleName: "AWSResilienceHubAssessmentRole",
  *     },
+ *     name: "example-service",
+ *     regions: ["us-west-2"],
  * });
  * ```
  *
@@ -36,12 +36,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.resiliencehub.V2Policy("example", {
- *     name: "example-policy",
  *     availabilitySlo: {
  *         target: 99.9,
  *     },
+ *     name: "example-policy",
  * });
  * const exampleV2Service = new aws.resiliencehub.V2Service("example", {
+ *     permissionModel: {
+ *         invokerRoleName: "AWSResilienceHubAssessmentRole",
+ *     },
  *     name: "example-service",
  *     description: "Production API service",
  *     policyArn: example.arn,
@@ -49,9 +52,6 @@ import * as utilities from "../utilities";
  *         "us-west-2",
  *         "us-east-1",
  *     ],
- *     permissionModel: {
- *         invokerRoleName: "AWSResilienceHubAssessmentRole",
- *     },
  *     tags: {
  *         Environment: "production",
  *     },
@@ -66,14 +66,14 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.resiliencehub.V2System("example", {name: "example-system"});
  * const exampleV2Service = new aws.resiliencehub.V2Service("example", {
- *     name: "example-service",
- *     regions: ["us-west-2"],
  *     permissionModel: {
  *         invokerRoleName: "AWSResilienceHubAssessmentRole",
  *     },
  *     associatedSystems: [{
  *         systemArn: example.arn,
  *     }],
+ *     name: "example-service",
+ *     regions: ["us-west-2"],
  * });
  * ```
  *

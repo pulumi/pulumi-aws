@@ -307,9 +307,7 @@ class Framework(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.auditmanager.Framework("test",
-            name="example",
             control_sets=[{
-                "name": "example",
                 "controls": [
                     {
                         "id": test1["id"],
@@ -318,7 +316,9 @@ class Framework(pulumi.CustomResource):
                         "id": test2["id"],
                     },
                 ],
-            }])
+                "name": "example",
+            }],
+            name="example")
         ```
 
         ## Import
@@ -370,9 +370,7 @@ class Framework(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.auditmanager.Framework("test",
-            name="example",
             control_sets=[{
-                "name": "example",
                 "controls": [
                     {
                         "id": test1["id"],
@@ -381,7 +379,9 @@ class Framework(pulumi.CustomResource):
                         "id": test2["id"],
                     },
                 ],
-            }])
+                "name": "example",
+            }],
+            name="example")
         ```
 
         ## Import

@@ -31,9 +31,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewWorkteam(ctx, "example", &sagemaker.WorkteamArgs{
-//				WorkteamName:  pulumi.String("example"),
-//				WorkforceName: pulumi.Any(exampleAwsSagemakerWorkforce.Id),
-//				Description:   pulumi.String("example"),
 //				MemberDefinitions: sagemaker.WorkteamMemberDefinitionArray{
 //					&sagemaker.WorkteamMemberDefinitionArgs{
 //						CognitoMemberDefinition: &sagemaker.WorkteamMemberDefinitionCognitoMemberDefinitionArgs{
@@ -43,6 +40,9 @@ import (
 //						},
 //					},
 //				},
+//				WorkteamName:  pulumi.String("example"),
+//				WorkforceName: pulumi.Any(exampleAwsSagemakerWorkforce.Id),
+//				Description:   pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -68,9 +68,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewWorkteam(ctx, "example", &sagemaker.WorkteamArgs{
-//				WorkteamName:  pulumi.String("example"),
-//				WorkforceName: pulumi.Any(exampleAwsSagemakerWorkforce.Id),
-//				Description:   pulumi.String("example"),
 //				MemberDefinitions: sagemaker.WorkteamMemberDefinitionArray{
 //					&sagemaker.WorkteamMemberDefinitionArgs{
 //						OidcMemberDefinition: &sagemaker.WorkteamMemberDefinitionOidcMemberDefinitionArgs{
@@ -80,6 +77,9 @@ import (
 //						},
 //					},
 //				},
+//				WorkteamName:  pulumi.String("example"),
+//				WorkforceName: pulumi.Any(exampleAwsSagemakerWorkforce.Id),
+//				Description:   pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

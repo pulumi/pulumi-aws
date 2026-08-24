@@ -37,9 +37,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ec2.Fleet;
  * import com.pulumi.aws.ec2.FleetArgs;
+ * import com.pulumi.aws.ec2.inputs.FleetTargetCapacitySpecificationArgs;
  * import com.pulumi.aws.ec2.inputs.FleetLaunchTemplateConfigArgs;
  * import com.pulumi.aws.ec2.inputs.FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs;
- * import com.pulumi.aws.ec2.inputs.FleetTargetCapacitySpecificationArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -54,15 +54,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Fleet("example", FleetArgs.builder()
+ *             .targetCapacitySpecification(FleetTargetCapacitySpecificationArgs.builder()
+ *                 .defaultTargetCapacityType("spot")
+ *                 .totalTargetCapacity(5)
+ *                 .build())
  *             .launchTemplateConfigs(FleetLaunchTemplateConfigArgs.builder()
  *                 .launchTemplateSpecification(FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs.builder()
  *                     .launchTemplateId(exampleAwsLaunchTemplate.id())
  *                     .version(exampleAwsLaunchTemplate.latestVersion())
  *                     .build())
- *                 .build())
- *             .targetCapacitySpecification(FleetTargetCapacitySpecificationArgs.builder()
- *                 .defaultTargetCapacityType("spot")
- *                 .totalTargetCapacity(5)
  *                 .build())
  *             .build());
  * 

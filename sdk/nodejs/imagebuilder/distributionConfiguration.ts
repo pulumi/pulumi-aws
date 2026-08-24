@@ -17,22 +17,22 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.imagebuilder.DistributionConfiguration("example", {
- *     name: "example",
  *     distributions: [{
  *         amiDistributionConfiguration: {
+ *             launchPermission: {
+ *                 userIds: ["123456789012"],
+ *             },
  *             amiTags: {
  *                 CostCenter: "IT",
  *             },
  *             name: "example-{{ imagebuilder:buildDate }}",
- *             launchPermission: {
- *                 userIds: ["123456789012"],
- *             },
  *         },
  *         launchTemplateConfigurations: [{
  *             launchTemplateId: "lt-0aaa1bcde2ff3456",
  *         }],
  *         region: "us-east-1",
  *     }],
+ *     name: "example",
  * });
  * ```
  *

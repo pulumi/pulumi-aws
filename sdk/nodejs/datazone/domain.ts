@@ -78,15 +78,6 @@ import * as utilities from "../utilities";
  * // IAM role for Domain Execution
  * const assumeRoleDomainExecution = current.then(current => aws.iam.getPolicyDocument({
  *     statements: [{
- *         actions: [
- *             "sts:AssumeRole",
- *             "sts:TagSession",
- *             "sts:SetContext",
- *         ],
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["datazone.amazonaws.com"],
- *         }],
  *         conditions: [
  *             {
  *                 test: "StringEquals",
@@ -98,6 +89,15 @@ import * as utilities from "../utilities";
  *                 values: ["datazone*"],
  *                 variable: "aws:TagKeys",
  *             },
+ *         ],
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["datazone.amazonaws.com"],
+ *         }],
+ *         actions: [
+ *             "sts:AssumeRole",
+ *             "sts:TagSession",
+ *             "sts:SetContext",
  *         ],
  *     }],
  * }));
@@ -115,16 +115,16 @@ import * as utilities from "../utilities";
  * // IAM role for Domain Service
  * const assumeRoleDomainService = current.then(current => aws.iam.getPolicyDocument({
  *     statements: [{
- *         actions: ["sts:AssumeRole"],
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["datazone.amazonaws.com"],
- *         }],
  *         conditions: [{
  *             test: "StringEquals",
  *             values: [current.accountId],
  *             variable: "aws:SourceAccount",
  *         }],
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["datazone.amazonaws.com"],
+ *         }],
+ *         actions: ["sts:AssumeRole"],
  *     }],
  * }));
  * const domainService = new aws.iam.Role("domain_service", {

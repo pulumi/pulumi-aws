@@ -19,12 +19,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cloudfront.ConnectionFunction("example", {
- *     name: "example-connection-function",
- *     connectionFunctionCode: "function handler(event) { return event.request; }",
  *     connectionFunctionConfig: {
  *         runtime: "cloudfront-js-2.0",
  *         comment: "Example connection function",
  *     },
+ *     name: "example-connection-function",
+ *     connectionFunctionCode: "function handler(event) { return event.request; }",
  * });
  * ```
  *
@@ -35,12 +35,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cloudfront.ConnectionFunction("example", {
- *     name: "example-connection-function",
- *     connectionFunctionCode: "function handler(event) { return event.request; }",
  *     connectionFunctionConfig: {
  *         runtime: "cloudfront-js-2.0",
  *         comment: "Example connection function",
  *     },
+ *     name: "example-connection-function",
+ *     connectionFunctionCode: "function handler(event) { return event.request; }",
  *     publish: true,
  * });
  * ```
@@ -56,15 +56,15 @@ import * as utilities from "../utilities";
  *     comment: "Example key value store",
  * });
  * const exampleConnectionFunction = new aws.cloudfront.ConnectionFunction("example", {
- *     name: "example-connection-function",
- *     connectionFunctionCode: "function handler(event) { return event.request; }",
  *     connectionFunctionConfig: {
- *         runtime: "cloudfront-js-2.0",
- *         comment: "Example connection function",
  *         keyValueStoreAssociation: {
  *             keyValueStoreArn: example.arn,
  *         },
+ *         runtime: "cloudfront-js-2.0",
+ *         comment: "Example connection function",
  *     },
+ *     name: "example-connection-function",
+ *     connectionFunctionCode: "function handler(event) { return event.request; }",
  * });
  * ```
  *
@@ -75,12 +75,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cloudfront.ConnectionFunction("example", {
- *     name: "example-connection-function",
- *     connectionFunctionCode: "function handler(event) { return event.request; }",
  *     connectionFunctionConfig: {
  *         runtime: "cloudfront-js-2.0",
  *         comment: "Example connection function",
  *     },
+ *     name: "example-connection-function",
+ *     connectionFunctionCode: "function handler(event) { return event.request; }",
  *     tags: {
  *         Environment: "production",
  *         Team: "web",

@@ -57,11 +57,11 @@ namespace Pulumi.Aws.ResilienceHub
     /// 
     ///     var exampleV2Policy = new Aws.ResilienceHub.V2Policy("example", new()
     ///     {
-    ///         Name = "example-policy",
     ///         AvailabilitySlo = new Aws.ResilienceHub.Inputs.V2PolicyAvailabilitySloArgs
     ///         {
     ///             Target = 99.9,
     ///         },
+    ///         Name = "example-policy",
     ///     });
     /// 
     ///     var exampleV2UserJourney = new Aws.ResilienceHub.V2UserJourney("example", new()

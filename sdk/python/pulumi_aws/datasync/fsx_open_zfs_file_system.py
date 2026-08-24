@@ -312,15 +312,15 @@ class FsxOpenZfsFileSystem(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.datasync.FsxOpenZfsFileSystem("example",
-            fsx_filesystem_arn=example_aws_fsx_openzfs_file_system["arn"],
-            security_group_arns=[example_aws_security_group["arn"]],
             protocol={
                 "nfs": {
                     "mount_options": {
                         "version": "AUTOMATIC",
                     },
                 },
-            })
+            },
+            fsx_filesystem_arn=example_aws_fsx_openzfs_file_system["arn"],
+            security_group_arns=[example_aws_security_group["arn"]])
         ```
 
         ## Import
@@ -357,15 +357,15 @@ class FsxOpenZfsFileSystem(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.datasync.FsxOpenZfsFileSystem("example",
-            fsx_filesystem_arn=example_aws_fsx_openzfs_file_system["arn"],
-            security_group_arns=[example_aws_security_group["arn"]],
             protocol={
                 "nfs": {
                     "mount_options": {
                         "version": "AUTOMATIC",
                     },
                 },
-            })
+            },
+            fsx_filesystem_arn=example_aws_fsx_openzfs_file_system["arn"],
+            security_group_arns=[example_aws_security_group["arn"]])
         ```
 
         ## Import

@@ -22,11 +22,11 @@ import * as utilities from "../utilities";
  *
  * const example = aws.iam.getPolicyDocument({
  *     statements: [{
- *         actions: ["sts:AssumeRole"],
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["transcribe.amazonaws.com"],
  *         }],
+ *         actions: ["sts:AssumeRole"],
  *     }],
  * });
  * const exampleRole = new aws.iam.Role("example", {
@@ -58,12 +58,12 @@ import * as utilities from "../utilities";
  *     source: new pulumi.asset.FileAsset("test1.txt"),
  * });
  * const exampleLanguageModel = new aws.transcribe.LanguageModel("example", {
- *     modelName: "example",
- *     baseModelName: "NarrowBand",
  *     inputDataConfig: {
  *         dataAccessRoleArn: exampleRole.arn,
  *         s3Uri: pulumi.interpolate`s3://${exampleBucket.id}/transcribe/`,
  *     },
+ *     modelName: "example",
+ *     baseModelName: "NarrowBand",
  *     languageCode: "en-US",
  *     tags: {
  *         ENVIRONMENT: "development",

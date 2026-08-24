@@ -52,12 +52,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DomainName("example", DomainNameArgs.builder()
- *             .domainName("ws-api.example.com")
  *             .domainNameConfiguration(DomainNameDomainNameConfigurationArgs.builder()
  *                 .certificateArn(exampleAwsAcmCertificate.arn())
  *                 .endpointType("REGIONAL")
  *                 .securityPolicy("TLS_1_2")
  *                 .build())
+ *             .domainName("ws-api.example.com")
  *             .build());
  * 
  *     }
@@ -94,23 +94,23 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DomainName("example", DomainNameArgs.builder()
- *             .domainName("http-api.example.com")
  *             .domainNameConfiguration(DomainNameDomainNameConfigurationArgs.builder()
  *                 .certificateArn(exampleAwsAcmCertificate.arn())
  *                 .endpointType("REGIONAL")
  *                 .securityPolicy("TLS_1_2")
  *                 .build())
+ *             .domainName("http-api.example.com")
  *             .build());
  * 
  *         var exampleRecord = new Record("exampleRecord", RecordArgs.builder()
- *             .name(example.domainName())
- *             .type("A")
- *             .zoneId(exampleAwsRoute53Zone.zoneId())
  *             .aliases(RecordAliasArgs.builder()
  *                 .name(example.domainNameConfiguration().applyValue(_domainNameConfiguration -> _domainNameConfiguration.targetDomainName()))
  *                 .zoneId(example.domainNameConfiguration().applyValue(_domainNameConfiguration -> _domainNameConfiguration.hostedZoneId()))
  *                 .evaluateTargetHealth(false)
  *                 .build())
+ *             .name(example.domainName())
+ *             .type("A")
+ *             .zoneId(exampleAwsRoute53Zone.zoneId())
  *             .build());
  * 
  *     }

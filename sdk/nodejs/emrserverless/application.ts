@@ -32,19 +32,19 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.emrserverless.Application("example", {
- *     name: "example",
- *     releaseLabel: "emr-6.6.0",
- *     type: "hive",
  *     initialCapacities: [{
- *         initialCapacityType: "HiveDriver",
  *         initialCapacityConfig: {
- *             workerCount: 1,
  *             workerConfiguration: {
  *                 cpu: "2 vCPU",
  *                 memory: "10 GB",
  *             },
+ *             workerCount: 1,
  *         },
+ *         initialCapacityType: "HiveDriver",
  *     }],
+ *     name: "example",
+ *     releaseLabel: "emr-6.6.0",
+ *     type: "hive",
  * });
  * ```
  *
@@ -55,13 +55,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.emrserverless.Application("example", {
- *     name: "example",
- *     releaseLabel: "emr-6.6.0",
- *     type: "hive",
  *     maximumCapacity: {
  *         cpu: "2 vCPU",
  *         memory: "10 GB",
  *     },
+ *     name: "example",
+ *     releaseLabel: "emr-6.6.0",
+ *     type: "hive",
  * });
  * ```
  *
@@ -72,14 +72,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.emrserverless.Application("example", {
- *     name: "example",
- *     releaseLabel: "emr-7.1.0",
- *     type: "spark",
  *     monitoringConfiguration: {
  *         cloudwatchLoggingConfiguration: {
- *             enabled: true,
- *             logGroupName: "/aws/emr-serverless/example",
- *             logStreamNamePrefix: "spark-logs",
  *             logTypes: [
  *                 {
  *                     name: "SPARK_DRIVER",
@@ -93,6 +87,9 @@ import * as utilities from "../utilities";
  *                     values: ["STDOUT"],
  *                 },
  *             ],
+ *             enabled: true,
+ *             logGroupName: "/aws/emr-serverless/example",
+ *             logStreamNamePrefix: "spark-logs",
  *         },
  *         managedPersistenceMonitoringConfiguration: {
  *             enabled: true,
@@ -101,6 +98,9 @@ import * as utilities from "../utilities";
  *             remoteWriteUrl: "https://prometheus-remote-write-endpoint.example.com/api/v1/write",
  *         },
  *     },
+ *     name: "example",
+ *     releaseLabel: "emr-7.1.0",
+ *     type: "spark",
  * });
  * ```
  *
@@ -111,9 +111,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.emrserverless.Application("example", {
- *     name: "example",
- *     releaseLabel: "emr-6.8.0",
- *     type: "spark",
  *     runtimeConfigurations: [
  *         {
  *             classification: "spark-executor-log4j2",
@@ -131,6 +128,9 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     ],
+ *     name: "example",
+ *     releaseLabel: "emr-6.8.0",
+ *     type: "spark",
  * });
  * ```
  *

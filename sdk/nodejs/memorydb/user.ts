@@ -22,12 +22,12 @@ import * as utilities from "../utilities";
  *
  * const example = new random.index.Password("example", {length: 16});
  * const exampleUser = new aws.memorydb.User("example", {
- *     userName: "my-user",
- *     accessString: "on ~* &* +@all",
  *     authenticationMode: {
  *         type: "password",
  *         passwords: [example.result],
  *     },
+ *     userName: "my-user",
+ *     accessString: "on ~* &* +@all",
  * });
  * ```
  *

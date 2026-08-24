@@ -21,10 +21,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.resiliencehub.V2Policy("example", {
- *     name: "example-policy",
  *     availabilitySlo: {
  *         target: 99.9,
  *     },
+ *     name: "example-policy",
  * });
  * ```
  *
@@ -35,8 +35,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.resiliencehub.V2Policy("example", {
- *     name: "example-policy",
- *     description: "Policy with multi-AZ and data recovery targets",
  *     availabilitySlo: {
  *         target: 99.99,
  *     },
@@ -48,6 +46,8 @@ import * as utilities from "../utilities";
  *         rpoInMinutes: 5,
  *         rtoInMinutes: 10,
  *     },
+ *     name: "example-policy",
+ *     description: "Policy with multi-AZ and data recovery targets",
  *     tags: {
  *         Environment: "production",
  *     },
@@ -61,7 +61,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.resiliencehub.V2Policy("example", {
- *     name: "example-multi-region-policy",
  *     availabilitySlo: {
  *         target: 99.95,
  *     },
@@ -70,6 +69,7 @@ import * as utilities from "../utilities";
  *         rpoInMinutes: 15,
  *         rtoInMinutes: 30,
  *     },
+ *     name: "example-multi-region-policy",
  * });
  * ```
  *

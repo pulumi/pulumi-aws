@@ -43,9 +43,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.finspace.KxClusterArgs;
  * import com.pulumi.aws.finspace.inputs.KxClusterCapacityConfigurationArgs;
  * import com.pulumi.aws.finspace.inputs.KxClusterVpcConfigurationArgs;
+ * import com.pulumi.aws.finspace.inputs.KxClusterCodeArgs;
  * import com.pulumi.aws.finspace.inputs.KxClusterCacheStorageConfigurationArgs;
  * import com.pulumi.aws.finspace.inputs.KxClusterDatabaseArgs;
- * import com.pulumi.aws.finspace.inputs.KxClusterCodeArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import com.pulumi.resources.CustomTimeouts;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -60,12 +62,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new KxCluster("example", KxClusterArgs.builder()
- *             .name("my-tf-kx-cluster")
- *             .environmentId(exampleAwsFinspaceKxEnvironment.id())
- *             .type("HDB")
- *             .releaseLabel("1.0")
- *             .azMode("SINGLE")
- *             .availabilityZoneId("use1-az2")
  *             .capacityConfiguration(KxClusterCapacityConfigurationArgs.builder()
  *                 .nodeType("kx.s.2xlarge")
  *                 .nodeCount(2)
@@ -76,22 +72,33 @@ import javax.annotation.Nullable;
  *                 .subnetIds(exampleAwsSubnet.id())
  *                 .ipAddressType("IP_V4")
  *                 .build())
+ *             .code(KxClusterCodeArgs.builder()
+ *                 .s3Bucket(testAwsS3Bucket.id())
+ *                 .s3Key(object.key())
+ *                 .build())
  *             .cacheStorageConfigurations(KxClusterCacheStorageConfigurationArgs.builder()
  *                 .type("CACHE_1000")
  *                 .size(1200)
  *                 .build())
  *             .databases(KxClusterDatabaseArgs.builder()
- *                 .databaseName(exampleAwsFinspaceKxDatabase.name())
  *                 .cacheConfiguration(Arrays.asList(Map.ofEntries(
  *                     Map.entry("cacheType", "CACHE_1000"),
  *                     Map.entry("dbPaths", "/")
  *                 )))
+ *                 .databaseName(exampleAwsFinspaceKxDatabase.name())
  *                 .build())
- *             .code(KxClusterCodeArgs.builder()
- *                 .s3Bucket(testAwsS3Bucket.id())
- *                 .s3Key(object.key())
+ *             .name("my-tf-kx-cluster")
+ *             .environmentId(exampleAwsFinspaceKxEnvironment.id())
+ *             .type("HDB")
+ *             .releaseLabel("1.0")
+ *             .azMode("SINGLE")
+ *             .availabilityZoneId("use1-az2")
+ *             .build(), CustomResourceOptions.builder()
+ *                 .customTimeouts(CustomTimeouts.builder()
+ *                     .create(CustomTimeouts.parseTimeoutString("18h"))
+ *                     .update(CustomTimeouts.parseTimeoutString("18h"))
  *                 .build())
- *             .build());
+ *                 .build());
  * 
  *     }
  * }

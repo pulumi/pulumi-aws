@@ -267,15 +267,15 @@ def get_task_execution(capacity_provider_strategies: Optional[Sequence[Union['Ge
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ecs.get_task_execution(cluster=example_aws_ecs_cluster["id"],
-        task_definition=example_aws_ecs_task_definition["arn"],
-        desired_count=1,
-        launch_type="FARGATE",
-        network_configuration={
+    example = aws.ecs.get_task_execution(network_configuration={
             "subnets": [__item["id"] for __item in example_aws_subnet],
             "security_groups": [example_aws_security_group["id"]],
             "assign_public_ip": False,
-        })
+        },
+        cluster=example_aws_ecs_cluster["id"],
+        task_definition=example_aws_ecs_task_definition["arn"],
+        desired_count=1,
+        launch_type="FARGATE")
     ```
 
 
@@ -379,15 +379,15 @@ def get_task_execution_output(capacity_provider_strategies: pulumi.Input[Optiona
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ecs.get_task_execution(cluster=example_aws_ecs_cluster["id"],
-        task_definition=example_aws_ecs_task_definition["arn"],
-        desired_count=1,
-        launch_type="FARGATE",
-        network_configuration={
+    example = aws.ecs.get_task_execution(network_configuration={
             "subnets": [__item["id"] for __item in example_aws_subnet],
             "security_groups": [example_aws_security_group["id"]],
             "assign_public_ip": False,
-        })
+        },
+        cluster=example_aws_ecs_cluster["id"],
+        task_definition=example_aws_ecs_task_definition["arn"],
+        desired_count=1,
+        launch_type="FARGATE")
     ```
 
 

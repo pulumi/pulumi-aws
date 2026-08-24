@@ -35,8 +35,6 @@ namespace Pulumi.Aws.Networkflowmonitor
     /// 
     ///     var exampleMonitor = new Aws.Networkflowmonitor.Monitor("example", new()
     ///     {
-    ///         MonitorName = "example-monitor",
-    ///         ScopeArn = exampleAwsNetworkflowmonitorScope.ScopeArn,
     ///         LocalResources = new[]
     ///         {
     ///             new Aws.Networkflowmonitor.Inputs.MonitorLocalResourceArgs
@@ -53,6 +51,8 @@ namespace Pulumi.Aws.Networkflowmonitor
     ///                 Identifier = example.Arn,
     ///             },
     ///         },
+    ///         MonitorName = "example-monitor",
+    ///         ScopeArn = exampleAwsNetworkflowmonitorScope.ScopeArn,
     ///         Tags = 
     ///         {
     ///             { "Name", "example" },

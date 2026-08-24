@@ -26,9 +26,6 @@ namespace Pulumi.Aws.ElasticTranscoder
     /// {
     ///     var bar = new Aws.ElasticTranscoder.Preset("bar", new()
     ///     {
-    ///         Container = "mp4",
-    ///         Description = "Sample Preset",
-    ///         Name = "sample_preset",
     ///         Audio = new Aws.ElasticTranscoder.Inputs.PresetAudioArgs
     ///         {
     ///             AudioPackingMode = "SingleTrack",
@@ -55,13 +52,14 @@ namespace Pulumi.Aws.ElasticTranscoder
     ///             PaddingPolicy = "Pad",
     ///             SizingPolicy = "Fit",
     ///         },
-    ///         VideoCodecOptions = 
+    ///         Thumbnails = new Aws.ElasticTranscoder.Inputs.PresetThumbnailsArgs
     ///         {
-    ///             { "Profile", "main" },
-    ///             { "Level", "2.2" },
-    ///             { "MaxReferenceFrames", "3" },
-    ///             { "InterlacedMode", "Progressive" },
-    ///             { "ColorSpaceConversionMode", "None" },
+    ///             Format = "png",
+    ///             Interval = "120",
+    ///             MaxWidth = "auto",
+    ///             MaxHeight = "auto",
+    ///             PaddingPolicy = "Pad",
+    ///             SizingPolicy = "Fit",
     ///         },
     ///         VideoWatermarks = new[]
     ///         {
@@ -79,14 +77,16 @@ namespace Pulumi.Aws.ElasticTranscoder
     ///                 Target = "Content",
     ///             },
     ///         },
-    ///         Thumbnails = new Aws.ElasticTranscoder.Inputs.PresetThumbnailsArgs
+    ///         Container = "mp4",
+    ///         Description = "Sample Preset",
+    ///         Name = "sample_preset",
+    ///         VideoCodecOptions = 
     ///         {
-    ///             Format = "png",
-    ///             Interval = "120",
-    ///             MaxWidth = "auto",
-    ///             MaxHeight = "auto",
-    ///             PaddingPolicy = "Pad",
-    ///             SizingPolicy = "Fit",
+    ///             { "Profile", "main" },
+    ///             { "Level", "2.2" },
+    ///             { "MaxReferenceFrames", "3" },
+    ///             { "InterlacedMode", "Progressive" },
+    ///             { "ColorSpaceConversionMode", "None" },
     ///         },
     ///     });
     /// 

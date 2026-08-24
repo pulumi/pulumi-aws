@@ -59,15 +59,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foobar = new Group("foobar", GroupArgs.builder()
- *             .availabilityZones("us-west-2a")
- *             .name("test-foobar5")
- *             .healthCheckType("EC2")
- *             .terminationPolicies("OldestInstance")
  *             .tags(GroupTagArgs.builder()
  *                 .key("Foo")
  *                 .value("foo-bar")
  *                 .propagateAtLaunch(true)
  *                 .build())
+ *             .availabilityZones("us-west-2a")
+ *             .name("test-foobar5")
+ *             .healthCheckType("EC2")
+ *             .terminationPolicies("OldestInstance")
  *             .build());
  * 
  *         var foobarLifecycleHook = new LifecycleHook("foobarLifecycleHook", LifecycleHookArgs.builder()

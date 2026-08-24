@@ -31,11 +31,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewModelCardExportJob(ctx, "example", &sagemaker.ModelCardExportJobArgs{
-//				ModelCardExportJobName: pulumi.String("my-model-card-export-job"),
-//				ModelCardName:          pulumi.Any(exampleAwsSagemakerModelCard.ModelCardName),
 //				OutputConfig: &sagemaker.ModelCardExportJobOutputConfigArgs{
 //					S3OutputPath: pulumi.Sprintf("s3://%v/", test.Example),
 //				},
+//				ModelCardExportJobName: pulumi.String("my-model-card-export-job"),
+//				ModelCardName:          pulumi.Any(exampleAwsSagemakerModelCard.ModelCardName),
 //			})
 //			if err != nil {
 //				return err

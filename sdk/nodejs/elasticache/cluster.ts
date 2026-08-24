@@ -83,12 +83,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.elasticache.Cluster("test", {
- *     clusterId: "mycluster",
- *     engine: "redis",
- *     nodeType: "cache.t3.micro",
- *     numCacheNodes: 1,
- *     port: 6379,
- *     applyImmediately: true,
  *     logDeliveryConfigurations: [
  *         {
  *             destination: example.name,
@@ -103,6 +97,12 @@ import * as utilities from "../utilities";
  *             logType: "engine-log",
  *         },
  *     ],
+ *     clusterId: "mycluster",
+ *     engine: "redis",
+ *     nodeType: "cache.t3.micro",
+ *     numCacheNodes: 1,
+ *     port: 6379,
+ *     applyImmediately: true,
  * });
  * ```
  *

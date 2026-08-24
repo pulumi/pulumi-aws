@@ -26,7 +26,6 @@ namespace Pulumi.Aws.WorkSpacesWeb
     /// {
     ///     var example = new Aws.WorkSpacesWeb.IpAccessSettings("example", new()
     ///     {
-    ///         DisplayName = "example",
     ///         IpRules = new[]
     ///         {
     ///             new Aws.WorkSpacesWeb.Inputs.IpAccessSettingsIpRuleArgs
@@ -34,6 +33,7 @@ namespace Pulumi.Aws.WorkSpacesWeb
     ///                 IpRange = "10.0.0.0/16",
     ///             },
     ///         },
+    ///         DisplayName = "example",
     ///     });
     /// 
     /// });
@@ -51,8 +51,6 @@ namespace Pulumi.Aws.WorkSpacesWeb
     /// {
     ///     var example = new Aws.WorkSpacesWeb.IpAccessSettings("example", new()
     ///     {
-    ///         DisplayName = "example",
-    ///         Description = "Example IP access settings",
     ///         IpRules = new[]
     ///         {
     ///             new Aws.WorkSpacesWeb.Inputs.IpAccessSettingsIpRuleArgs
@@ -66,6 +64,8 @@ namespace Pulumi.Aws.WorkSpacesWeb
     ///                 Description = "Branch office",
     ///             },
     ///         },
+    ///         DisplayName = "example",
+    ///         Description = "Example IP access settings",
     ///     });
     /// 
     /// });
@@ -89,13 +89,6 @@ namespace Pulumi.Aws.WorkSpacesWeb
     /// 
     ///     var exampleIpAccessSettings = new Aws.WorkSpacesWeb.IpAccessSettings("example", new()
     ///     {
-    ///         DisplayName = "example",
-    ///         Description = "Example IP access settings",
-    ///         CustomerManagedKey = example.Arn,
-    ///         AdditionalEncryptionContext = 
-    ///         {
-    ///             { "Environment", "Production" },
-    ///         },
     ///         IpRules = new[]
     ///         {
     ///             new Aws.WorkSpacesWeb.Inputs.IpAccessSettingsIpRuleArgs
@@ -108,6 +101,13 @@ namespace Pulumi.Aws.WorkSpacesWeb
     ///                 IpRange = "192.168.0.0/24",
     ///                 Description = "Branch office",
     ///             },
+    ///         },
+    ///         DisplayName = "example",
+    ///         Description = "Example IP access settings",
+    ///         CustomerManagedKey = example.Arn,
+    ///         AdditionalEncryptionContext = 
+    ///         {
+    ///             { "Environment", "Production" },
     ///         },
     ///         Tags = 
     ///         {

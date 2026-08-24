@@ -31,13 +31,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := finspace.NewKxDataview(ctx, "example", &finspace.KxDataviewArgs{
-//				Name:               pulumi.String("my-tf-kx-dataview"),
-//				EnvironmentId:      pulumi.Any(exampleAwsFinspaceKxEnvironment.Id),
-//				DatabaseName:       pulumi.Any(exampleAwsFinspaceKxDatabase.Name),
-//				AvailabilityZoneId: pulumi.String("use1-az2"),
-//				Description:        pulumi.String("Terraform managed Kx Dataview"),
-//				AzMode:             pulumi.String("SINGLE"),
-//				AutoUpdate:         pulumi.Bool(true),
 //				SegmentConfigurations: finspace.KxDataviewSegmentConfigurationArray{
 //					&finspace.KxDataviewSegmentConfigurationArgs{
 //						VolumeName: pulumi.Any(exampleAwsFinspaceKxVolume.Name),
@@ -46,7 +39,14 @@ import (
 //						},
 //					},
 //				},
-//			})
+//				Name:               pulumi.String("my-tf-kx-dataview"),
+//				EnvironmentId:      pulumi.Any(exampleAwsFinspaceKxEnvironment.Id),
+//				DatabaseName:       pulumi.Any(exampleAwsFinspaceKxDatabase.Name),
+//				AvailabilityZoneId: pulumi.String("use1-az2"),
+//				Description:        pulumi.String("Terraform managed Kx Dataview"),
+//				AzMode:             pulumi.String("SINGLE"),
+//				AutoUpdate:         pulumi.Bool(true),
+//			}, pulumi.Timeouts(&pulumi.CustomTimeouts{Create: "24h", Update: "24h", Delete: "12h"}))
 //			if err != nil {
 //				return err
 //			}

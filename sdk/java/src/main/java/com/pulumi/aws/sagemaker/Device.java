@@ -45,10 +45,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Device("example", DeviceArgs.builder()
- *             .deviceFleetName(exampleAwsSagemakerDeviceFleet.deviceFleetName())
  *             .device(DeviceDeviceArgs.builder()
  *                 .deviceName("example")
  *                 .build())
+ *             .deviceFleetName(exampleAwsSagemakerDeviceFleet.deviceFleetName())
  *             .build());
  * 
  *     }

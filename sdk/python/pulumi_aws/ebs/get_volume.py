@@ -273,8 +273,7 @@ def get_volume(filters: Optional[Sequence[Union['GetVolumeFilterArgs', 'GetVolum
     import pulumi
     import pulumi_aws as aws
 
-    ebs_volume = aws.ebs.get_volume(most_recent=True,
-        filters=[
+    ebs_volume = aws.ebs.get_volume(filters=[
             {
                 "name": "volume-type",
                 "values": ["gp2"],
@@ -283,7 +282,8 @@ def get_volume(filters: Optional[Sequence[Union['GetVolumeFilterArgs', 'GetVolum
                 "name": "tag:Name",
                 "values": ["Example"],
             },
-        ])
+        ],
+        most_recent=True)
     ```
 
 
@@ -338,8 +338,7 @@ def get_volume_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['Ge
     import pulumi
     import pulumi_aws as aws
 
-    ebs_volume = aws.ebs.get_volume(most_recent=True,
-        filters=[
+    ebs_volume = aws.ebs.get_volume(filters=[
             {
                 "name": "volume-type",
                 "values": ["gp2"],
@@ -348,7 +347,8 @@ def get_volume_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['Ge
                 "name": "tag:Name",
                 "values": ["Example"],
             },
-        ])
+        ],
+        most_recent=True)
     ```
 
 

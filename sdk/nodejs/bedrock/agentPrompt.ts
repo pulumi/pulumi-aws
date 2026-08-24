@@ -31,21 +31,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.bedrock.AgentPrompt("example", {
- *     name: "MakePlaylist",
- *     description: "My first prompt.",
- *     defaultVariant: "Variant1",
  *     variants: [{
- *         name: "Variant1",
- *         modelId: "amazon.titan-text-express-v1",
  *         inferenceConfiguration: {
  *             text: {
  *                 temperature: 0.8,
  *             },
  *         },
- *         templateType: "TEXT",
  *         templateConfiguration: {
  *             text: {
- *                 text: "Make me a {{genre}} playlist consisting of the following number of songs: {{number}}.",
  *                 inputVariables: [
  *                     {
  *                         name: "genre",
@@ -54,9 +47,16 @@ import * as utilities from "../utilities";
  *                         name: "number",
  *                     },
  *                 ],
+ *                 text: "Make me a {{genre}} playlist consisting of the following number of songs: {{number}}.",
  *             },
  *         },
+ *         name: "Variant1",
+ *         modelId: "amazon.titan-text-express-v1",
+ *         templateType: "TEXT",
  *     }],
+ *     name: "MakePlaylist",
+ *     description: "My first prompt.",
+ *     defaultVariant: "Variant1",
  * });
  * ```
  *

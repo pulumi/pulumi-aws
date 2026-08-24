@@ -47,11 +47,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
- *             .state("available")
  *             .filters(GetAvailabilityZonesFilterArgs.builder()
  *                 .name("opt-in-status")
  *                 .values("opt-in-not-required")
  *                 .build())
+ *             .state("available")
  *             .build());
  * 
  *         var example = new Disk("example", DiskArgs.builder()

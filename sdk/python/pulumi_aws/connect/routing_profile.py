@@ -366,24 +366,20 @@ class RoutingProfile(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.connect.RoutingProfile("example",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-            name="example",
-            default_outbound_queue_id="12345678-1234-1234-1234-123456789012",
-            description="example description",
             media_concurrencies=[
                 {
-                    "channel": "VOICE",
-                    "concurrency": 1,
                     "cross_channel_behavior": {
                         "behavior_type": "ROUTE_ANY_CHANNEL",
                     },
+                    "channel": "VOICE",
+                    "concurrency": 1,
                 },
                 {
-                    "channel": "CHAT",
-                    "concurrency": 3,
                     "cross_channel_behavior": {
                         "behavior_type": "ROUTE_CURRENT_CHANNEL_ONLY",
                     },
+                    "channel": "CHAT",
+                    "concurrency": 3,
                 },
             ],
             queue_configs=[{
@@ -392,6 +388,10 @@ class RoutingProfile(pulumi.CustomResource):
                 "priority": 1,
                 "queue_id": "12345678-1234-1234-1234-123456789012",
             }],
+            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+            name="example",
+            default_outbound_queue_id="12345678-1234-1234-1234-123456789012",
+            description="example description",
             tags={
                 "Name": "Example Routing Profile",
             })
@@ -435,24 +435,20 @@ class RoutingProfile(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.connect.RoutingProfile("example",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-            name="example",
-            default_outbound_queue_id="12345678-1234-1234-1234-123456789012",
-            description="example description",
             media_concurrencies=[
                 {
-                    "channel": "VOICE",
-                    "concurrency": 1,
                     "cross_channel_behavior": {
                         "behavior_type": "ROUTE_ANY_CHANNEL",
                     },
+                    "channel": "VOICE",
+                    "concurrency": 1,
                 },
                 {
-                    "channel": "CHAT",
-                    "concurrency": 3,
                     "cross_channel_behavior": {
                         "behavior_type": "ROUTE_CURRENT_CHANNEL_ONLY",
                     },
+                    "channel": "CHAT",
+                    "concurrency": 3,
                 },
             ],
             queue_configs=[{
@@ -461,6 +457,10 @@ class RoutingProfile(pulumi.CustomResource):
                 "priority": 1,
                 "queue_id": "12345678-1234-1234-1234-123456789012",
             }],
+            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+            name="example",
+            default_outbound_queue_id="12345678-1234-1234-1234-123456789012",
+            description="example description",
             tags={
                 "Name": "Example Routing Profile",
             })

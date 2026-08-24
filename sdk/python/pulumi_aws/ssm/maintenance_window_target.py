@@ -292,14 +292,14 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
             duration=3,
             cutoff=1)
         target1 = aws.ssm.MaintenanceWindowTarget("target1",
-            window_id=window.id,
-            name="maintenance-window-target",
-            description="This is a maintenance window target",
-            resource_type="INSTANCE",
             targets=[{
                 "key": "tag:Name",
                 "values": ["acceptance_test"],
-            }])
+            }],
+            window_id=window.id,
+            name="maintenance-window-target",
+            description="This is a maintenance window target",
+            resource_type="INSTANCE")
         ```
 
         ### Resource Group Target
@@ -314,14 +314,14 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
             duration=3,
             cutoff=1)
         target1 = aws.ssm.MaintenanceWindowTarget("target1",
-            window_id=window.id,
-            name="maintenance-window-target",
-            description="This is a maintenance window target",
-            resource_type="RESOURCE_GROUP",
             targets=[{
                 "key": "resource-groups:ResourceTypeFilters",
                 "values": ["AWS::EC2::Instance"],
-            }])
+            }],
+            window_id=window.id,
+            name="maintenance-window-target",
+            description="This is a maintenance window target",
+            resource_type="RESOURCE_GROUP")
         ```
 
         ## Import
@@ -379,14 +379,14 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
             duration=3,
             cutoff=1)
         target1 = aws.ssm.MaintenanceWindowTarget("target1",
-            window_id=window.id,
-            name="maintenance-window-target",
-            description="This is a maintenance window target",
-            resource_type="INSTANCE",
             targets=[{
                 "key": "tag:Name",
                 "values": ["acceptance_test"],
-            }])
+            }],
+            window_id=window.id,
+            name="maintenance-window-target",
+            description="This is a maintenance window target",
+            resource_type="INSTANCE")
         ```
 
         ### Resource Group Target
@@ -401,14 +401,14 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
             duration=3,
             cutoff=1)
         target1 = aws.ssm.MaintenanceWindowTarget("target1",
-            window_id=window.id,
-            name="maintenance-window-target",
-            description="This is a maintenance window target",
-            resource_type="RESOURCE_GROUP",
             targets=[{
                 "key": "resource-groups:ResourceTypeFilters",
                 "values": ["AWS::EC2::Instance"],
-            }])
+            }],
+            window_id=window.id,
+            name="maintenance-window-target",
+            description="This is a maintenance window target",
+            resource_type="RESOURCE_GROUP")
         ```
 
         ## Import

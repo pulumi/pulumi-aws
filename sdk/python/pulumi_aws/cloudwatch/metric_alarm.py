@@ -1007,12 +1007,6 @@ class MetricAlarm(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foobar = aws.cloudwatch.MetricAlarm("foobar",
-            name="test-foobar",
-            comparison_operator="GreaterThanOrEqualToThreshold",
-            evaluation_periods=2,
-            threshold=float(10),
-            alarm_description="Request error rate has exceeded 10%",
-            insufficient_data_actions=[],
             metric_queries=[
                 {
                     "id": "e1",
@@ -1021,7 +1015,6 @@ class MetricAlarm(pulumi.CustomResource):
                     "return_data": True,
                 },
                 {
-                    "id": "m1",
                     "metric": {
                         "metric_name": "RequestCount",
                         "namespace": "AWS/ApplicationELB",
@@ -1032,9 +1025,9 @@ class MetricAlarm(pulumi.CustomResource):
                             "LoadBalancer": "app/web",
                         },
                     },
+                    "id": "m1",
                 },
                 {
-                    "id": "m2",
                     "metric": {
                         "metric_name": "HTTPCode_ELB_5XX_Count",
                         "namespace": "AWS/ApplicationELB",
@@ -1045,8 +1038,15 @@ class MetricAlarm(pulumi.CustomResource):
                             "LoadBalancer": "app/web",
                         },
                     },
+                    "id": "m2",
                 },
-            ])
+            ],
+            name="test-foobar",
+            comparison_operator="GreaterThanOrEqualToThreshold",
+            evaluation_periods=2,
+            threshold=float(10),
+            alarm_description="Request error rate has exceeded 10%",
+            insufficient_data_actions=[])
         ```
 
         ### With PromQL
@@ -1056,8 +1056,6 @@ class MetricAlarm(pulumi.CustomResource):
         import pulumi_aws as aws
 
         promql_alarm = aws.cloudwatch.MetricAlarm("promql_alarm",
-            name="high-cpu-promql",
-            alarm_description="Alarm when average CPU exceeds 80% using PromQL",
             evaluation_criteria={
                 "promql_criteria": {
                     "query": "avg(cpu_utilization_percent) > 80",
@@ -1065,6 +1063,8 @@ class MetricAlarm(pulumi.CustomResource):
                     "recovery_period": 120,
                 },
             },
+            name="high-cpu-promql",
+            alarm_description="Alarm when average CPU exceeds 80% using PromQL",
             evaluation_interval=30,
             alarm_actions=[alerts["arn"]])
         ```
@@ -1074,12 +1074,6 @@ class MetricAlarm(pulumi.CustomResource):
         import pulumi_aws as aws
 
         xx_anomaly_detection = aws.cloudwatch.MetricAlarm("xx_anomaly_detection",
-            name="test-foobar",
-            comparison_operator="GreaterThanUpperThreshold",
-            evaluation_periods=2,
-            threshold_metric_id="e1",
-            alarm_description="This metric monitors ec2 cpu utilization",
-            insufficient_data_actions=[],
             metric_queries=[
                 {
                     "id": "e1",
@@ -1088,8 +1082,6 @@ class MetricAlarm(pulumi.CustomResource):
                     "label": "CPUUtilization (Expected)",
                 },
                 {
-                    "id": "m1",
-                    "return_data": True,
                     "metric": {
                         "metric_name": "CPUUtilization",
                         "namespace": "AWS/EC2",
@@ -1100,8 +1092,16 @@ class MetricAlarm(pulumi.CustomResource):
                             "InstanceId": "i-abc123",
                         },
                     },
+                    "id": "m1",
+                    "return_data": True,
                 },
-            ])
+            ],
+            name="test-foobar",
+            comparison_operator="GreaterThanUpperThreshold",
+            evaluation_periods=2,
+            threshold_metric_id="e1",
+            alarm_description="This metric monitors ec2 cpu utilization",
+            insufficient_data_actions=[])
         ```
 
         ### With a Metrics Insights Query
@@ -1111,12 +1111,6 @@ class MetricAlarm(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudwatch.MetricAlarm("example",
-            name="example-alarm",
-            alarm_description="Triggers if the smallest per-instance maximum load during the evaluation period exceeds the threshold",
-            comparison_operator="GreaterThanThreshold",
-            evaluation_periods=1,
-            threshold=0.6,
-            treat_missing_data="notBreaching",
             metric_queries=[{
                 "id": "q1",
                 "expression": \"\"\"SELECT
@@ -1130,7 +1124,13 @@ class MetricAlarm(pulumi.CustomResource):
                 "period": 60,
                 "return_data": True,
                 "label": "Max DB Load of the Least-Loaded RDS Instance",
-            }])
+            }],
+            name="example-alarm",
+            alarm_description="Triggers if the smallest per-instance maximum load during the evaluation period exceeds the threshold",
+            comparison_operator="GreaterThanThreshold",
+            evaluation_periods=1,
+            threshold=0.6,
+            treat_missing_data="notBreaching")
         ```
 
         ### Monitoring Healthy NLB Hosts with Target Group and NLB
@@ -1286,12 +1286,6 @@ class MetricAlarm(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foobar = aws.cloudwatch.MetricAlarm("foobar",
-            name="test-foobar",
-            comparison_operator="GreaterThanOrEqualToThreshold",
-            evaluation_periods=2,
-            threshold=float(10),
-            alarm_description="Request error rate has exceeded 10%",
-            insufficient_data_actions=[],
             metric_queries=[
                 {
                     "id": "e1",
@@ -1300,7 +1294,6 @@ class MetricAlarm(pulumi.CustomResource):
                     "return_data": True,
                 },
                 {
-                    "id": "m1",
                     "metric": {
                         "metric_name": "RequestCount",
                         "namespace": "AWS/ApplicationELB",
@@ -1311,9 +1304,9 @@ class MetricAlarm(pulumi.CustomResource):
                             "LoadBalancer": "app/web",
                         },
                     },
+                    "id": "m1",
                 },
                 {
-                    "id": "m2",
                     "metric": {
                         "metric_name": "HTTPCode_ELB_5XX_Count",
                         "namespace": "AWS/ApplicationELB",
@@ -1324,8 +1317,15 @@ class MetricAlarm(pulumi.CustomResource):
                             "LoadBalancer": "app/web",
                         },
                     },
+                    "id": "m2",
                 },
-            ])
+            ],
+            name="test-foobar",
+            comparison_operator="GreaterThanOrEqualToThreshold",
+            evaluation_periods=2,
+            threshold=float(10),
+            alarm_description="Request error rate has exceeded 10%",
+            insufficient_data_actions=[])
         ```
 
         ### With PromQL
@@ -1335,8 +1335,6 @@ class MetricAlarm(pulumi.CustomResource):
         import pulumi_aws as aws
 
         promql_alarm = aws.cloudwatch.MetricAlarm("promql_alarm",
-            name="high-cpu-promql",
-            alarm_description="Alarm when average CPU exceeds 80% using PromQL",
             evaluation_criteria={
                 "promql_criteria": {
                     "query": "avg(cpu_utilization_percent) > 80",
@@ -1344,6 +1342,8 @@ class MetricAlarm(pulumi.CustomResource):
                     "recovery_period": 120,
                 },
             },
+            name="high-cpu-promql",
+            alarm_description="Alarm when average CPU exceeds 80% using PromQL",
             evaluation_interval=30,
             alarm_actions=[alerts["arn"]])
         ```
@@ -1353,12 +1353,6 @@ class MetricAlarm(pulumi.CustomResource):
         import pulumi_aws as aws
 
         xx_anomaly_detection = aws.cloudwatch.MetricAlarm("xx_anomaly_detection",
-            name="test-foobar",
-            comparison_operator="GreaterThanUpperThreshold",
-            evaluation_periods=2,
-            threshold_metric_id="e1",
-            alarm_description="This metric monitors ec2 cpu utilization",
-            insufficient_data_actions=[],
             metric_queries=[
                 {
                     "id": "e1",
@@ -1367,8 +1361,6 @@ class MetricAlarm(pulumi.CustomResource):
                     "label": "CPUUtilization (Expected)",
                 },
                 {
-                    "id": "m1",
-                    "return_data": True,
                     "metric": {
                         "metric_name": "CPUUtilization",
                         "namespace": "AWS/EC2",
@@ -1379,8 +1371,16 @@ class MetricAlarm(pulumi.CustomResource):
                             "InstanceId": "i-abc123",
                         },
                     },
+                    "id": "m1",
+                    "return_data": True,
                 },
-            ])
+            ],
+            name="test-foobar",
+            comparison_operator="GreaterThanUpperThreshold",
+            evaluation_periods=2,
+            threshold_metric_id="e1",
+            alarm_description="This metric monitors ec2 cpu utilization",
+            insufficient_data_actions=[])
         ```
 
         ### With a Metrics Insights Query
@@ -1390,12 +1390,6 @@ class MetricAlarm(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudwatch.MetricAlarm("example",
-            name="example-alarm",
-            alarm_description="Triggers if the smallest per-instance maximum load during the evaluation period exceeds the threshold",
-            comparison_operator="GreaterThanThreshold",
-            evaluation_periods=1,
-            threshold=0.6,
-            treat_missing_data="notBreaching",
             metric_queries=[{
                 "id": "q1",
                 "expression": \"\"\"SELECT
@@ -1409,7 +1403,13 @@ class MetricAlarm(pulumi.CustomResource):
                 "period": 60,
                 "return_data": True,
                 "label": "Max DB Load of the Least-Loaded RDS Instance",
-            }])
+            }],
+            name="example-alarm",
+            alarm_description="Triggers if the smallest per-instance maximum load during the evaluation period exceeds the threshold",
+            comparison_operator="GreaterThanThreshold",
+            evaluation_periods=1,
+            threshold=0.6,
+            treat_missing_data="notBreaching")
         ```
 
         ### Monitoring Healthy NLB Hosts with Target Group and NLB

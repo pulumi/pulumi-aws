@@ -35,6 +35,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.organizations.OrganizationalUnitArgs;
  * import com.pulumi.aws.organizations.Tag;
  * import com.pulumi.aws.organizations.TagArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -54,7 +55,9 @@ import javax.annotation.Nullable;
  *         var exampleOrganizationalUnit = new OrganizationalUnit("exampleOrganizationalUnit", OrganizationalUnitArgs.builder()
  *             .name("ExampleOU")
  *             .parentId(example.roots()[0].id())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .ignoreChanges("tags")
+ *                 .build());
  * 
  *         var exampleTag = new Tag("exampleTag", TagArgs.builder()
  *             .resourceId(exampleOrganizationalUnit.id())

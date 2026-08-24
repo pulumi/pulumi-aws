@@ -47,13 +47,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new TableReplication("example", TableReplicationArgs.builder()
- *             .tableArn(exampleAwsS3tablesTable.arn())
- *             .role(exampleAwsIamRole.arn())
  *             .rule(TableReplicationRuleArgs.builder()
  *                 .destinations(TableReplicationRuleDestinationArgs.builder()
  *                     .destinationTableBucketArn(target.arn())
  *                     .build())
  *                 .build())
+ *             .tableArn(exampleAwsS3tablesTable.arn())
+ *             .role(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }

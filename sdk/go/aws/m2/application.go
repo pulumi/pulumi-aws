@@ -31,8 +31,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := m2.NewApplication(ctx, "example", &m2.ApplicationArgs{
-//				Name:       pulumi.String("Example"),
-//				EngineType: pulumi.String("bluage"),
 //				Definition: &m2.ApplicationDefinitionArgs{
 //					Content: pulumi.Sprintf(`{
 //	  \"definition\": {
@@ -62,6 +60,8 @@ import (
 // `, s3_source),
 //
 //				},
+//				Name:       pulumi.String("Example"),
+//				EngineType: pulumi.String("bluage"),
 //			})
 //			if err != nil {
 //				return err

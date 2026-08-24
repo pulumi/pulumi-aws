@@ -27,7 +27,6 @@ namespace Pulumi.Aws.VerifiedPermissions
     /// {
     ///     var example = new Aws.VerifiedPermissions.Schema("example", new()
     ///     {
-    ///         PolicyStoreId = exampleAwsVerifiedpermissionsPolicyStore.PolicyStoreId,
     ///         Definition = new Aws.VerifiedPermissions.Inputs.SchemaDefinitionArgs
     ///         {
     ///             Value = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
@@ -43,6 +42,7 @@ namespace Pulumi.Aws.VerifiedPermissions
     ///                 },
     ///             }),
     ///         },
+    ///         PolicyStoreId = exampleAwsVerifiedpermissionsPolicyStore.PolicyStoreId,
     ///     });
     /// 
     /// });

@@ -246,12 +246,12 @@ class Activity(pulumi.CustomResource):
         import pulumi_aws as aws
 
         sfn_activity = aws.sfn.Activity("sfn_activity",
-            name="my-activity",
             encryption_configuration={
                 "kms_key_id": kms_key_for_sfn["arn"],
                 "type": "CUSTOMER_MANAGED_KMS_KEY",
                 "kms_data_key_reuse_period_seconds": 900,
-            })
+            },
+            name="my-activity")
         ```
 
         ## Import
@@ -305,12 +305,12 @@ class Activity(pulumi.CustomResource):
         import pulumi_aws as aws
 
         sfn_activity = aws.sfn.Activity("sfn_activity",
-            name="my-activity",
             encryption_configuration={
                 "kms_key_id": kms_key_for_sfn["arn"],
                 "type": "CUSTOMER_MANAGED_KMS_KEY",
                 "kms_data_key_reuse_period_seconds": 900,
-            })
+            },
+            name="my-activity")
         ```
 
         ## Import

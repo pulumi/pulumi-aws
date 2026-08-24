@@ -31,17 +31,17 @@ import (
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // _, err := ecs.GetTaskExecution(ctx, &ecs.GetTaskExecutionArgs{
-// Cluster: exampleAwsEcsCluster.Id,
-// TaskDefinition: exampleAwsEcsTaskDefinition.Arn,
-// DesiredCount: pulumi.IntRef(1),
-// LaunchType: pulumi.StringRef("FARGATE"),
 // NetworkConfiguration: ecs.GetTaskExecutionNetworkConfiguration{
-// Subnets: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:6,22-44)),
+// Subnets: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:2,22-44)),
 // SecurityGroups: pulumi.StringArray{
 // exampleAwsSecurityGroup.Id,
 // },
 // AssignPublicIp: pulumi.BoolRef(false),
 // },
+// Cluster: exampleAwsEcsCluster.Id,
+// TaskDefinition: exampleAwsEcsTaskDefinition.Arn,
+// DesiredCount: pulumi.IntRef(1),
+// LaunchType: pulumi.StringRef("FARGATE"),
 // }, nil);
 // if err != nil {
 // return err

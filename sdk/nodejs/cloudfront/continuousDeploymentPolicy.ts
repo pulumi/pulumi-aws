@@ -23,17 +23,17 @@ import * as utilities from "../utilities";
  *     staging: true,
  * });
  * const example = new aws.cloudfront.ContinuousDeploymentPolicy("example", {
- *     enabled: true,
  *     stagingDistributionDnsNames: {
  *         items: [staging.domainName],
  *         quantity: 1,
  *     },
  *     trafficConfig: {
- *         type: "SingleWeight",
  *         singleWeightConfig: {
  *             weight: 0.01,
  *         },
+ *         type: "SingleWeight",
  *     },
+ *     enabled: true,
  * });
  * const production = new aws.cloudfront.Distribution("production", {
  *     enabled: true,
@@ -48,21 +48,21 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cloudfront.ContinuousDeploymentPolicy("example", {
- *     enabled: true,
  *     stagingDistributionDnsNames: {
  *         items: [staging.domainName],
  *         quantity: 1,
  *     },
  *     trafficConfig: {
- *         type: "SingleWeight",
  *         singleWeightConfig: {
- *             weight: 0.01,
  *             sessionStickinessConfig: {
  *                 idleTtl: 300,
  *                 maximumTtl: 600,
  *             },
+ *             weight: 0.01,
  *         },
+ *         type: "SingleWeight",
  *     },
+ *     enabled: true,
  * });
  * ```
  *
@@ -73,18 +73,18 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cloudfront.ContinuousDeploymentPolicy("example", {
- *     enabled: true,
  *     stagingDistributionDnsNames: {
  *         items: [staging.domainName],
  *         quantity: 1,
  *     },
  *     trafficConfig: {
- *         type: "SingleHeader",
  *         singleHeaderConfig: {
  *             header: "aws-cf-cd-example",
  *             value: "example",
  *         },
+ *         type: "SingleHeader",
  *     },
+ *     enabled: true,
  * });
  * ```
  *

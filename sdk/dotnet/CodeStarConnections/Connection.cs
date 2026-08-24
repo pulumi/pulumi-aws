@@ -40,7 +40,6 @@ namespace Pulumi.Aws.CodeStarConnections
     ///         {
     ///             new Aws.CodePipeline.Inputs.PipelineStageArgs
     ///             {
-    ///                 Name = "Source",
     ///                 Actions = new[]
     ///                 {
     ///                     new Aws.CodePipeline.Inputs.PipelineStageActionArgs
@@ -62,6 +61,7 @@ namespace Pulumi.Aws.CodeStarConnections
     ///                         },
     ///                     },
     ///                 },
+    ///                 Name = "Source",
     ///             },
     ///             new Aws.CodePipeline.Inputs.PipelineStageArgs
     ///             {

@@ -21,10 +21,10 @@ import * as utilities from "../utilities";
  * const example = new aws.route53.ProfilesProfile("example", {name: "example"});
  * const exampleVpc = new aws.ec2.Vpc("example", {cidr: "10.0.0.0/16"});
  * const exampleZone = new aws.route53.Zone("example", {
- *     name: "example.com",
  *     vpcs: [{
  *         vpcId: exampleVpc.id,
  *     }],
+ *     name: "example.com",
  * });
  * const exampleProfilesResourceAssociation = new aws.route53.ProfilesResourceAssociation("example", {
  *     name: "example",

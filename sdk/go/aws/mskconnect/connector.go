@@ -31,29 +31,21 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := mskconnect.NewConnector(ctx, "example", &mskconnect.ConnectorArgs{
-//				Name:                pulumi.String("example"),
-//				KafkaconnectVersion: pulumi.String("2.7.1"),
 //				Capacity: &mskconnect.ConnectorCapacityArgs{
 //					Autoscaling: &mskconnect.ConnectorCapacityAutoscalingArgs{
-//						McuCount:       pulumi.Int(1),
-//						MinWorkerCount: pulumi.Int(1),
-//						MaxWorkerCount: pulumi.Int(2),
 //						ScaleInPolicy: &mskconnect.ConnectorCapacityAutoscalingScaleInPolicyArgs{
 //							CpuUtilizationPercentage: pulumi.Int(20),
 //						},
 //						ScaleOutPolicy: &mskconnect.ConnectorCapacityAutoscalingScaleOutPolicyArgs{
 //							CpuUtilizationPercentage: pulumi.Int(80),
 //						},
+//						McuCount:       pulumi.Int(1),
+//						MinWorkerCount: pulumi.Int(1),
+//						MaxWorkerCount: pulumi.Int(2),
 //					},
-//				},
-//				ConnectorConfiguration: pulumi.StringMap{
-//					"connector.class": pulumi.String("com.github.jcustenborder.kafka.connect.simulator.SimulatorSinkConnector"),
-//					"tasks.max":       pulumi.String("1"),
-//					"topics":          pulumi.String("example"),
 //				},
 //				KafkaCluster: &mskconnect.ConnectorKafkaClusterArgs{
 //					ApacheKafkaCluster: &mskconnect.ConnectorKafkaClusterApacheKafkaClusterArgs{
-//						BootstrapServers: pulumi.Any(exampleAwsMskCluster.BootstrapBrokersTls),
 //						Vpc: &mskconnect.ConnectorKafkaClusterApacheKafkaClusterVpcArgs{
 //							SecurityGroups: pulumi.StringArray{
 //								exampleAwsSecurityGroup.Id,
@@ -64,6 +56,7 @@ import (
 //								example3.Id,
 //							},
 //						},
+//						BootstrapServers: pulumi.Any(exampleAwsMskCluster.BootstrapBrokersTls),
 //					},
 //				},
 //				KafkaClusterClientAuthentication: &mskconnect.ConnectorKafkaClusterClientAuthenticationArgs{
@@ -79,6 +72,13 @@ import (
 //							Revision: pulumi.Any(exampleAwsMskconnectCustomPlugin.LatestRevision),
 //						},
 //					},
+//				},
+//				Name:                pulumi.String("example"),
+//				KafkaconnectVersion: pulumi.String("2.7.1"),
+//				ConnectorConfiguration: pulumi.StringMap{
+//					"connector.class": pulumi.String("com.github.jcustenborder.kafka.connect.simulator.SimulatorSinkConnector"),
+//					"tasks.max":       pulumi.String("1"),
+//					"topics":          pulumi.String("example"),
 //				},
 //				ServiceExecutionRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //			})

@@ -465,13 +465,13 @@ class User(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.elasticache.User("test",
+            authentication_mode={
+                "type": "iam",
+            },
             user_id="testUserId",
             user_name="testUserName",
             access_string="on ~* +@all",
-            engine="redis",
-            authentication_mode={
-                "type": "iam",
-            })
+            engine="redis")
         ```
 
         ```python
@@ -479,17 +479,17 @@ class User(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.elasticache.User("test",
-            user_id="testUserId",
-            user_name="testUserName",
-            access_string="on ~* +@all",
-            engine="redis",
             authentication_mode={
                 "type": "password",
                 "passwords": [
                     "password1",
                     "password2",
                 ],
-            })
+            },
+            user_id="testUserId",
+            user_name="testUserName",
+            access_string="on ~* +@all",
+            engine="redis")
         ```
 
         ### Using Write-Only Password (Terraform 1.11+)
@@ -562,13 +562,13 @@ class User(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.elasticache.User("test",
+            authentication_mode={
+                "type": "iam",
+            },
             user_id="testUserId",
             user_name="testUserName",
             access_string="on ~* +@all",
-            engine="redis",
-            authentication_mode={
-                "type": "iam",
-            })
+            engine="redis")
         ```
 
         ```python
@@ -576,17 +576,17 @@ class User(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.elasticache.User("test",
-            user_id="testUserId",
-            user_name="testUserName",
-            access_string="on ~* +@all",
-            engine="redis",
             authentication_mode={
                 "type": "password",
                 "passwords": [
                     "password1",
                     "password2",
                 ],
-            })
+            },
+            user_id="testUserId",
+            user_name="testUserName",
+            access_string="on ~* +@all",
+            engine="redis")
         ```
 
         ### Using Write-Only Password (Terraform 1.11+)

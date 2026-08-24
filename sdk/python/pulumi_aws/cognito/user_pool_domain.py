@@ -330,14 +330,14 @@ class UserPoolDomain(pulumi.CustomResource):
             user_pool_id=example_user_pool.id)
         example = aws.route53.get_zone(name="example.com")
         auth_cognito__a = aws.route53.Record("auth-cognito-A",
-            name=main.domain,
-            type=aws.route53.RecordType.A,
-            zone_id=example.zone_id,
             aliases=[{
                 "evaluate_target_health": False,
                 "name": main.cloudfront_distribution,
                 "zone_id": main.cloudfront_distribution_zone_id,
-            }])
+            }],
+            name=main.domain,
+            type=aws.route53.RecordType.A,
+            zone_id=example.zone_id)
         ```
 
         ## Import
@@ -393,14 +393,14 @@ class UserPoolDomain(pulumi.CustomResource):
             user_pool_id=example_user_pool.id)
         example = aws.route53.get_zone(name="example.com")
         auth_cognito__a = aws.route53.Record("auth-cognito-A",
-            name=main.domain,
-            type=aws.route53.RecordType.A,
-            zone_id=example.zone_id,
             aliases=[{
                 "evaluate_target_health": False,
                 "name": main.cloudfront_distribution,
                 "zone_id": main.cloudfront_distribution_zone_id,
-            }])
+            }],
+            name=main.domain,
+            type=aws.route53.RecordType.A,
+            zone_id=example.zone_id)
         ```
 
         ## Import

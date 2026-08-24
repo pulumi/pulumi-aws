@@ -48,14 +48,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new ObjectCopy("test", ObjectCopyArgs.builder()
- *             .bucket("destination_bucket")
- *             .key("destination_key")
- *             .source("source_bucket/source_key")
  *             .grants(ObjectCopyGrantArgs.builder()
  *                 .uri("http://acs.amazonaws.com/groups/global/AllUsers")
  *                 .type("Group")
  *                 .permissions("READ")
  *                 .build())
+ *             .bucket("destination_bucket")
+ *             .key("destination_key")
+ *             .source("source_bucket/source_key")
  *             .build());
  * 
  *     }
@@ -93,15 +93,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new ObjectCopy("test", ObjectCopyArgs.builder()
- *             .bucket("destination_bucket")
- *             .key("destination_key")
- *             .source("source_bucket/source_key")
  *             .overrideProvider(ObjectCopyOverrideProviderArgs.builder()
  *                 .defaultTags(ObjectCopyOverrideProviderDefaultTagsArgs.builder()
  *                     .tags(Map.ofEntries(
  *                     ))
  *                     .build())
  *                 .build())
+ *             .bucket("destination_bucket")
+ *             .key("destination_key")
+ *             .source("source_bucket/source_key")
  *             .build());
  * 
  *     }

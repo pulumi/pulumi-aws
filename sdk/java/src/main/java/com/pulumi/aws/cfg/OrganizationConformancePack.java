@@ -57,11 +57,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new OrganizationConformancePack("example", OrganizationConformancePackArgs.builder()
- *             .name("example")
  *             .inputParameters(OrganizationConformancePackInputParameterArgs.builder()
  *                 .parameterName("AccessKeysRotatedParameterMaxAccessKeyAge")
  *                 .parameterValue("90")
  *                 .build())
+ *             .name("example")
  *             .templateBody("""
  * Parameters:
  *   AccessKeysRotatedParameterMaxAccessKeyAge:

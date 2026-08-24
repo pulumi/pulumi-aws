@@ -404,7 +404,8 @@ class Database(pulumi.CustomResource):
 
         example = aws.athena.Database("example",
             name="database_name",
-            bucket=example_aws_s3_bucket["id"])
+            bucket=example_aws_s3_bucket["id"],
+            opts = pulumi.ResourceOptions(ignore_changes=["bucket"]))
         ```
 
 
@@ -458,7 +459,8 @@ class Database(pulumi.CustomResource):
 
         example = aws.athena.Database("example",
             name="database_name",
-            bucket=example_aws_s3_bucket["id"])
+            bucket=example_aws_s3_bucket["id"],
+            opts = pulumi.ResourceOptions(ignore_changes=["bucket"]))
         ```
 
 

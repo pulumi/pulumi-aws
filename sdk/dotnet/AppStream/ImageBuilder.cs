@@ -24,12 +24,6 @@ namespace Pulumi.Aws.AppStream
     /// {
     ///     var testFleet = new Aws.AppStream.ImageBuilder("test_fleet", new()
     ///     {
-    ///         Name = "Name",
-    ///         Description = "Description of a ImageBuilder",
-    ///         DisplayName = "Display name of a ImageBuilder",
-    ///         EnableDefaultInternetAccess = false,
-    ///         ImageName = "AppStream-WinServer2019-10-05-2022",
-    ///         InstanceType = "stream.standard.large",
     ///         VpcConfig = new Aws.AppStream.Inputs.ImageBuilderVpcConfigArgs
     ///         {
     ///             SubnetIds = new[]
@@ -37,6 +31,12 @@ namespace Pulumi.Aws.AppStream
     ///                 example.Id,
     ///             },
     ///         },
+    ///         Name = "Name",
+    ///         Description = "Description of a ImageBuilder",
+    ///         DisplayName = "Display name of a ImageBuilder",
+    ///         EnableDefaultInternetAccess = false,
+    ///         ImageName = "AppStream-WinServer2019-10-05-2022",
+    ///         InstanceType = "stream.standard.large",
     ///         Tags = 
     ///         {
     ///             { "Name", "Example Image Builder" },

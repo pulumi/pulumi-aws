@@ -44,11 +44,11 @@ namespace Pulumi.Aws.Ses
     /// {
     ///     var test = new Aws.Ses.ConfigurationSet("test", new()
     ///     {
-    ///         Name = "some-configuration-set-test",
     ///         DeliveryOptions = new Aws.Ses.Inputs.ConfigurationSetDeliveryOptionsArgs
     ///         {
     ///             TlsPolicy = "Require",
     ///         },
+    ///         Name = "some-configuration-set-test",
     ///     });
     /// 
     /// });
@@ -66,11 +66,11 @@ namespace Pulumi.Aws.Ses
     /// {
     ///     var test = new Aws.Ses.ConfigurationSet("test", new()
     ///     {
-    ///         Name = "some-configuration-set-test",
     ///         TrackingOptions = new Aws.Ses.Inputs.ConfigurationSetTrackingOptionsArgs
     ///         {
     ///             CustomRedirectDomain = "sub.example.com",
     ///         },
+    ///         Name = "some-configuration-set-test",
     ///     });
     /// 
     /// });

@@ -203,10 +203,10 @@ class BucketAbac(pulumi.CustomResource):
 
         example = aws.s3.Bucket("example", bucket="bucket-name")
         example_bucket_abac = aws.s3.BucketAbac("example",
-            bucket=example.bucket,
             abac_status={
                 "status": "Enabled",
-            })
+            },
+            bucket=example.bucket)
         ```
 
         ## Import
@@ -257,10 +257,10 @@ class BucketAbac(pulumi.CustomResource):
 
         example = aws.s3.Bucket("example", bucket="bucket-name")
         example_bucket_abac = aws.s3.BucketAbac("example",
-            bucket=example.bucket,
             abac_status={
                 "status": "Enabled",
-            })
+            },
+            bucket=example.bucket)
         ```
 
         ## Import

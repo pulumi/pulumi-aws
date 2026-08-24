@@ -303,12 +303,12 @@ class DomainName(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.apigatewayv2.DomainName("example",
-            domain_name="ws-api.example.com",
             domain_name_configuration={
                 "certificate_arn": example_aws_acm_certificate["arn"],
                 "endpoint_type": "REGIONAL",
                 "security_policy": "TLS_1_2",
-            })
+            },
+            domain_name="ws-api.example.com")
         ```
 
         ### Associated Route 53 Resource Record
@@ -318,21 +318,21 @@ class DomainName(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.apigatewayv2.DomainName("example",
-            domain_name="http-api.example.com",
             domain_name_configuration={
                 "certificate_arn": example_aws_acm_certificate["arn"],
                 "endpoint_type": "REGIONAL",
                 "security_policy": "TLS_1_2",
-            })
+            },
+            domain_name="http-api.example.com")
         example_record = aws.route53.Record("example",
-            name=example.domain_name,
-            type=aws.route53.RecordType.A,
-            zone_id=example_aws_route53_zone["zoneId"],
             aliases=[{
                 "name": example.domain_name_configuration.target_domain_name,
                 "zone_id": example.domain_name_configuration.hosted_zone_id,
                 "evaluate_target_health": False,
-            }])
+            }],
+            name=example.domain_name,
+            type=aws.route53.RecordType.A,
+            zone_id=example_aws_route53_zone["zoneId"])
         ```
 
         ## Import
@@ -375,12 +375,12 @@ class DomainName(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.apigatewayv2.DomainName("example",
-            domain_name="ws-api.example.com",
             domain_name_configuration={
                 "certificate_arn": example_aws_acm_certificate["arn"],
                 "endpoint_type": "REGIONAL",
                 "security_policy": "TLS_1_2",
-            })
+            },
+            domain_name="ws-api.example.com")
         ```
 
         ### Associated Route 53 Resource Record
@@ -390,21 +390,21 @@ class DomainName(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.apigatewayv2.DomainName("example",
-            domain_name="http-api.example.com",
             domain_name_configuration={
                 "certificate_arn": example_aws_acm_certificate["arn"],
                 "endpoint_type": "REGIONAL",
                 "security_policy": "TLS_1_2",
-            })
+            },
+            domain_name="http-api.example.com")
         example_record = aws.route53.Record("example",
-            name=example.domain_name,
-            type=aws.route53.RecordType.A,
-            zone_id=example_aws_route53_zone["zoneId"],
             aliases=[{
                 "name": example.domain_name_configuration.target_domain_name,
                 "zone_id": example.domain_name_configuration.hosted_zone_id,
                 "evaluate_target_health": False,
-            }])
+            }],
+            name=example.domain_name,
+            type=aws.route53.RecordType.A,
+            zone_id=example_aws_route53_zone["zoneId"])
         ```
 
         ## Import

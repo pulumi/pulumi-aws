@@ -31,8 +31,6 @@ namespace Pulumi.Aws.SesV2
     /// 
     ///     var exampleConfigurationSetEventDestination = new Aws.SesV2.ConfigurationSetEventDestination("example", new()
     ///     {
-    ///         ConfigurationSetName = example.ConfigurationSetName,
-    ///         EventDestinationName = "example",
     ///         EventDestination = new Aws.SesV2.Inputs.ConfigurationSetEventDestinationEventDestinationArgs
     ///         {
     ///             CloudWatchDestination = new Aws.SesV2.Inputs.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs
@@ -53,6 +51,8 @@ namespace Pulumi.Aws.SesV2
     ///                 "SEND",
     ///             },
     ///         },
+    ///         ConfigurationSetName = example.ConfigurationSetName,
+    ///         EventDestinationName = "example",
     ///     });
     /// 
     /// });
@@ -75,8 +75,6 @@ namespace Pulumi.Aws.SesV2
     /// 
     ///     var example = new Aws.SesV2.ConfigurationSetEventDestination("example", new()
     ///     {
-    ///         ConfigurationSetName = exampleAwsSesv2ConfigurationSet.ConfigurationSetName,
-    ///         EventDestinationName = "example",
     ///         EventDestination = new Aws.SesV2.Inputs.ConfigurationSetEventDestinationEventDestinationArgs
     ///         {
     ///             EventBridgeDestination = new Aws.SesV2.Inputs.ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationArgs
@@ -89,6 +87,8 @@ namespace Pulumi.Aws.SesV2
     ///                 "SEND",
     ///             },
     ///         },
+    ///         ConfigurationSetName = exampleAwsSesv2ConfigurationSet.ConfigurationSetName,
+    ///         EventDestinationName = "example",
     ///     });
     /// 
     /// });
@@ -111,8 +111,6 @@ namespace Pulumi.Aws.SesV2
     /// 
     ///     var exampleConfigurationSetEventDestination = new Aws.SesV2.ConfigurationSetEventDestination("example", new()
     ///     {
-    ///         ConfigurationSetName = example.ConfigurationSetName,
-    ///         EventDestinationName = "example",
     ///         EventDestination = new Aws.SesV2.Inputs.ConfigurationSetEventDestinationEventDestinationArgs
     ///         {
     ///             KinesisFirehoseDestination = new Aws.SesV2.Inputs.ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs
@@ -126,6 +124,8 @@ namespace Pulumi.Aws.SesV2
     ///                 "SEND",
     ///             },
     ///         },
+    ///         ConfigurationSetName = example.ConfigurationSetName,
+    ///         EventDestinationName = "example",
     ///     });
     /// 
     /// });
@@ -148,8 +148,6 @@ namespace Pulumi.Aws.SesV2
     /// 
     ///     var exampleConfigurationSetEventDestination = new Aws.SesV2.ConfigurationSetEventDestination("example", new()
     ///     {
-    ///         ConfigurationSetName = example.ConfigurationSetName,
-    ///         EventDestinationName = "example",
     ///         EventDestination = new Aws.SesV2.Inputs.ConfigurationSetEventDestinationEventDestinationArgs
     ///         {
     ///             PinpointDestination = new Aws.SesV2.Inputs.ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs
@@ -162,6 +160,8 @@ namespace Pulumi.Aws.SesV2
     ///                 "SEND",
     ///             },
     ///         },
+    ///         ConfigurationSetName = example.ConfigurationSetName,
+    ///         EventDestinationName = "example",
     ///     });
     /// 
     /// });
@@ -184,8 +184,6 @@ namespace Pulumi.Aws.SesV2
     /// 
     ///     var exampleConfigurationSetEventDestination = new Aws.SesV2.ConfigurationSetEventDestination("example", new()
     ///     {
-    ///         ConfigurationSetName = example.ConfigurationSetName,
-    ///         EventDestinationName = "example",
     ///         EventDestination = new Aws.SesV2.Inputs.ConfigurationSetEventDestinationEventDestinationArgs
     ///         {
     ///             SnsDestination = new Aws.SesV2.Inputs.ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs
@@ -198,6 +196,8 @@ namespace Pulumi.Aws.SesV2
     ///                 "SEND",
     ///             },
     ///         },
+    ///         ConfigurationSetName = example.ConfigurationSetName,
+    ///         EventDestinationName = "example",
     ///     });
     /// 
     /// });

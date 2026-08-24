@@ -17,7 +17,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const ipset = new aws.wafregional.IpSet("ipset", {
- *     name: "tfIPSet",
  *     ipSetDescriptors: [
  *         {
  *             type: "IPV4",
@@ -28,6 +27,7 @@ import * as utilities from "../utilities";
  *             value: "10.16.16.0/16",
  *         },
  *     ],
+ *     name: "tfIPSet",
  * });
  * ```
  *

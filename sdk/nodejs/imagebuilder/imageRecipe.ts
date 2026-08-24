@@ -18,15 +18,14 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.imagebuilder.ImageRecipe("example", {
  *     blockDeviceMappings: [{
- *         deviceName: "/dev/xvdb",
  *         ebs: {
  *             deleteOnTermination: "true",
  *             volumeSize: 100,
  *             volumeType: "gp2",
  *         },
+ *         deviceName: "/dev/xvdb",
  *     }],
  *     components: [{
- *         componentArn: exampleAwsImagebuilderComponent.arn,
  *         parameters: [
  *             {
  *                 name: "Parameter1",
@@ -37,6 +36,7 @@ import * as utilities from "../utilities";
  *                 value: "Value2",
  *             },
  *         ],
+ *         componentArn: exampleAwsImagebuilderComponent.arn,
  *     }],
  *     name: "example",
  *     parentImage: `arn:${current.partition}:imagebuilder:${currentAwsRegion.region}:aws:image/amazon-linux-2-x86/x.x.x`,

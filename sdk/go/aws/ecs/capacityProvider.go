@@ -49,17 +49,17 @@ import (
 //				return err
 //			}
 //			_, err = ecs.NewCapacityProvider(ctx, "example", &ecs.CapacityProviderArgs{
-//				Name: pulumi.String("example"),
 //				AutoScalingGroupProvider: &ecs.CapacityProviderAutoScalingGroupProviderArgs{
-//					AutoScalingGroupArn:          example.Arn,
-//					ManagedTerminationProtection: pulumi.String("ENABLED"),
 //					ManagedScaling: &ecs.CapacityProviderAutoScalingGroupProviderManagedScalingArgs{
 //						MaximumScalingStepSize: pulumi.Int(1000),
 //						MinimumScalingStepSize: pulumi.Int(1),
 //						Status:                 pulumi.String("ENABLED"),
 //						TargetCapacity:         pulumi.Int(10),
 //					},
+//					AutoScalingGroupArn:          example.Arn,
+//					ManagedTerminationProtection: pulumi.String("ENABLED"),
 //				},
+//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -85,14 +85,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ecs.NewCapacityProvider(ctx, "example", &ecs.CapacityProviderArgs{
-//				Name:    pulumi.String("example"),
-//				Cluster: pulumi.String("my-cluster"),
 //				ManagedInstancesProvider: &ecs.CapacityProviderManagedInstancesProviderArgs{
-//					InfrastructureRoleArn: pulumi.Any(ecsInfrastructure.Arn),
-//					PropagateTags:         pulumi.String("CAPACITY_PROVIDER"),
 //					InstanceLaunchTemplate: &ecs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs{
-//						Ec2InstanceProfileArn: pulumi.Any(ecsInstance.Arn),
-//						Monitoring:            pulumi.String("DETAILED"),
 //						NetworkConfiguration: &ecs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationArgs{
 //							Subnets: pulumi.StringArray{
 //								exampleAwsSubnet.Id,
@@ -121,8 +115,14 @@ import (
 //								pulumi.String("amd"),
 //							},
 //						},
+//						Ec2InstanceProfileArn: pulumi.Any(ecsInstance.Arn),
+//						Monitoring:            pulumi.String("DETAILED"),
 //					},
+//					InfrastructureRoleArn: pulumi.Any(ecsInfrastructure.Arn),
+//					PropagateTags:         pulumi.String("CAPACITY_PROVIDER"),
 //				},
+//				Name:    pulumi.String("example"),
+//				Cluster: pulumi.String("my-cluster"),
 //			})
 //			if err != nil {
 //				return err

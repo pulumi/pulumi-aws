@@ -135,16 +135,16 @@ namespace Pulumi.Aws.Ram
     /// 
     ///     var exampleCertificateAuthority = new Aws.Acmpca.CertificateAuthority("example", new()
     ///     {
-    ///         Type = "ROOT",
     ///         CertificateAuthorityConfiguration = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs
     ///         {
-    ///             KeyAlgorithm = "RSA_4096",
-    ///             SigningAlgorithm = "SHA512WITHRSA",
     ///             Subject = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs
     ///             {
     ///                 CommonName = "example.com",
     ///             },
+    ///             KeyAlgorithm = "RSA_4096",
+    ///             SigningAlgorithm = "SHA512WITHRSA",
     ///         },
+    ///         Type = "ROOT",
     ///     });
     /// 
     ///     var exampleResourceShareAssociationsExclusive = new Aws.Ram.ResourceShareAssociationsExclusive("example", new()

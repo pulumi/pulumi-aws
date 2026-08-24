@@ -30,8 +30,6 @@ namespace Pulumi.Aws.Schemas
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Sid = "example",
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -43,6 +41,8 @@ namespace Pulumi.Aws.Schemas
     ///                         },
     ///                     },
     ///                 },
+    ///                 Sid = "example",
+    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "schemas:*",

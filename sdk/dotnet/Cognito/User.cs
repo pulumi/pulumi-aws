@@ -50,7 +50,6 @@ namespace Pulumi.Aws.Cognito
     /// {
     ///     var example = new Aws.Cognito.UserPool("example", new()
     ///     {
-    ///         Name = "mypool",
     ///         Schemas = new[]
     ///         {
     ///             new Aws.Cognito.Inputs.UserPoolSchemaArgs
@@ -63,14 +62,15 @@ namespace Pulumi.Aws.Cognito
     ///             },
     ///             new Aws.Cognito.Inputs.UserPoolSchemaArgs
     ///             {
+    ///                 StringAttributeConstraints = null,
     ///                 Name = "foo",
     ///                 AttributeDataType = "String",
     ///                 Mutable = false,
     ///                 Required = false,
     ///                 DeveloperOnlyAttribute = false,
-    ///                 StringAttributeConstraints = null,
     ///             },
     ///         },
+    ///         Name = "mypool",
     ///     });
     /// 
     ///     var exampleUser = new Aws.Cognito.User("example", new()

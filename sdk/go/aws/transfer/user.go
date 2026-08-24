@@ -43,7 +43,6 @@ import (
 //			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -52,6 +51,7 @@ import (
 //								},
 //							},
 //						},
+//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"sts:AssumeRole",
 //						},
@@ -94,16 +94,16 @@ import (
 //				return err
 //			}
 //			_, err = transfer.NewUser(ctx, "foo", &transfer.UserArgs{
-//				ServerId:          fooServer.ID().ToIDOutput().ToStringOutput(),
-//				UserName:          pulumi.String("tftestuser"),
-//				Role:              fooRole.Arn,
-//				HomeDirectoryType: pulumi.String("LOGICAL"),
 //				HomeDirectoryMappings: transfer.UserHomeDirectoryMappingArray{
 //					&transfer.UserHomeDirectoryMappingArgs{
 //						Entry:  pulumi.String("/test.pdf"),
 //						Target: pulumi.String("/bucket3/test-path/tftestuser.pdf"),
 //					},
 //				},
+//				ServerId:          fooServer.ID().ToIDOutput().ToStringOutput(),
+//				UserName:          pulumi.String("tftestuser"),
+//				Role:              fooRole.Arn,
+//				HomeDirectoryType: pulumi.String("LOGICAL"),
 //			})
 //			if err != nil {
 //				return err
@@ -129,13 +129,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := transfer.NewUser(ctx, "example", &transfer.UserArgs{
-//				HomeDirectoryType: pulumi.String("LOGICAL"),
 //				HomeDirectoryMappings: transfer.UserHomeDirectoryMappingArray{
 //					&transfer.UserHomeDirectoryMappingArgs{
 //						Entry:  pulumi.String("/"),
 //						Target: pulumi.Sprintf("/%v/${Transfer:UserName}", foo.Id),
 //					},
 //				},
+//				HomeDirectoryType: pulumi.String("LOGICAL"),
 //			})
 //			if err != nil {
 //				return err

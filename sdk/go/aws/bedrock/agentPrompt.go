@@ -57,22 +57,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentPrompt(ctx, "example", &bedrock.AgentPromptArgs{
-//				Name:           pulumi.String("MakePlaylist"),
-//				Description:    pulumi.String("My first prompt."),
-//				DefaultVariant: pulumi.String("Variant1"),
 //				Variants: bedrock.AgentPromptVariantArray{
 //					&bedrock.AgentPromptVariantArgs{
-//						Name:    pulumi.String("Variant1"),
-//						ModelId: pulumi.String("amazon.titan-text-express-v1"),
 //						InferenceConfiguration: &bedrock.AgentPromptVariantInferenceConfigurationArgs{
 //							Text: &bedrock.AgentPromptVariantInferenceConfigurationTextArgs{
 //								Temperature: pulumi.Float64(0.8),
 //							},
 //						},
-//						TemplateType: pulumi.String("TEXT"),
 //						TemplateConfiguration: &bedrock.AgentPromptVariantTemplateConfigurationArgs{
 //							Text: &bedrock.AgentPromptVariantTemplateConfigurationTextArgs{
-//								Text: pulumi.String("Make me a {{genre}} playlist consisting of the following number of songs: {{number}}."),
 //								InputVariables: bedrock.AgentPromptVariantTemplateConfigurationTextInputVariableArray{
 //									&bedrock.AgentPromptVariantTemplateConfigurationTextInputVariableArgs{
 //										Name: pulumi.String("genre"),
@@ -81,10 +74,17 @@ import (
 //										Name: pulumi.String("number"),
 //									},
 //								},
+//								Text: pulumi.String("Make me a {{genre}} playlist consisting of the following number of songs: {{number}}."),
 //							},
 //						},
+//						Name:         pulumi.String("Variant1"),
+//						ModelId:      pulumi.String("amazon.titan-text-express-v1"),
+//						TemplateType: pulumi.String("TEXT"),
 //					},
 //				},
+//				Name:           pulumi.String("MakePlaylist"),
+//				Description:    pulumi.String("My first prompt."),
+//				DefaultVariant: pulumi.String("Variant1"),
 //			})
 //			if err != nil {
 //				return err

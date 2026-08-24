@@ -50,12 +50,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RecordingConfiguration("example", RecordingConfigurationArgs.builder()
- *             .name("recording_configuration-1")
  *             .destinationConfiguration(RecordingConfigurationDestinationConfigurationArgs.builder()
  *                 .s3(RecordingConfigurationDestinationConfigurationS3Args.builder()
  *                     .bucketName("ivs-stream-archive")
  *                     .build())
  *                 .build())
+ *             .name("recording_configuration-1")
  *             .build());
  * 
  *     }

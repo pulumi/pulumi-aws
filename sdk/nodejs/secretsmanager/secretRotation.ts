@@ -19,11 +19,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.secretsmanager.SecretRotation("example", {
- *     secretId: exampleAwsSecretsmanagerSecret.id,
- *     rotationLambdaArn: exampleAwsLambdaFunction.arn,
  *     rotationRules: {
  *         automaticallyAfterDays: 30,
  *     },
+ *     secretId: exampleAwsSecretsmanagerSecret.id,
+ *     rotationLambdaArn: exampleAwsLambdaFunction.arn,
  * });
  * ```
  *
@@ -40,8 +40,9 @@ import * as utilities from "../utilities";
  *     type: "SalesforceClientSecret",
  * });
  * const exampleSecretRotation = new aws.secretsmanager.SecretRotation("example", {
- *     secretId: example.id,
- *     externalSecretRotationRoleArn: exampleAwsIamRole.arn,
+ *     rotationRules: {
+ *         automaticallyAfterDays: Number(rotationDays),
+ *     },
  *     externalSecretRotationMetadatas: [
  *         {
  *             key: "adminSecretArn",
@@ -52,9 +53,8 @@ import * as utilities from "../utilities";
  *             value: "v65.0",
  *         },
  *     ],
- *     rotationRules: {
- *         automaticallyAfterDays: Number(rotationDays),
- *     },
+ *     secretId: example.id,
+ *     externalSecretRotationRoleArn: exampleAwsIamRole.arn,
  * });
  * ```
  *

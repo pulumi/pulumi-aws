@@ -49,9 +49,6 @@ import (
 //				return err
 //			}
 //			_, err = kinesisanalyticsv2.NewApplication(ctx, "example", &kinesisanalyticsv2.ApplicationArgs{
-//				Name:                 pulumi.String("example-flink-application"),
-//				RuntimeEnvironment:   pulumi.String("FLINK-1_8"),
-//				ServiceExecutionRole: pulumi.Any(exampleAwsIamRole.Arn),
 //				ApplicationConfiguration: &kinesisanalyticsv2.ApplicationApplicationConfigurationArgs{
 //					ApplicationCodeConfiguration: &kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs{
 //						CodeContent: &kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs{
@@ -96,6 +93,9 @@ import (
 //						},
 //					},
 //				},
+//				Name:                 pulumi.String("example-flink-application"),
+//				RuntimeEnvironment:   pulumi.String("FLINK-1_8"),
+//				ServiceExecutionRole: pulumi.Any(exampleAwsIamRole.Arn),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("test"),
 //				},
@@ -138,9 +138,6 @@ import (
 //				return err
 //			}
 //			_, err = kinesisanalyticsv2.NewApplication(ctx, "example", &kinesisanalyticsv2.ApplicationArgs{
-//				Name:                 pulumi.String("example-sql-application"),
-//				RuntimeEnvironment:   pulumi.String("SQL-1_0"),
-//				ServiceExecutionRole: pulumi.Any(exampleAwsIamRole.Arn),
 //				ApplicationConfiguration: &kinesisanalyticsv2.ApplicationApplicationConfigurationArgs{
 //					ApplicationCodeConfiguration: &kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs{
 //						CodeContent: &kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs{
@@ -150,11 +147,19 @@ import (
 //					},
 //					SqlApplicationConfiguration: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationArgs{
 //						Input: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeArgs{
-//							NamePrefix: pulumi.String("PREFIX_1"),
 //							InputParallelism: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgs{
 //								Count: pulumi.Int(3),
 //							},
 //							InputSchema: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgs{
+//								RecordFormat: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgs{
+//									MappingParameters: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersArgs{
+//										CsvMappingParameters: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgs{
+//											RecordColumnDelimiter: pulumi.String(","),
+//											RecordRowDelimiter:    pulumi.String("\n"),
+//										},
+//									},
+//									RecordFormatType: pulumi.String("CSV"),
+//								},
 //								RecordColumns: kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArray{
 //									&kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs{
 //										Name:    pulumi.String("COLUMN_1"),
@@ -167,55 +172,26 @@ import (
 //									},
 //								},
 //								RecordEncoding: pulumi.String("UTF-8"),
-//								RecordFormat: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgs{
-//									RecordFormatType: pulumi.String("CSV"),
-//									MappingParameters: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersArgs{
-//										CsvMappingParameters: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgs{
-//											RecordColumnDelimiter: pulumi.String(","),
-//											RecordRowDelimiter:    pulumi.String("\n"),
-//										},
-//									},
-//								},
 //							},
 //							KinesisStreamsInput: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs{
 //								ResourceArn: pulumi.Any(exampleAwsKinesisStream.Arn),
 //							},
-//						},
-//						Outputs: kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArray{
-//							&kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArgs{
-//								Name: pulumi.String("OUTPUT_1"),
-//								DestinationSchema: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs{
-//									RecordFormatType: pulumi.String("JSON"),
-//								},
-//								LambdaOutput: kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs{
-//									ResourceArn: pulumi.Any(exampleAwsLambdaFunction.Arn),
-//								},
-//							},
-//							&kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArgs{
-//								Name: pulumi.String("OUTPUT_2"),
-//								DestinationSchema: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs{
-//									RecordFormatType: pulumi.String("CSV"),
-//								},
-//								KinesisFirehoseOutput: kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs{
-//									ResourceArn: pulumi.Any(exampleAwsKinesisFirehoseDeliveryStream.Arn),
-//								},
-//							},
+//							NamePrefix: pulumi.String("PREFIX_1"),
 //						},
 //						ReferenceDataSource: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs{
-//							TableName: pulumi.String("TABLE-1"),
 //							ReferenceSchema: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs{
-//								RecordColumns: kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArray{
-//									&kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArgs{
-//										Name:    pulumi.String("COLUMN_1"),
-//										SqlType: pulumi.String("INTEGER"),
-//									},
-//								},
 //								RecordFormat: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgs{
-//									RecordFormatType: pulumi.String("JSON"),
 //									MappingParameters: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs{
 //										JsonMappingParameters: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs{
 //											RecordRowPath: pulumi.String("$"),
 //										},
+//									},
+//									RecordFormatType: pulumi.String("JSON"),
+//								},
+//								RecordColumns: kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArray{
+//									&kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArgs{
+//										Name:    pulumi.String("COLUMN_1"),
+//										SqlType: pulumi.String("INTEGER"),
 //									},
 //								},
 //							},
@@ -223,12 +199,36 @@ import (
 //								BucketArn: pulumi.Any(exampleAwsS3Bucket.Arn),
 //								FileKey:   pulumi.String("KEY-1"),
 //							},
+//							TableName: pulumi.String("TABLE-1"),
+//						},
+//						Outputs: kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArray{
+//							&kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArgs{
+//								DestinationSchema: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs{
+//									RecordFormatType: pulumi.String("JSON"),
+//								},
+//								LambdaOutput: kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs{
+//									ResourceArn: pulumi.Any(exampleAwsLambdaFunction.Arn),
+//								},
+//								Name: pulumi.String("OUTPUT_1"),
+//							},
+//							&kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArgs{
+//								DestinationSchema: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs{
+//									RecordFormatType: pulumi.String("CSV"),
+//								},
+//								KinesisFirehoseOutput: kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs{
+//									ResourceArn: pulumi.Any(exampleAwsKinesisFirehoseDeliveryStream.Arn),
+//								},
+//								Name: pulumi.String("OUTPUT_2"),
+//							},
 //						},
 //					},
 //				},
 //				CloudwatchLoggingOptions: &kinesisanalyticsv2.ApplicationCloudwatchLoggingOptionsArgs{
 //					LogStreamArn: exampleLogStream.Arn,
 //				},
+//				Name:                 pulumi.String("example-sql-application"),
+//				RuntimeEnvironment:   pulumi.String("SQL-1_0"),
+//				ServiceExecutionRole: pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -269,9 +269,6 @@ import (
 //				return err
 //			}
 //			_, err = kinesisanalyticsv2.NewApplication(ctx, "example", &kinesisanalyticsv2.ApplicationArgs{
-//				Name:                 pulumi.String("example-flink-application"),
-//				RuntimeEnvironment:   pulumi.String("FLINK-1_8"),
-//				ServiceExecutionRole: pulumi.Any(exampleAwsIamRole.Arn),
 //				ApplicationConfiguration: &kinesisanalyticsv2.ApplicationApplicationConfigurationArgs{
 //					ApplicationCodeConfiguration: &kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs{
 //						CodeContent: &kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs{
@@ -292,6 +289,9 @@ import (
 //						},
 //					},
 //				},
+//				Name:                 pulumi.String("example-flink-application"),
+//				RuntimeEnvironment:   pulumi.String("FLINK-1_8"),
+//				ServiceExecutionRole: pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err

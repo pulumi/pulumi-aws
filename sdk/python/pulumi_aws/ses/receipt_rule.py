@@ -564,11 +564,6 @@ class ReceiptRule(pulumi.CustomResource):
 
         # Add a header to the email and store it in S3
         store = aws.ses.ReceiptRule("store",
-            name="store",
-            rule_set_name="default-rule-set",
-            recipients=["karen@example.com"],
-            enabled=True,
-            scan_enabled=True,
             add_header_actions=[{
                 "header_name": "Custom-Header",
                 "header_value": "Added by SES",
@@ -577,7 +572,12 @@ class ReceiptRule(pulumi.CustomResource):
             s3_actions=[{
                 "bucket_name": "emails",
                 "position": 2,
-            }])
+            }],
+            name="store",
+            rule_set_name="default-rule-set",
+            recipients=["karen@example.com"],
+            enabled=True,
+            scan_enabled=True)
         ```
 
         ## Import
@@ -624,11 +624,6 @@ class ReceiptRule(pulumi.CustomResource):
 
         # Add a header to the email and store it in S3
         store = aws.ses.ReceiptRule("store",
-            name="store",
-            rule_set_name="default-rule-set",
-            recipients=["karen@example.com"],
-            enabled=True,
-            scan_enabled=True,
             add_header_actions=[{
                 "header_name": "Custom-Header",
                 "header_value": "Added by SES",
@@ -637,7 +632,12 @@ class ReceiptRule(pulumi.CustomResource):
             s3_actions=[{
                 "bucket_name": "emails",
                 "position": 2,
-            }])
+            }],
+            name="store",
+            rule_set_name="default-rule-set",
+            recipients=["karen@example.com"],
+            enabled=True,
+            scan_enabled=True)
         ```
 
         ## Import

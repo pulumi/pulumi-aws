@@ -17,22 +17,22 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const exampleTable = new aws.dynamodb.Table("example", {
- *     name: "example",
- *     readCapacity: 1,
- *     writeCapacity: 1,
- *     hashKey: "UserId",
  *     attributes: [{
  *         name: "UserId",
  *         type: "S",
  *     }],
+ *     name: "example",
+ *     readCapacity: 1,
+ *     writeCapacity: 1,
+ *     hashKey: "UserId",
  * });
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["appsync.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
@@ -57,13 +57,13 @@ import * as utilities from "../utilities";
  *     name: "my_appsync_example",
  * });
  * const exampleDataSource = new aws.appsync.DataSource("example", {
+ *     dynamodbConfig: {
+ *         tableName: exampleTable.name,
+ *     },
  *     apiId: exampleGraphQLApi.id,
  *     name: "my_appsync_example",
  *     serviceRoleArn: exampleRole.arn,
  *     type: "AMAZON_DYNAMODB",
- *     dynamodbConfig: {
- *         tableName: exampleTable.name,
- *     },
  * });
  * ```
  *

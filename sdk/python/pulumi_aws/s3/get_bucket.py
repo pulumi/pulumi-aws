@@ -171,13 +171,13 @@ def get_bucket(bucket: Optional[_builtins.str] = None,
     selected = aws.s3.get_bucket(bucket="bucket.test.com")
     test_zone = aws.route53.get_zone(name="test.com.")
     example = aws.route53.Record("example",
-        zone_id=test_zone.id,
-        name="bucket",
-        type=aws.route53.RecordType.A,
         aliases=[{
             "name": selected.website_domain,
             "zone_id": selected.hosted_zone_id,
-        }])
+        }],
+        zone_id=test_zone.id,
+        name="bucket",
+        type=aws.route53.RecordType.A)
     ```
 
     ### CloudFront Origin
@@ -234,13 +234,13 @@ def get_bucket_output(bucket: pulumi.Input[Optional[_builtins.str]] = None,
     selected = aws.s3.get_bucket(bucket="bucket.test.com")
     test_zone = aws.route53.get_zone(name="test.com.")
     example = aws.route53.Record("example",
-        zone_id=test_zone.id,
-        name="bucket",
-        type=aws.route53.RecordType.A,
         aliases=[{
             "name": selected.website_domain,
             "zone_id": selected.hosted_zone_id,
-        }])
+        }],
+        zone_id=test_zone.id,
+        name="bucket",
+        type=aws.route53.RecordType.A)
     ```
 
     ### CloudFront Origin

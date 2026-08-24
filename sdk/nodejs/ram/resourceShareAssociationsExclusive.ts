@@ -82,14 +82,14 @@ import * as utilities from "../utilities";
  *     allowExternalPrincipals: true,
  * });
  * const exampleCertificateAuthority = new aws.acmpca.CertificateAuthority("example", {
- *     type: "ROOT",
  *     certificateAuthorityConfiguration: {
- *         keyAlgorithm: "RSA_4096",
- *         signingAlgorithm: "SHA512WITHRSA",
  *         subject: {
  *             commonName: "example.com",
  *         },
+ *         keyAlgorithm: "RSA_4096",
+ *         signingAlgorithm: "SHA512WITHRSA",
  *     },
+ *     type: "ROOT",
  * });
  * const exampleResourceShareAssociationsExclusive = new aws.ram.ResourceShareAssociationsExclusive("example", {
  *     resourceShareArn: example.arn,

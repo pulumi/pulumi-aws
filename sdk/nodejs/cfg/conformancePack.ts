@@ -26,11 +26,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cfg.ConformancePack("example", {
- *     name: "example",
  *     inputParameters: [{
  *         parameterName: "AccessKeysRotatedParameterMaxAccessKeyAge",
  *         parameterValue: "90",
  *     }],
+ *     name: "example",
  *     templateBody: `Parameters:
  *   AccessKeysRotatedParameterMaxAccessKeyAge:
  *     Type: String

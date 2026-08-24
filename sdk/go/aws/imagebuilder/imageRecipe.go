@@ -31,17 +31,16 @@ import (
 //			_, err := imagebuilder.NewImageRecipe(ctx, "example", &imagebuilder.ImageRecipeArgs{
 //				BlockDeviceMappings: imagebuilder.ImageRecipeBlockDeviceMappingArray{
 //					&imagebuilder.ImageRecipeBlockDeviceMappingArgs{
-//						DeviceName: pulumi.String("/dev/xvdb"),
 //						Ebs: &imagebuilder.ImageRecipeBlockDeviceMappingEbsArgs{
 //							DeleteOnTermination: pulumi.String("true"),
 //							VolumeSize:          pulumi.Int(100),
 //							VolumeType:          pulumi.String("gp2"),
 //						},
+//						DeviceName: pulumi.String("/dev/xvdb"),
 //					},
 //				},
 //				Components: imagebuilder.ImageRecipeComponentArray{
 //					&imagebuilder.ImageRecipeComponentArgs{
-//						ComponentArn: pulumi.Any(exampleAwsImagebuilderComponent.Arn),
 //						Parameters: imagebuilder.ImageRecipeComponentParameterArray{
 //							&imagebuilder.ImageRecipeComponentParameterArgs{
 //								Name:  pulumi.String("Parameter1"),
@@ -52,6 +51,7 @@ import (
 //								Value: pulumi.String("Value2"),
 //							},
 //						},
+//						ComponentArn: pulumi.Any(exampleAwsImagebuilderComponent.Arn),
 //					},
 //				},
 //				Name:        pulumi.String("example"),

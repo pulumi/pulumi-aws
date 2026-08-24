@@ -62,11 +62,11 @@ import javax.annotation.Nullable;
  * 
  *         final var test = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions("sts:AssumeRole")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("appconfig.amazonaws.com")
  *                     .build())
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
@@ -76,16 +76,16 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testExtension = new Extension("testExtension", ExtensionArgs.builder()
- *             .name("test")
- *             .description("test description")
  *             .actionPoints(ExtensionActionPointArgs.builder()
- *                 .point("ON_DEPLOYMENT_COMPLETE")
  *                 .actions(ExtensionActionPointActionArgs.builder()
  *                     .name("test")
  *                     .roleArn(testRole.arn())
  *                     .uri(testTopic.arn())
  *                     .build())
+ *                 .point("ON_DEPLOYMENT_COMPLETE")
  *                 .build())
+ *             .name("test")
+ *             .description("test description")
  *             .tags(Map.of("Type", "AppConfig Extension"))
  *             .build());
  * 

@@ -27,26 +27,22 @@ namespace Pulumi.Aws.Sagemaker
     ///     // https://docs.aws.amazon.com/sagemaker/latest/dg/sms-named-entity-recg.html#sms-creating-ner-api.
     ///     var test = new Aws.Sagemaker.LabelingJob("test", new()
     ///     {
-    ///         LabelAttributeName = "label1",
-    ///         LabelingJobName = "my-labeling-job",
-    ///         RoleArn = exampleAwsIamRole.Arn,
-    ///         LabelCategoryConfigS3Uri = $"s3://{exampleAwsS3Bucket.Bucket}/{exampleAwsS3Object.Key}",
     ///         HumanTaskConfig = new Aws.Sagemaker.Inputs.LabelingJobHumanTaskConfigArgs
     ///         {
+    ///             UiConfig = new Aws.Sagemaker.Inputs.LabelingJobHumanTaskConfigUiConfigArgs
+    ///             {
+    ///                 HumanTaskUiArn = "arn:aws:sagemaker:us-west-2:394669845002:human-task-ui/NamedEntityRecognition",
+    ///             },
+    ///             AnnotationConsolidationConfig = new Aws.Sagemaker.Inputs.LabelingJobHumanTaskConfigAnnotationConsolidationConfigArgs
+    ///             {
+    ///                 AnnotationConsolidationLambdaArn = "arn:aws:lambda:us-west-2:081040173940:function:ACS-NamedEntityRecognition",
+    ///             },
     ///             NumberOfHumanWorkersPerDataObject = 1,
     ///             TaskDescription = "Apply the labels provided to specific words or phrases within the larger text block.",
     ///             TaskTitle = "Named entity Recognition task",
     ///             TaskTimeLimitInSeconds = 28800,
     ///             WorkteamArn = example.Arn,
-    ///             UiConfig = new Aws.Sagemaker.Inputs.LabelingJobHumanTaskConfigUiConfigArgs
-    ///             {
-    ///                 HumanTaskUiArn = "arn:aws:sagemaker:us-west-2:394669845002:human-task-ui/NamedEntityRecognition",
-    ///             },
     ///             PreHumanTaskLambdaArn = "arn:aws:lambda:us-west-2:081040173940:function:PRE-NamedEntityRecognition",
-    ///             AnnotationConsolidationConfig = new Aws.Sagemaker.Inputs.LabelingJobHumanTaskConfigAnnotationConsolidationConfigArgs
-    ///             {
-    ///                 AnnotationConsolidationLambdaArn = "arn:aws:lambda:us-west-2:081040173940:function:ACS-NamedEntityRecognition",
-    ///             },
     ///         },
     ///         InputConfig = new Aws.Sagemaker.Inputs.LabelingJobInputConfigArgs
     ///         {
@@ -62,6 +58,10 @@ namespace Pulumi.Aws.Sagemaker
     ///         {
     ///             S3OutputPath = $"s3://{exampleAwsS3Bucket.Bucket}/",
     ///         },
+    ///         LabelAttributeName = "label1",
+    ///         LabelingJobName = "my-labeling-job",
+    ///         RoleArn = exampleAwsIamRole.Arn,
+    ///         LabelCategoryConfigS3Uri = $"s3://{exampleAwsS3Bucket.Bucket}/{exampleAwsS3Object.Key}",
     ///     });
     /// 
     /// });

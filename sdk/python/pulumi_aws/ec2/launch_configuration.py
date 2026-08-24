@@ -705,8 +705,7 @@ class LaunchConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ubuntu = aws.ec2.get_ami(most_recent=True,
-            filters=[
+        ubuntu = aws.ec2.get_ami(filters=[
                 {
                     "name": "name",
                     "values": ["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"],
@@ -716,6 +715,7 @@ class LaunchConfiguration(pulumi.CustomResource):
                     "values": ["hvm"],
                 },
             ],
+            most_recent=True,
             owners=["099720109477"])
         as_conf = aws.ec2.LaunchConfiguration("as_conf",
             name="web_config",
@@ -778,8 +778,7 @@ class LaunchConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ubuntu = aws.ec2.get_ami(most_recent=True,
-            filters=[
+        ubuntu = aws.ec2.get_ami(filters=[
                 {
                     "name": "name",
                     "values": ["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"],
@@ -789,6 +788,7 @@ class LaunchConfiguration(pulumi.CustomResource):
                     "values": ["hvm"],
                 },
             ],
+            most_recent=True,
             owners=["099720109477"])
         as_conf = aws.ec2.LaunchConfiguration("as_conf",
             name="web_config",

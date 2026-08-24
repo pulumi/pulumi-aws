@@ -17,26 +17,26 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.acmpca.CertificateAuthority("example", {
- *     permanentDeletionTimeInDays: 7,
- *     type: "ROOT",
  *     certificateAuthorityConfiguration: {
- *         keyAlgorithm: "RSA_4096",
- *         signingAlgorithm: "SHA512WITHRSA",
  *         subject: {
  *             commonName: "example.com",
  *         },
+ *         keyAlgorithm: "RSA_4096",
+ *         signingAlgorithm: "SHA512WITHRSA",
  *     },
+ *     permanentDeletionTimeInDays: 7,
+ *     type: "ROOT",
  * });
  * const current = aws.getPartition({});
  * const test = new aws.acmpca.Certificate("test", {
- *     certificateAuthorityArn: example.arn,
- *     certificateSigningRequest: example.certificateSigningRequest,
- *     signingAlgorithm: "SHA512WITHRSA",
- *     templateArn: current.then(current => `arn:${current.partition}:acm-pca:::template/RootCACertificate/V1`),
  *     validity: {
  *         type: "YEARS",
  *         value: "1",
  *     },
+ *     certificateAuthorityArn: example.arn,
+ *     certificateSigningRequest: example.certificateSigningRequest,
+ *     signingAlgorithm: "SHA512WITHRSA",
+ *     templateArn: current.then(current => `arn:${current.partition}:acm-pca:::template/RootCACertificate/V1`),
  * });
  * const exampleCertificateAuthorityCertificate = new aws.acmpca.CertificateAuthorityCertificate("example", {
  *     certificateAuthorityArn: example.arn,
@@ -44,13 +44,13 @@ import * as utilities from "../utilities";
  *     certificateChain: exampleAwsAcmpcaCertificate.certificateChain,
  * });
  * const testTrustAnchor = new aws.rolesanywhere.TrustAnchor("test", {
- *     name: "example",
  *     source: {
  *         sourceData: {
  *             acmPcaArn: example.arn,
  *         },
  *         sourceType: "AWS_ACM_PCA",
  *     },
+ *     name: "example",
  * }, {
  *     dependsOn: [exampleCertificateAuthorityCertificate],
  * });

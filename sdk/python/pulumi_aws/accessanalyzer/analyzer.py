@@ -281,11 +281,8 @@ class Analyzer(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.accessanalyzer.Analyzer("example",
-            analyzer_name="example",
-            type="ORGANIZATION_UNUSED_ACCESS",
             configuration={
                 "unused_access": {
-                    "unused_access_age": 180,
                     "analysis_rule": {
                         "exclusions": [
                             {
@@ -306,8 +303,11 @@ class Analyzer(pulumi.CustomResource):
                             },
                         ],
                     },
+                    "unused_access_age": 180,
                 },
-            })
+            },
+            analyzer_name="example",
+            type="ORGANIZATION_UNUSED_ACCESS")
         ```
 
         ### Account Internal Access Analyzer by Resource Types
@@ -317,8 +317,6 @@ class Analyzer(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.accessanalyzer.Analyzer("test",
-            analyzer_name="example",
-            type="ORGANIZATION_INTERNAL_ACCESS",
             configuration={
                 "internal_access": {
                     "analysis_rule": {
@@ -331,7 +329,9 @@ class Analyzer(pulumi.CustomResource):
                         }],
                     },
                 },
-            })
+            },
+            analyzer_name="example",
+            type="ORGANIZATION_INTERNAL_ACCESS")
         ```
 
         ### Organization Internal Access Analyzer by Account ID and Resource ARN
@@ -341,8 +341,6 @@ class Analyzer(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.accessanalyzer.Analyzer("test",
-            analyzer_name="example",
-            type="ORGANIZATION_INTERNAL_ACCESS",
             configuration={
                 "internal_access": {
                     "analysis_rule": {
@@ -352,7 +350,9 @@ class Analyzer(pulumi.CustomResource):
                         }],
                     },
                 },
-            })
+            },
+            analyzer_name="example",
+            type="ORGANIZATION_INTERNAL_ACCESS")
         ```
 
         ## Import
@@ -414,11 +414,8 @@ class Analyzer(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.accessanalyzer.Analyzer("example",
-            analyzer_name="example",
-            type="ORGANIZATION_UNUSED_ACCESS",
             configuration={
                 "unused_access": {
-                    "unused_access_age": 180,
                     "analysis_rule": {
                         "exclusions": [
                             {
@@ -439,8 +436,11 @@ class Analyzer(pulumi.CustomResource):
                             },
                         ],
                     },
+                    "unused_access_age": 180,
                 },
-            })
+            },
+            analyzer_name="example",
+            type="ORGANIZATION_UNUSED_ACCESS")
         ```
 
         ### Account Internal Access Analyzer by Resource Types
@@ -450,8 +450,6 @@ class Analyzer(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.accessanalyzer.Analyzer("test",
-            analyzer_name="example",
-            type="ORGANIZATION_INTERNAL_ACCESS",
             configuration={
                 "internal_access": {
                     "analysis_rule": {
@@ -464,7 +462,9 @@ class Analyzer(pulumi.CustomResource):
                         }],
                     },
                 },
-            })
+            },
+            analyzer_name="example",
+            type="ORGANIZATION_INTERNAL_ACCESS")
         ```
 
         ### Organization Internal Access Analyzer by Account ID and Resource ARN
@@ -474,8 +474,6 @@ class Analyzer(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.accessanalyzer.Analyzer("test",
-            analyzer_name="example",
-            type="ORGANIZATION_INTERNAL_ACCESS",
             configuration={
                 "internal_access": {
                     "analysis_rule": {
@@ -485,7 +483,9 @@ class Analyzer(pulumi.CustomResource):
                         }],
                     },
                 },
-            })
+            },
+            analyzer_name="example",
+            type="ORGANIZATION_INTERNAL_ACCESS")
         ```
 
         ## Import

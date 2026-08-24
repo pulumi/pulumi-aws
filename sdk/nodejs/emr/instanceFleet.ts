@@ -22,29 +22,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const task = new aws.emr.InstanceFleet("task", {
- *     clusterId: cluster.id,
- *     instanceTypeConfigs: [
- *         {
- *             bidPriceAsPercentageOfOnDemandPrice: 100,
- *             ebsConfigs: [{
- *                 size: 100,
- *                 type: "gp2",
- *                 volumesPerInstance: 1,
- *             }],
- *             instanceType: "m4.xlarge",
- *             weightedCapacity: 1,
- *         },
- *         {
- *             bidPriceAsPercentageOfOnDemandPrice: 100,
- *             ebsConfigs: [{
- *                 size: 100,
- *                 type: "gp2",
- *                 volumesPerInstance: 1,
- *             }],
- *             instanceType: "m4.2xlarge",
- *             weightedCapacity: 2,
- *         },
- *     ],
  *     launchSpecifications: {
  *         spotSpecifications: [{
  *             allocationStrategy: "capacity-optimized",
@@ -53,6 +30,29 @@ import * as utilities from "../utilities";
  *             timeoutDurationMinutes: 10,
  *         }],
  *     },
+ *     instanceTypeConfigs: [
+ *         {
+ *             ebsConfigs: [{
+ *                 size: 100,
+ *                 type: "gp2",
+ *                 volumesPerInstance: 1,
+ *             }],
+ *             bidPriceAsPercentageOfOnDemandPrice: 100,
+ *             instanceType: "m4.xlarge",
+ *             weightedCapacity: 1,
+ *         },
+ *         {
+ *             ebsConfigs: [{
+ *                 size: 100,
+ *                 type: "gp2",
+ *                 volumesPerInstance: 1,
+ *             }],
+ *             bidPriceAsPercentageOfOnDemandPrice: 100,
+ *             instanceType: "m4.2xlarge",
+ *             weightedCapacity: 2,
+ *         },
+ *     ],
+ *     clusterId: cluster.id,
  *     name: "task fleet",
  *     targetOnDemandCapacity: 1,
  *     targetSpotCapacity: 1,

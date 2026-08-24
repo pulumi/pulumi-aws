@@ -40,7 +40,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewNetworkAcl(ctx, "main", &ec2.NetworkAclArgs{
-//				VpcId: pulumi.Any(mainAwsVpc.Id),
 //				Egress: ec2.NetworkAclEgressArray{
 //					&ec2.NetworkAclEgressArgs{
 //						Protocol:  pulumi.String("tcp"),
@@ -61,6 +60,7 @@ import (
 //						ToPort:    pulumi.Int(80),
 //					},
 //				},
+//				VpcId: pulumi.Any(mainAwsVpc.Id),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("main"),
 //				},

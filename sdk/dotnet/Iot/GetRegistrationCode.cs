@@ -34,8 +34,6 @@ namespace Pulumi.Aws.Iot
         /// 
         ///     var verificationCertRequest = new Tls.CertRequest("verification", new()
         ///     {
-        ///         KeyAlgorithm = "RSA",
-        ///         PrivateKeyPem = verification.PrivateKeyPem,
         ///         Subject = new[]
         ///         {
         ///             
@@ -43,6 +41,8 @@ namespace Pulumi.Aws.Iot
         ///                 { "commonName", example.Apply(getRegistrationCodeResult =&gt; getRegistrationCodeResult.RegistrationCode) },
         ///             },
         ///         },
+        ///         KeyAlgorithm = "RSA",
+        ///         PrivateKeyPem = verification.PrivateKeyPem,
         ///     });
         /// 
         /// });
@@ -74,8 +74,6 @@ namespace Pulumi.Aws.Iot
         /// 
         ///     var verificationCertRequest = new Tls.CertRequest("verification", new()
         ///     {
-        ///         KeyAlgorithm = "RSA",
-        ///         PrivateKeyPem = verification.PrivateKeyPem,
         ///         Subject = new[]
         ///         {
         ///             
@@ -83,6 +81,8 @@ namespace Pulumi.Aws.Iot
         ///                 { "commonName", example.Apply(getRegistrationCodeResult =&gt; getRegistrationCodeResult.RegistrationCode) },
         ///             },
         ///         },
+        ///         KeyAlgorithm = "RSA",
+        ///         PrivateKeyPem = verification.PrivateKeyPem,
         ///     });
         /// 
         /// });
@@ -114,8 +114,6 @@ namespace Pulumi.Aws.Iot
         /// 
         ///     var verificationCertRequest = new Tls.CertRequest("verification", new()
         ///     {
-        ///         KeyAlgorithm = "RSA",
-        ///         PrivateKeyPem = verification.PrivateKeyPem,
         ///         Subject = new[]
         ///         {
         ///             
@@ -123,6 +121,8 @@ namespace Pulumi.Aws.Iot
         ///                 { "commonName", example.Apply(getRegistrationCodeResult =&gt; getRegistrationCodeResult.RegistrationCode) },
         ///             },
         ///         },
+        ///         KeyAlgorithm = "RSA",
+        ///         PrivateKeyPem = verification.PrivateKeyPem,
         ///     });
         /// 
         /// });

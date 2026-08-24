@@ -21,13 +21,13 @@ import * as utilities from "../utilities";
  * const current = aws.getCallerIdentity({});
  * const example = new aws.networkflowmonitor.Scope("example", {
  *     targets: [{
- *         region: "us-east-1",
  *         targetIdentifier: {
- *             targetType: "ACCOUNT",
  *             targetId: {
  *                 accountId: current.then(current => current.accountId),
  *             },
+ *             targetType: "ACCOUNT",
  *         },
+ *         region: "us-east-1",
  *     }],
  *     tags: {
  *         Name: "example",

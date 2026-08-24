@@ -366,23 +366,23 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         gateway_assume = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["bedrock-agentcore.amazonaws.com"],
             }],
+            "effect": "Allow",
+            "actions": ["sts:AssumeRole"],
         }])
         gateway_role = aws.iam.Role("gateway_role",
             name="bedrock-gateway-role",
             assume_role_policy=gateway_assume.json)
         lambda_assume = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["lambda.amazonaws.com"],
             }],
+            "effect": "Allow",
+            "actions": ["sts:AssumeRole"],
         }])
         lambda_role = aws.iam.Role("lambda_role",
             name="example-lambda-role",
@@ -394,31 +394,23 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
             handler="index.handler",
             runtime=aws.lambda_.Runtime.NODE_JS24D_X)
         example_agentcore_gateway = aws.bedrock.AgentcoreGateway("example",
-            name="example-gateway",
-            role_arn=gateway_role.arn,
             authorizer_configuration={
                 "custom_jwt_authorizer": {
                     "discovery_url": "https://accounts.google.com/.well-known/openid-configuration",
                 },
-            })
+            },
+            name="example-gateway",
+            role_arn=gateway_role.arn)
         example_agentcore_gateway_target = aws.bedrock.AgentcoreGatewayTarget("example",
-            name="example-target",
-            gateway_identifier=example_agentcore_gateway.gateway_id,
-            description="Lambda function target for processing requests",
             credential_provider_configuration={
                 "gateway_iam_role": {},
             },
             target_configuration={
                 "mcp": {
                     "lambda_": {
-                        "lambda_arn": example.arn,
                         "tool_schema": {
                             "inline_payloads": [{
-                                "name": "process_request",
-                                "description": "Process incoming requests",
                                 "input_schema": {
-                                    "type": "object",
-                                    "description": "Request processing schema",
                                     "properties": [
                                         {
                                             "name": "message",
@@ -427,26 +419,27 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
                                             "required": True,
                                         },
                                         {
-                                            "name": "options",
-                                            "type": "object",
                                             "properties": [
                                                 {
                                                     "name": "priority",
                                                     "type": "string",
                                                 },
                                                 {
-                                                    "name": "tags",
-                                                    "type": "array",
                                                     "items": [{
                                                         "type": "string",
                                                     }],
+                                                    "name": "tags",
+                                                    "type": "array",
                                                 },
                                             ],
+                                            "name": "options",
+                                            "type": "object",
                                         },
                                     ],
+                                    "type": "object",
+                                    "description": "Request processing schema",
                                 },
                                 "output_schema": {
-                                    "type": "object",
                                     "properties": [
                                         {
                                             "name": "status",
@@ -458,12 +451,19 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
                                             "type": "string",
                                         },
                                     ],
+                                    "type": "object",
                                 },
+                                "name": "process_request",
+                                "description": "Process incoming requests",
                             }],
                         },
+                        "lambda_arn": example.arn,
                     },
                 },
-            })
+            },
+            name="example-target",
+            gateway_identifier=example_agentcore_gateway.gateway_id,
+            description="Lambda function target for processing requests")
         ```
 
         ### Target with API Key Authentication
@@ -473,9 +473,6 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         api_key_example = aws.bedrock.AgentcoreGatewayTarget("api_key_example",
-            name="api-target",
-            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"],
-            description="External API target with API key authentication",
             credential_provider_configuration={
                 "api_key": {
                     "provider_arn": "arn:aws:iam::123456789012:oidc-provider/example.com",
@@ -487,20 +484,23 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
             target_configuration={
                 "mcp": {
                     "lambda_": {
-                        "lambda_arn": example["arn"],
                         "tool_schema": {
                             "inline_payloads": [{
-                                "name": "api_tool",
-                                "description": "External API integration tool",
                                 "input_schema": {
                                     "type": "string",
                                     "description": "Simple string input for API calls",
                                 },
+                                "name": "api_tool",
+                                "description": "External API integration tool",
                             }],
                         },
+                        "lambda_arn": example["arn"],
                     },
                 },
-            })
+            },
+            name="api-target",
+            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"],
+            description="External API target with API key authentication")
         ```
 
         ### Target with OAuth Authentication
@@ -510,8 +510,6 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         oauth_example = aws.bedrock.AgentcoreGatewayTarget("oauth_example",
-            name="oauth-target",
-            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"],
             credential_provider_configuration={
                 "oauth": {
                     "provider_arn": "arn:aws:iam::123456789012:oidc-provider/oauth.example.com",
@@ -529,15 +527,10 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
             target_configuration={
                 "mcp": {
                     "lambda_": {
-                        "lambda_arn": example["arn"],
                         "tool_schema": {
                             "inline_payloads": [{
-                                "name": "oauth_tool",
-                                "description": "OAuth-authenticated service",
                                 "input_schema": {
-                                    "type": "array",
                                     "items": {
-                                        "type": "object",
                                         "properties": [
                                             {
                                                 "name": "id",
@@ -549,13 +542,20 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
                                                 "type": "number",
                                             },
                                         ],
+                                        "type": "object",
                                     },
+                                    "type": "array",
                                 },
+                                "name": "oauth_tool",
+                                "description": "OAuth-authenticated service",
                             }],
                         },
+                        "lambda_arn": example["arn"],
                     },
                 },
-            })
+            },
+            name="oauth-target",
+            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"])
         ```
 
         ### Target with IAM SigV4 Authentication (MCP Server)
@@ -567,8 +567,6 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         sigv4_example = aws.bedrock.AgentcoreGatewayTarget("sigv4_example",
-            name="sigv4-target",
-            gateway_identifier=example["gatewayId"],
             credential_provider_configuration={
                 "gateway_iam_role": {
                     "service": "bedrock-agentcore",
@@ -580,7 +578,9 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
                         "endpoint": "https://example-runtime.bedrock-agentcore.us-east-1.amazonaws.com/runtimes/example/invocations?qualifier=DEFAULT",
                     },
                 },
-            })
+            },
+            name="sigv4-target",
+            gateway_identifier=example["gatewayId"])
         ```
 
         ### Complex Schema with JSON Serialization
@@ -591,24 +591,16 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         complex_schema = aws.bedrock.AgentcoreGatewayTarget("complex_schema",
-            name="complex-target",
-            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"],
             credential_provider_configuration={
                 "gateway_iam_role": {},
             },
             target_configuration={
                 "mcp": {
                     "lambda_": {
-                        "lambda_arn": example["arn"],
                         "tool_schema": {
                             "inline_payloads": [{
-                                "name": "complex_tool",
-                                "description": "Tool with complex nested schema",
                                 "input_schema": {
-                                    "type": "object",
                                     "properties": [{
-                                        "name": "profile",
-                                        "type": "object",
                                         "properties": [
                                             {
                                                 "name": "nested_tags",
@@ -633,13 +625,21 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
                                                 }),
                                             },
                                         ],
+                                        "name": "profile",
+                                        "type": "object",
                                     }],
+                                    "type": "object",
                                 },
+                                "name": "complex_tool",
+                                "description": "Tool with complex nested schema",
                             }],
                         },
+                        "lambda_arn": example["arn"],
                     },
                 },
-            })
+            },
+            name="complex-target",
+            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"])
         ```
 
         ### MCP Server Target with Header Propagation
@@ -649,9 +649,6 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         mcp_with_headers = aws.bedrock.AgentcoreGatewayTarget("mcp_with_headers",
-            name="mcp-target-with-headers",
-            gateway_identifier=example["gatewayId"],
-            description="MCP server target with header propagation",
             target_configuration={
                 "mcp": {
                     "mcp_server": {
@@ -666,7 +663,10 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
                 ],
                 "allowed_response_headers": ["x-rate-limit-remaining"],
                 "allowed_query_parameters": ["version"],
-            })
+            },
+            name="mcp-target-with-headers",
+            gateway_identifier=example["gatewayId"],
+            description="MCP server target with header propagation")
         ```
 
         ### HTTP Target Routing to an AgentCore Runtime
@@ -678,8 +678,6 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentcoreAgentRuntime("example",
-            agent_runtime_name="example-runtime",
-            role_arn=runtime_role["arn"],
             agent_runtime_artifact={
                 "container_configuration": {
                     "container_uri": "111122223333.dkr.ecr.us-west-2.amazonaws.com/example-runtime:latest",
@@ -687,10 +685,10 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
             },
             network_configuration={
                 "network_mode": "PUBLIC",
-            })
+            },
+            agent_runtime_name="example-runtime",
+            role_arn=runtime_role["arn"])
         runtime = aws.bedrock.AgentcoreGatewayTarget("runtime",
-            name="runtime-target",
-            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"],
             credential_provider_configuration={
                 "gateway_iam_role": {},
             },
@@ -701,7 +699,9 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
                         "qualifier": "DEFAULT",
                     },
                 },
-            })
+            },
+            name="runtime-target",
+            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"])
         ```
 
         ### Self-hosted MCP server in a VPC (managed Lattice)
@@ -711,8 +711,6 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentcoreGatewayTarget("example",
-            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"],
-            name="my-private-mcp-target",
             target_configuration={
                 "mcp": {
                     "mcp_server": {
@@ -727,7 +725,9 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
                     "endpoint_ip_address_type": "IPV4",
                     "security_group_ids": [mcp_lattice["id"]],
                 },
-            })
+            },
+            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"],
+            name="my-private-mcp-target")
         ```
 
         ### Self-hosted MCP server with routing through an internal ALB
@@ -739,8 +739,6 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentcoreGatewayTarget("example",
-            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"],
-            name="my-private-mcp-via-alb",
             target_configuration={
                 "mcp": {
                     "mcp_server": {
@@ -755,7 +753,9 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
                     "endpoint_ip_address_type": "IPV4",
                     "routing_domain": mcp_alb["dnsName"],
                 },
-            })
+            },
+            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"],
+            name="my-private-mcp-via-alb")
         ```
 
         ### Self-managed VPC Lattice resource configuration
@@ -765,8 +765,6 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentcoreGatewayTarget("example",
-            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"],
-            name="my-private-mcp-self-managed",
             target_configuration={
                 "mcp": {
                     "mcp_server": {
@@ -778,7 +776,9 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
                 "self_managed_lattice_resource": {
                     "resource_configuration_identifier": mcp["arn"],
                 },
-            })
+            },
+            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"],
+            name="my-private-mcp-self-managed")
         ```
 
         ## Import
@@ -821,23 +821,23 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         gateway_assume = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["bedrock-agentcore.amazonaws.com"],
             }],
+            "effect": "Allow",
+            "actions": ["sts:AssumeRole"],
         }])
         gateway_role = aws.iam.Role("gateway_role",
             name="bedrock-gateway-role",
             assume_role_policy=gateway_assume.json)
         lambda_assume = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["lambda.amazonaws.com"],
             }],
+            "effect": "Allow",
+            "actions": ["sts:AssumeRole"],
         }])
         lambda_role = aws.iam.Role("lambda_role",
             name="example-lambda-role",
@@ -849,31 +849,23 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
             handler="index.handler",
             runtime=aws.lambda_.Runtime.NODE_JS24D_X)
         example_agentcore_gateway = aws.bedrock.AgentcoreGateway("example",
-            name="example-gateway",
-            role_arn=gateway_role.arn,
             authorizer_configuration={
                 "custom_jwt_authorizer": {
                     "discovery_url": "https://accounts.google.com/.well-known/openid-configuration",
                 },
-            })
+            },
+            name="example-gateway",
+            role_arn=gateway_role.arn)
         example_agentcore_gateway_target = aws.bedrock.AgentcoreGatewayTarget("example",
-            name="example-target",
-            gateway_identifier=example_agentcore_gateway.gateway_id,
-            description="Lambda function target for processing requests",
             credential_provider_configuration={
                 "gateway_iam_role": {},
             },
             target_configuration={
                 "mcp": {
                     "lambda_": {
-                        "lambda_arn": example.arn,
                         "tool_schema": {
                             "inline_payloads": [{
-                                "name": "process_request",
-                                "description": "Process incoming requests",
                                 "input_schema": {
-                                    "type": "object",
-                                    "description": "Request processing schema",
                                     "properties": [
                                         {
                                             "name": "message",
@@ -882,26 +874,27 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
                                             "required": True,
                                         },
                                         {
-                                            "name": "options",
-                                            "type": "object",
                                             "properties": [
                                                 {
                                                     "name": "priority",
                                                     "type": "string",
                                                 },
                                                 {
-                                                    "name": "tags",
-                                                    "type": "array",
                                                     "items": [{
                                                         "type": "string",
                                                     }],
+                                                    "name": "tags",
+                                                    "type": "array",
                                                 },
                                             ],
+                                            "name": "options",
+                                            "type": "object",
                                         },
                                     ],
+                                    "type": "object",
+                                    "description": "Request processing schema",
                                 },
                                 "output_schema": {
-                                    "type": "object",
                                     "properties": [
                                         {
                                             "name": "status",
@@ -913,12 +906,19 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
                                             "type": "string",
                                         },
                                     ],
+                                    "type": "object",
                                 },
+                                "name": "process_request",
+                                "description": "Process incoming requests",
                             }],
                         },
+                        "lambda_arn": example.arn,
                     },
                 },
-            })
+            },
+            name="example-target",
+            gateway_identifier=example_agentcore_gateway.gateway_id,
+            description="Lambda function target for processing requests")
         ```
 
         ### Target with API Key Authentication
@@ -928,9 +928,6 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         api_key_example = aws.bedrock.AgentcoreGatewayTarget("api_key_example",
-            name="api-target",
-            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"],
-            description="External API target with API key authentication",
             credential_provider_configuration={
                 "api_key": {
                     "provider_arn": "arn:aws:iam::123456789012:oidc-provider/example.com",
@@ -942,20 +939,23 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
             target_configuration={
                 "mcp": {
                     "lambda_": {
-                        "lambda_arn": example["arn"],
                         "tool_schema": {
                             "inline_payloads": [{
-                                "name": "api_tool",
-                                "description": "External API integration tool",
                                 "input_schema": {
                                     "type": "string",
                                     "description": "Simple string input for API calls",
                                 },
+                                "name": "api_tool",
+                                "description": "External API integration tool",
                             }],
                         },
+                        "lambda_arn": example["arn"],
                     },
                 },
-            })
+            },
+            name="api-target",
+            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"],
+            description="External API target with API key authentication")
         ```
 
         ### Target with OAuth Authentication
@@ -965,8 +965,6 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         oauth_example = aws.bedrock.AgentcoreGatewayTarget("oauth_example",
-            name="oauth-target",
-            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"],
             credential_provider_configuration={
                 "oauth": {
                     "provider_arn": "arn:aws:iam::123456789012:oidc-provider/oauth.example.com",
@@ -984,15 +982,10 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
             target_configuration={
                 "mcp": {
                     "lambda_": {
-                        "lambda_arn": example["arn"],
                         "tool_schema": {
                             "inline_payloads": [{
-                                "name": "oauth_tool",
-                                "description": "OAuth-authenticated service",
                                 "input_schema": {
-                                    "type": "array",
                                     "items": {
-                                        "type": "object",
                                         "properties": [
                                             {
                                                 "name": "id",
@@ -1004,13 +997,20 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
                                                 "type": "number",
                                             },
                                         ],
+                                        "type": "object",
                                     },
+                                    "type": "array",
                                 },
+                                "name": "oauth_tool",
+                                "description": "OAuth-authenticated service",
                             }],
                         },
+                        "lambda_arn": example["arn"],
                     },
                 },
-            })
+            },
+            name="oauth-target",
+            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"])
         ```
 
         ### Target with IAM SigV4 Authentication (MCP Server)
@@ -1022,8 +1022,6 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         sigv4_example = aws.bedrock.AgentcoreGatewayTarget("sigv4_example",
-            name="sigv4-target",
-            gateway_identifier=example["gatewayId"],
             credential_provider_configuration={
                 "gateway_iam_role": {
                     "service": "bedrock-agentcore",
@@ -1035,7 +1033,9 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
                         "endpoint": "https://example-runtime.bedrock-agentcore.us-east-1.amazonaws.com/runtimes/example/invocations?qualifier=DEFAULT",
                     },
                 },
-            })
+            },
+            name="sigv4-target",
+            gateway_identifier=example["gatewayId"])
         ```
 
         ### Complex Schema with JSON Serialization
@@ -1046,24 +1046,16 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         complex_schema = aws.bedrock.AgentcoreGatewayTarget("complex_schema",
-            name="complex-target",
-            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"],
             credential_provider_configuration={
                 "gateway_iam_role": {},
             },
             target_configuration={
                 "mcp": {
                     "lambda_": {
-                        "lambda_arn": example["arn"],
                         "tool_schema": {
                             "inline_payloads": [{
-                                "name": "complex_tool",
-                                "description": "Tool with complex nested schema",
                                 "input_schema": {
-                                    "type": "object",
                                     "properties": [{
-                                        "name": "profile",
-                                        "type": "object",
                                         "properties": [
                                             {
                                                 "name": "nested_tags",
@@ -1088,13 +1080,21 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
                                                 }),
                                             },
                                         ],
+                                        "name": "profile",
+                                        "type": "object",
                                     }],
+                                    "type": "object",
                                 },
+                                "name": "complex_tool",
+                                "description": "Tool with complex nested schema",
                             }],
                         },
+                        "lambda_arn": example["arn"],
                     },
                 },
-            })
+            },
+            name="complex-target",
+            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"])
         ```
 
         ### MCP Server Target with Header Propagation
@@ -1104,9 +1104,6 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         mcp_with_headers = aws.bedrock.AgentcoreGatewayTarget("mcp_with_headers",
-            name="mcp-target-with-headers",
-            gateway_identifier=example["gatewayId"],
-            description="MCP server target with header propagation",
             target_configuration={
                 "mcp": {
                     "mcp_server": {
@@ -1121,7 +1118,10 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
                 ],
                 "allowed_response_headers": ["x-rate-limit-remaining"],
                 "allowed_query_parameters": ["version"],
-            })
+            },
+            name="mcp-target-with-headers",
+            gateway_identifier=example["gatewayId"],
+            description="MCP server target with header propagation")
         ```
 
         ### HTTP Target Routing to an AgentCore Runtime
@@ -1133,8 +1133,6 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentcoreAgentRuntime("example",
-            agent_runtime_name="example-runtime",
-            role_arn=runtime_role["arn"],
             agent_runtime_artifact={
                 "container_configuration": {
                     "container_uri": "111122223333.dkr.ecr.us-west-2.amazonaws.com/example-runtime:latest",
@@ -1142,10 +1140,10 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
             },
             network_configuration={
                 "network_mode": "PUBLIC",
-            })
+            },
+            agent_runtime_name="example-runtime",
+            role_arn=runtime_role["arn"])
         runtime = aws.bedrock.AgentcoreGatewayTarget("runtime",
-            name="runtime-target",
-            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"],
             credential_provider_configuration={
                 "gateway_iam_role": {},
             },
@@ -1156,7 +1154,9 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
                         "qualifier": "DEFAULT",
                     },
                 },
-            })
+            },
+            name="runtime-target",
+            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"])
         ```
 
         ### Self-hosted MCP server in a VPC (managed Lattice)
@@ -1166,8 +1166,6 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentcoreGatewayTarget("example",
-            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"],
-            name="my-private-mcp-target",
             target_configuration={
                 "mcp": {
                     "mcp_server": {
@@ -1182,7 +1180,9 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
                     "endpoint_ip_address_type": "IPV4",
                     "security_group_ids": [mcp_lattice["id"]],
                 },
-            })
+            },
+            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"],
+            name="my-private-mcp-target")
         ```
 
         ### Self-hosted MCP server with routing through an internal ALB
@@ -1194,8 +1194,6 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentcoreGatewayTarget("example",
-            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"],
-            name="my-private-mcp-via-alb",
             target_configuration={
                 "mcp": {
                     "mcp_server": {
@@ -1210,7 +1208,9 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
                     "endpoint_ip_address_type": "IPV4",
                     "routing_domain": mcp_alb["dnsName"],
                 },
-            })
+            },
+            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"],
+            name="my-private-mcp-via-alb")
         ```
 
         ### Self-managed VPC Lattice resource configuration
@@ -1220,8 +1220,6 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentcoreGatewayTarget("example",
-            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"],
-            name="my-private-mcp-self-managed",
             target_configuration={
                 "mcp": {
                     "mcp_server": {
@@ -1233,7 +1231,9 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
                 "self_managed_lattice_resource": {
                     "resource_configuration_identifier": mcp["arn"],
                 },
-            })
+            },
+            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"],
+            name="my-private-mcp-self-managed")
         ```
 
         ## Import

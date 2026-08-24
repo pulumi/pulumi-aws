@@ -18,19 +18,16 @@ import * as utilities from "../utilities";
  *
  * const _default = new aws.datapipeline.Pipeline("default", {name: "tf-pipeline-default"});
  * const example = new aws.datapipeline.PipelineDefinition("example", {
- *     pipelineId: _default.id,
  *     pipelineObjects: [
  *         {
- *             id: "Default",
- *             name: "Default",
  *             fields: [{
  *                 key: "workerGroup",
  *                 stringValue: "workerGroup",
  *             }],
+ *             id: "Default",
+ *             name: "Default",
  *         },
  *         {
- *             id: "Schedule",
- *             name: "Schedule",
  *             fields: [
  *                 {
  *                     key: "startDateTime",
@@ -49,10 +46,10 @@ import * as utilities from "../utilities";
  *                     stringValue: "2012-12-21T18:00:00",
  *                 },
  *             ],
+ *             id: "Schedule",
+ *             name: "Schedule",
  *         },
  *         {
- *             id: "SayHello",
- *             name: "SayHello",
  *             fields: [
  *                 {
  *                     key: "type",
@@ -71,8 +68,11 @@ import * as utilities from "../utilities";
  *                     stringValue: "Schedule",
  *                 },
  *             ],
+ *             id: "SayHello",
+ *             name: "SayHello",
  *         },
  *     ],
+ *     pipelineId: _default.id,
  * });
  * ```
  *

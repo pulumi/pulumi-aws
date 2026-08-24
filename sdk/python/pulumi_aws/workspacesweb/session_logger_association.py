@@ -162,11 +162,11 @@ class SessionLoggerAssociation(pulumi.CustomResource):
             bucket="example-session-logs",
             force_destroy=True)
         example = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["workspaces-web.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["s3:PutObject"],
             "resources": [example_bucket.arn.apply(lambda arn: f"{arn}/*")],
         }])
@@ -174,7 +174,6 @@ class SessionLoggerAssociation(pulumi.CustomResource):
             bucket=example_bucket.id,
             policy=example.json)
         example_session_logger = aws.workspacesweb.SessionLogger("example",
-            display_name="example",
             event_filter={
                 "all": {}[0],
             },
@@ -185,6 +184,7 @@ class SessionLoggerAssociation(pulumi.CustomResource):
                     "log_file_format": "Json",
                 },
             },
+            display_name="example",
             opts = pulumi.ResourceOptions(depends_on=[example_bucket_policy]))
         example_session_logger_association = aws.workspacesweb.SessionLoggerAssociation("example",
             portal_arn=example_portal.portal_arn,
@@ -230,11 +230,11 @@ class SessionLoggerAssociation(pulumi.CustomResource):
             bucket="example-session-logs",
             force_destroy=True)
         example = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["workspaces-web.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["s3:PutObject"],
             "resources": [example_bucket.arn.apply(lambda arn: f"{arn}/*")],
         }])
@@ -242,7 +242,6 @@ class SessionLoggerAssociation(pulumi.CustomResource):
             bucket=example_bucket.id,
             policy=example.json)
         example_session_logger = aws.workspacesweb.SessionLogger("example",
-            display_name="example",
             event_filter={
                 "all": {}[0],
             },
@@ -253,6 +252,7 @@ class SessionLoggerAssociation(pulumi.CustomResource):
                     "log_file_format": "Json",
                 },
             },
+            display_name="example",
             opts = pulumi.ResourceOptions(depends_on=[example_bucket_policy]))
         example_session_logger_association = aws.workspacesweb.SessionLoggerAssociation("example",
             portal_arn=example_portal.portal_arn,

@@ -25,8 +25,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.codebuild.Webhook("example", {
- *     projectName: exampleAwsCodebuildProject.name,
- *     buildType: "BUILD",
  *     filterGroups: [{
  *         filters: [
  *             {
@@ -39,6 +37,8 @@ import * as utilities from "../utilities";
  *             },
  *         ],
  *     }],
+ *     projectName: exampleAwsCodebuildProject.name,
+ *     buildType: "BUILD",
  * });
  * ```
  *
@@ -55,16 +55,16 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.codebuild.Webhook("example", {projectName: exampleAwsCodebuildProject.name});
  * const exampleRepositoryWebhook = new github.RepositoryWebhook("example", {
- *     active: true,
- *     events: ["push"],
- *     name: "example",
- *     repository: exampleGithubRepository.name,
  *     configuration: [{
  *         url: example.payloadUrl,
  *         secret: example.secret,
  *         contentType: "json",
  *         insecureSsl: false,
  *     }],
+ *     active: true,
+ *     events: ["push"],
+ *     name: "example",
+ *     repository: exampleGithubRepository.name,
  * });
  * ```
  *
@@ -78,14 +78,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.codebuild.Webhook("example", {
- *     projectName: exampleAwsCodebuildProject.name,
- *     buildType: "BUILD",
  *     filterGroups: [{
  *         filters: [{
  *             type: "EVENT",
  *             pattern: "WORKFLOW_JOB_QUEUED",
  *         }],
  *     }],
+ *     projectName: exampleAwsCodebuildProject.name,
+ *     buildType: "BUILD",
  * });
  * ```
  *

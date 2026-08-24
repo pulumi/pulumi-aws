@@ -19,11 +19,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.msk.ServerlessCluster("example", {
- *     clusterName: "Example",
- *     vpcConfigs: [{
- *         subnetIds: exampleAwsSubnet.map(__item => __item.id),
- *         securityGroupIds: [exampleAwsSecurityGroup.id],
- *     }],
  *     clientAuthentication: {
  *         sasl: {
  *             iam: {
@@ -31,6 +26,11 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     },
+ *     vpcConfigs: [{
+ *         subnetIds: exampleAwsSubnet.map(__item => __item.id),
+ *         securityGroupIds: [exampleAwsSecurityGroup.id],
+ *     }],
+ *     clusterName: "Example",
  * });
  * ```
  *

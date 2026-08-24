@@ -17,12 +17,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.datasync.Task("example", {
- *     destinationLocationArn: destination.arn,
- *     name: "example",
- *     sourceLocationArn: source.arn,
  *     options: {
  *         bytesPerSecond: -1,
  *     },
+ *     destinationLocationArn: destination.arn,
+ *     name: "example",
+ *     sourceLocationArn: source.arn,
  * });
  * ```
  *
@@ -33,12 +33,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.datasync.Task("example", {
- *     destinationLocationArn: destination.arn,
- *     name: "example",
- *     sourceLocationArn: source.arn,
  *     schedule: {
  *         scheduleExpression: "cron(0 12 ? * SUN,WED *)",
  *     },
+ *     destinationLocationArn: destination.arn,
+ *     name: "example",
+ *     sourceLocationArn: source.arn,
  * });
  * ```
  *
@@ -49,9 +49,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.datasync.Task("example", {
- *     destinationLocationArn: destination.arn,
- *     name: "example",
- *     sourceLocationArn: source.arn,
  *     excludes: {
  *         filterType: "SIMPLE_PATTERN",
  *         value: "/folder1|/folder2",
@@ -60,6 +57,9 @@ import * as utilities from "../utilities";
  *         filterType: "SIMPLE_PATTERN",
  *         value: "/folder1|/folder2",
  *     },
+ *     destinationLocationArn: destination.arn,
+ *     name: "example",
+ *     sourceLocationArn: source.arn,
  * });
  * ```
  *
@@ -70,16 +70,16 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.datasync.Task("example", {
- *     destinationLocationArn: destination.arn,
- *     name: "example",
- *     sourceLocationArn: source.arn,
- *     taskMode: "ENHANCED",
  *     options: {
  *         gid: "NONE",
  *         posixPermissions: "NONE",
  *         uid: "NONE",
  *         verifyMode: "ONLY_FILES_TRANSFERRED",
  *     },
+ *     destinationLocationArn: destination.arn,
+ *     name: "example",
+ *     sourceLocationArn: source.arn,
+ *     taskMode: "ENHANCED",
  * });
  * ```
  *

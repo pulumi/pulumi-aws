@@ -86,12 +86,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CustomKeyStore("example", CustomKeyStoreArgs.builder()
- *             .customKeyStoreName("example-vpc-xks")
- *             .customKeyStoreType("EXTERNAL_KEY_STORE")
  *             .xksProxyAuthenticationCredential(CustomKeyStoreXksProxyAuthenticationCredentialArgs.builder()
  *                 .accessKeyId(ephemeralAccessKeyId)
  *                 .rawSecretAccessKey(ephemeralSecretAccessKey)
  *                 .build())
+ *             .customKeyStoreName("example-vpc-xks")
+ *             .customKeyStoreType("EXTERNAL_KEY_STORE")
  *             .xksProxyConnectivity("VPC_ENDPOINT_SERVICE")
  *             .xksProxyUriEndpoint("https://myproxy-private.xks.example.com")
  *             .xksProxyUriPath("/kms/xks/v1")
@@ -129,12 +129,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CustomKeyStore("example", CustomKeyStoreArgs.builder()
- *             .customKeyStoreName("example-public-xks")
- *             .customKeyStoreType("EXTERNAL_KEY_STORE")
  *             .xksProxyAuthenticationCredential(CustomKeyStoreXksProxyAuthenticationCredentialArgs.builder()
  *                 .accessKeyId(ephemeralAccessKeyId)
  *                 .rawSecretAccessKey(ephemeralSecretAccessKey)
  *                 .build())
+ *             .customKeyStoreName("example-public-xks")
+ *             .customKeyStoreType("EXTERNAL_KEY_STORE")
  *             .xksProxyConnectivity("PUBLIC_ENDPOINT")
  *             .xksProxyUriEndpoint("https://myproxy.xks.example.com")
  *             .xksProxyUriPath("/kms/xks/v1")

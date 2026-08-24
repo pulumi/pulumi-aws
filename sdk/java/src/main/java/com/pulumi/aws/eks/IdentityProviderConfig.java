@@ -45,12 +45,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new IdentityProviderConfig("example", IdentityProviderConfigArgs.builder()
- *             .clusterName(exampleAwsEksCluster.name())
  *             .oidc(IdentityProviderConfigOidcArgs.builder()
  *                 .clientId("your client_id")
  *                 .identityProviderConfigName("example")
  *                 .issuerUrl("your issuer_url")
  *                 .build())
+ *             .clusterName(exampleAwsEksCluster.name())
  *             .build());
  * 
  *     }

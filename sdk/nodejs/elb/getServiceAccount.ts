@@ -24,11 +24,11 @@ import * as utilities from "../utilities";
  * });
  * const allowElbLogging = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "AWS",
  *             identifiers: [main.then(main => main.arn)],
  *         }],
+ *         effect: "Allow",
  *         actions: ["s3:PutObject"],
  *         resources: [pulumi.interpolate`${elbLogs.arn}/AWSLogs/*`],
  *     }],
@@ -38,8 +38,6 @@ import * as utilities from "../utilities";
  *     policy: allowElbLogging.json,
  * });
  * const bar = new aws.elb.LoadBalancer("bar", {
- *     name: "my-foobar-elb",
- *     availabilityZones: ["us-west-2a"],
  *     accessLogs: {
  *         bucket: elbLogs.id,
  *         interval: 5,
@@ -50,6 +48,8 @@ import * as utilities from "../utilities";
  *         lbPort: 80,
  *         lbProtocol: "http",
  *     }],
+ *     name: "my-foobar-elb",
+ *     availabilityZones: ["us-west-2a"],
  * });
  * ```
  */
@@ -105,11 +105,11 @@ export interface GetServiceAccountResult {
  * });
  * const allowElbLogging = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "AWS",
  *             identifiers: [main.then(main => main.arn)],
  *         }],
+ *         effect: "Allow",
  *         actions: ["s3:PutObject"],
  *         resources: [pulumi.interpolate`${elbLogs.arn}/AWSLogs/*`],
  *     }],
@@ -119,8 +119,6 @@ export interface GetServiceAccountResult {
  *     policy: allowElbLogging.json,
  * });
  * const bar = new aws.elb.LoadBalancer("bar", {
- *     name: "my-foobar-elb",
- *     availabilityZones: ["us-west-2a"],
  *     accessLogs: {
  *         bucket: elbLogs.id,
  *         interval: 5,
@@ -131,6 +129,8 @@ export interface GetServiceAccountResult {
  *         lbPort: 80,
  *         lbProtocol: "http",
  *     }],
+ *     name: "my-foobar-elb",
+ *     availabilityZones: ["us-west-2a"],
  * });
  * ```
  */

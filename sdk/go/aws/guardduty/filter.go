@@ -29,10 +29,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := guardduty.NewFilter(ctx, "MyFilter", &guardduty.FilterArgs{
-//				Name:       pulumi.String("MyFilter"),
-//				Action:     pulumi.String("ARCHIVE"),
-//				DetectorId: pulumi.Any(example.Id),
-//				Rank:       pulumi.Int(1),
 //				FindingCriteria: &guardduty.FilterFindingCriteriaArgs{
 //					Criterions: guardduty.FilterFindingCriteriaCriterionArray{
 //						&guardduty.FilterFindingCriteriaCriterionArgs{
@@ -59,6 +55,10 @@ import (
 //						},
 //					},
 //				},
+//				Name:       pulumi.String("MyFilter"),
+//				Action:     pulumi.String("ARCHIVE"),
+//				DetectorId: pulumi.Any(example.Id),
+//				Rank:       pulumi.Int(1),
 //			})
 //			if err != nil {
 //				return err

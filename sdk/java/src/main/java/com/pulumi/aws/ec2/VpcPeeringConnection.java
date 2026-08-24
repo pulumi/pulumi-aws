@@ -102,15 +102,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new VpcPeeringConnection("foo", VpcPeeringConnectionArgs.builder()
- *             .peerOwnerId(peerOwnerId)
- *             .peerVpcId(bar.id())
- *             .vpcId(fooAwsVpc.id())
  *             .accepter(VpcPeeringConnectionAccepterArgs.builder()
  *                 .allowRemoteVpcDnsResolution(true)
  *                 .build())
  *             .requester(VpcPeeringConnectionRequesterArgs.builder()
  *                 .allowRemoteVpcDnsResolution(true)
  *                 .build())
+ *             .peerOwnerId(peerOwnerId)
+ *             .peerVpcId(bar.id())
+ *             .vpcId(fooAwsVpc.id())
  *             .build());
  * 
  *     }

@@ -378,9 +378,6 @@ class JobQueue(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test_queue = aws.batch.JobQueue("test_queue",
-            name="tf-test-batch-job-queue",
-            state="ENABLED",
-            priority=1,
             compute_environment_orders=[
                 {
                     "order": 1,
@@ -390,7 +387,10 @@ class JobQueue(pulumi.CustomResource):
                     "order": 2,
                     "compute_environment": test_environment2["arn"],
                 },
-            ])
+            ],
+            name="tf-test-batch-job-queue",
+            state="ENABLED",
+            priority=1)
         ```
 
         ### Job Queue with a fair share scheduling policy
@@ -400,20 +400,16 @@ class JobQueue(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.batch.SchedulingPolicy("example",
-            name="example",
             fair_share_policy={
-                "compute_reservation": 1,
-                "share_decay_seconds": 3600,
                 "share_distributions": [{
                     "share_identifier": "A1*",
                     "weight_factor": 0.1,
                 }],
-            })
+                "compute_reservation": 1,
+                "share_decay_seconds": 3600,
+            },
+            name="example")
         example_job_queue = aws.batch.JobQueue("example",
-            name="tf-test-batch-job-queue",
-            scheduling_policy_arn=example.arn,
-            state="ENABLED",
-            priority=1,
             compute_environment_orders=[
                 {
                     "order": 1,
@@ -423,7 +419,11 @@ class JobQueue(pulumi.CustomResource):
                     "order": 2,
                     "compute_environment": test_environment2["arn"],
                 },
-            ])
+            ],
+            name="tf-test-batch-job-queue",
+            scheduling_policy_arn=example.arn,
+            state="ENABLED",
+            priority=1)
         ```
 
         ## Import
@@ -471,9 +471,6 @@ class JobQueue(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test_queue = aws.batch.JobQueue("test_queue",
-            name="tf-test-batch-job-queue",
-            state="ENABLED",
-            priority=1,
             compute_environment_orders=[
                 {
                     "order": 1,
@@ -483,7 +480,10 @@ class JobQueue(pulumi.CustomResource):
                     "order": 2,
                     "compute_environment": test_environment2["arn"],
                 },
-            ])
+            ],
+            name="tf-test-batch-job-queue",
+            state="ENABLED",
+            priority=1)
         ```
 
         ### Job Queue with a fair share scheduling policy
@@ -493,20 +493,16 @@ class JobQueue(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.batch.SchedulingPolicy("example",
-            name="example",
             fair_share_policy={
-                "compute_reservation": 1,
-                "share_decay_seconds": 3600,
                 "share_distributions": [{
                     "share_identifier": "A1*",
                     "weight_factor": 0.1,
                 }],
-            })
+                "compute_reservation": 1,
+                "share_decay_seconds": 3600,
+            },
+            name="example")
         example_job_queue = aws.batch.JobQueue("example",
-            name="tf-test-batch-job-queue",
-            scheduling_policy_arn=example.arn,
-            state="ENABLED",
-            priority=1,
             compute_environment_orders=[
                 {
                     "order": 1,
@@ -516,7 +512,11 @@ class JobQueue(pulumi.CustomResource):
                     "order": 2,
                     "compute_environment": test_environment2["arn"],
                 },
-            ])
+            ],
+            name="tf-test-batch-job-queue",
+            scheduling_policy_arn=example.arn,
+            state="ENABLED",
+            priority=1)
         ```
 
         ## Import

@@ -174,11 +174,11 @@ import javax.annotation.Nullable;
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions("s3:PutObject")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("timestream-influxdb.amazonaws.com")
  *                     .build())
+ *                 .actions("s3:PutObject")
  *                 .resources(exampleBucket.arn().applyValue(_arn -> String.format("%s/*", _arn)))
  *                 .build())
  *             .build());
@@ -189,6 +189,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDbInstance = new DbInstance("exampleDbInstance", DbInstanceArgs.builder()
+ *             .logDeliveryConfiguration(DbInstanceLogDeliveryConfigurationArgs.builder()
+ *                 .s3Configuration(DbInstanceLogDeliveryConfigurationS3ConfigurationArgs.builder()
+ *                     .bucketName(exampleBucket.bucket())
+ *                     .enabled(true)
+ *                     .build())
+ *                 .build())
  *             .allocatedStorage(20)
  *             .bucket("example-bucket-name")
  *             .dbInstanceType("db.influx.medium")
@@ -198,12 +204,6 @@ import javax.annotation.Nullable;
  *             .vpcSubnetIds(exampleAwsSubnet.id())
  *             .vpcSecurityGroupIds(exampleAwsSecurityGroup.id())
  *             .name("example-db-instance")
- *             .logDeliveryConfiguration(DbInstanceLogDeliveryConfigurationArgs.builder()
- *                 .s3Configuration(DbInstanceLogDeliveryConfigurationS3ConfigurationArgs.builder()
- *                     .bucketName(exampleBucket.bucket())
- *                     .enabled(true)
- *                     .build())
- *                 .build())
  *             .build());
  * 
  *     }

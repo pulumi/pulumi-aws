@@ -27,22 +27,6 @@ namespace Pulumi.Aws.Quicksight
     /// {
     ///     var vpcConnectionRole = new Aws.Iam.Role("vpc_connection_role", new()
     ///     {
-    ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Action"] = "sts:AssumeRole",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["Service"] = "quicksight.amazonaws.com",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         }),
     ///         InlinePolicies = new[]
     ///         {
     ///             new Aws.Iam.Inputs.RoleInlinePolicyArgs
@@ -73,6 +57,22 @@ namespace Pulumi.Aws.Quicksight
     ///                 }),
     ///             },
     ///         },
+    ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Action"] = "sts:AssumeRole",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["Service"] = "quicksight.amazonaws.com",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }),
     ///     });
     /// 
     ///     var example = new Aws.Quicksight.VpcConnection("example", new()

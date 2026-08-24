@@ -36,12 +36,6 @@ namespace Pulumi.Aws.Workspaces
     /// 
     ///     var example = new Aws.Workspaces.Workspace("example", new()
     ///     {
-    ///         DirectoryId = exampleAwsWorkspacesDirectory.Id,
-    ///         BundleId = valueWindows10.Apply(getBundleResult =&gt; getBundleResult.Id),
-    ///         UserName = "john.doe",
-    ///         RootVolumeEncryptionEnabled = true,
-    ///         UserVolumeEncryptionEnabled = true,
-    ///         VolumeEncryptionKey = workspaces.Apply(getKeyResult =&gt; getKeyResult.Arn),
     ///         WorkspaceProperties = new Aws.Workspaces.Inputs.WorkspaceWorkspacePropertiesArgs
     ///         {
     ///             ComputeTypeName = "VALUE",
@@ -50,6 +44,12 @@ namespace Pulumi.Aws.Workspaces
     ///             RunningMode = "AUTO_STOP",
     ///             RunningModeAutoStopTimeoutInMinutes = 60,
     ///         },
+    ///         DirectoryId = exampleAwsWorkspacesDirectory.Id,
+    ///         BundleId = valueWindows10.Apply(getBundleResult =&gt; getBundleResult.Id),
+    ///         UserName = "john.doe",
+    ///         RootVolumeEncryptionEnabled = true,
+    ///         UserVolumeEncryptionEnabled = true,
+    ///         VolumeEncryptionKey = workspaces.Apply(getKeyResult =&gt; getKeyResult.Arn),
     ///         Tags = 
     ///         {
     ///             { "Department", "IT" },

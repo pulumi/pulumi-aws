@@ -222,13 +222,13 @@ class IdentityPoolProviderPrincipalTag(pulumi.CustomResource):
             user_pool_id=example.id,
             supported_identity_providers=std.compact(input=["COGNITO"]).result)
         example_identity_pool = aws.cognito.IdentityPool("example",
-            identity_pool_name="identity pool",
-            allow_unauthenticated_identities=False,
             cognito_identity_providers=[{
                 "client_id": example_user_pool_client.id,
                 "provider_name": example.endpoint,
                 "server_side_token_check": False,
-            }])
+            }],
+            identity_pool_name="identity pool",
+            allow_unauthenticated_identities=False)
         example_identity_pool_provider_principal_tag = aws.cognito.IdentityPoolProviderPrincipalTag("example",
             identity_pool_id=example_identity_pool.id,
             identity_provider_name=example.endpoint,
@@ -279,13 +279,13 @@ class IdentityPoolProviderPrincipalTag(pulumi.CustomResource):
             user_pool_id=example.id,
             supported_identity_providers=std.compact(input=["COGNITO"]).result)
         example_identity_pool = aws.cognito.IdentityPool("example",
-            identity_pool_name="identity pool",
-            allow_unauthenticated_identities=False,
             cognito_identity_providers=[{
                 "client_id": example_user_pool_client.id,
                 "provider_name": example.endpoint,
                 "server_side_token_check": False,
-            }])
+            }],
+            identity_pool_name="identity pool",
+            allow_unauthenticated_identities=False)
         example_identity_pool_provider_principal_tag = aws.cognito.IdentityPoolProviderPrincipalTag("example",
             identity_pool_id=example_identity_pool.id,
             identity_provider_name=example.endpoint,

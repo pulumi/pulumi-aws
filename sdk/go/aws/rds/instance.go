@@ -124,7 +124,7 @@ import (
 //				Password:                 pulumi.String("avoid-plaintext-passwords"),
 //				Username:                 pulumi.String("test"),
 //				StorageEncrypted:         pulumi.Bool(true),
-//			})
+//			}, pulumi.Timeouts(&pulumi.CustomTimeouts{Create: "3h", Delete: "3h", Update: "3h"}))
 //			if err != nil {
 //				return err
 //			}
@@ -140,7 +140,7 @@ import (
 //				MultiAz:                  pulumi.Bool(false),
 //				SkipFinalSnapshot:        pulumi.Bool(true),
 //				StorageEncrypted:         pulumi.Bool(true),
-//			})
+//			}, pulumi.Timeouts(&pulumi.CustomTimeouts{Create: "3h", Delete: "3h", Update: "3h"}))
 //			if err != nil {
 //				return err
 //			}
@@ -201,7 +201,7 @@ import (
 //				Password:                 pulumi.String("avoid-plaintext-passwords"),
 //				StorageEncrypted:         pulumi.Bool(true),
 //				Username:                 pulumi.String("test"),
-//			})
+//			}, pulumi.Timeouts(&pulumi.CustomTimeouts{Create: "3h", Delete: "3h", Update: "3h"}))
 //			if err != nil {
 //				return err
 //			}
@@ -249,8 +249,6 @@ import (
 //			}
 //			// The RDS Db2 instance resource requires licensing information. Create a new parameter group using the default paramater group as a source, and set license information.
 //			exampleParameterGroup, err := rds.NewParameterGroup(ctx, "example", &rds.ParameterGroupArgs{
-//				Name:   pulumi.String("db-db2-params"),
-//				Family: pulumi.String(_default.ParameterGroupFamily),
 //				Parameters: rds.ParameterGroupParameterArray{
 //					&rds.ParameterGroupParameterArgs{
 //						ApplyMethod: pulumi.String("immediate"),
@@ -263,6 +261,8 @@ import (
 //						Value:       pulumi.String("0"),
 //					},
 //				},
+//				Name:   pulumi.String("db-db2-params"),
+//				Family: pulumi.String(_default.ParameterGroupFamily),
 //			})
 //			if err != nil {
 //				return err

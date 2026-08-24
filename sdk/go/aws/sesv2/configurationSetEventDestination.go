@@ -37,8 +37,6 @@ import (
 //				return err
 //			}
 //			_, err = sesv2.NewConfigurationSetEventDestination(ctx, "example", &sesv2.ConfigurationSetEventDestinationArgs{
-//				ConfigurationSetName: example.ConfigurationSetName,
-//				EventDestinationName: pulumi.String("example"),
 //				EventDestination: &sesv2.ConfigurationSetEventDestinationEventDestinationArgs{
 //					CloudWatchDestination: &sesv2.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs{
 //						DimensionConfigurations: sesv2.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArray{
@@ -54,6 +52,8 @@ import (
 //						pulumi.String("SEND"),
 //					},
 //				},
+//				ConfigurationSetName: example.ConfigurationSetName,
+//				EventDestinationName: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -86,8 +86,6 @@ import (
 //				return err
 //			}
 //			_, err = sesv2.NewConfigurationSetEventDestination(ctx, "example", &sesv2.ConfigurationSetEventDestinationArgs{
-//				ConfigurationSetName: pulumi.Any(exampleAwsSesv2ConfigurationSet.ConfigurationSetName),
-//				EventDestinationName: pulumi.String("example"),
 //				EventDestination: &sesv2.ConfigurationSetEventDestinationEventDestinationArgs{
 //					EventBridgeDestination: &sesv2.ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationArgs{
 //						EventBusArn: pulumi.String(_default.Arn),
@@ -97,6 +95,8 @@ import (
 //						pulumi.String("SEND"),
 //					},
 //				},
+//				ConfigurationSetName: pulumi.Any(exampleAwsSesv2ConfigurationSet.ConfigurationSetName),
+//				EventDestinationName: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -128,8 +128,6 @@ import (
 //				return err
 //			}
 //			_, err = sesv2.NewConfigurationSetEventDestination(ctx, "example", &sesv2.ConfigurationSetEventDestinationArgs{
-//				ConfigurationSetName: example.ConfigurationSetName,
-//				EventDestinationName: pulumi.String("example"),
 //				EventDestination: &sesv2.ConfigurationSetEventDestinationEventDestinationArgs{
 //					KinesisFirehoseDestination: &sesv2.ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs{
 //						DeliveryStreamArn: pulumi.Any(exampleAwsKinesisFirehoseDeliveryStream.Arn),
@@ -140,6 +138,8 @@ import (
 //						pulumi.String("SEND"),
 //					},
 //				},
+//				ConfigurationSetName: example.ConfigurationSetName,
+//				EventDestinationName: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -171,8 +171,6 @@ import (
 //				return err
 //			}
 //			_, err = sesv2.NewConfigurationSetEventDestination(ctx, "example", &sesv2.ConfigurationSetEventDestinationArgs{
-//				ConfigurationSetName: example.ConfigurationSetName,
-//				EventDestinationName: pulumi.String("example"),
 //				EventDestination: &sesv2.ConfigurationSetEventDestinationEventDestinationArgs{
 //					PinpointDestination: &sesv2.ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs{
 //						ApplicationArn: pulumi.Any(exampleAwsPinpointApp.Arn),
@@ -182,6 +180,8 @@ import (
 //						pulumi.String("SEND"),
 //					},
 //				},
+//				ConfigurationSetName: example.ConfigurationSetName,
+//				EventDestinationName: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -213,8 +213,6 @@ import (
 //				return err
 //			}
 //			_, err = sesv2.NewConfigurationSetEventDestination(ctx, "example", &sesv2.ConfigurationSetEventDestinationArgs{
-//				ConfigurationSetName: example.ConfigurationSetName,
-//				EventDestinationName: pulumi.String("example"),
 //				EventDestination: &sesv2.ConfigurationSetEventDestinationEventDestinationArgs{
 //					SnsDestination: &sesv2.ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs{
 //						TopicArn: pulumi.Any(exampleAwsSnsTopic.Arn),
@@ -224,6 +222,8 @@ import (
 //						pulumi.String("SEND"),
 //					},
 //				},
+//				ConfigurationSetName: example.ConfigurationSetName,
+//				EventDestinationName: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

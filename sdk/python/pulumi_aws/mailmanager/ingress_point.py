@@ -491,14 +491,14 @@ class IngressPoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mailmanager.IngressPoint("example",
-            name="example",
-            type="AUTH",
-            rule_set_id=example_aws_mailmanager_rule_set["id"],
-            traffic_policy_id=example_aws_mailmanager_traffic_policy["id"],
             ingress_point_configuration={
                 "smtp_password_wo": smtp_password,
                 "smtp_password_wo_version": 1,
-            })
+            },
+            name="example",
+            type="AUTH",
+            rule_set_id=example_aws_mailmanager_rule_set["id"],
+            traffic_policy_id=example_aws_mailmanager_traffic_policy["id"])
         ```
 
         ### Private Network Configuration
@@ -508,15 +508,15 @@ class IngressPoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mailmanager.IngressPoint("example",
-            name="example",
-            type="OPEN",
-            rule_set_id=example_aws_mailmanager_rule_set["id"],
-            traffic_policy_id=example_aws_mailmanager_traffic_policy["id"],
             network_configuration={
                 "private_network_configuration": {
                     "vpc_endpoint_id": example_aws_vpc_endpoint["id"],
                 },
-            })
+            },
+            name="example",
+            type="OPEN",
+            rule_set_id=example_aws_mailmanager_rule_set["id"],
+            traffic_policy_id=example_aws_mailmanager_traffic_policy["id"])
         ```
 
         ## Import
@@ -584,14 +584,14 @@ class IngressPoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mailmanager.IngressPoint("example",
-            name="example",
-            type="AUTH",
-            rule_set_id=example_aws_mailmanager_rule_set["id"],
-            traffic_policy_id=example_aws_mailmanager_traffic_policy["id"],
             ingress_point_configuration={
                 "smtp_password_wo": smtp_password,
                 "smtp_password_wo_version": 1,
-            })
+            },
+            name="example",
+            type="AUTH",
+            rule_set_id=example_aws_mailmanager_rule_set["id"],
+            traffic_policy_id=example_aws_mailmanager_traffic_policy["id"])
         ```
 
         ### Private Network Configuration
@@ -601,15 +601,15 @@ class IngressPoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mailmanager.IngressPoint("example",
-            name="example",
-            type="OPEN",
-            rule_set_id=example_aws_mailmanager_rule_set["id"],
-            traffic_policy_id=example_aws_mailmanager_traffic_policy["id"],
             network_configuration={
                 "private_network_configuration": {
                     "vpc_endpoint_id": example_aws_vpc_endpoint["id"],
                 },
-            })
+            },
+            name="example",
+            type="OPEN",
+            rule_set_id=example_aws_mailmanager_rule_set["id"],
+            traffic_policy_id=example_aws_mailmanager_traffic_policy["id"])
         ```
 
         ## Import

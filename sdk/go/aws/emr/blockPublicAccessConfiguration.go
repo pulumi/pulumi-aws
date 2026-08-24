@@ -59,13 +59,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := emr.NewBlockPublicAccessConfiguration(ctx, "example", &emr.BlockPublicAccessConfigurationArgs{
-//				BlockPublicSecurityGroupRules: pulumi.Bool(true),
 //				PermittedPublicSecurityGroupRuleRanges: emr.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArray{
 //					&emr.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs{
 //						MinRange: pulumi.Int(22),
 //						MaxRange: pulumi.Int(22),
 //					},
 //				},
+//				BlockPublicSecurityGroupRules: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
@@ -95,7 +95,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := emr.NewBlockPublicAccessConfiguration(ctx, "example", &emr.BlockPublicAccessConfigurationArgs{
-//				BlockPublicSecurityGroupRules: pulumi.Bool(true),
 //				PermittedPublicSecurityGroupRuleRanges: emr.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArray{
 //					&emr.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs{
 //						MinRange: pulumi.Int(22),
@@ -106,6 +105,7 @@ import (
 //						MaxRange: pulumi.Int(101),
 //					},
 //				},
+//				BlockPublicSecurityGroupRules: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err

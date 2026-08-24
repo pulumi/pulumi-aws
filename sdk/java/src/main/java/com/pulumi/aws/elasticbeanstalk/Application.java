@@ -50,13 +50,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var tftest = new Application("tftest", ApplicationArgs.builder()
- *             .name("tf-test-name")
- *             .description("tf-test-desc")
  *             .appversionLifecycle(ApplicationAppversionLifecycleArgs.builder()
  *                 .serviceRole(beanstalkService.arn())
  *                 .maxCount(128)
  *                 .deleteSourceFromS3(true)
  *                 .build())
+ *             .name("tf-test-name")
+ *             .description("tf-test-desc")
  *             .build());
  * 
  *     }

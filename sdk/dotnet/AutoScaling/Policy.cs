@@ -67,26 +67,18 @@ namespace Pulumi.Aws.AutoScaling
     /// {
     ///     var example = new Aws.AutoScaling.Policy("example", new()
     ///     {
-    ///         AutoscalingGroupName = "my-test-asg",
-    ///         Name = "foo",
-    ///         PolicyType = "TargetTrackingScaling",
     ///         TargetTrackingConfiguration = new Aws.AutoScaling.Inputs.PolicyTargetTrackingConfigurationArgs
     ///         {
-    ///             TargetValue = 100,
     ///             CustomizedMetricSpecification = new Aws.AutoScaling.Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs
     ///             {
     ///                 Metrics = new[]
     ///                 {
     ///                     new Aws.AutoScaling.Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs
     ///                     {
-    ///                         Label = "Get the queue size (the number of messages waiting to be processed)",
-    ///                         Id = "m1",
     ///                         MetricStat = new Aws.AutoScaling.Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs
     ///                         {
     ///                             Metric = new Aws.AutoScaling.Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs
     ///                             {
-    ///                                 Namespace = "AWS/SQS",
-    ///                                 MetricName = "ApproximateNumberOfMessagesVisible",
     ///                                 Dimensions = new[]
     ///                                 {
     ///                                     new Aws.AutoScaling.Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs
@@ -95,22 +87,22 @@ namespace Pulumi.Aws.AutoScaling
     ///                                         Value = "my-queue",
     ///                                     },
     ///                                 },
+    ///                                 Namespace = "AWS/SQS",
+    ///                                 MetricName = "ApproximateNumberOfMessagesVisible",
     ///                             },
     ///                             Stat = "Sum",
     ///                             Period = 10,
     ///                         },
+    ///                         Label = "Get the queue size (the number of messages waiting to be processed)",
+    ///                         Id = "m1",
     ///                         ReturnData = false,
     ///                     },
     ///                     new Aws.AutoScaling.Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs
     ///                     {
-    ///                         Label = "Get the group size (the number of InService instances)",
-    ///                         Id = "m2",
     ///                         MetricStat = new Aws.AutoScaling.Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs
     ///                         {
     ///                             Metric = new Aws.AutoScaling.Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs
     ///                             {
-    ///                                 Namespace = "AWS/AutoScaling",
-    ///                                 MetricName = "GroupInServiceInstances",
     ///                                 Dimensions = new[]
     ///                                 {
     ///                                     new Aws.AutoScaling.Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs
@@ -119,10 +111,14 @@ namespace Pulumi.Aws.AutoScaling
     ///                                         Value = "my-asg",
     ///                                     },
     ///                                 },
+    ///                                 Namespace = "AWS/AutoScaling",
+    ///                                 MetricName = "GroupInServiceInstances",
     ///                             },
     ///                             Stat = "Average",
     ///                             Period = 10,
     ///                         },
+    ///                         Label = "Get the group size (the number of InService instances)",
+    ///                         Id = "m2",
     ///                         ReturnData = false,
     ///                     },
     ///                     new Aws.AutoScaling.Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs
@@ -134,7 +130,11 @@ namespace Pulumi.Aws.AutoScaling
     ///                     },
     ///                 },
     ///             },
+    ///             TargetValue = 100,
     ///         },
+    ///         AutoscalingGroupName = "my-test-asg",
+    ///         Name = "foo",
+    ///         PolicyType = "TargetTrackingScaling",
     ///     });
     /// 
     /// });
@@ -152,14 +152,10 @@ namespace Pulumi.Aws.AutoScaling
     /// {
     ///     var example = new Aws.AutoScaling.Policy("example", new()
     ///     {
-    ///         AutoscalingGroupName = "my-test-asg",
-    ///         Name = "foo",
-    ///         PolicyType = "PredictiveScaling",
     ///         PredictiveScalingConfiguration = new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationArgs
     ///         {
     ///             MetricSpecification = new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationArgs
     ///             {
-    ///                 TargetValue = 10,
     ///                 CustomizedLoadMetricSpecification = new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs
     ///                 {
     ///                     MetricDataQueries = new[]
@@ -205,8 +201,12 @@ namespace Pulumi.Aws.AutoScaling
     ///                         },
     ///                     },
     ///                 },
+    ///                 TargetValue = 10,
     ///             },
     ///         },
+    ///         AutoscalingGroupName = "my-test-asg",
+    ///         Name = "foo",
+    ///         PolicyType = "PredictiveScaling",
     ///     });
     /// 
     /// });
@@ -224,14 +224,10 @@ namespace Pulumi.Aws.AutoScaling
     /// {
     ///     var example = new Aws.AutoScaling.Policy("example", new()
     ///     {
-    ///         AutoscalingGroupName = "my-test-asg",
-    ///         Name = "foo",
-    ///         PolicyType = "PredictiveScaling",
     ///         PredictiveScalingConfiguration = new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationArgs
     ///         {
     ///             MetricSpecification = new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationArgs
     ///             {
-    ///                 TargetValue = 10,
     ///                 PredefinedLoadMetricSpecification = new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs
     ///                 {
     ///                     PredefinedMetricType = "ASGTotalCPUUtilization",
@@ -243,13 +239,10 @@ namespace Pulumi.Aws.AutoScaling
     ///                     {
     ///                         new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs
     ///                         {
-    ///                             Id = "scaling",
     ///                             MetricStat = new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArgs
     ///                             {
     ///                                 Metric = new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricArgs
     ///                                 {
-    ///                                     MetricName = "CPUUtilization",
-    ///                                     Namespace = "AWS/EC2",
     ///                                     Dimensions = new[]
     ///                                     {
     ///                                         new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs
@@ -258,14 +251,21 @@ namespace Pulumi.Aws.AutoScaling
     ///                                             Value = "my-test-asg",
     ///                                         },
     ///                                     },
+    ///                                     MetricName = "CPUUtilization",
+    ///                                     Namespace = "AWS/EC2",
     ///                                 },
     ///                                 Stat = "Average",
     ///                             },
+    ///                             Id = "scaling",
     ///                         },
     ///                     },
     ///                 },
+    ///                 TargetValue = 10,
     ///             },
     ///         },
+    ///         AutoscalingGroupName = "my-test-asg",
+    ///         Name = "foo",
+    ///         PolicyType = "PredictiveScaling",
     ///     });
     /// 
     /// });

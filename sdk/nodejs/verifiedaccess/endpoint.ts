@@ -19,18 +19,18 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.verifiedaccess.Endpoint("example", {
- *     applicationDomain: "example.com",
- *     attachmentType: "vpc",
- *     description: "example",
- *     domainCertificateArn: exampleAwsAcmCertificate.arn,
- *     endpointDomainPrefix: "example",
- *     endpointType: "load-balancer",
  *     loadBalancerOptions: {
  *         loadBalancerArn: exampleAwsLb.arn,
  *         port: 443,
  *         protocol: "https",
  *         subnetIds: .map(subnet => (subnet.id)),
  *     },
+ *     applicationDomain: "example.com",
+ *     attachmentType: "vpc",
+ *     description: "example",
+ *     domainCertificateArn: exampleAwsAcmCertificate.arn,
+ *     endpointDomainPrefix: "example",
+ *     endpointType: "load-balancer",
  *     securityGroupIds: [exampleAwsSecurityGroup.id],
  *     verifiedAccessGroupId: exampleAwsVerifiedaccessGroup.id,
  * });
@@ -43,17 +43,17 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.verifiedaccess.Endpoint("example", {
+ *     networkInterfaceOptions: {
+ *         networkInterfaceId: exampleAwsNetworkInterface.id,
+ *         port: 443,
+ *         protocol: "https",
+ *     },
  *     applicationDomain: "example.com",
  *     attachmentType: "vpc",
  *     description: "example",
  *     domainCertificateArn: exampleAwsAcmCertificate.arn,
  *     endpointDomainPrefix: "example",
  *     endpointType: "network-interface",
- *     networkInterfaceOptions: {
- *         networkInterfaceId: exampleAwsNetworkInterface.id,
- *         port: 443,
- *         protocol: "https",
- *     },
  *     securityGroupIds: [exampleAwsSecurityGroup.id],
  *     verifiedAccessGroupId: exampleAwsVerifiedaccessGroup.id,
  * });
@@ -66,18 +66,18 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.verifiedaccess.Endpoint("example", {
- *     attachmentType: "vpc",
- *     description: "example",
- *     endpointType: "cidr",
  *     cidrOptions: {
- *         cidr: test[0].cidrBlock,
  *         portRanges: [{
  *             fromPort: 443,
  *             toPort: 443,
  *         }],
+ *         cidr: test[0].cidrBlock,
  *         protocol: "tcp",
  *         subnetIds: .map(subnet => (subnet.id)),
  *     },
+ *     attachmentType: "vpc",
+ *     description: "example",
+ *     endpointType: "cidr",
  *     securityGroupIds: [testAwsSecurityGroup.id],
  *     verifiedAccessGroupId: testAwsVerifiedaccessGroup.id,
  * });

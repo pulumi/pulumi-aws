@@ -17,22 +17,22 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const ipset = new aws.waf.IpSet("ipset", {
- *     name: "tfIPSet",
  *     ipSetDescriptors: [{
  *         type: "IPV4",
  *         value: "192.0.7.0/24",
  *     }],
+ *     name: "tfIPSet",
  * });
  * const wafrule = new aws.waf.RateBasedRule("wafrule", {
- *     name: "tfWAFRule",
- *     metricName: "tfWAFRule",
- *     rateKey: "IP",
- *     rateLimit: 100,
  *     predicates: [{
  *         dataId: ipset.id,
  *         negated: false,
  *         type: "IPMatch",
  *     }],
+ *     name: "tfWAFRule",
+ *     metricName: "tfWAFRule",
+ *     rateKey: "IP",
+ *     rateLimit: 100,
  * }, {
  *     dependsOn: [ipset],
  * });

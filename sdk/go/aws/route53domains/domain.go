@@ -29,8 +29,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := route53domains.NewDomain(ctx, "example", &route53domains.DomainArgs{
-//				DomainName: pulumi.String("example.com"),
-//				AutoRenew:  pulumi.Bool(false),
 //				AdminContact: &route53domains.DomainAdminContactArgs{
 //					AddressLine1:     pulumi.String("101 Main Street"),
 //					City:             pulumi.String("San Francisco"),
@@ -73,6 +71,8 @@ import (
 //					State:            pulumi.String("CA"),
 //					ZipCode:          pulumi.String("94105"),
 //				},
+//				DomainName: pulumi.String("example.com"),
+//				AutoRenew:  pulumi.Bool(false),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("test"),
 //				},

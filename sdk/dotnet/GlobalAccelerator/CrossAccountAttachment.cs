@@ -44,11 +44,6 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// {
     ///     var example = new Aws.GlobalAccelerator.CrossAccountAttachment("example", new()
     ///     {
-    ///         Name = "example-cross-account-attachment",
-    ///         Principals = new[]
-    ///         {
-    ///             "123456789012",
-    ///         },
     ///         Resources = new[]
     ///         {
     ///             new Aws.GlobalAccelerator.Inputs.CrossAccountAttachmentResourceArgs
@@ -56,6 +51,11 @@ namespace Pulumi.Aws.GlobalAccelerator
     ///                 EndpointId = "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188",
     ///                 Region = "us-west-2",
     ///             },
+    ///         },
+    ///         Name = "example-cross-account-attachment",
+    ///         Principals = new[]
+    ///         {
+    ///             "123456789012",
     ///         },
     ///     });
     /// 

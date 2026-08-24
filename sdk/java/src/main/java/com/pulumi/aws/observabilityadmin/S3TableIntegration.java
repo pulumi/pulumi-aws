@@ -95,10 +95,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleS3TableIntegration = new S3TableIntegration("exampleS3TableIntegration", S3TableIntegrationArgs.builder()
- *             .roleArn(example.arn())
  *             .encryption(S3TableIntegrationEncryptionArgs.builder()
  *                 .sseAlgorithm("AES256")
  *                 .build())
+ *             .roleArn(example.arn())
  *             .build());
  * 
  *     }
@@ -157,11 +157,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleS3TableIntegration = new S3TableIntegration("exampleS3TableIntegration", S3TableIntegrationArgs.builder()
- *             .roleArn(example.arn())
  *             .encryption(S3TableIntegrationEncryptionArgs.builder()
  *                 .sseAlgorithm("aws:kms")
  *                 .kmsKeyArn(exampleKey.arn())
  *                 .build())
+ *             .roleArn(example.arn())
  *             .build());
  * 
  *     }

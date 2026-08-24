@@ -30,8 +30,6 @@ namespace Pulumi.Aws.Chime
     /// 
     ///     var defaultVoiceConnectorOrigination = new Aws.Chime.VoiceConnectorOrigination("default", new()
     ///     {
-    ///         Disabled = false,
-    ///         VoiceConnectorId = @default.Id,
     ///         Routes = new[]
     ///         {
     ///             new Aws.Chime.Inputs.VoiceConnectorOriginationRouteArgs
@@ -51,6 +49,8 @@ namespace Pulumi.Aws.Chime
     ///                 Weight = 10,
     ///             },
     ///         },
+    ///         Disabled = false,
+    ///         VoiceConnectorId = @default.Id,
     ///     });
     /// 
     /// });

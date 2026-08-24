@@ -44,9 +44,6 @@ import (
 //				return err
 //			}
 //			_, err = cognito.NewIdentityPool(ctx, "main", &cognito.IdentityPoolArgs{
-//				IdentityPoolName:               pulumi.String("identity pool"),
-//				AllowUnauthenticatedIdentities: pulumi.Bool(false),
-//				AllowClassicFlow:               pulumi.Bool(false),
 //				CognitoIdentityProviders: cognito.IdentityPoolCognitoIdentityProviderArray{
 //					&cognito.IdentityPoolCognitoIdentityProviderArgs{
 //						ClientId:             pulumi.String("6lhlkkfbfb4q5kpp90urffae"),
@@ -59,6 +56,9 @@ import (
 //						ServerSideTokenCheck: pulumi.Bool(false),
 //					},
 //				},
+//				IdentityPoolName:               pulumi.String("identity pool"),
+//				AllowUnauthenticatedIdentities: pulumi.Bool(false),
+//				AllowClassicFlow:               pulumi.Bool(false),
 //				SupportedLoginProviders: pulumi.StringMap{
 //					"graph.facebook.com":  pulumi.String("7346241598935552"),
 //					"accounts.google.com": pulumi.String("123456789012.apps.googleusercontent.com"),

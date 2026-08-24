@@ -24,26 +24,26 @@ namespace Pulumi.Aws.Waf
     /// {
     ///     var xssMatchSet = new Aws.Waf.XssMatchSet("xss_match_set", new()
     ///     {
-    ///         Name = "xss_match_set",
     ///         XssMatchTuples = new[]
     ///         {
     ///             new Aws.Waf.Inputs.XssMatchSetXssMatchTupleArgs
     ///             {
-    ///                 TextTransformation = "NONE",
     ///                 FieldToMatch = new Aws.Waf.Inputs.XssMatchSetXssMatchTupleFieldToMatchArgs
     ///                 {
     ///                     Type = "URI",
     ///                 },
+    ///                 TextTransformation = "NONE",
     ///             },
     ///             new Aws.Waf.Inputs.XssMatchSetXssMatchTupleArgs
     ///             {
-    ///                 TextTransformation = "NONE",
     ///                 FieldToMatch = new Aws.Waf.Inputs.XssMatchSetXssMatchTupleFieldToMatchArgs
     ///                 {
     ///                     Type = "QUERY_STRING",
     ///                 },
+    ///                 TextTransformation = "NONE",
     ///             },
     ///         },
+    ///         Name = "xss_match_set",
     ///     });
     /// 
     /// });

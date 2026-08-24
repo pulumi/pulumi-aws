@@ -26,15 +26,15 @@ import * as utilities from "../utilities";
  *     serviceNamespace: "dynamodb",
  * });
  * const dynamodbScheduledAction = new aws.appautoscaling.ScheduledAction("dynamodb", {
+ *     scalableTargetAction: {
+ *         minCapacity: 1,
+ *         maxCapacity: 200,
+ *     },
  *     name: "dynamodb",
  *     serviceNamespace: dynamodb.serviceNamespace,
  *     resourceId: dynamodb.resourceId,
  *     scalableDimension: dynamodb.scalableDimension,
  *     schedule: "at(2006-01-02T15:04:05)",
- *     scalableTargetAction: {
- *         minCapacity: 1,
- *         maxCapacity: 200,
- *     },
  * });
  * ```
  *
@@ -52,15 +52,15 @@ import * as utilities from "../utilities";
  *     serviceNamespace: "ecs",
  * });
  * const ecsScheduledAction = new aws.appautoscaling.ScheduledAction("ecs", {
+ *     scalableTargetAction: {
+ *         minCapacity: 1,
+ *         maxCapacity: 10,
+ *     },
  *     name: "ecs",
  *     serviceNamespace: ecs.serviceNamespace,
  *     resourceId: ecs.resourceId,
  *     scalableDimension: ecs.scalableDimension,
  *     schedule: "at(2006-01-02T15:04:05)",
- *     scalableTargetAction: {
- *         minCapacity: 1,
- *         maxCapacity: 10,
- *     },
  * });
  * ```
  */

@@ -52,12 +52,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid("new policy")
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("AWS")
  *                     .identifiers("123456789012")
  *                     .build())
+ *                 .sid("new policy")
+ *                 .effect("Allow")
  *                 .actions(                
  *                     "ecr:GetDownloadUrlForLayer",
  *                     "ecr:BatchGetImage",
@@ -77,14 +77,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRepositoryCreationTemplate = new RepositoryCreationTemplate("exampleRepositoryCreationTemplate", RepositoryCreationTemplateArgs.builder()
+ *             .encryptionConfigurations(RepositoryCreationTemplateEncryptionConfigurationArgs.builder()
+ *                 .encryptionType("AES256")
+ *                 .build())
  *             .prefix("example")
  *             .description("An example template")
  *             .imageTagMutability("IMMUTABLE")
  *             .customRoleArn("arn:aws:iam::123456789012:role/example")
  *             .appliedFors("PULL_THROUGH_CACHE")
- *             .encryptionConfigurations(RepositoryCreationTemplateEncryptionConfigurationArgs.builder()
- *                 .encryptionType("AES256")
- *                 .build())
  *             .repositoryPolicy(example.json())
  *             .lifecyclePolicy("""
  * {

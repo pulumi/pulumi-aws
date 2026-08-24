@@ -23,8 +23,6 @@ import * as utilities from "../utilities";
  *     bundleId: "small_1_0",
  * });
  * const exampleDistribution = new aws.lightsail.Distribution("example", {
- *     name: "example-distribution",
- *     bundleId: "small_1_0",
  *     origin: {
  *         name: example.name,
  *         regionName: example.region,
@@ -33,11 +31,6 @@ import * as utilities from "../utilities";
  *         behavior: "cache",
  *     },
  *     cacheBehaviorSettings: {
- *         allowedHttpMethods: "GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE",
- *         cachedHttpMethods: "GET,HEAD",
- *         defaultTtl: 86400,
- *         maximumTtl: 31536000,
- *         minimumTtl: 0,
  *         forwardedCookies: {
  *             option: "none",
  *         },
@@ -47,7 +40,14 @@ import * as utilities from "../utilities";
  *         forwardedQueryStrings: {
  *             option: false,
  *         },
+ *         allowedHttpMethods: "GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE",
+ *         cachedHttpMethods: "GET,HEAD",
+ *         defaultTtl: 86400,
+ *         maximumTtl: 31536000,
+ *         minimumTtl: 0,
  *     },
+ *     name: "example-distribution",
+ *     bundleId: "small_1_0",
  * });
  * ```
  *
@@ -58,11 +58,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const available = aws.getAvailabilityZones({
- *     state: "available",
  *     filters: [{
  *         name: "opt-in-status",
  *         values: ["opt-in-not-required"],
  *     }],
+ *     state: "available",
  * });
  * const exampleStaticIp = new aws.lightsail.StaticIp("example", {name: "example-static-ip"});
  * const exampleInstance = new aws.lightsail.Instance("example", {
@@ -76,8 +76,6 @@ import * as utilities from "../utilities";
  *     instanceName: exampleInstance.name,
  * });
  * const exampleDistribution = new aws.lightsail.Distribution("example", {
- *     name: "example-distribution",
- *     bundleId: "small_1_0",
  *     origin: {
  *         name: exampleInstance.name,
  *         regionName: available.then(available => available.id),
@@ -85,6 +83,8 @@ import * as utilities from "../utilities";
  *     defaultCacheBehavior: {
  *         behavior: "cache",
  *     },
+ *     name: "example-distribution",
+ *     bundleId: "small_1_0",
  * }, {
  *     dependsOn: [example],
  * });
@@ -97,11 +97,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const available = aws.getAvailabilityZones({
- *     state: "available",
  *     filters: [{
  *         name: "opt-in-status",
  *         values: ["opt-in-not-required"],
  *     }],
+ *     state: "available",
  * });
  * const example = new aws.lightsail.Lb("example", {
  *     name: "example-load-balancer",
@@ -122,8 +122,6 @@ import * as utilities from "../utilities";
  *     instanceName: exampleInstance.name,
  * });
  * const exampleDistribution = new aws.lightsail.Distribution("example", {
- *     name: "example-distribution",
- *     bundleId: "small_1_0",
  *     origin: {
  *         name: example.name,
  *         regionName: available.then(available => available.id),
@@ -131,6 +129,8 @@ import * as utilities from "../utilities";
  *     defaultCacheBehavior: {
  *         behavior: "cache",
  *     },
+ *     name: "example-distribution",
+ *     bundleId: "small_1_0",
  * }, {
  *     dependsOn: [exampleLbAttachment],
  * });

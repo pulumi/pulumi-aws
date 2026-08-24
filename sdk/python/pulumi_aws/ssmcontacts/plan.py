@@ -152,10 +152,10 @@ class Plan(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssmcontacts.Plan("example",
-            contact_id="arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
             stages=[{
                 "duration_in_minutes": 1,
-            }])
+            }],
+            contact_id="arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias")
         ```
 
         ### Usage with SSM Contact
@@ -168,10 +168,10 @@ class Plan(pulumi.CustomResource):
             alias="alias",
             type="PERSONAL")
         plan = aws.ssmcontacts.Plan("plan",
-            contact_id=contact.arn,
             stages=[{
                 "duration_in_minutes": 1,
-            }])
+            }],
+            contact_id=contact.arn)
         ```
 
         ### Usage With All Fields
@@ -190,9 +190,7 @@ class Plan(pulumi.CustomResource):
             alias="alias",
             type="PERSONAL")
         test = aws.ssmcontacts.Plan("test",
-            contact_id=escalation_plan.arn,
             stages=[{
-                "duration_in_minutes": 0,
                 "targets": [
                     {
                         "contact_target_info": {
@@ -213,7 +211,9 @@ class Plan(pulumi.CustomResource):
                         },
                     },
                 ],
-            }])
+                "duration_in_minutes": 0,
+            }],
+            contact_id=escalation_plan.arn)
         ```
 
         ## Import
@@ -249,10 +249,10 @@ class Plan(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssmcontacts.Plan("example",
-            contact_id="arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
             stages=[{
                 "duration_in_minutes": 1,
-            }])
+            }],
+            contact_id="arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias")
         ```
 
         ### Usage with SSM Contact
@@ -265,10 +265,10 @@ class Plan(pulumi.CustomResource):
             alias="alias",
             type="PERSONAL")
         plan = aws.ssmcontacts.Plan("plan",
-            contact_id=contact.arn,
             stages=[{
                 "duration_in_minutes": 1,
-            }])
+            }],
+            contact_id=contact.arn)
         ```
 
         ### Usage With All Fields
@@ -287,9 +287,7 @@ class Plan(pulumi.CustomResource):
             alias="alias",
             type="PERSONAL")
         test = aws.ssmcontacts.Plan("test",
-            contact_id=escalation_plan.arn,
             stages=[{
-                "duration_in_minutes": 0,
                 "targets": [
                     {
                         "contact_target_info": {
@@ -310,7 +308,9 @@ class Plan(pulumi.CustomResource):
                         },
                     },
                 ],
-            }])
+                "duration_in_minutes": 0,
+            }],
+            contact_id=escalation_plan.arn)
         ```
 
         ## Import

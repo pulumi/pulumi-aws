@@ -49,20 +49,20 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DistributionConfiguration("example", DistributionConfigurationArgs.builder()
- *             .name("example")
  *             .distributions(DistributionConfigurationDistributionArgs.builder()
  *                 .amiDistributionConfiguration(DistributionConfigurationDistributionAmiDistributionConfigurationArgs.builder()
- *                     .amiTags(Map.of("CostCenter", "IT"))
- *                     .name("example-{{ imagebuilder:buildDate }}")
  *                     .launchPermission(DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs.builder()
  *                         .userIds("123456789012")
  *                         .build())
+ *                     .amiTags(Map.of("CostCenter", "IT"))
+ *                     .name("example-{{ imagebuilder:buildDate }}")
  *                     .build())
  *                 .launchTemplateConfigurations(DistributionConfigurationDistributionLaunchTemplateConfigurationArgs.builder()
  *                     .launchTemplateId("lt-0aaa1bcde2ff3456")
  *                     .build())
  *                 .region("us-east-1")
  *                 .build())
+ *             .name("example")
  *             .build());
  * 
  *     }

@@ -45,11 +45,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CustomPermissions("example", CustomPermissionsArgs.builder()
- *             .customPermissionsName("example-permissions")
  *             .capabilities(CustomPermissionsCapabilitiesArgs.builder()
  *                 .printReports("DENY")
  *                 .shareDashboards("DENY")
  *                 .build())
+ *             .customPermissionsName("example-permissions")
  *             .build());
  * 
  *     }

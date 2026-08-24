@@ -385,16 +385,10 @@ class Assessment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.auditmanager.Assessment("test",
-            name="example",
             assessment_reports_destination={
                 "destination": f"s3://{test_aws_s3_bucket['id']}",
                 "destination_type": "S3",
             },
-            framework_id=test_aws_auditmanager_framework["id"],
-            roles=[{
-                "role_arn": test_aws_iam_role["arn"],
-                "role_type": "PROCESS_OWNER",
-            }],
             scope={
                 "aws_accounts": [{
                     "id": current["accountId"],
@@ -402,7 +396,13 @@ class Assessment(pulumi.CustomResource):
                 "aws_services": [{
                     "service_name": "S3",
                 }],
-            })
+            },
+            roles=[{
+                "role_arn": test_aws_iam_role["arn"],
+                "role_type": "PROCESS_OWNER",
+            }],
+            name="example",
+            framework_id=test_aws_auditmanager_framework["id"])
         ```
 
         ## Import
@@ -456,16 +456,10 @@ class Assessment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.auditmanager.Assessment("test",
-            name="example",
             assessment_reports_destination={
                 "destination": f"s3://{test_aws_s3_bucket['id']}",
                 "destination_type": "S3",
             },
-            framework_id=test_aws_auditmanager_framework["id"],
-            roles=[{
-                "role_arn": test_aws_iam_role["arn"],
-                "role_type": "PROCESS_OWNER",
-            }],
             scope={
                 "aws_accounts": [{
                     "id": current["accountId"],
@@ -473,7 +467,13 @@ class Assessment(pulumi.CustomResource):
                 "aws_services": [{
                     "service_name": "S3",
                 }],
-            })
+            },
+            roles=[{
+                "role_arn": test_aws_iam_role["arn"],
+                "role_type": "PROCESS_OWNER",
+            }],
+            name="example",
+            framework_id=test_aws_auditmanager_framework["id"])
         ```
 
         ## Import

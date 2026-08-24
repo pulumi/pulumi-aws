@@ -138,7 +138,6 @@ import (
 //			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -147,6 +146,7 @@ import (
 //								},
 //							},
 //						},
+//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"sts:AssumeRole",
 //						},
@@ -389,19 +389,19 @@ import (
 // return err
 // }
 // _, err = lb.NewListener(ctx, "example", &lb.ListenerArgs{
-// LoadBalancerArn: exampleLoadBalancer.Arn,
-// Port: pulumi.Int(80),
-// Protocol: pulumi.String("HTTP"),
 // DefaultActions: lb.ListenerDefaultActionArray{
 // &lb.ListenerDefaultActionArgs{
-// Type: pulumi.String("fixed-response"),
 // FixedResponse: &lb.ListenerDefaultActionFixedResponseArgs{
 // ContentType: pulumi.String("text/plain"),
 // MessageBody: pulumi.String("OK"),
 // StatusCode: pulumi.String("200"),
 // },
+// Type: pulumi.String("fixed-response"),
 // },
 // },
+// LoadBalancerArn: exampleLoadBalancer.Arn,
+// Port: pulumi.Int(80),
+// Protocol: pulumi.String("HTTP"),
 // })
 // if err != nil {
 // return err

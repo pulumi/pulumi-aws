@@ -35,8 +35,6 @@ namespace Pulumi.Aws.SecretsManager
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Sid = "EnableAnotherAWSAccountToReadTheSecret",
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -48,6 +46,8 @@ namespace Pulumi.Aws.SecretsManager
     ///                         },
     ///                     },
     ///                 },
+    ///                 Sid = "EnableAnotherAWSAccountToReadTheSecret",
+    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "secretsmanager:GetSecretValue",

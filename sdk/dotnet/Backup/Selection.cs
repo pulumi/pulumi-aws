@@ -34,7 +34,6 @@ namespace Pulumi.Aws.Backup
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -46,6 +45,7 @@ namespace Pulumi.Aws.Backup
     ///                         },
     ///                     },
     ///                 },
+    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "sts:AssumeRole",
@@ -86,9 +86,6 @@ namespace Pulumi.Aws.Backup
     /// {
     ///     var example = new Aws.Backup.Selection("example", new()
     ///     {
-    ///         IamRoleArn = exampleAwsIamRole.Arn,
-    ///         Name = "my_example_backup_selection",
-    ///         PlanId = exampleAwsBackupPlan.Id,
     ///         SelectionTags = new[]
     ///         {
     ///             new Aws.Backup.Inputs.SelectionSelectionTagArgs
@@ -98,6 +95,9 @@ namespace Pulumi.Aws.Backup
     ///                 Value = "bar",
     ///             },
     ///         },
+    ///         IamRoleArn = exampleAwsIamRole.Arn,
+    ///         Name = "my_example_backup_selection",
+    ///         PlanId = exampleAwsBackupPlan.Id,
     ///     });
     /// 
     /// });
@@ -115,13 +115,6 @@ namespace Pulumi.Aws.Backup
     /// {
     ///     var example = new Aws.Backup.Selection("example", new()
     ///     {
-    ///         IamRoleArn = exampleAwsIamRole.Arn,
-    ///         Name = "my_example_backup_selection",
-    ///         PlanId = exampleAwsBackupPlan.Id,
-    ///         Resources = new[]
-    ///         {
-    ///             "*",
-    ///         },
     ///         Conditions = new[]
     ///         {
     ///             new Aws.Backup.Inputs.SelectionConditionArgs
@@ -159,6 +152,13 @@ namespace Pulumi.Aws.Backup
     ///                     },
     ///                 },
     ///             },
+    ///         },
+    ///         IamRoleArn = exampleAwsIamRole.Arn,
+    ///         Name = "my_example_backup_selection",
+    ///         PlanId = exampleAwsBackupPlan.Id,
+    ///         Resources = new[]
+    ///         {
+    ///             "*",
     ///         },
     ///     });
     /// 

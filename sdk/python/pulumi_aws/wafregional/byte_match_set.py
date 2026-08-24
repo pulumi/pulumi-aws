@@ -152,16 +152,16 @@ class ByteMatchSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         byte_set = aws.wafregional.ByteMatchSet("byte_set",
-            name="my_waf_byte_match_set",
             byte_match_tuples=[{
-                "text_transformation": "NONE",
-                "target_string": "badrefer1",
-                "positional_constraint": "CONTAINS",
                 "field_to_match": {
                     "type": "HEADER",
                     "data": "referer",
                 },
-            }])
+                "text_transformation": "NONE",
+                "target_string": "badrefer1",
+                "positional_constraint": "CONTAINS",
+            }],
+            name="my_waf_byte_match_set")
         ```
 
         ## Import
@@ -195,16 +195,16 @@ class ByteMatchSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         byte_set = aws.wafregional.ByteMatchSet("byte_set",
-            name="my_waf_byte_match_set",
             byte_match_tuples=[{
-                "text_transformation": "NONE",
-                "target_string": "badrefer1",
-                "positional_constraint": "CONTAINS",
                 "field_to_match": {
                     "type": "HEADER",
                     "data": "referer",
                 },
-            }])
+                "text_transformation": "NONE",
+                "target_string": "badrefer1",
+                "positional_constraint": "CONTAINS",
+            }],
+            name="my_waf_byte_match_set")
         ```
 
         ## Import

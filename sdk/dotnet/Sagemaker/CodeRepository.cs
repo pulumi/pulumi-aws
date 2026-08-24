@@ -26,11 +26,11 @@ namespace Pulumi.Aws.Sagemaker
     /// {
     ///     var example = new Aws.Sagemaker.CodeRepository("example", new()
     ///     {
-    ///         CodeRepositoryName = "example",
     ///         GitConfig = new Aws.Sagemaker.Inputs.CodeRepositoryGitConfigArgs
     ///         {
     ///             RepositoryUrl = "https://github.com/github/docs.git",
     ///         },
+    ///         CodeRepositoryName = "example",
     ///     });
     /// 
     /// });
@@ -64,12 +64,12 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     ///     var exampleCodeRepository = new Aws.Sagemaker.CodeRepository("example", new()
     ///     {
-    ///         CodeRepositoryName = "example",
     ///         GitConfig = new Aws.Sagemaker.Inputs.CodeRepositoryGitConfigArgs
     ///         {
     ///             RepositoryUrl = "https://github.com/github/docs.git",
     ///             SecretArn = example.Arn,
     ///         },
+    ///         CodeRepositoryName = "example",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

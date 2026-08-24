@@ -640,16 +640,16 @@ class MicrovmsImage(pulumi.CustomResource):
             key="code.zip",
             source=pulumi.FileAsset("code.zip"))
         example_microvms_image = aws.lambda_.MicrovmsImage("example",
-            name="example",
-            base_image_arn=f"arn:{current.partition}:lambda:{current_get_region.region}:aws:microvm-image:al2023-1",
-            build_role_arn=example.arn,
             code_artifact={
                 "uri": pulumi.Output.all(
                     bucket=example_bucket.bucket,
                     key=example_bucket_objectv2.key
         ).apply(lambda resolved_outputs: f"s3://{resolved_outputs['bucket']}/{resolved_outputs['key']}")
         ,
-            })
+            },
+            name="example",
+            base_image_arn=f"arn:{current.partition}:lambda:{current_get_region.region}:aws:microvm-image:al2023-1",
+            build_role_arn=example.arn)
         ```
 
         ## Import
@@ -733,16 +733,16 @@ class MicrovmsImage(pulumi.CustomResource):
             key="code.zip",
             source=pulumi.FileAsset("code.zip"))
         example_microvms_image = aws.lambda_.MicrovmsImage("example",
-            name="example",
-            base_image_arn=f"arn:{current.partition}:lambda:{current_get_region.region}:aws:microvm-image:al2023-1",
-            build_role_arn=example.arn,
             code_artifact={
                 "uri": pulumi.Output.all(
                     bucket=example_bucket.bucket,
                     key=example_bucket_objectv2.key
         ).apply(lambda resolved_outputs: f"s3://{resolved_outputs['bucket']}/{resolved_outputs['key']}")
         ,
-            })
+            },
+            name="example",
+            base_image_arn=f"arn:{current.partition}:lambda:{current_get_region.region}:aws:microvm-image:al2023-1",
+            build_role_arn=example.arn)
         ```
 
         ## Import

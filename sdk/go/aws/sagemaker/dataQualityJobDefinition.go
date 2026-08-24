@@ -31,7 +31,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewDataQualityJobDefinition(ctx, "test", &sagemaker.DataQualityJobDefinitionArgs{
-//				Name: pulumi.String("my-data-quality-job-definition"),
 //				DataQualityAppSpecification: &sagemaker.DataQualityJobDefinitionDataQualityAppSpecificationArgs{
 //					ImageUri: pulumi.Any(monitor.RegistryPath),
 //				},
@@ -54,6 +53,7 @@ import (
 //						VolumeSizeInGb: pulumi.Int(20),
 //					},
 //				},
+//				Name:    pulumi.String("my-data-quality-job-definition"),
 //				RoleArn: pulumi.Any(myRole.Arn),
 //			})
 //			if err != nil {

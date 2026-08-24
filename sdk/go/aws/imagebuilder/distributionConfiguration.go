@@ -29,19 +29,18 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := imagebuilder.NewDistributionConfiguration(ctx, "example", &imagebuilder.DistributionConfigurationArgs{
-//				Name: pulumi.String("example"),
 //				Distributions: imagebuilder.DistributionConfigurationDistributionArray{
 //					&imagebuilder.DistributionConfigurationDistributionArgs{
 //						AmiDistributionConfiguration: &imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationArgs{
-//							AmiTags: pulumi.StringMap{
-//								"CostCenter": pulumi.String("IT"),
-//							},
-//							Name: pulumi.String("example-{{ imagebuilder:buildDate }}"),
 //							LaunchPermission: &imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs{
 //								UserIds: pulumi.StringArray{
 //									pulumi.String("123456789012"),
 //								},
 //							},
+//							AmiTags: pulumi.StringMap{
+//								"CostCenter": pulumi.String("IT"),
+//							},
+//							Name: pulumi.String("example-{{ imagebuilder:buildDate }}"),
 //						},
 //						LaunchTemplateConfigurations: imagebuilder.DistributionConfigurationDistributionLaunchTemplateConfigurationArray{
 //							&imagebuilder.DistributionConfigurationDistributionLaunchTemplateConfigurationArgs{
@@ -51,6 +50,7 @@ import (
 //						Region: pulumi.String("us-east-1"),
 //					},
 //				},
+//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

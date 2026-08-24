@@ -61,11 +61,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions("sts:AssumeRole")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("sagemaker.amazonaws.com")
  *                     .build())
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
@@ -78,11 +78,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new Model("example", ModelArgs.builder()
- *             .name("my-model")
- *             .executionRoleArn(exampleRole.arn())
  *             .primaryContainer(ModelPrimaryContainerArgs.builder()
  *                 .image(test.registryPath())
  *                 .build())
+ *             .name("my-model")
+ *             .executionRoleArn(exampleRole.arn())
  *             .build());
  * 
  *     }

@@ -31,10 +31,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewGuardrail(ctx, "example", &bedrock.GuardrailArgs{
-//				Name:                    pulumi.String("example"),
-//				BlockedInputMessaging:   pulumi.String("example"),
-//				BlockedOutputsMessaging: pulumi.String("example"),
-//				Description:             pulumi.String("example"),
 //				ContentPolicyConfig: &bedrock.GuardrailContentPolicyConfigArgs{
 //					FiltersConfigs: bedrock.GuardrailContentPolicyConfigFiltersConfigArray{
 //						&bedrock.GuardrailContentPolicyConfigFiltersConfigArgs{
@@ -74,6 +70,11 @@ import (
 //					},
 //				},
 //				TopicPolicyConfig: &bedrock.GuardrailTopicPolicyConfigArgs{
+//					TierConfigs: bedrock.GuardrailTopicPolicyConfigTierConfigArray{
+//						&bedrock.GuardrailTopicPolicyConfigTierConfigArgs{
+//							TierName: pulumi.String("CLASSIC"),
+//						},
+//					},
 //					TopicsConfigs: bedrock.GuardrailTopicPolicyConfigTopicsConfigArray{
 //						&bedrock.GuardrailTopicPolicyConfigTopicsConfigArgs{
 //							Name: pulumi.String("investment_topic"),
@@ -82,11 +83,6 @@ import (
 //							},
 //							Type:       pulumi.String("DENY"),
 //							Definition: pulumi.String("Investment advice refers to inquiries, guidance, or recommendations regarding the management or allocation of funds or assets with the goal of generating returns ."),
-//						},
-//					},
-//					TierConfigs: bedrock.GuardrailTopicPolicyConfigTierConfigArray{
-//						&bedrock.GuardrailTopicPolicyConfigTierConfigArgs{
-//							TierName: pulumi.String("CLASSIC"),
 //						},
 //					},
 //				},
@@ -102,6 +98,10 @@ import (
 //						},
 //					},
 //				},
+//				Name:                    pulumi.String("example"),
+//				BlockedInputMessaging:   pulumi.String("example"),
+//				BlockedOutputsMessaging: pulumi.String("example"),
+//				Description:             pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

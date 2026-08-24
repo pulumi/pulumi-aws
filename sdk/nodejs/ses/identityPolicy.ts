@@ -16,15 +16,15 @@ import * as utilities from "../utilities";
  * const exampleDomainIdentity = new aws.ses.DomainIdentity("example", {domain: "example.com"});
  * const example = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
+ *         principals: [{
+ *             identifiers: ["*"],
+ *             type: "AWS",
+ *         }],
  *         actions: [
  *             "SES:SendEmail",
  *             "SES:SendRawEmail",
  *         ],
  *         resources: [exampleDomainIdentity.arn],
- *         principals: [{
- *             identifiers: ["*"],
- *             type: "AWS",
- *         }],
  *     }],
  * });
  * const exampleIdentityPolicy = new aws.ses.IdentityPolicy("example", {

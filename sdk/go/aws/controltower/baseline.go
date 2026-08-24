@@ -31,13 +31,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := controltower.NewBaseline(ctx, "example", &controltower.BaselineArgs{
-//				BaselineIdentifier: pulumi.String("arn:aws:controltower:us-east-1::baseline/17BSJV3IGJ2QSGA2"),
-//				BaselineVersion:    pulumi.String("4.0"),
-//				TargetIdentifier:   pulumi.Any(test.Arn),
 //				Parameters: &controltower.BaselineParametersArgs{
 //					Key:   pulumi.String("IdentityCenterEnabledBaselineArn"),
 //					Value: pulumi.String("arn:aws:controltower:us-east-1:664418989480:enabledbaseline/XALULM96QHI525UOC"),
 //				},
+//				BaselineIdentifier: pulumi.String("arn:aws:controltower:us-east-1::baseline/17BSJV3IGJ2QSGA2"),
+//				BaselineVersion:    pulumi.String("4.0"),
+//				TargetIdentifier:   pulumi.Any(test.Arn),
 //			})
 //			if err != nil {
 //				return err

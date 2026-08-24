@@ -19,9 +19,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.auditmanager.Framework("test", {
- *     name: "example",
  *     controlSets: [{
- *         name: "example",
  *         controls: [
  *             {
  *                 id: test1.id,
@@ -30,7 +28,9 @@ import * as utilities from "../utilities";
  *                 id: test2.id,
  *             },
  *         ],
+ *         name: "example",
  *     }],
+ *     name: "example",
  * });
  * ```
  *

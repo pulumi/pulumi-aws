@@ -24,9 +24,6 @@ namespace Pulumi.Aws.WafV2
     /// {
     ///     var example = new Aws.WafV2.RegexPatternSet("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Description = "Example regex pattern set",
-    ///         Scope = "REGIONAL",
     ///         RegularExpressions = new[]
     ///         {
     ///             new Aws.WafV2.Inputs.RegexPatternSetRegularExpressionArgs
@@ -38,6 +35,9 @@ namespace Pulumi.Aws.WafV2
     ///                 RegexString = "two",
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         Description = "Example regex pattern set",
+    ///         Scope = "REGIONAL",
     ///         Tags = 
     ///         {
     ///             { "Tag1", "Value1" },

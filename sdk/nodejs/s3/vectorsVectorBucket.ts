@@ -28,11 +28,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3.VectorsVectorBucket("example", {
- *     vectorBucketName: "example-bucket",
  *     encryptionConfigurations: [{
  *         sseType: "aws:kms",
  *         kmsKeyArn: exampleAwsKmsKey.arn,
  *     }],
+ *     vectorBucketName: "example-bucket",
  * });
  * ```
  *

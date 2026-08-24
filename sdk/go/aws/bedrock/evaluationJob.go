@@ -33,16 +33,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewEvaluationJob(ctx, "example", &bedrock.EvaluationJobArgs{
-//				JobName: pulumi.String("example-job"),
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				EvaluationConfig: &bedrock.EvaluationJobEvaluationConfigArgs{
 //					Automated: &bedrock.EvaluationJobEvaluationConfigAutomatedArgs{
 //						DatasetMetricConfigs: bedrock.EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArray{
 //							&bedrock.EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArgs{
-//								TaskType: pulumi.String("Generation"),
 //								Dataset: &bedrock.EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetArgs{
 //									Name: pulumi.String("Builtin.Bold"),
 //								},
+//								TaskType: pulumi.String("Generation"),
 //								MetricNames: pulumi.StringArray{
 //									pulumi.String("Builtin.Robustness"),
 //								},
@@ -62,6 +60,8 @@ import (
 //				OutputDataConfig: &bedrock.EvaluationJobOutputDataConfigArgs{
 //					S3Uri: pulumi.Sprintf("s3://%v/output/", exampleAwsS3Bucket.Id),
 //				},
+//				JobName: pulumi.String("example-job"),
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err

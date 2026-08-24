@@ -351,6 +351,10 @@ class ConfiguredTable(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test_configured_table = aws.cleanrooms.ConfiguredTable("test_configured_table",
+            table_reference={
+                "database_name": "example_database",
+                "table_name": "example_table",
+            },
             name="pulumi-example-table",
             description="I made this table with Pulumi!",
             analysis_method="DIRECT_QUERY",
@@ -359,10 +363,6 @@ class ConfiguredTable(pulumi.CustomResource):
                 "column2",
                 "column3",
             ],
-            table_reference={
-                "database_name": "example_database",
-                "table_name": "example_table",
-            },
             tags={
                 "Project": "Pulumi",
             })
@@ -418,6 +418,10 @@ class ConfiguredTable(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test_configured_table = aws.cleanrooms.ConfiguredTable("test_configured_table",
+            table_reference={
+                "database_name": "example_database",
+                "table_name": "example_table",
+            },
             name="pulumi-example-table",
             description="I made this table with Pulumi!",
             analysis_method="DIRECT_QUERY",
@@ -426,10 +430,6 @@ class ConfiguredTable(pulumi.CustomResource):
                 "column2",
                 "column3",
             ],
-            table_reference={
-                "database_name": "example_database",
-                "table_name": "example_table",
-            },
             tags={
                 "Project": "Pulumi",
             })

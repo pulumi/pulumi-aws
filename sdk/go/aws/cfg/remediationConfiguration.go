@@ -33,21 +33,22 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			this, err := cfg.NewRule(ctx, "this", &cfg.RuleArgs{
-//				Name: pulumi.String("example"),
 //				Source: &cfg.RuleSourceArgs{
 //					Owner:            pulumi.String("AWS"),
 //					SourceIdentifier: pulumi.String("S3_BUCKET_VERSIONING_ENABLED"),
 //				},
+//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = cfg.NewRemediationConfiguration(ctx, "this", &cfg.RemediationConfigurationArgs{
-//				ConfigRuleName: this.Name,
-//				ResourceType:   pulumi.String("AWS::S3::Bucket"),
-//				TargetType:     pulumi.String("SSM_DOCUMENT"),
-//				TargetId:       pulumi.String("AWS-EnableS3BucketEncryption"),
-//				TargetVersion:  pulumi.String("1"),
+//				ExecutionControls: &cfg.RemediationConfigurationExecutionControlsArgs{
+//					SsmControls: &cfg.RemediationConfigurationExecutionControlsSsmControlsArgs{
+//						ConcurrentExecutionRatePercentage: pulumi.Int(25),
+//						ErrorPercentage:                   pulumi.Int(20),
+//					},
+//				},
 //				Parameters: cfg.RemediationConfigurationParameterArray{
 //					&cfg.RemediationConfigurationParameterArgs{
 //						Name:        pulumi.String("AutomationAssumeRole"),
@@ -62,15 +63,14 @@ import (
 //						StaticValue: pulumi.String("AES256"),
 //					},
 //				},
+//				ConfigRuleName:           this.Name,
+//				ResourceType:             pulumi.String("AWS::S3::Bucket"),
+//				TargetType:               pulumi.String("SSM_DOCUMENT"),
+//				TargetId:                 pulumi.String("AWS-EnableS3BucketEncryption"),
+//				TargetVersion:            pulumi.String("1"),
 //				Automatic:                pulumi.Bool(true),
 //				MaximumAutomaticAttempts: pulumi.Int(10),
 //				RetryAttemptSeconds:      pulumi.Int(600),
-//				ExecutionControls: &cfg.RemediationConfigurationExecutionControlsArgs{
-//					SsmControls: &cfg.RemediationConfigurationExecutionControlsSsmControlsArgs{
-//						ConcurrentExecutionRatePercentage: pulumi.Int(25),
-//						ErrorPercentage:                   pulumi.Int(20),
-//					},
-//				},
 //			})
 //			if err != nil {
 //				return err

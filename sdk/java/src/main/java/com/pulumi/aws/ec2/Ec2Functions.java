@@ -246,10 +246,6 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
-     *             .executableUsers("self")
-     *             .mostRecent(true)
-     *             .nameRegex("^myami-[0-9]{3}")
-     *             .owners("self")
      *             .filters(            
      *                 GetAmiFilterArgs.builder()
      *                     .name("name")
@@ -263,6 +259,10 @@ public final class Ec2Functions {
      *                     .name("virtualization-type")
      *                     .values("hvm")
      *                     .build())
+     *             .executableUsers("self")
+     *             .mostRecent(true)
+     *             .nameRegex("^myami-[0-9]{3}")
+     *             .owners("self")
      *             .build());
      * 
      *     }
@@ -304,10 +304,6 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
-     *             .executableUsers("self")
-     *             .mostRecent(true)
-     *             .nameRegex("^myami-[0-9]{3}")
-     *             .owners("self")
      *             .filters(            
      *                 GetAmiFilterArgs.builder()
      *                     .name("name")
@@ -321,6 +317,10 @@ public final class Ec2Functions {
      *                     .name("virtualization-type")
      *                     .values("hvm")
      *                     .build())
+     *             .executableUsers("self")
+     *             .mostRecent(true)
+     *             .nameRegex("^myami-[0-9]{3}")
+     *             .owners("self")
      *             .build());
      * 
      *     }
@@ -362,10 +362,6 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
-     *             .executableUsers("self")
-     *             .mostRecent(true)
-     *             .nameRegex("^myami-[0-9]{3}")
-     *             .owners("self")
      *             .filters(            
      *                 GetAmiFilterArgs.builder()
      *                     .name("name")
@@ -379,6 +375,10 @@ public final class Ec2Functions {
      *                     .name("virtualization-type")
      *                     .values("hvm")
      *                     .build())
+     *             .executableUsers("self")
+     *             .mostRecent(true)
+     *             .nameRegex("^myami-[0-9]{3}")
+     *             .owners("self")
      *             .build());
      * 
      *     }
@@ -420,10 +420,6 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
-     *             .executableUsers("self")
-     *             .mostRecent(true)
-     *             .nameRegex("^myami-[0-9]{3}")
-     *             .owners("self")
      *             .filters(            
      *                 GetAmiFilterArgs.builder()
      *                     .name("name")
@@ -437,6 +433,10 @@ public final class Ec2Functions {
      *                     .name("virtualization-type")
      *                     .values("hvm")
      *                     .build())
+     *             .executableUsers("self")
+     *             .mostRecent(true)
+     *             .nameRegex("^myami-[0-9]{3}")
+     *             .owners("self")
      *             .build());
      * 
      *     }
@@ -478,10 +478,6 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
-     *             .executableUsers("self")
-     *             .mostRecent(true)
-     *             .nameRegex("^myami-[0-9]{3}")
-     *             .owners("self")
      *             .filters(            
      *                 GetAmiFilterArgs.builder()
      *                     .name("name")
@@ -495,6 +491,10 @@ public final class Ec2Functions {
      *                     .name("virtualization-type")
      *                     .values("hvm")
      *                     .build())
+     *             .executableUsers("self")
+     *             .mostRecent(true)
+     *             .nameRegex("^myami-[0-9]{3}")
+     *             .owners("self")
      *             .build());
      * 
      *     }
@@ -536,10 +536,6 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
-     *             .executableUsers("self")
-     *             .mostRecent(true)
-     *             .nameRegex("^myami-[0-9]{3}")
-     *             .owners("self")
      *             .filters(            
      *                 GetAmiFilterArgs.builder()
      *                     .name("name")
@@ -553,6 +549,10 @@ public final class Ec2Functions {
      *                     .name("virtualization-type")
      *                     .values("hvm")
      *                     .build())
+     *             .executableUsers("self")
+     *             .mostRecent(true)
+     *             .nameRegex("^myami-[0-9]{3}")
+     *             .owners("self")
      *             .build());
      * 
      *     }
@@ -594,10 +594,6 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
-     *             .executableUsers("self")
-     *             .mostRecent(true)
-     *             .nameRegex("^myami-[0-9]{3}")
-     *             .owners("self")
      *             .filters(            
      *                 GetAmiFilterArgs.builder()
      *                     .name("name")
@@ -611,6 +607,10 @@ public final class Ec2Functions {
      *                     .name("virtualization-type")
      *                     .values("hvm")
      *                     .build())
+     *             .executableUsers("self")
+     *             .mostRecent(true)
+     *             .nameRegex("^myami-[0-9]{3}")
+     *             .owners("self")
      *             .build());
      * 
      *     }
@@ -651,11 +651,11 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ubuntu = Ec2Functions.getAmiIds(GetAmiIdsArgs.builder()
-     *             .owners("099720109477")
      *             .filters(GetAmiIdsFilterArgs.builder()
      *                 .name("name")
      *                 .values("ubuntu/images/ubuntu-*-*-amd64-server-*")
      *                 .build())
+     *             .owners("099720109477")
      *             .build());
      * 
      *     }
@@ -696,11 +696,11 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ubuntu = Ec2Functions.getAmiIds(GetAmiIdsArgs.builder()
-     *             .owners("099720109477")
      *             .filters(GetAmiIdsFilterArgs.builder()
      *                 .name("name")
      *                 .values("ubuntu/images/ubuntu-*-*-amd64-server-*")
      *                 .build())
+     *             .owners("099720109477")
      *             .build());
      * 
      *     }
@@ -741,11 +741,11 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ubuntu = Ec2Functions.getAmiIds(GetAmiIdsArgs.builder()
-     *             .owners("099720109477")
      *             .filters(GetAmiIdsFilterArgs.builder()
      *                 .name("name")
      *                 .values("ubuntu/images/ubuntu-*-*-amd64-server-*")
      *                 .build())
+     *             .owners("099720109477")
      *             .build());
      * 
      *     }
@@ -786,11 +786,11 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ubuntu = Ec2Functions.getAmiIds(GetAmiIdsArgs.builder()
-     *             .owners("099720109477")
      *             .filters(GetAmiIdsFilterArgs.builder()
      *                 .name("name")
      *                 .values("ubuntu/images/ubuntu-*-*-amd64-server-*")
      *                 .build())
+     *             .owners("099720109477")
      *             .build());
      * 
      *     }
@@ -831,11 +831,11 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ubuntu = Ec2Functions.getAmiIds(GetAmiIdsArgs.builder()
-     *             .owners("099720109477")
      *             .filters(GetAmiIdsFilterArgs.builder()
      *                 .name("name")
      *                 .values("ubuntu/images/ubuntu-*-*-amd64-server-*")
      *                 .build())
+     *             .owners("099720109477")
      *             .build());
      * 
      *     }
@@ -4747,11 +4747,11 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var outpost = Ec2Functions.getHosts(GetHostsArgs.builder()
-     *             .outpostArn(example.arn())
      *             .filters(GetHostsFilterArgs.builder()
      *                 .name("state")
      *                 .values("available")
      *                 .build())
+     *             .outpostArn(example.arn())
      *             .build());
      * 
      *     }
@@ -4838,11 +4838,11 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var outpost = Ec2Functions.getHosts(GetHostsArgs.builder()
-     *             .outpostArn(example.arn())
      *             .filters(GetHostsFilterArgs.builder()
      *                 .name("state")
      *                 .values("available")
      *                 .build())
+     *             .outpostArn(example.arn())
      *             .build());
      * 
      *     }
@@ -4929,11 +4929,11 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var outpost = Ec2Functions.getHosts(GetHostsArgs.builder()
-     *             .outpostArn(example.arn())
      *             .filters(GetHostsFilterArgs.builder()
      *                 .name("state")
      *                 .values("available")
      *                 .build())
+     *             .outpostArn(example.arn())
      *             .build());
      * 
      *     }
@@ -5020,11 +5020,11 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var outpost = Ec2Functions.getHosts(GetHostsArgs.builder()
-     *             .outpostArn(example.arn())
      *             .filters(GetHostsFilterArgs.builder()
      *                 .name("state")
      *                 .values("available")
      *                 .build())
+     *             .outpostArn(example.arn())
      *             .build());
      * 
      *     }
@@ -5111,11 +5111,11 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var outpost = Ec2Functions.getHosts(GetHostsArgs.builder()
-     *             .outpostArn(example.arn())
      *             .filters(GetHostsFilterArgs.builder()
      *                 .name("state")
      *                 .values("available")
      *                 .build())
+     *             .outpostArn(example.arn())
      *             .build());
      * 
      *     }
@@ -5202,11 +5202,11 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var outpost = Ec2Functions.getHosts(GetHostsArgs.builder()
-     *             .outpostArn(example.arn())
      *             .filters(GetHostsFilterArgs.builder()
      *                 .name("state")
      *                 .values("available")
      *                 .build())
+     *             .outpostArn(example.arn())
      *             .build());
      * 
      *     }
@@ -5293,11 +5293,11 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var outpost = Ec2Functions.getHosts(GetHostsArgs.builder()
-     *             .outpostArn(example.arn())
      *             .filters(GetHostsFilterArgs.builder()
      *                 .name("state")
      *                 .values("available")
      *                 .build())
+     *             .outpostArn(example.arn())
      *             .build());
      * 
      *     }
@@ -5338,7 +5338,6 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = Ec2Functions.getInstance(GetInstanceArgs.builder()
-     *             .instanceId("i-instanceid")
      *             .filters(            
      *                 GetInstanceFilterArgs.builder()
      *                     .name("image-id")
@@ -5348,6 +5347,7 @@ public final class Ec2Functions {
      *                     .name("tag:Name")
      *                     .values("instance-name-tag")
      *                     .build())
+     *             .instanceId("i-instanceid")
      *             .build());
      * 
      *     }
@@ -5388,7 +5388,6 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = Ec2Functions.getInstance(GetInstanceArgs.builder()
-     *             .instanceId("i-instanceid")
      *             .filters(            
      *                 GetInstanceFilterArgs.builder()
      *                     .name("image-id")
@@ -5398,6 +5397,7 @@ public final class Ec2Functions {
      *                     .name("tag:Name")
      *                     .values("instance-name-tag")
      *                     .build())
+     *             .instanceId("i-instanceid")
      *             .build());
      * 
      *     }
@@ -5438,7 +5438,6 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = Ec2Functions.getInstance(GetInstanceArgs.builder()
-     *             .instanceId("i-instanceid")
      *             .filters(            
      *                 GetInstanceFilterArgs.builder()
      *                     .name("image-id")
@@ -5448,6 +5447,7 @@ public final class Ec2Functions {
      *                     .name("tag:Name")
      *                     .values("instance-name-tag")
      *                     .build())
+     *             .instanceId("i-instanceid")
      *             .build());
      * 
      *     }
@@ -5488,7 +5488,6 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = Ec2Functions.getInstance(GetInstanceArgs.builder()
-     *             .instanceId("i-instanceid")
      *             .filters(            
      *                 GetInstanceFilterArgs.builder()
      *                     .name("image-id")
@@ -5498,6 +5497,7 @@ public final class Ec2Functions {
      *                     .name("tag:Name")
      *                     .values("instance-name-tag")
      *                     .build())
+     *             .instanceId("i-instanceid")
      *             .build());
      * 
      *     }
@@ -5538,7 +5538,6 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = Ec2Functions.getInstance(GetInstanceArgs.builder()
-     *             .instanceId("i-instanceid")
      *             .filters(            
      *                 GetInstanceFilterArgs.builder()
      *                     .name("image-id")
@@ -5548,6 +5547,7 @@ public final class Ec2Functions {
      *                     .name("tag:Name")
      *                     .values("instance-name-tag")
      *                     .build())
+     *             .instanceId("i-instanceid")
      *             .build());
      * 
      *     }
@@ -5588,7 +5588,6 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = Ec2Functions.getInstance(GetInstanceArgs.builder()
-     *             .instanceId("i-instanceid")
      *             .filters(            
      *                 GetInstanceFilterArgs.builder()
      *                     .name("image-id")
@@ -5598,6 +5597,7 @@ public final class Ec2Functions {
      *                     .name("tag:Name")
      *                     .values("instance-name-tag")
      *                     .build())
+     *             .instanceId("i-instanceid")
      *             .build());
      * 
      *     }
@@ -5638,7 +5638,6 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = Ec2Functions.getInstance(GetInstanceArgs.builder()
-     *             .instanceId("i-instanceid")
      *             .filters(            
      *                 GetInstanceFilterArgs.builder()
      *                     .name("image-id")
@@ -5648,6 +5647,7 @@ public final class Ec2Functions {
      *                     .name("tag:Name")
      *                     .values("instance-name-tag")
      *                     .build())
+     *             .instanceId("i-instanceid")
      *             .build());
      * 
      *     }
@@ -7017,11 +7017,11 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getInstances(GetInstancesArgs.builder()
-     *             .instanceTags(Map.of("Role", "HardWorker"))
      *             .filters(GetInstancesFilterArgs.builder()
      *                 .name("instance.group-id")
      *                 .values("sg-12345678")
      *                 .build())
+     *             .instanceTags(Map.of("Role", "HardWorker"))
      *             .instanceStateNames(            
      *                 "running",
      *                 "stopped")
@@ -7081,11 +7081,11 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getInstances(GetInstancesArgs.builder()
-     *             .instanceTags(Map.of("Role", "HardWorker"))
      *             .filters(GetInstancesFilterArgs.builder()
      *                 .name("instance.group-id")
      *                 .values("sg-12345678")
      *                 .build())
+     *             .instanceTags(Map.of("Role", "HardWorker"))
      *             .instanceStateNames(            
      *                 "running",
      *                 "stopped")
@@ -7145,11 +7145,11 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getInstances(GetInstancesArgs.builder()
-     *             .instanceTags(Map.of("Role", "HardWorker"))
      *             .filters(GetInstancesFilterArgs.builder()
      *                 .name("instance.group-id")
      *                 .values("sg-12345678")
      *                 .build())
+     *             .instanceTags(Map.of("Role", "HardWorker"))
      *             .instanceStateNames(            
      *                 "running",
      *                 "stopped")
@@ -7209,11 +7209,11 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getInstances(GetInstancesArgs.builder()
-     *             .instanceTags(Map.of("Role", "HardWorker"))
      *             .filters(GetInstancesFilterArgs.builder()
      *                 .name("instance.group-id")
      *                 .values("sg-12345678")
      *                 .build())
+     *             .instanceTags(Map.of("Role", "HardWorker"))
      *             .instanceStateNames(            
      *                 "running",
      *                 "stopped")
@@ -7273,11 +7273,11 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getInstances(GetInstancesArgs.builder()
-     *             .instanceTags(Map.of("Role", "HardWorker"))
      *             .filters(GetInstancesFilterArgs.builder()
      *                 .name("instance.group-id")
      *                 .values("sg-12345678")
      *                 .build())
+     *             .instanceTags(Map.of("Role", "HardWorker"))
      *             .instanceStateNames(            
      *                 "running",
      *                 "stopped")
@@ -7337,11 +7337,11 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getInstances(GetInstancesArgs.builder()
-     *             .instanceTags(Map.of("Role", "HardWorker"))
      *             .filters(GetInstancesFilterArgs.builder()
      *                 .name("instance.group-id")
      *                 .values("sg-12345678")
      *                 .build())
+     *             .instanceTags(Map.of("Role", "HardWorker"))
      *             .instanceStateNames(            
      *                 "running",
      *                 "stopped")
@@ -7401,11 +7401,11 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = Ec2Functions.getInstances(GetInstancesArgs.builder()
-     *             .instanceTags(Map.of("Role", "HardWorker"))
      *             .filters(GetInstancesFilterArgs.builder()
      *                 .name("instance.group-id")
      *                 .values("sg-12345678")
      *                 .build())
+     *             .instanceTags(Map.of("Role", "HardWorker"))
      *             .instanceStateNames(            
      *                 "running",
      *                 "stopped")
@@ -7769,6 +7769,7 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetIpamPreviewNextCidrArgs;
      * import com.pulumi.aws.ec2.VpcIpamPoolCidrAllocation;
      * import com.pulumi.aws.ec2.VpcIpamPoolCidrAllocationArgs;
+     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -7790,7 +7791,9 @@ public final class Ec2Functions {
      *         var testVpcIpamPoolCidrAllocation = new VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation", VpcIpamPoolCidrAllocationArgs.builder()
      *             .ipamPoolId(testAwsVpcIpamPool.id())
      *             .cidr(test.cidr())
-     *             .build());
+     *             .build(), CustomResourceOptions.builder()
+     *                 .ignoreChanges("cidr")
+     *                 .build());
      * 
      *     }
      * }
@@ -7821,6 +7824,7 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetIpamPreviewNextCidrArgs;
      * import com.pulumi.aws.ec2.VpcIpamPoolCidrAllocation;
      * import com.pulumi.aws.ec2.VpcIpamPoolCidrAllocationArgs;
+     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -7842,7 +7846,9 @@ public final class Ec2Functions {
      *         var testVpcIpamPoolCidrAllocation = new VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation", VpcIpamPoolCidrAllocationArgs.builder()
      *             .ipamPoolId(testAwsVpcIpamPool.id())
      *             .cidr(test.cidr())
-     *             .build());
+     *             .build(), CustomResourceOptions.builder()
+     *                 .ignoreChanges("cidr")
+     *                 .build());
      * 
      *     }
      * }
@@ -7873,6 +7879,7 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetIpamPreviewNextCidrArgs;
      * import com.pulumi.aws.ec2.VpcIpamPoolCidrAllocation;
      * import com.pulumi.aws.ec2.VpcIpamPoolCidrAllocationArgs;
+     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -7894,7 +7901,9 @@ public final class Ec2Functions {
      *         var testVpcIpamPoolCidrAllocation = new VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation", VpcIpamPoolCidrAllocationArgs.builder()
      *             .ipamPoolId(testAwsVpcIpamPool.id())
      *             .cidr(test.cidr())
-     *             .build());
+     *             .build(), CustomResourceOptions.builder()
+     *                 .ignoreChanges("cidr")
+     *                 .build());
      * 
      *     }
      * }
@@ -7925,6 +7934,7 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetIpamPreviewNextCidrArgs;
      * import com.pulumi.aws.ec2.VpcIpamPoolCidrAllocation;
      * import com.pulumi.aws.ec2.VpcIpamPoolCidrAllocationArgs;
+     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -7946,7 +7956,9 @@ public final class Ec2Functions {
      *         var testVpcIpamPoolCidrAllocation = new VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation", VpcIpamPoolCidrAllocationArgs.builder()
      *             .ipamPoolId(testAwsVpcIpamPool.id())
      *             .cidr(test.cidr())
-     *             .build());
+     *             .build(), CustomResourceOptions.builder()
+     *                 .ignoreChanges("cidr")
+     *                 .build());
      * 
      *     }
      * }
@@ -7977,6 +7989,7 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetIpamPreviewNextCidrArgs;
      * import com.pulumi.aws.ec2.VpcIpamPoolCidrAllocation;
      * import com.pulumi.aws.ec2.VpcIpamPoolCidrAllocationArgs;
+     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -7998,7 +8011,9 @@ public final class Ec2Functions {
      *         var testVpcIpamPoolCidrAllocation = new VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation", VpcIpamPoolCidrAllocationArgs.builder()
      *             .ipamPoolId(testAwsVpcIpamPool.id())
      *             .cidr(test.cidr())
-     *             .build());
+     *             .build(), CustomResourceOptions.builder()
+     *                 .ignoreChanges("cidr")
+     *                 .build());
      * 
      *     }
      * }
@@ -8040,12 +8055,12 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getKeyPair(GetKeyPairArgs.builder()
-     *             .keyName("test")
-     *             .includePublicKey(true)
      *             .filters(GetKeyPairFilterArgs.builder()
      *                 .name("tag:Component")
      *                 .values("web")
      *                 .build())
+     *             .keyName("test")
+     *             .includePublicKey(true)
      *             .build());
      * 
      *         ctx.export("fingerprint", example.fingerprint());
@@ -8091,12 +8106,12 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getKeyPair(GetKeyPairArgs.builder()
-     *             .keyName("test")
-     *             .includePublicKey(true)
      *             .filters(GetKeyPairFilterArgs.builder()
      *                 .name("tag:Component")
      *                 .values("web")
      *                 .build())
+     *             .keyName("test")
+     *             .includePublicKey(true)
      *             .build());
      * 
      *         ctx.export("fingerprint", example.fingerprint());
@@ -8142,12 +8157,12 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getKeyPair(GetKeyPairArgs.builder()
-     *             .keyName("test")
-     *             .includePublicKey(true)
      *             .filters(GetKeyPairFilterArgs.builder()
      *                 .name("tag:Component")
      *                 .values("web")
      *                 .build())
+     *             .keyName("test")
+     *             .includePublicKey(true)
      *             .build());
      * 
      *         ctx.export("fingerprint", example.fingerprint());
@@ -8193,12 +8208,12 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getKeyPair(GetKeyPairArgs.builder()
-     *             .keyName("test")
-     *             .includePublicKey(true)
      *             .filters(GetKeyPairFilterArgs.builder()
      *                 .name("tag:Component")
      *                 .values("web")
      *                 .build())
+     *             .keyName("test")
+     *             .includePublicKey(true)
      *             .build());
      * 
      *         ctx.export("fingerprint", example.fingerprint());
@@ -8244,12 +8259,12 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getKeyPair(GetKeyPairArgs.builder()
-     *             .keyName("test")
-     *             .includePublicKey(true)
      *             .filters(GetKeyPairFilterArgs.builder()
      *                 .name("tag:Component")
      *                 .values("web")
      *                 .build())
+     *             .keyName("test")
+     *             .includePublicKey(true)
      *             .build());
      * 
      *         ctx.export("fingerprint", example.fingerprint());
@@ -8295,12 +8310,12 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getKeyPair(GetKeyPairArgs.builder()
-     *             .keyName("test")
-     *             .includePublicKey(true)
      *             .filters(GetKeyPairFilterArgs.builder()
      *                 .name("tag:Component")
      *                 .values("web")
      *                 .build())
+     *             .keyName("test")
+     *             .includePublicKey(true)
      *             .build());
      * 
      *         ctx.export("fingerprint", example.fingerprint());
@@ -8346,12 +8361,12 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getKeyPair(GetKeyPairArgs.builder()
-     *             .keyName("test")
-     *             .includePublicKey(true)
      *             .filters(GetKeyPairFilterArgs.builder()
      *                 .name("tag:Component")
      *                 .values("web")
      *                 .build())
+     *             .keyName("test")
+     *             .includePublicKey(true)
      *             .build());
      * 
      *         ctx.export("fingerprint", example.fingerprint());
@@ -12319,11 +12334,11 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
-     *             .vpcId(vpcId)
      *             .filters(GetNetworkAclsFilterArgs.builder()
      *                 .name("association.subnet-id")
      *                 .values(test.id())
      *                 .build())
+     *             .vpcId(vpcId)
      *             .build());
      * 
      *     }
@@ -12434,11 +12449,11 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
-     *             .vpcId(vpcId)
      *             .filters(GetNetworkAclsFilterArgs.builder()
      *                 .name("association.subnet-id")
      *                 .values(test.id())
      *                 .build())
+     *             .vpcId(vpcId)
      *             .build());
      * 
      *     }
@@ -12549,11 +12564,11 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
-     *             .vpcId(vpcId)
      *             .filters(GetNetworkAclsFilterArgs.builder()
      *                 .name("association.subnet-id")
      *                 .values(test.id())
      *                 .build())
+     *             .vpcId(vpcId)
      *             .build());
      * 
      *     }
@@ -12664,11 +12679,11 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
-     *             .vpcId(vpcId)
      *             .filters(GetNetworkAclsFilterArgs.builder()
      *                 .name("association.subnet-id")
      *                 .values(test.id())
      *                 .build())
+     *             .vpcId(vpcId)
      *             .build());
      * 
      *     }
@@ -12779,11 +12794,11 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
-     *             .vpcId(vpcId)
      *             .filters(GetNetworkAclsFilterArgs.builder()
      *                 .name("association.subnet-id")
      *                 .values(test.id())
      *                 .build())
+     *             .vpcId(vpcId)
      *             .build());
      * 
      *     }
@@ -12894,11 +12909,11 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
-     *             .vpcId(vpcId)
      *             .filters(GetNetworkAclsFilterArgs.builder()
      *                 .name("association.subnet-id")
      *                 .values(test.id())
      *                 .build())
+     *             .vpcId(vpcId)
      *             .build());
      * 
      *     }
@@ -13009,11 +13024,11 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
-     *             .vpcId(vpcId)
      *             .filters(GetNetworkAclsFilterArgs.builder()
      *                 .name("association.subnet-id")
      *                 .values(test.id())
      *                 .build())
+     *             .vpcId(vpcId)
      *             .build());
      * 
      *     }
@@ -16895,11 +16910,11 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var rts = Ec2Functions.getRouteTables(GetRouteTablesArgs.builder()
-     *             .vpcId(vpcId)
      *             .filters(GetRouteTablesFilterArgs.builder()
      *                 .name("tag:kubernetes.io/kops/role")
      *                 .values("private*")
      *                 .build())
+     *             .vpcId(vpcId)
      *             .build());
      * 
      *         for (var i = 0; i < rts.ids().size(); i++) {
@@ -16956,11 +16971,11 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var rts = Ec2Functions.getRouteTables(GetRouteTablesArgs.builder()
-     *             .vpcId(vpcId)
      *             .filters(GetRouteTablesFilterArgs.builder()
      *                 .name("tag:kubernetes.io/kops/role")
      *                 .values("private*")
      *                 .build())
+     *             .vpcId(vpcId)
      *             .build());
      * 
      *         for (var i = 0; i < rts.ids().size(); i++) {
@@ -17017,11 +17032,11 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var rts = Ec2Functions.getRouteTables(GetRouteTablesArgs.builder()
-     *             .vpcId(vpcId)
      *             .filters(GetRouteTablesFilterArgs.builder()
      *                 .name("tag:kubernetes.io/kops/role")
      *                 .values("private*")
      *                 .build())
+     *             .vpcId(vpcId)
      *             .build());
      * 
      *         for (var i = 0; i < rts.ids().size(); i++) {
@@ -17078,11 +17093,11 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var rts = Ec2Functions.getRouteTables(GetRouteTablesArgs.builder()
-     *             .vpcId(vpcId)
      *             .filters(GetRouteTablesFilterArgs.builder()
      *                 .name("tag:kubernetes.io/kops/role")
      *                 .values("private*")
      *                 .build())
+     *             .vpcId(vpcId)
      *             .build());
      * 
      *         for (var i = 0; i < rts.ids().size(); i++) {
@@ -17139,11 +17154,11 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var rts = Ec2Functions.getRouteTables(GetRouteTablesArgs.builder()
-     *             .vpcId(vpcId)
      *             .filters(GetRouteTablesFilterArgs.builder()
      *                 .name("tag:kubernetes.io/kops/role")
      *                 .values("private*")
      *                 .build())
+     *             .vpcId(vpcId)
      *             .build());
      * 
      *         for (var i = 0; i < rts.ids().size(); i++) {
@@ -17200,11 +17215,11 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var rts = Ec2Functions.getRouteTables(GetRouteTablesArgs.builder()
-     *             .vpcId(vpcId)
      *             .filters(GetRouteTablesFilterArgs.builder()
      *                 .name("tag:kubernetes.io/kops/role")
      *                 .values("private*")
      *                 .build())
+     *             .vpcId(vpcId)
      *             .build());
      * 
      *         for (var i = 0; i < rts.ids().size(); i++) {
@@ -17261,11 +17276,11 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var rts = Ec2Functions.getRouteTables(GetRouteTablesArgs.builder()
-     *             .vpcId(vpcId)
      *             .filters(GetRouteTablesFilterArgs.builder()
      *                 .name("tag:kubernetes.io/kops/role")
      *                 .values("private*")
      *                 .build())
+     *             .vpcId(vpcId)
      *             .build());
      * 
      *         for (var i = 0; i < rts.ids().size(); i++) {
@@ -19436,12 +19451,12 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getSpotPrice(GetSpotPriceArgs.builder()
-     *             .instanceType("t3.medium")
-     *             .availabilityZone("us-west-2a")
      *             .filters(GetSpotPriceFilterArgs.builder()
      *                 .name("product-description")
      *                 .values("Linux/UNIX")
      *                 .build())
+     *             .instanceType("t3.medium")
+     *             .availabilityZone("us-west-2a")
      *             .build());
      * 
      *     }
@@ -19482,12 +19497,12 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getSpotPrice(GetSpotPriceArgs.builder()
-     *             .instanceType("t3.medium")
-     *             .availabilityZone("us-west-2a")
      *             .filters(GetSpotPriceFilterArgs.builder()
      *                 .name("product-description")
      *                 .values("Linux/UNIX")
      *                 .build())
+     *             .instanceType("t3.medium")
+     *             .availabilityZone("us-west-2a")
      *             .build());
      * 
      *     }
@@ -19528,12 +19543,12 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getSpotPrice(GetSpotPriceArgs.builder()
-     *             .instanceType("t3.medium")
-     *             .availabilityZone("us-west-2a")
      *             .filters(GetSpotPriceFilterArgs.builder()
      *                 .name("product-description")
      *                 .values("Linux/UNIX")
      *                 .build())
+     *             .instanceType("t3.medium")
+     *             .availabilityZone("us-west-2a")
      *             .build());
      * 
      *     }
@@ -19574,12 +19589,12 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getSpotPrice(GetSpotPriceArgs.builder()
-     *             .instanceType("t3.medium")
-     *             .availabilityZone("us-west-2a")
      *             .filters(GetSpotPriceFilterArgs.builder()
      *                 .name("product-description")
      *                 .values("Linux/UNIX")
      *                 .build())
+     *             .instanceType("t3.medium")
+     *             .availabilityZone("us-west-2a")
      *             .build());
      * 
      *     }
@@ -19620,12 +19635,12 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getSpotPrice(GetSpotPriceArgs.builder()
-     *             .instanceType("t3.medium")
-     *             .availabilityZone("us-west-2a")
      *             .filters(GetSpotPriceFilterArgs.builder()
      *                 .name("product-description")
      *                 .values("Linux/UNIX")
      *                 .build())
+     *             .instanceType("t3.medium")
+     *             .availabilityZone("us-west-2a")
      *             .build());
      * 
      *     }
@@ -19666,12 +19681,12 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getSpotPrice(GetSpotPriceArgs.builder()
-     *             .instanceType("t3.medium")
-     *             .availabilityZone("us-west-2a")
      *             .filters(GetSpotPriceFilterArgs.builder()
      *                 .name("product-description")
      *                 .values("Linux/UNIX")
      *                 .build())
+     *             .instanceType("t3.medium")
+     *             .availabilityZone("us-west-2a")
      *             .build());
      * 
      *     }
@@ -19712,12 +19727,12 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Ec2Functions.getSpotPrice(GetSpotPriceArgs.builder()
-     *             .instanceType("t3.medium")
-     *             .availabilityZone("us-west-2a")
      *             .filters(GetSpotPriceFilterArgs.builder()
      *                 .name("product-description")
      *                 .values("Linux/UNIX")
      *                 .build())
+     *             .instanceType("t3.medium")
+     *             .availabilityZone("us-west-2a")
      *             .build());
      * 
      *     }
@@ -19770,13 +19785,13 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var subnetSecurityGroup = new SecurityGroup("subnetSecurityGroup", SecurityGroupArgs.builder()
-     *             .vpcId(selected.vpcId())
      *             .ingress(SecurityGroupIngressArgs.builder()
      *                 .cidrBlocks(selected.cidrBlock())
      *                 .fromPort(80)
      *                 .toPort(80)
      *                 .protocol("tcp")
      *                 .build())
+     *             .vpcId(selected.vpcId())
      *             .build());
      * 
      *     }
@@ -19868,13 +19883,13 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var subnetSecurityGroup = new SecurityGroup("subnetSecurityGroup", SecurityGroupArgs.builder()
-     *             .vpcId(selected.vpcId())
      *             .ingress(SecurityGroupIngressArgs.builder()
      *                 .cidrBlocks(selected.cidrBlock())
      *                 .fromPort(80)
      *                 .toPort(80)
      *                 .protocol("tcp")
      *                 .build())
+     *             .vpcId(selected.vpcId())
      *             .build());
      * 
      *     }
@@ -19966,13 +19981,13 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var subnetSecurityGroup = new SecurityGroup("subnetSecurityGroup", SecurityGroupArgs.builder()
-     *             .vpcId(selected.vpcId())
      *             .ingress(SecurityGroupIngressArgs.builder()
      *                 .cidrBlocks(selected.cidrBlock())
      *                 .fromPort(80)
      *                 .toPort(80)
      *                 .protocol("tcp")
      *                 .build())
+     *             .vpcId(selected.vpcId())
      *             .build());
      * 
      *     }
@@ -20064,13 +20079,13 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var subnetSecurityGroup = new SecurityGroup("subnetSecurityGroup", SecurityGroupArgs.builder()
-     *             .vpcId(selected.vpcId())
      *             .ingress(SecurityGroupIngressArgs.builder()
      *                 .cidrBlocks(selected.cidrBlock())
      *                 .fromPort(80)
      *                 .toPort(80)
      *                 .protocol("tcp")
      *                 .build())
+     *             .vpcId(selected.vpcId())
      *             .build());
      * 
      *     }
@@ -20162,13 +20177,13 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var subnetSecurityGroup = new SecurityGroup("subnetSecurityGroup", SecurityGroupArgs.builder()
-     *             .vpcId(selected.vpcId())
      *             .ingress(SecurityGroupIngressArgs.builder()
      *                 .cidrBlocks(selected.cidrBlock())
      *                 .fromPort(80)
      *                 .toPort(80)
      *                 .protocol("tcp")
      *                 .build())
+     *             .vpcId(selected.vpcId())
      *             .build());
      * 
      *     }
@@ -20260,13 +20275,13 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var subnetSecurityGroup = new SecurityGroup("subnetSecurityGroup", SecurityGroupArgs.builder()
-     *             .vpcId(selected.vpcId())
      *             .ingress(SecurityGroupIngressArgs.builder()
      *                 .cidrBlocks(selected.cidrBlock())
      *                 .fromPort(80)
      *                 .toPort(80)
      *                 .protocol("tcp")
      *                 .build())
+     *             .vpcId(selected.vpcId())
      *             .build());
      * 
      *     }
@@ -20358,13 +20373,13 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var subnetSecurityGroup = new SecurityGroup("subnetSecurityGroup", SecurityGroupArgs.builder()
-     *             .vpcId(selected.vpcId())
      *             .ingress(SecurityGroupIngressArgs.builder()
      *                 .cidrBlocks(selected.cidrBlock())
      *                 .fromPort(80)
      *                 .toPort(80)
      *                 .protocol("tcp")
      *                 .build())
+     *             .vpcId(selected.vpcId())
      *             .build());
      * 
      *     }
@@ -20426,55 +20441,6 @@ public final class Ec2Functions {
      * tag of `Tier` set to a value of &#34;Private&#34; so that the `aws.ec2.Instance` resource
      * can loop through the subnets, putting instances across availability zones.
      * 
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSubnetsArgs;
-     * import com.pulumi.aws.ec2.inputs.GetSubnetsFilterArgs;
-     * import com.pulumi.aws.ec2.Instance;
-     * import com.pulumi.aws.ec2.InstanceArgs;
-     * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.ArrayList;
-     * import java.util.Arrays;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var private = Ec2Functions.getSubnets(GetSubnetsArgs.builder()
-     *             .filters(GetSubnetsFilterArgs.builder()
-     *                 .name("vpc-id")
-     *                 .values(vpcId)
-     *                 .build())
-     *             .tags(Map.of("Tier", "Private"))
-     *             .build());
-     * 
-     *         for (var range : KeyedValue.of(com.pulumi.std.StdFunctions(com.pulumi.std.inputs.TosetArgs.builder()
-     *             .input(private_.ids())
-     *             .build()).result())) {
-     *             new Instance("app-" + range.key(), InstanceArgs.builder()
-     *                 .ami(ami)
-     *                 .instanceType("t2.micro")
-     *                 .subnetId(range.value())
-     *                 .build());
-     *         }
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * 
      */
     public static Output<GetSubnetsResult> getSubnets() {
         return getSubnets(GetSubnetsArgs.Empty, InvokeOptions.Empty);
@@ -20489,55 +20455,6 @@ public final class Ec2Functions {
      * The following example retrieves a set of all subnets in a VPC with a custom
      * tag of `Tier` set to a value of &#34;Private&#34; so that the `aws.ec2.Instance` resource
      * can loop through the subnets, putting instances across availability zones.
-     * 
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSubnetsArgs;
-     * import com.pulumi.aws.ec2.inputs.GetSubnetsFilterArgs;
-     * import com.pulumi.aws.ec2.Instance;
-     * import com.pulumi.aws.ec2.InstanceArgs;
-     * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.ArrayList;
-     * import java.util.Arrays;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var private = Ec2Functions.getSubnets(GetSubnetsArgs.builder()
-     *             .filters(GetSubnetsFilterArgs.builder()
-     *                 .name("vpc-id")
-     *                 .values(vpcId)
-     *                 .build())
-     *             .tags(Map.of("Tier", "Private"))
-     *             .build());
-     * 
-     *         for (var range : KeyedValue.of(com.pulumi.std.StdFunctions(com.pulumi.std.inputs.TosetArgs.builder()
-     *             .input(private_.ids())
-     *             .build()).result())) {
-     *             new Instance("app-" + range.key(), InstanceArgs.builder()
-     *                 .ami(ami)
-     *                 .instanceType("t2.micro")
-     *                 .subnetId(range.value())
-     *                 .build());
-     *         }
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * 
      */
     public static CompletableFuture<GetSubnetsResult> getSubnetsPlain() {
@@ -20554,55 +20471,6 @@ public final class Ec2Functions {
      * tag of `Tier` set to a value of &#34;Private&#34; so that the `aws.ec2.Instance` resource
      * can loop through the subnets, putting instances across availability zones.
      * 
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSubnetsArgs;
-     * import com.pulumi.aws.ec2.inputs.GetSubnetsFilterArgs;
-     * import com.pulumi.aws.ec2.Instance;
-     * import com.pulumi.aws.ec2.InstanceArgs;
-     * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.ArrayList;
-     * import java.util.Arrays;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var private = Ec2Functions.getSubnets(GetSubnetsArgs.builder()
-     *             .filters(GetSubnetsFilterArgs.builder()
-     *                 .name("vpc-id")
-     *                 .values(vpcId)
-     *                 .build())
-     *             .tags(Map.of("Tier", "Private"))
-     *             .build());
-     * 
-     *         for (var range : KeyedValue.of(com.pulumi.std.StdFunctions(com.pulumi.std.inputs.TosetArgs.builder()
-     *             .input(private_.ids())
-     *             .build()).result())) {
-     *             new Instance("app-" + range.key(), InstanceArgs.builder()
-     *                 .ami(ami)
-     *                 .instanceType("t2.micro")
-     *                 .subnetId(range.value())
-     *                 .build());
-     *         }
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * 
      */
     public static Output<GetSubnetsResult> getSubnets(GetSubnetsArgs args) {
         return getSubnets(args, InvokeOptions.Empty);
@@ -20617,55 +20485,6 @@ public final class Ec2Functions {
      * The following example retrieves a set of all subnets in a VPC with a custom
      * tag of `Tier` set to a value of &#34;Private&#34; so that the `aws.ec2.Instance` resource
      * can loop through the subnets, putting instances across availability zones.
-     * 
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSubnetsArgs;
-     * import com.pulumi.aws.ec2.inputs.GetSubnetsFilterArgs;
-     * import com.pulumi.aws.ec2.Instance;
-     * import com.pulumi.aws.ec2.InstanceArgs;
-     * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.ArrayList;
-     * import java.util.Arrays;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var private = Ec2Functions.getSubnets(GetSubnetsArgs.builder()
-     *             .filters(GetSubnetsFilterArgs.builder()
-     *                 .name("vpc-id")
-     *                 .values(vpcId)
-     *                 .build())
-     *             .tags(Map.of("Tier", "Private"))
-     *             .build());
-     * 
-     *         for (var range : KeyedValue.of(com.pulumi.std.StdFunctions(com.pulumi.std.inputs.TosetArgs.builder()
-     *             .input(private_.ids())
-     *             .build()).result())) {
-     *             new Instance("app-" + range.key(), InstanceArgs.builder()
-     *                 .ami(ami)
-     *                 .instanceType("t2.micro")
-     *                 .subnetId(range.value())
-     *                 .build());
-     *         }
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * 
      */
     public static CompletableFuture<GetSubnetsResult> getSubnetsPlain(GetSubnetsPlainArgs args) {
@@ -20682,55 +20501,6 @@ public final class Ec2Functions {
      * tag of `Tier` set to a value of &#34;Private&#34; so that the `aws.ec2.Instance` resource
      * can loop through the subnets, putting instances across availability zones.
      * 
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSubnetsArgs;
-     * import com.pulumi.aws.ec2.inputs.GetSubnetsFilterArgs;
-     * import com.pulumi.aws.ec2.Instance;
-     * import com.pulumi.aws.ec2.InstanceArgs;
-     * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.ArrayList;
-     * import java.util.Arrays;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var private = Ec2Functions.getSubnets(GetSubnetsArgs.builder()
-     *             .filters(GetSubnetsFilterArgs.builder()
-     *                 .name("vpc-id")
-     *                 .values(vpcId)
-     *                 .build())
-     *             .tags(Map.of("Tier", "Private"))
-     *             .build());
-     * 
-     *         for (var range : KeyedValue.of(com.pulumi.std.StdFunctions(com.pulumi.std.inputs.TosetArgs.builder()
-     *             .input(private_.ids())
-     *             .build()).result())) {
-     *             new Instance("app-" + range.key(), InstanceArgs.builder()
-     *                 .ami(ami)
-     *                 .instanceType("t2.micro")
-     *                 .subnetId(range.value())
-     *                 .build());
-     *         }
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * 
      */
     public static Output<GetSubnetsResult> getSubnets(GetSubnetsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getSubnets:getSubnets", TypeShape.of(GetSubnetsResult.class), args, Utilities.withVersion(options));
@@ -20746,55 +20516,6 @@ public final class Ec2Functions {
      * tag of `Tier` set to a value of &#34;Private&#34; so that the `aws.ec2.Instance` resource
      * can loop through the subnets, putting instances across availability zones.
      * 
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSubnetsArgs;
-     * import com.pulumi.aws.ec2.inputs.GetSubnetsFilterArgs;
-     * import com.pulumi.aws.ec2.Instance;
-     * import com.pulumi.aws.ec2.InstanceArgs;
-     * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.ArrayList;
-     * import java.util.Arrays;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var private = Ec2Functions.getSubnets(GetSubnetsArgs.builder()
-     *             .filters(GetSubnetsFilterArgs.builder()
-     *                 .name("vpc-id")
-     *                 .values(vpcId)
-     *                 .build())
-     *             .tags(Map.of("Tier", "Private"))
-     *             .build());
-     * 
-     *         for (var range : KeyedValue.of(com.pulumi.std.StdFunctions(com.pulumi.std.inputs.TosetArgs.builder()
-     *             .input(private_.ids())
-     *             .build()).result())) {
-     *             new Instance("app-" + range.key(), InstanceArgs.builder()
-     *                 .ami(ami)
-     *                 .instanceType("t2.micro")
-     *                 .subnetId(range.value())
-     *                 .build());
-     *         }
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * 
      */
     public static Output<GetSubnetsResult> getSubnets(GetSubnetsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getSubnets:getSubnets", TypeShape.of(GetSubnetsResult.class), args, Utilities.withVersion(options));
@@ -20809,55 +20530,6 @@ public final class Ec2Functions {
      * The following example retrieves a set of all subnets in a VPC with a custom
      * tag of `Tier` set to a value of &#34;Private&#34; so that the `aws.ec2.Instance` resource
      * can loop through the subnets, putting instances across availability zones.
-     * 
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSubnetsArgs;
-     * import com.pulumi.aws.ec2.inputs.GetSubnetsFilterArgs;
-     * import com.pulumi.aws.ec2.Instance;
-     * import com.pulumi.aws.ec2.InstanceArgs;
-     * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.ArrayList;
-     * import java.util.Arrays;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var private = Ec2Functions.getSubnets(GetSubnetsArgs.builder()
-     *             .filters(GetSubnetsFilterArgs.builder()
-     *                 .name("vpc-id")
-     *                 .values(vpcId)
-     *                 .build())
-     *             .tags(Map.of("Tier", "Private"))
-     *             .build());
-     * 
-     *         for (var range : KeyedValue.of(com.pulumi.std.StdFunctions(com.pulumi.std.inputs.TosetArgs.builder()
-     *             .input(private_.ids())
-     *             .build()).result())) {
-     *             new Instance("app-" + range.key(), InstanceArgs.builder()
-     *                 .ami(ami)
-     *                 .instanceType("t2.micro")
-     *                 .subnetId(range.value())
-     *                 .build());
-     *         }
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * 
      */
     public static CompletableFuture<GetSubnetsResult> getSubnetsPlain(GetSubnetsPlainArgs args, InvokeOptions options) {

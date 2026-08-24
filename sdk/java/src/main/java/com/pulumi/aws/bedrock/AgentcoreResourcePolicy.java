@@ -31,8 +31,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementConditionArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.bedrock.AgentcoreResourcePolicy;
  * import com.pulumi.aws.bedrock.AgentcoreResourcePolicyArgs;
  * import java.util.ArrayList;
@@ -52,19 +52,19 @@ import javax.annotation.Nullable;
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid("AllowOAuthFromVPC")
- *                 .effect("Allow")
- *                 .actions("bedrock-agentcore:InvokeAgentRuntime")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("*")
- *                     .identifiers("*")
- *                     .build())
- *                 .resources(exampleAgentcoreAgentRuntime.agentRuntimeArn())
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                     .test("StringEquals")
  *                     .variable("aws:SourceVpc")
  *                     .values("vpc-1a2b3c4d")
  *                     .build())
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type("*")
+ *                     .identifiers("*")
+ *                     .build())
+ *                 .sid("AllowOAuthFromVPC")
+ *                 .effect("Allow")
+ *                 .actions("bedrock-agentcore:InvokeAgentRuntime")
+ *                 .resources(exampleAgentcoreAgentRuntime.agentRuntimeArn())
  *                 .build())
  *             .build());
  * 

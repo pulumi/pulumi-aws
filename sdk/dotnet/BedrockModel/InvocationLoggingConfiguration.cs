@@ -32,6 +32,13 @@ namespace Pulumi.Aws.BedrockModel
     ///     {
     ///         BucketName = "example",
     ///         ForceDestroy = true,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
+    ///         {
+    ///             "tags[\"CreatorId\"]",
+    ///             "tags[\"CreatorName\"]",
+    ///         },
     ///     });
     /// 
     ///     var exampleBucketPolicy = new Aws.S3.BucketPolicy("example", new()
@@ -74,15 +81,15 @@ namespace Pulumi.Aws.BedrockModel
     ///     {
     ///         LoggingConfig = new Aws.BedrockModel.Inputs.InvocationLoggingConfigurationLoggingConfigArgs
     ///         {
-    ///             EmbeddingDataDeliveryEnabled = true,
-    ///             ImageDataDeliveryEnabled = true,
-    ///             TextDataDeliveryEnabled = true,
-    ///             VideoDataDeliveryEnabled = true,
     ///             S3Config = new Aws.BedrockModel.Inputs.InvocationLoggingConfigurationLoggingConfigS3ConfigArgs
     ///             {
     ///                 BucketName = example.Id,
     ///                 KeyPrefix = "bedrock",
     ///             },
+    ///             EmbeddingDataDeliveryEnabled = true,
+    ///             ImageDataDeliveryEnabled = true,
+    ///             TextDataDeliveryEnabled = true,
+    ///             VideoDataDeliveryEnabled = true,
     ///         },
     ///     }, new CustomResourceOptions
     ///     {

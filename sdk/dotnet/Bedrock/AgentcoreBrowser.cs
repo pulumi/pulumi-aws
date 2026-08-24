@@ -26,12 +26,12 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var example = new Aws.Bedrock.AgentcoreBrowser("example", new()
     ///     {
-    ///         Name = "example-browser",
-    ///         Description = "Browser for web data extraction",
     ///         NetworkConfiguration = new Aws.Bedrock.Inputs.AgentcoreBrowserNetworkConfigurationArgs
     ///         {
     ///             NetworkMode = "PUBLIC",
     ///         },
+    ///         Name = "example-browser",
+    ///         Description = "Browser for web data extraction",
     ///     });
     /// 
     /// });
@@ -49,11 +49,8 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var vpcExample = new Aws.Bedrock.AgentcoreBrowser("vpc_example", new()
     ///     {
-    ///         Name = "vpc-browser",
-    ///         Description = "Browser with VPC configuration",
     ///         NetworkConfiguration = new Aws.Bedrock.Inputs.AgentcoreBrowserNetworkConfigurationArgs
     ///         {
-    ///             NetworkMode = "VPC",
     ///             VpcConfig = new Aws.Bedrock.Inputs.AgentcoreBrowserNetworkConfigurationVpcConfigArgs
     ///             {
     ///                 SecurityGroups = new[]
@@ -66,7 +63,10 @@ namespace Pulumi.Aws.Bedrock
     ///                     "subnet-87654321",
     ///                 },
     ///             },
+    ///             NetworkMode = "VPC",
     ///         },
+    ///         Name = "vpc-browser",
+    ///         Description = "Browser with VPC configuration",
     ///     });
     /// 
     /// });
@@ -88,11 +88,6 @@ namespace Pulumi.Aws.Bedrock
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -103,6 +98,11 @@ namespace Pulumi.Aws.Bedrock
     ///                             "bedrock-agentcore.amazonaws.com",
     ///                         },
     ///                     },
+    ///                 },
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
     ///                 },
     ///             },
     ///         },
@@ -121,22 +121,22 @@ namespace Pulumi.Aws.Bedrock
     /// 
     ///     var exampleAgentcoreBrowser = new Aws.Bedrock.AgentcoreBrowser("example", new()
     ///     {
-    ///         Name = "example-browser",
-    ///         Description = "Browser with recording enabled",
-    ///         ExecutionRoleArn = example.Arn,
     ///         NetworkConfiguration = new Aws.Bedrock.Inputs.AgentcoreBrowserNetworkConfigurationArgs
     ///         {
     ///             NetworkMode = "PUBLIC",
     ///         },
     ///         Recording = new Aws.Bedrock.Inputs.AgentcoreBrowserRecordingArgs
     ///         {
-    ///             Enabled = true,
     ///             S3Location = new Aws.Bedrock.Inputs.AgentcoreBrowserRecordingS3LocationArgs
     ///             {
     ///                 Bucket = recording.BucketName,
     ///                 Prefix = "browser-sessions/",
     ///             },
+    ///             Enabled = true,
     ///         },
+    ///         Name = "example-browser",
+    ///         Description = "Browser with recording enabled",
+    ///         ExecutionRoleArn = example.Arn,
     ///     });
     /// 
     /// });

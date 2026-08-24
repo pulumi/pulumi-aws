@@ -17,21 +17,21 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.directoryservice.Directory("example", {
- *     name: "tf-example",
- *     password: "SuperSecretPassw0rd",
- *     type: "MicrosoftAD",
- *     edition: "Standard",
  *     vpcSettings: {
  *         vpcId: exampleAwsVpc.id,
  *         subnetIds: exampleAwsSubnet.map(__item => __item.id),
  *     },
+ *     name: "tf-example",
+ *     password: "SuperSecretPassw0rd",
+ *     type: "MicrosoftAD",
+ *     edition: "Standard",
  * });
  * const exampleSharedDirectory = new aws.directoryservice.SharedDirectory("example", {
- *     directoryId: example.id,
- *     notes: "You wanna have a catch?",
  *     target: {
  *         id: receiver.accountId,
  *     },
+ *     directoryId: example.id,
+ *     notes: "You wanna have a catch?",
  * });
  * ```
  *

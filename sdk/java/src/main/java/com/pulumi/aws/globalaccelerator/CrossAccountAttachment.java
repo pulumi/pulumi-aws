@@ -81,12 +81,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CrossAccountAttachment("example", CrossAccountAttachmentArgs.builder()
- *             .name("example-cross-account-attachment")
- *             .principals("123456789012")
  *             .resources(CrossAccountAttachmentResourceArgs.builder()
  *                 .endpointId("arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188")
  *                 .region("us-west-2")
  *                 .build())
+ *             .name("example-cross-account-attachment")
+ *             .principals("123456789012")
  *             .build());
  * 
  *     }

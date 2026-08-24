@@ -77,13 +77,13 @@ import (
 //				return err
 //			}
 //			_, err = codeartifact.NewRepository(ctx, "test", &codeartifact.RepositoryArgs{
-//				Repository: pulumi.String("example"),
-//				Domain:     pulumi.Any(example.Domain),
 //				Upstreams: codeartifact.RepositoryUpstreamArray{
 //					&codeartifact.RepositoryUpstreamArgs{
 //						RepositoryName: upstream.Repository,
 //					},
 //				},
+//				Repository: pulumi.String("example"),
+//				Domain:     pulumi.Any(example.Domain),
 //			})
 //			if err != nil {
 //				return err
@@ -116,11 +116,11 @@ import (
 //				return err
 //			}
 //			_, err = codeartifact.NewRepository(ctx, "test", &codeartifact.RepositoryArgs{
-//				Repository: pulumi.String("example"),
-//				Domain:     pulumi.Any(example.Domain),
 //				ExternalConnections: &codeartifact.RepositoryExternalConnectionsArgs{
 //					ExternalConnectionName: pulumi.String("public:npmjs"),
 //				},
+//				Repository: pulumi.String("example"),
+//				Domain:     pulumi.Any(example.Domain),
 //			})
 //			if err != nil {
 //				return err

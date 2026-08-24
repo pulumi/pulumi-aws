@@ -59,12 +59,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := efs.NewFileSystem(ctx, "foo_with_lifecyle_policy", &efs.FileSystemArgs{
-//				CreationToken: pulumi.String("my-product"),
 //				LifecyclePolicies: efs.FileSystemLifecyclePolicyArray{
 //					&efs.FileSystemLifecyclePolicyArgs{
 //						TransitionToIa: pulumi.String("AFTER_30_DAYS"),
 //					},
 //				},
+//				CreationToken: pulumi.String("my-product"),
 //			})
 //			if err != nil {
 //				return err

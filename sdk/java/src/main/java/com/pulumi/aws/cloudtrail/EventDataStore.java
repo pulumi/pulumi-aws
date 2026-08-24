@@ -103,7 +103,6 @@ import javax.annotation.Nullable;
  * 
  *         var example = new EventDataStore("example", EventDataStoreArgs.builder()
  *             .advancedEventSelectors(EventDataStoreAdvancedEventSelectorArgs.builder()
- *                 .name("Log all DynamoDB PutEvent actions for a specific DynamoDB table")
  *                 .fieldSelectors(                
  *                     EventDataStoreAdvancedEventSelectorFieldSelectorArgs.builder()
  *                         .field("eventCategory")
@@ -121,6 +120,7 @@ import javax.annotation.Nullable;
  *                         .field("resources.ARN")
  *                         .equals(table.arn())
  *                         .build())
+ *                 .name("Log all DynamoDB PutEvent actions for a specific DynamoDB table")
  *                 .build())
  *             .build());
  * 

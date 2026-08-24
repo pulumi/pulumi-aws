@@ -16,14 +16,14 @@ import * as utilities from "../utilities";
  *
  * const main = aws.elb.getHostedZoneId({});
  * const www = new aws.route53.Record("www", {
- *     zoneId: primary.zoneId,
- *     name: "example.com",
- *     type: aws.route53.RecordType.A,
  *     aliases: [{
  *         name: mainAwsElb.dnsName,
  *         zoneId: main.then(main => main.id),
  *         evaluateTargetHealth: true,
  *     }],
+ *     zoneId: primary.zoneId,
+ *     name: "example.com",
+ *     type: aws.route53.RecordType.A,
  * });
  * ```
  */
@@ -67,14 +67,14 @@ export interface GetHostedZoneIdResult {
  *
  * const main = aws.elb.getHostedZoneId({});
  * const www = new aws.route53.Record("www", {
- *     zoneId: primary.zoneId,
- *     name: "example.com",
- *     type: aws.route53.RecordType.A,
  *     aliases: [{
  *         name: mainAwsElb.dnsName,
  *         zoneId: main.then(main => main.id),
  *         evaluateTargetHealth: true,
  *     }],
+ *     zoneId: primary.zoneId,
+ *     name: "example.com",
+ *     type: aws.route53.RecordType.A,
  * });
  * ```
  */

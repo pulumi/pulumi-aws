@@ -219,13 +219,13 @@ class VirtualCluster(pulumi.CustomResource):
 
         example = aws.emrcontainers.VirtualCluster("example",
             container_provider={
-                "id": example_aws_eks_cluster["name"],
-                "type": "EKS",
                 "info": {
                     "eks_info": {
                         "namespace": "default",
                     },
                 },
+                "id": example_aws_eks_cluster["name"],
+                "type": "EKS",
             },
             name="example")
         ```
@@ -265,13 +265,13 @@ class VirtualCluster(pulumi.CustomResource):
 
         example = aws.emrcontainers.VirtualCluster("example",
             container_provider={
-                "id": example_aws_eks_cluster["name"],
-                "type": "EKS",
                 "info": {
                     "eks_info": {
                         "namespace": "default",
                     },
                 },
+                "id": example_aws_eks_cluster["name"],
+                "type": "EKS",
             },
             name="example")
         ```

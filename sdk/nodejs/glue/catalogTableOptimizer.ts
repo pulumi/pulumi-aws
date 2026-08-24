@@ -19,12 +19,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.CatalogTableOptimizer("example", {
- *     catalogId: "123456789012",
- *     databaseName: "example_database",
- *     tableName: "example_table",
  *     configuration: {
- *         roleArn: "arn:aws:iam::123456789012:role/example-role",
- *         enabled: true,
  *         compactionConfiguration: {
  *             icebergConfiguration: {
  *                 strategy: "binpack",
@@ -32,7 +27,12 @@ import * as utilities from "../utilities";
  *                 deleteFileThreshold: 1,
  *             },
  *         },
+ *         roleArn: "arn:aws:iam::123456789012:role/example-role",
+ *         enabled: true,
  *     },
+ *     catalogId: "123456789012",
+ *     databaseName: "example_database",
+ *     tableName: "example_table",
  *     type: "compaction",
  * });
  * ```
@@ -44,12 +44,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.CatalogTableOptimizer("example", {
- *     catalogId: "123456789012",
- *     databaseName: "example_database",
- *     tableName: "example_table",
  *     configuration: {
- *         roleArn: "arn:aws:iam::123456789012:role/example-role",
- *         enabled: true,
  *         retentionConfiguration: {
  *             icebergConfiguration: {
  *                 snapshotRetentionPeriodInDays: 7,
@@ -57,7 +52,12 @@ import * as utilities from "../utilities";
  *                 cleanExpiredFiles: true,
  *             },
  *         },
+ *         roleArn: "arn:aws:iam::123456789012:role/example-role",
+ *         enabled: true,
  *     },
+ *     catalogId: "123456789012",
+ *     databaseName: "example_database",
+ *     tableName: "example_table",
  *     type: "retention",
  * });
  * ```
@@ -69,19 +69,19 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.CatalogTableOptimizer("example", {
- *     catalogId: "123456789012",
- *     databaseName: "example_database",
- *     tableName: "example_table",
  *     configuration: {
- *         roleArn: "arn:aws:iam::123456789012:role/example-role",
- *         enabled: true,
  *         orphanFileDeletionConfiguration: {
  *             icebergConfiguration: {
  *                 orphanFileRetentionPeriodInDays: 7,
  *                 location: "s3://example-bucket/example_table/",
  *             },
  *         },
+ *         roleArn: "arn:aws:iam::123456789012:role/example-role",
+ *         enabled: true,
  *     },
+ *     catalogId: "123456789012",
+ *     databaseName: "example_database",
+ *     tableName: "example_table",
  *     type: "orphan_file_deletion",
  * });
  * ```

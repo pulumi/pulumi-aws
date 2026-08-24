@@ -49,17 +49,6 @@ import (
 //			exampleAgentTrust, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Identifiers: []string{
-//									"bedrock.amazonaws.com",
-//								},
-//								Type: "Service",
-//							},
-//						},
 //						Conditions: []iam.GetPolicyDocumentStatementCondition{
 //							{
 //								Test: "StringEquals",
@@ -75,6 +64,17 @@ import (
 //								},
 //								Variable: "AWS:SourceArn",
 //							},
+//						},
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Identifiers: []string{
+//									"bedrock.amazonaws.com",
+//								},
+//								Type: "Service",
+//							},
+//						},
+//						Actions: []string{
+//							"sts:AssumeRole",
 //						},
 //					},
 //				},
@@ -152,13 +152,13 @@ import (
 //				return err
 //			}
 //			_, err = bedrock.NewAgentAgentCollaborator(ctx, "example", &bedrock.AgentAgentCollaboratorArgs{
+//				AgentDescriptor: &bedrock.AgentAgentCollaboratorAgentDescriptorArgs{
+//					AliasArn: exampleAgentAgentAlias.AgentAliasArn,
+//				},
 //				AgentId:                  exampleSupervisor.AgentId,
 //				CollaborationInstruction: pulumi.String("tell the other agent what to do"),
 //				CollaboratorName:         pulumi.String("my-collab-example"),
 //				RelayConversationHistory: pulumi.String("TO_COLLABORATOR"),
-//				AgentDescriptor: &bedrock.AgentAgentCollaboratorAgentDescriptorArgs{
-//					AliasArn: exampleAgentAgentAlias.AgentAliasArn,
-//				},
 //			})
 //			if err != nil {
 //				return err

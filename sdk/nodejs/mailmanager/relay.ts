@@ -19,12 +19,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.mailmanager.Relay("example", {
- *     name: "example",
- *     serverName: "smtp.example.com",
- *     serverPort: 25,
  *     authentication: {
  *         noAuthentication: {},
  *     },
+ *     name: "example",
+ *     serverName: "smtp.example.com",
+ *     serverPort: 25,
  * });
  * ```
  *
@@ -43,12 +43,12 @@ import * as utilities from "../utilities";
  *     }),
  * });
  * const exampleRelay = new aws.mailmanager.Relay("example", {
- *     name: "example",
- *     serverName: "smtp.example.com",
- *     serverPort: 587,
  *     authentication: {
  *         secretArn: exampleSecretVersion.arn,
  *     },
+ *     name: "example",
+ *     serverName: "smtp.example.com",
+ *     serverPort: 587,
  * });
  * ```
  *

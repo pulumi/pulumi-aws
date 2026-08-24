@@ -48,11 +48,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var account = new ConfigurationAggregator("account", ConfigurationAggregatorArgs.builder()
- *             .name("example")
  *             .accountAggregationSource(ConfigurationAggregatorAccountAggregationSourceArgs.builder()
  *                 .accountIds("123456789012")
  *                 .regions("us-west-2")
  *                 .build())
+ *             .name("example")
  *             .build());
  * 
  *     }
@@ -96,11 +96,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("config.amazonaws.com")
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
@@ -116,11 +116,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var organization = new ConfigurationAggregator("organization", ConfigurationAggregatorArgs.builder()
- *             .name("example")
  *             .organizationAggregationSource(ConfigurationAggregatorOrganizationAggregationSourceArgs.builder()
  *                 .allRegions(true)
  *                 .roleArn(organizationRole.arn())
  *                 .build())
+ *             .name("example")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(organizationRolePolicyAttachment)
  *                 .build());

@@ -24,10 +24,6 @@ namespace Pulumi.Aws.ResilienceHub
     /// {
     ///     var example = new Aws.ResilienceHub.ResiliencyPolicy("example", new()
     ///     {
-    ///         Name = "testexample",
-    ///         Description = "testexample",
-    ///         Tier = "NonCritical",
-    ///         DataLocationConstraint = "AnyLocation",
     ///         Policy = new Aws.ResilienceHub.Inputs.ResiliencyPolicyPolicyArgs
     ///         {
     ///             Region = new Aws.ResilienceHub.Inputs.ResiliencyPolicyPolicyRegionArgs
@@ -51,6 +47,10 @@ namespace Pulumi.Aws.ResilienceHub
     ///                 Rto = "24h",
     ///             },
     ///         },
+    ///         Name = "testexample",
+    ///         Description = "testexample",
+    ///         Tier = "NonCritical",
+    ///         DataLocationConstraint = "AnyLocation",
     ///     });
     /// 
     /// });

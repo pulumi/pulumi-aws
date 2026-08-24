@@ -454,9 +454,6 @@ class Theme(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.Theme("example",
-            theme_id="example",
-            name="example",
-            base_theme_id="MIDNIGHT",
             configuration={
                 "data_color_palette": {
                     "colors": [
@@ -477,7 +474,10 @@ class Theme(pulumi.CustomResource):
                         "#111111",
                     ],
                 },
-            })
+            },
+            theme_id="example",
+            name="example",
+            base_theme_id="MIDNIGHT")
         ```
 
         ## Import
@@ -521,9 +521,6 @@ class Theme(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.Theme("example",
-            theme_id="example",
-            name="example",
-            base_theme_id="MIDNIGHT",
             configuration={
                 "data_color_palette": {
                     "colors": [
@@ -544,7 +541,10 @@ class Theme(pulumi.CustomResource):
                         "#111111",
                     ],
                 },
-            })
+            },
+            theme_id="example",
+            name="example",
+            base_theme_id="MIDNIGHT")
         ```
 
         ## Import

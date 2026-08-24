@@ -28,12 +28,12 @@ namespace Pulumi.Aws.Ecs
     /// {
     ///     var example = new Aws.Ecs.ExpressGatewayService("example", new()
     ///     {
-    ///         ExecutionRoleArn = execution.Arn,
-    ///         InfrastructureRoleArn = infrastructure.Arn,
     ///         PrimaryContainer = new Aws.Ecs.Inputs.ExpressGatewayServicePrimaryContainerArgs
     ///         {
     ///             Image = "nginx:latest",
     ///         },
+    ///         ExecutionRoleArn = execution.Arn,
+    ///         InfrastructureRoleArn = infrastructure.Arn,
     ///     });
     /// 
     /// });
@@ -51,17 +51,8 @@ namespace Pulumi.Aws.Ecs
     /// {
     ///     var example = new Aws.Ecs.ExpressGatewayService("example", new()
     ///     {
-    ///         ExecutionRoleArn = execution.Arn,
-    ///         InfrastructureRoleArn = infrastructure.Arn,
-    ///         HealthCheckPath = "/health",
     ///         PrimaryContainer = new Aws.Ecs.Inputs.ExpressGatewayServicePrimaryContainerArgs
     ///         {
-    ///             Image = "my-app:latest",
-    ///             ContainerPort = 8080,
-    ///             Commands = new[]
-    ///             {
-    ///                 "./start.sh",
-    ///             },
     ///             AwsLogsConfigurations = new[]
     ///             {
     ///                 new Aws.Ecs.Inputs.ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArgs
@@ -90,7 +81,16 @@ namespace Pulumi.Aws.Ecs
     ///                     ValueFrom = dbPassword.Arn,
     ///                 },
     ///             },
+    ///             Image = "my-app:latest",
+    ///             ContainerPort = 8080,
+    ///             Commands = new[]
+    ///             {
+    ///                 "./start.sh",
+    ///             },
     ///         },
+    ///         ExecutionRoleArn = execution.Arn,
+    ///         InfrastructureRoleArn = infrastructure.Arn,
+    ///         HealthCheckPath = "/health",
     ///     });
     /// 
     /// });
@@ -108,12 +108,6 @@ namespace Pulumi.Aws.Ecs
     /// {
     ///     var example = new Aws.Ecs.ExpressGatewayService("example", new()
     ///     {
-    ///         ServiceName = "my-express-service",
-    ///         Cluster = main.Name,
-    ///         ExecutionRoleArn = execution.Arn,
-    ///         InfrastructureRoleArn = infrastructure.Arn,
-    ///         Cpu = "256",
-    ///         Memory = "512",
     ///         PrimaryContainer = new Aws.Ecs.Inputs.ExpressGatewayServicePrimaryContainerArgs
     ///         {
     ///             Image = "nginx:latest",
@@ -134,6 +128,12 @@ namespace Pulumi.Aws.Ecs
     ///                 },
     ///             },
     ///         },
+    ///         ServiceName = "my-express-service",
+    ///         Cluster = main.Name,
+    ///         ExecutionRoleArn = execution.Arn,
+    ///         InfrastructureRoleArn = infrastructure.Arn,
+    ///         Cpu = "256",
+    ///         Memory = "512",
     ///     });
     /// 
     /// });

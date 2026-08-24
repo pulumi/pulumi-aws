@@ -31,15 +31,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudwatch.NewEventConnection(ctx, "test", &cloudwatch.EventConnectionArgs{
-//				Name:              pulumi.String("ngrok-connection"),
-//				Description:       pulumi.String("A connection description"),
-//				AuthorizationType: pulumi.String("API_KEY"),
 //				AuthParameters: &cloudwatch.EventConnectionAuthParametersArgs{
 //					ApiKey: &cloudwatch.EventConnectionAuthParametersApiKeyArgs{
 //						Key:   pulumi.String("x-signature"),
 //						Value: pulumi.String("1234"),
 //					},
 //				},
+//				Name:              pulumi.String("ngrok-connection"),
+//				Description:       pulumi.String("A connection description"),
+//				AuthorizationType: pulumi.String("API_KEY"),
 //			})
 //			if err != nil {
 //				return err
@@ -65,15 +65,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudwatch.NewEventConnection(ctx, "test", &cloudwatch.EventConnectionArgs{
-//				Name:              pulumi.String("ngrok-connection"),
-//				Description:       pulumi.String("A connection description"),
-//				AuthorizationType: pulumi.String("BASIC"),
 //				AuthParameters: &cloudwatch.EventConnectionAuthParametersArgs{
 //					Basic: &cloudwatch.EventConnectionAuthParametersBasicArgs{
 //						Username: pulumi.String("user"),
 //						Password: pulumi.String("Pass1234!"),
 //					},
 //				},
+//				Name:              pulumi.String("ngrok-connection"),
+//				Description:       pulumi.String("A connection description"),
+//				AuthorizationType: pulumi.String("BASIC"),
 //			})
 //			if err != nil {
 //				return err
@@ -99,13 +99,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudwatch.NewEventConnection(ctx, "test", &cloudwatch.EventConnectionArgs{
-//				Name:              pulumi.String("ngrok-connection"),
-//				Description:       pulumi.String("A connection description"),
-//				AuthorizationType: pulumi.String("OAUTH_CLIENT_CREDENTIALS"),
 //				AuthParameters: &cloudwatch.EventConnectionAuthParametersArgs{
 //					Oauth: &cloudwatch.EventConnectionAuthParametersOauthArgs{
-//						AuthorizationEndpoint: pulumi.String("https://auth.url.com/endpoint"),
-//						HttpMethod:            pulumi.String("GET"),
 //						ClientParameters: &cloudwatch.EventConnectionAuthParametersOauthClientParametersArgs{
 //							ClientId:     pulumi.String("1234567890"),
 //							ClientSecret: pulumi.String("Pass1234!"),
@@ -133,8 +128,13 @@ import (
 //								},
 //							},
 //						},
+//						AuthorizationEndpoint: pulumi.String("https://auth.url.com/endpoint"),
+//						HttpMethod:            pulumi.String("GET"),
 //					},
 //				},
+//				Name:              pulumi.String("ngrok-connection"),
+//				Description:       pulumi.String("A connection description"),
+//				AuthorizationType: pulumi.String("OAUTH_CLIENT_CREDENTIALS"),
 //			})
 //			if err != nil {
 //				return err
@@ -160,9 +160,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudwatch.NewEventConnection(ctx, "test", &cloudwatch.EventConnectionArgs{
-//				Name:              pulumi.String("ngrok-connection"),
-//				Description:       pulumi.String("A connection description"),
-//				AuthorizationType: pulumi.String("BASIC"),
 //				AuthParameters: &cloudwatch.EventConnectionAuthParametersArgs{
 //					Basic: &cloudwatch.EventConnectionAuthParametersBasicArgs{
 //						Username: pulumi.String("user"),
@@ -197,6 +194,9 @@ import (
 //						},
 //					},
 //				},
+//				Name:              pulumi.String("ngrok-connection"),
+//				Description:       pulumi.String("A connection description"),
+//				AuthorizationType: pulumi.String("BASIC"),
 //			})
 //			if err != nil {
 //				return err
@@ -222,9 +222,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudwatch.NewEventConnection(ctx, "test", &cloudwatch.EventConnectionArgs{
-//				Name:              pulumi.String("private-api-connection"),
-//				Description:       pulumi.String("A connection to a private API"),
-//				AuthorizationType: pulumi.String("OAUTH_CLIENT_CREDENTIALS"),
 //				AuthParameters: &cloudwatch.EventConnectionAuthParametersArgs{
 //					ConnectivityParameters: &cloudwatch.EventConnectionAuthParametersConnectivityParametersArgs{
 //						ResourceParameters: &cloudwatch.EventConnectionAuthParametersConnectivityParametersResourceParametersArgs{
@@ -232,8 +229,6 @@ import (
 //						},
 //					},
 //					Oauth: &cloudwatch.EventConnectionAuthParametersOauthArgs{
-//						AuthorizationEndpoint: pulumi.String("https://private-api.example.com/auth"),
-//						HttpMethod:            pulumi.String("POST"),
 //						ClientParameters: &cloudwatch.EventConnectionAuthParametersOauthClientParametersArgs{
 //							ClientId:     pulumi.String("1234567890"),
 //							ClientSecret: pulumi.String("Pass1234!"),
@@ -247,8 +242,13 @@ import (
 //								},
 //							},
 //						},
+//						AuthorizationEndpoint: pulumi.String("https://private-api.example.com/auth"),
+//						HttpMethod:            pulumi.String("POST"),
 //					},
 //				},
+//				Name:              pulumi.String("private-api-connection"),
+//				Description:       pulumi.String("A connection to a private API"),
+//				AuthorizationType: pulumi.String("OAUTH_CLIENT_CREDENTIALS"),
 //			})
 //			if err != nil {
 //				return err
@@ -337,16 +337,16 @@ import (
 //				return err
 //			}
 //			_, err = cloudwatch.NewEventConnection(ctx, "test", &cloudwatch.EventConnectionArgs{
-//				Name:              pulumi.String("ngrok-connection"),
-//				Description:       pulumi.String("A connection description"),
-//				AuthorizationType: pulumi.String("BASIC"),
 //				AuthParameters: &cloudwatch.EventConnectionAuthParametersArgs{
 //					Basic: &cloudwatch.EventConnectionAuthParametersBasicArgs{
 //						Username: pulumi.String("user"),
 //						Password: pulumi.String("Pass1234!"),
 //					},
 //				},
-//				KmsKeyIdentifier: pulumi.Any(example.Id),
+//				Name:              pulumi.String("ngrok-connection"),
+//				Description:       pulumi.String("A connection description"),
+//				AuthorizationType: pulumi.String("BASIC"),
+//				KmsKeyIdentifier:  pulumi.Any(example.Id),
 //			})
 //			if err != nil {
 //				return err

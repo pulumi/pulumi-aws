@@ -60,12 +60,12 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     ///     var exampleLogDeliveryDestination = new Aws.CloudWatch.LogDeliveryDestination("example", new()
     ///     {
-    ///         Name = "cloudfront-access-logs",
-    ///         OutputFormat = "json",
     ///         DeliveryDestinationConfiguration = new Aws.CloudWatch.Inputs.LogDeliveryDestinationDeliveryDestinationConfigurationArgs
     ///         {
     ///             DestinationResourceArn = exampleAwsCloudwatchLogGroup.Arn,
     ///         },
+    ///         Name = "cloudfront-access-logs",
+    ///         OutputFormat = "json",
     ///     });
     /// 
     ///     var exampleLogDelivery = new Aws.CloudWatch.LogDelivery("example", new()

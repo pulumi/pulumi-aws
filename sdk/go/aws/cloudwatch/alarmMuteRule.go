@@ -30,13 +30,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudwatch.NewAlarmMuteRule(ctx, "example", &cloudwatch.AlarmMuteRuleArgs{
-//				Name: pulumi.String("example"),
 //				Rule: &cloudwatch.AlarmMuteRuleRuleArgs{
 //					Schedule: &cloudwatch.AlarmMuteRuleRuleScheduleArgs{
 //						Duration:   pulumi.String("PT4H"),
 //						Expression: pulumi.String("cron(0 2 * * *)"),
 //					},
 //				},
+//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -75,10 +75,6 @@ import (
 //				return err
 //			}
 //			_, err = cloudwatch.NewAlarmMuteRule(ctx, "example", &cloudwatch.AlarmMuteRuleArgs{
-//				Name:        pulumi.String("example"),
-//				Description: pulumi.String("Mute alarms during maintenance window"),
-//				StartDate:   pulumi.String("2026-01-01T00:00:00Z"),
-//				ExpireDate:  pulumi.String("2026-12-31T23:59:00Z"),
 //				Rule: &cloudwatch.AlarmMuteRuleRuleArgs{
 //					Schedule: &cloudwatch.AlarmMuteRuleRuleScheduleArgs{
 //						Duration:   pulumi.String("PT4H"),
@@ -91,6 +87,10 @@ import (
 //						example.Name,
 //					},
 //				},
+//				Name:        pulumi.String("example"),
+//				Description: pulumi.String("Mute alarms during maintenance window"),
+//				StartDate:   pulumi.String("2026-01-01T00:00:00Z"),
+//				ExpireDate:  pulumi.String("2026-12-31T23:59:00Z"),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("production"),
 //				},
@@ -121,13 +121,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudwatch.NewAlarmMuteRule(ctx, "example", &cloudwatch.AlarmMuteRuleArgs{
-//				Name: pulumi.String("example"),
 //				Rule: &cloudwatch.AlarmMuteRuleRuleArgs{
 //					Schedule: &cloudwatch.AlarmMuteRuleRuleScheduleArgs{
 //						Duration:   pulumi.String("PT4H"),
 //						Expression: pulumi.String("at(2026-12-31T23:59:59)"),
 //					},
 //				},
+//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

@@ -29,7 +29,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := codepipeline.NewCustomActionType(ctx, "example", &codepipeline.CustomActionTypeArgs{
-//				Category: pulumi.String("Build"),
 //				InputArtifactDetails: &codepipeline.CustomActionTypeInputArtifactDetailsArgs{
 //					MaximumCount: pulumi.Int(1),
 //					MinimumCount: pulumi.Int(0),
@@ -38,6 +37,7 @@ import (
 //					MaximumCount: pulumi.Int(1),
 //					MinimumCount: pulumi.Int(0),
 //				},
+//				Category:     pulumi.String("Build"),
 //				ProviderName: pulumi.String("example"),
 //				Version:      pulumi.String("1"),
 //			})

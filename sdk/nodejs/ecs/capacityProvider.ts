@@ -30,17 +30,17 @@ import * as utilities from "../utilities";
  *     propagateAtLaunch: true,
  * }]});
  * const exampleCapacityProvider = new aws.ecs.CapacityProvider("example", {
- *     name: "example",
  *     autoScalingGroupProvider: {
- *         autoScalingGroupArn: example.arn,
- *         managedTerminationProtection: "ENABLED",
  *         managedScaling: {
  *             maximumScalingStepSize: 1000,
  *             minimumScalingStepSize: 1,
  *             status: "ENABLED",
  *             targetCapacity: 10,
  *         },
+ *         autoScalingGroupArn: example.arn,
+ *         managedTerminationProtection: "ENABLED",
  *     },
+ *     name: "example",
  * });
  * ```
  *
@@ -51,14 +51,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ecs.CapacityProvider("example", {
- *     name: "example",
- *     cluster: "my-cluster",
  *     managedInstancesProvider: {
- *         infrastructureRoleArn: ecsInfrastructure.arn,
- *         propagateTags: "CAPACITY_PROVIDER",
  *         instanceLaunchTemplate: {
- *             ec2InstanceProfileArn: ecsInstance.arn,
- *             monitoring: "DETAILED",
  *             networkConfiguration: {
  *                 subnets: [exampleAwsSubnet.id],
  *                 securityGroups: [exampleAwsSecurityGroup.id],
@@ -81,8 +75,14 @@ import * as utilities from "../utilities";
  *                     "amd",
  *                 ],
  *             },
+ *             ec2InstanceProfileArn: ecsInstance.arn,
+ *             monitoring: "DETAILED",
  *         },
+ *         infrastructureRoleArn: ecsInfrastructure.arn,
+ *         propagateTags: "CAPACITY_PROVIDER",
  *     },
+ *     name: "example",
+ *     cluster: "my-cluster",
  * });
  * ```
  *

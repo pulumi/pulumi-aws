@@ -56,7 +56,6 @@ import (
 //				return err
 //			}
 //			_, err = verifiedpermissions.NewIdentitySource(ctx, "example", &verifiedpermissions.IdentitySourceArgs{
-//				PolicyStoreId: example.ID().ToIDOutput().ToStringOutput(),
 //				Configuration: &verifiedpermissions.IdentitySourceConfigurationArgs{
 //					CognitoUserPoolConfiguration: &verifiedpermissions.IdentitySourceConfigurationCognitoUserPoolConfigurationArgs{
 //						UserPoolArn: exampleUserPool.Arn,
@@ -65,6 +64,7 @@ import (
 //						},
 //					},
 //				},
+//				PolicyStoreId: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -98,10 +98,8 @@ import (
 //				return err
 //			}
 //			_, err = verifiedpermissions.NewIdentitySource(ctx, "example", &verifiedpermissions.IdentitySourceArgs{
-//				PolicyStoreId: example.ID().ToIDOutput().ToStringOutput(),
 //				Configuration: &verifiedpermissions.IdentitySourceConfigurationArgs{
 //					OpenIdConnectConfiguration: &verifiedpermissions.IdentitySourceConfigurationOpenIdConnectConfigurationArgs{
-//						Issuer: pulumi.String("https://auth.example.com"),
 //						TokenSelection: &verifiedpermissions.IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs{
 //							AccessTokenOnly: &verifiedpermissions.IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs{
 //								Audiences: pulumi.StringArray{
@@ -110,13 +108,15 @@ import (
 //								PrincipalIdClaim: pulumi.String("sub"),
 //							},
 //						},
-//						EntityIdPrefix: pulumi.String("MyOIDCProvider"),
 //						GroupConfiguration: &verifiedpermissions.IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs{
 //							GroupClaim:      pulumi.String("groups"),
 //							GroupEntityType: pulumi.String("MyCorp::UserGroup"),
 //						},
+//						Issuer:         pulumi.String("https://auth.example.com"),
+//						EntityIdPrefix: pulumi.String("MyOIDCProvider"),
 //					},
 //				},
+//				PolicyStoreId:       example.ID().ToIDOutput().ToStringOutput(),
 //				PrincipalEntityType: pulumi.String("MyCorp::User"),
 //			})
 //			if err != nil {

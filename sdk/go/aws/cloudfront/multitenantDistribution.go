@@ -60,28 +60,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudfront.NewMultitenantDistribution(ctx, "example", &cloudfront.MultitenantDistributionArgs{
-//				Comment: pulumi.String("Multi-tenant distribution for my application"),
-//				Enabled: pulumi.Bool(true),
-//				Origins: cloudfront.MultitenantDistributionOriginArray{
-//					&cloudfront.MultitenantDistributionOriginArgs{
-//						DomainName: pulumi.String("example.com"),
-//						Id:         pulumi.String("example-origin"),
-//						CustomOriginConfigs: cloudfront.MultitenantDistributionOriginCustomOriginConfigArray{
-//							&cloudfront.MultitenantDistributionOriginCustomOriginConfigArgs{
-//								HttpPort:             pulumi.Int(80),
-//								HttpsPort:            pulumi.Int(443),
-//								OriginProtocolPolicy: pulumi.String("https-only"),
-//								OriginSslProtocols: pulumi.StringArray{
-//									pulumi.String("TLSv1.2"),
-//								},
-//							},
-//						},
-//					},
-//				},
 //				DefaultCacheBehavior: &cloudfront.MultitenantDistributionDefaultCacheBehaviorArgs{
-//					TargetOriginId:       pulumi.String("example-origin"),
-//					ViewerProtocolPolicy: pulumi.String("redirect-to-https"),
-//					CachePolicyId:        pulumi.Any(exampleAwsCloudfrontCachePolicy.Id),
 //					AllowedMethods: &cloudfront.MultitenantDistributionDefaultCacheBehaviorAllowedMethodsArgs{
 //						Items: pulumi.StringArray{
 //							pulumi.String("DELETE"),
@@ -97,6 +76,9 @@ import (
 //							pulumi.String("HEAD"),
 //						},
 //					},
+//					TargetOriginId:       pulumi.String("example-origin"),
+//					ViewerProtocolPolicy: pulumi.String("redirect-to-https"),
+//					CachePolicyId:        pulumi.Any(exampleAwsCloudfrontCachePolicy.Id),
 //				},
 //				Restrictions: &cloudfront.MultitenantDistributionRestrictionsArgs{
 //					GeoRestriction: &cloudfront.MultitenantDistributionRestrictionsGeoRestrictionArgs{
@@ -110,7 +92,6 @@ import (
 //				TenantConfig: &cloudfront.MultitenantDistributionTenantConfigArgs{
 //					ParameterDefinitions: cloudfront.MultitenantDistributionTenantConfigParameterDefinitionArray{
 //						&cloudfront.MultitenantDistributionTenantConfigParameterDefinitionArgs{
-//							Name: pulumi.String("origin_domain"),
 //							Definitions: cloudfront.MultitenantDistributionTenantConfigParameterDefinitionDefinitionArray{
 //								&cloudfront.MultitenantDistributionTenantConfigParameterDefinitionDefinitionArgs{
 //									StringSchemas: cloudfront.MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArray{
@@ -121,9 +102,28 @@ import (
 //									},
 //								},
 //							},
+//							Name: pulumi.String("origin_domain"),
 //						},
 //					},
 //				},
+//				Origins: cloudfront.MultitenantDistributionOriginArray{
+//					&cloudfront.MultitenantDistributionOriginArgs{
+//						CustomOriginConfigs: cloudfront.MultitenantDistributionOriginCustomOriginConfigArray{
+//							&cloudfront.MultitenantDistributionOriginCustomOriginConfigArgs{
+//								HttpPort:             pulumi.Int(80),
+//								HttpsPort:            pulumi.Int(443),
+//								OriginProtocolPolicy: pulumi.String("https-only"),
+//								OriginSslProtocols: pulumi.StringArray{
+//									pulumi.String("TLSv1.2"),
+//								},
+//							},
+//						},
+//						DomainName: pulumi.String("example.com"),
+//						Id:         pulumi.String("example-origin"),
+//					},
+//				},
+//				Comment: pulumi.String("Multi-tenant distribution for my application"),
+//				Enabled: pulumi.Bool(true),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("production"),
 //				},

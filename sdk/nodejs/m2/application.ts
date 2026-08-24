@@ -19,8 +19,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.m2.Application("example", {
- *     name: "Example",
- *     engineType: "bluage",
  *     definition: {
  *         content: `{
  *   \"definition\": {
@@ -49,6 +47,8 @@ import * as utilities from "../utilities";
  *
  * `,
  *     },
+ *     name: "Example",
+ *     engineType: "bluage",
  * });
  * ```
  *

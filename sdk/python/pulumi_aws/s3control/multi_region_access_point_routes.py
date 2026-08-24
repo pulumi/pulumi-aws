@@ -189,7 +189,6 @@ class MultiRegionAccessPointRoutes(pulumi.CustomResource):
         primary = aws.s3.Bucket("primary", bucket="example-bucket-primary")
         secondary = aws.s3.Bucket("secondary", bucket="example-bucket-secondary")
         example = aws.s3control.MultiRegionAccessPoint("example", details={
-            "name": "example",
             "regions": [
                 {
                     "bucket": primary.bucket,
@@ -198,9 +197,9 @@ class MultiRegionAccessPointRoutes(pulumi.CustomResource):
                     "bucket": secondary.bucket,
                 },
             ],
+            "name": "example",
         })
         example_multi_region_access_point_routes = aws.s3control.MultiRegionAccessPointRoutes("example",
-            mrap=example.arn,
             routes=[
                 {
                     "bucket": primary.bucket,
@@ -212,7 +211,8 @@ class MultiRegionAccessPointRoutes(pulumi.CustomResource):
                     "region": secondary.bucket_region,
                     "traffic_dial_percentage": 100,
                 },
-            ])
+            ],
+            mrap=example.arn)
         ```
 
         ### Failover Configuration
@@ -222,7 +222,6 @@ class MultiRegionAccessPointRoutes(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3control.MultiRegionAccessPointRoutes("example",
-            mrap=example_aws_s3control_multi_region_access_point["arn"],
             routes=[
                 {
                     "bucket": primary["bucket"],
@@ -234,7 +233,8 @@ class MultiRegionAccessPointRoutes(pulumi.CustomResource):
                     "region": secondary["bucketRegion"],
                     "traffic_dial_percentage": 100,
                 },
-            ])
+            ],
+            mrap=example_aws_s3control_multi_region_access_point["arn"])
         ```
 
         ## Import
@@ -286,7 +286,6 @@ class MultiRegionAccessPointRoutes(pulumi.CustomResource):
         primary = aws.s3.Bucket("primary", bucket="example-bucket-primary")
         secondary = aws.s3.Bucket("secondary", bucket="example-bucket-secondary")
         example = aws.s3control.MultiRegionAccessPoint("example", details={
-            "name": "example",
             "regions": [
                 {
                     "bucket": primary.bucket,
@@ -295,9 +294,9 @@ class MultiRegionAccessPointRoutes(pulumi.CustomResource):
                     "bucket": secondary.bucket,
                 },
             ],
+            "name": "example",
         })
         example_multi_region_access_point_routes = aws.s3control.MultiRegionAccessPointRoutes("example",
-            mrap=example.arn,
             routes=[
                 {
                     "bucket": primary.bucket,
@@ -309,7 +308,8 @@ class MultiRegionAccessPointRoutes(pulumi.CustomResource):
                     "region": secondary.bucket_region,
                     "traffic_dial_percentage": 100,
                 },
-            ])
+            ],
+            mrap=example.arn)
         ```
 
         ### Failover Configuration
@@ -319,7 +319,6 @@ class MultiRegionAccessPointRoutes(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3control.MultiRegionAccessPointRoutes("example",
-            mrap=example_aws_s3control_multi_region_access_point["arn"],
             routes=[
                 {
                     "bucket": primary["bucket"],
@@ -331,7 +330,8 @@ class MultiRegionAccessPointRoutes(pulumi.CustomResource):
                     "region": secondary["bucketRegion"],
                     "traffic_dial_percentage": 100,
                 },
-            ])
+            ],
+            mrap=example_aws_s3control_multi_region_access_point["arn"])
         ```
 
         ## Import

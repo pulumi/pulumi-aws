@@ -66,12 +66,12 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var exampleAccessPoint = new Aws.S3.AccessPoint("example", new()
     ///     {
-    ///         Bucket = example.Arn,
-    ///         Name = "example",
     ///         VpcConfiguration = new Aws.S3.Inputs.AccessPointVpcConfigurationArgs
     ///         {
     ///             VpcId = exampleVpc.Id,
     ///         },
+    ///         Bucket = example.Arn,
+    ///         Name = "example",
     ///     });
     /// 
     /// });
@@ -94,11 +94,11 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var example = new Aws.S3.DirectoryBucket("example", new()
     ///     {
-    ///         Bucket = "example--zoneId--x-s3",
     ///         Location = new Aws.S3.Inputs.DirectoryBucketLocationArgs
     ///         {
     ///             Name = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.ZoneIds[0]),
     ///         },
+    ///         Bucket = "example--zoneId--x-s3",
     ///     });
     /// 
     ///     var exampleAccessPoint = new Aws.S3.AccessPoint("example", new()

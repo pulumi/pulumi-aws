@@ -73,11 +73,11 @@ import (
 //				return err
 //			}
 //			exampleLogDeliveryDestination, err := cloudwatch.NewLogDeliveryDestination(ctx, "example", &cloudwatch.LogDeliveryDestinationArgs{
-//				Name:         pulumi.String("cloudfront-access-logs"),
-//				OutputFormat: pulumi.String("json"),
 //				DeliveryDestinationConfiguration: &cloudwatch.LogDeliveryDestinationDeliveryDestinationConfigurationArgs{
 //					DestinationResourceArn: pulumi.Any(exampleAwsCloudwatchLogGroup.Arn),
 //				},
+//				Name:         pulumi.String("cloudfront-access-logs"),
+//				OutputFormat: pulumi.String("json"),
 //			})
 //			if err != nil {
 //				return err

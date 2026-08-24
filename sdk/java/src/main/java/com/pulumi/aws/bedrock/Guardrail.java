@@ -45,8 +45,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.bedrock.inputs.GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigArgs;
  * import com.pulumi.aws.bedrock.inputs.GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs;
  * import com.pulumi.aws.bedrock.inputs.GuardrailTopicPolicyConfigArgs;
- * import com.pulumi.aws.bedrock.inputs.GuardrailTopicPolicyConfigTopicsConfigArgs;
  * import com.pulumi.aws.bedrock.inputs.GuardrailTopicPolicyConfigTierConfigArgs;
+ * import com.pulumi.aws.bedrock.inputs.GuardrailTopicPolicyConfigTopicsConfigArgs;
  * import com.pulumi.aws.bedrock.inputs.GuardrailWordPolicyConfigArgs;
  * import com.pulumi.aws.bedrock.inputs.GuardrailWordPolicyConfigManagedWordListsConfigArgs;
  * import com.pulumi.aws.bedrock.inputs.GuardrailWordPolicyConfigWordsConfigArgs;
@@ -64,10 +64,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Guardrail("example", GuardrailArgs.builder()
- *             .name("example")
- *             .blockedInputMessaging("example")
- *             .blockedOutputsMessaging("example")
- *             .description("example")
  *             .contentPolicyConfig(GuardrailContentPolicyConfigArgs.builder()
  *                 .filtersConfigs(GuardrailContentPolicyConfigFiltersConfigArgs.builder()
  *                     .inputStrength("MEDIUM")
@@ -99,14 +95,14 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .topicPolicyConfig(GuardrailTopicPolicyConfigArgs.builder()
+ *                 .tierConfigs(GuardrailTopicPolicyConfigTierConfigArgs.builder()
+ *                     .tierName("CLASSIC")
+ *                     .build())
  *                 .topicsConfigs(GuardrailTopicPolicyConfigTopicsConfigArgs.builder()
  *                     .name("investment_topic")
  *                     .examples("Where should I invest my money ?")
  *                     .type("DENY")
  *                     .definition("Investment advice refers to inquiries, guidance, or recommendations regarding the management or allocation of funds or assets with the goal of generating returns .")
- *                     .build())
- *                 .tierConfigs(GuardrailTopicPolicyConfigTierConfigArgs.builder()
- *                     .tierName("CLASSIC")
  *                     .build())
  *                 .build())
  *             .wordPolicyConfig(GuardrailWordPolicyConfigArgs.builder()
@@ -117,6 +113,10 @@ import javax.annotation.Nullable;
  *                     .text("HATE")
  *                     .build())
  *                 .build())
+ *             .name("example")
+ *             .blockedInputMessaging("example")
+ *             .blockedOutputsMessaging("example")
+ *             .description("example")
  *             .build());
  * 
  *     }

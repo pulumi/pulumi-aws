@@ -21,13 +21,13 @@ import * as utilities from "../utilities";
  *     name: "AWSReadOnlyAccess",
  * }));
  * const exampleGetGroup = example.then(example => aws.identitystore.getGroup({
- *     identityStoreId: example.identityStoreIds?.[0],
  *     alternateIdentifier: {
  *         uniqueAttribute: {
  *             attributePath: "DisplayName",
  *             attributeValue: "ExampleGroup",
  *         },
  *     },
+ *     identityStoreId: example.identityStoreIds?.[0],
  * }));
  * const exampleAccountAssignment = new aws.ssoadmin.AccountAssignment("example", {
  *     instanceArn: example.then(example => example.arns?.[0]),

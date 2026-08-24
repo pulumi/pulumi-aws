@@ -697,13 +697,6 @@ class Budget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         ec2 = aws.budgets.Budget("ec2",
-            name="budget-ec2-monthly",
-            budget_type="COST",
-            limit_amount="1200",
-            limit_unit="USD",
-            time_period_end="2087-06-15_00:00",
-            time_period_start="2017-07-01_00:00",
-            time_unit="MONTHLY",
             cost_filters=[{
                 "name": "Service",
                 "values": ["Amazon Elastic Compute Cloud - Compute"],
@@ -715,6 +708,13 @@ class Budget(pulumi.CustomResource):
                 "notification_type": "FORECASTED",
                 "subscriber_email_addresses": ["test@example.com"],
             }],
+            name="budget-ec2-monthly",
+            budget_type="COST",
+            limit_amount="1200",
+            limit_unit="USD",
+            time_period_end="2087-06-15_00:00",
+            time_period_start="2017-07-01_00:00",
+            time_unit="MONTHLY",
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",
@@ -772,9 +772,6 @@ class Budget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         savings_plan_utilization = aws.budgets.Budget("savings_plan_utilization",
-            budget_type="SAVINGS_PLANS_UTILIZATION",
-            limit_amount="100.0",
-            limit_unit="PERCENTAGE",
             cost_types={
                 "include_credit": False,
                 "include_discount": False,
@@ -786,7 +783,10 @@ class Budget(pulumi.CustomResource):
                 "include_tax": False,
                 "include_upfront": False,
                 "use_blended": False,
-            })
+            },
+            budget_type="SAVINGS_PLANS_UTILIZATION",
+            limit_amount="100.0",
+            limit_unit="PERCENTAGE")
         ```
 
         Create a RI Utilization Budget
@@ -796,9 +796,6 @@ class Budget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         ri_utilization = aws.budgets.Budget("ri_utilization",
-            budget_type="RI_UTILIZATION",
-            limit_amount="100.0",
-            limit_unit="PERCENTAGE",
             cost_types={
                 "include_credit": False,
                 "include_discount": False,
@@ -814,7 +811,10 @@ class Budget(pulumi.CustomResource):
             cost_filters=[{
                 "name": "Service",
                 "values": ["Amazon Relational Database Service"],
-            }])
+            }],
+            budget_type="RI_UTILIZATION",
+            limit_amount="100.0",
+            limit_unit="PERCENTAGE")
         ```
 
         Create a cost filter using resource tags
@@ -851,18 +851,18 @@ class Budget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         simple = aws.budgets.Budget("simple",
-            name="budget-ec2-filter",
-            budget_type="COST",
-            limit_amount="500",
-            limit_unit="USD",
-            time_unit="MONTHLY",
-            metrics="UnblendedCost",
             filter_expression={
                 "dimensions": {
                     "key": "SERVICE",
                     "values": ["Amazon Elastic Compute Cloud - Compute"],
                 },
-            })
+            },
+            name="budget-ec2-filter",
+            budget_type="COST",
+            limit_amount="500",
+            limit_unit="USD",
+            time_unit="MONTHLY",
+            metrics="UnblendedCost")
         ```
 
         Create a budget with AND filter for blended costs
@@ -872,12 +872,6 @@ class Budget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         and_example = aws.budgets.Budget("and_example",
-            name="budget-and-filter",
-            budget_type="COST",
-            limit_amount="1200",
-            limit_unit="USD",
-            time_unit="MONTHLY",
-            metrics="BlendedCost",
             filter_expression={
                 "ands": [
                     {
@@ -893,7 +887,13 @@ class Budget(pulumi.CustomResource):
                         },
                     },
                 ],
-            })
+            },
+            name="budget-and-filter",
+            budget_type="COST",
+            limit_amount="1200",
+            limit_unit="USD",
+            time_unit="MONTHLY",
+            metrics="BlendedCost")
         ```
 
         Create a budget with OR filter for amortized costs
@@ -903,12 +903,6 @@ class Budget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         or_example = aws.budgets.Budget("or_example",
-            name="budget-or-filter",
-            budget_type="COST",
-            limit_amount="2000",
-            limit_unit="USD",
-            time_unit="MONTHLY",
-            metrics="AmortizedCost",
             filter_expression={
                 "ors": [
                     {
@@ -924,7 +918,13 @@ class Budget(pulumi.CustomResource):
                         },
                     },
                 ],
-            })
+            },
+            name="budget-or-filter",
+            budget_type="COST",
+            limit_amount="2000",
+            limit_unit="USD",
+            time_unit="MONTHLY",
+            metrics="AmortizedCost")
         ```
 
         Create a budget with NOT filter for net unblended costs
@@ -934,12 +934,6 @@ class Budget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         not_example = aws.budgets.Budget("not_example",
-            name="budget-not-filter",
-            budget_type="COST",
-            limit_amount="1000",
-            limit_unit="USD",
-            time_unit="MONTHLY",
-            metrics="NetUnblendedCost",
             filter_expression={
                 "not_": {
                     "dimensions": {
@@ -947,7 +941,13 @@ class Budget(pulumi.CustomResource):
                         "values": ["us-west-2"],
                     },
                 },
-            })
+            },
+            name="budget-not-filter",
+            budget_type="COST",
+            limit_amount="1000",
+            limit_unit="USD",
+            time_unit="MONTHLY",
+            metrics="NetUnblendedCost")
         ```
 
         Create a budget with a compound filter for net amortized costs
@@ -957,12 +957,6 @@ class Budget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         compound_example = aws.budgets.Budget("compound_example",
-            name="budget-compound-filter",
-            budget_type="COST",
-            limit_amount="1500",
-            limit_unit="USD",
-            time_unit="MONTHLY",
-            metrics="NetAmortizedCost",
             filter_expression={
                 "ors": [
                     {
@@ -1003,7 +997,13 @@ class Budget(pulumi.CustomResource):
                 "threshold_type": "PERCENTAGE",
                 "notification_type": "FORECASTED",
                 "subscriber_email_addresses": ["test@example.com"],
-            }])
+            }],
+            name="budget-compound-filter",
+            budget_type="COST",
+            limit_amount="1500",
+            limit_unit="USD",
+            time_unit="MONTHLY",
+            metrics="NetAmortizedCost")
         ```
 
         ## Import
@@ -1057,13 +1057,6 @@ class Budget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         ec2 = aws.budgets.Budget("ec2",
-            name="budget-ec2-monthly",
-            budget_type="COST",
-            limit_amount="1200",
-            limit_unit="USD",
-            time_period_end="2087-06-15_00:00",
-            time_period_start="2017-07-01_00:00",
-            time_unit="MONTHLY",
             cost_filters=[{
                 "name": "Service",
                 "values": ["Amazon Elastic Compute Cloud - Compute"],
@@ -1075,6 +1068,13 @@ class Budget(pulumi.CustomResource):
                 "notification_type": "FORECASTED",
                 "subscriber_email_addresses": ["test@example.com"],
             }],
+            name="budget-ec2-monthly",
+            budget_type="COST",
+            limit_amount="1200",
+            limit_unit="USD",
+            time_period_end="2087-06-15_00:00",
+            time_period_start="2017-07-01_00:00",
+            time_unit="MONTHLY",
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",
@@ -1132,9 +1132,6 @@ class Budget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         savings_plan_utilization = aws.budgets.Budget("savings_plan_utilization",
-            budget_type="SAVINGS_PLANS_UTILIZATION",
-            limit_amount="100.0",
-            limit_unit="PERCENTAGE",
             cost_types={
                 "include_credit": False,
                 "include_discount": False,
@@ -1146,7 +1143,10 @@ class Budget(pulumi.CustomResource):
                 "include_tax": False,
                 "include_upfront": False,
                 "use_blended": False,
-            })
+            },
+            budget_type="SAVINGS_PLANS_UTILIZATION",
+            limit_amount="100.0",
+            limit_unit="PERCENTAGE")
         ```
 
         Create a RI Utilization Budget
@@ -1156,9 +1156,6 @@ class Budget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         ri_utilization = aws.budgets.Budget("ri_utilization",
-            budget_type="RI_UTILIZATION",
-            limit_amount="100.0",
-            limit_unit="PERCENTAGE",
             cost_types={
                 "include_credit": False,
                 "include_discount": False,
@@ -1174,7 +1171,10 @@ class Budget(pulumi.CustomResource):
             cost_filters=[{
                 "name": "Service",
                 "values": ["Amazon Relational Database Service"],
-            }])
+            }],
+            budget_type="RI_UTILIZATION",
+            limit_amount="100.0",
+            limit_unit="PERCENTAGE")
         ```
 
         Create a cost filter using resource tags
@@ -1211,18 +1211,18 @@ class Budget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         simple = aws.budgets.Budget("simple",
-            name="budget-ec2-filter",
-            budget_type="COST",
-            limit_amount="500",
-            limit_unit="USD",
-            time_unit="MONTHLY",
-            metrics="UnblendedCost",
             filter_expression={
                 "dimensions": {
                     "key": "SERVICE",
                     "values": ["Amazon Elastic Compute Cloud - Compute"],
                 },
-            })
+            },
+            name="budget-ec2-filter",
+            budget_type="COST",
+            limit_amount="500",
+            limit_unit="USD",
+            time_unit="MONTHLY",
+            metrics="UnblendedCost")
         ```
 
         Create a budget with AND filter for blended costs
@@ -1232,12 +1232,6 @@ class Budget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         and_example = aws.budgets.Budget("and_example",
-            name="budget-and-filter",
-            budget_type="COST",
-            limit_amount="1200",
-            limit_unit="USD",
-            time_unit="MONTHLY",
-            metrics="BlendedCost",
             filter_expression={
                 "ands": [
                     {
@@ -1253,7 +1247,13 @@ class Budget(pulumi.CustomResource):
                         },
                     },
                 ],
-            })
+            },
+            name="budget-and-filter",
+            budget_type="COST",
+            limit_amount="1200",
+            limit_unit="USD",
+            time_unit="MONTHLY",
+            metrics="BlendedCost")
         ```
 
         Create a budget with OR filter for amortized costs
@@ -1263,12 +1263,6 @@ class Budget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         or_example = aws.budgets.Budget("or_example",
-            name="budget-or-filter",
-            budget_type="COST",
-            limit_amount="2000",
-            limit_unit="USD",
-            time_unit="MONTHLY",
-            metrics="AmortizedCost",
             filter_expression={
                 "ors": [
                     {
@@ -1284,7 +1278,13 @@ class Budget(pulumi.CustomResource):
                         },
                     },
                 ],
-            })
+            },
+            name="budget-or-filter",
+            budget_type="COST",
+            limit_amount="2000",
+            limit_unit="USD",
+            time_unit="MONTHLY",
+            metrics="AmortizedCost")
         ```
 
         Create a budget with NOT filter for net unblended costs
@@ -1294,12 +1294,6 @@ class Budget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         not_example = aws.budgets.Budget("not_example",
-            name="budget-not-filter",
-            budget_type="COST",
-            limit_amount="1000",
-            limit_unit="USD",
-            time_unit="MONTHLY",
-            metrics="NetUnblendedCost",
             filter_expression={
                 "not_": {
                     "dimensions": {
@@ -1307,7 +1301,13 @@ class Budget(pulumi.CustomResource):
                         "values": ["us-west-2"],
                     },
                 },
-            })
+            },
+            name="budget-not-filter",
+            budget_type="COST",
+            limit_amount="1000",
+            limit_unit="USD",
+            time_unit="MONTHLY",
+            metrics="NetUnblendedCost")
         ```
 
         Create a budget with a compound filter for net amortized costs
@@ -1317,12 +1317,6 @@ class Budget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         compound_example = aws.budgets.Budget("compound_example",
-            name="budget-compound-filter",
-            budget_type="COST",
-            limit_amount="1500",
-            limit_unit="USD",
-            time_unit="MONTHLY",
-            metrics="NetAmortizedCost",
             filter_expression={
                 "ors": [
                     {
@@ -1363,7 +1357,13 @@ class Budget(pulumi.CustomResource):
                 "threshold_type": "PERCENTAGE",
                 "notification_type": "FORECASTED",
                 "subscriber_email_addresses": ["test@example.com"],
-            }])
+            }],
+            name="budget-compound-filter",
+            budget_type="COST",
+            limit_amount="1500",
+            limit_unit="USD",
+            time_unit="MONTHLY",
+            metrics="NetAmortizedCost")
         ```
 
         ## Import

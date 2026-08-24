@@ -26,10 +26,10 @@ namespace Pulumi.Aws.Sagemaker
     /// {
     ///     var example = new Aws.Sagemaker.FeatureGroup("example", new()
     ///     {
-    ///         FeatureGroupName = "example",
-    ///         RecordIdentifierFeatureName = "example",
-    ///         EventTimeFeatureName = "example",
-    ///         RoleArn = test.Arn,
+    ///         OnlineStoreConfig = new Aws.Sagemaker.Inputs.FeatureGroupOnlineStoreConfigArgs
+    ///         {
+    ///             EnableOnlineStore = true,
+    ///         },
     ///         FeatureDefinitions = new[]
     ///         {
     ///             new Aws.Sagemaker.Inputs.FeatureGroupFeatureDefinitionArgs
@@ -38,10 +38,10 @@ namespace Pulumi.Aws.Sagemaker
     ///                 FeatureType = "String",
     ///             },
     ///         },
-    ///         OnlineStoreConfig = new Aws.Sagemaker.Inputs.FeatureGroupOnlineStoreConfigArgs
-    ///         {
-    ///             EnableOnlineStore = true,
-    ///         },
+    ///         FeatureGroupName = "example",
+    ///         RecordIdentifierFeatureName = "example",
+    ///         EventTimeFeatureName = "example",
+    ///         RoleArn = test.Arn,
     ///     });
     /// 
     /// });

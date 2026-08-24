@@ -343,15 +343,15 @@ class ServerlessCollectionGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearch.ServerlessCollectionGroup("example",
-            name="example-group",
-            description="Shared compute for production collections",
-            standby_replicas="ENABLED",
             capacity_limits=[{
                 "min_indexing_capacity_in_ocu": float(2),
                 "max_indexing_capacity_in_ocu": float(16),
                 "min_search_capacity_in_ocu": float(2),
                 "max_search_capacity_in_ocu": float(16),
-            }])
+            }],
+            name="example-group",
+            description="Shared compute for production collections",
+            standby_replicas="ENABLED")
         ```
 
         ## Import
@@ -406,15 +406,15 @@ class ServerlessCollectionGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearch.ServerlessCollectionGroup("example",
-            name="example-group",
-            description="Shared compute for production collections",
-            standby_replicas="ENABLED",
             capacity_limits=[{
                 "min_indexing_capacity_in_ocu": float(2),
                 "max_indexing_capacity_in_ocu": float(16),
                 "min_search_capacity_in_ocu": float(2),
                 "max_search_capacity_in_ocu": float(16),
-            }])
+            }],
+            name="example-group",
+            description="Shared compute for production collections",
+            standby_replicas="ENABLED")
         ```
 
         ## Import

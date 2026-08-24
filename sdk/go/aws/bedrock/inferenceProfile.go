@@ -35,11 +35,11 @@ import (
 //				return err
 //			}
 //			_, err = bedrock.NewInferenceProfile(ctx, "example", &bedrock.InferenceProfileArgs{
-//				Name:        pulumi.String("Claude Sonnet for Project 123"),
-//				Description: pulumi.String("Profile with tag for cost allocation tracking"),
 //				ModelSource: &bedrock.InferenceProfileModelSourceArgs{
 //					CopyFrom: pulumi.String("arn:aws:bedrock:us-west-2::foundation-model/anthropic.claude-3-5-sonnet-20241022-v2:0"),
 //				},
+//				Name:        pulumi.String("Claude Sonnet for Project 123"),
+//				Description: pulumi.String("Profile with tag for cost allocation tracking"),
 //				Tags: pulumi.StringMap{
 //					"ProjectID": pulumi.String("123"),
 //				},

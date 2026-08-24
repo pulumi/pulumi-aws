@@ -19,13 +19,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3tables.TableReplication("example", {
- *     tableArn: exampleAwsS3tablesTable.arn,
- *     role: exampleAwsIamRole.arn,
  *     rule: {
  *         destinations: [{
  *             destinationTableBucketArn: target.arn,
  *         }],
  *     },
+ *     tableArn: exampleAwsS3tablesTable.arn,
+ *     role: exampleAwsIamRole.arn,
  * });
  * ```
  *

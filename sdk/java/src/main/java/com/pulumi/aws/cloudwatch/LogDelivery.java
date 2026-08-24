@@ -98,11 +98,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLogDeliveryDestination = new LogDeliveryDestination("exampleLogDeliveryDestination", LogDeliveryDestinationArgs.builder()
- *             .name("cloudfront-access-logs")
- *             .outputFormat("json")
  *             .deliveryDestinationConfiguration(LogDeliveryDestinationDeliveryDestinationConfigurationArgs.builder()
  *                 .destinationResourceArn(exampleAwsCloudwatchLogGroup.arn())
  *                 .build())
+ *             .name("cloudfront-access-logs")
+ *             .outputFormat("json")
  *             .build());
  * 
  *         var exampleLogDelivery = new LogDelivery("exampleLogDelivery", LogDeliveryArgs.builder()

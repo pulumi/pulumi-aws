@@ -74,17 +74,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewNetworkInsightsAccessScope(ctx, "example", &ec2.NetworkInsightsAccessScopeArgs{
-//				MatchPaths: ec2.NetworkInsightsAccessScopeMatchPathArray{
-//					&ec2.NetworkInsightsAccessScopeMatchPathArgs{
-//						Source: &ec2.NetworkInsightsAccessScopeMatchPathSourceArgs{
-//							ResourceStatement: &ec2.NetworkInsightsAccessScopeMatchPathSourceResourceStatementArgs{
-//								ResourceTypes: pulumi.StringArray{
-//									pulumi.String("AWS::EC2::NetworkInterface"),
-//								},
-//							},
-//						},
-//					},
-//				},
 //				ExcludePaths: ec2.NetworkInsightsAccessScopeExcludePathArray{
 //					&ec2.NetworkInsightsAccessScopeExcludePathArgs{
 //						Source: &ec2.NetworkInsightsAccessScopeExcludePathSourceArgs{
@@ -100,6 +89,17 @@ import (
 //									ResourceTypes: pulumi.StringArray{
 //										pulumi.String("AWS::EC2::NatGateway"),
 //									},
+//								},
+//							},
+//						},
+//					},
+//				},
+//				MatchPaths: ec2.NetworkInsightsAccessScopeMatchPathArray{
+//					&ec2.NetworkInsightsAccessScopeMatchPathArgs{
+//						Source: &ec2.NetworkInsightsAccessScopeMatchPathSourceArgs{
+//							ResourceStatement: &ec2.NetworkInsightsAccessScopeMatchPathSourceResourceStatementArgs{
+//								ResourceTypes: pulumi.StringArray{
+//									pulumi.String("AWS::EC2::NetworkInterface"),
 //								},
 //							},
 //						},

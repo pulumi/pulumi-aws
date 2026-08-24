@@ -19,12 +19,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.devicefarm.TestGridProject("example", {
- *     name: "example",
  *     vpcConfig: {
  *         vpcId: exampleAwsVpc.id,
  *         subnetIds: exampleAwsSubnet.map(__item => __item.id),
  *         securityGroupIds: exampleAwsSecurityGroup.map(__item => __item.id),
  *     },
+ *     name: "example",
  * });
  * ```
  *

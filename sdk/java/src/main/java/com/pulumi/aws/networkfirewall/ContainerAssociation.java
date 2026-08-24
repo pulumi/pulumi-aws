@@ -51,16 +51,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ContainerAssociation("example", ContainerAssociationArgs.builder()
- *             .containerAssociationName("example-eks-association")
- *             .type("EKS")
- *             .description("Association for production EKS cluster")
  *             .containerMonitoringConfigurations(ContainerAssociationContainerMonitoringConfigurationArgs.builder()
- *                 .clusterArn(exampleAwsEksCluster.arn())
  *                 .attributeFilters(ContainerAssociationContainerMonitoringConfigurationAttributeFilterArgs.builder()
  *                     .key("app")
  *                     .value("backend")
  *                     .build())
+ *                 .clusterArn(exampleAwsEksCluster.arn())
  *                 .build())
+ *             .containerAssociationName("example-eks-association")
+ *             .type("EKS")
+ *             .description("Association for production EKS cluster")
  *             .tags(Map.ofEntries(
  *                 Map.entry("Name", "example"),
  *                 Map.entry("Environment", "production")
@@ -98,11 +98,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ContainerAssociation("example", ContainerAssociationArgs.builder()
- *             .containerAssociationName("example-ecs-association")
- *             .type("ECS")
  *             .containerMonitoringConfigurations(ContainerAssociationContainerMonitoringConfigurationArgs.builder()
  *                 .clusterArn(exampleAwsEcsCluster.arn())
  *                 .build())
+ *             .containerAssociationName("example-ecs-association")
+ *             .type("ECS")
  *             .build());
  * 
  *     }

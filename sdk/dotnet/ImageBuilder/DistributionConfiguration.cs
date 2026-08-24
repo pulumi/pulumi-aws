@@ -24,18 +24,12 @@ namespace Pulumi.Aws.ImageBuilder
     /// {
     ///     var example = new Aws.ImageBuilder.DistributionConfiguration("example", new()
     ///     {
-    ///         Name = "example",
     ///         Distributions = new[]
     ///         {
     ///             new Aws.ImageBuilder.Inputs.DistributionConfigurationDistributionArgs
     ///             {
     ///                 AmiDistributionConfiguration = new Aws.ImageBuilder.Inputs.DistributionConfigurationDistributionAmiDistributionConfigurationArgs
     ///                 {
-    ///                     AmiTags = 
-    ///                     {
-    ///                         { "CostCenter", "IT" },
-    ///                     },
-    ///                     Name = "example-{{ imagebuilder:buildDate }}",
     ///                     LaunchPermission = new Aws.ImageBuilder.Inputs.DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs
     ///                     {
     ///                         UserIds = new[]
@@ -43,6 +37,11 @@ namespace Pulumi.Aws.ImageBuilder
     ///                             "123456789012",
     ///                         },
     ///                     },
+    ///                     AmiTags = 
+    ///                     {
+    ///                         { "CostCenter", "IT" },
+    ///                     },
+    ///                     Name = "example-{{ imagebuilder:buildDate }}",
     ///                 },
     ///                 LaunchTemplateConfigurations = new[]
     ///                 {
@@ -54,6 +53,7 @@ namespace Pulumi.Aws.ImageBuilder
     ///                 Region = "us-east-1",
     ///             },
     ///         },
+    ///         Name = "example",
     ///     });
     /// 
     /// });

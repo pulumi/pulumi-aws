@@ -322,9 +322,6 @@ class ClusterParameterGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         default = aws.rds.ClusterParameterGroup("default",
-            name="rds-cluster-pg",
-            family="aurora5.6",
-            description="RDS default cluster parameter group",
             parameters=[
                 {
                     "name": "character_set_server",
@@ -334,7 +331,10 @@ class ClusterParameterGroup(pulumi.CustomResource):
                     "name": "character_set_client",
                     "value": "utf8",
                 },
-            ])
+            ],
+            name="rds-cluster-pg",
+            family="aurora5.6",
+            description="RDS default cluster parameter group")
         ```
 
         ## Import
@@ -375,9 +375,6 @@ class ClusterParameterGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         default = aws.rds.ClusterParameterGroup("default",
-            name="rds-cluster-pg",
-            family="aurora5.6",
-            description="RDS default cluster parameter group",
             parameters=[
                 {
                     "name": "character_set_server",
@@ -387,7 +384,10 @@ class ClusterParameterGroup(pulumi.CustomResource):
                     "name": "character_set_client",
                     "value": "utf8",
                 },
-            ])
+            ],
+            name="rds-cluster-pg",
+            family="aurora5.6",
+            description="RDS default cluster parameter group")
         ```
 
         ## Import

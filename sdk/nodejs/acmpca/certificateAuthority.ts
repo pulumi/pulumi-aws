@@ -22,11 +22,11 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.acmpca.CertificateAuthority("example", {
  *     certificateAuthorityConfiguration: {
- *         keyAlgorithm: "RSA_4096",
- *         signingAlgorithm: "SHA512WITHRSA",
  *         subject: {
  *             commonName: "example.com",
  *         },
+ *         keyAlgorithm: "RSA_4096",
+ *         signingAlgorithm: "SHA512WITHRSA",
  *     },
  *     permanentDeletionTimeInDays: 7,
  * });
@@ -39,14 +39,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.acmpca.CertificateAuthority("example", {
- *     usageMode: "SHORT_LIVED_CERTIFICATE",
  *     certificateAuthorityConfiguration: {
- *         keyAlgorithm: "RSA_4096",
- *         signingAlgorithm: "SHA512WITHRSA",
  *         subject: {
  *             commonName: "example.com",
  *         },
+ *         keyAlgorithm: "RSA_4096",
+ *         signingAlgorithm: "SHA512WITHRSA",
  *     },
+ *     usageMode: "SHORT_LIVED_CERTIFICATE",
  * });
  * ```
  *
@@ -62,6 +62,10 @@ import * as utilities from "../utilities";
  * });
  * const acmpcaBucketAccess = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
+ *         principals: [{
+ *             identifiers: ["acm-pca.amazonaws.com"],
+ *             type: "Service",
+ *         }],
  *         actions: [
  *             "s3:GetBucketAcl",
  *             "s3:GetBucketLocation",
@@ -72,10 +76,6 @@ import * as utilities from "../utilities";
  *             example.arn,
  *             pulumi.interpolate`${example.arn}/*`,
  *         ],
- *         principals: [{
- *             identifiers: ["acm-pca.amazonaws.com"],
- *             type: "Service",
- *         }],
  *     }],
  * });
  * const exampleBucketPolicy = new aws.s3.BucketPolicy("example", {
@@ -84,11 +84,11 @@ import * as utilities from "../utilities";
  * });
  * const exampleCertificateAuthority = new aws.acmpca.CertificateAuthority("example", {
  *     certificateAuthorityConfiguration: {
- *         keyAlgorithm: "RSA_4096",
- *         signingAlgorithm: "SHA512WITHRSA",
  *         subject: {
  *             commonName: "example.com",
  *         },
+ *         keyAlgorithm: "RSA_4096",
+ *         signingAlgorithm: "SHA512WITHRSA",
  *     },
  *     revocationConfiguration: {
  *         crlConfiguration: {

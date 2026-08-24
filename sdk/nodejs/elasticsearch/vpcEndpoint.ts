@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const foo = new aws.elasticsearch.VpcEndpoint("foo", {
- *     domainArn: domain1.arn,
  *     vpcOptions: {
  *         securityGroupIds: [
  *             test.id,
@@ -30,6 +29,7 @@ import * as utilities from "../utilities";
  *             test2AwsSubnet.id,
  *         ],
  *     },
+ *     domainArn: domain1.arn,
  * });
  * ```
  *

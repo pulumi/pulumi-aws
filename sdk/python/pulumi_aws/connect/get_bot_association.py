@@ -93,10 +93,10 @@ def get_bot_association(instance_id: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.connect.get_bot_association(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        lex_bot={
+    example = aws.connect.get_bot_association(lex_bot={
             "name": "Test",
-        })
+        },
+        instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111")
     ```
 
 
@@ -131,10 +131,10 @@ def get_bot_association_output(instance_id: pulumi.Input[Optional[_builtins.str]
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.connect.get_bot_association(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        lex_bot={
+    example = aws.connect.get_bot_association(lex_bot={
             "name": "Test",
-        })
+        },
+        instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111")
     ```
 
 

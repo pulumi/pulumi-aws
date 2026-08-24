@@ -29,16 +29,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datasync.NewFsxOpenZfsFileSystem(ctx, "example", &datasync.FsxOpenZfsFileSystemArgs{
-//				FsxFilesystemArn: pulumi.Any(exampleAwsFsxOpenzfsFileSystem.Arn),
-//				SecurityGroupArns: pulumi.StringArray{
-//					exampleAwsSecurityGroup.Arn,
-//				},
 //				Protocol: &datasync.FsxOpenZfsFileSystemProtocolArgs{
 //					Nfs: &datasync.FsxOpenZfsFileSystemProtocolNfsArgs{
 //						MountOptions: &datasync.FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs{
 //							Version: pulumi.String("AUTOMATIC"),
 //						},
 //					},
+//				},
+//				FsxFilesystemArn: pulumi.Any(exampleAwsFsxOpenzfsFileSystem.Arn),
+//				SecurityGroupArns: pulumi.StringArray{
+//					exampleAwsSecurityGroup.Arn,
 //				},
 //			})
 //			if err != nil {

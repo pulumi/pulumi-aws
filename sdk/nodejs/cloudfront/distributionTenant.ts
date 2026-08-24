@@ -23,12 +23,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cloudfront.DistributionTenant("example", {
- *     name: "example-tenant",
- *     distributionId: exampleAwsCloudfrontMultitenantDistribution.id,
- *     enabled: true,
  *     domains: [{
  *         domain: "tenant.example.com",
  *     }],
+ *     name: "example-tenant",
+ *     distributionId: exampleAwsCloudfrontMultitenantDistribution.id,
+ *     enabled: true,
  *     tags: {
  *         Environment: "production",
  *     },
@@ -42,12 +42,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cloudfront.DistributionTenant("example", {
- *     name: "example-tenant",
- *     distributionId: exampleAwsCloudfrontMultitenantDistribution.id,
- *     enabled: false,
- *     domains: [{
- *         domain: "tenant.example.com",
- *     }],
  *     customizations: {
  *         geoRestriction: {
  *             restrictionType: "whitelist",
@@ -64,6 +58,12 @@ import * as utilities from "../utilities";
  *             arn: tenantWaf.arn,
  *         },
  *     },
+ *     domains: [{
+ *         domain: "tenant.example.com",
+ *     }],
+ *     name: "example-tenant",
+ *     distributionId: exampleAwsCloudfrontMultitenantDistribution.id,
+ *     enabled: false,
  *     tags: {
  *         Environment: "production",
  *         Tenant: "example",

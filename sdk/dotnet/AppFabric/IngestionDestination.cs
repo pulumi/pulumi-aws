@@ -26,8 +26,6 @@ namespace Pulumi.Aws.AppFabric
     /// {
     ///     var example = new Aws.AppFabric.IngestionDestination("example", new()
     ///     {
-    ///         AppBundleArn = exampleAwsAppfabricAppBundle.Arn,
-    ///         IngestionArn = exampleAwsAppfabricIngestion.Arn,
     ///         ProcessingConfiguration = new Aws.AppFabric.Inputs.IngestionDestinationProcessingConfigurationArgs
     ///         {
     ///             AuditLog = new Aws.AppFabric.Inputs.IngestionDestinationProcessingConfigurationAuditLogArgs
@@ -49,6 +47,8 @@ namespace Pulumi.Aws.AppFabric
     ///                 },
     ///             },
     ///         },
+    ///         AppBundleArn = exampleAwsAppfabricAppBundle.Arn,
+    ///         IngestionArn = exampleAwsAppfabricIngestion.Arn,
     ///     });
     /// 
     /// });

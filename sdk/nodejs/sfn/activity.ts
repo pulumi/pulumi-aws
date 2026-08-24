@@ -30,12 +30,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const sfnActivity = new aws.sfn.Activity("sfn_activity", {
- *     name: "my-activity",
  *     encryptionConfiguration: {
  *         kmsKeyId: kmsKeyForSfn.arn,
  *         type: "CUSTOMER_MANAGED_KMS_KEY",
  *         kmsDataKeyReusePeriodSeconds: 900,
  *     },
+ *     name: "my-activity",
  * });
  * ```
  *

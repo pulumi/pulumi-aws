@@ -19,12 +19,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.auditmanager.Control("example", {
- *     name: "example",
  *     controlMappingSources: [{
  *         sourceName: "example",
  *         sourceSetUpOption: "Procedural_Controls_Mapping",
  *         sourceType: "MANUAL",
  *     }],
+ *     name: "example",
  * });
  * ```
  *

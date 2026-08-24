@@ -105,6 +105,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.elasticache.Cluster;
  * import com.pulumi.aws.elasticache.ClusterArgs;
  * import com.pulumi.codegen.internal.KeyedValue;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -129,7 +130,9 @@ import javax.annotation.Nullable;
  *             .numCacheClusters(2)
  *             .parameterGroupName("default.redis3.2")
  *             .port(6379)
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .ignoreChanges("numCacheClusters")
+ *                 .build());
  * 
  *         for (var i = 0; i < 1; i++) {
  *             new Cluster("replica-" + i, ClusterArgs.builder()
@@ -214,13 +217,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ReplicationGroup("example", ReplicationGroupArgs.builder()
- *             .replicationGroupId("tf-redis-cluster")
- *             .description("example description")
- *             .nodeType("cache.t2.small")
- *             .port(6379)
- *             .parameterGroupName("default.redis3.2.cluster.on")
- *             .automaticFailoverEnabled(true)
- *             .numNodeGroups(2)
  *             .nodeGroupConfigurations(            
  *                 ReplicationGroupNodeGroupConfigurationArgs.builder()
  *                     .nodeGroupId("0001")
@@ -236,6 +232,13 @@ import javax.annotation.Nullable;
  *                     .replicaCount(1)
  *                     .slots("8192-16383")
  *                     .build())
+ *             .replicationGroupId("tf-redis-cluster")
+ *             .description("example description")
+ *             .nodeType("cache.t2.small")
+ *             .port(6379)
+ *             .parameterGroupName("default.redis3.2.cluster.on")
+ *             .automaticFailoverEnabled(true)
+ *             .numNodeGroups(2)
  *             .build());
  * 
  *     }
@@ -269,14 +272,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new ReplicationGroup("test", ReplicationGroupArgs.builder()
- *             .replicationGroupId("myreplicaciongroup")
- *             .description("test description")
- *             .nodeType("cache.t3.small")
- *             .port(6379)
- *             .applyImmediately(true)
- *             .autoMinorVersionUpgrade(false)
- *             .maintenanceWindow("tue:06:30-tue:07:30")
- *             .snapshotWindow("01:00-02:00")
  *             .logDeliveryConfigurations(            
  *                 ReplicationGroupLogDeliveryConfigurationArgs.builder()
  *                     .destination(example.name())
@@ -290,6 +285,14 @@ import javax.annotation.Nullable;
  *                     .logFormat("json")
  *                     .logType("engine-log")
  *                     .build())
+ *             .replicationGroupId("myreplicaciongroup")
+ *             .description("test description")
+ *             .nodeType("cache.t3.small")
+ *             .port(6379)
+ *             .applyImmediately(true)
+ *             .autoMinorVersionUpgrade(false)
+ *             .maintenanceWindow("tue:06:30-tue:07:30")
+ *             .snapshotWindow("01:00-02:00")
  *             .build());
  * 
  *     }

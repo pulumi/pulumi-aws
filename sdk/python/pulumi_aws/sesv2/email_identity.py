@@ -339,11 +339,11 @@ class EmailIdentity(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sesv2.EmailIdentity("example",
-            email_identity="example.com",
             dkim_signing_attributes={
                 "domain_signing_private_key": "MIIJKAIBAAKCAgEA2Se7p8zvnI4yh+Gh9j2rG5e2aRXjg03Y8saiupLnadPH9xvM...",
                 "domain_signing_selector": "example",
-            })
+            },
+            email_identity="example.com")
         ```
 
         ## Import
@@ -415,11 +415,11 @@ class EmailIdentity(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sesv2.EmailIdentity("example",
-            email_identity="example.com",
             dkim_signing_attributes={
                 "domain_signing_private_key": "MIIJKAIBAAKCAgEA2Se7p8zvnI4yh+Gh9j2rG5e2aRXjg03Y8saiupLnadPH9xvM...",
                 "domain_signing_selector": "example",
-            })
+            },
+            email_identity="example.com")
         ```
 
         ## Import

@@ -372,8 +372,6 @@ class Webhook(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.codebuild.Webhook("example",
-            project_name=example_aws_codebuild_project["name"],
-            build_type="BUILD",
             filter_groups=[{
                 "filters": [
                     {
@@ -385,7 +383,9 @@ class Webhook(pulumi.CustomResource):
                         "pattern": "master",
                     },
                 ],
-            }])
+            }],
+            project_name=example_aws_codebuild_project["name"],
+            build_type="BUILD")
         ```
 
         ### GitHub Enterprise
@@ -401,16 +401,16 @@ class Webhook(pulumi.CustomResource):
 
         example = aws.codebuild.Webhook("example", project_name=example_aws_codebuild_project["name"])
         example_repository_webhook = github.RepositoryWebhook("example",
-            active=True,
-            events=["push"],
-            name="example",
-            repository=example_github_repository["name"],
             configuration=[{
                 "url": example.payload_url,
                 "secret": example.secret,
                 "contentType": "json",
                 "insecureSsl": False,
-            }])
+            }],
+            active=True,
+            events=["push"],
+            name="example",
+            repository=example_github_repository["name"])
         ```
 
         ### For CodeBuild Runner Project
@@ -423,14 +423,14 @@ class Webhook(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.codebuild.Webhook("example",
-            project_name=example_aws_codebuild_project["name"],
-            build_type="BUILD",
             filter_groups=[{
                 "filters": [{
                     "type": "EVENT",
                     "pattern": "WORKFLOW_JOB_QUEUED",
                 }],
-            }])
+            }],
+            project_name=example_aws_codebuild_project["name"],
+            build_type="BUILD")
         ```
 
         ## Import
@@ -477,8 +477,6 @@ class Webhook(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.codebuild.Webhook("example",
-            project_name=example_aws_codebuild_project["name"],
-            build_type="BUILD",
             filter_groups=[{
                 "filters": [
                     {
@@ -490,7 +488,9 @@ class Webhook(pulumi.CustomResource):
                         "pattern": "master",
                     },
                 ],
-            }])
+            }],
+            project_name=example_aws_codebuild_project["name"],
+            build_type="BUILD")
         ```
 
         ### GitHub Enterprise
@@ -506,16 +506,16 @@ class Webhook(pulumi.CustomResource):
 
         example = aws.codebuild.Webhook("example", project_name=example_aws_codebuild_project["name"])
         example_repository_webhook = github.RepositoryWebhook("example",
-            active=True,
-            events=["push"],
-            name="example",
-            repository=example_github_repository["name"],
             configuration=[{
                 "url": example.payload_url,
                 "secret": example.secret,
                 "contentType": "json",
                 "insecureSsl": False,
-            }])
+            }],
+            active=True,
+            events=["push"],
+            name="example",
+            repository=example_github_repository["name"])
         ```
 
         ### For CodeBuild Runner Project
@@ -528,14 +528,14 @@ class Webhook(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.codebuild.Webhook("example",
-            project_name=example_aws_codebuild_project["name"],
-            build_type="BUILD",
             filter_groups=[{
                 "filters": [{
                     "type": "EVENT",
                     "pattern": "WORKFLOW_JOB_QUEUED",
                 }],
-            }])
+            }],
+            project_name=example_aws_codebuild_project["name"],
+            build_type="BUILD")
         ```
 
         ## Import

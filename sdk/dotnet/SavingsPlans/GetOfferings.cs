@@ -28,7 +28,6 @@ namespace Pulumi.Aws.SavingsPlans
         /// {
         ///     var example = Aws.SavingsPlans.GetOfferings.Invoke(new()
         ///     {
-        ///         ProductType = "EC2",
         ///         Filters = new[]
         ///         {
         ///             new Aws.SavingsPlans.Inputs.GetOfferingsFilterInputArgs
@@ -40,6 +39,7 @@ namespace Pulumi.Aws.SavingsPlans
         ///                 },
         ///             },
         ///         },
+        ///         ProductType = "EC2",
         ///     });
         /// 
         /// });
@@ -65,7 +65,6 @@ namespace Pulumi.Aws.SavingsPlans
         /// {
         ///     var example = Aws.SavingsPlans.GetOfferings.Invoke(new()
         ///     {
-        ///         ProductType = "EC2",
         ///         Filters = new[]
         ///         {
         ///             new Aws.SavingsPlans.Inputs.GetOfferingsFilterInputArgs
@@ -77,6 +76,7 @@ namespace Pulumi.Aws.SavingsPlans
         ///                 },
         ///             },
         ///         },
+        ///         ProductType = "EC2",
         ///     });
         /// 
         /// });
@@ -102,7 +102,6 @@ namespace Pulumi.Aws.SavingsPlans
         /// {
         ///     var example = Aws.SavingsPlans.GetOfferings.Invoke(new()
         ///     {
-        ///         ProductType = "EC2",
         ///         Filters = new[]
         ///         {
         ///             new Aws.SavingsPlans.Inputs.GetOfferingsFilterInputArgs
@@ -114,6 +113,7 @@ namespace Pulumi.Aws.SavingsPlans
         ///                 },
         ///             },
         ///         },
+        ///         ProductType = "EC2",
         ///     });
         /// 
         /// });

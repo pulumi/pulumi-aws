@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * const current = aws.getCallerIdentity({});
  * const currentGetPartition = aws.getPartition({});
  * const test = new aws.bcmdata.Export("test", {"export": {
- *     name: "testexample",
  *     dataQueries: [{
  *         queryStatement: "SELECT identity_line_item_id, identity_time_interval, line_item_product_code,line_item_unblended_cost FROM COST_AND_USAGE_REPORT",
  *         tableConfigurations: {
@@ -36,20 +35,21 @@ import * as utilities from "../utilities";
  *     }],
  *     destinationConfigurations: [{
  *         s3Destinations: [{
- *             s3Bucket: testAwsS3Bucket.bucket,
- *             s3Prefix: testAwsS3Bucket.bucketPrefix,
- *             s3Region: testAwsS3Bucket.region,
  *             s3OutputConfigurations: [{
  *                 overwrite: "OVERWRITE_REPORT",
  *                 format: "TEXT_OR_CSV",
  *                 compression: "GZIP",
  *                 outputType: "CUSTOM",
  *             }],
+ *             s3Bucket: testAwsS3Bucket.bucket,
+ *             s3Prefix: testAwsS3Bucket.bucketPrefix,
+ *             s3Region: testAwsS3Bucket.region,
  *         }],
  *     }],
  *     refreshCadences: [{
  *         frequency: "SYNCHRONOUS",
  *     }],
+ *     name: "testexample",
  * }});
  * ```
  *

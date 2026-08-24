@@ -39,17 +39,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     ///     var @default = new Aws.Ec2.DefaultSecurityGroup("default", new()
     ///     {
-    ///         VpcId = mainvpc.Id,
-    ///         Ingress = new[]
-    ///         {
-    ///             new Aws.Ec2.Inputs.DefaultSecurityGroupIngressArgs
-    ///             {
-    ///                 Protocol = "-1",
-    ///                 Self = true,
-    ///                 FromPort = 0,
-    ///                 ToPort = 0,
-    ///             },
-    ///         },
     ///         Egress = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.DefaultSecurityGroupEgressArgs
@@ -63,6 +52,17 @@ namespace Pulumi.Aws.Ec2
     ///                 },
     ///             },
     ///         },
+    ///         Ingress = new[]
+    ///         {
+    ///             new Aws.Ec2.Inputs.DefaultSecurityGroupIngressArgs
+    ///             {
+    ///                 Protocol = "-1",
+    ///                 Self = true,
+    ///                 FromPort = 0,
+    ///                 ToPort = 0,
+    ///             },
+    ///         },
+    ///         VpcId = mainvpc.Id,
     ///     });
     /// 
     /// });
@@ -87,7 +87,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     ///     var @default = new Aws.Ec2.DefaultSecurityGroup("default", new()
     ///     {
-    ///         VpcId = mainvpc.Id,
     ///         Ingress = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.DefaultSecurityGroupIngressArgs
@@ -98,6 +97,7 @@ namespace Pulumi.Aws.Ec2
     ///                 ToPort = 0,
     ///             },
     ///         },
+    ///         VpcId = mainvpc.Id,
     ///     });
     /// 
     /// });

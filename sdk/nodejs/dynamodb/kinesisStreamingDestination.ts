@@ -14,12 +14,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.dynamodb.Table("example", {
- *     name: "orders",
- *     hashKey: "id",
  *     attributes: [{
  *         name: "id",
  *         type: "S",
  *     }],
+ *     name: "orders",
+ *     hashKey: "id",
  * });
  * const exampleStream = new aws.kinesis.Stream("example", {
  *     name: "order_item_changes",

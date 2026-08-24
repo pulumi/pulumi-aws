@@ -56,8 +56,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Table("example", TableArgs.builder()
- *             .keyspaceName(exampleAwsKeyspacesKeyspace.name())
- *             .tableName("my_table")
  *             .schemaDefinition(TableSchemaDefinitionArgs.builder()
  *                 .columns(TableSchemaDefinitionColumnArgs.builder()
  *                     .name("Message")
@@ -67,6 +65,8 @@ import javax.annotation.Nullable;
  *                     .name("Message")
  *                     .build())
  *                 .build())
+ *             .keyspaceName(exampleAwsKeyspacesKeyspace.name())
+ *             .tableName("my_table")
  *             .build());
  * 
  *     }

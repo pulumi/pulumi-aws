@@ -33,14 +33,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentcoreOauth2CredentialProvider(ctx, "github", &bedrock.AgentcoreOauth2CredentialProviderArgs{
-//				Name:                     pulumi.String("github-oauth-provider"),
-//				CredentialProviderVendor: pulumi.String("GithubOauth2"),
 //				Oauth2ProviderConfig: &bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs{
 //					GithubOauth2ProviderConfig: &bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigArgs{
 //						ClientId:     pulumi.String("your-github-client-id"),
 //						ClientSecret: pulumi.String("your-github-client-secret"),
 //					},
 //				},
+//				Name:                     pulumi.String("github-oauth-provider"),
+//				CredentialProviderVendor: pulumi.String("GithubOauth2"),
 //			})
 //			if err != nil {
 //				return err
@@ -66,24 +66,24 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentcoreOauth2CredentialProvider(ctx, "auth0", &bedrock.AgentcoreOauth2CredentialProviderArgs{
-//				Name:                     pulumi.String("auth0-oauth-provider"),
-//				CredentialProviderVendor: pulumi.String("CustomOauth2"),
 //				CustomOauth2ProviderConfig: []map[string][]map[string]interface{}{
 //					map[string][]map[string]interface{}{
 //						"custom": []map[string]interface{}{
 //							map[string]interface{}{
-//								"clientIdWo":                 "auth0-client-id",
-//								"clientSecretWo":             "auth0-client-secret",
-//								"clientCredentialsWoVersion": 1,
 //								"oauthDiscovery": []map[string]string{
 //									{
 //										"discoveryUrl": "https://dev-company.auth0.com/.well-known/openid-configuration",
 //									},
 //								},
+//								"clientIdWo":                 "auth0-client-id",
+//								"clientSecretWo":             "auth0-client-secret",
+//								"clientCredentialsWoVersion": 1,
 //							},
 //						},
 //					},
 //				},
+//				Name:                     pulumi.String("auth0-oauth-provider"),
+//				CredentialProviderVendor: pulumi.String("CustomOauth2"),
 //			})
 //			if err != nil {
 //				return err
@@ -109,13 +109,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentcoreOauth2CredentialProvider(ctx, "keycloak", &bedrock.AgentcoreOauth2CredentialProviderArgs{
-//				Name:                     pulumi.String("keycloak-oauth-provider"),
-//				CredentialProviderVendor: pulumi.String("CustomOauth2"),
 //				Oauth2ProviderConfig: &bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs{
 //					CustomOauth2ProviderConfig: &bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigArgs{
-//						ClientIdWo:                 pulumi.String("keycloak-client-id"),
-//						ClientSecretWo:             pulumi.String("keycloak-client-secret"),
-//						ClientCredentialsWoVersion: pulumi.Int(1),
 //						OauthDiscovery: &bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryArgs{
 //							AuthorizationServerMetadata: &bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs{
 //								Issuer:                pulumi.String("https://auth.company.com/realms/production"),
@@ -127,8 +122,13 @@ import (
 //								},
 //							},
 //						},
+//						ClientIdWo:                 pulumi.String("keycloak-client-id"),
+//						ClientSecretWo:             pulumi.String("keycloak-client-secret"),
+//						ClientCredentialsWoVersion: pulumi.Int(1),
 //					},
 //				},
+//				Name:                     pulumi.String("keycloak-oauth-provider"),
+//				CredentialProviderVendor: pulumi.String("CustomOauth2"),
 //			})
 //			if err != nil {
 //				return err

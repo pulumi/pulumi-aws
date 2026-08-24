@@ -193,9 +193,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var amplifyAppMasterEventTarget = new EventTarget("amplifyAppMasterEventTarget", EventTargetArgs.builder()
- *             .rule(amplifyAppMasterEventRule.name())
- *             .targetId(master.branchName())
- *             .arn(amplifyAppMasterTopic.arn())
  *             .inputTransformer(EventTargetInputTransformerArgs.builder()
  *                 .inputPaths(Map.ofEntries(
  *                     Map.entry("jobId", "$.detail.jobId"),
@@ -206,17 +203,20 @@ import javax.annotation.Nullable;
  *                 ))
  *                 .inputTemplate("\"Build notification from the AWS Amplify Console for app: https://<branch>.<appId>.amplifyapp.com/. Your build status is <status>. Go to https://console.aws.amazon.com/amplify/home?region=<region>#<appId>/<branch>/<jobId> to view details on your build. \"")
  *                 .build())
+ *             .rule(amplifyAppMasterEventRule.name())
+ *             .targetId(master.branchName())
+ *             .arn(amplifyAppMasterTopic.arn())
  *             .build());
  * 
  *         final var amplifyAppMaster = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid(master.arn().applyValue(_arn -> String.format("Allow_Publish_Events %s", _arn)))
- *                 .effect("Allow")
- *                 .actions("SNS:Publish")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("events.amazonaws.com")
  *                     .build())
+ *                 .sid(master.arn().applyValue(_arn -> String.format("Allow_Publish_Events %s", _arn)))
+ *                 .effect("Allow")
+ *                 .actions("SNS:Publish")
  *                 .resources(amplifyAppMasterTopic.arn())
  *                 .build())
  *             .build());

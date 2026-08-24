@@ -26,9 +26,6 @@ namespace Pulumi.Aws.CloudWatch
     /// {
     ///     var test = new Aws.CloudWatch.EventConnection("test", new()
     ///     {
-    ///         Name = "ngrok-connection",
-    ///         Description = "A connection description",
-    ///         AuthorizationType = "API_KEY",
     ///         AuthParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersArgs
     ///         {
     ///             ApiKey = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersApiKeyArgs
@@ -37,6 +34,9 @@ namespace Pulumi.Aws.CloudWatch
     ///                 Value = "1234",
     ///             },
     ///         },
+    ///         Name = "ngrok-connection",
+    ///         Description = "A connection description",
+    ///         AuthorizationType = "API_KEY",
     ///     });
     /// 
     /// });
@@ -54,9 +54,6 @@ namespace Pulumi.Aws.CloudWatch
     /// {
     ///     var test = new Aws.CloudWatch.EventConnection("test", new()
     ///     {
-    ///         Name = "ngrok-connection",
-    ///         Description = "A connection description",
-    ///         AuthorizationType = "BASIC",
     ///         AuthParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersArgs
     ///         {
     ///             Basic = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersBasicArgs
@@ -65,6 +62,9 @@ namespace Pulumi.Aws.CloudWatch
     ///                 Password = "Pass1234!",
     ///             },
     ///         },
+    ///         Name = "ngrok-connection",
+    ///         Description = "A connection description",
+    ///         AuthorizationType = "BASIC",
     ///     });
     /// 
     /// });
@@ -82,15 +82,10 @@ namespace Pulumi.Aws.CloudWatch
     /// {
     ///     var test = new Aws.CloudWatch.EventConnection("test", new()
     ///     {
-    ///         Name = "ngrok-connection",
-    ///         Description = "A connection description",
-    ///         AuthorizationType = "OAUTH_CLIENT_CREDENTIALS",
     ///         AuthParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersArgs
     ///         {
     ///             Oauth = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersOauthArgs
     ///             {
-    ///                 AuthorizationEndpoint = "https://auth.url.com/endpoint",
-    ///                 HttpMethod = "GET",
     ///                 ClientParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersOauthClientParametersArgs
     ///                 {
     ///                     ClientId = "1234567890",
@@ -126,8 +121,13 @@ namespace Pulumi.Aws.CloudWatch
     ///                         },
     ///                     },
     ///                 },
+    ///                 AuthorizationEndpoint = "https://auth.url.com/endpoint",
+    ///                 HttpMethod = "GET",
     ///             },
     ///         },
+    ///         Name = "ngrok-connection",
+    ///         Description = "A connection description",
+    ///         AuthorizationType = "OAUTH_CLIENT_CREDENTIALS",
     ///     });
     /// 
     /// });
@@ -145,9 +145,6 @@ namespace Pulumi.Aws.CloudWatch
     /// {
     ///     var test = new Aws.CloudWatch.EventConnection("test", new()
     ///     {
-    ///         Name = "ngrok-connection",
-    ///         Description = "A connection description",
-    ///         AuthorizationType = "BASIC",
     ///         AuthParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersArgs
     ///         {
     ///             Basic = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersBasicArgs
@@ -192,6 +189,9 @@ namespace Pulumi.Aws.CloudWatch
     ///                 },
     ///             },
     ///         },
+    ///         Name = "ngrok-connection",
+    ///         Description = "A connection description",
+    ///         AuthorizationType = "BASIC",
     ///     });
     /// 
     /// });
@@ -209,9 +209,6 @@ namespace Pulumi.Aws.CloudWatch
     /// {
     ///     var test = new Aws.CloudWatch.EventConnection("test", new()
     ///     {
-    ///         Name = "private-api-connection",
-    ///         Description = "A connection to a private API",
-    ///         AuthorizationType = "OAUTH_CLIENT_CREDENTIALS",
     ///         AuthParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersArgs
     ///         {
     ///             ConnectivityParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersConnectivityParametersArgs
@@ -223,8 +220,6 @@ namespace Pulumi.Aws.CloudWatch
     ///             },
     ///             Oauth = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersOauthArgs
     ///             {
-    ///                 AuthorizationEndpoint = "https://private-api.example.com/auth",
-    ///                 HttpMethod = "POST",
     ///                 ClientParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersOauthClientParametersArgs
     ///                 {
     ///                     ClientId = "1234567890",
@@ -242,8 +237,13 @@ namespace Pulumi.Aws.CloudWatch
     ///                         },
     ///                     },
     ///                 },
+    ///                 AuthorizationEndpoint = "https://private-api.example.com/auth",
+    ///                 HttpMethod = "POST",
     ///             },
     ///         },
+    ///         Name = "private-api-connection",
+    ///         Description = "A connection to a private API",
+    ///         AuthorizationType = "OAUTH_CLIENT_CREDENTIALS",
     ///     });
     /// 
     /// });
@@ -331,9 +331,6 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     ///     var testEventConnection = new Aws.CloudWatch.EventConnection("test", new()
     ///     {
-    ///         Name = "ngrok-connection",
-    ///         Description = "A connection description",
-    ///         AuthorizationType = "BASIC",
     ///         AuthParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersArgs
     ///         {
     ///             Basic = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersBasicArgs
@@ -342,6 +339,9 @@ namespace Pulumi.Aws.CloudWatch
     ///                 Password = "Pass1234!",
     ///             },
     ///         },
+    ///         Name = "ngrok-connection",
+    ///         Description = "A connection description",
+    ///         AuthorizationType = "BASIC",
     ///         KmsKeyIdentifier = example.Id,
     ///     });
     /// 

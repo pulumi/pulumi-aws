@@ -59,28 +59,26 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var ipset = new IpSet("ipset", IpSetArgs.builder()
- *             .name("tfIPSet")
  *             .ipSetDescriptors(IpSetIpSetDescriptorArgs.builder()
  *                 .type("IPV4")
  *                 .value("192.0.7.0/24")
  *                 .build())
+ *             .name("tfIPSet")
  *             .build());
  * 
  *         var wafrule = new Rule("wafrule", RuleArgs.builder()
- *             .name("tfWAFRule")
- *             .metricName("tfWAFRule")
  *             .predicates(RulePredicateArgs.builder()
  *                 .dataId(ipset.id())
  *                 .negated(false)
  *                 .type("IPMatch")
  *                 .build())
+ *             .name("tfWAFRule")
+ *             .metricName("tfWAFRule")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(ipset)
  *                 .build());
  * 
  *         var wafAcl = new WebAcl("wafAcl", WebAclArgs.builder()
- *             .name("tfWebACL")
- *             .metricName("tfWebACL")
  *             .defaultAction(WebAclDefaultActionArgs.builder()
  *                 .type("ALLOW")
  *                 .build())
@@ -92,6 +90,8 @@ import javax.annotation.Nullable;
  *                 .ruleId(wafrule.id())
  *                 .type("REGULAR")
  *                 .build())
+ *             .name("tfWebACL")
+ *             .metricName("tfWebACL")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
  *                     ipset,
@@ -134,7 +134,6 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new WebAcl("example", WebAclArgs.builder()
  *             .loggingConfiguration(WebAclLoggingConfigurationArgs.builder()
- *                 .logDestination(exampleAwsKinesisFirehoseDeliveryStream.arn())
  *                 .redactedFields(WebAclLoggingConfigurationRedactedFieldsArgs.builder()
  *                     .fieldToMatches(                    
  *                         WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs.builder()
@@ -145,6 +144,7 @@ import javax.annotation.Nullable;
  *                             .type("HEADER")
  *                             .build())
  *                     .build())
+ *                 .logDestination(exampleAwsKinesisFirehoseDeliveryStream.arn())
  *                 .build())
  *             .build());
  * 

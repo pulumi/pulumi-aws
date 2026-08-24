@@ -102,10 +102,6 @@ namespace Pulumi.Aws.NetworkManager
     ///         {
     ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationInputArgs
     ///             {
-    ///                 AsnRanges = new[]
-    ///                 {
-    ///                     "65022-65534",
-    ///                 },
     ///                 EdgeLocations = new[]
     ///                 {
     ///                     new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationInputArgs
@@ -113,6 +109,10 @@ namespace Pulumi.Aws.NetworkManager
     ///                         Location = "us-west-2",
     ///                         Asn = "65500",
     ///                     },
+    ///                 },
+    ///                 AsnRanges = new[]
+    ///                 {
+    ///                     "65022-65534",
     ///                 },
     ///             },
     ///         },
@@ -145,10 +145,6 @@ namespace Pulumi.Aws.NetworkManager
     ///         {
     ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationInputArgs
     ///             {
-    ///                 AsnRanges = new[]
-    ///                 {
-    ///                     "65022-65534",
-    ///                 },
     ///                 EdgeLocations = new[]
     ///                 {
     ///                     new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationInputArgs
@@ -157,13 +153,10 @@ namespace Pulumi.Aws.NetworkManager
     ///                         Asn = "65500",
     ///                     },
     ///                 },
-    ///             },
-    ///         },
-    ///         Segments = new[]
-    ///         {
-    ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentSegmentInputArgs
-    ///             {
-    ///                 Name = "segment",
+    ///                 AsnRanges = new[]
+    ///                 {
+    ///                     "65022-65534",
+    ///                 },
     ///             },
     ///         },
     ///         SegmentActions = new[]
@@ -180,6 +173,13 @@ namespace Pulumi.Aws.NetworkManager
     ///                 {
     ///                     exampleVpcAttachment.Id,
     ///                 },
+    ///             },
+    ///         },
+    ///         Segments = new[]
+    ///         {
+    ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentSegmentInputArgs
+    ///             {
+    ///                 Name = "segment",
     ///             },
     ///         },
     ///     });
@@ -224,10 +224,6 @@ namespace Pulumi.Aws.NetworkManager
     ///         {
     ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationInputArgs
     ///             {
-    ///                 AsnRanges = new[]
-    ///                 {
-    ///                     "65022-65534",
-    ///                 },
     ///                 EdgeLocations = new[]
     ///                 {
     ///                     new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationInputArgs
@@ -235,13 +231,10 @@ namespace Pulumi.Aws.NetworkManager
     ///                         Location = "us-west-2",
     ///                     },
     ///                 },
-    ///             },
-    ///         },
-    ///         Segments = new[]
-    ///         {
-    ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentSegmentInputArgs
-    ///             {
-    ///                 Name = "segment",
+    ///                 AsnRanges = new[]
+    ///                 {
+    ///                     "65022-65534",
+    ///                 },
     ///             },
     ///         },
     ///         SegmentActions = new[]
@@ -258,6 +251,13 @@ namespace Pulumi.Aws.NetworkManager
     ///                 {
     ///                     exampleVpcAttachment.Id,
     ///                 },
+    ///             },
+    ///         },
+    ///         Segments = new[]
+    ///         {
+    ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentSegmentInputArgs
+    ///             {
+    ///                 Name = "segment",
     ///             },
     ///         },
     ///     });
@@ -296,10 +296,6 @@ namespace Pulumi.Aws.NetworkManager
     ///         {
     ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationInputArgs
     ///             {
-    ///                 AsnRanges = new[]
-    ///                 {
-    ///                     "65022-65534",
-    ///                 },
     ///                 EdgeLocations = new[]
     ///                 {
     ///                     new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationInputArgs
@@ -312,6 +308,10 @@ namespace Pulumi.Aws.NetworkManager
     ///                         Location = "us-east-1",
     ///                         Asn = "65501",
     ///                     },
+    ///                 },
+    ///                 AsnRanges = new[]
+    ///                 {
+    ///                     "65022-65534",
     ///                 },
     ///             },
     ///         },
@@ -351,10 +351,6 @@ namespace Pulumi.Aws.NetworkManager
     ///         {
     ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationInputArgs
     ///             {
-    ///                 AsnRanges = new[]
-    ///                 {
-    ///                     "65022-65534",
-    ///                 },
     ///                 EdgeLocations = new[]
     ///                 {
     ///                     new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationInputArgs
@@ -368,17 +364,10 @@ namespace Pulumi.Aws.NetworkManager
     ///                         Asn = "65501",
     ///                     },
     ///                 },
-    ///             },
-    ///         },
-    ///         Segments = new[]
-    ///         {
-    ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentSegmentInputArgs
-    ///             {
-    ///                 Name = "segment",
-    ///             },
-    ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentSegmentInputArgs
-    ///             {
-    ///                 Name = "segment2",
+    ///                 AsnRanges = new[]
+    ///                 {
+    ///                     "65022-65534",
+    ///                 },
     ///             },
     ///         },
     ///         SegmentActions = new[]
@@ -408,6 +397,17 @@ namespace Pulumi.Aws.NetworkManager
     ///                 {
     ///                     exampleUsEast1.Id,
     ///                 },
+    ///             },
+    ///         },
+    ///         Segments = new[]
+    ///         {
+    ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentSegmentInputArgs
+    ///             {
+    ///                 Name = "segment",
+    ///             },
+    ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentSegmentInputArgs
+    ///             {
+    ///                 Name = "segment2",
     ///             },
     ///         },
     ///     });
@@ -464,10 +464,6 @@ namespace Pulumi.Aws.NetworkManager
     ///         {
     ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationInputArgs
     ///             {
-    ///                 AsnRanges = new[]
-    ///                 {
-    ///                     "65022-65534",
-    ///                 },
     ///                 EdgeLocations = new[]
     ///                 {
     ///                     new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationInputArgs
@@ -479,17 +475,10 @@ namespace Pulumi.Aws.NetworkManager
     ///                         Location = "us-east-1",
     ///                     },
     ///                 },
-    ///             },
-    ///         },
-    ///         Segments = new[]
-    ///         {
-    ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentSegmentInputArgs
-    ///             {
-    ///                 Name = "segment",
-    ///             },
-    ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentSegmentInputArgs
-    ///             {
-    ///                 Name = "segment2",
+    ///                 AsnRanges = new[]
+    ///                 {
+    ///                     "65022-65534",
+    ///                 },
     ///             },
     ///         },
     ///         SegmentActions = new[]
@@ -519,6 +508,17 @@ namespace Pulumi.Aws.NetworkManager
     ///                 {
     ///                     exampleUsEast1.Id,
     ///                 },
+    ///             },
+    ///         },
+    ///         Segments = new[]
+    ///         {
+    ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentSegmentInputArgs
+    ///             {
+    ///                 Name = "segment",
+    ///             },
+    ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentSegmentInputArgs
+    ///             {
+    ///                 Name = "segment2",
     ///             },
     ///         },
     ///     });

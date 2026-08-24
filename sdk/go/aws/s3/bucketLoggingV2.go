@@ -53,6 +53,15 @@ import (
 //			loggingBucketPolicy := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
+//						Conditions: iam.GetPolicyDocumentStatementConditionArray{
+//							&iam.GetPolicyDocumentStatementConditionArgs{
+//								Test:     pulumi.String("StringEquals"),
+//								Variable: pulumi.String("aws:SourceAccount"),
+//								Values: pulumi.StringArray{
+//									pulumi.String(current.AccountId),
+//								},
+//							},
+//						},
 //						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
 //							&iam.GetPolicyDocumentStatementPrincipalArgs{
 //								Identifiers: pulumi.StringArray{
@@ -68,15 +77,6 @@ import (
 //							logging.Arn.ApplyT(func(arn string) (string, error) {
 //								return fmt.Sprintf("%v/*", arn), nil
 //							}).(pulumi.StringOutput),
-//						},
-//						Conditions: iam.GetPolicyDocumentStatementConditionArray{
-//							&iam.GetPolicyDocumentStatementConditionArgs{
-//								Test:     pulumi.String("StringEquals"),
-//								Variable: pulumi.String("aws:SourceAccount"),
-//								Values: pulumi.StringArray{
-//									pulumi.String(current.AccountId),
-//								},
-//							},
 //						},
 //					},
 //				},
@@ -95,14 +95,14 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketLogging(ctx, "example", &s3.BucketLoggingArgs{
-//				Bucket:       example.Bucket,
-//				TargetBucket: logging.Bucket,
-//				TargetPrefix: pulumi.String("log/"),
 //				TargetObjectKeyFormat: &s3.BucketLoggingTargetObjectKeyFormatArgs{
 //					PartitionedPrefix: &s3.BucketLoggingTargetObjectKeyFormatPartitionedPrefixArgs{
 //						PartitionDateSource: pulumi.String("EventTime"),
 //					},
 //				},
+//				Bucket:       example.Bucket,
+//				TargetBucket: logging.Bucket,
+//				TargetPrefix: pulumi.String("log/"),
 //			})
 //			if err != nil {
 //				return err

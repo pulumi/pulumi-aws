@@ -77,12 +77,12 @@ import javax.annotation.Nullable;
  * 
  *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .actions("SNS:Publish")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("events.amazonaws.com")
  *                     .build())
+ *                 .effect("Allow")
+ *                 .actions("SNS:Publish")
  *                 .resources(awsLogins.arn())
  *                 .build())
  *             .build());

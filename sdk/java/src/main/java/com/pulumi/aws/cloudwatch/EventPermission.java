@@ -84,13 +84,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var organizationAccess = new EventPermission("organizationAccess", EventPermissionArgs.builder()
- *             .principal("*")
- *             .statementId("OrganizationAccess")
  *             .condition(EventPermissionConditionArgs.builder()
  *                 .key("aws:PrincipalOrgID")
  *                 .type("StringEquals")
  *                 .value(example.id())
  *                 .build())
+ *             .principal("*")
+ *             .statementId("OrganizationAccess")
  *             .build());
  * 
  *     }

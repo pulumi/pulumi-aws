@@ -49,13 +49,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new HoursOfOperation("test", HoursOfOperationArgs.builder()
- *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
- *             .name("Office Hours")
- *             .description("Monday office hours")
- *             .timeZone("EST")
  *             .configs(            
  *                 HoursOfOperationConfigArgs.builder()
- *                     .day("MONDAY")
  *                     .endTime(HoursOfOperationConfigEndTimeArgs.builder()
  *                         .hours(23)
  *                         .minutes(8)
@@ -64,9 +59,9 @@ import javax.annotation.Nullable;
  *                         .hours(8)
  *                         .minutes(0)
  *                         .build())
+ *                     .day("MONDAY")
  *                     .build(),
  *                 HoursOfOperationConfigArgs.builder()
- *                     .day("TUESDAY")
  *                     .endTime(HoursOfOperationConfigEndTimeArgs.builder()
  *                         .hours(21)
  *                         .minutes(0)
@@ -75,7 +70,12 @@ import javax.annotation.Nullable;
  *                         .hours(9)
  *                         .minutes(0)
  *                         .build())
+ *                     .day("TUESDAY")
  *                     .build())
+ *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+ *             .name("Office Hours")
+ *             .description("Monday office hours")
+ *             .timeZone("EST")
  *             .tags(Map.of("Name", "Example Hours of Operation"))
  *             .build());
  * 

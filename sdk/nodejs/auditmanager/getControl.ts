@@ -39,21 +39,21 @@ import * as utilities from "../utilities";
  *     type: "Standard",
  * });
  * const exampleFramework = new aws.auditmanager.Framework("example", {
- *     name: "example",
  *     controlSets: [
  *         {
- *             name: "example",
  *             controls: [{
  *                 id: example.then(example => example.id),
  *             }],
+ *             name: "example",
  *         },
  *         {
- *             name: "example2",
  *             controls: [{
  *                 id: example2.then(example2 => example2.id),
  *             }],
+ *             name: "example2",
  *         },
  *     ],
+ *     name: "example",
  * });
  * ```
  */
@@ -156,21 +156,21 @@ export interface GetControlResult {
  *     type: "Standard",
  * });
  * const exampleFramework = new aws.auditmanager.Framework("example", {
- *     name: "example",
  *     controlSets: [
  *         {
- *             name: "example",
  *             controls: [{
  *                 id: example.then(example => example.id),
  *             }],
+ *             name: "example",
  *         },
  *         {
- *             name: "example2",
  *             controls: [{
  *                 id: example2.then(example2 => example2.id),
  *             }],
+ *             name: "example2",
  *         },
  *     ],
+ *     name: "example",
  * });
  * ```
  */

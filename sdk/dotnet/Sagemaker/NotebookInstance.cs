@@ -50,11 +50,11 @@ namespace Pulumi.Aws.Sagemaker
     /// {
     ///     var example = new Aws.Sagemaker.CodeRepository("example", new()
     ///     {
-    ///         CodeRepositoryName = "my-notebook-instance-code-repo",
     ///         GitConfig = new Aws.Sagemaker.Inputs.CodeRepositoryGitConfigArgs
     ///         {
     ///             RepositoryUrl = "https://github.com/github/docs.git",
     ///         },
+    ///         CodeRepositoryName = "my-notebook-instance-code-repo",
     ///     });
     /// 
     ///     var ni = new Aws.Sagemaker.NotebookInstance("ni", new()

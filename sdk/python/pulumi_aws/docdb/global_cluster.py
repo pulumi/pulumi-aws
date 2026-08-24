@@ -421,7 +421,7 @@ class GlobalCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.docdb.Cluster("example")
+        example = aws.docdb.Cluster("example", opts = pulumi.ResourceOptions(ignore_changes=["globalClusterIdentifier"]))
         example_global_cluster = aws.docdb.GlobalCluster("example",
             global_cluster_identifier="example",
             source_db_cluster_identifier=example.arn)
@@ -441,7 +441,7 @@ class GlobalCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.docdb.GlobalCluster("example")
+        example = aws.docdb.GlobalCluster("example", opts = pulumi.ResourceOptions(ignore_changes=["sourceDbClusterIdentifier"]))
         ```
 
 
@@ -514,7 +514,7 @@ class GlobalCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.docdb.Cluster("example")
+        example = aws.docdb.Cluster("example", opts = pulumi.ResourceOptions(ignore_changes=["globalClusterIdentifier"]))
         example_global_cluster = aws.docdb.GlobalCluster("example",
             global_cluster_identifier="example",
             source_db_cluster_identifier=example.arn)
@@ -534,7 +534,7 @@ class GlobalCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.docdb.GlobalCluster("example")
+        example = aws.docdb.GlobalCluster("example", opts = pulumi.ResourceOptions(ignore_changes=["sourceDbClusterIdentifier"]))
         ```
 
 

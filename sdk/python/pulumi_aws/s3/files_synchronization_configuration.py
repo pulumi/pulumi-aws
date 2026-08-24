@@ -225,15 +225,15 @@ class FilesSynchronizationConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.FilesSynchronizationConfiguration("example",
-            file_system_id=example_aws_s3files_file_system["id"],
+            expiration_data_rules=[{
+                "days_after_last_access": 30,
+            }],
             import_data_rules=[{
                 "prefix": "",
                 "size_less_than": int(52673613135872),
                 "trigger": "ON_FILE_ACCESS",
             }],
-            expiration_data_rules=[{
-                "days_after_last_access": 30,
-            }])
+            file_system_id=example_aws_s3files_file_system["id"])
         ```
 
         ## Import
@@ -282,15 +282,15 @@ class FilesSynchronizationConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.FilesSynchronizationConfiguration("example",
-            file_system_id=example_aws_s3files_file_system["id"],
+            expiration_data_rules=[{
+                "days_after_last_access": 30,
+            }],
             import_data_rules=[{
                 "prefix": "",
                 "size_less_than": int(52673613135872),
                 "trigger": "ON_FILE_ACCESS",
             }],
-            expiration_data_rules=[{
-                "days_after_last_access": 30,
-            }])
+            file_system_id=example_aws_s3files_file_system["id"])
         ```
 
         ## Import

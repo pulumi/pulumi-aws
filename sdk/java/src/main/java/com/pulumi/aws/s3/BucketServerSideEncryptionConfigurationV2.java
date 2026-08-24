@@ -64,13 +64,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new BucketServerSideEncryptionConfiguration("example", BucketServerSideEncryptionConfigurationArgs.builder()
- *             .bucket(mybucket.id())
  *             .rules(BucketServerSideEncryptionConfigurationRuleArgs.builder()
  *                 .applyServerSideEncryptionByDefault(BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs.builder()
  *                     .kmsMasterKeyId(mykey.arn())
  *                     .sseAlgorithm("aws:kms")
  *                     .build())
  *                 .build())
+ *             .bucket(mybucket.id())
  *             .build());
  * 
  *     }
@@ -118,7 +118,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new BucketServerSideEncryptionConfiguration("example", BucketServerSideEncryptionConfigurationArgs.builder()
- *             .bucket(mybucket.id())
  *             .rules(BucketServerSideEncryptionConfigurationRuleArgs.builder()
  *                 .applyServerSideEncryptionByDefault(BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs.builder()
  *                     .kmsMasterKeyId(mykey.arn())
@@ -127,6 +126,7 @@ import javax.annotation.Nullable;
  *                 .bucketKeyEnabled(true)
  *                 .blockedEncryptionTypes("SSE-C")
  *                 .build())
+ *             .bucket(mybucket.id())
  *             .build());
  * 
  *     }

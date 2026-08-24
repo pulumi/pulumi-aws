@@ -445,7 +445,6 @@ class DataQualityJobDefinition(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.sagemaker.DataQualityJobDefinition("test",
-            name="my-data-quality-job-definition",
             data_quality_app_specification={
                 "image_uri": monitor["registryPath"],
             },
@@ -468,6 +467,7 @@ class DataQualityJobDefinition(pulumi.CustomResource):
                     "volume_size_in_gb": 20,
                 },
             },
+            name="my-data-quality-job-definition",
             role_arn=my_role["arn"])
         ```
 
@@ -512,7 +512,6 @@ class DataQualityJobDefinition(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.sagemaker.DataQualityJobDefinition("test",
-            name="my-data-quality-job-definition",
             data_quality_app_specification={
                 "image_uri": monitor["registryPath"],
             },
@@ -535,6 +534,7 @@ class DataQualityJobDefinition(pulumi.CustomResource):
                     "volume_size_in_gb": 20,
                 },
             },
+            name="my-data-quality-job-definition",
             role_arn=my_role["arn"])
         ```
 

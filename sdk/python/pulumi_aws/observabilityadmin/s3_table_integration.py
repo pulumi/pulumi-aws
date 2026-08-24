@@ -295,10 +295,10 @@ class S3TableIntegration(pulumi.CustomResource):
                 }],
             }))
         example_s3_table_integration = aws.observabilityadmin.S3TableIntegration("example",
-            role_arn=example.arn,
             encryption={
                 "sse_algorithm": "AES256",
-            })
+            },
+            role_arn=example.arn)
         ```
 
         ### Integration with KMS Encryption
@@ -324,11 +324,11 @@ class S3TableIntegration(pulumi.CustomResource):
             description="S3 Table Integration KMS key",
             deletion_window_in_days=7)
         example_s3_table_integration = aws.observabilityadmin.S3TableIntegration("example",
-            role_arn=example.arn,
             encryption={
                 "sse_algorithm": "aws:kms",
                 "kms_key_arn": example_key.arn,
-            })
+            },
+            role_arn=example.arn)
         ```
 
         ## Import
@@ -408,10 +408,10 @@ class S3TableIntegration(pulumi.CustomResource):
                 }],
             }))
         example_s3_table_integration = aws.observabilityadmin.S3TableIntegration("example",
-            role_arn=example.arn,
             encryption={
                 "sse_algorithm": "AES256",
-            })
+            },
+            role_arn=example.arn)
         ```
 
         ### Integration with KMS Encryption
@@ -437,11 +437,11 @@ class S3TableIntegration(pulumi.CustomResource):
             description="S3 Table Integration KMS key",
             deletion_window_in_days=7)
         example_s3_table_integration = aws.observabilityadmin.S3TableIntegration("example",
-            role_arn=example.arn,
             encryption={
                 "sse_algorithm": "aws:kms",
                 "kms_key_arn": example_key.arn,
-            })
+            },
+            role_arn=example.arn)
         ```
 
         ## Import

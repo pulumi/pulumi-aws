@@ -55,34 +55,8 @@ namespace Pulumi.Aws.CloudFront
     /// {
     ///     var example = new Aws.CloudFront.MultitenantDistribution("example", new()
     ///     {
-    ///         Comment = "Multi-tenant distribution for my application",
-    ///         Enabled = true,
-    ///         Origins = new[]
-    ///         {
-    ///             new Aws.CloudFront.Inputs.MultitenantDistributionOriginArgs
-    ///             {
-    ///                 DomainName = "example.com",
-    ///                 Id = "example-origin",
-    ///                 CustomOriginConfigs = new[]
-    ///                 {
-    ///                     new Aws.CloudFront.Inputs.MultitenantDistributionOriginCustomOriginConfigArgs
-    ///                     {
-    ///                         HttpPort = 80,
-    ///                         HttpsPort = 443,
-    ///                         OriginProtocolPolicy = "https-only",
-    ///                         OriginSslProtocols = new[]
-    ///                         {
-    ///                             "TLSv1.2",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
     ///         DefaultCacheBehavior = new Aws.CloudFront.Inputs.MultitenantDistributionDefaultCacheBehaviorArgs
     ///         {
-    ///             TargetOriginId = "example-origin",
-    ///             ViewerProtocolPolicy = "redirect-to-https",
-    ///             CachePolicyId = exampleAwsCloudfrontCachePolicy.Id,
     ///             AllowedMethods = new Aws.CloudFront.Inputs.MultitenantDistributionDefaultCacheBehaviorAllowedMethodsArgs
     ///             {
     ///                 Items = new[]
@@ -101,6 +75,9 @@ namespace Pulumi.Aws.CloudFront
     ///                     "HEAD",
     ///                 },
     ///             },
+    ///             TargetOriginId = "example-origin",
+    ///             ViewerProtocolPolicy = "redirect-to-https",
+    ///             CachePolicyId = exampleAwsCloudfrontCachePolicy.Id,
     ///         },
     ///         Restrictions = new Aws.CloudFront.Inputs.MultitenantDistributionRestrictionsArgs
     ///         {
@@ -120,7 +97,6 @@ namespace Pulumi.Aws.CloudFront
     ///             {
     ///                 new Aws.CloudFront.Inputs.MultitenantDistributionTenantConfigParameterDefinitionArgs
     ///                 {
-    ///                     Name = "origin_domain",
     ///                     Definitions = new[]
     ///                     {
     ///                         new Aws.CloudFront.Inputs.MultitenantDistributionTenantConfigParameterDefinitionDefinitionArgs
@@ -135,9 +111,33 @@ namespace Pulumi.Aws.CloudFront
     ///                             },
     ///                         },
     ///                     },
+    ///                     Name = "origin_domain",
     ///                 },
     ///             },
     ///         },
+    ///         Origins = new[]
+    ///         {
+    ///             new Aws.CloudFront.Inputs.MultitenantDistributionOriginArgs
+    ///             {
+    ///                 CustomOriginConfigs = new[]
+    ///                 {
+    ///                     new Aws.CloudFront.Inputs.MultitenantDistributionOriginCustomOriginConfigArgs
+    ///                     {
+    ///                         HttpPort = 80,
+    ///                         HttpsPort = 443,
+    ///                         OriginProtocolPolicy = "https-only",
+    ///                         OriginSslProtocols = new[]
+    ///                         {
+    ///                             "TLSv1.2",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 DomainName = "example.com",
+    ///                 Id = "example-origin",
+    ///             },
+    ///         },
+    ///         Comment = "Multi-tenant distribution for my application",
+    ///         Enabled = true,
     ///         Tags = 
     ///         {
     ///             { "Environment", "production" },

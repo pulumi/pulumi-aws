@@ -18,19 +18,19 @@ import * as utilities from "../utilities";
  * const exampleAgentcoreAgentRuntime = new aws.bedrock.AgentcoreAgentRuntime("example", {});
  * const example = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
- *         sid: "AllowOAuthFromVPC",
- *         effect: "Allow",
- *         actions: ["bedrock-agentcore:InvokeAgentRuntime"],
- *         principals: [{
- *             type: "*",
- *             identifiers: ["*"],
- *         }],
- *         resources: [exampleAgentcoreAgentRuntime.agentRuntimeArn],
  *         conditions: [{
  *             test: "StringEquals",
  *             variable: "aws:SourceVpc",
  *             values: ["vpc-1a2b3c4d"],
  *         }],
+ *         principals: [{
+ *             type: "*",
+ *             identifiers: ["*"],
+ *         }],
+ *         sid: "AllowOAuthFromVPC",
+ *         effect: "Allow",
+ *         actions: ["bedrock-agentcore:InvokeAgentRuntime"],
+ *         resources: [exampleAgentcoreAgentRuntime.agentRuntimeArn],
  *     }],
  * });
  * const exampleAgentcoreResourcePolicy = new aws.bedrock.AgentcoreResourcePolicy("example", {

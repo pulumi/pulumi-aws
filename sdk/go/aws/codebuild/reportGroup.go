@@ -41,8 +41,6 @@ import (
 //			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Sid:    pulumi.StringRef("Enable IAM User Permissions"),
-//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "AWS",
@@ -51,6 +49,8 @@ import (
 //								},
 //							},
 //						},
+//						Sid:    pulumi.StringRef("Enable IAM User Permissions"),
+//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"kms:*",
 //						},
@@ -78,10 +78,7 @@ import (
 //				return err
 //			}
 //			_, err = codebuild.NewReportGroup(ctx, "example", &codebuild.ReportGroupArgs{
-//				Name: pulumi.String("my test report group"),
-//				Type: pulumi.String("TEST"),
 //				ExportConfig: &codebuild.ReportGroupExportConfigArgs{
-//					Type: pulumi.String("S3"),
 //					S3Destination: &codebuild.ReportGroupExportConfigS3DestinationArgs{
 //						Bucket:             exampleBucket.ID().ToIDOutput().ToStringOutput(),
 //						EncryptionDisabled: pulumi.Bool(false),
@@ -89,7 +86,10 @@ import (
 //						Packaging:          pulumi.String("NONE"),
 //						Path:               pulumi.String("/some"),
 //					},
+//					Type: pulumi.String("S3"),
 //				},
+//				Name: pulumi.String("my test report group"),
+//				Type: pulumi.String("TEST"),
 //			})
 //			if err != nil {
 //				return err

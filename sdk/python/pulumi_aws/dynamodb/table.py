@@ -1083,12 +1083,10 @@ class Table(pulumi.CustomResource):
         import pulumi_aws as aws
 
         basic_dynamodb_table = aws.dynamodb.Table("basic-dynamodb-table",
-            name="GameScores",
-            billing_mode="PROVISIONED",
-            read_capacity=20,
-            write_capacity=20,
-            hash_key="UserId",
-            range_key="GameTitle",
+            ttl={
+                "attribute_name": "TimeToExist",
+                "enabled": True,
+            },
             attributes=[
                 {
                     "name": "UserId",
@@ -1103,10 +1101,6 @@ class Table(pulumi.CustomResource):
                     "type": "N",
                 },
             ],
-            ttl={
-                "attribute_name": "TimeToExist",
-                "enabled": True,
-            },
             global_secondary_indexes=[{
                 "name": "GameTitleIndex",
                 "hash_key": "GameTitle",
@@ -1116,6 +1110,12 @@ class Table(pulumi.CustomResource):
                 "projection_type": "INCLUDE",
                 "non_key_attributes": ["UserId"],
             }],
+            name="GameScores",
+            billing_mode="PROVISIONED",
+            read_capacity=20,
+            write_capacity=20,
+            hash_key="UserId",
+            range_key="GameTitle",
             tags={
                 "Name": "dynamodb-table-1",
                 "Environment": "production",
@@ -1133,11 +1133,10 @@ class Table(pulumi.CustomResource):
         import pulumi_aws as aws
 
         basic_dynamodb_table = aws.dynamodb.Table("basic-dynamodb-table",
-            name="TournamentMatches",
-            billing_mode="PROVISIONED",
-            read_capacity=20,
-            write_capacity=20,
-            hash_key="matchId",
+            ttl={
+                "attribute_name": "TimeToExist",
+                "enabled": True,
+            },
             attributes=[
                 {
                     "name": "matchId",
@@ -1168,13 +1167,8 @@ class Table(pulumi.CustomResource):
                     "type": "S",
                 },
             ],
-            ttl={
-                "attribute_name": "TimeToExist",
-                "enabled": True,
-            },
             global_secondary_indexes=[
                 {
-                    "name": "TournamentRegionIndex",
                     "key_schemas": [
                         {
                             "attribute_name": "tournamentId",
@@ -1197,12 +1191,12 @@ class Table(pulumi.CustomResource):
                             "key_type": "RANGE",
                         },
                     ],
+                    "name": "TournamentRegionIndex",
                     "write_capacity": 10,
                     "read_capacity": 10,
                     "projection_type": "ALL",
                 },
                 {
-                    "name": "PlayerMatchHistoryIndex",
                     "key_schemas": [
                         {
                             "attribute_name": "playerId",
@@ -1217,11 +1211,17 @@ class Table(pulumi.CustomResource):
                             "key_type": "RANGE",
                         },
                     ],
+                    "name": "PlayerMatchHistoryIndex",
                     "write_capacity": 10,
                     "read_capacity": 10,
                     "projection_type": "ALL",
                 },
             ],
+            name="TournamentMatches",
+            billing_mode="PROVISIONED",
+            read_capacity=20,
+            write_capacity=20,
+            hash_key="matchId",
             tags={
                 "Name": "dynamodb-table-1",
                 "Environment": "production",
@@ -1239,11 +1239,6 @@ class Table(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.dynamodb.Table("example",
-            name="example",
-            hash_key="TestTableHashKey",
-            billing_mode="PAY_PER_REQUEST",
-            stream_enabled=True,
-            stream_view_type="NEW_AND_OLD_IMAGES",
             attributes=[{
                 "name": "TestTableHashKey",
                 "type": "S",
@@ -1255,7 +1250,12 @@ class Table(pulumi.CustomResource):
                 {
                     "region_name": "us-west-2",
                 },
-            ])
+            ],
+            name="example",
+            hash_key="TestTableHashKey",
+            billing_mode="PAY_PER_REQUEST",
+            stream_enabled=True,
+            stream_view_type="NEW_AND_OLD_IMAGES")
         ```
 
         ### Global Tables with Multi-Region Strong Consistency
@@ -1275,11 +1275,6 @@ class Table(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.dynamodb.Table("example",
-            name="example",
-            hash_key="TestTableHashKey",
-            billing_mode="PAY_PER_REQUEST",
-            stream_enabled=True,
-            stream_view_type="NEW_AND_OLD_IMAGES",
             attributes=[{
                 "name": "TestTableHashKey",
                 "type": "S",
@@ -1293,7 +1288,12 @@ class Table(pulumi.CustomResource):
                     "region_name": "us-west-2",
                     "consistency_mode": "STRONG",
                 },
-            ])
+            ],
+            name="example",
+            hash_key="TestTableHashKey",
+            billing_mode="PAY_PER_REQUEST",
+            stream_enabled=True,
+            stream_view_type="NEW_AND_OLD_IMAGES")
         ```
 
         ##### Consistency Mode with 2 Replicas and Witness Region
@@ -1303,11 +1303,9 @@ class Table(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.dynamodb.Table("example",
-            name="example",
-            hash_key="TestTableHashKey",
-            billing_mode="PAY_PER_REQUEST",
-            stream_enabled=True,
-            stream_view_type="NEW_AND_OLD_IMAGES",
+            global_table_witness={
+                "region_name": "us-west-2",
+            },
             attributes=[{
                 "name": "TestTableHashKey",
                 "type": "S",
@@ -1316,9 +1314,11 @@ class Table(pulumi.CustomResource):
                 "region_name": "us-east-2",
                 "consistency_mode": "STRONG",
             }],
-            global_table_witness={
-                "region_name": "us-west-2",
-            })
+            name="example",
+            hash_key="TestTableHashKey",
+            billing_mode="PAY_PER_REQUEST",
+            stream_enabled=True,
+            stream_view_type="NEW_AND_OLD_IMAGES")
         ```
 
         ### Replica Tagging
@@ -1334,11 +1334,6 @@ class Table(pulumi.CustomResource):
         alternate = aws.get_region()
         third = aws.get_region()
         example = aws.dynamodb.Table("example",
-            billing_mode="PAY_PER_REQUEST",
-            hash_key="TestTableHashKey",
-            name="example-13281",
-            stream_enabled=True,
-            stream_view_type="NEW_AND_OLD_IMAGES",
             attributes=[{
                 "name": "TestTableHashKey",
                 "type": "S",
@@ -1352,6 +1347,11 @@ class Table(pulumi.CustomResource):
                     "propagate_tags": True,
                 },
             ],
+            billing_mode="PAY_PER_REQUEST",
+            hash_key="TestTableHashKey",
+            name="example-13281",
+            stream_enabled=True,
+            stream_view_type="NEW_AND_OLD_IMAGES",
             tags={
                 "Architect": "Eleanor",
                 "Zone": "SW",
@@ -1449,12 +1449,10 @@ class Table(pulumi.CustomResource):
         import pulumi_aws as aws
 
         basic_dynamodb_table = aws.dynamodb.Table("basic-dynamodb-table",
-            name="GameScores",
-            billing_mode="PROVISIONED",
-            read_capacity=20,
-            write_capacity=20,
-            hash_key="UserId",
-            range_key="GameTitle",
+            ttl={
+                "attribute_name": "TimeToExist",
+                "enabled": True,
+            },
             attributes=[
                 {
                     "name": "UserId",
@@ -1469,10 +1467,6 @@ class Table(pulumi.CustomResource):
                     "type": "N",
                 },
             ],
-            ttl={
-                "attribute_name": "TimeToExist",
-                "enabled": True,
-            },
             global_secondary_indexes=[{
                 "name": "GameTitleIndex",
                 "hash_key": "GameTitle",
@@ -1482,6 +1476,12 @@ class Table(pulumi.CustomResource):
                 "projection_type": "INCLUDE",
                 "non_key_attributes": ["UserId"],
             }],
+            name="GameScores",
+            billing_mode="PROVISIONED",
+            read_capacity=20,
+            write_capacity=20,
+            hash_key="UserId",
+            range_key="GameTitle",
             tags={
                 "Name": "dynamodb-table-1",
                 "Environment": "production",
@@ -1499,11 +1499,10 @@ class Table(pulumi.CustomResource):
         import pulumi_aws as aws
 
         basic_dynamodb_table = aws.dynamodb.Table("basic-dynamodb-table",
-            name="TournamentMatches",
-            billing_mode="PROVISIONED",
-            read_capacity=20,
-            write_capacity=20,
-            hash_key="matchId",
+            ttl={
+                "attribute_name": "TimeToExist",
+                "enabled": True,
+            },
             attributes=[
                 {
                     "name": "matchId",
@@ -1534,13 +1533,8 @@ class Table(pulumi.CustomResource):
                     "type": "S",
                 },
             ],
-            ttl={
-                "attribute_name": "TimeToExist",
-                "enabled": True,
-            },
             global_secondary_indexes=[
                 {
-                    "name": "TournamentRegionIndex",
                     "key_schemas": [
                         {
                             "attribute_name": "tournamentId",
@@ -1563,12 +1557,12 @@ class Table(pulumi.CustomResource):
                             "key_type": "RANGE",
                         },
                     ],
+                    "name": "TournamentRegionIndex",
                     "write_capacity": 10,
                     "read_capacity": 10,
                     "projection_type": "ALL",
                 },
                 {
-                    "name": "PlayerMatchHistoryIndex",
                     "key_schemas": [
                         {
                             "attribute_name": "playerId",
@@ -1583,11 +1577,17 @@ class Table(pulumi.CustomResource):
                             "key_type": "RANGE",
                         },
                     ],
+                    "name": "PlayerMatchHistoryIndex",
                     "write_capacity": 10,
                     "read_capacity": 10,
                     "projection_type": "ALL",
                 },
             ],
+            name="TournamentMatches",
+            billing_mode="PROVISIONED",
+            read_capacity=20,
+            write_capacity=20,
+            hash_key="matchId",
             tags={
                 "Name": "dynamodb-table-1",
                 "Environment": "production",
@@ -1605,11 +1605,6 @@ class Table(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.dynamodb.Table("example",
-            name="example",
-            hash_key="TestTableHashKey",
-            billing_mode="PAY_PER_REQUEST",
-            stream_enabled=True,
-            stream_view_type="NEW_AND_OLD_IMAGES",
             attributes=[{
                 "name": "TestTableHashKey",
                 "type": "S",
@@ -1621,7 +1616,12 @@ class Table(pulumi.CustomResource):
                 {
                     "region_name": "us-west-2",
                 },
-            ])
+            ],
+            name="example",
+            hash_key="TestTableHashKey",
+            billing_mode="PAY_PER_REQUEST",
+            stream_enabled=True,
+            stream_view_type="NEW_AND_OLD_IMAGES")
         ```
 
         ### Global Tables with Multi-Region Strong Consistency
@@ -1641,11 +1641,6 @@ class Table(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.dynamodb.Table("example",
-            name="example",
-            hash_key="TestTableHashKey",
-            billing_mode="PAY_PER_REQUEST",
-            stream_enabled=True,
-            stream_view_type="NEW_AND_OLD_IMAGES",
             attributes=[{
                 "name": "TestTableHashKey",
                 "type": "S",
@@ -1659,7 +1654,12 @@ class Table(pulumi.CustomResource):
                     "region_name": "us-west-2",
                     "consistency_mode": "STRONG",
                 },
-            ])
+            ],
+            name="example",
+            hash_key="TestTableHashKey",
+            billing_mode="PAY_PER_REQUEST",
+            stream_enabled=True,
+            stream_view_type="NEW_AND_OLD_IMAGES")
         ```
 
         ##### Consistency Mode with 2 Replicas and Witness Region
@@ -1669,11 +1669,9 @@ class Table(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.dynamodb.Table("example",
-            name="example",
-            hash_key="TestTableHashKey",
-            billing_mode="PAY_PER_REQUEST",
-            stream_enabled=True,
-            stream_view_type="NEW_AND_OLD_IMAGES",
+            global_table_witness={
+                "region_name": "us-west-2",
+            },
             attributes=[{
                 "name": "TestTableHashKey",
                 "type": "S",
@@ -1682,9 +1680,11 @@ class Table(pulumi.CustomResource):
                 "region_name": "us-east-2",
                 "consistency_mode": "STRONG",
             }],
-            global_table_witness={
-                "region_name": "us-west-2",
-            })
+            name="example",
+            hash_key="TestTableHashKey",
+            billing_mode="PAY_PER_REQUEST",
+            stream_enabled=True,
+            stream_view_type="NEW_AND_OLD_IMAGES")
         ```
 
         ### Replica Tagging
@@ -1700,11 +1700,6 @@ class Table(pulumi.CustomResource):
         alternate = aws.get_region()
         third = aws.get_region()
         example = aws.dynamodb.Table("example",
-            billing_mode="PAY_PER_REQUEST",
-            hash_key="TestTableHashKey",
-            name="example-13281",
-            stream_enabled=True,
-            stream_view_type="NEW_AND_OLD_IMAGES",
             attributes=[{
                 "name": "TestTableHashKey",
                 "type": "S",
@@ -1718,6 +1713,11 @@ class Table(pulumi.CustomResource):
                     "propagate_tags": True,
                 },
             ],
+            billing_mode="PAY_PER_REQUEST",
+            hash_key="TestTableHashKey",
+            name="example-13281",
+            stream_enabled=True,
+            stream_view_type="NEW_AND_OLD_IMAGES",
             tags={
                 "Architect": "Eleanor",
                 "Zone": "SW",

@@ -59,13 +59,13 @@ namespace Pulumi.Aws.SsoAdmin
     /// 
     ///     var exampleCustomerManagedPolicyAttachment = new Aws.SsoAdmin.CustomerManagedPolicyAttachment("example", new()
     ///     {
-    ///         InstanceArn = examplePermissionSet.InstanceArn,
-    ///         PermissionSetArn = examplePermissionSet.Arn,
     ///         CustomerManagedPolicyReference = new Aws.SsoAdmin.Inputs.CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs
     ///         {
     ///             Name = examplePolicy.Name,
     ///             Path = "/",
     ///         },
+    ///         InstanceArn = examplePermissionSet.InstanceArn,
+    ///         PermissionSetArn = examplePermissionSet.Arn,
     ///     });
     /// 
     /// });

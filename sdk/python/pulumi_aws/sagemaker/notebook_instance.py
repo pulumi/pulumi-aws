@@ -664,10 +664,10 @@ class NotebookInstance(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.CodeRepository("example",
-            code_repository_name="my-notebook-instance-code-repo",
             git_config={
                 "repository_url": "https://github.com/github/docs.git",
-            })
+            },
+            code_repository_name="my-notebook-instance-code-repo")
         ni = aws.sagemaker.NotebookInstance("ni",
             name="my-notebook-instance",
             role_arn=role["arn"],
@@ -740,10 +740,10 @@ class NotebookInstance(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.CodeRepository("example",
-            code_repository_name="my-notebook-instance-code-repo",
             git_config={
                 "repository_url": "https://github.com/github/docs.git",
-            })
+            },
+            code_repository_name="my-notebook-instance-code-repo")
         ni = aws.sagemaker.NotebookInstance("ni",
             name="my-notebook-instance",
             role_arn=role["arn"],

@@ -31,9 +31,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ecs.NewTaskSet(ctx, "example", &ecs.TaskSetArgs{
-//				Service:        pulumi.Any(exampleAwsEcsService.Id),
-//				Cluster:        pulumi.Any(exampleAwsEcsCluster.Id),
-//				TaskDefinition: pulumi.Any(exampleAwsEcsTaskDefinition.Arn),
 //				LoadBalancers: ecs.TaskSetLoadBalancerArray{
 //					&ecs.TaskSetLoadBalancerArgs{
 //						TargetGroupArn: pulumi.Any(exampleAwsLbTargetGroup.Arn),
@@ -41,6 +38,9 @@ import (
 //						ContainerPort:  pulumi.Int(8080),
 //					},
 //				},
+//				Service:        pulumi.Any(exampleAwsEcsService.Id),
+//				Cluster:        pulumi.Any(exampleAwsEcsCluster.Id),
+//				TaskDefinition: pulumi.Any(exampleAwsEcsTaskDefinition.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -71,7 +71,9 @@ import (
 //				Scale: &ecs.TaskSetScaleArgs{
 //					Value: pulumi.Float64(50),
 //				},
-//			})
+//			}, pulumi.IgnoreChanges([]string{
+//				"scale",
+//			}))
 //			if err != nil {
 //				return err
 //			}

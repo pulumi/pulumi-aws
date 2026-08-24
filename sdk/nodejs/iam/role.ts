@@ -51,11 +51,11 @@ import * as utilities from "../utilities";
  *
  * const instanceAssumeRolePolicy = aws.iam.getPolicyDocument({
  *     statements: [{
- *         actions: ["sts:AssumeRole"],
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["ec2.amazonaws.com"],
  *         }],
+ *         actions: ["sts:AssumeRole"],
  *     }],
  * });
  * const instance = new aws.iam.Role("instance", {
@@ -82,8 +82,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const example = new aws.iam.Role("example", {
- *     name: "yak_role",
- *     assumeRolePolicy: instanceAssumeRolePolicy.json,
  *     inlinePolicies: [
  *         {
  *             name: "my_inline_policy",
@@ -101,6 +99,8 @@ import * as utilities from "../utilities";
  *             policy: inlinePolicy.then(inlinePolicy => inlinePolicy.json),
  *         },
  *     ],
+ *     name: "yak_role",
+ *     assumeRolePolicy: instanceAssumeRolePolicy.json,
  * });
  * ```
  *

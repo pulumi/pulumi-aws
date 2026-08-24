@@ -49,11 +49,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new SecretRotation("example", SecretRotationArgs.builder()
- *             .secretId(exampleAwsSecretsmanagerSecret.id())
- *             .rotationLambdaArn(exampleAwsLambdaFunction.arn())
  *             .rotationRules(SecretRotationRotationRulesArgs.builder()
  *                 .automaticallyAfterDays(30)
  *                 .build())
+ *             .secretId(exampleAwsSecretsmanagerSecret.id())
+ *             .rotationLambdaArn(exampleAwsLambdaFunction.arn())
  *             .build());
  * 
  *     }
@@ -76,8 +76,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.secretsmanager.SecretArgs;
  * import com.pulumi.aws.secretsmanager.SecretRotation;
  * import com.pulumi.aws.secretsmanager.SecretRotationArgs;
- * import com.pulumi.aws.secretsmanager.inputs.SecretRotationExternalSecretRotationMetadataArgs;
  * import com.pulumi.aws.secretsmanager.inputs.SecretRotationRotationRulesArgs;
+ * import com.pulumi.aws.secretsmanager.inputs.SecretRotationExternalSecretRotationMetadataArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -97,8 +97,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSecretRotation = new SecretRotation("exampleSecretRotation", SecretRotationArgs.builder()
- *             .secretId(example.id())
- *             .externalSecretRotationRoleArn(exampleAwsIamRole.arn())
+ *             .rotationRules(SecretRotationRotationRulesArgs.builder()
+ *                 .automaticallyAfterDays(rotationDays)
+ *                 .build())
  *             .externalSecretRotationMetadatas(            
  *                 SecretRotationExternalSecretRotationMetadataArgs.builder()
  *                     .key("adminSecretArn")
@@ -108,9 +109,8 @@ import javax.annotation.Nullable;
  *                     .key("apiVersion")
  *                     .value("v65.0")
  *                     .build())
- *             .rotationRules(SecretRotationRotationRulesArgs.builder()
- *                 .automaticallyAfterDays(rotationDays)
- *                 .build())
+ *             .secretId(example.id())
+ *             .externalSecretRotationRoleArn(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }

@@ -425,11 +425,11 @@ class V2Service(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.resiliencehub.V2Service("example",
-            name="example-service",
-            regions=["us-west-2"],
             permission_model={
                 "invoker_role_name": "AWSResilienceHubAssessmentRole",
-            })
+            },
+            name="example-service",
+            regions=["us-west-2"])
         ```
 
         ### With Policy
@@ -439,11 +439,14 @@ class V2Service(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.resiliencehub.V2Policy("example",
-            name="example-policy",
             availability_slo={
                 "target": 99.9,
-            })
+            },
+            name="example-policy")
         example_v2_service = aws.resiliencehub.V2Service("example",
+            permission_model={
+                "invoker_role_name": "AWSResilienceHubAssessmentRole",
+            },
             name="example-service",
             description="Production API service",
             policy_arn=example.arn,
@@ -451,9 +454,6 @@ class V2Service(pulumi.CustomResource):
                 "us-west-2",
                 "us-east-1",
             ],
-            permission_model={
-                "invoker_role_name": "AWSResilienceHubAssessmentRole",
-            },
             tags={
                 "Environment": "production",
             })
@@ -467,14 +467,14 @@ class V2Service(pulumi.CustomResource):
 
         example = aws.resiliencehub.V2System("example", name="example-system")
         example_v2_service = aws.resiliencehub.V2Service("example",
-            name="example-service",
-            regions=["us-west-2"],
             permission_model={
                 "invoker_role_name": "AWSResilienceHubAssessmentRole",
             },
             associated_systems=[{
                 "system_arn": example.arn,
-            }])
+            }],
+            name="example-service",
+            regions=["us-west-2"])
         ```
 
         ## Import
@@ -527,11 +527,11 @@ class V2Service(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.resiliencehub.V2Service("example",
-            name="example-service",
-            regions=["us-west-2"],
             permission_model={
                 "invoker_role_name": "AWSResilienceHubAssessmentRole",
-            })
+            },
+            name="example-service",
+            regions=["us-west-2"])
         ```
 
         ### With Policy
@@ -541,11 +541,14 @@ class V2Service(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.resiliencehub.V2Policy("example",
-            name="example-policy",
             availability_slo={
                 "target": 99.9,
-            })
+            },
+            name="example-policy")
         example_v2_service = aws.resiliencehub.V2Service("example",
+            permission_model={
+                "invoker_role_name": "AWSResilienceHubAssessmentRole",
+            },
             name="example-service",
             description="Production API service",
             policy_arn=example.arn,
@@ -553,9 +556,6 @@ class V2Service(pulumi.CustomResource):
                 "us-west-2",
                 "us-east-1",
             ],
-            permission_model={
-                "invoker_role_name": "AWSResilienceHubAssessmentRole",
-            },
             tags={
                 "Environment": "production",
             })
@@ -569,14 +569,14 @@ class V2Service(pulumi.CustomResource):
 
         example = aws.resiliencehub.V2System("example", name="example-system")
         example_v2_service = aws.resiliencehub.V2Service("example",
-            name="example-service",
-            regions=["us-west-2"],
             permission_model={
                 "invoker_role_name": "AWSResilienceHubAssessmentRole",
             },
             associated_systems=[{
                 "system_arn": example.arn,
-            }])
+            }],
+            name="example-service",
+            regions=["us-west-2"])
         ```
 
         ## Import

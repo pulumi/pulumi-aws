@@ -80,6 +80,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var etlJob = new Job("etlJob", JobArgs.builder()
+ *             .command(JobCommandArgs.builder()
+ *                 .scriptLocation(String.format("s3://%s/jobs/etl_job.py", glueScripts.bucket()))
+ *                 .name("glueetl")
+ *                 .pythonVersion("3")
+ *                 .build())
+ *             .notificationProperty(JobNotificationPropertyArgs.builder()
+ *                 .notifyDelayAfter(3)
+ *                 .build())
+ *             .executionProperty(JobExecutionPropertyArgs.builder()
+ *                 .maxConcurrentRuns(1)
+ *                 .build())
  *             .name("example-etl-job")
  *             .description("An example Glue ETL job")
  *             .roleArn(glueJobRole.arn())
@@ -90,14 +101,6 @@ import javax.annotation.Nullable;
  *             .workerType("G.1X")
  *             .connections(example.name())
  *             .executionClass("STANDARD")
- *             .command(JobCommandArgs.builder()
- *                 .scriptLocation(String.format("s3://%s/jobs/etl_job.py", glueScripts.bucket()))
- *                 .name("glueetl")
- *                 .pythonVersion("3")
- *                 .build())
- *             .notificationProperty(JobNotificationPropertyArgs.builder()
- *                 .notifyDelayAfter(3)
- *                 .build())
  *             .defaultArguments(Map.ofEntries(
  *                 Map.entry("--job-language", "python"),
  *                 Map.entry("--continuous-log-logGroup", "/aws-glue/jobs"),
@@ -106,9 +109,6 @@ import javax.annotation.Nullable;
  *                 Map.entry("--enable-metrics", ""),
  *                 Map.entry("--enable-auto-scaling", "true")
  *             ))
- *             .executionProperty(JobExecutionPropertyArgs.builder()
- *                 .maxConcurrentRuns(1)
- *                 .build())
  *             .tags(Map.of("ManagedBy", "AWS"))
  *             .build());
  * 
@@ -172,6 +172,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var pythonShellJob = new Job("pythonShellJob", JobArgs.builder()
+ *             .command(JobCommandArgs.builder()
+ *                 .scriptLocation(String.format("s3://%s/jobs/shell_job.py", glueScripts.bucket()))
+ *                 .name("pythonshell")
+ *                 .pythonVersion("3.9")
+ *                 .build())
+ *             .executionProperty(JobExecutionPropertyArgs.builder()
+ *                 .maxConcurrentRuns(1)
+ *                 .build())
  *             .name("example-python-shell-job")
  *             .description("An example Python shell job")
  *             .roleArn(glueJobRole.arn())
@@ -179,20 +187,12 @@ import javax.annotation.Nullable;
  *             .maxRetries(0)
  *             .timeout(2880)
  *             .connections(example.name())
- *             .command(JobCommandArgs.builder()
- *                 .scriptLocation(String.format("s3://%s/jobs/shell_job.py", glueScripts.bucket()))
- *                 .name("pythonshell")
- *                 .pythonVersion("3.9")
- *                 .build())
  *             .defaultArguments(Map.ofEntries(
  *                 Map.entry("--job-language", "python"),
  *                 Map.entry("--continuous-log-logGroup", "/aws-glue/jobs"),
  *                 Map.entry("--enable-continuous-cloudwatch-log", "true"),
  *                 Map.entry("library-set", "analytics")
  *             ))
- *             .executionProperty(JobExecutionPropertyArgs.builder()
- *                 .maxConcurrentRuns(1)
- *                 .build())
  *             .tags(Map.of("ManagedBy", "AWS"))
  *             .build());
  * 
@@ -233,16 +233,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Job("example", JobArgs.builder()
- *             .name("example")
- *             .roleArn(exampleAwsIamRole.arn())
- *             .glueVersion("4.0")
- *             .workerType("Z.2X")
  *             .command(JobCommandArgs.builder()
  *                 .name("glueray")
  *                 .pythonVersion("3.9")
  *                 .runtime("Ray2.4")
  *                 .scriptLocation(String.format("s3://%s/example.py", exampleAwsS3Bucket.bucket()))
  *                 .build())
+ *             .name("example")
+ *             .roleArn(exampleAwsIamRole.arn())
+ *             .glueVersion("4.0")
+ *             .workerType("Z.2X")
  *             .build());
  * 
  *     }
@@ -276,11 +276,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Job("example", JobArgs.builder()
- *             .name("example")
- *             .roleArn(exampleAwsIamRole.arn())
  *             .command(JobCommandArgs.builder()
  *                 .scriptLocation(String.format("s3://%s/example.scala", exampleAwsS3Bucket.bucket()))
  *                 .build())
+ *             .name("example")
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .defaultArguments(Map.of("--job-language", "scala"))
  *             .build());
  * 
@@ -315,12 +315,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Job("example", JobArgs.builder()
- *             .name("example streaming job")
- *             .roleArn(exampleAwsIamRole.arn())
  *             .command(JobCommandArgs.builder()
  *                 .name("gluestreaming")
  *                 .scriptLocation(String.format("s3://%s/example.script", exampleAwsS3Bucket.bucket()))
  *                 .build())
+ *             .name("example streaming job")
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }

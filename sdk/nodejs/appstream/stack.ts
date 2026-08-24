@@ -17,11 +17,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.appstream.Stack("example", {
- *     name: "stack name",
- *     description: "stack description",
- *     displayName: "stack display name",
- *     feedbackUrl: "http://your-domain/feedback",
- *     redirectUrl: "http://your-domain/redirect",
+ *     applicationSettings: {
+ *         enabled: true,
+ *         settingsGroup: "SettingsGroup",
+ *     },
  *     storageConnectors: [{
  *         connectorType: "HOMEFOLDERS",
  *     }],
@@ -59,10 +58,11 @@ import * as utilities from "../utilities";
  *             permission: "ENABLED",
  *         },
  *     ],
- *     applicationSettings: {
- *         enabled: true,
- *         settingsGroup: "SettingsGroup",
- *     },
+ *     name: "stack name",
+ *     description: "stack description",
+ *     displayName: "stack display name",
+ *     feedbackUrl: "http://your-domain/feedback",
+ *     redirectUrl: "http://your-domain/redirect",
  *     tags: {
  *         TagName: "TagValue",
  *     },

@@ -26,31 +26,31 @@ namespace Pulumi.Aws.Acmpca
     /// {
     ///     var exampleCertificateAuthority = new Aws.Acmpca.CertificateAuthority("example", new()
     ///     {
-    ///         Type = "ROOT",
     ///         CertificateAuthorityConfiguration = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs
     ///         {
-    ///             KeyAlgorithm = "RSA_4096",
-    ///             SigningAlgorithm = "SHA512WITHRSA",
     ///             Subject = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs
     ///             {
     ///                 CommonName = "example.com",
     ///             },
+    ///             KeyAlgorithm = "RSA_4096",
+    ///             SigningAlgorithm = "SHA512WITHRSA",
     ///         },
+    ///         Type = "ROOT",
     ///     });
     /// 
     ///     var current = Aws.GetPartition.Invoke();
     /// 
     ///     var exampleCertificate = new Aws.Acmpca.Certificate("example", new()
     ///     {
-    ///         CertificateAuthorityArn = exampleCertificateAuthority.Arn,
-    ///         CertificateSigningRequest = exampleCertificateAuthority.CertificateSigningRequest,
-    ///         SigningAlgorithm = "SHA512WITHRSA",
-    ///         TemplateArn = $"arn:{current.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:acm-pca:::template/RootCACertificate/V1",
     ///         Validity = new Aws.Acmpca.Inputs.CertificateValidityArgs
     ///         {
     ///             Type = "YEARS",
     ///             Value = "1",
     ///         },
+    ///         CertificateAuthorityArn = exampleCertificateAuthority.Arn,
+    ///         CertificateSigningRequest = exampleCertificateAuthority.CertificateSigningRequest,
+    ///         SigningAlgorithm = "SHA512WITHRSA",
+    ///         TemplateArn = $"arn:{current.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:acm-pca:::template/RootCACertificate/V1",
     ///     });
     /// 
     ///     var example = new Aws.Acmpca.CertificateAuthorityCertificate("example", new()
@@ -77,16 +77,16 @@ namespace Pulumi.Aws.Acmpca
     /// {
     ///     var subordinateCertificateAuthority = new Aws.Acmpca.CertificateAuthority("subordinate", new()
     ///     {
-    ///         Type = "SUBORDINATE",
     ///         CertificateAuthorityConfiguration = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs
     ///         {
-    ///             KeyAlgorithm = "RSA_2048",
-    ///             SigningAlgorithm = "SHA512WITHRSA",
     ///             Subject = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs
     ///             {
     ///                 CommonName = "sub.example.com",
     ///             },
+    ///             KeyAlgorithm = "RSA_2048",
+    ///             SigningAlgorithm = "SHA512WITHRSA",
     ///         },
+    ///         Type = "SUBORDINATE",
     ///     });
     /// 
     ///     var root = new Aws.Acmpca.CertificateAuthority("root");
@@ -95,15 +95,15 @@ namespace Pulumi.Aws.Acmpca
     /// 
     ///     var subordinateCertificate = new Aws.Acmpca.Certificate("subordinate", new()
     ///     {
-    ///         CertificateAuthorityArn = root.Arn,
-    ///         CertificateSigningRequest = subordinateCertificateAuthority.CertificateSigningRequest,
-    ///         SigningAlgorithm = "SHA512WITHRSA",
-    ///         TemplateArn = $"arn:{current.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:acm-pca:::template/SubordinateCACertificate_PathLen0/V1",
     ///         Validity = new Aws.Acmpca.Inputs.CertificateValidityArgs
     ///         {
     ///             Type = "YEARS",
     ///             Value = "1",
     ///         },
+    ///         CertificateAuthorityArn = root.Arn,
+    ///         CertificateSigningRequest = subordinateCertificateAuthority.CertificateSigningRequest,
+    ///         SigningAlgorithm = "SHA512WITHRSA",
+    ///         TemplateArn = $"arn:{current.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:acm-pca:::template/SubordinateCACertificate_PathLen0/V1",
     ///     });
     /// 
     ///     var subordinate = new Aws.Acmpca.CertificateAuthorityCertificate("subordinate", new()

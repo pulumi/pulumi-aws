@@ -17,16 +17,16 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2.Fleet("example", {
+ *     targetCapacitySpecification: {
+ *         defaultTargetCapacityType: "spot",
+ *         totalTargetCapacity: 5,
+ *     },
  *     launchTemplateConfigs: [{
  *         launchTemplateSpecification: {
  *             launchTemplateId: exampleAwsLaunchTemplate.id,
  *             version: exampleAwsLaunchTemplate.latestVersion,
  *         },
  *     }],
- *     targetCapacitySpecification: {
- *         defaultTargetCapacityType: "spot",
- *         totalTargetCapacity: 5,
- *     },
  * });
  * ```
  *

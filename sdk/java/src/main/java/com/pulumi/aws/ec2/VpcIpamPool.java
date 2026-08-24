@@ -203,16 +203,16 @@ import javax.annotation.Nullable;
  *                 .build());
  * 
  *         var vpc = new VpcIpamPool("vpc", VpcIpamPoolArgs.builder()
- *             .addressFamily("ipv4")
- *             .ipamScopeId(testAwsVpcIpam.privateDefaultScopeId())
- *             .locale(current.region())
- *             .sourceIpamPoolId(test.id())
  *             .sourceResource(VpcIpamPoolSourceResourceArgs.builder()
  *                 .resourceId(testVpc.id())
  *                 .resourceOwner(currentAwsCallerIdentity.accountId())
  *                 .resourceRegion(current.region())
  *                 .resourceType("vpc")
  *                 .build())
+ *             .addressFamily("ipv4")
+ *             .ipamScopeId(testAwsVpcIpam.privateDefaultScopeId())
+ *             .locale(current.region())
+ *             .sourceIpamPoolId(test.id())
  *             .build());
  * 
  *     }

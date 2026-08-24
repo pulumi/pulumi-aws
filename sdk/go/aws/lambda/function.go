@@ -39,10 +39,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lambda.NewFunction(ctx, "example", &lambda.FunctionArgs{
-//				Name:        pulumi.String("example_container_function"),
-//				Role:        pulumi.Any(exampleAwsIamRole.Arn),
-//				PackageType: pulumi.String("Image"),
-//				ImageUri:    pulumi.Sprintf("%v:latest", exampleAwsEcrRepository.RepositoryUrl),
 //				ImageConfig: &lambda.FunctionImageConfigArgs{
 //					EntryPoints: pulumi.StringArray{
 //						pulumi.String("/lambda-entrypoint.sh"),
@@ -51,8 +47,12 @@ import (
 //						pulumi.String("app.handler"),
 //					},
 //				},
-//				MemorySize: pulumi.Int(512),
-//				Timeout:    pulumi.Int(30),
+//				Name:        pulumi.String("example_container_function"),
+//				Role:        pulumi.Any(exampleAwsIamRole.Arn),
+//				PackageType: pulumi.String("Image"),
+//				ImageUri:    pulumi.Sprintf("%v:latest", exampleAwsEcrRepository.RepositoryUrl),
+//				MemorySize:  pulumi.Int(512),
+//				Timeout:     pulumi.Int(30),
 //				Architectures: pulumi.StringArray{
 //					pulumi.String("arm64"),
 //				},
@@ -101,6 +101,9 @@ import (
 //			}
 //			// Function using the layer
 //			_, err = lambda.NewFunction(ctx, "example", &lambda.FunctionArgs{
+//				TracingConfig: &lambda.FunctionTracingConfigArgs{
+//					Mode: pulumi.String("Active"),
+//				},
 //				Code:    pulumi.NewFileArchive("function.zip"),
 //				Name:    pulumi.String("example_layered_function"),
 //				Role:    pulumi.Any(exampleAwsIamRole.Arn),
@@ -108,9 +111,6 @@ import (
 //				Runtime: pulumi.String(lambda.RuntimeNodeJS24dX),
 //				Layers: pulumi.StringArray{
 //					example.Arn,
-//				},
-//				TracingConfig: &lambda.FunctionTracingConfigArgs{
-//					Mode: pulumi.String("Active"),
 //				},
 //			})
 //			if err != nil {
@@ -137,13 +137,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lambda.NewFunction(ctx, "example", &lambda.FunctionArgs{
-//				Code:       pulumi.NewFileArchive("function.zip"),
-//				Name:       pulumi.String("example_vpc_function"),
-//				Role:       pulumi.Any(exampleAwsIamRole.Arn),
-//				Handler:    pulumi.String("app.handler"),
-//				Runtime:    pulumi.String(lambda.RuntimePython3d12),
-//				MemorySize: pulumi.Int(1024),
-//				Timeout:    pulumi.Int(30),
 //				VpcConfig: &lambda.FunctionVpcConfigArgs{
 //					SubnetIds: pulumi.StringArray{
 //						examplePrivate1.Id,
@@ -160,6 +153,13 @@ import (
 //				SnapStart: &lambda.FunctionSnapStartArgs{
 //					ApplyOn: pulumi.String("PublishedVersions"),
 //				},
+//				Code:       pulumi.NewFileArchive("function.zip"),
+//				Name:       pulumi.String("example_vpc_function"),
+//				Role:       pulumi.Any(exampleAwsIamRole.Arn),
+//				Handler:    pulumi.String("app.handler"),
+//				Runtime:    pulumi.String(lambda.RuntimePython3d12),
+//				MemorySize: pulumi.Int(1024),
+//				Timeout:    pulumi.Int(30),
 //			})
 //			if err != nil {
 //				return err
@@ -214,7 +214,7 @@ import (
 //				val0 := index
 //				__res, err := efs.NewMountTarget(ctx, fmt.Sprintf("example-%v", key0), &efs.MountTargetArgs{
 //					FileSystemId: example.ID().ToIDOutput().ToStringOutput(),
-//					SubnetId:     pulumi.String(subnetIds[val0]),
+//					SubnetId:     subnetIds[val0],
 //					SecurityGroups: pulumi.StringArray{
 //						efs.Id,
 //					},
@@ -226,30 +226,25 @@ import (
 //			}
 //			// Access point for Lambda
 //			exampleAccessPoint, err := efs.NewAccessPoint(ctx, "example", &efs.AccessPointArgs{
-//				FileSystemId: example.ID().ToIDOutput().ToStringOutput(),
 //				RootDirectory: &efs.AccessPointRootDirectoryArgs{
-//					Path: pulumi.String("/lambda"),
 //					CreationInfo: &efs.AccessPointRootDirectoryCreationInfoArgs{
 //						OwnerGid:    pulumi.Int(1000),
 //						OwnerUid:    pulumi.Int(1000),
 //						Permissions: pulumi.String("755"),
 //					},
+//					Path: pulumi.String("/lambda"),
 //				},
 //				PosixUser: &efs.AccessPointPosixUserArgs{
 //					Gid: pulumi.Int(1000),
 //					Uid: pulumi.Int(1000),
 //				},
+//				FileSystemId: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			// Lambda function with EFS
 //			_, err = lambda.NewFunction(ctx, "example", &lambda.FunctionArgs{
-//				Code:    pulumi.NewFileArchive("function.zip"),
-//				Name:    pulumi.String("example_efs_function"),
-//				Role:    pulumi.Any(exampleAwsIamRole.Arn),
-//				Handler: pulumi.String("index.handler"),
-//				Runtime: pulumi.String(lambda.RuntimeNodeJS24dX),
 //				VpcConfig: &lambda.FunctionVpcConfigArgs{
 //					SubnetIds: subnetIds,
 //					SecurityGroupIds: pulumi.StringArray{
@@ -260,6 +255,11 @@ import (
 //					Arn:            exampleAccessPoint.Arn,
 //					LocalMountPath: pulumi.String("/mnt/data"),
 //				},
+//				Code:    pulumi.NewFileArchive("function.zip"),
+//				Name:    pulumi.String("example_efs_function"),
+//				Role:    pulumi.Any(exampleAwsIamRole.Arn),
+//				Handler: pulumi.String("index.handler"),
+//				Runtime: pulumi.String(lambda.RuntimeNodeJS24dX),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleMountTarget,
 //			}))
@@ -306,10 +306,10 @@ import (
 //				return err
 //			}
 //			lambdaFileSystemBucketVersioning, err := s3.NewBucketVersioning(ctx, "lambda_file_system", &s3.BucketVersioningArgs{
-//				Bucket: lambdaFileSystem.Bucket,
 //				VersioningConfiguration: &s3.BucketVersioningVersioningConfigurationArgs{
 //					Status: pulumi.String("Enabled"),
 //				},
+//				Bucket: lambdaFileSystem.Bucket,
 //			})
 //			if err != nil {
 //				return err
@@ -324,10 +324,14 @@ import (
 //				return err
 //			}
 //			forLambdaFilesAccessPoint, err := s3.NewFilesAccessPoint(ctx, "for_lambda", &s3.FilesAccessPointArgs{
-//				FileSystemId: forLambda.ID().ToIDOutput().ToStringOutput(),
+//				PosixUsers: s3.FilesAccessPointPosixUserArray{
+//					&s3.FilesAccessPointPosixUserArgs{
+//						Gid: pulumi.Int(1000),
+//						Uid: pulumi.Int(1000),
+//					},
+//				},
 //				RootDirectories: s3.FilesAccessPointRootDirectoryArray{
 //					&s3.FilesAccessPointRootDirectoryArgs{
-//						Path: pulumi.String("/lambda"),
 //						CreationPermissions: s3.FilesAccessPointRootDirectoryCreationPermissionArray{
 //							&s3.FilesAccessPointRootDirectoryCreationPermissionArgs{
 //								OwnerGid:    pulumi.Int(1000),
@@ -335,14 +339,10 @@ import (
 //								Permissions: pulumi.String("755"),
 //							},
 //						},
+//						Path: pulumi.String("/lambda"),
 //					},
 //				},
-//				PosixUsers: s3.FilesAccessPointPosixUserArray{
-//					&s3.FilesAccessPointPosixUserArgs{
-//						Gid: pulumi.Int(1000),
-//						Uid: pulumi.Int(1000),
-//					},
-//				},
+//				FileSystemId: forLambda.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -382,11 +382,6 @@ import (
 //				return err
 //			}
 //			_, err = lambda.NewFunction(ctx, "example", &lambda.FunctionArgs{
-//				Code:    pulumi.NewFileArchive("function.zip"),
-//				Name:    pulumi.String("example_s3files_function"),
-//				Role:    pulumi.Any(iamForLambda.Arn),
-//				Handler: pulumi.String("exports.example"),
-//				Runtime: pulumi.String(lambda.RuntimeNodeJS24dX),
 //				VpcConfig: &lambda.FunctionVpcConfigArgs{
 //					SubnetIds: pulumi.StringArray{
 //						subnetForLambdaAz1.Id,
@@ -399,6 +394,11 @@ import (
 //					Arn:            forLambdaFilesAccessPoint.Arn,
 //					LocalMountPath: pulumi.String("/mnt/s3files"),
 //				},
+//				Code:    pulumi.NewFileArchive("function.zip"),
+//				Name:    pulumi.String("example_s3files_function"),
+//				Role:    pulumi.Any(iamForLambda.Arn),
+//				Handler: pulumi.String("exports.example"),
+//				Runtime: pulumi.String(lambda.RuntimeNodeJS24dX),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				forLambdaAwsS3filesMountTarget,
 //			}))
@@ -438,16 +438,16 @@ import (
 //				return err
 //			}
 //			_, err = lambda.NewFunction(ctx, "example", &lambda.FunctionArgs{
-//				Code:    pulumi.NewFileArchive("function.zip"),
-//				Name:    pulumi.String("example_function"),
-//				Role:    pulumi.Any(exampleAwsIamRole.Arn),
-//				Handler: pulumi.String("index.handler"),
-//				Runtime: pulumi.String(lambda.RuntimeNodeJS24dX),
 //				LoggingConfig: &lambda.FunctionLoggingConfigArgs{
 //					LogFormat:           pulumi.String("JSON"),
 //					ApplicationLogLevel: pulumi.String("INFO"),
 //					SystemLogLevel:      pulumi.String("WARN"),
 //				},
+//				Code:    pulumi.NewFileArchive("function.zip"),
+//				Name:    pulumi.String("example_function"),
+//				Role:    pulumi.Any(exampleAwsIamRole.Arn),
+//				Handler: pulumi.String("index.handler"),
+//				Runtime: pulumi.String(lambda.RuntimeNodeJS24dX),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				example,
 //			}))
@@ -518,10 +518,6 @@ import (
 //			logsAssumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -530,6 +526,10 @@ import (
 //								},
 //							},
 //						},
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//						Effect: pulumi.StringRef("Allow"),
 //					},
 //				},
 //			}, nil)
@@ -576,15 +576,15 @@ import (
 //				return err
 //			}
 //			_, err = lambda.NewFunction(ctx, "log_export", &lambda.FunctionArgs{
+//				LoggingConfig: &lambda.FunctionLoggingConfigArgs{
+//					LogFormat: pulumi.String("Text"),
+//					LogGroup:  export.Name,
+//				},
 //				Name:    pulumi.String(lambdaFunctionName),
 //				Handler: pulumi.String("index.lambda_handler"),
 //				Runtime: pulumi.String(lambda.RuntimePython3d13),
 //				Role:    pulumi.Any(example.Arn),
 //				Code:    pulumi.NewFileArchive("function.zip"),
-//				LoggingConfig: &lambda.FunctionLoggingConfigArgs{
-//					LogFormat: pulumi.String("Text"),
-//					LogGroup:  export.Name,
-//				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				export,
 //			}))
@@ -613,23 +613,20 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Main Lambda function
 //			example, err := lambda.NewFunction(ctx, "example", &lambda.FunctionArgs{
+//				DeadLetterConfig: &lambda.FunctionDeadLetterConfigArgs{
+//					TargetArn: pulumi.Any(dlq.Arn),
+//				},
 //				Code:    pulumi.NewFileArchive("function.zip"),
 //				Name:    pulumi.String("example_function"),
 //				Role:    pulumi.Any(exampleAwsIamRole.Arn),
 //				Handler: pulumi.String("index.handler"),
 //				Runtime: pulumi.String(lambda.RuntimeNodeJS24dX),
-//				DeadLetterConfig: &lambda.FunctionDeadLetterConfigArgs{
-//					TargetArn: pulumi.Any(dlq.Arn),
-//				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			// Event invoke configuration for retries
 //			_, err = lambda.NewFunctionEventInvokeConfig(ctx, "example", &lambda.FunctionEventInvokeConfigArgs{
-//				FunctionName:             example.Name,
-//				MaximumEventAgeInSeconds: pulumi.Int(60),
-//				MaximumRetryAttempts:     pulumi.Int(2),
 //				DestinationConfig: &lambda.FunctionEventInvokeConfigDestinationConfigArgs{
 //					OnFailure: &lambda.FunctionEventInvokeConfigDestinationConfigOnFailureArgs{
 //						Destination: pulumi.Any(dlq.Arn),
@@ -638,6 +635,9 @@ import (
 //						Destination: pulumi.Any(success.Arn),
 //					},
 //				},
+//				FunctionName:             example.Name,
+//				MaximumEventAgeInSeconds: pulumi.Int(60),
+//				MaximumRetryAttempts:     pulumi.Int(2),
 //			})
 //			if err != nil {
 //				return err
@@ -749,16 +749,16 @@ import (
 //			}
 //			// Lambda function with logging
 //			_, err = lambda.NewFunction(ctx, "example", &lambda.FunctionArgs{
-//				Code:    pulumi.NewFileArchive("function.zip"),
-//				Name:    pulumi.String(functionName),
-//				Role:    exampleRole.Arn,
-//				Handler: pulumi.String("index.handler"),
-//				Runtime: pulumi.String(lambda.RuntimeNodeJS24dX),
 //				LoggingConfig: &lambda.FunctionLoggingConfigArgs{
 //					LogFormat:           pulumi.String("JSON"),
 //					ApplicationLogLevel: pulumi.String("INFO"),
 //					SystemLogLevel:      pulumi.String("WARN"),
 //				},
+//				Code:    pulumi.NewFileArchive("function.zip"),
+//				Name:    pulumi.String(functionName),
+//				Role:    exampleRole.Arn,
+//				Handler: pulumi.String("index.handler"),
+//				Runtime: pulumi.String(lambda.RuntimeNodeJS24dX),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				lambdaLogs,
 //				example,
@@ -789,13 +789,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lambda.NewFunction(ctx, "example", &lambda.FunctionArgs{
-//				Code:       pulumi.NewFileArchive("function.zip"),
-//				Name:       pulumi.String("example_durable_function"),
-//				Role:       pulumi.Any(exampleAwsIamRole.Arn),
-//				Handler:    pulumi.String("index.handler"),
-//				Runtime:    pulumi.String(lambda.RuntimeNodeJS24dX),
-//				MemorySize: pulumi.Int(512),
-//				Timeout:    pulumi.Int(30),
 //				DurableConfig: &lambda.FunctionDurableConfigArgs{
 //					ExecutionTimeout: pulumi.Int(3600),
 //					RetentionPeriod:  pulumi.Int(7),
@@ -805,11 +798,18 @@ import (
 //						"DURABLE_MODE": pulumi.String("enabled"),
 //					},
 //				},
+//				Code:       pulumi.NewFileArchive("function.zip"),
+//				Name:       pulumi.String("example_durable_function"),
+//				Role:       pulumi.Any(exampleAwsIamRole.Arn),
+//				Handler:    pulumi.String("index.handler"),
+//				Runtime:    pulumi.String(lambda.RuntimeNodeJS24dX),
+//				MemorySize: pulumi.Int(512),
+//				Timeout:    pulumi.Int(30),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("production"),
 //					"Type":        pulumi.String("durable"),
 //				},
-//			})
+//			}, pulumi.Timeouts(&pulumi.CustomTimeouts{Delete: "60m"}))
 //			if err != nil {
 //				return err
 //			}
@@ -834,7 +834,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			exampleCapacityProvider, err := lambda.NewCapacityProvider(ctx, "example", &lambda.CapacityProviderArgs{
-//				Name: pulumi.String("example"),
 //				VpcConfig: &lambda.CapacityProviderVpcConfigArgs{
 //					SubnetIds: pulumi.StringArray{
 //						exampleAwsSubnet.Id,
@@ -846,11 +845,17 @@ import (
 //				PermissionsConfig: &lambda.CapacityProviderPermissionsConfigArgs{
 //					CapacityProviderOperatorRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				},
+//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = lambda.NewFunction(ctx, "example", &lambda.FunctionArgs{
+//				CapacityProviderConfig: &lambda.FunctionCapacityProviderConfigArgs{
+//					LambdaManagedInstancesCapacityProviderConfig: &lambda.FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs{
+//						CapacityProviderArn: exampleCapacityProvider.Arn,
+//					},
+//				},
 //				Code:       pulumi.NewFileArchive("function.zip"),
 //				Name:       pulumi.String("example"),
 //				Role:       pulumi.Any(exampleAwsIamRole.Arn),
@@ -858,11 +863,6 @@ import (
 //				Runtime:    pulumi.String(lambda.RuntimeNodeJS24dX),
 //				MemorySize: pulumi.Int(2048),
 //				Publish:    pulumi.Bool(true),
-//				CapacityProviderConfig: &lambda.FunctionCapacityProviderConfigArgs{
-//					LambdaManagedInstancesCapacityProviderConfig: &lambda.FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs{
-//						CapacityProviderArn: exampleCapacityProvider.Arn,
-//					},
-//				},
 //			})
 //			if err != nil {
 //				return err

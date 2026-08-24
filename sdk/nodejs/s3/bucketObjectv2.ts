@@ -107,10 +107,10 @@ import {Bucket} from "./index";
  *     acl: "private",
  * });
  * const exampleBucketVersioning = new aws.s3.BucketVersioning("example", {
- *     bucket: examplebucket.id,
  *     versioningConfiguration: {
  *         status: "Enabled",
  *     },
+ *     bucket: examplebucket.id,
  * });
  * const examplebucketObject = new aws.s3.BucketObjectv2("examplebucket_object", {
  *     key: "someobject",
@@ -138,16 +138,16 @@ import {Bucket} from "./index";
  *
  * const examplebucket = new aws.s3.Bucket("examplebucket", {bucket: "examplebuckettftest"});
  * const examplebucketObject = new aws.s3.BucketObjectv2("examplebucket_object", {
+ *     overrideProvider: {
+ *         defaultTags: {
+ *             tags: {},
+ *         },
+ *     },
  *     key: "someobject",
  *     bucket: examplebucket.id,
  *     source: new pulumi.asset.FileAsset("important.txt"),
  *     tags: {
  *         Env: "test",
- *     },
- *     overrideProvider: {
- *         defaultTags: {
- *             tags: {},
- *         },
  *     },
  * });
  * ```

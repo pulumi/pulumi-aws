@@ -34,12 +34,12 @@ namespace Pulumi.Aws.Observabilityadmin
     /// 
     ///     var exampleTelemetryRuleForOrganization = new Aws.Observabilityadmin.TelemetryRuleForOrganization("example", new()
     ///     {
-    ///         RuleName = "example-org-telemetry-rule",
     ///         Rule = new Aws.Observabilityadmin.Inputs.TelemetryRuleForOrganizationRuleArgs
     ///         {
     ///             TelemetryType = "Logs",
     ///             ResourceType = "AWS::EC2::VPC",
     ///         },
+    ///         RuleName = "example-org-telemetry-rule",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -65,9 +65,19 @@ namespace Pulumi.Aws.Observabilityadmin
     /// 
     ///     var exampleTelemetryRuleForOrganization = new Aws.Observabilityadmin.TelemetryRuleForOrganization("example", new()
     ///     {
-    ///         RuleName = "org-vpc-flow-logs-rule",
     ///         Rule = new Aws.Observabilityadmin.Inputs.TelemetryRuleForOrganizationRuleArgs
     ///         {
+    ///             DestinationConfiguration = new Aws.Observabilityadmin.Inputs.TelemetryRuleForOrganizationRuleDestinationConfigurationArgs
+    ///             {
+    ///                 VpcFlowLogParameters = new Aws.Observabilityadmin.Inputs.TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersArgs
+    ///                 {
+    ///                     TrafficType = "ALL",
+    ///                     MaxAggregationInterval = 60,
+    ///                 },
+    ///                 DestinationType = "cloud-watch-logs",
+    ///                 DestinationPattern = "/aws/vpcflowlogs/&lt;resourceId&gt;",
+    ///                 RetentionInDays = 30,
+    ///             },
     ///             TelemetryType = "Logs",
     ///             ResourceType = "AWS::EC2::VPC",
     ///             TelemetrySourceTypes = new[]
@@ -76,18 +86,8 @@ namespace Pulumi.Aws.Observabilityadmin
     ///             },
     ///             AllRegions = true,
     ///             AllowFieldUpdates = true,
-    ///             DestinationConfiguration = new Aws.Observabilityadmin.Inputs.TelemetryRuleForOrganizationRuleDestinationConfigurationArgs
-    ///             {
-    ///                 DestinationType = "cloud-watch-logs",
-    ///                 DestinationPattern = "/aws/vpcflowlogs/&lt;resourceId&gt;",
-    ///                 RetentionInDays = 30,
-    ///                 VpcFlowLogParameters = new Aws.Observabilityadmin.Inputs.TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersArgs
-    ///                 {
-    ///                     TrafficType = "ALL",
-    ///                     MaxAggregationInterval = 60,
-    ///                 },
-    ///             },
     ///         },
+    ///         RuleName = "org-vpc-flow-logs-rule",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -115,7 +115,6 @@ namespace Pulumi.Aws.Observabilityadmin
     /// 
     ///     var exampleTelemetryRuleForOrganization = new Aws.Observabilityadmin.TelemetryRuleForOrganization("example", new()
     ///     {
-    ///         RuleName = "org-scoped-rule",
     ///         Rule = new Aws.Observabilityadmin.Inputs.TelemetryRuleForOrganizationRuleArgs
     ///         {
     ///             TelemetryType = "Logs",
@@ -128,6 +127,7 @@ namespace Pulumi.Aws.Observabilityadmin
     ///                 "us-west-2",
     ///             },
     ///         },
+    ///         RuleName = "org-scoped-rule",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -153,12 +153,12 @@ namespace Pulumi.Aws.Observabilityadmin
     /// 
     ///     var exampleTelemetryRuleForOrganization = new Aws.Observabilityadmin.TelemetryRuleForOrganization("example", new()
     ///     {
-    ///         RuleName = "org-tagged-rule",
     ///         Rule = new Aws.Observabilityadmin.Inputs.TelemetryRuleForOrganizationRuleArgs
     ///         {
     ///             TelemetryType = "Logs",
     ///             ResourceType = "AWS::EC2::VPC",
     ///         },
+    ///         RuleName = "org-tagged-rule",
     ///         Tags = 
     ///         {
     ///             { "Environment", "production" },

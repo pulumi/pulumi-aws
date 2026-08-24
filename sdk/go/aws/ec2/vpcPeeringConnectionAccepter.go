@@ -165,7 +165,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewVpcPeeringConnectionAccepter(ctx, "example", nil)
+//			_, err := ec2.NewVpcPeeringConnectionAccepter(ctx, "example", nil, pulumi.IgnoreChanges([]string{
+//				"autoAccept",
+//			}))
 //			if err != nil {
 //				return err
 //			}

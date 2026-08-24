@@ -156,11 +156,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new EmailIdentity("example", EmailIdentityArgs.builder()
- *             .emailIdentity("example.com")
  *             .dkimSigningAttributes(EmailIdentityDkimSigningAttributesArgs.builder()
  *                 .domainSigningPrivateKey("MIIJKAIBAAKCAgEA2Se7p8zvnI4yh+Gh9j2rG5e2aRXjg03Y8saiupLnadPH9xvM...")
  *                 .domainSigningSelector("example")
  *                 .build())
+ *             .emailIdentity("example.com")
  *             .build());
  * 
  *     }

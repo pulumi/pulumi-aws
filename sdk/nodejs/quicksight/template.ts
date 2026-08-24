@@ -19,14 +19,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.quicksight.Template("example", {
- *     templateId: "example-id",
- *     name: "example-name",
- *     versionDescription: "version",
  *     sourceEntity: {
  *         sourceTemplate: {
  *             arn: source.arn,
  *         },
  *     },
+ *     templateId: "example-id",
+ *     name: "example-name",
+ *     versionDescription: "version",
  * });
  * ```
  *
@@ -37,9 +37,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.quicksight.Template("example", {
- *     templateId: "example-id",
- *     name: "example-name",
- *     versionDescription: "version",
  *     definition: {
  *         dataSetConfigurations: [{
  *             dataSetSchema: {
@@ -57,26 +54,22 @@ import * as utilities from "../utilities";
  *             placeholder: "1",
  *         }],
  *         sheets: [{
- *             title: "Test",
- *             sheetId: "Test1",
  *             visuals: [{
  *                 barChartVisual: {
- *                     visualId: "BarChart",
  *                     chartConfiguration: {
  *                         fieldWells: {
  *                             barChartAggregatedFieldWells: {
  *                                 categories: [{
  *                                     categoricalDimensionField: {
- *                                         fieldId: "1",
  *                                         column: {
  *                                             columnName: "Column1",
  *                                             dataSetIdentifier: "1",
  *                                         },
+ *                                         fieldId: "1",
  *                                     },
  *                                 }],
  *                                 values: [{
  *                                     numericalMeasureField: {
- *                                         fieldId: "2",
  *                                         column: {
  *                                             columnName: "Column2",
  *                                             dataSetIdentifier: "1",
@@ -84,15 +77,22 @@ import * as utilities from "../utilities";
  *                                         aggregationFunction: {
  *                                             simpleNumericalAggregation: "SUM",
  *                                         },
+ *                                         fieldId: "2",
  *                                     },
  *                                 }],
  *                             },
  *                         },
  *                     },
+ *                     visualId: "BarChart",
  *                 },
  *             }],
+ *             title: "Test",
+ *             sheetId: "Test1",
  *         }],
  *     },
+ *     templateId: "example-id",
+ *     name: "example-name",
+ *     versionDescription: "version",
  * });
  * ```
  *

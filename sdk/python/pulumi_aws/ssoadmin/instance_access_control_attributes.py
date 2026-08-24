@@ -175,21 +175,21 @@ class InstanceAccessControlAttributes(pulumi.CustomResource):
 
         example = aws.ssoadmin.get_instances()
         example_instance_access_control_attributes = aws.ssoadmin.InstanceAccessControlAttributes("example",
-            instance_arn=example.arns[0],
             attributes=[
                 {
-                    "key": "name",
                     "values": [{
                         "sources": ["${path:name.givenName}"],
                     }],
+                    "key": "name",
                 },
                 {
-                    "key": "last",
                     "values": [{
                         "sources": ["${path:name.familyName}"],
                     }],
+                    "key": "last",
                 },
-            ])
+            ],
+            instance_arn=example.arns[0])
         ```
 
         ## Import
@@ -224,21 +224,21 @@ class InstanceAccessControlAttributes(pulumi.CustomResource):
 
         example = aws.ssoadmin.get_instances()
         example_instance_access_control_attributes = aws.ssoadmin.InstanceAccessControlAttributes("example",
-            instance_arn=example.arns[0],
             attributes=[
                 {
-                    "key": "name",
                     "values": [{
                         "sources": ["${path:name.givenName}"],
                     }],
+                    "key": "name",
                 },
                 {
-                    "key": "last",
                     "values": [{
                         "sources": ["${path:name.familyName}"],
                     }],
+                    "key": "last",
                 },
-            ])
+            ],
+            instance_arn=example.arns[0])
         ```
 
         ## Import

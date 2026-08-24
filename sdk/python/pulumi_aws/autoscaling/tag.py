@@ -158,18 +158,18 @@ class Tag(pulumi.CustomResource):
         example = aws.eks.NodeGroup("example",
             cluster_name="example",
             node_group_name="example")
-        example_tag: list[aws.autoscaling.Tag] = []
+        example_tag: dict[str, aws.autoscaling.Tag] = {}
         def create_example(range_body):
-            for example_tag_range in [{"key": k, "value": v} for [k, v] in enumerate(range_body)]:
-                example_tag.append(aws.autoscaling.Tag(f"example-{example_tag_range['key']}",
-                    autoscaling_group_name=example_tag_range["value"],
+            for example_tag_range in [{"key": k, "value": v} for [k, v] in sorted((range_body).items())]:
+                example_tag[example_tag_range['key']] = aws.autoscaling.Tag(f"example-{example_tag_range['key']}",
                     tag={
                         "key": "k8s.io/cluster-autoscaler/node-template/label/eks.amazonaws.com/capacityType",
                         "value": "SPOT",
                         "propagate_at_launch": False,
-                    }))
+                    },
+                    autoscaling_group_name=example_tag_range["value"])
 
-        invoke.result.apply(create_example)
+        std.flatten_output(input=example.resources.apply(lambda resources: [resources.autoscaling_groups for resources in resources])).apply(lambda resolved_outputs: create_example({str(entry): entry for entry in [asg["name"] for asg in resolved_outputs['invoke'].result]}))
         ```
 
         ## Import
@@ -211,18 +211,18 @@ class Tag(pulumi.CustomResource):
         example = aws.eks.NodeGroup("example",
             cluster_name="example",
             node_group_name="example")
-        example_tag: list[aws.autoscaling.Tag] = []
+        example_tag: dict[str, aws.autoscaling.Tag] = {}
         def create_example(range_body):
-            for example_tag_range in [{"key": k, "value": v} for [k, v] in enumerate(range_body)]:
-                example_tag.append(aws.autoscaling.Tag(f"example-{example_tag_range['key']}",
-                    autoscaling_group_name=example_tag_range["value"],
+            for example_tag_range in [{"key": k, "value": v} for [k, v] in sorted((range_body).items())]:
+                example_tag[example_tag_range['key']] = aws.autoscaling.Tag(f"example-{example_tag_range['key']}",
                     tag={
                         "key": "k8s.io/cluster-autoscaler/node-template/label/eks.amazonaws.com/capacityType",
                         "value": "SPOT",
                         "propagate_at_launch": False,
-                    }))
+                    },
+                    autoscaling_group_name=example_tag_range["value"])
 
-        invoke.result.apply(create_example)
+        std.flatten_output(input=example.resources.apply(lambda resources: [resources.autoscaling_groups for resources in resources])).apply(lambda resolved_outputs: create_example({str(entry): entry for entry in [asg["name"] for asg in resolved_outputs['invoke'].result]}))
         ```
 
         ## Import

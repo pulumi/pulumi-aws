@@ -694,8 +694,6 @@ class ServerlessCache(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.elasticache.ServerlessCache("example",
-            engine="memcached",
-            name="example",
             cache_usage_limits={
                 "data_storage": {
                     "maximum": 10,
@@ -705,6 +703,8 @@ class ServerlessCache(pulumi.CustomResource):
                     "maximum": 5000,
                 }],
             },
+            engine="memcached",
+            name="example",
             description="Test Server",
             kms_key_id=test["arn"],
             major_engine_version="1.6",
@@ -719,8 +719,6 @@ class ServerlessCache(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.elasticache.ServerlessCache("example",
-            engine="redis",
-            name="example",
             cache_usage_limits={
                 "data_storage": {
                     "maximum": 10,
@@ -730,6 +728,8 @@ class ServerlessCache(pulumi.CustomResource):
                     "maximum": 5000,
                 }],
             },
+            engine="redis",
+            name="example",
             daily_snapshot_time="09:00",
             description="Test Server",
             kms_key_id=test["arn"],
@@ -746,8 +746,6 @@ class ServerlessCache(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.elasticache.ServerlessCache("example",
-            engine="valkey",
-            name="example",
             cache_usage_limits={
                 "data_storage": {
                     "maximum": 10,
@@ -757,6 +755,8 @@ class ServerlessCache(pulumi.CustomResource):
                     "maximum": 5000,
                 }],
             },
+            engine="valkey",
+            name="example",
             daily_snapshot_time="09:00",
             description="Test Server",
             kms_key_id=test["arn"],
@@ -814,8 +814,6 @@ class ServerlessCache(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.elasticache.ServerlessCache("example",
-            engine="memcached",
-            name="example",
             cache_usage_limits={
                 "data_storage": {
                     "maximum": 10,
@@ -825,6 +823,8 @@ class ServerlessCache(pulumi.CustomResource):
                     "maximum": 5000,
                 }],
             },
+            engine="memcached",
+            name="example",
             description="Test Server",
             kms_key_id=test["arn"],
             major_engine_version="1.6",
@@ -839,8 +839,6 @@ class ServerlessCache(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.elasticache.ServerlessCache("example",
-            engine="redis",
-            name="example",
             cache_usage_limits={
                 "data_storage": {
                     "maximum": 10,
@@ -850,6 +848,8 @@ class ServerlessCache(pulumi.CustomResource):
                     "maximum": 5000,
                 }],
             },
+            engine="redis",
+            name="example",
             daily_snapshot_time="09:00",
             description="Test Server",
             kms_key_id=test["arn"],
@@ -866,8 +866,6 @@ class ServerlessCache(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.elasticache.ServerlessCache("example",
-            engine="valkey",
-            name="example",
             cache_usage_limits={
                 "data_storage": {
                     "maximum": 10,
@@ -877,6 +875,8 @@ class ServerlessCache(pulumi.CustomResource):
                     "maximum": 5000,
                 }],
             },
+            engine="valkey",
+            name="example",
             daily_snapshot_time="09:00",
             description="Test Server",
             kms_key_id=test["arn"],

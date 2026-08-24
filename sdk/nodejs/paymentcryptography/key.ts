@@ -19,18 +19,18 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.paymentcryptography.Key("test", {
- *     exportable: true,
  *     keyAttributes: [{
- *         keyAlgorithm: "TDES_3KEY",
- *         keyClass: "SYMMETRIC_KEY",
- *         keyUsage: "TR31_P0_PIN_ENCRYPTION_KEY",
  *         keyModesOfUses: [{
  *             decrypt: true,
  *             encrypt: true,
  *             wrap: true,
  *             unwrap: true,
  *         }],
+ *         keyAlgorithm: "TDES_3KEY",
+ *         keyClass: "SYMMETRIC_KEY",
+ *         keyUsage: "TR31_P0_PIN_ENCRYPTION_KEY",
  *     }],
+ *     exportable: true,
  * });
  * ```
  *

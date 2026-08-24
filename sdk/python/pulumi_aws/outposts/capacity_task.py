@@ -403,11 +403,11 @@ class CapacityTask(pulumi.CustomResource):
 
         example = aws.outposts.get_outposts()
         example_capacity_task = aws.outposts.CapacityTask("example",
-            outpost_identifier=example.arns[0],
             instance_pools=[{
                 "instance_type": "m5.large",
                 "count": 2,
-            }])
+            }],
+            outpost_identifier=example.arns[0])
         ```
 
         ### Multiple instance pools, excluded instances, and a specified blocking-instance action
@@ -418,9 +418,12 @@ class CapacityTask(pulumi.CustomResource):
 
         example = aws.outposts.get_assets(arn="arn:aws:outposts:us-west-2:123456789012:outpost/op-1234567890abcdef")
         example_capacity_task = aws.outposts.CapacityTask("example",
-            outpost_identifier="op-1234567890abcdef",
-            task_action_on_blocking_instances="WAIT_FOR_EVACUATION",
-            asset_id=example.asset_ids[0],
+            instances_to_exclude={
+                "instances": [
+                    "i-0123456789abcdef0",
+                    "i-0fedcba9876543210",
+                ],
+            },
             instance_pools=[
                 {
                     "instance_type": "m5.large",
@@ -431,12 +434,10 @@ class CapacityTask(pulumi.CustomResource):
                     "count": 2,
                 },
             ],
-            instances_to_exclude={
-                "instances": [
-                    "i-0123456789abcdef0",
-                    "i-0fedcba9876543210",
-                ],
-            })
+            outpost_identifier="op-1234567890abcdef",
+            task_action_on_blocking_instances="WAIT_FOR_EVACUATION",
+            asset_id=example.asset_ids[0],
+            opts = pulumi.ResourceOptions(custom_timeouts=pulumi.CustomTimeouts(create="90m", delete="15m")))
         ```
 
         ## Import
@@ -494,11 +495,11 @@ class CapacityTask(pulumi.CustomResource):
 
         example = aws.outposts.get_outposts()
         example_capacity_task = aws.outposts.CapacityTask("example",
-            outpost_identifier=example.arns[0],
             instance_pools=[{
                 "instance_type": "m5.large",
                 "count": 2,
-            }])
+            }],
+            outpost_identifier=example.arns[0])
         ```
 
         ### Multiple instance pools, excluded instances, and a specified blocking-instance action
@@ -509,9 +510,12 @@ class CapacityTask(pulumi.CustomResource):
 
         example = aws.outposts.get_assets(arn="arn:aws:outposts:us-west-2:123456789012:outpost/op-1234567890abcdef")
         example_capacity_task = aws.outposts.CapacityTask("example",
-            outpost_identifier="op-1234567890abcdef",
-            task_action_on_blocking_instances="WAIT_FOR_EVACUATION",
-            asset_id=example.asset_ids[0],
+            instances_to_exclude={
+                "instances": [
+                    "i-0123456789abcdef0",
+                    "i-0fedcba9876543210",
+                ],
+            },
             instance_pools=[
                 {
                     "instance_type": "m5.large",
@@ -522,12 +526,10 @@ class CapacityTask(pulumi.CustomResource):
                     "count": 2,
                 },
             ],
-            instances_to_exclude={
-                "instances": [
-                    "i-0123456789abcdef0",
-                    "i-0fedcba9876543210",
-                ],
-            })
+            outpost_identifier="op-1234567890abcdef",
+            task_action_on_blocking_instances="WAIT_FOR_EVACUATION",
+            asset_id=example.asset_ids[0],
+            opts = pulumi.ResourceOptions(custom_timeouts=pulumi.CustomTimeouts(create="90m", delete="15m")))
         ```
 
         ## Import

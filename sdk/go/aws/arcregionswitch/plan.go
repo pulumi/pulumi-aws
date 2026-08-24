@@ -57,6 +57,40 @@ import (
 //				return err
 //			}
 //			_, err = arcregionswitch.NewPlan(ctx, "example", &arcregionswitch.PlanArgs{
+//				Workflows: arcregionswitch.PlanWorkflowArray{
+//					&arcregionswitch.PlanWorkflowArgs{
+//						Steps: arcregionswitch.PlanWorkflowStepArray{
+//							&arcregionswitch.PlanWorkflowStepArgs{
+//								ExecutionApprovalConfigs: arcregionswitch.PlanWorkflowStepExecutionApprovalConfigArray{
+//									&arcregionswitch.PlanWorkflowStepExecutionApprovalConfigArgs{
+//										ApprovalRole:   example.Arn,
+//										TimeoutMinutes: pulumi.Int(60),
+//									},
+//								},
+//								Name:               pulumi.String("manual-approval"),
+//								ExecutionBlockType: pulumi.String("ManualApproval"),
+//							},
+//						},
+//						WorkflowTargetAction: pulumi.String("activate"),
+//						WorkflowTargetRegion: pulumi.String("us-west-2"),
+//					},
+//					&arcregionswitch.PlanWorkflowArgs{
+//						Steps: arcregionswitch.PlanWorkflowStepArray{
+//							&arcregionswitch.PlanWorkflowStepArgs{
+//								ExecutionApprovalConfigs: arcregionswitch.PlanWorkflowStepExecutionApprovalConfigArray{
+//									&arcregionswitch.PlanWorkflowStepExecutionApprovalConfigArgs{
+//										ApprovalRole:   example.Arn,
+//										TimeoutMinutes: pulumi.Int(60),
+//									},
+//								},
+//								Name:               pulumi.String("manual-approval"),
+//								ExecutionBlockType: pulumi.String("ManualApproval"),
+//							},
+//						},
+//						WorkflowTargetAction: pulumi.String("deactivate"),
+//						WorkflowTargetRegion: pulumi.String("us-east-1"),
+//					},
+//				},
 //				Name:             pulumi.String("example-plan"),
 //				ExecutionRole:    example.Arn,
 //				RecoveryApproach: pulumi.String("activePassive"),
@@ -65,40 +99,6 @@ import (
 //					pulumi.String("us-west-2"),
 //				},
 //				PrimaryRegion: pulumi.String("us-east-1"),
-//				Workflows: arcregionswitch.PlanWorkflowArray{
-//					&arcregionswitch.PlanWorkflowArgs{
-//						WorkflowTargetAction: pulumi.String("activate"),
-//						WorkflowTargetRegion: pulumi.String("us-west-2"),
-//						Steps: arcregionswitch.PlanWorkflowStepArray{
-//							&arcregionswitch.PlanWorkflowStepArgs{
-//								Name:               pulumi.String("manual-approval"),
-//								ExecutionBlockType: pulumi.String("ManualApproval"),
-//								ExecutionApprovalConfigs: arcregionswitch.PlanWorkflowStepExecutionApprovalConfigArray{
-//									&arcregionswitch.PlanWorkflowStepExecutionApprovalConfigArgs{
-//										ApprovalRole:   example.Arn,
-//										TimeoutMinutes: pulumi.Int(60),
-//									},
-//								},
-//							},
-//						},
-//					},
-//					&arcregionswitch.PlanWorkflowArgs{
-//						WorkflowTargetAction: pulumi.String("deactivate"),
-//						WorkflowTargetRegion: pulumi.String("us-east-1"),
-//						Steps: arcregionswitch.PlanWorkflowStepArray{
-//							&arcregionswitch.PlanWorkflowStepArgs{
-//								Name:               pulumi.String("manual-approval"),
-//								ExecutionBlockType: pulumi.String("ManualApproval"),
-//								ExecutionApprovalConfigs: arcregionswitch.PlanWorkflowStepExecutionApprovalConfigArray{
-//									&arcregionswitch.PlanWorkflowStepExecutionApprovalConfigArgs{
-//										ApprovalRole:   example.Arn,
-//										TimeoutMinutes: pulumi.Int(60),
-//									},
-//								},
-//							},
-//						},
-//					},
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -124,15 +124,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := arcregionswitch.NewPlan(ctx, "complex", &arcregionswitch.PlanArgs{
-//				Name:             pulumi.String("complex-plan"),
-//				ExecutionRole:    pulumi.Any(exampleAwsIamRole.Arn),
-//				RecoveryApproach: pulumi.String("activeActive"),
-//				Regions: pulumi.StringArray{
-//					pulumi.String("us-east-1"),
-//					pulumi.String("us-west-2"),
-//				},
-//				Description:                  pulumi.String("Complex plan with multiple execution block types"),
-//				RecoveryTimeObjectiveMinutes: pulumi.Int(60),
 //				AssociatedAlarms: arcregionswitch.PlanAssociatedAlarmArray{
 //					&arcregionswitch.PlanAssociatedAlarmArgs{
 //						Name:               "application-health-alarm",
@@ -140,36 +131,43 @@ import (
 //						ResourceIdentifier: pulumi.String("arn:aws:cloudwatch:us-east-1:123456789012:alarm:MyAlarm"),
 //					},
 //				},
+//				Triggers: arcregionswitch.PlanTriggerArray{
+//					&arcregionswitch.PlanTriggerArgs{
+//						Conditions: arcregionswitch.PlanTriggerConditionArray{
+//							&arcregionswitch.PlanTriggerConditionArgs{
+//								AssociatedAlarmName: pulumi.String("application-health-alarm"),
+//								Condition:           pulumi.String("red"),
+//							},
+//						},
+//						Action:                           pulumi.String("activate"),
+//						TargetRegion:                     pulumi.String("us-west-2"),
+//						MinDelayMinutesBetweenExecutions: pulumi.Int(30),
+//					},
+//				},
 //				Workflows: arcregionswitch.PlanWorkflowArray{
 //					&arcregionswitch.PlanWorkflowArgs{
-//						WorkflowTargetAction: pulumi.String("activate"),
-//						WorkflowTargetRegion: pulumi.String("us-west-2"),
 //						Steps: arcregionswitch.PlanWorkflowStepArray{
 //							&arcregionswitch.PlanWorkflowStepArgs{
-//								Name:               pulumi.String("lambda-step"),
-//								ExecutionBlockType: pulumi.String("CustomActionLambda"),
 //								CustomActionLambdaConfigs: arcregionswitch.PlanWorkflowStepCustomActionLambdaConfigArray{
 //									&arcregionswitch.PlanWorkflowStepCustomActionLambdaConfigArgs{
-//										RegionToRun:          pulumi.String("activatingRegion"),
-//										RetryIntervalMinutes: pulumi.Float64(5),
-//										TimeoutMinutes:       pulumi.Int(30),
 //										Lambdas: arcregionswitch.PlanWorkflowStepCustomActionLambdaConfigLambdaArray{
 //											&arcregionswitch.PlanWorkflowStepCustomActionLambdaConfigLambdaArgs{
 //												Arn: pulumi.Any(example.Arn),
 //											},
 //										},
+//										RegionToRun:          pulumi.String("activatingRegion"),
+//										RetryIntervalMinutes: pulumi.Float64(5),
+//										TimeoutMinutes:       pulumi.Int(30),
 //									},
 //								},
+//								Name:               pulumi.String("lambda-step"),
+//								ExecutionBlockType: pulumi.String("CustomActionLambda"),
 //							},
 //							&arcregionswitch.PlanWorkflowStepArgs{
-//								Name:               pulumi.String("parallel-step"),
-//								ExecutionBlockType: pulumi.String("Parallel"),
 //								ParallelConfigs: arcregionswitch.PlanWorkflowStepParallelConfigArray{
 //									&arcregionswitch.PlanWorkflowStepParallelConfigArgs{
 //										Steps: arcregionswitch.PlanWorkflowStepParallelConfigStepArray{
 //											&arcregionswitch.PlanWorkflowStepParallelConfigStepArgs{
-//												Name:               pulumi.String("asg-scaling"),
-//												ExecutionBlockType: pulumi.String("EC2AutoScaling"),
 //												Ec2AsgCapacityIncreaseConfigs: arcregionswitch.PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigArray{
 //													&arcregionswitch.PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigArgs{
 //														Asgs: arcregionswitch.PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigAsgArray{
@@ -180,10 +178,10 @@ import (
 //														TargetPercent: pulumi.Int(150),
 //													},
 //												},
+//												Name:               pulumi.String("asg-scaling"),
+//												ExecutionBlockType: pulumi.String("EC2AutoScaling"),
 //											},
 //											&arcregionswitch.PlanWorkflowStepParallelConfigStepArgs{
-//												Name:               pulumi.String("ecs-scaling"),
-//												ExecutionBlockType: pulumi.String("ECSServiceScaling"),
 //												EcsCapacityIncreaseConfigs: arcregionswitch.PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigArray{
 //													&arcregionswitch.PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigArgs{
 //														Services: arcregionswitch.PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigServiceArray{
@@ -195,43 +193,45 @@ import (
 //														TargetPercent: pulumi.Int(200),
 //													},
 //												},
+//												Name:               pulumi.String("ecs-scaling"),
+//												ExecutionBlockType: pulumi.String("ECSServiceScaling"),
 //											},
 //										},
 //									},
 //								},
+//								Name:               pulumi.String("parallel-step"),
+//								ExecutionBlockType: pulumi.String("Parallel"),
 //							},
 //						},
+//						WorkflowTargetAction: pulumi.String("activate"),
+//						WorkflowTargetRegion: pulumi.String("us-west-2"),
 //					},
 //					&arcregionswitch.PlanWorkflowArgs{
-//						WorkflowTargetAction: pulumi.String("deactivate"),
-//						WorkflowTargetRegion: pulumi.String("us-east-1"),
 //						Steps: arcregionswitch.PlanWorkflowStepArray{
 //							&arcregionswitch.PlanWorkflowStepArgs{
-//								Name:               pulumi.String("route53-health-check"),
-//								ExecutionBlockType: pulumi.String("Route53HealthCheck"),
 //								Route53HealthCheckConfigs: arcregionswitch.PlanWorkflowStepRoute53HealthCheckConfigArray{
 //									&arcregionswitch.PlanWorkflowStepRoute53HealthCheckConfigArgs{
 //										HostedZoneId: pulumi.Any(exampleAwsRoute53Zone.ZoneId),
 //										RecordName:   pulumi.String("api.example.com"),
 //									},
 //								},
+//								Name:               pulumi.String("route53-health-check"),
+//								ExecutionBlockType: pulumi.String("Route53HealthCheck"),
 //							},
 //						},
+//						WorkflowTargetAction: pulumi.String("deactivate"),
+//						WorkflowTargetRegion: pulumi.String("us-east-1"),
 //					},
 //				},
-//				Triggers: arcregionswitch.PlanTriggerArray{
-//					&arcregionswitch.PlanTriggerArgs{
-//						Action:                           pulumi.String("activate"),
-//						TargetRegion:                     pulumi.String("us-west-2"),
-//						MinDelayMinutesBetweenExecutions: pulumi.Int(30),
-//						Conditions: arcregionswitch.PlanTriggerConditionArray{
-//							&arcregionswitch.PlanTriggerConditionArgs{
-//								AssociatedAlarmName: pulumi.String("application-health-alarm"),
-//								Condition:           pulumi.String("red"),
-//							},
-//						},
-//					},
+//				Name:             pulumi.String("complex-plan"),
+//				ExecutionRole:    pulumi.Any(exampleAwsIamRole.Arn),
+//				RecoveryApproach: pulumi.String("activeActive"),
+//				Regions: pulumi.StringArray{
+//					pulumi.String("us-east-1"),
+//					pulumi.String("us-west-2"),
 //				},
+//				Description:                  pulumi.String("Complex plan with multiple execution block types"),
+//				RecoveryTimeObjectiveMinutes: pulumi.Int(60),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("production"),
 //				},

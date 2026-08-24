@@ -34,33 +34,33 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := rds.NewOptionGroup(ctx, "example", &rds.OptionGroupArgs{
-//				Name:                   pulumi.String("option-group-test"),
-//				OptionGroupDescription: pulumi.String("Option Group"),
-//				EngineName:             pulumi.String("sqlserver-ee"),
-//				MajorEngineVersion:     pulumi.String("11.00"),
 //				Options: rds.OptionGroupOptionArray{
 //					&rds.OptionGroupOptionArgs{
-//						OptionName: pulumi.String("Timezone"),
 //						OptionSettings: rds.OptionGroupOptionOptionSettingArray{
 //							&rds.OptionGroupOptionOptionSettingArgs{
 //								Name:  pulumi.String("TIME_ZONE"),
 //								Value: pulumi.String("UTC"),
 //							},
 //						},
+//						OptionName: pulumi.String("Timezone"),
 //					},
 //					&rds.OptionGroupOptionArgs{
-//						OptionName: pulumi.String("SQLSERVER_BACKUP_RESTORE"),
 //						OptionSettings: rds.OptionGroupOptionOptionSettingArray{
 //							&rds.OptionGroupOptionOptionSettingArgs{
 //								Name:  pulumi.String("IAM_ROLE_ARN"),
 //								Value: pulumi.Any(exampleAwsIamRole.Arn),
 //							},
 //						},
+//						OptionName: pulumi.String("SQLSERVER_BACKUP_RESTORE"),
 //					},
 //					&rds.OptionGroupOptionArgs{
 //						OptionName: pulumi.String("TDE"),
 //					},
 //				},
+//				Name:                   pulumi.String("option-group-test"),
+//				OptionGroupDescription: pulumi.String("Option Group"),
+//				EngineName:             pulumi.String("sqlserver-ee"),
+//				MajorEngineVersion:     pulumi.String("11.00"),
 //			})
 //			if err != nil {
 //				return err

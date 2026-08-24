@@ -65,10 +65,6 @@ import (
 //			aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Identifiers: pulumi.StringArray{
@@ -77,6 +73,10 @@ import (
 //								Type: "AWS",
 //							},
 //						},
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//						Effect: pulumi.StringRef("Allow"),
 //					},
 //				},
 //			}, nil)

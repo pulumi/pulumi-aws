@@ -19,14 +19,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.quicksight.RefreshSchedule("example", {
- *     dataSetId: "dataset-id",
- *     scheduleId: "schedule-id",
  *     schedule: {
- *         refreshType: "FULL_REFRESH",
  *         scheduleFrequency: {
  *             interval: "HOURLY",
  *         },
+ *         refreshType: "FULL_REFRESH",
  *     },
+ *     dataSetId: "dataset-id",
+ *     scheduleId: "schedule-id",
  * });
  * ```
  *
@@ -37,19 +37,19 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.quicksight.RefreshSchedule("example", {
- *     dataSetId: "dataset-id",
- *     scheduleId: "schedule-id",
  *     schedule: {
- *         refreshType: "INCREMENTAL_REFRESH",
  *         scheduleFrequency: {
- *             interval: "WEEKLY",
- *             timeOfTheDay: "01:00",
- *             timezone: "Europe/London",
  *             refreshOnDay: {
  *                 dayOfWeek: "MONDAY",
  *             },
+ *             interval: "WEEKLY",
+ *             timeOfTheDay: "01:00",
+ *             timezone: "Europe/London",
  *         },
+ *         refreshType: "INCREMENTAL_REFRESH",
  *     },
+ *     dataSetId: "dataset-id",
+ *     scheduleId: "schedule-id",
  * });
  * ```
  *
@@ -60,19 +60,19 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.quicksight.RefreshSchedule("example", {
- *     dataSetId: "dataset-id",
- *     scheduleId: "schedule-id",
  *     schedule: {
- *         refreshType: "INCREMENTAL_REFRESH",
  *         scheduleFrequency: {
- *             interval: "MONTHLY",
- *             timeOfTheDay: "01:00",
- *             timezone: "Europe/London",
  *             refreshOnDay: {
  *                 dayOfMonth: "1",
  *             },
+ *             interval: "MONTHLY",
+ *             timeOfTheDay: "01:00",
+ *             timezone: "Europe/London",
  *         },
+ *         refreshType: "INCREMENTAL_REFRESH",
  *     },
+ *     dataSetId: "dataset-id",
+ *     scheduleId: "schedule-id",
  * });
  * ```
  *

@@ -186,8 +186,6 @@ class VoiceConnectorOrigination(pulumi.CustomResource):
             name="test",
             require_encryption=True)
         default_voice_connector_origination = aws.chime.VoiceConnectorOrigination("default",
-            disabled=False,
-            voice_connector_id=default.id,
             routes=[
                 {
                     "host": "127.0.0.1",
@@ -203,7 +201,9 @@ class VoiceConnectorOrigination(pulumi.CustomResource):
                     "priority": 2,
                     "weight": 10,
                 },
-            ])
+            ],
+            disabled=False,
+            voice_connector_id=default.id)
         ```
 
         ## Import
@@ -241,8 +241,6 @@ class VoiceConnectorOrigination(pulumi.CustomResource):
             name="test",
             require_encryption=True)
         default_voice_connector_origination = aws.chime.VoiceConnectorOrigination("default",
-            disabled=False,
-            voice_connector_id=default.id,
             routes=[
                 {
                     "host": "127.0.0.1",
@@ -258,7 +256,9 @@ class VoiceConnectorOrigination(pulumi.CustomResource):
                     "priority": 2,
                     "weight": 10,
                 },
-            ])
+            ],
+            disabled=False,
+            voice_connector_id=default.id)
         ```
 
         ## Import

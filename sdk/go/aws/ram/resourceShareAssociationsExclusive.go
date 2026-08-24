@@ -170,14 +170,14 @@ import (
 //				return err
 //			}
 //			exampleCertificateAuthority, err := acmpca.NewCertificateAuthority(ctx, "example", &acmpca.CertificateAuthorityArgs{
-//				Type: pulumi.String("ROOT"),
 //				CertificateAuthorityConfiguration: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs{
-//					KeyAlgorithm:     pulumi.String("RSA_4096"),
-//					SigningAlgorithm: pulumi.String("SHA512WITHRSA"),
 //					Subject: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs{
 //						CommonName: pulumi.String("example.com"),
 //					},
+//					KeyAlgorithm:     pulumi.String("RSA_4096"),
+//					SigningAlgorithm: pulumi.String("SHA512WITHRSA"),
 //				},
+//				Type: pulumi.String("ROOT"),
 //			})
 //			if err != nil {
 //				return err

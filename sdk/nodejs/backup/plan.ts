@@ -17,21 +17,21 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.backup.Plan("example", {
- *     name: "my_example_backup_plan",
- *     rules: [{
- *         ruleName: "my_example_backup_rule",
- *         targetVaultName: test.name,
- *         schedule: "cron(0 12 * * ? *)",
- *         lifecycle: {
- *             deleteAfter: 14,
- *         },
- *     }],
  *     advancedBackupSettings: [{
  *         backupOptions: {
  *             WindowsVSS: "enabled",
  *         },
  *         resourceType: "EC2",
  *     }],
+ *     rules: [{
+ *         lifecycle: {
+ *             deleteAfter: 14,
+ *         },
+ *         ruleName: "my_example_backup_rule",
+ *         targetVaultName: test.name,
+ *         schedule: "cron(0 12 * * ? *)",
+ *     }],
+ *     name: "my_example_backup_plan",
  * });
  * ```
  *

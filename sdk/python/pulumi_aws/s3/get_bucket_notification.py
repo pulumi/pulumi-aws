@@ -160,27 +160,27 @@ def get_bucket_notification(bucket: Optional[_builtins.str] = None,
 
     existing = aws.s3.get_bucket_notification(bucket=example_aws_s3_bucket["id"])
     example = aws.s3.BucketNotification("example",
-        lambda_functions=[{"key": k, "value": v} for k, v in sorted(existing.lambda_functions.items())].apply(lambda entries: [aws.s3.BucketNotificationLambdaFunctionArgs(
-            id=entry["value"].id,
-            lambda_function_arn=entry["value"].lambda_function_arn,
-            events=entry["value"].events,
-            filter_prefix=entry["value"].filter_prefix,
-            filter_suffix=entry["value"].filter_suffix,
-        ) for entry in entries]),
-        queues=[{"key": k, "value": v} for k, v in sorted(existing.queues.items())].apply(lambda entries: [aws.s3.BucketNotificationQueueArgs(
-            id=entry2["value"].id,
-            queue_arn=entry2["value"].queue_arn,
-            events=entry2["value"].events,
-            filter_prefix=entry2["value"].filter_prefix,
-            filter_suffix=entry2["value"].filter_suffix,
-        ) for entry2 in entries]),
-        topics=[{"key": k, "value": v} for k, v in sorted(existing.topics.items())].apply(lambda entries: [aws.s3.BucketNotificationTopicArgs(
-            id=entry3["value"].id,
-            topic_arn=entry3["value"].topic_arn,
-            events=entry3["value"].events,
-            filter_prefix=entry3["value"].filter_prefix,
-            filter_suffix=entry3["value"].filter_suffix,
-        ) for entry3 in entries]),
+        lambda_functions=[{
+            "id": entry.id,
+            "lambda_function_arn": entry.lambda_function_arn,
+            "events": entry.events,
+            "filter_prefix": entry.filter_prefix,
+            "filter_suffix": entry.filter_suffix,
+        } for entry in existing.lambda_functions],
+        queues=[{
+            "id": entry2.id,
+            "queue_arn": entry2.queue_arn,
+            "events": entry2.events,
+            "filter_prefix": entry2.filter_prefix,
+            "filter_suffix": entry2.filter_suffix,
+        } for entry2 in existing.queues],
+        topics=[{
+            "id": entry3.id,
+            "topic_arn": entry3.topic_arn,
+            "events": entry3.events,
+            "filter_prefix": entry3.filter_prefix,
+            "filter_suffix": entry3.filter_suffix,
+        } for entry3 in existing.topics],
         bucket=example_aws_s3_bucket["id"],
         eventbridge=existing.eventbridge)
     ```
@@ -275,27 +275,27 @@ def get_bucket_notification_output(bucket: pulumi.Input[Optional[_builtins.str]]
 
     existing = aws.s3.get_bucket_notification(bucket=example_aws_s3_bucket["id"])
     example = aws.s3.BucketNotification("example",
-        lambda_functions=[{"key": k, "value": v} for k, v in sorted(existing.lambda_functions.items())].apply(lambda entries: [aws.s3.BucketNotificationLambdaFunctionArgs(
-            id=entry["value"].id,
-            lambda_function_arn=entry["value"].lambda_function_arn,
-            events=entry["value"].events,
-            filter_prefix=entry["value"].filter_prefix,
-            filter_suffix=entry["value"].filter_suffix,
-        ) for entry in entries]),
-        queues=[{"key": k, "value": v} for k, v in sorted(existing.queues.items())].apply(lambda entries: [aws.s3.BucketNotificationQueueArgs(
-            id=entry2["value"].id,
-            queue_arn=entry2["value"].queue_arn,
-            events=entry2["value"].events,
-            filter_prefix=entry2["value"].filter_prefix,
-            filter_suffix=entry2["value"].filter_suffix,
-        ) for entry2 in entries]),
-        topics=[{"key": k, "value": v} for k, v in sorted(existing.topics.items())].apply(lambda entries: [aws.s3.BucketNotificationTopicArgs(
-            id=entry3["value"].id,
-            topic_arn=entry3["value"].topic_arn,
-            events=entry3["value"].events,
-            filter_prefix=entry3["value"].filter_prefix,
-            filter_suffix=entry3["value"].filter_suffix,
-        ) for entry3 in entries]),
+        lambda_functions=[{
+            "id": entry.id,
+            "lambda_function_arn": entry.lambda_function_arn,
+            "events": entry.events,
+            "filter_prefix": entry.filter_prefix,
+            "filter_suffix": entry.filter_suffix,
+        } for entry in existing.lambda_functions],
+        queues=[{
+            "id": entry2.id,
+            "queue_arn": entry2.queue_arn,
+            "events": entry2.events,
+            "filter_prefix": entry2.filter_prefix,
+            "filter_suffix": entry2.filter_suffix,
+        } for entry2 in existing.queues],
+        topics=[{
+            "id": entry3.id,
+            "topic_arn": entry3.topic_arn,
+            "events": entry3.events,
+            "filter_prefix": entry3.filter_prefix,
+            "filter_suffix": entry3.filter_suffix,
+        } for entry3 in existing.topics],
         bucket=example_aws_s3_bucket["id"],
         eventbridge=existing.eventbridge)
     ```

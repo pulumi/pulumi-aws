@@ -19,8 +19,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const servicea = new aws.appmesh.VirtualService("servicea", {
- *     name: "servicea.simpleapp.local",
- *     meshName: simple.id,
  *     spec: {
  *         provider: {
  *             virtualNode: {
@@ -28,6 +26,8 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     },
+ *     name: "servicea.simpleapp.local",
+ *     meshName: simple.id,
  * });
  * ```
  *
@@ -38,8 +38,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const servicea = new aws.appmesh.VirtualService("servicea", {
- *     name: "servicea.simpleapp.local",
- *     meshName: simple.id,
  *     spec: {
  *         provider: {
  *             virtualRouter: {
@@ -47,6 +45,8 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     },
+ *     name: "servicea.simpleapp.local",
+ *     meshName: simple.id,
  * });
  * ```
  *

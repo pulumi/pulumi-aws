@@ -45,23 +45,23 @@ import (
 //				return err
 //			}
 //			_, err = observabilityadmin.NewCentralizationRuleForOrganization(ctx, "example", &observabilityadmin.CentralizationRuleForOrganizationArgs{
-//				RuleName: pulumi.String("example-centralization-rule"),
 //				Rule: &observabilityadmin.CentralizationRuleForOrganizationRuleArgs{
 //					Destination: &observabilityadmin.CentralizationRuleForOrganizationRuleDestinationArgs{
 //						Region:  pulumi.String("eu-west-1"),
 //						Account: pulumi.String(current.AccountId),
 //					},
 //					Source: &observabilityadmin.CentralizationRuleForOrganizationRuleSourceArgs{
-//						Regions: pulumi.StringArray{
-//							pulumi.String("ap-southeast-1"),
-//						},
-//						Scope: pulumi.Sprintf("OrganizationId = '%v'", currentGetOrganization.Id),
 //						SourceLogsConfiguration: &observabilityadmin.CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs{
 //							EncryptedLogGroupStrategy: pulumi.String("SKIP"),
 //							LogGroupSelectionCriteria: pulumi.String("*"),
 //						},
+//						Regions: pulumi.StringArray{
+//							pulumi.String("ap-southeast-1"),
+//						},
+//						Scope: pulumi.Sprintf("OrganizationId = '%v'", currentGetOrganization.Id),
 //					},
 //				},
+//				RuleName: pulumi.String("example-centralization-rule"),
 //				Tags: pulumi.StringMap{
 //					"Name":        pulumi.String("example-centralization-rule"),
 //					"Environment": pulumi.String("production"),
@@ -101,11 +101,8 @@ import (
 //				return err
 //			}
 //			_, err = observabilityadmin.NewCentralizationRuleForOrganization(ctx, "advanced", &observabilityadmin.CentralizationRuleForOrganizationArgs{
-//				RuleName: pulumi.String("advanced-centralization-rule"),
 //				Rule: &observabilityadmin.CentralizationRuleForOrganizationRuleArgs{
 //					Destination: &observabilityadmin.CentralizationRuleForOrganizationRuleDestinationArgs{
-//						Region:  pulumi.String("eu-west-1"),
-//						Account: pulumi.String(current.AccountId),
 //						DestinationLogsConfiguration: &observabilityadmin.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgs{
 //							LogsEncryptionConfiguration: &observabilityadmin.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgs{
 //								EncryptionStrategy: pulumi.String("AWS_OWNED"),
@@ -117,19 +114,22 @@ import (
 //								LogGroupNamePattern: pulumi.String("/centralized-logs/${source.accountId}/${source.region}/${source.logGroup}"),
 //							},
 //						},
+//						Region:  pulumi.String("eu-west-1"),
+//						Account: pulumi.String(current.AccountId),
 //					},
 //					Source: &observabilityadmin.CentralizationRuleForOrganizationRuleSourceArgs{
+//						SourceLogsConfiguration: &observabilityadmin.CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs{
+//							EncryptedLogGroupStrategy: pulumi.String("ALLOW"),
+//							LogGroupSelectionCriteria: pulumi.String("*"),
+//						},
 //						Regions: pulumi.StringArray{
 //							pulumi.String("ap-southeast-1"),
 //							pulumi.String("us-east-1"),
 //						},
 //						Scope: pulumi.Sprintf("OrganizationId = '%v'", currentGetOrganization.Id),
-//						SourceLogsConfiguration: &observabilityadmin.CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs{
-//							EncryptedLogGroupStrategy: pulumi.String("ALLOW"),
-//							LogGroupSelectionCriteria: pulumi.String("*"),
-//						},
 //					},
 //				},
+//				RuleName: pulumi.String("advanced-centralization-rule"),
 //				Tags: pulumi.StringMap{
 //					"Name":        pulumi.String("advanced-centralization-rule"),
 //					"Environment": pulumi.String("production"),
@@ -170,24 +170,24 @@ import (
 //				return err
 //			}
 //			_, err = observabilityadmin.NewCentralizationRuleForOrganization(ctx, "filtered", &observabilityadmin.CentralizationRuleForOrganizationArgs{
-//				RuleName: pulumi.String("filtered-centralization-rule"),
 //				Rule: &observabilityadmin.CentralizationRuleForOrganizationRuleArgs{
 //					Destination: &observabilityadmin.CentralizationRuleForOrganizationRuleDestinationArgs{
 //						Region:  pulumi.String("eu-west-1"),
 //						Account: pulumi.String(current.AccountId),
 //					},
 //					Source: &observabilityadmin.CentralizationRuleForOrganizationRuleSourceArgs{
+//						SourceLogsConfiguration: &observabilityadmin.CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs{
+//							EncryptedLogGroupStrategy: pulumi.String("ALLOW"),
+//							LogGroupSelectionCriteria: pulumi.String("LogGroupName LIKE '/aws/lambda%'"),
+//						},
 //						Regions: pulumi.StringArray{
 //							pulumi.String("ap-southeast-1"),
 //							pulumi.String("us-east-1"),
 //						},
 //						Scope: pulumi.Sprintf("OrganizationId = '%v'", currentGetOrganization.Id),
-//						SourceLogsConfiguration: &observabilityadmin.CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs{
-//							EncryptedLogGroupStrategy: pulumi.String("ALLOW"),
-//							LogGroupSelectionCriteria: pulumi.String("LogGroupName LIKE '/aws/lambda%'"),
-//						},
 //					},
 //				},
+//				RuleName: pulumi.String("filtered-centralization-rule"),
 //				Tags: pulumi.StringMap{
 //					"Name":   pulumi.String("filtered-centralization-rule"),
 //					"Filter": pulumi.String("lambda-logs"),
@@ -227,28 +227,28 @@ import (
 //				return err
 //			}
 //			_, err = observabilityadmin.NewCentralizationRuleForOrganization(ctx, "metrics", &observabilityadmin.CentralizationRuleForOrganizationArgs{
-//				RuleName: pulumi.String("metrics-centralization-rule"),
 //				Rule: &observabilityadmin.CentralizationRuleForOrganizationRuleArgs{
 //					Destination: &observabilityadmin.CentralizationRuleForOrganizationRuleDestinationArgs{
-//						Region:  pulumi.String("eu-west-1"),
-//						Account: pulumi.String(current.AccountId),
 //						DestinationMetricsConfiguration: &observabilityadmin.CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationArgs{
 //							BackupConfiguration: &observabilityadmin.CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationArgs{
 //								Region: pulumi.String("us-west-1"),
 //							},
 //						},
+//						Region:  pulumi.String("eu-west-1"),
+//						Account: pulumi.String(current.AccountId),
 //					},
 //					Source: &observabilityadmin.CentralizationRuleForOrganizationRuleSourceArgs{
+//						SourceMetricsConfiguration: &observabilityadmin.CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationArgs{
+//							MetricsSelectionCriteria: pulumi.String("*"),
+//						},
 //						Regions: pulumi.StringArray{
 //							pulumi.String("ap-southeast-1"),
 //							pulumi.String("us-east-1"),
 //						},
 //						Scope: pulumi.Sprintf("OrganizationId = '%v'", currentGetOrganization.Id),
-//						SourceMetricsConfiguration: &observabilityadmin.CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationArgs{
-//							MetricsSelectionCriteria: pulumi.String("*"),
-//						},
 //					},
 //				},
+//				RuleName: pulumi.String("metrics-centralization-rule"),
 //			})
 //			if err != nil {
 //				return err

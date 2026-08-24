@@ -29,8 +29,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := devicefarm.NewDevicePool(ctx, "example", &devicefarm.DevicePoolArgs{
-//				Name:       pulumi.String("example"),
-//				ProjectArn: pulumi.Any(exampleAwsDevicefarmProject.Arn),
 //				Rules: devicefarm.DevicePoolRuleArray{
 //					&devicefarm.DevicePoolRuleArgs{
 //						Attribute: pulumi.String("OS_VERSION"),
@@ -38,6 +36,8 @@ import (
 //						Value:     pulumi.String("\"AVAILABLE\""),
 //					},
 //				},
+//				Name:       pulumi.String("example"),
+//				ProjectArn: pulumi.Any(exampleAwsDevicefarmProject.Arn),
 //			})
 //			if err != nil {
 //				return err

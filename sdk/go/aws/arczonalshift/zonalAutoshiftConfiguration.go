@@ -65,14 +65,14 @@ import (
 // return err
 // }
 // _, err = arczonalshift.NewZonalAutoshiftConfiguration(ctx, "example", &arczonalshift.ZonalAutoshiftConfigurationArgs{
-// ResourceArn: exampleLoadBalancer.Arn,
-// ZonalAutoshiftStatus: pulumi.String("ENABLED"),
 // OutcomeAlarms: arczonalshift.ZonalAutoshiftConfigurationOutcomeAlarmArray{
 // &arczonalshift.ZonalAutoshiftConfigurationOutcomeAlarmArgs{
 // AlarmIdentifier: exampleMetricAlarm.Arn,
 // Type: pulumi.String("CLOUDWATCH"),
 // },
 // },
+// ResourceArn: exampleLoadBalancer.Arn,
+// ZonalAutoshiftStatus: pulumi.String("ENABLED"),
 // })
 // if err != nil {
 // return err
@@ -104,20 +104,20 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := arczonalshift.NewZonalAutoshiftConfiguration(ctx, "example", &arczonalshift.ZonalAutoshiftConfigurationArgs{
-//				ResourceArn:          pulumi.Any(exampleAwsLb.Arn),
-//				ZonalAutoshiftStatus: pulumi.String("ENABLED"),
-//				OutcomeAlarms: arczonalshift.ZonalAutoshiftConfigurationOutcomeAlarmArray{
-//					&arczonalshift.ZonalAutoshiftConfigurationOutcomeAlarmArgs{
-//						AlarmIdentifier: pulumi.Any(outcome.Arn),
-//						Type:            pulumi.String("CLOUDWATCH"),
-//					},
-//				},
 //				BlockingAlarms: arczonalshift.ZonalAutoshiftConfigurationBlockingAlarmArray{
 //					&arczonalshift.ZonalAutoshiftConfigurationBlockingAlarmArgs{
 //						AlarmIdentifier: pulumi.Any(blocking.Arn),
 //						Type:            pulumi.String("CLOUDWATCH"),
 //					},
 //				},
+//				OutcomeAlarms: arczonalshift.ZonalAutoshiftConfigurationOutcomeAlarmArray{
+//					&arczonalshift.ZonalAutoshiftConfigurationOutcomeAlarmArgs{
+//						AlarmIdentifier: pulumi.Any(outcome.Arn),
+//						Type:            pulumi.String("CLOUDWATCH"),
+//					},
+//				},
+//				ResourceArn:          pulumi.Any(exampleAwsLb.Arn),
+//				ZonalAutoshiftStatus: pulumi.String("ENABLED"),
 //			})
 //			if err != nil {
 //				return err
@@ -143,16 +143,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := arczonalshift.NewZonalAutoshiftConfiguration(ctx, "example", &arczonalshift.ZonalAutoshiftConfigurationArgs{
-//				ResourceArn:          pulumi.Any(exampleAwsLb.Arn),
-//				ZonalAutoshiftStatus: pulumi.String("ENABLED"),
-//				BlockedWindows: pulumi.StringArray{
-//					pulumi.String("Mon:00:00-Mon:08:00"),
-//				},
 //				OutcomeAlarms: arczonalshift.ZonalAutoshiftConfigurationOutcomeAlarmArray{
 //					&arczonalshift.ZonalAutoshiftConfigurationOutcomeAlarmArgs{
 //						AlarmIdentifier: pulumi.Any(exampleAwsCloudwatchMetricAlarm.Arn),
 //						Type:            pulumi.String("CLOUDWATCH"),
 //					},
+//				},
+//				ResourceArn:          pulumi.Any(exampleAwsLb.Arn),
+//				ZonalAutoshiftStatus: pulumi.String("ENABLED"),
+//				BlockedWindows: pulumi.StringArray{
+//					pulumi.String("Mon:00:00-Mon:08:00"),
 //				},
 //			})
 //			if err != nil {

@@ -31,23 +31,10 @@ namespace Pulumi.Aws.Sns
     /// 
     ///     var snsTopicPolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
-    ///         PolicyId = "__default_policy_ID",
     ///         Statements = new[]
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "SNS:Subscribe",
-    ///                     "SNS:SetTopicAttributes",
-    ///                     "SNS:RemovePermission",
-    ///                     "SNS:Receive",
-    ///                     "SNS:Publish",
-    ///                     "SNS:ListSubscriptionsByTopic",
-    ///                     "SNS:GetTopicAttributes",
-    ///                     "SNS:DeleteTopic",
-    ///                     "SNS:AddPermission",
-    ///                 },
     ///                 Conditions = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
@@ -60,7 +47,6 @@ namespace Pulumi.Aws.Sns
     ///                         },
     ///                     },
     ///                 },
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -72,6 +58,19 @@ namespace Pulumi.Aws.Sns
     ///                         },
     ///                     },
     ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "SNS:Subscribe",
+    ///                     "SNS:SetTopicAttributes",
+    ///                     "SNS:RemovePermission",
+    ///                     "SNS:Receive",
+    ///                     "SNS:Publish",
+    ///                     "SNS:ListSubscriptionsByTopic",
+    ///                     "SNS:GetTopicAttributes",
+    ///                     "SNS:DeleteTopic",
+    ///                     "SNS:AddPermission",
+    ///                 },
+    ///                 Effect = "Allow",
     ///                 Resources = new[]
     ///                 {
     ///                     test.Arn,
@@ -79,6 +78,7 @@ namespace Pulumi.Aws.Sns
     ///                 Sid = "__default_statement_ID",
     ///             },
     ///         },
+    ///         PolicyId = "__default_policy_ID",
     ///     });
     /// 
     ///     var @default = new Aws.Sns.TopicPolicy("default", new()

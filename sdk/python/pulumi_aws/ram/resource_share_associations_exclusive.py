@@ -275,14 +275,14 @@ class ResourceShareAssociationsExclusive(pulumi.CustomResource):
             name="example-service-share",
             allow_external_principals=True)
         example_certificate_authority = aws.acmpca.CertificateAuthority("example",
-            type="ROOT",
             certificate_authority_configuration={
-                "key_algorithm": "RSA_4096",
-                "signing_algorithm": "SHA512WITHRSA",
                 "subject": {
                     "common_name": "example.com",
                 },
-            })
+                "key_algorithm": "RSA_4096",
+                "signing_algorithm": "SHA512WITHRSA",
+            },
+            type="ROOT")
         example_resource_share_associations_exclusive = aws.ram.ResourceShareAssociationsExclusive("example",
             resource_share_arn=example.arn,
             principals=["pca-connector-ad.amazonaws.com"],
@@ -405,14 +405,14 @@ class ResourceShareAssociationsExclusive(pulumi.CustomResource):
             name="example-service-share",
             allow_external_principals=True)
         example_certificate_authority = aws.acmpca.CertificateAuthority("example",
-            type="ROOT",
             certificate_authority_configuration={
-                "key_algorithm": "RSA_4096",
-                "signing_algorithm": "SHA512WITHRSA",
                 "subject": {
                     "common_name": "example.com",
                 },
-            })
+                "key_algorithm": "RSA_4096",
+                "signing_algorithm": "SHA512WITHRSA",
+            },
+            type="ROOT")
         example_resource_share_associations_exclusive = aws.ram.ResourceShareAssociationsExclusive("example",
             resource_share_arn=example.arn,
             principals=["pca-connector-ad.amazonaws.com"],

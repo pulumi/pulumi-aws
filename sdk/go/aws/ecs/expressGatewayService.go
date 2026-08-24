@@ -33,11 +33,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ecs.NewExpressGatewayService(ctx, "example", &ecs.ExpressGatewayServiceArgs{
-//				ExecutionRoleArn:      pulumi.Any(execution.Arn),
-//				InfrastructureRoleArn: pulumi.Any(infrastructure.Arn),
 //				PrimaryContainer: &ecs.ExpressGatewayServicePrimaryContainerArgs{
 //					Image: pulumi.String("nginx:latest"),
 //				},
+//				ExecutionRoleArn:      pulumi.Any(execution.Arn),
+//				InfrastructureRoleArn: pulumi.Any(infrastructure.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -63,15 +63,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ecs.NewExpressGatewayService(ctx, "example", &ecs.ExpressGatewayServiceArgs{
-//				ExecutionRoleArn:      pulumi.Any(execution.Arn),
-//				InfrastructureRoleArn: pulumi.Any(infrastructure.Arn),
-//				HealthCheckPath:       pulumi.String("/health"),
 //				PrimaryContainer: &ecs.ExpressGatewayServicePrimaryContainerArgs{
-//					Image:         pulumi.String("my-app:latest"),
-//					ContainerPort: pulumi.Int(8080),
-//					Commands: pulumi.StringArray{
-//						pulumi.String("./start.sh"),
-//					},
 //					AwsLogsConfigurations: ecs.ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArray{
 //						&ecs.ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArgs{
 //							LogGroup: pulumi.Any(app.Name),
@@ -93,7 +85,15 @@ import (
 //							ValueFrom: pulumi.Any(dbPassword.Arn),
 //						},
 //					},
+//					Image:         pulumi.String("my-app:latest"),
+//					ContainerPort: pulumi.Int(8080),
+//					Commands: pulumi.StringArray{
+//						pulumi.String("./start.sh"),
+//					},
 //				},
+//				ExecutionRoleArn:      pulumi.Any(execution.Arn),
+//				InfrastructureRoleArn: pulumi.Any(infrastructure.Arn),
+//				HealthCheckPath:       pulumi.String("/health"),
 //			})
 //			if err != nil {
 //				return err
@@ -119,12 +119,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ecs.NewExpressGatewayService(ctx, "example", &ecs.ExpressGatewayServiceArgs{
-//				ServiceName:           pulumi.String("my-express-service"),
-//				Cluster:               pulumi.Any(main.Name),
-//				ExecutionRoleArn:      pulumi.Any(execution.Arn),
-//				InfrastructureRoleArn: pulumi.Any(infrastructure.Arn),
-//				Cpu:                   pulumi.String("256"),
-//				Memory:                pulumi.String("512"),
 //				PrimaryContainer: &ecs.ExpressGatewayServicePrimaryContainerArgs{
 //					Image:         pulumi.String("nginx:latest"),
 //					ContainerPort: pulumi.Int(80),
@@ -140,6 +134,12 @@ import (
 //						},
 //					},
 //				},
+//				ServiceName:           pulumi.String("my-express-service"),
+//				Cluster:               pulumi.Any(main.Name),
+//				ExecutionRoleArn:      pulumi.Any(execution.Arn),
+//				InfrastructureRoleArn: pulumi.Any(infrastructure.Arn),
+//				Cpu:                   pulumi.String("256"),
+//				Memory:                pulumi.String("512"),
 //			})
 //			if err != nil {
 //				return err

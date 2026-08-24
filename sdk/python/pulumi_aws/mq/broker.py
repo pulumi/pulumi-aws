@@ -907,19 +907,19 @@ class Broker(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mq.Broker("example",
-            broker_name="example",
             configuration={
                 "id": test["id"],
                 "revision": int(test["latestRevision"]),
             },
-            engine_type="ActiveMQ",
-            engine_version="5.17.6",
-            host_instance_type="mq.t2.micro",
-            security_groups=[test_aws_security_group["id"]],
             users=[{
                 "username": "example_user",
                 "password": "<password>",
-            }])
+            }],
+            broker_name="example",
+            engine_type="ActiveMQ",
+            engine_version="5.17.6",
+            host_instance_type="mq.t2.micro",
+            security_groups=[test_aws_security_group["id"]])
         ```
 
         ### High-throughput Optimized Example
@@ -929,20 +929,20 @@ class Broker(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mq.Broker("example",
-            broker_name="example",
             configuration={
                 "id": test["id"],
                 "revision": int(test["latestRevision"]),
             },
+            users=[{
+                "username": "example_user",
+                "password": "<password>",
+            }],
+            broker_name="example",
             engine_type="ActiveMQ",
             engine_version="5.17.6",
             storage_type="ebs",
             host_instance_type="mq.m5.large",
-            security_groups=[test_aws_security_group["id"]],
-            users=[{
-                "username": "example_user",
-                "password": "<password>",
-            }])
+            security_groups=[test_aws_security_group["id"]])
         ```
 
         ### Cross-Region Data Replication
@@ -952,13 +952,6 @@ class Broker(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_primary = aws.mq.Broker("example_primary",
-            apply_immediately=True,
-            broker_name="example_primary",
-            engine_type="ActiveMQ",
-            engine_version="5.17.6",
-            host_instance_type="mq.m5.large",
-            security_groups=[example_primary_aws_security_group["id"]],
-            deployment_mode="ACTIVE_STANDBY_MULTI_AZ",
             users=[
                 {
                     "username": "example_user",
@@ -969,8 +962,26 @@ class Broker(pulumi.CustomResource):
                     "password": "<password>",
                     "replication_user": True,
                 },
-            ])
+            ],
+            apply_immediately=True,
+            broker_name="example_primary",
+            engine_type="ActiveMQ",
+            engine_version="5.17.6",
+            host_instance_type="mq.m5.large",
+            security_groups=[example_primary_aws_security_group["id"]],
+            deployment_mode="ACTIVE_STANDBY_MULTI_AZ")
         example = aws.mq.Broker("example",
+            users=[
+                {
+                    "username": "example_user",
+                    "password": "<password>",
+                },
+                {
+                    "username": "example_replication_user",
+                    "password": "<password>",
+                    "replication_user": True,
+                },
+            ],
             apply_immediately=True,
             broker_name="example",
             engine_type="ActiveMQ",
@@ -979,18 +990,7 @@ class Broker(pulumi.CustomResource):
             security_groups=[example_aws_security_group["id"]],
             deployment_mode="ACTIVE_STANDBY_MULTI_AZ",
             data_replication_mode="CRDR",
-            data_replication_primary_broker_arn=primary["arn"],
-            users=[
-                {
-                    "username": "example_user",
-                    "password": "<password>",
-                },
-                {
-                    "username": "example_replication_user",
-                    "password": "<password>",
-                    "replication_user": True,
-                },
-            ])
+            data_replication_primary_broker_arn=primary["arn"])
         ```
 
         See the [AWS MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/crdr-for-active-mq.html) on cross-region data replication for additional details.
@@ -1058,19 +1058,19 @@ class Broker(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mq.Broker("example",
-            broker_name="example",
             configuration={
                 "id": test["id"],
                 "revision": int(test["latestRevision"]),
             },
-            engine_type="ActiveMQ",
-            engine_version="5.17.6",
-            host_instance_type="mq.t2.micro",
-            security_groups=[test_aws_security_group["id"]],
             users=[{
                 "username": "example_user",
                 "password": "<password>",
-            }])
+            }],
+            broker_name="example",
+            engine_type="ActiveMQ",
+            engine_version="5.17.6",
+            host_instance_type="mq.t2.micro",
+            security_groups=[test_aws_security_group["id"]])
         ```
 
         ### High-throughput Optimized Example
@@ -1080,20 +1080,20 @@ class Broker(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mq.Broker("example",
-            broker_name="example",
             configuration={
                 "id": test["id"],
                 "revision": int(test["latestRevision"]),
             },
+            users=[{
+                "username": "example_user",
+                "password": "<password>",
+            }],
+            broker_name="example",
             engine_type="ActiveMQ",
             engine_version="5.17.6",
             storage_type="ebs",
             host_instance_type="mq.m5.large",
-            security_groups=[test_aws_security_group["id"]],
-            users=[{
-                "username": "example_user",
-                "password": "<password>",
-            }])
+            security_groups=[test_aws_security_group["id"]])
         ```
 
         ### Cross-Region Data Replication
@@ -1103,13 +1103,6 @@ class Broker(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_primary = aws.mq.Broker("example_primary",
-            apply_immediately=True,
-            broker_name="example_primary",
-            engine_type="ActiveMQ",
-            engine_version="5.17.6",
-            host_instance_type="mq.m5.large",
-            security_groups=[example_primary_aws_security_group["id"]],
-            deployment_mode="ACTIVE_STANDBY_MULTI_AZ",
             users=[
                 {
                     "username": "example_user",
@@ -1120,8 +1113,26 @@ class Broker(pulumi.CustomResource):
                     "password": "<password>",
                     "replication_user": True,
                 },
-            ])
+            ],
+            apply_immediately=True,
+            broker_name="example_primary",
+            engine_type="ActiveMQ",
+            engine_version="5.17.6",
+            host_instance_type="mq.m5.large",
+            security_groups=[example_primary_aws_security_group["id"]],
+            deployment_mode="ACTIVE_STANDBY_MULTI_AZ")
         example = aws.mq.Broker("example",
+            users=[
+                {
+                    "username": "example_user",
+                    "password": "<password>",
+                },
+                {
+                    "username": "example_replication_user",
+                    "password": "<password>",
+                    "replication_user": True,
+                },
+            ],
             apply_immediately=True,
             broker_name="example",
             engine_type="ActiveMQ",
@@ -1130,18 +1141,7 @@ class Broker(pulumi.CustomResource):
             security_groups=[example_aws_security_group["id"]],
             deployment_mode="ACTIVE_STANDBY_MULTI_AZ",
             data_replication_mode="CRDR",
-            data_replication_primary_broker_arn=primary["arn"],
-            users=[
-                {
-                    "username": "example_user",
-                    "password": "<password>",
-                },
-                {
-                    "username": "example_replication_user",
-                    "password": "<password>",
-                    "replication_user": True,
-                },
-            ])
+            data_replication_primary_broker_arn=primary["arn"])
         ```
 
         See the [AWS MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/crdr-for-active-mq.html) on cross-region data replication for additional details.

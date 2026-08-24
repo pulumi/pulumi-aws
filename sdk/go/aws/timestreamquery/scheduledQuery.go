@@ -35,21 +35,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := timestreamquery.NewScheduledQuery(ctx, "example", &timestreamquery.ScheduledQueryArgs{
-//				ExecutionRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-//				Name:             pulumi.Any(exampleAwsTimestreamwriteTable.TableName),
-//				QueryString: pulumi.String(`SELECT region, az, hostname, BIN(time, 15s) AS binned_timestamp,
-//
-// \tROUND(AVG(cpu_utilization), 2) AS avg_cpu_utilization,
-// \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.9), 2) AS p90_cpu_utilization,
-// \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.95), 2) AS p95_cpu_utilization,
-// \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.99), 2) AS p99_cpu_utilization
-// FROM exampledatabase.exampletable
-// WHERE measure_name = 'metrics' AND time > ago(2h)
-// GROUP BY region, hostname, az, BIN(time, 15s)
-// ORDER BY binned_timestamp ASC
-// LIMIT 5
-// `),
-//
 //				ErrorReportConfiguration: &timestreamquery.ScheduledQueryErrorReportConfigurationArgs{
 //					S3Configuration: &timestreamquery.ScheduledQueryErrorReportConfigurationS3ConfigurationArgs{
 //						BucketName: pulumi.Any(exampleAwsS3Bucket.Bucket),
@@ -65,25 +50,7 @@ import (
 //				},
 //				TargetConfiguration: &timestreamquery.ScheduledQueryTargetConfigurationArgs{
 //					TimestreamConfiguration: &timestreamquery.ScheduledQueryTargetConfigurationTimestreamConfigurationArgs{
-//						DatabaseName: pulumi.Any(results.DatabaseName),
-//						TableName:    pulumi.Any(resultsAwsTimestreamwriteTable.TableName),
-//						TimeColumn:   pulumi.String("binned_timestamp"),
-//						DimensionMappings: timestreamquery.ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArray{
-//							&timestreamquery.ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs{
-//								DimensionValueType: pulumi.String("VARCHAR"),
-//								Name:               pulumi.String("az"),
-//							},
-//							&timestreamquery.ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs{
-//								DimensionValueType: pulumi.String("VARCHAR"),
-//								Name:               pulumi.String("region"),
-//							},
-//							&timestreamquery.ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs{
-//								DimensionValueType: pulumi.String("VARCHAR"),
-//								Name:               pulumi.String("hostname"),
-//							},
-//						},
 //						MultiMeasureMappings: &timestreamquery.ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsArgs{
-//							TargetMultiMeasureName: pulumi.String("multi-metrics"),
 //							MultiMeasureAttributeMappings: timestreamquery.ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArray{
 //								&timestreamquery.ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArgs{
 //									MeasureValueType: pulumi.String("DOUBLE"),
@@ -102,9 +69,42 @@ import (
 //									SourceColumn:     pulumi.String("p99_cpu_utilization"),
 //								},
 //							},
+//							TargetMultiMeasureName: pulumi.String("multi-metrics"),
 //						},
+//						DimensionMappings: timestreamquery.ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArray{
+//							&timestreamquery.ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs{
+//								DimensionValueType: pulumi.String("VARCHAR"),
+//								Name:               pulumi.String("az"),
+//							},
+//							&timestreamquery.ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs{
+//								DimensionValueType: pulumi.String("VARCHAR"),
+//								Name:               pulumi.String("region"),
+//							},
+//							&timestreamquery.ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs{
+//								DimensionValueType: pulumi.String("VARCHAR"),
+//								Name:               pulumi.String("hostname"),
+//							},
+//						},
+//						DatabaseName: pulumi.Any(results.DatabaseName),
+//						TableName:    pulumi.Any(resultsAwsTimestreamwriteTable.TableName),
+//						TimeColumn:   pulumi.String("binned_timestamp"),
 //					},
 //				},
+//				ExecutionRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//				Name:             pulumi.Any(exampleAwsTimestreamwriteTable.TableName),
+//				QueryString: pulumi.String(`SELECT region, az, hostname, BIN(time, 15s) AS binned_timestamp,
+//
+// \tROUND(AVG(cpu_utilization), 2) AS avg_cpu_utilization,
+// \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.9), 2) AS p90_cpu_utilization,
+// \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.95), 2) AS p95_cpu_utilization,
+// \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.99), 2) AS p99_cpu_utilization
+// FROM exampledatabase.exampletable
+// WHERE measure_name = 'metrics' AND time > ago(2h)
+// GROUP BY region, hostname, az, BIN(time, 15s)
+// ORDER BY binned_timestamp ASC
+// LIMIT 5
+// `),
+//
 //			})
 //			if err != nil {
 //				return err
@@ -270,8 +270,6 @@ import (
 //				return err
 //			}
 //			_, err = timestreamwrite.NewTable(ctx, "test", &timestreamwrite.TableArgs{
-//				DatabaseName: testDatabase.DatabaseName,
-//				TableName:    pulumi.String("exampletable"),
 //				MagneticStoreWriteProperties: &timestreamwrite.TableMagneticStoreWritePropertiesArgs{
 //					EnableMagneticStoreWrites: pulumi.Bool(true),
 //				},
@@ -279,6 +277,8 @@ import (
 //					MagneticStoreRetentionPeriodInDays: pulumi.Int(1),
 //					MemoryStoreRetentionPeriodInHours:  pulumi.Int(1),
 //				},
+//				DatabaseName: testDatabase.DatabaseName,
+//				TableName:    pulumi.String("exampletable"),
 //			})
 //			if err != nil {
 //				return err
@@ -290,8 +290,6 @@ import (
 //				return err
 //			}
 //			_, err = timestreamwrite.NewTable(ctx, "results", &timestreamwrite.TableArgs{
-//				DatabaseName: results.DatabaseName,
-//				TableName:    pulumi.String("exampletable-results"),
 //				MagneticStoreWriteProperties: &timestreamwrite.TableMagneticStoreWritePropertiesArgs{
 //					EnableMagneticStoreWrites: pulumi.Bool(true),
 //				},
@@ -299,6 +297,8 @@ import (
 //					MagneticStoreRetentionPeriodInDays: pulumi.Int(1),
 //					MemoryStoreRetentionPeriodInHours:  pulumi.Int(1),
 //				},
+//				DatabaseName: results.DatabaseName,
+//				TableName:    pulumi.String("exampletable-results"),
 //			})
 //			if err != nil {
 //				return err
@@ -328,21 +328,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := timestreamquery.NewScheduledQuery(ctx, "example", &timestreamquery.ScheduledQueryArgs{
-//				ExecutionRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-//				Name:             pulumi.Any(exampleAwsTimestreamwriteTable.TableName),
-//				QueryString: pulumi.String(`SELECT region, az, hostname, BIN(time, 15s) AS binned_timestamp,
-//
-// \tROUND(AVG(cpu_utilization), 2) AS avg_cpu_utilization,
-// \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.9), 2) AS p90_cpu_utilization,
-// \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.95), 2) AS p95_cpu_utilization,
-// \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.99), 2) AS p99_cpu_utilization
-// FROM exampledatabase.exampletable
-// WHERE measure_name = 'metrics' AND time > ago(2h)
-// GROUP BY region, hostname, az, BIN(time, 15s)
-// ORDER BY binned_timestamp ASC
-// LIMIT 5
-// `),
-//
 //				ErrorReportConfiguration: &timestreamquery.ScheduledQueryErrorReportConfigurationArgs{
 //					S3Configuration: &timestreamquery.ScheduledQueryErrorReportConfigurationS3ConfigurationArgs{
 //						BucketName: pulumi.Any(exampleAwsS3Bucket.Bucket),
@@ -358,25 +343,7 @@ import (
 //				},
 //				TargetConfiguration: &timestreamquery.ScheduledQueryTargetConfigurationArgs{
 //					TimestreamConfiguration: &timestreamquery.ScheduledQueryTargetConfigurationTimestreamConfigurationArgs{
-//						DatabaseName: pulumi.Any(results.DatabaseName),
-//						TableName:    pulumi.Any(resultsAwsTimestreamwriteTable.TableName),
-//						TimeColumn:   pulumi.String("binned_timestamp"),
-//						DimensionMappings: timestreamquery.ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArray{
-//							&timestreamquery.ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs{
-//								DimensionValueType: pulumi.String("VARCHAR"),
-//								Name:               pulumi.String("az"),
-//							},
-//							&timestreamquery.ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs{
-//								DimensionValueType: pulumi.String("VARCHAR"),
-//								Name:               pulumi.String("region"),
-//							},
-//							&timestreamquery.ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs{
-//								DimensionValueType: pulumi.String("VARCHAR"),
-//								Name:               pulumi.String("hostname"),
-//							},
-//						},
 //						MultiMeasureMappings: &timestreamquery.ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsArgs{
-//							TargetMultiMeasureName: pulumi.String("multi-metrics"),
 //							MultiMeasureAttributeMappings: timestreamquery.ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArray{
 //								&timestreamquery.ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArgs{
 //									MeasureValueType: pulumi.String("DOUBLE"),
@@ -395,9 +362,42 @@ import (
 //									SourceColumn:     pulumi.String("p99_cpu_utilization"),
 //								},
 //							},
+//							TargetMultiMeasureName: pulumi.String("multi-metrics"),
 //						},
+//						DimensionMappings: timestreamquery.ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArray{
+//							&timestreamquery.ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs{
+//								DimensionValueType: pulumi.String("VARCHAR"),
+//								Name:               pulumi.String("az"),
+//							},
+//							&timestreamquery.ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs{
+//								DimensionValueType: pulumi.String("VARCHAR"),
+//								Name:               pulumi.String("region"),
+//							},
+//							&timestreamquery.ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs{
+//								DimensionValueType: pulumi.String("VARCHAR"),
+//								Name:               pulumi.String("hostname"),
+//							},
+//						},
+//						DatabaseName: pulumi.Any(results.DatabaseName),
+//						TableName:    pulumi.Any(resultsAwsTimestreamwriteTable.TableName),
+//						TimeColumn:   pulumi.String("binned_timestamp"),
 //					},
 //				},
+//				ExecutionRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//				Name:             pulumi.Any(exampleAwsTimestreamwriteTable.TableName),
+//				QueryString: pulumi.String(`SELECT region, az, hostname, BIN(time, 15s) AS binned_timestamp,
+//
+// \tROUND(AVG(cpu_utilization), 2) AS avg_cpu_utilization,
+// \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.9), 2) AS p90_cpu_utilization,
+// \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.95), 2) AS p95_cpu_utilization,
+// \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.99), 2) AS p99_cpu_utilization
+// FROM exampledatabase.exampletable
+// WHERE measure_name = 'metrics' AND time > ago(2h)
+// GROUP BY region, hostname, az, BIN(time, 15s)
+// ORDER BY binned_timestamp ASC
+// LIMIT 5
+// `),
+//
 //			})
 //			if err != nil {
 //				return err

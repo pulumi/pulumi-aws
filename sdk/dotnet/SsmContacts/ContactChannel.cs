@@ -28,11 +28,11 @@ namespace Pulumi.Aws.SsmContacts
     /// {
     ///     var example = new Aws.SsmContacts.ContactChannel("example", new()
     ///     {
-    ///         ContactId = "arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
     ///         DeliveryAddress = new Aws.SsmContacts.Inputs.ContactChannelDeliveryAddressArgs
     ///         {
     ///             SimpleAddress = "email@example.com",
     ///         },
+    ///         ContactId = "arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
     ///         Name = "Example contact channel",
     ///         Type = "EMAIL",
     ///     });
@@ -58,11 +58,11 @@ namespace Pulumi.Aws.SsmContacts
     /// 
     ///     var example = new Aws.SsmContacts.ContactChannel("example", new()
     ///     {
-    ///         ContactId = exampleContact.Arn,
     ///         DeliveryAddress = new Aws.SsmContacts.Inputs.ContactChannelDeliveryAddressArgs
     ///         {
     ///             SimpleAddress = "email@example.com",
     ///         },
+    ///         ContactId = exampleContact.Arn,
     ///         Name = "Example contact channel",
     ///         Type = "EMAIL",
     ///     });

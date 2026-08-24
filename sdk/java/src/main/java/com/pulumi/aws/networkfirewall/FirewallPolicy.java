@@ -60,16 +60,16 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new FirewallPolicy("example", FirewallPolicyArgs.builder()
- *             .name("example")
  *             .firewallPolicy(FirewallPolicyFirewallPolicyArgs.builder()
- *                 .statelessDefaultActions("aws:pass")
- *                 .statelessFragmentDefaultActions("aws:drop")
  *                 .statelessRuleGroupReferences(FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs.builder()
  *                     .priority(1)
  *                     .resourceArn(exampleAwsNetworkfirewallRuleGroup.arn())
  *                     .build())
+ *                 .statelessDefaultActions("aws:pass")
+ *                 .statelessFragmentDefaultActions("aws:drop")
  *                 .tlsInspectionConfigurationArn(String.format("arn:%s:network-firewall:%s:%s:tls-configuration/example", currentGetPartition.partition(),current.region(),currentGetCallerIdentity.accountId()))
  *                 .build())
+ *             .name("example")
  *             .tags(Map.ofEntries(
  *                 Map.entry("Tag1", "Value1"),
  *                 Map.entry("Tag2", "Value2")
@@ -111,25 +111,25 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new FirewallPolicy("example", FirewallPolicyArgs.builder()
- *             .name("example")
  *             .firewallPolicy(FirewallPolicyFirewallPolicyArgs.builder()
  *                 .policyVariables(FirewallPolicyFirewallPolicyPolicyVariablesArgs.builder()
  *                     .ruleVariables(FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs.builder()
- *                         .key("HOME_NET")
  *                         .ipSet(FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs.builder()
  *                             .definitions(                            
  *                                 "10.0.0.0/16",
  *                                 "10.1.0.0/24")
  *                             .build())
+ *                         .key("HOME_NET")
  *                         .build())
  *                     .build())
- *                 .statelessDefaultActions("aws:pass")
- *                 .statelessFragmentDefaultActions("aws:drop")
  *                 .statelessRuleGroupReferences(FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs.builder()
  *                     .priority(1)
  *                     .resourceArn(exampleAwsNetworkfirewallRuleGroup.arn())
  *                     .build())
+ *                 .statelessDefaultActions("aws:pass")
+ *                 .statelessFragmentDefaultActions("aws:drop")
  *                 .build())
+ *             .name("example")
  *             .tags(Map.ofEntries(
  *                 Map.entry("Tag1", "Value1"),
  *                 Map.entry("Tag2", "Value2")
@@ -171,12 +171,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new FirewallPolicy("example", FirewallPolicyArgs.builder()
- *             .name("example")
  *             .firewallPolicy(FirewallPolicyFirewallPolicyArgs.builder()
- *                 .statelessDefaultActions(                
- *                     "aws:pass",
- *                     "ExampleCustomAction")
- *                 .statelessFragmentDefaultActions("aws:drop")
  *                 .statelessCustomActions(FirewallPolicyFirewallPolicyStatelessCustomActionArgs.builder()
  *                     .actionDefinition(FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs.builder()
  *                         .publishMetricAction(FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs.builder()
@@ -187,7 +182,12 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .actionName("ExampleCustomAction")
  *                     .build())
+ *                 .statelessDefaultActions(                
+ *                     "aws:pass",
+ *                     "ExampleCustomAction")
+ *                 .statelessFragmentDefaultActions("aws:drop")
  *                 .build())
+ *             .name("example")
  *             .build());
  * 
  *     }
@@ -231,15 +231,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new FirewallPolicy("example", FirewallPolicyArgs.builder()
- *             .name("example")
  *             .firewallPolicy(FirewallPolicyFirewallPolicyArgs.builder()
- *                 .statelessFragmentDefaultActions("aws:drop")
- *                 .statelessDefaultActions("aws:pass")
  *                 .statefulRuleGroupReferences(FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs.builder()
  *                     .deepThreatInspection("true")
  *                     .resourceArn(String.format("arn:%s:network-firewall:%s:aws-managed:stateful-rulegroup/AttackInfrastructureActionOrder", currentGetPartition.partition(),current.region()))
  *                     .build())
+ *                 .statelessFragmentDefaultActions("aws:drop")
+ *                 .statelessDefaultActions("aws:pass")
  *                 .build())
+ *             .name("example")
  *             .build());
  * 
  *     }
@@ -284,10 +284,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new FirewallPolicy("example", FirewallPolicyArgs.builder()
- *             .name("example")
  *             .firewallPolicy(FirewallPolicyFirewallPolicyArgs.builder()
- *                 .statelessFragmentDefaultActions("aws:drop")
- *                 .statelessDefaultActions("aws:pass")
  *                 .statefulEngineOptions(FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs.builder()
  *                     .ruleOrder("STRICT_ORDER")
  *                     .build())
@@ -296,7 +293,10 @@ import javax.annotation.Nullable;
  *                     .priority(1)
  *                     .resourceArn(String.format("arn:%s:network-firewall:%s:aws-managed:stateful-rulegroup/AttackInfrastructureStrictOrder", currentGetPartition.partition(),current.region()))
  *                     .build())
+ *                 .statelessFragmentDefaultActions("aws:drop")
+ *                 .statelessDefaultActions("aws:pass")
  *                 .build())
+ *             .name("example")
  *             .build());
  * 
  *     }

@@ -26,7 +26,6 @@ namespace Pulumi.Aws.CloudWatch
     /// {
     ///     var example = new Aws.CloudWatch.AlarmMuteRule("example", new()
     ///     {
-    ///         Name = "example",
     ///         Rule = new Aws.CloudWatch.Inputs.AlarmMuteRuleRuleArgs
     ///         {
     ///             Schedule = new Aws.CloudWatch.Inputs.AlarmMuteRuleRuleScheduleArgs
@@ -35,6 +34,7 @@ namespace Pulumi.Aws.CloudWatch
     ///                 Expression = "cron(0 2 * * *)",
     ///             },
     ///         },
+    ///         Name = "example",
     ///     });
     /// 
     /// });
@@ -64,10 +64,6 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     ///     var exampleAlarmMuteRule = new Aws.CloudWatch.AlarmMuteRule("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Description = "Mute alarms during maintenance window",
-    ///         StartDate = "2026-01-01T00:00:00Z",
-    ///         ExpireDate = "2026-12-31T23:59:00Z",
     ///         Rule = new Aws.CloudWatch.Inputs.AlarmMuteRuleRuleArgs
     ///         {
     ///             Schedule = new Aws.CloudWatch.Inputs.AlarmMuteRuleRuleScheduleArgs
@@ -84,6 +80,10 @@ namespace Pulumi.Aws.CloudWatch
     ///                 example.Name,
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         Description = "Mute alarms during maintenance window",
+    ///         StartDate = "2026-01-01T00:00:00Z",
+    ///         ExpireDate = "2026-12-31T23:59:00Z",
     ///         Tags = 
     ///         {
     ///             { "Environment", "production" },
@@ -107,7 +107,6 @@ namespace Pulumi.Aws.CloudWatch
     /// {
     ///     var example = new Aws.CloudWatch.AlarmMuteRule("example", new()
     ///     {
-    ///         Name = "example",
     ///         Rule = new Aws.CloudWatch.Inputs.AlarmMuteRuleRuleArgs
     ///         {
     ///             Schedule = new Aws.CloudWatch.Inputs.AlarmMuteRuleRuleScheduleArgs
@@ -116,6 +115,7 @@ namespace Pulumi.Aws.CloudWatch
     ///                 Expression = "at(2026-12-31T23:59:59)",
     ///             },
     ///         },
+    ///         Name = "example",
     ///     });
     /// 
     /// });

@@ -54,6 +54,48 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Filter Functions by Name Pattern
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * function can_(
+ *     fn: () => any
+ * ): boolean {
+ *     try {
+ *         const result = fn();
+ *         if (result === undefined) {
+ *             return false;
+ *         }
+ *         return true;
+ *     } catch (e) {
+ *         return false;
+ *     }
+ * }
+ *
+ *
+ * export = async () => {
+ *     // Get all functions
+ *     const all = await aws.lambda.getFunctions({});
+ *     const apiFunctions = .filter(name => 
+ * can_(() => (await await std.regex({
+ *         pattern: "^api-",
+ *         string: name,
+ *     })).result)).map(name => (name));
+ *     const workerFunctions = .filter(name => 
+ * can_(() => (await await std.regex({
+ *         pattern: "^worker-",
+ *         string: name,
+ *     })).result)).map(name => (name));
+ *     return {
+ *         apiFunctions: apiFunctions,
+ *         workerFunctions: workerFunctions,
+ *     };
+ * }
+ * ```
+ *
  * ### Create Function Inventory
  *
  * ```typescript
@@ -164,6 +206,48 @@ export interface GetFunctionsResult {
  *         }));
  *     }
  * });
+ * ```
+ *
+ * ### Filter Functions by Name Pattern
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * function can_(
+ *     fn: () => any
+ * ): boolean {
+ *     try {
+ *         const result = fn();
+ *         if (result === undefined) {
+ *             return false;
+ *         }
+ *         return true;
+ *     } catch (e) {
+ *         return false;
+ *     }
+ * }
+ *
+ *
+ * export = async () => {
+ *     // Get all functions
+ *     const all = await aws.lambda.getFunctions({});
+ *     const apiFunctions = .filter(name => 
+ * can_(() => (await await std.regex({
+ *         pattern: "^api-",
+ *         string: name,
+ *     })).result)).map(name => (name));
+ *     const workerFunctions = .filter(name => 
+ * can_(() => (await await std.regex({
+ *         pattern: "^worker-",
+ *         string: name,
+ *     })).result)).map(name => (name));
+ *     return {
+ *         apiFunctions: apiFunctions,
+ *         workerFunctions: workerFunctions,
+ *     };
+ * }
  * ```
  *
  * ### Create Function Inventory

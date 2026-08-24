@@ -337,13 +337,13 @@ class FargateProfile(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.eks.FargateProfile("example",
+            selectors=[{
+                "namespace": "example",
+            }],
             cluster_name=example_aws_eks_cluster["name"],
             fargate_profile_name="example",
             pod_execution_role_arn=example_aws_iam_role["arn"],
-            subnet_ids=[__item["id"] for __item in example_aws_subnet],
-            selectors=[{
-                "namespace": "example",
-            }])
+            subnet_ids=[__item["id"] for __item in example_aws_subnet])
         ```
 
         ### Example IAM Role for EKS Fargate Profile
@@ -419,13 +419,13 @@ class FargateProfile(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.eks.FargateProfile("example",
+            selectors=[{
+                "namespace": "example",
+            }],
             cluster_name=example_aws_eks_cluster["name"],
             fargate_profile_name="example",
             pod_execution_role_arn=example_aws_iam_role["arn"],
-            subnet_ids=[__item["id"] for __item in example_aws_subnet],
-            selectors=[{
-                "namespace": "example",
-            }])
+            subnet_ids=[__item["id"] for __item in example_aws_subnet])
         ```
 
         ### Example IAM Role for EKS Fargate Profile

@@ -26,22 +26,22 @@ namespace Pulumi.Aws.OpenSearch
     /// {
     ///     var myDomain = new Aws.OpenSearch.Domain("my_domain", new()
     ///     {
-    ///         DomainName = "my-opensearch-domain",
-    ///         EngineVersion = "Elasticsearch_7.10",
     ///         ClusterConfig = new Aws.OpenSearch.Inputs.DomainClusterConfigArgs
     ///         {
     ///             InstanceType = "r4.large.search",
     ///         },
+    ///         DomainName = "my-opensearch-domain",
+    ///         EngineVersion = "Elasticsearch_7.10",
     ///     });
     /// 
     ///     var example = new Aws.OpenSearch.Package("example", new()
     ///     {
-    ///         PackageName = "example-txt",
     ///         PackageSource = new Aws.OpenSearch.Inputs.PackagePackageSourceArgs
     ///         {
     ///             S3BucketName = myOpensearchPackages.Bucket,
     ///             S3Key = exampleAwsS3Object.Key,
     ///         },
+    ///         PackageName = "example-txt",
     ///         PackageType = "TXT-DICTIONARY",
     ///     });
     /// 

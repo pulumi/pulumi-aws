@@ -323,7 +323,6 @@ class Api(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appsync.Api("example",
-            name="example-event-api",
             event_config={
                 "auth_providers": [{
                     "auth_type": "API_KEY",
@@ -337,7 +336,8 @@ class Api(pulumi.CustomResource):
                 "default_subscribe_auth_modes": [{
                     "auth_type": "API_KEY",
                 }],
-            })
+            },
+            name="example-event-api")
         ```
 
         ### With Cognito Authentication
@@ -349,14 +349,13 @@ class Api(pulumi.CustomResource):
         example = aws.cognito.UserPool("example", name="example-user-pool")
         current = aws.get_region()
         example_api = aws.appsync.Api("example",
-            name="example-event-api",
             event_config={
                 "auth_providers": [{
-                    "auth_type": "AMAZON_COGNITO_USER_POOLS",
                     "cognito_config": {
                         "user_pool_id": example.id,
                         "aws_region": current.region,
                     },
+                    "auth_type": "AMAZON_COGNITO_USER_POOLS",
                 }],
                 "connection_auth_modes": [{
                     "auth_type": "AMAZON_COGNITO_USER_POOLS",
@@ -367,7 +366,8 @@ class Api(pulumi.CustomResource):
                 "default_subscribe_auth_modes": [{
                     "auth_type": "AMAZON_COGNITO_USER_POOLS",
                 }],
-            })
+            },
+            name="example-event-api")
         ```
 
         ### With Lambda Authorizer
@@ -377,14 +377,13 @@ class Api(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appsync.Api("example",
-            name="example-event-api",
             event_config={
                 "auth_providers": [{
-                    "auth_type": "AWS_LAMBDA",
                     "lambda_authorizer_config": {
                         "authorizer_uri": example_aws_lambda_function["arn"],
                         "authorizer_result_ttl_in_seconds": 300,
                     },
+                    "auth_type": "AWS_LAMBDA",
                 }],
                 "connection_auth_modes": [{
                     "auth_type": "AWS_LAMBDA",
@@ -395,7 +394,8 @@ class Api(pulumi.CustomResource):
                 "default_subscribe_auth_modes": [{
                     "auth_type": "AWS_LAMBDA",
                 }],
-            })
+            },
+            name="example-event-api")
         ```
 
         ## Import
@@ -435,7 +435,6 @@ class Api(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appsync.Api("example",
-            name="example-event-api",
             event_config={
                 "auth_providers": [{
                     "auth_type": "API_KEY",
@@ -449,7 +448,8 @@ class Api(pulumi.CustomResource):
                 "default_subscribe_auth_modes": [{
                     "auth_type": "API_KEY",
                 }],
-            })
+            },
+            name="example-event-api")
         ```
 
         ### With Cognito Authentication
@@ -461,14 +461,13 @@ class Api(pulumi.CustomResource):
         example = aws.cognito.UserPool("example", name="example-user-pool")
         current = aws.get_region()
         example_api = aws.appsync.Api("example",
-            name="example-event-api",
             event_config={
                 "auth_providers": [{
-                    "auth_type": "AMAZON_COGNITO_USER_POOLS",
                     "cognito_config": {
                         "user_pool_id": example.id,
                         "aws_region": current.region,
                     },
+                    "auth_type": "AMAZON_COGNITO_USER_POOLS",
                 }],
                 "connection_auth_modes": [{
                     "auth_type": "AMAZON_COGNITO_USER_POOLS",
@@ -479,7 +478,8 @@ class Api(pulumi.CustomResource):
                 "default_subscribe_auth_modes": [{
                     "auth_type": "AMAZON_COGNITO_USER_POOLS",
                 }],
-            })
+            },
+            name="example-event-api")
         ```
 
         ### With Lambda Authorizer
@@ -489,14 +489,13 @@ class Api(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appsync.Api("example",
-            name="example-event-api",
             event_config={
                 "auth_providers": [{
-                    "auth_type": "AWS_LAMBDA",
                     "lambda_authorizer_config": {
                         "authorizer_uri": example_aws_lambda_function["arn"],
                         "authorizer_result_ttl_in_seconds": 300,
                     },
+                    "auth_type": "AWS_LAMBDA",
                 }],
                 "connection_auth_modes": [{
                     "auth_type": "AWS_LAMBDA",
@@ -507,7 +506,8 @@ class Api(pulumi.CustomResource):
                 "default_subscribe_auth_modes": [{
                     "auth_type": "AWS_LAMBDA",
                 }],
-            })
+            },
+            name="example-event-api")
         ```
 
         ## Import

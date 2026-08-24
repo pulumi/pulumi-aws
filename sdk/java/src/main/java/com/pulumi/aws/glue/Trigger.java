@@ -36,9 +36,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.glue.Trigger;
  * import com.pulumi.aws.glue.TriggerArgs;
- * import com.pulumi.aws.glue.inputs.TriggerActionArgs;
  * import com.pulumi.aws.glue.inputs.TriggerPredicateArgs;
  * import com.pulumi.aws.glue.inputs.TriggerPredicateConditionArgs;
+ * import com.pulumi.aws.glue.inputs.TriggerActionArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -53,17 +53,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Trigger("example", TriggerArgs.builder()
- *             .name("example")
- *             .type("CONDITIONAL")
- *             .actions(TriggerActionArgs.builder()
- *                 .jobName(example1.name())
- *                 .build())
  *             .predicate(TriggerPredicateArgs.builder()
  *                 .conditions(TriggerPredicateConditionArgs.builder()
  *                     .jobName(example2.name())
  *                     .state("SUCCEEDED")
  *                     .build())
  *                 .build())
+ *             .actions(TriggerActionArgs.builder()
+ *                 .jobName(example1.name())
+ *                 .build())
+ *             .name("example")
+ *             .type("CONDITIONAL")
  *             .build());
  * 
  *     }
@@ -97,11 +97,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Trigger("example", TriggerArgs.builder()
- *             .name("example")
- *             .type("ON_DEMAND")
  *             .actions(TriggerActionArgs.builder()
  *                 .jobName(exampleAwsGlueJob.name())
  *                 .build())
+ *             .name("example")
+ *             .type("ON_DEMAND")
  *             .build());
  * 
  *     }
@@ -135,12 +135,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Trigger("example", TriggerArgs.builder()
- *             .name("example")
- *             .schedule("cron(15 12 * * ? *)")
- *             .type("SCHEDULED")
  *             .actions(TriggerActionArgs.builder()
  *                 .jobName(exampleAwsGlueJob.name())
  *                 .build())
+ *             .name("example")
+ *             .schedule("cron(15 12 * * ? *)")
+ *             .type("SCHEDULED")
  *             .build());
  * 
  *     }
@@ -161,9 +161,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.glue.Trigger;
  * import com.pulumi.aws.glue.TriggerArgs;
- * import com.pulumi.aws.glue.inputs.TriggerActionArgs;
  * import com.pulumi.aws.glue.inputs.TriggerPredicateArgs;
  * import com.pulumi.aws.glue.inputs.TriggerPredicateConditionArgs;
+ * import com.pulumi.aws.glue.inputs.TriggerActionArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -178,17 +178,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Trigger("example", TriggerArgs.builder()
- *             .name("example")
- *             .type("CONDITIONAL")
- *             .actions(TriggerActionArgs.builder()
- *                 .crawlerName(example1.name())
- *                 .build())
  *             .predicate(TriggerPredicateArgs.builder()
  *                 .conditions(TriggerPredicateConditionArgs.builder()
  *                     .jobName(example2.name())
  *                     .state("SUCCEEDED")
  *                     .build())
  *                 .build())
+ *             .actions(TriggerActionArgs.builder()
+ *                 .crawlerName(example1.name())
+ *                 .build())
+ *             .name("example")
+ *             .type("CONDITIONAL")
  *             .build());
  * 
  *     }
@@ -209,9 +209,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.glue.Trigger;
  * import com.pulumi.aws.glue.TriggerArgs;
- * import com.pulumi.aws.glue.inputs.TriggerActionArgs;
  * import com.pulumi.aws.glue.inputs.TriggerPredicateArgs;
  * import com.pulumi.aws.glue.inputs.TriggerPredicateConditionArgs;
+ * import com.pulumi.aws.glue.inputs.TriggerActionArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -226,17 +226,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Trigger("example", TriggerArgs.builder()
- *             .name("example")
- *             .type("CONDITIONAL")
- *             .actions(TriggerActionArgs.builder()
- *                 .jobName(example1.name())
- *                 .build())
  *             .predicate(TriggerPredicateArgs.builder()
  *                 .conditions(TriggerPredicateConditionArgs.builder()
  *                     .crawlerName(example2.name())
  *                     .crawlState("SUCCEEDED")
  *                     .build())
  *                 .build())
+ *             .actions(TriggerActionArgs.builder()
+ *                 .jobName(example1.name())
+ *                 .build())
+ *             .name("example")
+ *             .type("CONDITIONAL")
  *             .build());
  * 
  *     }

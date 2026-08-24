@@ -29,11 +29,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const ami = aws.ec2.getAmi({
- *     mostRecent: true,
  *     filters: [{
  *         name: "name",
  *         values: ["amzn-ami-hvm-*"],
  *     }],
+ *     mostRecent: true,
  *     owners: ["amazon"],
  * });
  * const instance = new aws.ec2.Instance("instance", {

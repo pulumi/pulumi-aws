@@ -743,11 +743,11 @@ class DeploymentGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["codedeploy.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         example = aws.iam.Role("example",
@@ -759,9 +759,14 @@ class DeploymentGroup(pulumi.CustomResource):
         example_application = aws.codedeploy.Application("example", name="example-app")
         example_topic = aws.sns.Topic("example", name="example-topic")
         example_deployment_group = aws.codedeploy.DeploymentGroup("example",
-            app_name=example_application.name,
-            deployment_group_name="example-group",
-            service_role_arn=example.arn,
+            auto_rollback_configuration={
+                "enabled": True,
+                "events": ["DEPLOYMENT_FAILURE"],
+            },
+            alarm_configuration={
+                "alarms": ["my-alarm-name"],
+                "enabled": True,
+            },
             ec2_tag_sets=[{
                 "ec2_tag_filters": [
                     {
@@ -781,14 +786,9 @@ class DeploymentGroup(pulumi.CustomResource):
                 "trigger_name": "example-trigger",
                 "trigger_target_arn": example_topic.arn,
             }],
-            auto_rollback_configuration={
-                "enabled": True,
-                "events": ["DEPLOYMENT_FAILURE"],
-            },
-            alarm_configuration={
-                "alarms": ["my-alarm-name"],
-                "enabled": True,
-            },
+            app_name=example_application.name,
+            deployment_group_name="example-group",
+            service_role_arn=example.arn,
             outdated_instances_strategy="UPDATE")
         ```
 
@@ -802,10 +802,6 @@ class DeploymentGroup(pulumi.CustomResource):
             compute_platform="ECS",
             name="example")
         example_deployment_group = aws.codedeploy.DeploymentGroup("example",
-            app_name=example.name,
-            deployment_config_name="CodeDeployDefault.ECSAllAtOnce",
-            deployment_group_name="example",
-            service_role_arn=example_aws_iam_role["arn"],
             auto_rollback_configuration={
                 "enabled": True,
                 "events": ["DEPLOYMENT_FAILURE"],
@@ -841,7 +837,11 @@ class DeploymentGroup(pulumi.CustomResource):
                         },
                     ],
                 },
-            })
+            },
+            app_name=example.name,
+            deployment_config_name="CodeDeployDefault.ECSAllAtOnce",
+            deployment_group_name="example",
+            service_role_arn=example_aws_iam_role["arn"])
         ```
 
         ### Blue Green Deployments with Servers and Classic ELB
@@ -852,9 +852,6 @@ class DeploymentGroup(pulumi.CustomResource):
 
         example = aws.codedeploy.Application("example", name="example-app")
         example_deployment_group = aws.codedeploy.DeploymentGroup("example",
-            app_name=example.name,
-            deployment_group_name="example-group",
-            service_role_arn=example_aws_iam_role["arn"],
             deployment_style={
                 "deployment_option": "WITH_TRAFFIC_CONTROL",
                 "deployment_type": "BLUE_GREEN",
@@ -875,7 +872,10 @@ class DeploymentGroup(pulumi.CustomResource):
                 "terminate_blue_instances_on_deployment_success": {
                     "action": "KEEP_ALIVE",
                 },
-            })
+            },
+            app_name=example.name,
+            deployment_group_name="example-group",
+            service_role_arn=example_aws_iam_role["arn"])
         ```
 
         ## Import
@@ -927,11 +927,11 @@ class DeploymentGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["codedeploy.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         example = aws.iam.Role("example",
@@ -943,9 +943,14 @@ class DeploymentGroup(pulumi.CustomResource):
         example_application = aws.codedeploy.Application("example", name="example-app")
         example_topic = aws.sns.Topic("example", name="example-topic")
         example_deployment_group = aws.codedeploy.DeploymentGroup("example",
-            app_name=example_application.name,
-            deployment_group_name="example-group",
-            service_role_arn=example.arn,
+            auto_rollback_configuration={
+                "enabled": True,
+                "events": ["DEPLOYMENT_FAILURE"],
+            },
+            alarm_configuration={
+                "alarms": ["my-alarm-name"],
+                "enabled": True,
+            },
             ec2_tag_sets=[{
                 "ec2_tag_filters": [
                     {
@@ -965,14 +970,9 @@ class DeploymentGroup(pulumi.CustomResource):
                 "trigger_name": "example-trigger",
                 "trigger_target_arn": example_topic.arn,
             }],
-            auto_rollback_configuration={
-                "enabled": True,
-                "events": ["DEPLOYMENT_FAILURE"],
-            },
-            alarm_configuration={
-                "alarms": ["my-alarm-name"],
-                "enabled": True,
-            },
+            app_name=example_application.name,
+            deployment_group_name="example-group",
+            service_role_arn=example.arn,
             outdated_instances_strategy="UPDATE")
         ```
 
@@ -986,10 +986,6 @@ class DeploymentGroup(pulumi.CustomResource):
             compute_platform="ECS",
             name="example")
         example_deployment_group = aws.codedeploy.DeploymentGroup("example",
-            app_name=example.name,
-            deployment_config_name="CodeDeployDefault.ECSAllAtOnce",
-            deployment_group_name="example",
-            service_role_arn=example_aws_iam_role["arn"],
             auto_rollback_configuration={
                 "enabled": True,
                 "events": ["DEPLOYMENT_FAILURE"],
@@ -1025,7 +1021,11 @@ class DeploymentGroup(pulumi.CustomResource):
                         },
                     ],
                 },
-            })
+            },
+            app_name=example.name,
+            deployment_config_name="CodeDeployDefault.ECSAllAtOnce",
+            deployment_group_name="example",
+            service_role_arn=example_aws_iam_role["arn"])
         ```
 
         ### Blue Green Deployments with Servers and Classic ELB
@@ -1036,9 +1036,6 @@ class DeploymentGroup(pulumi.CustomResource):
 
         example = aws.codedeploy.Application("example", name="example-app")
         example_deployment_group = aws.codedeploy.DeploymentGroup("example",
-            app_name=example.name,
-            deployment_group_name="example-group",
-            service_role_arn=example_aws_iam_role["arn"],
             deployment_style={
                 "deployment_option": "WITH_TRAFFIC_CONTROL",
                 "deployment_type": "BLUE_GREEN",
@@ -1059,7 +1056,10 @@ class DeploymentGroup(pulumi.CustomResource):
                 "terminate_blue_instances_on_deployment_success": {
                     "action": "KEEP_ALIVE",
                 },
-            })
+            },
+            app_name=example.name,
+            deployment_group_name="example-group",
+            service_role_arn=example_aws_iam_role["arn"])
         ```
 
         ## Import

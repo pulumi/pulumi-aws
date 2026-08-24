@@ -99,15 +99,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewQueue(ctx, "test", &connect.QueueArgs{
-//				InstanceId:         pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-//				Name:               pulumi.String("Example Name"),
-//				Description:        pulumi.String("Example Description"),
-//				HoursOfOperationId: pulumi.String("12345678-1234-1234-1234-123456789012"),
 //				OutboundCallerConfig: &connect.QueueOutboundCallerConfigArgs{
 //					OutboundCallerIdName:     pulumi.String("example"),
 //					OutboundCallerIdNumberId: pulumi.String("12345678-abcd-1234-abcd-123456789012"),
 //					OutboundFlowId:           pulumi.String("87654321-defg-1234-defg-987654321234"),
 //				},
+//				InstanceId:         pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
+//				Name:               pulumi.String("Example Name"),
+//				Description:        pulumi.String("Example Description"),
+//				HoursOfOperationId: pulumi.String("12345678-1234-1234-1234-123456789012"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("Example Queue with Outbound Caller Config"),
 //				},

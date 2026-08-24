@@ -220,13 +220,13 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.wafv2.WebAclLoggingConfiguration("example",
-            log_destination_configs=[example_aws_kinesis_firehose_delivery_stream["arn"]],
-            resource_arn=example_aws_wafv2_web_acl["arn"],
             redacted_fields=[{
                 "single_header": {
                     "name": "user-agent",
                 },
-            }])
+            }],
+            log_destination_configs=[example_aws_kinesis_firehose_delivery_stream["arn"]],
+            resource_arn=example_aws_wafv2_web_acl["arn"])
         ```
 
         ### With Logging Filter
@@ -236,13 +236,9 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.wafv2.WebAclLoggingConfiguration("example",
-            log_destination_configs=[example_aws_kinesis_firehose_delivery_stream["arn"]],
-            resource_arn=example_aws_wafv2_web_acl["arn"],
             logging_filter={
-                "default_behavior": "KEEP",
                 "filters": [
                     {
-                        "behavior": "DROP",
                         "conditions": [
                             {
                                 "action_condition": {
@@ -255,19 +251,23 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
                                 },
                             },
                         ],
+                        "behavior": "DROP",
                         "requirement": "MEETS_ALL",
                     },
                     {
-                        "behavior": "KEEP",
                         "conditions": [{
                             "action_condition": {
                                 "action": "ALLOW",
                             },
                         }],
+                        "behavior": "KEEP",
                         "requirement": "MEETS_ANY",
                     },
                 ],
-            })
+                "default_behavior": "KEEP",
+            },
+            log_destination_configs=[example_aws_kinesis_firehose_delivery_stream["arn"]],
+            resource_arn=example_aws_wafv2_web_acl["arn"])
         ```
 
         ## Import
@@ -307,13 +307,13 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.wafv2.WebAclLoggingConfiguration("example",
-            log_destination_configs=[example_aws_kinesis_firehose_delivery_stream["arn"]],
-            resource_arn=example_aws_wafv2_web_acl["arn"],
             redacted_fields=[{
                 "single_header": {
                     "name": "user-agent",
                 },
-            }])
+            }],
+            log_destination_configs=[example_aws_kinesis_firehose_delivery_stream["arn"]],
+            resource_arn=example_aws_wafv2_web_acl["arn"])
         ```
 
         ### With Logging Filter
@@ -323,13 +323,9 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.wafv2.WebAclLoggingConfiguration("example",
-            log_destination_configs=[example_aws_kinesis_firehose_delivery_stream["arn"]],
-            resource_arn=example_aws_wafv2_web_acl["arn"],
             logging_filter={
-                "default_behavior": "KEEP",
                 "filters": [
                     {
-                        "behavior": "DROP",
                         "conditions": [
                             {
                                 "action_condition": {
@@ -342,19 +338,23 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
                                 },
                             },
                         ],
+                        "behavior": "DROP",
                         "requirement": "MEETS_ALL",
                     },
                     {
-                        "behavior": "KEEP",
                         "conditions": [{
                             "action_condition": {
                                 "action": "ALLOW",
                             },
                         }],
+                        "behavior": "KEEP",
                         "requirement": "MEETS_ANY",
                     },
                 ],
-            })
+                "default_behavior": "KEEP",
+            },
+            log_destination_configs=[example_aws_kinesis_firehose_delivery_stream["arn"]],
+            resource_arn=example_aws_wafv2_web_acl["arn"])
         ```
 
         ## Import

@@ -320,13 +320,13 @@ class Environment(pulumi.CustomResource):
                 "Type": "AppConfig Application",
             })
         example = aws.appconfig.Environment("example",
-            name="example-environment-tf",
-            description="Example AppConfig Environment",
-            application_id=example_application.id,
             monitors=[{
                 "alarm_arn": example_aws_cloudwatch_metric_alarm["arn"],
                 "alarm_role_arn": example_aws_iam_role["arn"],
             }],
+            name="example-environment-tf",
+            description="Example AppConfig Environment",
+            application_id=example_application.id,
             tags={
                 "Type": "AppConfig Environment",
             })
@@ -372,13 +372,13 @@ class Environment(pulumi.CustomResource):
                 "Type": "AppConfig Application",
             })
         example = aws.appconfig.Environment("example",
-            name="example-environment-tf",
-            description="Example AppConfig Environment",
-            application_id=example_application.id,
             monitors=[{
                 "alarm_arn": example_aws_cloudwatch_metric_alarm["arn"],
                 "alarm_role_arn": example_aws_iam_role["arn"],
             }],
+            name="example-environment-tf",
+            description="Example AppConfig Environment",
+            application_id=example_application.id,
             tags={
                 "Type": "AppConfig Environment",
             })

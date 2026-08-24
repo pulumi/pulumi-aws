@@ -43,12 +43,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.transfer.Server("example", {
- *     endpointType: "VPC",
  *     endpointDetails: {
  *         addressAllocationIds: [exampleAwsEip.id],
  *         subnetIds: [exampleAwsSubnet.id],
  *         vpcId: exampleAwsVpc.id,
  *     },
+ *     endpointType: "VPC",
  * });
  * ```
  *
@@ -83,11 +83,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.transfer.Server("example", {
- *     endpointType: "VPC",
  *     endpointDetails: {
  *         subnetIds: [exampleAwsSubnet.id],
  *         vpcId: exampleAwsVpc.id,
  *     },
+ *     endpointType: "VPC",
  *     protocols: [
  *         "FTP",
  *         "FTPS",
@@ -107,11 +107,11 @@ import * as utilities from "../utilities";
  * const transfer = new aws.cloudwatch.LogGroup("transfer", {namePrefix: "transfer_test_"});
  * const transferAssumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["transfer.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });

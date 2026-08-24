@@ -491,11 +491,11 @@ class AccessPoint(pulumi.CustomResource):
         example = aws.s3control.Bucket("example", bucket="example")
         example_vpc = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
         example_access_point = aws.s3.AccessPoint("example",
-            bucket=example.arn,
-            name="example",
             vpc_configuration={
                 "vpc_id": example_vpc.id,
-            })
+            },
+            bucket=example.arn,
+            name="example")
         ```
 
         ### AWS Partition Directory Bucket
@@ -506,10 +506,10 @@ class AccessPoint(pulumi.CustomResource):
 
         available = aws.get_availability_zones(state="available")
         example = aws.s3.DirectoryBucket("example",
-            bucket="example--zoneId--x-s3",
             location={
                 "name": available.zone_ids[0],
-            })
+            },
+            bucket="example--zoneId--x-s3")
         example_access_point = aws.s3.AccessPoint("example",
             bucket=test["bucket"],
             name="example--zoneId--xa-s3")
@@ -586,11 +586,11 @@ class AccessPoint(pulumi.CustomResource):
         example = aws.s3control.Bucket("example", bucket="example")
         example_vpc = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
         example_access_point = aws.s3.AccessPoint("example",
-            bucket=example.arn,
-            name="example",
             vpc_configuration={
                 "vpc_id": example_vpc.id,
-            })
+            },
+            bucket=example.arn,
+            name="example")
         ```
 
         ### AWS Partition Directory Bucket
@@ -601,10 +601,10 @@ class AccessPoint(pulumi.CustomResource):
 
         available = aws.get_availability_zones(state="available")
         example = aws.s3.DirectoryBucket("example",
-            bucket="example--zoneId--x-s3",
             location={
                 "name": available.zone_ids[0],
-            })
+            },
+            bucket="example--zoneId--x-s3")
         example_access_point = aws.s3.AccessPoint("example",
             bucket=test["bucket"],
             name="example--zoneId--xa-s3")

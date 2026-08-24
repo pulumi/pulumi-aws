@@ -64,14 +64,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCustomPlugin = new CustomPlugin("exampleCustomPlugin", CustomPluginArgs.builder()
- *             .name("debezium-example")
- *             .contentType("ZIP")
  *             .location(CustomPluginLocationArgs.builder()
  *                 .s3(CustomPluginLocationS3Args.builder()
  *                     .bucketArn(example.arn())
  *                     .fileKey(exampleBucketObjectv2.key())
  *                     .build())
  *                 .build())
+ *             .name("debezium-example")
+ *             .contentType("ZIP")
  *             .build());
  * 
  *     }

@@ -39,7 +39,6 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketCorsConfiguration(ctx, "example", &s3.BucketCorsConfigurationArgs{
-//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
 //				CorsRules: s3.BucketCorsConfigurationCorsRuleArray{
 //					&s3.BucketCorsConfigurationCorsRuleArgs{
 //						AllowedHeaders: pulumi.StringArray{
@@ -66,6 +65,7 @@ import (
 //						},
 //					},
 //				},
+//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

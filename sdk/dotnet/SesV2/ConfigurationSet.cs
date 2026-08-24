@@ -26,7 +26,6 @@ namespace Pulumi.Aws.SesV2
     /// {
     ///     var example = new Aws.SesV2.ConfigurationSet("example", new()
     ///     {
-    ///         ConfigurationSetName = "example",
     ///         DeliveryOptions = new Aws.SesV2.Inputs.ConfigurationSetDeliveryOptionsArgs
     ///         {
     ///             MaxDeliverySeconds = 300,
@@ -53,6 +52,7 @@ namespace Pulumi.Aws.SesV2
     ///             CustomRedirectDomain = "example.com",
     ///             HttpsPolicy = "REQUIRE",
     ///         },
+    ///         ConfigurationSetName = "example",
     ///     });
     /// 
     /// });

@@ -21,15 +21,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.opensearch.ServerlessCollectionGroup("example", {
- *     name: "example-group",
- *     description: "Shared compute for production collections",
- *     standbyReplicas: "ENABLED",
  *     capacityLimits: [{
  *         minIndexingCapacityInOcu: 2,
  *         maxIndexingCapacityInOcu: 16,
  *         minSearchCapacityInOcu: 2,
  *         maxSearchCapacityInOcu: 16,
  *     }],
+ *     name: "example-group",
+ *     description: "Shared compute for production collections",
+ *     standbyReplicas: "ENABLED",
  * });
  * ```
  *

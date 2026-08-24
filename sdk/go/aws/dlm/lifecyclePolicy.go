@@ -34,7 +34,6 @@ import (
 //			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -43,6 +42,7 @@ import (
 //								},
 //							},
 //						},
+//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"sts:AssumeRole",
 //						},
@@ -98,16 +98,9 @@ import (
 //				return err
 //			}
 //			_, err = dlm.NewLifecyclePolicy(ctx, "example", &dlm.LifecyclePolicyArgs{
-//				Description:      pulumi.String("example DLM lifecycle policy"),
-//				ExecutionRoleArn: dlmLifecycleRole.Arn,
-//				State:            pulumi.String("ENABLED"),
 //				PolicyDetails: &dlm.LifecyclePolicyPolicyDetailsArgs{
-//					ResourceTypes: pulumi.StringArray{
-//						pulumi.String("VOLUME"),
-//					},
 //					Schedules: dlm.LifecyclePolicyPolicyDetailsScheduleArray{
 //						&dlm.LifecyclePolicyPolicyDetailsScheduleArgs{
-//							Name: pulumi.String("2 weeks of daily snapshots"),
 //							CreateRule: &dlm.LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs{
 //								Interval:     pulumi.Int(24),
 //								IntervalUnit: pulumi.String("HOURS"),
@@ -116,16 +109,23 @@ import (
 //							RetainRule: &dlm.LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs{
 //								Count: pulumi.Int(14),
 //							},
+//							Name: pulumi.String("2 weeks of daily snapshots"),
 //							TagsToAdd: pulumi.StringMap{
 //								"SnapshotCreator": pulumi.String("DLM"),
 //							},
 //							CopyTags: pulumi.Bool(false),
 //						},
 //					},
+//					ResourceTypes: pulumi.StringArray{
+//						pulumi.String("VOLUME"),
+//					},
 //					TargetTags: pulumi.StringMap{
 //						"Snapshot": pulumi.String("true"),
 //					},
 //				},
+//				Description:      pulumi.String("example DLM lifecycle policy"),
+//				ExecutionRoleArn: dlmLifecycleRole.Arn,
+//				State:            pulumi.String("ENABLED"),
 //			})
 //			if err != nil {
 //				return err
@@ -151,13 +151,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := dlm.NewLifecyclePolicy(ctx, "example", &dlm.LifecyclePolicyArgs{
-//				Description:      pulumi.String("tf-acc-basic"),
-//				ExecutionRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-//				DefaultPolicy:    pulumi.String("VOLUME"),
 //				PolicyDetails: &dlm.LifecyclePolicyPolicyDetailsArgs{
-//					CreateInterval: pulumi.Int(5),
-//					ResourceType:   pulumi.String("VOLUME"),
-//					PolicyLanguage: pulumi.String("SIMPLIFIED"),
 //					Exclusions: &dlm.LifecyclePolicyPolicyDetailsExclusionsArgs{
 //						ExcludeBootVolumes: pulumi.Bool(false),
 //						ExcludeTags: pulumi.StringMap{
@@ -167,7 +161,13 @@ import (
 //							pulumi.String("gp2"),
 //						},
 //					},
+//					CreateInterval: pulumi.Int(5),
+//					ResourceType:   pulumi.String("VOLUME"),
+//					PolicyLanguage: pulumi.String("SIMPLIFIED"),
 //				},
+//				Description:      pulumi.String("tf-acc-basic"),
+//				ExecutionRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//				DefaultPolicy:    pulumi.String("VOLUME"),
 //			})
 //			if err != nil {
 //				return err
@@ -205,8 +205,6 @@ import (
 //			key, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Sid:    pulumi.StringRef("Enable IAM User Permissions"),
-//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "AWS",
@@ -215,6 +213,8 @@ import (
 //								},
 //							},
 //						},
+//						Sid:    pulumi.StringRef("Enable IAM User Permissions"),
+//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"kms:*",
 //						},
@@ -235,16 +235,9 @@ import (
 //				return err
 //			}
 //			_, err = dlm.NewLifecyclePolicy(ctx, "example", &dlm.LifecyclePolicyArgs{
-//				Description:      pulumi.String("example DLM lifecycle policy"),
-//				ExecutionRoleArn: pulumi.Any(dlmLifecycleRole.Arn),
-//				State:            pulumi.String("ENABLED"),
 //				PolicyDetails: &dlm.LifecyclePolicyPolicyDetailsArgs{
-//					ResourceTypes: pulumi.StringArray{
-//						pulumi.String("VOLUME"),
-//					},
 //					Schedules: dlm.LifecyclePolicyPolicyDetailsScheduleArray{
 //						&dlm.LifecyclePolicyPolicyDetailsScheduleArgs{
-//							Name: pulumi.String("2 weeks of daily snapshots"),
 //							CreateRule: &dlm.LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs{
 //								Interval:     pulumi.Int(24),
 //								IntervalUnit: pulumi.String("HOURS"),
@@ -253,28 +246,35 @@ import (
 //							RetainRule: &dlm.LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs{
 //								Count: pulumi.Int(14),
 //							},
-//							TagsToAdd: pulumi.StringMap{
-//								"SnapshotCreator": pulumi.String("DLM"),
-//							},
-//							CopyTags: pulumi.Bool(false),
 //							CrossRegionCopyRules: dlm.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArray{
 //								&dlm.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs{
-//									Target:    pulumi.String("us-west-2"),
-//									Encrypted: pulumi.Bool(true),
-//									CmkArn:    dlmCrossRegionCopyCmk.Arn,
-//									CopyTags:  pulumi.Bool(true),
 //									RetainRule: &dlm.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs{
 //										Interval:     pulumi.Int(30),
 //										IntervalUnit: pulumi.String("DAYS"),
 //									},
+//									Target:    pulumi.String("us-west-2"),
+//									Encrypted: pulumi.Bool(true),
+//									CmkArn:    dlmCrossRegionCopyCmk.Arn,
+//									CopyTags:  pulumi.Bool(true),
 //								},
 //							},
+//							Name: pulumi.String("2 weeks of daily snapshots"),
+//							TagsToAdd: pulumi.StringMap{
+//								"SnapshotCreator": pulumi.String("DLM"),
+//							},
+//							CopyTags: pulumi.Bool(false),
 //						},
+//					},
+//					ResourceTypes: pulumi.StringArray{
+//						pulumi.String("VOLUME"),
 //					},
 //					TargetTags: pulumi.StringMap{
 //						"Snapshot": pulumi.String("true"),
 //					},
 //				},
+//				Description:      pulumi.String("example DLM lifecycle policy"),
+//				ExecutionRoleArn: pulumi.Any(dlmLifecycleRole.Arn),
+//				State:            pulumi.String("ENABLED"),
 //			})
 //			if err != nil {
 //				return err
@@ -306,12 +306,8 @@ import (
 //				return err
 //			}
 //			_, err = dlm.NewLifecyclePolicy(ctx, "example", &dlm.LifecyclePolicyArgs{
-//				Description:      pulumi.String("tf-acc-basic"),
-//				ExecutionRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				PolicyDetails: &dlm.LifecyclePolicyPolicyDetailsArgs{
-//					PolicyType: pulumi.String("EVENT_BASED_POLICY"),
 //					Action: &dlm.LifecyclePolicyPolicyDetailsActionArgs{
-//						Name: pulumi.String("tf-acc-basic"),
 //						CrossRegionCopies: dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyArray{
 //							&dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs{
 //								EncryptionConfiguration: &dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs{},
@@ -322,9 +318,9 @@ import (
 //								Target: pulumi.String("us-east-1"),
 //							},
 //						},
+//						Name: pulumi.String("tf-acc-basic"),
 //					},
 //					EventSource: &dlm.LifecyclePolicyPolicyDetailsEventSourceArgs{
-//						Type: pulumi.String("MANAGED_CWE"),
 //						Parameters: &dlm.LifecyclePolicyPolicyDetailsEventSourceParametersArgs{
 //							DescriptionRegex: pulumi.String("^.*Created for policy: policy-1234567890abcdef0.*$"),
 //							EventType:        pulumi.String("shareSnapshot"),
@@ -332,8 +328,12 @@ import (
 //								pulumi.String(current.AccountId),
 //							},
 //						},
+//						Type: pulumi.String("MANAGED_CWE"),
 //					},
+//					PolicyType: pulumi.String("EVENT_BASED_POLICY"),
 //				},
+//				Description:      pulumi.String("tf-acc-basic"),
+//				ExecutionRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -386,32 +386,32 @@ import (
 //				return err
 //			}
 //			_, err = dlm.NewLifecyclePolicy(ctx, "example", &dlm.LifecyclePolicyArgs{
-//				Description:      pulumi.String("tf-acc-basic"),
-//				ExecutionRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				PolicyDetails: &dlm.LifecyclePolicyPolicyDetailsArgs{
-//					ResourceTypes: pulumi.StringArray{
-//						pulumi.String("INSTANCE"),
-//					},
 //					Schedules: dlm.LifecyclePolicyPolicyDetailsScheduleArray{
 //						&dlm.LifecyclePolicyPolicyDetailsScheduleArgs{
-//							Name: pulumi.String("Windows VSS"),
 //							CreateRule: &dlm.LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs{
-//								Interval: pulumi.Int(12),
 //								Scripts: &dlm.LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsArgs{
 //									ExecuteOperationOnScriptFailure: pulumi.Bool(false),
 //									ExecutionHandler:                pulumi.String("AWS_VSS_BACKUP"),
 //									MaximumRetryCount:               pulumi.Int(2),
 //								},
+//								Interval: pulumi.Int(12),
 //							},
 //							RetainRule: &dlm.LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs{
 //								Count: pulumi.Int(10),
 //							},
+//							Name: pulumi.String("Windows VSS"),
 //						},
+//					},
+//					ResourceTypes: pulumi.StringArray{
+//						pulumi.String("INSTANCE"),
 //					},
 //					TargetTags: pulumi.StringMap{
 //						"tag1": pulumi.String("Windows"),
 //					},
 //				},
+//				Description:      pulumi.String("tf-acc-basic"),
+//				ExecutionRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err

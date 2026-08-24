@@ -33,11 +33,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := securitylake.NewCustomLogSource(ctx, "example", &securitylake.CustomLogSourceArgs{
-//				SourceName:    pulumi.String("example-name"),
-//				SourceVersion: pulumi.String("1.0"),
-//				EventClasses: pulumi.StringArray{
-//					pulumi.String("FILE_ACTIVITY"),
-//				},
 //				Configuration: &securitylake.CustomLogSourceConfigurationArgs{
 //					CrawlerConfiguration: &securitylake.CustomLogSourceConfigurationCrawlerConfigurationArgs{
 //						RoleArn: pulumi.Any(customLog.Arn),
@@ -46,6 +41,11 @@ import (
 //						ExternalId: pulumi.String("example-id"),
 //						Principal:  pulumi.String("123456789012"),
 //					},
+//				},
+//				SourceName:    pulumi.String("example-name"),
+//				SourceVersion: pulumi.String("1.0"),
+//				EventClasses: pulumi.StringArray{
+//					pulumi.String("FILE_ACTIVITY"),
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleAwsSecuritylakeDataLake,

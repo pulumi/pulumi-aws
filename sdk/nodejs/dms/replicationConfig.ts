@@ -19,6 +19,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const name = new aws.dms.ReplicationConfig("name", {
+ *     computeConfig: {
+ *         replicationSubnetGroupId: _default.replicationSubnetGroupId,
+ *         maxCapacityUnits: 64,
+ *         minCapacityUnits: 2,
+ *         preferredMaintenanceWindow: "sun:23:45-mon:00:30",
+ *     },
  *     replicationConfigIdentifier: "test-dms-serverless-replication-tf",
  *     resourceIdentifier: "test-dms-serverless-replication-tf",
  *     replicationType: "cdc",
@@ -29,12 +35,6 @@ import * as utilities from "../utilities";
  *   }
  * `,
  *     startReplication: true,
- *     computeConfig: {
- *         replicationSubnetGroupId: _default.replicationSubnetGroupId,
- *         maxCapacityUnits: 64,
- *         minCapacityUnits: 2,
- *         preferredMaintenanceWindow: "sun:23:45-mon:00:30",
- *     },
  * });
  * ```
  *

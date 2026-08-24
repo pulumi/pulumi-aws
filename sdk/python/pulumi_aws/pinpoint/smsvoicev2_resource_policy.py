@@ -163,13 +163,13 @@ class Smsvoicev2ResourcePolicy(pulumi.CustomResource):
             number_type="SIMULATOR",
             number_capabilities=["SMS"])
         example = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
-            "actions": ["sms-voice:SendTextMessage"],
-            "resources": [example_smsvoicev2_phone_number.arn],
             "principals": [{
                 "type": "AWS",
                 "identifiers": ["123456789012"],
             }],
+            "effect": "Allow",
+            "actions": ["sms-voice:SendTextMessage"],
+            "resources": [example_smsvoicev2_phone_number.arn],
         }])
         example_smsvoicev2_resource_policy = aws.pinpoint.Smsvoicev2ResourcePolicy("example",
             resource_arn=example_smsvoicev2_phone_number.arn,
@@ -222,13 +222,13 @@ class Smsvoicev2ResourcePolicy(pulumi.CustomResource):
             number_type="SIMULATOR",
             number_capabilities=["SMS"])
         example = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
-            "actions": ["sms-voice:SendTextMessage"],
-            "resources": [example_smsvoicev2_phone_number.arn],
             "principals": [{
                 "type": "AWS",
                 "identifiers": ["123456789012"],
             }],
+            "effect": "Allow",
+            "actions": ["sms-voice:SendTextMessage"],
+            "resources": [example_smsvoicev2_phone_number.arn],
         }])
         example_smsvoicev2_resource_policy = aws.pinpoint.Smsvoicev2ResourcePolicy("example",
             resource_arn=example_smsvoicev2_phone_number.arn,

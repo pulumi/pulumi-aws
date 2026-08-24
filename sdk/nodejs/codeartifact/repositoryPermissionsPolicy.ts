@@ -24,11 +24,11 @@ import * as utilities from "../utilities";
  * });
  * const example = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "*",
  *             identifiers: ["*"],
  *         }],
+ *         effect: "Allow",
  *         actions: ["codeartifact:ReadFromRepository"],
  *         resources: [exampleRepository.arn],
  *     }],

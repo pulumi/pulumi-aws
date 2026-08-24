@@ -24,15 +24,8 @@ namespace Pulumi.Aws.CodeBuild
     /// {
     ///     var test = new Aws.CodeBuild.Fleet("test", new()
     ///     {
-    ///         BaseCapacity = 2,
-    ///         ComputeType = "BUILD_GENERAL1_SMALL",
-    ///         EnvironmentType = "LINUX_CONTAINER",
-    ///         Name = "full-example-codebuild-fleet",
-    ///         OverflowBehavior = "QUEUE",
     ///         ScalingConfiguration = new Aws.CodeBuild.Inputs.FleetScalingConfigurationArgs
     ///         {
-    ///             MaxCapacity = 5,
-    ///             ScalingType = "TARGET_TRACKING_SCALING",
     ///             TargetTrackingScalingConfigs = new[]
     ///             {
     ///                 new Aws.CodeBuild.Inputs.FleetScalingConfigurationTargetTrackingScalingConfigArgs
@@ -41,7 +34,14 @@ namespace Pulumi.Aws.CodeBuild
     ///                     TargetValue = 97.5,
     ///                 },
     ///             },
+    ///             MaxCapacity = 5,
+    ///             ScalingType = "TARGET_TRACKING_SCALING",
     ///         },
+    ///         BaseCapacity = 2,
+    ///         ComputeType = "BUILD_GENERAL1_SMALL",
+    ///         EnvironmentType = "LINUX_CONTAINER",
+    ///         Name = "full-example-codebuild-fleet",
+    ///         OverflowBehavior = "QUEUE",
     ///     });
     /// 
     /// });

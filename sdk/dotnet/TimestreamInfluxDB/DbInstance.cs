@@ -122,10 +122,6 @@ namespace Pulumi.Aws.TimestreamInfluxDB
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "s3:PutObject",
-    ///                 },
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -136,6 +132,10 @@ namespace Pulumi.Aws.TimestreamInfluxDB
     ///                             "timestream-influxdb.amazonaws.com",
     ///                         },
     ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "s3:PutObject",
     ///                 },
     ///                 Resources = new[]
     ///                 {
@@ -153,6 +153,14 @@ namespace Pulumi.Aws.TimestreamInfluxDB
     /// 
     ///     var exampleDbInstance = new Aws.TimestreamInfluxDB.DbInstance("example", new()
     ///     {
+    ///         LogDeliveryConfiguration = new Aws.TimestreamInfluxDB.Inputs.DbInstanceLogDeliveryConfigurationArgs
+    ///         {
+    ///             S3Configuration = new Aws.TimestreamInfluxDB.Inputs.DbInstanceLogDeliveryConfigurationS3ConfigurationArgs
+    ///             {
+    ///                 BucketName = exampleBucket.BucketName,
+    ///                 Enabled = true,
+    ///             },
+    ///         },
     ///         AllocatedStorage = 20,
     ///         Bucket = "example-bucket-name",
     ///         DbInstanceType = "db.influx.medium",
@@ -168,14 +176,6 @@ namespace Pulumi.Aws.TimestreamInfluxDB
     ///             exampleAwsSecurityGroup.Id,
     ///         },
     ///         Name = "example-db-instance",
-    ///         LogDeliveryConfiguration = new Aws.TimestreamInfluxDB.Inputs.DbInstanceLogDeliveryConfigurationArgs
-    ///         {
-    ///             S3Configuration = new Aws.TimestreamInfluxDB.Inputs.DbInstanceLogDeliveryConfigurationS3ConfigurationArgs
-    ///             {
-    ///                 BucketName = exampleBucket.BucketName,
-    ///                 Enabled = true,
-    ///             },
-    ///         },
     ///     });
     /// 
     /// });

@@ -53,17 +53,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ReplicationConfigurationTemplate("example", ReplicationConfigurationTemplateArgs.builder()
- *             .associateDefaultSecurityGroup(false)
- *             .bandwidthThrottling(12)
- *             .createPublicIp(false)
- *             .dataPlaneRouting("PRIVATE_IP")
- *             .defaultLargeStagingDiskType("GP2")
- *             .ebsEncryption("DEFAULT")
- *             .ebsEncryptionKeyArn("arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab")
- *             .replicationServerInstanceType("t3.small")
- *             .replicationServersSecurityGroupsIds(exampleAwsSecurityGroup.stream().map(element -> element.id()).collect(toList()))
- *             .stagingAreaSubnetId(exampleAwsSubnet.id())
- *             .useDedicatedReplicationServer(false)
  *             .pitPolicies(            
  *                 ReplicationConfigurationTemplatePitPolicyArgs.builder()
  *                     .enabled(true)
@@ -86,6 +75,17 @@ import javax.annotation.Nullable;
  *                     .units("DAY")
  *                     .ruleId(3)
  *                     .build())
+ *             .associateDefaultSecurityGroup(false)
+ *             .bandwidthThrottling(12)
+ *             .createPublicIp(false)
+ *             .dataPlaneRouting("PRIVATE_IP")
+ *             .defaultLargeStagingDiskType("GP2")
+ *             .ebsEncryption("DEFAULT")
+ *             .ebsEncryptionKeyArn("arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab")
+ *             .replicationServerInstanceType("t3.small")
+ *             .replicationServersSecurityGroupsIds(exampleAwsSecurityGroup.stream().map(element -> element.id()).collect(toList()))
+ *             .stagingAreaSubnetId(exampleAwsSubnet.id())
+ *             .useDedicatedReplicationServer(false)
  *             .build());
  * 
  *     }

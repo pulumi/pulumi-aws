@@ -1052,13 +1052,13 @@ class TargetGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         tcp_example = aws.lb.TargetGroup("tcp-example",
+            target_health_states=[{
+                "enable_unhealthy_connection_termination": False,
+            }],
             name="tf-example-lb-nlb-tg",
             port=25,
             protocol="TCP",
-            vpc_id=main["id"],
-            target_health_states=[{
-                "enable_unhealthy_connection_termination": False,
-            }])
+            vpc_id=main["id"])
         ```
 
         ### Target group with health requirements
@@ -1068,10 +1068,6 @@ class TargetGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         tcp_example = aws.lb.TargetGroup("tcp-example",
-            name="tf-example-lb-nlb-tg",
-            port=80,
-            protocol="TCP",
-            vpc_id=main["id"],
             target_group_health={
                 "dns_failover": {
                     "minimum_healthy_targets_count": "1",
@@ -1081,7 +1077,11 @@ class TargetGroup(pulumi.CustomResource):
                     "minimum_healthy_targets_count": 1,
                     "minimum_healthy_targets_percentage": "off",
                 },
-            })
+            },
+            name="tf-example-lb-nlb-tg",
+            port=80,
+            protocol="TCP",
+            vpc_id=main["id"])
         ```
 
         ## Import
@@ -1214,13 +1214,13 @@ class TargetGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         tcp_example = aws.lb.TargetGroup("tcp-example",
+            target_health_states=[{
+                "enable_unhealthy_connection_termination": False,
+            }],
             name="tf-example-lb-nlb-tg",
             port=25,
             protocol="TCP",
-            vpc_id=main["id"],
-            target_health_states=[{
-                "enable_unhealthy_connection_termination": False,
-            }])
+            vpc_id=main["id"])
         ```
 
         ### Target group with health requirements
@@ -1230,10 +1230,6 @@ class TargetGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         tcp_example = aws.lb.TargetGroup("tcp-example",
-            name="tf-example-lb-nlb-tg",
-            port=80,
-            protocol="TCP",
-            vpc_id=main["id"],
             target_group_health={
                 "dns_failover": {
                     "minimum_healthy_targets_count": "1",
@@ -1243,7 +1239,11 @@ class TargetGroup(pulumi.CustomResource):
                     "minimum_healthy_targets_count": 1,
                     "minimum_healthy_targets_percentage": "off",
                 },
-            })
+            },
+            name="tf-example-lb-nlb-tg",
+            port=80,
+            protocol="TCP",
+            vpc_id=main["id"])
         ```
 
         ## Import

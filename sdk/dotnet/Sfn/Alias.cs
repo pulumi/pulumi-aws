@@ -26,7 +26,6 @@ namespace Pulumi.Aws.Sfn
     /// {
     ///     var sfnAlias = new Aws.Sfn.Alias("sfn_alias", new()
     ///     {
-    ///         Name = "my_sfn_alias",
     ///         RoutingConfigurations = new[]
     ///         {
     ///             new Aws.Sfn.Inputs.AliasRoutingConfigurationArgs
@@ -35,11 +34,11 @@ namespace Pulumi.Aws.Sfn
     ///                 Weight = 100,
     ///             },
     ///         },
+    ///         Name = "my_sfn_alias",
     ///     });
     /// 
     ///     var mySfnAlias = new Aws.Sfn.Alias("my_sfn_alias", new()
     ///     {
-    ///         Name = "my_sfn_alias",
     ///         RoutingConfigurations = new[]
     ///         {
     ///             new Aws.Sfn.Inputs.AliasRoutingConfigurationArgs
@@ -53,6 +52,7 @@ namespace Pulumi.Aws.Sfn
     ///                 Weight = 50,
     ///             },
     ///         },
+    ///         Name = "my_sfn_alias",
     ///     });
     /// 
     /// });

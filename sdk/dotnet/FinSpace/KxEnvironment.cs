@@ -62,9 +62,6 @@ namespace Pulumi.Aws.FinSpace
     /// 
     ///     var exampleEnv = new Aws.FinSpace.KxEnvironment("example_env", new()
     ///     {
-    ///         Name = "my-tf-kx-environment",
-    ///         Description = "Environment description",
-    ///         KmsKeyId = example.Arn,
     ///         TransitGatewayConfiguration = new Aws.FinSpace.Inputs.KxEnvironmentTransitGatewayConfigurationArgs
     ///         {
     ///             TransitGatewayId = exampleTransitGateway.Id,
@@ -78,6 +75,9 @@ namespace Pulumi.Aws.FinSpace
     ///                 CustomDnsServerIp = "10.0.0.76",
     ///             },
     ///         },
+    ///         Name = "my-tf-kx-environment",
+    ///         Description = "Environment description",
+    ///         KmsKeyId = example.Arn,
     ///     });
     /// 
     /// });
@@ -106,21 +106,12 @@ namespace Pulumi.Aws.FinSpace
     /// 
     ///     var exampleEnv = new Aws.FinSpace.KxEnvironment("example_env", new()
     ///     {
-    ///         Name = "my-tf-kx-environment",
-    ///         Description = "Environment description",
-    ///         KmsKeyId = example.Arn,
     ///         TransitGatewayConfiguration = new Aws.FinSpace.Inputs.KxEnvironmentTransitGatewayConfigurationArgs
     ///         {
-    ///             TransitGatewayId = exampleTransitGateway.Id,
-    ///             RoutableCidrSpace = "100.64.0.0/26",
     ///             AttachmentNetworkAclConfigurations = new[]
     ///             {
     ///                 new Aws.FinSpace.Inputs.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs
     ///                 {
-    ///                     RuleNumber = 1,
-    ///                     Protocol = "6",
-    ///                     RuleAction = "allow",
-    ///                     CidrBlock = "0.0.0.0/0",
     ///                     PortRange = new Aws.FinSpace.Inputs.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs
     ///                     {
     ///                         From = 53,
@@ -131,8 +122,14 @@ namespace Pulumi.Aws.FinSpace
     ///                         Type = -1,
     ///                         Code = -1,
     ///                     },
+    ///                     RuleNumber = 1,
+    ///                     Protocol = "6",
+    ///                     RuleAction = "allow",
+    ///                     CidrBlock = "0.0.0.0/0",
     ///                 },
     ///             },
+    ///             TransitGatewayId = exampleTransitGateway.Id,
+    ///             RoutableCidrSpace = "100.64.0.0/26",
     ///         },
     ///         CustomDnsConfigurations = new[]
     ///         {
@@ -142,6 +139,9 @@ namespace Pulumi.Aws.FinSpace
     ///                 CustomDnsServerIp = "10.0.0.76",
     ///             },
     ///         },
+    ///         Name = "my-tf-kx-environment",
+    ///         Description = "Environment description",
+    ///         KmsKeyId = example.Arn,
     ///     });
     /// 
     /// });

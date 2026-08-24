@@ -160,9 +160,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewVpcEndpoint(ctx, "ec2", &ec2.VpcEndpointArgs{
-//				VpcId:           pulumi.Any(example.Id),
-//				ServiceName:     pulumi.String("com.amazonaws.us-west-2.ec2"),
-//				VpcEndpointType: pulumi.String("Interface"),
 //				SubnetConfigurations: ec2.VpcEndpointSubnetConfigurationArray{
 //					&ec2.VpcEndpointSubnetConfigurationArgs{
 //						Ipv4:     pulumi.String("10.0.1.10"),
@@ -173,6 +170,9 @@ import (
 //						SubnetId: pulumi.Any(example2.Id),
 //					},
 //				},
+//				VpcId:           pulumi.Any(example.Id),
+//				ServiceName:     pulumi.String("com.amazonaws.us-west-2.ec2"),
+//				VpcEndpointType: pulumi.String("Interface"),
 //				SubnetIds: pulumi.StringArray{
 //					example1.Id,
 //					example2.Id,

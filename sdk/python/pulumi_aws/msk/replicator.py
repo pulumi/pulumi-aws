@@ -359,9 +359,23 @@ class Replicator(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.msk.Replicator("test",
-            replicator_name="test-name",
-            description="test-description",
-            service_execution_role_arn=source_aws_iam_role["arn"],
+            replication_info_list={
+                "consumer_group_replications": [{
+                    "consumer_groups_to_replicates": [".*"],
+                }],
+                "topic_replications": [{
+                    "topic_name_configuration": {
+                        "type": "PREFIXED_WITH_SOURCE_CLUSTER_ALIAS",
+                    },
+                    "starting_position": {
+                        "type": "LATEST",
+                    },
+                    "topics_to_replicates": [".*"],
+                }],
+                "source_kafka_cluster_arn": source["arn"],
+                "target_kafka_cluster_arn": target["arn"],
+                "target_compression_type": "NONE",
+            },
             kafka_clusters=[
                 {
                     "amazon_msk_cluster": {
@@ -382,23 +396,9 @@ class Replicator(pulumi.CustomResource):
                     },
                 },
             ],
-            replication_info_list={
-                "source_kafka_cluster_arn": source["arn"],
-                "target_kafka_cluster_arn": target["arn"],
-                "target_compression_type": "NONE",
-                "topic_replications": [{
-                    "topic_name_configuration": {
-                        "type": "PREFIXED_WITH_SOURCE_CLUSTER_ALIAS",
-                    },
-                    "topics_to_replicates": [".*"],
-                    "starting_position": {
-                        "type": "LATEST",
-                    },
-                }],
-                "consumer_group_replications": [{
-                    "consumer_groups_to_replicates": [".*"],
-                }],
-            })
+            replicator_name="test-name",
+            description="test-description",
+            service_execution_role_arn=source_aws_iam_role["arn"])
         ```
 
         ## Import
@@ -445,9 +445,23 @@ class Replicator(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.msk.Replicator("test",
-            replicator_name="test-name",
-            description="test-description",
-            service_execution_role_arn=source_aws_iam_role["arn"],
+            replication_info_list={
+                "consumer_group_replications": [{
+                    "consumer_groups_to_replicates": [".*"],
+                }],
+                "topic_replications": [{
+                    "topic_name_configuration": {
+                        "type": "PREFIXED_WITH_SOURCE_CLUSTER_ALIAS",
+                    },
+                    "starting_position": {
+                        "type": "LATEST",
+                    },
+                    "topics_to_replicates": [".*"],
+                }],
+                "source_kafka_cluster_arn": source["arn"],
+                "target_kafka_cluster_arn": target["arn"],
+                "target_compression_type": "NONE",
+            },
             kafka_clusters=[
                 {
                     "amazon_msk_cluster": {
@@ -468,23 +482,9 @@ class Replicator(pulumi.CustomResource):
                     },
                 },
             ],
-            replication_info_list={
-                "source_kafka_cluster_arn": source["arn"],
-                "target_kafka_cluster_arn": target["arn"],
-                "target_compression_type": "NONE",
-                "topic_replications": [{
-                    "topic_name_configuration": {
-                        "type": "PREFIXED_WITH_SOURCE_CLUSTER_ALIAS",
-                    },
-                    "topics_to_replicates": [".*"],
-                    "starting_position": {
-                        "type": "LATEST",
-                    },
-                }],
-                "consumer_group_replications": [{
-                    "consumer_groups_to_replicates": [".*"],
-                }],
-            })
+            replicator_name="test-name",
+            description="test-description",
+            service_execution_role_arn=source_aws_iam_role["arn"])
         ```
 
         ## Import

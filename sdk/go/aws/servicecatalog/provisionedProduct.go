@@ -36,15 +36,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := servicecatalog.NewProvisionedProduct(ctx, "example", &servicecatalog.ProvisionedProductArgs{
-//				Name:                     pulumi.String("example"),
-//				ProductName:              pulumi.String("Example product"),
-//				ProvisioningArtifactName: pulumi.String("Example version"),
 //				ProvisioningParameters: servicecatalog.ProvisionedProductProvisioningParameterArray{
 //					&servicecatalog.ProvisionedProductProvisioningParameterArgs{
 //						Key:   pulumi.String("foo"),
 //						Value: pulumi.String("bar"),
 //					},
 //				},
+//				Name:                     pulumi.String("example"),
+//				ProductName:              pulumi.String("Example product"),
+//				ProvisioningArtifactName: pulumi.String("Example version"),
 //				Tags: pulumi.StringMap{
 //					"foo": pulumi.String("bar"),
 //				},

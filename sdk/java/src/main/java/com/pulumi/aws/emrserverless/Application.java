@@ -95,19 +95,19 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Application("example", ApplicationArgs.builder()
- *             .name("example")
- *             .releaseLabel("emr-6.6.0")
- *             .type("hive")
  *             .initialCapacities(ApplicationInitialCapacityArgs.builder()
- *                 .initialCapacityType("HiveDriver")
  *                 .initialCapacityConfig(ApplicationInitialCapacityInitialCapacityConfigArgs.builder()
- *                     .workerCount(1)
  *                     .workerConfiguration(ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs.builder()
  *                         .cpu("2 vCPU")
  *                         .memory("10 GB")
  *                         .build())
+ *                     .workerCount(1)
  *                     .build())
+ *                 .initialCapacityType("HiveDriver")
  *                 .build())
+ *             .name("example")
+ *             .releaseLabel("emr-6.6.0")
+ *             .type("hive")
  *             .build());
  * 
  *     }
@@ -141,13 +141,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Application("example", ApplicationArgs.builder()
- *             .name("example")
- *             .releaseLabel("emr-6.6.0")
- *             .type("hive")
  *             .maximumCapacity(ApplicationMaximumCapacityArgs.builder()
  *                 .cpu("2 vCPU")
  *                 .memory("10 GB")
  *                 .build())
+ *             .name("example")
+ *             .releaseLabel("emr-6.6.0")
+ *             .type("hive")
  *             .build());
  * 
  *     }
@@ -185,14 +185,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Application("example", ApplicationArgs.builder()
- *             .name("example")
- *             .releaseLabel("emr-7.1.0")
- *             .type("spark")
  *             .monitoringConfiguration(ApplicationMonitoringConfigurationArgs.builder()
  *                 .cloudwatchLoggingConfiguration(ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgs.builder()
- *                     .enabled(true)
- *                     .logGroupName("/aws/emr-serverless/example")
- *                     .logStreamNamePrefix("spark-logs")
  *                     .logTypes(                    
  *                         ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArgs.builder()
  *                             .name("SPARK_DRIVER")
@@ -204,6 +198,9 @@ import javax.annotation.Nullable;
  *                             .name("SPARK_EXECUTOR")
  *                             .values("STDOUT")
  *                             .build())
+ *                     .enabled(true)
+ *                     .logGroupName("/aws/emr-serverless/example")
+ *                     .logStreamNamePrefix("spark-logs")
  *                     .build())
  *                 .managedPersistenceMonitoringConfiguration(ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationArgs.builder()
  *                     .enabled(true)
@@ -212,6 +209,9 @@ import javax.annotation.Nullable;
  *                     .remoteWriteUrl("https://prometheus-remote-write-endpoint.example.com/api/v1/write")
  *                     .build())
  *                 .build())
+ *             .name("example")
+ *             .releaseLabel("emr-7.1.0")
+ *             .type("spark")
  *             .build());
  * 
  *     }
@@ -245,9 +245,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Application("example", ApplicationArgs.builder()
- *             .name("example")
- *             .releaseLabel("emr-6.8.0")
- *             .type("spark")
  *             .runtimeConfigurations(            
  *                 ApplicationRuntimeConfigurationArgs.builder()
  *                     .classification("spark-executor-log4j2")
@@ -264,6 +261,9 @@ import javax.annotation.Nullable;
  *                         Map.entry("spark.executor.cores", "1")
  *                     ))
  *                     .build())
+ *             .name("example")
+ *             .releaseLabel("emr-6.8.0")
+ *             .type("spark")
  *             .build());
  * 
  *     }

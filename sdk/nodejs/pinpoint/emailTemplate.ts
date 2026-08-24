@@ -19,15 +19,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.pinpoint.EmailTemplate("test", {
- *     templateName: "testing",
  *     emailTemplates: [{
- *         subject: "testing",
- *         textPart: "we are testing template text part",
  *         headers: [{
  *             name: "testingname",
  *             value: "testingvalue",
  *         }],
+ *         subject: "testing",
+ *         textPart: "we are testing template text part",
  *     }],
+ *     templateName: "testing",
  * });
  * ```
  *

@@ -38,13 +38,15 @@ import (
 //				return err
 //			}
 //			exampleZone, err := route53.NewZone(ctx, "example", &route53.ZoneArgs{
-//				Name: pulumi.String("example.com"),
 //				Vpcs: route53.ZoneVpcArray{
 //					&route53.ZoneVpcArgs{
 //						VpcId: example.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
-//			})
+//				Name: pulumi.String("example.com"),
+//			}, pulumi.IgnoreChanges([]string{
+//				"vpcs",
+//			}))
 //			if err != nil {
 //				return err
 //			}

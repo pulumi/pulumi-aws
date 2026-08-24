@@ -571,10 +571,10 @@ class FileSystem(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foo_with_lifecyle_policy = aws.efs.FileSystem("foo_with_lifecyle_policy",
-            creation_token="my-product",
             lifecycle_policies=[{
                 "transition_to_ia": "AFTER_30_DAYS",
-            }])
+            }],
+            creation_token="my-product")
         ```
 
         ## Import
@@ -634,10 +634,10 @@ class FileSystem(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foo_with_lifecyle_policy = aws.efs.FileSystem("foo_with_lifecyle_policy",
-            creation_token="my-product",
             lifecycle_policies=[{
                 "transition_to_ia": "AFTER_30_DAYS",
-            }])
+            }],
+            creation_token="my-product")
         ```
 
         ## Import

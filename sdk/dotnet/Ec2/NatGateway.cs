@@ -175,8 +175,6 @@ namespace Pulumi.Aws.Ec2
     ///     }
     ///     var exampleNatGateway = new Aws.Ec2.NatGateway("example", new()
     ///     {
-    ///         VpcId = example.Id,
-    ///         AvailabilityMode = "regional",
     ///         AvailabilityZoneAddresses = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.NatGatewayAvailabilityZoneAddressArgs
@@ -197,6 +195,8 @@ namespace Pulumi.Aws.Ec2
     ///                 AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[1]),
     ///             },
     ///         },
+    ///         VpcId = example.Id,
+    ///         AvailabilityMode = "regional",
     ///     });
     /// 
     /// });

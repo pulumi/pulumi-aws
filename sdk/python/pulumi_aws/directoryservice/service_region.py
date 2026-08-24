@@ -267,11 +267,11 @@ class ServiceRegion(pulumi.CustomResource):
         import pulumi_std as std
 
         example = aws.get_region()
-        available = aws.get_availability_zones(state="available",
-            filters=[{
+        available = aws.get_availability_zones(filters=[{
                 "name": "opt-in-status",
                 "values": ["opt-in-not-required"],
-            }])
+            }],
+            state="available")
         example_vpc = aws.ec2.Vpc("example",
             cidr_block="10.0.0.0/16",
             tags={
@@ -289,18 +289,18 @@ class ServiceRegion(pulumi.CustomResource):
                     "Name": "Primary",
                 }))
         example_directory = aws.directoryservice.Directory("example",
-            name="example.com",
-            password="SuperSecretPassw0rd",
-            type="MicrosoftAD",
             vpc_settings={
                 "vpc_id": example_vpc.id,
                 "subnet_ids": [__item.id for __item in example_subnet],
-            })
-        available_secondary = aws.get_availability_zones(state="available",
-            filters=[{
+            },
+            name="example.com",
+            password="SuperSecretPassw0rd",
+            type="MicrosoftAD")
+        available_secondary = aws.get_availability_zones(filters=[{
                 "name": "opt-in-status",
                 "values": ["opt-in-not-required"],
-            }])
+            }],
+            state="available")
         example_secondary = aws.ec2.Vpc("example-secondary",
             cidr_block="10.1.0.0/16",
             tags={
@@ -318,12 +318,12 @@ class ServiceRegion(pulumi.CustomResource):
                     "Name": "Secondary",
                 }))
         example_service_region = aws.directoryservice.ServiceRegion("example",
-            directory_id=example_directory.id,
-            region_name=example.region,
             vpc_settings={
                 "vpc_id": example_secondary.id,
                 "subnet_ids": [__item.id for __item in example_secondary_subnet],
             },
+            directory_id=example_directory.id,
+            region_name=example.region,
             tags={
                 "Name": "Secondary",
             })
@@ -366,11 +366,11 @@ class ServiceRegion(pulumi.CustomResource):
         import pulumi_std as std
 
         example = aws.get_region()
-        available = aws.get_availability_zones(state="available",
-            filters=[{
+        available = aws.get_availability_zones(filters=[{
                 "name": "opt-in-status",
                 "values": ["opt-in-not-required"],
-            }])
+            }],
+            state="available")
         example_vpc = aws.ec2.Vpc("example",
             cidr_block="10.0.0.0/16",
             tags={
@@ -388,18 +388,18 @@ class ServiceRegion(pulumi.CustomResource):
                     "Name": "Primary",
                 }))
         example_directory = aws.directoryservice.Directory("example",
-            name="example.com",
-            password="SuperSecretPassw0rd",
-            type="MicrosoftAD",
             vpc_settings={
                 "vpc_id": example_vpc.id,
                 "subnet_ids": [__item.id for __item in example_subnet],
-            })
-        available_secondary = aws.get_availability_zones(state="available",
-            filters=[{
+            },
+            name="example.com",
+            password="SuperSecretPassw0rd",
+            type="MicrosoftAD")
+        available_secondary = aws.get_availability_zones(filters=[{
                 "name": "opt-in-status",
                 "values": ["opt-in-not-required"],
-            }])
+            }],
+            state="available")
         example_secondary = aws.ec2.Vpc("example-secondary",
             cidr_block="10.1.0.0/16",
             tags={
@@ -417,12 +417,12 @@ class ServiceRegion(pulumi.CustomResource):
                     "Name": "Secondary",
                 }))
         example_service_region = aws.directoryservice.ServiceRegion("example",
-            directory_id=example_directory.id,
-            region_name=example.region,
             vpc_settings={
                 "vpc_id": example_secondary.id,
                 "subnet_ids": [__item.id for __item in example_secondary_subnet],
             },
+            directory_id=example_directory.id,
+            region_name=example.region,
             tags={
                 "Name": "Secondary",
             })

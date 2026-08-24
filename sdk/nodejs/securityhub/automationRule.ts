@@ -19,9 +19,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.securityhub.AutomationRule("example", {
- *     description: "Elevate finding severity to CRITICAL when specific resources such as an S3 bucket is at risk",
- *     ruleName: "Elevate severity of findings that relate to important resources",
- *     ruleOrder: 1,
+ *     criteria: {
+ *         resourceIds: [{
+ *             comparison: "EQUALS",
+ *             value: "arn:aws:s3:::examplebucket/*",
+ *         }],
+ *     },
  *     actions: [{
  *         findingFieldsUpdate: {
  *             severity: {
@@ -39,12 +42,9 @@ import * as utilities from "../utilities";
  *         },
  *         type: "FINDING_FIELDS_UPDATE",
  *     }],
- *     criteria: {
- *         resourceIds: [{
- *             comparison: "EQUALS",
- *             value: "arn:aws:s3:::examplebucket/*",
- *         }],
- *     },
+ *     description: "Elevate finding severity to CRITICAL when specific resources such as an S3 bucket is at risk",
+ *     ruleName: "Elevate severity of findings that relate to important resources",
+ *     ruleOrder: 1,
  * });
  * ```
  *

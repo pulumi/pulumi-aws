@@ -24,10 +24,6 @@ namespace Pulumi.Aws.ImageBuilder
     /// {
     ///     var example = new Aws.ImageBuilder.ContainerRecipe("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Version = "1.0.0",
-    ///         ContainerType = "DOCKER",
-    ///         ParentImage = "arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x",
     ///         TargetRepository = new Aws.ImageBuilder.Inputs.ContainerRecipeTargetRepositoryArgs
     ///         {
     ///             RepositoryName = exampleAwsEcrRepository.Name,
@@ -37,7 +33,6 @@ namespace Pulumi.Aws.ImageBuilder
     ///         {
     ///             new Aws.ImageBuilder.Inputs.ContainerRecipeComponentArgs
     ///             {
-    ///                 ComponentArn = exampleAwsImagebuilderComponent.Arn,
     ///                 Parameters = new[]
     ///                 {
     ///                     new Aws.ImageBuilder.Inputs.ContainerRecipeComponentParameterArgs
@@ -51,8 +46,13 @@ namespace Pulumi.Aws.ImageBuilder
     ///                         Value = "Value2",
     ///                     },
     ///                 },
+    ///                 ComponentArn = exampleAwsImagebuilderComponent.Arn,
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         Version = "1.0.0",
+    ///         ContainerType = "DOCKER",
+    ///         ParentImage = "arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x",
     ///         DockerfileTemplateData = @"FROM {{{ imagebuilder:parentImage }}}
     /// {{{ imagebuilder:environments }}}
     /// {{{ imagebuilder:components }}}

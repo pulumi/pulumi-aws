@@ -92,10 +92,10 @@ import (
 //				return err
 //			}
 //			_, err = observabilityadmin.NewS3TableIntegration(ctx, "example", &observabilityadmin.S3TableIntegrationArgs{
-//				RoleArn: example.Arn,
 //				Encryption: &observabilityadmin.S3TableIntegrationEncryptionArgs{
 //					SseAlgorithm: pulumi.String("AES256"),
 //				},
+//				RoleArn: example.Arn,
 //			})
 //			if err != nil {
 //				return err
@@ -155,11 +155,11 @@ import (
 //				return err
 //			}
 //			_, err = observabilityadmin.NewS3TableIntegration(ctx, "example", &observabilityadmin.S3TableIntegrationArgs{
-//				RoleArn: example.Arn,
 //				Encryption: &observabilityadmin.S3TableIntegrationEncryptionArgs{
 //					SseAlgorithm: pulumi.String("aws:kms"),
 //					KmsKeyArn:    exampleKey.Arn,
 //				},
+//				RoleArn: example.Arn,
 //			})
 //			if err != nil {
 //				return err

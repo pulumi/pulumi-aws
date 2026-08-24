@@ -653,11 +653,6 @@ class Pipe(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.pipes.Pipe("example",
-            name="example-pipe",
-            role_arn=example_aws_iam_role["arn"],
-            source=source["arn"],
-            target=target["arn"],
-            enrichment=example_aws_cloudwatch_event_api_destination["arn"],
             enrichment_parameters={
                 "http_parameters": {
                     "path_parameter_values": "example-path-param",
@@ -670,7 +665,12 @@ class Pipe(pulumi.CustomResource):
                         "second-example-query-string": "second-example-value",
                     },
                 },
-            })
+            },
+            name="example-pipe",
+            role_arn=example_aws_iam_role["arn"],
+            source=source["arn"],
+            target=target["arn"],
+            enrichment=example_aws_cloudwatch_event_api_destination["arn"])
         ```
 
         ### Filter Usage
@@ -681,10 +681,6 @@ class Pipe(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.pipes.Pipe("example",
-            name="example-pipe",
-            role_arn=example_aws_iam_role["arn"],
-            source=source["arn"],
-            target=target["arn"],
             source_parameters={
                 "filter_criteria": {
                     "filters": [{
@@ -693,7 +689,11 @@ class Pipe(pulumi.CustomResource):
                         }),
                     }],
                 },
-            })
+            },
+            name="example-pipe",
+            role_arn=example_aws_iam_role["arn"],
+            source=source["arn"],
+            target=target["arn"])
         ```
 
         ### CloudWatch Logs Logging Configuration Usage
@@ -704,17 +704,17 @@ class Pipe(pulumi.CustomResource):
 
         example = aws.cloudwatch.LogGroup("example", name="example-pipe-target")
         example_pipe = aws.pipes.Pipe("example",
+            log_configuration={
+                "cloudwatch_logs_log_destination": {
+                    "log_group_arn": target_aws_cloudwatch_log_group["arn"],
+                },
+                "include_execution_datas": ["ALL"],
+                "level": "INFO",
+            },
             name="example-pipe",
             role_arn=example_aws_iam_role["arn"],
             source=source_aws_sqs_queue["arn"],
             target=target_aws_sqs_queue["arn"],
-            log_configuration={
-                "include_execution_datas": ["ALL"],
-                "level": "INFO",
-                "cloudwatch_logs_log_destination": {
-                    "log_group_arn": target_aws_cloudwatch_log_group["arn"],
-                },
-            },
             opts = pulumi.ResourceOptions(depends_on=[
                     source,
                     target,
@@ -728,10 +728,6 @@ class Pipe(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.pipes.Pipe("example",
-            name="example-pipe",
-            role_arn=example_aws_iam_role["arn"],
-            source=source["arn"],
-            target=target["arn"],
             source_parameters={
                 "sqs_queue_parameters": {
                     "batch_size": 1,
@@ -743,7 +739,11 @@ class Pipe(pulumi.CustomResource):
                     "message_deduplication_id": "example-dedupe",
                     "message_group_id": "example-group",
                 },
-            })
+            },
+            name="example-pipe",
+            role_arn=example_aws_iam_role["arn"],
+            source=source["arn"],
+            target=target["arn"])
         ```
 
         ## Import
@@ -859,11 +859,6 @@ class Pipe(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.pipes.Pipe("example",
-            name="example-pipe",
-            role_arn=example_aws_iam_role["arn"],
-            source=source["arn"],
-            target=target["arn"],
-            enrichment=example_aws_cloudwatch_event_api_destination["arn"],
             enrichment_parameters={
                 "http_parameters": {
                     "path_parameter_values": "example-path-param",
@@ -876,7 +871,12 @@ class Pipe(pulumi.CustomResource):
                         "second-example-query-string": "second-example-value",
                     },
                 },
-            })
+            },
+            name="example-pipe",
+            role_arn=example_aws_iam_role["arn"],
+            source=source["arn"],
+            target=target["arn"],
+            enrichment=example_aws_cloudwatch_event_api_destination["arn"])
         ```
 
         ### Filter Usage
@@ -887,10 +887,6 @@ class Pipe(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.pipes.Pipe("example",
-            name="example-pipe",
-            role_arn=example_aws_iam_role["arn"],
-            source=source["arn"],
-            target=target["arn"],
             source_parameters={
                 "filter_criteria": {
                     "filters": [{
@@ -899,7 +895,11 @@ class Pipe(pulumi.CustomResource):
                         }),
                     }],
                 },
-            })
+            },
+            name="example-pipe",
+            role_arn=example_aws_iam_role["arn"],
+            source=source["arn"],
+            target=target["arn"])
         ```
 
         ### CloudWatch Logs Logging Configuration Usage
@@ -910,17 +910,17 @@ class Pipe(pulumi.CustomResource):
 
         example = aws.cloudwatch.LogGroup("example", name="example-pipe-target")
         example_pipe = aws.pipes.Pipe("example",
+            log_configuration={
+                "cloudwatch_logs_log_destination": {
+                    "log_group_arn": target_aws_cloudwatch_log_group["arn"],
+                },
+                "include_execution_datas": ["ALL"],
+                "level": "INFO",
+            },
             name="example-pipe",
             role_arn=example_aws_iam_role["arn"],
             source=source_aws_sqs_queue["arn"],
             target=target_aws_sqs_queue["arn"],
-            log_configuration={
-                "include_execution_datas": ["ALL"],
-                "level": "INFO",
-                "cloudwatch_logs_log_destination": {
-                    "log_group_arn": target_aws_cloudwatch_log_group["arn"],
-                },
-            },
             opts = pulumi.ResourceOptions(depends_on=[
                     source,
                     target,
@@ -934,10 +934,6 @@ class Pipe(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.pipes.Pipe("example",
-            name="example-pipe",
-            role_arn=example_aws_iam_role["arn"],
-            source=source["arn"],
-            target=target["arn"],
             source_parameters={
                 "sqs_queue_parameters": {
                     "batch_size": 1,
@@ -949,7 +945,11 @@ class Pipe(pulumi.CustomResource):
                     "message_deduplication_id": "example-dedupe",
                     "message_group_id": "example-group",
                 },
-            })
+            },
+            name="example-pipe",
+            role_arn=example_aws_iam_role["arn"],
+            source=source["arn"],
+            target=target["arn"])
         ```
 
         ## Import

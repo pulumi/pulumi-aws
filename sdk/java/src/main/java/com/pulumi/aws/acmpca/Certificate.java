@@ -60,11 +60,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var exampleCertificateAuthority = new CertificateAuthority("exampleCertificateAuthority", CertificateAuthorityArgs.builder()
  *             .certificateAuthorityConfiguration(CertificateAuthorityCertificateAuthorityConfigurationArgs.builder()
- *                 .keyAlgorithm("RSA_4096")
- *                 .signingAlgorithm("SHA512WITHRSA")
  *                 .subject(CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs.builder()
  *                     .commonName("example.com")
  *                     .build())
+ *                 .keyAlgorithm("RSA_4096")
+ *                 .signingAlgorithm("SHA512WITHRSA")
  *                 .build())
  *             .permanentDeletionTimeInDays(7)
  *             .build());
@@ -74,20 +74,20 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var csr = new CertRequest("csr", CertRequestArgs.builder()
- *             .privateKeyPem(key.privateKeyPem())
  *             .subject(com.pulumi.tls.inputs.CertRequestSubjectArgs.builder()
  *                 .commonName("example")
  *                 .build())
+ *             .privateKeyPem(key.privateKeyPem())
  *             .build());
  * 
  *         var example = new Certificate("example", CertificateArgs.builder()
- *             .certificateAuthorityArn(exampleCertificateAuthority.arn())
- *             .certificateSigningRequest(csr.certRequestPem())
- *             .signingAlgorithm("SHA256WITHRSA")
  *             .validity(CertificateValidityArgs.builder()
  *                 .type("YEARS")
  *                 .value("1")
  *                 .build())
+ *             .certificateAuthorityArn(exampleCertificateAuthority.arn())
+ *             .certificateSigningRequest(csr.certRequestPem())
+ *             .signingAlgorithm("SHA256WITHRSA")
  *             .build());
  * 
  *     }

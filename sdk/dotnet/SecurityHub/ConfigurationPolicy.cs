@@ -33,12 +33,12 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     ///     var exampleOrganizationConfiguration = new Aws.SecurityHub.OrganizationConfiguration("example", new()
     ///     {
-    ///         AutoEnable = false,
-    ///         AutoEnableStandards = "NONE",
     ///         OrganizationConfigurationDetails = new Aws.SecurityHub.Inputs.OrganizationConfigurationOrganizationConfigurationArgs
     ///         {
     ///             ConfigurationType = "CENTRAL",
     ///         },
+    ///         AutoEnable = false,
+    ///         AutoEnableStandards = "NONE",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -49,21 +49,21 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     ///     var exampleConfigurationPolicy = new Aws.SecurityHub.ConfigurationPolicy("example", new()
     ///     {
-    ///         Name = "Example",
-    ///         Description = "This is an example configuration policy",
     ///         ConfigurationPolicyDetails = new Aws.SecurityHub.Inputs.ConfigurationPolicyConfigurationPolicyArgs
     ///         {
+    ///             SecurityControlsConfiguration = new Aws.SecurityHub.Inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs
+    ///             {
+    ///                 DisabledControlIdentifiers = new() { },
+    ///             },
     ///             ServiceEnabled = true,
     ///             EnabledStandardArns = new[]
     ///             {
     ///                 "arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0",
     ///                 "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
     ///             },
-    ///             SecurityControlsConfiguration = new Aws.SecurityHub.Inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs
-    ///             {
-    ///                 DisabledControlIdentifiers = new() { },
-    ///             },
     ///         },
+    ///         Name = "Example",
+    ///         Description = "This is an example configuration policy",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -87,12 +87,12 @@ namespace Pulumi.Aws.SecurityHub
     /// {
     ///     var disabled = new Aws.SecurityHub.ConfigurationPolicy("disabled", new()
     ///     {
-    ///         Name = "Disabled",
-    ///         Description = "This is an example of disabled configuration policy",
     ///         ConfigurationPolicyDetails = new Aws.SecurityHub.Inputs.ConfigurationPolicyConfigurationPolicyArgs
     ///         {
     ///             ServiceEnabled = false,
     ///         },
+    ///         Name = "Disabled",
+    ///         Description = "This is an example of disabled configuration policy",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -116,69 +116,69 @@ namespace Pulumi.Aws.SecurityHub
     /// {
     ///     var disabled = new Aws.SecurityHub.ConfigurationPolicy("disabled", new()
     ///     {
-    ///         Name = "Custom Controls",
-    ///         Description = "This is an example of configuration policy with custom control settings",
     ///         ConfigurationPolicyDetails = new Aws.SecurityHub.Inputs.ConfigurationPolicyConfigurationPolicyArgs
     ///         {
+    ///             SecurityControlsConfiguration = new Aws.SecurityHub.Inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs
+    ///             {
+    ///                 SecurityControlCustomParameters = new[]
+    ///                 {
+    ///                     new Aws.SecurityHub.Inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs
+    ///                     {
+    ///                         Parameters = new[]
+    ///                         {
+    ///                             new Aws.SecurityHub.Inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs
+    ///                             {
+    ///                                 Enum = new Aws.SecurityHub.Inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs
+    ///                                 {
+    ///                                     Value = "INFO",
+    ///                                 },
+    ///                                 Name = "loggingLevel",
+    ///                                 ValueType = "CUSTOM",
+    ///                             },
+    ///                         },
+    ///                         SecurityControlId = "APIGateway.1",
+    ///                     },
+    ///                     new Aws.SecurityHub.Inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs
+    ///                     {
+    ///                         Parameters = new[]
+    ///                         {
+    ///                             new Aws.SecurityHub.Inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs
+    ///                             {
+    ///                                 Bool = new Aws.SecurityHub.Inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs
+    ///                                 {
+    ///                                     Value = false,
+    ///                                 },
+    ///                                 Name = "RequireLowercaseCharacters",
+    ///                                 ValueType = "CUSTOM",
+    ///                             },
+    ///                             new Aws.SecurityHub.Inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs
+    ///                             {
+    ///                                 Int = new Aws.SecurityHub.Inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs
+    ///                                 {
+    ///                                     Value = 60,
+    ///                                 },
+    ///                                 Name = "MaxPasswordAge",
+    ///                                 ValueType = "CUSTOM",
+    ///                             },
+    ///                         },
+    ///                         SecurityControlId = "IAM.7",
+    ///                     },
+    ///                 },
+    ///                 EnabledControlIdentifiers = new[]
+    ///                 {
+    ///                     "APIGateway.1",
+    ///                     "IAM.7",
+    ///                 },
+    ///             },
     ///             ServiceEnabled = true,
     ///             EnabledStandardArns = new[]
     ///             {
     ///                 "arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0",
     ///                 "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
     ///             },
-    ///             SecurityControlsConfiguration = new Aws.SecurityHub.Inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs
-    ///             {
-    ///                 EnabledControlIdentifiers = new[]
-    ///                 {
-    ///                     "APIGateway.1",
-    ///                     "IAM.7",
-    ///                 },
-    ///                 SecurityControlCustomParameters = new[]
-    ///                 {
-    ///                     new Aws.SecurityHub.Inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs
-    ///                     {
-    ///                         SecurityControlId = "APIGateway.1",
-    ///                         Parameters = new[]
-    ///                         {
-    ///                             new Aws.SecurityHub.Inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs
-    ///                             {
-    ///                                 Name = "loggingLevel",
-    ///                                 ValueType = "CUSTOM",
-    ///                                 Enum = new Aws.SecurityHub.Inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs
-    ///                                 {
-    ///                                     Value = "INFO",
-    ///                                 },
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                     new Aws.SecurityHub.Inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs
-    ///                     {
-    ///                         SecurityControlId = "IAM.7",
-    ///                         Parameters = new[]
-    ///                         {
-    ///                             new Aws.SecurityHub.Inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs
-    ///                             {
-    ///                                 Name = "RequireLowercaseCharacters",
-    ///                                 ValueType = "CUSTOM",
-    ///                                 Bool = new Aws.SecurityHub.Inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs
-    ///                                 {
-    ///                                     Value = false,
-    ///                                 },
-    ///                             },
-    ///                             new Aws.SecurityHub.Inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs
-    ///                             {
-    ///                                 Name = "MaxPasswordAge",
-    ///                                 ValueType = "CUSTOM",
-    ///                                 Int = new Aws.SecurityHub.Inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs
-    ///                                 {
-    ///                                     Value = 60,
-    ///                                 },
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
     ///         },
+    ///         Name = "Custom Controls",
+    ///         Description = "This is an example of configuration policy with custom control settings",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

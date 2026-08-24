@@ -27,28 +27,31 @@ namespace Pulumi.Aws.Glue
     /// 
     ///     var exampleCatalogTable = new Aws.Glue.CatalogTable("example", new()
     ///     {
-    ///         Name = "example",
-    ///         DatabaseName = example.Name,
-    ///         Owner = "my_owner",
-    ///         Retention = 1,
-    ///         TableType = "VIRTUAL_VIEW",
-    ///         ViewExpandedText = "view_expanded_text_1",
-    ///         ViewOriginalText = "view_original_text_1",
     ///         StorageDescriptor = new Aws.Glue.Inputs.CatalogTableStorageDescriptorArgs
     ///         {
-    ///             BucketColumns = new[]
+    ///             SerDeInfo = new Aws.Glue.Inputs.CatalogTableStorageDescriptorSerDeInfoArgs
     ///             {
-    ///                 "bucket_column_1",
+    ///                 Name = "ser_de_name",
+    ///                 Parameters = 
+    ///                 {
+    ///                     { "param1", "param_val_1" },
+    ///                 },
+    ///                 SerializationLibrary = "org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe",
     ///             },
-    ///             Compressed = false,
-    ///             InputFormat = "SequenceFileInputFormat",
-    ///             Location = "my_location",
-    ///             NumberOfBuckets = 1,
-    ///             OutputFormat = "SequenceFileInputFormat",
-    ///             StoredAsSubDirectories = false,
-    ///             Parameters = 
+    ///             SkewedInfo = new Aws.Glue.Inputs.CatalogTableStorageDescriptorSkewedInfoArgs
     ///             {
-    ///                 { "param1", "param1_val" },
+    ///                 SkewedColumnNames = new[]
+    ///                 {
+    ///                     "my_column_1",
+    ///                 },
+    ///                 SkewedColumnValueLocationMaps = 
+    ///                 {
+    ///                     { "my_column_1", "my_column_1_val_loc_map" },
+    ///                 },
+    ///                 SkewedColumnValues = new[]
+    ///                 {
+    ///                     "skewed_val_1",
+    ///                 },
     ///             },
     ///             Columns = new[]
     ///             {
@@ -65,15 +68,6 @@ namespace Pulumi.Aws.Glue
     ///                     Comment = "my_column2_comment",
     ///                 },
     ///             },
-    ///             SerDeInfo = new Aws.Glue.Inputs.CatalogTableStorageDescriptorSerDeInfoArgs
-    ///             {
-    ///                 Name = "ser_de_name",
-    ///                 Parameters = 
-    ///                 {
-    ///                     { "param1", "param_val_1" },
-    ///                 },
-    ///                 SerializationLibrary = "org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe",
-    ///             },
     ///             SortColumns = new[]
     ///             {
     ///                 new Aws.Glue.Inputs.CatalogTableStorageDescriptorSortColumnArgs
@@ -82,20 +76,19 @@ namespace Pulumi.Aws.Glue
     ///                     SortOrder = 1,
     ///                 },
     ///             },
-    ///             SkewedInfo = new Aws.Glue.Inputs.CatalogTableStorageDescriptorSkewedInfoArgs
+    ///             BucketColumns = new[]
     ///             {
-    ///                 SkewedColumnNames = new[]
-    ///                 {
-    ///                     "my_column_1",
-    ///                 },
-    ///                 SkewedColumnValueLocationMaps = 
-    ///                 {
-    ///                     { "my_column_1", "my_column_1_val_loc_map" },
-    ///                 },
-    ///                 SkewedColumnValues = new[]
-    ///                 {
-    ///                     "skewed_val_1",
-    ///                 },
+    ///                 "bucket_column_1",
+    ///             },
+    ///             Compressed = false,
+    ///             InputFormat = "SequenceFileInputFormat",
+    ///             Location = "my_location",
+    ///             NumberOfBuckets = 1,
+    ///             OutputFormat = "SequenceFileInputFormat",
+    ///             StoredAsSubDirectories = false,
+    ///             Parameters = 
+    ///             {
+    ///                 { "param1", "param1_val" },
     ///             },
     ///         },
     ///         PartitionKeys = new[]
@@ -113,6 +106,13 @@ namespace Pulumi.Aws.Glue
     ///                 Comment = "my_column_2_comment",
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         DatabaseName = example.Name,
+    ///         Owner = "my_owner",
+    ///         Retention = 1,
+    ///         TableType = "VIRTUAL_VIEW",
+    ///         ViewExpandedText = "view_expanded_text_1",
+    ///         ViewOriginalText = "view_original_text_1",
     ///         Parameters = 
     ///         {
     ///             { "param1", "param1_val" },
@@ -121,8 +121,6 @@ namespace Pulumi.Aws.Glue
     /// 
     ///     var examplePartitionIndex = new Aws.Glue.PartitionIndex("example", new()
     ///     {
-    ///         DatabaseName = example.Name,
-    ///         TableName = exampleCatalogTable.Name,
     ///         PartitionIndexConfig = new Aws.Glue.Inputs.PartitionIndexPartitionIndexArgs
     ///         {
     ///             IndexName = "example",
@@ -132,6 +130,8 @@ namespace Pulumi.Aws.Glue
     ///                 "my_column_2",
     ///             },
     ///         },
+    ///         DatabaseName = example.Name,
+    ///         TableName = exampleCatalogTable.Name,
     ///     });
     /// 
     /// });

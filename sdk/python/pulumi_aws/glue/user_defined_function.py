@@ -346,16 +346,16 @@ class UserDefinedFunction(pulumi.CustomResource):
 
         example = aws.glue.CatalogDatabase("example", name="my_database")
         example_user_defined_function = aws.glue.UserDefinedFunction("example",
+            resource_uris=[{
+                "resource_type": "ARCHIVE",
+                "uri": "uri",
+            }],
             name="my_func",
             catalog_id=example.catalog_id,
             database_name=example.name,
             class_name="class",
             owner_name="owner",
-            owner_type="GROUP",
-            resource_uris=[{
-                "resource_type": "ARCHIVE",
-                "uri": "uri",
-            }])
+            owner_type="GROUP")
         ```
 
         ## Import
@@ -395,16 +395,16 @@ class UserDefinedFunction(pulumi.CustomResource):
 
         example = aws.glue.CatalogDatabase("example", name="my_database")
         example_user_defined_function = aws.glue.UserDefinedFunction("example",
+            resource_uris=[{
+                "resource_type": "ARCHIVE",
+                "uri": "uri",
+            }],
             name="my_func",
             catalog_id=example.catalog_id,
             database_name=example.name,
             class_name="class",
             owner_name="owner",
-            owner_type="GROUP",
-            resource_uris=[{
-                "resource_type": "ARCHIVE",
-                "uri": "uri",
-            }])
+            owner_type="GROUP")
         ```
 
         ## Import

@@ -76,11 +76,11 @@ import * as utilities from "../utilities";
  * });
  * const example = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
- *         actions: ["s3:PutObject"],
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["timestream-influxdb.amazonaws.com"],
  *         }],
+ *         actions: ["s3:PutObject"],
  *         resources: [pulumi.interpolate`${exampleBucket.arn}/*`],
  *     }],
  * });
@@ -89,6 +89,12 @@ import * as utilities from "../utilities";
  *     policy: example.json,
  * });
  * const exampleDbInstance = new aws.timestreaminfluxdb.DbInstance("example", {
+ *     logDeliveryConfiguration: {
+ *         s3Configuration: {
+ *             bucketName: exampleBucket.bucket,
+ *             enabled: true,
+ *         },
+ *     },
  *     allocatedStorage: 20,
  *     bucket: "example-bucket-name",
  *     dbInstanceType: "db.influx.medium",
@@ -98,12 +104,6 @@ import * as utilities from "../utilities";
  *     vpcSubnetIds: [exampleAwsSubnet.id],
  *     vpcSecurityGroupIds: [exampleAwsSecurityGroup.id],
  *     name: "example-db-instance",
- *     logDeliveryConfiguration: {
- *         s3Configuration: {
- *             bucketName: exampleBucket.bucket,
- *             enabled: true,
- *         },
- *     },
  * });
  * ```
  *

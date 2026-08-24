@@ -309,15 +309,15 @@ class PrivateGraphEndpoint(pulumi.CustomResource):
             })
         # Security Group for Neptune Graph
         example_security_group = aws.ec2.SecurityGroup("example",
-            name_prefix="neptune-graph-sg",
-            description="Security group for Neptune Graph",
-            vpc_id=example.id,
             ingress=[{
                 "from_port": 8182,
                 "to_port": 8182,
                 "protocol": "tcp",
                 "cidr_blocks": ["10.0.0.0/16"],
             }],
+            name_prefix="neptune-graph-sg",
+            description="Security group for Neptune Graph",
+            vpc_id=example.id,
             tags={
                 "Name": "neptune-graph-sg",
             })
@@ -411,15 +411,15 @@ class PrivateGraphEndpoint(pulumi.CustomResource):
             })
         # Security Group for Neptune Graph
         example_security_group = aws.ec2.SecurityGroup("example",
-            name_prefix="neptune-graph-sg",
-            description="Security group for Neptune Graph",
-            vpc_id=example.id,
             ingress=[{
                 "from_port": 8182,
                 "to_port": 8182,
                 "protocol": "tcp",
                 "cidr_blocks": ["10.0.0.0/16"],
             }],
+            name_prefix="neptune-graph-sg",
+            description="Security group for Neptune Graph",
+            vpc_id=example.id,
             tags={
                 "Name": "neptune-graph-sg",
             })

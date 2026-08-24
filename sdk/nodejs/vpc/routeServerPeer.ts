@@ -19,11 +19,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.vpc.RouteServerPeer("test", {
- *     routeServerEndpointId: example.routeServerEndpointId,
- *     peerAddress: "10.0.1.250",
  *     bgpOptions: {
  *         peerAsn: 65200,
  *     },
+ *     routeServerEndpointId: example.routeServerEndpointId,
+ *     peerAddress: "10.0.1.250",
  *     tags: {
  *         Name: "Appliance 1",
  *     },
@@ -62,12 +62,12 @@ import * as utilities from "../utilities";
  *     dependsOn: [testRouteServerVpcAssociation],
  * });
  * const testRouteServerPeer = new aws.vpc.RouteServerPeer("test", {
- *     routeServerEndpointId: testRouteServerEndpoint.routeServerEndpointId,
- *     peerAddress: "10.0.1.250",
  *     bgpOptions: {
  *         peerAsn: 65000,
  *         peerLivenessDetection: "bgp-keepalive",
  *     },
+ *     routeServerEndpointId: testRouteServerEndpoint.routeServerEndpointId,
+ *     peerAddress: "10.0.1.250",
  *     tags: {
  *         Name: "Test Appliance",
  *     },

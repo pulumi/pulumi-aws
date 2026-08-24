@@ -389,29 +389,29 @@ class OptionGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.rds.OptionGroup("example",
-            name="option-group-test",
-            option_group_description="Option Group",
-            engine_name="sqlserver-ee",
-            major_engine_version="11.00",
             options=[
                 {
-                    "option_name": "Timezone",
                     "option_settings": [{
                         "name": "TIME_ZONE",
                         "value": "UTC",
                     }],
+                    "option_name": "Timezone",
                 },
                 {
-                    "option_name": "SQLSERVER_BACKUP_RESTORE",
                     "option_settings": [{
                         "name": "IAM_ROLE_ARN",
                         "value": example_aws_iam_role["arn"],
                     }],
+                    "option_name": "SQLSERVER_BACKUP_RESTORE",
                 },
                 {
                     "option_name": "TDE",
                 },
-            ])
+            ],
+            name="option-group-test",
+            option_group_description="Option Group",
+            engine_name="sqlserver-ee",
+            major_engine_version="11.00")
         ```
 
         > **Note:** Any modifications to the `rds.OptionGroup` are set to happen immediately as we default to applying immediately.
@@ -466,29 +466,29 @@ class OptionGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.rds.OptionGroup("example",
-            name="option-group-test",
-            option_group_description="Option Group",
-            engine_name="sqlserver-ee",
-            major_engine_version="11.00",
             options=[
                 {
-                    "option_name": "Timezone",
                     "option_settings": [{
                         "name": "TIME_ZONE",
                         "value": "UTC",
                     }],
+                    "option_name": "Timezone",
                 },
                 {
-                    "option_name": "SQLSERVER_BACKUP_RESTORE",
                     "option_settings": [{
                         "name": "IAM_ROLE_ARN",
                         "value": example_aws_iam_role["arn"],
                     }],
+                    "option_name": "SQLSERVER_BACKUP_RESTORE",
                 },
                 {
                     "option_name": "TDE",
                 },
-            ])
+            ],
+            name="option-group-test",
+            option_group_description="Option Group",
+            engine_name="sqlserver-ee",
+            major_engine_version="11.00")
         ```
 
         > **Note:** Any modifications to the `rds.OptionGroup` are set to happen immediately as we default to applying immediately.

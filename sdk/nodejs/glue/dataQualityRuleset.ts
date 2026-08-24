@@ -59,12 +59,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.DataQualityRuleset("example", {
- *     name: "example",
- *     ruleset: "Rules = [Completeness \"colA\" between 0.4 and 0.8]",
  *     targetTable: {
  *         databaseName: exampleAwsGlueCatalogDatabase.name,
  *         tableName: exampleAwsGlueCatalogTable.name,
  *     },
+ *     name: "example",
+ *     ruleset: "Rules = [Completeness \"colA\" between 0.4 and 0.8]",
  * });
  * ```
  *

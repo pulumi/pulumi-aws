@@ -48,18 +48,27 @@ namespace Pulumi.Aws.AppSync
     /// 
     ///     var testDataSource = new Aws.AppSync.DataSource("test", new()
     ///     {
-    ///         ApiId = test.Id,
-    ///         Name = "my_example",
-    ///         Type = "HTTP",
     ///         HttpConfig = new Aws.AppSync.Inputs.DataSourceHttpConfigArgs
     ///         {
     ///             Endpoint = "http://example.com",
     ///         },
+    ///         ApiId = test.Id,
+    ///         Name = "my_example",
+    ///         Type = "HTTP",
     ///     });
     /// 
     ///     // UNIT type resolver (default)
     ///     var testResolver = new Aws.AppSync.Resolver("test", new()
     ///     {
+    ///         CachingConfig = new Aws.AppSync.Inputs.ResolverCachingConfigArgs
+    ///         {
+    ///             CachingKeys = new[]
+    ///             {
+    ///                 "$context.identity.sub",
+    ///                 "$context.arguments.id",
+    ///             },
+    ///             Ttl = 60,
+    ///         },
     ///         ApiId = test.Id,
     ///         Field = "singlePost",
     ///         Type = "Query",
@@ -79,26 +88,11 @@ namespace Pulumi.Aws.AppSync
     ///     $utils.appendError($ctx.result.body, $ctx.result.statusCode)
     /// #end
     /// ",
-    ///         CachingConfig = new Aws.AppSync.Inputs.ResolverCachingConfigArgs
-    ///         {
-    ///             CachingKeys = new[]
-    ///             {
-    ///                 "$context.identity.sub",
-    ///                 "$context.arguments.id",
-    ///             },
-    ///             Ttl = 60,
-    ///         },
     ///     });
     /// 
     ///     // PIPELINE type resolver
     ///     var mutationPipelineTest = new Aws.AppSync.Resolver("Mutation_pipelineTest", new()
     ///     {
-    ///         Type = "Mutation",
-    ///         ApiId = test.Id,
-    ///         Field = "pipelineTest",
-    ///         RequestTemplate = "{}",
-    ///         ResponseTemplate = "$util.toJson($ctx.result)",
-    ///         Kind = "PIPELINE",
     ///         PipelineConfig = new Aws.AppSync.Inputs.ResolverPipelineConfigArgs
     ///         {
     ///             Functions = new[]
@@ -108,6 +102,12 @@ namespace Pulumi.Aws.AppSync
     ///                 test3.FunctionId,
     ///             },
     ///         },
+    ///         Type = "Mutation",
+    ///         ApiId = test.Id,
+    ///         Field = "pipelineTest",
+    ///         RequestTemplate = "{}",
+    ///         ResponseTemplate = "$util.toJson($ctx.result)",
+    ///         Kind = "PIPELINE",
     ///     });
     /// 
     /// });
@@ -126,14 +126,6 @@ namespace Pulumi.Aws.AppSync
     /// {
     ///     var example = new Aws.AppSync.Resolver("example", new()
     ///     {
-    ///         Type = "Query",
-    ///         ApiId = testAwsAppsyncGraphqlApi.Id,
-    ///         Field = "pipelineTest",
-    ///         Kind = "PIPELINE",
-    ///         Code = Std.File.Invoke(new()
-    ///         {
-    ///             Input = "some-code-dir",
-    ///         }).Apply(invoke =&gt; invoke.Result),
     ///         Runtime = new Aws.AppSync.Inputs.ResolverRuntimeArgs
     ///         {
     ///             Name = "APPSYNC_JS",
@@ -146,6 +138,14 @@ namespace Pulumi.Aws.AppSync
     ///                 test.FunctionId,
     ///             },
     ///         },
+    ///         Type = "Query",
+    ///         ApiId = testAwsAppsyncGraphqlApi.Id,
+    ///         Field = "pipelineTest",
+    ///         Kind = "PIPELINE",
+    ///         Code = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "some-code-dir",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     /// });

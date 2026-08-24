@@ -162,11 +162,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Pipe("example", PipeArgs.builder()
- *             .name("example-pipe")
- *             .roleArn(exampleAwsIamRole.arn())
- *             .source(source.arn())
- *             .target(target.arn())
- *             .enrichment(exampleAwsCloudwatchEventApiDestination.arn())
  *             .enrichmentParameters(PipeEnrichmentParametersArgs.builder()
  *                 .httpParameters(PipeEnrichmentParametersHttpParametersArgs.builder()
  *                     .pathParameterValues("example-path-param")
@@ -180,6 +175,11 @@ import javax.annotation.Nullable;
  *                     ))
  *                     .build())
  *                 .build())
+ *             .name("example-pipe")
+ *             .roleArn(exampleAwsIamRole.arn())
+ *             .source(source.arn())
+ *             .target(target.arn())
+ *             .enrichment(exampleAwsCloudwatchEventApiDestination.arn())
  *             .build());
  * 
  *     }
@@ -216,10 +216,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Pipe("example", PipeArgs.builder()
- *             .name("example-pipe")
- *             .roleArn(exampleAwsIamRole.arn())
- *             .source(source.arn())
- *             .target(target.arn())
  *             .sourceParameters(PipeSourceParametersArgs.builder()
  *                 .filterCriteria(PipeSourceParametersFilterCriteriaArgs.builder()
  *                     .filters(PipeSourceParametersFilterCriteriaFilterArgs.builder()
@@ -230,6 +226,10 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
+ *             .name("example-pipe")
+ *             .roleArn(exampleAwsIamRole.arn())
+ *             .source(source.arn())
+ *             .target(target.arn())
  *             .build());
  * 
  *     }
@@ -271,17 +271,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePipe = new Pipe("examplePipe", PipeArgs.builder()
+ *             .logConfiguration(PipeLogConfigurationArgs.builder()
+ *                 .cloudwatchLogsLogDestination(PipeLogConfigurationCloudwatchLogsLogDestinationArgs.builder()
+ *                     .logGroupArn(targetAwsCloudwatchLogGroup.arn())
+ *                     .build())
+ *                 .includeExecutionDatas("ALL")
+ *                 .level("INFO")
+ *                 .build())
  *             .name("example-pipe")
  *             .roleArn(exampleAwsIamRole.arn())
  *             .source(sourceAwsSqsQueue.arn())
  *             .target(targetAwsSqsQueue.arn())
- *             .logConfiguration(PipeLogConfigurationArgs.builder()
- *                 .includeExecutionDatas("ALL")
- *                 .level("INFO")
- *                 .cloudwatchLogsLogDestination(PipeLogConfigurationCloudwatchLogsLogDestinationArgs.builder()
- *                     .logGroupArn(targetAwsCloudwatchLogGroup.arn())
- *                     .build())
- *                 .build())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
  *                     source,
@@ -322,10 +322,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Pipe("example", PipeArgs.builder()
- *             .name("example-pipe")
- *             .roleArn(exampleAwsIamRole.arn())
- *             .source(source.arn())
- *             .target(target.arn())
  *             .sourceParameters(PipeSourceParametersArgs.builder()
  *                 .sqsQueueParameters(PipeSourceParametersSqsQueueParametersArgs.builder()
  *                     .batchSize(1)
@@ -338,6 +334,10 @@ import javax.annotation.Nullable;
  *                     .messageGroupId("example-group")
  *                     .build())
  *                 .build())
+ *             .name("example-pipe")
+ *             .roleArn(exampleAwsIamRole.arn())
+ *             .source(source.arn())
+ *             .target(target.arn())
  *             .build());
  * 
  *     }

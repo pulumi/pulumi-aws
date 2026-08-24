@@ -36,10 +36,8 @@ namespace Pulumi.Aws.Lex
     ///                 },
     ///             },
     ///         },
-    ///         ChildDirected = false,
     ///         ClarificationPrompt = new Aws.Lex.Inputs.BotClarificationPromptArgs
     ///         {
-    ///             MaxAttempts = 2,
     ///             Messages = new[]
     ///             {
     ///                 new Aws.Lex.Inputs.BotClarificationPromptMessageArgs
@@ -48,10 +46,8 @@ namespace Pulumi.Aws.Lex
     ///                     ContentType = "PlainText",
     ///                 },
     ///             },
+    ///             MaxAttempts = 2,
     ///         },
-    ///         CreateVersion = false,
-    ///         Description = "Bot to order flowers on the behalf of a user",
-    ///         IdleSessionTtlInSeconds = 600,
     ///         Intents = new[]
     ///         {
     ///             new Aws.Lex.Inputs.BotIntentArgs
@@ -60,6 +56,10 @@ namespace Pulumi.Aws.Lex
     ///                 IntentVersion = "1",
     ///             },
     ///         },
+    ///         ChildDirected = false,
+    ///         CreateVersion = false,
+    ///         Description = "Bot to order flowers on the behalf of a user",
+    ///         IdleSessionTtlInSeconds = 600,
     ///         Locale = "en-US",
     ///         Name = "OrderFlowers",
     ///         ProcessBehavior = "BUILD",

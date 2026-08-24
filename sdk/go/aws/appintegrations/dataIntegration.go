@@ -29,15 +29,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appintegrations.NewDataIntegration(ctx, "example", &appintegrations.DataIntegrationArgs{
-//				Name:        pulumi.String("example"),
-//				Description: pulumi.String("example"),
-//				KmsKey:      pulumi.Any(test.Arn),
-//				SourceUri:   pulumi.String("Salesforce://AppFlow/example"),
 //				ScheduleConfig: &appintegrations.DataIntegrationScheduleConfigArgs{
 //					FirstExecutionFrom: pulumi.String("1439788442681"),
 //					Object:             pulumi.String("Account"),
 //					ScheduleExpression: pulumi.String("rate(1 hour)"),
 //				},
+//				Name:        pulumi.String("example"),
+//				Description: pulumi.String("example"),
+//				KmsKey:      pulumi.Any(test.Arn),
+//				SourceUri:   pulumi.String("Salesforce://AppFlow/example"),
 //				Tags: pulumi.StringMap{
 //					"Key1": pulumi.String("Value1"),
 //				},

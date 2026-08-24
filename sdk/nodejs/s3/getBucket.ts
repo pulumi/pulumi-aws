@@ -25,13 +25,13 @@ import * as utilities from "../utilities";
  *     name: "test.com.",
  * });
  * const example = new aws.route53.Record("example", {
- *     zoneId: testZone.then(testZone => testZone.id),
- *     name: "bucket",
- *     type: aws.route53.RecordType.A,
  *     aliases: [{
  *         name: selected.then(selected => selected.websiteDomain),
  *         zoneId: selected.then(selected => selected.hostedZoneId),
  *     }],
+ *     zoneId: testZone.then(testZone => testZone.id),
+ *     name: "bucket",
+ *     type: aws.route53.RecordType.A,
  * });
  * ```
  *
@@ -132,13 +132,13 @@ export interface GetBucketResult {
  *     name: "test.com.",
  * });
  * const example = new aws.route53.Record("example", {
- *     zoneId: testZone.then(testZone => testZone.id),
- *     name: "bucket",
- *     type: aws.route53.RecordType.A,
  *     aliases: [{
  *         name: selected.then(selected => selected.websiteDomain),
  *         zoneId: selected.then(selected => selected.hostedZoneId),
  *     }],
+ *     zoneId: testZone.then(testZone => testZone.id),
+ *     name: "bucket",
+ *     type: aws.route53.RecordType.A,
  * });
  * ```
  *

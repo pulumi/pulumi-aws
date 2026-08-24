@@ -28,6 +28,10 @@ namespace Pulumi.Aws.Odb
     /// {
     ///     var avmcWithMinimumParameters = new Aws.Odb.CloudAutonomousVmCluster("avmc_with_minimum_parameters", new()
     ///     {
+    ///         MaintenanceWindow = new Aws.Odb.Inputs.CloudAutonomousVmClusterMaintenanceWindowArgs
+    ///         {
+    ///             Preference = "NO_PREFERENCE",
+    ///         },
     ///         CloudExadataInfrastructureId = "&lt;aws_odb_cloud_exadata_infrastructure_id&gt;",
     ///         OdbNetworkId = "&lt;aws_odb_network_id&gt;",
     ///         DisplayName = "my_autonomous_vm_cluster",
@@ -42,31 +46,10 @@ namespace Pulumi.Aws.Odb
     ///         },
     ///         ScanListenerPortTls = 8561,
     ///         ScanListenerPortNonTls = 1024,
-    ///         MaintenanceWindow = new Aws.Odb.Inputs.CloudAutonomousVmClusterMaintenanceWindowArgs
-    ///         {
-    ///             Preference = "NO_PREFERENCE",
-    ///         },
     ///     });
     /// 
     ///     var avmcWithAllParams = new Aws.Odb.CloudAutonomousVmCluster("avmc_with_all_params", new()
     ///     {
-    ///         Description = "my first avmc",
-    ///         TimeZone = "UTC",
-    ///         CloudExadataInfrastructureId = "&lt;aws_odb_cloud_exadata_infrastructure_id&gt;",
-    ///         OdbNetworkId = "&lt;aws_odb_network_id&gt;",
-    ///         DisplayName = "my_autonomous_vm_cluster",
-    ///         AutonomousDataStorageSizeInTbs = 5,
-    ///         MemoryPerOracleComputeUnitInGbs = 2,
-    ///         TotalContainerDatabases = 1,
-    ///         CpuCoreCountPerNode = 40,
-    ///         LicenseModel = "LICENSE_INCLUDED",
-    ///         DbServers = new[]
-    ///         {
-    ///             "&lt;my_db_server_1&gt;",
-    ///             "&lt;my_db_server_2&gt;",
-    ///         },
-    ///         ScanListenerPortTls = 8561,
-    ///         ScanListenerPortNonTls = 1024,
     ///         MaintenanceWindow = new Aws.Odb.Inputs.CloudAutonomousVmClusterMaintenanceWindowArgs
     ///         {
     ///             DaysOfWeeks = new[]
@@ -112,6 +95,23 @@ namespace Pulumi.Aws.Odb
     ///                 4,
     ///             },
     ///         },
+    ///         Description = "my first avmc",
+    ///         TimeZone = "UTC",
+    ///         CloudExadataInfrastructureId = "&lt;aws_odb_cloud_exadata_infrastructure_id&gt;",
+    ///         OdbNetworkId = "&lt;aws_odb_network_id&gt;",
+    ///         DisplayName = "my_autonomous_vm_cluster",
+    ///         AutonomousDataStorageSizeInTbs = 5,
+    ///         MemoryPerOracleComputeUnitInGbs = 2,
+    ///         TotalContainerDatabases = 1,
+    ///         CpuCoreCountPerNode = 40,
+    ///         LicenseModel = "LICENSE_INCLUDED",
+    ///         DbServers = new[]
+    ///         {
+    ///             "&lt;my_db_server_1&gt;",
+    ///             "&lt;my_db_server_2&gt;",
+    ///         },
+    ///         ScanListenerPortTls = 8561,
+    ///         ScanListenerPortNonTls = 1024,
     ///         Tags = 
     ///         {
     ///             { "env", "dev" },

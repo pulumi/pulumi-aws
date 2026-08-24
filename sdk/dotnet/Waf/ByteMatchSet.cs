@@ -24,21 +24,21 @@ namespace Pulumi.Aws.Waf
     /// {
     ///     var byteSet = new Aws.Waf.ByteMatchSet("byte_set", new()
     ///     {
-    ///         Name = "my_waf_byte_match_set",
     ///         ByteMatchTuples = new[]
     ///         {
     ///             new Aws.Waf.Inputs.ByteMatchSetByteMatchTupleArgs
     ///             {
-    ///                 TextTransformation = "NONE",
-    ///                 TargetString = "badrefer1",
-    ///                 PositionalConstraint = "CONTAINS",
     ///                 FieldToMatch = new Aws.Waf.Inputs.ByteMatchSetByteMatchTupleFieldToMatchArgs
     ///                 {
     ///                     Type = "HEADER",
     ///                     Data = "referer",
     ///                 },
+    ///                 TextTransformation = "NONE",
+    ///                 TargetString = "badrefer1",
+    ///                 PositionalConstraint = "CONTAINS",
     ///             },
     ///         },
+    ///         Name = "my_waf_byte_match_set",
     ///     });
     /// 
     /// });

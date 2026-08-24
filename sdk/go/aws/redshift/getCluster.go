@@ -35,16 +35,7 @@ import (
 //				return err
 //			}
 //			_, err = kinesis.NewFirehoseDeliveryStream(ctx, "example_stream", &kinesis.FirehoseDeliveryStreamArgs{
-//				Name:        pulumi.String("kinesis-firehose-example-stream"),
-//				Destination: pulumi.String("redshift"),
 //				RedshiftConfiguration: &kinesis.FirehoseDeliveryStreamRedshiftConfigurationArgs{
-//					RoleArn:          pulumi.Any(firehoseRole.Arn),
-//					ClusterJdbcurl:   pulumi.Sprintf("jdbc:redshift://%v/%v", example.Endpoint, example.DatabaseName),
-//					Username:         pulumi.String("exampleuser"),
-//					Password:         pulumi.String("Exampl3Pass"),
-//					DataTableName:    pulumi.String("example-table"),
-//					CopyOptions:      pulumi.String("delimiter '|'"),
-//					DataTableColumns: pulumi.String("example-col"),
 //					S3Configuration: &kinesis.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs{
 //						RoleArn:           pulumi.Any(firehoseRole.Arn),
 //						BucketArn:         pulumi.Any(bucket.Arn),
@@ -52,7 +43,16 @@ import (
 //						BufferInterval:    400,
 //						CompressionFormat: pulumi.String("GZIP"),
 //					},
+//					RoleArn:          pulumi.Any(firehoseRole.Arn),
+//					ClusterJdbcurl:   pulumi.Sprintf("jdbc:redshift://%v/%v", example.Endpoint, example.DatabaseName),
+//					Username:         pulumi.String("exampleuser"),
+//					Password:         pulumi.String("Exampl3Pass"),
+//					DataTableName:    pulumi.String("example-table"),
+//					CopyOptions:      pulumi.String("delimiter '|'"),
+//					DataTableColumns: pulumi.String("example-col"),
 //				},
+//				Name:        pulumi.String("kinesis-firehose-example-stream"),
+//				Destination: pulumi.String("redshift"),
 //			})
 //			if err != nil {
 //				return err

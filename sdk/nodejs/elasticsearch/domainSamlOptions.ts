@@ -20,29 +20,29 @@ import * as utilities from "../utilities";
  * import * as std from "@pulumi/std";
  *
  * const example = new aws.elasticsearch.Domain("example", {
- *     domainName: "example",
- *     elasticsearchVersion: "1.5",
  *     clusterConfig: {
  *         instanceType: "r4.large.elasticsearch",
  *     },
  *     snapshotOptions: {
  *         automatedSnapshotStartHour: 23,
  *     },
+ *     domainName: "example",
+ *     elasticsearchVersion: "1.5",
  *     tags: {
  *         Domain: "TestDomain",
  *     },
  * });
  * const exampleDomainSamlOptions = new aws.elasticsearch.DomainSamlOptions("example", {
- *     domainName: example.domainName,
  *     samlOptions: {
- *         enabled: true,
  *         idp: {
  *             entityId: "https://example.com",
  *             metadataContent: std.file({
  *                 input: "./saml-metadata.xml",
  *             }).then(invoke => invoke.result),
  *         },
+ *         enabled: true,
  *     },
+ *     domainName: example.domainName,
  * });
  * ```
  *

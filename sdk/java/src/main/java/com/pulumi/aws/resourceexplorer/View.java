@@ -56,13 +56,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleView = new View("exampleView", ViewArgs.builder()
- *             .name("exampleview")
  *             .filters(ViewFiltersArgs.builder()
  *                 .filterString("resourcetype:ec2:instance")
  *                 .build())
  *             .includedProperties(ViewIncludedPropertyArgs.builder()
  *                 .name("tags")
  *                 .build())
+ *             .name("exampleview")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
  *                 .build());

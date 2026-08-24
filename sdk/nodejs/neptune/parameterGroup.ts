@@ -17,12 +17,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.neptune.ParameterGroup("example", {
- *     family: "neptune1",
- *     name: "example",
  *     parameters: [{
  *         name: "neptune_query_timeout",
  *         value: "25",
  *     }],
+ *     family: "neptune1",
+ *     name: "example",
  * });
  * ```
  *

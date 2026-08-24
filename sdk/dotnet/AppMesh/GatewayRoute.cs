@@ -24,9 +24,6 @@ namespace Pulumi.Aws.AppMesh
     /// {
     ///     var example = new Aws.AppMesh.GatewayRoute("example", new()
     ///     {
-    ///         Name = "example-gateway-route",
-    ///         MeshName = "example-service-mesh",
-    ///         VirtualGatewayName = exampleAwsAppmeshVirtualGateway.Name,
     ///         Spec = new Aws.AppMesh.Inputs.GatewayRouteSpecArgs
     ///         {
     ///             HttpRoute = new Aws.AppMesh.Inputs.GatewayRouteSpecHttpRouteArgs
@@ -47,6 +44,9 @@ namespace Pulumi.Aws.AppMesh
     ///                 },
     ///             },
     ///         },
+    ///         Name = "example-gateway-route",
+    ///         MeshName = "example-service-mesh",
+    ///         VirtualGatewayName = exampleAwsAppmeshVirtualGateway.Name,
     ///         Tags = 
     ///         {
     ///             { "Environment", "test" },

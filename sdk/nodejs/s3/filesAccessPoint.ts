@@ -17,11 +17,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3.FilesAccessPoint("example", {
- *     fileSystemId: exampleAwsS3filesFileSystem.id,
  *     posixUsers: [{
  *         gid: 1001,
  *         uid: 1001,
  *     }],
+ *     fileSystemId: exampleAwsS3filesFileSystem.id,
  * });
  * ```
  *

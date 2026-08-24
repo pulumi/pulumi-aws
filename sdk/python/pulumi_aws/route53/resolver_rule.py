@@ -369,13 +369,13 @@ class ResolverRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         fwd = aws.route53.ResolverRule("fwd",
+            target_ips=[{
+                "ip": "123.45.67.89",
+            }],
             domain_name="example.com",
             name="example",
             rule_type="FORWARD",
             resolver_endpoint_id=foo["id"],
-            target_ips=[{
-                "ip": "123.45.67.89",
-            }],
             tags={
                 "Environment": "Prod",
             })
@@ -388,13 +388,13 @@ class ResolverRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         fwd = aws.route53.ResolverRule("fwd",
+            target_ips=[{
+                "ipv6": "2600:1f18:1686:2000:4e60:6e3e:258:da36",
+            }],
             domain_name="example.com",
             name="example",
             rule_type="FORWARD",
             resolver_endpoint_id=foo["id"],
-            target_ips=[{
-                "ipv6": "2600:1f18:1686:2000:4e60:6e3e:258:da36",
-            }],
             tags={
                 "Environment": "Prod",
             })
@@ -461,13 +461,13 @@ class ResolverRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         fwd = aws.route53.ResolverRule("fwd",
+            target_ips=[{
+                "ip": "123.45.67.89",
+            }],
             domain_name="example.com",
             name="example",
             rule_type="FORWARD",
             resolver_endpoint_id=foo["id"],
-            target_ips=[{
-                "ip": "123.45.67.89",
-            }],
             tags={
                 "Environment": "Prod",
             })
@@ -480,13 +480,13 @@ class ResolverRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         fwd = aws.route53.ResolverRule("fwd",
+            target_ips=[{
+                "ipv6": "2600:1f18:1686:2000:4e60:6e3e:258:da36",
+            }],
             domain_name="example.com",
             name="example",
             rule_type="FORWARD",
             resolver_endpoint_id=foo["id"],
-            target_ips=[{
-                "ipv6": "2600:1f18:1686:2000:4e60:6e3e:258:da36",
-            }],
             tags={
                 "Environment": "Prod",
             })

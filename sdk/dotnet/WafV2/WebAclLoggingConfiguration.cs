@@ -28,11 +28,6 @@ namespace Pulumi.Aws.WafV2
     /// {
     ///     var example = new Aws.WafV2.WebAclLoggingConfiguration("example", new()
     ///     {
-    ///         LogDestinationConfigs = new[]
-    ///         {
-    ///             exampleAwsKinesisFirehoseDeliveryStream.Arn,
-    ///         },
-    ///         ResourceArn = exampleAwsWafv2WebAcl.Arn,
     ///         RedactedFields = new[]
     ///         {
     ///             new Aws.WafV2.Inputs.WebAclLoggingConfigurationRedactedFieldArgs
@@ -43,6 +38,11 @@ namespace Pulumi.Aws.WafV2
     ///                 },
     ///             },
     ///         },
+    ///         LogDestinationConfigs = new[]
+    ///         {
+    ///             exampleAwsKinesisFirehoseDeliveryStream.Arn,
+    ///         },
+    ///         ResourceArn = exampleAwsWafv2WebAcl.Arn,
     ///     });
     /// 
     /// });
@@ -60,19 +60,12 @@ namespace Pulumi.Aws.WafV2
     /// {
     ///     var example = new Aws.WafV2.WebAclLoggingConfiguration("example", new()
     ///     {
-    ///         LogDestinationConfigs = new[]
-    ///         {
-    ///             exampleAwsKinesisFirehoseDeliveryStream.Arn,
-    ///         },
-    ///         ResourceArn = exampleAwsWafv2WebAcl.Arn,
     ///         LoggingFilter = new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterArgs
     ///         {
-    ///             DefaultBehavior = "KEEP",
     ///             Filters = new[]
     ///             {
     ///                 new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterFilterArgs
     ///                 {
-    ///                     Behavior = "DROP",
     ///                     Conditions = new[]
     ///                     {
     ///                         new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterFilterConditionArgs
@@ -90,11 +83,11 @@ namespace Pulumi.Aws.WafV2
     ///                             },
     ///                         },
     ///                     },
+    ///                     Behavior = "DROP",
     ///                     Requirement = "MEETS_ALL",
     ///                 },
     ///                 new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterFilterArgs
     ///                 {
-    ///                     Behavior = "KEEP",
     ///                     Conditions = new[]
     ///                     {
     ///                         new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterFilterConditionArgs
@@ -105,10 +98,17 @@ namespace Pulumi.Aws.WafV2
     ///                             },
     ///                         },
     ///                     },
+    ///                     Behavior = "KEEP",
     ///                     Requirement = "MEETS_ANY",
     ///                 },
     ///             },
+    ///             DefaultBehavior = "KEEP",
     ///         },
+    ///         LogDestinationConfigs = new[]
+    ///         {
+    ///             exampleAwsKinesisFirehoseDeliveryStream.Arn,
+    ///         },
+    ///         ResourceArn = exampleAwsWafv2WebAcl.Arn,
     ///     });
     /// 
     /// });

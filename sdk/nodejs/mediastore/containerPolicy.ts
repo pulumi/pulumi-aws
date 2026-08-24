@@ -22,19 +22,19 @@ import * as utilities from "../utilities";
  * const exampleContainer = new aws.mediastore.Container("example", {name: "example"});
  * const example = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
- *         sid: "MediaStoreFullAccess",
- *         effect: "Allow",
- *         principals: [{
- *             type: "AWS",
- *             identifiers: [currentGetCallerIdentity.then(currentGetCallerIdentity => `arn:aws:iam::${currentGetCallerIdentity.accountId}:root`)],
- *         }],
- *         actions: ["mediastore:*"],
- *         resources: [pulumi.all([current, currentGetCallerIdentity, exampleContainer.name]).apply(([current, currentGetCallerIdentity, name]) => `arn:aws:mediastore:${current.region}:${currentGetCallerIdentity.accountId}:container/${name}/*`)],
  *         conditions: [{
  *             test: "Bool",
  *             variable: "aws:SecureTransport",
  *             values: ["true"],
  *         }],
+ *         principals: [{
+ *             type: "AWS",
+ *             identifiers: [currentGetCallerIdentity.then(currentGetCallerIdentity => `arn:aws:iam::${currentGetCallerIdentity.accountId}:root`)],
+ *         }],
+ *         sid: "MediaStoreFullAccess",
+ *         effect: "Allow",
+ *         actions: ["mediastore:*"],
+ *         resources: [pulumi.all([current, currentGetCallerIdentity, exampleContainer.name]).apply(([current, currentGetCallerIdentity, name]) => `arn:aws:mediastore:${current.region}:${currentGetCallerIdentity.accountId}:container/${name}/*`)],
  *     }],
  * });
  * const exampleContainerPolicy = new aws.mediastore.ContainerPolicy("example", {

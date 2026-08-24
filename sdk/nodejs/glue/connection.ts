@@ -55,16 +55,16 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.Connection("example", {
+ *     physicalConnectionRequirements: {
+ *         availabilityZone: exampleAwsSubnet.availabilityZone,
+ *         securityGroupIdLists: [exampleAwsSecurityGroup.id],
+ *         subnetId: exampleAwsSubnet.id,
+ *     },
  *     name: "example",
  *     connectionProperties: {
  *         JDBC_CONNECTION_URL: `jdbc:mysql://${exampleAwsRdsCluster.endpoint}/exampledatabase`,
  *         PASSWORD: "examplepassword",
  *         USERNAME: "exampleusername",
- *     },
- *     physicalConnectionRequirements: {
- *         availabilityZone: exampleAwsSubnet.availabilityZone,
- *         securityGroupIdLists: [exampleAwsSecurityGroup.id],
- *         subnetId: exampleAwsSubnet.id,
  *     },
  * });
  * ```
@@ -294,6 +294,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.Connection("example", {
+ *     authenticationConfiguration: {
+ *         authenticationType: "BASIC",
+ *         secretArn: exampleAwsSecretsmanagerSecret.arn,
+ *     },
+ *     physicalConnectionRequirements: {
+ *         availabilityZone: exampleAwsSubnet.availabilityZone,
+ *         securityGroupIdLists: [exampleAwsSecurityGroup.id],
+ *         subnetId: exampleAwsSubnet.id,
+ *     },
  *     name: "athenafederatedcatalog_mysql",
  *     connectionType: "MYSQL",
  *     athenaProperties: {
@@ -304,15 +313,6 @@ import * as utilities from "../utilities";
  *         HOST: exampleAwsRdsCluster.endpoint,
  *         PORT: exampleAwsRdsCluster.port,
  *         DATABASE: exampleAwsRdsCluster.databaseName,
- *     },
- *     authenticationConfiguration: {
- *         authenticationType: "BASIC",
- *         secretArn: exampleAwsSecretsmanagerSecret.arn,
- *     },
- *     physicalConnectionRequirements: {
- *         availabilityZone: exampleAwsSubnet.availabilityZone,
- *         securityGroupIdLists: [exampleAwsSecurityGroup.id],
- *         subnetId: exampleAwsSubnet.id,
  *     },
  * });
  * ```

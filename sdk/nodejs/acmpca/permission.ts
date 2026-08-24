@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const exampleCertificateAuthority = new aws.acmpca.CertificateAuthority("example", {certificateAuthorityConfiguration: {
- *     keyAlgorithm: "RSA_4096",
- *     signingAlgorithm: "SHA512WITHRSA",
  *     subject: {
  *         commonName: "example.com",
  *     },
+ *     keyAlgorithm: "RSA_4096",
+ *     signingAlgorithm: "SHA512WITHRSA",
  * }});
  * const example = new aws.acmpca.Permission("example", {
  *     certificateAuthorityArn: exampleCertificateAuthority.arn,

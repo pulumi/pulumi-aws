@@ -73,16 +73,16 @@ import * as utilities from "../utilities";
  *     dependsOn: [testVpcIpamPoolCidr],
  * });
  * const vpc = new aws.ec2.VpcIpamPool("vpc", {
- *     addressFamily: "ipv4",
- *     ipamScopeId: test.privateDefaultScopeId,
- *     locale: current.then(current => current.region),
- *     sourceIpamPoolId: testVpcIpamPool.id,
  *     sourceResource: {
  *         resourceId: testVpc.id,
  *         resourceOwner: currentAwsCallerIdentity.accountId,
  *         resourceRegion: current.then(current => current.region),
  *         resourceType: "vpc",
  *     },
+ *     addressFamily: "ipv4",
+ *     ipamScopeId: test.privateDefaultScopeId,
+ *     locale: current.then(current => current.region),
+ *     sourceIpamPoolId: testVpcIpamPool.id,
  * });
  * const vpcVpcIpamPoolCidr = new aws.ec2.VpcIpamPoolCidr("vpc", {
  *     ipamPoolId: vpc.id,

@@ -38,8 +38,6 @@ namespace Pulumi.Aws.Acm
     /// {
     ///     var cert = new Aws.Acm.Certificate("cert", new()
     ///     {
-    ///         DomainName = "testing.example.com",
-    ///         ValidationMethod = "EMAIL",
     ///         ValidationOptions = new[]
     ///         {
     ///             new Aws.Acm.Inputs.CertificateValidationOptionArgs
@@ -48,6 +46,8 @@ namespace Pulumi.Aws.Acm
     ///                 ValidationDomain = "example.com",
     ///             },
     ///         },
+    ///         DomainName = "testing.example.com",
+    ///         ValidationMethod = "EMAIL",
     ///     });
     /// 
     /// });
@@ -71,8 +71,6 @@ namespace Pulumi.Aws.Acm
     /// 
     ///     var exampleSelfSignedCert = new Tls.SelfSignedCert("example", new()
     ///     {
-    ///         KeyAlgorithm = "RSA",
-    ///         PrivateKeyPem = example.PrivateKeyPem,
     ///         Subject = new[]
     ///         {
     ///             
@@ -81,6 +79,8 @@ namespace Pulumi.Aws.Acm
     ///                 { "organization", "ACME Examples, Inc" },
     ///             },
     ///         },
+    ///         KeyAlgorithm = "RSA",
+    ///         PrivateKeyPem = example.PrivateKeyPem,
     ///         ValidityPeriodHours = 12,
     ///         AllowedUses = new[]
     ///         {
@@ -117,8 +117,6 @@ namespace Pulumi.Aws.Acm
     /// 
     ///     var exampleSelfSignedCert = new Tls.SelfSignedCert("example", new()
     ///     {
-    ///         KeyAlgorithm = "RSA",
-    ///         PrivateKeyPem = example.PrivateKeyPem,
     ///         Subject = new[]
     ///         {
     ///             
@@ -127,6 +125,8 @@ namespace Pulumi.Aws.Acm
     ///                 { "organization", "ACME Examples, Inc" },
     ///             },
     ///         },
+    ///         KeyAlgorithm = "RSA",
+    ///         PrivateKeyPem = example.PrivateKeyPem,
     ///         ValidityPeriodHours = 12,
     ///         AllowedUses = new[]
     ///         {

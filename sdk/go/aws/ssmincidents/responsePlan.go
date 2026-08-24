@@ -33,11 +33,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssmincidents.NewResponsePlan(ctx, "example", &ssmincidents.ResponsePlanArgs{
-//				Name: pulumi.String("name"),
 //				IncidentTemplate: &ssmincidents.ResponsePlanIncidentTemplateArgs{
 //					Title:  pulumi.String("title"),
 //					Impact: pulumi.Int(3),
 //				},
+//				Name: pulumi.String("name"),
 //				Tags: pulumi.StringMap{
 //					"key": pulumi.String("value"),
 //				},
@@ -68,14 +68,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssmincidents.NewResponsePlan(ctx, "example", &ssmincidents.ResponsePlanArgs{
-//				Name: pulumi.String("name"),
 //				IncidentTemplate: &ssmincidents.ResponsePlanIncidentTemplateArgs{
-//					Title:        pulumi.String("title"),
-//					Impact:       pulumi.Int(3),
-//					DedupeString: pulumi.String("dedupe"),
-//					IncidentTags: pulumi.StringMap{
-//						"key": pulumi.String("value"),
-//					},
 //					NotificationTargets: ssmincidents.ResponsePlanIncidentTemplateNotificationTargetArray{
 //						&ssmincidents.ResponsePlanIncidentTemplateNotificationTargetArgs{
 //							SnsTopicArn: pulumi.Any(example1.Arn),
@@ -84,22 +77,17 @@ import (
 //							SnsTopicArn: pulumi.Any(example2.Arn),
 //						},
 //					},
+//					Title:        pulumi.String("title"),
+//					Impact:       pulumi.Int(3),
+//					DedupeString: pulumi.String("dedupe"),
+//					IncidentTags: pulumi.StringMap{
+//						"key": pulumi.String("value"),
+//					},
 //					Summary: pulumi.String("summary"),
-//				},
-//				DisplayName: pulumi.String("display name"),
-//				ChatChannels: pulumi.StringArray{
-//					topic.Arn,
-//				},
-//				Engagements: pulumi.StringArray{
-//					pulumi.String("arn:aws:ssm-contacts:us-east-2:111122223333:contact/test1"),
 //				},
 //				Action: &ssmincidents.ResponsePlanActionArgs{
 //					SsmAutomations: ssmincidents.ResponsePlanActionSsmAutomationArray{
 //						&ssmincidents.ResponsePlanActionSsmAutomationArgs{
-//							DocumentName:    pulumi.Any(document1.Name),
-//							RoleArn:         pulumi.Any(role1.Arn),
-//							DocumentVersion: pulumi.String("version1"),
-//							TargetAccount:   pulumi.String("RESPONSE_PLAN_OWNER_ACCOUNT"),
 //							Parameters: ssmincidents.ResponsePlanActionSsmAutomationParameterArray{
 //								&ssmincidents.ResponsePlanActionSsmAutomationParameterArgs{
 //									Name: pulumi.String("key"),
@@ -115,6 +103,10 @@ import (
 //									},
 //								},
 //							},
+//							DocumentName:    pulumi.Any(document1.Name),
+//							RoleArn:         pulumi.Any(role1.Arn),
+//							DocumentVersion: pulumi.String("version1"),
+//							TargetAccount:   pulumi.String("RESPONSE_PLAN_OWNER_ACCOUNT"),
 //							DynamicParameters: pulumi.StringMap{
 //								"someKey":    pulumi.String("INVOLVED_RESOURCES"),
 //								"anotherKey": pulumi.String("INCIDENT_RECORD_ARN"),
@@ -130,6 +122,14 @@ import (
 //							SecretId:  pulumi.String("example"),
 //						},
 //					},
+//				},
+//				Name:        pulumi.String("name"),
+//				DisplayName: pulumi.String("display name"),
+//				ChatChannels: pulumi.StringArray{
+//					topic.Arn,
+//				},
+//				Engagements: pulumi.StringArray{
+//					pulumi.String("arn:aws:ssm-contacts:us-east-2:111122223333:contact/test1"),
 //				},
 //				Tags: pulumi.StringMap{
 //					"key": pulumi.String("value"),

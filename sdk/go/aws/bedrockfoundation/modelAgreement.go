@@ -40,7 +40,9 @@ import (
 //			_, err = bedrockfoundation.NewModelAgreement(ctx, "example", &bedrockfoundation.ModelAgreementArgs{
 //				ModelId:    pulumi.String(example.ModelId),
 //				OfferToken: pulumi.String(example.Offers[0].OfferToken),
-//			})
+//			}, pulumi.IgnoreChanges([]string{
+//				"offerToken",
+//			}))
 //			if err != nil {
 //				return err
 //			}

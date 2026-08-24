@@ -62,7 +62,17 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Iam.UserLoginProfile("example");
+    ///     var example = new Aws.Iam.UserLoginProfile("example", new()
+    ///     {
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
+    ///         {
+    ///             "passwordLength",
+    ///             "passwordResetRequired",
+    ///             "pgpKey",
+    ///         },
+    ///     });
     /// 
     /// });
     /// ```

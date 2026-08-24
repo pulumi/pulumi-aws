@@ -22,15 +22,15 @@ import * as utilities from "../utilities";
  *
  * // Create Neptune Graph
  * const example = new aws.neptunegraph.Graph("example", {
+ *     vectorSearchConfiguration: {
+ *         vectorSearchDimension: 128,
+ *     },
  *     graphName: "example-graph-test-20250203",
  *     provisionedMemory: 16,
  *     deletionProtection: false,
  *     publicConnectivity: false,
  *     replicaCount: 1,
  *     kmsKeyIdentifier: "arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012",
- *     vectorSearchConfiguration: {
- *         vectorSearchDimension: 128,
- *     },
  *     tags: {
  *         Environment: "Development",
  *         ModifiedBy: "AWS",

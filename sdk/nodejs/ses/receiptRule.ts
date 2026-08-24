@@ -18,11 +18,6 @@ import * as utilities from "../utilities";
  *
  * // Add a header to the email and store it in S3
  * const store = new aws.ses.ReceiptRule("store", {
- *     name: "store",
- *     ruleSetName: "default-rule-set",
- *     recipients: ["karen@example.com"],
- *     enabled: true,
- *     scanEnabled: true,
  *     addHeaderActions: [{
  *         headerName: "Custom-Header",
  *         headerValue: "Added by SES",
@@ -32,6 +27,11 @@ import * as utilities from "../utilities";
  *         bucketName: "emails",
  *         position: 2,
  *     }],
+ *     name: "store",
+ *     ruleSetName: "default-rule-set",
+ *     recipients: ["karen@example.com"],
+ *     enabled: true,
+ *     scanEnabled: true,
  * });
  * ```
  *

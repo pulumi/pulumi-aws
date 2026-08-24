@@ -29,7 +29,6 @@ namespace Pulumi.Aws.ResourceExplorer
     /// 
     ///     var exampleView = new Aws.ResourceExplorer.View("example", new()
     ///     {
-    ///         Name = "exampleview",
     ///         Filters = new Aws.ResourceExplorer.Inputs.ViewFiltersArgs
     ///         {
     ///             FilterString = "resourcetype:ec2:instance",
@@ -41,6 +40,7 @@ namespace Pulumi.Aws.ResourceExplorer
     ///                 Name = "tags",
     ///             },
     ///         },
+    ///         Name = "exampleview",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

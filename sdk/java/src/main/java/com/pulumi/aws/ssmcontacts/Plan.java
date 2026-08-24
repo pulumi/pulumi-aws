@@ -46,10 +46,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Plan("example", PlanArgs.builder()
- *             .contactId("arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias")
  *             .stages(PlanStageArgs.builder()
  *                 .durationInMinutes(1)
  *                 .build())
+ *             .contactId("arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias")
  *             .build());
  * 
  *     }
@@ -90,10 +90,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var plan = new Plan("plan", PlanArgs.builder()
- *             .contactId(contact.arn())
  *             .stages(PlanStageArgs.builder()
  *                 .durationInMinutes(1)
  *                 .build())
+ *             .contactId(contact.arn())
  *             .build());
  * 
  *     }
@@ -147,9 +147,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var test = new Plan("test", PlanArgs.builder()
- *             .contactId(escalationPlan.arn())
  *             .stages(PlanStageArgs.builder()
- *                 .durationInMinutes(0)
  *                 .targets(                
  *                     PlanStageTargetArgs.builder()
  *                         .contactTargetInfo(PlanStageTargetContactTargetInfoArgs.builder()
@@ -169,7 +167,9 @@ import javax.annotation.Nullable;
  *                             .contactChannelId(channel.arn())
  *                             .build())
  *                         .build())
+ *                 .durationInMinutes(0)
  *                 .build())
+ *             .contactId(escalationPlan.arn())
  *             .build());
  * 
  *     }

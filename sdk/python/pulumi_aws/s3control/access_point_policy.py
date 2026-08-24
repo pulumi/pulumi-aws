@@ -168,14 +168,15 @@ class AccessPointPolicy(pulumi.CustomResource):
 
         example = aws.s3.Bucket("example", bucket="example")
         example_access_point = aws.s3.AccessPoint("example",
-            bucket=example.id,
-            name="example",
             public_access_block_configuration={
                 "block_public_acls": True,
                 "block_public_policy": False,
                 "ignore_public_acls": True,
                 "restrict_public_buckets": False,
-            })
+            },
+            bucket=example.id,
+            name="example",
+            opts = pulumi.ResourceOptions(ignore_changes=["policy"]))
         example_access_point_policy = aws.s3control.AccessPointPolicy("example",
             access_point_arn=example_access_point.arn,
             policy=pulumi.Output.json_dumps({
@@ -226,14 +227,15 @@ class AccessPointPolicy(pulumi.CustomResource):
 
         example = aws.s3.Bucket("example", bucket="example")
         example_access_point = aws.s3.AccessPoint("example",
-            bucket=example.id,
-            name="example",
             public_access_block_configuration={
                 "block_public_acls": True,
                 "block_public_policy": False,
                 "ignore_public_acls": True,
                 "restrict_public_buckets": False,
-            })
+            },
+            bucket=example.id,
+            name="example",
+            opts = pulumi.ResourceOptions(ignore_changes=["policy"]))
         example_access_point_policy = aws.s3control.AccessPointPolicy("example",
             access_point_arn=example_access_point.arn,
             policy=pulumi.Output.json_dumps({

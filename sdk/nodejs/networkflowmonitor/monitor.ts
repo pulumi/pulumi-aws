@@ -25,8 +25,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleMonitor = new aws.networkflowmonitor.Monitor("example", {
- *     monitorName: "example-monitor",
- *     scopeArn: exampleAwsNetworkflowmonitorScope.scopeArn,
  *     localResources: [{
  *         type: "AWS::EC2::VPC",
  *         identifier: example.arn,
@@ -35,6 +33,8 @@ import * as utilities from "../utilities";
  *         type: "AWS::EC2::VPC",
  *         identifier: example.arn,
  *     }],
+ *     monitorName: "example-monitor",
+ *     scopeArn: exampleAwsNetworkflowmonitorScope.scopeArn,
  *     tags: {
  *         Name: "example",
  *     },

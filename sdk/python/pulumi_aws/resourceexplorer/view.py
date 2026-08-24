@@ -317,13 +317,13 @@ class View(pulumi.CustomResource):
 
         example = aws.resourceexplorer.Index("example", type="LOCAL")
         example_view = aws.resourceexplorer.View("example",
-            name="exampleview",
             filters={
                 "filter_string": "resourcetype:ec2:instance",
             },
             included_properties=[{
                 "name": "tags",
             }],
+            name="exampleview",
             opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
@@ -369,13 +369,13 @@ class View(pulumi.CustomResource):
 
         example = aws.resourceexplorer.Index("example", type="LOCAL")
         example_view = aws.resourceexplorer.View("example",
-            name="exampleview",
             filters={
                 "filter_string": "resourcetype:ec2:instance",
             },
             included_properties=[{
                 "name": "tags",
             }],
+            name="exampleview",
             opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 

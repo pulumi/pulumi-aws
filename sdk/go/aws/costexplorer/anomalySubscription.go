@@ -39,17 +39,6 @@ import (
 //				return err
 //			}
 //			_, err = costexplorer.NewAnomalySubscription(ctx, "test", &costexplorer.AnomalySubscriptionArgs{
-//				Name:      pulumi.String("DAILYSUBSCRIPTION"),
-//				Frequency: pulumi.String("DAILY"),
-//				MonitorArnLists: pulumi.StringArray{
-//					test.Arn,
-//				},
-//				Subscribers: costexplorer.AnomalySubscriptionSubscriberArray{
-//					&costexplorer.AnomalySubscriptionSubscriberArgs{
-//						Type:    pulumi.String("EMAIL"),
-//						Address: pulumi.String("abc@example.com"),
-//					},
-//				},
 //				ThresholdExpression: &costexplorer.AnomalySubscriptionThresholdExpressionArgs{
 //					Dimension: &costexplorer.AnomalySubscriptionThresholdExpressionDimensionArgs{
 //						Key: pulumi.String("ANOMALY_TOTAL_IMPACT_ABSOLUTE"),
@@ -60,6 +49,17 @@ import (
 //							pulumi.String("100"),
 //						},
 //					},
+//				},
+//				Subscribers: costexplorer.AnomalySubscriptionSubscriberArray{
+//					&costexplorer.AnomalySubscriptionSubscriberArgs{
+//						Type:    pulumi.String("EMAIL"),
+//						Address: pulumi.String("abc@example.com"),
+//					},
+//				},
+//				Name:      pulumi.String("DAILYSUBSCRIPTION"),
+//				Frequency: pulumi.String("DAILY"),
+//				MonitorArnLists: pulumi.StringArray{
+//					test.Arn,
 //				},
 //			})
 //			if err != nil {
@@ -88,17 +88,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := costexplorer.NewAnomalySubscription(ctx, "test", &costexplorer.AnomalySubscriptionArgs{
-//				Name:      pulumi.String("AWSServiceMonitor"),
-//				Frequency: pulumi.String("DAILY"),
-//				MonitorArnLists: pulumi.StringArray{
-//					testAwsCeAnomalyMonitor.Arn,
-//				},
-//				Subscribers: costexplorer.AnomalySubscriptionSubscriberArray{
-//					&costexplorer.AnomalySubscriptionSubscriberArgs{
-//						Type:    pulumi.String("EMAIL"),
-//						Address: pulumi.String("abc@example.com"),
-//					},
-//				},
 //				ThresholdExpression: &costexplorer.AnomalySubscriptionThresholdExpressionArgs{
 //					Dimension: &costexplorer.AnomalySubscriptionThresholdExpressionDimensionArgs{
 //						Key: pulumi.String("ANOMALY_TOTAL_IMPACT_PERCENTAGE"),
@@ -109,6 +98,17 @@ import (
 //							pulumi.String("100"),
 //						},
 //					},
+//				},
+//				Subscribers: costexplorer.AnomalySubscriptionSubscriberArray{
+//					&costexplorer.AnomalySubscriptionSubscriberArgs{
+//						Type:    pulumi.String("EMAIL"),
+//						Address: pulumi.String("abc@example.com"),
+//					},
+//				},
+//				Name:      pulumi.String("AWSServiceMonitor"),
+//				Frequency: pulumi.String("DAILY"),
+//				MonitorArnLists: pulumi.StringArray{
+//					testAwsCeAnomalyMonitor.Arn,
 //				},
 //			})
 //			if err != nil {
@@ -135,17 +135,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := costexplorer.NewAnomalySubscription(ctx, "test", &costexplorer.AnomalySubscriptionArgs{
-//				Name:      pulumi.String("AWSServiceMonitor"),
-//				Frequency: pulumi.String("DAILY"),
-//				MonitorArnLists: pulumi.StringArray{
-//					testAwsCeAnomalyMonitor.Arn,
-//				},
-//				Subscribers: costexplorer.AnomalySubscriptionSubscriberArray{
-//					&costexplorer.AnomalySubscriptionSubscriberArgs{
-//						Type:    pulumi.String("EMAIL"),
-//						Address: pulumi.String("abc@example.com"),
-//					},
-//				},
 //				ThresholdExpression: &costexplorer.AnomalySubscriptionThresholdExpressionArgs{
 //					Ands: costexplorer.AnomalySubscriptionThresholdExpressionAndArray{
 //						&costexplorer.AnomalySubscriptionThresholdExpressionAndArgs{
@@ -171,6 +160,17 @@ import (
 //							},
 //						},
 //					},
+//				},
+//				Subscribers: costexplorer.AnomalySubscriptionSubscriberArray{
+//					&costexplorer.AnomalySubscriptionSubscriberArgs{
+//						Type:    pulumi.String("EMAIL"),
+//						Address: pulumi.String("abc@example.com"),
+//					},
+//				},
+//				Name:      pulumi.String("AWSServiceMonitor"),
+//				Frequency: pulumi.String("DAILY"),
+//				MonitorArnLists: pulumi.StringArray{
+//					testAwsCeAnomalyMonitor.Arn,
 //				},
 //			})
 //			if err != nil {
@@ -205,14 +205,8 @@ import (
 //				return err
 //			}
 //			snsTopicPolicy := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				PolicyId: pulumi.String("__default_policy_ID"),
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
-//						Sid: pulumi.String("AWSAnomalyDetectionSNSPublishingPermissions"),
-//						Actions: pulumi.StringArray{
-//							pulumi.String("SNS:Publish"),
-//						},
-//						Effect: pulumi.String("Allow"),
 //						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
 //							&iam.GetPolicyDocumentStatementPrincipalArgs{
 //								Type: pulumi.String("Service"),
@@ -221,11 +215,33 @@ import (
 //								},
 //							},
 //						},
+//						Sid: pulumi.String("AWSAnomalyDetectionSNSPublishingPermissions"),
+//						Actions: pulumi.StringArray{
+//							pulumi.String("SNS:Publish"),
+//						},
+//						Effect: pulumi.String("Allow"),
 //						Resources: pulumi.StringArray{
 //							costAnomalyUpdates.Arn,
 //						},
 //					},
 //					&iam.GetPolicyDocumentStatementArgs{
+//						Conditions: iam.GetPolicyDocumentStatementConditionArray{
+//							&iam.GetPolicyDocumentStatementConditionArgs{
+//								Test:     pulumi.String("StringEquals"),
+//								Variable: pulumi.String("AWS:SourceOwner"),
+//								Values: pulumi.StringArray{
+//									accountId,
+//								},
+//							},
+//						},
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Type: pulumi.String("AWS"),
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String("*"),
+//								},
+//							},
+//						},
 //						Sid: pulumi.String("__default_statement_ID"),
 //						Actions: pulumi.StringArray{
 //							pulumi.String("SNS:Subscribe"),
@@ -238,29 +254,13 @@ import (
 //							pulumi.String("SNS:DeleteTopic"),
 //							pulumi.String("SNS:AddPermission"),
 //						},
-//						Conditions: iam.GetPolicyDocumentStatementConditionArray{
-//							&iam.GetPolicyDocumentStatementConditionArgs{
-//								Test:     pulumi.String("StringEquals"),
-//								Variable: pulumi.String("AWS:SourceOwner"),
-//								Values: pulumi.StringArray{
-//									accountId,
-//								},
-//							},
-//						},
 //						Effect: pulumi.String("Allow"),
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Type: pulumi.String("AWS"),
-//								Identifiers: pulumi.StringArray{
-//									pulumi.String("*"),
-//								},
-//							},
-//						},
 //						Resources: pulumi.StringArray{
 //							costAnomalyUpdates.Arn,
 //						},
 //					},
 //				},
+//				PolicyId: pulumi.String("__default_policy_ID"),
 //			}, nil)
 //			_default, err := sns.NewTopicPolicy(ctx, "default", &sns.TopicPolicyArgs{
 //				Arn:    costAnomalyUpdates.Arn,
@@ -278,16 +278,16 @@ import (
 //				return err
 //			}
 //			_, err = costexplorer.NewAnomalySubscription(ctx, "realtime_subscription", &costexplorer.AnomalySubscriptionArgs{
-//				Name:      pulumi.String("RealtimeAnomalySubscription"),
-//				Frequency: pulumi.String("IMMEDIATE"),
-//				MonitorArnLists: pulumi.StringArray{
-//					anomalyMonitor.Arn,
-//				},
 //				Subscribers: costexplorer.AnomalySubscriptionSubscriberArray{
 //					&costexplorer.AnomalySubscriptionSubscriberArgs{
 //						Type:    pulumi.String("SNS"),
 //						Address: costAnomalyUpdates.Arn,
 //					},
+//				},
+//				Name:      pulumi.String("RealtimeAnomalySubscription"),
+//				Frequency: pulumi.String("IMMEDIATE"),
+//				MonitorArnLists: pulumi.StringArray{
+//					anomalyMonitor.Arn,
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				_default,

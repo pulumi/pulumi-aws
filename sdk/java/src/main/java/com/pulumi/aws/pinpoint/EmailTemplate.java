@@ -49,15 +49,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new EmailTemplate("test", EmailTemplateArgs.builder()
- *             .templateName("testing")
  *             .emailTemplates(EmailTemplateEmailTemplateArgs.builder()
- *                 .subject("testing")
- *                 .textPart("we are testing template text part")
  *                 .headers(EmailTemplateEmailTemplateHeaderArgs.builder()
  *                     .name("testingname")
  *                     .value("testingvalue")
  *                     .build())
+ *                 .subject("testing")
+ *                 .textPart("we are testing template text part")
  *                 .build())
+ *             .templateName("testing")
  *             .build());
  * 
  *     }

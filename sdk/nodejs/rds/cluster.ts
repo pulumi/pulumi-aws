@@ -132,6 +132,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.rds.Cluster("example", {
+ *     serverlessv2ScalingConfiguration: {
+ *         maxCapacity: 1,
+ *         minCapacity: 0,
+ *         secondsUntilAutoPause: 3600,
+ *     },
  *     clusterIdentifier: "example",
  *     engine: aws.rds.EngineType.AuroraPostgresql,
  *     engineMode: aws.rds.EngineMode.Provisioned,
@@ -140,11 +145,6 @@ import * as utilities from "../utilities";
  *     masterUsername: "test",
  *     masterPassword: "must_be_eight_characters",
  *     storageEncrypted: true,
- *     serverlessv2ScalingConfiguration: {
- *         maxCapacity: 1,
- *         minCapacity: 0,
- *         secondsUntilAutoPause: 3600,
- *     },
  * });
  * const exampleClusterInstance = new aws.rds.ClusterInstance("example", {
  *     clusterIdentifier: example.id,
@@ -207,6 +207,11 @@ import * as utilities from "../utilities";
  *     engineVersion: "5.6.mysql_aurora.1.22.4",
  *     clusterIdentifier: "example",
  *     snapshotIdentifier: example.then(example => example.id),
+ * }, {
+ *     ignoreChanges: [
+ *         "snapshotIdentifier",
+ *         "globalClusterIdentifier",
+ *     ],
  * });
  * const exampleGlobalCluster = new aws.rds.GlobalCluster("example", {
  *     globalClusterIdentifier: "example",

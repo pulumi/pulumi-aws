@@ -180,10 +180,10 @@ class V2InputSource(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.resiliencehub.V2InputSource("example",
-            service_arn=example_aws_resiliencehubv2_service["arn"],
             resource_configuration={
                 "cfn_stack_arn": "arn:aws:cloudformation:us-west-2:123456789012:stack/my-stack/abc123",
-            })
+            },
+            service_arn=example_aws_resiliencehubv2_service["arn"])
         ```
 
         ### Terraform State File
@@ -193,10 +193,10 @@ class V2InputSource(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.resiliencehub.V2InputSource("example",
-            service_arn=example_aws_resiliencehubv2_service["arn"],
             resource_configuration={
                 "tf_state_file_url": "s3://my-bucket/terraform.tfstate",
-            })
+            },
+            service_arn=example_aws_resiliencehubv2_service["arn"])
         ```
 
         ### EKS Cluster
@@ -206,7 +206,6 @@ class V2InputSource(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.resiliencehub.V2InputSource("example",
-            service_arn=example_aws_resiliencehubv2_service["arn"],
             resource_configuration={
                 "eks": {
                     "cluster_arn": "arn:aws:eks:us-west-2:123456789012:cluster/my-cluster",
@@ -215,7 +214,8 @@ class V2InputSource(pulumi.CustomResource):
                         "production",
                     ],
                 },
-            })
+            },
+            service_arn=example_aws_resiliencehubv2_service["arn"])
         ```
 
         ## Import
@@ -269,10 +269,10 @@ class V2InputSource(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.resiliencehub.V2InputSource("example",
-            service_arn=example_aws_resiliencehubv2_service["arn"],
             resource_configuration={
                 "cfn_stack_arn": "arn:aws:cloudformation:us-west-2:123456789012:stack/my-stack/abc123",
-            })
+            },
+            service_arn=example_aws_resiliencehubv2_service["arn"])
         ```
 
         ### Terraform State File
@@ -282,10 +282,10 @@ class V2InputSource(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.resiliencehub.V2InputSource("example",
-            service_arn=example_aws_resiliencehubv2_service["arn"],
             resource_configuration={
                 "tf_state_file_url": "s3://my-bucket/terraform.tfstate",
-            })
+            },
+            service_arn=example_aws_resiliencehubv2_service["arn"])
         ```
 
         ### EKS Cluster
@@ -295,7 +295,6 @@ class V2InputSource(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.resiliencehub.V2InputSource("example",
-            service_arn=example_aws_resiliencehubv2_service["arn"],
             resource_configuration={
                 "eks": {
                     "cluster_arn": "arn:aws:eks:us-west-2:123456789012:cluster/my-cluster",
@@ -304,7 +303,8 @@ class V2InputSource(pulumi.CustomResource):
                         "production",
                     ],
                 },
-            })
+            },
+            service_arn=example_aws_resiliencehubv2_service["arn"])
         ```
 
         ## Import

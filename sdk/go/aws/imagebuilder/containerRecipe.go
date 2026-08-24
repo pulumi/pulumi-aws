@@ -29,17 +29,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := imagebuilder.NewContainerRecipe(ctx, "example", &imagebuilder.ContainerRecipeArgs{
-//				Name:          pulumi.String("example"),
-//				Version:       pulumi.String("1.0.0"),
-//				ContainerType: pulumi.String("DOCKER"),
-//				ParentImage:   pulumi.String("arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x"),
 //				TargetRepository: &imagebuilder.ContainerRecipeTargetRepositoryArgs{
 //					RepositoryName: pulumi.Any(exampleAwsEcrRepository.Name),
 //					Service:        pulumi.String("ECR"),
 //				},
 //				Components: imagebuilder.ContainerRecipeComponentArray{
 //					&imagebuilder.ContainerRecipeComponentArgs{
-//						ComponentArn: pulumi.Any(exampleAwsImagebuilderComponent.Arn),
 //						Parameters: imagebuilder.ContainerRecipeComponentParameterArray{
 //							&imagebuilder.ContainerRecipeComponentParameterArgs{
 //								Name:  pulumi.String("Parameter1"),
@@ -50,8 +45,13 @@ import (
 //								Value: pulumi.String("Value2"),
 //							},
 //						},
+//						ComponentArn: pulumi.Any(exampleAwsImagebuilderComponent.Arn),
 //					},
 //				},
+//				Name:                   pulumi.String("example"),
+//				Version:                pulumi.String("1.0.0"),
+//				ContainerType:          pulumi.String("DOCKER"),
+//				ParentImage:            pulumi.String("arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x"),
 //				DockerfileTemplateData: pulumi.String("FROM {{{ imagebuilder:parentImage }}}\n{{{ imagebuilder:environments }}}\n{{{ imagebuilder:components }}}\n"),
 //			})
 //			if err != nil {

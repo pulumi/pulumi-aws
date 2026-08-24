@@ -35,14 +35,14 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.msk.Replicator;
  * import com.pulumi.aws.msk.ReplicatorArgs;
- * import com.pulumi.aws.msk.inputs.ReplicatorKafkaClusterArgs;
- * import com.pulumi.aws.msk.inputs.ReplicatorKafkaClusterAmazonMskClusterArgs;
- * import com.pulumi.aws.msk.inputs.ReplicatorKafkaClusterVpcConfigArgs;
  * import com.pulumi.aws.msk.inputs.ReplicatorReplicationInfoListArgs;
+ * import com.pulumi.aws.msk.inputs.ReplicatorReplicationInfoListConsumerGroupReplicationArgs;
  * import com.pulumi.aws.msk.inputs.ReplicatorReplicationInfoListTopicReplicationArgs;
  * import com.pulumi.aws.msk.inputs.ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs;
  * import com.pulumi.aws.msk.inputs.ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs;
- * import com.pulumi.aws.msk.inputs.ReplicatorReplicationInfoListConsumerGroupReplicationArgs;
+ * import com.pulumi.aws.msk.inputs.ReplicatorKafkaClusterArgs;
+ * import com.pulumi.aws.msk.inputs.ReplicatorKafkaClusterAmazonMskClusterArgs;
+ * import com.pulumi.aws.msk.inputs.ReplicatorKafkaClusterVpcConfigArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -57,9 +57,23 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Replicator("test", ReplicatorArgs.builder()
- *             .replicatorName("test-name")
- *             .description("test-description")
- *             .serviceExecutionRoleArn(sourceAwsIamRole.arn())
+ *             .replicationInfoList(ReplicatorReplicationInfoListArgs.builder()
+ *                 .consumerGroupReplications(ReplicatorReplicationInfoListConsumerGroupReplicationArgs.builder()
+ *                     .consumerGroupsToReplicates(".*")
+ *                     .build())
+ *                 .topicReplications(ReplicatorReplicationInfoListTopicReplicationArgs.builder()
+ *                     .topicNameConfiguration(ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs.builder()
+ *                         .type("PREFIXED_WITH_SOURCE_CLUSTER_ALIAS")
+ *                         .build())
+ *                     .startingPosition(ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs.builder()
+ *                         .type("LATEST")
+ *                         .build())
+ *                     .topicsToReplicates(".*")
+ *                     .build())
+ *                 .sourceKafkaClusterArn(source.arn())
+ *                 .targetKafkaClusterArn(target.arn())
+ *                 .targetCompressionType("NONE")
+ *                 .build())
  *             .kafkaClusters(            
  *                 ReplicatorKafkaClusterArgs.builder()
  *                     .amazonMskCluster(ReplicatorKafkaClusterAmazonMskClusterArgs.builder()
@@ -79,23 +93,9 @@ import javax.annotation.Nullable;
  *                         .securityGroupsIds(targetAwsSecurityGroup.id())
  *                         .build())
  *                     .build())
- *             .replicationInfoList(ReplicatorReplicationInfoListArgs.builder()
- *                 .sourceKafkaClusterArn(source.arn())
- *                 .targetKafkaClusterArn(target.arn())
- *                 .targetCompressionType("NONE")
- *                 .topicReplications(ReplicatorReplicationInfoListTopicReplicationArgs.builder()
- *                     .topicNameConfiguration(ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs.builder()
- *                         .type("PREFIXED_WITH_SOURCE_CLUSTER_ALIAS")
- *                         .build())
- *                     .topicsToReplicates(".*")
- *                     .startingPosition(ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs.builder()
- *                         .type("LATEST")
- *                         .build())
- *                     .build())
- *                 .consumerGroupReplications(ReplicatorReplicationInfoListConsumerGroupReplicationArgs.builder()
- *                     .consumerGroupsToReplicates(".*")
- *                     .build())
- *                 .build())
+ *             .replicatorName("test-name")
+ *             .description("test-description")
+ *             .serviceExecutionRoleArn(sourceAwsIamRole.arn())
  *             .build());
  * 
  *     }

@@ -28,12 +28,12 @@ namespace Pulumi.Aws.Bedrock
     /// 
     ///     var example = new Aws.Bedrock.InferenceProfile("example", new()
     ///     {
-    ///         Name = "Claude Sonnet for Project 123",
-    ///         Description = "Profile with tag for cost allocation tracking",
     ///         ModelSource = new Aws.Bedrock.Inputs.InferenceProfileModelSourceArgs
     ///         {
     ///             CopyFrom = "arn:aws:bedrock:us-west-2::foundation-model/anthropic.claude-3-5-sonnet-20241022-v2:0",
     ///         },
+    ///         Name = "Claude Sonnet for Project 123",
+    ///         Description = "Profile with tag for cost allocation tracking",
     ///         Tags = 
     ///         {
     ///             { "ProjectID", "123" },

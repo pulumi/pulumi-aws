@@ -28,11 +28,11 @@ namespace Pulumi.Aws.ResilienceHub
     /// {
     ///     var example = new Aws.ResilienceHub.V2Policy("example", new()
     ///     {
-    ///         Name = "example-policy",
     ///         AvailabilitySlo = new Aws.ResilienceHub.Inputs.V2PolicyAvailabilitySloArgs
     ///         {
     ///             Target = 99.9,
     ///         },
+    ///         Name = "example-policy",
     ///     });
     /// 
     /// });
@@ -50,8 +50,6 @@ namespace Pulumi.Aws.ResilienceHub
     /// {
     ///     var example = new Aws.ResilienceHub.V2Policy("example", new()
     ///     {
-    ///         Name = "example-policy",
-    ///         Description = "Policy with multi-AZ and data recovery targets",
     ///         AvailabilitySlo = new Aws.ResilienceHub.Inputs.V2PolicyAvailabilitySloArgs
     ///         {
     ///             Target = 99.99,
@@ -66,6 +64,8 @@ namespace Pulumi.Aws.ResilienceHub
     ///             RpoInMinutes = 5,
     ///             RtoInMinutes = 10,
     ///         },
+    ///         Name = "example-policy",
+    ///         Description = "Policy with multi-AZ and data recovery targets",
     ///         Tags = 
     ///         {
     ///             { "Environment", "production" },
@@ -87,7 +87,6 @@ namespace Pulumi.Aws.ResilienceHub
     /// {
     ///     var example = new Aws.ResilienceHub.V2Policy("example", new()
     ///     {
-    ///         Name = "example-multi-region-policy",
     ///         AvailabilitySlo = new Aws.ResilienceHub.Inputs.V2PolicyAvailabilitySloArgs
     ///         {
     ///             Target = 99.95,
@@ -98,6 +97,7 @@ namespace Pulumi.Aws.ResilienceHub
     ///             RpoInMinutes = 15,
     ///             RtoInMinutes = 30,
     ///         },
+    ///         Name = "example-multi-region-policy",
     ///     });
     /// 
     /// });

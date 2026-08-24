@@ -22,10 +22,10 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.efs.FileSystem("example", {});
  * const exampleReplicationConfiguration = new aws.efs.ReplicationConfiguration("example", {
- *     sourceFileSystemId: example.id,
  *     destination: {
  *         region: "us-west-2",
  *     },
+ *     sourceFileSystemId: example.id,
  * });
  * ```
  *
@@ -37,11 +37,11 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.efs.FileSystem("example", {});
  * const exampleReplicationConfiguration = new aws.efs.ReplicationConfiguration("example", {
- *     sourceFileSystemId: example.id,
  *     destination: {
  *         availabilityZoneName: "us-west-2b",
  *         kmsKeyId: "1234abcd-12ab-34cd-56ef-1234567890ab",
  *     },
+ *     sourceFileSystemId: example.id,
  * });
  * ```
  *
@@ -53,11 +53,11 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.efs.FileSystem("example", {});
  * const exampleReplicationConfiguration = new aws.efs.ReplicationConfiguration("example", {
- *     sourceFileSystemId: example.id,
  *     destination: {
  *         fileSystemId: "fs-1234567890",
  *         region: "us-west-2",
  *     },
+ *     sourceFileSystemId: example.id,
  * });
  * ```
  *

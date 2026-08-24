@@ -47,11 +47,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new PipelineEndpoint("example", PipelineEndpointArgs.builder()
- *             .pipelineArn(exampleAwsOsisPipeline.pipelineArn())
  *             .vpcOptions(PipelineEndpointVpcOptionsArgs.builder()
  *                 .securityGroupIds(exampleAwsSecurityGroup.id())
  *                 .subnetIds(exampleAwsSubnet.id())
  *                 .build())
+ *             .pipelineArn(exampleAwsOsisPipeline.pipelineArn())
  *             .build());
  * 
  *     }

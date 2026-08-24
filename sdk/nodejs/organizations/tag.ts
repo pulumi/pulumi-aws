@@ -21,6 +21,8 @@ import * as utilities from "../utilities";
  * const exampleOrganizationalUnit = new aws.organizations.OrganizationalUnit("example", {
  *     name: "ExampleOU",
  *     parentId: example.then(example => example.roots?.[0]?.id),
+ * }, {
+ *     ignoreChanges: ["tags"],
  * });
  * const exampleTag = new aws.organizations.Tag("example", {
  *     resourceId: exampleOrganizationalUnit.id,

@@ -30,8 +30,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := ec2.LookupKeyPair(ctx, &ec2.LookupKeyPairArgs{
-//				KeyName:          pulumi.StringRef("test"),
-//				IncludePublicKey: pulumi.BoolRef(true),
 //				Filters: []ec2.GetKeyPairFilter{
 //					{
 //						Name: "tag:Component",
@@ -40,6 +38,8 @@ import (
 //						},
 //					},
 //				},
+//				KeyName:          pulumi.StringRef("test"),
+//				IncludePublicKey: pulumi.BoolRef(true),
 //			}, nil)
 //			if err != nil {
 //				return err

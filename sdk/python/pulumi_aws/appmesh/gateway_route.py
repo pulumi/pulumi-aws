@@ -361,9 +361,6 @@ class GatewayRoute(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appmesh.GatewayRoute("example",
-            name="example-gateway-route",
-            mesh_name="example-service-mesh",
-            virtual_gateway_name=example_aws_appmesh_virtual_gateway["name"],
             spec={
                 "http_route": {
                     "action": {
@@ -378,6 +375,9 @@ class GatewayRoute(pulumi.CustomResource):
                     },
                 },
             },
+            name="example-gateway-route",
+            mesh_name="example-service-mesh",
+            virtual_gateway_name=example_aws_appmesh_virtual_gateway["name"],
             tags={
                 "Environment": "test",
             })
@@ -418,9 +418,6 @@ class GatewayRoute(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appmesh.GatewayRoute("example",
-            name="example-gateway-route",
-            mesh_name="example-service-mesh",
-            virtual_gateway_name=example_aws_appmesh_virtual_gateway["name"],
             spec={
                 "http_route": {
                     "action": {
@@ -435,6 +432,9 @@ class GatewayRoute(pulumi.CustomResource):
                     },
                 },
             },
+            name="example-gateway-route",
+            mesh_name="example-service-mesh",
+            virtual_gateway_name=example_aws_appmesh_virtual_gateway["name"],
             tags={
                 "Environment": "test",
             })

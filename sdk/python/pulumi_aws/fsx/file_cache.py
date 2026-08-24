@@ -538,12 +538,6 @@ class FileCache(pulumi.CustomResource):
 
         example = aws.fsx.FileCache("example",
             data_repository_associations=[{
-                "data_repository_path": "nfs://filer.domain.com",
-                "data_repository_subdirectories": [
-                    "test",
-                    "test2",
-                ],
-                "file_cache_path": "/ns1",
                 "nfs": [{
                     "dns_ips": [
                         "192.168.0.1",
@@ -551,17 +545,23 @@ class FileCache(pulumi.CustomResource):
                     ],
                     "version": "NFS3",
                 }],
+                "data_repository_path": "nfs://filer.domain.com",
+                "data_repository_subdirectories": [
+                    "test",
+                    "test2",
+                ],
+                "file_cache_path": "/ns1",
             }],
-            file_cache_type="LUSTRE",
-            file_cache_type_version="2.12",
             lustre_configurations=[{
-                "deployment_type": "CACHE_1",
                 "metadata_configurations": [{
                     "storage_capacity": 2400,
                 }],
+                "deployment_type": "CACHE_1",
                 "per_unit_storage_throughput": 1000,
                 "weekly_maintenance_start_time": "2:05:00",
             }],
+            file_cache_type="LUSTRE",
+            file_cache_type_version="2.12",
             subnet_ids=[test1["id"]],
             storage_capacity=1200)
         ```
@@ -607,12 +607,6 @@ class FileCache(pulumi.CustomResource):
 
         example = aws.fsx.FileCache("example",
             data_repository_associations=[{
-                "data_repository_path": "nfs://filer.domain.com",
-                "data_repository_subdirectories": [
-                    "test",
-                    "test2",
-                ],
-                "file_cache_path": "/ns1",
                 "nfs": [{
                     "dns_ips": [
                         "192.168.0.1",
@@ -620,17 +614,23 @@ class FileCache(pulumi.CustomResource):
                     ],
                     "version": "NFS3",
                 }],
+                "data_repository_path": "nfs://filer.domain.com",
+                "data_repository_subdirectories": [
+                    "test",
+                    "test2",
+                ],
+                "file_cache_path": "/ns1",
             }],
-            file_cache_type="LUSTRE",
-            file_cache_type_version="2.12",
             lustre_configurations=[{
-                "deployment_type": "CACHE_1",
                 "metadata_configurations": [{
                     "storage_capacity": 2400,
                 }],
+                "deployment_type": "CACHE_1",
                 "per_unit_storage_throughput": 1000,
                 "weekly_maintenance_start_time": "2:05:00",
             }],
+            file_cache_type="LUSTRE",
+            file_cache_type_version="2.12",
             subnet_ids=[test1["id"]],
             storage_capacity=1200)
         ```

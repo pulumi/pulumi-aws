@@ -371,12 +371,12 @@ class Control(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.auditmanager.Control("example",
-            name="example",
             control_mapping_sources=[{
                 "source_name": "example",
                 "source_set_up_option": "Procedural_Controls_Mapping",
                 "source_type": "MANUAL",
-            }])
+            }],
+            name="example")
         ```
 
         ## Import
@@ -430,12 +430,12 @@ class Control(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.auditmanager.Control("example",
-            name="example",
             control_mapping_sources=[{
                 "source_name": "example",
                 "source_set_up_option": "Procedural_Controls_Mapping",
                 "source_type": "MANUAL",
-            }])
+            }],
+            name="example")
         ```
 
         ## Import

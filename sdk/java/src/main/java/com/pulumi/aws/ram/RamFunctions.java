@@ -78,11 +78,11 @@ public final class RamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var tagFilter = RamFunctions.getResourceShare(GetResourceShareArgs.builder()
-     *             .resourceOwner("SELF")
      *             .filters(GetResourceShareFilterArgs.builder()
      *                 .name("NameOfTag")
      *                 .values("exampleNameTagValue")
      *                 .build())
+     *             .resourceOwner("SELF")
      *             .build());
      * 
      *     }
@@ -157,11 +157,11 @@ public final class RamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var tagFilter = RamFunctions.getResourceShare(GetResourceShareArgs.builder()
-     *             .resourceOwner("SELF")
      *             .filters(GetResourceShareFilterArgs.builder()
      *                 .name("NameOfTag")
      *                 .values("exampleNameTagValue")
      *                 .build())
+     *             .resourceOwner("SELF")
      *             .build());
      * 
      *     }
@@ -236,11 +236,11 @@ public final class RamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var tagFilter = RamFunctions.getResourceShare(GetResourceShareArgs.builder()
-     *             .resourceOwner("SELF")
      *             .filters(GetResourceShareFilterArgs.builder()
      *                 .name("NameOfTag")
      *                 .values("exampleNameTagValue")
      *                 .build())
+     *             .resourceOwner("SELF")
      *             .build());
      * 
      *     }
@@ -315,11 +315,11 @@ public final class RamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var tagFilter = RamFunctions.getResourceShare(GetResourceShareArgs.builder()
-     *             .resourceOwner("SELF")
      *             .filters(GetResourceShareFilterArgs.builder()
      *                 .name("NameOfTag")
      *                 .values("exampleNameTagValue")
      *                 .build())
+     *             .resourceOwner("SELF")
      *             .build());
      * 
      *     }
@@ -394,11 +394,11 @@ public final class RamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var tagFilter = RamFunctions.getResourceShare(GetResourceShareArgs.builder()
-     *             .resourceOwner("SELF")
      *             .filters(GetResourceShareFilterArgs.builder()
      *                 .name("NameOfTag")
      *                 .values("exampleNameTagValue")
      *                 .build())
+     *             .resourceOwner("SELF")
      *             .build());
      * 
      *     }

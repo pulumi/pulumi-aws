@@ -90,7 +90,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRole = new Role("exampleRole", RoleArgs.builder()
- *             .name("example-role")
  *             .inlinePolicies(RoleInlinePolicyArgs.builder()
  *                 .name("Rekognition-Access")
  *                 .policy(Output.tuple(example.arn(), exampleTopic.arn(), exampleVideoStream.arn()).applyValue(values -> {
@@ -123,6 +122,7 @@ import javax.annotation.Nullable;
  *                         ));
  *                 }))
  *                 .build())
+ *             .name("example-role")
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
  *                     jsonProperty("Version", "2012-10-17"),
@@ -137,8 +137,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleStreamProcessor = new StreamProcessor("exampleStreamProcessor", StreamProcessorArgs.builder()
- *             .roleArn(exampleRole.arn())
- *             .name("example-processor")
  *             .dataSharingPreference(StreamProcessorDataSharingPreferenceArgs.builder()
  *                 .optIn(false)
  *                 .build())
@@ -162,6 +160,8 @@ import javax.annotation.Nullable;
  *             .notificationChannel(StreamProcessorNotificationChannelArgs.builder()
  *                 .snsTopicArn(exampleTopic.arn())
  *                 .build())
+ *             .roleArn(exampleRole.arn())
+ *             .name("example-processor")
  *             .build());
  * 
  *     }
@@ -190,14 +190,14 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.rekognition.StreamProcessor;
  * import com.pulumi.aws.rekognition.StreamProcessorArgs;
  * import com.pulumi.aws.rekognition.inputs.StreamProcessorDataSharingPreferenceArgs;
- * import com.pulumi.aws.rekognition.inputs.StreamProcessorRegionsOfInterestArgs;
- * import com.pulumi.aws.rekognition.inputs.StreamProcessorRegionsOfInterestPolygonArgs;
  * import com.pulumi.aws.rekognition.inputs.StreamProcessorInputArgs;
  * import com.pulumi.aws.rekognition.inputs.StreamProcessorInputKinesisVideoStreamArgs;
  * import com.pulumi.aws.rekognition.inputs.StreamProcessorOutputArgs;
  * import com.pulumi.aws.rekognition.inputs.StreamProcessorOutputKinesisDataStreamArgs;
  * import com.pulumi.aws.rekognition.inputs.StreamProcessorSettingsArgs;
  * import com.pulumi.aws.rekognition.inputs.StreamProcessorSettingsFaceSearchArgs;
+ * import com.pulumi.aws.rekognition.inputs.StreamProcessorRegionsOfInterestArgs;
+ * import com.pulumi.aws.rekognition.inputs.StreamProcessorRegionsOfInterestPolygonArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.ArrayList;
  * import java.util.Arrays;
@@ -225,7 +225,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRole = new Role("exampleRole", RoleArgs.builder()
- *             .name("example-role")
  *             .inlinePolicies(RoleInlinePolicyArgs.builder()
  *                 .name("Rekognition-Access")
  *                 .policy(Output.tuple(example.arn(), exampleStream.arn()).applyValue(values -> {
@@ -252,6 +251,7 @@ import javax.annotation.Nullable;
  *                         ));
  *                 }))
  *                 .build())
+ *             .name("example-role")
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
  *                     jsonProperty("Version", "2012-10-17"),
@@ -270,25 +270,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleStreamProcessor = new StreamProcessor("exampleStreamProcessor", StreamProcessorArgs.builder()
- *             .roleArn(exampleRole.arn())
- *             .name("example-processor")
  *             .dataSharingPreference(StreamProcessorDataSharingPreferenceArgs.builder()
  *                 .optIn(false)
- *                 .build())
- *             .regionsOfInterests(StreamProcessorRegionsOfInterestArgs.builder()
- *                 .polygons(                
- *                     StreamProcessorRegionsOfInterestPolygonArgs.builder()
- *                         .x(0.5)
- *                         .y(0.5)
- *                         .build(),
- *                     StreamProcessorRegionsOfInterestPolygonArgs.builder()
- *                         .x(0.5)
- *                         .y(0.5)
- *                         .build(),
- *                     StreamProcessorRegionsOfInterestPolygonArgs.builder()
- *                         .x(0.5)
- *                         .y(0.5)
- *                         .build())
  *                 .build())
  *             .input(StreamProcessorInputArgs.builder()
  *                 .kinesisVideoStream(StreamProcessorInputKinesisVideoStreamArgs.builder()
@@ -305,6 +288,23 @@ import javax.annotation.Nullable;
  *                     .collectionId(exampleCollection.id())
  *                     .build())
  *                 .build())
+ *             .regionsOfInterests(StreamProcessorRegionsOfInterestArgs.builder()
+ *                 .polygons(                
+ *                     StreamProcessorRegionsOfInterestPolygonArgs.builder()
+ *                         .x(0.5)
+ *                         .y(0.5)
+ *                         .build(),
+ *                     StreamProcessorRegionsOfInterestPolygonArgs.builder()
+ *                         .x(0.5)
+ *                         .y(0.5)
+ *                         .build(),
+ *                     StreamProcessorRegionsOfInterestPolygonArgs.builder()
+ *                         .x(0.5)
+ *                         .y(0.5)
+ *                         .build())
+ *                 .build())
+ *             .roleArn(exampleRole.arn())
+ *             .name("example-processor")
  *             .build());
  * 
  *     }

@@ -74,6 +74,12 @@ namespace Pulumi.Aws.Organizations
     ///         Name = "my_new_account",
     ///         Email = "john@doe.org",
     ///         RoleName = "myOrganizationRole",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
+    ///         {
+    ///             "roleName",
+    ///         },
     ///     });
     /// 
     /// });

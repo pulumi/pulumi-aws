@@ -385,11 +385,11 @@ class ResponsePlan(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssmincidents.ResponsePlan("example",
-            name="name",
             incident_template={
                 "title": "title",
                 "impact": 3,
             },
+            name="name",
             tags={
                 "key": "value",
             },
@@ -403,14 +403,7 @@ class ResponsePlan(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssmincidents.ResponsePlan("example",
-            name="name",
             incident_template={
-                "title": "title",
-                "impact": 3,
-                "dedupe_string": "dedupe",
-                "incident_tags": {
-                    "key": "value",
-                },
                 "notification_targets": [
                     {
                         "sns_topic_arn": example1["arn"],
@@ -419,17 +412,16 @@ class ResponsePlan(pulumi.CustomResource):
                         "sns_topic_arn": example2["arn"],
                     },
                 ],
+                "title": "title",
+                "impact": 3,
+                "dedupe_string": "dedupe",
+                "incident_tags": {
+                    "key": "value",
+                },
                 "summary": "summary",
             },
-            display_name="display name",
-            chat_channels=[topic["arn"]],
-            engagements=["arn:aws:ssm-contacts:us-east-2:111122223333:contact/test1"],
             action={
                 "ssm_automations": [{
-                    "document_name": document1["name"],
-                    "role_arn": role1["arn"],
-                    "document_version": "version1",
-                    "target_account": "RESPONSE_PLAN_OWNER_ACCOUNT",
                     "parameters": [
                         {
                             "name": "key",
@@ -443,6 +435,10 @@ class ResponsePlan(pulumi.CustomResource):
                             "values": ["bar"],
                         },
                     ],
+                    "document_name": document1["name"],
+                    "role_arn": role1["arn"],
+                    "document_version": "version1",
+                    "target_account": "RESPONSE_PLAN_OWNER_ACCOUNT",
                     "dynamic_parameters": {
                         "someKey": "INVOLVED_RESOURCES",
                         "anotherKey": "INCIDENT_RECORD_ARN",
@@ -456,6 +452,10 @@ class ResponsePlan(pulumi.CustomResource):
                     "secret_id": "example",
                 }],
             },
+            name="name",
+            display_name="display name",
+            chat_channels=[topic["arn"]],
+            engagements=["arn:aws:ssm-contacts:us-east-2:111122223333:contact/test1"],
             tags={
                 "key": "value",
             },
@@ -503,11 +503,11 @@ class ResponsePlan(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssmincidents.ResponsePlan("example",
-            name="name",
             incident_template={
                 "title": "title",
                 "impact": 3,
             },
+            name="name",
             tags={
                 "key": "value",
             },
@@ -521,14 +521,7 @@ class ResponsePlan(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssmincidents.ResponsePlan("example",
-            name="name",
             incident_template={
-                "title": "title",
-                "impact": 3,
-                "dedupe_string": "dedupe",
-                "incident_tags": {
-                    "key": "value",
-                },
                 "notification_targets": [
                     {
                         "sns_topic_arn": example1["arn"],
@@ -537,17 +530,16 @@ class ResponsePlan(pulumi.CustomResource):
                         "sns_topic_arn": example2["arn"],
                     },
                 ],
+                "title": "title",
+                "impact": 3,
+                "dedupe_string": "dedupe",
+                "incident_tags": {
+                    "key": "value",
+                },
                 "summary": "summary",
             },
-            display_name="display name",
-            chat_channels=[topic["arn"]],
-            engagements=["arn:aws:ssm-contacts:us-east-2:111122223333:contact/test1"],
             action={
                 "ssm_automations": [{
-                    "document_name": document1["name"],
-                    "role_arn": role1["arn"],
-                    "document_version": "version1",
-                    "target_account": "RESPONSE_PLAN_OWNER_ACCOUNT",
                     "parameters": [
                         {
                             "name": "key",
@@ -561,6 +553,10 @@ class ResponsePlan(pulumi.CustomResource):
                             "values": ["bar"],
                         },
                     ],
+                    "document_name": document1["name"],
+                    "role_arn": role1["arn"],
+                    "document_version": "version1",
+                    "target_account": "RESPONSE_PLAN_OWNER_ACCOUNT",
                     "dynamic_parameters": {
                         "someKey": "INVOLVED_RESOURCES",
                         "anotherKey": "INCIDENT_RECORD_ARN",
@@ -574,6 +570,10 @@ class ResponsePlan(pulumi.CustomResource):
                     "secret_id": "example",
                 }],
             },
+            name="name",
+            display_name="display name",
+            chat_channels=[topic["arn"]],
+            engagements=["arn:aws:ssm-contacts:us-east-2:111122223333:contact/test1"],
             tags={
                 "key": "value",
             },

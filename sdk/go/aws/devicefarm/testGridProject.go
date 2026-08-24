@@ -29,12 +29,12 @@ import (
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // _, err := devicefarm.NewTestGridProject(ctx, "example", &devicefarm.TestGridProjectArgs{
-// Name: pulumi.String("example"),
 // VpcConfig: &devicefarm.TestGridProjectVpcConfigArgs{
 // VpcId: pulumi.Any(exampleAwsVpc.Id),
-// SubnetIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:4,24-46)),
-// SecurityGroupIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:5,24-53)),
+// SubnetIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:3,24-46)),
+// SecurityGroupIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:4,24-53)),
 // },
+// Name: pulumi.String("example"),
 // })
 // if err != nil {
 // return err

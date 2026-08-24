@@ -35,7 +35,6 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var main = new Aws.Ec2.NetworkAcl("main", new()
     ///     {
-    ///         VpcId = mainAwsVpc.Id,
     ///         Egress = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.NetworkAclEgressArgs
@@ -60,6 +59,7 @@ namespace Pulumi.Aws.Ec2
     ///                 ToPort = 80,
     ///             },
     ///         },
+    ///         VpcId = mainAwsVpc.Id,
     ///         Tags = 
     ///         {
     ///             { "Name", "main" },

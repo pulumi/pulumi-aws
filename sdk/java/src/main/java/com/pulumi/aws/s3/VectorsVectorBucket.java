@@ -82,11 +82,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new VectorsVectorBucket("example", VectorsVectorBucketArgs.builder()
- *             .vectorBucketName("example-bucket")
  *             .encryptionConfigurations(VectorsVectorBucketEncryptionConfigurationArgs.builder()
  *                 .sseType("aws:kms")
  *                 .kmsKeyArn(exampleAwsKmsKey.arn())
  *                 .build())
+ *             .vectorBucketName("example-bucket")
  *             .build());
  * 
  *     }

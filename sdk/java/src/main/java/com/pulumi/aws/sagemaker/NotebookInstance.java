@@ -87,10 +87,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CodeRepository("example", CodeRepositoryArgs.builder()
- *             .codeRepositoryName("my-notebook-instance-code-repo")
  *             .gitConfig(CodeRepositoryGitConfigArgs.builder()
  *                 .repositoryUrl("https://github.com/github/docs.git")
  *                 .build())
+ *             .codeRepositoryName("my-notebook-instance-code-repo")
  *             .build());
  * 
  *         var ni = new NotebookInstance("ni", NotebookInstanceArgs.builder()

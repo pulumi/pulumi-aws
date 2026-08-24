@@ -44,21 +44,21 @@ import (
 //				return err
 //			}
 //			_, err = cloudfront.NewFieldLevelEncryptionProfile(ctx, "test", &cloudfront.FieldLevelEncryptionProfileArgs{
-//				Comment: pulumi.String("test comment"),
-//				Name:    pulumi.String("test profile"),
 //				EncryptionEntities: &cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesArgs{
 //					Items: cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesItemArray{
 //						&cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesItemArgs{
-//							PublicKeyId: example.ID().ToIDOutput().ToStringOutput(),
-//							ProviderId:  pulumi.String("test provider"),
 //							FieldPatterns: &cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgs{
 //								Items: pulumi.StringArray{
 //									pulumi.String("DateOfBirth"),
 //								},
 //							},
+//							PublicKeyId: example.ID().ToIDOutput().ToStringOutput(),
+//							ProviderId:  pulumi.String("test provider"),
 //						},
 //					},
 //				},
+//				Comment: pulumi.String("test comment"),
+//				Name:    pulumi.String("test profile"),
 //			})
 //			if err != nil {
 //				return err

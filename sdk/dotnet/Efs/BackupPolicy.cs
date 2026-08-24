@@ -30,11 +30,11 @@ namespace Pulumi.Aws.Efs
     /// 
     ///     var policy = new Aws.Efs.BackupPolicy("policy", new()
     ///     {
-    ///         FileSystemId = fs.Id,
     ///         BackupPolicyDetails = new Aws.Efs.Inputs.BackupPolicyBackupPolicyArgs
     ///         {
     ///             Status = "ENABLED",
     ///         },
+    ///         FileSystemId = fs.Id,
     ///     });
     /// 
     /// });

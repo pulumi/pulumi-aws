@@ -45,7 +45,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var ipset = new IpSet("ipset", IpSetArgs.builder()
- *             .name("tfIPSet")
  *             .ipSetDescriptors(            
  *                 IpSetIpSetDescriptorArgs.builder()
  *                     .type("IPV4")
@@ -55,6 +54,7 @@ import javax.annotation.Nullable;
  *                     .type("IPV4")
  *                     .value("10.16.16.0/16")
  *                     .build())
+ *             .name("tfIPSet")
  *             .build());
  * 
  *     }

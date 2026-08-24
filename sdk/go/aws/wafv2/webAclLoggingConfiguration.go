@@ -33,10 +33,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := wafv2.NewWebAclLoggingConfiguration(ctx, "example", &wafv2.WebAclLoggingConfigurationArgs{
-//				LogDestinationConfigs: pulumi.StringArray{
-//					exampleAwsKinesisFirehoseDeliveryStream.Arn,
-//				},
-//				ResourceArn: pulumi.Any(exampleAwsWafv2WebAcl.Arn),
 //				RedactedFields: wafv2.WebAclLoggingConfigurationRedactedFieldArray{
 //					&wafv2.WebAclLoggingConfigurationRedactedFieldArgs{
 //						SingleHeader: &wafv2.WebAclLoggingConfigurationRedactedFieldSingleHeaderArgs{
@@ -44,6 +40,10 @@ import (
 //						},
 //					},
 //				},
+//				LogDestinationConfigs: pulumi.StringArray{
+//					exampleAwsKinesisFirehoseDeliveryStream.Arn,
+//				},
+//				ResourceArn: pulumi.Any(exampleAwsWafv2WebAcl.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -69,15 +69,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := wafv2.NewWebAclLoggingConfiguration(ctx, "example", &wafv2.WebAclLoggingConfigurationArgs{
-//				LogDestinationConfigs: pulumi.StringArray{
-//					exampleAwsKinesisFirehoseDeliveryStream.Arn,
-//				},
-//				ResourceArn: pulumi.Any(exampleAwsWafv2WebAcl.Arn),
 //				LoggingFilter: &wafv2.WebAclLoggingConfigurationLoggingFilterArgs{
-//					DefaultBehavior: pulumi.String("KEEP"),
 //					Filters: wafv2.WebAclLoggingConfigurationLoggingFilterFilterArray{
 //						&wafv2.WebAclLoggingConfigurationLoggingFilterFilterArgs{
-//							Behavior: pulumi.String("DROP"),
 //							Conditions: wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionArray{
 //								&wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionArgs{
 //									ActionCondition: &wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs{
@@ -90,10 +84,10 @@ import (
 //									},
 //								},
 //							},
+//							Behavior:    pulumi.String("DROP"),
 //							Requirement: pulumi.String("MEETS_ALL"),
 //						},
 //						&wafv2.WebAclLoggingConfigurationLoggingFilterFilterArgs{
-//							Behavior: pulumi.String("KEEP"),
 //							Conditions: wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionArray{
 //								&wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionArgs{
 //									ActionCondition: &wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs{
@@ -101,10 +95,16 @@ import (
 //									},
 //								},
 //							},
+//							Behavior:    pulumi.String("KEEP"),
 //							Requirement: pulumi.String("MEETS_ANY"),
 //						},
 //					},
+//					DefaultBehavior: pulumi.String("KEEP"),
 //				},
+//				LogDestinationConfigs: pulumi.StringArray{
+//					exampleAwsKinesisFirehoseDeliveryStream.Arn,
+//				},
+//				ResourceArn: pulumi.Any(exampleAwsWafv2WebAcl.Arn),
 //			})
 //			if err != nil {
 //				return err

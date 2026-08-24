@@ -225,19 +225,16 @@ class PipelineDefinition(pulumi.CustomResource):
 
         default = aws.datapipeline.Pipeline("default", name="tf-pipeline-default")
         example = aws.datapipeline.PipelineDefinition("example",
-            pipeline_id=default.id,
             pipeline_objects=[
                 {
-                    "id": "Default",
-                    "name": "Default",
                     "fields": [{
                         "key": "workerGroup",
                         "string_value": "workerGroup",
                     }],
+                    "id": "Default",
+                    "name": "Default",
                 },
                 {
-                    "id": "Schedule",
-                    "name": "Schedule",
                     "fields": [
                         {
                             "key": "startDateTime",
@@ -256,10 +253,10 @@ class PipelineDefinition(pulumi.CustomResource):
                             "string_value": "2012-12-21T18:00:00",
                         },
                     ],
+                    "id": "Schedule",
+                    "name": "Schedule",
                 },
                 {
-                    "id": "SayHello",
-                    "name": "SayHello",
                     "fields": [
                         {
                             "key": "type",
@@ -278,8 +275,11 @@ class PipelineDefinition(pulumi.CustomResource):
                             "string_value": "Schedule",
                         },
                     ],
+                    "id": "SayHello",
+                    "name": "SayHello",
                 },
-            ])
+            ],
+            pipeline_id=default.id)
         ```
 
         ## Import
@@ -318,19 +318,16 @@ class PipelineDefinition(pulumi.CustomResource):
 
         default = aws.datapipeline.Pipeline("default", name="tf-pipeline-default")
         example = aws.datapipeline.PipelineDefinition("example",
-            pipeline_id=default.id,
             pipeline_objects=[
                 {
-                    "id": "Default",
-                    "name": "Default",
                     "fields": [{
                         "key": "workerGroup",
                         "string_value": "workerGroup",
                     }],
+                    "id": "Default",
+                    "name": "Default",
                 },
                 {
-                    "id": "Schedule",
-                    "name": "Schedule",
                     "fields": [
                         {
                             "key": "startDateTime",
@@ -349,10 +346,10 @@ class PipelineDefinition(pulumi.CustomResource):
                             "string_value": "2012-12-21T18:00:00",
                         },
                     ],
+                    "id": "Schedule",
+                    "name": "Schedule",
                 },
                 {
-                    "id": "SayHello",
-                    "name": "SayHello",
                     "fields": [
                         {
                             "key": "type",
@@ -371,8 +368,11 @@ class PipelineDefinition(pulumi.CustomResource):
                             "string_value": "Schedule",
                         },
                     ],
+                    "id": "SayHello",
+                    "name": "SayHello",
                 },
-            ])
+            ],
+            pipeline_id=default.id)
         ```
 
         ## Import

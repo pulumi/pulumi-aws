@@ -34,9 +34,8 @@ import (
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // example, err := lambda.NewCapacityProvider(ctx, "example", &lambda.CapacityProviderArgs{
-// Name: pulumi.String("example"),
 // VpcConfig: &lambda.CapacityProviderVpcConfigArgs{
-// SubnetIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:3,24-46)),
+// SubnetIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:2,24-46)),
 // SecurityGroupIds: pulumi.StringArray{
 // exampleAwsSecurityGroup.Id,
 // },
@@ -44,11 +43,17 @@ import (
 // PermissionsConfig: &lambda.CapacityProviderPermissionsConfigArgs{
 // CapacityProviderOperatorRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 // },
+// Name: pulumi.String("example"),
 // })
 // if err != nil {
 // return err
 // }
 // exampleFunction, err := lambda.NewFunction(ctx, "example", &lambda.FunctionArgs{
+// CapacityProviderConfig: &lambda.FunctionCapacityProviderConfigArgs{
+// LambdaManagedInstancesCapacityProviderConfig: &lambda.FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs{
+// CapacityProviderArn: example.Arn,
+// },
+// },
 // Code: pulumi.NewFileArchive("lambda_function.zip"),
 // Name: pulumi.String("example"),
 // Role: pulumi.Any(exampleAwsIamRole.Arn),
@@ -57,22 +62,17 @@ import (
 // MemorySize: pulumi.Int(32768),
 // Publish: pulumi.Bool(true),
 // PublishTo: pulumi.String("LATEST_PUBLISHED"),
-// CapacityProviderConfig: &lambda.FunctionCapacityProviderConfigArgs{
-// LambdaManagedInstancesCapacityProviderConfig: &lambda.FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs{
-// CapacityProviderArn: example.Arn,
-// },
-// },
 // })
 // if err != nil {
 // return err
 // }
 // _, err = lambda.NewFunctionScalingConfig(ctx, "example", &lambda.FunctionScalingConfigArgs{
-// FunctionName: exampleFunction.Name,
-// Qualifier: pulumi.String("$LATEST.PUBLISHED"),
 // FunctionScalingConfig: &lambda.FunctionScalingConfigFunctionScalingConfigArgs{
 // MinExecutionEnvironments: pulumi.Int(3),
 // MaxExecutionEnvironments: pulumi.Int(100),
 // },
+// FunctionName: exampleFunction.Name,
+// Qualifier: pulumi.String("$LATEST.PUBLISHED"),
 // })
 // if err != nil {
 // return err

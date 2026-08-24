@@ -52,9 +52,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var bar = new Pipeline("bar", PipelineArgs.builder()
- *             .inputBucket(inputBucket.id())
- *             .name("aws_elastictranscoder_pipeline_my_test_")
- *             .role(testRole.arn())
  *             .contentConfig(PipelineContentConfigArgs.builder()
  *                 .bucket(contentBucket.id())
  *                 .storageClass("Standard")
@@ -63,6 +60,9 @@ import javax.annotation.Nullable;
  *                 .bucket(thumbBucket.id())
  *                 .storageClass("Standard")
  *                 .build())
+ *             .inputBucket(inputBucket.id())
+ *             .name("aws_elastictranscoder_pipeline_my_test_")
+ *             .role(testRole.arn())
  *             .build());
  * 
  *     }

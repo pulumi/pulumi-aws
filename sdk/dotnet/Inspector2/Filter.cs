@@ -26,8 +26,6 @@ namespace Pulumi.Aws.Inspector2
     /// {
     ///     var example = new Aws.Inspector2.Filter("example", new()
     ///     {
-    ///         Name = "test",
-    ///         Action = "NONE",
     ///         FilterCriterias = new[]
     ///         {
     ///             new Aws.Inspector2.Inputs.FilterFilterCriteriaArgs
@@ -42,6 +40,8 @@ namespace Pulumi.Aws.Inspector2
     ///                 },
     ///             },
     ///         },
+    ///         Name = "test",
+    ///         Action = "NONE",
     ///     });
     /// 
     /// });

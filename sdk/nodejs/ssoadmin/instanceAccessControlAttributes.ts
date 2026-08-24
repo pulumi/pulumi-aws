@@ -18,21 +18,21 @@ import * as utilities from "../utilities";
  *
  * const example = aws.ssoadmin.getInstances({});
  * const exampleInstanceAccessControlAttributes = new aws.ssoadmin.InstanceAccessControlAttributes("example", {
- *     instanceArn: example.then(example => example.arns?.[0]),
  *     attributes: [
  *         {
- *             key: "name",
  *             values: [{
  *                 sources: ["${path:name.givenName}"],
  *             }],
+ *             key: "name",
  *         },
  *         {
- *             key: "last",
  *             values: [{
  *                 sources: ["${path:name.familyName}"],
  *             }],
+ *             key: "last",
  *         },
  *     ],
+ *     instanceArn: example.then(example => example.arns?.[0]),
  * });
  * ```
  *

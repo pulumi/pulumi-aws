@@ -26,15 +26,6 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.Trigger("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Type = "CONDITIONAL",
-    ///         Actions = new[]
-    ///         {
-    ///             new Aws.Glue.Inputs.TriggerActionArgs
-    ///             {
-    ///                 JobName = example1.Name,
-    ///             },
-    ///         },
     ///         Predicate = new Aws.Glue.Inputs.TriggerPredicateArgs
     ///         {
     ///             Conditions = new[]
@@ -46,6 +37,15 @@ namespace Pulumi.Aws.Glue
     ///                 },
     ///             },
     ///         },
+    ///         Actions = new[]
+    ///         {
+    ///             new Aws.Glue.Inputs.TriggerActionArgs
+    ///             {
+    ///                 JobName = example1.Name,
+    ///             },
+    ///         },
+    ///         Name = "example",
+    ///         Type = "CONDITIONAL",
     ///     });
     /// 
     /// });
@@ -63,8 +63,6 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.Trigger("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Type = "ON_DEMAND",
     ///         Actions = new[]
     ///         {
     ///             new Aws.Glue.Inputs.TriggerActionArgs
@@ -72,6 +70,8 @@ namespace Pulumi.Aws.Glue
     ///                 JobName = exampleAwsGlueJob.Name,
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         Type = "ON_DEMAND",
     ///     });
     /// 
     /// });
@@ -89,9 +89,6 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.Trigger("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Schedule = "cron(15 12 * * ? *)",
-    ///         Type = "SCHEDULED",
     ///         Actions = new[]
     ///         {
     ///             new Aws.Glue.Inputs.TriggerActionArgs
@@ -99,6 +96,9 @@ namespace Pulumi.Aws.Glue
     ///                 JobName = exampleAwsGlueJob.Name,
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         Schedule = "cron(15 12 * * ? *)",
+    ///         Type = "SCHEDULED",
     ///     });
     /// 
     /// });
@@ -118,15 +118,6 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.Trigger("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Type = "CONDITIONAL",
-    ///         Actions = new[]
-    ///         {
-    ///             new Aws.Glue.Inputs.TriggerActionArgs
-    ///             {
-    ///                 CrawlerName = example1.Name,
-    ///             },
-    ///         },
     ///         Predicate = new Aws.Glue.Inputs.TriggerPredicateArgs
     ///         {
     ///             Conditions = new[]
@@ -138,6 +129,15 @@ namespace Pulumi.Aws.Glue
     ///                 },
     ///             },
     ///         },
+    ///         Actions = new[]
+    ///         {
+    ///             new Aws.Glue.Inputs.TriggerActionArgs
+    ///             {
+    ///                 CrawlerName = example1.Name,
+    ///             },
+    ///         },
+    ///         Name = "example",
+    ///         Type = "CONDITIONAL",
     ///     });
     /// 
     /// });
@@ -157,15 +157,6 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.Trigger("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Type = "CONDITIONAL",
-    ///         Actions = new[]
-    ///         {
-    ///             new Aws.Glue.Inputs.TriggerActionArgs
-    ///             {
-    ///                 JobName = example1.Name,
-    ///             },
-    ///         },
     ///         Predicate = new Aws.Glue.Inputs.TriggerPredicateArgs
     ///         {
     ///             Conditions = new[]
@@ -177,6 +168,15 @@ namespace Pulumi.Aws.Glue
     ///                 },
     ///             },
     ///         },
+    ///         Actions = new[]
+    ///         {
+    ///             new Aws.Glue.Inputs.TriggerActionArgs
+    ///             {
+    ///                 JobName = example1.Name,
+    ///             },
+    ///         },
+    ///         Name = "example",
+    ///         Type = "CONDITIONAL",
     ///     });
     /// 
     /// });

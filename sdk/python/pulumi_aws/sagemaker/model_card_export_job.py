@@ -266,11 +266,11 @@ class ModelCardExportJob(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.ModelCardExportJob("example",
-            model_card_export_job_name="my-model-card-export-job",
-            model_card_name=example_aws_sagemaker_model_card["modelCardName"],
             output_config={
                 "s3_output_path": f"s3://{test['example']}/",
-            })
+            },
+            model_card_export_job_name="my-model-card-export-job",
+            model_card_name=example_aws_sagemaker_model_card["modelCardName"])
         ```
 
         ## Import
@@ -307,11 +307,11 @@ class ModelCardExportJob(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.ModelCardExportJob("example",
-            model_card_export_job_name="my-model-card-export-job",
-            model_card_name=example_aws_sagemaker_model_card["modelCardName"],
             output_config={
                 "s3_output_path": f"s3://{test['example']}/",
-            })
+            },
+            model_card_export_job_name="my-model-card-export-job",
+            model_card_name=example_aws_sagemaker_model_card["modelCardName"])
         ```
 
         ## Import

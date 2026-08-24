@@ -24,20 +24,19 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// {
     ///     var example = new Aws.GlobalAccelerator.CustomRoutingAccelerator("example", new()
     ///     {
-    ///         Name = "Example",
-    ///         IpAddressType = "IPV4",
-    ///         Enabled = true,
     ///         Attributes = new Aws.GlobalAccelerator.Inputs.CustomRoutingAcceleratorAttributesArgs
     ///         {
     ///             FlowLogsEnabled = true,
     ///             FlowLogsS3Bucket = "example-bucket",
     ///             FlowLogsS3Prefix = "flow-logs/",
     ///         },
+    ///         Name = "Example",
+    ///         IpAddressType = "IPV4",
+    ///         Enabled = true,
     ///     });
     /// 
     ///     var exampleCustomRoutingListener = new Aws.GlobalAccelerator.CustomRoutingListener("example", new()
     ///     {
-    ///         AcceleratorArn = example.Arn,
     ///         PortRanges = new[]
     ///         {
     ///             new Aws.GlobalAccelerator.Inputs.CustomRoutingListenerPortRangeArgs
@@ -46,6 +45,7 @@ namespace Pulumi.Aws.GlobalAccelerator
     ///                 ToPort = 80,
     ///             },
     ///         },
+    ///         AcceleratorArn = example.Arn,
     ///     });
     /// 
     /// });

@@ -21,11 +21,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.networkfirewall.VpcEndpointAssociation("example", {
- *     firewallArn: exampleAwsNetworkfirewallFirewall.arn,
- *     vpcId: exampleAwsVpc.id,
  *     subnetMapping: {
  *         subnetId: exampleAwsSubnet.id,
  *     },
+ *     firewallArn: exampleAwsNetworkfirewallFirewall.arn,
+ *     vpcId: exampleAwsVpc.id,
  *     tags: {
  *         Name: "example endpoint",
  *     },

@@ -49,11 +49,11 @@ import * as utilities from "../utilities";
  * });
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["firehose.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
@@ -62,32 +62,31 @@ import * as utilities from "../utilities";
  *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
  * });
  * const testStream = new aws.kinesis.FirehoseDeliveryStream("test_stream", {
- *     name: "kinesis-firehose-msk-broker-logs-stream",
- *     destination: "extended_s3",
  *     extendedS3Configuration: {
  *         roleArn: firehoseRole.arn,
  *         bucketArn: bucket.arn,
  *     },
+ *     name: "kinesis-firehose-msk-broker-logs-stream",
+ *     destination: "extended_s3",
  *     tags: {
  *         LogDeliveryEnabled: "placeholder",
  *     },
+ * }, {
+ *     ignoreChanges: ["tags[\"LogDeliveryEnabled\"]"],
  * });
  * const example = new aws.msk.Cluster("example", {
- *     clusterName: "example",
- *     kafkaVersion: "3.8.x",
- *     numberOfBrokerNodes: 3,
  *     brokerNodeGroupInfo: {
+ *         storageInfo: {
+ *             ebsStorageInfo: {
+ *                 volumeSize: 1000,
+ *             },
+ *         },
  *         instanceType: "kafka.m5.large",
  *         clientSubnets: [
  *             subnetAz1.id,
  *             subnetAz2.id,
  *             subnetAz3.id,
  *         ],
- *         storageInfo: {
- *             ebsStorageInfo: {
- *                 volumeSize: 1000,
- *             },
- *         },
  *         securityGroups: [sg.id],
  *     },
  *     encryptionInfo: {
@@ -120,6 +119,9 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     },
+ *     clusterName: "example",
+ *     kafkaVersion: "3.8.x",
+ *     numberOfBrokerNodes: 3,
  *     tags: {
  *         foo: "bar",
  *     },
@@ -135,16 +137,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.msk.Cluster("example", {
- *     clusterName: "example",
- *     kafkaVersion: "3.8.x",
- *     numberOfBrokerNodes: 3,
  *     brokerNodeGroupInfo: {
- *         instanceType: "kafka.m5.4xlarge",
- *         clientSubnets: [
- *             subnetAz1.id,
- *             subnetAz2.id,
- *             subnetAz3.id,
- *         ],
  *         storageInfo: {
  *             ebsStorageInfo: {
  *                 provisionedThroughput: {
@@ -154,8 +147,17 @@ import * as utilities from "../utilities";
  *                 volumeSize: 1000,
  *             },
  *         },
+ *         instanceType: "kafka.m5.4xlarge",
+ *         clientSubnets: [
+ *             subnetAz1.id,
+ *             subnetAz2.id,
+ *             subnetAz3.id,
+ *         ],
  *         securityGroups: [sg.id],
  *     },
+ *     clusterName: "example",
+ *     kafkaVersion: "3.8.x",
+ *     numberOfBrokerNodes: 3,
  * });
  * ```
  *

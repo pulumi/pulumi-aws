@@ -33,14 +33,6 @@ import * as utilities from "../utilities";
  *     trafficDirection: "egress",
  * });
  * const rulein = new aws.ec2.TrafficMirrorFilterRule("rulein", {
- *     description: "test rule",
- *     trafficMirrorFilterId: filter.id,
- *     destinationCidrBlock: "10.0.0.0/8",
- *     sourceCidrBlock: "10.0.0.0/8",
- *     ruleNumber: 1,
- *     ruleAction: "accept",
- *     trafficDirection: "ingress",
- *     protocol: 6,
  *     destinationPortRange: {
  *         fromPort: 22,
  *         toPort: 53,
@@ -49,6 +41,14 @@ import * as utilities from "../utilities";
  *         fromPort: 0,
  *         toPort: 10,
  *     },
+ *     description: "test rule",
+ *     trafficMirrorFilterId: filter.id,
+ *     destinationCidrBlock: "10.0.0.0/8",
+ *     sourceCidrBlock: "10.0.0.0/8",
+ *     ruleNumber: 1,
+ *     ruleAction: "accept",
+ *     trafficDirection: "ingress",
+ *     protocol: 6,
  * });
  * ```
  *

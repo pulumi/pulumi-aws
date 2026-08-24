@@ -163,6 +163,11 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// ...
 //			_, err := sfn.NewStateMachine(ctx, "sfn_state_machine", &sfn.StateMachineArgs{
+//				LoggingConfiguration: &sfn.StateMachineLoggingConfigurationArgs{
+//					LogDestination:       pulumi.Sprintf("%v:*", logGroupForSfn.Arn),
+//					IncludeExecutionData: pulumi.Bool(true),
+//					Level:                pulumi.String("ERROR"),
+//				},
 //				Name:    pulumi.String("my-state-machine"),
 //				RoleArn: pulumi.Any(iamForSfn.Arn),
 //				Definition: pulumi.Sprintf(`{
@@ -179,11 +184,6 @@ import (
 //
 // `, lambda.Arn),
 //
-//				LoggingConfiguration: &sfn.StateMachineLoggingConfigurationArgs{
-//					LogDestination:       pulumi.Sprintf("%v:*", logGroupForSfn.Arn),
-//					IncludeExecutionData: pulumi.Bool(true),
-//					Level:                pulumi.String("ERROR"),
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -212,6 +212,11 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// ...
 //			_, err := sfn.NewStateMachine(ctx, "sfn_state_machine", &sfn.StateMachineArgs{
+//				EncryptionConfiguration: &sfn.StateMachineEncryptionConfigurationArgs{
+//					KmsKeyId:                     pulumi.Any(kmsKeyForSfn.Arn),
+//					Type:                         pulumi.String("CUSTOMER_MANAGED_KMS_KEY"),
+//					KmsDataKeyReusePeriodSeconds: pulumi.Int(900),
+//				},
 //				Name:    pulumi.String("my-state-machine"),
 //				RoleArn: pulumi.Any(iamForSfn.Arn),
 //				Definition: pulumi.Sprintf(`{
@@ -228,11 +233,6 @@ import (
 //
 // `, lambda.Arn),
 //
-//				EncryptionConfiguration: &sfn.StateMachineEncryptionConfigurationArgs{
-//					KmsKeyId:                     pulumi.Any(kmsKeyForSfn.Arn),
-//					Type:                         pulumi.String("CUSTOMER_MANAGED_KMS_KEY"),
-//					KmsDataKeyReusePeriodSeconds: pulumi.Int(900),
-//				},
 //			})
 //			if err != nil {
 //				return err

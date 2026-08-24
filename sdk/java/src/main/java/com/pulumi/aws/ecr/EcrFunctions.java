@@ -612,14 +612,14 @@ public final class EcrFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = EcrFunctions.getLifecyclePolicyDocument(GetLifecyclePolicyDocumentArgs.builder()
      *             .rules(GetLifecyclePolicyDocumentRuleArgs.builder()
-     *                 .priority(1)
-     *                 .description("This is a test.")
      *                 .selection(GetLifecyclePolicyDocumentRuleSelectionArgs.builder()
      *                     .tagStatus("tagged")
      *                     .tagPrefixLists("prod")
      *                     .countType("imageCountMoreThan")
      *                     .countNumber(100)
      *                     .build())
+     *                 .priority(1)
+     *                 .description("This is a test.")
      *                 .build())
      *             .build());
      * 
@@ -672,14 +672,14 @@ public final class EcrFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = EcrFunctions.getLifecyclePolicyDocument(GetLifecyclePolicyDocumentArgs.builder()
      *             .rules(GetLifecyclePolicyDocumentRuleArgs.builder()
-     *                 .priority(1)
-     *                 .description("This is a test.")
      *                 .selection(GetLifecyclePolicyDocumentRuleSelectionArgs.builder()
      *                     .tagStatus("tagged")
      *                     .tagPrefixLists("prod")
      *                     .countType("imageCountMoreThan")
      *                     .countNumber(100)
      *                     .build())
+     *                 .priority(1)
+     *                 .description("This is a test.")
      *                 .build())
      *             .build());
      * 
@@ -732,14 +732,14 @@ public final class EcrFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = EcrFunctions.getLifecyclePolicyDocument(GetLifecyclePolicyDocumentArgs.builder()
      *             .rules(GetLifecyclePolicyDocumentRuleArgs.builder()
-     *                 .priority(1)
-     *                 .description("This is a test.")
      *                 .selection(GetLifecyclePolicyDocumentRuleSelectionArgs.builder()
      *                     .tagStatus("tagged")
      *                     .tagPrefixLists("prod")
      *                     .countType("imageCountMoreThan")
      *                     .countNumber(100)
      *                     .build())
+     *                 .priority(1)
+     *                 .description("This is a test.")
      *                 .build())
      *             .build());
      * 
@@ -792,14 +792,14 @@ public final class EcrFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = EcrFunctions.getLifecyclePolicyDocument(GetLifecyclePolicyDocumentArgs.builder()
      *             .rules(GetLifecyclePolicyDocumentRuleArgs.builder()
-     *                 .priority(1)
-     *                 .description("This is a test.")
      *                 .selection(GetLifecyclePolicyDocumentRuleSelectionArgs.builder()
      *                     .tagStatus("tagged")
      *                     .tagPrefixLists("prod")
      *                     .countType("imageCountMoreThan")
      *                     .countNumber(100)
      *                     .build())
+     *                 .priority(1)
+     *                 .description("This is a test.")
      *                 .build())
      *             .build());
      * 
@@ -852,14 +852,14 @@ public final class EcrFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = EcrFunctions.getLifecyclePolicyDocument(GetLifecyclePolicyDocumentArgs.builder()
      *             .rules(GetLifecyclePolicyDocumentRuleArgs.builder()
-     *                 .priority(1)
-     *                 .description("This is a test.")
      *                 .selection(GetLifecyclePolicyDocumentRuleSelectionArgs.builder()
      *                     .tagStatus("tagged")
      *                     .tagPrefixLists("prod")
      *                     .countType("imageCountMoreThan")
      *                     .countNumber(100)
      *                     .build())
+     *                 .priority(1)
+     *                 .description("This is a test.")
      *                 .build())
      *             .build());
      * 

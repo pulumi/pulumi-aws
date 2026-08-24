@@ -61,6 +61,17 @@ import (
 //				return err
 //			}
 //			_, err = glue.NewJob(ctx, "etl_job", &glue.JobArgs{
+//				Command: &glue.JobCommandArgs{
+//					ScriptLocation: pulumi.Sprintf("s3://%v/jobs/etl_job.py", glueScripts.Bucket),
+//					Name:           pulumi.String("glueetl"),
+//					PythonVersion:  pulumi.String("3"),
+//				},
+//				NotificationProperty: &glue.JobNotificationPropertyArgs{
+//					NotifyDelayAfter: pulumi.Int(3),
+//				},
+//				ExecutionProperty: &glue.JobExecutionPropertyArgs{
+//					MaxConcurrentRuns: pulumi.Int(1),
+//				},
 //				Name:            pulumi.String("example-etl-job"),
 //				Description:     pulumi.String("An example Glue ETL job"),
 //				RoleArn:         glueJobRole.Arn,
@@ -73,14 +84,6 @@ import (
 //					example.Name,
 //				},
 //				ExecutionClass: pulumi.String("STANDARD"),
-//				Command: &glue.JobCommandArgs{
-//					ScriptLocation: pulumi.Sprintf("s3://%v/jobs/etl_job.py", glueScripts.Bucket),
-//					Name:           pulumi.String("glueetl"),
-//					PythonVersion:  pulumi.String("3"),
-//				},
-//				NotificationProperty: &glue.JobNotificationPropertyArgs{
-//					NotifyDelayAfter: pulumi.Int(3),
-//				},
 //				DefaultArguments: pulumi.StringMap{
 //					"--job-language":                     pulumi.String("python"),
 //					"--continuous-log-logGroup":          pulumi.String("/aws-glue/jobs"),
@@ -88,9 +91,6 @@ import (
 //					"--enable-continuous-log-filter":     pulumi.String("true"),
 //					"--enable-metrics":                   pulumi.String(""),
 //					"--enable-auto-scaling":              pulumi.String("true"),
-//				},
-//				ExecutionProperty: &glue.JobExecutionPropertyArgs{
-//					MaxConcurrentRuns: pulumi.Int(1),
 //				},
 //				Tags: pulumi.StringMap{
 //					"ManagedBy": pulumi.String("AWS"),
@@ -156,6 +156,14 @@ import (
 //				return err
 //			}
 //			_, err = glue.NewJob(ctx, "python_shell_job", &glue.JobArgs{
+//				Command: &glue.JobCommandArgs{
+//					ScriptLocation: pulumi.Sprintf("s3://%v/jobs/shell_job.py", glueScripts.Bucket),
+//					Name:           pulumi.String("pythonshell"),
+//					PythonVersion:  pulumi.String("3.9"),
+//				},
+//				ExecutionProperty: &glue.JobExecutionPropertyArgs{
+//					MaxConcurrentRuns: pulumi.Int(1),
+//				},
 //				Name:        pulumi.String("example-python-shell-job"),
 //				Description: pulumi.String("An example Python shell job"),
 //				RoleArn:     glueJobRole.Arn,
@@ -165,19 +173,11 @@ import (
 //				Connections: pulumi.StringArray{
 //					example.Name,
 //				},
-//				Command: &glue.JobCommandArgs{
-//					ScriptLocation: pulumi.Sprintf("s3://%v/jobs/shell_job.py", glueScripts.Bucket),
-//					Name:           pulumi.String("pythonshell"),
-//					PythonVersion:  pulumi.String("3.9"),
-//				},
 //				DefaultArguments: pulumi.StringMap{
 //					"--job-language":                     pulumi.String("python"),
 //					"--continuous-log-logGroup":          pulumi.String("/aws-glue/jobs"),
 //					"--enable-continuous-cloudwatch-log": pulumi.String("true"),
 //					"library-set":                        pulumi.String("analytics"),
-//				},
-//				ExecutionProperty: &glue.JobExecutionPropertyArgs{
-//					MaxConcurrentRuns: pulumi.Int(1),
 //				},
 //				Tags: pulumi.StringMap{
 //					"ManagedBy": pulumi.String("AWS"),
@@ -215,16 +215,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewJob(ctx, "example", &glue.JobArgs{
-//				Name:        pulumi.String("example"),
-//				RoleArn:     pulumi.Any(exampleAwsIamRole.Arn),
-//				GlueVersion: pulumi.String("4.0"),
-//				WorkerType:  pulumi.String("Z.2X"),
 //				Command: &glue.JobCommandArgs{
 //					Name:           pulumi.String("glueray"),
 //					PythonVersion:  pulumi.String("3.9"),
 //					Runtime:        pulumi.String("Ray2.4"),
 //					ScriptLocation: pulumi.Sprintf("s3://%v/example.py", exampleAwsS3Bucket.Bucket),
 //				},
+//				Name:        pulumi.String("example"),
+//				RoleArn:     pulumi.Any(exampleAwsIamRole.Arn),
+//				GlueVersion: pulumi.String("4.0"),
+//				WorkerType:  pulumi.String("Z.2X"),
 //			})
 //			if err != nil {
 //				return err
@@ -250,11 +250,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewJob(ctx, "example", &glue.JobArgs{
-//				Name:    pulumi.String("example"),
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				Command: &glue.JobCommandArgs{
 //					ScriptLocation: pulumi.Sprintf("s3://%v/example.scala", exampleAwsS3Bucket.Bucket),
 //				},
+//				Name:    pulumi.String("example"),
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				DefaultArguments: pulumi.StringMap{
 //					"--job-language": pulumi.String("scala"),
 //				},
@@ -283,12 +283,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewJob(ctx, "example", &glue.JobArgs{
-//				Name:    pulumi.String("example streaming job"),
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				Command: &glue.JobCommandArgs{
 //					Name:           pulumi.String("gluestreaming"),
 //					ScriptLocation: pulumi.Sprintf("s3://%v/example.script", exampleAwsS3Bucket.Bucket),
 //				},
+//				Name:    pulumi.String("example streaming job"),
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err

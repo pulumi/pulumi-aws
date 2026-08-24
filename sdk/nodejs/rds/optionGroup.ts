@@ -22,29 +22,29 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.rds.OptionGroup("example", {
- *     name: "option-group-test",
- *     optionGroupDescription: "Option Group",
- *     engineName: "sqlserver-ee",
- *     majorEngineVersion: "11.00",
  *     options: [
  *         {
- *             optionName: "Timezone",
  *             optionSettings: [{
  *                 name: "TIME_ZONE",
  *                 value: "UTC",
  *             }],
+ *             optionName: "Timezone",
  *         },
  *         {
- *             optionName: "SQLSERVER_BACKUP_RESTORE",
  *             optionSettings: [{
  *                 name: "IAM_ROLE_ARN",
  *                 value: exampleAwsIamRole.arn,
  *             }],
+ *             optionName: "SQLSERVER_BACKUP_RESTORE",
  *         },
  *         {
  *             optionName: "TDE",
  *         },
  *     ],
+ *     name: "option-group-test",
+ *     optionGroupDescription: "Option Group",
+ *     engineName: "sqlserver-ee",
+ *     majorEngineVersion: "11.00",
  * });
  * ```
  *

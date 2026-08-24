@@ -67,10 +67,6 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     ///     var eksRuntimeMonitoring = new Aws.GuardDuty.DetectorFeature("eks_runtime_monitoring", new()
     ///     {
-    ///         DetectorId = example.Id,
-    ///         AccountId = "123456789012",
-    ///         Name = "EKS_RUNTIME_MONITORING",
-    ///         Status = "ENABLED",
     ///         AdditionalConfigurations = new[]
     ///         {
     ///             new Aws.GuardDuty.Inputs.DetectorFeatureAdditionalConfigurationArgs
@@ -79,6 +75,10 @@ namespace Pulumi.Aws.GuardDuty
     ///                 Status = "ENABLED",
     ///             },
     ///         },
+    ///         DetectorId = example.Id,
+    ///         AccountId = "123456789012",
+    ///         Name = "EKS_RUNTIME_MONITORING",
+    ///         Status = "ENABLED",
     ///     });
     /// 
     /// });

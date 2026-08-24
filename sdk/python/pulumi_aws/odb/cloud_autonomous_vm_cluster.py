@@ -1252,6 +1252,9 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         avmc_with_minimum_parameters = aws.odb.CloudAutonomousVmCluster("avmc_with_minimum_parameters",
+            maintenance_window={
+                "preference": "NO_PREFERENCE",
+            },
             cloud_exadata_infrastructure_id="<aws_odb_cloud_exadata_infrastructure_id>",
             odb_network_id="<aws_odb_network_id>",
             display_name="my_autonomous_vm_cluster",
@@ -1262,27 +1265,8 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
             license_model="LICENSE_INCLUDED",
             db_servers=["<my_db_server_id>"],
             scan_listener_port_tls=8561,
-            scan_listener_port_non_tls=1024,
-            maintenance_window={
-                "preference": "NO_PREFERENCE",
-            })
+            scan_listener_port_non_tls=1024)
         avmc_with_all_params = aws.odb.CloudAutonomousVmCluster("avmc_with_all_params",
-            description="my first avmc",
-            time_zone="UTC",
-            cloud_exadata_infrastructure_id="<aws_odb_cloud_exadata_infrastructure_id>",
-            odb_network_id="<aws_odb_network_id>",
-            display_name="my_autonomous_vm_cluster",
-            autonomous_data_storage_size_in_tbs=float(5),
-            memory_per_oracle_compute_unit_in_gbs=2,
-            total_container_databases=1,
-            cpu_core_count_per_node=40,
-            license_model="LICENSE_INCLUDED",
-            db_servers=[
-                "<my_db_server_1>",
-                "<my_db_server_2>",
-            ],
-            scan_listener_port_tls=8561,
-            scan_listener_port_non_tls=1024,
             maintenance_window={
                 "days_of_weeks": [
                     {
@@ -1317,6 +1301,22 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
                     4,
                 ],
             },
+            description="my first avmc",
+            time_zone="UTC",
+            cloud_exadata_infrastructure_id="<aws_odb_cloud_exadata_infrastructure_id>",
+            odb_network_id="<aws_odb_network_id>",
+            display_name="my_autonomous_vm_cluster",
+            autonomous_data_storage_size_in_tbs=float(5),
+            memory_per_oracle_compute_unit_in_gbs=2,
+            total_container_databases=1,
+            cpu_core_count_per_node=40,
+            license_model="LICENSE_INCLUDED",
+            db_servers=[
+                "<my_db_server_1>",
+                "<my_db_server_2>",
+            ],
+            scan_listener_port_tls=8561,
+            scan_listener_port_non_tls=1024,
             tags={
                 "env": "dev",
             })
@@ -1375,6 +1375,9 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         avmc_with_minimum_parameters = aws.odb.CloudAutonomousVmCluster("avmc_with_minimum_parameters",
+            maintenance_window={
+                "preference": "NO_PREFERENCE",
+            },
             cloud_exadata_infrastructure_id="<aws_odb_cloud_exadata_infrastructure_id>",
             odb_network_id="<aws_odb_network_id>",
             display_name="my_autonomous_vm_cluster",
@@ -1385,27 +1388,8 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
             license_model="LICENSE_INCLUDED",
             db_servers=["<my_db_server_id>"],
             scan_listener_port_tls=8561,
-            scan_listener_port_non_tls=1024,
-            maintenance_window={
-                "preference": "NO_PREFERENCE",
-            })
+            scan_listener_port_non_tls=1024)
         avmc_with_all_params = aws.odb.CloudAutonomousVmCluster("avmc_with_all_params",
-            description="my first avmc",
-            time_zone="UTC",
-            cloud_exadata_infrastructure_id="<aws_odb_cloud_exadata_infrastructure_id>",
-            odb_network_id="<aws_odb_network_id>",
-            display_name="my_autonomous_vm_cluster",
-            autonomous_data_storage_size_in_tbs=float(5),
-            memory_per_oracle_compute_unit_in_gbs=2,
-            total_container_databases=1,
-            cpu_core_count_per_node=40,
-            license_model="LICENSE_INCLUDED",
-            db_servers=[
-                "<my_db_server_1>",
-                "<my_db_server_2>",
-            ],
-            scan_listener_port_tls=8561,
-            scan_listener_port_non_tls=1024,
             maintenance_window={
                 "days_of_weeks": [
                     {
@@ -1440,6 +1424,22 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
                     4,
                 ],
             },
+            description="my first avmc",
+            time_zone="UTC",
+            cloud_exadata_infrastructure_id="<aws_odb_cloud_exadata_infrastructure_id>",
+            odb_network_id="<aws_odb_network_id>",
+            display_name="my_autonomous_vm_cluster",
+            autonomous_data_storage_size_in_tbs=float(5),
+            memory_per_oracle_compute_unit_in_gbs=2,
+            total_container_databases=1,
+            cpu_core_count_per_node=40,
+            license_model="LICENSE_INCLUDED",
+            db_servers=[
+                "<my_db_server_1>",
+                "<my_db_server_2>",
+            ],
+            scan_listener_port_tls=8561,
+            scan_listener_port_non_tls=1024,
             tags={
                 "env": "dev",
             })

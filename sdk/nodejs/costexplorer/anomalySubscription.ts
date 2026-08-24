@@ -24,13 +24,6 @@ import * as utilities from "../utilities";
  *     monitorDimension: "SERVICE",
  * });
  * const testAnomalySubscription = new aws.costexplorer.AnomalySubscription("test", {
- *     name: "DAILYSUBSCRIPTION",
- *     frequency: "DAILY",
- *     monitorArnLists: [test.arn],
- *     subscribers: [{
- *         type: "EMAIL",
- *         address: "abc@example.com",
- *     }],
  *     thresholdExpression: {
  *         dimension: {
  *             key: "ANOMALY_TOTAL_IMPACT_ABSOLUTE",
@@ -38,6 +31,13 @@ import * as utilities from "../utilities";
  *             values: ["100"],
  *         },
  *     },
+ *     subscribers: [{
+ *         type: "EMAIL",
+ *         address: "abc@example.com",
+ *     }],
+ *     name: "DAILYSUBSCRIPTION",
+ *     frequency: "DAILY",
+ *     monitorArnLists: [test.arn],
  * });
  * ```
  *
@@ -50,13 +50,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.costexplorer.AnomalySubscription("test", {
- *     name: "AWSServiceMonitor",
- *     frequency: "DAILY",
- *     monitorArnLists: [testAwsCeAnomalyMonitor.arn],
- *     subscribers: [{
- *         type: "EMAIL",
- *         address: "abc@example.com",
- *     }],
  *     thresholdExpression: {
  *         dimension: {
  *             key: "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
@@ -64,6 +57,13 @@ import * as utilities from "../utilities";
  *             values: ["100"],
  *         },
  *     },
+ *     subscribers: [{
+ *         type: "EMAIL",
+ *         address: "abc@example.com",
+ *     }],
+ *     name: "AWSServiceMonitor",
+ *     frequency: "DAILY",
+ *     monitorArnLists: [testAwsCeAnomalyMonitor.arn],
  * });
  * ```
  *
@@ -74,13 +74,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.costexplorer.AnomalySubscription("test", {
- *     name: "AWSServiceMonitor",
- *     frequency: "DAILY",
- *     monitorArnLists: [testAwsCeAnomalyMonitor.arn],
- *     subscribers: [{
- *         type: "EMAIL",
- *         address: "abc@example.com",
- *     }],
  *     thresholdExpression: {
  *         ands: [
  *             {
@@ -99,6 +92,13 @@ import * as utilities from "../utilities";
  *             },
  *         ],
  *     },
+ *     subscribers: [{
+ *         type: "EMAIL",
+ *         address: "abc@example.com",
+ *     }],
+ *     name: "AWSServiceMonitor",
+ *     frequency: "DAILY",
+ *     monitorArnLists: [testAwsCeAnomalyMonitor.arn],
  * });
  * ```
  *
@@ -110,19 +110,27 @@ import * as utilities from "../utilities";
  *
  * const costAnomalyUpdates = new aws.sns.Topic("cost_anomaly_updates", {name: "CostAnomalyUpdates"});
  * const snsTopicPolicy = aws.iam.getPolicyDocumentOutput({
- *     policyId: "__default_policy_ID",
  *     statements: [
  *         {
- *             sid: "AWSAnomalyDetectionSNSPublishingPermissions",
- *             actions: ["SNS:Publish"],
- *             effect: "Allow",
  *             principals: [{
  *                 type: "Service",
  *                 identifiers: ["costalerts.amazonaws.com"],
  *             }],
+ *             sid: "AWSAnomalyDetectionSNSPublishingPermissions",
+ *             actions: ["SNS:Publish"],
+ *             effect: "Allow",
  *             resources: [costAnomalyUpdates.arn],
  *         },
  *         {
+ *             conditions: [{
+ *                 test: "StringEquals",
+ *                 variable: "AWS:SourceOwner",
+ *                 values: [accountId],
+ *             }],
+ *             principals: [{
+ *                 type: "AWS",
+ *                 identifiers: ["*"],
+ *             }],
  *             sid: "__default_statement_ID",
  *             actions: [
  *                 "SNS:Subscribe",
@@ -135,19 +143,11 @@ import * as utilities from "../utilities";
  *                 "SNS:DeleteTopic",
  *                 "SNS:AddPermission",
  *             ],
- *             conditions: [{
- *                 test: "StringEquals",
- *                 variable: "AWS:SourceOwner",
- *                 values: [accountId],
- *             }],
  *             effect: "Allow",
- *             principals: [{
- *                 type: "AWS",
- *                 identifiers: ["*"],
- *             }],
  *             resources: [costAnomalyUpdates.arn],
  *         },
  *     ],
+ *     policyId: "__default_policy_ID",
  * });
  * const _default = new aws.sns.TopicPolicy("default", {
  *     arn: costAnomalyUpdates.arn,
@@ -159,13 +159,13 @@ import * as utilities from "../utilities";
  *     monitorDimension: "SERVICE",
  * });
  * const realtimeSubscription = new aws.costexplorer.AnomalySubscription("realtime_subscription", {
- *     name: "RealtimeAnomalySubscription",
- *     frequency: "IMMEDIATE",
- *     monitorArnLists: [anomalyMonitor.arn],
  *     subscribers: [{
  *         type: "SNS",
  *         address: costAnomalyUpdates.arn,
  *     }],
+ *     name: "RealtimeAnomalySubscription",
+ *     frequency: "IMMEDIATE",
+ *     monitorArnLists: [anomalyMonitor.arn],
  * }, {
  *     dependsOn: [_default],
  * });

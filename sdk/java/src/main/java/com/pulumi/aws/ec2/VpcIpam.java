@@ -55,10 +55,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var main = new VpcIpam("main", VpcIpamArgs.builder()
- *             .description("My IPAM")
  *             .operatingRegions(VpcIpamOperatingRegionArgs.builder()
  *                 .regionName(current.region())
  *                 .build())
+ *             .description("My IPAM")
  *             .tags(Map.of("Test", "Main"))
  *             .build());
  * 

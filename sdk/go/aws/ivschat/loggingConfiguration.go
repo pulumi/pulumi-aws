@@ -76,7 +76,6 @@ import (
 //			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -85,6 +84,7 @@ import (
 //								},
 //							},
 //						},
+//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"sts:AssumeRole",
 //						},
@@ -102,12 +102,12 @@ import (
 //				return err
 //			}
 //			example, err := kinesis.NewFirehoseDeliveryStream(ctx, "example", &kinesis.FirehoseDeliveryStreamArgs{
-//				Name:        pulumi.String("pulumi-kinesis-firehose-extended-s3-example-stream"),
-//				Destination: pulumi.String("extended_s3"),
 //				ExtendedS3Configuration: &kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs{
 //					RoleArn:   exampleRole.Arn,
 //					BucketArn: exampleBucket.Arn,
 //				},
+//				Name:        pulumi.String("pulumi-kinesis-firehose-extended-s3-example-stream"),
+//				Destination: pulumi.String("extended_s3"),
 //				Tags: pulumi.StringMap{
 //					"LogDeliveryEnabled": pulumi.String("true"),
 //				},

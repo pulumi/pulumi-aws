@@ -33,10 +33,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.FunctionUrl("example", {
- *     functionName: exampleAwsLambdaFunction.functionName,
- *     qualifier: "my_alias",
- *     authorizationType: "AWS_IAM",
- *     invokeMode: "RESPONSE_STREAM",
  *     cors: {
  *         allowCredentials: true,
  *         allowOrigins: ["https://example.com"],
@@ -54,6 +50,10 @@ import * as utilities from "../utilities";
  *         ],
  *         maxAge: 86400,
  *     },
+ *     functionName: exampleAwsLambdaFunction.functionName,
+ *     qualifier: "my_alias",
+ *     authorizationType: "AWS_IAM",
+ *     invokeMode: "RESPONSE_STREAM",
  * });
  * ```
  *

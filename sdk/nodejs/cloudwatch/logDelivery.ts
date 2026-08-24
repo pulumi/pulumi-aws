@@ -43,11 +43,11 @@ import * as utilities from "../utilities";
  *     resourceArn: exampleAwsCloudfrontDistribution.arn,
  * });
  * const exampleLogDeliveryDestination = new aws.cloudwatch.LogDeliveryDestination("example", {
- *     name: "cloudfront-access-logs",
- *     outputFormat: "json",
  *     deliveryDestinationConfiguration: {
  *         destinationResourceArn: exampleAwsCloudwatchLogGroup.arn,
  *     },
+ *     name: "cloudfront-access-logs",
+ *     outputFormat: "json",
  * });
  * const exampleLogDelivery = new aws.cloudwatch.LogDelivery("example", {
  *     deliverySourceName: example.name,

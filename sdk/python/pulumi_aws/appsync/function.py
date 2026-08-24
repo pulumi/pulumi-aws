@@ -500,12 +500,12 @@ class Function(pulumi.CustomResource):
         }
         \"\"\")
         example_data_source = aws.appsync.DataSource("example",
-            api_id=example.id,
-            name="example",
-            type="HTTP",
             http_config={
                 "endpoint": "http://example.com",
-            })
+            },
+            api_id=example.id,
+            name="example",
+            type="HTTP")
         example_function = aws.appsync.Function("example",
             api_id=example.id,
             data_source=example_data_source.name,
@@ -535,14 +535,14 @@ class Function(pulumi.CustomResource):
         import pulumi_std as std
 
         example = aws.appsync.Function("example",
-            api_id=example_aws_appsync_graphql_api["id"],
-            data_source=example_aws_appsync_datasource["name"],
-            name="example",
-            code=std.file(input="some-code-dir").result,
             runtime={
                 "name": "APPSYNC_JS",
                 "runtime_version": "1.0.0",
-            })
+            },
+            api_id=example_aws_appsync_graphql_api["id"],
+            data_source=example_aws_appsync_datasource["name"],
+            name="example",
+            code=std.file(input="some-code-dir").result)
         ```
 
         ## Import
@@ -606,12 +606,12 @@ class Function(pulumi.CustomResource):
         }
         \"\"\")
         example_data_source = aws.appsync.DataSource("example",
-            api_id=example.id,
-            name="example",
-            type="HTTP",
             http_config={
                 "endpoint": "http://example.com",
-            })
+            },
+            api_id=example.id,
+            name="example",
+            type="HTTP")
         example_function = aws.appsync.Function("example",
             api_id=example.id,
             data_source=example_data_source.name,
@@ -641,14 +641,14 @@ class Function(pulumi.CustomResource):
         import pulumi_std as std
 
         example = aws.appsync.Function("example",
-            api_id=example_aws_appsync_graphql_api["id"],
-            data_source=example_aws_appsync_datasource["name"],
-            name="example",
-            code=std.file(input="some-code-dir").result,
             runtime={
                 "name": "APPSYNC_JS",
                 "runtime_version": "1.0.0",
-            })
+            },
+            api_id=example_aws_appsync_graphql_api["id"],
+            data_source=example_aws_appsync_datasource["name"],
+            name="example",
+            code=std.file(input="some-code-dir").result)
         ```
 
         ## Import

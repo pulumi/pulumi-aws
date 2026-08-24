@@ -29,13 +29,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := route53.NewResolverEndpoint(ctx, "foo", &route53.ResolverEndpointArgs{
-//				Name:                 pulumi.String("foo"),
-//				Direction:            pulumi.String("INBOUND"),
-//				ResolverEndpointType: pulumi.String("IPV4"),
-//				SecurityGroupIds: pulumi.StringArray{
-//					sg1.Id,
-//					sg2.Id,
-//				},
 //				IpAddresses: route53.ResolverEndpointIpAddressArray{
 //					&route53.ResolverEndpointIpAddressArgs{
 //						SubnetId: pulumi.Any(sn1.Id),
@@ -44,6 +37,13 @@ import (
 //						SubnetId: pulumi.Any(sn2.Id),
 //						Ip:       pulumi.String("10.0.64.4"),
 //					},
+//				},
+//				Name:                 pulumi.String("foo"),
+//				Direction:            pulumi.String("INBOUND"),
+//				ResolverEndpointType: pulumi.String("IPV4"),
+//				SecurityGroupIds: pulumi.StringArray{
+//					sg1.Id,
+//					sg2.Id,
 //				},
 //				Protocols: pulumi.StringArray{
 //					pulumi.String("Do53"),

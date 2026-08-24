@@ -212,11 +212,11 @@ class OrganizationConfiguration(pulumi.CustomResource):
         example_finding_aggregator = aws.securityhub.FindingAggregator("example", linking_mode="ALL_REGIONS",
         opts = pulumi.ResourceOptions(depends_on=[example]))
         example_organization_configuration = aws.securityhub.OrganizationConfiguration("example",
-            auto_enable=False,
-            auto_enable_standards="NONE",
             organization_configuration={
                 "configuration_type": "CENTRAL",
             },
+            auto_enable=False,
+            auto_enable_standards="NONE",
             opts = pulumi.ResourceOptions(depends_on=[example_finding_aggregator]))
         ```
 
@@ -280,11 +280,11 @@ class OrganizationConfiguration(pulumi.CustomResource):
         example_finding_aggregator = aws.securityhub.FindingAggregator("example", linking_mode="ALL_REGIONS",
         opts = pulumi.ResourceOptions(depends_on=[example]))
         example_organization_configuration = aws.securityhub.OrganizationConfiguration("example",
-            auto_enable=False,
-            auto_enable_standards="NONE",
             organization_configuration={
                 "configuration_type": "CENTRAL",
             },
+            auto_enable=False,
+            auto_enable_standards="NONE",
             opts = pulumi.ResourceOptions(depends_on=[example_finding_aggregator]))
         ```
 

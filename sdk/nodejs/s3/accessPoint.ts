@@ -40,11 +40,11 @@ import * as utilities from "../utilities";
  * const example = new aws.s3control.Bucket("example", {bucket: "example"});
  * const exampleVpc = new aws.ec2.Vpc("example", {cidrBlock: "10.0.0.0/16"});
  * const exampleAccessPoint = new aws.s3.AccessPoint("example", {
- *     bucket: example.arn,
- *     name: "example",
  *     vpcConfiguration: {
  *         vpcId: exampleVpc.id,
  *     },
+ *     bucket: example.arn,
+ *     name: "example",
  * });
  * ```
  *
@@ -58,10 +58,10 @@ import * as utilities from "../utilities";
  *     state: "available",
  * });
  * const example = new aws.s3.DirectoryBucket("example", {
- *     bucket: "example--zoneId--x-s3",
  *     location: {
  *         name: available.then(available => available.zoneIds?.[0]),
  *     },
+ *     bucket: "example--zoneId--x-s3",
  * });
  * const exampleAccessPoint = new aws.s3.AccessPoint("example", {
  *     bucket: test.bucket,

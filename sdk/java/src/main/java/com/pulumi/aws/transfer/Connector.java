@@ -49,7 +49,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Connector("example", ConnectorArgs.builder()
- *             .accessRole(test.arn())
  *             .as2Config(ConnectorAs2ConfigArgs.builder()
  *                 .compression("DISABLED")
  *                 .encryptionAlgorithm("AWS128_CBC")
@@ -60,6 +59,7 @@ import javax.annotation.Nullable;
  *                 .partnerProfileId(partner.profileId())
  *                 .signingAlgorithm("NONE")
  *                 .build())
+ *             .accessRole(test.arn())
  *             .url("http://www.test.com")
  *             .build());
  * 
@@ -94,11 +94,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Connector("example", ConnectorArgs.builder()
- *             .accessRole(test.arn())
  *             .sftpConfig(ConnectorSftpConfigArgs.builder()
  *                 .trustedHostKeys("ssh-rsa AAAAB3NYourKeysHere")
  *                 .userSecretId(exampleAwsSecretsmanagerSecret.id())
  *                 .build())
+ *             .accessRole(test.arn())
  *             .url("sftp://test.com")
  *             .build());
  * 
@@ -135,7 +135,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Connector("example", ConnectorArgs.builder()
- *             .accessRole(test.arn())
  *             .sftpConfig(ConnectorSftpConfigArgs.builder()
  *                 .trustedHostKeys("ssh-rsa AAAAB3NYourKeysHere")
  *                 .userSecretId(exampleAwsSecretsmanagerSecret.id())
@@ -146,6 +145,7 @@ import javax.annotation.Nullable;
  *                     .portNumber(22)
  *                     .build())
  *                 .build())
+ *             .accessRole(test.arn())
  *             .build());
  * 
  *     }

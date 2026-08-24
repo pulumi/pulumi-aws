@@ -83,11 +83,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BlockPublicAccessConfiguration("example", BlockPublicAccessConfigurationArgs.builder()
- *             .blockPublicSecurityGroupRules(true)
  *             .permittedPublicSecurityGroupRuleRanges(BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs.builder()
  *                 .minRange(22)
  *                 .maxRange(22)
  *                 .build())
+ *             .blockPublicSecurityGroupRules(true)
  *             .build());
  * 
  *     }
@@ -125,7 +125,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BlockPublicAccessConfiguration("example", BlockPublicAccessConfigurationArgs.builder()
- *             .blockPublicSecurityGroupRules(true)
  *             .permittedPublicSecurityGroupRuleRanges(            
  *                 BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs.builder()
  *                     .minRange(22)
@@ -135,6 +134,7 @@ import javax.annotation.Nullable;
  *                     .minRange(100)
  *                     .maxRange(101)
  *                     .build())
+ *             .blockPublicSecurityGroupRules(true)
  *             .build());
  * 
  *     }

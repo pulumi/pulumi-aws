@@ -77,14 +77,14 @@ import (
 //					},
 //					&transfer.WorkflowStepArgs{
 //						TagStepDetails: &transfer.WorkflowStepTagStepDetailsArgs{
-//							Name:               pulumi.String("example"),
-//							SourceFileLocation: pulumi.String("${original.file}"),
 //							Tags: transfer.WorkflowStepTagStepDetailsTagArray{
 //								&transfer.WorkflowStepTagStepDetailsTagArgs{
 //									Key:   pulumi.String("Name"),
 //									Value: pulumi.String("Hello World"),
 //								},
 //							},
+//							Name:               pulumi.String("example"),
+//							SourceFileLocation: pulumi.String("${original.file}"),
 //						},
 //						Type: pulumi.String("TAG"),
 //					},

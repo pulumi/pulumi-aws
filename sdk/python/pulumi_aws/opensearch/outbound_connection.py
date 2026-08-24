@@ -301,8 +301,6 @@ class OutboundConnection(pulumi.CustomResource):
         current = aws.get_caller_identity()
         current_get_region = aws.get_region()
         foo = aws.opensearch.OutboundConnection("foo",
-            connection_alias="outbound_connection",
-            connection_mode="DIRECT",
             local_domain_info={
                 "owner_id": current.account_id,
                 "region": current_get_region.region,
@@ -312,7 +310,9 @@ class OutboundConnection(pulumi.CustomResource):
                 "owner_id": current.account_id,
                 "region": current_get_region.region,
                 "domain_name": remote_domain["domainName"],
-            })
+            },
+            connection_alias="outbound_connection",
+            connection_mode="DIRECT")
         ```
 
         ## Import
@@ -354,8 +354,6 @@ class OutboundConnection(pulumi.CustomResource):
         current = aws.get_caller_identity()
         current_get_region = aws.get_region()
         foo = aws.opensearch.OutboundConnection("foo",
-            connection_alias="outbound_connection",
-            connection_mode="DIRECT",
             local_domain_info={
                 "owner_id": current.account_id,
                 "region": current_get_region.region,
@@ -365,7 +363,9 @@ class OutboundConnection(pulumi.CustomResource):
                 "owner_id": current.account_id,
                 "region": current_get_region.region,
                 "domain_name": remote_domain["domainName"],
-            })
+            },
+            connection_alias="outbound_connection",
+            connection_mode="DIRECT")
         ```
 
         ## Import

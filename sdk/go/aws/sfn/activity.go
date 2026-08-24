@@ -58,12 +58,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sfn.NewActivity(ctx, "sfn_activity", &sfn.ActivityArgs{
-//				Name: pulumi.String("my-activity"),
 //				EncryptionConfiguration: &sfn.ActivityEncryptionConfigurationArgs{
 //					KmsKeyId:                     pulumi.Any(kmsKeyForSfn.Arn),
 //					Type:                         pulumi.String("CUSTOMER_MANAGED_KMS_KEY"),
 //					KmsDataKeyReusePeriodSeconds: pulumi.Int(900),
 //				},
+//				Name: pulumi.String("my-activity"),
 //			})
 //			if err != nil {
 //				return err

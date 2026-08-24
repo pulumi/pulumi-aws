@@ -57,13 +57,13 @@ import javax.annotation.Nullable;
  * 
  *         var example = new Scope("example", ScopeArgs.builder()
  *             .targets(ScopeTargetArgs.builder()
- *                 .region("us-east-1")
  *                 .targetIdentifier(ScopeTargetTargetIdentifierArgs.builder()
- *                     .targetType("ACCOUNT")
  *                     .targetId(ScopeTargetTargetIdentifierTargetIdArgs.builder()
  *                         .accountId(current.accountId())
  *                         .build())
+ *                     .targetType("ACCOUNT")
  *                     .build())
+ *                 .region("us-east-1")
  *                 .build())
  *             .tags(Map.of("Name", "example"))
  *             .build());

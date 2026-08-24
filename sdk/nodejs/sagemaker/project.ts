@@ -19,10 +19,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sagemaker.Project("example", {
- *     projectName: "example",
  *     serviceCatalogProvisioningDetails: {
  *         productId: exampleAwsServicecatalogProduct.id,
  *     },
+ *     projectName: "example",
  * });
  * ```
  *

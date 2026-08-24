@@ -54,9 +54,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CustomLogSource("example", CustomLogSourceArgs.builder()
- *             .sourceName("example-name")
- *             .sourceVersion("1.0")
- *             .eventClasses("FILE_ACTIVITY")
  *             .configuration(CustomLogSourceConfigurationArgs.builder()
  *                 .crawlerConfiguration(CustomLogSourceConfigurationCrawlerConfigurationArgs.builder()
  *                     .roleArn(customLog.arn())
@@ -66,6 +63,9 @@ import javax.annotation.Nullable;
  *                     .principal("123456789012")
  *                     .build())
  *                 .build())
+ *             .sourceName("example-name")
+ *             .sourceVersion("1.0")
+ *             .eventClasses("FILE_ACTIVITY")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAwsSecuritylakeDataLake)
  *                 .build());

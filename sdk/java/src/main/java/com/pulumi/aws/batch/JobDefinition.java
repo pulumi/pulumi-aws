@@ -178,9 +178,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.batch.JobDefinitionArgs;
  * import com.pulumi.aws.batch.inputs.JobDefinitionEksPropertiesArgs;
  * import com.pulumi.aws.batch.inputs.JobDefinitionEksPropertiesPodPropertiesArgs;
+ * import com.pulumi.aws.batch.inputs.JobDefinitionEksPropertiesPodPropertiesMetadataArgs;
  * import com.pulumi.aws.batch.inputs.JobDefinitionEksPropertiesPodPropertiesContainerArgs;
  * import com.pulumi.aws.batch.inputs.JobDefinitionEksPropertiesPodPropertiesContainerResourcesArgs;
- * import com.pulumi.aws.batch.inputs.JobDefinitionEksPropertiesPodPropertiesMetadataArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -195,28 +195,28 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new JobDefinition("test", JobDefinitionArgs.builder()
- *             .name(" tf_test_batch_job_definition_eks")
- *             .type("container")
  *             .eksProperties(JobDefinitionEksPropertiesArgs.builder()
  *                 .podProperties(JobDefinitionEksPropertiesPodPropertiesArgs.builder()
- *                     .hostNetwork(true)
+ *                     .metadata(JobDefinitionEksPropertiesPodPropertiesMetadataArgs.builder()
+ *                         .labels(Map.of("environment", "test"))
+ *                         .build())
  *                     .containers(JobDefinitionEksPropertiesPodPropertiesContainerArgs.builder()
- *                         .image("public.ecr.aws/amazonlinux/amazonlinux:1")
- *                         .commands(                        
- *                             "sleep",
- *                             "60")
  *                         .resources(JobDefinitionEksPropertiesPodPropertiesContainerResourcesArgs.builder()
  *                             .limits(Map.ofEntries(
  *                                 Map.entry("cpu", "1"),
  *                                 Map.entry("memory", "1024Mi")
  *                             ))
  *                             .build())
+ *                         .image("public.ecr.aws/amazonlinux/amazonlinux:1")
+ *                         .commands(                        
+ *                             "sleep",
+ *                             "60")
  *                         .build())
- *                     .metadata(JobDefinitionEksPropertiesPodPropertiesMetadataArgs.builder()
- *                         .labels(Map.of("environment", "test"))
- *                         .build())
+ *                     .hostNetwork(true)
  *                     .build())
  *                 .build())
+ *             .name(" tf_test_batch_job_definition_eks")
+ *             .type("container")
  *             .build());
  * 
  *     }
@@ -259,11 +259,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var assumeRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions("sts:AssumeRole")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("ecs-tasks.amazonaws.com")
  *                     .build())
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 

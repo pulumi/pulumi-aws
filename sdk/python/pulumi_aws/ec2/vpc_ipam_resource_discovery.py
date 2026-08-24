@@ -300,10 +300,10 @@ class VpcIpamResourceDiscovery(pulumi.CustomResource):
 
         current = aws.get_region()
         main = aws.ec2.VpcIpamResourceDiscovery("main",
-            description="My IPAM Resource Discovery",
             operating_regions=[{
                 "region_name": current.region,
             }],
+            description="My IPAM Resource Discovery",
             tags={
                 "Test": "Main",
             })
@@ -345,10 +345,10 @@ class VpcIpamResourceDiscovery(pulumi.CustomResource):
 
         current = aws.get_region()
         main = aws.ec2.VpcIpamResourceDiscovery("main",
-            description="My IPAM Resource Discovery",
             operating_regions=[{
                 "region_name": current.region,
             }],
+            description="My IPAM Resource Discovery",
             tags={
                 "Test": "Main",
             })

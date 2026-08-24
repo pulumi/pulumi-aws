@@ -24,11 +24,11 @@ import * as utilities from "../utilities";
  *
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["backup.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
@@ -50,14 +50,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.backup.Selection("example", {
- *     iamRoleArn: exampleAwsIamRole.arn,
- *     name: "my_example_backup_selection",
- *     planId: exampleAwsBackupPlan.id,
  *     selectionTags: [{
  *         type: "STRINGEQUALS",
  *         key: "foo",
  *         value: "bar",
  *     }],
+ *     iamRoleArn: exampleAwsIamRole.arn,
+ *     name: "my_example_backup_selection",
+ *     planId: exampleAwsBackupPlan.id,
  * });
  * ```
  *
@@ -68,10 +68,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.backup.Selection("example", {
- *     iamRoleArn: exampleAwsIamRole.arn,
- *     name: "my_example_backup_selection",
- *     planId: exampleAwsBackupPlan.id,
- *     resources: ["*"],
  *     conditions: [{
  *         stringEquals: [{
  *             key: "aws:ResourceTag/Component",
@@ -90,6 +86,10 @@ import * as utilities from "../utilities";
  *             value: "test*",
  *         }],
  *     }],
+ *     iamRoleArn: exampleAwsIamRole.arn,
+ *     name: "my_example_backup_selection",
+ *     planId: exampleAwsBackupPlan.id,
+ *     resources: ["*"],
  * });
  * ```
  *

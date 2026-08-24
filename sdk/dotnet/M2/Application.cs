@@ -26,8 +26,6 @@ namespace Pulumi.Aws.M2
     /// {
     ///     var example = new Aws.M2.Application("example", new()
     ///     {
-    ///         Name = "Example",
-    ///         EngineType = "bluage",
     ///         Definition = new Aws.M2.Inputs.ApplicationDefinitionArgs
     ///         {
     ///             Content = @$"{{
@@ -57,6 +55,8 @@ namespace Pulumi.Aws.M2
     /// 
     /// ",
     ///         },
+    ///         Name = "Example",
+    ///         EngineType = "bluage",
     ///     });
     /// 
     /// });

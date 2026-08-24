@@ -48,45 +48,41 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.autoscaling.Policy("example", {
- *     autoscalingGroupName: "my-test-asg",
- *     name: "foo",
- *     policyType: "TargetTrackingScaling",
  *     targetTrackingConfiguration: {
- *         targetValue: 100,
  *         customizedMetricSpecification: {
  *             metrics: [
  *                 {
- *                     label: "Get the queue size (the number of messages waiting to be processed)",
- *                     id: "m1",
  *                     metricStat: {
  *                         metric: {
- *                             namespace: "AWS/SQS",
- *                             metricName: "ApproximateNumberOfMessagesVisible",
  *                             dimensions: [{
  *                                 name: "QueueName",
  *                                 value: "my-queue",
  *                             }],
+ *                             namespace: "AWS/SQS",
+ *                             metricName: "ApproximateNumberOfMessagesVisible",
  *                         },
  *                         stat: "Sum",
  *                         period: 10,
  *                     },
+ *                     label: "Get the queue size (the number of messages waiting to be processed)",
+ *                     id: "m1",
  *                     returnData: false,
  *                 },
  *                 {
- *                     label: "Get the group size (the number of InService instances)",
- *                     id: "m2",
  *                     metricStat: {
  *                         metric: {
- *                             namespace: "AWS/AutoScaling",
- *                             metricName: "GroupInServiceInstances",
  *                             dimensions: [{
  *                                 name: "AutoScalingGroupName",
  *                                 value: "my-asg",
  *                             }],
+ *                             namespace: "AWS/AutoScaling",
+ *                             metricName: "GroupInServiceInstances",
  *                         },
  *                         stat: "Average",
  *                         period: 10,
  *                     },
+ *                     label: "Get the group size (the number of InService instances)",
+ *                     id: "m2",
  *                     returnData: false,
  *                 },
  *                 {
@@ -97,7 +93,11 @@ import * as utilities from "../utilities";
  *                 },
  *             ],
  *         },
+ *         targetValue: 100,
  *     },
+ *     autoscalingGroupName: "my-test-asg",
+ *     name: "foo",
+ *     policyType: "TargetTrackingScaling",
  * });
  * ```
  *
@@ -108,12 +108,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.autoscaling.Policy("example", {
- *     autoscalingGroupName: "my-test-asg",
- *     name: "foo",
- *     policyType: "PredictiveScaling",
  *     predictiveScalingConfiguration: {
  *         metricSpecification: {
- *             targetValue: 10,
  *             customizedLoadMetricSpecification: {
  *                 metricDataQueries: [{
  *                     id: "load_sum",
@@ -144,8 +140,12 @@ import * as utilities from "../utilities";
  *                     },
  *                 ],
  *             },
+ *             targetValue: 10,
  *         },
  *     },
+ *     autoscalingGroupName: "my-test-asg",
+ *     name: "foo",
+ *     policyType: "PredictiveScaling",
  * });
  * ```
  *
@@ -156,34 +156,34 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.autoscaling.Policy("example", {
- *     autoscalingGroupName: "my-test-asg",
- *     name: "foo",
- *     policyType: "PredictiveScaling",
  *     predictiveScalingConfiguration: {
  *         metricSpecification: {
- *             targetValue: 10,
  *             predefinedLoadMetricSpecification: {
  *                 predefinedMetricType: "ASGTotalCPUUtilization",
  *                 resourceLabel: "app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff",
  *             },
  *             customizedScalingMetricSpecification: {
  *                 metricDataQueries: [{
- *                     id: "scaling",
  *                     metricStat: {
  *                         metric: {
- *                             metricName: "CPUUtilization",
- *                             namespace: "AWS/EC2",
  *                             dimensions: [{
  *                                 name: "AutoScalingGroupName",
  *                                 value: "my-test-asg",
  *                             }],
+ *                             metricName: "CPUUtilization",
+ *                             namespace: "AWS/EC2",
  *                         },
  *                         stat: "Average",
  *                     },
+ *                     id: "scaling",
  *                 }],
  *             },
+ *             targetValue: 10,
  *         },
  *     },
+ *     autoscalingGroupName: "my-test-asg",
+ *     name: "foo",
+ *     policyType: "PredictiveScaling",
  * });
  * ```
  *

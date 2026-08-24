@@ -49,9 +49,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Framework("test", FrameworkArgs.builder()
- *             .name("example")
  *             .controlSets(FrameworkControlSetArgs.builder()
- *                 .name("example")
  *                 .controls(                
  *                     FrameworkControlSetControlArgs.builder()
  *                         .id(test1.id())
@@ -59,7 +57,9 @@ import javax.annotation.Nullable;
  *                     FrameworkControlSetControlArgs.builder()
  *                         .id(test2.id())
  *                         .build())
+ *                 .name("example")
  *                 .build())
+ *             .name("example")
  *             .build());
  * 
  *     }

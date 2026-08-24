@@ -73,6 +73,101 @@ import (
 //				return err
 //			}
 //			s3Distribution, err := cloudfront.NewDistribution(ctx, "s3_distribution", &cloudfront.DistributionArgs{
+//				DefaultCacheBehavior: &cloudfront.DistributionDefaultCacheBehaviorArgs{
+//					ForwardedValues: &cloudfront.DistributionDefaultCacheBehaviorForwardedValuesArgs{
+//						Cookies: &cloudfront.DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs{
+//							Forward: pulumi.String("none"),
+//						},
+//						QueryString: pulumi.Bool(false),
+//					},
+//					AllowedMethods: pulumi.StringArray{
+//						pulumi.String("DELETE"),
+//						pulumi.String("GET"),
+//						pulumi.String("HEAD"),
+//						pulumi.String("OPTIONS"),
+//						pulumi.String("PATCH"),
+//						pulumi.String("POST"),
+//						pulumi.String("PUT"),
+//					},
+//					CachedMethods: pulumi.StringArray{
+//						pulumi.String("GET"),
+//						pulumi.String("HEAD"),
+//					},
+//					TargetOriginId:       pulumi.String(s3OriginId),
+//					ViewerProtocolPolicy: pulumi.String("allow-all"),
+//					MinTtl:               pulumi.Int(0),
+//					DefaultTtl:           pulumi.Int(3600),
+//					MaxTtl:               pulumi.Int(86400),
+//				},
+//				Restrictions: &cloudfront.DistributionRestrictionsArgs{
+//					GeoRestriction: &cloudfront.DistributionRestrictionsGeoRestrictionArgs{
+//						RestrictionType: pulumi.String("whitelist"),
+//						Locations: pulumi.StringArray{
+//							pulumi.String("US"),
+//							pulumi.String("CA"),
+//							pulumi.String("GB"),
+//							pulumi.String("DE"),
+//						},
+//					},
+//				},
+//				ViewerCertificate: &cloudfront.DistributionViewerCertificateArgs{
+//					AcmCertificateArn: pulumi.String(myDomainGetCertificate.Arn),
+//					SslSupportMethod:  pulumi.String("sni-only"),
+//				},
+//				OrderedCacheBehaviors: cloudfront.DistributionOrderedCacheBehaviorArray{
+//					&cloudfront.DistributionOrderedCacheBehaviorArgs{
+//						ForwardedValues: &cloudfront.DistributionOrderedCacheBehaviorForwardedValuesArgs{
+//							Cookies: &cloudfront.DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs{
+//								Forward: pulumi.String("none"),
+//							},
+//							QueryString: pulumi.Bool(false),
+//							Headers: pulumi.StringArray{
+//								pulumi.String("Origin"),
+//							},
+//						},
+//						PathPattern: pulumi.String("/content/immutable/*"),
+//						AllowedMethods: pulumi.StringArray{
+//							pulumi.String("GET"),
+//							pulumi.String("HEAD"),
+//							pulumi.String("OPTIONS"),
+//						},
+//						CachedMethods: pulumi.StringArray{
+//							pulumi.String("GET"),
+//							pulumi.String("HEAD"),
+//							pulumi.String("OPTIONS"),
+//						},
+//						TargetOriginId:       pulumi.String(s3OriginId),
+//						MinTtl:               pulumi.Int(0),
+//						DefaultTtl:           pulumi.Int(86400),
+//						MaxTtl:               pulumi.Int(31536000),
+//						Compress:             pulumi.Bool(true),
+//						ViewerProtocolPolicy: pulumi.String("redirect-to-https"),
+//					},
+//					&cloudfront.DistributionOrderedCacheBehaviorArgs{
+//						ForwardedValues: &cloudfront.DistributionOrderedCacheBehaviorForwardedValuesArgs{
+//							Cookies: &cloudfront.DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs{
+//								Forward: pulumi.String("none"),
+//							},
+//							QueryString: pulumi.Bool(false),
+//						},
+//						PathPattern: pulumi.String("/content/*"),
+//						AllowedMethods: pulumi.StringArray{
+//							pulumi.String("GET"),
+//							pulumi.String("HEAD"),
+//							pulumi.String("OPTIONS"),
+//						},
+//						CachedMethods: pulumi.StringArray{
+//							pulumi.String("GET"),
+//							pulumi.String("HEAD"),
+//						},
+//						TargetOriginId:       pulumi.String(s3OriginId),
+//						MinTtl:               pulumi.Int(0),
+//						DefaultTtl:           pulumi.Int(3600),
+//						MaxTtl:               pulumi.Int(86400),
+//						Compress:             pulumi.Bool(true),
+//						ViewerProtocolPolicy: pulumi.String("redirect-to-https"),
+//					},
+//				},
 //				Origins: cloudfront.DistributionOriginArray{
 //					&cloudfront.DistributionOriginArgs{
 //						DomainName:            b.BucketRegionalDomainName,
@@ -88,104 +183,9 @@ import (
 //					pulumi.Sprintf("mysite.%v", myDomain),
 //					pulumi.Sprintf("yoursite.%v", myDomain),
 //				},
-//				DefaultCacheBehavior: &cloudfront.DistributionDefaultCacheBehaviorArgs{
-//					AllowedMethods: pulumi.StringArray{
-//						pulumi.String("DELETE"),
-//						pulumi.String("GET"),
-//						pulumi.String("HEAD"),
-//						pulumi.String("OPTIONS"),
-//						pulumi.String("PATCH"),
-//						pulumi.String("POST"),
-//						pulumi.String("PUT"),
-//					},
-//					CachedMethods: pulumi.StringArray{
-//						pulumi.String("GET"),
-//						pulumi.String("HEAD"),
-//					},
-//					TargetOriginId: pulumi.String(s3OriginId),
-//					ForwardedValues: &cloudfront.DistributionDefaultCacheBehaviorForwardedValuesArgs{
-//						QueryString: pulumi.Bool(false),
-//						Cookies: &cloudfront.DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs{
-//							Forward: pulumi.String("none"),
-//						},
-//					},
-//					ViewerProtocolPolicy: pulumi.String("allow-all"),
-//					MinTtl:               pulumi.Int(0),
-//					DefaultTtl:           pulumi.Int(3600),
-//					MaxTtl:               pulumi.Int(86400),
-//				},
-//				OrderedCacheBehaviors: cloudfront.DistributionOrderedCacheBehaviorArray{
-//					&cloudfront.DistributionOrderedCacheBehaviorArgs{
-//						PathPattern: pulumi.String("/content/immutable/*"),
-//						AllowedMethods: pulumi.StringArray{
-//							pulumi.String("GET"),
-//							pulumi.String("HEAD"),
-//							pulumi.String("OPTIONS"),
-//						},
-//						CachedMethods: pulumi.StringArray{
-//							pulumi.String("GET"),
-//							pulumi.String("HEAD"),
-//							pulumi.String("OPTIONS"),
-//						},
-//						TargetOriginId: pulumi.String(s3OriginId),
-//						ForwardedValues: &cloudfront.DistributionOrderedCacheBehaviorForwardedValuesArgs{
-//							QueryString: pulumi.Bool(false),
-//							Headers: pulumi.StringArray{
-//								pulumi.String("Origin"),
-//							},
-//							Cookies: &cloudfront.DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs{
-//								Forward: pulumi.String("none"),
-//							},
-//						},
-//						MinTtl:               pulumi.Int(0),
-//						DefaultTtl:           pulumi.Int(86400),
-//						MaxTtl:               pulumi.Int(31536000),
-//						Compress:             pulumi.Bool(true),
-//						ViewerProtocolPolicy: pulumi.String("redirect-to-https"),
-//					},
-//					&cloudfront.DistributionOrderedCacheBehaviorArgs{
-//						PathPattern: pulumi.String("/content/*"),
-//						AllowedMethods: pulumi.StringArray{
-//							pulumi.String("GET"),
-//							pulumi.String("HEAD"),
-//							pulumi.String("OPTIONS"),
-//						},
-//						CachedMethods: pulumi.StringArray{
-//							pulumi.String("GET"),
-//							pulumi.String("HEAD"),
-//						},
-//						TargetOriginId: pulumi.String(s3OriginId),
-//						ForwardedValues: &cloudfront.DistributionOrderedCacheBehaviorForwardedValuesArgs{
-//							QueryString: pulumi.Bool(false),
-//							Cookies: &cloudfront.DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs{
-//								Forward: pulumi.String("none"),
-//							},
-//						},
-//						MinTtl:               pulumi.Int(0),
-//						DefaultTtl:           pulumi.Int(3600),
-//						MaxTtl:               pulumi.Int(86400),
-//						Compress:             pulumi.Bool(true),
-//						ViewerProtocolPolicy: pulumi.String("redirect-to-https"),
-//					},
-//				},
 //				PriceClass: pulumi.String("PriceClass_200"),
-//				Restrictions: &cloudfront.DistributionRestrictionsArgs{
-//					GeoRestriction: &cloudfront.DistributionRestrictionsGeoRestrictionArgs{
-//						RestrictionType: pulumi.String("whitelist"),
-//						Locations: pulumi.StringArray{
-//							pulumi.String("US"),
-//							pulumi.String("CA"),
-//							pulumi.String("GB"),
-//							pulumi.String("DE"),
-//						},
-//					},
-//				},
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("production"),
-//				},
-//				ViewerCertificate: &cloudfront.DistributionViewerCertificateArgs{
-//					AcmCertificateArn: pulumi.String(myDomainGetCertificate.Arn),
-//					SslSupportMethod:  pulumi.String("sni-only"),
 //				},
 //			})
 //			if err != nil {
@@ -195,25 +195,6 @@ import (
 //			originBucketPolicy := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
-//						Sid:    pulumi.String("AllowCloudFrontServicePrincipalReadWrite"),
-//						Effect: pulumi.String("Allow"),
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Type: pulumi.String("Service"),
-//								Identifiers: pulumi.StringArray{
-//									pulumi.String("cloudfront.amazonaws.com"),
-//								},
-//							},
-//						},
-//						Actions: pulumi.StringArray{
-//							pulumi.String("s3:GetObject"),
-//							pulumi.String("s3:PutObject"),
-//						},
-//						Resources: pulumi.StringArray{
-//							b.Arn.ApplyT(func(arn string) (string, error) {
-//								return fmt.Sprintf("%v/*", arn), nil
-//							}).(pulumi.StringOutput),
-//						},
 //						Conditions: iam.GetPolicyDocumentStatementConditionArray{
 //							&iam.GetPolicyDocumentStatementConditionArgs{
 //								Test:     pulumi.String("StringEquals"),
@@ -222,6 +203,25 @@ import (
 //									s3Distribution.Arn,
 //								},
 //							},
+//						},
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Type: pulumi.String("Service"),
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String("cloudfront.amazonaws.com"),
+//								},
+//							},
+//						},
+//						Sid:    pulumi.String("AllowCloudFrontServicePrincipalReadWrite"),
+//						Effect: pulumi.String("Allow"),
+//						Actions: pulumi.StringArray{
+//							pulumi.String("s3:GetObject"),
+//							pulumi.String("s3:PutObject"),
+//						},
+//						Resources: pulumi.StringArray{
+//							b.Arn.ApplyT(func(arn string) (string, error) {
+//								return fmt.Sprintf("%v/*", arn), nil
+//							}).(pulumi.StringOutput),
 //						},
 //					},
 //				},
@@ -243,9 +243,6 @@ import (
 //			var cloudfront2 []*route53.Record
 //			for key0, val0 := range s3Distribution.Aliases {
 //				__res, err := route53.NewRecord(ctx, fmt.Sprintf("cloudfront-%v", key0), &route53.RecordArgs{
-//					ZoneId: pulumi.String(myDomainGetZone.ZoneId),
-//					Name:   pulumi.String(val0),
-//					Type:   pulumi.String(route53.RecordTypeA),
 //					Aliases: route53.RecordAliasArray{
 //						&route53.RecordAliasArgs{
 //							Name:                 s3Distribution.DomainName,
@@ -253,6 +250,9 @@ import (
 //							EvaluateTargetHealth: pulumi.Bool(false),
 //						},
 //					},
+//					ZoneId: pulumi.String(myDomainGetZone.ZoneId),
+//					Name:   pulumi.String(val0),
+//					Type:   pulumi.String(route53.RecordTypeA),
 //				})
 //				if err != nil {
 //					return err
@@ -282,9 +282,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudfront.NewDistribution(ctx, "s3_distribution", &cloudfront.DistributionArgs{
+//				DefaultCacheBehavior: &cloudfront.DistributionDefaultCacheBehaviorArgs{
+//					TargetOriginId: pulumi.String("groupS3"),
+//				},
 //				OriginGroups: cloudfront.DistributionOriginGroupArray{
 //					&cloudfront.DistributionOriginGroupArgs{
-//						OriginId: pulumi.String("groupS3"),
 //						FailoverCriteria: &cloudfront.DistributionOriginGroupFailoverCriteriaArgs{
 //							StatusCodes: pulumi.IntArray{
 //								pulumi.Int(403),
@@ -301,26 +303,24 @@ import (
 //								OriginId: pulumi.String("failoverS3"),
 //							},
 //						},
+//						OriginId: pulumi.String("groupS3"),
 //					},
 //				},
 //				Origins: cloudfront.DistributionOriginArray{
 //					&cloudfront.DistributionOriginArgs{
+//						S3OriginConfig: &cloudfront.DistributionOriginS3OriginConfigArgs{
+//							OriginAccessIdentity: pulumi.Any(_default.CloudfrontAccessIdentityPath),
+//						},
 //						DomainName: pulumi.Any(primary.BucketRegionalDomainName),
 //						OriginId:   pulumi.String("primaryS3"),
-//						S3OriginConfig: &cloudfront.DistributionOriginS3OriginConfigArgs{
-//							OriginAccessIdentity: pulumi.Any(_default.CloudfrontAccessIdentityPath),
-//						},
 //					},
 //					&cloudfront.DistributionOriginArgs{
-//						DomainName: pulumi.Any(failover.BucketRegionalDomainName),
-//						OriginId:   pulumi.String("failoverS3"),
 //						S3OriginConfig: &cloudfront.DistributionOriginS3OriginConfigArgs{
 //							OriginAccessIdentity: pulumi.Any(_default.CloudfrontAccessIdentityPath),
 //						},
+//						DomainName: pulumi.Any(failover.BucketRegionalDomainName),
+//						OriginId:   pulumi.String("failoverS3"),
 //					},
-//				},
-//				DefaultCacheBehavior: &cloudfront.DistributionDefaultCacheBehaviorArgs{
-//					TargetOriginId: pulumi.String("groupS3"),
 //				},
 //			})
 //			if err != nil {
@@ -350,19 +350,6 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			s3OriginId := "myS3Origin"
 //			_, err := cloudfront.NewDistribution(ctx, "s3_distribution", &cloudfront.DistributionArgs{
-//				Origins: cloudfront.DistributionOriginArray{
-//					&cloudfront.DistributionOriginArgs{
-//						DomainName: pulumi.Any(primary.BucketRegionalDomainName),
-//						OriginId:   pulumi.String("myS3Origin"),
-//						S3OriginConfig: &cloudfront.DistributionOriginS3OriginConfigArgs{
-//							OriginAccessIdentity: pulumi.Any(_default.CloudfrontAccessIdentityPath),
-//						},
-//					},
-//				},
-//				Enabled:           pulumi.Bool(true),
-//				IsIpv6Enabled:     pulumi.Bool(true),
-//				Comment:           pulumi.String("Some comment"),
-//				DefaultRootObject: pulumi.String("index.html"),
 //				DefaultCacheBehavior: &cloudfront.DistributionDefaultCacheBehaviorArgs{
 //					CachePolicyId: pulumi.String("4135ea2d-6df8-44a3-9df3-4b5a84be39ad"),
 //					AllowedMethods: pulumi.StringArray{
@@ -391,6 +378,19 @@ import (
 //				ViewerCertificate: &cloudfront.DistributionViewerCertificateArgs{
 //					CloudfrontDefaultCertificate: pulumi.Bool(true),
 //				},
+//				Origins: cloudfront.DistributionOriginArray{
+//					&cloudfront.DistributionOriginArgs{
+//						S3OriginConfig: &cloudfront.DistributionOriginS3OriginConfigArgs{
+//							OriginAccessIdentity: pulumi.Any(_default.CloudfrontAccessIdentityPath),
+//						},
+//						DomainName: pulumi.Any(primary.BucketRegionalDomainName),
+//						OriginId:   pulumi.String("myS3Origin"),
+//					},
+//				},
+//				Enabled:           pulumi.Bool(true),
+//				IsIpv6Enabled:     pulumi.Bool(true),
+//				Comment:           pulumi.String("Some comment"),
+//				DefaultRootObject: pulumi.String("index.html"),
 //			})
 //			if err != nil {
 //				return err
@@ -442,27 +442,27 @@ import (
 //				return err
 //			}
 //			exampleLogDeliveryDestination, err := cloudwatch.NewLogDeliveryDestination(ctx, "example", &cloudwatch.LogDeliveryDestinationArgs{
-//				Region:       pulumi.String("us-east-1"),
-//				Name:         pulumi.String("s3-destination"),
-//				OutputFormat: pulumi.String("parquet"),
 //				DeliveryDestinationConfiguration: &cloudwatch.LogDeliveryDestinationDeliveryDestinationConfigurationArgs{
 //					DestinationResourceArn: exampleBucket.Arn.ApplyT(func(arn string) (string, error) {
 //						return fmt.Sprintf("%v/prefix", arn), nil
 //					}).(pulumi.StringOutput),
 //				},
+//				Region:       pulumi.String("us-east-1"),
+//				Name:         pulumi.String("s3-destination"),
+//				OutputFormat: pulumi.String("parquet"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = cloudwatch.NewLogDelivery(ctx, "example", &cloudwatch.LogDeliveryArgs{
-//				Region:                 pulumi.String("us-east-1"),
-//				DeliverySourceName:     exampleLogDeliverySource.Name,
-//				DeliveryDestinationArn: exampleLogDeliveryDestination.Arn,
 //				S3DeliveryConfigurations: cloudwatch.LogDeliveryS3DeliveryConfigurationArray{
 //					&cloudwatch.LogDeliveryS3DeliveryConfigurationArgs{
 //						SuffixPath: pulumi.String("/123456678910/{DistributionId}/{yyyy}/{MM}/{dd}/{HH}"),
 //					},
 //				},
+//				Region:                 pulumi.String("us-east-1"),
+//				DeliverySourceName:     exampleLogDeliverySource.Name,
+//				DeliveryDestinationArn: exampleLogDeliveryDestination.Arn,
 //			})
 //			if err != nil {
 //				return err
@@ -514,12 +514,12 @@ import (
 //				return err
 //			}
 //			exampleLogDeliveryDestination, err := cloudwatch.NewLogDeliveryDestination(ctx, "example", &cloudwatch.LogDeliveryDestinationArgs{
-//				Region:       pulumi.String("us-east-1"),
-//				Name:         pulumi.String("firehose-destination"),
-//				OutputFormat: pulumi.String("json"),
 //				DeliveryDestinationConfiguration: &cloudwatch.LogDeliveryDestinationDeliveryDestinationConfigurationArgs{
 //					DestinationResourceArn: cloudfrontLogs.Arn,
 //				},
+//				Region:       pulumi.String("us-east-1"),
+//				Name:         pulumi.String("firehose-destination"),
+//				OutputFormat: pulumi.String("json"),
 //			})
 //			if err != nil {
 //				return err
@@ -571,12 +571,12 @@ import (
 //					Id: example.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				ViewerMtlsConfig: &cloudfront.DistributionViewerMtlsConfigArgs{
-//					Mode: pulumi.String("verify"),
 //					TrustStoreConfig: &cloudfront.DistributionViewerMtlsConfigTrustStoreConfigArgs{
 //						TrustStoreId:               exampleTrustStore.ID().ToIDOutput().ToStringOutput(),
 //						AdvertiseTrustStoreCaNames: pulumi.Bool(true),
 //						IgnoreCertificateExpiry:    pulumi.Bool(false),
 //					},
+//					Mode: pulumi.String("verify"),
 //				},
 //			})
 //			if err != nil {

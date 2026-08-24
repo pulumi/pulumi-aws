@@ -19,13 +19,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cloudwatch.AlarmMuteRule("example", {
- *     name: "example",
  *     rule: {
  *         schedule: {
  *             duration: "PT4H",
  *             expression: "cron(0 2 * * *)",
  *         },
  *     },
+ *     name: "example",
  * });
  * ```
  *
@@ -46,10 +46,6 @@ import * as utilities from "../utilities";
  *     threshold: 80,
  * });
  * const exampleAlarmMuteRule = new aws.cloudwatch.AlarmMuteRule("example", {
- *     name: "example",
- *     description: "Mute alarms during maintenance window",
- *     startDate: "2026-01-01T00:00:00Z",
- *     expireDate: "2026-12-31T23:59:00Z",
  *     rule: {
  *         schedule: {
  *             duration: "PT4H",
@@ -60,6 +56,10 @@ import * as utilities from "../utilities";
  *     muteTargets: {
  *         alarmNames: [example.name],
  *     },
+ *     name: "example",
+ *     description: "Mute alarms during maintenance window",
+ *     startDate: "2026-01-01T00:00:00Z",
+ *     expireDate: "2026-12-31T23:59:00Z",
  *     tags: {
  *         Environment: "production",
  *     },
@@ -75,13 +75,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cloudwatch.AlarmMuteRule("example", {
- *     name: "example",
  *     rule: {
  *         schedule: {
  *             duration: "PT4H",
  *             expression: "at(2026-12-31T23:59:59)",
  *         },
  *     },
+ *     name: "example",
  * });
  * ```
  *

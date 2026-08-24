@@ -184,8 +184,6 @@ class ArchiveRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.accessanalyzer.ArchiveRule("example",
-            analyzer_name="example-analyzer",
-            rule_name="example-rule",
             filters=[
                 {
                     "criteria": "condition.aws:UserId",
@@ -199,7 +197,9 @@ class ArchiveRule(pulumi.CustomResource):
                     "criteria": "isPublic",
                     "eqs": ["false"],
                 },
-            ])
+            ],
+            analyzer_name="example-analyzer",
+            rule_name="example-rule")
         ```
 
         ## Import
@@ -236,8 +236,6 @@ class ArchiveRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.accessanalyzer.ArchiveRule("example",
-            analyzer_name="example-analyzer",
-            rule_name="example-rule",
             filters=[
                 {
                     "criteria": "condition.aws:UserId",
@@ -251,7 +249,9 @@ class ArchiveRule(pulumi.CustomResource):
                     "criteria": "isPublic",
                     "eqs": ["false"],
                 },
-            ])
+            ],
+            analyzer_name="example-analyzer",
+            rule_name="example-rule")
         ```
 
         ## Import

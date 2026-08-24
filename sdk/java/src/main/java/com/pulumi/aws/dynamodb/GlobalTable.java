@@ -52,33 +52,32 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var us_east_1 = new Table("us-east-1", TableArgs.builder()
+ *             .attributes(TableAttributeArgs.builder()
+ *                 .name("myAttribute")
+ *                 .type("S")
+ *                 .build())
  *             .hashKey("myAttribute")
  *             .name("myTable")
  *             .streamEnabled(true)
  *             .streamViewType("NEW_AND_OLD_IMAGES")
  *             .readCapacity(1)
  *             .writeCapacity(1)
- *             .attributes(TableAttributeArgs.builder()
- *                 .name("myAttribute")
- *                 .type("S")
- *                 .build())
  *             .build());
  * 
  *         var us_west_2 = new Table("us-west-2", TableArgs.builder()
+ *             .attributes(TableAttributeArgs.builder()
+ *                 .name("myAttribute")
+ *                 .type("S")
+ *                 .build())
  *             .hashKey("myAttribute")
  *             .name("myTable")
  *             .streamEnabled(true)
  *             .streamViewType("NEW_AND_OLD_IMAGES")
  *             .readCapacity(1)
  *             .writeCapacity(1)
- *             .attributes(TableAttributeArgs.builder()
- *                 .name("myAttribute")
- *                 .type("S")
- *                 .build())
  *             .build());
  * 
  *         var myTable = new GlobalTable("myTable", GlobalTableArgs.builder()
- *             .name("myTable")
  *             .replicas(            
  *                 GlobalTableReplicaArgs.builder()
  *                     .regionName("us-east-1")
@@ -86,6 +85,7 @@ import javax.annotation.Nullable;
  *                 GlobalTableReplicaArgs.builder()
  *                     .regionName("us-west-2")
  *                     .build())
+ *             .name("myTable")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
  *                     us_east_1,

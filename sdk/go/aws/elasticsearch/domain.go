@@ -30,11 +30,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := elasticsearch.NewDomain(ctx, "example", &elasticsearch.DomainArgs{
-//				DomainName:           pulumi.String("example"),
-//				ElasticsearchVersion: pulumi.String("7.10"),
 //				ClusterConfig: &elasticsearch.DomainClusterConfigArgs{
 //					InstanceType: pulumi.String("r4.large.elasticsearch"),
 //				},
+//				DomainName:           pulumi.String("example"),
+//				ElasticsearchVersion: pulumi.String("7.10"),
 //				Tags: pulumi.StringMap{
 //					"Domain": pulumi.String("TestDomain"),
 //				},
@@ -135,7 +135,6 @@ import (
 //			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -144,6 +143,7 @@ import (
 //								},
 //							},
 //						},
+//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"logs:PutLogEvents",
 //							"logs:PutLogEventsBatch",
@@ -242,9 +242,6 @@ import (
 //				return err
 //			}
 //			es, err := ec2.NewSecurityGroup(ctx, "es", &ec2.SecurityGroupArgs{
-//				Name:        pulumi.Sprintf("%v-elasticsearch-%v", vpc, domain),
-//				Description: pulumi.String("Managed by Pulumi"),
-//				VpcId:       pulumi.String(selected.Id),
 //				Ingress: ec2.SecurityGroupIngressArray{
 //					&ec2.SecurityGroupIngressArgs{
 //						FromPort: pulumi.Int(443),
@@ -255,6 +252,9 @@ import (
 //						},
 //					},
 //				},
+//				Name:        pulumi.Sprintf("%v-elasticsearch-%v", vpc, domain),
+//				Description: pulumi.String("Managed by Pulumi"),
+//				VpcId:       pulumi.String(selected.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -266,8 +266,6 @@ import (
 //				return err
 //			}
 //			_, err = elasticsearch.NewDomain(ctx, "es", &elasticsearch.DomainArgs{
-//				DomainName:           pulumi.String(domain),
-//				ElasticsearchVersion: pulumi.String("6.3"),
 //				ClusterConfig: &elasticsearch.DomainClusterConfigArgs{
 //					InstanceType:         pulumi.String("m4.large.elasticsearch"),
 //					ZoneAwarenessEnabled: pulumi.Bool(true),
@@ -281,6 +279,8 @@ import (
 //						es.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
+//				DomainName:           pulumi.String(domain),
+//				ElasticsearchVersion: pulumi.String("6.3"),
 //				AdvancedOptions: pulumi.StringMap{
 //					"rest.action.multi.allow_explicit_index": pulumi.String("true"),
 //				},

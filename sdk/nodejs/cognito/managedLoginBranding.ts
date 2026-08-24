@@ -33,8 +33,6 @@ import * as utilities from "../utilities";
  * import * as std from "@pulumi/std";
  *
  * const client = new aws.cognito.ManagedLoginBranding("client", {
- *     clientId: example.id,
- *     userPoolId: exampleAwsCognitoUserPool.id,
  *     assets: [{
  *         bytes: std.filebase64({
  *             input: "login_branding_asset.svg",
@@ -43,6 +41,8 @@ import * as utilities from "../utilities";
  *         colorMode: "DARK",
  *         extension: "SVG",
  *     }],
+ *     clientId: example.id,
+ *     userPoolId: exampleAwsCognitoUserPool.id,
  *     settings: JSON.stringify({}),
  * });
  * ```

@@ -46,12 +46,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ParameterGroup("example", ParameterGroupArgs.builder()
- *             .family("neptune1")
- *             .name("example")
  *             .parameters(ParameterGroupParameterArgs.builder()
  *                 .name("neptune_query_timeout")
  *                 .value("25")
  *                 .build())
+ *             .family("neptune1")
+ *             .name("example")
  *             .build());
  * 
  *     }

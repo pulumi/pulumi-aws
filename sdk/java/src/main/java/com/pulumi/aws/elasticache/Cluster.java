@@ -181,12 +181,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Cluster("test", ClusterArgs.builder()
- *             .clusterId("mycluster")
- *             .engine("redis")
- *             .nodeType("cache.t3.micro")
- *             .numCacheNodes(1)
- *             .port(6379)
- *             .applyImmediately(true)
  *             .logDeliveryConfigurations(            
  *                 ClusterLogDeliveryConfigurationArgs.builder()
  *                     .destination(example.name())
@@ -200,6 +194,12 @@ import javax.annotation.Nullable;
  *                     .logFormat("json")
  *                     .logType("engine-log")
  *                     .build())
+ *             .clusterId("mycluster")
+ *             .engine("redis")
+ *             .nodeType("cache.t3.micro")
+ *             .numCacheNodes(1)
+ *             .port(6379)
+ *             .applyImmediately(true)
  *             .build());
  * 
  *     }

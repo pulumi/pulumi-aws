@@ -68,10 +68,10 @@ import javax.annotation.Nullable;
  * 
  *         var example = new MultiRegionAccessPoint("example", MultiRegionAccessPointArgs.builder()
  *             .details(MultiRegionAccessPointDetailsArgs.builder()
- *                 .name("example")
  *                 .regions(MultiRegionAccessPointDetailsRegionArgs.builder()
  *                     .bucket(fooBucket.id())
  *                     .build())
+ *                 .name("example")
  *                 .build())
  *             .build());
  * 

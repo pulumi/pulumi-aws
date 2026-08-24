@@ -53,12 +53,12 @@ import * as utilities from "../utilities";
  *     standbyReplicas: "ENABLED",
  * });
  * const exampleServerlessCollection = new aws.opensearch.ServerlessCollection("example", {
- *     name: "example",
- *     type: "SEARCH",
- *     collectionGroupName: exampleServerlessCollectionGroup.name,
  *     encryptionConfigs: [{
  *         kmsKeyArn: example.arn,
  *     }],
+ *     name: "example",
+ *     type: "SEARCH",
+ *     collectionGroupName: exampleServerlessCollectionGroup.name,
  * });
  * ```
  *

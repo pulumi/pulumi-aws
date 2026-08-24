@@ -30,7 +30,6 @@ namespace Pulumi.Aws.ApiGateway
     ///     // ...
     ///     var myusageplan = new Aws.ApiGateway.UsagePlan("myusageplan", new()
     ///     {
-    ///         Name = "my_usage_plan",
     ///         ApiStages = new[]
     ///         {
     ///             new Aws.ApiGateway.Inputs.UsagePlanApiStageArgs
@@ -39,6 +38,7 @@ namespace Pulumi.Aws.ApiGateway
     ///                 Stage = foo.StageName,
     ///             },
     ///         },
+    ///         Name = "my_usage_plan",
     ///     });
     /// 
     ///     var mykey = new Aws.ApiGateway.ApiKey("mykey", new()

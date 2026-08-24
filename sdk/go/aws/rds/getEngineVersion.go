@@ -60,9 +60,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := rds.GetEngineVersion(ctx, &rds.GetEngineVersionArgs{
-//				Engine:     "aurora-postgresql",
-//				Version:    pulumi.StringRef("10.14"),
-//				IncludeAll: pulumi.BoolRef(true),
 //				Filters: []rds.GetEngineVersionFilter{
 //					{
 //						Name: "engine-mode",
@@ -71,6 +68,9 @@ import (
 //						},
 //					},
 //				},
+//				Engine:     "aurora-postgresql",
+//				Version:    pulumi.StringRef("10.14"),
+//				IncludeAll: pulumi.BoolRef(true),
 //			}, nil)
 //			if err != nil {
 //				return err

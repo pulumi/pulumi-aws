@@ -91,10 +91,10 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getBotAssociation(GetBotAssociationArgs.builder()
-     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
      *             .lexBot(GetBotAssociationLexBotArgs.builder()
      *                 .name("Test")
      *                 .build())
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
@@ -137,10 +137,10 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getBotAssociation(GetBotAssociationArgs.builder()
-     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
      *             .lexBot(GetBotAssociationLexBotArgs.builder()
      *                 .name("Test")
      *                 .build())
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
@@ -183,10 +183,10 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getBotAssociation(GetBotAssociationArgs.builder()
-     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
      *             .lexBot(GetBotAssociationLexBotArgs.builder()
      *                 .name("Test")
      *                 .build())
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
@@ -229,10 +229,10 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getBotAssociation(GetBotAssociationArgs.builder()
-     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
      *             .lexBot(GetBotAssociationLexBotArgs.builder()
      *                 .name("Test")
      *                 .build())
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
@@ -275,10 +275,10 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getBotAssociation(GetBotAssociationArgs.builder()
-     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
      *             .lexBot(GetBotAssociationLexBotArgs.builder()
      *                 .name("Test")
      *                 .build())
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }

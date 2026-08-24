@@ -1016,11 +1016,11 @@ class Project(pulumi.CustomResource):
             bucket=example_bucket.id,
             acl="private")
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["codebuild.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         example_role = aws.iam.Role("example",
@@ -1050,9 +1050,6 @@ class Project(pulumi.CustomResource):
                 "resources": ["*"],
             },
             {
-                "effect": "Allow",
-                "actions": ["ec2:CreateNetworkInterfacePermission"],
-                "resources": ["arn:aws:ec2:us-east-1:123456789012:network-interface/*"],
                 "conditions": [
                     {
                         "test": "StringEquals",
@@ -1068,6 +1065,9 @@ class Project(pulumi.CustomResource):
                         "values": ["codebuild.amazonaws.com"],
                     },
                 ],
+                "effect": "Allow",
+                "actions": ["ec2:CreateNetworkInterfacePermission"],
+                "resources": ["arn:aws:ec2:us-east-1:123456789012:network-interface/*"],
             },
             {
                 "effect": "Allow",
@@ -1090,10 +1090,6 @@ class Project(pulumi.CustomResource):
             role=example_role.name,
             policy=example.json)
         example_project = aws.codebuild.Project("example",
-            name="test-project",
-            description="test_codebuild_project",
-            build_timeout=5,
-            service_role=example_role.arn,
             artifacts={
                 "type": "NO_ARTIFACTS",
             },
@@ -1102,11 +1098,6 @@ class Project(pulumi.CustomResource):
                 "location": example_bucket.bucket,
             },
             environment={
-                "compute_type": "BUILD_GENERAL1_SMALL",
-                "image": "aws/codebuild/amazonlinux-x86_64-standard:6.0",
-                "type": "LINUX_CONTAINER",
-                "image_pull_credentials_type": "CODEBUILD",
-                "host_kernel": "LINUX_KERNEL_6",
                 "environment_variables": [
                     {
                         "name": "SOME_KEY1",
@@ -1118,6 +1109,11 @@ class Project(pulumi.CustomResource):
                         "type": "PARAMETER_STORE",
                     },
                 ],
+                "compute_type": "BUILD_GENERAL1_SMALL",
+                "image": "aws/codebuild/amazonlinux-x86_64-standard:6.0",
+                "type": "LINUX_CONTAINER",
+                "image_pull_credentials_type": "CODEBUILD",
+                "host_kernel": "LINUX_KERNEL_6",
             },
             logs_config={
                 "cloudwatch_logs": {
@@ -1130,14 +1126,13 @@ class Project(pulumi.CustomResource):
                 },
             },
             source={
-                "type": "GITHUB",
-                "location": "https://github.com/mitchellh/packer.git",
-                "git_clone_depth": 1,
                 "git_submodules_config": {
                     "fetch_submodules": True,
                 },
+                "type": "GITHUB",
+                "location": "https://github.com/mitchellh/packer.git",
+                "git_clone_depth": 1,
             },
-            source_version="master",
             vpc_config={
                 "vpc_id": example_aws_vpc["id"],
                 "subnets": [
@@ -1149,15 +1144,15 @@ class Project(pulumi.CustomResource):
                     example2_aws_security_group["id"],
                 ],
             },
+            name="test-project",
+            description="test_codebuild_project",
+            build_timeout=5,
+            service_role=example_role.arn,
+            source_version="master",
             tags={
                 "Environment": "Test",
             })
         project_with_cache = aws.codebuild.Project("project-with-cache",
-            name="test-project-cache",
-            description="test_codebuild_project_cache",
-            build_timeout=5,
-            queued_timeout=5,
-            service_role=example_role.arn,
             artifacts={
                 "type": "NO_ARTIFACTS",
             },
@@ -1169,27 +1164,29 @@ class Project(pulumi.CustomResource):
                 ],
             },
             environment={
-                "compute_type": "BUILD_GENERAL1_SMALL",
-                "image": "aws/codebuild/amazonlinux2-x86_64-standard:4.0",
-                "type": "LINUX_CONTAINER",
-                "image_pull_credentials_type": "CODEBUILD",
                 "environment_variables": [{
                     "name": "SOME_KEY1",
                     "value": "SOME_VALUE1",
                 }],
+                "compute_type": "BUILD_GENERAL1_SMALL",
+                "image": "aws/codebuild/amazonlinux2-x86_64-standard:4.0",
+                "type": "LINUX_CONTAINER",
+                "image_pull_credentials_type": "CODEBUILD",
             },
             source={
                 "type": "GITHUB",
                 "location": "https://github.com/mitchellh/packer.git",
                 "git_clone_depth": 1,
             },
+            name="test-project-cache",
+            description="test_codebuild_project_cache",
+            build_timeout=5,
+            queued_timeout=5,
+            service_role=example_role.arn,
             tags={
                 "Environment": "Test",
             })
         project_using_github_app = aws.codebuild.Project("project-using-github-app",
-            name="project-using-github-app",
-            description="gets_source_from_github_via_the_github_app",
-            service_role=example_role.arn,
             artifacts={
                 "type": "NO_ARTIFACTS",
             },
@@ -1200,13 +1197,16 @@ class Project(pulumi.CustomResource):
                 "image_pull_credentials_type": "CODEBUILD",
             },
             source={
-                "type": "GITHUB",
-                "location": "https://github.com/example/example.git",
                 "auth": {
                     "type": "CODECONNECTIONS",
                     "resource": "arn:aws:codestar-connections:us-east-1:123456789012:connection/guid-string",
                 },
-            })
+                "type": "GITHUB",
+                "location": "https://github.com/example/example.git",
+            },
+            name="project-using-github-app",
+            description="gets_source_from_github_via_the_github_app",
+            service_role=example_role.arn)
         ```
 
         ### Runner Project
@@ -1298,11 +1298,11 @@ class Project(pulumi.CustomResource):
             bucket=example_bucket.id,
             acl="private")
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["codebuild.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         example_role = aws.iam.Role("example",
@@ -1332,9 +1332,6 @@ class Project(pulumi.CustomResource):
                 "resources": ["*"],
             },
             {
-                "effect": "Allow",
-                "actions": ["ec2:CreateNetworkInterfacePermission"],
-                "resources": ["arn:aws:ec2:us-east-1:123456789012:network-interface/*"],
                 "conditions": [
                     {
                         "test": "StringEquals",
@@ -1350,6 +1347,9 @@ class Project(pulumi.CustomResource):
                         "values": ["codebuild.amazonaws.com"],
                     },
                 ],
+                "effect": "Allow",
+                "actions": ["ec2:CreateNetworkInterfacePermission"],
+                "resources": ["arn:aws:ec2:us-east-1:123456789012:network-interface/*"],
             },
             {
                 "effect": "Allow",
@@ -1372,10 +1372,6 @@ class Project(pulumi.CustomResource):
             role=example_role.name,
             policy=example.json)
         example_project = aws.codebuild.Project("example",
-            name="test-project",
-            description="test_codebuild_project",
-            build_timeout=5,
-            service_role=example_role.arn,
             artifacts={
                 "type": "NO_ARTIFACTS",
             },
@@ -1384,11 +1380,6 @@ class Project(pulumi.CustomResource):
                 "location": example_bucket.bucket,
             },
             environment={
-                "compute_type": "BUILD_GENERAL1_SMALL",
-                "image": "aws/codebuild/amazonlinux-x86_64-standard:6.0",
-                "type": "LINUX_CONTAINER",
-                "image_pull_credentials_type": "CODEBUILD",
-                "host_kernel": "LINUX_KERNEL_6",
                 "environment_variables": [
                     {
                         "name": "SOME_KEY1",
@@ -1400,6 +1391,11 @@ class Project(pulumi.CustomResource):
                         "type": "PARAMETER_STORE",
                     },
                 ],
+                "compute_type": "BUILD_GENERAL1_SMALL",
+                "image": "aws/codebuild/amazonlinux-x86_64-standard:6.0",
+                "type": "LINUX_CONTAINER",
+                "image_pull_credentials_type": "CODEBUILD",
+                "host_kernel": "LINUX_KERNEL_6",
             },
             logs_config={
                 "cloudwatch_logs": {
@@ -1412,14 +1408,13 @@ class Project(pulumi.CustomResource):
                 },
             },
             source={
-                "type": "GITHUB",
-                "location": "https://github.com/mitchellh/packer.git",
-                "git_clone_depth": 1,
                 "git_submodules_config": {
                     "fetch_submodules": True,
                 },
+                "type": "GITHUB",
+                "location": "https://github.com/mitchellh/packer.git",
+                "git_clone_depth": 1,
             },
-            source_version="master",
             vpc_config={
                 "vpc_id": example_aws_vpc["id"],
                 "subnets": [
@@ -1431,15 +1426,15 @@ class Project(pulumi.CustomResource):
                     example2_aws_security_group["id"],
                 ],
             },
+            name="test-project",
+            description="test_codebuild_project",
+            build_timeout=5,
+            service_role=example_role.arn,
+            source_version="master",
             tags={
                 "Environment": "Test",
             })
         project_with_cache = aws.codebuild.Project("project-with-cache",
-            name="test-project-cache",
-            description="test_codebuild_project_cache",
-            build_timeout=5,
-            queued_timeout=5,
-            service_role=example_role.arn,
             artifacts={
                 "type": "NO_ARTIFACTS",
             },
@@ -1451,27 +1446,29 @@ class Project(pulumi.CustomResource):
                 ],
             },
             environment={
-                "compute_type": "BUILD_GENERAL1_SMALL",
-                "image": "aws/codebuild/amazonlinux2-x86_64-standard:4.0",
-                "type": "LINUX_CONTAINER",
-                "image_pull_credentials_type": "CODEBUILD",
                 "environment_variables": [{
                     "name": "SOME_KEY1",
                     "value": "SOME_VALUE1",
                 }],
+                "compute_type": "BUILD_GENERAL1_SMALL",
+                "image": "aws/codebuild/amazonlinux2-x86_64-standard:4.0",
+                "type": "LINUX_CONTAINER",
+                "image_pull_credentials_type": "CODEBUILD",
             },
             source={
                 "type": "GITHUB",
                 "location": "https://github.com/mitchellh/packer.git",
                 "git_clone_depth": 1,
             },
+            name="test-project-cache",
+            description="test_codebuild_project_cache",
+            build_timeout=5,
+            queued_timeout=5,
+            service_role=example_role.arn,
             tags={
                 "Environment": "Test",
             })
         project_using_github_app = aws.codebuild.Project("project-using-github-app",
-            name="project-using-github-app",
-            description="gets_source_from_github_via_the_github_app",
-            service_role=example_role.arn,
             artifacts={
                 "type": "NO_ARTIFACTS",
             },
@@ -1482,13 +1479,16 @@ class Project(pulumi.CustomResource):
                 "image_pull_credentials_type": "CODEBUILD",
             },
             source={
-                "type": "GITHUB",
-                "location": "https://github.com/example/example.git",
                 "auth": {
                     "type": "CODECONNECTIONS",
                     "resource": "arn:aws:codestar-connections:us-east-1:123456789012:connection/guid-string",
                 },
-            })
+                "type": "GITHUB",
+                "location": "https://github.com/example/example.git",
+            },
+            name="project-using-github-app",
+            description="gets_source_from_github_via_the_github_app",
+            service_role=example_role.arn)
         ```
 
         ### Runner Project

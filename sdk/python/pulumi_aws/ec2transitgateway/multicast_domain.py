@@ -296,9 +296,7 @@ class MulticastDomain(pulumi.CustomResource):
         import pulumi_aws as aws
 
         available = aws.get_availability_zones(state="available")
-        amazon_linux = aws.ec2.get_ami(most_recent=True,
-            owners=["amazon"],
-            filters=[
+        amazon_linux = aws.ec2.get_ami(filters=[
                 {
                     "name": "name",
                     "values": ["amzn-ami-hvm-*-x86_64-gp2"],
@@ -307,7 +305,9 @@ class MulticastDomain(pulumi.CustomResource):
                     "name": "owner-alias",
                     "values": ["amazon"],
                 },
-            ])
+            ],
+            most_recent=True,
+            owners=["amazon"])
         vpc1 = aws.ec2.Vpc("vpc1", cidr_block="10.0.0.0/16")
         vpc2 = aws.ec2.Vpc("vpc2", cidr_block="10.1.0.0/16")
         subnet1 = aws.ec2.Subnet("subnet1",
@@ -412,9 +412,7 @@ class MulticastDomain(pulumi.CustomResource):
         import pulumi_aws as aws
 
         available = aws.get_availability_zones(state="available")
-        amazon_linux = aws.ec2.get_ami(most_recent=True,
-            owners=["amazon"],
-            filters=[
+        amazon_linux = aws.ec2.get_ami(filters=[
                 {
                     "name": "name",
                     "values": ["amzn-ami-hvm-*-x86_64-gp2"],
@@ -423,7 +421,9 @@ class MulticastDomain(pulumi.CustomResource):
                     "name": "owner-alias",
                     "values": ["amazon"],
                 },
-            ])
+            ],
+            most_recent=True,
+            owners=["amazon"])
         vpc1 = aws.ec2.Vpc("vpc1", cidr_block="10.0.0.0/16")
         vpc2 = aws.ec2.Vpc("vpc2", cidr_block="10.1.0.0/16")
         subnet1 = aws.ec2.Subnet("subnet1",

@@ -59,8 +59,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var default_ = new ParameterGroup("default", ParameterGroupArgs.builder()
- *             .name("rds-pg")
- *             .family("mysql5.6")
  *             .parameters(            
  *                 ParameterGroupParameterArgs.builder()
  *                     .name("character_set_server")
@@ -70,6 +68,8 @@ import javax.annotation.Nullable;
  *                     .name("character_set_client")
  *                     .value("utf8")
  *                     .build())
+ *             .name("rds-pg")
+ *             .family("mysql5.6")
  *             .build());
  * 
  *     }
@@ -110,12 +110,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new ParameterGroup("test", ParameterGroupArgs.builder()
- *             .name("random-test-parameter")
- *             .family("mysql5.7")
  *             .parameters(ParameterGroupParameterArgs.builder()
  *                 .name("default_password_lifetime")
  *                 .value("0")
  *                 .build())
+ *             .name("random-test-parameter")
+ *             .family("mysql5.7")
  *             .build());
  * 
  *     }
@@ -187,12 +187,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new ParameterGroup("test", ParameterGroupArgs.builder()
- *             .name("random-test-parameter")
- *             .family("mysql5.7")
  *             .parameters(ParameterGroupParameterArgs.builder()
  *                 .name("default_password_lifetime")
  *                 .value("1")
  *                 .build())
+ *             .name("random-test-parameter")
+ *             .family("mysql5.7")
  *             .build());
  * 
  *     }
@@ -228,13 +228,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new ParameterGroup("test", ParameterGroupArgs.builder()
- *             .name("random-test-parameter")
- *             .family("mysql5.7")
  *             .parameters(ParameterGroupParameterArgs.builder()
  *                 .applyMethod("pending-reboot")
  *                 .name("default_password_lifetime")
  *                 .value("0")
  *                 .build())
+ *             .name("random-test-parameter")
+ *             .family("mysql5.7")
  *             .build());
  * 
  *     }

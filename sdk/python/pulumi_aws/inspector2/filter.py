@@ -324,14 +324,14 @@ class Filter(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.inspector2.Filter("example",
-            name="test",
-            action="NONE",
             filter_criterias=[{
                 "aws_account_ids": [{
                     "comparison": "EQUALS",
                     "value": "111222333444",
                 }],
-            }])
+            }],
+            name="test",
+            action="NONE")
         ```
 
         ## Import
@@ -379,14 +379,14 @@ class Filter(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.inspector2.Filter("example",
-            name="test",
-            action="NONE",
             filter_criterias=[{
                 "aws_account_ids": [{
                     "comparison": "EQUALS",
                     "value": "111222333444",
                 }],
-            }])
+            }],
+            name="test",
+            action="NONE")
         ```
 
         ## Import

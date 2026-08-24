@@ -47,22 +47,22 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CustomRoutingAccelerator("example", CustomRoutingAcceleratorArgs.builder()
- *             .name("Example")
- *             .ipAddressType("IPV4")
- *             .enabled(true)
  *             .attributes(CustomRoutingAcceleratorAttributesArgs.builder()
  *                 .flowLogsEnabled(true)
  *                 .flowLogsS3Bucket("example-bucket")
  *                 .flowLogsS3Prefix("flow-logs/")
  *                 .build())
+ *             .name("Example")
+ *             .ipAddressType("IPV4")
+ *             .enabled(true)
  *             .build());
  * 
  *         var exampleCustomRoutingListener = new CustomRoutingListener("exampleCustomRoutingListener", CustomRoutingListenerArgs.builder()
- *             .acceleratorArn(example.arn())
  *             .portRanges(CustomRoutingListenerPortRangeArgs.builder()
  *                 .fromPort(80)
  *                 .toPort(80)
  *                 .build())
+ *             .acceleratorArn(example.arn())
  *             .build());
  * 
  *     }

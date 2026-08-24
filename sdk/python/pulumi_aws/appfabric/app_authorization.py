@@ -410,9 +410,6 @@ class AppAuthorization(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appfabric.AppAuthorization("example",
-            app="TERRAFORMCLOUD",
-            app_bundle_arn=arn,
-            auth_type="apiKey",
             credential={
                 "api_key_credentials": [{
                     "api_key": "exampleapikeytoken",
@@ -421,7 +418,10 @@ class AppAuthorization(pulumi.CustomResource):
             tenants=[{
                 "tenant_display_name": "example",
                 "tenant_identifier": "example",
-            }])
+            }],
+            app="TERRAFORMCLOUD",
+            app_bundle_arn=arn,
+            auth_type="apiKey")
         ```
 
 
@@ -455,9 +455,6 @@ class AppAuthorization(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appfabric.AppAuthorization("example",
-            app="TERRAFORMCLOUD",
-            app_bundle_arn=arn,
-            auth_type="apiKey",
             credential={
                 "api_key_credentials": [{
                     "api_key": "exampleapikeytoken",
@@ -466,7 +463,10 @@ class AppAuthorization(pulumi.CustomResource):
             tenants=[{
                 "tenant_display_name": "example",
                 "tenant_identifier": "example",
-            }])
+            }],
+            app="TERRAFORMCLOUD",
+            app_bundle_arn=arn,
+            auth_type="apiKey")
         ```
 
 

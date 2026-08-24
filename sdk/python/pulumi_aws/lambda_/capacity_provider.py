@@ -382,14 +382,14 @@ class CapacityProvider(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.CapacityProvider("example",
-            name="example",
             vpc_config={
                 "subnet_ids": [__item["id"] for __item in example_aws_subnet],
                 "security_group_ids": [example_aws_security_group["id"]],
             },
             permissions_config={
                 "capacity_provider_operator_role_arn": example_aws_iam_role["arn"],
-            })
+            },
+            name="example")
         ```
 
         ### Manual Scaling with Specific Instance Types
@@ -399,7 +399,6 @@ class CapacityProvider(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.CapacityProvider("example",
-            name="example",
             vpc_config={
                 "subnet_ids": [__item["id"] for __item in example_aws_subnet],
                 "security_group_ids": [example_aws_security_group["id"]],
@@ -407,6 +406,13 @@ class CapacityProvider(pulumi.CustomResource):
             permissions_config={
                 "capacity_provider_operator_role_arn": example_aws_iam_role["arn"],
             },
+            capacity_provider_scaling_configs=[{
+                "scaling_mode": "Manual",
+                "scaling_policies": [{
+                    "predefined_metric_type": "LambdaCapacityProviderAverageCPUUtilization",
+                    "target_value": float(50),
+                }],
+            }],
             instance_requirements=[{
                 "architectures": ["x86_64"],
                 "allowed_instance_types": [
@@ -414,13 +420,7 @@ class CapacityProvider(pulumi.CustomResource):
                     "c7i.2xlarge",
                 ],
             }],
-            capacity_provider_scaling_configs=[{
-                "scaling_mode": "Manual",
-                "scaling_policies": [{
-                    "predefined_metric_type": "LambdaCapacityProviderAverageCPUUtilization",
-                    "target_value": float(50),
-                }],
-            }])
+            name="example")
         ```
 
         ## Import
@@ -474,14 +474,14 @@ class CapacityProvider(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.CapacityProvider("example",
-            name="example",
             vpc_config={
                 "subnet_ids": [__item["id"] for __item in example_aws_subnet],
                 "security_group_ids": [example_aws_security_group["id"]],
             },
             permissions_config={
                 "capacity_provider_operator_role_arn": example_aws_iam_role["arn"],
-            })
+            },
+            name="example")
         ```
 
         ### Manual Scaling with Specific Instance Types
@@ -491,7 +491,6 @@ class CapacityProvider(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.CapacityProvider("example",
-            name="example",
             vpc_config={
                 "subnet_ids": [__item["id"] for __item in example_aws_subnet],
                 "security_group_ids": [example_aws_security_group["id"]],
@@ -499,6 +498,13 @@ class CapacityProvider(pulumi.CustomResource):
             permissions_config={
                 "capacity_provider_operator_role_arn": example_aws_iam_role["arn"],
             },
+            capacity_provider_scaling_configs=[{
+                "scaling_mode": "Manual",
+                "scaling_policies": [{
+                    "predefined_metric_type": "LambdaCapacityProviderAverageCPUUtilization",
+                    "target_value": float(50),
+                }],
+            }],
             instance_requirements=[{
                 "architectures": ["x86_64"],
                 "allowed_instance_types": [
@@ -506,13 +512,7 @@ class CapacityProvider(pulumi.CustomResource):
                     "c7i.2xlarge",
                 ],
             }],
-            capacity_provider_scaling_configs=[{
-                "scaling_mode": "Manual",
-                "scaling_policies": [{
-                    "predefined_metric_type": "LambdaCapacityProviderAverageCPUUtilization",
-                    "target_value": float(50),
-                }],
-            }])
+            name="example")
         ```
 
         ## Import

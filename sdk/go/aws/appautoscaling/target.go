@@ -160,7 +160,9 @@ import (
 //				ResourceId:        pulumi.Sprintf("service/%v/%v", example.Name, exampleAwsEcsService.Name),
 //				ScalableDimension: pulumi.String("ecs:service:DesiredCount"),
 //				ServiceNamespace:  pulumi.String("ecs"),
-//			})
+//			}, pulumi.IgnoreChanges([]string{
+//				tagsAll,
+//			}))
 //			if err != nil {
 //				return err
 //			}

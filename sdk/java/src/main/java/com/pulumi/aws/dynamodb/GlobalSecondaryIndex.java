@@ -55,12 +55,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleTable = new Table("exampleTable", TableArgs.builder()
- *             .name("example")
- *             .billingMode("PROVISIONED")
- *             .readCapacity(20)
- *             .writeCapacity(20)
- *             .hashKey("UserId")
- *             .rangeKey("GameTitle")
  *             .attributes(            
  *                 TableAttributeArgs.builder()
  *                     .name("UserId")
@@ -70,11 +64,15 @@ import javax.annotation.Nullable;
  *                     .name("GameTitle")
  *                     .type("S")
  *                     .build())
+ *             .name("example")
+ *             .billingMode("PROVISIONED")
+ *             .readCapacity(20)
+ *             .writeCapacity(20)
+ *             .hashKey("UserId")
+ *             .rangeKey("GameTitle")
  *             .build());
  * 
  *         var example = new GlobalSecondaryIndex("example", GlobalSecondaryIndexArgs.builder()
- *             .tableName(exampleTable.name())
- *             .indexName("GameTitleIndex")
  *             .projection(GlobalSecondaryIndexProjectionArgs.builder()
  *                 .projectionType("INCLUDE")
  *                 .nonKeyAttributes("UserId")
@@ -88,6 +86,8 @@ import javax.annotation.Nullable;
  *                 .attributeType("S")
  *                 .keyType("HASH")
  *                 .build())
+ *             .tableName(exampleTable.name())
+ *             .indexName("GameTitleIndex")
  *             .build());
  * 
  *     }
@@ -112,8 +112,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.dynamodb.Table;
  * import com.pulumi.aws.dynamodb.TableArgs;
- * import com.pulumi.aws.dynamodb.inputs.TableGlobalSecondaryIndexArgs;
  * import com.pulumi.aws.dynamodb.inputs.TableAttributeArgs;
+ * import com.pulumi.aws.dynamodb.inputs.TableGlobalSecondaryIndexArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -128,10 +128,19 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Table("example", TableArgs.builder()
- *             .name("example-table")
- *             .hashKey("example-key")
- *             .readCapacity(1)
- *             .writeCapacity(1)
+ *             .attributes(            
+ *                 TableAttributeArgs.builder()
+ *                     .name("example-key")
+ *                     .type("S")
+ *                     .build(),
+ *                 TableAttributeArgs.builder()
+ *                     .name("example-gsi-key-1")
+ *                     .type("S")
+ *                     .build(),
+ *                 TableAttributeArgs.builder()
+ *                     .name("example-gsi-key-2")
+ *                     .type("S")
+ *                     .build())
  *             .globalSecondaryIndexes(            
  *                 TableGlobalSecondaryIndexArgs.builder()
  *                     .name("example-index-1")
@@ -147,19 +156,10 @@ import javax.annotation.Nullable;
  *                     .readCapacity(1)
  *                     .writeCapacity(1)
  *                     .build())
- *             .attributes(            
- *                 TableAttributeArgs.builder()
- *                     .name("example-key")
- *                     .type("S")
- *                     .build(),
- *                 TableAttributeArgs.builder()
- *                     .name("example-gsi-key-1")
- *                     .type("S")
- *                     .build(),
- *                 TableAttributeArgs.builder()
- *                     .name("example-gsi-key-2")
- *                     .type("S")
- *                     .build())
+ *             .name("example-table")
+ *             .hashKey("example-key")
+ *             .readCapacity(1)
+ *             .writeCapacity(1)
  *             .build());
  * 
  *     }
