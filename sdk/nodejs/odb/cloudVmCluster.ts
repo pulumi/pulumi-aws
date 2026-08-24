@@ -21,6 +21,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const withMinimumParameter = new aws.odb.CloudVmCluster("with_minimum_parameter", {
+ *     dataCollectionOptions: {
+ *         isDiagnosticsEventsEnabled: false,
+ *         isHealthMonitoringEnabled: false,
+ *         isIncidentLogsEnabled: false,
+ *     },
  *     displayName: "my_vm_cluster",
  *     cloudExadataInfrastructureId: "<aws_odb_cloud_exadata_infrastructure_id>",
  *     cpuCoreCount: 6,
@@ -38,11 +43,6 @@ import * as utilities from "../utilities";
  *     ],
  *     dbNodeStorageSizeInGbs: 120,
  *     memorySizeInGbs: 60,
- *     dataCollectionOptions: {
- *         isDiagnosticsEventsEnabled: false,
- *         isHealthMonitoringEnabled: false,
- *         isIncidentLogsEnabled: false,
- *     },
  * });
  * ```
  *
@@ -53,6 +53,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const withAllParameters = new aws.odb.CloudVmCluster("with_all_parameters", {
+ *     dataCollectionOptions: {
+ *         isDiagnosticsEventsEnabled: true,
+ *         isHealthMonitoringEnabled: true,
+ *         isIncidentLogsEnabled: true,
+ *     },
  *     displayName: "my_vm_cluster",
  *     cloudExadataInfrastructureId: "<aws_odb_cloud_exadata_infrastructure_id>",
  *     cpuCoreCount: 6,
@@ -76,11 +81,6 @@ import * as utilities from "../utilities";
  *     tags: {
  *         env: "dev",
  *     },
- *     dataCollectionOptions: {
- *         isDiagnosticsEventsEnabled: true,
- *         isHealthMonitoringEnabled: true,
- *         isIncidentLogsEnabled: true,
- *     },
  * });
  * ```
  *
@@ -91,6 +91,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const giVersionTagExample = new aws.odb.CloudVmCluster("gi_version_tag_example", {
+ *     dataCollectionOptions: {
+ *         isDiagnosticsEventsEnabled: true,
+ *         isHealthMonitoringEnabled: true,
+ *         isIncidentLogsEnabled: true,
+ *     },
  *     displayName: "my_vm_cluster",
  *     cloudExadataInfrastructureId: "<aws_odb_cloud_exadata_infrastructure_id>",
  *     cpuCoreCount: 6,
@@ -113,11 +118,6 @@ import * as utilities from "../utilities";
  *     scanListenerPortTcp: 1521,
  *     tags: {
  *         "odb:input_gi_version": "23.0.0.0",
- *     },
- *     dataCollectionOptions: {
- *         isDiagnosticsEventsEnabled: true,
- *         isHealthMonitoringEnabled: true,
- *         isIncidentLogsEnabled: true,
  *     },
  * });
  * ```

@@ -92,9 +92,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var yada = new EventTarget("yada", EventTargetArgs.builder()
- *             .targetId("Yada")
- *             .rule(console.name())
- *             .arn(testStream.arn())
  *             .runCommandTargets(            
  *                 EventTargetRunCommandTargetArgs.builder()
  *                     .key("tag:Name")
@@ -104,6 +101,9 @@ import javax.annotation.Nullable;
  *                     .key("InstanceIds")
  *                     .values("i-162058cd308bffec2")
  *                     .build())
+ *             .targetId("Yada")
+ *             .rule(console.name())
+ *             .arn(testStream.arn())
  *             .build());
  * 
  *     }
@@ -154,11 +154,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var ssmLifecycleTrust = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions("sts:AssumeRole")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("events.amazonaws.com")
  *                     .build())
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
@@ -186,14 +186,14 @@ import javax.annotation.Nullable;
  *         final var ssmLifecycle = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(            
  *                 GetPolicyDocumentStatementArgs.builder()
- *                     .effect("Allow")
- *                     .actions("ssm:SendCommand")
- *                     .resources("arn:aws:ec2:eu-west-1:1234567890:instance/*")
  *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                         .test("StringEquals")
  *                         .variable("ec2:ResourceTag/Terminate")
  *                         .values("*")
  *                         .build())
+ *                     .effect("Allow")
+ *                     .actions("ssm:SendCommand")
+ *                     .resources("arn:aws:ec2:eu-west-1:1234567890:instance/*")
  *                     .build(),
  *                 GetPolicyDocumentStatementArgs.builder()
  *                     .effect("Allow")
@@ -224,14 +224,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var stopInstancesEventTarget = new EventTarget("stopInstancesEventTarget", EventTargetArgs.builder()
- *             .targetId("StopInstance")
- *             .arn(stopInstance.arn())
- *             .rule(stopInstances.name())
- *             .roleArn(ssmLifecycleRole.arn())
  *             .runCommandTargets(EventTargetRunCommandTargetArgs.builder()
  *                 .key("tag:Terminate")
  *                 .values("midnight")
  *                 .build())
+ *             .targetId("StopInstance")
+ *             .arn(stopInstance.arn())
+ *             .rule(stopInstances.name())
+ *             .roleArn(ssmLifecycleRole.arn())
  *             .build());
  * 
  *     }
@@ -273,15 +273,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var stopInstancesEventTarget = new EventTarget("stopInstancesEventTarget", EventTargetArgs.builder()
+ *             .runCommandTargets(EventTargetRunCommandTargetArgs.builder()
+ *                 .key("tag:Terminate")
+ *                 .values("midnight")
+ *                 .build())
  *             .targetId("StopInstance")
  *             .arn(String.format("arn:aws:ssm:%s::document/AWS-RunShellScript", awsRegion))
  *             .input("{\"commands\":[\"halt\"]}")
  *             .rule(stopInstances.name())
  *             .roleArn(ssmLifecycle.arn())
- *             .runCommandTargets(EventTargetRunCommandTargetArgs.builder()
- *                 .key("tag:Terminate")
- *                 .values("midnight")
- *                 .build())
  *             .build());
  * 
  *     }
@@ -327,11 +327,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("events.amazonaws.com")
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
@@ -366,14 +366,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var ecsScheduledTask = new EventTarget("ecsScheduledTask", EventTargetArgs.builder()
- *             .targetId("run-scheduled-task-every-hour")
- *             .arn(clusterName.arn())
- *             .rule(everyHour.name())
- *             .roleArn(ecsEvents.arn())
  *             .ecsTarget(EventTargetEcsTargetArgs.builder()
  *                 .taskCount(1)
  *                 .taskDefinitionArn(taskName.arn())
  *                 .build())
+ *             .targetId("run-scheduled-task-every-hour")
+ *             .arn(clusterName.arn())
+ *             .rule(everyHour.name())
+ *             .roleArn(ecsEvents.arn())
  *             .input(serializeJson(
  *                 jsonObject(
  *                     jsonProperty("containerOverrides", jsonArray(jsonObject(
@@ -433,12 +433,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new EventTarget("example", EventTargetArgs.builder()
- *             .arn(exampleStage.executionArn().applyValue(_executionArn -> String.format("%s/GET", _executionArn)))
- *             .rule(exampleEventRule.id())
  *             .httpTarget(EventTargetHttpTargetArgs.builder()
  *                 .queryStringParameters(Map.of("Body", "$.detail.body"))
  *                 .headerParameters(Map.of("Env", "Test"))
  *                 .build())
+ *             .arn(exampleStage.executionArn().applyValue(_executionArn -> String.format("%s/GET", _executionArn)))
+ *             .rule(exampleEventRule.id())
  *             .build());
  * 
  *     }
@@ -484,11 +484,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("events.amazonaws.com")
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
@@ -563,8 +563,6 @@ import javax.annotation.Nullable;
  *         var exampleEventRule = new EventRule("exampleEventRule");
  * 
  *         var example = new EventTarget("example", EventTargetArgs.builder()
- *             .arn(exampleAwsLambdaFunction.arn())
- *             .rule(exampleEventRule.id())
  *             .inputTransformer(EventTargetInputTransformerArgs.builder()
  *                 .inputPaths(Map.ofEntries(
  *                     Map.entry("instance", "$.detail.instance"),
@@ -577,6 +575,8 @@ import javax.annotation.Nullable;
  * }
  *                 """)
  *                 .build())
+ *             .arn(exampleAwsLambdaFunction.arn())
+ *             .rule(exampleEventRule.id())
  *             .build());
  * 
  *     }
@@ -613,8 +613,6 @@ import javax.annotation.Nullable;
  *         var exampleEventRule = new EventRule("exampleEventRule");
  * 
  *         var example = new EventTarget("example", EventTargetArgs.builder()
- *             .arn(exampleAwsLambdaFunction.arn())
- *             .rule(exampleEventRule.id())
  *             .inputTransformer(EventTargetInputTransformerArgs.builder()
  *                 .inputPaths(Map.ofEntries(
  *                     Map.entry("instance", "$.detail.instance"),
@@ -622,6 +620,8 @@ import javax.annotation.Nullable;
  *                 ))
  *                 .inputTemplate("\"<instance> is in state <status>\"")
  *                 .build())
+ *             .arn(exampleAwsLambdaFunction.arn())
+ *             .rule(exampleEventRule.id())
  *             .build());
  * 
  *     }
@@ -683,31 +683,31 @@ import javax.annotation.Nullable;
  *         final var exampleLogPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(            
  *                 GetPolicyDocumentStatementArgs.builder()
+ *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                         .type("Service")
+ *                         .identifiers(                        
+ *                             "events.amazonaws.com",
+ *                             "delivery.logs.amazonaws.com")
+ *                         .build())
  *                     .effect("Allow")
  *                     .actions("logs:CreateLogStream")
  *                     .resources(example.arn().applyValue(_arn -> String.format("%s:*", _arn)))
- *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                         .type("Service")
- *                         .identifiers(                        
- *                             "events.amazonaws.com",
- *                             "delivery.logs.amazonaws.com")
- *                         .build())
  *                     .build(),
  *                 GetPolicyDocumentStatementArgs.builder()
- *                     .effect("Allow")
- *                     .actions("logs:PutLogEvents")
- *                     .resources(example.arn().applyValue(_arn -> String.format("%s:*:*", _arn)))
- *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                         .type("Service")
- *                         .identifiers(                        
- *                             "events.amazonaws.com",
- *                             "delivery.logs.amazonaws.com")
- *                         .build())
  *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                         .test("ArnEquals")
  *                         .values(exampleEventRule.arn())
  *                         .variable("aws:SourceArn")
  *                         .build())
+ *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                         .type("Service")
+ *                         .identifiers(                        
+ *                             "events.amazonaws.com",
+ *                             "delivery.logs.amazonaws.com")
+ *                         .build())
+ *                     .effect("Allow")
+ *                     .actions("logs:PutLogEvents")
+ *                     .resources(example.arn().applyValue(_arn -> String.format("%s:*:*", _arn)))
  *                     .build())
  *             .build());
  * 
@@ -776,11 +776,11 @@ import javax.annotation.Nullable;
  * 
  *         final var appsyncMutationRoleTrust = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions("sts:AssumeRole")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("events.amazonaws.com")
  *                     .build())
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
@@ -817,13 +817,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var invokeAppsyncMutationEventTarget = new EventTarget("invokeAppsyncMutationEventTarget", EventTargetArgs.builder()
- *             .arn(StdFunctions.replace(ReplaceArgs.builder()
- *                 .text(graphql_api.arn())
- *                 .search("apis")
- *                 .replace("endpoints/graphql-api")
- *                 .build()).applyValue(_invoke -> _invoke.result()))
- *             .rule(invokeAppsyncMutation.id())
- *             .roleArn(appsyncMutationRole.arn())
  *             .inputTransformer(EventTargetInputTransformerArgs.builder()
  *                 .inputPaths(Map.of("input", "$.detail.input"))
  *                 .inputTemplate("""
@@ -835,6 +828,13 @@ import javax.annotation.Nullable;
  *             .appsyncTarget(EventTargetAppsyncTargetArgs.builder()
  *                 .graphqlOperation("mutation TestMutation($input:MutationInput!){testMutation(input: $input) {test}}")
  *                 .build())
+ *             .arn(StdFunctions.replace(ReplaceArgs.builder()
+ *                 .text(graphql_api.arn())
+ *                 .search("apis")
+ *                 .replace("endpoints/graphql-api")
+ *                 .build()).applyValue(_invoke -> _invoke.result()))
+ *             .rule(invokeAppsyncMutation.id())
+ *             .roleArn(appsyncMutationRole.arn())
  *             .build());
  * 
  *         final var appsyncMutationRolePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()

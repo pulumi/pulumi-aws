@@ -46,12 +46,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			exampleCluster, err := msk.NewCluster(ctx, "example", &msk.ClusterArgs{
-//				ClusterName: pulumi.String("example"),
 //				ClientAuthentication: &msk.ClusterClientAuthenticationArgs{
 //					Sasl: &msk.ClusterClientAuthenticationSaslArgs{
 //						Scram: pulumi.Bool(true),
 //					},
 //				},
+//				ClusterName: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -98,8 +98,6 @@ import (
 //			example := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
-//						Sid:    pulumi.String("AWSKafkaResourcePolicy"),
-//						Effect: pulumi.String("Allow"),
 //						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
 //							&iam.GetPolicyDocumentStatementPrincipalArgs{
 //								Type: pulumi.String("Service"),
@@ -108,6 +106,8 @@ import (
 //								},
 //							},
 //						},
+//						Sid:    pulumi.String("AWSKafkaResourcePolicy"),
+//						Effect: pulumi.String("Allow"),
 //						Actions: pulumi.StringArray{
 //							pulumi.String("secretsmanager:getSecretValue"),
 //						},

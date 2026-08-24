@@ -363,9 +363,6 @@ class Route(pulumi.CustomResource):
         import pulumi_aws as aws
 
         serviceb = aws.appmesh.Route("serviceb",
-            name="serviceB-route",
-            mesh_name=simple["id"],
-            virtual_router_name=serviceb_aws_appmesh_virtual_router["name"],
             spec={
                 "http_route": {
                     "match": {
@@ -384,7 +381,10 @@ class Route(pulumi.CustomResource):
                         ],
                     },
                 },
-            })
+            },
+            name="serviceB-route",
+            mesh_name=simple["id"],
+            virtual_router_name=serviceb_aws_appmesh_virtual_router["name"])
         ```
 
         ### HTTP Header Routing
@@ -394,21 +394,18 @@ class Route(pulumi.CustomResource):
         import pulumi_aws as aws
 
         serviceb = aws.appmesh.Route("serviceb",
-            name="serviceB-route",
-            mesh_name=simple["id"],
-            virtual_router_name=serviceb_aws_appmesh_virtual_router["name"],
             spec={
                 "http_route": {
                     "match": {
-                        "method": "POST",
-                        "prefix": "/",
-                        "scheme": "https",
                         "headers": [{
-                            "name": "clientRequestId",
                             "match": {
                                 "prefix": "123",
                             },
+                            "name": "clientRequestId",
                         }],
+                        "method": "POST",
+                        "prefix": "/",
+                        "scheme": "https",
                     },
                     "action": {
                         "weighted_targets": [{
@@ -417,7 +414,10 @@ class Route(pulumi.CustomResource):
                         }],
                     },
                 },
-            })
+            },
+            name="serviceB-route",
+            mesh_name=simple["id"],
+            virtual_router_name=serviceb_aws_appmesh_virtual_router["name"])
         ```
 
         ### Retry Policy
@@ -427,21 +427,18 @@ class Route(pulumi.CustomResource):
         import pulumi_aws as aws
 
         serviceb = aws.appmesh.Route("serviceb",
-            name="serviceB-route",
-            mesh_name=simple["id"],
-            virtual_router_name=serviceb_aws_appmesh_virtual_router["name"],
             spec={
                 "http_route": {
                     "match": {
                         "prefix": "/",
                     },
                     "retry_policy": {
-                        "http_retry_events": ["server-error"],
-                        "max_retries": 1,
                         "per_retry_timeout": {
                             "unit": "s",
                             "value": 15,
                         },
+                        "http_retry_events": ["server-error"],
+                        "max_retries": 1,
                     },
                     "action": {
                         "weighted_targets": [{
@@ -450,7 +447,10 @@ class Route(pulumi.CustomResource):
                         }],
                     },
                 },
-            })
+            },
+            name="serviceB-route",
+            mesh_name=simple["id"],
+            virtual_router_name=serviceb_aws_appmesh_virtual_router["name"])
         ```
 
         ### TCP Routing
@@ -460,9 +460,6 @@ class Route(pulumi.CustomResource):
         import pulumi_aws as aws
 
         serviceb = aws.appmesh.Route("serviceb",
-            name="serviceB-route",
-            mesh_name=simple["id"],
-            virtual_router_name=serviceb_aws_appmesh_virtual_router["name"],
             spec={
                 "tcp_route": {
                     "action": {
@@ -472,7 +469,10 @@ class Route(pulumi.CustomResource):
                         }],
                     },
                 },
-            })
+            },
+            name="serviceB-route",
+            mesh_name=simple["id"],
+            virtual_router_name=serviceb_aws_appmesh_virtual_router["name"])
         ```
 
         ## Import
@@ -512,9 +512,6 @@ class Route(pulumi.CustomResource):
         import pulumi_aws as aws
 
         serviceb = aws.appmesh.Route("serviceb",
-            name="serviceB-route",
-            mesh_name=simple["id"],
-            virtual_router_name=serviceb_aws_appmesh_virtual_router["name"],
             spec={
                 "http_route": {
                     "match": {
@@ -533,7 +530,10 @@ class Route(pulumi.CustomResource):
                         ],
                     },
                 },
-            })
+            },
+            name="serviceB-route",
+            mesh_name=simple["id"],
+            virtual_router_name=serviceb_aws_appmesh_virtual_router["name"])
         ```
 
         ### HTTP Header Routing
@@ -543,21 +543,18 @@ class Route(pulumi.CustomResource):
         import pulumi_aws as aws
 
         serviceb = aws.appmesh.Route("serviceb",
-            name="serviceB-route",
-            mesh_name=simple["id"],
-            virtual_router_name=serviceb_aws_appmesh_virtual_router["name"],
             spec={
                 "http_route": {
                     "match": {
-                        "method": "POST",
-                        "prefix": "/",
-                        "scheme": "https",
                         "headers": [{
-                            "name": "clientRequestId",
                             "match": {
                                 "prefix": "123",
                             },
+                            "name": "clientRequestId",
                         }],
+                        "method": "POST",
+                        "prefix": "/",
+                        "scheme": "https",
                     },
                     "action": {
                         "weighted_targets": [{
@@ -566,7 +563,10 @@ class Route(pulumi.CustomResource):
                         }],
                     },
                 },
-            })
+            },
+            name="serviceB-route",
+            mesh_name=simple["id"],
+            virtual_router_name=serviceb_aws_appmesh_virtual_router["name"])
         ```
 
         ### Retry Policy
@@ -576,21 +576,18 @@ class Route(pulumi.CustomResource):
         import pulumi_aws as aws
 
         serviceb = aws.appmesh.Route("serviceb",
-            name="serviceB-route",
-            mesh_name=simple["id"],
-            virtual_router_name=serviceb_aws_appmesh_virtual_router["name"],
             spec={
                 "http_route": {
                     "match": {
                         "prefix": "/",
                     },
                     "retry_policy": {
-                        "http_retry_events": ["server-error"],
-                        "max_retries": 1,
                         "per_retry_timeout": {
                             "unit": "s",
                             "value": 15,
                         },
+                        "http_retry_events": ["server-error"],
+                        "max_retries": 1,
                     },
                     "action": {
                         "weighted_targets": [{
@@ -599,7 +596,10 @@ class Route(pulumi.CustomResource):
                         }],
                     },
                 },
-            })
+            },
+            name="serviceB-route",
+            mesh_name=simple["id"],
+            virtual_router_name=serviceb_aws_appmesh_virtual_router["name"])
         ```
 
         ### TCP Routing
@@ -609,9 +609,6 @@ class Route(pulumi.CustomResource):
         import pulumi_aws as aws
 
         serviceb = aws.appmesh.Route("serviceb",
-            name="serviceB-route",
-            mesh_name=simple["id"],
-            virtual_router_name=serviceb_aws_appmesh_virtual_router["name"],
             spec={
                 "tcp_route": {
                     "action": {
@@ -621,7 +618,10 @@ class Route(pulumi.CustomResource):
                         }],
                     },
                 },
-            })
+            },
+            name="serviceB-route",
+            mesh_name=simple["id"],
+            virtual_router_name=serviceb_aws_appmesh_virtual_router["name"])
         ```
 
         ## Import

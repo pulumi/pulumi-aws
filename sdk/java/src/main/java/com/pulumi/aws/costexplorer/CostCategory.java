@@ -49,11 +49,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new CostCategory("test", CostCategoryArgs.builder()
- *             .name("NAME")
- *             .ruleVersion("CostCategoryExpression.v1")
  *             .rules(            
  *                 CostCategoryRuleArgs.builder()
- *                     .value("production")
  *                     .rule(CostCategoryRuleRuleArgs.builder()
  *                         .dimension(CostCategoryRuleRuleDimensionArgs.builder()
  *                             .key("LINKED_ACCOUNT_NAME")
@@ -61,9 +58,9 @@ import javax.annotation.Nullable;
  *                             .matchOptions("ENDS_WITH")
  *                             .build())
  *                         .build())
+ *                     .value("production")
  *                     .build(),
  *                 CostCategoryRuleArgs.builder()
- *                     .value("staging")
  *                     .rule(CostCategoryRuleRuleArgs.builder()
  *                         .dimension(CostCategoryRuleRuleDimensionArgs.builder()
  *                             .key("LINKED_ACCOUNT_NAME")
@@ -71,9 +68,9 @@ import javax.annotation.Nullable;
  *                             .matchOptions("ENDS_WITH")
  *                             .build())
  *                         .build())
+ *                     .value("staging")
  *                     .build(),
  *                 CostCategoryRuleArgs.builder()
- *                     .value("testing")
  *                     .rule(CostCategoryRuleRuleArgs.builder()
  *                         .dimension(CostCategoryRuleRuleDimensionArgs.builder()
  *                             .key("LINKED_ACCOUNT_NAME")
@@ -81,7 +78,10 @@ import javax.annotation.Nullable;
  *                             .matchOptions("ENDS_WITH")
  *                             .build())
  *                         .build())
+ *                     .value("testing")
  *                     .build())
+ *             .name("NAME")
+ *             .ruleVersion("CostCategoryExpression.v1")
  *             .build());
  * 
  *     }

@@ -113,6 +113,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.autoscaling.inputs.GroupInitialLifecycleHookArgs;
  * import com.pulumi.aws.autoscaling.inputs.GroupTagArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import com.pulumi.resources.CustomTimeouts;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -132,18 +134,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var bar = new Group("bar", GroupArgs.builder()
- *             .name("foobar3-test")
- *             .maxSize(5)
- *             .minSize(2)
- *             .healthCheckGracePeriod(300)
- *             .healthCheckType("ELB")
- *             .desiredCapacity(4)
- *             .forceDelete(true)
- *             .placementGroup(test.id())
- *             .launchConfiguration(foobar.name())
- *             .vpcZoneIdentifiers(            
- *                 example1.id(),
- *                 example2.id())
  *             .instanceMaintenancePolicy(GroupInstanceMaintenancePolicyArgs.builder()
  *                 .minHealthyPercentage(90)
  *                 .maxHealthyPercentage(120)
@@ -171,7 +161,23 @@ import javax.annotation.Nullable;
  *                     .value("ipsum")
  *                     .propagateAtLaunch(false)
  *                     .build())
- *             .build());
+ *             .name("foobar3-test")
+ *             .maxSize(5)
+ *             .minSize(2)
+ *             .healthCheckGracePeriod(300)
+ *             .healthCheckType("ELB")
+ *             .desiredCapacity(4)
+ *             .forceDelete(true)
+ *             .placementGroup(test.id())
+ *             .launchConfiguration(foobar.name())
+ *             .vpcZoneIdentifiers(            
+ *                 example1.id(),
+ *                 example2.id())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .customTimeouts(CustomTimeouts.builder()
+ *                     .delete(CustomTimeouts.parseTimeoutString("15m"))
+ *                 .build())
+ *                 .build());
  * 
  *     }
  * }
@@ -212,14 +218,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var bar = new Group("bar", GroupArgs.builder()
- *             .availabilityZones("us-east-1a")
- *             .desiredCapacity(1)
- *             .maxSize(1)
- *             .minSize(1)
  *             .launchTemplate(GroupLaunchTemplateArgs.builder()
  *                 .id(foobar.id())
  *                 .version("$Latest")
  *                 .build())
+ *             .availabilityZones("us-east-1a")
+ *             .desiredCapacity(1)
+ *             .maxSize(1)
+ *             .minSize(1)
  *             .build());
  * 
  *     }
@@ -264,10 +270,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()
- *             .availabilityZones("us-east-1a")
- *             .desiredCapacity(1)
- *             .maxSize(1)
- *             .minSize(1)
  *             .mixedInstancesPolicy(GroupMixedInstancesPolicyArgs.builder()
  *                 .launchTemplate(GroupMixedInstancesPolicyLaunchTemplateArgs.builder()
  *                     .launchTemplateSpecification(GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs.builder()
@@ -284,6 +286,10 @@ import javax.annotation.Nullable;
  *                             .build())
  *                     .build())
  *                 .build())
+ *             .availabilityZones("us-east-1a")
+ *             .desiredCapacity(1)
+ *             .maxSize(1)
+ *             .minSize(1)
  *             .build());
  * 
  *     }
@@ -329,13 +335,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()
- *             .capacityRebalance(true)
- *             .desiredCapacity(12)
- *             .maxSize(15)
- *             .minSize(12)
- *             .vpcZoneIdentifiers(            
- *                 example1.id(),
- *                 example2.id())
  *             .mixedInstancesPolicy(GroupMixedInstancesPolicyArgs.builder()
  *                 .instancesDistribution(GroupMixedInstancesPolicyInstancesDistributionArgs.builder()
  *                     .onDemandBaseCapacity(0)
@@ -357,6 +356,13 @@ import javax.annotation.Nullable;
  *                             .build())
  *                     .build())
  *                 .build())
+ *             .capacityRebalance(true)
+ *             .desiredCapacity(12)
+ *             .maxSize(15)
+ *             .minSize(12)
+ *             .vpcZoneIdentifiers(            
+ *                 example1.id(),
+ *                 example2.id())
  *             .build());
  * 
  *     }
@@ -409,10 +415,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()
- *             .availabilityZones("us-east-1a")
- *             .desiredCapacity(1)
- *             .maxSize(1)
- *             .minSize(1)
  *             .mixedInstancesPolicy(GroupMixedInstancesPolicyArgs.builder()
  *                 .launchTemplate(GroupMixedInstancesPolicyLaunchTemplateArgs.builder()
  *                     .launchTemplateSpecification(GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs.builder()
@@ -424,14 +426,18 @@ import javax.annotation.Nullable;
  *                             .weightedCapacity("3")
  *                             .build(),
  *                         GroupMixedInstancesPolicyLaunchTemplateOverrideArgs.builder()
- *                             .instanceType("c6g.large")
  *                             .launchTemplateSpecification(GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs.builder()
  *                                 .launchTemplateId(example2.id())
  *                                 .build())
+ *                             .instanceType("c6g.large")
  *                             .weightedCapacity("2")
  *                             .build())
  *                     .build())
  *                 .build())
+ *             .availabilityZones("us-east-1a")
+ *             .desiredCapacity(1)
+ *             .maxSize(1)
+ *             .minSize(1)
  *             .build());
  * 
  *     }
@@ -481,10 +487,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()
- *             .availabilityZones("us-east-1a")
- *             .desiredCapacity(1)
- *             .maxSize(1)
- *             .minSize(1)
  *             .mixedInstancesPolicy(GroupMixedInstancesPolicyArgs.builder()
  *                 .launchTemplate(GroupMixedInstancesPolicyLaunchTemplateArgs.builder()
  *                     .launchTemplateSpecification(GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs.builder()
@@ -502,6 +504,10 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
+ *             .availabilityZones("us-east-1a")
+ *             .desiredCapacity(1)
+ *             .maxSize(1)
+ *             .minSize(1)
  *             .build());
  * 
  *     }
@@ -589,9 +595,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.autoscaling.Group;
  * import com.pulumi.aws.autoscaling.GroupArgs;
  * import com.pulumi.aws.autoscaling.inputs.GroupLaunchTemplateArgs;
- * import com.pulumi.aws.autoscaling.inputs.GroupTagArgs;
  * import com.pulumi.aws.autoscaling.inputs.GroupInstanceRefreshArgs;
  * import com.pulumi.aws.autoscaling.inputs.GroupInstanceRefreshPreferencesArgs;
+ * import com.pulumi.aws.autoscaling.inputs.GroupTagArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -606,12 +612,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
- *             .mostRecent(true)
- *             .owners("amazon")
  *             .filters(GetAmiFilterArgs.builder()
  *                 .name("name")
  *                 .values("amzn-ami-hvm-*-x86_64-gp2")
  *                 .build())
+ *             .mostRecent(true)
+ *             .owners("amazon")
  *             .build());
  * 
  *         var exampleLaunchTemplate = new LaunchTemplate("exampleLaunchTemplate", LaunchTemplateArgs.builder()
@@ -620,26 +626,26 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()
- *             .availabilityZones("us-east-1a")
- *             .desiredCapacity(1)
- *             .maxSize(2)
- *             .minSize(1)
  *             .launchTemplate(GroupLaunchTemplateArgs.builder()
  *                 .id(exampleLaunchTemplate.id())
  *                 .version(exampleLaunchTemplate.latestVersion())
+ *                 .build())
+ *             .instanceRefresh(GroupInstanceRefreshArgs.builder()
+ *                 .preferences(GroupInstanceRefreshPreferencesArgs.builder()
+ *                     .minHealthyPercentage(50)
+ *                     .build())
+ *                 .strategy("Rolling")
+ *                 .triggers("tag")
  *                 .build())
  *             .tags(GroupTagArgs.builder()
  *                 .key("Key")
  *                 .value("Value")
  *                 .propagateAtLaunch(true)
  *                 .build())
- *             .instanceRefresh(GroupInstanceRefreshArgs.builder()
- *                 .strategy("Rolling")
- *                 .preferences(GroupInstanceRefreshPreferencesArgs.builder()
- *                     .minHealthyPercentage(50)
- *                     .build())
- *                 .triggers("tag")
- *                 .build())
+ *             .availabilityZones("us-east-1a")
+ *             .desiredCapacity(1)
+ *             .maxSize(2)
+ *             .minSize(1)
  *             .build());
  * 
  *     }
@@ -682,18 +688,18 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()
+ *             .warmPool(GroupWarmPoolArgs.builder()
+ *                 .instanceReusePolicy(GroupWarmPoolInstanceReusePolicyArgs.builder()
+ *                     .reuseOnScaleIn(true)
+ *                     .build())
+ *                 .poolState("Hibernated")
+ *                 .minSize(1)
+ *                 .maxGroupPreparedCapacity(10)
+ *                 .build())
  *             .availabilityZones("us-east-1a")
  *             .desiredCapacity(1)
  *             .maxSize(5)
  *             .minSize(1)
- *             .warmPool(GroupWarmPoolArgs.builder()
- *                 .poolState("Hibernated")
- *                 .minSize(1)
- *                 .maxGroupPreparedCapacity(10)
- *                 .instanceReusePolicy(GroupWarmPoolInstanceReusePolicyArgs.builder()
- *                     .reuseOnScaleIn(true)
- *                     .build())
- *                 .build())
  *             .build());
  * 
  *     }

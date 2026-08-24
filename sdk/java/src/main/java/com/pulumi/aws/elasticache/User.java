@@ -84,13 +84,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) }{{@code
  *         var test = new User("test", UserArgs.builder()
+ *             .authenticationMode(UserAuthenticationModeArgs.builder()
+ *                 .type("iam")
+ *                 .build())
  *             .userId("testUserId")
  *             .userName("testUserName")
  *             .accessString("on ~* +}{@literal @}{@code all")
  *             .engine("redis")
- *             .authenticationMode(UserAuthenticationModeArgs.builder()
- *                 .type("iam")
- *                 .build())
  *             .build());
  * 
  *     }}{@code
@@ -122,16 +122,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) }{{@code
  *         var test = new User("test", UserArgs.builder()
- *             .userId("testUserId")
- *             .userName("testUserName")
- *             .accessString("on ~* +}{@literal @}{@code all")
- *             .engine("redis")
  *             .authenticationMode(UserAuthenticationModeArgs.builder()
  *                 .type("password")
  *                 .passwords(                
  *                     "password1",
  *                     "password2")
  *                 .build())
+ *             .userId("testUserId")
+ *             .userName("testUserName")
+ *             .accessString("on ~* +}{@literal @}{@code all")
+ *             .engine("redis")
  *             .build());
  * 
  *     }}{@code

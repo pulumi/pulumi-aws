@@ -129,20 +129,20 @@ class CustomRoutingListener(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.globalaccelerator.CustomRoutingAccelerator("example",
-            name="Example",
-            ip_address_type="IPV4",
-            enabled=True,
             attributes={
                 "flow_logs_enabled": True,
                 "flow_logs_s3_bucket": "example-bucket",
                 "flow_logs_s3_prefix": "flow-logs/",
-            })
+            },
+            name="Example",
+            ip_address_type="IPV4",
+            enabled=True)
         example_custom_routing_listener = aws.globalaccelerator.CustomRoutingListener("example",
-            accelerator_arn=example.arn,
             port_ranges=[{
                 "from_port": 80,
                 "to_port": 80,
-            }])
+            }],
+            accelerator_arn=example.arn)
         ```
 
         ## Import
@@ -181,20 +181,20 @@ class CustomRoutingListener(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.globalaccelerator.CustomRoutingAccelerator("example",
-            name="Example",
-            ip_address_type="IPV4",
-            enabled=True,
             attributes={
                 "flow_logs_enabled": True,
                 "flow_logs_s3_bucket": "example-bucket",
                 "flow_logs_s3_prefix": "flow-logs/",
-            })
+            },
+            name="Example",
+            ip_address_type="IPV4",
+            enabled=True)
         example_custom_routing_listener = aws.globalaccelerator.CustomRoutingListener("example",
-            accelerator_arn=example.arn,
             port_ranges=[{
                 "from_port": 80,
                 "to_port": 80,
-            }])
+            }],
+            accelerator_arn=example.arn)
         ```
 
         ## Import

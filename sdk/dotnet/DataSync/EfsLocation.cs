@@ -26,7 +26,6 @@ namespace Pulumi.Aws.DataSync
     /// {
     ///     var example = new Aws.DataSync.EfsLocation("example", new()
     ///     {
-    ///         EfsFileSystemArn = exampleAwsEfsMountTarget.FileSystemArn,
     ///         Ec2Config = new Aws.DataSync.Inputs.EfsLocationEc2ConfigArgs
     ///         {
     ///             SecurityGroupArns = new[]
@@ -35,6 +34,7 @@ namespace Pulumi.Aws.DataSync
     ///             },
     ///             SubnetArn = exampleAwsSubnet.Arn,
     ///         },
+    ///         EfsFileSystemArn = exampleAwsEfsMountTarget.FileSystemArn,
     ///     });
     /// 
     /// });

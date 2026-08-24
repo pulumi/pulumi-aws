@@ -878,15 +878,15 @@ class Ami(pulumi.CustomResource):
         # an EBS volume populated from a snapshot. We assume that such a snapshot
         # already exists with the id "snap-xxxxxxxx".
         example = aws.ec2.Ami("example",
-            name="example",
-            virtualization_type="hvm",
-            root_device_name="/dev/xvda",
-            imds_support="v2.0",
             ebs_block_devices=[{
                 "device_name": "/dev/xvda",
                 "snapshot_id": "snap-xxxxxxxx",
                 "volume_size": 8,
-            }])
+            }],
+            name="example",
+            virtualization_type="hvm",
+            root_device_name="/dev/xvda",
+            imds_support="v2.0")
         ```
 
         ## Import
@@ -946,15 +946,15 @@ class Ami(pulumi.CustomResource):
         # an EBS volume populated from a snapshot. We assume that such a snapshot
         # already exists with the id "snap-xxxxxxxx".
         example = aws.ec2.Ami("example",
-            name="example",
-            virtualization_type="hvm",
-            root_device_name="/dev/xvda",
-            imds_support="v2.0",
             ebs_block_devices=[{
                 "device_name": "/dev/xvda",
                 "snapshot_id": "snap-xxxxxxxx",
                 "volume_size": 8,
-            }])
+            }],
+            name="example",
+            virtualization_type="hvm",
+            root_device_name="/dev/xvda",
+            imds_support="v2.0")
         ```
 
         ## Import

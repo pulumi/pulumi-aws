@@ -39,16 +39,16 @@ import (
 //				return err
 //			}
 //			_, err = ecs.NewClusterCapacityProviders(ctx, "example", &ecs.ClusterCapacityProvidersArgs{
-//				ClusterName: example.Name,
-//				CapacityProviders: pulumi.StringArray{
-//					pulumi.String("FARGATE"),
-//				},
 //				DefaultCapacityProviderStrategies: ecs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArray{
 //					&ecs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs{
 //						Base:             pulumi.Int(1),
 //						Weight:           pulumi.Int(100),
 //						CapacityProvider: pulumi.String("FARGATE"),
 //					},
+//				},
+//				ClusterName: example.Name,
+//				CapacityProviders: pulumi.StringArray{
+//					pulumi.String("FARGATE"),
 //				},
 //			})
 //			if err != nil {

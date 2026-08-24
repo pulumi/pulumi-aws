@@ -309,7 +309,6 @@ class NetworkAcl(pulumi.CustomResource):
         import pulumi_aws as aws
 
         main = aws.ec2.NetworkAcl("main",
-            vpc_id=main_aws_vpc["id"],
             egress=[{
                 "protocol": "tcp",
                 "rule_no": 200,
@@ -326,6 +325,7 @@ class NetworkAcl(pulumi.CustomResource):
                 "from_port": 80,
                 "to_port": 80,
             }],
+            vpc_id=main_aws_vpc["id"],
             tags={
                 "Name": "main",
             })
@@ -376,7 +376,6 @@ class NetworkAcl(pulumi.CustomResource):
         import pulumi_aws as aws
 
         main = aws.ec2.NetworkAcl("main",
-            vpc_id=main_aws_vpc["id"],
             egress=[{
                 "protocol": "tcp",
                 "rule_no": 200,
@@ -393,6 +392,7 @@ class NetworkAcl(pulumi.CustomResource):
                 "from_port": 80,
                 "to_port": 80,
             }],
+            vpc_id=main_aws_vpc["id"],
             tags={
                 "Name": "main",
             })

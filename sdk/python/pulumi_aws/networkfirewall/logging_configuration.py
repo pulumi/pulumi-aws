@@ -185,7 +185,6 @@ class LoggingConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.LoggingConfiguration("example",
-            firewall_arn=example_aws_networkfirewall_firewall["arn"],
             logging_configuration={
                 "log_destination_configs": [{
                     "log_destination": {
@@ -195,7 +194,8 @@ class LoggingConfiguration(pulumi.CustomResource):
                     "log_destination_type": "S3",
                     "log_type": "FLOW",
                 }],
-            })
+            },
+            firewall_arn=example_aws_networkfirewall_firewall["arn"])
         ```
 
         ### Logging to CloudWatch
@@ -205,7 +205,6 @@ class LoggingConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.LoggingConfiguration("example",
-            firewall_arn=example_aws_networkfirewall_firewall["arn"],
             logging_configuration={
                 "log_destination_configs": [{
                     "log_destination": {
@@ -214,7 +213,8 @@ class LoggingConfiguration(pulumi.CustomResource):
                     "log_destination_type": "CloudWatchLogs",
                     "log_type": "ALERT",
                 }],
-            })
+            },
+            firewall_arn=example_aws_networkfirewall_firewall["arn"])
         ```
 
         ### Logging to Kinesis Data Firehose
@@ -224,7 +224,6 @@ class LoggingConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.LoggingConfiguration("example",
-            firewall_arn=example_aws_networkfirewall_firewall["arn"],
             logging_configuration={
                 "log_destination_configs": [{
                     "log_destination": {
@@ -233,7 +232,8 @@ class LoggingConfiguration(pulumi.CustomResource):
                     "log_destination_type": "KinesisDataFirehose",
                     "log_type": "TLS",
                 }],
-            })
+            },
+            firewall_arn=example_aws_networkfirewall_firewall["arn"])
         ```
 
         ## Import
@@ -270,7 +270,6 @@ class LoggingConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.LoggingConfiguration("example",
-            firewall_arn=example_aws_networkfirewall_firewall["arn"],
             logging_configuration={
                 "log_destination_configs": [{
                     "log_destination": {
@@ -280,7 +279,8 @@ class LoggingConfiguration(pulumi.CustomResource):
                     "log_destination_type": "S3",
                     "log_type": "FLOW",
                 }],
-            })
+            },
+            firewall_arn=example_aws_networkfirewall_firewall["arn"])
         ```
 
         ### Logging to CloudWatch
@@ -290,7 +290,6 @@ class LoggingConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.LoggingConfiguration("example",
-            firewall_arn=example_aws_networkfirewall_firewall["arn"],
             logging_configuration={
                 "log_destination_configs": [{
                     "log_destination": {
@@ -299,7 +298,8 @@ class LoggingConfiguration(pulumi.CustomResource):
                     "log_destination_type": "CloudWatchLogs",
                     "log_type": "ALERT",
                 }],
-            })
+            },
+            firewall_arn=example_aws_networkfirewall_firewall["arn"])
         ```
 
         ### Logging to Kinesis Data Firehose
@@ -309,7 +309,6 @@ class LoggingConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.LoggingConfiguration("example",
-            firewall_arn=example_aws_networkfirewall_firewall["arn"],
             logging_configuration={
                 "log_destination_configs": [{
                     "log_destination": {
@@ -318,7 +317,8 @@ class LoggingConfiguration(pulumi.CustomResource):
                     "log_destination_type": "KinesisDataFirehose",
                     "log_type": "TLS",
                 }],
-            })
+            },
+            firewall_arn=example_aws_networkfirewall_firewall["arn"])
         ```
 
         ## Import

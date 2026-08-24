@@ -219,31 +219,31 @@ class MultiplexProgram(pulumi.CustomResource):
 
         available = aws.get_availability_zones(state="available")
         example = aws.medialive.Multiplex("example",
-            name="example-multiplex-changed",
-            availability_zones=[
-                available.names[0],
-                available.names[1],
-            ],
             multiplex_settings={
                 "transport_stream_bitrate": 1000000,
                 "transport_stream_id": 1,
                 "transport_stream_reserved_bitrate": 1,
                 "maximum_video_buffer_delay_milliseconds": 1000,
             },
+            name="example-multiplex-changed",
+            availability_zones=[
+                available.names[0],
+                available.names[1],
+            ],
             start_multiplex=True,
             tags={
                 "tag1": "value1",
             })
         example_multiplex_program = aws.medialive.MultiplexProgram("example",
-            program_name="example_program",
-            multiplex_id=example.id,
             multiplex_program_settings={
-                "program_number": 1,
-                "preferred_channel_pipeline": "CURRENTLY_ACTIVE",
                 "video_settings": {
                     "constant_bitrate": 100000,
                 },
-            })
+                "program_number": 1,
+                "preferred_channel_pipeline": "CURRENTLY_ACTIVE",
+            },
+            program_name="example_program",
+            multiplex_id=example.id)
         ```
 
         ## Import
@@ -295,31 +295,31 @@ class MultiplexProgram(pulumi.CustomResource):
 
         available = aws.get_availability_zones(state="available")
         example = aws.medialive.Multiplex("example",
-            name="example-multiplex-changed",
-            availability_zones=[
-                available.names[0],
-                available.names[1],
-            ],
             multiplex_settings={
                 "transport_stream_bitrate": 1000000,
                 "transport_stream_id": 1,
                 "transport_stream_reserved_bitrate": 1,
                 "maximum_video_buffer_delay_milliseconds": 1000,
             },
+            name="example-multiplex-changed",
+            availability_zones=[
+                available.names[0],
+                available.names[1],
+            ],
             start_multiplex=True,
             tags={
                 "tag1": "value1",
             })
         example_multiplex_program = aws.medialive.MultiplexProgram("example",
-            program_name="example_program",
-            multiplex_id=example.id,
             multiplex_program_settings={
-                "program_number": 1,
-                "preferred_channel_pipeline": "CURRENTLY_ACTIVE",
                 "video_settings": {
                     "constant_bitrate": 100000,
                 },
-            })
+                "program_number": 1,
+                "preferred_channel_pipeline": "CURRENTLY_ACTIVE",
+            },
+            program_name="example_program",
+            multiplex_id=example.id)
         ```
 
         ## Import

@@ -95,9 +95,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleConnectorProfile = new ConnectorProfile("exampleConnectorProfile", ConnectorProfileArgs.builder()
- *             .name("example_profile")
- *             .connectorType("Redshift")
- *             .connectionMode("Public")
  *             .connectorProfileConfig(ConnectorProfileConnectorProfileConfigArgs.builder()
  *                 .connectorProfileCredentials(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs.builder()
  *                     .redshift(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftArgs.builder()
@@ -117,6 +114,9 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
+ *             .name("example_profile")
+ *             .connectorType("Redshift")
+ *             .connectionMode("Public")
  *             .build());
  * 
  *     }

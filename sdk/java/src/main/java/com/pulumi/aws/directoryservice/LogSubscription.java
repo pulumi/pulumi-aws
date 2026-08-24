@@ -57,13 +57,13 @@ import javax.annotation.Nullable;
  * 
  *         final var ad-log-policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(                
- *                     "logs:CreateLogStream",
- *                     "logs:PutLogEvents")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .identifiers("ds.amazonaws.com")
  *                     .type("Service")
  *                     .build())
+ *                 .actions(                
+ *                     "logs:CreateLogStream",
+ *                     "logs:PutLogEvents")
  *                 .resources(example.arn().applyValue(_arn -> String.format("%s:*", _arn)))
  *                 .effect("Allow")
  *                 .build())

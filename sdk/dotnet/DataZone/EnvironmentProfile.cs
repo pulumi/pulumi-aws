@@ -27,6 +27,32 @@ namespace Pulumi.Aws.DataZone
     /// {
     ///     var domainExecutionRole = new Aws.Iam.Role("domain_execution_role", new()
     ///     {
+    ///         InlinePolicies = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.RoleInlinePolicyArgs
+    ///             {
+    ///                 Name = "example-name",
+    ///                 Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Version"] = "2012-10-17",
+    ///                     ["Statement"] = new[]
+    ///                     {
+    ///                         new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["Action"] = new[]
+    ///                             {
+    ///                                 "datazone:*",
+    ///                                 "ram:*",
+    ///                                 "sso:*",
+    ///                                 "kms:*",
+    ///                             },
+    ///                             ["Effect"] = "Allow",
+    ///                             ["Resource"] = "*",
+    ///                         },
+    ///                     },
+    ///                 }),
+    ///             },
+    ///         },
     ///         Name = "example-name",
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
@@ -61,32 +87,6 @@ namespace Pulumi.Aws.DataZone
     ///                 },
     ///             },
     ///         }),
-    ///         InlinePolicies = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.RoleInlinePolicyArgs
-    ///             {
-    ///                 Name = "example-name",
-    ///                 Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Version"] = "2012-10-17",
-    ///                     ["Statement"] = new[]
-    ///                     {
-    ///                         new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             ["Action"] = new[]
-    ///                             {
-    ///                                 "datazone:*",
-    ///                                 "ram:*",
-    ///                                 "sso:*",
-    ///                                 "kms:*",
-    ///                             },
-    ///                             ["Effect"] = "Allow",
-    ///                             ["Resource"] = "*",
-    ///                         },
-    ///                     },
-    ///                 }),
-    ///             },
-    ///         },
     ///     });
     /// 
     ///     var testDomain = new Aws.DataZone.Domain("test", new()
@@ -136,13 +136,6 @@ namespace Pulumi.Aws.DataZone
     /// 
     ///     var testEnvironmentProfile = new Aws.DataZone.EnvironmentProfile("test", new()
     ///     {
-    ///         AwsAccountId = test.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///         AwsAccountRegion = testGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region),
-    ///         Description = "description",
-    ///         EnvironmentBlueprintIdentifier = testGetEnvironmentBlueprint.Apply(getEnvironmentBlueprintResult =&gt; getEnvironmentBlueprintResult.Id),
-    ///         Name = "example-name",
-    ///         ProjectIdentifier = testProject.Id,
-    ///         DomainIdentifier = testDomain.Id,
     ///         UserParameters = new[]
     ///         {
     ///             new Aws.DataZone.Inputs.EnvironmentProfileUserParameterArgs
@@ -151,6 +144,13 @@ namespace Pulumi.Aws.DataZone
     ///                 Value = "value",
     ///             },
     ///         },
+    ///         AwsAccountId = test.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+    ///         AwsAccountRegion = testGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region),
+    ///         Description = "description",
+    ///         EnvironmentBlueprintIdentifier = testGetEnvironmentBlueprint.Apply(getEnvironmentBlueprintResult =&gt; getEnvironmentBlueprintResult.Id),
+    ///         Name = "example-name",
+    ///         ProjectIdentifier = testProject.Id,
+    ///         DomainIdentifier = testDomain.Id,
     ///     });
     /// 
     /// });

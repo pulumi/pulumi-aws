@@ -21,28 +21,28 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.fis.ExperimentTemplate("example", {
- *     description: "example",
- *     roleArn: exampleAwsIamRole.arn,
- *     stopConditions: [{
- *         source: "none",
- *     }],
  *     actions: [{
- *         name: "example-action",
- *         actionId: "aws:ec2:terminate-instances",
  *         target: {
  *             key: "Instances",
  *             value: "example-target",
  *         },
+ *         name: "example-action",
+ *         actionId: "aws:ec2:terminate-instances",
+ *     }],
+ *     stopConditions: [{
+ *         source: "none",
  *     }],
  *     targets: [{
- *         name: "example-target",
- *         resourceType: "aws:ec2:instance",
- *         selectionMode: "COUNT(1)",
  *         resourceTags: [{
  *             key: "env",
  *             value: "example",
  *         }],
+ *         name: "example-target",
+ *         resourceType: "aws:ec2:instance",
+ *         selectionMode: "COUNT(1)",
  *     }],
+ *     description: "example",
+ *     roleArn: exampleAwsIamRole.arn,
  * });
  * ```
  *
@@ -67,7 +67,6 @@ import * as utilities from "../utilities";
  *     }),
  * });
  * const reportAccess = aws.iam.getPolicyDocument({
- *     version: "2012-10-17",
  *     statements: [
  *         {
  *             sid: "logsDelivery",
@@ -97,6 +96,7 @@ import * as utilities from "../utilities";
  *             resources: ["*"],
  *         },
  *     ],
+ *     version: "2012-10-17",
  * });
  * const reportAccessPolicy = new aws.iam.Policy("report_access", {
  *     name: "report_access",
@@ -107,28 +107,6 @@ import * as utilities from "../utilities";
  *     policyArn: reportAccessPolicy.arn,
  * });
  * const exampleExperimentTemplate = new aws.fis.ExperimentTemplate("example", {
- *     description: "example",
- *     roleArn: example.arn,
- *     stopConditions: [{
- *         source: "none",
- *     }],
- *     actions: [{
- *         name: "example-action",
- *         actionId: "aws:ec2:terminate-instances",
- *         target: {
- *             key: "Instances",
- *             value: "example-target",
- *         },
- *     }],
- *     targets: [{
- *         name: "example-target",
- *         resourceType: "aws:ec2:instance",
- *         selectionMode: "COUNT(1)",
- *         resourceTags: [{
- *             key: "env",
- *             value: "example",
- *         }],
- *     }],
  *     experimentReportConfiguration: {
  *         dataSources: {
  *             cloudwatchDashboards: [{
@@ -144,6 +122,28 @@ import * as utilities from "../utilities";
  *         postExperimentDuration: "PT10M",
  *         preExperimentDuration: "PT10M",
  *     },
+ *     actions: [{
+ *         target: {
+ *             key: "Instances",
+ *             value: "example-target",
+ *         },
+ *         name: "example-action",
+ *         actionId: "aws:ec2:terminate-instances",
+ *     }],
+ *     stopConditions: [{
+ *         source: "none",
+ *     }],
+ *     targets: [{
+ *         resourceTags: [{
+ *             key: "env",
+ *             value: "example",
+ *         }],
+ *         name: "example-target",
+ *         resourceType: "aws:ec2:instance",
+ *         selectionMode: "COUNT(1)",
+ *     }],
+ *     description: "example",
+ *     roleArn: example.arn,
  *     tags: {
  *         Name: "example",
  *     },

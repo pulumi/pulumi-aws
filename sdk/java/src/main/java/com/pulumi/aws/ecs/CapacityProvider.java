@@ -66,17 +66,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCapacityProvider = new CapacityProvider("exampleCapacityProvider", CapacityProviderArgs.builder()
- *             .name("example")
  *             .autoScalingGroupProvider(CapacityProviderAutoScalingGroupProviderArgs.builder()
- *                 .autoScalingGroupArn(example.arn())
- *                 .managedTerminationProtection("ENABLED")
  *                 .managedScaling(CapacityProviderAutoScalingGroupProviderManagedScalingArgs.builder()
  *                     .maximumScalingStepSize(1000)
  *                     .minimumScalingStepSize(1)
  *                     .status("ENABLED")
  *                     .targetCapacity(10)
  *                     .build())
+ *                 .autoScalingGroupArn(example.arn())
+ *                 .managedTerminationProtection("ENABLED")
  *                 .build())
+ *             .name("example")
  *             .build());
  * 
  *     }
@@ -116,14 +116,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CapacityProvider("example", CapacityProviderArgs.builder()
- *             .name("example")
- *             .cluster("my-cluster")
  *             .managedInstancesProvider(CapacityProviderManagedInstancesProviderArgs.builder()
- *                 .infrastructureRoleArn(ecsInfrastructure.arn())
- *                 .propagateTags("CAPACITY_PROVIDER")
  *                 .instanceLaunchTemplate(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs.builder()
- *                     .ec2InstanceProfileArn(ecsInstance.arn())
- *                     .monitoring("DETAILED")
  *                     .networkConfiguration(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationArgs.builder()
  *                         .subnets(exampleAwsSubnet.id())
  *                         .securityGroups(exampleAwsSecurityGroup.id())
@@ -145,8 +139,14 @@ import javax.annotation.Nullable;
  *                             "intel",
  *                             "amd")
  *                         .build())
+ *                     .ec2InstanceProfileArn(ecsInstance.arn())
+ *                     .monitoring("DETAILED")
  *                     .build())
+ *                 .infrastructureRoleArn(ecsInfrastructure.arn())
+ *                 .propagateTags("CAPACITY_PROVIDER")
  *                 .build())
+ *             .name("example")
+ *             .cluster("my-cluster")
  *             .build());
  * 
  *     }

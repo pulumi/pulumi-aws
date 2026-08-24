@@ -565,29 +565,21 @@ class Connector(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mskconnect.Connector("example",
-            name="example",
-            kafkaconnect_version="2.7.1",
             capacity={
                 "autoscaling": {
-                    "mcu_count": 1,
-                    "min_worker_count": 1,
-                    "max_worker_count": 2,
                     "scale_in_policy": {
                         "cpu_utilization_percentage": 20,
                     },
                     "scale_out_policy": {
                         "cpu_utilization_percentage": 80,
                     },
+                    "mcu_count": 1,
+                    "min_worker_count": 1,
+                    "max_worker_count": 2,
                 },
-            },
-            connector_configuration={
-                "connector.class": "com.github.jcustenborder.kafka.connect.simulator.SimulatorSinkConnector",
-                "tasks.max": "1",
-                "topics": "example",
             },
             kafka_cluster={
                 "apache_kafka_cluster": {
-                    "bootstrap_servers": example_aws_msk_cluster["bootstrapBrokersTls"],
                     "vpc": {
                         "security_groups": [example_aws_security_group["id"]],
                         "subnets": [
@@ -596,6 +588,7 @@ class Connector(pulumi.CustomResource):
                             example3["id"],
                         ],
                     },
+                    "bootstrap_servers": example_aws_msk_cluster["bootstrapBrokersTls"],
                 },
             },
             kafka_cluster_client_authentication={
@@ -610,6 +603,13 @@ class Connector(pulumi.CustomResource):
                     "revision": int(example_aws_mskconnect_custom_plugin["latestRevision"]),
                 },
             }],
+            name="example",
+            kafkaconnect_version="2.7.1",
+            connector_configuration={
+                "connector.class": "com.github.jcustenborder.kafka.connect.simulator.SimulatorSinkConnector",
+                "tasks.max": "1",
+                "topics": "example",
+            },
             service_execution_role_arn=example_aws_iam_role["arn"])
         ```
 
@@ -659,29 +659,21 @@ class Connector(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mskconnect.Connector("example",
-            name="example",
-            kafkaconnect_version="2.7.1",
             capacity={
                 "autoscaling": {
-                    "mcu_count": 1,
-                    "min_worker_count": 1,
-                    "max_worker_count": 2,
                     "scale_in_policy": {
                         "cpu_utilization_percentage": 20,
                     },
                     "scale_out_policy": {
                         "cpu_utilization_percentage": 80,
                     },
+                    "mcu_count": 1,
+                    "min_worker_count": 1,
+                    "max_worker_count": 2,
                 },
-            },
-            connector_configuration={
-                "connector.class": "com.github.jcustenborder.kafka.connect.simulator.SimulatorSinkConnector",
-                "tasks.max": "1",
-                "topics": "example",
             },
             kafka_cluster={
                 "apache_kafka_cluster": {
-                    "bootstrap_servers": example_aws_msk_cluster["bootstrapBrokersTls"],
                     "vpc": {
                         "security_groups": [example_aws_security_group["id"]],
                         "subnets": [
@@ -690,6 +682,7 @@ class Connector(pulumi.CustomResource):
                             example3["id"],
                         ],
                     },
+                    "bootstrap_servers": example_aws_msk_cluster["bootstrapBrokersTls"],
                 },
             },
             kafka_cluster_client_authentication={
@@ -704,6 +697,13 @@ class Connector(pulumi.CustomResource):
                     "revision": int(example_aws_mskconnect_custom_plugin["latestRevision"]),
                 },
             }],
+            name="example",
+            kafkaconnect_version="2.7.1",
+            connector_configuration={
+                "connector.class": "com.github.jcustenborder.kafka.connect.simulator.SimulatorSinkConnector",
+                "tasks.max": "1",
+                "topics": "example",
+            },
             service_execution_role_arn=example_aws_iam_role["arn"])
         ```
 

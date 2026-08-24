@@ -31,9 +31,6 @@ namespace Pulumi.Aws.IdentityStore
     /// {
     ///     var example = new Aws.IdentityStore.User("example", new()
     ///     {
-    ///         IdentityStoreId = exampleAwsSsoadminInstances.IdentityStoreIds[0],
-    ///         DisplayName = "John Doe",
-    ///         UserName = "johndoe",
     ///         Name = new Aws.IdentityStore.Inputs.UserNameArgs
     ///         {
     ///             GivenName = "John",
@@ -43,6 +40,9 @@ namespace Pulumi.Aws.IdentityStore
     ///         {
     ///             Value = "john@example.com",
     ///         },
+    ///         IdentityStoreId = exampleAwsSsoadminInstances.IdentityStoreIds[0],
+    ///         DisplayName = "John Doe",
+    ///         UserName = "johndoe",
     ///     });
     /// 
     /// });

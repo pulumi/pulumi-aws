@@ -104,8 +104,6 @@ import (
 //				return err
 //			}
 //			exampleCatalogTable, err := glue.NewCatalogTable(ctx, "example", &glue.CatalogTableArgs{
-//				Name:         pulumi.String("abelt"),
-//				DatabaseName: pulumi.Any(test.Name),
 //				StorageDescriptor: &glue.CatalogTableStorageDescriptorArgs{
 //					Columns: glue.CatalogTableStorageDescriptorColumnArray{
 //						&glue.CatalogTableStorageDescriptorColumnArgs{
@@ -114,15 +112,13 @@ import (
 //						},
 //					},
 //				},
+//				Name:         pulumi.String("abelt"),
+//				DatabaseName: pulumi.Any(test.Name),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = lakeformation.NewPermissions(ctx, "example", &lakeformation.PermissionsArgs{
-//				Permissions: pulumi.StringArray{
-//					pulumi.String("SELECT"),
-//				},
-//				Principal: pulumi.String("arn:aws:iam:us-east-1:123456789012:user/SanHolo"),
 //				TableWithColumns: &lakeformation.PermissionsTableWithColumnsArgs{
 //					DatabaseName: exampleCatalogTable.DatabaseName,
 //					Name:         exampleCatalogTable.Name,
@@ -130,6 +126,10 @@ import (
 //						pulumi.String("event"),
 //					},
 //				},
+//				Permissions: pulumi.StringArray{
+//					pulumi.String("SELECT"),
+//				},
+//				Principal: pulumi.String("arn:aws:iam:us-east-1:123456789012:user/SanHolo"),
 //			})
 //			if err != nil {
 //				return err
@@ -163,10 +163,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lakeformation.NewPermissions(ctx, "example", &lakeformation.PermissionsArgs{
-//				Permissions: pulumi.StringArray{
-//					pulumi.String("SELECT"),
-//				},
-//				Principal: pulumi.String("123456789012:IAMPrincipals"),
 //				TableWithColumns: &lakeformation.PermissionsTableWithColumnsArgs{
 //					DatabaseName: pulumi.Any(exampleAwsGlueCatalogTable.DatabaseName),
 //					Name:         pulumi.Any(exampleAwsGlueCatalogTable.Name),
@@ -174,6 +170,10 @@ import (
 //						pulumi.String("event"),
 //					},
 //				},
+//				Permissions: pulumi.StringArray{
+//					pulumi.String("SELECT"),
+//				},
+//				Principal: pulumi.String("123456789012:IAMPrincipals"),
 //			})
 //			if err != nil {
 //				return err
@@ -207,12 +207,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lakeformation.NewPermissions(ctx, "example", &lakeformation.PermissionsArgs{
+//				DataLocation: &lakeformation.PermissionsDataLocationArgs{
+//					Arn: pulumi.Any(exampleAwsLakeformationResource.Arn),
+//				},
 //				Principal: pulumi.Any(workflowRole.Arn),
 //				Permissions: pulumi.StringArray{
 //					pulumi.String("DATA_LOCATION_ACCESS"),
-//				},
-//				DataLocation: &lakeformation.PermissionsDataLocationArgs{
-//					Arn: pulumi.Any(exampleAwsLakeformationResource.Arn),
 //				},
 //			})
 //			if err != nil {
@@ -239,15 +239,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lakeformation.NewPermissions(ctx, "example", &lakeformation.PermissionsArgs{
+//				Database: &lakeformation.PermissionsDatabaseArgs{
+//					Name:      pulumi.Any(exampleAwsGlueCatalogDatabase.Name),
+//					CatalogId: pulumi.String("110376042874"),
+//				},
 //				Principal: pulumi.Any(workflowRole.Arn),
 //				Permissions: pulumi.StringArray{
 //					pulumi.String("CREATE_TABLE"),
 //					pulumi.String("ALTER"),
 //					pulumi.String("DROP"),
-//				},
-//				Database: &lakeformation.PermissionsDatabaseArgs{
-//					Name:      pulumi.Any(exampleAwsGlueCatalogDatabase.Name),
-//					CatalogId: pulumi.String("110376042874"),
 //				},
 //			})
 //			if err != nil {
@@ -274,14 +274,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lakeformation.NewPermissions(ctx, "test", &lakeformation.PermissionsArgs{
-//				Principal: pulumi.Any(salesRole.Arn),
-//				Permissions: pulumi.StringArray{
-//					pulumi.String("CREATE_TABLE"),
-//					pulumi.String("ALTER"),
-//					pulumi.String("DROP"),
-//				},
 //				LfTagPolicy: &lakeformation.PermissionsLfTagPolicyArgs{
-//					ResourceType: pulumi.String("DATABASE"),
 //					Expressions: lakeformation.PermissionsLfTagPolicyExpressionArray{
 //						&lakeformation.PermissionsLfTagPolicyExpressionArgs{
 //							Key: pulumi.String("Team"),
@@ -297,6 +290,13 @@ import (
 //							},
 //						},
 //					},
+//					ResourceType: pulumi.String("DATABASE"),
+//				},
+//				Principal: pulumi.Any(salesRole.Arn),
+//				Permissions: pulumi.StringArray{
+//					pulumi.String("CREATE_TABLE"),
+//					pulumi.String("ALTER"),
+//					pulumi.String("DROP"),
 //				},
 //			})
 //			if err != nil {

@@ -269,11 +269,11 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
             repository="example",
             domain=example_domain.domain)
         example = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "*",
                 "identifiers": ["*"],
             }],
+            "effect": "Allow",
             "actions": ["codeartifact:ReadFromRepository"],
             "resources": [example_repository.arn],
         }])
@@ -330,11 +330,11 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
             repository="example",
             domain=example_domain.domain)
         example = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "*",
                 "identifiers": ["*"],
             }],
+            "effect": "Allow",
             "actions": ["codeartifact:ReadFromRepository"],
             "resources": [example_repository.arn],
         }])

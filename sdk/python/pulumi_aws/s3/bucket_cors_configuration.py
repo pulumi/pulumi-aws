@@ -196,7 +196,6 @@ class BucketCorsConfiguration(pulumi.CustomResource):
 
         example = aws.s3.Bucket("example", bucket="mybucket")
         example_bucket_cors_configuration = aws.s3.BucketCorsConfiguration("example",
-            bucket=example.id,
             cors_rules=[
                 {
                     "allowed_headers": ["*"],
@@ -212,7 +211,8 @@ class BucketCorsConfiguration(pulumi.CustomResource):
                     "allowed_methods": ["GET"],
                     "allowed_origins": ["*"],
                 },
-            ])
+            ],
+            bucket=example.id)
         ```
 
         ## Import
@@ -273,7 +273,6 @@ class BucketCorsConfiguration(pulumi.CustomResource):
 
         example = aws.s3.Bucket("example", bucket="mybucket")
         example_bucket_cors_configuration = aws.s3.BucketCorsConfiguration("example",
-            bucket=example.id,
             cors_rules=[
                 {
                     "allowed_headers": ["*"],
@@ -289,7 +288,8 @@ class BucketCorsConfiguration(pulumi.CustomResource):
                     "allowed_methods": ["GET"],
                     "allowed_origins": ["*"],
                 },
-            ])
+            ],
+            bucket=example.id)
         ```
 
         ## Import

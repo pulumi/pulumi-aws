@@ -48,6 +48,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.appflow.inputs.FlowSourceFlowConfigArgs;
  * import com.pulumi.aws.appflow.inputs.FlowSourceFlowConfigSourceConnectorPropertiesArgs;
  * import com.pulumi.aws.appflow.inputs.FlowSourceFlowConfigSourceConnectorPropertiesS3Args;
+ * import com.pulumi.aws.appflow.inputs.FlowTriggerConfigArgs;
  * import com.pulumi.aws.appflow.inputs.FlowDestinationFlowConfigArgs;
  * import com.pulumi.aws.appflow.inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesArgs;
  * import com.pulumi.aws.appflow.inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args;
@@ -55,7 +56,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.appflow.inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs;
  * import com.pulumi.aws.appflow.inputs.FlowTaskArgs;
  * import com.pulumi.aws.appflow.inputs.FlowTaskConnectorOperatorArgs;
- * import com.pulumi.aws.appflow.inputs.FlowTriggerConfigArgs;
  * import com.pulumi.asset.FileAsset;
  * import java.util.ArrayList;
  * import java.util.Arrays;
@@ -76,12 +76,12 @@ import javax.annotation.Nullable;
  * 
  *         final var exampleSource = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid("AllowAppFlowSourceActions")
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("appflow.amazonaws.com")
  *                     .build())
+ *                 .sid("AllowAppFlowSourceActions")
+ *                 .effect("Allow")
  *                 .actions(                
  *                     "s3:ListBucket",
  *                     "s3:GetObject")
@@ -108,12 +108,12 @@ import javax.annotation.Nullable;
  * 
  *         final var exampleDestination = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid("AllowAppFlowDestinationActions")
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("appflow.amazonaws.com")
  *                     .build())
+ *                 .sid("AllowAppFlowDestinationActions")
+ *                 .effect("Allow")
  *                 .actions(                
  *                     "s3:PutObject",
  *                     "s3:AbortMultipartUpload",
@@ -133,40 +133,40 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFlow = new Flow("exampleFlow", FlowArgs.builder()
- *             .name("example")
  *             .sourceFlowConfig(FlowSourceFlowConfigArgs.builder()
- *                 .connectorType("S3")
  *                 .sourceConnectorProperties(FlowSourceFlowConfigSourceConnectorPropertiesArgs.builder()
  *                     .s3(FlowSourceFlowConfigSourceConnectorPropertiesS3Args.builder()
  *                         .bucketName(exampleSourceBucketPolicy.bucket())
  *                         .bucketPrefix("example")
  *                         .build())
  *                     .build())
+ *                 .connectorType("S3")
+ *                 .build())
+ *             .triggerConfig(FlowTriggerConfigArgs.builder()
+ *                 .triggerType("OnDemand")
  *                 .build())
  *             .destinationFlowConfigs(FlowDestinationFlowConfigArgs.builder()
- *                 .connectorType("S3")
  *                 .destinationConnectorProperties(FlowDestinationFlowConfigDestinationConnectorPropertiesArgs.builder()
  *                     .s3(FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args.builder()
- *                         .bucketName(exampleDestinationBucketPolicy.bucket())
  *                         .s3OutputFormatConfig(FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs.builder()
  *                             .prefixConfig(FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs.builder()
  *                                 .prefixType("PATH")
  *                                 .build())
  *                             .build())
+ *                         .bucketName(exampleDestinationBucketPolicy.bucket())
  *                         .build())
  *                     .build())
+ *                 .connectorType("S3")
  *                 .build())
  *             .tasks(FlowTaskArgs.builder()
- *                 .sourceFields("exampleField")
- *                 .destinationField("exampleField")
- *                 .taskType("Map")
  *                 .connectorOperators(FlowTaskConnectorOperatorArgs.builder()
  *                     .s3("NO_OP")
  *                     .build())
+ *                 .sourceFields("exampleField")
+ *                 .destinationField("exampleField")
+ *                 .taskType("Map")
  *                 .build())
- *             .triggerConfig(FlowTriggerConfigArgs.builder()
- *                 .triggerType("OnDemand")
- *                 .build())
+ *             .name("example")
  *             .build());
  * 
  *     }

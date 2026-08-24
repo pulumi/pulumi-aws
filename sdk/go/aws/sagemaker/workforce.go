@@ -53,11 +53,11 @@ import (
 //				return err
 //			}
 //			_, err = sagemaker.NewWorkforce(ctx, "example", &sagemaker.WorkforceArgs{
-//				WorkforceName: pulumi.String("example"),
 //				CognitoConfig: &sagemaker.WorkforceCognitoConfigArgs{
 //					ClientId: exampleUserPoolClient.ID().ToIDOutput().ToStringOutput(),
 //					UserPool: exampleUserPoolDomain.UserPoolId,
 //				},
+//				WorkforceName: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -83,7 +83,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewWorkforce(ctx, "example", &sagemaker.WorkforceArgs{
-//				WorkforceName: pulumi.String("example"),
 //				OidcConfig: &sagemaker.WorkforceOidcConfigArgs{
 //					AuthorizationEndpoint: pulumi.String("https://example.com"),
 //					ClientId:              pulumi.String("example"),
@@ -94,6 +93,7 @@ import (
 //					TokenEndpoint:         pulumi.String("https://example.com"),
 //					UserInfoEndpoint:      pulumi.String("https://example.com"),
 //				},
+//				WorkforceName: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

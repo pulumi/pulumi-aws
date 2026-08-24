@@ -46,7 +46,6 @@ import (
 //			firehoseAssumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -55,6 +54,7 @@ import (
 //								},
 //							},
 //						},
+//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"sts:AssumeRole",
 //						},
@@ -74,7 +74,6 @@ import (
 //			lambdaAssumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -83,6 +82,7 @@ import (
 //								},
 //							},
 //						},
+//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"sts:AssumeRole",
 //						},
@@ -110,16 +110,10 @@ import (
 //				return err
 //			}
 //			_, err = kinesis.NewFirehoseDeliveryStream(ctx, "extended_s3_stream", &kinesis.FirehoseDeliveryStreamArgs{
-//				Name:        pulumi.String("kinesis-firehose-extended-s3-test-stream"),
-//				Destination: pulumi.String("extended_s3"),
 //				ExtendedS3Configuration: &kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs{
-//					RoleArn:   firehoseRole.Arn,
-//					BucketArn: bucket.Arn,
 //					ProcessingConfiguration: &kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs{
-//						Enabled: pulumi.Bool(true),
 //						Processors: kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArray{
 //							&kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs{
-//								Type: pulumi.String("Lambda"),
 //								Parameters: kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArray{
 //									&kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs{
 //										ParameterName: pulumi.String("LambdaArn"),
@@ -128,10 +122,16 @@ import (
 //										}).(pulumi.StringOutput),
 //									},
 //								},
+//								Type: pulumi.String("Lambda"),
 //							},
 //						},
+//						Enabled: pulumi.Bool(true),
 //					},
+//					RoleArn:   firehoseRole.Arn,
+//					BucketArn: bucket.Arn,
 //				},
+//				Name:        pulumi.String("kinesis-firehose-extended-s3-test-stream"),
+//				Destination: pulumi.String("extended_s3"),
 //			})
 //			if err != nil {
 //				return err
@@ -166,34 +166,25 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kinesis.NewFirehoseDeliveryStream(ctx, "extended_s3_stream", &kinesis.FirehoseDeliveryStreamArgs{
-//				Name:        pulumi.String("kinesis-firehose-extended-s3-test-stream"),
-//				Destination: pulumi.String("extended_s3"),
 //				ExtendedS3Configuration: &kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs{
-//					RoleArn:       pulumi.Any(firehoseRole.Arn),
-//					BucketArn:     pulumi.Any(bucket.Arn),
-//					BufferingSize: pulumi.Int(64),
 //					DynamicPartitioningConfiguration: &kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs{
 //						Enabled: pulumi.Bool(true),
 //					},
-//					Prefix:            pulumi.String("data/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/"),
-//					ErrorOutputPrefix: pulumi.String("errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/"),
 //					ProcessingConfiguration: &kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs{
-//						Enabled: pulumi.Bool(true),
 //						Processors: kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArray{
 //							&kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs{
-//								Type: pulumi.String("RecordDeAggregation"),
 //								Parameters: kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArray{
 //									&kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs{
 //										ParameterName:  pulumi.String("SubRecordType"),
 //										ParameterValue: pulumi.String("JSON"),
 //									},
 //								},
+//								Type: pulumi.String("RecordDeAggregation"),
 //							},
 //							&kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs{
 //								Type: pulumi.String("AppendDelimiterToRecord"),
 //							},
 //							&kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs{
-//								Type: pulumi.String("MetadataExtraction"),
 //								Parameters: kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArray{
 //									&kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs{
 //										ParameterName:  pulumi.String("JsonParsingEngine"),
@@ -204,10 +195,19 @@ import (
 //										ParameterValue: pulumi.String("{customer_id:.customer_id}"),
 //									},
 //								},
+//								Type: pulumi.String("MetadataExtraction"),
 //							},
 //						},
+//						Enabled: pulumi.Bool(true),
 //					},
+//					RoleArn:           pulumi.Any(firehoseRole.Arn),
+//					BucketArn:         pulumi.Any(bucket.Arn),
+//					BufferingSize:     pulumi.Int(64),
+//					Prefix:            pulumi.String("data/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/"),
+//					ErrorOutputPrefix: pulumi.String("errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/"),
 //				},
+//				Name:        pulumi.String("kinesis-firehose-extended-s3-test-stream"),
+//				Destination: pulumi.String("extended_s3"),
 //			})
 //			if err != nil {
 //				return err
@@ -235,22 +235,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kinesis.NewFirehoseDeliveryStream(ctx, "extended_s3_stream", &kinesis.FirehoseDeliveryStreamArgs{
-//				Name:        pulumi.String("kinesis-firehose-extended-s3-test-stream"),
-//				Destination: pulumi.String("extended_s3"),
 //				ExtendedS3Configuration: &kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs{
-//					RoleArn:       pulumi.Any(firehoseRole.Arn),
-//					BucketArn:     pulumi.Any(bucket.Arn),
-//					BufferingSize: pulumi.Int(64),
 //					DynamicPartitioningConfiguration: &kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs{
 //						Enabled: pulumi.Bool(true),
 //					},
-//					Prefix:            pulumi.String("data/store_id=!{partitionKeyFromQuery:store_id}/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/"),
-//					ErrorOutputPrefix: pulumi.String("errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/"),
 //					ProcessingConfiguration: &kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs{
-//						Enabled: pulumi.Bool(true),
 //						Processors: kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArray{
 //							&kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs{
-//								Type: pulumi.String("MetadataExtraction"),
 //								Parameters: kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArray{
 //									&kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs{
 //										ParameterName:  pulumi.String("JsonParsingEngine"),
@@ -261,10 +252,19 @@ import (
 //										ParameterValue: pulumi.String("{store_id:.store_id,customer_id:.customer_id}"),
 //									},
 //								},
+//								Type: pulumi.String("MetadataExtraction"),
 //							},
 //						},
+//						Enabled: pulumi.Bool(true),
 //					},
+//					RoleArn:           pulumi.Any(firehoseRole.Arn),
+//					BucketArn:         pulumi.Any(bucket.Arn),
+//					BufferingSize:     pulumi.Int(64),
+//					Prefix:            pulumi.String("data/store_id=!{partitionKeyFromQuery:store_id}/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/"),
+//					ErrorOutputPrefix: pulumi.String("errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/"),
 //				},
+//				Name:        pulumi.String("kinesis-firehose-extended-s3-test-stream"),
+//				Destination: pulumi.String("extended_s3"),
 //			})
 //			if err != nil {
 //				return err
@@ -304,21 +304,7 @@ import (
 //				return err
 //			}
 //			_, err = kinesis.NewFirehoseDeliveryStream(ctx, "test_stream", &kinesis.FirehoseDeliveryStreamArgs{
-//				Name:        pulumi.String("kinesis-firehose-test-stream"),
-//				Destination: pulumi.String("redshift"),
 //				RedshiftConfiguration: &kinesis.FirehoseDeliveryStreamRedshiftConfigurationArgs{
-//					RoleArn: pulumi.Any(firehoseRole.Arn),
-//					ClusterJdbcurl: pulumi.All(testCluster.Endpoint, testCluster.DatabaseName).ApplyT(func(_args []interface{}) (string, error) {
-//						endpoint := _args[0].(string)
-//						databaseName := _args[1].(string)
-//						return fmt.Sprintf("jdbc:redshift://%v/%v", endpoint, databaseName), nil
-//					}).(pulumi.StringOutput),
-//					Username:         pulumi.String("testuser"),
-//					Password:         pulumi.String("T3stPass"),
-//					DataTableName:    pulumi.String("test-table"),
-//					CopyOptions:      pulumi.String("delimiter '|'"),
-//					DataTableColumns: pulumi.String("test-col"),
-//					S3BackupMode:     pulumi.String("Enabled"),
 //					S3Configuration: &kinesis.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs{
 //						RoleArn:           pulumi.Any(firehoseRole.Arn),
 //						BucketArn:         pulumi.Any(bucket.Arn),
@@ -333,7 +319,21 @@ import (
 //						BufferingInterval: pulumi.Int(300),
 //						CompressionFormat: pulumi.String("GZIP"),
 //					},
+//					RoleArn: pulumi.Any(firehoseRole.Arn),
+//					ClusterJdbcurl: pulumi.All(testCluster.Endpoint, testCluster.DatabaseName).ApplyT(func(_args []interface{}) (string, error) {
+//						endpoint := _args[0].(string)
+//						databaseName := _args[1].(string)
+//						return fmt.Sprintf("jdbc:redshift://%v/%v", endpoint, databaseName), nil
+//					}).(pulumi.StringOutput),
+//					Username:         pulumi.String("testuser"),
+//					Password:         pulumi.String("T3stPass"),
+//					DataTableName:    pulumi.String("test-table"),
+//					CopyOptions:      pulumi.String("delimiter '|'"),
+//					DataTableColumns: pulumi.String("test-col"),
+//					S3BackupMode:     pulumi.String("Enabled"),
 //				},
+//				Name:        pulumi.String("kinesis-firehose-test-stream"),
+//				Destination: pulumi.String("redshift"),
 //			})
 //			if err != nil {
 //				return err
@@ -366,13 +366,7 @@ import (
 //				return err
 //			}
 //			_, err = kinesis.NewFirehoseDeliveryStream(ctx, "test_stream", &kinesis.FirehoseDeliveryStreamArgs{
-//				Name:        pulumi.String("kinesis-firehose-test-stream"),
-//				Destination: pulumi.String("elasticsearch"),
 //				ElasticsearchConfiguration: &kinesis.FirehoseDeliveryStreamElasticsearchConfigurationArgs{
-//					DomainArn: testCluster.Arn,
-//					RoleArn:   pulumi.Any(firehoseRole.Arn),
-//					IndexName: pulumi.String("test"),
-//					TypeName:  pulumi.String("test"),
 //					S3Configuration: &kinesis.FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationArgs{
 //						RoleArn:           pulumi.Any(firehoseRole.Arn),
 //						BucketArn:         pulumi.Any(bucket.Arn),
@@ -381,20 +375,26 @@ import (
 //						CompressionFormat: pulumi.String("GZIP"),
 //					},
 //					ProcessingConfiguration: &kinesis.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs{
-//						Enabled: pulumi.Bool(true),
 //						Processors: kinesis.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArray{
 //							&kinesis.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArgs{
-//								Type: pulumi.String("Lambda"),
 //								Parameters: kinesis.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArray{
 //									&kinesis.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArgs{
 //										ParameterName:  pulumi.String("LambdaArn"),
 //										ParameterValue: pulumi.Sprintf("%v:$LATEST", lambdaProcessor.Arn),
 //									},
 //								},
+//								Type: pulumi.String("Lambda"),
 //							},
 //						},
+//						Enabled: pulumi.Bool(true),
 //					},
+//					DomainArn: testCluster.Arn,
+//					RoleArn:   pulumi.Any(firehoseRole.Arn),
+//					IndexName: pulumi.String("test"),
+//					TypeName:  pulumi.String("test"),
 //				},
+//				Name:        pulumi.String("kinesis-firehose-test-stream"),
+//				Destination: pulumi.String("elasticsearch"),
 //			})
 //			if err != nil {
 //				return err
@@ -424,7 +424,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			testCluster, err := elasticsearch.NewDomain(ctx, "test_cluster", &elasticsearch.DomainArgs{
-//				DomainName: pulumi.String("es-test"),
 //				ClusterConfig: &elasticsearch.DomainClusterConfigArgs{
 //					InstanceCount:        pulumi.Int(2),
 //					ZoneAwarenessEnabled: pulumi.Bool(true),
@@ -443,6 +442,7 @@ import (
 //						second.Id,
 //					},
 //				},
+//				DomainName: pulumi.String("es-test"),
 //			})
 //			if err != nil {
 //				return err
@@ -488,13 +488,7 @@ import (
 //				return err
 //			}
 //			_, err = kinesis.NewFirehoseDeliveryStream(ctx, "test", &kinesis.FirehoseDeliveryStreamArgs{
-//				Name:        pulumi.String("kinesis-firehose-es"),
-//				Destination: pulumi.String("elasticsearch"),
 //				ElasticsearchConfiguration: &kinesis.FirehoseDeliveryStreamElasticsearchConfigurationArgs{
-//					DomainArn: testCluster.Arn,
-//					RoleArn:   pulumi.Any(firehose.Arn),
-//					IndexName: pulumi.String("test"),
-//					TypeName:  pulumi.String("test"),
 //					S3Configuration: &kinesis.FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationArgs{
 //						RoleArn:   pulumi.Any(firehose.Arn),
 //						BucketArn: pulumi.Any(bucket.Arn),
@@ -509,7 +503,13 @@ import (
 //						},
 //						RoleArn: pulumi.Any(firehose.Arn),
 //					},
+//					DomainArn: testCluster.Arn,
+//					RoleArn:   pulumi.Any(firehose.Arn),
+//					IndexName: pulumi.String("test"),
+//					TypeName:  pulumi.String("test"),
 //				},
+//				Name:        pulumi.String("kinesis-firehose-es"),
+//				Destination: pulumi.String("elasticsearch"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				firehose_elasticsearchRolePolicy,
 //			}))
@@ -544,12 +544,7 @@ import (
 //				return err
 //			}
 //			_, err = kinesis.NewFirehoseDeliveryStream(ctx, "test_stream", &kinesis.FirehoseDeliveryStreamArgs{
-//				Name:        pulumi.String("kinesis-firehose-test-stream"),
-//				Destination: pulumi.String("opensearch"),
 //				OpensearchConfiguration: &kinesis.FirehoseDeliveryStreamOpensearchConfigurationArgs{
-//					DomainArn: testCluster.Arn,
-//					RoleArn:   pulumi.Any(firehoseRole.Arn),
-//					IndexName: pulumi.String("test"),
 //					S3Configuration: &kinesis.FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationArgs{
 //						RoleArn:           pulumi.Any(firehoseRole.Arn),
 //						BucketArn:         pulumi.Any(bucket.Arn),
@@ -558,20 +553,25 @@ import (
 //						CompressionFormat: pulumi.String("GZIP"),
 //					},
 //					ProcessingConfiguration: &kinesis.FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationArgs{
-//						Enabled: pulumi.Bool(true),
 //						Processors: kinesis.FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorArray{
 //							&kinesis.FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorArgs{
-//								Type: pulumi.String("Lambda"),
 //								Parameters: kinesis.FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterArray{
 //									&kinesis.FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterArgs{
 //										ParameterName:  pulumi.String("LambdaArn"),
 //										ParameterValue: pulumi.Sprintf("%v:$LATEST", lambdaProcessor.Arn),
 //									},
 //								},
+//								Type: pulumi.String("Lambda"),
 //							},
 //						},
+//						Enabled: pulumi.Bool(true),
 //					},
+//					DomainArn: testCluster.Arn,
+//					RoleArn:   pulumi.Any(firehoseRole.Arn),
+//					IndexName: pulumi.String("test"),
 //				},
+//				Name:        pulumi.String("kinesis-firehose-test-stream"),
+//				Destination: pulumi.String("opensearch"),
 //			})
 //			if err != nil {
 //				return err
@@ -601,7 +601,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			testCluster, err := opensearch.NewDomain(ctx, "test_cluster", &opensearch.DomainArgs{
-//				DomainName: pulumi.String("es-test"),
 //				ClusterConfig: &opensearch.DomainClusterConfigArgs{
 //					InstanceCount:        pulumi.Int(2),
 //					ZoneAwarenessEnabled: pulumi.Bool(true),
@@ -620,6 +619,7 @@ import (
 //						second.Id,
 //					},
 //				},
+//				DomainName: pulumi.String("es-test"),
 //			})
 //			if err != nil {
 //				return err
@@ -668,12 +668,7 @@ import (
 //				return err
 //			}
 //			_, err = kinesis.NewFirehoseDeliveryStream(ctx, "test", &kinesis.FirehoseDeliveryStreamArgs{
-//				Name:        pulumi.String("pulumi-kinesis-firehose-os"),
-//				Destination: pulumi.String("opensearch"),
 //				OpensearchConfiguration: &kinesis.FirehoseDeliveryStreamOpensearchConfigurationArgs{
-//					DomainArn: testCluster.Arn,
-//					RoleArn:   pulumi.Any(firehose.Arn),
-//					IndexName: pulumi.String("test"),
 //					S3Configuration: &kinesis.FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationArgs{
 //						RoleArn:   pulumi.Any(firehose.Arn),
 //						BucketArn: pulumi.Any(bucket.Arn),
@@ -688,7 +683,12 @@ import (
 //						},
 //						RoleArn: pulumi.Any(firehose.Arn),
 //					},
+//					DomainArn: testCluster.Arn,
+//					RoleArn:   pulumi.Any(firehose.Arn),
+//					IndexName: pulumi.String("test"),
 //				},
+//				Name:        pulumi.String("pulumi-kinesis-firehose-os"),
+//				Destination: pulumi.String("opensearch"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				firehose_opensearch,
 //			}))
@@ -723,12 +723,7 @@ import (
 //				return err
 //			}
 //			_, err = kinesis.NewFirehoseDeliveryStream(ctx, "test_stream", &kinesis.FirehoseDeliveryStreamArgs{
-//				Name:        pulumi.String("kinesis-firehose-test-stream"),
-//				Destination: pulumi.String("opensearchserverless"),
 //				OpensearchserverlessConfiguration: &kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs{
-//					CollectionEndpoint: testCollection.CollectionEndpoint,
-//					RoleArn:            pulumi.Any(firehoseRole.Arn),
-//					IndexName:          pulumi.String("test"),
 //					S3Configuration: &kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs{
 //						RoleArn:           pulumi.Any(firehoseRole.Arn),
 //						BucketArn:         pulumi.Any(bucket.Arn),
@@ -737,20 +732,25 @@ import (
 //						CompressionFormat: pulumi.String("GZIP"),
 //					},
 //					ProcessingConfiguration: &kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationArgs{
-//						Enabled: pulumi.Bool(true),
 //						Processors: kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArray{
 //							&kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArgs{
-//								Type: pulumi.String("Lambda"),
 //								Parameters: kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArray{
 //									&kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArgs{
 //										ParameterName:  pulumi.String("LambdaArn"),
 //										ParameterValue: pulumi.Sprintf("%v:$LATEST", lambdaProcessor.Arn),
 //									},
 //								},
+//								Type: pulumi.String("Lambda"),
 //							},
 //						},
+//						Enabled: pulumi.Bool(true),
 //					},
+//					CollectionEndpoint: testCollection.CollectionEndpoint,
+//					RoleArn:            pulumi.Any(firehoseRole.Arn),
+//					IndexName:          pulumi.String("test"),
 //				},
+//				Name:        pulumi.String("kinesis-firehose-test-stream"),
+//				Destination: pulumi.String("opensearchserverless"),
 //			})
 //			if err != nil {
 //				return err
@@ -806,12 +806,6 @@ import (
 //				return err
 //			}
 //			testCatalogTable, err := glue.NewCatalogTable(ctx, "test", &glue.CatalogTableArgs{
-//				Name:         pulumi.String("test"),
-//				DatabaseName: test.Name,
-//				Parameters: pulumi.StringMap{
-//					"format": pulumi.String("parquet"),
-//				},
-//				TableType: pulumi.String("EXTERNAL_TABLE"),
 //				OpenTableFormatInput: &glue.CatalogTableOpenTableFormatInputArgs{
 //					IcebergInput: &glue.CatalogTableOpenTableFormatInputIcebergInputArgs{
 //						MetadataOperation: pulumi.String("CREATE"),
@@ -819,31 +813,45 @@ import (
 //					},
 //				},
 //				StorageDescriptor: &glue.CatalogTableStorageDescriptorArgs{
-//					Location: bucket.ID().ApplyT(func(id pulumi.ID) (string, error) {
-//						return fmt.Sprintf("s3://%v", id), nil
-//					}).(pulumi.StringOutput),
 //					Columns: glue.CatalogTableStorageDescriptorColumnArray{
 //						&glue.CatalogTableStorageDescriptorColumnArgs{
 //							Name: pulumi.String("my_column_1"),
 //							Type: pulumi.String("int"),
 //						},
 //					},
+//					Location: bucket.ID().ApplyT(func(id pulumi.ID) (string, error) {
+//						return fmt.Sprintf("s3://%v", id), nil
+//					}).(pulumi.StringOutput),
 //				},
+//				Name:         pulumi.String("test"),
+//				DatabaseName: test.Name,
+//				Parameters: pulumi.StringMap{
+//					"format": pulumi.String("parquet"),
+//				},
+//				TableType: pulumi.String("EXTERNAL_TABLE"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = kinesis.NewFirehoseDeliveryStream(ctx, "test_stream", &kinesis.FirehoseDeliveryStreamArgs{
-//				Name:        pulumi.String("kinesis-firehose-test-stream"),
-//				Destination: pulumi.String("iceberg"),
 //				IcebergConfiguration: &kinesis.FirehoseDeliveryStreamIcebergConfigurationArgs{
-//					RoleArn:           pulumi.Any(firehoseRole.Arn),
-//					CatalogArn:        pulumi.Sprintf("arn:%v:glue:%v:%v:catalog", currentGetPartition.Partition, currentGetRegion.Region, current.AccountId),
-//					BufferingSize:     pulumi.Int(10),
-//					BufferingInterval: pulumi.Int(400),
 //					S3Configuration: &kinesis.FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationArgs{
 //						RoleArn:   pulumi.Any(firehoseRole.Arn),
 //						BucketArn: bucket.Arn,
+//					},
+//					ProcessingConfiguration: &kinesis.FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationArgs{
+//						Processors: kinesis.FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArray{
+//							&kinesis.FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArgs{
+//								Parameters: kinesis.FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArray{
+//									&kinesis.FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArgs{
+//										ParameterName:  pulumi.String("LambdaArn"),
+//										ParameterValue: pulumi.Sprintf("%v:$LATEST", lambdaProcessor.Arn),
+//									},
+//								},
+//								Type: pulumi.String("Lambda"),
+//							},
+//						},
+//						Enabled: pulumi.Bool(true),
 //					},
 //					DestinationTableConfigurations: kinesis.FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArray{
 //						&kinesis.FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArgs{
@@ -851,21 +859,13 @@ import (
 //							TableName:    testCatalogTable.Name,
 //						},
 //					},
-//					ProcessingConfiguration: &kinesis.FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationArgs{
-//						Enabled: pulumi.Bool(true),
-//						Processors: kinesis.FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArray{
-//							&kinesis.FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArgs{
-//								Type: pulumi.String("Lambda"),
-//								Parameters: kinesis.FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArray{
-//									&kinesis.FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArgs{
-//										ParameterName:  pulumi.String("LambdaArn"),
-//										ParameterValue: pulumi.Sprintf("%v:$LATEST", lambdaProcessor.Arn),
-//									},
-//								},
-//							},
-//						},
-//					},
+//					RoleArn:           pulumi.Any(firehoseRole.Arn),
+//					CatalogArn:        pulumi.Sprintf("arn:%v:glue:%v:%v:catalog", currentGetPartition.Partition, currentGetRegion.Region, current.AccountId),
+//					BufferingSize:     pulumi.Int(10),
+//					BufferingInterval: pulumi.Int(400),
 //				},
+//				Name:        pulumi.String("kinesis-firehose-test-stream"),
+//				Destination: pulumi.String("iceberg"),
 //			})
 //			if err != nil {
 //				return err
@@ -891,14 +891,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kinesis.NewFirehoseDeliveryStream(ctx, "test_stream", &kinesis.FirehoseDeliveryStreamArgs{
-//				Name:        pulumi.String("kinesis-firehose-test-stream"),
-//				Destination: pulumi.String("splunk"),
 //				SplunkConfiguration: &kinesis.FirehoseDeliveryStreamSplunkConfigurationArgs{
-//					HecEndpoint:              pulumi.String("https://http-inputs-mydomain.splunkcloud.com:443"),
-//					HecToken:                 pulumi.String("51D4DA16-C61B-4F5F-8EC7-ED4301342A4A"),
-//					HecAcknowledgmentTimeout: pulumi.Int(600),
-//					HecEndpointType:          pulumi.String("Event"),
-//					S3BackupMode:             pulumi.String("FailedEventsOnly"),
 //					S3Configuration: &kinesis.FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs{
 //						RoleArn:           pulumi.Any(firehose.Arn),
 //						BucketArn:         pulumi.Any(bucket.Arn),
@@ -906,7 +899,14 @@ import (
 //						BufferingInterval: pulumi.Int(400),
 //						CompressionFormat: pulumi.String("GZIP"),
 //					},
+//					HecEndpoint:              pulumi.String("https://http-inputs-mydomain.splunkcloud.com:443"),
+//					HecToken:                 pulumi.String("51D4DA16-C61B-4F5F-8EC7-ED4301342A4A"),
+//					HecAcknowledgmentTimeout: pulumi.Int(600),
+//					HecEndpointType:          pulumi.String("Event"),
+//					S3BackupMode:             pulumi.String("FailedEventsOnly"),
 //				},
+//				Name:        pulumi.String("kinesis-firehose-test-stream"),
+//				Destination: pulumi.String("splunk"),
 //			})
 //			if err != nil {
 //				return err
@@ -934,16 +934,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kinesis.NewFirehoseDeliveryStream(ctx, "test_stream", &kinesis.FirehoseDeliveryStreamArgs{
-//				Name:        pulumi.String("kinesis-firehose-test-stream"),
-//				Destination: pulumi.String("http_endpoint"),
 //				HttpEndpointConfiguration: &kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationArgs{
-//					Url:               pulumi.String("https://aws-api.newrelic.com/firehose/v1"),
-//					Name:              pulumi.String("New Relic"),
-//					AccessKey:         pulumi.String("my-key"),
-//					BufferingSize:     pulumi.Int(15),
-//					BufferingInterval: pulumi.Int(600),
-//					RoleArn:           pulumi.Any(firehose.Arn),
-//					S3BackupMode:      pulumi.String("FailedDataOnly"),
 //					S3Configuration: &kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationArgs{
 //						RoleArn:           pulumi.Any(firehose.Arn),
 //						BucketArn:         pulumi.Any(bucket.Arn),
@@ -952,7 +943,6 @@ import (
 //						CompressionFormat: pulumi.String("GZIP"),
 //					},
 //					RequestConfiguration: &kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs{
-//						ContentEncoding: pulumi.String("GZIP"),
 //						CommonAttributes: kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArray{
 //							&kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs{
 //								Name:  pulumi.String("testname"),
@@ -963,8 +953,18 @@ import (
 //								Value: pulumi.String("testvalue2"),
 //							},
 //						},
+//						ContentEncoding: pulumi.String("GZIP"),
 //					},
+//					Url:               pulumi.String("https://aws-api.newrelic.com/firehose/v1"),
+//					Name:              pulumi.String("New Relic"),
+//					AccessKey:         pulumi.String("my-key"),
+//					BufferingSize:     pulumi.Int(15),
+//					BufferingInterval: pulumi.Int(600),
+//					RoleArn:           pulumi.Any(firehose.Arn),
+//					S3BackupMode:      pulumi.String("FailedDataOnly"),
 //				},
+//				Name:        pulumi.String("kinesis-firehose-test-stream"),
+//				Destination: pulumi.String("http_endpoint"),
 //			})
 //			if err != nil {
 //				return err
@@ -990,9 +990,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kinesis.NewFirehoseDeliveryStream(ctx, "example_snowflake_destination", &kinesis.FirehoseDeliveryStreamArgs{
-//				Name:        pulumi.String("example-snowflake-destination"),
-//				Destination: pulumi.String("snowflake"),
 //				SnowflakeConfiguration: &kinesis.FirehoseDeliveryStreamSnowflakeConfigurationArgs{
+//					S3Configuration: &kinesis.FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationArgs{
+//						RoleArn:           pulumi.Any(firehose.Arn),
+//						BucketArn:         pulumi.Any(bucket.Arn),
+//						BufferingSize:     pulumi.Int(10),
+//						BufferingInterval: pulumi.Int(400),
+//						CompressionFormat: pulumi.String("GZIP"),
+//					},
 //					AccountUrl:        pulumi.String("https://example.snowflakecomputing.com"),
 //					BufferingSize:     pulumi.Int(15),
 //					BufferingInterval: pulumi.Int(600),
@@ -1002,14 +1007,9 @@ import (
 //					Schema:            pulumi.String("example-schema"),
 //					Table:             pulumi.String("example-table"),
 //					User:              pulumi.String("example-usr"),
-//					S3Configuration: &kinesis.FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationArgs{
-//						RoleArn:           pulumi.Any(firehose.Arn),
-//						BucketArn:         pulumi.Any(bucket.Arn),
-//						BufferingSize:     pulumi.Int(10),
-//						BufferingInterval: pulumi.Int(400),
-//						CompressionFormat: pulumi.String("GZIP"),
-//					},
 //				},
+//				Name:        pulumi.String("example-snowflake-destination"),
+//				Destination: pulumi.String("snowflake"),
 //			})
 //			if err != nil {
 //				return err

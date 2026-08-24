@@ -30,13 +30,13 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// {
     ///     var example = new Aws.ApiGatewayV2.DomainName("example", new()
     ///     {
-    ///         Domain = "ws-api.example.com",
     ///         DomainNameConfiguration = new Aws.ApiGatewayV2.Inputs.DomainNameDomainNameConfigurationArgs
     ///         {
     ///             CertificateArn = exampleAwsAcmCertificate.Arn,
     ///             EndpointType = "REGIONAL",
     ///             SecurityPolicy = "TLS_1_2",
     ///         },
+    ///         Domain = "ws-api.example.com",
     ///     });
     /// 
     /// });
@@ -54,20 +54,17 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// {
     ///     var example = new Aws.ApiGatewayV2.DomainName("example", new()
     ///     {
-    ///         Domain = "http-api.example.com",
     ///         DomainNameConfiguration = new Aws.ApiGatewayV2.Inputs.DomainNameDomainNameConfigurationArgs
     ///         {
     ///             CertificateArn = exampleAwsAcmCertificate.Arn,
     ///             EndpointType = "REGIONAL",
     ///             SecurityPolicy = "TLS_1_2",
     ///         },
+    ///         Domain = "http-api.example.com",
     ///     });
     /// 
     ///     var exampleRecord = new Aws.Route53.Record("example", new()
     ///     {
-    ///         Name = example.Domain,
-    ///         Type = Aws.Route53.RecordType.A,
-    ///         ZoneId = exampleAwsRoute53Zone.ZoneId,
     ///         Aliases = new[]
     ///         {
     ///             new Aws.Route53.Inputs.RecordAliasArgs
@@ -77,6 +74,9 @@ namespace Pulumi.Aws.ApiGatewayV2
     ///                 EvaluateTargetHealth = false,
     ///             },
     ///         },
+    ///         Name = example.Domain,
+    ///         Type = Aws.Route53.RecordType.A,
+    ///         ZoneId = exampleAwsRoute53Zone.ZoneId,
     ///     });
     /// 
     /// });

@@ -49,7 +49,6 @@ import (
 //			}
 //			_, err = s3control.NewMultiRegionAccessPoint(ctx, "example", &s3control.MultiRegionAccessPointArgs{
 //				Details: &s3control.MultiRegionAccessPointDetailsArgs{
-//					Name: pulumi.String("example"),
 //					Regions: s3control.MultiRegionAccessPointDetailsRegionArray{
 //						&s3control.MultiRegionAccessPointDetailsRegionArgs{
 //							Bucket: fooBucket.ID().ToIDOutput().ToStringOutput(),
@@ -58,6 +57,7 @@ import (
 //							Bucket: barBucket.ID().ToIDOutput().ToStringOutput(),
 //						},
 //					},
+//					Name: pulumi.String("example"),
 //				},
 //			})
 //			if err != nil {

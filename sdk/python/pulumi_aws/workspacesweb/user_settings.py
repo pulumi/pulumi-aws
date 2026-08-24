@@ -582,11 +582,6 @@ class UserSettings(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.workspacesweb.UserSettings("example",
-            copy_allowed="Enabled",
-            download_allowed="Enabled",
-            paste_allowed="Enabled",
-            print_allowed="Enabled",
-            upload_allowed="Enabled",
             toolbar_configuration={
                 "toolbar_type": "Docked",
                 "visual_mode": "Dark",
@@ -594,7 +589,12 @@ class UserSettings(pulumi.CustomResource):
                     "Webcam",
                     "Microphone",
                 ],
-            })
+            },
+            copy_allowed="Enabled",
+            download_allowed="Enabled",
+            paste_allowed="Enabled",
+            print_allowed="Enabled",
+            upload_allowed="Enabled")
         ```
 
         ### Complete Example
@@ -607,18 +607,6 @@ class UserSettings(pulumi.CustomResource):
             description="KMS key for WorkSpaces Web User Settings",
             deletion_window_in_days=7)
         example_user_settings = aws.workspacesweb.UserSettings("example",
-            copy_allowed="Enabled",
-            download_allowed="Enabled",
-            paste_allowed="Enabled",
-            print_allowed="Enabled",
-            upload_allowed="Enabled",
-            deep_link_allowed="Enabled",
-            disconnect_timeout_in_minutes=30,
-            idle_disconnect_timeout_in_minutes=15,
-            customer_managed_key=example.arn,
-            additional_encryption_context={
-                "Environment": "Production",
-            },
             toolbar_configuration={
                 "toolbar_type": "Docked",
                 "visual_mode": "Dark",
@@ -636,6 +624,18 @@ class UserSettings(pulumi.CustomResource):
                 "blocklists": [{
                     "domain": "blocked.com",
                 }],
+            },
+            copy_allowed="Enabled",
+            download_allowed="Enabled",
+            paste_allowed="Enabled",
+            print_allowed="Enabled",
+            upload_allowed="Enabled",
+            deep_link_allowed="Enabled",
+            disconnect_timeout_in_minutes=30,
+            idle_disconnect_timeout_in_minutes=15,
+            customer_managed_key=example.arn,
+            additional_encryption_context={
+                "Environment": "Production",
             },
             tags={
                 "Name": "example-user-settings",
@@ -702,11 +702,6 @@ class UserSettings(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.workspacesweb.UserSettings("example",
-            copy_allowed="Enabled",
-            download_allowed="Enabled",
-            paste_allowed="Enabled",
-            print_allowed="Enabled",
-            upload_allowed="Enabled",
             toolbar_configuration={
                 "toolbar_type": "Docked",
                 "visual_mode": "Dark",
@@ -714,7 +709,12 @@ class UserSettings(pulumi.CustomResource):
                     "Webcam",
                     "Microphone",
                 ],
-            })
+            },
+            copy_allowed="Enabled",
+            download_allowed="Enabled",
+            paste_allowed="Enabled",
+            print_allowed="Enabled",
+            upload_allowed="Enabled")
         ```
 
         ### Complete Example
@@ -727,18 +727,6 @@ class UserSettings(pulumi.CustomResource):
             description="KMS key for WorkSpaces Web User Settings",
             deletion_window_in_days=7)
         example_user_settings = aws.workspacesweb.UserSettings("example",
-            copy_allowed="Enabled",
-            download_allowed="Enabled",
-            paste_allowed="Enabled",
-            print_allowed="Enabled",
-            upload_allowed="Enabled",
-            deep_link_allowed="Enabled",
-            disconnect_timeout_in_minutes=30,
-            idle_disconnect_timeout_in_minutes=15,
-            customer_managed_key=example.arn,
-            additional_encryption_context={
-                "Environment": "Production",
-            },
             toolbar_configuration={
                 "toolbar_type": "Docked",
                 "visual_mode": "Dark",
@@ -756,6 +744,18 @@ class UserSettings(pulumi.CustomResource):
                 "blocklists": [{
                     "domain": "blocked.com",
                 }],
+            },
+            copy_allowed="Enabled",
+            download_allowed="Enabled",
+            paste_allowed="Enabled",
+            print_allowed="Enabled",
+            upload_allowed="Enabled",
+            deep_link_allowed="Enabled",
+            disconnect_timeout_in_minutes=30,
+            idle_disconnect_timeout_in_minutes=15,
+            customer_managed_key=example.arn,
+            additional_encryption_context={
+                "Environment": "Production",
             },
             tags={
                 "Name": "example-user-settings",

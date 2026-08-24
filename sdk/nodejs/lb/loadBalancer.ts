@@ -21,17 +21,17 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.lb.LoadBalancer("test", {
+ *     accessLogs: {
+ *         bucket: lbLogs.id,
+ *         prefix: "test-lb",
+ *         enabled: true,
+ *     },
  *     name: "test-lb-tf",
  *     internal: false,
  *     loadBalancerType: "application",
  *     securityGroups: [lbSg.id],
  *     subnets: .map(subnet => (subnet.id)),
  *     enableDeletionProtection: true,
- *     accessLogs: {
- *         bucket: lbLogs.id,
- *         prefix: "test-lb",
- *         enabled: true,
- *     },
  *     tags: {
  *         Environment: "production",
  *     },
@@ -63,18 +63,18 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lb.LoadBalancer("example", {
- *     name: "example",
- *     loadBalancerType: "network",
  *     subnetMappings: [
  *         {
- *             subnetId: example1AwsSubnet.id,
- *             allocationId: example1.id,
+ *             subnetId: example1.id,
+ *             allocationId: example1AwsEip.id,
  *         },
  *         {
- *             subnetId: example2AwsSubnet.id,
- *             allocationId: example2.id,
+ *             subnetId: example2.id,
+ *             allocationId: example2AwsEip.id,
  *         },
  *     ],
+ *     name: "example",
+ *     loadBalancerType: "network",
  * });
  * ```
  *
@@ -85,8 +85,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lb.LoadBalancer("example", {
- *     name: "example",
- *     loadBalancerType: "network",
  *     subnetMappings: [
  *         {
  *             subnetId: example1.id,
@@ -97,6 +95,8 @@ import * as utilities from "../utilities";
  *             privateIpv4Address: "10.0.2.15",
  *         },
  *     ],
+ *     name: "example",
+ *     loadBalancerType: "network",
  * });
  * ```
  *

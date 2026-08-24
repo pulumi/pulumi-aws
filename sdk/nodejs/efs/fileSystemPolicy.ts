@@ -16,22 +16,22 @@ import * as utilities from "../utilities";
  * const fs = new aws.efs.FileSystem("fs", {creationToken: "my-product"});
  * const policy = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
- *         sid: "ExampleStatement01",
- *         effect: "Allow",
- *         principals: [{
- *             type: "AWS",
- *             identifiers: ["*"],
- *         }],
- *         actions: [
- *             "elasticfilesystem:ClientMount",
- *             "elasticfilesystem:ClientWrite",
- *         ],
- *         resources: [fs.arn],
  *         conditions: [{
  *             test: "Bool",
  *             variable: "aws:SecureTransport",
  *             values: ["true"],
  *         }],
+ *         principals: [{
+ *             type: "AWS",
+ *             identifiers: ["*"],
+ *         }],
+ *         sid: "ExampleStatement01",
+ *         effect: "Allow",
+ *         actions: [
+ *             "elasticfilesystem:ClientMount",
+ *             "elasticfilesystem:ClientWrite",
+ *         ],
+ *         resources: [fs.arn],
  *     }],
  * });
  * const policyFileSystemPolicy = new aws.efs.FileSystemPolicy("policy", {

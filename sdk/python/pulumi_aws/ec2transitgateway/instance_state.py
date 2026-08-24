@@ -190,8 +190,7 @@ class InstanceState(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ubuntu = aws.ec2.get_ami(most_recent=True,
-            filters=[
+        ubuntu = aws.ec2.get_ami(filters=[
                 {
                     "name": "name",
                     "values": ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"],
@@ -201,6 +200,7 @@ class InstanceState(pulumi.CustomResource):
                     "values": ["hvm"],
                 },
             ],
+            most_recent=True,
             owners=["099720109477"])
         test = aws.ec2.Instance("test",
             ami=ubuntu.id,
@@ -248,8 +248,7 @@ class InstanceState(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ubuntu = aws.ec2.get_ami(most_recent=True,
-            filters=[
+        ubuntu = aws.ec2.get_ami(filters=[
                 {
                     "name": "name",
                     "values": ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"],
@@ -259,6 +258,7 @@ class InstanceState(pulumi.CustomResource):
                     "values": ["hvm"],
                 },
             ],
+            most_recent=True,
             owners=["099720109477"])
         test = aws.ec2.Instance("test",
             ami=ubuntu.id,

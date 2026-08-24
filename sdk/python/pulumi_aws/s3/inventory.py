@@ -358,9 +358,6 @@ class Inventory(pulumi.CustomResource):
         test = aws.s3.Bucket("test", bucket="my-tf-test-bucket")
         inventory = aws.s3.Bucket("inventory", bucket="my-tf-inventory-bucket")
         test_inventory = aws.s3.Inventory("test",
-            bucket=test.id,
-            name="EntireBucketDaily",
-            included_object_versions="All",
             schedule={
                 "frequency": "Daily",
             },
@@ -369,7 +366,10 @@ class Inventory(pulumi.CustomResource):
                     "format": "ORC",
                     "bucket_arn": inventory.arn,
                 },
-            })
+            },
+            bucket=test.id,
+            name="EntireBucketDaily",
+            included_object_versions="All")
         ```
 
         ### Add inventory configuration with S3 object prefix
@@ -381,9 +381,6 @@ class Inventory(pulumi.CustomResource):
         test = aws.s3.Bucket("test", bucket="my-tf-test-bucket")
         inventory = aws.s3.Bucket("inventory", bucket="my-tf-inventory-bucket")
         test_prefix = aws.s3.Inventory("test-prefix",
-            bucket=test.id,
-            name="DocumentsWeekly",
-            included_object_versions="All",
             schedule={
                 "frequency": "Daily",
             },
@@ -396,7 +393,10 @@ class Inventory(pulumi.CustomResource):
                     "bucket_arn": inventory.arn,
                     "prefix": "inventory",
                 },
-            })
+            },
+            bucket=test.id,
+            name="DocumentsWeekly",
+            included_object_versions="All")
         ```
 
         ## Import
@@ -442,9 +442,6 @@ class Inventory(pulumi.CustomResource):
         test = aws.s3.Bucket("test", bucket="my-tf-test-bucket")
         inventory = aws.s3.Bucket("inventory", bucket="my-tf-inventory-bucket")
         test_inventory = aws.s3.Inventory("test",
-            bucket=test.id,
-            name="EntireBucketDaily",
-            included_object_versions="All",
             schedule={
                 "frequency": "Daily",
             },
@@ -453,7 +450,10 @@ class Inventory(pulumi.CustomResource):
                     "format": "ORC",
                     "bucket_arn": inventory.arn,
                 },
-            })
+            },
+            bucket=test.id,
+            name="EntireBucketDaily",
+            included_object_versions="All")
         ```
 
         ### Add inventory configuration with S3 object prefix
@@ -465,9 +465,6 @@ class Inventory(pulumi.CustomResource):
         test = aws.s3.Bucket("test", bucket="my-tf-test-bucket")
         inventory = aws.s3.Bucket("inventory", bucket="my-tf-inventory-bucket")
         test_prefix = aws.s3.Inventory("test-prefix",
-            bucket=test.id,
-            name="DocumentsWeekly",
-            included_object_versions="All",
             schedule={
                 "frequency": "Daily",
             },
@@ -480,7 +477,10 @@ class Inventory(pulumi.CustomResource):
                     "bucket_arn": inventory.arn,
                     "prefix": "inventory",
                 },
-            })
+            },
+            bucket=test.id,
+            name="DocumentsWeekly",
+            included_object_versions="All")
         ```
 
         ## Import

@@ -237,10 +237,10 @@ class BucketAclV2(pulumi.CustomResource):
 
         example = aws.s3.Bucket("example", bucket="my-tf-example-bucket")
         example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("example",
-            bucket=example.id,
             rule={
                 "object_ownership": "BucketOwnerPreferred",
-            })
+            },
+            bucket=example.id)
         example_bucket_acl = aws.s3.BucketAcl("example",
             bucket=example.id,
             acl="private",
@@ -258,10 +258,10 @@ class BucketAclV2(pulumi.CustomResource):
 
         example = aws.s3.Bucket("example", bucket="my-tf-example-bucket")
         example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("example",
-            bucket=example.id,
             rule={
                 "object_ownership": "BucketOwnerPreferred",
-            })
+            },
+            bucket=example.id)
         example_bucket_public_access_block = aws.s3.BucketPublicAccessBlock("example",
             bucket=example.id,
             block_public_acls=False,
@@ -286,13 +286,15 @@ class BucketAclV2(pulumi.CustomResource):
         current = aws.s3.get_canonical_user_id()
         example = aws.s3.Bucket("example", bucket="my-tf-example-bucket")
         example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("example",
-            bucket=example.id,
             rule={
                 "object_ownership": "BucketOwnerPreferred",
-            })
+            },
+            bucket=example.id)
         example_bucket_acl = aws.s3.BucketAcl("example",
-            bucket=example.id,
             access_control_policy={
+                "owner": {
+                    "id": current.id,
+                },
                 "grants": [
                     {
                         "grantee": {
@@ -309,10 +311,8 @@ class BucketAclV2(pulumi.CustomResource):
                         "permission": "READ_ACP",
                     },
                 ],
-                "owner": {
-                    "id": current.id,
-                },
             },
+            bucket=example.id,
             opts = pulumi.ResourceOptions(depends_on=[example_bucket_ownership_controls]))
         ```
 
@@ -396,10 +396,10 @@ class BucketAclV2(pulumi.CustomResource):
 
         example = aws.s3.Bucket("example", bucket="my-tf-example-bucket")
         example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("example",
-            bucket=example.id,
             rule={
                 "object_ownership": "BucketOwnerPreferred",
-            })
+            },
+            bucket=example.id)
         example_bucket_acl = aws.s3.BucketAcl("example",
             bucket=example.id,
             acl="private",
@@ -417,10 +417,10 @@ class BucketAclV2(pulumi.CustomResource):
 
         example = aws.s3.Bucket("example", bucket="my-tf-example-bucket")
         example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("example",
-            bucket=example.id,
             rule={
                 "object_ownership": "BucketOwnerPreferred",
-            })
+            },
+            bucket=example.id)
         example_bucket_public_access_block = aws.s3.BucketPublicAccessBlock("example",
             bucket=example.id,
             block_public_acls=False,
@@ -445,13 +445,15 @@ class BucketAclV2(pulumi.CustomResource):
         current = aws.s3.get_canonical_user_id()
         example = aws.s3.Bucket("example", bucket="my-tf-example-bucket")
         example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("example",
-            bucket=example.id,
             rule={
                 "object_ownership": "BucketOwnerPreferred",
-            })
+            },
+            bucket=example.id)
         example_bucket_acl = aws.s3.BucketAcl("example",
-            bucket=example.id,
             access_control_policy={
+                "owner": {
+                    "id": current.id,
+                },
                 "grants": [
                     {
                         "grantee": {
@@ -468,10 +470,8 @@ class BucketAclV2(pulumi.CustomResource):
                         "permission": "READ_ACP",
                     },
                 ],
-                "owner": {
-                    "id": current.id,
-                },
             },
+            bucket=example.id,
             opts = pulumi.ResourceOptions(depends_on=[example_bucket_ownership_controls]))
         ```
 

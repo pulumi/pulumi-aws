@@ -102,7 +102,6 @@ namespace Pulumi.Aws.Route53
     /// 
     ///     var @private = new Aws.Route53.Zone("private", new()
     ///     {
-    ///         Name = "example.com",
     ///         Vpcs = new[]
     ///         {
     ///             new Aws.Route53.Inputs.ZoneVpcArgs
@@ -114,6 +113,7 @@ namespace Pulumi.Aws.Route53
     ///                 VpcId = secondary.Id,
     ///             },
     ///         },
+    ///         Name = "example.com",
     ///     });
     /// 
     /// });

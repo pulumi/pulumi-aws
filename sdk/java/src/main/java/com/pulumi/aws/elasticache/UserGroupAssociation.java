@@ -33,6 +33,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.elasticache.UserGroupArgs;
  * import com.pulumi.aws.elasticache.UserGroupAssociation;
  * import com.pulumi.aws.elasticache.UserGroupAssociationArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -58,7 +59,9 @@ import javax.annotation.Nullable;
  *             .engine("REDIS")
  *             .userGroupId("userGroupId")
  *             .userIds(default_.userId())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .ignoreChanges("userIds")
+ *                 .build());
  * 
  *         var exampleUser = new User("exampleUser", UserArgs.builder()
  *             .userId("exampleUserID")

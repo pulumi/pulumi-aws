@@ -28,6 +28,16 @@ namespace Pulumi.Aws.Rds
     /// {
     ///     var example = new Aws.Rds.Proxy("example", new()
     ///     {
+    ///         Auths = new[]
+    ///         {
+    ///             new Aws.Rds.Inputs.ProxyAuthArgs
+    ///             {
+    ///                 AuthScheme = "SECRETS",
+    ///                 Description = "example",
+    ///                 IamAuth = "DISABLED",
+    ///                 SecretArn = exampleAwsSecretsmanagerSecret.Arn,
+    ///             },
+    ///         },
     ///         Name = "example",
     ///         DebugLogging = false,
     ///         EngineFamily = "MYSQL",
@@ -41,16 +51,6 @@ namespace Pulumi.Aws.Rds
     ///         VpcSubnetIds = new[]
     ///         {
     ///             exampleAwsSubnet.Id,
-    ///         },
-    ///         Auths = new[]
-    ///         {
-    ///             new Aws.Rds.Inputs.ProxyAuthArgs
-    ///             {
-    ///                 AuthScheme = "SECRETS",
-    ///                 Description = "example",
-    ///                 IamAuth = "DISABLED",
-    ///                 SecretArn = exampleAwsSecretsmanagerSecret.Arn,
-    ///             },
     ///         },
     ///         Tags = 
     ///         {
@@ -79,11 +79,6 @@ namespace Pulumi.Aws.Rds
     /// {
     ///     var available = Aws.GetAvailabilityZones.Invoke(new()
     ///     {
-    ///         ExcludeZoneIds = new[]
-    ///         {
-    ///             "use1-az3",
-    ///         },
-    ///         State = "available",
     ///         Filters = new[]
     ///         {
     ///             new Aws.Inputs.GetAvailabilityZonesFilterInputArgs
@@ -95,6 +90,11 @@ namespace Pulumi.Aws.Rds
     ///                 },
     ///             },
     ///         },
+    ///         ExcludeZoneIds = new[]
+    ///         {
+    ///             "use1-az3",
+    ///         },
+    ///         State = "available",
     ///     });
     /// 
     ///     var example = new Aws.Ec2.Vpc("example", new()
@@ -146,6 +146,12 @@ namespace Pulumi.Aws.Rds
     ///         VpcSubnetIds = new[]
     ///         {
     ///             exampleAwsSubnet.Id,
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
+    ///         {
+    ///             "vpcSubnetIds",
     ///         },
     ///     });
     /// 

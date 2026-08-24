@@ -58,11 +58,6 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Request a Spot fleet
  *         var cheapCompute = new SpotFleetRequest("cheapCompute", SpotFleetRequestArgs.builder()
- *             .iamFleetRole("arn:aws:iam::12345678:role/spot-fleet")
- *             .spotPrice("0.03")
- *             .allocationStrategy("diversified")
- *             .targetCapacity(6)
- *             .validUntil("2019-11-04T20:44:20Z")
  *             .launchSpecifications(            
  *                 SpotFleetRequestLaunchSpecificationArgs.builder()
  *                     .instanceType("m4.10xlarge")
@@ -72,6 +67,10 @@ import javax.annotation.Nullable;
  *                     .iamInstanceProfileArn(example.arn())
  *                     .build(),
  *                 SpotFleetRequestLaunchSpecificationArgs.builder()
+ *                     .rootBlockDevices(SpotFleetRequestLaunchSpecificationRootBlockDeviceArgs.builder()
+ *                         .volumeSize(300)
+ *                         .volumeType("gp2")
+ *                         .build())
  *                     .instanceType("m4.4xlarge")
  *                     .ami("ami-5678")
  *                     .keyName("my-key")
@@ -80,12 +79,13 @@ import javax.annotation.Nullable;
  *                     .availabilityZone("us-west-1a")
  *                     .subnetId("subnet-1234")
  *                     .weightedCapacity("35")
- *                     .rootBlockDevices(SpotFleetRequestLaunchSpecificationRootBlockDeviceArgs.builder()
- *                         .volumeSize(300)
- *                         .volumeType("gp2")
- *                         .build())
  *                     .tags(Map.of("Name", "spot-fleet-example"))
  *                     .build())
+ *             .iamFleetRole("arn:aws:iam::12345678:role/spot-fleet")
+ *             .spotPrice("0.03")
+ *             .allocationStrategy("diversified")
+ *             .targetCapacity(6)
+ *             .validUntil("2019-11-04T20:44:20Z")
  *             .build());
  * 
  *     }
@@ -130,16 +130,16 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var fooSpotFleetRequest = new SpotFleetRequest("fooSpotFleetRequest", SpotFleetRequestArgs.builder()
- *             .iamFleetRole("arn:aws:iam::12345678:role/spot-fleet")
- *             .spotPrice("0.005")
- *             .targetCapacity(2)
- *             .validUntil("2019-11-04T20:44:20Z")
  *             .launchTemplateConfigs(SpotFleetRequestLaunchTemplateConfigArgs.builder()
  *                 .launchTemplateSpecification(SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs.builder()
  *                     .id(foo.id())
  *                     .version(foo.latestVersion())
  *                     .build())
  *                 .build())
+ *             .iamFleetRole("arn:aws:iam::12345678:role/spot-fleet")
+ *             .spotPrice("0.005")
+ *             .targetCapacity(2)
+ *             .validUntil("2019-11-04T20:44:20Z")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(test_attach)
  *                 .build());
@@ -178,10 +178,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new SpotFleetRequest("foo", SpotFleetRequestArgs.builder()
- *             .iamFleetRole("arn:aws:iam::12345678:role/spot-fleet")
- *             .spotPrice("0.005")
- *             .targetCapacity(2)
- *             .validUntil("2019-11-04T20:44:20Z")
  *             .launchSpecifications(            
  *                 SpotFleetRequestLaunchSpecificationArgs.builder()
  *                     .instanceType("m1.small")
@@ -195,6 +191,10 @@ import javax.annotation.Nullable;
  *                     .keyName("my-key")
  *                     .availabilityZone("us-west-2a")
  *                     .build())
+ *             .iamFleetRole("arn:aws:iam::12345678:role/spot-fleet")
+ *             .spotPrice("0.005")
+ *             .targetCapacity(2)
+ *             .validUntil("2019-11-04T20:44:20Z")
  *             .build());
  * 
  *     }
@@ -252,10 +252,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var fooSpotFleetRequest = new SpotFleetRequest("fooSpotFleetRequest", SpotFleetRequestArgs.builder()
- *             .iamFleetRole("arn:aws:iam::12345678:role/spot-fleet")
- *             .spotPrice("0.005")
- *             .targetCapacity(2)
- *             .validUntil("2019-11-04T20:44:20Z")
  *             .launchTemplateConfigs(SpotFleetRequestLaunchTemplateConfigArgs.builder()
  *                 .launchTemplateSpecification(SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs.builder()
  *                     .id(foo.id())
@@ -272,6 +268,10 @@ import javax.annotation.Nullable;
  *                         .subnetId(example.ids()[2])
  *                         .build())
  *                 .build())
+ *             .iamFleetRole("arn:aws:iam::12345678:role/spot-fleet")
+ *             .spotPrice("0.005")
+ *             .targetCapacity(2)
+ *             .validUntil("2019-11-04T20:44:20Z")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(test_attach)
  *                 .build());

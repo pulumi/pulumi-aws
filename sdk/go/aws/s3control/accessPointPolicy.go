@@ -41,15 +41,17 @@ import (
 //				return err
 //			}
 //			exampleAccessPoint, err := s3.NewAccessPoint(ctx, "example", &s3.AccessPointArgs{
-//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
-//				Name:   pulumi.String("example"),
 //				PublicAccessBlockConfiguration: &s3.AccessPointPublicAccessBlockConfigurationArgs{
 //					BlockPublicAcls:       pulumi.Bool(true),
 //					BlockPublicPolicy:     pulumi.Bool(false),
 //					IgnorePublicAcls:      pulumi.Bool(true),
 //					RestrictPublicBuckets: pulumi.Bool(false),
 //				},
-//			})
+//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
+//				Name:   pulumi.String("example"),
+//			}, pulumi.IgnoreChanges([]string{
+//				"policy",
+//			}))
 //			if err != nil {
 //				return err
 //			}

@@ -340,11 +340,11 @@ class OrganizationConformancePack(pulumi.CustomResource):
             aws_service_access_principals=["config-multiaccountsetup.amazonaws.com"],
             feature_set="ALL")
         example = aws.cfg.OrganizationConformancePack("example",
-            name="example",
             input_parameters=[{
                 "parameter_name": "AccessKeysRotatedParameterMaxAccessKeyAge",
                 "parameter_value": "90",
             }],
+            name="example",
             template_body=\"\"\"Parameters:
           AccessKeysRotatedParameterMaxAccessKeyAge:
             Type: String
@@ -452,11 +452,11 @@ class OrganizationConformancePack(pulumi.CustomResource):
             aws_service_access_principals=["config-multiaccountsetup.amazonaws.com"],
             feature_set="ALL")
         example = aws.cfg.OrganizationConformancePack("example",
-            name="example",
             input_parameters=[{
                 "parameter_name": "AccessKeysRotatedParameterMaxAccessKeyAge",
                 "parameter_value": "90",
             }],
+            name="example",
             template_body=\"\"\"Parameters:
           AccessKeysRotatedParameterMaxAccessKeyAge:
             Type: String

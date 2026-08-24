@@ -26,13 +26,13 @@ namespace Pulumi.Aws.VerifiedAccess
     /// 
     ///     var exampleTrustProvider = new Aws.VerifiedAccess.TrustProvider("example", new()
     ///     {
-    ///         DeviceTrustProviderType = "jamf",
-    ///         PolicyReferenceName = "example",
-    ///         TrustProviderType = "device",
     ///         DeviceOptions = new Aws.VerifiedAccess.Inputs.TrustProviderDeviceOptionsArgs
     ///         {
     ///             TenantId = "example",
     ///         },
+    ///         DeviceTrustProviderType = "jamf",
+    ///         PolicyReferenceName = "example",
+    ///         TrustProviderType = "device",
     ///     });
     /// 
     ///     var exampleInstanceTrustProviderAttachment = new Aws.VerifiedAccess.InstanceTrustProviderAttachment("example", new()

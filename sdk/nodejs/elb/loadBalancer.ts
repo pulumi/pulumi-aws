@@ -27,16 +27,17 @@ import * as utilities from "../utilities";
  *
  * // Create a new load balancer
  * const bar = new aws.elb.LoadBalancer("bar", {
- *     name: "foobar-elb",
- *     availabilityZones: [
- *         "us-west-2a",
- *         "us-west-2b",
- *         "us-west-2c",
- *     ],
  *     accessLogs: {
  *         bucket: "foo",
  *         bucketPrefix: "bar",
  *         interval: 60,
+ *     },
+ *     healthCheck: {
+ *         healthyThreshold: 2,
+ *         unhealthyThreshold: 2,
+ *         timeout: 3,
+ *         target: "HTTP:8000/",
+ *         interval: 30,
  *     },
  *     listeners: [
  *         {
@@ -53,13 +54,12 @@ import * as utilities from "../utilities";
  *             sslCertificateId: "arn:aws:iam::123456789012:server-certificate/certName",
  *         },
  *     ],
- *     healthCheck: {
- *         healthyThreshold: 2,
- *         unhealthyThreshold: 2,
- *         timeout: 3,
- *         target: "HTTP:8000/",
- *         interval: 30,
- *     },
+ *     name: "foobar-elb",
+ *     availabilityZones: [
+ *         "us-west-2a",
+ *         "us-west-2b",
+ *         "us-west-2c",
+ *     ],
  *     instances: [foo.id],
  *     crossZoneLoadBalancing: true,
  *     idleTimeout: 400,

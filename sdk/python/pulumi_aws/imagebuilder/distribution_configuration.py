@@ -289,22 +289,22 @@ class DistributionConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.imagebuilder.DistributionConfiguration("example",
-            name="example",
             distributions=[{
                 "ami_distribution_configuration": {
+                    "launch_permission": {
+                        "user_ids": ["123456789012"],
+                    },
                     "ami_tags": {
                         "CostCenter": "IT",
                     },
                     "name": "example-{{ imagebuilder:buildDate }}",
-                    "launch_permission": {
-                        "user_ids": ["123456789012"],
-                    },
                 },
                 "launch_template_configurations": [{
                     "launch_template_id": "lt-0aaa1bcde2ff3456",
                 }],
                 "region": "us-east-1",
-            }])
+            }],
+            name="example")
         ```
 
         ## Import
@@ -348,22 +348,22 @@ class DistributionConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.imagebuilder.DistributionConfiguration("example",
-            name="example",
             distributions=[{
                 "ami_distribution_configuration": {
+                    "launch_permission": {
+                        "user_ids": ["123456789012"],
+                    },
                     "ami_tags": {
                         "CostCenter": "IT",
                     },
                     "name": "example-{{ imagebuilder:buildDate }}",
-                    "launch_permission": {
-                        "user_ids": ["123456789012"],
-                    },
                 },
                 "launch_template_configurations": [{
                     "launch_template_id": "lt-0aaa1bcde2ff3456",
                 }],
                 "region": "us-east-1",
-            }])
+            }],
+            name="example")
         ```
 
         ## Import

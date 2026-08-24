@@ -56,7 +56,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ConfigurationSet("example", ConfigurationSetArgs.builder()
- *             .configurationSetName("example")
  *             .deliveryOptions(ConfigurationSetDeliveryOptionsArgs.builder()
  *                 .maxDeliverySeconds(300)
  *                 .tlsPolicy("REQUIRE")
@@ -76,6 +75,7 @@ import javax.annotation.Nullable;
  *                 .customRedirectDomain("example.com")
  *                 .httpsPolicy("REQUIRE")
  *                 .build())
+ *             .configurationSetName("example")
  *             .build());
  * 
  *     }

@@ -258,11 +258,11 @@ class SdkvoiceSipMediaApplication(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.chime.SdkvoiceSipMediaApplication("example",
-            aws_region="us-east-1",
-            name="example-sip-media-application",
             endpoints={
                 "lambda_arn": test["arn"],
-            })
+            },
+            aws_region="us-east-1",
+            name="example-sip-media-application")
         ```
 
         ## Import
@@ -302,11 +302,11 @@ class SdkvoiceSipMediaApplication(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.chime.SdkvoiceSipMediaApplication("example",
-            aws_region="us-east-1",
-            name="example-sip-media-application",
             endpoints={
                 "lambda_arn": test["arn"],
-            })
+            },
+            aws_region="us-east-1",
+            name="example-sip-media-application")
         ```
 
         ## Import

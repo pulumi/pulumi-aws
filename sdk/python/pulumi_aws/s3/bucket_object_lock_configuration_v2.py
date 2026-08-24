@@ -270,18 +270,18 @@ class BucketObjectLockConfigurationV2(pulumi.CustomResource):
 
         example = aws.s3.Bucket("example", bucket="mybucket")
         example_bucket_versioning = aws.s3.BucketVersioning("example",
-            bucket=example.id,
             versioning_configuration={
                 "status": "Enabled",
-            })
+            },
+            bucket=example.id)
         example_bucket_object_lock_configuration = aws.s3.BucketObjectLockConfiguration("example",
-            bucket=example.id,
             rule={
                 "default_retention": {
                     "mode": "COMPLIANCE",
                     "days": 5,
                 },
-            })
+            },
+            bucket=example.id)
         ```
 
         ## Import
@@ -333,18 +333,18 @@ class BucketObjectLockConfigurationV2(pulumi.CustomResource):
 
         example = aws.s3.Bucket("example", bucket="mybucket")
         example_bucket_versioning = aws.s3.BucketVersioning("example",
-            bucket=example.id,
             versioning_configuration={
                 "status": "Enabled",
-            })
+            },
+            bucket=example.id)
         example_bucket_object_lock_configuration = aws.s3.BucketObjectLockConfiguration("example",
-            bucket=example.id,
             rule={
                 "default_retention": {
                     "mode": "COMPLIANCE",
                     "days": 5,
                 },
-            })
+            },
+            bucket=example.id)
         ```
 
         ## Import

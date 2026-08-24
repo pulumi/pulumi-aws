@@ -17,12 +17,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.xray.Group("example", {
- *     groupName: "example",
- *     filterExpression: "responsetime > 5",
  *     insightsConfiguration: {
  *         insightsEnabled: true,
  *         notificationsEnabled: true,
  *     },
+ *     groupName: "example",
+ *     filterExpression: "responsetime > 5",
  * });
  * ```
  *

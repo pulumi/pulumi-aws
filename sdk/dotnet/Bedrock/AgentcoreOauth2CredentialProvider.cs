@@ -28,8 +28,6 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var github = new Aws.Bedrock.AgentcoreOauth2CredentialProvider("github", new()
     ///     {
-    ///         Name = "github-oauth-provider",
-    ///         CredentialProviderVendor = "GithubOauth2",
     ///         Oauth2ProviderConfig = new Aws.Bedrock.Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs
     ///         {
     ///             GithubOauth2ProviderConfig = new Aws.Bedrock.Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigArgs
@@ -38,6 +36,8 @@ namespace Pulumi.Aws.Bedrock
     ///                 ClientSecret = "your-github-client-secret",
     ///             },
     ///         },
+    ///         Name = "github-oauth-provider",
+    ///         CredentialProviderVendor = "GithubOauth2",
     ///     });
     /// 
     /// });
@@ -55,8 +55,6 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var auth0 = new Aws.Bedrock.AgentcoreOauth2CredentialProvider("auth0", new()
     ///     {
-    ///         Name = "auth0-oauth-provider",
-    ///         CredentialProviderVendor = "CustomOauth2",
     ///         CustomOauth2ProviderConfig = new[]
     ///         {
     ///             
@@ -65,9 +63,6 @@ namespace Pulumi.Aws.Bedrock
     ///                 {
     ///                     
     ///                     {
-    ///                         { "clientIdWo", "auth0-client-id" },
-    ///                         { "clientSecretWo", "auth0-client-secret" },
-    ///                         { "clientCredentialsWoVersion", 1 },
     ///                         { "oauthDiscovery", new[]
     ///                         {
     ///                             
@@ -75,10 +70,15 @@ namespace Pulumi.Aws.Bedrock
     ///                                 { "discoveryUrl", "https://dev-company.auth0.com/.well-known/openid-configuration" },
     ///                             },
     ///                         } },
+    ///                         { "clientIdWo", "auth0-client-id" },
+    ///                         { "clientSecretWo", "auth0-client-secret" },
+    ///                         { "clientCredentialsWoVersion", 1 },
     ///                     },
     ///                 } },
     ///             },
     ///         },
+    ///         Name = "auth0-oauth-provider",
+    ///         CredentialProviderVendor = "CustomOauth2",
     ///     });
     /// 
     /// });
@@ -96,15 +96,10 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var keycloak = new Aws.Bedrock.AgentcoreOauth2CredentialProvider("keycloak", new()
     ///     {
-    ///         Name = "keycloak-oauth-provider",
-    ///         CredentialProviderVendor = "CustomOauth2",
     ///         Oauth2ProviderConfig = new Aws.Bedrock.Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs
     ///         {
     ///             CustomOauth2ProviderConfig = new Aws.Bedrock.Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigArgs
     ///             {
-    ///                 ClientIdWo = "keycloak-client-id",
-    ///                 ClientSecretWo = "keycloak-client-secret",
-    ///                 ClientCredentialsWoVersion = 1,
     ///                 OauthDiscovery = new Aws.Bedrock.Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryArgs
     ///                 {
     ///                     AuthorizationServerMetadata = new Aws.Bedrock.Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs
@@ -119,8 +114,13 @@ namespace Pulumi.Aws.Bedrock
     ///                         },
     ///                     },
     ///                 },
+    ///                 ClientIdWo = "keycloak-client-id",
+    ///                 ClientSecretWo = "keycloak-client-secret",
+    ///                 ClientCredentialsWoVersion = 1,
     ///             },
     ///         },
+    ///         Name = "keycloak-oauth-provider",
+    ///         CredentialProviderVendor = "CustomOauth2",
     ///     });
     /// 
     /// });

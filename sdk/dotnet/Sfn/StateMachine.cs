@@ -128,6 +128,12 @@ namespace Pulumi.Aws.Sfn
     ///     // ...
     ///     var sfnStateMachine = new Aws.Sfn.StateMachine("sfn_state_machine", new()
     ///     {
+    ///         LoggingConfiguration = new Aws.Sfn.Inputs.StateMachineLoggingConfigurationArgs
+    ///         {
+    ///             LogDestination = $"{logGroupForSfn.Arn}:*",
+    ///             IncludeExecutionData = true,
+    ///             Level = "ERROR",
+    ///         },
     ///         Name = "my-state-machine",
     ///         RoleArn = iamForSfn.Arn,
     ///         Definition = @$"{{
@@ -142,12 +148,6 @@ namespace Pulumi.Aws.Sfn
     ///   }}
     /// }}
     /// ",
-    ///         LoggingConfiguration = new Aws.Sfn.Inputs.StateMachineLoggingConfigurationArgs
-    ///         {
-    ///             LogDestination = $"{logGroupForSfn.Arn}:*",
-    ///             IncludeExecutionData = true,
-    ///             Level = "ERROR",
-    ///         },
     ///     });
     /// 
     /// });
@@ -168,6 +168,12 @@ namespace Pulumi.Aws.Sfn
     ///     // ...
     ///     var sfnStateMachine = new Aws.Sfn.StateMachine("sfn_state_machine", new()
     ///     {
+    ///         EncryptionConfiguration = new Aws.Sfn.Inputs.StateMachineEncryptionConfigurationArgs
+    ///         {
+    ///             KmsKeyId = kmsKeyForSfn.Arn,
+    ///             Type = "CUSTOMER_MANAGED_KMS_KEY",
+    ///             KmsDataKeyReusePeriodSeconds = 900,
+    ///         },
     ///         Name = "my-state-machine",
     ///         RoleArn = iamForSfn.Arn,
     ///         Definition = @$"{{
@@ -182,12 +188,6 @@ namespace Pulumi.Aws.Sfn
     ///   }}
     /// }}
     /// ",
-    ///         EncryptionConfiguration = new Aws.Sfn.Inputs.StateMachineEncryptionConfigurationArgs
-    ///         {
-    ///             KmsKeyId = kmsKeyForSfn.Arn,
-    ///             Type = "CUSTOMER_MANAGED_KMS_KEY",
-    ///             KmsDataKeyReusePeriodSeconds = 900,
-    ///         },
     ///     });
     /// 
     /// });

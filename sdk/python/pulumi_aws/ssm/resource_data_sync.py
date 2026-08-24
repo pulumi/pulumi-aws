@@ -152,36 +152,36 @@ class ResourceDataSync(pulumi.CustomResource):
 
         example_bucket = aws.s3.Bucket("example", bucket="example")
         example_resource_data_sync = aws.ssm.ResourceDataSync("example",
-            name="example",
             s3_destination={
                 "bucket_name": example_bucket.bucket,
                 "region": example_bucket.region,
-            })
+            },
+            name="example")
         example = aws.iam.get_policy_document_output(statements=[
             {
-                "sid": "SSMBucketPermissionsCheck",
-                "effect": "Allow",
                 "principals": [{
                     "type": "Service",
                     "identifiers": ["ssm.amazonaws.com"],
                 }],
+                "sid": "SSMBucketPermissionsCheck",
+                "effect": "Allow",
                 "actions": ["s3:GetBucketAcl"],
                 "resources": [example_bucket.arn],
             },
             {
-                "sid": "SSMBucketDelivery",
-                "effect": "Allow",
-                "principals": [{
-                    "type": "Service",
-                    "identifiers": ["ssm.amazonaws.com"],
-                }],
-                "actions": ["s3:PutObject"],
-                "resources": [example_bucket.arn.apply(lambda arn: f"{arn}/*")],
                 "conditions": [{
                     "test": "StringEquals",
                     "variable": "s3:x-amz-acl",
                     "values": ["bucket-owner-full-control"],
                 }],
+                "principals": [{
+                    "type": "Service",
+                    "identifiers": ["ssm.amazonaws.com"],
+                }],
+                "sid": "SSMBucketDelivery",
+                "effect": "Allow",
+                "actions": ["s3:PutObject"],
+                "resources": [example_bucket.arn.apply(lambda arn: f"{arn}/*")],
             },
         ])
         example_bucket_policy = aws.s3.BucketPolicy("example",
@@ -221,36 +221,36 @@ class ResourceDataSync(pulumi.CustomResource):
 
         example_bucket = aws.s3.Bucket("example", bucket="example")
         example_resource_data_sync = aws.ssm.ResourceDataSync("example",
-            name="example",
             s3_destination={
                 "bucket_name": example_bucket.bucket,
                 "region": example_bucket.region,
-            })
+            },
+            name="example")
         example = aws.iam.get_policy_document_output(statements=[
             {
-                "sid": "SSMBucketPermissionsCheck",
-                "effect": "Allow",
                 "principals": [{
                     "type": "Service",
                     "identifiers": ["ssm.amazonaws.com"],
                 }],
+                "sid": "SSMBucketPermissionsCheck",
+                "effect": "Allow",
                 "actions": ["s3:GetBucketAcl"],
                 "resources": [example_bucket.arn],
             },
             {
-                "sid": "SSMBucketDelivery",
-                "effect": "Allow",
-                "principals": [{
-                    "type": "Service",
-                    "identifiers": ["ssm.amazonaws.com"],
-                }],
-                "actions": ["s3:PutObject"],
-                "resources": [example_bucket.arn.apply(lambda arn: f"{arn}/*")],
                 "conditions": [{
                     "test": "StringEquals",
                     "variable": "s3:x-amz-acl",
                     "values": ["bucket-owner-full-control"],
                 }],
+                "principals": [{
+                    "type": "Service",
+                    "identifiers": ["ssm.amazonaws.com"],
+                }],
+                "sid": "SSMBucketDelivery",
+                "effect": "Allow",
+                "actions": ["s3:PutObject"],
+                "resources": [example_bucket.arn.apply(lambda arn: f"{arn}/*")],
             },
         ])
         example_bucket_policy = aws.s3.BucketPolicy("example",

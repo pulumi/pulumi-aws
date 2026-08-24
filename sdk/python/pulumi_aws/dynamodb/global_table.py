@@ -171,29 +171,28 @@ class GlobalTable(pulumi.CustomResource):
         import pulumi_aws as aws
 
         us_east_1 = aws.dynamodb.Table("us-east-1",
+            attributes=[{
+                "name": "myAttribute",
+                "type": "S",
+            }],
             hash_key="myAttribute",
             name="myTable",
             stream_enabled=True,
             stream_view_type="NEW_AND_OLD_IMAGES",
             read_capacity=1,
-            write_capacity=1,
-            attributes=[{
-                "name": "myAttribute",
-                "type": "S",
-            }])
+            write_capacity=1)
         us_west_2 = aws.dynamodb.Table("us-west-2",
+            attributes=[{
+                "name": "myAttribute",
+                "type": "S",
+            }],
             hash_key="myAttribute",
             name="myTable",
             stream_enabled=True,
             stream_view_type="NEW_AND_OLD_IMAGES",
             read_capacity=1,
-            write_capacity=1,
-            attributes=[{
-                "name": "myAttribute",
-                "type": "S",
-            }])
+            write_capacity=1)
         my_table = aws.dynamodb.GlobalTable("myTable",
-            name="myTable",
             replicas=[
                 {
                     "region_name": "us-east-1",
@@ -202,6 +201,7 @@ class GlobalTable(pulumi.CustomResource):
                     "region_name": "us-west-2",
                 },
             ],
+            name="myTable",
             opts = pulumi.ResourceOptions(depends_on=[
                     us_east_1,
                     us_west_2,
@@ -243,29 +243,28 @@ class GlobalTable(pulumi.CustomResource):
         import pulumi_aws as aws
 
         us_east_1 = aws.dynamodb.Table("us-east-1",
+            attributes=[{
+                "name": "myAttribute",
+                "type": "S",
+            }],
             hash_key="myAttribute",
             name="myTable",
             stream_enabled=True,
             stream_view_type="NEW_AND_OLD_IMAGES",
             read_capacity=1,
-            write_capacity=1,
-            attributes=[{
-                "name": "myAttribute",
-                "type": "S",
-            }])
+            write_capacity=1)
         us_west_2 = aws.dynamodb.Table("us-west-2",
+            attributes=[{
+                "name": "myAttribute",
+                "type": "S",
+            }],
             hash_key="myAttribute",
             name="myTable",
             stream_enabled=True,
             stream_view_type="NEW_AND_OLD_IMAGES",
             read_capacity=1,
-            write_capacity=1,
-            attributes=[{
-                "name": "myAttribute",
-                "type": "S",
-            }])
+            write_capacity=1)
         my_table = aws.dynamodb.GlobalTable("myTable",
-            name="myTable",
             replicas=[
                 {
                     "region_name": "us-east-1",
@@ -274,6 +273,7 @@ class GlobalTable(pulumi.CustomResource):
                     "region_name": "us-west-2",
                 },
             ],
+            name="myTable",
             opts = pulumi.ResourceOptions(depends_on=[
                     us_east_1,
                     us_west_2,

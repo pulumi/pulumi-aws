@@ -54,15 +54,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var some = new Canary("some", CanaryArgs.builder()
+ *             .schedule(CanaryScheduleArgs.builder()
+ *                 .expression("rate(0 minute)")
+ *                 .build())
  *             .name("some-canary")
  *             .artifactS3Location("s3://some-bucket/")
  *             .executionRoleArn("some-role")
  *             .handler("exports.handler")
  *             .zipFile("test-fixtures/lambdatest.zip")
  *             .runtimeVersion("syn-1.0")
- *             .schedule(CanaryScheduleArgs.builder()
- *                 .expression("rate(0 minute)")
- *                 .build())
  *             .build());
  * 
  *     }

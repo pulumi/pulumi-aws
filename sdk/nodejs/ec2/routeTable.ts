@@ -32,7 +32,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2.RouteTable("example", {
- *     vpcId: exampleAwsVpc.id,
  *     routes: [
  *         {
  *             cidrBlock: "10.0.1.0/24",
@@ -43,6 +42,7 @@ import * as utilities from "../utilities";
  *             egressOnlyGatewayId: exampleAwsEgressOnlyInternetGateway.id,
  *         },
  *     ],
+ *     vpcId: exampleAwsVpc.id,
  *     tags: {
  *         Name: "example",
  *     },
@@ -76,11 +76,11 @@ import * as utilities from "../utilities";
  *
  * const test = new aws.ec2.Vpc("test", {cidrBlock: "10.1.0.0/16"});
  * const testRouteTable = new aws.ec2.RouteTable("test", {
- *     vpcId: test.id,
  *     routes: [{
  *         cidrBlock: "10.1.0.0/16",
  *         gatewayId: "local",
  *     }],
+ *     vpcId: test.id,
  * });
  * ```
  *
@@ -97,11 +97,11 @@ import * as utilities from "../utilities";
  * });
  * const testNetworkInterface = new aws.ec2.NetworkInterface("test", {subnetId: testSubnet.id});
  * const testRouteTable = new aws.ec2.RouteTable("test", {
- *     vpcId: test.id,
  *     routes: [{
  *         cidrBlock: test.cidrBlock,
  *         networkInterfaceId: testNetworkInterface.id,
  *     }],
+ *     vpcId: test.id,
  * });
  * ```
  *

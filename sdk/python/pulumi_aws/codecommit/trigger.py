@@ -167,12 +167,12 @@ class Trigger(pulumi.CustomResource):
 
         test = aws.codecommit.Repository("test", repository_name="test")
         test_trigger = aws.codecommit.Trigger("test",
-            repository_name=test.repository_name,
             triggers=[{
                 "name": "all",
                 "events": ["all"],
                 "destination_arn": test_aws_sns_topic["arn"],
-            }])
+            }],
+            repository_name=test.repository_name)
         ```
 
 
@@ -199,12 +199,12 @@ class Trigger(pulumi.CustomResource):
 
         test = aws.codecommit.Repository("test", repository_name="test")
         test_trigger = aws.codecommit.Trigger("test",
-            repository_name=test.repository_name,
             triggers=[{
                 "name": "all",
                 "events": ["all"],
                 "destination_arn": test_aws_sns_topic["arn"],
-            }])
+            }],
+            repository_name=test.repository_name)
         ```
 
 

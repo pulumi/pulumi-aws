@@ -19,12 +19,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.finspace.KxCluster("example", {
- *     name: "my-tf-kx-cluster",
- *     environmentId: exampleAwsFinspaceKxEnvironment.id,
- *     type: "HDB",
- *     releaseLabel: "1.0",
- *     azMode: "SINGLE",
- *     availabilityZoneId: "use1-az2",
  *     capacityConfiguration: {
  *         nodeType: "kx.s.2xlarge",
  *         nodeCount: 2,
@@ -35,20 +29,31 @@ import * as utilities from "../utilities";
  *         subnetIds: [exampleAwsSubnet.id],
  *         ipAddressType: "IP_V4",
  *     },
+ *     code: {
+ *         s3Bucket: testAwsS3Bucket.id,
+ *         s3Key: object.key,
+ *     },
  *     cacheStorageConfigurations: [{
  *         type: "CACHE_1000",
  *         size: 1200,
  *     }],
  *     databases: [{
- *         databaseName: exampleAwsFinspaceKxDatabase.name,
  *         cacheConfiguration: [{
  *             cacheType: "CACHE_1000",
  *             dbPaths: "/",
  *         }],
+ *         databaseName: exampleAwsFinspaceKxDatabase.name,
  *     }],
- *     code: {
- *         s3Bucket: testAwsS3Bucket.id,
- *         s3Key: object.key,
+ *     name: "my-tf-kx-cluster",
+ *     environmentId: exampleAwsFinspaceKxEnvironment.id,
+ *     type: "HDB",
+ *     releaseLabel: "1.0",
+ *     azMode: "SINGLE",
+ *     availabilityZoneId: "use1-az2",
+ * }, {
+ *     customTimeouts: {
+ *         create: "18h",
+ *         update: "18h",
  *     },
  * });
  * ```

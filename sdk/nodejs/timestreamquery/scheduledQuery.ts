@@ -23,19 +23,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.timestreamquery.ScheduledQuery("example", {
- *     executionRoleArn: exampleAwsIamRole.arn,
- *     name: exampleAwsTimestreamwriteTable.tableName,
- *     queryString: `SELECT region, az, hostname, BIN(time, 15s) AS binned_timestamp,
- * \\tROUND(AVG(cpu_utilization), 2) AS avg_cpu_utilization,
- * \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.9), 2) AS p90_cpu_utilization,
- * \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.95), 2) AS p95_cpu_utilization,
- * \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.99), 2) AS p99_cpu_utilization
- * FROM exampledatabase.exampletable
- * WHERE measure_name = 'metrics' AND time > ago(2h)
- * GROUP BY region, hostname, az, BIN(time, 15s)
- * ORDER BY binned_timestamp ASC
- * LIMIT 5
- * `,
  *     errorReportConfiguration: {
  *         s3Configuration: {
  *             bucketName: exampleAwsS3Bucket.bucket,
@@ -51,25 +38,7 @@ import * as utilities from "../utilities";
  *     },
  *     targetConfiguration: {
  *         timestreamConfiguration: {
- *             databaseName: results.databaseName,
- *             tableName: resultsAwsTimestreamwriteTable.tableName,
- *             timeColumn: "binned_timestamp",
- *             dimensionMappings: [
- *                 {
- *                     dimensionValueType: "VARCHAR",
- *                     name: "az",
- *                 },
- *                 {
- *                     dimensionValueType: "VARCHAR",
- *                     name: "region",
- *                 },
- *                 {
- *                     dimensionValueType: "VARCHAR",
- *                     name: "hostname",
- *                 },
- *             ],
  *             multiMeasureMappings: {
- *                 targetMultiMeasureName: "multi-metrics",
  *                 multiMeasureAttributeMappings: [
  *                     {
  *                         measureValueType: "DOUBLE",
@@ -88,9 +57,40 @@ import * as utilities from "../utilities";
  *                         sourceColumn: "p99_cpu_utilization",
  *                     },
  *                 ],
+ *                 targetMultiMeasureName: "multi-metrics",
  *             },
+ *             dimensionMappings: [
+ *                 {
+ *                     dimensionValueType: "VARCHAR",
+ *                     name: "az",
+ *                 },
+ *                 {
+ *                     dimensionValueType: "VARCHAR",
+ *                     name: "region",
+ *                 },
+ *                 {
+ *                     dimensionValueType: "VARCHAR",
+ *                     name: "hostname",
+ *                 },
+ *             ],
+ *             databaseName: results.databaseName,
+ *             tableName: resultsAwsTimestreamwriteTable.tableName,
+ *             timeColumn: "binned_timestamp",
  *         },
  *     },
+ *     executionRoleArn: exampleAwsIamRole.arn,
+ *     name: exampleAwsTimestreamwriteTable.tableName,
+ *     queryString: `SELECT region, az, hostname, BIN(time, 15s) AS binned_timestamp,
+ * \\tROUND(AVG(cpu_utilization), 2) AS avg_cpu_utilization,
+ * \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.9), 2) AS p90_cpu_utilization,
+ * \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.95), 2) AS p95_cpu_utilization,
+ * \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.99), 2) AS p99_cpu_utilization
+ * FROM exampledatabase.exampletable
+ * WHERE measure_name = 'metrics' AND time > ago(2h)
+ * GROUP BY region, hostname, az, BIN(time, 15s)
+ * ORDER BY binned_timestamp ASC
+ * LIMIT 5
+ * `,
  * });
  * ```
  *
@@ -179,8 +179,6 @@ import * as utilities from "../utilities";
  * });
  * const testDatabase = new aws.timestreamwrite.Database("test", {databaseName: "exampledatabase"});
  * const testTable = new aws.timestreamwrite.Table("test", {
- *     databaseName: testDatabase.databaseName,
- *     tableName: "exampletable",
  *     magneticStoreWriteProperties: {
  *         enableMagneticStoreWrites: true,
  *     },
@@ -188,11 +186,11 @@ import * as utilities from "../utilities";
  *         magneticStoreRetentionPeriodInDays: 1,
  *         memoryStoreRetentionPeriodInHours: 1,
  *     },
+ *     databaseName: testDatabase.databaseName,
+ *     tableName: "exampletable",
  * });
  * const results = new aws.timestreamwrite.Database("results", {databaseName: "exampledatabase-results"});
  * const resultsTable = new aws.timestreamwrite.Table("results", {
- *     databaseName: results.databaseName,
- *     tableName: "exampletable-results",
  *     magneticStoreWriteProperties: {
  *         enableMagneticStoreWrites: true,
  *     },
@@ -200,6 +198,8 @@ import * as utilities from "../utilities";
  *         magneticStoreRetentionPeriodInDays: 1,
  *         memoryStoreRetentionPeriodInHours: 1,
  *     },
+ *     databaseName: results.databaseName,
+ *     tableName: "exampletable-results",
  * });
  * ```
  *
@@ -214,19 +214,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.timestreamquery.ScheduledQuery("example", {
- *     executionRoleArn: exampleAwsIamRole.arn,
- *     name: exampleAwsTimestreamwriteTable.tableName,
- *     queryString: `SELECT region, az, hostname, BIN(time, 15s) AS binned_timestamp,
- * \\tROUND(AVG(cpu_utilization), 2) AS avg_cpu_utilization,
- * \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.9), 2) AS p90_cpu_utilization,
- * \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.95), 2) AS p95_cpu_utilization,
- * \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.99), 2) AS p99_cpu_utilization
- * FROM exampledatabase.exampletable
- * WHERE measure_name = 'metrics' AND time > ago(2h)
- * GROUP BY region, hostname, az, BIN(time, 15s)
- * ORDER BY binned_timestamp ASC
- * LIMIT 5
- * `,
  *     errorReportConfiguration: {
  *         s3Configuration: {
  *             bucketName: exampleAwsS3Bucket.bucket,
@@ -242,25 +229,7 @@ import * as utilities from "../utilities";
  *     },
  *     targetConfiguration: {
  *         timestreamConfiguration: {
- *             databaseName: results.databaseName,
- *             tableName: resultsAwsTimestreamwriteTable.tableName,
- *             timeColumn: "binned_timestamp",
- *             dimensionMappings: [
- *                 {
- *                     dimensionValueType: "VARCHAR",
- *                     name: "az",
- *                 },
- *                 {
- *                     dimensionValueType: "VARCHAR",
- *                     name: "region",
- *                 },
- *                 {
- *                     dimensionValueType: "VARCHAR",
- *                     name: "hostname",
- *                 },
- *             ],
  *             multiMeasureMappings: {
- *                 targetMultiMeasureName: "multi-metrics",
  *                 multiMeasureAttributeMappings: [
  *                     {
  *                         measureValueType: "DOUBLE",
@@ -279,9 +248,40 @@ import * as utilities from "../utilities";
  *                         sourceColumn: "p99_cpu_utilization",
  *                     },
  *                 ],
+ *                 targetMultiMeasureName: "multi-metrics",
  *             },
+ *             dimensionMappings: [
+ *                 {
+ *                     dimensionValueType: "VARCHAR",
+ *                     name: "az",
+ *                 },
+ *                 {
+ *                     dimensionValueType: "VARCHAR",
+ *                     name: "region",
+ *                 },
+ *                 {
+ *                     dimensionValueType: "VARCHAR",
+ *                     name: "hostname",
+ *                 },
+ *             ],
+ *             databaseName: results.databaseName,
+ *             tableName: resultsAwsTimestreamwriteTable.tableName,
+ *             timeColumn: "binned_timestamp",
  *         },
  *     },
+ *     executionRoleArn: exampleAwsIamRole.arn,
+ *     name: exampleAwsTimestreamwriteTable.tableName,
+ *     queryString: `SELECT region, az, hostname, BIN(time, 15s) AS binned_timestamp,
+ * \\tROUND(AVG(cpu_utilization), 2) AS avg_cpu_utilization,
+ * \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.9), 2) AS p90_cpu_utilization,
+ * \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.95), 2) AS p95_cpu_utilization,
+ * \\tROUND(APPROX_PERCENTILE(cpu_utilization, 0.99), 2) AS p99_cpu_utilization
+ * FROM exampledatabase.exampletable
+ * WHERE measure_name = 'metrics' AND time > ago(2h)
+ * GROUP BY region, hostname, az, BIN(time, 15s)
+ * ORDER BY binned_timestamp ASC
+ * LIMIT 5
+ * `,
  * });
  * ```
  *

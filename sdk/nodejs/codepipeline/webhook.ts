@@ -18,19 +18,16 @@ import * as utilities from "../utilities";
  * import * as github from "@pulumi/github";
  *
  * const bar = new aws.codepipeline.Pipeline("bar", {
- *     name: "tf-test-pipeline",
- *     roleArn: barAwsIamRole.arn,
  *     artifactStores: [{
- *         location: barAwsS3Bucket.bucket,
- *         type: "S3",
  *         encryptionKey: {
  *             id: s3kmskey.arn,
  *             type: "KMS",
  *         },
+ *         location: barAwsS3Bucket.bucket,
+ *         type: "S3",
  *     }],
  *     stages: [
  *         {
- *             name: "Source",
  *             actions: [{
  *                 name: "Source",
  *                 category: "Source",
@@ -44,9 +41,9 @@ import * as utilities from "../utilities";
  *                     Branch: "master",
  *                 },
  *             }],
+ *             name: "Source",
  *         },
  *         {
- *             name: "Build",
  *             actions: [{
  *                 name: "Build",
  *                 category: "Build",
@@ -58,15 +55,14 @@ import * as utilities from "../utilities";
  *                     ProjectName: "test",
  *                 },
  *             }],
+ *             name: "Build",
  *         },
  *     ],
+ *     name: "tf-test-pipeline",
+ *     roleArn: barAwsIamRole.arn,
  * });
  * const webhookSecret = "super-secret";
  * const barWebhook = new aws.codepipeline.Webhook("bar", {
- *     name: "test-webhook-github-bar",
- *     authentication: "GITHUB_HMAC",
- *     targetAction: "Source",
- *     targetPipeline: bar.name,
  *     authenticationConfiguration: {
  *         secretToken: webhookSecret,
  *     },
@@ -74,17 +70,21 @@ import * as utilities from "../utilities";
  *         jsonPath: "$.ref",
  *         matchEquals: "refs/heads/{Branch}",
  *     }],
+ *     name: "test-webhook-github-bar",
+ *     authentication: "GITHUB_HMAC",
+ *     targetAction: "Source",
+ *     targetPipeline: bar.name,
  * });
  * // Wire the CodePipeline webhook into a GitHub repository.
  * const barRepositoryWebhook = new github.RepositoryWebhook("bar", {
- *     repository: repo.name,
- *     name: "web",
  *     configuration: [{
  *         url: barWebhook.url,
  *         contentType: "json",
  *         insecureSsl: true,
  *         secret: webhookSecret,
  *     }],
+ *     repository: repo.name,
+ *     name: "web",
  *     events: ["push"],
  * });
  * ```

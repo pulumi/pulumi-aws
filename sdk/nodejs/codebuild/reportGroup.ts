@@ -19,12 +19,12 @@ import * as utilities from "../utilities";
  * const current = aws.getCallerIdentity({});
  * const example = current.then(current => aws.iam.getPolicyDocument({
  *     statements: [{
- *         sid: "Enable IAM User Permissions",
- *         effect: "Allow",
  *         principals: [{
  *             type: "AWS",
  *             identifiers: [`arn:aws:iam::${current.accountId}:root`],
  *         }],
+ *         sid: "Enable IAM User Permissions",
+ *         effect: "Allow",
  *         actions: ["kms:*"],
  *         resources: ["*"],
  *     }],
@@ -36,10 +36,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleBucket = new aws.s3.Bucket("example", {bucket: "my-test"});
  * const exampleReportGroup = new aws.codebuild.ReportGroup("example", {
- *     name: "my test report group",
- *     type: "TEST",
  *     exportConfig: {
- *         type: "S3",
  *         s3Destination: {
  *             bucket: exampleBucket.id,
  *             encryptionDisabled: false,
@@ -47,7 +44,10 @@ import * as utilities from "../utilities";
  *             packaging: "NONE",
  *             path: "/some",
  *         },
+ *         type: "S3",
  *     },
+ *     name: "my test report group",
+ *     type: "TEST",
  * });
  * ```
  *

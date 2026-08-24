@@ -32,14 +32,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			exampleCertificateAuthority, err := acmpca.NewCertificateAuthority(ctx, "example", &acmpca.CertificateAuthorityArgs{
-//				Type: pulumi.String("ROOT"),
 //				CertificateAuthorityConfiguration: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs{
-//					KeyAlgorithm:     pulumi.String("RSA_4096"),
-//					SigningAlgorithm: pulumi.String("SHA512WITHRSA"),
 //					Subject: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs{
 //						CommonName: pulumi.String("example.com"),
 //					},
+//					KeyAlgorithm:     pulumi.String("RSA_4096"),
+//					SigningAlgorithm: pulumi.String("SHA512WITHRSA"),
 //				},
+//				Type: pulumi.String("ROOT"),
 //			})
 //			if err != nil {
 //				return err
@@ -49,14 +49,14 @@ import (
 //				return err
 //			}
 //			exampleCertificate, err := acmpca.NewCertificate(ctx, "example", &acmpca.CertificateArgs{
-//				CertificateAuthorityArn:   exampleCertificateAuthority.Arn,
-//				CertificateSigningRequest: exampleCertificateAuthority.CertificateSigningRequest,
-//				SigningAlgorithm:          pulumi.String("SHA512WITHRSA"),
-//				TemplateArn:               pulumi.Sprintf("arn:%v:acm-pca:::template/RootCACertificate/V1", current.Partition),
 //				Validity: &acmpca.CertificateValidityArgs{
 //					Type:  pulumi.String("YEARS"),
 //					Value: pulumi.String("1"),
 //				},
+//				CertificateAuthorityArn:   exampleCertificateAuthority.Arn,
+//				CertificateSigningRequest: exampleCertificateAuthority.CertificateSigningRequest,
+//				SigningAlgorithm:          pulumi.String("SHA512WITHRSA"),
+//				TemplateArn:               pulumi.Sprintf("arn:%v:acm-pca:::template/RootCACertificate/V1", current.Partition),
 //			})
 //			if err != nil {
 //				return err
@@ -93,14 +93,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			subordinateCertificateAuthority, err := acmpca.NewCertificateAuthority(ctx, "subordinate", &acmpca.CertificateAuthorityArgs{
-//				Type: pulumi.String("SUBORDINATE"),
 //				CertificateAuthorityConfiguration: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs{
-//					KeyAlgorithm:     pulumi.String("RSA_2048"),
-//					SigningAlgorithm: pulumi.String("SHA512WITHRSA"),
 //					Subject: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs{
 //						CommonName: pulumi.String("sub.example.com"),
 //					},
+//					KeyAlgorithm:     pulumi.String("RSA_2048"),
+//					SigningAlgorithm: pulumi.String("SHA512WITHRSA"),
 //				},
+//				Type: pulumi.String("SUBORDINATE"),
 //			})
 //			if err != nil {
 //				return err
@@ -114,14 +114,14 @@ import (
 //				return err
 //			}
 //			subordinateCertificate, err := acmpca.NewCertificate(ctx, "subordinate", &acmpca.CertificateArgs{
-//				CertificateAuthorityArn:   root.Arn,
-//				CertificateSigningRequest: subordinateCertificateAuthority.CertificateSigningRequest,
-//				SigningAlgorithm:          pulumi.String("SHA512WITHRSA"),
-//				TemplateArn:               pulumi.Sprintf("arn:%v:acm-pca:::template/SubordinateCACertificate_PathLen0/V1", current.Partition),
 //				Validity: &acmpca.CertificateValidityArgs{
 //					Type:  pulumi.String("YEARS"),
 //					Value: pulumi.String("1"),
 //				},
+//				CertificateAuthorityArn:   root.Arn,
+//				CertificateSigningRequest: subordinateCertificateAuthority.CertificateSigningRequest,
+//				SigningAlgorithm:          pulumi.String("SHA512WITHRSA"),
+//				TemplateArn:               pulumi.Sprintf("arn:%v:acm-pca:::template/SubordinateCACertificate_PathLen0/V1", current.Partition),
 //			})
 //			if err != nil {
 //				return err

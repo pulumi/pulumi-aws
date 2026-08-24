@@ -17,13 +17,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const foo = new aws.route53.ResolverEndpoint("foo", {
- *     name: "foo",
- *     direction: "INBOUND",
- *     resolverEndpointType: "IPV4",
- *     securityGroupIds: [
- *         sg1.id,
- *         sg2.id,
- *     ],
  *     ipAddresses: [
  *         {
  *             subnetId: sn1.id,
@@ -32,6 +25,13 @@ import * as utilities from "../utilities";
  *             subnetId: sn2.id,
  *             ip: "10.0.64.4",
  *         },
+ *     ],
+ *     name: "foo",
+ *     direction: "INBOUND",
+ *     resolverEndpointType: "IPV4",
+ *     securityGroupIds: [
+ *         sg1.id,
+ *         sg2.id,
  *     ],
  *     protocols: [
  *         "Do53",

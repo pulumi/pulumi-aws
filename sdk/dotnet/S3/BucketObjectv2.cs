@@ -165,11 +165,11 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var exampleBucketVersioning = new Aws.S3.BucketVersioning("example", new()
     ///     {
-    ///         Bucket = examplebucket.Id,
     ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningVersioningConfigurationArgs
     ///         {
     ///             Status = "Enabled",
     ///         },
+    ///         Bucket = examplebucket.Id,
     ///     });
     /// 
     ///     var examplebucketObject = new Aws.S3.BucketObjectv2("examplebucket_object", new()
@@ -214,19 +214,19 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var examplebucketObject = new Aws.S3.BucketObjectv2("examplebucket_object", new()
     ///     {
-    ///         Key = "someobject",
-    ///         Bucket = examplebucket.Id,
-    ///         Source = new FileAsset("important.txt"),
-    ///         Tags = 
-    ///         {
-    ///             { "Env", "test" },
-    ///         },
     ///         OverrideProvider = new Aws.S3.Inputs.BucketObjectv2OverrideProviderArgs
     ///         {
     ///             DefaultTags = new Aws.S3.Inputs.BucketObjectv2OverrideProviderDefaultTagsArgs
     ///             {
     ///                 Tags = null,
     ///             },
+    ///         },
+    ///         Key = "someobject",
+    ///         Bucket = examplebucket.Id,
+    ///         Source = new FileAsset("important.txt"),
+    ///         Tags = 
+    ///         {
+    ///             { "Env", "test" },
     ///         },
     ///     });
     /// 

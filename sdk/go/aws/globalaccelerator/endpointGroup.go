@@ -29,13 +29,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := globalaccelerator.NewEndpointGroup(ctx, "example", &globalaccelerator.EndpointGroupArgs{
-//				ListenerArn: pulumi.Any(exampleAwsGlobalacceleratorListener.Arn),
 //				EndpointConfigurations: globalaccelerator.EndpointGroupEndpointConfigurationArray{
 //					&globalaccelerator.EndpointGroupEndpointConfigurationArgs{
 //						EndpointId: pulumi.Any(exampleAwsLb.Arn),
 //						Weight:     pulumi.Int(100),
 //					},
 //				},
+//				ListenerArn: pulumi.Any(exampleAwsGlobalacceleratorListener.Arn),
 //			})
 //			if err != nil {
 //				return err

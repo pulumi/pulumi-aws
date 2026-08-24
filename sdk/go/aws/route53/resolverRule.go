@@ -58,15 +58,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := route53.NewResolverRule(ctx, "fwd", &route53.ResolverRuleArgs{
-//				DomainName:         pulumi.String("example.com"),
-//				Name:               pulumi.String("example"),
-//				RuleType:           pulumi.String("FORWARD"),
-//				ResolverEndpointId: pulumi.Any(foo.Id),
 //				TargetIps: route53.ResolverRuleTargetIpArray{
 //					&route53.ResolverRuleTargetIpArgs{
 //						Ip: pulumi.String("123.45.67.89"),
 //					},
 //				},
+//				DomainName:         pulumi.String("example.com"),
+//				Name:               pulumi.String("example"),
+//				RuleType:           pulumi.String("FORWARD"),
+//				ResolverEndpointId: pulumi.Any(foo.Id),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("Prod"),
 //				},
@@ -95,15 +95,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := route53.NewResolverRule(ctx, "fwd", &route53.ResolverRuleArgs{
-//				DomainName:         pulumi.String("example.com"),
-//				Name:               pulumi.String("example"),
-//				RuleType:           pulumi.String("FORWARD"),
-//				ResolverEndpointId: pulumi.Any(foo.Id),
 //				TargetIps: route53.ResolverRuleTargetIpArray{
 //					&route53.ResolverRuleTargetIpArgs{
 //						Ipv6: pulumi.String("2600:1f18:1686:2000:4e60:6e3e:258:da36"),
 //					},
 //				},
+//				DomainName:         pulumi.String("example.com"),
+//				Name:               pulumi.String("example"),
+//				RuleType:           pulumi.String("FORWARD"),
+//				ResolverEndpointId: pulumi.Any(foo.Id),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("Prod"),
 //				},

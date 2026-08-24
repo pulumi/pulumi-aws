@@ -45,8 +45,6 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewAnalyticsConfiguration(ctx, "example-entire-bucket", &s3.AnalyticsConfigurationArgs{
-//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
-//				Name:   pulumi.String("EntireBucket"),
 //				StorageClassAnalysis: &s3.AnalyticsConfigurationStorageClassAnalysisArgs{
 //					DataExport: &s3.AnalyticsConfigurationStorageClassAnalysisDataExportArgs{
 //						Destination: &s3.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs{
@@ -56,6 +54,8 @@ import (
 //						},
 //					},
 //				},
+//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
+//				Name:   pulumi.String("EntireBucket"),
 //			})
 //			if err != nil {
 //				return err
@@ -87,8 +87,6 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewAnalyticsConfiguration(ctx, "example-filtered", &s3.AnalyticsConfigurationArgs{
-//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
-//				Name:   pulumi.String("ImportantBlueDocuments"),
 //				Filter: &s3.AnalyticsConfigurationFilterArgs{
 //					Prefix: pulumi.String("documents/"),
 //					Tags: pulumi.StringMap{
@@ -96,6 +94,8 @@ import (
 //						"class":    pulumi.String("blue"),
 //					},
 //				},
+//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
+//				Name:   pulumi.String("ImportantBlueDocuments"),
 //			})
 //			if err != nil {
 //				return err

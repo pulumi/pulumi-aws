@@ -20,14 +20,14 @@ import * as utilities from "../utilities";
  *
  * const example = aws.ecr.getLifecyclePolicyDocument({
  *     rules: [{
- *         priority: 1,
- *         description: "This is a test.",
  *         selection: {
  *             tagStatus: "tagged",
  *             tagPrefixLists: ["prod"],
  *             countType: "imageCountMoreThan",
  *             countNumber: 100,
  *         },
+ *         priority: 1,
+ *         description: "This is a test.",
  *     }],
  * });
  * const exampleLifecyclePolicy = new aws.ecr.LifecyclePolicy("example", {
@@ -73,14 +73,14 @@ export interface GetLifecyclePolicyDocumentResult {
  *
  * const example = aws.ecr.getLifecyclePolicyDocument({
  *     rules: [{
- *         priority: 1,
- *         description: "This is a test.",
  *         selection: {
  *             tagStatus: "tagged",
  *             tagPrefixLists: ["prod"],
  *             countType: "imageCountMoreThan",
  *             countNumber: 100,
  *         },
+ *         priority: 1,
+ *         description: "This is a test.",
  *     }],
  * });
  * const exampleLifecyclePolicy = new aws.ecr.LifecyclePolicy("example", {

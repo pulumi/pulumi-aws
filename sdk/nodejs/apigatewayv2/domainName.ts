@@ -23,12 +23,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.apigatewayv2.DomainName("example", {
- *     domainName: "ws-api.example.com",
  *     domainNameConfiguration: {
  *         certificateArn: exampleAwsAcmCertificate.arn,
  *         endpointType: "REGIONAL",
  *         securityPolicy: "TLS_1_2",
  *     },
+ *     domainName: "ws-api.example.com",
  * });
  * ```
  *
@@ -39,22 +39,22 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.apigatewayv2.DomainName("example", {
- *     domainName: "http-api.example.com",
  *     domainNameConfiguration: {
  *         certificateArn: exampleAwsAcmCertificate.arn,
  *         endpointType: "REGIONAL",
  *         securityPolicy: "TLS_1_2",
  *     },
+ *     domainName: "http-api.example.com",
  * });
  * const exampleRecord = new aws.route53.Record("example", {
- *     name: example.domainName,
- *     type: aws.route53.RecordType.A,
- *     zoneId: exampleAwsRoute53Zone.zoneId,
  *     aliases: [{
  *         name: example.domainNameConfiguration.targetDomainName,
  *         zoneId: example.domainNameConfiguration.hostedZoneId,
  *         evaluateTargetHealth: false,
  *     }],
+ *     name: example.domainName,
+ *     type: aws.route53.RecordType.A,
+ *     zoneId: exampleAwsRoute53Zone.zoneId,
  * });
  * ```
  *

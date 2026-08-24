@@ -38,11 +38,11 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			exampleCertificateAuthority, err := acmpca.NewCertificateAuthority(ctx, "example", &acmpca.CertificateAuthorityArgs{
 //				CertificateAuthorityConfiguration: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs{
-//					KeyAlgorithm:     pulumi.String("RSA_4096"),
-//					SigningAlgorithm: pulumi.String("SHA512WITHRSA"),
 //					Subject: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs{
 //						CommonName: pulumi.String("example.com"),
 //					},
+//					KeyAlgorithm:     pulumi.String("RSA_4096"),
+//					SigningAlgorithm: pulumi.String("SHA512WITHRSA"),
 //				},
 //				PermanentDeletionTimeInDays: pulumi.Int(7),
 //			})
@@ -56,24 +56,24 @@ import (
 //				return err
 //			}
 //			csr, err := tls.NewCertRequest(ctx, "csr", &tls.CertRequestArgs{
-//				PrivateKeyPem: key.PrivateKeyPem,
 //				Subject: tls.CertRequestSubjectArgs{
 //					map[string]string{
 //						"commonName": "example",
 //					},
 //				},
+//				PrivateKeyPem: key.PrivateKeyPem,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = acmpca.NewCertificate(ctx, "example", &acmpca.CertificateArgs{
-//				CertificateAuthorityArn:   exampleCertificateAuthority.Arn,
-//				CertificateSigningRequest: csr.CertRequestPem,
-//				SigningAlgorithm:          pulumi.String("SHA256WITHRSA"),
 //				Validity: &acmpca.CertificateValidityArgs{
 //					Type:  pulumi.String("YEARS"),
 //					Value: pulumi.String("1"),
 //				},
+//				CertificateAuthorityArn:   exampleCertificateAuthority.Arn,
+//				CertificateSigningRequest: csr.CertRequestPem,
+//				SigningAlgorithm:          pulumi.String("SHA256WITHRSA"),
 //			})
 //			if err != nil {
 //				return err

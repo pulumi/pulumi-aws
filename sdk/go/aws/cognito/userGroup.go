@@ -38,18 +38,6 @@ import (
 //			groupRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Federated",
-//								Identifiers: []string{
-//									"cognito-identity.amazonaws.com",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"sts:AssumeRoleWithWebIdentity",
-//						},
 //						Conditions: []iam.GetPolicyDocumentStatementCondition{
 //							{
 //								Test:     "StringEquals",
@@ -65,6 +53,18 @@ import (
 //									"authenticated",
 //								},
 //							},
+//						},
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Federated",
+//								Identifiers: []string{
+//									"cognito-identity.amazonaws.com",
+//								},
+//							},
+//						},
+//						Effect: pulumi.StringRef("Allow"),
+//						Actions: []string{
+//							"sts:AssumeRoleWithWebIdentity",
 //						},
 //					},
 //				},

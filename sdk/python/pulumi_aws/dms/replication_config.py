@@ -477,6 +477,12 @@ class ReplicationConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         name = aws.dms.ReplicationConfig("name",
+            compute_config={
+                "replication_subnet_group_id": default["replicationSubnetGroupId"],
+                "max_capacity_units": 64,
+                "min_capacity_units": 2,
+                "preferred_maintenance_window": "sun:23:45-mon:00:30",
+            },
             replication_config_identifier="test-dms-serverless-replication-tf",
             resource_identifier="test-dms-serverless-replication-tf",
             replication_type="cdc",
@@ -486,13 +492,7 @@ class ReplicationConfig(pulumi.CustomResource):
             \\"rules\\":[{\\"rule-type\\":\\"selection\\",\\"rule-id\\":\\"1\\",\\"rule-name\\":\\"1\\",\\"rule-action\\":\\"include\\",\\"object-locator\\":{\\"schema-name\\":\\"%%\\",\\"table-name\\":\\"%%\\"}}]
           }
         \"\"\",
-            start_replication=True,
-            compute_config={
-                "replication_subnet_group_id": default["replicationSubnetGroupId"],
-                "max_capacity_units": 64,
-                "min_capacity_units": 2,
-                "preferred_maintenance_window": "sun:23:45-mon:00:30",
-            })
+            start_replication=True)
         ```
 
         ## Import
@@ -543,6 +543,12 @@ class ReplicationConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         name = aws.dms.ReplicationConfig("name",
+            compute_config={
+                "replication_subnet_group_id": default["replicationSubnetGroupId"],
+                "max_capacity_units": 64,
+                "min_capacity_units": 2,
+                "preferred_maintenance_window": "sun:23:45-mon:00:30",
+            },
             replication_config_identifier="test-dms-serverless-replication-tf",
             resource_identifier="test-dms-serverless-replication-tf",
             replication_type="cdc",
@@ -552,13 +558,7 @@ class ReplicationConfig(pulumi.CustomResource):
             \\"rules\\":[{\\"rule-type\\":\\"selection\\",\\"rule-id\\":\\"1\\",\\"rule-name\\":\\"1\\",\\"rule-action\\":\\"include\\",\\"object-locator\\":{\\"schema-name\\":\\"%%\\",\\"table-name\\":\\"%%\\"}}]
           }
         \"\"\",
-            start_replication=True,
-            compute_config={
-                "replication_subnet_group_id": default["replicationSubnetGroupId"],
-                "max_capacity_units": 64,
-                "min_capacity_units": 2,
-                "preferred_maintenance_window": "sun:23:45-mon:00:30",
-            })
+            start_replication=True)
         ```
 
         ## Import

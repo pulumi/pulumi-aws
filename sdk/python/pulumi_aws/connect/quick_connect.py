@@ -298,15 +298,15 @@ class QuickConnect(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.connect.QuickConnect("test",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-            name="Example Name",
-            description="quick connect phone number",
             quick_connect_config={
-                "quick_connect_type": "PHONE_NUMBER",
                 "phone_configs": [{
                     "phone_number": "+12345678912",
                 }],
+                "quick_connect_type": "PHONE_NUMBER",
             },
+            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+            name="Example Name",
+            description="quick connect phone number",
             tags={
                 "Name": "Example Quick Connect",
             })
@@ -347,15 +347,15 @@ class QuickConnect(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.connect.QuickConnect("test",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-            name="Example Name",
-            description="quick connect phone number",
             quick_connect_config={
-                "quick_connect_type": "PHONE_NUMBER",
                 "phone_configs": [{
                     "phone_number": "+12345678912",
                 }],
+                "quick_connect_type": "PHONE_NUMBER",
             },
+            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+            name="Example Name",
+            description="quick connect phone number",
             tags={
                 "Name": "Example Quick Connect",
             })

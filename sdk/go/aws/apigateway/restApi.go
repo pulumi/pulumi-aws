@@ -34,12 +34,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := apigateway.NewRestApi(ctx, "example", &apigateway.RestApiArgs{
-//				Name:               pulumi.String("example"),
-//				SecurityPolicy:     pulumi.String("SecurityPolicy_TLS13_1_2_PFS_PQ_2025_09"),
-//				EndpointAccessMode: pulumi.String("BASIC"),
 //				EndpointConfiguration: &apigateway.RestApiEndpointConfigurationArgs{
 //					Types: pulumi.String("REGIONAL"),
 //				},
+//				Name:               pulumi.String("example"),
+//				SecurityPolicy:     pulumi.String("SecurityPolicy_TLS13_1_2_PFS_PQ_2025_09"),
+//				EndpointAccessMode: pulumi.String("BASIC"),
 //			})
 //			if err != nil {
 //				return err

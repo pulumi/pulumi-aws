@@ -1016,12 +1016,9 @@ class Cluster(pulumi.CustomResource):
             policy_arn="arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
             role=cluster.name)
         example = aws.eks.Cluster("example",
-            name="example",
             access_config={
                 "authentication_mode": "API",
             },
-            role_arn=cluster.arn,
-            version="1.35",
             vpc_config={
                 "subnet_ids": [
                     az1["id"],
@@ -1029,6 +1026,9 @@ class Cluster(pulumi.CustomResource):
                     az3["id"],
                 ],
             },
+            name="example",
+            role_arn=cluster.arn,
+            version="1.35",
             opts = pulumi.ResourceOptions(depends_on=[cluster_amazon_eks_cluster_policy]))
         ```
 
@@ -1084,13 +1084,9 @@ class Cluster(pulumi.CustomResource):
             policy_arn="arn:aws:iam::aws:policy/AmazonEKSNetworkingPolicy",
             role=cluster.name)
         example = aws.eks.Cluster("example",
-            name="example",
             access_config={
                 "authentication_mode": "API",
             },
-            role_arn=cluster.arn,
-            version="1.35",
-            bootstrap_self_managed_addons=False,
             compute_config={
                 "enabled": True,
                 "node_pools": ["general-purpose"],
@@ -1115,6 +1111,10 @@ class Cluster(pulumi.CustomResource):
                     az3["id"],
                 ],
             },
+            name="example",
+            role_arn=cluster.arn,
+            version="1.35",
+            bootstrap_self_managed_addons=False,
             opts = pulumi.ResourceOptions(depends_on=[
                     cluster_amazon_eks_cluster_policy,
                     cluster_amazon_eks_compute_policy,
@@ -1156,12 +1156,9 @@ class Cluster(pulumi.CustomResource):
             policy_arn="arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
             role=cluster.name)
         example = aws.eks.Cluster("example",
-            name="example",
             access_config={
                 "authentication_mode": "API",
             },
-            role_arn=cluster.arn,
-            version="1.35",
             remote_network_config={
                 "remote_node_networks": {
                     "cidrs": ["172.16.0.0/18"],
@@ -1179,6 +1176,9 @@ class Cluster(pulumi.CustomResource):
                     az3["id"],
                 ],
             },
+            name="example",
+            role_arn=cluster.arn,
+            version="1.35",
             opts = pulumi.ResourceOptions(depends_on=[cluster_amazon_eks_cluster_policy]))
         ```
 
@@ -1214,12 +1214,9 @@ class Cluster(pulumi.CustomResource):
             policy_arn="arn:aws:iam::aws:policy/AmazonEKSLocalOutpostClusterPolicy",
             role=cluster.name)
         example_cluster = aws.eks.Cluster("example",
-            name="example",
             access_config={
                 "authentication_mode": "CONFIG_MAP",
             },
-            role_arn=cluster.arn,
-            version="1.35",
             vpc_config={
                 "endpoint_private_access": True,
                 "endpoint_public_access": False,
@@ -1233,6 +1230,9 @@ class Cluster(pulumi.CustomResource):
                 "control_plane_instance_type": "m5.large",
                 "outpost_arns": [example.arn],
             },
+            name="example",
+            role_arn=cluster.arn,
+            version="1.35",
             opts = pulumi.ResourceOptions(depends_on=[cluster_amazon_eks_local_outpost_cluster_policy]))
         ```
 
@@ -1321,12 +1321,9 @@ class Cluster(pulumi.CustomResource):
             policy_arn="arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
             role=cluster.name)
         example = aws.eks.Cluster("example",
-            name="example",
             access_config={
                 "authentication_mode": "API",
             },
-            role_arn=cluster.arn,
-            version="1.35",
             vpc_config={
                 "subnet_ids": [
                     az1["id"],
@@ -1334,6 +1331,9 @@ class Cluster(pulumi.CustomResource):
                     az3["id"],
                 ],
             },
+            name="example",
+            role_arn=cluster.arn,
+            version="1.35",
             opts = pulumi.ResourceOptions(depends_on=[cluster_amazon_eks_cluster_policy]))
         ```
 
@@ -1389,13 +1389,9 @@ class Cluster(pulumi.CustomResource):
             policy_arn="arn:aws:iam::aws:policy/AmazonEKSNetworkingPolicy",
             role=cluster.name)
         example = aws.eks.Cluster("example",
-            name="example",
             access_config={
                 "authentication_mode": "API",
             },
-            role_arn=cluster.arn,
-            version="1.35",
-            bootstrap_self_managed_addons=False,
             compute_config={
                 "enabled": True,
                 "node_pools": ["general-purpose"],
@@ -1420,6 +1416,10 @@ class Cluster(pulumi.CustomResource):
                     az3["id"],
                 ],
             },
+            name="example",
+            role_arn=cluster.arn,
+            version="1.35",
+            bootstrap_self_managed_addons=False,
             opts = pulumi.ResourceOptions(depends_on=[
                     cluster_amazon_eks_cluster_policy,
                     cluster_amazon_eks_compute_policy,
@@ -1461,12 +1461,9 @@ class Cluster(pulumi.CustomResource):
             policy_arn="arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
             role=cluster.name)
         example = aws.eks.Cluster("example",
-            name="example",
             access_config={
                 "authentication_mode": "API",
             },
-            role_arn=cluster.arn,
-            version="1.35",
             remote_network_config={
                 "remote_node_networks": {
                     "cidrs": ["172.16.0.0/18"],
@@ -1484,6 +1481,9 @@ class Cluster(pulumi.CustomResource):
                     az3["id"],
                 ],
             },
+            name="example",
+            role_arn=cluster.arn,
+            version="1.35",
             opts = pulumi.ResourceOptions(depends_on=[cluster_amazon_eks_cluster_policy]))
         ```
 
@@ -1519,12 +1519,9 @@ class Cluster(pulumi.CustomResource):
             policy_arn="arn:aws:iam::aws:policy/AmazonEKSLocalOutpostClusterPolicy",
             role=cluster.name)
         example_cluster = aws.eks.Cluster("example",
-            name="example",
             access_config={
                 "authentication_mode": "CONFIG_MAP",
             },
-            role_arn=cluster.arn,
-            version="1.35",
             vpc_config={
                 "endpoint_private_access": True,
                 "endpoint_public_access": False,
@@ -1538,6 +1535,9 @@ class Cluster(pulumi.CustomResource):
                 "control_plane_instance_type": "m5.large",
                 "outpost_arns": [example.arn],
             },
+            name="example",
+            role_arn=cluster.arn,
+            version="1.35",
             opts = pulumi.ResourceOptions(depends_on=[cluster_amazon_eks_local_outpost_cluster_policy]))
         ```
 

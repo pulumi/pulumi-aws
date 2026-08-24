@@ -379,10 +379,7 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.fsx.OntapStorageVirtualMachine("test",
-            file_system_id=test_aws_fsx_ontap_file_system["id"],
-            name="mysvm",
             active_directory_configuration={
-                "netbios_name": "mysvm",
                 "self_managed_active_directory_configuration": {
                     "dns_ips": [
                         "10.0.0.111",
@@ -392,7 +389,10 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
                     "password": "avoid-plaintext-passwords",
                     "username": "Admin",
                 },
-            })
+                "netbios_name": "mysvm",
+            },
+            file_system_id=test_aws_fsx_ontap_file_system["id"],
+            name="mysvm")
         ```
 
         ## Import
@@ -409,7 +409,8 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.fsx.OntapStorageVirtualMachine("example", svm_admin_password="avoid-plaintext-passwords")
+        example = aws.fsx.OntapStorageVirtualMachine("example", svm_admin_password="avoid-plaintext-passwords",
+        opts = pulumi.ResourceOptions(ignore_changes=["svmAdminPassword"]))
         ```
 
 
@@ -455,10 +456,7 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.fsx.OntapStorageVirtualMachine("test",
-            file_system_id=test_aws_fsx_ontap_file_system["id"],
-            name="mysvm",
             active_directory_configuration={
-                "netbios_name": "mysvm",
                 "self_managed_active_directory_configuration": {
                     "dns_ips": [
                         "10.0.0.111",
@@ -468,7 +466,10 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
                     "password": "avoid-plaintext-passwords",
                     "username": "Admin",
                 },
-            })
+                "netbios_name": "mysvm",
+            },
+            file_system_id=test_aws_fsx_ontap_file_system["id"],
+            name="mysvm")
         ```
 
         ## Import
@@ -485,7 +486,8 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.fsx.OntapStorageVirtualMachine("example", svm_admin_password="avoid-plaintext-passwords")
+        example = aws.fsx.OntapStorageVirtualMachine("example", svm_admin_password="avoid-plaintext-passwords",
+        opts = pulumi.ResourceOptions(ignore_changes=["svmAdminPassword"]))
         ```
 
 

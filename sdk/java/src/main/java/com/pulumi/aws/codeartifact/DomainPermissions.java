@@ -59,11 +59,11 @@ import javax.annotation.Nullable;
  * 
  *         final var test = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("*")
  *                     .identifiers("*")
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions("codeartifact:CreateRepository")
  *                 .resources(exampleDomain.arn())
  *                 .build())

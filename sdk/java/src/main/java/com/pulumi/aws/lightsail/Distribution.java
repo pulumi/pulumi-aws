@@ -65,8 +65,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDistribution = new Distribution("exampleDistribution", DistributionArgs.builder()
- *             .name("example-distribution")
- *             .bundleId("small_1_0")
  *             .origin(DistributionOriginArgs.builder()
  *                 .name(example.name())
  *                 .regionName(example.region())
@@ -75,11 +73,6 @@ import javax.annotation.Nullable;
  *                 .behavior("cache")
  *                 .build())
  *             .cacheBehaviorSettings(DistributionCacheBehaviorSettingsArgs.builder()
- *                 .allowedHttpMethods("GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE")
- *                 .cachedHttpMethods("GET,HEAD")
- *                 .defaultTtl(86400)
- *                 .maximumTtl(31536000)
- *                 .minimumTtl(0)
  *                 .forwardedCookies(DistributionCacheBehaviorSettingsForwardedCookiesArgs.builder()
  *                     .option("none")
  *                     .build())
@@ -89,7 +82,14 @@ import javax.annotation.Nullable;
  *                 .forwardedQueryStrings(DistributionCacheBehaviorSettingsForwardedQueryStringsArgs.builder()
  *                     .option(false)
  *                     .build())
+ *                 .allowedHttpMethods("GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE")
+ *                 .cachedHttpMethods("GET,HEAD")
+ *                 .defaultTtl(86400)
+ *                 .maximumTtl(31536000)
+ *                 .minimumTtl(0)
  *                 .build())
+ *             .name("example-distribution")
+ *             .bundleId("small_1_0")
  *             .build());
  * 
  *     }
@@ -134,11 +134,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
- *             .state("available")
  *             .filters(GetAvailabilityZonesFilterArgs.builder()
  *                 .name("opt-in-status")
  *                 .values("opt-in-not-required")
  *                 .build())
+ *             .state("available")
  *             .build());
  * 
  *         var exampleStaticIp = new StaticIp("exampleStaticIp", StaticIpArgs.builder()
@@ -158,8 +158,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDistribution = new Distribution("exampleDistribution", DistributionArgs.builder()
- *             .name("example-distribution")
- *             .bundleId("small_1_0")
  *             .origin(DistributionOriginArgs.builder()
  *                 .name(exampleInstance.name())
  *                 .regionName(available.id())
@@ -167,6 +165,8 @@ import javax.annotation.Nullable;
  *             .defaultCacheBehavior(DistributionDefaultCacheBehaviorArgs.builder()
  *                 .behavior("cache")
  *                 .build())
+ *             .name("example-distribution")
+ *             .bundleId("small_1_0")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
  *                 .build());
@@ -213,11 +213,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
- *             .state("available")
  *             .filters(GetAvailabilityZonesFilterArgs.builder()
  *                 .name("opt-in-status")
  *                 .values("opt-in-not-required")
  *                 .build())
+ *             .state("available")
  *             .build());
  * 
  *         var example = new Lb("example", LbArgs.builder()
@@ -240,8 +240,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDistribution = new Distribution("exampleDistribution", DistributionArgs.builder()
- *             .name("example-distribution")
- *             .bundleId("small_1_0")
  *             .origin(DistributionOriginArgs.builder()
  *                 .name(example.name())
  *                 .regionName(available.id())
@@ -249,6 +247,8 @@ import javax.annotation.Nullable;
  *             .defaultCacheBehavior(DistributionDefaultCacheBehaviorArgs.builder()
  *                 .behavior("cache")
  *                 .build())
+ *             .name("example-distribution")
+ *             .bundleId("small_1_0")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleLbAttachment)
  *                 .build());

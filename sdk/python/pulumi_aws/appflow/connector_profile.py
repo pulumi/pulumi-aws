@@ -341,9 +341,6 @@ class ConnectorProfile(pulumi.CustomResource):
             node_type="dc1.large",
             cluster_type="single-node")
         example_connector_profile = aws.appflow.ConnectorProfile("example",
-            name="example_profile",
-            connector_type="Redshift",
-            connection_mode="Public",
             connector_profile_config={
                 "connector_profile_credentials": {
                     "redshift": {
@@ -362,7 +359,10 @@ class ConnectorProfile(pulumi.CustomResource):
                         "role_arn": example_role.arn,
                     },
                 },
-            })
+            },
+            name="example_profile",
+            connector_type="Redshift",
+            connection_mode="Public")
         ```
 
         ## Import
@@ -439,9 +439,6 @@ class ConnectorProfile(pulumi.CustomResource):
             node_type="dc1.large",
             cluster_type="single-node")
         example_connector_profile = aws.appflow.ConnectorProfile("example",
-            name="example_profile",
-            connector_type="Redshift",
-            connection_mode="Public",
             connector_profile_config={
                 "connector_profile_credentials": {
                     "redshift": {
@@ -460,7 +457,10 @@ class ConnectorProfile(pulumi.CustomResource):
                         "role_arn": example_role.arn,
                     },
                 },
-            })
+            },
+            name="example_profile",
+            connector_type="Redshift",
+            connection_mode="Public")
         ```
 
         ## Import

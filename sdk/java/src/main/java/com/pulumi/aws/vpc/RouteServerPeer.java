@@ -48,11 +48,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new RouteServerPeer("test", RouteServerPeerArgs.builder()
- *             .routeServerEndpointId(example.routeServerEndpointId())
- *             .peerAddress("10.0.1.250")
  *             .bgpOptions(RouteServerPeerBgpOptionsArgs.builder()
  *                 .peerAsn(65200)
  *                 .build())
+ *             .routeServerEndpointId(example.routeServerEndpointId())
+ *             .peerAddress("10.0.1.250")
  *             .tags(Map.of("Name", "Appliance 1"))
  *             .build());
  * 
@@ -121,12 +121,12 @@ import javax.annotation.Nullable;
  *                 .build());
  * 
  *         var testRouteServerPeer = new RouteServerPeer("testRouteServerPeer", RouteServerPeerArgs.builder()
- *             .routeServerEndpointId(testRouteServerEndpoint.routeServerEndpointId())
- *             .peerAddress("10.0.1.250")
  *             .bgpOptions(RouteServerPeerBgpOptionsArgs.builder()
  *                 .peerAsn(65000)
  *                 .peerLivenessDetection("bgp-keepalive")
  *                 .build())
+ *             .routeServerEndpointId(testRouteServerEndpoint.routeServerEndpointId())
+ *             .peerAddress("10.0.1.250")
  *             .tags(Map.of("Name", "Test Appliance"))
  *             .build());
  * 

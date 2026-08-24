@@ -30,9 +30,7 @@ import * as utilities from "../utilities";
  *     shardCount: 1,
  * });
  * const testApplication = new aws.kinesis.AnalyticsApplication("test_application", {
- *     name: "kinesis-analytics-application-test",
  *     inputs: {
- *         namePrefix: "test_prefix",
  *         kinesisStream: {
  *             resourceArn: testStream.arn,
  *             roleArn: test.arn,
@@ -41,12 +39,6 @@ import * as utilities from "../utilities";
  *             count: 1,
  *         },
  *         schema: {
- *             recordColumns: [{
- *                 mapping: "$.test",
- *                 name: "test",
- *                 sqlType: "VARCHAR(8)",
- *             }],
- *             recordEncoding: "UTF-8",
  *             recordFormat: {
  *                 mappingParameters: {
  *                     json: {
@@ -54,8 +46,16 @@ import * as utilities from "../utilities";
  *                     },
  *                 },
  *             },
+ *             recordColumns: [{
+ *                 mapping: "$.test",
+ *                 name: "test",
+ *                 sqlType: "VARCHAR(8)",
+ *             }],
+ *             recordEncoding: "UTF-8",
  *         },
+ *         namePrefix: "test_prefix",
  *     },
+ *     name: "kinesis-analytics-application-test",
  * });
  * ```
  *
@@ -75,26 +75,20 @@ import * as utilities from "../utilities";
  *     shardCount: 1,
  * });
  * const exampleFirehoseDeliveryStream = new aws.kinesis.FirehoseDeliveryStream("example", {
- *     name: "example-kinesis-delivery-stream",
- *     destination: "extended_s3",
  *     extendedS3Configuration: {
  *         bucketArn: exampleAwsS3Bucket.arn,
  *         roleArn: exampleAwsIamRole.arn,
  *     },
+ *     name: "example-kinesis-delivery-stream",
+ *     destination: "extended_s3",
  * });
  * const test = new aws.kinesis.AnalyticsApplication("test", {
- *     name: "example-application",
  *     cloudwatchLoggingOptions: {
  *         logStreamArn: exampleLogStream.arn,
  *         roleArn: exampleAwsIamRole.arn,
  *     },
  *     inputs: {
- *         namePrefix: "example_prefix",
  *         schema: {
- *             recordColumns: [{
- *                 name: "COLUMN_1",
- *                 sqlType: "INTEGER",
- *             }],
  *             recordFormat: {
  *                 mappingParameters: {
  *                     csv: {
@@ -103,6 +97,10 @@ import * as utilities from "../utilities";
  *                     },
  *                 },
  *             },
+ *             recordColumns: [{
+ *                 name: "COLUMN_1",
+ *                 sqlType: "INTEGER",
+ *             }],
  *         },
  *         kinesisStream: {
  *             resourceArn: exampleStream.arn,
@@ -111,9 +109,9 @@ import * as utilities from "../utilities";
  *         startingPositionConfigurations: [{
  *             startingPosition: "NOW",
  *         }],
+ *         namePrefix: "example_prefix",
  *     },
  *     outputs: [{
- *         name: "OUTPUT_1",
  *         schema: {
  *             recordFormatType: "CSV",
  *         },
@@ -121,7 +119,9 @@ import * as utilities from "../utilities";
  *             resourceArn: exampleFirehoseDeliveryStream.arn,
  *             roleArn: exampleAwsIamRole.arn,
  *         },
+ *         name: "OUTPUT_1",
  *     }],
+ *     name: "example-application",
  *     startApplication: true,
  * });
  * ```

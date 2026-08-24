@@ -854,17 +854,23 @@ class DbInstance(pulumi.CustomResource):
             bucket="example-s3-bucket",
             force_destroy=True)
         example = aws.iam.get_policy_document_output(statements=[{
-            "actions": ["s3:PutObject"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["timestream-influxdb.amazonaws.com"],
             }],
+            "actions": ["s3:PutObject"],
             "resources": [example_bucket.arn.apply(lambda arn: f"{arn}/*")],
         }])
         example_bucket_policy = aws.s3.BucketPolicy("example",
             bucket=example_bucket.id,
             policy=example.json)
         example_db_instance = aws.timestreaminfluxdb.DbInstance("example",
+            log_delivery_configuration={
+                "s3_configuration": {
+                    "bucket_name": example_bucket.bucket,
+                    "enabled": True,
+                },
+            },
             allocated_storage=20,
             bucket="example-bucket-name",
             db_instance_type="db.influx.medium",
@@ -873,13 +879,7 @@ class DbInstance(pulumi.CustomResource):
             organization="organization",
             vpc_subnet_ids=[example_aws_subnet["id"]],
             vpc_security_group_ids=[example_aws_security_group["id"]],
-            name="example-db-instance",
-            log_delivery_configuration={
-                "s3_configuration": {
-                    "bucket_name": example_bucket.bucket,
-                    "enabled": True,
-                },
-            })
+            name="example-db-instance")
         ```
 
         ### Usage with MultiAZ Deployment
@@ -1027,17 +1027,23 @@ class DbInstance(pulumi.CustomResource):
             bucket="example-s3-bucket",
             force_destroy=True)
         example = aws.iam.get_policy_document_output(statements=[{
-            "actions": ["s3:PutObject"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["timestream-influxdb.amazonaws.com"],
             }],
+            "actions": ["s3:PutObject"],
             "resources": [example_bucket.arn.apply(lambda arn: f"{arn}/*")],
         }])
         example_bucket_policy = aws.s3.BucketPolicy("example",
             bucket=example_bucket.id,
             policy=example.json)
         example_db_instance = aws.timestreaminfluxdb.DbInstance("example",
+            log_delivery_configuration={
+                "s3_configuration": {
+                    "bucket_name": example_bucket.bucket,
+                    "enabled": True,
+                },
+            },
             allocated_storage=20,
             bucket="example-bucket-name",
             db_instance_type="db.influx.medium",
@@ -1046,13 +1052,7 @@ class DbInstance(pulumi.CustomResource):
             organization="organization",
             vpc_subnet_ids=[example_aws_subnet["id"]],
             vpc_security_group_ids=[example_aws_security_group["id"]],
-            name="example-db-instance",
-            log_delivery_configuration={
-                "s3_configuration": {
-                    "bucket_name": example_bucket.bucket,
-                    "enabled": True,
-                },
-            })
+            name="example-db-instance")
         ```
 
         ### Usage with MultiAZ Deployment

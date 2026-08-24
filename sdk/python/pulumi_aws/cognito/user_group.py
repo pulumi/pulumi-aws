@@ -249,12 +249,6 @@ class UserGroup(pulumi.CustomResource):
 
         main = aws.cognito.UserPool("main", name="identity pool")
         group_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Federated",
-                "identifiers": ["cognito-identity.amazonaws.com"],
-            }],
-            "actions": ["sts:AssumeRoleWithWebIdentity"],
             "conditions": [
                 {
                     "test": "StringEquals",
@@ -267,6 +261,12 @@ class UserGroup(pulumi.CustomResource):
                     "values": ["authenticated"],
                 },
             ],
+            "principals": [{
+                "type": "Federated",
+                "identifiers": ["cognito-identity.amazonaws.com"],
+            }],
+            "effect": "Allow",
+            "actions": ["sts:AssumeRoleWithWebIdentity"],
         }])
         group_role_role = aws.iam.Role("group_role",
             name="user-group-role",
@@ -314,12 +314,6 @@ class UserGroup(pulumi.CustomResource):
 
         main = aws.cognito.UserPool("main", name="identity pool")
         group_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Federated",
-                "identifiers": ["cognito-identity.amazonaws.com"],
-            }],
-            "actions": ["sts:AssumeRoleWithWebIdentity"],
             "conditions": [
                 {
                     "test": "StringEquals",
@@ -332,6 +326,12 @@ class UserGroup(pulumi.CustomResource):
                     "values": ["authenticated"],
                 },
             ],
+            "principals": [{
+                "type": "Federated",
+                "identifiers": ["cognito-identity.amazonaws.com"],
+            }],
+            "effect": "Allow",
+            "actions": ["sts:AssumeRoleWithWebIdentity"],
         }])
         group_role_role = aws.iam.Role("group_role",
             name="user-group-role",

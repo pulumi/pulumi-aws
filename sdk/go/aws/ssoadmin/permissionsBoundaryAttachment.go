@@ -71,14 +71,14 @@ import (
 //				return err
 //			}
 //			_, err = ssoadmin.NewPermissionsBoundaryAttachment(ctx, "example", &ssoadmin.PermissionsBoundaryAttachmentArgs{
-//				InstanceArn:      examplePermissionSet.InstanceArn,
-//				PermissionSetArn: examplePermissionSet.Arn,
 //				PermissionsBoundary: &ssoadmin.PermissionsBoundaryAttachmentPermissionsBoundaryArgs{
 //					CustomerManagedPolicyReference: &ssoadmin.PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs{
 //						Name: examplePolicy.Name,
 //						Path: pulumi.String("/"),
 //					},
 //				},
+//				InstanceArn:      examplePermissionSet.InstanceArn,
+//				PermissionSetArn: examplePermissionSet.Arn,
 //			})
 //			if err != nil {
 //				return err
@@ -104,11 +104,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssoadmin.NewPermissionsBoundaryAttachment(ctx, "example", &ssoadmin.PermissionsBoundaryAttachmentArgs{
-//				InstanceArn:      pulumi.Any(exampleAwsSsoadminPermissionSet.InstanceArn),
-//				PermissionSetArn: pulumi.Any(exampleAwsSsoadminPermissionSet.Arn),
 //				PermissionsBoundary: &ssoadmin.PermissionsBoundaryAttachmentPermissionsBoundaryArgs{
 //					ManagedPolicyArn: pulumi.String("arn:aws:iam::aws:policy/ReadOnlyAccess"),
 //				},
+//				InstanceArn:      pulumi.Any(exampleAwsSsoadminPermissionSet.InstanceArn),
+//				PermissionSetArn: pulumi.Any(exampleAwsSsoadminPermissionSet.Arn),
 //			})
 //			if err != nil {
 //				return err

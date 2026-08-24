@@ -33,6 +33,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := odb.NewCloudVmCluster(ctx, "with_minimum_parameter", &odb.CloudVmClusterArgs{
+//				DataCollectionOptions: &odb.CloudVmClusterDataCollectionOptionsArgs{
+//					IsDiagnosticsEventsEnabled: pulumi.Bool(false),
+//					IsHealthMonitoringEnabled:  pulumi.Bool(false),
+//					IsIncidentLogsEnabled:      pulumi.Bool(false),
+//				},
 //				DisplayName:                  pulumi.String("my_vm_cluster"),
 //				CloudExadataInfrastructureId: pulumi.String("<aws_odb_cloud_exadata_infrastructure_id>"),
 //				CpuCoreCount:                 pulumi.Int(6),
@@ -52,11 +57,6 @@ import (
 //				},
 //				DbNodeStorageSizeInGbs: pulumi.Int(120),
 //				MemorySizeInGbs:        pulumi.Int(60),
-//				DataCollectionOptions: &odb.CloudVmClusterDataCollectionOptionsArgs{
-//					IsDiagnosticsEventsEnabled: pulumi.Bool(false),
-//					IsHealthMonitoringEnabled:  pulumi.Bool(false),
-//					IsIncidentLogsEnabled:      pulumi.Bool(false),
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -82,6 +82,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := odb.NewCloudVmCluster(ctx, "with_all_parameters", &odb.CloudVmClusterArgs{
+//				DataCollectionOptions: &odb.CloudVmClusterDataCollectionOptionsArgs{
+//					IsDiagnosticsEventsEnabled: pulumi.Bool(true),
+//					IsHealthMonitoringEnabled:  pulumi.Bool(true),
+//					IsIncidentLogsEnabled:      pulumi.Bool(true),
+//				},
 //				DisplayName:                  pulumi.String("my_vm_cluster"),
 //				CloudExadataInfrastructureId: pulumi.String("<aws_odb_cloud_exadata_infrastructure_id>"),
 //				CpuCoreCount:                 pulumi.Int(6),
@@ -106,11 +111,6 @@ import (
 //				ScanListenerPortTcp:    pulumi.Int(1521),
 //				Tags: pulumi.StringMap{
 //					"env": pulumi.String("dev"),
-//				},
-//				DataCollectionOptions: &odb.CloudVmClusterDataCollectionOptionsArgs{
-//					IsDiagnosticsEventsEnabled: pulumi.Bool(true),
-//					IsHealthMonitoringEnabled:  pulumi.Bool(true),
-//					IsIncidentLogsEnabled:      pulumi.Bool(true),
 //				},
 //			})
 //			if err != nil {
@@ -137,6 +137,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := odb.NewCloudVmCluster(ctx, "gi_version_tag_example", &odb.CloudVmClusterArgs{
+//				DataCollectionOptions: &odb.CloudVmClusterDataCollectionOptionsArgs{
+//					IsDiagnosticsEventsEnabled: pulumi.Bool(true),
+//					IsHealthMonitoringEnabled:  pulumi.Bool(true),
+//					IsIncidentLogsEnabled:      pulumi.Bool(true),
+//				},
 //				DisplayName:                  pulumi.String("my_vm_cluster"),
 //				CloudExadataInfrastructureId: pulumi.String("<aws_odb_cloud_exadata_infrastructure_id>"),
 //				CpuCoreCount:                 pulumi.Int(6),
@@ -161,11 +166,6 @@ import (
 //				ScanListenerPortTcp:    pulumi.Int(1521),
 //				Tags: pulumi.StringMap{
 //					"odb:input_gi_version": pulumi.String("23.0.0.0"),
-//				},
-//				DataCollectionOptions: &odb.CloudVmClusterDataCollectionOptionsArgs{
-//					IsDiagnosticsEventsEnabled: pulumi.Bool(true),
-//					IsHealthMonitoringEnabled:  pulumi.Bool(true),
-//					IsIncidentLogsEnabled:      pulumi.Bool(true),
 //				},
 //			})
 //			if err != nil {

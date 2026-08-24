@@ -18,13 +18,13 @@ import * as utilities from "../utilities";
  *
  * const example = aws.ssoadmin.getInstances({});
  * const exampleGetGroup = example.then(example => aws.identitystore.getGroup({
- *     identityStoreId: example.identityStoreIds?.[0],
  *     alternateIdentifier: {
  *         uniqueAttribute: {
  *             attributePath: "DisplayName",
  *             attributeValue: "ExampleGroup",
  *         },
  *     },
+ *     identityStoreId: example.identityStoreIds?.[0],
  * }));
  * export const groupId = exampleGetGroup.then(exampleGetGroup => exampleGetGroup.groupId);
  * ```
@@ -101,13 +101,13 @@ export interface GetGroupResult {
  *
  * const example = aws.ssoadmin.getInstances({});
  * const exampleGetGroup = example.then(example => aws.identitystore.getGroup({
- *     identityStoreId: example.identityStoreIds?.[0],
  *     alternateIdentifier: {
  *         uniqueAttribute: {
  *             attributePath: "DisplayName",
  *             attributeValue: "ExampleGroup",
  *         },
  *     },
+ *     identityStoreId: example.identityStoreIds?.[0],
  * }));
  * export const groupId = exampleGetGroup.then(exampleGetGroup => exampleGetGroup.groupId);
  * ```

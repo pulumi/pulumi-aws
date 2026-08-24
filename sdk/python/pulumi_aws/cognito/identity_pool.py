@@ -422,9 +422,6 @@ class IdentityPool(pulumi.CustomResource):
             name="my-saml-provider",
             saml_metadata_document=std.file(input="saml-metadata.xml").result)
         main = aws.cognito.IdentityPool("main",
-            identity_pool_name="identity pool",
-            allow_unauthenticated_identities=False,
-            allow_classic_flow=False,
             cognito_identity_providers=[
                 {
                     "client_id": "6lhlkkfbfb4q5kpp90urffae",
@@ -437,6 +434,9 @@ class IdentityPool(pulumi.CustomResource):
                     "server_side_token_check": False,
                 },
             ],
+            identity_pool_name="identity pool",
+            allow_unauthenticated_identities=False,
+            allow_classic_flow=False,
             supported_login_providers={
                 "graph.facebook.com": "7346241598935552",
                 "accounts.google.com": "123456789012.apps.googleusercontent.com",
@@ -488,9 +488,6 @@ class IdentityPool(pulumi.CustomResource):
             name="my-saml-provider",
             saml_metadata_document=std.file(input="saml-metadata.xml").result)
         main = aws.cognito.IdentityPool("main",
-            identity_pool_name="identity pool",
-            allow_unauthenticated_identities=False,
-            allow_classic_flow=False,
             cognito_identity_providers=[
                 {
                     "client_id": "6lhlkkfbfb4q5kpp90urffae",
@@ -503,6 +500,9 @@ class IdentityPool(pulumi.CustomResource):
                     "server_side_token_check": False,
                 },
             ],
+            identity_pool_name="identity pool",
+            allow_unauthenticated_identities=False,
+            allow_classic_flow=False,
             supported_login_providers={
                 "graph.facebook.com": "7346241598935552",
                 "accounts.google.com": "123456789012.apps.googleusercontent.com",

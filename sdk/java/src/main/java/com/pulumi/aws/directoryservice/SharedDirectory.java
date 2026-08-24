@@ -48,22 +48,22 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Directory("example", DirectoryArgs.builder()
- *             .name("tf-example")
- *             .password("SuperSecretPassw0rd")
- *             .type("MicrosoftAD")
- *             .edition("Standard")
  *             .vpcSettings(DirectoryVpcSettingsArgs.builder()
  *                 .vpcId(exampleAwsVpc.id())
  *                 .subnetIds(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
  *                 .build())
+ *             .name("tf-example")
+ *             .password("SuperSecretPassw0rd")
+ *             .type("MicrosoftAD")
+ *             .edition("Standard")
  *             .build());
  * 
  *         var exampleSharedDirectory = new SharedDirectory("exampleSharedDirectory", SharedDirectoryArgs.builder()
- *             .directoryId(example.id())
- *             .notes("You wanna have a catch?")
  *             .target(SharedDirectoryTargetArgs.builder()
  *                 .id(receiver.accountId())
  *                 .build())
+ *             .directoryId(example.id())
+ *             .notes("You wanna have a catch?")
  *             .build());
  * 
  *     }

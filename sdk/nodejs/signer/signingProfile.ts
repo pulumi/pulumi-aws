@@ -18,12 +18,12 @@ import * as utilities from "../utilities";
  *
  * const testSp = new aws.signer.SigningProfile("test_sp", {platformId: "AWSLambda-SHA384-ECDSA"});
  * const prodSp = new aws.signer.SigningProfile("prod_sp", {
- *     platformId: "AWSLambda-SHA384-ECDSA",
- *     namePrefix: "prod_sp_",
  *     signatureValidityPeriod: {
  *         value: 5,
  *         type: "YEARS",
  *     },
+ *     platformId: "AWSLambda-SHA384-ECDSA",
+ *     namePrefix: "prod_sp_",
  *     tags: {
  *         tag1: "value1",
  *         tag2: "value2",

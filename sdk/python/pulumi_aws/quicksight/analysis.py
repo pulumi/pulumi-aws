@@ -484,17 +484,17 @@ class Analysis(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.Analysis("example",
-            analysis_id="example-id",
-            name="example-name",
             source_entity={
                 "source_template": {
-                    "arn": source["arn"],
                     "data_set_references": [{
                         "data_set_arn": dataset["arn"],
                         "data_set_placeholder": "1",
                     }],
+                    "arn": source["arn"],
                 },
-            })
+            },
+            analysis_id="example-id",
+            name="example-name")
         ```
 
         ### With Definition
@@ -504,19 +504,14 @@ class Analysis(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.Analysis("example",
-            analysis_id="example-id",
-            name="example-name",
             definition={
                 "dataSetIdentifiersDeclarations": [{
                     "dataSetArn": dataset["arn"],
                     "identifier": "1",
                 }],
                 "sheets": [{
-                    "title": "Example",
-                    "sheetId": "Example1",
                     "visuals": [{
                         "lineChartVisual": {
-                            "visualId": "LineChart",
                             "title": {
                                 "formatText": {
                                     "plainText": "Line Chart Example",
@@ -527,30 +522,35 @@ class Analysis(pulumi.CustomResource):
                                     "lineChartAggregatedFieldWells": {
                                         "categories": [{
                                             "categoricalDimensionField": {
-                                                "fieldId": "1",
                                                 "column": {
                                                     "dataSetIdentifier": "1",
                                                     "columnName": "Column1",
                                                 },
+                                                "fieldId": "1",
                                             },
                                         }],
                                         "values": [{
                                             "categoricalMeasureField": {
-                                                "fieldId": "2",
                                                 "column": {
                                                     "dataSetIdentifier": "1",
                                                     "columnName": "Column1",
                                                 },
+                                                "fieldId": "2",
                                                 "aggregationFunction": "COUNT",
                                             },
                                         }],
                                     },
                                 },
                             },
+                            "visualId": "LineChart",
                         },
                     }],
+                    "title": "Example",
+                    "sheetId": "Example1",
                 }],
-            })
+            },
+            analysis_id="example-id",
+            name="example-name")
         ```
 
         ## Import
@@ -595,17 +595,17 @@ class Analysis(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.Analysis("example",
-            analysis_id="example-id",
-            name="example-name",
             source_entity={
                 "source_template": {
-                    "arn": source["arn"],
                     "data_set_references": [{
                         "data_set_arn": dataset["arn"],
                         "data_set_placeholder": "1",
                     }],
+                    "arn": source["arn"],
                 },
-            })
+            },
+            analysis_id="example-id",
+            name="example-name")
         ```
 
         ### With Definition
@@ -615,19 +615,14 @@ class Analysis(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.Analysis("example",
-            analysis_id="example-id",
-            name="example-name",
             definition={
                 "dataSetIdentifiersDeclarations": [{
                     "dataSetArn": dataset["arn"],
                     "identifier": "1",
                 }],
                 "sheets": [{
-                    "title": "Example",
-                    "sheetId": "Example1",
                     "visuals": [{
                         "lineChartVisual": {
-                            "visualId": "LineChart",
                             "title": {
                                 "formatText": {
                                     "plainText": "Line Chart Example",
@@ -638,30 +633,35 @@ class Analysis(pulumi.CustomResource):
                                     "lineChartAggregatedFieldWells": {
                                         "categories": [{
                                             "categoricalDimensionField": {
-                                                "fieldId": "1",
                                                 "column": {
                                                     "dataSetIdentifier": "1",
                                                     "columnName": "Column1",
                                                 },
+                                                "fieldId": "1",
                                             },
                                         }],
                                         "values": [{
                                             "categoricalMeasureField": {
-                                                "fieldId": "2",
                                                 "column": {
                                                     "dataSetIdentifier": "1",
                                                     "columnName": "Column1",
                                                 },
+                                                "fieldId": "2",
                                                 "aggregationFunction": "COUNT",
                                             },
                                         }],
                                     },
                                 },
                             },
+                            "visualId": "LineChart",
                         },
                     }],
+                    "title": "Example",
+                    "sheetId": "Example1",
                 }],
-            })
+            },
+            analysis_id="example-id",
+            name="example-name")
         ```
 
         ## Import

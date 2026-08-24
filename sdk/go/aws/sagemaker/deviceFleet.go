@@ -31,11 +31,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewDeviceFleet(ctx, "example", &sagemaker.DeviceFleetArgs{
-//				DeviceFleetName: pulumi.String("example"),
-//				RoleArn:         pulumi.Any(test.Arn),
 //				OutputConfig: &sagemaker.DeviceFleetOutputConfigArgs{
 //					S3OutputLocation: pulumi.Sprintf("s3://%v/prefix/", exampleAwsS3Bucket.Bucket),
 //				},
+//				DeviceFleetName: pulumi.String("example"),
+//				RoleArn:         pulumi.Any(test.Arn),
 //			})
 //			if err != nil {
 //				return err

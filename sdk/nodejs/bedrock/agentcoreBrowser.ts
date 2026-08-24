@@ -19,11 +19,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.bedrock.AgentcoreBrowser("example", {
- *     name: "example-browser",
- *     description: "Browser for web data extraction",
  *     networkConfiguration: {
  *         networkMode: "PUBLIC",
  *     },
+ *     name: "example-browser",
+ *     description: "Browser for web data extraction",
  * });
  * ```
  *
@@ -34,10 +34,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const vpcExample = new aws.bedrock.AgentcoreBrowser("vpc_example", {
- *     name: "vpc-browser",
- *     description: "Browser with VPC configuration",
  *     networkConfiguration: {
- *         networkMode: "VPC",
  *         vpcConfig: {
  *             securityGroups: ["sg-12345678"],
  *             subnets: [
@@ -45,7 +42,10 @@ import * as utilities from "../utilities";
  *                 "subnet-87654321",
  *             ],
  *         },
+ *         networkMode: "VPC",
  *     },
+ *     name: "vpc-browser",
+ *     description: "Browser with VPC configuration",
  * });
  * ```
  *
@@ -57,12 +57,12 @@ import * as utilities from "../utilities";
  *
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
- *         actions: ["sts:AssumeRole"],
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["bedrock-agentcore.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
+ *         actions: ["sts:AssumeRole"],
  *     }],
  * });
  * const example = new aws.iam.Role("example", {
@@ -71,19 +71,19 @@ import * as utilities from "../utilities";
  * });
  * const recording = new aws.s3.Bucket("recording", {bucket: "browser-recording-bucket"});
  * const exampleAgentcoreBrowser = new aws.bedrock.AgentcoreBrowser("example", {
- *     name: "example-browser",
- *     description: "Browser with recording enabled",
- *     executionRoleArn: example.arn,
  *     networkConfiguration: {
  *         networkMode: "PUBLIC",
  *     },
  *     recording: {
- *         enabled: true,
  *         s3Location: {
  *             bucket: recording.bucket,
  *             prefix: "browser-sessions/",
  *         },
+ *         enabled: true,
  *     },
+ *     name: "example-browser",
+ *     description: "Browser with recording enabled",
+ *     executionRoleArn: example.arn,
  * });
  * ```
  *

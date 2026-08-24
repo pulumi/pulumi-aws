@@ -43,6 +43,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			foobar, err := autoscaling.NewGroup(ctx, "foobar", &autoscaling.GroupArgs{
+//				Tags: autoscaling.GroupTagArray{
+//					&autoscaling.GroupTagArgs{
+//						Key:               pulumi.String("Foo"),
+//						Value:             pulumi.String("foo-bar"),
+//						PropagateAtLaunch: pulumi.Bool(true),
+//					},
+//				},
 //				AvailabilityZones: pulumi.StringArray{
 //					pulumi.String("us-west-2a"),
 //				},
@@ -50,13 +57,6 @@ import (
 //				HealthCheckType: pulumi.String("EC2"),
 //				TerminationPolicies: pulumi.StringArray{
 //					pulumi.String("OldestInstance"),
-//				},
-//				Tags: autoscaling.GroupTagArray{
-//					&autoscaling.GroupTagArgs{
-//						Key:               pulumi.String("Foo"),
-//						Value:             pulumi.String("foo-bar"),
-//						PropagateAtLaunch: pulumi.Bool(true),
-//					},
 //				},
 //			})
 //			if err != nil {

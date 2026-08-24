@@ -48,12 +48,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Control("example", ControlArgs.builder()
- *             .name("example")
  *             .controlMappingSources(ControlControlMappingSourceArgs.builder()
  *                 .sourceName("example")
  *                 .sourceSetUpOption("Procedural_Controls_Mapping")
  *                 .sourceType("MANUAL")
  *                 .build())
+ *             .name("example")
  *             .build());
  * 
  *     }

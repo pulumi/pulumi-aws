@@ -27,12 +27,12 @@ import * as utilities from "../utilities";
  * const current = aws.getCallerIdentity({});
  * const example = current.then(current => aws.iam.getPolicyDocument({
  *     statements: [{
- *         sid: "Enable IAM User Permissions",
- *         effect: "Allow",
  *         principals: [{
  *             type: "AWS",
  *             identifiers: [`arn:aws:iam::${current.accountId}:root`],
  *         }],
+ *         sid: "Enable IAM User Permissions",
+ *         effect: "Allow",
  *         actions: ["kms:*"],
  *         resources: ["*"],
  *     }],

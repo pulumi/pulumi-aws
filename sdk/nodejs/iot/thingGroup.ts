@@ -18,8 +18,6 @@ import * as utilities from "../utilities";
  *
  * const parent = new aws.iot.ThingGroup("parent", {name: "parent"});
  * const example = new aws.iot.ThingGroup("example", {
- *     name: "example",
- *     parentGroupName: parent.name,
  *     properties: {
  *         attributePayload: {
  *             attributes: {
@@ -29,6 +27,8 @@ import * as utilities from "../utilities";
  *         },
  *         description: "This is my thing group",
  *     },
+ *     name: "example",
+ *     parentGroupName: parent.name,
  *     tags: {
  *         managed: "true",
  *     },

@@ -24,6 +24,14 @@ namespace Pulumi.Aws.Inspector
     /// {
     ///     var example = new Aws.Inspector.AssessmentTemplate("example", new()
     ///     {
+    ///         EventSubscriptions = new[]
+    ///         {
+    ///             new Aws.Inspector.Inputs.AssessmentTemplateEventSubscriptionArgs
+    ///             {
+    ///                 Event = "ASSESSMENT_RUN_COMPLETED",
+    ///                 TopicArn = exampleAwsSnsTopic.Arn,
+    ///             },
+    ///         },
     ///         Name = "example",
     ///         TargetArn = exampleAwsInspectorAssessmentTarget.Arn,
     ///         Duration = 3600,
@@ -33,14 +41,6 @@ namespace Pulumi.Aws.Inspector
     ///             "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-H5hpSawc",
     ///             "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ",
     ///             "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-vg5GGHSD",
-    ///         },
-    ///         EventSubscriptions = new[]
-    ///         {
-    ///             new Aws.Inspector.Inputs.AssessmentTemplateEventSubscriptionArgs
-    ///             {
-    ///                 Event = "ASSESSMENT_RUN_COMPLETED",
-    ///                 TopicArn = exampleAwsSnsTopic.Arn,
-    ///             },
     ///         },
     ///     });
     /// 

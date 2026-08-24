@@ -28,10 +28,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.ses.ConfigurationSet("test", {
- *     name: "some-configuration-set-test",
  *     deliveryOptions: {
  *         tlsPolicy: "Require",
  *     },
+ *     name: "some-configuration-set-test",
  * });
  * ```
  *
@@ -42,10 +42,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.ses.ConfigurationSet("test", {
- *     name: "some-configuration-set-test",
  *     trackingOptions: {
  *         customRedirectDomain: "sub.example.com",
  *     },
+ *     name: "some-configuration-set-test",
  * });
  * ```
  *

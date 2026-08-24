@@ -58,11 +58,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Domain("example", DomainArgs.builder()
- *             .domainName("example")
- *             .elasticsearchVersion("7.10")
  *             .clusterConfig(DomainClusterConfigArgs.builder()
  *                 .instanceType("r4.large.elasticsearch")
  *                 .build())
+ *             .domainName("example")
+ *             .elasticsearchVersion("7.10")
  *             .tags(Map.of("Domain", "TestDomain"))
  *             .build());
  * 
@@ -172,11 +172,11 @@ import javax.annotation.Nullable;
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("es.amazonaws.com")
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions(                
  *                     "logs:PutLogEvents",
  *                     "logs:PutLogEventsBatch",
@@ -263,15 +263,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var es = new SecurityGroup("es", SecurityGroupArgs.builder()
- *             .name(String.format("%s-elasticsearch-%s", vpc,domain))
- *             .description("Managed by Pulumi")
- *             .vpcId(selected.id())
  *             .ingress(SecurityGroupIngressArgs.builder()
  *                 .fromPort(443)
  *                 .toPort(443)
  *                 .protocol("tcp")
  *                 .cidrBlocks(selected.cidrBlock())
  *                 .build())
+ *             .name(String.format("%s-elasticsearch-%s", vpc,domain))
+ *             .description("Managed by Pulumi")
+ *             .vpcId(selected.id())
  *             .build());
  * 
  *         var esServiceLinkedRole = new ServiceLinkedRole("esServiceLinkedRole", ServiceLinkedRoleArgs.builder()
@@ -279,8 +279,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var esDomain = new Domain("esDomain", DomainArgs.builder()
- *             .domainName(domain)
- *             .elasticsearchVersion("6.3")
  *             .clusterConfig(DomainClusterConfigArgs.builder()
  *                 .instanceType("m4.large.elasticsearch")
  *                 .zoneAwarenessEnabled(true)
@@ -291,6 +289,8 @@ import javax.annotation.Nullable;
  *                     selectedGetSubnets.ids()[1])
  *                 .securityGroupIds(es.id())
  *                 .build())
+ *             .domainName(domain)
+ *             .elasticsearchVersion("6.3")
  *             .advancedOptions(Map.of("rest.action.multi.allow_explicit_index", "true"))
  *             .accessPolicies("""
  * {

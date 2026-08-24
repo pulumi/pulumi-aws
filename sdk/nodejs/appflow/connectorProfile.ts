@@ -48,9 +48,6 @@ import * as utilities from "../utilities";
  *     clusterType: "single-node",
  * });
  * const exampleConnectorProfile = new aws.appflow.ConnectorProfile("example", {
- *     name: "example_profile",
- *     connectorType: "Redshift",
- *     connectionMode: "Public",
  *     connectorProfileConfig: {
  *         connectorProfileCredentials: {
  *             redshift: {
@@ -66,6 +63,9 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     },
+ *     name: "example_profile",
+ *     connectorType: "Redshift",
+ *     connectionMode: "Public",
  * });
  * ```
  *

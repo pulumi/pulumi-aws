@@ -26,7 +26,16 @@ namespace Pulumi.Aws.Msk
     /// {
     ///     var example = new Aws.Msk.ServerlessCluster("example", new()
     ///     {
-    ///         ClusterName = "Example",
+    ///         ClientAuthentication = new Aws.Msk.Inputs.ServerlessClusterClientAuthenticationArgs
+    ///         {
+    ///             Sasl = new Aws.Msk.Inputs.ServerlessClusterClientAuthenticationSaslArgs
+    ///             {
+    ///                 Iam = new Aws.Msk.Inputs.ServerlessClusterClientAuthenticationSaslIamArgs
+    ///                 {
+    ///                     Enabled = true,
+    ///                 },
+    ///             },
+    ///         },
     ///         VpcConfigs = new[]
     ///         {
     ///             new Aws.Msk.Inputs.ServerlessClusterVpcConfigArgs
@@ -38,16 +47,7 @@ namespace Pulumi.Aws.Msk
     ///                 },
     ///             },
     ///         },
-    ///         ClientAuthentication = new Aws.Msk.Inputs.ServerlessClusterClientAuthenticationArgs
-    ///         {
-    ///             Sasl = new Aws.Msk.Inputs.ServerlessClusterClientAuthenticationSaslArgs
-    ///             {
-    ///                 Iam = new Aws.Msk.Inputs.ServerlessClusterClientAuthenticationSaslIamArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                 },
-    ///             },
-    ///         },
+    ///         ClusterName = "Example",
     ///     });
     /// 
     /// });

@@ -19,14 +19,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.inspector2.Filter("example", {
- *     name: "test",
- *     action: "NONE",
  *     filterCriterias: [{
  *         awsAccountIds: [{
  *             comparison: "EQUALS",
  *             value: "111222333444",
  *         }],
  *     }],
+ *     name: "test",
+ *     action: "NONE",
  * });
  * ```
  *

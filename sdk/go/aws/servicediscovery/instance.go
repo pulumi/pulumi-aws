@@ -46,20 +46,20 @@ import (
 //				return err
 //			}
 //			exampleService, err := servicediscovery.NewService(ctx, "example", &servicediscovery.ServiceArgs{
-//				Name: pulumi.String("example"),
 //				DnsConfig: &servicediscovery.ServiceDnsConfigArgs{
-//					NamespaceId: examplePrivateDnsNamespace.ID().ToIDOutput().ToStringOutput(),
 //					DnsRecords: servicediscovery.ServiceDnsConfigDnsRecordArray{
 //						&servicediscovery.ServiceDnsConfigDnsRecordArgs{
 //							Ttl:  pulumi.Int(10),
 //							Type: pulumi.String("A"),
 //						},
 //					},
+//					NamespaceId:   examplePrivateDnsNamespace.ID().ToIDOutput().ToStringOutput(),
 //					RoutingPolicy: pulumi.String("MULTIVALUE"),
 //				},
 //				HealthCheckCustomConfig: &servicediscovery.ServiceHealthCheckCustomConfigArgs{
 //					FailureThreshold: pulumi.Int(1),
 //				},
+//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

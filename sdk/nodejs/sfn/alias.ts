@@ -19,14 +19,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const sfnAlias = new aws.sfn.Alias("sfn_alias", {
- *     name: "my_sfn_alias",
  *     routingConfigurations: [{
  *         stateMachineVersionArn: sfnTest.stateMachineVersionArn,
  *         weight: 100,
  *     }],
+ *     name: "my_sfn_alias",
  * });
  * const mySfnAlias = new aws.sfn.Alias("my_sfn_alias", {
- *     name: "my_sfn_alias",
  *     routingConfigurations: [
  *         {
  *             stateMachineVersionArn: "arn:aws:states:us-east-1:12345:stateMachine:demo:3",
@@ -37,6 +36,7 @@ import * as utilities from "../utilities";
  *             weight: 50,
  *         },
  *     ],
+ *     name: "my_sfn_alias",
  * });
  * ```
  *

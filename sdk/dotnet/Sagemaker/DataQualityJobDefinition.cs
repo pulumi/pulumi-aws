@@ -26,7 +26,6 @@ namespace Pulumi.Aws.Sagemaker
     /// {
     ///     var test = new Aws.Sagemaker.DataQualityJobDefinition("test", new()
     ///     {
-    ///         Name = "my-data-quality-job-definition",
     ///         DataQualityAppSpecification = new Aws.Sagemaker.Inputs.DataQualityJobDefinitionDataQualityAppSpecificationArgs
     ///         {
     ///             ImageUri = monitor.RegistryPath,
@@ -57,6 +56,7 @@ namespace Pulumi.Aws.Sagemaker
     ///                 VolumeSizeInGb = 20,
     ///             },
     ///         },
+    ///         Name = "my-data-quality-job-definition",
     ///         RoleArn = myRole.Arn,
     ///     });
     /// 

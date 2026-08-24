@@ -28,13 +28,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ecs.NewCluster(ctx, "foo", &ecs.ClusterArgs{
-//				Name: pulumi.String("white-hart"),
 //				Settings: ecs.ClusterSettingArray{
 //					&ecs.ClusterSettingArgs{
 //						Name:  pulumi.String("containerInsights"),
 //						Value: pulumi.String("enabled"),
 //					},
 //				},
+//				Name: pulumi.String("white-hart"),
 //			})
 //			if err != nil {
 //				return err
@@ -75,17 +75,17 @@ import (
 //				return err
 //			}
 //			_, err = ecs.NewCluster(ctx, "test", &ecs.ClusterArgs{
-//				Name: pulumi.String("example"),
 //				Configuration: &ecs.ClusterConfigurationArgs{
 //					ExecuteCommandConfiguration: &ecs.ClusterConfigurationExecuteCommandConfigurationArgs{
-//						KmsKeyId: example.Arn,
-//						Logging:  pulumi.String("OVERRIDE"),
 //						LogConfiguration: &ecs.ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs{
 //							CloudWatchEncryptionEnabled: pulumi.Bool(true),
 //							CloudWatchLogGroupName:      exampleLogGroup.Name,
 //						},
+//						KmsKeyId: example.Arn,
+//						Logging:  pulumi.String("OVERRIDE"),
 //					},
 //				},
+//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -199,12 +199,12 @@ import (
 //				return err
 //			}
 //			_, err = ecs.NewCluster(ctx, "test", &ecs.ClusterArgs{
-//				Name: pulumi.String("example"),
 //				Configuration: &ecs.ClusterConfigurationArgs{
 //					ManagedStorageConfiguration: &ecs.ClusterConfigurationManagedStorageConfigurationArgs{
 //						FargateEphemeralStorageKmsKeyId: example.Arn,
 //					},
 //				},
+//				Name: pulumi.String("example"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleKeyPolicy,
 //			}))

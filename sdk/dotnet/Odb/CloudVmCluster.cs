@@ -28,6 +28,12 @@ namespace Pulumi.Aws.Odb
     /// {
     ///     var withMinimumParameter = new Aws.Odb.CloudVmCluster("with_minimum_parameter", new()
     ///     {
+    ///         DataCollectionOptions = new Aws.Odb.Inputs.CloudVmClusterDataCollectionOptionsArgs
+    ///         {
+    ///             IsDiagnosticsEventsEnabled = false,
+    ///             IsHealthMonitoringEnabled = false,
+    ///             IsIncidentLogsEnabled = false,
+    ///         },
     ///         DisplayName = "my_vm_cluster",
     ///         CloudExadataInfrastructureId = "&lt;aws_odb_cloud_exadata_infrastructure_id&gt;",
     ///         CpuCoreCount = 6,
@@ -49,12 +55,6 @@ namespace Pulumi.Aws.Odb
     ///         },
     ///         DbNodeStorageSizeInGbs = 120,
     ///         MemorySizeInGbs = 60,
-    ///         DataCollectionOptions = new Aws.Odb.Inputs.CloudVmClusterDataCollectionOptionsArgs
-    ///         {
-    ///             IsDiagnosticsEventsEnabled = false,
-    ///             IsHealthMonitoringEnabled = false,
-    ///             IsIncidentLogsEnabled = false,
-    ///         },
     ///     });
     /// 
     /// });
@@ -72,6 +72,12 @@ namespace Pulumi.Aws.Odb
     /// {
     ///     var withAllParameters = new Aws.Odb.CloudVmCluster("with_all_parameters", new()
     ///     {
+    ///         DataCollectionOptions = new Aws.Odb.Inputs.CloudVmClusterDataCollectionOptionsArgs
+    ///         {
+    ///             IsDiagnosticsEventsEnabled = true,
+    ///             IsHealthMonitoringEnabled = true,
+    ///             IsIncidentLogsEnabled = true,
+    ///         },
     ///         DisplayName = "my_vm_cluster",
     ///         CloudExadataInfrastructureId = "&lt;aws_odb_cloud_exadata_infrastructure_id&gt;",
     ///         CpuCoreCount = 6,
@@ -100,12 +106,6 @@ namespace Pulumi.Aws.Odb
     ///         {
     ///             { "env", "dev" },
     ///         },
-    ///         DataCollectionOptions = new Aws.Odb.Inputs.CloudVmClusterDataCollectionOptionsArgs
-    ///         {
-    ///             IsDiagnosticsEventsEnabled = true,
-    ///             IsHealthMonitoringEnabled = true,
-    ///             IsIncidentLogsEnabled = true,
-    ///         },
     ///     });
     /// 
     /// });
@@ -123,6 +123,12 @@ namespace Pulumi.Aws.Odb
     /// {
     ///     var giVersionTagExample = new Aws.Odb.CloudVmCluster("gi_version_tag_example", new()
     ///     {
+    ///         DataCollectionOptions = new Aws.Odb.Inputs.CloudVmClusterDataCollectionOptionsArgs
+    ///         {
+    ///             IsDiagnosticsEventsEnabled = true,
+    ///             IsHealthMonitoringEnabled = true,
+    ///             IsIncidentLogsEnabled = true,
+    ///         },
     ///         DisplayName = "my_vm_cluster",
     ///         CloudExadataInfrastructureId = "&lt;aws_odb_cloud_exadata_infrastructure_id&gt;",
     ///         CpuCoreCount = 6,
@@ -150,12 +156,6 @@ namespace Pulumi.Aws.Odb
     ///         Tags = 
     ///         {
     ///             { "odb:input_gi_version", "23.0.0.0" },
-    ///         },
-    ///         DataCollectionOptions = new Aws.Odb.Inputs.CloudVmClusterDataCollectionOptionsArgs
-    ///         {
-    ///             IsDiagnosticsEventsEnabled = true,
-    ///             IsHealthMonitoringEnabled = true,
-    ///             IsIncidentLogsEnabled = true,
     ///         },
     ///     });
     /// 

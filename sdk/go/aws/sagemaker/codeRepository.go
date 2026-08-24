@@ -31,10 +31,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewCodeRepository(ctx, "example", &sagemaker.CodeRepositoryArgs{
-//				CodeRepositoryName: pulumi.String("example"),
 //				GitConfig: &sagemaker.CodeRepositoryGitConfigArgs{
 //					RepositoryUrl: pulumi.String("https://github.com/github/docs.git"),
 //				},
+//				CodeRepositoryName: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -84,11 +84,11 @@ import (
 //				return err
 //			}
 //			_, err = sagemaker.NewCodeRepository(ctx, "example", &sagemaker.CodeRepositoryArgs{
-//				CodeRepositoryName: pulumi.String("example"),
 //				GitConfig: &sagemaker.CodeRepositoryGitConfigArgs{
 //					RepositoryUrl: pulumi.String("https://github.com/github/docs.git"),
 //					SecretArn:     example.Arn,
 //				},
+//				CodeRepositoryName: pulumi.String("example"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleSecretVersion,
 //			}))

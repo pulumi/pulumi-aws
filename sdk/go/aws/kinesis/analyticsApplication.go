@@ -44,9 +44,7 @@ import (
 //				return err
 //			}
 //			_, err = kinesis.NewAnalyticsApplication(ctx, "test_application", &kinesis.AnalyticsApplicationArgs{
-//				Name: pulumi.String("kinesis-analytics-application-test"),
 //				Inputs: &kinesis.AnalyticsApplicationInputsArgs{
-//					NamePrefix: pulumi.String("test_prefix"),
 //					KinesisStream: &kinesis.AnalyticsApplicationInputsKinesisStreamArgs{
 //						ResourceArn: testStream.Arn,
 //						RoleArn:     pulumi.Any(test.Arn),
@@ -55,6 +53,13 @@ import (
 //						Count: pulumi.Int(1),
 //					},
 //					Schema: &kinesis.AnalyticsApplicationInputsSchemaArgs{
+//						RecordFormat: &kinesis.AnalyticsApplicationInputsSchemaRecordFormatArgs{
+//							MappingParameters: &kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs{
+//								Json: &kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonArgs{
+//									RecordRowPath: pulumi.String("$"),
+//								},
+//							},
+//						},
 //						RecordColumns: kinesis.AnalyticsApplicationInputsSchemaRecordColumnArray{
 //							&kinesis.AnalyticsApplicationInputsSchemaRecordColumnArgs{
 //								Mapping: pulumi.String("$.test"),
@@ -63,15 +68,10 @@ import (
 //							},
 //						},
 //						RecordEncoding: pulumi.String("UTF-8"),
-//						RecordFormat: &kinesis.AnalyticsApplicationInputsSchemaRecordFormatArgs{
-//							MappingParameters: &kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs{
-//								Json: &kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonArgs{
-//									RecordRowPath: pulumi.String("$"),
-//								},
-//							},
-//						},
 //					},
+//					NamePrefix: pulumi.String("test_prefix"),
 //				},
+//				Name: pulumi.String("kinesis-analytics-application-test"),
 //			})
 //			if err != nil {
 //				return err
@@ -118,37 +118,35 @@ import (
 //				return err
 //			}
 //			exampleFirehoseDeliveryStream, err := kinesis.NewFirehoseDeliveryStream(ctx, "example", &kinesis.FirehoseDeliveryStreamArgs{
-//				Name:        pulumi.String("example-kinesis-delivery-stream"),
-//				Destination: pulumi.String("extended_s3"),
 //				ExtendedS3Configuration: &kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs{
 //					BucketArn: pulumi.Any(exampleAwsS3Bucket.Arn),
 //					RoleArn:   pulumi.Any(exampleAwsIamRole.Arn),
 //				},
+//				Name:        pulumi.String("example-kinesis-delivery-stream"),
+//				Destination: pulumi.String("extended_s3"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = kinesis.NewAnalyticsApplication(ctx, "test", &kinesis.AnalyticsApplicationArgs{
-//				Name: pulumi.String("example-application"),
 //				CloudwatchLoggingOptions: &kinesis.AnalyticsApplicationCloudwatchLoggingOptionsArgs{
 //					LogStreamArn: exampleLogStream.Arn,
 //					RoleArn:      pulumi.Any(exampleAwsIamRole.Arn),
 //				},
 //				Inputs: &kinesis.AnalyticsApplicationInputsArgs{
-//					NamePrefix: pulumi.String("example_prefix"),
 //					Schema: &kinesis.AnalyticsApplicationInputsSchemaArgs{
-//						RecordColumns: kinesis.AnalyticsApplicationInputsSchemaRecordColumnArray{
-//							&kinesis.AnalyticsApplicationInputsSchemaRecordColumnArgs{
-//								Name:    pulumi.String("COLUMN_1"),
-//								SqlType: pulumi.String("INTEGER"),
-//							},
-//						},
 //						RecordFormat: &kinesis.AnalyticsApplicationInputsSchemaRecordFormatArgs{
 //							MappingParameters: &kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs{
 //								Csv: &kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvArgs{
 //									RecordColumnDelimiter: pulumi.String(","),
 //									RecordRowDelimiter:    pulumi.String("|"),
 //								},
+//							},
+//						},
+//						RecordColumns: kinesis.AnalyticsApplicationInputsSchemaRecordColumnArray{
+//							&kinesis.AnalyticsApplicationInputsSchemaRecordColumnArgs{
+//								Name:    pulumi.String("COLUMN_1"),
+//								SqlType: pulumi.String("INTEGER"),
 //							},
 //						},
 //					},
@@ -161,10 +159,10 @@ import (
 //							StartingPosition: pulumi.String("NOW"),
 //						},
 //					},
+//					NamePrefix: pulumi.String("example_prefix"),
 //				},
 //				Outputs: kinesis.AnalyticsApplicationOutputTypeArray{
 //					&kinesis.AnalyticsApplicationOutputTypeArgs{
-//						Name: pulumi.String("OUTPUT_1"),
 //						Schema: &kinesis.AnalyticsApplicationOutputSchemaArgs{
 //							RecordFormatType: pulumi.String("CSV"),
 //						},
@@ -172,8 +170,10 @@ import (
 //							ResourceArn: exampleFirehoseDeliveryStream.Arn,
 //							RoleArn:     pulumi.Any(exampleAwsIamRole.Arn),
 //						},
+//						Name: pulumi.String("OUTPUT_1"),
 //					},
 //				},
+//				Name:             pulumi.String("example-application"),
 //				StartApplication: pulumi.Bool(true),
 //			})
 //			if err != nil {

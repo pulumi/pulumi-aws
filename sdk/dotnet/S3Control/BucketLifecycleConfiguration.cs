@@ -28,7 +28,6 @@ namespace Pulumi.Aws.S3Control
     /// {
     ///     var example = new Aws.S3Control.BucketLifecycleConfiguration("example", new()
     ///     {
-    ///         Bucket = exampleAwsS3controlBucket.Arn,
     ///         Rules = new[]
     ///         {
     ///             new Aws.S3Control.Inputs.BucketLifecycleConfigurationRuleArgs
@@ -56,6 +55,7 @@ namespace Pulumi.Aws.S3Control
     ///                 Id = "temp",
     ///             },
     ///         },
+    ///         Bucket = exampleAwsS3controlBucket.Arn,
     ///     });
     /// 
     /// });

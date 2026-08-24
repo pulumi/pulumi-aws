@@ -223,10 +223,10 @@ class ReplicationConfiguration(pulumi.CustomResource):
 
         example = aws.efs.FileSystem("example")
         example_replication_configuration = aws.efs.ReplicationConfiguration("example",
-            source_file_system_id=example.id,
             destination={
                 "region": "us-west-2",
-            })
+            },
+            source_file_system_id=example.id)
         ```
 
         Replica will be created as One Zone storage in the us-west-2b Availability Zone and encrypted with the specified KMS key.
@@ -237,11 +237,11 @@ class ReplicationConfiguration(pulumi.CustomResource):
 
         example = aws.efs.FileSystem("example")
         example_replication_configuration = aws.efs.ReplicationConfiguration("example",
-            source_file_system_id=example.id,
             destination={
                 "availability_zone_name": "us-west-2b",
                 "kms_key_id": "1234abcd-12ab-34cd-56ef-1234567890ab",
-            })
+            },
+            source_file_system_id=example.id)
         ```
 
         Will create a replica and set the existing file system with id `fs-1234567890` in us-west-2 as destination.
@@ -252,11 +252,11 @@ class ReplicationConfiguration(pulumi.CustomResource):
 
         example = aws.efs.FileSystem("example")
         example_replication_configuration = aws.efs.ReplicationConfiguration("example",
-            source_file_system_id=example.id,
             destination={
                 "file_system_id": "fs-1234567890",
                 "region": "us-west-2",
-            })
+            },
+            source_file_system_id=example.id)
         ```
 
         ## Import
@@ -295,10 +295,10 @@ class ReplicationConfiguration(pulumi.CustomResource):
 
         example = aws.efs.FileSystem("example")
         example_replication_configuration = aws.efs.ReplicationConfiguration("example",
-            source_file_system_id=example.id,
             destination={
                 "region": "us-west-2",
-            })
+            },
+            source_file_system_id=example.id)
         ```
 
         Replica will be created as One Zone storage in the us-west-2b Availability Zone and encrypted with the specified KMS key.
@@ -309,11 +309,11 @@ class ReplicationConfiguration(pulumi.CustomResource):
 
         example = aws.efs.FileSystem("example")
         example_replication_configuration = aws.efs.ReplicationConfiguration("example",
-            source_file_system_id=example.id,
             destination={
                 "availability_zone_name": "us-west-2b",
                 "kms_key_id": "1234abcd-12ab-34cd-56ef-1234567890ab",
-            })
+            },
+            source_file_system_id=example.id)
         ```
 
         Will create a replica and set the existing file system with id `fs-1234567890` in us-west-2 as destination.
@@ -324,11 +324,11 @@ class ReplicationConfiguration(pulumi.CustomResource):
 
         example = aws.efs.FileSystem("example")
         example_replication_configuration = aws.efs.ReplicationConfiguration("example",
-            source_file_system_id=example.id,
             destination={
                 "file_system_id": "fs-1234567890",
                 "region": "us-west-2",
-            })
+            },
+            source_file_system_id=example.id)
         ```
 
         ## Import

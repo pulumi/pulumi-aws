@@ -226,11 +226,11 @@ class ResourcePolicy(pulumi.CustomResource):
         example_workspace = aws.amp.Workspace("example", alias="example-workspace")
         current = aws.get_caller_identity()
         example = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "AWS",
                 "identifiers": [current.account_id],
             }],
+            "effect": "Allow",
             "actions": [
                 "aps:RemoteWrite",
                 "aps:QueryMetrics",
@@ -253,11 +253,11 @@ class ResourcePolicy(pulumi.CustomResource):
 
         example = aws.amp.Workspace("example", alias="example-workspace")
         cross_account = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "AWS",
                 "identifiers": ["arn:aws:iam::123456789012:root"],
             }],
+            "effect": "Allow",
             "actions": [
                 "aps:RemoteWrite",
                 "aps:QueryMetrics",
@@ -277,11 +277,11 @@ class ResourcePolicy(pulumi.CustomResource):
 
         example = aws.amp.Workspace("example", alias="example-workspace")
         service_access = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["grafana.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": [
                 "aps:QueryMetrics",
                 "aps:GetSeries",
@@ -339,11 +339,11 @@ class ResourcePolicy(pulumi.CustomResource):
         example_workspace = aws.amp.Workspace("example", alias="example-workspace")
         current = aws.get_caller_identity()
         example = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "AWS",
                 "identifiers": [current.account_id],
             }],
+            "effect": "Allow",
             "actions": [
                 "aps:RemoteWrite",
                 "aps:QueryMetrics",
@@ -366,11 +366,11 @@ class ResourcePolicy(pulumi.CustomResource):
 
         example = aws.amp.Workspace("example", alias="example-workspace")
         cross_account = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "AWS",
                 "identifiers": ["arn:aws:iam::123456789012:root"],
             }],
+            "effect": "Allow",
             "actions": [
                 "aps:RemoteWrite",
                 "aps:QueryMetrics",
@@ -390,11 +390,11 @@ class ResourcePolicy(pulumi.CustomResource):
 
         example = aws.amp.Workspace("example", alias="example-workspace")
         service_access = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["grafana.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": [
                 "aps:QueryMetrics",
                 "aps:GetSeries",

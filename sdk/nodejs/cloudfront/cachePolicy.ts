@@ -17,31 +17,31 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cloudfront.CachePolicy("example", {
+ *     parametersInCacheKeyAndForwardedToOrigin: {
+ *         cookiesConfig: {
+ *             cookies: {
+ *                 items: ["example"],
+ *             },
+ *             cookieBehavior: "whitelist",
+ *         },
+ *         headersConfig: {
+ *             headers: {
+ *                 items: ["example"],
+ *             },
+ *             headerBehavior: "whitelist",
+ *         },
+ *         queryStringsConfig: {
+ *             queryStrings: {
+ *                 items: ["example"],
+ *             },
+ *             queryStringBehavior: "whitelist",
+ *         },
+ *     },
  *     name: "example-policy",
  *     comment: "test comment",
  *     defaultTtl: 50,
  *     maxTtl: 100,
  *     minTtl: 1,
- *     parametersInCacheKeyAndForwardedToOrigin: {
- *         cookiesConfig: {
- *             cookieBehavior: "whitelist",
- *             cookies: {
- *                 items: ["example"],
- *             },
- *         },
- *         headersConfig: {
- *             headerBehavior: "whitelist",
- *             headers: {
- *                 items: ["example"],
- *             },
- *         },
- *         queryStringsConfig: {
- *             queryStringBehavior: "whitelist",
- *             queryStrings: {
- *                 items: ["example"],
- *             },
- *         },
- *     },
  * });
  * ```
  *

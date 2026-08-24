@@ -19,17 +19,17 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sagemaker.FeatureGroup("example", {
- *     featureGroupName: "example",
- *     recordIdentifierFeatureName: "example",
- *     eventTimeFeatureName: "example",
- *     roleArn: test.arn,
+ *     onlineStoreConfig: {
+ *         enableOnlineStore: true,
+ *     },
  *     featureDefinitions: [{
  *         featureName: "example",
  *         featureType: "String",
  *     }],
- *     onlineStoreConfig: {
- *         enableOnlineStore: true,
- *     },
+ *     featureGroupName: "example",
+ *     recordIdentifierFeatureName: "example",
+ *     eventTimeFeatureName: "example",
+ *     roleArn: test.arn,
  * });
  * ```
  *

@@ -191,21 +191,21 @@ def get_control(name: Optional[_builtins.str] = None,
     example2 = aws.auditmanager.get_control(name="2. Personnel",
         type="Standard")
     example_framework = aws.auditmanager.Framework("example",
-        name="example",
         control_sets=[
             {
-                "name": "example",
                 "controls": [{
                     "id": example.id,
                 }],
+                "name": "example",
             },
             {
-                "name": "example2",
                 "controls": [{
                     "id": example2.id,
                 }],
+                "name": "example2",
             },
-        ])
+        ],
+        name="example")
     ```
 
 
@@ -262,21 +262,21 @@ def get_control_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     example2 = aws.auditmanager.get_control(name="2. Personnel",
         type="Standard")
     example_framework = aws.auditmanager.Framework("example",
-        name="example",
         control_sets=[
             {
-                "name": "example",
                 "controls": [{
                     "id": example.id,
                 }],
+                "name": "example",
             },
             {
-                "name": "example2",
                 "controls": [{
                     "id": example2.id,
                 }],
+                "name": "example2",
             },
-        ])
+        ],
+        name="example")
     ```
 
 

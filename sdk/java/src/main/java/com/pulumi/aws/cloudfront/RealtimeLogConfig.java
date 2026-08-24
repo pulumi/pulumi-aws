@@ -58,11 +58,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("cloudfront.amazonaws.com")
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
@@ -91,18 +91,18 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRealtimeLogConfig = new RealtimeLogConfig("exampleRealtimeLogConfig", RealtimeLogConfigArgs.builder()
+ *             .endpoint(RealtimeLogConfigEndpointArgs.builder()
+ *                 .kinesisStreamConfig(RealtimeLogConfigEndpointKinesisStreamConfigArgs.builder()
+ *                     .roleArn(exampleRole.arn())
+ *                     .streamArn(exampleAwsKinesisStream.arn())
+ *                     .build())
+ *                 .streamType("Kinesis")
+ *                 .build())
  *             .name("example")
  *             .samplingRate(75)
  *             .fields(            
  *                 "timestamp",
  *                 "c-ip")
- *             .endpoint(RealtimeLogConfigEndpointArgs.builder()
- *                 .streamType("Kinesis")
- *                 .kinesisStreamConfig(RealtimeLogConfigEndpointKinesisStreamConfigArgs.builder()
- *                     .roleArn(exampleRole.arn())
- *                     .streamArn(exampleAwsKinesisStream.arn())
- *                     .build())
- *                 .build())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleRolePolicy)
  *                 .build());
@@ -159,6 +159,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRealtimeLogConfig = new RealtimeLogConfig("exampleRealtimeLogConfig", RealtimeLogConfigArgs.builder()
+ *             .endpoint(RealtimeLogConfigEndpointArgs.builder()
+ *                 .kinesisStreamConfig(RealtimeLogConfigEndpointKinesisStreamConfigArgs.builder()
+ *                     .roleArn(exampleAwsIamRole.arn())
+ *                     .streamArn(exampleAwsKinesisStream.arn())
+ *                     .build())
+ *                 .streamType("Kinesis")
+ *                 .build())
  *             .name("example")
  *             .samplingRate(100)
  *             .fields(            
@@ -167,13 +174,6 @@ import javax.annotation.Nullable;
  *                 "sc-status",
  *                 "viewer-request-log-data",
  *                 "viewer-response-log-data")
- *             .endpoint(RealtimeLogConfigEndpointArgs.builder()
- *                 .streamType("Kinesis")
- *                 .kinesisStreamConfig(RealtimeLogConfigEndpointKinesisStreamConfigArgs.builder()
- *                     .roleArn(exampleAwsIamRole.arn())
- *                     .streamArn(exampleAwsKinesisStream.arn())
- *                     .build())
- *                 .build())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAwsIamRolePolicy)
  *                 .build());

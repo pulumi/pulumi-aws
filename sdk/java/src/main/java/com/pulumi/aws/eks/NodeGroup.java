@@ -57,10 +57,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new NodeGroup("example", NodeGroupArgs.builder()
- *             .clusterName(exampleAwsEksCluster.name())
- *             .nodeGroupName("example")
- *             .nodeRoleArn(exampleAwsIamRole.arn())
- *             .subnetIds(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
  *             .scalingConfig(NodeGroupScalingConfigArgs.builder()
  *                 .desiredSize(1)
  *                 .maxSize(2)
@@ -69,6 +65,10 @@ import javax.annotation.Nullable;
  *             .updateConfig(NodeGroupUpdateConfigArgs.builder()
  *                 .maxUnavailable(1)
  *                 .build())
+ *             .clusterName(exampleAwsEksCluster.name())
+ *             .nodeGroupName("example")
+ *             .nodeRoleArn(exampleAwsIamRole.arn())
+ *             .subnetIds(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
  *                     example_AmazonEKSWorkerNodePolicy,
@@ -95,6 +95,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.eks.NodeGroup;
  * import com.pulumi.aws.eks.NodeGroupArgs;
  * import com.pulumi.aws.eks.inputs.NodeGroupScalingConfigArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -112,6 +113,54 @@ import javax.annotation.Nullable;
  *             .scalingConfig(NodeGroupScalingConfigArgs.builder()
  *                 .desiredSize(2)
  *                 .build())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .ignoreChanges("scalingConfig.desiredSize")
+ *                 .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Tracking the latest EKS Node Group AMI releases
+ * 
+ * You can have the node group track the latest version of the Amazon EKS optimized Amazon Linux AMI for a given EKS version by querying an Amazon provided SSM parameter. Replace `standard` in the parameter name below with `nvidia` to retrieve the accelerated AMI version. Replace `x8664` in the parameter name below with `arm64` to retrieve the ARM version.
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ssm.SsmFunctions;
+ * import com.pulumi.aws.ssm.inputs.GetParameterArgs;
+ * import com.pulumi.aws.eks.NodeGroup;
+ * import com.pulumi.aws.eks.NodeGroupArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var eksAmiReleaseVersion = SsmFunctions.getParameter(GetParameterArgs.builder()
+ *             .name(String.format("/aws/service/eks/optimized-ami/%s/amazon-linux-2023/x86_64/standard/recommended/release_version", exampleAwsEksCluster.version()))
+ *             .build());
+ * 
+ *         var example = new NodeGroup("example", NodeGroupArgs.builder()
+ *             .clusterName(exampleAwsEksCluster.name())
+ *             .nodeGroupName("example")
+ *             .version(exampleAwsEksCluster.version())
+ *             .releaseVersion(eksAmiReleaseVersion.value().asPlaintext())
+ *             .nodeRoleArn(exampleAwsIamRole.arn())
+ *             .subnetIds(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
  *             .build());
  * 
  *     }

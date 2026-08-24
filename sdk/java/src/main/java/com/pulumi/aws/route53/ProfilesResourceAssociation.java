@@ -60,10 +60,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()
- *             .name("example.com")
  *             .vpcs(ZoneVpcArgs.builder()
  *                 .vpcId(exampleVpc.id())
  *                 .build())
+ *             .name("example.com")
  *             .build());
  * 
  *         var exampleProfilesResourceAssociation = new ProfilesResourceAssociation("exampleProfilesResourceAssociation", ProfilesResourceAssociationArgs.builder()

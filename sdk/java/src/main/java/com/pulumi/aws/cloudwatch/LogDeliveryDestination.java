@@ -47,10 +47,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new LogDeliveryDestination("example", LogDeliveryDestinationArgs.builder()
- *             .name("example")
  *             .deliveryDestinationConfiguration(LogDeliveryDestinationDeliveryDestinationConfigurationArgs.builder()
  *                 .destinationResourceArn(exampleAwsCloudwatchLogGroup.arn())
  *                 .build())
+ *             .name("example")
  *             .build());
  * 
  *     }

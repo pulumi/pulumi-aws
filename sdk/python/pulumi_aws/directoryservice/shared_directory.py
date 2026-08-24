@@ -240,20 +240,20 @@ class SharedDirectory(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.directoryservice.Directory("example",
-            name="tf-example",
-            password="SuperSecretPassw0rd",
-            type="MicrosoftAD",
-            edition="Standard",
             vpc_settings={
                 "vpc_id": example_aws_vpc["id"],
                 "subnet_ids": [__item["id"] for __item in example_aws_subnet],
-            })
+            },
+            name="tf-example",
+            password="SuperSecretPassw0rd",
+            type="MicrosoftAD",
+            edition="Standard")
         example_shared_directory = aws.directoryservice.SharedDirectory("example",
-            directory_id=example.id,
-            notes="You wanna have a catch?",
             target={
                 "id": receiver["accountId"],
-            })
+            },
+            directory_id=example.id,
+            notes="You wanna have a catch?")
         ```
 
         ## Import
@@ -291,20 +291,20 @@ class SharedDirectory(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.directoryservice.Directory("example",
-            name="tf-example",
-            password="SuperSecretPassw0rd",
-            type="MicrosoftAD",
-            edition="Standard",
             vpc_settings={
                 "vpc_id": example_aws_vpc["id"],
                 "subnet_ids": [__item["id"] for __item in example_aws_subnet],
-            })
+            },
+            name="tf-example",
+            password="SuperSecretPassw0rd",
+            type="MicrosoftAD",
+            edition="Standard")
         example_shared_directory = aws.directoryservice.SharedDirectory("example",
-            directory_id=example.id,
-            notes="You wanna have a catch?",
             target={
                 "id": receiver["accountId"],
-            })
+            },
+            directory_id=example.id,
+            notes="You wanna have a catch?")
         ```
 
         ## Import

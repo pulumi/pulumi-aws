@@ -71,12 +71,12 @@ import (
 //				return err
 //			}
 //			_, err = ssoadmin.NewCustomerManagedPolicyAttachment(ctx, "example", &ssoadmin.CustomerManagedPolicyAttachmentArgs{
-//				InstanceArn:      examplePermissionSet.InstanceArn,
-//				PermissionSetArn: examplePermissionSet.Arn,
 //				CustomerManagedPolicyReference: &ssoadmin.CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs{
 //					Name: examplePolicy.Name,
 //					Path: pulumi.String("/"),
 //				},
+//				InstanceArn:      examplePermissionSet.InstanceArn,
+//				PermissionSetArn: examplePermissionSet.Arn,
 //			})
 //			if err != nil {
 //				return err

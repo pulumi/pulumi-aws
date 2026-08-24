@@ -27,7 +27,6 @@ namespace Pulumi.Aws.EcrPublic
     /// {
     ///     var foo = new Aws.EcrPublic.Repository("foo", new()
     ///     {
-    ///         RepositoryName = "bar",
     ///         CatalogData = new Aws.EcrPublic.Inputs.RepositoryCatalogDataArgs
     ///         {
     ///             AboutText = "About Text",
@@ -46,6 +45,7 @@ namespace Pulumi.Aws.EcrPublic
     ///             },
     ///             UsageText = "Usage Text",
     ///         },
+    ///         RepositoryName = "bar",
     ///         Tags = 
     ///         {
     ///             { "env", "production" },

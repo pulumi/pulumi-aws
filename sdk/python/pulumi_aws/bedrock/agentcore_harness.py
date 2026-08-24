@@ -760,12 +760,12 @@ class AgentcoreHarness(pulumi.CustomResource):
         import pulumi_aws as aws
 
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["bedrock-agentcore.amazonaws.com"],
             }],
+            "effect": "Allow",
+            "actions": ["sts:AssumeRole"],
         }])
         example = aws.iam.Role("example",
             name="bedrock-agentcore-harness-role",
@@ -784,8 +784,6 @@ class AgentcoreHarness(pulumi.CustomResource):
                 }],
             }))
         example_agentcore_harness = aws.bedrock.AgentcoreHarness("example",
-            harness_name="example_harness",
-            execution_role_arn=example.arn,
             model={
                 "bedrock_model_config": {
                     "model_id": "anthropic.claude-sonnet-4-20250514",
@@ -793,7 +791,9 @@ class AgentcoreHarness(pulumi.CustomResource):
             },
             system_prompts=[{
                 "text": "You are a helpful assistant.",
-            }])
+            }],
+            harness_name="example_harness",
+            execution_role_arn=example.arn)
         ```
 
         ### With Tools and Truncation
@@ -804,8 +804,6 @@ class AgentcoreHarness(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentcoreHarness("example",
-            harness_name="example_with_tools",
-            execution_role_arn=example_aws_iam_role["arn"],
             model={
                 "bedrock_model_config": {
                     "model_id": "anthropic.claude-sonnet-4-20250514",
@@ -816,13 +814,7 @@ class AgentcoreHarness(pulumi.CustomResource):
             system_prompts=[{
                 "text": "You are a coding assistant.",
             }],
-            allowed_tools=["*"],
-            max_iterations=10,
-            max_tokens=4096,
-            timeout_seconds=300,
             tools=[{
-                "type": "inline_function",
-                "name": "get_weather",
                 "config": {
                     "inline_function": {
                         "description": "Get the current weather for a location",
@@ -838,15 +830,23 @@ class AgentcoreHarness(pulumi.CustomResource):
                         }),
                     },
                 },
+                "type": "inline_function",
+                "name": "get_weather",
             }],
             truncations=[{
-                "strategy": "sliding_window",
                 "config": [{
                     "slidingWindow": [{
                         "messagesCount": 50,
                     }],
                 }],
-            }])
+                "strategy": "sliding_window",
+            }],
+            harness_name="example_with_tools",
+            execution_role_arn=example_aws_iam_role["arn"],
+            allowed_tools=["*"],
+            max_iterations=10,
+            max_tokens=4096,
+            timeout_seconds=300)
         ```
 
         ### With Managed Memory
@@ -856,16 +856,11 @@ class AgentcoreHarness(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentcoreHarness("example",
-            harness_name="my_harness",
-            execution_role_arn=example_aws_iam_role["arn"],
             model={
                 "bedrock_model_config": {
                     "model_id": "anthropic.claude-sonnet-4-20250514",
                 },
             },
-            system_prompts=[{
-                "text": "You are a helpful assistant.",
-            }],
             memory={
                 "managed_memory_configuration": {
                     "event_expiry_duration": 14,
@@ -874,7 +869,12 @@ class AgentcoreHarness(pulumi.CustomResource):
                         "SUMMARIZATION",
                     ],
                 },
-            })
+            },
+            system_prompts=[{
+                "text": "You are a helpful assistant.",
+            }],
+            harness_name="my_harness",
+            execution_role_arn=example_aws_iam_role["arn"])
         ```
 
         ## Import
@@ -939,12 +939,12 @@ class AgentcoreHarness(pulumi.CustomResource):
         import pulumi_aws as aws
 
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["bedrock-agentcore.amazonaws.com"],
             }],
+            "effect": "Allow",
+            "actions": ["sts:AssumeRole"],
         }])
         example = aws.iam.Role("example",
             name="bedrock-agentcore-harness-role",
@@ -963,8 +963,6 @@ class AgentcoreHarness(pulumi.CustomResource):
                 }],
             }))
         example_agentcore_harness = aws.bedrock.AgentcoreHarness("example",
-            harness_name="example_harness",
-            execution_role_arn=example.arn,
             model={
                 "bedrock_model_config": {
                     "model_id": "anthropic.claude-sonnet-4-20250514",
@@ -972,7 +970,9 @@ class AgentcoreHarness(pulumi.CustomResource):
             },
             system_prompts=[{
                 "text": "You are a helpful assistant.",
-            }])
+            }],
+            harness_name="example_harness",
+            execution_role_arn=example.arn)
         ```
 
         ### With Tools and Truncation
@@ -983,8 +983,6 @@ class AgentcoreHarness(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentcoreHarness("example",
-            harness_name="example_with_tools",
-            execution_role_arn=example_aws_iam_role["arn"],
             model={
                 "bedrock_model_config": {
                     "model_id": "anthropic.claude-sonnet-4-20250514",
@@ -995,13 +993,7 @@ class AgentcoreHarness(pulumi.CustomResource):
             system_prompts=[{
                 "text": "You are a coding assistant.",
             }],
-            allowed_tools=["*"],
-            max_iterations=10,
-            max_tokens=4096,
-            timeout_seconds=300,
             tools=[{
-                "type": "inline_function",
-                "name": "get_weather",
                 "config": {
                     "inline_function": {
                         "description": "Get the current weather for a location",
@@ -1017,15 +1009,23 @@ class AgentcoreHarness(pulumi.CustomResource):
                         }),
                     },
                 },
+                "type": "inline_function",
+                "name": "get_weather",
             }],
             truncations=[{
-                "strategy": "sliding_window",
                 "config": [{
                     "slidingWindow": [{
                         "messagesCount": 50,
                     }],
                 }],
-            }])
+                "strategy": "sliding_window",
+            }],
+            harness_name="example_with_tools",
+            execution_role_arn=example_aws_iam_role["arn"],
+            allowed_tools=["*"],
+            max_iterations=10,
+            max_tokens=4096,
+            timeout_seconds=300)
         ```
 
         ### With Managed Memory
@@ -1035,16 +1035,11 @@ class AgentcoreHarness(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentcoreHarness("example",
-            harness_name="my_harness",
-            execution_role_arn=example_aws_iam_role["arn"],
             model={
                 "bedrock_model_config": {
                     "model_id": "anthropic.claude-sonnet-4-20250514",
                 },
             },
-            system_prompts=[{
-                "text": "You are a helpful assistant.",
-            }],
             memory={
                 "managed_memory_configuration": {
                     "event_expiry_duration": 14,
@@ -1053,7 +1048,12 @@ class AgentcoreHarness(pulumi.CustomResource):
                         "SUMMARIZATION",
                     ],
                 },
-            })
+            },
+            system_prompts=[{
+                "text": "You are a helpful assistant.",
+            }],
+            harness_name="my_harness",
+            execution_role_arn=example_aws_iam_role["arn"])
         ```
 
         ## Import

@@ -48,7 +48,6 @@ namespace Pulumi.Aws.Efs
     /// {
     ///     var fooWithLifecylePolicy = new Aws.Efs.FileSystem("foo_with_lifecyle_policy", new()
     ///     {
-    ///         CreationToken = "my-product",
     ///         LifecyclePolicies = new[]
     ///         {
     ///             new Aws.Efs.Inputs.FileSystemLifecyclePolicyArgs
@@ -56,6 +55,7 @@ namespace Pulumi.Aws.Efs
     ///                 TransitionToIa = "AFTER_30_DAYS",
     ///             },
     ///         },
+    ///         CreationToken = "my-product",
     ///     });
     /// 
     /// });

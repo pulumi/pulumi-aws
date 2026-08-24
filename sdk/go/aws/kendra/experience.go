@@ -31,10 +31,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kendra.NewExperience(ctx, "example", &kendra.ExperienceArgs{
-//				IndexId:     pulumi.Any(exampleAwsKendraIndex.Id),
-//				Description: pulumi.String("My Kendra Experience"),
-//				Name:        pulumi.String("example"),
-//				RoleArn:     pulumi.Any(exampleAwsIamRole.Arn),
 //				Configuration: &kendra.ExperienceConfigurationArgs{
 //					ContentSourceConfiguration: &kendra.ExperienceConfigurationContentSourceConfigurationArgs{
 //						DirectPutContent: pulumi.Bool(true),
@@ -46,6 +42,10 @@ import (
 //						IdentityAttributeName: pulumi.String("12345ec453-1546651e-79c4-4554-91fa-00b43ccfa245"),
 //					},
 //				},
+//				IndexId:     pulumi.Any(exampleAwsKendraIndex.Id),
+//				Description: pulumi.String("My Kendra Experience"),
+//				Name:        pulumi.String("example"),
+//				RoleArn:     pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err

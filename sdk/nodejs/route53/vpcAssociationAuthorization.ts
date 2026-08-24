@@ -19,10 +19,12 @@ import * as utilities from "../utilities";
  *     enableDnsSupport: true,
  * });
  * const exampleZone = new aws.route53.Zone("example", {
- *     name: "example.com",
  *     vpcs: [{
  *         vpcId: example.id,
  *     }],
+ *     name: "example.com",
+ * }, {
+ *     ignoreChanges: ["vpcs"],
  * });
  * const alternate = new aws.ec2.Vpc("alternate", {
  *     cidrBlock: "10.7.0.0/16",

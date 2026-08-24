@@ -25,11 +25,11 @@ import * as utilities from "../utilities";
  *     featureSet: "ALL",
  * });
  * const example = new aws.cfg.OrganizationConformancePack("example", {
- *     name: "example",
  *     inputParameters: [{
  *         parameterName: "AccessKeysRotatedParameterMaxAccessKeyAge",
  *         parameterValue: "90",
  *     }],
+ *     name: "example",
  *     templateBody: `Parameters:
  *   AccessKeysRotatedParameterMaxAccessKeyAge:
  *     Type: String

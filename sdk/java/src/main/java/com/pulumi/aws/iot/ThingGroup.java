@@ -53,8 +53,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new ThingGroup("example", ThingGroupArgs.builder()
- *             .name("example")
- *             .parentGroupName(parent.name())
  *             .properties(ThingGroupPropertiesArgs.builder()
  *                 .attributePayload(ThingGroupPropertiesAttributePayloadArgs.builder()
  *                     .attributes(Map.ofEntries(
@@ -64,6 +62,8 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .description("This is my thing group")
  *                 .build())
+ *             .name("example")
+ *             .parentGroupName(parent.name())
  *             .tags(Map.of("managed", "true"))
  *             .build());
  * 

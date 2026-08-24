@@ -525,11 +525,11 @@ class ContainerService(pulumi.CustomResource):
             },
         })
         example = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "AWS",
                 "identifiers": [example_container_service.private_registry_access.ecr_image_puller_role.principal_arn],
             }],
+            "effect": "Allow",
             "actions": [
                 "ecr:BatchGetImage",
                 "ecr:GetDownloadUrlForLayer",
@@ -620,11 +620,11 @@ class ContainerService(pulumi.CustomResource):
             },
         })
         example = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "AWS",
                 "identifiers": [example_container_service.private_registry_access.ecr_image_puller_role.principal_arn],
             }],
+            "effect": "Allow",
             "actions": [
                 "ecr:BatchGetImage",
                 "ecr:GetDownloadUrlForLayer",

@@ -548,18 +548,18 @@ class Dashboard(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.Dashboard("example",
-            dashboard_id="example-id",
-            name="example-name",
-            version_description="version",
             source_entity={
                 "source_template": {
-                    "arn": source["arn"],
                     "data_set_references": [{
                         "data_set_arn": dataset["arn"],
                         "data_set_placeholder": "1",
                     }],
+                    "arn": source["arn"],
                 },
-            })
+            },
+            dashboard_id="example-id",
+            name="example-name",
+            version_description="version")
         ```
 
         ### With Definition
@@ -569,20 +569,14 @@ class Dashboard(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.Dashboard("example",
-            dashboard_id="example-id",
-            name="example-name",
-            version_description="version",
             definition={
                 "dataSetIdentifiersDeclarations": [{
                     "dataSetArn": dataset["arn"],
                     "identifier": "1",
                 }],
                 "sheets": [{
-                    "title": "Example",
-                    "sheetId": "Example1",
                     "visuals": [{
                         "lineChartVisual": {
-                            "visualId": "LineChart",
                             "title": {
                                 "formatText": {
                                     "plainText": "Line Chart Example",
@@ -593,30 +587,36 @@ class Dashboard(pulumi.CustomResource):
                                     "lineChartAggregatedFieldWells": {
                                         "categories": [{
                                             "categoricalDimensionField": {
-                                                "fieldId": "1",
                                                 "column": {
                                                     "dataSetIdentifier": "1",
                                                     "columnName": "Column1",
                                                 },
+                                                "fieldId": "1",
                                             },
                                         }],
                                         "values": [{
                                             "categoricalMeasureField": {
-                                                "fieldId": "2",
                                                 "column": {
                                                     "dataSetIdentifier": "1",
                                                     "columnName": "Column1",
                                                 },
+                                                "fieldId": "2",
                                                 "aggregationFunction": "COUNT",
                                             },
                                         }],
                                     },
                                 },
                             },
+                            "visualId": "LineChart",
                         },
                     }],
+                    "title": "Example",
+                    "sheetId": "Example1",
                 }],
-            })
+            },
+            dashboard_id="example-id",
+            name="example-name",
+            version_description="version")
         ```
 
         ## Import
@@ -662,18 +662,18 @@ class Dashboard(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.Dashboard("example",
-            dashboard_id="example-id",
-            name="example-name",
-            version_description="version",
             source_entity={
                 "source_template": {
-                    "arn": source["arn"],
                     "data_set_references": [{
                         "data_set_arn": dataset["arn"],
                         "data_set_placeholder": "1",
                     }],
+                    "arn": source["arn"],
                 },
-            })
+            },
+            dashboard_id="example-id",
+            name="example-name",
+            version_description="version")
         ```
 
         ### With Definition
@@ -683,20 +683,14 @@ class Dashboard(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.Dashboard("example",
-            dashboard_id="example-id",
-            name="example-name",
-            version_description="version",
             definition={
                 "dataSetIdentifiersDeclarations": [{
                     "dataSetArn": dataset["arn"],
                     "identifier": "1",
                 }],
                 "sheets": [{
-                    "title": "Example",
-                    "sheetId": "Example1",
                     "visuals": [{
                         "lineChartVisual": {
-                            "visualId": "LineChart",
                             "title": {
                                 "formatText": {
                                     "plainText": "Line Chart Example",
@@ -707,30 +701,36 @@ class Dashboard(pulumi.CustomResource):
                                     "lineChartAggregatedFieldWells": {
                                         "categories": [{
                                             "categoricalDimensionField": {
-                                                "fieldId": "1",
                                                 "column": {
                                                     "dataSetIdentifier": "1",
                                                     "columnName": "Column1",
                                                 },
+                                                "fieldId": "1",
                                             },
                                         }],
                                         "values": [{
                                             "categoricalMeasureField": {
-                                                "fieldId": "2",
                                                 "column": {
                                                     "dataSetIdentifier": "1",
                                                     "columnName": "Column1",
                                                 },
+                                                "fieldId": "2",
                                                 "aggregationFunction": "COUNT",
                                             },
                                         }],
                                     },
                                 },
                             },
+                            "visualId": "LineChart",
                         },
                     }],
+                    "title": "Example",
+                    "sheetId": "Example1",
                 }],
-            })
+            },
+            dashboard_id="example-id",
+            name="example-name",
+            version_description="version")
         ```
 
         ## Import

@@ -249,9 +249,7 @@ class StorageLensConfiguration(pulumi.CustomResource):
 
         current = aws.get_caller_identity()
         example = aws.s3control.StorageLensConfiguration("example",
-            config_id="example-1",
             storage_lens_configuration={
-                "enabled": True,
                 "account_level": {
                     "activity_metrics": {
                         "enabled": True,
@@ -267,13 +265,13 @@ class StorageLensConfiguration(pulumi.CustomResource):
                         "enabled": True,
                     },
                     "s3_bucket_destination": {
+                        "encryption": {
+                            "sse_s3s": [{}],
+                        },
                         "account_id": current.account_id,
                         "arn": target["arn"],
                         "format": "CSV",
                         "output_schema_version": "V_1",
-                        "encryption": {
-                            "sse_s3s": [{}],
-                        },
                     },
                 },
                 "exclude": {
@@ -283,7 +281,9 @@ class StorageLensConfiguration(pulumi.CustomResource):
                     ],
                     "regions": ["us-east-2"],
                 },
-            })
+                "enabled": True,
+            },
+            config_id="example-1")
         ```
 
         ## Import
@@ -320,9 +320,7 @@ class StorageLensConfiguration(pulumi.CustomResource):
 
         current = aws.get_caller_identity()
         example = aws.s3control.StorageLensConfiguration("example",
-            config_id="example-1",
             storage_lens_configuration={
-                "enabled": True,
                 "account_level": {
                     "activity_metrics": {
                         "enabled": True,
@@ -338,13 +336,13 @@ class StorageLensConfiguration(pulumi.CustomResource):
                         "enabled": True,
                     },
                     "s3_bucket_destination": {
+                        "encryption": {
+                            "sse_s3s": [{}],
+                        },
                         "account_id": current.account_id,
                         "arn": target["arn"],
                         "format": "CSV",
                         "output_schema_version": "V_1",
-                        "encryption": {
-                            "sse_s3s": [{}],
-                        },
                     },
                 },
                 "exclude": {
@@ -354,7 +352,9 @@ class StorageLensConfiguration(pulumi.CustomResource):
                     ],
                     "regions": ["us-east-2"],
                 },
-            })
+                "enabled": True,
+            },
+            config_id="example-1")
         ```
 
         ## Import

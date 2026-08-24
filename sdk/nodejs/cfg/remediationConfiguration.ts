@@ -21,18 +21,19 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const _this = new aws.cfg.Rule("this", {
- *     name: "example",
  *     source: {
  *         owner: "AWS",
  *         sourceIdentifier: "S3_BUCKET_VERSIONING_ENABLED",
  *     },
+ *     name: "example",
  * });
  * const thisRemediationConfiguration = new aws.cfg.RemediationConfiguration("this", {
- *     configRuleName: _this.name,
- *     resourceType: "AWS::S3::Bucket",
- *     targetType: "SSM_DOCUMENT",
- *     targetId: "AWS-EnableS3BucketEncryption",
- *     targetVersion: "1",
+ *     executionControls: {
+ *         ssmControls: {
+ *             concurrentExecutionRatePercentage: 25,
+ *             errorPercentage: 20,
+ *         },
+ *     },
  *     parameters: [
  *         {
  *             name: "AutomationAssumeRole",
@@ -47,15 +48,14 @@ import * as utilities from "../utilities";
  *             staticValue: "AES256",
  *         },
  *     ],
+ *     configRuleName: _this.name,
+ *     resourceType: "AWS::S3::Bucket",
+ *     targetType: "SSM_DOCUMENT",
+ *     targetId: "AWS-EnableS3BucketEncryption",
+ *     targetVersion: "1",
  *     automatic: true,
  *     maximumAutomaticAttempts: 10,
  *     retryAttemptSeconds: 600,
- *     executionControls: {
- *         ssmControls: {
- *             concurrentExecutionRatePercentage: 25,
- *             errorPercentage: 20,
- *         },
- *     },
  * });
  * ```
  *

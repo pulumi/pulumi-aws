@@ -57,13 +57,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ProvisionedProduct("example", ProvisionedProductArgs.builder()
- *             .name("example")
- *             .productName("Example product")
- *             .provisioningArtifactName("Example version")
  *             .provisioningParameters(ProvisionedProductProvisioningParameterArgs.builder()
  *                 .key("foo")
  *                 .value("bar")
  *                 .build())
+ *             .name("example")
+ *             .productName("Example product")
+ *             .provisioningArtifactName("Example version")
  *             .tags(Map.of("foo", "bar"))
  *             .build());
  * 

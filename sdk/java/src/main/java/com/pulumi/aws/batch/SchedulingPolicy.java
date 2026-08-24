@@ -46,10 +46,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new SchedulingPolicy("example", SchedulingPolicyArgs.builder()
- *             .name("example")
  *             .fairSharePolicy(SchedulingPolicyFairSharePolicyArgs.builder()
- *                 .computeReservation(1)
- *                 .shareDecaySeconds(3600)
  *                 .shareDistributions(                
  *                     SchedulingPolicyFairSharePolicyShareDistributionArgs.builder()
  *                         .shareIdentifier("A1*")
@@ -59,7 +56,10 @@ import javax.annotation.Nullable;
  *                         .shareIdentifier("A2")
  *                         .weightFactor(0.2)
  *                         .build())
+ *                 .computeReservation(1)
+ *                 .shareDecaySeconds(3600)
  *                 .build())
+ *             .name("example")
  *             .tags(Map.of("Name", "Example Batch Scheduling Policy"))
  *             .build());
  * 

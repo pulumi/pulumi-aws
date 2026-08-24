@@ -28,10 +28,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ebs.LookupSnapshot(ctx, &ebs.LookupSnapshotArgs{
-//				MostRecent: pulumi.BoolRef(true),
-//				Owners: []string{
-//					"self",
-//				},
 //				Filters: []ebs.GetSnapshotFilter{
 //					{
 //						Name: "volume-size",
@@ -45,6 +41,10 @@ import (
 //							"Example",
 //						},
 //					},
+//				},
+//				MostRecent: pulumi.BoolRef(true),
+//				Owners: []string{
+//					"self",
 //				},
 //			}, nil)
 //			if err != nil {

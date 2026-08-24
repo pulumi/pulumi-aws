@@ -33,8 +33,6 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.s3.Bucket("example", {bucket: "example"});
  * const example_filtered = new aws.s3.BucketMetric("example-filtered", {
- *     bucket: example.id,
- *     name: "ImportantBlueDocuments",
  *     filter: {
  *         prefix: "documents/",
  *         tags: {
@@ -42,6 +40,8 @@ import * as utilities from "../utilities";
  *             "class": "blue",
  *         },
  *     },
+ *     bucket: example.id,
+ *     name: "ImportantBlueDocuments",
  * });
  * ```
  *
@@ -57,8 +57,6 @@ import * as utilities from "../utilities";
  *     name: "example-access-point",
  * });
  * const example_filtered = new aws.s3.BucketMetric("example-filtered", {
- *     bucket: example.id,
- *     name: "ImportantBlueDocuments",
  *     filter: {
  *         accessPoint: example_access_point.arn,
  *         tags: {
@@ -66,6 +64,8 @@ import * as utilities from "../utilities";
  *             "class": "blue",
  *         },
  *     },
+ *     bucket: example.id,
+ *     name: "ImportantBlueDocuments",
  * });
  * ```
  *
@@ -79,22 +79,22 @@ import * as utilities from "../utilities";
  *     state: "available",
  * });
  * const example = new aws.s3.DirectoryBucket("example", {
- *     bucket: "example--zoneId--x-s3",
  *     location: {
  *         name: available.then(available => available.zoneIds?.[0]),
  *     },
+ *     bucket: "example--zoneId--x-s3",
  * });
  * const example_access_point = new aws.s3.AccessPoint("example-access-point", {
  *     bucket: example.id,
  *     name: "example--zoneId--xa-s3",
  * });
  * const example_bucket_metric = new aws.s3.BucketMetric("example-bucket-metric", {
- *     bucket: example.id,
- *     name: "ExampleBucketMetricForDirectoryBuckets",
  *     filter: {
  *         accessPoint: example_access_point.arn,
  *         prefix: "documents/",
  *     },
+ *     bucket: example.id,
+ *     name: "ExampleBucketMetricForDirectoryBuckets",
  * });
  * ```
  *

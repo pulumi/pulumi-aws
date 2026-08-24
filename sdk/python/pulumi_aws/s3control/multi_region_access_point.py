@@ -239,7 +239,6 @@ class MultiRegionAccessPoint(pulumi.CustomResource):
         foo_bucket = aws.s3.Bucket("foo_bucket", bucket="example-bucket-foo")
         bar_bucket = aws.s3.Bucket("bar_bucket", bucket="example-bucket-bar")
         example = aws.s3control.MultiRegionAccessPoint("example", details={
-            "name": "example",
             "regions": [
                 {
                     "bucket": foo_bucket.id,
@@ -248,6 +247,7 @@ class MultiRegionAccessPoint(pulumi.CustomResource):
                     "bucket": bar_bucket.id,
                 },
             ],
+            "name": "example",
         })
         ```
 
@@ -301,7 +301,6 @@ class MultiRegionAccessPoint(pulumi.CustomResource):
         foo_bucket = aws.s3.Bucket("foo_bucket", bucket="example-bucket-foo")
         bar_bucket = aws.s3.Bucket("bar_bucket", bucket="example-bucket-bar")
         example = aws.s3control.MultiRegionAccessPoint("example", details={
-            "name": "example",
             "regions": [
                 {
                     "bucket": foo_bucket.id,
@@ -310,6 +309,7 @@ class MultiRegionAccessPoint(pulumi.CustomResource):
                     "bucket": bar_bucket.id,
                 },
             ],
+            "name": "example",
         })
         ```
 

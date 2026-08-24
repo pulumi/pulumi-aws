@@ -33,14 +33,14 @@ import * as utilities from "../utilities";
  *     userIdentityType: "CUSTOMER_MANAGED",
  * });
  * const examplePool = new aws.workspaces.Pool("example", {
+ *     capacity: {
+ *         desiredUserSessions: 10,
+ *     },
  *     bundleId: example.then(example => example.id),
  *     poolName: "example-pool",
  *     description: "Example WorkSpaces Pool",
  *     directoryId: exampleDirectory.directoryId,
  *     runningMode: "AUTO_STOP",
- *     capacity: {
- *         desiredUserSessions: 10,
- *     },
  * });
  * ```
  *
@@ -51,14 +51,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.workspaces.Pool("example", {
+ *     capacity: {
+ *         desiredUserSessions: 10,
+ *     },
  *     bundleId: exampleAwsWorkspacesBundle.id,
  *     poolName: "example-pool",
  *     description: "Example WorkSpaces Pool with Application Settings",
  *     directoryId: exampleAwsWorkspacesDirectory.directoryId,
  *     runningMode: "AUTO_STOP",
- *     capacity: {
- *         desiredUserSessions: 10,
- *     },
  *     applicationSettings: [{
  *         status: "ENABLED",
  *         settingsGroup: "my-settings-group",
@@ -73,14 +73,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.workspaces.Pool("example", {
+ *     capacity: {
+ *         desiredUserSessions: 10,
+ *     },
  *     bundleId: exampleAwsWorkspacesBundle.id,
  *     poolName: "example-pool",
  *     description: "Example WorkSpaces Pool with Timeout Settings",
  *     directoryId: exampleAwsWorkspacesDirectory.directoryId,
  *     runningMode: "AUTO_STOP",
- *     capacity: {
- *         desiredUserSessions: 10,
- *     },
  *     timeoutSettings: [{
  *         disconnectTimeoutInSeconds: 900,
  *         idleDisconnectTimeoutInSeconds: 900,

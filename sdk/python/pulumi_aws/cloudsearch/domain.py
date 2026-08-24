@@ -317,7 +317,6 @@ class Domain(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudsearch.Domain("example",
-            name="example-domain",
             scaling_parameters={
                 "desired_instance_type": "search.medium",
             },
@@ -340,7 +339,8 @@ class Domain(pulumi.CustomResource):
                     "sort": True,
                     "source_fields": "headline",
                 },
-            ])
+            ],
+            name="example-domain")
         ```
 
         ## Import
@@ -379,7 +379,6 @@ class Domain(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudsearch.Domain("example",
-            name="example-domain",
             scaling_parameters={
                 "desired_instance_type": "search.medium",
             },
@@ -402,7 +401,8 @@ class Domain(pulumi.CustomResource):
                     "sort": True,
                     "source_fields": "headline",
                 },
-            ])
+            ],
+            name="example-domain")
         ```
 
         ## Import

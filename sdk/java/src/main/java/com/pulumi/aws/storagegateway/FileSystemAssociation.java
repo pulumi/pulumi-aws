@@ -111,15 +111,15 @@ import javax.annotation.Nullable;
  *                 .build());
  * 
  *         var testGateway = new Gateway("testGateway", GatewayArgs.builder()
- *             .gatewayIpAddress(test.publicIp())
- *             .gatewayName("test-sgw")
- *             .gatewayTimezone("GMT")
- *             .gatewayType("FILE_FSX_SMB")
  *             .smbActiveDirectorySettings(GatewaySmbActiveDirectorySettingsArgs.builder()
  *                 .domainName(testAwsDirectoryServiceDirectory.name())
  *                 .password(testAwsDirectoryServiceDirectory.password())
  *                 .username("Admin")
  *                 .build())
+ *             .gatewayIpAddress(test.publicIp())
+ *             .gatewayName("test-sgw")
+ *             .gatewayTimezone("GMT")
+ *             .gatewayType("FILE_FSX_SMB")
  *             .build());
  * 
  *         var testWindowsFileSystem = new WindowsFileSystem("testWindowsFileSystem", WindowsFileSystemArgs.builder()
@@ -132,13 +132,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var fsx = new FileSystemAssociation("fsx", FileSystemAssociationArgs.builder()
+ *             .cacheAttributes(FileSystemAssociationCacheAttributesArgs.builder()
+ *                 .cacheStaleTimeoutInSeconds(400)
+ *                 .build())
  *             .gatewayArn(testGateway.arn())
  *             .locationArn(testWindowsFileSystem.arn())
  *             .username("Admin")
  *             .password(testAwsDirectoryServiceDirectory.password())
- *             .cacheAttributes(FileSystemAssociationCacheAttributesArgs.builder()
- *                 .cacheStaleTimeoutInSeconds(400)
- *                 .build())
  *             .auditDestinationArn(testAwsCloudwatchLogGroup.arn())
  *             .build());
  * 

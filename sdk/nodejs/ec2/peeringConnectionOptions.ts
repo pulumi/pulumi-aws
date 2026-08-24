@@ -35,10 +35,10 @@ import * as utilities from "../utilities";
  *     autoAccept: true,
  * });
  * const fooPeeringConnectionOptions = new aws.ec2.PeeringConnectionOptions("foo", {
- *     vpcPeeringConnectionId: fooVpcPeeringConnection.id,
  *     accepter: {
  *         allowRemoteVpcDnsResolution: true,
  *     },
+ *     vpcPeeringConnectionId: fooVpcPeeringConnection.id,
  * });
  * ```
  *
@@ -78,16 +78,16 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const requester = new aws.ec2.PeeringConnectionOptions("requester", {
- *     vpcPeeringConnectionId: peerVpcPeeringConnectionAccepter.id,
  *     requester: {
  *         allowRemoteVpcDnsResolution: true,
  *     },
+ *     vpcPeeringConnectionId: peerVpcPeeringConnectionAccepter.id,
  * });
  * const accepter = new aws.ec2.PeeringConnectionOptions("accepter", {
- *     vpcPeeringConnectionId: peerVpcPeeringConnectionAccepter.id,
  *     accepter: {
  *         allowRemoteVpcDnsResolution: true,
  *     },
+ *     vpcPeeringConnectionId: peerVpcPeeringConnectionAccepter.id,
  * });
  * ```
  *

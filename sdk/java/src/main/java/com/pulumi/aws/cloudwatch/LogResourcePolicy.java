@@ -49,15 +49,15 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var elasticsearch-log-publishing-policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .identifiers("es.amazonaws.com")
+ *                     .type("Service")
+ *                     .build())
  *                 .actions(                
  *                     "logs:CreateLogStream",
  *                     "logs:PutLogEvents",
  *                     "logs:PutLogEventsBatch")
  *                 .resources("arn:aws:logs:*")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .identifiers("es.amazonaws.com")
- *                     .type("Service")
- *                     .build())
  *                 .build())
  *             .build());
  * 
@@ -101,14 +101,14 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var route53-query-logging-policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(                
- *                     "logs:CreateLogStream",
- *                     "logs:PutLogEvents")
- *                 .resources("arn:aws:logs:*:*:log-group:/aws/route53/*")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .identifiers("route53.amazonaws.com")
  *                     .type("Service")
  *                     .build())
+ *                 .actions(                
+ *                     "logs:CreateLogStream",
+ *                     "logs:PutLogEvents")
+ *                 .resources("arn:aws:logs:*:*:log-group:/aws/route53/*")
  *                 .build())
  *             .build());
  * 

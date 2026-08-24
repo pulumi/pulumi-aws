@@ -53,28 +53,28 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Domain("example", DomainArgs.builder()
- *             .domainName("example")
- *             .engineVersion("OpenSearch_1.1")
  *             .clusterConfig(DomainClusterConfigArgs.builder()
  *                 .instanceType("r4.large.search")
  *                 .build())
  *             .snapshotOptions(DomainSnapshotOptionsArgs.builder()
  *                 .automatedSnapshotStartHour(23)
  *                 .build())
+ *             .domainName("example")
+ *             .engineVersion("OpenSearch_1.1")
  *             .tags(Map.of("Domain", "TestDomain"))
  *             .build());
  * 
  *         var exampleDomainSamlOptions = new DomainSamlOptions("exampleDomainSamlOptions", DomainSamlOptionsArgs.builder()
- *             .domainName(example.domainName())
  *             .samlOptions(DomainSamlOptionsSamlOptionsArgs.builder()
- *                 .enabled(true)
  *                 .idp(DomainSamlOptionsSamlOptionsIdpArgs.builder()
  *                     .entityId("https://example.com")
  *                     .metadataContent(StdFunctions.file(FileArgs.builder()
  *                         .input("./saml-metadata.xml")
  *                         .build()).result())
  *                     .build())
+ *                 .enabled(true)
  *                 .build())
+ *             .domainName(example.domainName())
  *             .build());
  * 
  *     }

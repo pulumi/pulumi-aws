@@ -438,6 +438,10 @@ class Integration(pulumi.CustomResource):
 
         example = aws.redshiftserverless.Namespace("example", namespace_name="redshift-example")
         example_workgroup = aws.redshiftserverless.Workgroup("example",
+            config_parameters=[{
+                "parameter_key": "enable_case_sensitive_identifier",
+                "parameter_value": "true",
+            }],
             namespace_name=example.namespace_name,
             workgroup_name="example-workspace",
             base_capacity=8,
@@ -446,15 +450,12 @@ class Integration(pulumi.CustomResource):
                 example1["id"],
                 example2["id"],
                 example3["id"],
-            ],
-            config_parameters=[{
-                "parameter_key": "enable_case_sensitive_identifier",
-                "parameter_value": "true",
-            }])
+            ])
         example_integration = aws.rds.Integration("example",
             integration_name="example",
             source_arn=example_aws_rds_cluster["arn"],
-            target_arn=example.arn)
+            target_arn=example.arn,
+            opts = pulumi.ResourceOptions(ignore_changes=["kmsKeyId"]))
         ```
 
         ### Use own KMS key
@@ -466,20 +467,20 @@ class Integration(pulumi.CustomResource):
         current = aws.get_caller_identity()
         key_policy = aws.iam.get_policy_document(statements=[
             {
-                "actions": ["kms:*"],
-                "resources": ["*"],
                 "principals": [{
                     "type": "AWS",
                     "identifiers": [f"arn:aws:iam::{current.account_id}:root"],
                 }],
+                "actions": ["kms:*"],
+                "resources": ["*"],
             },
             {
-                "actions": ["kms:CreateGrant"],
-                "resources": ["*"],
                 "principals": [{
                     "type": "Service",
                     "identifiers": ["redshift.amazonaws.com"],
                 }],
+                "actions": ["kms:CreateGrant"],
+                "resources": ["*"],
             },
         ])
         example = aws.kms.Key("example",
@@ -552,6 +553,10 @@ class Integration(pulumi.CustomResource):
 
         example = aws.redshiftserverless.Namespace("example", namespace_name="redshift-example")
         example_workgroup = aws.redshiftserverless.Workgroup("example",
+            config_parameters=[{
+                "parameter_key": "enable_case_sensitive_identifier",
+                "parameter_value": "true",
+            }],
             namespace_name=example.namespace_name,
             workgroup_name="example-workspace",
             base_capacity=8,
@@ -560,15 +565,12 @@ class Integration(pulumi.CustomResource):
                 example1["id"],
                 example2["id"],
                 example3["id"],
-            ],
-            config_parameters=[{
-                "parameter_key": "enable_case_sensitive_identifier",
-                "parameter_value": "true",
-            }])
+            ])
         example_integration = aws.rds.Integration("example",
             integration_name="example",
             source_arn=example_aws_rds_cluster["arn"],
-            target_arn=example.arn)
+            target_arn=example.arn,
+            opts = pulumi.ResourceOptions(ignore_changes=["kmsKeyId"]))
         ```
 
         ### Use own KMS key
@@ -580,20 +582,20 @@ class Integration(pulumi.CustomResource):
         current = aws.get_caller_identity()
         key_policy = aws.iam.get_policy_document(statements=[
             {
-                "actions": ["kms:*"],
-                "resources": ["*"],
                 "principals": [{
                     "type": "AWS",
                     "identifiers": [f"arn:aws:iam::{current.account_id}:root"],
                 }],
+                "actions": ["kms:*"],
+                "resources": ["*"],
             },
             {
-                "actions": ["kms:CreateGrant"],
-                "resources": ["*"],
                 "principals": [{
                     "type": "Service",
                     "identifiers": ["redshift.amazonaws.com"],
                 }],
+                "actions": ["kms:CreateGrant"],
+                "resources": ["*"],
             },
         ])
         example = aws.kms.Key("example",

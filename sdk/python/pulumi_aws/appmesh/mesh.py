@@ -292,12 +292,12 @@ class Mesh(pulumi.CustomResource):
         import pulumi_aws as aws
 
         simple = aws.appmesh.Mesh("simple",
-            name="simpleapp",
             spec={
                 "egress_filter": {
                     "type": "ALLOW_ALL",
                 },
-            })
+            },
+            name="simpleapp")
         ```
 
         ## Import
@@ -343,12 +343,12 @@ class Mesh(pulumi.CustomResource):
         import pulumi_aws as aws
 
         simple = aws.appmesh.Mesh("simple",
-            name="simpleapp",
             spec={
                 "egress_filter": {
                     "type": "ALLOW_ALL",
                 },
-            })
+            },
+            name="simpleapp")
         ```
 
         ## Import

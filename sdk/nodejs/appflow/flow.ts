@@ -19,12 +19,12 @@ import * as utilities from "../utilities";
  * const exampleSourceBucket = new aws.s3.Bucket("example_source", {bucket: "example-source"});
  * const exampleSource = aws.iam.getPolicyDocument({
  *     statements: [{
- *         sid: "AllowAppFlowSourceActions",
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["appflow.amazonaws.com"],
  *         }],
+ *         sid: "AllowAppFlowSourceActions",
+ *         effect: "Allow",
  *         actions: [
  *             "s3:ListBucket",
  *             "s3:GetObject",
@@ -47,12 +47,12 @@ import * as utilities from "../utilities";
  * const exampleDestinationBucket = new aws.s3.Bucket("example_destination", {bucket: "example-destination"});
  * const exampleDestination = aws.iam.getPolicyDocument({
  *     statements: [{
- *         sid: "AllowAppFlowDestinationActions",
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["appflow.amazonaws.com"],
  *         }],
+ *         sid: "AllowAppFlowDestinationActions",
+ *         effect: "Allow",
  *         actions: [
  *             "s3:PutObject",
  *             "s3:AbortMultipartUpload",
@@ -72,40 +72,40 @@ import * as utilities from "../utilities";
  *     policy: exampleDestination.then(exampleDestination => exampleDestination.json),
  * });
  * const exampleFlow = new aws.appflow.Flow("example", {
- *     name: "example",
  *     sourceFlowConfig: {
- *         connectorType: "S3",
  *         sourceConnectorProperties: {
  *             s3: {
  *                 bucketName: exampleSourceBucketPolicy.bucket,
  *                 bucketPrefix: "example",
  *             },
  *         },
+ *         connectorType: "S3",
+ *     },
+ *     triggerConfig: {
+ *         triggerType: "OnDemand",
  *     },
  *     destinationFlowConfigs: [{
- *         connectorType: "S3",
  *         destinationConnectorProperties: {
  *             s3: {
- *                 bucketName: exampleDestinationBucketPolicy.bucket,
  *                 s3OutputFormatConfig: {
  *                     prefixConfig: {
  *                         prefixType: "PATH",
  *                     },
  *                 },
+ *                 bucketName: exampleDestinationBucketPolicy.bucket,
  *             },
  *         },
+ *         connectorType: "S3",
  *     }],
  *     tasks: [{
- *         sourceFields: ["exampleField"],
- *         destinationField: "exampleField",
- *         taskType: "Map",
  *         connectorOperators: [{
  *             s3: "NO_OP",
  *         }],
+ *         sourceFields: ["exampleField"],
+ *         destinationField: "exampleField",
+ *         taskType: "Map",
  *     }],
- *     triggerConfig: {
- *         triggerType: "OnDemand",
- *     },
+ *     name: "example",
  * });
  * ```
  *

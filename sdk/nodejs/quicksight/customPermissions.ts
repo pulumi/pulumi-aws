@@ -17,11 +17,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.quicksight.CustomPermissions("example", {
- *     customPermissionsName: "example-permissions",
  *     capabilities: {
  *         printReports: "DENY",
  *         shareDashboards: "DENY",
  *     },
+ *     customPermissionsName: "example-permissions",
  * });
  * ```
  *

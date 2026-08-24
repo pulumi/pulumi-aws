@@ -19,11 +19,11 @@ import {RestApi} from "./index";
  * const demoRestApi = new aws.apigateway.RestApi("demo", {name: "auth-demo"});
  * const invocationAssumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["apigateway.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
@@ -34,12 +34,12 @@ import {RestApi} from "./index";
  * });
  * const lambdaAssumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
- *         actions: ["sts:AssumeRole"],
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["lambda.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
+ *         actions: ["sts:AssumeRole"],
  *     }],
  * });
  * const lambda = new aws.iam.Role("lambda", {

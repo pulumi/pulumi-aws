@@ -52,15 +52,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Feature("example", FeatureArgs.builder()
- *             .name("example")
- *             .project(exampleAwsEvidentlyProject.name())
- *             .description("example description")
  *             .variations(FeatureVariationArgs.builder()
- *                 .name("Variation1")
  *                 .value(FeatureVariationValueArgs.builder()
  *                     .stringValue("example")
  *                     .build())
+ *                 .name("Variation1")
  *                 .build())
+ *             .name("example")
+ *             .project(exampleAwsEvidentlyProject.name())
+ *             .description("example description")
  *             .tags(Map.of("Key1", "example Feature"))
  *             .build());
  * 
@@ -96,22 +96,22 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Feature("example", FeatureArgs.builder()
- *             .name("example")
- *             .project(exampleAwsEvidentlyProject.name())
- *             .defaultVariation("Variation2")
  *             .variations(            
  *                 FeatureVariationArgs.builder()
- *                     .name("Variation1")
  *                     .value(FeatureVariationValueArgs.builder()
  *                         .stringValue("exampleval1")
  *                         .build())
+ *                     .name("Variation1")
  *                     .build(),
  *                 FeatureVariationArgs.builder()
- *                     .name("Variation2")
  *                     .value(FeatureVariationValueArgs.builder()
  *                         .stringValue("exampleval2")
  *                         .build())
+ *                     .name("Variation2")
  *                     .build())
+ *             .name("example")
+ *             .project(exampleAwsEvidentlyProject.name())
+ *             .defaultVariation("Variation2")
  *             .build());
  * 
  *     }
@@ -146,22 +146,22 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Feature("example", FeatureArgs.builder()
- *             .name("example")
- *             .project(exampleAwsEvidentlyProject.name())
- *             .entityOverrides(Map.of("test1", "Variation1"))
  *             .variations(            
  *                 FeatureVariationArgs.builder()
- *                     .name("Variation1")
  *                     .value(FeatureVariationValueArgs.builder()
  *                         .stringValue("exampleval1")
  *                         .build())
+ *                     .name("Variation1")
  *                     .build(),
  *                 FeatureVariationArgs.builder()
- *                     .name("Variation2")
  *                     .value(FeatureVariationValueArgs.builder()
  *                         .stringValue("exampleval2")
  *                         .build())
+ *                     .name("Variation2")
  *                     .build())
+ *             .name("example")
+ *             .project(exampleAwsEvidentlyProject.name())
+ *             .entityOverrides(Map.of("test1", "Variation1"))
  *             .build());
  * 
  *     }
@@ -196,16 +196,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Feature("example", FeatureArgs.builder()
+ *             .variations(FeatureVariationArgs.builder()
+ *                 .value(FeatureVariationValueArgs.builder()
+ *                     .stringValue("exampleval1")
+ *                     .build())
+ *                 .name("Variation1")
+ *                 .build())
  *             .name("example")
  *             .project(exampleAwsEvidentlyProject.name())
  *             .evaluationStrategy("ALL_RULES")
  *             .entityOverrides(Map.of("test1", "Variation1"))
- *             .variations(FeatureVariationArgs.builder()
- *                 .name("Variation1")
- *                 .value(FeatureVariationValueArgs.builder()
- *                     .stringValue("exampleval1")
- *                     .build())
- *                 .build())
  *             .build());
  * 
  *     }

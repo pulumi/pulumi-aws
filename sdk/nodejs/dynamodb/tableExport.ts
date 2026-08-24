@@ -29,16 +29,16 @@ import * as utilities from "../utilities";
  *     forceDestroy: true,
  * });
  * const exampleTable = new aws.dynamodb.Table("example", {
- *     name: "example-table-1",
- *     billingMode: "PAY_PER_REQUEST",
- *     hashKey: "user_id",
+ *     pointInTimeRecovery: {
+ *         enabled: true,
+ *     },
  *     attributes: [{
  *         name: "user_id",
  *         type: "S",
  *     }],
- *     pointInTimeRecovery: {
- *         enabled: true,
- *     },
+ *     name: "example-table-1",
+ *     billingMode: "PAY_PER_REQUEST",
+ *     hashKey: "user_id",
  * });
  * const exampleTableExport = new aws.dynamodb.TableExport("example", {
  *     tableArn: exampleTable.arn,
@@ -66,13 +66,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.dynamodb.TableExport("example", {
- *     exportType: "INCREMENTAL_EXPORT",
- *     s3Bucket: exampleAwsS3Bucket.id,
- *     tableArn: exampleAwsDynamodbTable.arn,
  *     incrementalExportSpecification: {
  *         exportFromTime: "2025-02-09T12:00:00+01:00",
  *         exportToTime: "2025-02-09T13:00:00+01:00",
  *     },
+ *     exportType: "INCREMENTAL_EXPORT",
+ *     s3Bucket: exampleAwsS3Bucket.id,
+ *     tableArn: exampleAwsDynamodbTable.arn,
  * });
  * ```
  *

@@ -24,11 +24,6 @@ namespace Pulumi.Aws.Eks
     /// {
     ///     var example = new Aws.Eks.Capability("example", new()
     ///     {
-    ///         ClusterName = exampleAwsEksCluster.Name,
-    ///         CapabilityName = "argocd",
-    ///         Type = "ARGOCD",
-    ///         RoleArn = exampleAwsIamRole.Arn,
-    ///         DeletePropagationPolicy = "RETAIN",
     ///         Configuration = new Aws.Eks.Inputs.CapabilityConfigurationArgs
     ///         {
     ///             ArgoCd = new Aws.Eks.Inputs.CapabilityConfigurationArgoCdArgs
@@ -40,6 +35,11 @@ namespace Pulumi.Aws.Eks
     ///                 Namespace = "argocd",
     ///             },
     ///         },
+    ///         ClusterName = exampleAwsEksCluster.Name,
+    ///         CapabilityName = "argocd",
+    ///         Type = "ARGOCD",
+    ///         RoleArn = exampleAwsIamRole.Arn,
+    ///         DeletePropagationPolicy = "RETAIN",
     ///         Tags = 
     ///         {
     ///             { "Name", "example-capability" },

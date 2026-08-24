@@ -18,12 +18,12 @@ import * as utilities from "../utilities";
  * const currentGetRegion = aws.getRegion({});
  * const glue_example_policy = Promise.all([currentGetPartition, currentGetRegion, current]).then(([currentGetPartition, currentGetRegion, current]) => aws.iam.getPolicyDocument({
  *     statements: [{
- *         actions: ["glue:CreateTable"],
- *         resources: [`arn:${currentGetPartition.partition}:glue:${currentGetRegion.region}:${current.accountId}:*`],
  *         principals: [{
  *             identifiers: ["*"],
  *             type: "AWS",
  *         }],
+ *         actions: ["glue:CreateTable"],
+ *         resources: [`arn:${currentGetPartition.partition}:glue:${currentGetRegion.region}:${current.accountId}:*`],
  *     }],
  * }));
  * const example = new aws.glue.ResourcePolicy("example", {policy: glue_example_policy.then(glue_example_policy => glue_example_policy.json)});

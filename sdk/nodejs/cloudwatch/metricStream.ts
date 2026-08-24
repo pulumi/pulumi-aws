@@ -21,11 +21,11 @@ import * as utilities from "../utilities";
  * // https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html
  * const streamsAssumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["streams.metrics.cloudwatch.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
@@ -36,28 +36,24 @@ import * as utilities from "../utilities";
  * const bucket = new aws.s3.Bucket("bucket", {bucket: "metric-stream-test-bucket"});
  * const firehoseAssumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["firehose.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
  * const firehoseToS3Role = new aws.iam.Role("firehose_to_s3", {assumeRolePolicy: firehoseAssumeRole.then(firehoseAssumeRole => firehoseAssumeRole.json)});
  * const s3Stream = new aws.kinesis.FirehoseDeliveryStream("s3_stream", {
- *     name: "metric-stream-test-stream",
- *     destination: "extended_s3",
  *     extendedS3Configuration: {
  *         roleArn: firehoseToS3Role.arn,
  *         bucketArn: bucket.arn,
  *     },
+ *     name: "metric-stream-test-stream",
+ *     destination: "extended_s3",
  * });
  * const main = new aws.cloudwatch.MetricStream("main", {
- *     name: "my-metric-stream",
- *     roleArn: metricStreamToFirehoseRole.arn,
- *     firehoseArn: s3Stream.arn,
- *     outputFormat: "json",
  *     includeFilters: [
  *         {
  *             namespace: "AWS/EC2",
@@ -71,6 +67,10 @@ import * as utilities from "../utilities";
  *             metricNames: [],
  *         },
  *     ],
+ *     name: "my-metric-stream",
+ *     roleArn: metricStreamToFirehoseRole.arn,
+ *     firehoseArn: s3Stream.arn,
+ *     outputFormat: "json",
  * });
  * // https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html
  * const metricStreamToFirehose = aws.iam.getPolicyDocumentOutput({
@@ -123,29 +123,29 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const main = new aws.cloudwatch.MetricStream("main", {
- *     name: "my-metric-stream",
- *     roleArn: metricStreamToFirehose.arn,
- *     firehoseArn: s3Stream.arn,
- *     outputFormat: "json",
  *     statisticsConfigurations: [
  *         {
+ *             includeMetrics: [{
+ *                 metricName: "CPUUtilization",
+ *                 namespace: "AWS/EC2",
+ *             }],
  *             additionalStatistics: [
  *                 "p1",
  *                 "tm99",
  *             ],
- *             includeMetrics: [{
- *                 metricName: "CPUUtilization",
- *                 namespace: "AWS/EC2",
- *             }],
  *         },
  *         {
- *             additionalStatistics: ["TS(50.5:)"],
  *             includeMetrics: [{
  *                 metricName: "CPUUtilization",
  *                 namespace: "AWS/EC2",
  *             }],
+ *             additionalStatistics: ["TS(50.5:)"],
  *         },
  *     ],
+ *     name: "my-metric-stream",
+ *     roleArn: metricStreamToFirehose.arn,
+ *     firehoseArn: s3Stream.arn,
+ *     outputFormat: "json",
  * });
  * ```
  *

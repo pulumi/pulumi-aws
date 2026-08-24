@@ -159,19 +159,19 @@ class AgentcoreResourcePolicy(pulumi.CustomResource):
 
         example_agentcore_agent_runtime = aws.bedrock.AgentcoreAgentRuntime("example")
         example = aws.iam.get_policy_document_output(statements=[{
-            "sid": "AllowOAuthFromVPC",
-            "effect": "Allow",
-            "actions": ["bedrock-agentcore:InvokeAgentRuntime"],
-            "principals": [{
-                "type": "*",
-                "identifiers": ["*"],
-            }],
-            "resources": [example_agentcore_agent_runtime.agent_runtime_arn],
             "conditions": [{
                 "test": "StringEquals",
                 "variable": "aws:SourceVpc",
                 "values": ["vpc-1a2b3c4d"],
             }],
+            "principals": [{
+                "type": "*",
+                "identifiers": ["*"],
+            }],
+            "sid": "AllowOAuthFromVPC",
+            "effect": "Allow",
+            "actions": ["bedrock-agentcore:InvokeAgentRuntime"],
+            "resources": [example_agentcore_agent_runtime.agent_runtime_arn],
         }])
         example_agentcore_resource_policy = aws.bedrock.AgentcoreResourcePolicy("example",
             policy=example.json,
@@ -220,19 +220,19 @@ class AgentcoreResourcePolicy(pulumi.CustomResource):
 
         example_agentcore_agent_runtime = aws.bedrock.AgentcoreAgentRuntime("example")
         example = aws.iam.get_policy_document_output(statements=[{
-            "sid": "AllowOAuthFromVPC",
-            "effect": "Allow",
-            "actions": ["bedrock-agentcore:InvokeAgentRuntime"],
-            "principals": [{
-                "type": "*",
-                "identifiers": ["*"],
-            }],
-            "resources": [example_agentcore_agent_runtime.agent_runtime_arn],
             "conditions": [{
                 "test": "StringEquals",
                 "variable": "aws:SourceVpc",
                 "values": ["vpc-1a2b3c4d"],
             }],
+            "principals": [{
+                "type": "*",
+                "identifiers": ["*"],
+            }],
+            "sid": "AllowOAuthFromVPC",
+            "effect": "Allow",
+            "actions": ["bedrock-agentcore:InvokeAgentRuntime"],
+            "resources": [example_agentcore_agent_runtime.agent_runtime_arn],
         }])
         example_agentcore_resource_policy = aws.bedrock.AgentcoreResourcePolicy("example",
             policy=example.json,

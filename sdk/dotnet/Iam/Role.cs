@@ -76,10 +76,6 @@ namespace Pulumi.Aws.Iam
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -90,6 +86,10 @@ namespace Pulumi.Aws.Iam
     ///                             "ec2.amazonaws.com",
     ///                         },
     ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
     ///                 },
     ///             },
     ///         },
@@ -140,8 +140,6 @@ namespace Pulumi.Aws.Iam
     /// 
     ///     var example = new Aws.Iam.Role("example", new()
     ///     {
-    ///         Name = "yak_role",
-    ///         AssumeRolePolicy = instanceAssumeRolePolicy.Json,
     ///         InlinePolicies = new[]
     ///         {
     ///             new Aws.Iam.Inputs.RoleInlinePolicyArgs
@@ -170,6 +168,8 @@ namespace Pulumi.Aws.Iam
     ///                 Policy = inlinePolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///             },
     ///         },
+    ///         Name = "yak_role",
+    ///         AssumeRolePolicy = instanceAssumeRolePolicy.Json,
     ///     });
     /// 
     /// });

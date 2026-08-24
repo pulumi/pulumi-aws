@@ -77,7 +77,6 @@ import (
 //			_, err = cloudtrail.NewEventDataStore(ctx, "example", &cloudtrail.EventDataStoreArgs{
 //				AdvancedEventSelectors: cloudtrail.EventDataStoreAdvancedEventSelectorArray{
 //					&cloudtrail.EventDataStoreAdvancedEventSelectorArgs{
-//						Name: pulumi.String("Log all DynamoDB PutEvent actions for a specific DynamoDB table"),
 //						FieldSelectors: cloudtrail.EventDataStoreAdvancedEventSelectorFieldSelectorArray{
 //							&cloudtrail.EventDataStoreAdvancedEventSelectorFieldSelectorArgs{
 //								Field: pulumi.String("eventCategory"),
@@ -104,6 +103,7 @@ import (
 //								},
 //							},
 //						},
+//						Name: pulumi.String("Log all DynamoDB PutEvent actions for a specific DynamoDB table"),
 //					},
 //				},
 //			})

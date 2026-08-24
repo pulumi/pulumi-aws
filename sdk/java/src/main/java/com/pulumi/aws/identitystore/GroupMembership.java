@@ -51,13 +51,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleUser = new User("exampleUser", UserArgs.builder()
- *             .identityStoreId(example.identityStoreIds()[0])
- *             .displayName("John Doe")
- *             .userName("john.doe}{@literal @}{@code example.com")
  *             .name(UserNameArgs.builder()
  *                 .familyName("Doe")
  *                 .givenName("John")
  *                 .build())
+ *             .identityStoreId(example.identityStoreIds()[0])
+ *             .displayName("John Doe")
+ *             .userName("john.doe}{@literal @}{@code example.com")
  *             .build());
  * 
  *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()

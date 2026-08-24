@@ -76,15 +76,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewVpcPeeringConnection(ctx, "foo", &ec2.VpcPeeringConnectionArgs{
-//				PeerOwnerId: pulumi.Any(peerOwnerId),
-//				PeerVpcId:   pulumi.Any(bar.Id),
-//				VpcId:       pulumi.Any(fooAwsVpc.Id),
 //				Accepter: &ec2.VpcPeeringConnectionAccepterTypeArgs{
 //					AllowRemoteVpcDnsResolution: pulumi.Bool(true),
 //				},
 //				Requester: &ec2.VpcPeeringConnectionRequesterArgs{
 //					AllowRemoteVpcDnsResolution: pulumi.Bool(true),
 //				},
+//				PeerOwnerId: pulumi.Any(peerOwnerId),
+//				PeerVpcId:   pulumi.Any(bar.Id),
+//				VpcId:       pulumi.Any(fooAwsVpc.Id),
 //			})
 //			if err != nil {
 //				return err

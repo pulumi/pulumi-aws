@@ -23,13 +23,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.ec2.getInstances({
- *     instanceTags: {
- *         Role: "HardWorker",
- *     },
  *     filters: [{
  *         name: "instance.group-id",
  *         values: ["sg-12345678"],
  *     }],
+ *     instanceTags: {
+ *         Role: "HardWorker",
+ *     },
  *     instanceStateNames: [
  *         "running",
  *         "stopped",
@@ -125,13 +125,13 @@ export interface GetInstancesResult {
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.ec2.getInstances({
- *     instanceTags: {
- *         Role: "HardWorker",
- *     },
  *     filters: [{
  *         name: "instance.group-id",
  *         values: ["sg-12345678"],
  *     }],
+ *     instanceTags: {
+ *         Role: "HardWorker",
+ *     },
  *     instanceStateNames: [
  *         "running",
  *         "stopped",

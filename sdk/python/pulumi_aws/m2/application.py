@@ -414,8 +414,6 @@ class Application(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.m2.Application("example",
-            name="Example",
-            engine_type="bluage",
             definition={
                 "content": f\"\"\"{{
           \\"definition\\": {{
@@ -443,7 +441,9 @@ class Application(pulumi.CustomResource):
         }}
 
         \"\"\",
-            })
+            },
+            name="Example",
+            engine_type="bluage")
         ```
 
         ## Import
@@ -486,8 +486,6 @@ class Application(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.m2.Application("example",
-            name="Example",
-            engine_type="bluage",
             definition={
                 "content": f\"\"\"{{
           \\"definition\\": {{
@@ -515,7 +513,9 @@ class Application(pulumi.CustomResource):
         }}
 
         \"\"\",
-            })
+            },
+            name="Example",
+            engine_type="bluage")
         ```
 
         ## Import

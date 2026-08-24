@@ -90,6 +90,12 @@ import * as utilities from "../utilities";
  *     password: "avoid-plaintext-passwords",
  *     username: "test",
  *     storageEncrypted: true,
+ * }, {
+ *     customTimeouts: {
+ *         create: "3h",
+ *         "delete": "3h",
+ *         update: "3h",
+ *     },
  * });
  * const test_replica = new aws.rds.Instance("test-replica", {
  *     replicateSourceDb: _default.identifier,
@@ -103,6 +109,12 @@ import * as utilities from "../utilities";
  *     multiAz: false,
  *     skipFinalSnapshot: true,
  *     storageEncrypted: true,
+ * }, {
+ *     customTimeouts: {
+ *         create: "3h",
+ *         "delete": "3h",
+ *         update: "3h",
+ *     },
  * });
  * ```
  *
@@ -142,6 +154,12 @@ import * as utilities from "../utilities";
  *     password: "avoid-plaintext-passwords",
  *     storageEncrypted: true,
  *     username: "test",
+ * }, {
+ *     customTimeouts: {
+ *         create: "3h",
+ *         "delete": "3h",
+ *         update: "3h",
+ *     },
  * });
  * ```
  *
@@ -169,8 +187,6 @@ import * as utilities from "../utilities";
  * }));
  * // The RDS Db2 instance resource requires licensing information. Create a new parameter group using the default paramater group as a source, and set license information.
  * const exampleParameterGroup = new aws.rds.ParameterGroup("example", {
- *     name: "db-db2-params",
- *     family: _default.then(_default => _default.parameterGroupFamily),
  *     parameters: [
  *         {
  *             applyMethod: "immediate",
@@ -183,6 +199,8 @@ import * as utilities from "../utilities";
  *             value: "0",
  *         },
  *     ],
+ *     name: "db-db2-params",
+ *     family: _default.then(_default => _default.parameterGroupFamily),
  * });
  * // Create the RDS Db2 instance, use the data sources defined to set attributes
  * const exampleInstance = new aws.rds.Instance("example", {

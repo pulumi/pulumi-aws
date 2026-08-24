@@ -73,15 +73,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := storagegateway.NewGateway(ctx, "example", &storagegateway.GatewayArgs{
-//				GatewayIpAddress: pulumi.String("1.2.3.4"),
-//				GatewayName:      pulumi.String("example"),
-//				GatewayTimezone:  pulumi.String("GMT"),
-//				GatewayType:      pulumi.String("FILE_FSX_SMB"),
 //				SmbActiveDirectorySettings: &storagegateway.GatewaySmbActiveDirectorySettingsArgs{
 //					DomainName: pulumi.String("corp.example.com"),
 //					Password:   pulumi.String("avoid-plaintext-passwords"),
 //					Username:   pulumi.String("Admin"),
 //				},
+//				GatewayIpAddress: pulumi.String("1.2.3.4"),
+//				GatewayName:      pulumi.String("example"),
+//				GatewayTimezone:  pulumi.String("GMT"),
+//				GatewayType:      pulumi.String("FILE_FSX_SMB"),
 //			})
 //			if err != nil {
 //				return err
@@ -234,7 +234,9 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := storagegateway.NewGateway(ctx, "example", &storagegateway.GatewayArgs{
 //				GatewayIpAddress: pulumi.Any(sgw.PrivateIp),
-//			})
+//			}, pulumi.IgnoreChanges([]string{
+//				"gatewayIpAddress",
+//			}))
 //			if err != nil {
 //				return err
 //			}

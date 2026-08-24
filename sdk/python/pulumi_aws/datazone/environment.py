@@ -532,11 +532,6 @@ class Environment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.datazone.Environment("example",
-            name="example",
-            blueprint_identifier=test["environmentBlueprintId"],
-            profile_identifier=test_aws_datazone_environment_profile["id"],
-            project_identifier=test_aws_datazone_project["id"],
-            domain_identifier=test_aws_datazone_domain["id"],
             user_parameters=[
                 {
                     "name": "consumerGlueDbName",
@@ -550,7 +545,12 @@ class Environment(pulumi.CustomResource):
                     "name": "workgroupName",
                     "value": "workgroup",
                 },
-            ])
+            ],
+            name="example",
+            blueprint_identifier=test["environmentBlueprintId"],
+            profile_identifier=test_aws_datazone_environment_profile["id"],
+            project_identifier=test_aws_datazone_project["id"],
+            domain_identifier=test_aws_datazone_domain["id"])
         ```
 
         ## Import
@@ -610,11 +610,6 @@ class Environment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.datazone.Environment("example",
-            name="example",
-            blueprint_identifier=test["environmentBlueprintId"],
-            profile_identifier=test_aws_datazone_environment_profile["id"],
-            project_identifier=test_aws_datazone_project["id"],
-            domain_identifier=test_aws_datazone_domain["id"],
             user_parameters=[
                 {
                     "name": "consumerGlueDbName",
@@ -628,7 +623,12 @@ class Environment(pulumi.CustomResource):
                     "name": "workgroupName",
                     "value": "workgroup",
                 },
-            ])
+            ],
+            name="example",
+            blueprint_identifier=test["environmentBlueprintId"],
+            profile_identifier=test_aws_datazone_environment_profile["id"],
+            project_identifier=test_aws_datazone_project["id"],
+            domain_identifier=test_aws_datazone_domain["id"])
         ```
 
         ## Import

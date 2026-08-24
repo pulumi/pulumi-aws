@@ -57,11 +57,11 @@ import javax.annotation.Nullable;
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("AWS")
  *                     .identifiers(current.accountId())
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions(                
  *                     "backup:DescribeBackupVault",
  *                     "backup:DeleteBackupVault",

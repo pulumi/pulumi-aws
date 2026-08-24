@@ -102,14 +102,14 @@ import (
 //				return err
 //			}
 //			_, err = opensearch.NewServerlessCollection(ctx, "example", &opensearch.ServerlessCollectionArgs{
-//				Name:                pulumi.String("example"),
-//				Type:                pulumi.String("SEARCH"),
-//				CollectionGroupName: exampleServerlessCollectionGroup.Name,
 //				EncryptionConfigs: opensearch.ServerlessCollectionEncryptionConfigArray{
 //					&opensearch.ServerlessCollectionEncryptionConfigArgs{
 //						KmsKeyArn: example.Arn,
 //					},
 //				},
+//				Name:                pulumi.String("example"),
+//				Type:                pulumi.String("SEARCH"),
+//				CollectionGroupName: exampleServerlessCollectionGroup.Name,
 //			})
 //			if err != nil {
 //				return err

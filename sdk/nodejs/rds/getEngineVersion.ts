@@ -34,13 +34,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.rds.getEngineVersion({
- *     engine: "aurora-postgresql",
- *     version: "10.14",
- *     includeAll: true,
  *     filters: [{
  *         name: "engine-mode",
  *         values: ["serverless"],
  *     }],
+ *     engine: "aurora-postgresql",
+ *     version: "10.14",
+ *     includeAll: true,
  * });
  * ```
  */
@@ -256,13 +256,13 @@ export interface GetEngineVersionResult {
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.rds.getEngineVersion({
- *     engine: "aurora-postgresql",
- *     version: "10.14",
- *     includeAll: true,
  *     filters: [{
  *         name: "engine-mode",
  *         values: ["serverless"],
  *     }],
+ *     engine: "aurora-postgresql",
+ *     version: "10.14",
+ *     includeAll: true,
  * });
  * ```
  */

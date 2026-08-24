@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.dataexchange.RevisionAssets("example", {
- *     dataSetId: "example-data-set-id",
  *     assets: [{
  *         createS3DataAccessFromS3Bucket: {
  *             assetSource: {
@@ -29,6 +28,7 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     }],
+ *     dataSetId: "example-data-set-id",
  *     tags: {
  *         Environment: "Production",
  *     },

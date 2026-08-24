@@ -250,14 +250,14 @@ class TrustStore(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudfront.TrustStore("example",
-            name="example-trust-store",
             ca_certificates_bundle_source={
                 "ca_certificates_bundle_s3_location": {
                     "bucket": "example-bucket",
                     "key": "ca-certificates.pem",
                     "region": "us-east-1",
                 },
-            })
+            },
+            name="example-trust-store")
         ```
 
         ### With S3 Object Version
@@ -267,7 +267,6 @@ class TrustStore(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudfront.TrustStore("example",
-            name="example-trust-store",
             ca_certificates_bundle_source={
                 "ca_certificates_bundle_s3_location": {
                     "bucket": "example-bucket",
@@ -275,7 +274,8 @@ class TrustStore(pulumi.CustomResource):
                     "region": "us-east-1",
                     "version": "abc123",
                 },
-            })
+            },
+            name="example-trust-store")
         ```
 
         ## Import
@@ -313,14 +313,14 @@ class TrustStore(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudfront.TrustStore("example",
-            name="example-trust-store",
             ca_certificates_bundle_source={
                 "ca_certificates_bundle_s3_location": {
                     "bucket": "example-bucket",
                     "key": "ca-certificates.pem",
                     "region": "us-east-1",
                 },
-            })
+            },
+            name="example-trust-store")
         ```
 
         ### With S3 Object Version
@@ -330,7 +330,6 @@ class TrustStore(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudfront.TrustStore("example",
-            name="example-trust-store",
             ca_certificates_bundle_source={
                 "ca_certificates_bundle_s3_location": {
                     "bucket": "example-bucket",
@@ -338,7 +337,8 @@ class TrustStore(pulumi.CustomResource):
                     "region": "us-east-1",
                     "version": "abc123",
                 },
-            })
+            },
+            name="example-trust-store")
         ```
 
         ## Import

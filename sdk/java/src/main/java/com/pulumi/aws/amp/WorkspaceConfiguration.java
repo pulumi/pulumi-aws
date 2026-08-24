@@ -53,21 +53,21 @@ import javax.annotation.Nullable;
  *         var example = new Workspace("example");
  * 
  *         var exampleWorkspaceConfiguration = new WorkspaceConfiguration("exampleWorkspaceConfiguration", WorkspaceConfigurationArgs.builder()
- *             .workspaceId(example.id())
- *             .retentionPeriodInDays(60)
  *             .limitsPerLabelSets(            
  *                 WorkspaceConfigurationLimitsPerLabelSetArgs.builder()
- *                     .labelSet(Map.of("env", "dev"))
  *                     .limits(WorkspaceConfigurationLimitsPerLabelSetLimitsArgs.builder()
  *                         .maxSeries(100000)
  *                         .build())
+ *                     .labelSet(Map.of("env", "dev"))
  *                     .build(),
  *                 WorkspaceConfigurationLimitsPerLabelSetArgs.builder()
- *                     .labelSet(Map.of("env", "prod"))
  *                     .limits(WorkspaceConfigurationLimitsPerLabelSetLimitsArgs.builder()
  *                         .maxSeries(400000)
  *                         .build())
+ *                     .labelSet(Map.of("env", "prod"))
  *                     .build())
+ *             .workspaceId(example.id())
+ *             .retentionPeriodInDays(60)
  *             .build());
  * 
  *     }
@@ -109,14 +109,14 @@ import javax.annotation.Nullable;
  *         var example = new Workspace("example");
  * 
  *         var exampleWorkspaceConfiguration = new WorkspaceConfiguration("exampleWorkspaceConfiguration", WorkspaceConfigurationArgs.builder()
- *             .workspaceId(example.id())
  *             .limitsPerLabelSets(WorkspaceConfigurationLimitsPerLabelSetArgs.builder()
- *                 .labelSet(Map.ofEntries(
- *                 ))
  *                 .limits(WorkspaceConfigurationLimitsPerLabelSetLimitsArgs.builder()
  *                     .maxSeries(50000)
  *                     .build())
+ *                 .labelSet(Map.ofEntries(
+ *                 ))
  *                 .build())
+ *             .workspaceId(example.id())
  *             .build());
  * 
  *     }

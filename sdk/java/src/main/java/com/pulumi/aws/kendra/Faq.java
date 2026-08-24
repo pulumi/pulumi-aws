@@ -47,13 +47,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Faq("example", FaqArgs.builder()
- *             .indexId(exampleAwsKendraIndex.id())
- *             .name("Example")
- *             .roleArn(exampleAwsIamRole.arn())
  *             .s3Path(FaqS3PathArgs.builder()
  *                 .bucket(exampleAwsS3Bucket.id())
  *                 .key(exampleAwsS3Object.key())
  *                 .build())
+ *             .indexId(exampleAwsKendraIndex.id())
+ *             .name("Example")
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .tags(Map.of("Name", "Example Kendra Faq"))
  *             .build());
  * 
@@ -88,14 +88,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Faq("example", FaqArgs.builder()
- *             .indexId(exampleAwsKendraIndex.id())
- *             .name("Example")
- *             .fileFormat("CSV")
- *             .roleArn(exampleAwsIamRole.arn())
  *             .s3Path(FaqS3PathArgs.builder()
  *                 .bucket(exampleAwsS3Bucket.id())
  *                 .key(exampleAwsS3Object.key())
  *                 .build())
+ *             .indexId(exampleAwsKendraIndex.id())
+ *             .name("Example")
+ *             .fileFormat("CSV")
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }
@@ -129,14 +129,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Faq("example", FaqArgs.builder()
- *             .indexId(exampleAwsKendraIndex.id())
- *             .name("Example")
- *             .languageCode("en")
- *             .roleArn(exampleAwsIamRole.arn())
  *             .s3Path(FaqS3PathArgs.builder()
  *                 .bucket(exampleAwsS3Bucket.id())
  *                 .key(exampleAwsS3Object.key())
  *                 .build())
+ *             .indexId(exampleAwsKendraIndex.id())
+ *             .name("Example")
+ *             .languageCode("en")
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }

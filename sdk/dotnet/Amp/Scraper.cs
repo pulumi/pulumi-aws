@@ -280,7 +280,6 @@ namespace Pulumi.Aws.Amp
     ///                 WorkspaceArn = exampleAwsPrometheusWorkspace.Arn,
     ///             },
     ///         },
-    ///         ScrapeConfiguration = example.Apply(getDefaultScraperConfigurationResult =&gt; getDefaultScraperConfigurationResult.Configuration),
     ///         Source = new Aws.Amp.Inputs.ScraperSourceArgs
     ///         {
     ///             Eks = new Aws.Amp.Inputs.ScraperSourceEksArgs
@@ -289,6 +288,7 @@ namespace Pulumi.Aws.Amp
     ///                 SubnetIds = exampleAwsEksCluster.VpcConfig[0].SubnetIds,
     ///             },
     ///         },
+    ///         ScrapeConfiguration = example.Apply(getDefaultScraperConfigurationResult =&gt; getDefaultScraperConfigurationResult.Configuration),
     ///     });
     /// 
     /// });
@@ -332,7 +332,6 @@ namespace Pulumi.Aws.Amp
     ///                 SubnetIds = exampleAwsEksCluster.VpcConfig[0].SubnetIds,
     ///             },
     ///         },
-    ///         ScrapeConfiguration = "...",
     ///         Destination = new Aws.Amp.Inputs.ScraperDestinationArgs
     ///         {
     ///             Amp = new Aws.Amp.Inputs.ScraperDestinationAmpArgs
@@ -340,6 +339,7 @@ namespace Pulumi.Aws.Amp
     ///                 WorkspaceArn = example.Arn,
     ///             },
     ///         },
+    ///         ScrapeConfiguration = "...",
     ///     });
     /// 
     /// });

@@ -65,11 +65,11 @@ import javax.annotation.Nullable;
  * 
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("vpc-flow-logs.amazonaws.com")
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
@@ -186,14 +186,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new FlowLog("example", FlowLogArgs.builder()
- *             .logDestination(exampleBucket.arn())
- *             .logDestinationType("s3")
- *             .trafficType("ALL")
- *             .vpcId(exampleAwsVpc.id())
  *             .destinationOptions(FlowLogDestinationOptionsArgs.builder()
  *                 .fileFormat("parquet")
  *                 .perHourPartition(true)
  *                 .build())
+ *             .logDestination(exampleBucket.arn())
+ *             .logDestinationType("s3")
+ *             .trafficType("ALL")
+ *             .vpcId(exampleAwsVpc.id())
  *             .build());
  * 
  *     }
@@ -245,12 +245,12 @@ import javax.annotation.Nullable;
  * 
  *         final var srcAssumeRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions("sts:AssumeRole")
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("delivery.logs.amazonaws.com")
  *                     .build())
+ *                 .actions("sts:AssumeRole")
+ *                 .effect("Allow")
  *                 .build())
  *             .build());
  * 
@@ -262,12 +262,12 @@ import javax.annotation.Nullable;
  *         // For destination account
  *         final var dstAssumeRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions("sts:AssumeRole")
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("AWS")
  *                     .identifiers(srcRole.arn())
  *                     .build())
+ *                 .actions("sts:AssumeRole")
+ *                 .effect("Allow")
  *                 .build())
  *             .build());
  * 
@@ -279,9 +279,6 @@ import javax.annotation.Nullable;
  *         final var srcRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(            
  *                 GetPolicyDocumentStatementArgs.builder()
- *                     .effect("Allow")
- *                     .actions("iam:PassRole")
- *                     .resources(srcRole.arn())
  *                     .conditions(                    
  *                         GetPolicyDocumentStatementConditionArgs.builder()
  *                             .test("StringEquals")
@@ -293,6 +290,9 @@ import javax.annotation.Nullable;
  *                             .variable("iam:AssociatedResourceARN")
  *                             .values(src.arn())
  *                             .build())
+ *                     .effect("Allow")
+ *                     .actions("iam:PassRole")
+ *                     .resources(srcRole.arn())
  *                     .build(),
  *                 GetPolicyDocumentStatementArgs.builder()
  *                     .effect("Allow")

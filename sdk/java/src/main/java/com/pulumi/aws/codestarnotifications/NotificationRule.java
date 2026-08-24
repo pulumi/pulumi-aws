@@ -65,11 +65,11 @@ import javax.annotation.Nullable;
  * 
  *         final var notifAccess = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions("sns:Publish")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("codestar-notifications.amazonaws.com")
  *                     .build())
+ *                 .actions("sns:Publish")
  *                 .resources(notif.arn())
  *                 .build())
  *             .build());
@@ -80,13 +80,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var commits = new NotificationRule("commits", NotificationRuleArgs.builder()
+ *             .targets(NotificationRuleTargetArgs.builder()
+ *                 .address(notif.arn())
+ *                 .build())
  *             .detailType("BASIC")
  *             .eventTypeIds("codecommit-repository-comments-on-commits")
  *             .name("example-code-repo-commits")
  *             .resource(code.arn())
- *             .targets(NotificationRuleTargetArgs.builder()
- *                 .address(notif.arn())
- *                 .build())
  *             .build());
  * 
  *     }

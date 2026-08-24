@@ -31,10 +31,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewDevice(ctx, "example", &sagemaker.DeviceArgs{
-//				DeviceFleetName: pulumi.Any(exampleAwsSagemakerDeviceFleet.DeviceFleetName),
 //				Device: &sagemaker.DeviceDeviceArgs{
 //					DeviceName: pulumi.String("example"),
 //				},
+//				DeviceFleetName: pulumi.Any(exampleAwsSagemakerDeviceFleet.DeviceFleetName),
 //			})
 //			if err != nil {
 //				return err

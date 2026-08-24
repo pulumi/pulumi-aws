@@ -85,24 +85,24 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDirectory = new com.pulumi.aws.directoryservice.Directory("exampleDirectory", com.pulumi.aws.directoryservice.DirectoryArgs.builder()
- *             .name("corp.example.com")
- *             .password("#S1ncerely")
- *             .size("Small")
  *             .vpcSettings(DirectoryVpcSettingsArgs.builder()
  *                 .vpcId(exampleVpc.id())
  *                 .subnetIds(                
  *                     exampleA.id(),
  *                     exampleB.id())
  *                 .build())
+ *             .name("corp.example.com")
+ *             .password("#S1ncerely")
+ *             .size("Small")
  *             .build());
  * 
  *         final var workspaces = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions("sts:AssumeRole")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("workspaces.amazonaws.com")
  *                     .build())
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
@@ -134,11 +134,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new com.pulumi.aws.workspaces.Directory("example", com.pulumi.aws.workspaces.DirectoryArgs.builder()
- *             .directoryId(exampleDirectory.id())
- *             .subnetIds(            
- *                 exampleC.id(),
- *                 exampleD.id())
- *             .tags(Map.of("Example", "true"))
  *             .certificateBasedAuthProperties(DirectoryCertificateBasedAuthPropertiesArgs.builder()
  *                 .certificateAuthorityArn("arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012")
  *                 .status("ENABLED")
@@ -171,6 +166,11 @@ import javax.annotation.Nullable;
  *                 .enableMaintenanceMode(true)
  *                 .userEnabledAsLocalAdministrator(true)
  *                 .build())
+ *             .directoryId(exampleDirectory.id())
+ *             .subnetIds(            
+ *                 exampleC.id(),
+ *                 exampleD.id())
+ *             .tags(Map.of("Example", "true"))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
  *                     workspacesDefaultServiceAccess,
@@ -211,13 +211,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Directory("example", DirectoryArgs.builder()
- *             .subnetIds(            
- *                 exampleC.id(),
- *                 exampleD.id())
- *             .workspaceType("POOLS")
- *             .workspaceDirectoryName("Pool directory")
- *             .workspaceDirectoryDescription("WorkSpaces Pools directory")
- *             .userIdentityType("CUSTOMER_MANAGED")
  *             .activeDirectoryConfig(DirectoryActiveDirectoryConfigArgs.builder()
  *                 .domainName("example.internal")
  *                 .serviceAccountSecretArn(exampleAwsSecretsmanagerSecret.arn())
@@ -242,6 +235,13 @@ import javax.annotation.Nullable;
  *                 .userAccessUrl("https://sso.example.com/")
  *                 .status("ENABLED")
  *                 .build())
+ *             .subnetIds(            
+ *                 exampleC.id(),
+ *                 exampleD.id())
+ *             .workspaceType("POOLS")
+ *             .workspaceDirectoryName("Pool directory")
+ *             .workspaceDirectoryDescription("WorkSpaces Pools directory")
+ *             .userIdentityType("CUSTOMER_MANAGED")
  *             .build());
  * 
  *     }

@@ -24,10 +24,6 @@ namespace Pulumi.Aws.GameLift
     /// {
     ///     var example = new Aws.GameLift.Fleet("example", new()
     ///     {
-    ///         BuildId = exampleAwsGameliftBuild.Id,
-    ///         Ec2InstanceType = "t2.micro",
-    ///         FleetType = "ON_DEMAND",
-    ///         Name = "example-fleet-name",
     ///         RuntimeConfiguration = new Aws.GameLift.Inputs.FleetRuntimeConfigurationArgs
     ///         {
     ///             ServerProcesses = new[]
@@ -39,6 +35,10 @@ namespace Pulumi.Aws.GameLift
     ///                 },
     ///             },
     ///         },
+    ///         BuildId = exampleAwsGameliftBuild.Id,
+    ///         Ec2InstanceType = "t2.micro",
+    ///         FleetType = "ON_DEMAND",
+    ///         Name = "example-fleet-name",
     ///     });
     /// 
     /// });

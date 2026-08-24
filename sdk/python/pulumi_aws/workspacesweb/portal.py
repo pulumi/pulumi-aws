@@ -641,7 +641,8 @@ class Portal(pulumi.CustomResource):
             },
             tags={
                 "Name": "example-portal",
-            })
+            },
+            opts = pulumi.ResourceOptions(custom_timeouts=pulumi.CustomTimeouts(create="10m", update="10m", delete="10m")))
         ```
 
         ## Import
@@ -707,7 +708,8 @@ class Portal(pulumi.CustomResource):
             },
             tags={
                 "Name": "example-portal",
-            })
+            },
+            opts = pulumi.ResourceOptions(custom_timeouts=pulumi.CustomTimeouts(create="10m", update="10m", delete="10m")))
         ```
 
         ## Import

@@ -27,14 +27,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.Function("example", {
- *     name: "example_container_function",
- *     role: exampleAwsIamRole.arn,
- *     packageType: "Image",
- *     imageUri: `${exampleAwsEcrRepository.repositoryUrl}:latest`,
  *     imageConfig: {
  *         entryPoints: ["/lambda-entrypoint.sh"],
  *         commands: ["app.handler"],
  *     },
+ *     name: "example_container_function",
+ *     role: exampleAwsIamRole.arn,
+ *     packageType: "Image",
+ *     imageUri: `${exampleAwsEcrRepository.repositoryUrl}:latest`,
  *     memorySize: 512,
  *     timeout: 30,
  *     architectures: ["arm64"],
@@ -65,15 +65,15 @@ import * as utilities from "../utilities";
  * });
  * // Function using the layer
  * const exampleFunction = new aws.lambda.Function("example", {
+ *     tracingConfig: {
+ *         mode: "Active",
+ *     },
  *     code: new pulumi.asset.FileArchive("function.zip"),
  *     name: "example_layered_function",
  *     role: exampleAwsIamRole.arn,
  *     handler: "index.handler",
  *     runtime: aws.lambda.Runtime.NodeJS24dX,
  *     layers: [example.arn],
- *     tracingConfig: {
- *         mode: "Active",
- *     },
  * });
  * ```
  *
@@ -84,13 +84,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.Function("example", {
- *     code: new pulumi.asset.FileArchive("function.zip"),
- *     name: "example_vpc_function",
- *     role: exampleAwsIamRole.arn,
- *     handler: "app.handler",
- *     runtime: aws.lambda.Runtime.Python3d12,
- *     memorySize: 1024,
- *     timeout: 30,
  *     vpcConfig: {
  *         subnetIds: [
  *             examplePrivate1.id,
@@ -105,6 +98,13 @@ import * as utilities from "../utilities";
  *     snapStart: {
  *         applyOn: "PublishedVersions",
  *     },
+ *     code: new pulumi.asset.FileArchive("function.zip"),
+ *     name: "example_vpc_function",
+ *     role: exampleAwsIamRole.arn,
+ *     handler: "app.handler",
+ *     runtime: aws.lambda.Runtime.Python3d12,
+ *     memorySize: 1024,
+ *     timeout: 30,
  * });
  * ```
  *
@@ -138,27 +138,22 @@ import * as utilities from "../utilities";
  * }
  * // Access point for Lambda
  * const exampleAccessPoint = new aws.efs.AccessPoint("example", {
- *     fileSystemId: example.id,
  *     rootDirectory: {
- *         path: "/lambda",
  *         creationInfo: {
  *             ownerGid: 1000,
  *             ownerUid: 1000,
  *             permissions: "755",
  *         },
+ *         path: "/lambda",
  *     },
  *     posixUser: {
  *         gid: 1000,
  *         uid: 1000,
  *     },
+ *     fileSystemId: example.id,
  * });
  * // Lambda function with EFS
  * const exampleFunction = new aws.lambda.Function("example", {
- *     code: new pulumi.asset.FileArchive("function.zip"),
- *     name: "example_efs_function",
- *     role: exampleAwsIamRole.arn,
- *     handler: "index.handler",
- *     runtime: aws.lambda.Runtime.NodeJS24dX,
  *     vpcConfig: {
  *         subnetIds: subnetIds,
  *         securityGroupIds: [lambda.id],
@@ -167,6 +162,11 @@ import * as utilities from "../utilities";
  *         arn: exampleAccessPoint.arn,
  *         localMountPath: "/mnt/data",
  *     },
+ *     code: new pulumi.asset.FileArchive("function.zip"),
+ *     name: "example_efs_function",
+ *     role: exampleAwsIamRole.arn,
+ *     handler: "index.handler",
+ *     runtime: aws.lambda.Runtime.NodeJS24dX,
  * }, {
  *     dependsOn: [exampleMountTarget],
  * });
@@ -185,10 +185,10 @@ import * as utilities from "../utilities";
  *     bucketNamespace: "account-regional",
  * });
  * const lambdaFileSystemBucketVersioning = new aws.s3.BucketVersioning("lambda_file_system", {
- *     bucket: lambdaFileSystem.bucket,
  *     versioningConfiguration: {
  *         status: "Enabled",
  *     },
+ *     bucket: lambdaFileSystem.bucket,
  * });
  * const forLambda = new aws.s3.FilesFileSystem("for_lambda", {
  *     bucket: lambdaFileSystem.arn,
@@ -197,19 +197,19 @@ import * as utilities from "../utilities";
  *     dependsOn: [lambdaFileSystemBucketVersioning],
  * });
  * const forLambdaFilesAccessPoint = new aws.s3.FilesAccessPoint("for_lambda", {
- *     fileSystemId: forLambda.id,
+ *     posixUsers: [{
+ *         gid: 1000,
+ *         uid: 1000,
+ *     }],
  *     rootDirectories: [{
- *         path: "/lambda",
  *         creationPermissions: [{
  *             ownerGid: 1000,
  *             ownerUid: 1000,
  *             permissions: "755",
  *         }],
+ *         path: "/lambda",
  *     }],
- *     posixUsers: [{
- *         gid: 1000,
- *         uid: 1000,
- *     }],
+ *     fileSystemId: forLambda.id,
  * });
  * const s3filesMountTargets = new aws.ec2.SecurityGroup("s3files_mount_targets", {
  *     name: "example-s3files-mount-targets-sg",
@@ -234,11 +234,6 @@ import * as utilities from "../utilities";
  *     referencedSecurityGroupId: s3filesMountTargets.id,
  * });
  * const example = new aws.lambda.Function("example", {
- *     code: new pulumi.asset.FileArchive("function.zip"),
- *     name: "example_s3files_function",
- *     role: iamForLambda.arn,
- *     handler: "exports.example",
- *     runtime: aws.lambda.Runtime.NodeJS24dX,
  *     vpcConfig: {
  *         subnetIds: [subnetForLambdaAz1.id],
  *         securityGroupIds: [lambdaS3files.id],
@@ -247,6 +242,11 @@ import * as utilities from "../utilities";
  *         arn: forLambdaFilesAccessPoint.arn,
  *         localMountPath: "/mnt/s3files",
  *     },
+ *     code: new pulumi.asset.FileArchive("function.zip"),
+ *     name: "example_s3files_function",
+ *     role: iamForLambda.arn,
+ *     handler: "exports.example",
+ *     runtime: aws.lambda.Runtime.NodeJS24dX,
  * }, {
  *     dependsOn: [forLambdaAwsS3filesMountTarget],
  * });
@@ -267,16 +267,16 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleFunction = new aws.lambda.Function("example", {
- *     code: new pulumi.asset.FileArchive("function.zip"),
- *     name: "example_function",
- *     role: exampleAwsIamRole.arn,
- *     handler: "index.handler",
- *     runtime: aws.lambda.Runtime.NodeJS24dX,
  *     loggingConfig: {
  *         logFormat: "JSON",
  *         applicationLogLevel: "INFO",
  *         systemLogLevel: "WARN",
  *     },
+ *     code: new pulumi.asset.FileArchive("function.zip"),
+ *     name: "example_function",
+ *     role: exampleAwsIamRole.arn,
+ *     handler: "index.handler",
+ *     runtime: aws.lambda.Runtime.NodeJS24dX,
  * }, {
  *     dependsOn: [example],
  * });
@@ -318,12 +318,12 @@ import * as utilities from "../utilities";
  * });
  * const logsAssumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         actions: ["sts:AssumeRole"],
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["logs.amazonaws.com"],
  *         }],
+ *         actions: ["sts:AssumeRole"],
+ *         effect: "Allow",
  *     }],
  * });
  * const logsLogExport = new aws.iam.Role("logs_log_export", {
@@ -349,15 +349,15 @@ import * as utilities from "../utilities";
  *     roleArn: logsLogExport.arn,
  * });
  * const logExport = new aws.lambda.Function("log_export", {
+ *     loggingConfig: {
+ *         logFormat: "Text",
+ *         logGroup: _export.name,
+ *     },
  *     name: lambdaFunctionName,
  *     handler: "index.lambda_handler",
  *     runtime: aws.lambda.Runtime.Python3d13,
  *     role: example.arn,
  *     code: new pulumi.asset.FileArchive("function.zip"),
- *     loggingConfig: {
- *         logFormat: "Text",
- *         logGroup: _export.name,
- *     },
  * }, {
  *     dependsOn: [_export],
  * });
@@ -371,20 +371,17 @@ import * as utilities from "../utilities";
  *
  * // Main Lambda function
  * const example = new aws.lambda.Function("example", {
+ *     deadLetterConfig: {
+ *         targetArn: dlq.arn,
+ *     },
  *     code: new pulumi.asset.FileArchive("function.zip"),
  *     name: "example_function",
  *     role: exampleAwsIamRole.arn,
  *     handler: "index.handler",
  *     runtime: aws.lambda.Runtime.NodeJS24dX,
- *     deadLetterConfig: {
- *         targetArn: dlq.arn,
- *     },
  * });
  * // Event invoke configuration for retries
  * const exampleFunctionEventInvokeConfig = new aws.lambda.FunctionEventInvokeConfig("example", {
- *     functionName: example.name,
- *     maximumEventAgeInSeconds: 60,
- *     maximumRetryAttempts: 2,
  *     destinationConfig: {
  *         onFailure: {
  *             destination: dlq.arn,
@@ -393,6 +390,9 @@ import * as utilities from "../utilities";
  *             destination: success.arn,
  *         },
  *     },
+ *     functionName: example.name,
+ *     maximumEventAgeInSeconds: 60,
+ *     maximumRetryAttempts: 2,
  * });
  * ```
  *
@@ -453,16 +453,16 @@ import * as utilities from "../utilities";
  * });
  * // Lambda function with logging
  * const exampleFunction = new aws.lambda.Function("example", {
- *     code: new pulumi.asset.FileArchive("function.zip"),
- *     name: functionName,
- *     role: exampleRole.arn,
- *     handler: "index.handler",
- *     runtime: aws.lambda.Runtime.NodeJS24dX,
  *     loggingConfig: {
  *         logFormat: "JSON",
  *         applicationLogLevel: "INFO",
  *         systemLogLevel: "WARN",
  *     },
+ *     code: new pulumi.asset.FileArchive("function.zip"),
+ *     name: functionName,
+ *     role: exampleRole.arn,
+ *     handler: "index.handler",
+ *     runtime: aws.lambda.Runtime.NodeJS24dX,
  * }, {
  *     dependsOn: [
  *         lambdaLogs,
@@ -480,13 +480,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.Function("example", {
- *     code: new pulumi.asset.FileArchive("function.zip"),
- *     name: "example_durable_function",
- *     role: exampleAwsIamRole.arn,
- *     handler: "index.handler",
- *     runtime: aws.lambda.Runtime.NodeJS24dX,
- *     memorySize: 512,
- *     timeout: 30,
  *     durableConfig: {
  *         executionTimeout: 3600,
  *         retentionPeriod: 7,
@@ -496,9 +489,20 @@ import * as utilities from "../utilities";
  *             DURABLE_MODE: "enabled",
  *         },
  *     },
+ *     code: new pulumi.asset.FileArchive("function.zip"),
+ *     name: "example_durable_function",
+ *     role: exampleAwsIamRole.arn,
+ *     handler: "index.handler",
+ *     runtime: aws.lambda.Runtime.NodeJS24dX,
+ *     memorySize: 512,
+ *     timeout: 30,
  *     tags: {
  *         Environment: "production",
  *         Type: "durable",
+ *     },
+ * }, {
+ *     customTimeouts: {
+ *         "delete": "60m",
  *     },
  * });
  * ```
@@ -510,7 +514,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const exampleCapacityProvider = new aws.lambda.CapacityProvider("example", {
- *     name: "example",
  *     vpcConfig: {
  *         subnetIds: [exampleAwsSubnet.id],
  *         securityGroupIds: [exampleAwsSecurityGroup.id],
@@ -518,8 +521,14 @@ import * as utilities from "../utilities";
  *     permissionsConfig: {
  *         capacityProviderOperatorRoleArn: exampleAwsIamRole.arn,
  *     },
+ *     name: "example",
  * });
  * const example = new aws.lambda.Function("example", {
+ *     capacityProviderConfig: {
+ *         lambdaManagedInstancesCapacityProviderConfig: {
+ *             capacityProviderArn: exampleCapacityProvider.arn,
+ *         },
+ *     },
  *     code: new pulumi.asset.FileArchive("function.zip"),
  *     name: "example",
  *     role: exampleAwsIamRole.arn,
@@ -527,11 +536,6 @@ import * as utilities from "../utilities";
  *     runtime: aws.lambda.Runtime.NodeJS24dX,
  *     memorySize: 2048,
  *     publish: true,
- *     capacityProviderConfig: {
- *         lambdaManagedInstancesCapacityProviderConfig: {
- *             capacityProviderArn: exampleCapacityProvider.arn,
- *         },
- *     },
  * });
  * ```
  *

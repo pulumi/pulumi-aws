@@ -24,11 +24,8 @@ namespace Pulumi.Aws.CloudFront
     /// {
     ///     var example = new Aws.CloudFront.OriginRequestPolicy("example", new()
     ///     {
-    ///         Name = "example-policy",
-    ///         Comment = "example comment",
     ///         CookiesConfig = new Aws.CloudFront.Inputs.OriginRequestPolicyCookiesConfigArgs
     ///         {
-    ///             CookieBehavior = "whitelist",
     ///             Cookies = new Aws.CloudFront.Inputs.OriginRequestPolicyCookiesConfigCookiesArgs
     ///             {
     ///                 Items = new[]
@@ -36,10 +33,10 @@ namespace Pulumi.Aws.CloudFront
     ///                     "example",
     ///                 },
     ///             },
+    ///             CookieBehavior = "whitelist",
     ///         },
     ///         HeadersConfig = new Aws.CloudFront.Inputs.OriginRequestPolicyHeadersConfigArgs
     ///         {
-    ///             HeaderBehavior = "whitelist",
     ///             Headers = new Aws.CloudFront.Inputs.OriginRequestPolicyHeadersConfigHeadersArgs
     ///             {
     ///                 Items = new[]
@@ -47,10 +44,10 @@ namespace Pulumi.Aws.CloudFront
     ///                     "example",
     ///                 },
     ///             },
+    ///             HeaderBehavior = "whitelist",
     ///         },
     ///         QueryStringsConfig = new Aws.CloudFront.Inputs.OriginRequestPolicyQueryStringsConfigArgs
     ///         {
-    ///             QueryStringBehavior = "whitelist",
     ///             QueryStrings = new Aws.CloudFront.Inputs.OriginRequestPolicyQueryStringsConfigQueryStringsArgs
     ///             {
     ///                 Items = new[]
@@ -58,7 +55,10 @@ namespace Pulumi.Aws.CloudFront
     ///                     "example",
     ///                 },
     ///             },
+    ///             QueryStringBehavior = "whitelist",
     ///         },
+    ///         Name = "example-policy",
+    ///         Comment = "example comment",
     ///     });
     /// 
     /// });

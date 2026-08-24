@@ -16,11 +16,11 @@ import * as utilities from "../utilities";
  * const test = new aws.apigateway.RestApi("test", {name: "MyDemoAPI"});
  * // ...
  * const myusageplan = new aws.apigateway.UsagePlan("myusageplan", {
- *     name: "my_usage_plan",
  *     apiStages: [{
  *         apiId: test.id,
  *         stage: foo.stageName,
  *     }],
+ *     name: "my_usage_plan",
  * });
  * const mykey = new aws.apigateway.ApiKey("mykey", {name: "my_key"});
  * const main = new aws.apigateway.UsagePlanKey("main", {

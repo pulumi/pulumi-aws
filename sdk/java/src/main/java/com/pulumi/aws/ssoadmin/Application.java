@@ -97,16 +97,16 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()
- *             .name("example")
- *             .applicationProviderArn("arn:aws:sso::aws:applicationProvider/custom")
- *             .instanceArn(example.arns()[0])
  *             .portalOptions(ApplicationPortalOptionsArgs.builder()
- *                 .visibility("ENABLED")
  *                 .signInOptions(ApplicationPortalOptionsSignInOptionsArgs.builder()
  *                     .applicationUrl("http://example.com")
  *                     .origin("APPLICATION")
  *                     .build())
+ *                 .visibility("ENABLED")
  *                 .build())
+ *             .name("example")
+ *             .applicationProviderArn("arn:aws:sso::aws:applicationProvider/custom")
+ *             .instanceArn(example.arns()[0])
  *             .build());
  * 
  *     }

@@ -53,14 +53,14 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var test = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid("DevAccountAccess")
- *                 .effect("Allow")
- *                 .actions("events:PutEvents")
- *                 .resources("arn:aws:events:eu-west-1:123456789012:event-bus/default")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("AWS")
  *                     .identifiers("123456789012")
  *                     .build())
+ *                 .sid("DevAccountAccess")
+ *                 .effect("Allow")
+ *                 .actions("events:PutEvents")
+ *                 .resources("arn:aws:events:eu-west-1:123456789012:event-bus/default")
  *                 .build())
  *             .build());
  * 
@@ -86,8 +86,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementConditionArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.cloudwatch.EventBusPolicy;
  * import com.pulumi.aws.cloudwatch.EventBusPolicyArgs;
  * import java.util.ArrayList;
@@ -105,6 +105,15 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var test = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
+ *                     .test("StringEquals")
+ *                     .variable("aws:PrincipalOrgID")
+ *                     .values(example.id())
+ *                     .build())
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type("AWS")
+ *                     .identifiers("*")
+ *                     .build())
  *                 .sid("OrganizationAccess")
  *                 .effect("Allow")
  *                 .actions(                
@@ -115,15 +124,6 @@ import javax.annotation.Nullable;
  *                 .resources(                
  *                     "arn:aws:events:eu-west-1:123456789012:rule/*",
  *                     "arn:aws:events:eu-west-1:123456789012:event-bus/default")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("AWS")
- *                     .identifiers("*")
- *                     .build())
- *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                     .test("StringEquals")
- *                     .variable("aws:PrincipalOrgID")
- *                     .values(example.id())
- *                     .build())
  *                 .build())
  *             .build());
  * 
@@ -169,16 +169,25 @@ import javax.annotation.Nullable;
  *         final var test = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(            
  *                 GetPolicyDocumentStatementArgs.builder()
- *                     .sid("DevAccountAccess")
- *                     .effect("Allow")
- *                     .actions("events:PutEvents")
- *                     .resources("arn:aws:events:eu-west-1:123456789012:event-bus/default")
  *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                         .type("AWS")
  *                         .identifiers("123456789012")
  *                         .build())
+ *                     .sid("DevAccountAccess")
+ *                     .effect("Allow")
+ *                     .actions("events:PutEvents")
+ *                     .resources("arn:aws:events:eu-west-1:123456789012:event-bus/default")
  *                     .build(),
  *                 GetPolicyDocumentStatementArgs.builder()
+ *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
+ *                         .test("StringEquals")
+ *                         .variable("aws:PrincipalOrgID")
+ *                         .values(example.id())
+ *                         .build())
+ *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                         .type("AWS")
+ *                         .identifiers("*")
+ *                         .build())
  *                     .sid("OrganizationAccess")
  *                     .effect("Allow")
  *                     .actions(                    
@@ -189,15 +198,6 @@ import javax.annotation.Nullable;
  *                     .resources(                    
  *                         "arn:aws:events:eu-west-1:123456789012:rule/*",
  *                         "arn:aws:events:eu-west-1:123456789012:event-bus/default")
- *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                         .type("AWS")
- *                         .identifiers("*")
- *                         .build())
- *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                         .test("StringEquals")
- *                         .variable("aws:PrincipalOrgID")
- *                         .values(example.id())
- *                         .build())
  *                     .build())
  *             .build());
  * 

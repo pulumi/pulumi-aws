@@ -43,13 +43,13 @@ import (
 //				return err
 //			}
 //			exampleGetGroup, err := identitystore.LookupGroup(ctx, &identitystore.LookupGroupArgs{
-//				IdentityStoreId: example.IdentityStoreIds[0],
 //				AlternateIdentifier: identitystore.GetGroupAlternateIdentifier{
 //					UniqueAttribute: identitystore.GetGroupAlternateIdentifierUniqueAttribute{
 //						AttributePath:  "DisplayName",
 //						AttributeValue: "ExampleGroup",
 //					},
 //				},
+//				IdentityStoreId: example.IdentityStoreIds[0],
 //			}, nil)
 //			if err != nil {
 //				return err

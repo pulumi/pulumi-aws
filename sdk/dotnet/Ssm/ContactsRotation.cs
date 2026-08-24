@@ -28,15 +28,8 @@ namespace Pulumi.Aws.Ssm
     /// {
     ///     var example = new Aws.Ssm.ContactsRotation("example", new()
     ///     {
-    ///         ContactIds = new[]
-    ///         {
-    ///             exampleAwsSsmcontactsContact.Arn,
-    ///         },
-    ///         Name = "rotation",
     ///         Recurrence = new Aws.Ssm.Inputs.ContactsRotationRecurrenceArgs
     ///         {
-    ///             NumberOfOnCalls = 1,
-    ///             RecurrenceMultiplier = 1,
     ///             DailySettings = new[]
     ///             {
     ///                 new Aws.Ssm.Inputs.ContactsRotationRecurrenceDailySettingArgs
@@ -45,7 +38,14 @@ namespace Pulumi.Aws.Ssm
     ///                     MinuteOfHour = 0,
     ///                 },
     ///             },
+    ///             NumberOfOnCalls = 1,
+    ///             RecurrenceMultiplier = 1,
     ///         },
+    ///         ContactIds = new[]
+    ///         {
+    ///             exampleAwsSsmcontactsContact.Arn,
+    ///         },
+    ///         Name = "rotation",
     ///         TimeZoneId = "Australia/Sydney",
     ///     }, new CustomResourceOptions
     ///     {
@@ -70,41 +70,12 @@ namespace Pulumi.Aws.Ssm
     /// {
     ///     var example = new Aws.Ssm.ContactsRotation("example", new()
     ///     {
-    ///         ContactIds = new[]
-    ///         {
-    ///             exampleAwsSsmcontactsContact.Arn,
-    ///         },
-    ///         Name = "rotation",
     ///         Recurrence = new Aws.Ssm.Inputs.ContactsRotationRecurrenceArgs
     ///         {
-    ///             NumberOfOnCalls = 1,
-    ///             RecurrenceMultiplier = 1,
-    ///             WeeklySettings = new[]
-    ///             {
-    ///                 new Aws.Ssm.Inputs.ContactsRotationRecurrenceWeeklySettingArgs
-    ///                 {
-    ///                     DayOfWeek = "WED",
-    ///                     HandOffTime = new Aws.Ssm.Inputs.ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs
-    ///                     {
-    ///                         HourOfDay = 4,
-    ///                         MinuteOfHour = 25,
-    ///                     },
-    ///                 },
-    ///                 new Aws.Ssm.Inputs.ContactsRotationRecurrenceWeeklySettingArgs
-    ///                 {
-    ///                     DayOfWeek = "FRI",
-    ///                     HandOffTime = new Aws.Ssm.Inputs.ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs
-    ///                     {
-    ///                         HourOfDay = 15,
-    ///                         MinuteOfHour = 57,
-    ///                     },
-    ///                 },
-    ///             },
     ///             ShiftCoverages = new[]
     ///             {
     ///                 new Aws.Ssm.Inputs.ContactsRotationRecurrenceShiftCoverageArgs
     ///                 {
-    ///                     MapBlockKey = "MON",
     ///                     CoverageTimes = new[]
     ///                     {
     ///                         new Aws.Ssm.Inputs.ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs
@@ -121,9 +92,38 @@ namespace Pulumi.Aws.Ssm
     ///                             },
     ///                         },
     ///                     },
+    ///                     MapBlockKey = "MON",
     ///                 },
     ///             },
+    ///             WeeklySettings = new[]
+    ///             {
+    ///                 new Aws.Ssm.Inputs.ContactsRotationRecurrenceWeeklySettingArgs
+    ///                 {
+    ///                     HandOffTime = new Aws.Ssm.Inputs.ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs
+    ///                     {
+    ///                         HourOfDay = 4,
+    ///                         MinuteOfHour = 25,
+    ///                     },
+    ///                     DayOfWeek = "WED",
+    ///                 },
+    ///                 new Aws.Ssm.Inputs.ContactsRotationRecurrenceWeeklySettingArgs
+    ///                 {
+    ///                     HandOffTime = new Aws.Ssm.Inputs.ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs
+    ///                     {
+    ///                         HourOfDay = 15,
+    ///                         MinuteOfHour = 57,
+    ///                     },
+    ///                     DayOfWeek = "FRI",
+    ///                 },
+    ///             },
+    ///             NumberOfOnCalls = 1,
+    ///             RecurrenceMultiplier = 1,
     ///         },
+    ///         ContactIds = new[]
+    ///         {
+    ///             exampleAwsSsmcontactsContact.Arn,
+    ///         },
+    ///         Name = "rotation",
     ///         StartTime = "2023-07-20T02:21:49+00:00",
     ///         TimeZoneId = "Australia/Sydney",
     ///         Tags = 
@@ -154,37 +154,37 @@ namespace Pulumi.Aws.Ssm
     /// {
     ///     var example = new Aws.Ssm.ContactsRotation("example", new()
     ///     {
-    ///         ContactIds = new[]
-    ///         {
-    ///             exampleAwsSsmcontactsContact.Arn,
-    ///         },
-    ///         Name = "rotation",
     ///         Recurrence = new Aws.Ssm.Inputs.ContactsRotationRecurrenceArgs
     ///         {
-    ///             NumberOfOnCalls = 1,
-    ///             RecurrenceMultiplier = 1,
     ///             MonthlySettings = new[]
     ///             {
     ///                 new Aws.Ssm.Inputs.ContactsRotationRecurrenceMonthlySettingArgs
     ///                 {
-    ///                     DayOfMonth = 20,
     ///                     HandOffTime = new Aws.Ssm.Inputs.ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs
     ///                     {
     ///                         HourOfDay = 8,
     ///                         MinuteOfHour = 0,
     ///                     },
+    ///                     DayOfMonth = 20,
     ///                 },
     ///                 new Aws.Ssm.Inputs.ContactsRotationRecurrenceMonthlySettingArgs
     ///                 {
-    ///                     DayOfMonth = 13,
     ///                     HandOffTime = new Aws.Ssm.Inputs.ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs
     ///                     {
     ///                         HourOfDay = 12,
     ///                         MinuteOfHour = 34,
     ///                     },
+    ///                     DayOfMonth = 13,
     ///                 },
     ///             },
+    ///             NumberOfOnCalls = 1,
+    ///             RecurrenceMultiplier = 1,
     ///         },
+    ///         ContactIds = new[]
+    ///         {
+    ///             exampleAwsSsmcontactsContact.Arn,
+    ///         },
+    ///         Name = "rotation",
     ///         TimeZoneId = "Australia/Sydney",
     ///     }, new CustomResourceOptions
     ///     {

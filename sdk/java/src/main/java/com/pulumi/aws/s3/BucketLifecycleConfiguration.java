@@ -65,11 +65,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BucketLifecycleConfiguration("example", BucketLifecycleConfigurationArgs.builder()
- *             .bucket(bucket.bucket())
  *             .rules(BucketLifecycleConfigurationRuleArgs.builder()
  *                 .id("rule-1")
  *                 .status("Enabled")
  *                 .build())
+ *             .bucket(bucket.bucket())
  *             .build());
  * 
  *     }
@@ -106,13 +106,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BucketLifecycleConfiguration("example", BucketLifecycleConfigurationArgs.builder()
- *             .bucket(bucket.bucket())
  *             .rules(BucketLifecycleConfigurationRuleArgs.builder()
- *                 .id("rule-1")
  *                 .filter(BucketLifecycleConfigurationRuleFilterArgs.builder()
  *                     .build())
+ *                 .id("rule-1")
  *                 .status("Enabled")
  *                 .build())
+ *             .bucket(bucket.bucket())
  *             .build());
  * 
  *     }
@@ -149,14 +149,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BucketLifecycleConfiguration("example", BucketLifecycleConfigurationArgs.builder()
- *             .bucket(bucket.bucket())
  *             .rules(BucketLifecycleConfigurationRuleArgs.builder()
- *                 .id("rule-1")
  *                 .filter(BucketLifecycleConfigurationRuleFilterArgs.builder()
  *                     .prefix("logs/")
  *                     .build())
+ *                 .id("rule-1")
  *                 .status("Enabled")
  *                 .build())
+ *             .bucket(bucket.bucket())
  *             .build());
  * 
  *     }
@@ -191,22 +191,22 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BucketLifecycleConfiguration("example", BucketLifecycleConfigurationArgs.builder()
- *             .bucket(bucket.bucket())
  *             .rules(            
  *                 BucketLifecycleConfigurationRuleArgs.builder()
- *                     .id("rule-1")
  *                     .filter(BucketLifecycleConfigurationRuleFilterArgs.builder()
  *                         .prefix("logs/")
  *                         .build())
+ *                     .id("rule-1")
  *                     .status("Enabled")
  *                     .build(),
  *                 BucketLifecycleConfigurationRuleArgs.builder()
- *                     .id("rule-2")
  *                     .filter(BucketLifecycleConfigurationRuleFilterArgs.builder()
  *                         .prefix("tmp/")
  *                         .build())
+ *                     .id("rule-2")
  *                     .status("Enabled")
  *                     .build())
+ *             .bucket(bucket.bucket())
  *             .build());
  * 
  *     }
@@ -244,17 +244,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BucketLifecycleConfiguration("example", BucketLifecycleConfigurationArgs.builder()
- *             .bucket(bucket.bucket())
  *             .rules(BucketLifecycleConfigurationRuleArgs.builder()
- *                 .id("rule-1")
  *                 .filter(BucketLifecycleConfigurationRuleFilterArgs.builder()
  *                     .tag(BucketLifecycleConfigurationRuleFilterTagArgs.builder()
  *                         .key("Name")
  *                         .value("Staging")
  *                         .build())
  *                     .build())
+ *                 .id("rule-1")
  *                 .status("Enabled")
  *                 .build())
+ *             .bucket(bucket.bucket())
  *             .build());
  * 
  *     }
@@ -292,9 +292,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BucketLifecycleConfiguration("example", BucketLifecycleConfigurationArgs.builder()
- *             .bucket(bucket.bucket())
  *             .rules(BucketLifecycleConfigurationRuleArgs.builder()
- *                 .id("rule-1")
  *                 .filter(BucketLifecycleConfigurationRuleFilterArgs.builder()
  *                     .and(BucketLifecycleConfigurationRuleFilterAndArgs.builder()
  *                         .tags(Map.ofEntries(
@@ -303,8 +301,10 @@ import javax.annotation.Nullable;
  *                         ))
  *                         .build())
  *                     .build())
+ *                 .id("rule-1")
  *                 .status("Enabled")
  *                 .build())
+ *             .bucket(bucket.bucket())
  *             .build());
  * 
  *     }
@@ -342,9 +342,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BucketLifecycleConfiguration("example", BucketLifecycleConfigurationArgs.builder()
- *             .bucket(bucket.bucket())
  *             .rules(BucketLifecycleConfigurationRuleArgs.builder()
- *                 .id("rule-1")
  *                 .filter(BucketLifecycleConfigurationRuleFilterArgs.builder()
  *                     .and(BucketLifecycleConfigurationRuleFilterAndArgs.builder()
  *                         .prefix("logs/")
@@ -354,8 +352,10 @@ import javax.annotation.Nullable;
  *                         ))
  *                         .build())
  *                     .build())
+ *                 .id("rule-1")
  *                 .status("Enabled")
  *                 .build())
+ *             .bucket(bucket.bucket())
  *             .build());
  * 
  *     }
@@ -393,18 +393,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BucketLifecycleConfiguration("example", BucketLifecycleConfigurationArgs.builder()
- *             .bucket(bucket.bucket())
  *             .rules(BucketLifecycleConfigurationRuleArgs.builder()
- *                 .id("Allow small object transitions")
  *                 .filter(BucketLifecycleConfigurationRuleFilterArgs.builder()
  *                     .objectSizeGreaterThan(1)
  *                     .build())
- *                 .status("Enabled")
  *                 .transitions(BucketLifecycleConfigurationRuleTransitionArgs.builder()
  *                     .days(365)
  *                     .storageClass("GLACIER_IR")
  *                     .build())
+ *                 .id("Allow small object transitions")
+ *                 .status("Enabled")
  *                 .build())
+ *             .bucket(bucket.bucket())
  *             .build());
  * 
  *     }
@@ -442,9 +442,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BucketLifecycleConfiguration("example", BucketLifecycleConfigurationArgs.builder()
- *             .bucket(bucket.bucket())
  *             .rules(BucketLifecycleConfigurationRuleArgs.builder()
- *                 .id("rule-1")
  *                 .filter(BucketLifecycleConfigurationRuleFilterArgs.builder()
  *                     .and(BucketLifecycleConfigurationRuleFilterAndArgs.builder()
  *                         .prefix("logs/")
@@ -452,8 +450,10 @@ import javax.annotation.Nullable;
  *                         .objectSizeLessThan(64000)
  *                         .build())
  *                     .build())
+ *                 .id("rule-1")
  *                 .status("Enabled")
  *                 .build())
+ *             .bucket(bucket.bucket())
  *             .build());
  * 
  *     }
@@ -510,10 +510,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var bucket_config = new BucketLifecycleConfiguration("bucket-config", BucketLifecycleConfigurationArgs.builder()
- *             .bucket(bucket.bucket())
  *             .rules(            
  *                 BucketLifecycleConfigurationRuleArgs.builder()
- *                     .id("log")
  *                     .expiration(BucketLifecycleConfigurationRuleExpirationArgs.builder()
  *                         .days(90)
  *                         .build())
@@ -526,7 +524,6 @@ import javax.annotation.Nullable;
  *                             ))
  *                             .build())
  *                         .build())
- *                     .status("Enabled")
  *                     .transitions(                    
  *                         BucketLifecycleConfigurationRuleTransitionArgs.builder()
  *                             .days(30)
@@ -536,17 +533,20 @@ import javax.annotation.Nullable;
  *                             .days(60)
  *                             .storageClass("GLACIER")
  *                             .build())
+ *                     .id("log")
+ *                     .status("Enabled")
  *                     .build(),
  *                 BucketLifecycleConfigurationRuleArgs.builder()
- *                     .id("tmp")
  *                     .filter(BucketLifecycleConfigurationRuleFilterArgs.builder()
  *                         .prefix("tmp/")
  *                         .build())
  *                     .expiration(BucketLifecycleConfigurationRuleExpirationArgs.builder()
  *                         .date("2023-01-13T00:00:00Z")
  *                         .build())
+ *                     .id("tmp")
  *                     .status("Enabled")
  *                     .build())
+ *             .bucket(bucket.bucket())
  *             .build());
  * 
  *         var versioningBucket = new Bucket("versioningBucket", BucketArgs.builder()
@@ -559,16 +559,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var versioning = new BucketVersioning("versioning", BucketVersioningArgs.builder()
- *             .bucket(versioningBucket.bucket())
  *             .versioningConfiguration(BucketVersioningVersioningConfigurationArgs.builder()
  *                 .status("Enabled")
  *                 .build())
+ *             .bucket(versioningBucket.bucket())
  *             .build());
  * 
  *         var versioning_bucket_config = new BucketLifecycleConfiguration("versioning-bucket-config", BucketLifecycleConfigurationArgs.builder()
- *             .bucket(versioningBucket.bucket())
  *             .rules(BucketLifecycleConfigurationRuleArgs.builder()
- *                 .id("config")
  *                 .filter(BucketLifecycleConfigurationRuleFilterArgs.builder()
  *                     .prefix("config/")
  *                     .build())
@@ -584,8 +582,10 @@ import javax.annotation.Nullable;
  *                         .noncurrentDays(60)
  *                         .storageClass("GLACIER")
  *                         .build())
+ *                 .id("config")
  *                 .status("Enabled")
  *                 .build())
+ *             .bucket(versioningBucket.bucket())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(versioning)
  *                 .build());

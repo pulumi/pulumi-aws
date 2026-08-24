@@ -55,11 +55,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ConformancePack("example", ConformancePackArgs.builder()
- *             .name("example")
  *             .inputParameters(ConformancePackInputParameterArgs.builder()
  *                 .parameterName("AccessKeysRotatedParameterMaxAccessKeyAge")
  *                 .parameterValue("90")
  *                 .build())
+ *             .name("example")
  *             .templateBody("""
  * Parameters:
  *   AccessKeysRotatedParameterMaxAccessKeyAge:

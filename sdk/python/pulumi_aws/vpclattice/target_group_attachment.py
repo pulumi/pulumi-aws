@@ -152,11 +152,11 @@ class TargetGroupAttachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.vpclattice.TargetGroupAttachment("example",
-            target_group_identifier=example_aws_vpclattice_target_group["id"],
             target={
                 "id": example_aws_lb["arn"],
                 "port": 80,
-            })
+            },
+            target_group_identifier=example_aws_vpclattice_target_group["id"])
         ```
 
 
@@ -184,11 +184,11 @@ class TargetGroupAttachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.vpclattice.TargetGroupAttachment("example",
-            target_group_identifier=example_aws_vpclattice_target_group["id"],
             target={
                 "id": example_aws_lb["arn"],
                 "port": 80,
-            })
+            },
+            target_group_identifier=example_aws_vpclattice_target_group["id"])
         ```
 
 

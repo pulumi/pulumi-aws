@@ -19,10 +19,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cloudwatch.LogDeliveryDestination("example", {
- *     name: "example",
  *     deliveryDestinationConfiguration: {
  *         destinationResourceArn: exampleAwsCloudwatchLogGroup.arn,
  *     },
+ *     name: "example",
  * });
  * ```
  *

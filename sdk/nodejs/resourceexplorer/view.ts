@@ -18,13 +18,13 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.resourceexplorer.Index("example", {type: "LOCAL"});
  * const exampleView = new aws.resourceexplorer.View("example", {
- *     name: "exampleview",
  *     filters: {
  *         filterString: "resourcetype:ec2:instance",
  *     },
  *     includedProperties: [{
  *         name: "tags",
  *     }],
+ *     name: "exampleview",
  * }, {
  *     dependsOn: [example],
  * });

@@ -37,10 +37,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.auditmanager.Assessment;
  * import com.pulumi.aws.auditmanager.AssessmentArgs;
  * import com.pulumi.aws.auditmanager.inputs.AssessmentAssessmentReportsDestinationArgs;
- * import com.pulumi.aws.auditmanager.inputs.AssessmentRoleArgs;
  * import com.pulumi.aws.auditmanager.inputs.AssessmentScopeArgs;
  * import com.pulumi.aws.auditmanager.inputs.AssessmentScopeAwsAccountArgs;
  * import com.pulumi.aws.auditmanager.inputs.AssessmentScopeAwsServiceArgs;
+ * import com.pulumi.aws.auditmanager.inputs.AssessmentRoleArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -55,15 +55,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Assessment("test", AssessmentArgs.builder()
- *             .name("example")
  *             .assessmentReportsDestination(AssessmentAssessmentReportsDestinationArgs.builder()
  *                 .destination(String.format("s3://%s", testAwsS3Bucket.id()))
  *                 .destinationType("S3")
- *                 .build())
- *             .frameworkId(testAwsAuditmanagerFramework.id())
- *             .roles(AssessmentRoleArgs.builder()
- *                 .roleArn(testAwsIamRole.arn())
- *                 .roleType("PROCESS_OWNER")
  *                 .build())
  *             .scope(AssessmentScopeArgs.builder()
  *                 .awsAccounts(AssessmentScopeAwsAccountArgs.builder()
@@ -73,6 +67,12 @@ import javax.annotation.Nullable;
  *                     .serviceName("S3")
  *                     .build())
  *                 .build())
+ *             .roles(AssessmentRoleArgs.builder()
+ *                 .roleArn(testAwsIamRole.arn())
+ *                 .roleType("PROCESS_OWNER")
+ *                 .build())
+ *             .name("example")
+ *             .frameworkId(testAwsAuditmanagerFramework.id())
  *             .build());
  * 
  *     }

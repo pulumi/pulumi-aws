@@ -17,6 +17,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.networkfirewall.Firewall("example", {
+ *     subnetMappings: [{
+ *         subnetId: exampleAwsSubnet.id,
+ *     }],
  *     name: "example",
  *     firewallPolicyArn: exampleAwsNetworkfirewallFirewallPolicy.arn,
  *     vpcId: exampleAwsVpc.id,
@@ -24,12 +27,15 @@ import * as utilities from "../utilities";
  *         "TLS_SNI",
  *         "HTTP_HOST",
  *     ],
- *     subnetMappings: [{
- *         subnetId: exampleAwsSubnet.id,
- *     }],
  *     tags: {
  *         Tag1: "Value1",
  *         Tag2: "Value2",
+ *     },
+ * }, {
+ *     customTimeouts: {
+ *         create: "40m",
+ *         update: "50m",
+ *         "delete": "1h",
  *     },
  * });
  * ```
@@ -44,9 +50,6 @@ import * as utilities from "../utilities";
  *     state: "available",
  * });
  * const exampleFirewall = new aws.networkfirewall.Firewall("example", {
- *     name: "example",
- *     firewallPolicyArn: exampleAwsNetworkfirewallFirewallPolicy.arn,
- *     transitGatewayId: exampleAwsEc2TransitGateway.id,
  *     availabilityZoneMappings: [
  *         {
  *             availabilityZoneId: example.then(example => example.zoneIds?.[0]),
@@ -55,6 +58,9 @@ import * as utilities from "../utilities";
  *             availabilityZoneId: example.then(example => example.zoneIds?.[1]),
  *         },
  *     ],
+ *     name: "example",
+ *     firewallPolicyArn: exampleAwsNetworkfirewallFirewallPolicy.arn,
+ *     transitGatewayId: exampleAwsEc2TransitGateway.id,
  * });
  * ```
  *

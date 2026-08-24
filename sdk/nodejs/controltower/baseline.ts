@@ -19,13 +19,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.controltower.Baseline("example", {
- *     baselineIdentifier: "arn:aws:controltower:us-east-1::baseline/17BSJV3IGJ2QSGA2",
- *     baselineVersion: "4.0",
- *     targetIdentifier: test.arn,
  *     parameters: {
  *         key: "IdentityCenterEnabledBaselineArn",
  *         value: "arn:aws:controltower:us-east-1:664418989480:enabledbaseline/XALULM96QHI525UOC",
  *     },
+ *     baselineIdentifier: "arn:aws:controltower:us-east-1::baseline/17BSJV3IGJ2QSGA2",
+ *     baselineVersion: "4.0",
+ *     targetIdentifier: test.arn,
  * });
  * ```
  *

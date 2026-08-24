@@ -24,13 +24,13 @@ namespace Pulumi.Aws.Eks
     /// {
     ///     var example = new Aws.Eks.IdentityProviderConfig("example", new()
     ///     {
-    ///         ClusterName = exampleAwsEksCluster.Name,
     ///         Oidc = new Aws.Eks.Inputs.IdentityProviderConfigOidcArgs
     ///         {
     ///             ClientId = "your client_id",
     ///             IdentityProviderConfigName = "example",
     ///             IssuerUrl = "your issuer_url",
     ///         },
+    ///         ClusterName = exampleAwsEksCluster.Name,
     ///     });
     /// 
     /// });

@@ -19,12 +19,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.bedrock.AgentcoreEvaluator("example", {
- *     evaluatorName: "helpfulness_evaluator",
- *     description: "Rates assistant helpfulness from 1 to 5",
- *     level: "TRACE",
  *     evaluatorConfig: {
  *         llmAsAJudge: {
- *             instructions: "Given the {context} and the {assistant_turn}, compare against {expected_response} and rate from 1 to 5.",
  *             ratingScale: {
  *                 numericals: [
  *                     {
@@ -41,16 +37,20 @@ import * as utilities from "../utilities";
  *             },
  *             modelConfig: {
  *                 bedrockEvaluatorModelConfig: {
- *                     modelId: "us.amazon.nova-2-lite-v1:0",
  *                     inferenceConfig: {
  *                         maxTokens: 1024,
  *                         temperature: 0,
  *                         topP: 1,
  *                     },
+ *                     modelId: "us.amazon.nova-2-lite-v1:0",
  *                 },
  *             },
+ *             instructions: "Given the {context} and the {assistant_turn}, compare against {expected_response} and rate from 1 to 5.",
  *         },
  *     },
+ *     evaluatorName: "helpfulness_evaluator",
+ *     description: "Rates assistant helpfulness from 1 to 5",
+ *     level: "TRACE",
  * });
  * ```
  *
@@ -61,11 +61,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.bedrock.AgentcoreEvaluator("example", {
- *     evaluatorName: "tone_evaluator",
- *     level: "SESSION",
  *     evaluatorConfig: {
  *         llmAsAJudge: {
- *             instructions: "Classify the tone of the {assistant_turn} given the {context}.",
  *             ratingScale: {
  *                 categoricals: [
  *                     {
@@ -87,8 +84,11 @@ import * as utilities from "../utilities";
  *                     modelId: "us.amazon.nova-2-lite-v1:0",
  *                 },
  *             },
+ *             instructions: "Classify the tone of the {assistant_turn} given the {context}.",
  *         },
  *     },
+ *     evaluatorName: "tone_evaluator",
+ *     level: "SESSION",
  * });
  * ```
  *
@@ -99,8 +99,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.bedrock.AgentcoreEvaluator("example", {
- *     evaluatorName: "lambda_evaluator",
- *     level: "TOOL_CALL",
  *     evaluatorConfig: {
  *         codeBased: {
  *             lambdaConfig: {
@@ -109,6 +107,8 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     },
+ *     evaluatorName: "lambda_evaluator",
+ *     level: "TOOL_CALL",
  * });
  * ```
  *

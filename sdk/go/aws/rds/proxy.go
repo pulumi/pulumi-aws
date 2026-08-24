@@ -33,6 +33,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := rds.NewProxy(ctx, "example", &rds.ProxyArgs{
+//				Auths: rds.ProxyAuthArray{
+//					&rds.ProxyAuthArgs{
+//						AuthScheme:  pulumi.String("SECRETS"),
+//						Description: pulumi.String("example"),
+//						IamAuth:     pulumi.String("DISABLED"),
+//						SecretArn:   pulumi.Any(exampleAwsSecretsmanagerSecret.Arn),
+//					},
+//				},
 //				Name:              pulumi.String("example"),
 //				DebugLogging:      pulumi.Bool(false),
 //				EngineFamily:      pulumi.String("MYSQL"),
@@ -44,14 +52,6 @@ import (
 //				},
 //				VpcSubnetIds: pulumi.StringArray{
 //					exampleAwsSubnet.Id,
-//				},
-//				Auths: rds.ProxyAuthArray{
-//					&rds.ProxyAuthArgs{
-//						AuthScheme:  pulumi.String("SECRETS"),
-//						Description: pulumi.String("example"),
-//						IamAuth:     pulumi.String("DISABLED"),
-//						SecretArn:   pulumi.Any(exampleAwsSecretsmanagerSecret.Arn),
-//					},
 //				},
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("example"),
@@ -91,10 +91,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			available, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{
-//				ExcludeZoneIds: []string{
-//					"use1-az3",
-//				},
-//				State: pulumi.StringRef("available"),
 //				Filters: []aws.GetAvailabilityZonesFilter{
 //					{
 //						Name: "opt-in-status",
@@ -103,6 +99,10 @@ import (
 //						},
 //					},
 //				},
+//				ExcludeZoneIds: []string{
+//					"use1-az3",
+//				},
+//				State: pulumi.StringRef("available"),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -165,7 +165,9 @@ import (
 //				VpcSubnetIds: pulumi.StringArray{
 //					exampleAwsSubnet.Id,
 //				},
-//			})
+//			}, pulumi.IgnoreChanges([]string{
+//				"vpcSubnetIds",
+//			}))
 //			if err != nil {
 //				return err
 //			}

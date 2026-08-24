@@ -433,10 +433,10 @@ class VpcIpam(pulumi.CustomResource):
 
         current = aws.get_region()
         main = aws.ec2.VpcIpam("main",
-            description="My IPAM",
             operating_regions=[{
                 "region_name": current.region,
             }],
+            description="My IPAM",
             tags={
                 "Test": "Main",
             })
@@ -463,9 +463,9 @@ class VpcIpam(pulumi.CustomResource):
             ipam_regions,
         ]).result).result
         main = aws.ec2.VpcIpam("main",
-            operating_regions=[{"key": k, "value": v} for k, v in sorted(all_ipam_regions.items())].apply(lambda entries: [aws.ec2.VpcIpamOperatingRegionArgs(
-                region_name=entry["value"],
-            ) for entry in entries]),
+            operating_regions=[{
+                "region_name": entry,
+            } for entry in all_ipam_regions],
             description="multi region ipam")
         ```
 
@@ -508,10 +508,10 @@ class VpcIpam(pulumi.CustomResource):
 
         current = aws.get_region()
         main = aws.ec2.VpcIpam("main",
-            description="My IPAM",
             operating_regions=[{
                 "region_name": current.region,
             }],
+            description="My IPAM",
             tags={
                 "Test": "Main",
             })
@@ -538,9 +538,9 @@ class VpcIpam(pulumi.CustomResource):
             ipam_regions,
         ]).result).result
         main = aws.ec2.VpcIpam("main",
-            operating_regions=[{"key": k, "value": v} for k, v in sorted(all_ipam_regions.items())].apply(lambda entries: [aws.ec2.VpcIpamOperatingRegionArgs(
-                region_name=entry["value"],
-            ) for entry in entries]),
+            operating_regions=[{
+                "region_name": entry,
+            } for entry in all_ipam_regions],
             description="multi region ipam")
         ```
 

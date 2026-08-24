@@ -51,26 +51,26 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new OriginRequestPolicy("example", OriginRequestPolicyArgs.builder()
- *             .name("example-policy")
- *             .comment("example comment")
  *             .cookiesConfig(OriginRequestPolicyCookiesConfigArgs.builder()
- *                 .cookieBehavior("whitelist")
  *                 .cookies(OriginRequestPolicyCookiesConfigCookiesArgs.builder()
  *                     .items("example")
  *                     .build())
+ *                 .cookieBehavior("whitelist")
  *                 .build())
  *             .headersConfig(OriginRequestPolicyHeadersConfigArgs.builder()
- *                 .headerBehavior("whitelist")
  *                 .headers(OriginRequestPolicyHeadersConfigHeadersArgs.builder()
  *                     .items("example")
  *                     .build())
+ *                 .headerBehavior("whitelist")
  *                 .build())
  *             .queryStringsConfig(OriginRequestPolicyQueryStringsConfigArgs.builder()
- *                 .queryStringBehavior("whitelist")
  *                 .queryStrings(OriginRequestPolicyQueryStringsConfigQueryStringsArgs.builder()
  *                     .items("example")
  *                     .build())
+ *                 .queryStringBehavior("whitelist")
  *                 .build())
+ *             .name("example-policy")
+ *             .comment("example comment")
  *             .build());
  * 
  *     }

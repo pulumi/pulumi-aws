@@ -36,7 +36,6 @@ namespace Pulumi.Aws.S3
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -48,6 +47,7 @@ namespace Pulumi.Aws.S3
     ///                         },
     ///                     },
     ///                 },
+    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "sts:AssumeRole",
@@ -134,11 +134,11 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var destinationBucketVersioning = new Aws.S3.BucketVersioning("destination", new()
     ///     {
-    ///         Bucket = destination.Id,
     ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningVersioningConfigurationArgs
     ///         {
     ///             Status = "Enabled",
     ///         },
+    ///         Bucket = destination.Id,
     ///     });
     /// 
     ///     var sourceBucketAcl = new Aws.S3.BucketAcl("source_bucket_acl", new()
@@ -149,34 +149,34 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var sourceBucketVersioning = new Aws.S3.BucketVersioning("source", new()
     ///     {
-    ///         Bucket = source.Id,
     ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningVersioningConfigurationArgs
     ///         {
     ///             Status = "Enabled",
     ///         },
+    ///         Bucket = source.Id,
     ///     });
     /// 
     ///     var replicationBucketReplicationConfig = new Aws.S3.BucketReplicationConfig("replication", new()
     ///     {
-    ///         Role = replicationRole.Arn,
-    ///         Bucket = source.Id,
     ///         Rules = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketReplicationConfigRuleArgs
     ///             {
-    ///                 Id = "examplerule",
     ///                 Filter = new Aws.S3.Inputs.BucketReplicationConfigRuleFilterArgs
     ///                 {
     ///                     Prefix = "example",
     ///                 },
-    ///                 Status = "Enabled",
     ///                 Destination = new Aws.S3.Inputs.BucketReplicationConfigRuleDestinationArgs
     ///                 {
     ///                     Bucket = destination.Arn,
     ///                     StorageClass = "STANDARD",
     ///                 },
+    ///                 Id = "examplerule",
+    ///                 Status = "Enabled",
     ///             },
     ///         },
+    ///         Role = replicationRole.Arn,
+    ///         Bucket = source.Id,
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -204,7 +204,6 @@ namespace Pulumi.Aws.S3
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -216,6 +215,7 @@ namespace Pulumi.Aws.S3
     ///                         },
     ///                     },
     ///                 },
+    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "sts:AssumeRole",
@@ -303,11 +303,11 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var destinationBucketVersioning = new Aws.S3.BucketVersioning("destination", new()
     ///     {
-    ///         Bucket = destination.Id,
     ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningVersioningConfigurationArgs
     ///         {
     ///             Status = "Enabled",
     ///         },
+    ///         Bucket = destination.Id,
     ///     });
     /// 
     ///     var sourceBucketAcl = new Aws.S3.BucketAcl("source_bucket_acl", new()
@@ -319,36 +319,36 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var sourceBucketVersioning = new Aws.S3.BucketVersioning("source", new()
     ///     {
-    ///         Region = "eu-central-1",
-    ///         Bucket = source.Id,
     ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningVersioningConfigurationArgs
     ///         {
     ///             Status = "Enabled",
     ///         },
+    ///         Region = "eu-central-1",
+    ///         Bucket = source.Id,
     ///     });
     /// 
     ///     var replicationBucketReplicationConfig = new Aws.S3.BucketReplicationConfig("replication", new()
     ///     {
-    ///         Region = "eu-central-1",
-    ///         Role = replicationRole.Arn,
-    ///         Bucket = source.Id,
     ///         Rules = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketReplicationConfigRuleArgs
     ///             {
-    ///                 Id = "examplerule",
     ///                 Filter = new Aws.S3.Inputs.BucketReplicationConfigRuleFilterArgs
     ///                 {
     ///                     Prefix = "example",
     ///                 },
-    ///                 Status = "Enabled",
     ///                 Destination = new Aws.S3.Inputs.BucketReplicationConfigRuleDestinationArgs
     ///                 {
     ///                     Bucket = destination.Arn,
     ///                     StorageClass = "STANDARD",
     ///                 },
+    ///                 Id = "examplerule",
+    ///                 Status = "Enabled",
     ///             },
     ///         },
+    ///         Region = "eu-central-1",
+    ///         Role = replicationRole.Arn,
+    ///         Bucket = source.Id,
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -378,11 +378,11 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var eastBucketVersioning = new Aws.S3.BucketVersioning("east", new()
     ///     {
-    ///         Bucket = east.Id,
     ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningVersioningConfigurationArgs
     ///         {
     ///             Status = "Enabled",
     ///         },
+    ///         Bucket = east.Id,
     ///     });
     /// 
     ///     var west = new Aws.S3.Bucket("west", new()
@@ -392,34 +392,34 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var westBucketVersioning = new Aws.S3.BucketVersioning("west", new()
     ///     {
-    ///         Bucket = west.Id,
     ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningVersioningConfigurationArgs
     ///         {
     ///             Status = "Enabled",
     ///         },
+    ///         Bucket = west.Id,
     ///     });
     /// 
     ///     var eastToWest = new Aws.S3.BucketReplicationConfig("east_to_west", new()
     ///     {
-    ///         Role = eastReplication.Arn,
-    ///         Bucket = east.Id,
     ///         Rules = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketReplicationConfigRuleArgs
     ///             {
-    ///                 Id = "foobar",
     ///                 Filter = new Aws.S3.Inputs.BucketReplicationConfigRuleFilterArgs
     ///                 {
     ///                     Prefix = "foo",
     ///                 },
-    ///                 Status = "Enabled",
     ///                 Destination = new Aws.S3.Inputs.BucketReplicationConfigRuleDestinationArgs
     ///                 {
     ///                     Bucket = west.Arn,
     ///                     StorageClass = "STANDARD",
     ///                 },
+    ///                 Id = "foobar",
+    ///                 Status = "Enabled",
     ///             },
     ///         },
+    ///         Role = eastReplication.Arn,
+    ///         Bucket = east.Id,
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -430,25 +430,25 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var westToEast = new Aws.S3.BucketReplicationConfig("west_to_east", new()
     ///     {
-    ///         Role = westReplication.Arn,
-    ///         Bucket = west.Id,
     ///         Rules = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketReplicationConfigRuleArgs
     ///             {
-    ///                 Id = "foobar",
     ///                 Filter = new Aws.S3.Inputs.BucketReplicationConfigRuleFilterArgs
     ///                 {
     ///                     Prefix = "foo",
     ///                 },
-    ///                 Status = "Enabled",
     ///                 Destination = new Aws.S3.Inputs.BucketReplicationConfigRuleDestinationArgs
     ///                 {
     ///                     Bucket = east.Arn,
     ///                     StorageClass = "STANDARD",
     ///                 },
+    ///                 Id = "foobar",
+    ///                 Status = "Enabled",
     ///             },
     ///         },
+    ///         Role = westReplication.Arn,
+    ///         Bucket = west.Id,
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

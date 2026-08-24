@@ -26,7 +26,6 @@ namespace Pulumi.Aws.S3
     /// {
     ///     var example = new Aws.S3.BucketMetadataConfiguration("example", new()
     ///     {
-    ///         Bucket = exampleAwsS3Bucket.Bucket,
     ///         MetadataConfiguration = new Aws.S3.Inputs.BucketMetadataConfigurationMetadataConfigurationArgs
     ///         {
     ///             InventoryTableConfiguration = new Aws.S3.Inputs.BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationArgs
@@ -42,6 +41,7 @@ namespace Pulumi.Aws.S3
     ///                 },
     ///             },
     ///         },
+    ///         Bucket = exampleAwsS3Bucket.Bucket,
     ///     });
     /// 
     /// });

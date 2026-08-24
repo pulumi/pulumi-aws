@@ -316,15 +316,15 @@ class EventConnection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.cloudwatch.EventConnection("test",
-            name="ngrok-connection",
-            description="A connection description",
-            authorization_type="API_KEY",
             auth_parameters={
                 "api_key": {
                     "key": "x-signature",
                     "value": "1234",
                 },
-            })
+            },
+            name="ngrok-connection",
+            description="A connection description",
+            authorization_type="API_KEY")
         ```
 
         ### Example Usage Basic Authorization
@@ -334,15 +334,15 @@ class EventConnection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.cloudwatch.EventConnection("test",
-            name="ngrok-connection",
-            description="A connection description",
-            authorization_type="BASIC",
             auth_parameters={
                 "basic": {
                     "username": "user",
                     "password": "Pass1234!",
                 },
-            })
+            },
+            name="ngrok-connection",
+            description="A connection description",
+            authorization_type="BASIC")
         ```
 
         ### Example Usage OAuth Authorization
@@ -352,13 +352,8 @@ class EventConnection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.cloudwatch.EventConnection("test",
-            name="ngrok-connection",
-            description="A connection description",
-            authorization_type="OAUTH_CLIENT_CREDENTIALS",
             auth_parameters={
                 "oauth": {
-                    "authorization_endpoint": "https://auth.url.com/endpoint",
-                    "http_method": "GET",
                     "client_parameters": {
                         "client_id": "1234567890",
                         "client_secret": "Pass1234!",
@@ -380,8 +375,13 @@ class EventConnection(pulumi.CustomResource):
                             "is_value_secret": False,
                         }],
                     },
+                    "authorization_endpoint": "https://auth.url.com/endpoint",
+                    "http_method": "GET",
                 },
-            })
+            },
+            name="ngrok-connection",
+            description="A connection description",
+            authorization_type="OAUTH_CLIENT_CREDENTIALS")
         ```
 
         ### Example Usage Invocation Http Parameters
@@ -391,9 +391,6 @@ class EventConnection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.cloudwatch.EventConnection("test",
-            name="ngrok-connection",
-            description="A connection description",
-            authorization_type="BASIC",
             auth_parameters={
                 "basic": {
                     "username": "user",
@@ -423,7 +420,10 @@ class EventConnection(pulumi.CustomResource):
                         "is_value_secret": False,
                     }],
                 },
-            })
+            },
+            name="ngrok-connection",
+            description="A connection description",
+            authorization_type="BASIC")
         ```
 
         ### Example Usage OAuth Authorization with Connectivity Parameters
@@ -433,9 +433,6 @@ class EventConnection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.cloudwatch.EventConnection("test",
-            name="private-api-connection",
-            description="A connection to a private API",
-            authorization_type="OAUTH_CLIENT_CREDENTIALS",
             auth_parameters={
                 "connectivity_parameters": {
                     "resource_parameters": {
@@ -443,8 +440,6 @@ class EventConnection(pulumi.CustomResource):
                     },
                 },
                 "oauth": {
-                    "authorization_endpoint": "https://private-api.example.com/auth",
-                    "http_method": "POST",
                     "client_parameters": {
                         "client_id": "1234567890",
                         "client_secret": "Pass1234!",
@@ -456,8 +451,13 @@ class EventConnection(pulumi.CustomResource):
                             "is_value_secret": False,
                         }],
                     },
+                    "authorization_endpoint": "https://private-api.example.com/auth",
+                    "http_method": "POST",
                 },
-            })
+            },
+            name="private-api-connection",
+            description="A connection to a private API",
+            authorization_type="OAUTH_CLIENT_CREDENTIALS")
         ```
 
         ### Example Usage CMK Encryption
@@ -509,15 +509,15 @@ class EventConnection(pulumi.CustomResource):
                 "EventBridgeApiDestinations": "true",
             })
         test_event_connection = aws.cloudwatch.EventConnection("test",
-            name="ngrok-connection",
-            description="A connection description",
-            authorization_type="BASIC",
             auth_parameters={
                 "basic": {
                     "username": "user",
                     "password": "Pass1234!",
                 },
             },
+            name="ngrok-connection",
+            description="A connection description",
+            authorization_type="BASIC",
             kms_key_identifier=example["id"])
         ```
 
@@ -569,15 +569,15 @@ class EventConnection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.cloudwatch.EventConnection("test",
-            name="ngrok-connection",
-            description="A connection description",
-            authorization_type="API_KEY",
             auth_parameters={
                 "api_key": {
                     "key": "x-signature",
                     "value": "1234",
                 },
-            })
+            },
+            name="ngrok-connection",
+            description="A connection description",
+            authorization_type="API_KEY")
         ```
 
         ### Example Usage Basic Authorization
@@ -587,15 +587,15 @@ class EventConnection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.cloudwatch.EventConnection("test",
-            name="ngrok-connection",
-            description="A connection description",
-            authorization_type="BASIC",
             auth_parameters={
                 "basic": {
                     "username": "user",
                     "password": "Pass1234!",
                 },
-            })
+            },
+            name="ngrok-connection",
+            description="A connection description",
+            authorization_type="BASIC")
         ```
 
         ### Example Usage OAuth Authorization
@@ -605,13 +605,8 @@ class EventConnection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.cloudwatch.EventConnection("test",
-            name="ngrok-connection",
-            description="A connection description",
-            authorization_type="OAUTH_CLIENT_CREDENTIALS",
             auth_parameters={
                 "oauth": {
-                    "authorization_endpoint": "https://auth.url.com/endpoint",
-                    "http_method": "GET",
                     "client_parameters": {
                         "client_id": "1234567890",
                         "client_secret": "Pass1234!",
@@ -633,8 +628,13 @@ class EventConnection(pulumi.CustomResource):
                             "is_value_secret": False,
                         }],
                     },
+                    "authorization_endpoint": "https://auth.url.com/endpoint",
+                    "http_method": "GET",
                 },
-            })
+            },
+            name="ngrok-connection",
+            description="A connection description",
+            authorization_type="OAUTH_CLIENT_CREDENTIALS")
         ```
 
         ### Example Usage Invocation Http Parameters
@@ -644,9 +644,6 @@ class EventConnection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.cloudwatch.EventConnection("test",
-            name="ngrok-connection",
-            description="A connection description",
-            authorization_type="BASIC",
             auth_parameters={
                 "basic": {
                     "username": "user",
@@ -676,7 +673,10 @@ class EventConnection(pulumi.CustomResource):
                         "is_value_secret": False,
                     }],
                 },
-            })
+            },
+            name="ngrok-connection",
+            description="A connection description",
+            authorization_type="BASIC")
         ```
 
         ### Example Usage OAuth Authorization with Connectivity Parameters
@@ -686,9 +686,6 @@ class EventConnection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.cloudwatch.EventConnection("test",
-            name="private-api-connection",
-            description="A connection to a private API",
-            authorization_type="OAUTH_CLIENT_CREDENTIALS",
             auth_parameters={
                 "connectivity_parameters": {
                     "resource_parameters": {
@@ -696,8 +693,6 @@ class EventConnection(pulumi.CustomResource):
                     },
                 },
                 "oauth": {
-                    "authorization_endpoint": "https://private-api.example.com/auth",
-                    "http_method": "POST",
                     "client_parameters": {
                         "client_id": "1234567890",
                         "client_secret": "Pass1234!",
@@ -709,8 +704,13 @@ class EventConnection(pulumi.CustomResource):
                             "is_value_secret": False,
                         }],
                     },
+                    "authorization_endpoint": "https://private-api.example.com/auth",
+                    "http_method": "POST",
                 },
-            })
+            },
+            name="private-api-connection",
+            description="A connection to a private API",
+            authorization_type="OAUTH_CLIENT_CREDENTIALS")
         ```
 
         ### Example Usage CMK Encryption
@@ -762,15 +762,15 @@ class EventConnection(pulumi.CustomResource):
                 "EventBridgeApiDestinations": "true",
             })
         test_event_connection = aws.cloudwatch.EventConnection("test",
-            name="ngrok-connection",
-            description="A connection description",
-            authorization_type="BASIC",
             auth_parameters={
                 "basic": {
                     "username": "user",
                     "password": "Pass1234!",
                 },
             },
+            name="ngrok-connection",
+            description="A connection description",
+            authorization_type="BASIC",
             kms_key_identifier=example["id"])
         ```
 

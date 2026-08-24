@@ -55,8 +55,6 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var example_filtered = new Aws.S3.BucketMetric("example-filtered", new()
     ///     {
-    ///         Bucket = example.Id,
-    ///         Name = "ImportantBlueDocuments",
     ///         Filter = new Aws.S3.Inputs.BucketMetricFilterArgs
     ///         {
     ///             Prefix = "documents/",
@@ -66,6 +64,8 @@ namespace Pulumi.Aws.S3
     ///                 { "class", "blue" },
     ///             },
     ///         },
+    ///         Bucket = example.Id,
+    ///         Name = "ImportantBlueDocuments",
     ///     });
     /// 
     /// });
@@ -94,8 +94,6 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var example_filtered = new Aws.S3.BucketMetric("example-filtered", new()
     ///     {
-    ///         Bucket = example.Id,
-    ///         Name = "ImportantBlueDocuments",
     ///         Filter = new Aws.S3.Inputs.BucketMetricFilterArgs
     ///         {
     ///             AccessPoint = example_access_point.Arn,
@@ -105,6 +103,8 @@ namespace Pulumi.Aws.S3
     ///                 { "class", "blue" },
     ///             },
     ///         },
+    ///         Bucket = example.Id,
+    ///         Name = "ImportantBlueDocuments",
     ///     });
     /// 
     /// });
@@ -127,11 +127,11 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var example = new Aws.S3.DirectoryBucket("example", new()
     ///     {
-    ///         Bucket = "example--zoneId--x-s3",
     ///         Location = new Aws.S3.Inputs.DirectoryBucketLocationArgs
     ///         {
     ///             Name = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.ZoneIds[0]),
     ///         },
+    ///         Bucket = "example--zoneId--x-s3",
     ///     });
     /// 
     ///     var example_access_point = new Aws.S3.AccessPoint("example-access-point", new()
@@ -142,13 +142,13 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var example_bucket_metric = new Aws.S3.BucketMetric("example-bucket-metric", new()
     ///     {
-    ///         Bucket = example.Id,
-    ///         Name = "ExampleBucketMetricForDirectoryBuckets",
     ///         Filter = new Aws.S3.Inputs.BucketMetricFilterArgs
     ///         {
     ///             AccessPoint = example_access_point.Arn,
     ///             Prefix = "documents/",
     ///         },
+    ///         Bucket = example.Id,
+    ///         Name = "ExampleBucketMetricForDirectoryBuckets",
     ///     });
     /// 
     /// });

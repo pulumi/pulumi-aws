@@ -20,12 +20,12 @@ import * as utilities from "../utilities";
  *
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
- *         actions: ["sts:AssumeRole"],
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["bedrock-agentcore.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
+ *         actions: ["sts:AssumeRole"],
  *     }],
  * });
  * const example = new aws.iam.Role("example", {
@@ -47,8 +47,6 @@ import * as utilities from "../utilities";
  *     }),
  * });
  * const exampleAgentcoreHarness = new aws.bedrock.AgentcoreHarness("example", {
- *     harnessName: "example_harness",
- *     executionRoleArn: example.arn,
  *     model: {
  *         bedrockModelConfig: {
  *             modelId: "anthropic.claude-sonnet-4-20250514",
@@ -57,6 +55,8 @@ import * as utilities from "../utilities";
  *     systemPrompts: [{
  *         text: "You are a helpful assistant.",
  *     }],
+ *     harnessName: "example_harness",
+ *     executionRoleArn: example.arn,
  * });
  * ```
  *
@@ -67,8 +67,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.bedrock.AgentcoreHarness("example", {
- *     harnessName: "example_with_tools",
- *     executionRoleArn: exampleAwsIamRole.arn,
  *     model: {
  *         bedrockModelConfig: {
  *             modelId: "anthropic.claude-sonnet-4-20250514",
@@ -79,13 +77,7 @@ import * as utilities from "../utilities";
  *     systemPrompts: [{
  *         text: "You are a coding assistant.",
  *     }],
- *     allowedTools: ["*"],
- *     maxIterations: 10,
- *     maxTokens: 4096,
- *     timeoutSeconds: 300,
  *     tools: [{
- *         type: "inline_function",
- *         name: "get_weather",
  *         config: {
  *             inlineFunction: {
  *                 description: "Get the current weather for a location",
@@ -101,15 +93,23 @@ import * as utilities from "../utilities";
  *                 }),
  *             },
  *         },
+ *         type: "inline_function",
+ *         name: "get_weather",
  *     }],
  *     truncations: [{
- *         strategy: "sliding_window",
  *         config: [{
  *             slidingWindow: [{
  *                 messagesCount: 50,
  *             }],
  *         }],
+ *         strategy: "sliding_window",
  *     }],
+ *     harnessName: "example_with_tools",
+ *     executionRoleArn: exampleAwsIamRole.arn,
+ *     allowedTools: ["*"],
+ *     maxIterations: 10,
+ *     maxTokens: 4096,
+ *     timeoutSeconds: 300,
  * });
  * ```
  *
@@ -120,16 +120,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.bedrock.AgentcoreHarness("example", {
- *     harnessName: "my_harness",
- *     executionRoleArn: exampleAwsIamRole.arn,
  *     model: {
  *         bedrockModelConfig: {
  *             modelId: "anthropic.claude-sonnet-4-20250514",
  *         },
  *     },
- *     systemPrompts: [{
- *         text: "You are a helpful assistant.",
- *     }],
  *     memory: {
  *         managedMemoryConfiguration: {
  *             eventExpiryDuration: 14,
@@ -139,6 +134,11 @@ import * as utilities from "../utilities";
  *             ],
  *         },
  *     },
+ *     systemPrompts: [{
+ *         text: "You are a helpful assistant.",
+ *     }],
+ *     harnessName: "my_harness",
+ *     executionRoleArn: exampleAwsIamRole.arn,
  * });
  * ```
  *

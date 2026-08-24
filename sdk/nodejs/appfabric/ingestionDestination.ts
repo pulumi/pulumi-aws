@@ -19,8 +19,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.appfabric.IngestionDestination("example", {
- *     appBundleArn: exampleAwsAppfabricAppBundle.arn,
- *     ingestionArn: exampleAwsAppfabricIngestion.arn,
  *     processingConfiguration: {
  *         auditLog: {
  *             format: "json",
@@ -36,6 +34,8 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     },
+ *     appBundleArn: exampleAwsAppfabricAppBundle.arn,
+ *     ingestionArn: exampleAwsAppfabricIngestion.arn,
  * });
  * ```
  */

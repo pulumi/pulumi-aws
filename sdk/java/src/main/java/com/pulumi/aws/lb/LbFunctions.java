@@ -67,14 +67,14 @@ public final class LbFunctions {
      *             .build());
      * 
      *         var www = new Record("www", RecordArgs.builder()
-     *             .zoneId(primary.zoneId())
-     *             .name("example.com")
-     *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsLb.dnsName())
      *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
+     *             .zoneId(primary.zoneId())
+     *             .name("example.com")
+     *             .type("A")
      *             .build());
      * 
      *     }
@@ -120,14 +120,14 @@ public final class LbFunctions {
      *             .build());
      * 
      *         var www = new Record("www", RecordArgs.builder()
-     *             .zoneId(primary.zoneId())
-     *             .name("example.com")
-     *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsLb.dnsName())
      *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
+     *             .zoneId(primary.zoneId())
+     *             .name("example.com")
+     *             .type("A")
      *             .build());
      * 
      *     }
@@ -173,14 +173,14 @@ public final class LbFunctions {
      *             .build());
      * 
      *         var www = new Record("www", RecordArgs.builder()
-     *             .zoneId(primary.zoneId())
-     *             .name("example.com")
-     *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsLb.dnsName())
      *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
+     *             .zoneId(primary.zoneId())
+     *             .name("example.com")
+     *             .type("A")
      *             .build());
      * 
      *     }
@@ -226,14 +226,14 @@ public final class LbFunctions {
      *             .build());
      * 
      *         var www = new Record("www", RecordArgs.builder()
-     *             .zoneId(primary.zoneId())
-     *             .name("example.com")
-     *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsLb.dnsName())
      *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
+     *             .zoneId(primary.zoneId())
+     *             .name("example.com")
+     *             .type("A")
      *             .build());
      * 
      *     }
@@ -279,14 +279,14 @@ public final class LbFunctions {
      *             .build());
      * 
      *         var www = new Record("www", RecordArgs.builder()
-     *             .zoneId(primary.zoneId())
-     *             .name("example.com")
-     *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsLb.dnsName())
      *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
+     *             .zoneId(primary.zoneId())
+     *             .name("example.com")
+     *             .type("A")
      *             .build());
      * 
      *     }
@@ -332,14 +332,14 @@ public final class LbFunctions {
      *             .build());
      * 
      *         var www = new Record("www", RecordArgs.builder()
-     *             .zoneId(primary.zoneId())
-     *             .name("example.com")
-     *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsLb.dnsName())
      *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
+     *             .zoneId(primary.zoneId())
+     *             .name("example.com")
+     *             .type("A")
      *             .build());
      * 
      *     }
@@ -385,14 +385,14 @@ public final class LbFunctions {
      *             .build());
      * 
      *         var www = new Record("www", RecordArgs.builder()
-     *             .zoneId(primary.zoneId())
-     *             .name("example.com")
-     *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsLb.dnsName())
      *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
+     *             .zoneId(primary.zoneId())
+     *             .name("example.com")
+     *             .type("A")
      *             .build());
      * 
      *     }

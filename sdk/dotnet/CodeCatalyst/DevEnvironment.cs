@@ -24,10 +24,6 @@ namespace Pulumi.Aws.CodeCatalyst
     /// {
     ///     var test = new Aws.CodeCatalyst.DevEnvironment("test", new()
     ///     {
-    ///         Alias = "devenv",
-    ///         SpaceName = "myspace",
-    ///         ProjectName = "myproject",
-    ///         InstanceType = "dev.standard1.small",
     ///         PersistentStorage = new Aws.CodeCatalyst.Inputs.DevEnvironmentPersistentStorageArgs
     ///         {
     ///             Size = 16,
@@ -37,7 +33,6 @@ namespace Pulumi.Aws.CodeCatalyst
     ///             Name = "PyCharm",
     ///             Runtime = "public.ecr.aws/jetbrains/py",
     ///         },
-    ///         InactivityTimeoutMinutes = 40,
     ///         Repositories = new[]
     ///         {
     ///             new Aws.CodeCatalyst.Inputs.DevEnvironmentRepositoryArgs
@@ -46,6 +41,11 @@ namespace Pulumi.Aws.CodeCatalyst
     ///                 BranchName = "main",
     ///             },
     ///         },
+    ///         Alias = "devenv",
+    ///         SpaceName = "myspace",
+    ///         ProjectName = "myproject",
+    ///         InstanceType = "dev.standard1.small",
+    ///         InactivityTimeoutMinutes = 40,
     ///     });
     /// 
     /// });

@@ -77,14 +77,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePermissionsBoundaryAttachment = new PermissionsBoundaryAttachment("examplePermissionsBoundaryAttachment", PermissionsBoundaryAttachmentArgs.builder()
- *             .instanceArn(examplePermissionSet.instanceArn())
- *             .permissionSetArn(examplePermissionSet.arn())
  *             .permissionsBoundary(PermissionsBoundaryAttachmentPermissionsBoundaryArgs.builder()
  *                 .customerManagedPolicyReference(PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs.builder()
  *                     .name(examplePolicy.name())
  *                     .path("/")
  *                     .build())
  *                 .build())
+ *             .instanceArn(examplePermissionSet.instanceArn())
+ *             .permissionSetArn(examplePermissionSet.arn())
  *             .build());
  * 
  *     }
@@ -118,11 +118,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new PermissionsBoundaryAttachment("example", PermissionsBoundaryAttachmentArgs.builder()
- *             .instanceArn(exampleAwsSsoadminPermissionSet.instanceArn())
- *             .permissionSetArn(exampleAwsSsoadminPermissionSet.arn())
  *             .permissionsBoundary(PermissionsBoundaryAttachmentPermissionsBoundaryArgs.builder()
  *                 .managedPolicyArn("arn:aws:iam::aws:policy/ReadOnlyAccess")
  *                 .build())
+ *             .instanceArn(exampleAwsSsoadminPermissionSet.instanceArn())
+ *             .permissionSetArn(exampleAwsSsoadminPermissionSet.arn())
  *             .build());
  * 
  *     }

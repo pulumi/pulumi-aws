@@ -26,9 +26,6 @@ namespace Pulumi.Aws.Ecs
     /// {
     ///     var example = new Aws.Ecs.TaskSet("example", new()
     ///     {
-    ///         Service = exampleAwsEcsService.Id,
-    ///         Cluster = exampleAwsEcsCluster.Id,
-    ///         TaskDefinition = exampleAwsEcsTaskDefinition.Arn,
     ///         LoadBalancers = new[]
     ///         {
     ///             new Aws.Ecs.Inputs.TaskSetLoadBalancerArgs
@@ -38,6 +35,9 @@ namespace Pulumi.Aws.Ecs
     ///                 ContainerPort = 8080,
     ///             },
     ///         },
+    ///         Service = exampleAwsEcsService.Id,
+    ///         Cluster = exampleAwsEcsCluster.Id,
+    ///         TaskDefinition = exampleAwsEcsTaskDefinition.Arn,
     ///     });
     /// 
     /// });
@@ -60,6 +60,12 @@ namespace Pulumi.Aws.Ecs
     ///         Scale = new Aws.Ecs.Inputs.TaskSetScaleArgs
     ///         {
     ///             Value = 50,
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
+    ///         {
+    ///             "scale",
     ///         },
     ///     });
     /// 

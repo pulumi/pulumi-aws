@@ -39,7 +39,6 @@ namespace Pulumi.Aws
         /// 
         ///     var fromEurope = new Aws.Ec2.SecurityGroup("from_europe", new()
         ///     {
-        ///         Name = "from_europe",
         ///         Ingress = new[]
         ///         {
         ///             new Aws.Ec2.Inputs.SecurityGroupIngressArgs
@@ -51,6 +50,7 @@ namespace Pulumi.Aws
         ///                 Ipv6CidrBlocks = europeanEc2.Apply(getIpRangesResult =&gt; getIpRangesResult.Ipv6CidrBlocks),
         ///             },
         ///         },
+        ///         Name = "from_europe",
         ///         Tags = 
         ///         {
         ///             { "CreateDate", europeanEc2.Apply(getIpRangesResult =&gt; getIpRangesResult.CreateDate) },
@@ -92,7 +92,6 @@ namespace Pulumi.Aws
         /// 
         ///     var fromEurope = new Aws.Ec2.SecurityGroup("from_europe", new()
         ///     {
-        ///         Name = "from_europe",
         ///         Ingress = new[]
         ///         {
         ///             new Aws.Ec2.Inputs.SecurityGroupIngressArgs
@@ -104,6 +103,7 @@ namespace Pulumi.Aws
         ///                 Ipv6CidrBlocks = europeanEc2.Apply(getIpRangesResult =&gt; getIpRangesResult.Ipv6CidrBlocks),
         ///             },
         ///         },
+        ///         Name = "from_europe",
         ///         Tags = 
         ///         {
         ///             { "CreateDate", europeanEc2.Apply(getIpRangesResult =&gt; getIpRangesResult.CreateDate) },
@@ -145,7 +145,6 @@ namespace Pulumi.Aws
         /// 
         ///     var fromEurope = new Aws.Ec2.SecurityGroup("from_europe", new()
         ///     {
-        ///         Name = "from_europe",
         ///         Ingress = new[]
         ///         {
         ///             new Aws.Ec2.Inputs.SecurityGroupIngressArgs
@@ -157,6 +156,7 @@ namespace Pulumi.Aws
         ///                 Ipv6CidrBlocks = europeanEc2.Apply(getIpRangesResult =&gt; getIpRangesResult.Ipv6CidrBlocks),
         ///             },
         ///         },
+        ///         Name = "from_europe",
         ///         Tags = 
         ///         {
         ///             { "CreateDate", europeanEc2.Apply(getIpRangesResult =&gt; getIpRangesResult.CreateDate) },

@@ -302,9 +302,7 @@ def get_snapshot(filters: Optional[Sequence[Union['GetSnapshotFilterArgs', 'GetS
     import pulumi
     import pulumi_aws as aws
 
-    ebs_volume = aws.ebs.get_snapshot(most_recent=True,
-        owners=["self"],
-        filters=[
+    ebs_volume = aws.ebs.get_snapshot(filters=[
             {
                 "name": "volume-size",
                 "values": ["40"],
@@ -313,7 +311,9 @@ def get_snapshot(filters: Optional[Sequence[Union['GetSnapshotFilterArgs', 'GetS
                 "name": "tag:Name",
                 "values": ["Example"],
             },
-        ])
+        ],
+        most_recent=True,
+        owners=["self"])
     ```
 
 
@@ -376,9 +376,7 @@ def get_snapshot_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['
     import pulumi
     import pulumi_aws as aws
 
-    ebs_volume = aws.ebs.get_snapshot(most_recent=True,
-        owners=["self"],
-        filters=[
+    ebs_volume = aws.ebs.get_snapshot(filters=[
             {
                 "name": "volume-size",
                 "values": ["40"],
@@ -387,7 +385,9 @@ def get_snapshot_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['
                 "name": "tag:Name",
                 "values": ["Example"],
             },
-        ])
+        ],
+        most_recent=True,
+        owners=["self"])
     ```
 
 

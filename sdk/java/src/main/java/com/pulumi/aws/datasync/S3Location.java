@@ -48,11 +48,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new S3Location("example", S3LocationArgs.builder()
- *             .s3BucketArn(exampleAwsS3Bucket.arn())
- *             .subdirectory("/example/prefix")
  *             .s3Config(S3LocationS3ConfigArgs.builder()
  *                 .bucketAccessRoleArn(exampleAwsIamRole.arn())
  *                 .build())
+ *             .s3BucketArn(exampleAwsS3Bucket.arn())
+ *             .subdirectory("/example/prefix")
  *             .build());
  * 
  *     }
@@ -86,13 +86,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var destination = new S3Location("destination", S3LocationArgs.builder()
+ *             .s3Config(S3LocationS3ConfigArgs.builder()
+ *                 .bucketAccessRoleArn(example.arn())
+ *                 .build())
  *             .agentArns(exampleAwsDatasyncAgent.arn())
  *             .s3BucketArn(exampleAwsS3AccessPoint.arn())
  *             .s3StorageClass("OUTPOSTS")
  *             .subdirectory("/example/prefix")
- *             .s3Config(S3LocationS3ConfigArgs.builder()
- *                 .bucketAccessRoleArn(example.arn())
- *                 .build())
  *             .build());
  * 
  *     }

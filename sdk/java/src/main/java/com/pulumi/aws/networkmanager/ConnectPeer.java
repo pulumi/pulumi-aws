@@ -62,20 +62,20 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleConnectAttachment = new ConnectAttachment("exampleConnectAttachment", ConnectAttachmentArgs.builder()
- *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
- *             .transportAttachmentId(example.id())
- *             .edgeLocation(example.edgeLocation())
  *             .options(ConnectAttachmentOptionsArgs.builder()
  *                 .protocol("GRE")
  *                 .build())
+ *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
+ *             .transportAttachmentId(example.id())
+ *             .edgeLocation(example.edgeLocation())
  *             .build());
  * 
  *         var exampleConnectPeer = new ConnectPeer("exampleConnectPeer", ConnectPeerArgs.builder()
- *             .connectAttachmentId(exampleConnectAttachment.id())
- *             .peerAddress("127.0.0.1")
  *             .bgpOptions(ConnectPeerBgpOptionsArgs.builder()
  *                 .peerAsn("65000")
  *                 .build())
+ *             .connectAttachmentId(exampleConnectAttachment.id())
+ *             .peerAddress("127.0.0.1")
  *             .insideCidrBlocks("172.16.0.0/16")
  *             .build());
  * 
@@ -129,12 +129,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleConnectAttachment = new ConnectAttachment("exampleConnectAttachment", ConnectAttachmentArgs.builder()
- *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
- *             .transportAttachmentId(example.id())
- *             .edgeLocation(example.edgeLocation())
  *             .options(ConnectAttachmentOptionsArgs.builder()
  *                 .protocol("GRE")
  *                 .build())
+ *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
+ *             .transportAttachmentId(example.id())
+ *             .edgeLocation(example.edgeLocation())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAttachmentAccepter)
  *                 .build());
@@ -145,11 +145,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleConnectPeer = new ConnectPeer("exampleConnectPeer", ConnectPeerArgs.builder()
- *             .connectAttachmentId(exampleConnectAttachment.id())
- *             .peerAddress("127.0.0.1")
  *             .bgpOptions(ConnectPeerBgpOptionsArgs.builder()
  *                 .peerAsn("65500")
  *                 .build())
+ *             .connectAttachmentId(exampleConnectAttachment.id())
+ *             .peerAddress("127.0.0.1")
  *             .insideCidrBlocks("172.16.0.0/16")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example2)
@@ -197,20 +197,20 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleConnectAttachment = new ConnectAttachment("exampleConnectAttachment", ConnectAttachmentArgs.builder()
- *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
- *             .transportAttachmentId(example.id())
- *             .edgeLocation(example.edgeLocation())
  *             .options(ConnectAttachmentOptionsArgs.builder()
  *                 .protocol("NO_ENCAP")
  *                 .build())
+ *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
+ *             .transportAttachmentId(example.id())
+ *             .edgeLocation(example.edgeLocation())
  *             .build());
  * 
  *         var exampleConnectPeer = new ConnectPeer("exampleConnectPeer", ConnectPeerArgs.builder()
- *             .connectAttachmentId(exampleConnectAttachment.id())
- *             .peerAddress("127.0.0.1")
  *             .bgpOptions(ConnectPeerBgpOptionsArgs.builder()
  *                 .peerAsn("65000")
  *                 .build())
+ *             .connectAttachmentId(exampleConnectAttachment.id())
+ *             .peerAddress("127.0.0.1")
  *             .subnetArn(example2.arn())
  *             .build());
  * 

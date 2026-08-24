@@ -240,7 +240,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewSecurityGroup(ctx, "example", &ec2.SecurityGroupArgs{
 //				Name: pulumi.String("izizavle"),
-//			})
+//			}, pulumi.Timeouts(&pulumi.CustomTimeouts{Delete: "2m"}))
 //			if err != nil {
 //				return err
 //			}
@@ -292,7 +292,7 @@ import (
 //			_, err = local.NewCommand(ctx, "exampleProvisioner0", &local.CommandArgs{
 //				Create: "true",
 //				Update: "true",
-//				Delete: fmt.Sprintf("            ENDPOINT_ID=`aws ec2 describe-vpc-endpoints --filters \\\"Name=tag:Name,Values=%v\\\" --query \\\"VpcEndpoints[0].VpcEndpointId\\\" --output text` &&\n            aws ec2 modify-vpc-endpoint --vpc-endpoint-id ${ENDPOINT_ID} --add-security-group-ids %v --remove-security-group-ids %v\n", tags.Workaround1, tags.Workaround2, id),
+//				Delete: pulumi.Sprintf("            ENDPOINT_ID=`aws ec2 describe-vpc-endpoints --filters \\\"Name=tag:Name,Values=%v\\\" --query \\\"VpcEndpoints[0].VpcEndpointId\\\" --output text` &&\n            aws ec2 modify-vpc-endpoint --vpc-endpoint-id ${ENDPOINT_ID} --add-security-group-ids %v --remove-security-group-ids %v\n", example.Tags.Workaround1, example.Tags.Workaround2, example.ID()),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				example,
 //			}))

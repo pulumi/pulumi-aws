@@ -52,9 +52,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AppAuthorization("example", AppAuthorizationArgs.builder()
- *             .app("TERRAFORMCLOUD")
- *             .appBundleArn(arn)
- *             .authType("apiKey")
  *             .credential(AppAuthorizationCredentialArgs.builder()
  *                 .apiKeyCredentials(AppAuthorizationCredentialApiKeyCredentialArgs.builder()
  *                     .apiKey("exampleapikeytoken")
@@ -64,6 +61,9 @@ import javax.annotation.Nullable;
  *                 .tenantDisplayName("example")
  *                 .tenantIdentifier("example")
  *                 .build())
+ *             .app("TERRAFORMCLOUD")
+ *             .appBundleArn(arn)
+ *             .authType("apiKey")
  *             .build());
  * 
  *     }

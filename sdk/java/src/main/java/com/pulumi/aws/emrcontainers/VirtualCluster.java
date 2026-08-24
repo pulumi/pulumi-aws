@@ -50,13 +50,13 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new VirtualCluster("example", VirtualClusterArgs.builder()
  *             .containerProvider(VirtualClusterContainerProviderArgs.builder()
- *                 .id(exampleAwsEksCluster.name())
- *                 .type("EKS")
  *                 .info(VirtualClusterContainerProviderInfoArgs.builder()
  *                     .eksInfo(VirtualClusterContainerProviderInfoEksInfoArgs.builder()
  *                         .namespace("default")
  *                         .build())
  *                     .build())
+ *                 .id(exampleAwsEksCluster.name())
+ *                 .type("EKS")
  *                 .build())
  *             .name("example")
  *             .build());

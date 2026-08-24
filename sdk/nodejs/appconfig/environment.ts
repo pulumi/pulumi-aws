@@ -24,13 +24,13 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const example = new aws.appconfig.Environment("example", {
- *     name: "example-environment-tf",
- *     description: "Example AppConfig Environment",
- *     applicationId: exampleApplication.id,
  *     monitors: [{
  *         alarmArn: exampleAwsCloudwatchMetricAlarm.arn,
  *         alarmRoleArn: exampleAwsIamRole.arn,
  *     }],
+ *     name: "example-environment-tf",
+ *     description: "Example AppConfig Environment",
+ *     applicationId: exampleApplication.id,
  *     tags: {
  *         Type: "AppConfig Environment",
  *     },

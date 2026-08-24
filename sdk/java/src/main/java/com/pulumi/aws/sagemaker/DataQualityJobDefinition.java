@@ -60,7 +60,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new DataQualityJobDefinition("test", DataQualityJobDefinitionArgs.builder()
- *             .name("my-data-quality-job-definition")
  *             .dataQualityAppSpecification(DataQualityJobDefinitionDataQualityAppSpecificationArgs.builder()
  *                 .imageUri(monitor.registryPath())
  *                 .build())
@@ -83,6 +82,7 @@ import javax.annotation.Nullable;
  *                     .volumeSizeInGb(20)
  *                     .build())
  *                 .build())
+ *             .name("my-data-quality-job-definition")
  *             .roleArn(myRole.arn())
  *             .build());
  * 

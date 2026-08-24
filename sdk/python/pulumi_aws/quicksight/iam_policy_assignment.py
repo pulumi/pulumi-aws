@@ -308,12 +308,12 @@ class IamPolicyAssignment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.IamPolicyAssignment("example",
-            assignment_name="example",
-            assignment_status="ENABLED",
-            policy_arn=example_aws_iam_policy["arn"],
             identities={
                 "users": [example_aws_quicksight_user["userName"]],
-            })
+            },
+            assignment_name="example",
+            assignment_status="ENABLED",
+            policy_arn=example_aws_iam_policy["arn"])
         ```
 
         ## Import
@@ -355,12 +355,12 @@ class IamPolicyAssignment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.IamPolicyAssignment("example",
-            assignment_name="example",
-            assignment_status="ENABLED",
-            policy_arn=example_aws_iam_policy["arn"],
             identities={
                 "users": [example_aws_quicksight_user["userName"]],
-            })
+            },
+            assignment_name="example",
+            assignment_status="ENABLED",
+            policy_arn=example_aws_iam_policy["arn"])
         ```
 
         ## Import

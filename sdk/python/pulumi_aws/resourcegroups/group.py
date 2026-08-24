@@ -283,7 +283,6 @@ class Group(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.resourcegroups.Group("test",
-            name="test-group",
             resource_query={
                 "query": \"\"\"{
           \\"ResourceTypeFilters\\": [
@@ -297,7 +296,8 @@ class Group(pulumi.CustomResource):
           ]
         }
         \"\"\",
-            })
+            },
+            name="test-group")
         ```
 
         ## Import
@@ -334,7 +334,6 @@ class Group(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.resourcegroups.Group("test",
-            name="test-group",
             resource_query={
                 "query": \"\"\"{
           \\"ResourceTypeFilters\\": [
@@ -348,7 +347,8 @@ class Group(pulumi.CustomResource):
           ]
         }
         \"\"\",
-            })
+            },
+            name="test-group")
         ```
 
         ## Import

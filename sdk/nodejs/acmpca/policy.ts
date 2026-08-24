@@ -18,12 +18,12 @@ import * as utilities from "../utilities";
  * const example = aws.iam.getPolicyDocument({
  *     statements: [
  *         {
- *             sid: "1",
- *             effect: "Allow",
  *             principals: [{
  *                 type: "AWS",
  *                 identifiers: [current.accountId],
  *             }],
+ *             sid: "1",
+ *             effect: "Allow",
  *             actions: [
  *                 "acm-pca:DescribeCertificateAuthority",
  *                 "acm-pca:GetCertificate",
@@ -34,19 +34,19 @@ import * as utilities from "../utilities";
  *             resources: [exampleAwsAcmpcaCertificateAuthority.arn],
  *         },
  *         {
- *             sid: "2",
- *             effect: allow,
- *             principals: [{
- *                 type: "AWS",
- *                 identifiers: [current.accountId],
- *             }],
- *             actions: ["acm-pca:IssueCertificate"],
- *             resources: [exampleAwsAcmpcaCertificateAuthority.arn],
  *             conditions: [{
  *                 test: "StringEquals",
  *                 variable: "acm-pca:TemplateArn",
  *                 values: ["arn:aws:acm-pca:::template/EndEntityCertificate/V1"],
  *             }],
+ *             principals: [{
+ *                 type: "AWS",
+ *                 identifiers: [current.accountId],
+ *             }],
+ *             sid: "2",
+ *             effect: allow,
+ *             actions: ["acm-pca:IssueCertificate"],
+ *             resources: [exampleAwsAcmpcaCertificateAuthority.arn],
  *         },
  *     ],
  * });

@@ -256,21 +256,21 @@ class CentralizationRuleForOrganization(pulumi.CustomResource):
         current = aws.get_caller_identity()
         current_get_organization = aws.organizations.get_organization()
         example = aws.observabilityadmin.CentralizationRuleForOrganization("example",
-            rule_name="example-centralization-rule",
             rule={
                 "destination": {
                     "region": "eu-west-1",
                     "account": current.account_id,
                 },
                 "source": {
-                    "regions": ["ap-southeast-1"],
-                    "scope": f"OrganizationId = '{current_get_organization.id}'",
                     "source_logs_configuration": {
                         "encrypted_log_group_strategy": "SKIP",
                         "log_group_selection_criteria": "*",
                     },
+                    "regions": ["ap-southeast-1"],
+                    "scope": f"OrganizationId = '{current_get_organization.id}'",
                 },
             },
+            rule_name="example-centralization-rule",
             tags={
                 "Name": "example-centralization-rule",
                 "Environment": "production",
@@ -286,11 +286,8 @@ class CentralizationRuleForOrganization(pulumi.CustomResource):
         current = aws.get_caller_identity()
         current_get_organization = aws.organizations.get_organization()
         advanced = aws.observabilityadmin.CentralizationRuleForOrganization("advanced",
-            rule_name="advanced-centralization-rule",
             rule={
                 "destination": {
-                    "region": "eu-west-1",
-                    "account": current.account_id,
                     "destination_logs_configuration": {
                         "logs_encryption_configuration": {
                             "encryption_strategy": "AWS_OWNED",
@@ -302,19 +299,22 @@ class CentralizationRuleForOrganization(pulumi.CustomResource):
                             "log_group_name_pattern": "/centralized-logs/${source.accountId}/${source.region}/${source.logGroup}",
                         },
                     },
+                    "region": "eu-west-1",
+                    "account": current.account_id,
                 },
                 "source": {
+                    "source_logs_configuration": {
+                        "encrypted_log_group_strategy": "ALLOW",
+                        "log_group_selection_criteria": "*",
+                    },
                     "regions": [
                         "ap-southeast-1",
                         "us-east-1",
                     ],
                     "scope": f"OrganizationId = '{current_get_organization.id}'",
-                    "source_logs_configuration": {
-                        "encrypted_log_group_strategy": "ALLOW",
-                        "log_group_selection_criteria": "*",
-                    },
                 },
             },
+            rule_name="advanced-centralization-rule",
             tags={
                 "Name": "advanced-centralization-rule",
                 "Environment": "production",
@@ -331,24 +331,24 @@ class CentralizationRuleForOrganization(pulumi.CustomResource):
         current = aws.get_caller_identity()
         current_get_organization = aws.organizations.get_organization()
         filtered = aws.observabilityadmin.CentralizationRuleForOrganization("filtered",
-            rule_name="filtered-centralization-rule",
             rule={
                 "destination": {
                     "region": "eu-west-1",
                     "account": current.account_id,
                 },
                 "source": {
+                    "source_logs_configuration": {
+                        "encrypted_log_group_strategy": "ALLOW",
+                        "log_group_selection_criteria": "LogGroupName LIKE '/aws/lambda%'",
+                    },
                     "regions": [
                         "ap-southeast-1",
                         "us-east-1",
                     ],
                     "scope": f"OrganizationId = '{current_get_organization.id}'",
-                    "source_logs_configuration": {
-                        "encrypted_log_group_strategy": "ALLOW",
-                        "log_group_selection_criteria": "LogGroupName LIKE '/aws/lambda%'",
-                    },
                 },
             },
+            rule_name="filtered-centralization-rule",
             tags={
                 "Name": "filtered-centralization-rule",
                 "Filter": "lambda-logs",
@@ -364,28 +364,28 @@ class CentralizationRuleForOrganization(pulumi.CustomResource):
         current = aws.get_caller_identity()
         current_get_organization = aws.organizations.get_organization()
         metrics = aws.observabilityadmin.CentralizationRuleForOrganization("metrics",
-            rule_name="metrics-centralization-rule",
             rule={
                 "destination": {
-                    "region": "eu-west-1",
-                    "account": current.account_id,
                     "destination_metrics_configuration": {
                         "backup_configuration": {
                             "region": "us-west-1",
                         },
                     },
+                    "region": "eu-west-1",
+                    "account": current.account_id,
                 },
                 "source": {
+                    "source_metrics_configuration": {
+                        "metrics_selection_criteria": "*",
+                    },
                     "regions": [
                         "ap-southeast-1",
                         "us-east-1",
                     ],
                     "scope": f"OrganizationId = '{current_get_organization.id}'",
-                    "source_metrics_configuration": {
-                        "metrics_selection_criteria": "*",
-                    },
                 },
-            })
+            },
+            rule_name="metrics-centralization-rule")
         ```
 
         ## Import
@@ -430,21 +430,21 @@ class CentralizationRuleForOrganization(pulumi.CustomResource):
         current = aws.get_caller_identity()
         current_get_organization = aws.organizations.get_organization()
         example = aws.observabilityadmin.CentralizationRuleForOrganization("example",
-            rule_name="example-centralization-rule",
             rule={
                 "destination": {
                     "region": "eu-west-1",
                     "account": current.account_id,
                 },
                 "source": {
-                    "regions": ["ap-southeast-1"],
-                    "scope": f"OrganizationId = '{current_get_organization.id}'",
                     "source_logs_configuration": {
                         "encrypted_log_group_strategy": "SKIP",
                         "log_group_selection_criteria": "*",
                     },
+                    "regions": ["ap-southeast-1"],
+                    "scope": f"OrganizationId = '{current_get_organization.id}'",
                 },
             },
+            rule_name="example-centralization-rule",
             tags={
                 "Name": "example-centralization-rule",
                 "Environment": "production",
@@ -460,11 +460,8 @@ class CentralizationRuleForOrganization(pulumi.CustomResource):
         current = aws.get_caller_identity()
         current_get_organization = aws.organizations.get_organization()
         advanced = aws.observabilityadmin.CentralizationRuleForOrganization("advanced",
-            rule_name="advanced-centralization-rule",
             rule={
                 "destination": {
-                    "region": "eu-west-1",
-                    "account": current.account_id,
                     "destination_logs_configuration": {
                         "logs_encryption_configuration": {
                             "encryption_strategy": "AWS_OWNED",
@@ -476,19 +473,22 @@ class CentralizationRuleForOrganization(pulumi.CustomResource):
                             "log_group_name_pattern": "/centralized-logs/${source.accountId}/${source.region}/${source.logGroup}",
                         },
                     },
+                    "region": "eu-west-1",
+                    "account": current.account_id,
                 },
                 "source": {
+                    "source_logs_configuration": {
+                        "encrypted_log_group_strategy": "ALLOW",
+                        "log_group_selection_criteria": "*",
+                    },
                     "regions": [
                         "ap-southeast-1",
                         "us-east-1",
                     ],
                     "scope": f"OrganizationId = '{current_get_organization.id}'",
-                    "source_logs_configuration": {
-                        "encrypted_log_group_strategy": "ALLOW",
-                        "log_group_selection_criteria": "*",
-                    },
                 },
             },
+            rule_name="advanced-centralization-rule",
             tags={
                 "Name": "advanced-centralization-rule",
                 "Environment": "production",
@@ -505,24 +505,24 @@ class CentralizationRuleForOrganization(pulumi.CustomResource):
         current = aws.get_caller_identity()
         current_get_organization = aws.organizations.get_organization()
         filtered = aws.observabilityadmin.CentralizationRuleForOrganization("filtered",
-            rule_name="filtered-centralization-rule",
             rule={
                 "destination": {
                     "region": "eu-west-1",
                     "account": current.account_id,
                 },
                 "source": {
+                    "source_logs_configuration": {
+                        "encrypted_log_group_strategy": "ALLOW",
+                        "log_group_selection_criteria": "LogGroupName LIKE '/aws/lambda%'",
+                    },
                     "regions": [
                         "ap-southeast-1",
                         "us-east-1",
                     ],
                     "scope": f"OrganizationId = '{current_get_organization.id}'",
-                    "source_logs_configuration": {
-                        "encrypted_log_group_strategy": "ALLOW",
-                        "log_group_selection_criteria": "LogGroupName LIKE '/aws/lambda%'",
-                    },
                 },
             },
+            rule_name="filtered-centralization-rule",
             tags={
                 "Name": "filtered-centralization-rule",
                 "Filter": "lambda-logs",
@@ -538,28 +538,28 @@ class CentralizationRuleForOrganization(pulumi.CustomResource):
         current = aws.get_caller_identity()
         current_get_organization = aws.organizations.get_organization()
         metrics = aws.observabilityadmin.CentralizationRuleForOrganization("metrics",
-            rule_name="metrics-centralization-rule",
             rule={
                 "destination": {
-                    "region": "eu-west-1",
-                    "account": current.account_id,
                     "destination_metrics_configuration": {
                         "backup_configuration": {
                             "region": "us-west-1",
                         },
                     },
+                    "region": "eu-west-1",
+                    "account": current.account_id,
                 },
                 "source": {
+                    "source_metrics_configuration": {
+                        "metrics_selection_criteria": "*",
+                    },
                     "regions": [
                         "ap-southeast-1",
                         "us-east-1",
                     ],
                     "scope": f"OrganizationId = '{current_get_organization.id}'",
-                    "source_metrics_configuration": {
-                        "metrics_selection_criteria": "*",
-                    },
                 },
-            })
+            },
+            rule_name="metrics-centralization-rule")
         ```
 
         ## Import

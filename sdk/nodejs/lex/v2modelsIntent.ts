@@ -38,12 +38,12 @@ import * as utilities from "../utilities";
  *     policyArn: current.then(current => `arn:${current.partition}:iam::aws:policy/AmazonLexFullAccess`),
  * });
  * const testV2modelsBot = new aws.lex.V2modelsBot("test", {
- *     name: "botens_namn",
- *     idleSessionTtlInSeconds: 60,
- *     roleArn: test.arn,
  *     dataPrivacies: [{
  *         childDirected: true,
  *     }],
+ *     name: "botens_namn",
+ *     idleSessionTtlInSeconds: 60,
+ *     roleArn: test.arn,
  * });
  * const testV2modelsBotLocale = new aws.lex.V2modelsBotLocale("test", {
  *     localeId: "en_US",
@@ -76,68 +76,68 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lex.V2modelsIntent("example", {
+ *     confirmationSetting: {
+ *         promptSpecification: {
+ *             promptAttemptsSpecifications: [
+ *                 {
+ *                     allowedInputTypes: {
+ *                         allowAudioInput: true,
+ *                         allowDtmfInput: true,
+ *                     },
+ *                     audioAndDtmfInputSpecification: {
+ *                         audioSpecification: {
+ *                             endTimeoutMs: 640,
+ *                             maxLengthMs: 15000,
+ *                         },
+ *                         dtmfSpecification: {
+ *                             deletionCharacter: "*",
+ *                             endCharacter: "#",
+ *                             endTimeoutMs: 5000,
+ *                             maxLength: 513,
+ *                         },
+ *                         startTimeoutMs: 4000,
+ *                     },
+ *                     textInputSpecification: {
+ *                         startTimeoutMs: 30000,
+ *                     },
+ *                     allowInterrupt: true,
+ *                     mapBlockKey: "Initial",
+ *                 },
+ *                 {
+ *                     allowedInputTypes: {
+ *                         allowAudioInput: true,
+ *                         allowDtmfInput: true,
+ *                     },
+ *                     audioAndDtmfInputSpecification: {
+ *                         audioSpecification: {
+ *                             endTimeoutMs: 640,
+ *                             maxLengthMs: 15000,
+ *                         },
+ *                         dtmfSpecification: {
+ *                             deletionCharacter: "*",
+ *                             endCharacter: "#",
+ *                             endTimeoutMs: 5000,
+ *                             maxLength: 513,
+ *                         },
+ *                         startTimeoutMs: 4000,
+ *                     },
+ *                     textInputSpecification: {
+ *                         startTimeoutMs: 30000,
+ *                     },
+ *                     allowInterrupt: true,
+ *                     mapBlockKey: "Retry1",
+ *                 },
+ *             ],
+ *             allowInterrupt: true,
+ *             maxRetries: 1,
+ *             messageSelectionStrategy: "Ordered",
+ *         },
+ *         active: true,
+ *     },
  *     botId: test.id,
  *     botVersion: testAwsLexv2modelsBotLocale.botVersion,
  *     name: "botens_namn",
  *     localeId: testAwsLexv2modelsBotLocale.localeId,
- *     confirmationSetting: {
- *         active: true,
- *         promptSpecification: {
- *             allowInterrupt: true,
- *             maxRetries: 1,
- *             messageSelectionStrategy: "Ordered",
- *             promptAttemptsSpecifications: [
- *                 {
- *                     allowInterrupt: true,
- *                     mapBlockKey: "Initial",
- *                     allowedInputTypes: {
- *                         allowAudioInput: true,
- *                         allowDtmfInput: true,
- *                     },
- *                     audioAndDtmfInputSpecification: {
- *                         startTimeoutMs: 4000,
- *                         audioSpecification: {
- *                             endTimeoutMs: 640,
- *                             maxLengthMs: 15000,
- *                         },
- *                         dtmfSpecification: {
- *                             deletionCharacter: "*",
- *                             endCharacter: "#",
- *                             endTimeoutMs: 5000,
- *                             maxLength: 513,
- *                         },
- *                     },
- *                     textInputSpecification: {
- *                         startTimeoutMs: 30000,
- *                     },
- *                 },
- *                 {
- *                     allowInterrupt: true,
- *                     mapBlockKey: "Retry1",
- *                     allowedInputTypes: {
- *                         allowAudioInput: true,
- *                         allowDtmfInput: true,
- *                     },
- *                     audioAndDtmfInputSpecification: {
- *                         startTimeoutMs: 4000,
- *                         audioSpecification: {
- *                             endTimeoutMs: 640,
- *                             maxLengthMs: 15000,
- *                         },
- *                         dtmfSpecification: {
- *                             deletionCharacter: "*",
- *                             endCharacter: "#",
- *                             endTimeoutMs: 5000,
- *                             maxLength: 513,
- *                         },
- *                     },
- *                     textInputSpecification: {
- *                         startTimeoutMs: 30000,
- *                     },
- *                 },
- *             ],
- *         },
- *     },
  * });
  * ```
  *
@@ -148,11 +148,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const qnaExample = new aws.lex.V2modelsIntent("qna_example", {
- *     botId: test.id,
- *     botVersion: testAwsLexv2modelsBotLocale.botVersion,
- *     name: "qna_intent",
- *     localeId: testAwsLexv2modelsBotLocale.localeId,
- *     parentIntentSignature: "AMAZON.QnAIntent",
  *     qnaIntentConfiguration: {
  *         dataSourceConfiguration: {
  *             kendraConfiguration: {
@@ -165,6 +160,11 @@ import * as utilities from "../utilities";
  *     sampleUtterances: [{
  *         utterance: "What is the answer?",
  *     }],
+ *     botId: test.id,
+ *     botVersion: testAwsLexv2modelsBotLocale.botVersion,
+ *     name: "qna_intent",
+ *     localeId: testAwsLexv2modelsBotLocale.localeId,
+ *     parentIntentSignature: "AMAZON.QnAIntent",
  * });
  * ```
  *

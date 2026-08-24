@@ -61,7 +61,6 @@ namespace Pulumi.Aws.IvsChat
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -73,6 +72,7 @@ namespace Pulumi.Aws.IvsChat
     ///                         },
     ///                     },
     ///                 },
+    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "sts:AssumeRole",
@@ -89,13 +89,13 @@ namespace Pulumi.Aws.IvsChat
     /// 
     ///     var example = new Aws.Kinesis.FirehoseDeliveryStream("example", new()
     ///     {
-    ///         Name = "pulumi-kinesis-firehose-extended-s3-example-stream",
-    ///         Destination = "extended_s3",
     ///         ExtendedS3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs
     ///         {
     ///             RoleArn = exampleRole.Arn,
     ///             BucketArn = exampleBucket.Arn,
     ///         },
+    ///         Name = "pulumi-kinesis-firehose-extended-s3-example-stream",
+    ///         Destination = "extended_s3",
     ///         Tags = 
     ///         {
     ///             { "LogDeliveryEnabled", "true" },

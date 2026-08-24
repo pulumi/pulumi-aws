@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sesv2.ConfigurationSet("example", {
- *     configurationSetName: "example",
  *     deliveryOptions: {
  *         maxDeliverySeconds: 300,
  *         tlsPolicy: "REQUIRE",
@@ -40,6 +39,7 @@ import * as utilities from "../utilities";
  *         customRedirectDomain: "example.com",
  *         httpsPolicy: "REQUIRE",
  *     },
+ *     configurationSetName: "example",
  * });
  * ```
  *

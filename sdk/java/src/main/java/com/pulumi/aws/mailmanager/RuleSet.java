@@ -50,16 +50,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RuleSet("example", RuleSetArgs.builder()
- *             .name("example")
  *             .rules(RuleSetRuleArgs.builder()
- *                 .name("add-header")
  *                 .actions(RuleSetRuleActionArgs.builder()
  *                     .addHeader(RuleSetRuleActionAddHeaderArgs.builder()
  *                         .headerName("X-Example")
  *                         .headerValue("example")
  *                         .build())
  *                     .build())
+ *                 .name("add-header")
  *                 .build())
+ *             .name("example")
  *             .build());
  * 
  *     }

@@ -26,14 +26,10 @@ namespace Pulumi.Aws.PaymentCryptography
     /// {
     ///     var test = new Aws.PaymentCryptography.Key("test", new()
     ///     {
-    ///         Exportable = true,
     ///         KeyAttributes = new[]
     ///         {
     ///             new Aws.PaymentCryptography.Inputs.KeyKeyAttributeArgs
     ///             {
-    ///                 KeyAlgorithm = "TDES_3KEY",
-    ///                 KeyClass = "SYMMETRIC_KEY",
-    ///                 KeyUsage = "TR31_P0_PIN_ENCRYPTION_KEY",
     ///                 KeyModesOfUses = new[]
     ///                 {
     ///                     new Aws.PaymentCryptography.Inputs.KeyKeyAttributeKeyModesOfUseArgs
@@ -44,8 +40,12 @@ namespace Pulumi.Aws.PaymentCryptography
     ///                         Unwrap = true,
     ///                     },
     ///                 },
+    ///                 KeyAlgorithm = "TDES_3KEY",
+    ///                 KeyClass = "SYMMETRIC_KEY",
+    ///                 KeyUsage = "TR31_P0_PIN_ENCRYPTION_KEY",
     ///             },
     ///         },
+    ///         Exportable = true,
     ///     });
     /// 
     /// });

@@ -17,13 +17,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.eks.AccessPolicyAssociation("example", {
- *     clusterName: exampleAwsEksCluster.name,
- *     policyArn: "arn:aws:eks::aws:cluster-access-policy/AmazonEKSViewPolicy",
- *     principalArn: exampleAwsIamUser.arn,
  *     accessScope: {
  *         type: "namespace",
  *         namespaces: ["example-namespace"],
  *     },
+ *     clusterName: exampleAwsEksCluster.name,
+ *     policyArn: "arn:aws:eks::aws:cluster-access-policy/AmazonEKSViewPolicy",
+ *     principalArn: exampleAwsIamUser.arn,
  * });
  * ```
  *

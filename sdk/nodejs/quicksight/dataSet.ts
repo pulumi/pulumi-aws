@@ -19,22 +19,22 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.quicksight.DataSet("example", {
- *     dataSetId: "example-id",
- *     name: "example-name",
- *     importMode: "SPICE",
  *     physicalTableMaps: [{
- *         physicalTableMapId: "example-id",
  *         s3Source: {
- *             dataSourceArn: exampleAwsQuicksightDataSource.arn,
+ *             uploadSettings: {
+ *                 format: "JSON",
+ *             },
  *             inputColumns: [{
  *                 name: "Column1",
  *                 type: "STRING",
  *             }],
- *             uploadSettings: {
- *                 format: "JSON",
- *             },
+ *             dataSourceArn: exampleAwsQuicksightDataSource.arn,
  *         },
+ *         physicalTableMapId: "example-id",
  *     }],
+ *     dataSetId: "example-id",
+ *     name: "example-name",
+ *     importMode: "SPICE",
  * });
  * ```
  *
@@ -45,23 +45,23 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.quicksight.DataSet("example", {
- *     dataSetId: "example-id",
- *     name: "example-name",
- *     importMode: "SPICE",
- *     useAs: "RLS_RULES",
  *     physicalTableMaps: [{
- *         physicalTableMapId: "example-id",
  *         s3Source: {
- *             dataSourceArn: exampleAwsQuicksightDataSource.arn,
+ *             uploadSettings: {
+ *                 format: "JSON",
+ *             },
  *             inputColumns: [{
  *                 name: "UserName",
  *                 type: "STRING",
  *             }],
- *             uploadSettings: {
- *                 format: "JSON",
- *             },
+ *             dataSourceArn: exampleAwsQuicksightDataSource.arn,
  *         },
+ *         physicalTableMapId: "example-id",
  *     }],
+ *     dataSetId: "example-id",
+ *     name: "example-name",
+ *     importMode: "SPICE",
+ *     useAs: "RLS_RULES",
  * });
  * ```
  *
@@ -72,26 +72,26 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.quicksight.DataSet("example", {
- *     dataSetId: "example-id",
- *     name: "example-name",
- *     importMode: "SPICE",
- *     physicalTableMaps: [{
- *         physicalTableMapId: "example-id",
- *         s3Source: {
- *             dataSourceArn: exampleAwsQuicksightDataSource.arn,
- *             inputColumns: [{
- *                 name: "Column1",
- *                 type: "STRING",
- *             }],
- *             uploadSettings: {
- *                 format: "JSON",
- *             },
- *         },
- *     }],
  *     columnLevelPermissionRules: [{
  *         columnNames: ["Column1"],
  *         principals: [exampleAwsQuicksightUser.arn],
  *     }],
+ *     physicalTableMaps: [{
+ *         s3Source: {
+ *             uploadSettings: {
+ *                 format: "JSON",
+ *             },
+ *             inputColumns: [{
+ *                 name: "Column1",
+ *                 type: "STRING",
+ *             }],
+ *             dataSourceArn: exampleAwsQuicksightDataSource.arn,
+ *         },
+ *         physicalTableMapId: "example-id",
+ *     }],
+ *     dataSetId: "example-id",
+ *     name: "example-name",
+ *     importMode: "SPICE",
  * });
  * ```
  *
@@ -102,27 +102,27 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.quicksight.DataSet("example", {
- *     dataSetId: "example-id",
- *     name: "example-name",
- *     importMode: "SPICE",
- *     physicalTableMaps: [{
- *         physicalTableMapId: "example-id",
- *         s3Source: {
- *             dataSourceArn: exampleAwsQuicksightDataSource.arn,
- *             inputColumns: [{
- *                 name: "Column1",
- *                 type: "STRING",
- *             }],
- *             uploadSettings: {
- *                 format: "JSON",
- *             },
- *         },
- *     }],
  *     fieldFolders: [{
  *         fieldFoldersId: "example-id",
  *         columns: ["Column1"],
  *         description: "example description",
  *     }],
+ *     physicalTableMaps: [{
+ *         s3Source: {
+ *             uploadSettings: {
+ *                 format: "JSON",
+ *             },
+ *             inputColumns: [{
+ *                 name: "Column1",
+ *                 type: "STRING",
+ *             }],
+ *             dataSourceArn: exampleAwsQuicksightDataSource.arn,
+ *         },
+ *         physicalTableMapId: "example-id",
+ *     }],
+ *     dataSetId: "example-id",
+ *     name: "example-name",
+ *     importMode: "SPICE",
  * });
  * ```
  *
@@ -133,22 +133,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.quicksight.DataSet("example", {
- *     dataSetId: "example-id",
- *     name: "example-name",
- *     importMode: "SPICE",
- *     physicalTableMaps: [{
- *         physicalTableMapId: "example-id",
- *         s3Source: {
- *             dataSourceArn: exampleAwsQuicksightDataSource.arn,
- *             inputColumns: [{
- *                 name: "Column1",
- *                 type: "STRING",
- *             }],
- *             uploadSettings: {
- *                 format: "JSON",
- *             },
- *         },
- *     }],
  *     permissions: [{
  *         actions: [
  *             "quicksight:DescribeDataSet",
@@ -159,6 +143,22 @@ import * as utilities from "../utilities";
  *         ],
  *         principal: exampleAwsQuicksightUser.arn,
  *     }],
+ *     physicalTableMaps: [{
+ *         s3Source: {
+ *             uploadSettings: {
+ *                 format: "JSON",
+ *             },
+ *             inputColumns: [{
+ *                 name: "Column1",
+ *                 type: "STRING",
+ *             }],
+ *             dataSourceArn: exampleAwsQuicksightDataSource.arn,
+ *         },
+ *         physicalTableMapId: "example-id",
+ *     }],
+ *     dataSetId: "example-id",
+ *     name: "example-name",
+ *     importMode: "SPICE",
  * });
  * ```
  *
@@ -169,31 +169,31 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.quicksight.DataSet("example", {
- *     dataSetId: "example-id",
- *     name: "example-name",
- *     importMode: "SPICE",
- *     physicalTableMaps: [{
- *         physicalTableMapId: "example-id",
- *         s3Source: {
- *             dataSourceArn: exampleAwsQuicksightDataSource.arn,
- *             inputColumns: [{
- *                 name: "Column1",
- *                 type: "STRING",
- *             }],
- *             uploadSettings: {
- *                 format: "JSON",
- *             },
- *         },
- *     }],
  *     rowLevelPermissionTagConfiguration: {
- *         status: "ENABLED",
  *         tagRules: [{
  *             columnName: "Column1",
  *             tagKey: "tagkey",
  *             matchAllValue: "*",
  *             tagMultiValueDelimiter: ",",
  *         }],
+ *         status: "ENABLED",
  *     },
+ *     physicalTableMaps: [{
+ *         s3Source: {
+ *             uploadSettings: {
+ *                 format: "JSON",
+ *             },
+ *             inputColumns: [{
+ *                 name: "Column1",
+ *                 type: "STRING",
+ *             }],
+ *             dataSourceArn: exampleAwsQuicksightDataSource.arn,
+ *         },
+ *         physicalTableMapId: "example-id",
+ *     }],
+ *     dataSetId: "example-id",
+ *     name: "example-name",
+ *     importMode: "SPICE",
  * });
  * ```
  *

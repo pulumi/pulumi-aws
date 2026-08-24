@@ -18,14 +18,14 @@ import * as utilities from "../utilities";
  *
  * const test = new aws.macie2.Account("test", {});
  * const testClassificationJob = new aws.macie2.ClassificationJob("test", {
- *     jobType: "ONE_TIME",
- *     name: "NAME OF THE CLASSIFICATION JOB",
  *     s3JobDefinition: {
  *         bucketDefinitions: [{
  *             accountId: "ACCOUNT ID",
  *             buckets: ["S3 BUCKET NAME"],
  *         }],
  *     },
+ *     jobType: "ONE_TIME",
+ *     name: "NAME OF THE CLASSIFICATION JOB",
  * }, {
  *     dependsOn: [test],
  * });

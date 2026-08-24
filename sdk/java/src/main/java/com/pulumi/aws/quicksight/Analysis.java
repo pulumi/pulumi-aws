@@ -53,17 +53,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Analysis("example", AnalysisArgs.builder()
- *             .analysisId("example-id")
- *             .name("example-name")
  *             .sourceEntity(AnalysisSourceEntityArgs.builder()
  *                 .sourceTemplate(AnalysisSourceEntitySourceTemplateArgs.builder()
- *                     .arn(source.arn())
  *                     .dataSetReferences(AnalysisSourceEntitySourceTemplateDataSetReferenceArgs.builder()
  *                         .dataSetArn(dataset.arn())
  *                         .dataSetPlaceholder("1")
  *                         .build())
+ *                     .arn(source.arn())
  *                     .build())
  *                 .build())
+ *             .analysisId("example-id")
+ *             .name("example-name")
  *             .build());
  * 
  *     }
@@ -96,39 +96,39 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Analysis("example", AnalysisArgs.builder()
- *             .analysisId("example-id")
- *             .name("example-name")
  *             .definition(Map.ofEntries(
  *                 Map.entry("dataSetIdentifiersDeclarations", Arrays.asList(Map.ofEntries(
  *                     Map.entry("dataSetArn", dataset.arn()),
  *                     Map.entry("identifier", "1")
  *                 ))),
  *                 Map.entry("sheets", Arrays.asList(Map.ofEntries(
- *                     Map.entry("title", "Example"),
- *                     Map.entry("sheetId", "Example1"),
  *                     Map.entry("visuals", Arrays.asList(Map.of("lineChartVisual", Map.ofEntries(
- *                         Map.entry("visualId", "LineChart"),
  *                         Map.entry("title", Map.of("formatText", Map.of("plainText", "Line Chart Example"))),
  *                         Map.entry("chartConfiguration", Map.of("fieldWells", Map.of("lineChartAggregatedFieldWells", Map.ofEntries(
  *                             Map.entry("categories", Arrays.asList(Map.of("categoricalDimensionField", Map.ofEntries(
- *                                 Map.entry("fieldId", "1"),
- *                                 Map.entry("column", Map.ofEntries(
- *                                     Map.entry("dataSetIdentifier", "1"),
- *                                     Map.entry("columnName", "Column1")
- *                                 ))
- *                             )))),
- *                             Map.entry("values", Arrays.asList(Map.of("categoricalMeasureField", Map.ofEntries(
- *                                 Map.entry("fieldId", "2"),
  *                                 Map.entry("column", Map.ofEntries(
  *                                     Map.entry("dataSetIdentifier", "1"),
  *                                     Map.entry("columnName", "Column1")
  *                                 )),
+ *                                 Map.entry("fieldId", "1")
+ *                             )))),
+ *                             Map.entry("values", Arrays.asList(Map.of("categoricalMeasureField", Map.ofEntries(
+ *                                 Map.entry("column", Map.ofEntries(
+ *                                     Map.entry("dataSetIdentifier", "1"),
+ *                                     Map.entry("columnName", "Column1")
+ *                                 )),
+ *                                 Map.entry("fieldId", "2"),
  *                                 Map.entry("aggregationFunction", "COUNT")
  *                             ))))
- *                         ))))
- *                     ))))
+ *                         )))),
+ *                         Map.entry("visualId", "LineChart")
+ *                     )))),
+ *                     Map.entry("title", "Example"),
+ *                     Map.entry("sheetId", "Example1")
  *                 )))
  *             ))
+ *             .analysisId("example-id")
+ *             .name("example-name")
  *             .build());
  * 
  *     }

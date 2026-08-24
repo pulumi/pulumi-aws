@@ -32,10 +32,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lakeformation.LookupPermissions(ctx, &lakeformation.LookupPermissionsArgs{
-//				Principal: workflowRole.Arn,
 //				DataLocation: lakeformation.GetPermissionsDataLocation{
 //					Arn: testAwsLakeformationResource.Arn,
 //				},
+//				Principal: workflowRole.Arn,
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -61,11 +61,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lakeformation.LookupPermissions(ctx, &lakeformation.LookupPermissionsArgs{
-//				Principal: workflowRole.Arn,
 //				Database: lakeformation.GetPermissionsDatabase{
 //					Name:      testAwsGlueCatalogDatabase.Name,
 //					CatalogId: "110376042874",
 //				},
+//				Principal: workflowRole.Arn,
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -91,9 +91,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lakeformation.LookupPermissions(ctx, &lakeformation.LookupPermissionsArgs{
-//				Principal: workflowRole.Arn,
 //				LfTagPolicy: lakeformation.GetPermissionsLfTagPolicy{
-//					ResourceType: "DATABASE",
 //					Expressions: []lakeformation.GetPermissionsLfTagPolicyExpression{
 //						{
 //							Key: "Team",
@@ -109,7 +107,9 @@ import (
 //							},
 //						},
 //					},
+//					ResourceType: "DATABASE",
 //				},
+//				Principal: workflowRole.Arn,
 //			}, nil)
 //			if err != nil {
 //				return err

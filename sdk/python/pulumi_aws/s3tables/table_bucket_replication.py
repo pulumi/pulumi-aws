@@ -201,13 +201,13 @@ class TableBucketReplication(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3tables.TableBucketReplication("example",
-            table_bucket_arn=source["arn"],
-            role=example_aws_iam_role["arn"],
             rule={
                 "destinations": [{
                     "destination_table_bucket_arn": target["arn"],
                 }],
-            })
+            },
+            table_bucket_arn=source["arn"],
+            role=example_aws_iam_role["arn"])
         ```
 
         ## Import
@@ -250,13 +250,13 @@ class TableBucketReplication(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3tables.TableBucketReplication("example",
-            table_bucket_arn=source["arn"],
-            role=example_aws_iam_role["arn"],
             rule={
                 "destinations": [{
                     "destination_table_bucket_arn": target["arn"],
                 }],
-            })
+            },
+            table_bucket_arn=source["arn"],
+            role=example_aws_iam_role["arn"])
         ```
 
         ## Import

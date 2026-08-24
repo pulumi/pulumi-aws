@@ -107,22 +107,9 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// {
     ///     var example = new Aws.ApiGatewayV2.Integration("example", new()
     ///     {
-    ///         ApiId = exampleAwsApigatewayv2Api.Id,
-    ///         CredentialsArn = exampleAwsIamRole.Arn,
-    ///         Description = "Example with a load balancer",
-    ///         IntegrationType = "HTTP_PROXY",
-    ///         IntegrationUri = exampleAwsLbListener.Arn,
-    ///         IntegrationMethod = "ANY",
-    ///         ConnectionType = "VPC_LINK",
-    ///         ConnectionId = exampleAwsApigatewayv2VpcLink.Id,
     ///         TlsConfig = new Aws.ApiGatewayV2.Inputs.IntegrationTlsConfigArgs
     ///         {
     ///             ServerNameToVerify = "example.com",
-    ///         },
-    ///         RequestParameters = 
-    ///         {
-    ///             { "append:header.authforintegration", "$context.authorizer.authorizerResponse" },
-    ///             { "overwrite:path", "staticValueForIntegration" },
     ///         },
     ///         ResponseParameters = new[]
     ///         {
@@ -142,6 +129,19 @@ namespace Pulumi.Aws.ApiGatewayV2
     ///                     { "overwrite:statuscode", "204" },
     ///                 },
     ///             },
+    ///         },
+    ///         ApiId = exampleAwsApigatewayv2Api.Id,
+    ///         CredentialsArn = exampleAwsIamRole.Arn,
+    ///         Description = "Example with a load balancer",
+    ///         IntegrationType = "HTTP_PROXY",
+    ///         IntegrationUri = exampleAwsLbListener.Arn,
+    ///         IntegrationMethod = "ANY",
+    ///         ConnectionType = "VPC_LINK",
+    ///         ConnectionId = exampleAwsApigatewayv2VpcLink.Id,
+    ///         RequestParameters = 
+    ///         {
+    ///             { "append:header.authforintegration", "$context.authorizer.authorizerResponse" },
+    ///             { "overwrite:path", "staticValueForIntegration" },
     ///         },
     ///     });
     /// 

@@ -321,11 +321,11 @@ class Selection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["backup.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         example = aws.iam.Role("example",
@@ -344,14 +344,14 @@ class Selection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.backup.Selection("example",
-            iam_role_arn=example_aws_iam_role["arn"],
-            name="my_example_backup_selection",
-            plan_id=example_aws_backup_plan["id"],
             selection_tags=[{
                 "type": "STRINGEQUALS",
                 "key": "foo",
                 "value": "bar",
-            }])
+            }],
+            iam_role_arn=example_aws_iam_role["arn"],
+            name="my_example_backup_selection",
+            plan_id=example_aws_backup_plan["id"])
         ```
 
         ### Selecting Backups By Conditions
@@ -361,10 +361,6 @@ class Selection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.backup.Selection("example",
-            iam_role_arn=example_aws_iam_role["arn"],
-            name="my_example_backup_selection",
-            plan_id=example_aws_backup_plan["id"],
-            resources=["*"],
             conditions=[{
                 "string_equals": [{
                     "key": "aws:ResourceTag/Component",
@@ -382,7 +378,11 @@ class Selection(pulumi.CustomResource):
                     "key": "aws:ResourceTag/Environment",
                     "value": "test*",
                 }],
-            }])
+            }],
+            iam_role_arn=example_aws_iam_role["arn"],
+            name="my_example_backup_selection",
+            plan_id=example_aws_backup_plan["id"],
+            resources=["*"])
         ```
 
         ### Selecting Backups By Resource
@@ -473,11 +473,11 @@ class Selection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["backup.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         example = aws.iam.Role("example",
@@ -496,14 +496,14 @@ class Selection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.backup.Selection("example",
-            iam_role_arn=example_aws_iam_role["arn"],
-            name="my_example_backup_selection",
-            plan_id=example_aws_backup_plan["id"],
             selection_tags=[{
                 "type": "STRINGEQUALS",
                 "key": "foo",
                 "value": "bar",
-            }])
+            }],
+            iam_role_arn=example_aws_iam_role["arn"],
+            name="my_example_backup_selection",
+            plan_id=example_aws_backup_plan["id"])
         ```
 
         ### Selecting Backups By Conditions
@@ -513,10 +513,6 @@ class Selection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.backup.Selection("example",
-            iam_role_arn=example_aws_iam_role["arn"],
-            name="my_example_backup_selection",
-            plan_id=example_aws_backup_plan["id"],
-            resources=["*"],
             conditions=[{
                 "string_equals": [{
                     "key": "aws:ResourceTag/Component",
@@ -534,7 +530,11 @@ class Selection(pulumi.CustomResource):
                     "key": "aws:ResourceTag/Environment",
                     "value": "test*",
                 }],
-            }])
+            }],
+            iam_role_arn=example_aws_iam_role["arn"],
+            name="my_example_backup_selection",
+            plan_id=example_aws_backup_plan["id"],
+            resources=["*"])
         ```
 
         ### Selecting Backups By Resource

@@ -26,9 +26,6 @@ namespace Pulumi.Aws.AppFabric
     /// {
     ///     var example = new Aws.AppFabric.AppAuthorization("example", new()
     ///     {
-    ///         App = "TERRAFORMCLOUD",
-    ///         AppBundleArn = arn,
-    ///         AuthType = "apiKey",
     ///         Credential = new Aws.AppFabric.Inputs.AppAuthorizationCredentialArgs
     ///         {
     ///             ApiKeyCredentials = new[]
@@ -47,6 +44,9 @@ namespace Pulumi.Aws.AppFabric
     ///                 TenantIdentifier = "example",
     ///             },
     ///         },
+    ///         App = "TERRAFORMCLOUD",
+    ///         AppBundleArn = arn,
+    ///         AuthType = "apiKey",
     ///     });
     /// 
     /// });

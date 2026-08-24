@@ -334,15 +334,15 @@ class TrustStore(pulumi.CustomResource):
             ca_certificates_bundle_s3_bucket="...",
             ca_certificates_bundle_s3_key="...")
         example = aws.lb.Listener("example",
-            load_balancer_arn=example_aws_lb["id"],
+            mutual_authentication={
+                "mode": "verify",
+                "trust_store_arn": test.arn,
+            },
             default_actions=[{
                 "target_group_arn": example_aws_lb_target_group["id"],
                 "type": "forward",
             }],
-            mutual_authentication={
-                "mode": "verify",
-                "trust_store_arn": test.arn,
-            })
+            load_balancer_arn=example_aws_lb["id"])
         ```
 
         ## Import
@@ -392,15 +392,15 @@ class TrustStore(pulumi.CustomResource):
             ca_certificates_bundle_s3_bucket="...",
             ca_certificates_bundle_s3_key="...")
         example = aws.lb.Listener("example",
-            load_balancer_arn=example_aws_lb["id"],
+            mutual_authentication={
+                "mode": "verify",
+                "trust_store_arn": test.arn,
+            },
             default_actions=[{
                 "target_group_arn": example_aws_lb_target_group["id"],
                 "type": "forward",
             }],
-            mutual_authentication={
-                "mode": "verify",
-                "trust_store_arn": test.arn,
-            })
+            load_balancer_arn=example_aws_lb["id"])
         ```
 
         ## Import

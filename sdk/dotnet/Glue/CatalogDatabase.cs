@@ -42,21 +42,21 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.CatalogDatabase("example", new()
     ///     {
-    ///         Name = "MyCatalogDatabase",
     ///         CreateTableDefaultPermissions = new[]
     ///         {
     ///             new Aws.Glue.Inputs.CatalogDatabaseCreateTableDefaultPermissionArgs
     ///             {
-    ///                 Permissions = new[]
-    ///                 {
-    ///                     "SELECT",
-    ///                 },
     ///                 Principal = new Aws.Glue.Inputs.CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs
     ///                 {
     ///                     DataLakePrincipalIdentifier = "IAM_ALLOWED_PRINCIPALS",
     ///                 },
+    ///                 Permissions = new[]
+    ///                 {
+    ///                     "SELECT",
+    ///                 },
     ///             },
     ///         },
+    ///         Name = "MyCatalogDatabase",
     ///     });
     /// 
     /// });

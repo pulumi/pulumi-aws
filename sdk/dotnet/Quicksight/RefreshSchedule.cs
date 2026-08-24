@@ -26,16 +26,16 @@ namespace Pulumi.Aws.Quicksight
     /// {
     ///     var example = new Aws.Quicksight.RefreshSchedule("example", new()
     ///     {
-    ///         DataSetId = "dataset-id",
-    ///         ScheduleId = "schedule-id",
     ///         Schedule = new Aws.Quicksight.Inputs.RefreshScheduleScheduleArgs
     ///         {
-    ///             RefreshType = "FULL_REFRESH",
     ///             ScheduleFrequency = new Aws.Quicksight.Inputs.RefreshScheduleScheduleScheduleFrequencyArgs
     ///             {
     ///                 Interval = "HOURLY",
     ///             },
+    ///             RefreshType = "FULL_REFRESH",
     ///         },
+    ///         DataSetId = "dataset-id",
+    ///         ScheduleId = "schedule-id",
     ///     });
     /// 
     /// });
@@ -53,22 +53,22 @@ namespace Pulumi.Aws.Quicksight
     /// {
     ///     var example = new Aws.Quicksight.RefreshSchedule("example", new()
     ///     {
-    ///         DataSetId = "dataset-id",
-    ///         ScheduleId = "schedule-id",
     ///         Schedule = new Aws.Quicksight.Inputs.RefreshScheduleScheduleArgs
     ///         {
-    ///             RefreshType = "INCREMENTAL_REFRESH",
     ///             ScheduleFrequency = new Aws.Quicksight.Inputs.RefreshScheduleScheduleScheduleFrequencyArgs
     ///             {
-    ///                 Interval = "WEEKLY",
-    ///                 TimeOfTheDay = "01:00",
-    ///                 Timezone = "Europe/London",
     ///                 RefreshOnDay = new Aws.Quicksight.Inputs.RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs
     ///                 {
     ///                     DayOfWeek = "MONDAY",
     ///                 },
+    ///                 Interval = "WEEKLY",
+    ///                 TimeOfTheDay = "01:00",
+    ///                 Timezone = "Europe/London",
     ///             },
+    ///             RefreshType = "INCREMENTAL_REFRESH",
     ///         },
+    ///         DataSetId = "dataset-id",
+    ///         ScheduleId = "schedule-id",
     ///     });
     /// 
     /// });
@@ -86,22 +86,22 @@ namespace Pulumi.Aws.Quicksight
     /// {
     ///     var example = new Aws.Quicksight.RefreshSchedule("example", new()
     ///     {
-    ///         DataSetId = "dataset-id",
-    ///         ScheduleId = "schedule-id",
     ///         Schedule = new Aws.Quicksight.Inputs.RefreshScheduleScheduleArgs
     ///         {
-    ///             RefreshType = "INCREMENTAL_REFRESH",
     ///             ScheduleFrequency = new Aws.Quicksight.Inputs.RefreshScheduleScheduleScheduleFrequencyArgs
     ///             {
-    ///                 Interval = "MONTHLY",
-    ///                 TimeOfTheDay = "01:00",
-    ///                 Timezone = "Europe/London",
     ///                 RefreshOnDay = new Aws.Quicksight.Inputs.RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs
     ///                 {
     ///                     DayOfMonth = "1",
     ///                 },
+    ///                 Interval = "MONTHLY",
+    ///                 TimeOfTheDay = "01:00",
+    ///                 Timezone = "Europe/London",
     ///             },
+    ///             RefreshType = "INCREMENTAL_REFRESH",
     ///         },
+    ///         DataSetId = "dataset-id",
+    ///         ScheduleId = "schedule-id",
     ///     });
     /// 
     /// });

@@ -403,11 +403,11 @@ class Rule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["config.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         r_role = aws.iam.Role("r",
@@ -417,11 +417,11 @@ class Rule(pulumi.CustomResource):
             name="example",
             role_arn=r_role.arn)
         r = aws.cfg.Rule("r",
-            name="example",
             source={
                 "owner": "AWS",
                 "source_identifier": "S3_BUCKET_VERSIONING_ENABLED",
             },
+            name="example",
             opts = pulumi.ResourceOptions(depends_on=[foo]))
         p = aws.iam.get_policy_document(statements=[{
             "effect": "Allow",
@@ -466,12 +466,7 @@ class Rule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cfg.Rule("example",
-            name="example",
             source={
-                "owner": "CUSTOM_POLICY",
-                "source_details": [{
-                    "message_type": "ConfigurationItemChangeNotification",
-                }],
                 "custom_policy_details": {
                     "policy_runtime": "guard-2.x.x",
                     "policy_text": \"\"\"\\t  rule tableisactive when
@@ -486,7 +481,12 @@ class Rule(pulumi.CustomResource):
         \\t  }
         \"\"\",
                 },
-            })
+                "source_details": [{
+                    "message_type": "ConfigurationItemChangeNotification",
+                }],
+                "owner": "CUSTOM_POLICY",
+            },
+            name="example")
         ```
 
         ## Import
@@ -543,11 +543,11 @@ class Rule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["config.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         r_role = aws.iam.Role("r",
@@ -557,11 +557,11 @@ class Rule(pulumi.CustomResource):
             name="example",
             role_arn=r_role.arn)
         r = aws.cfg.Rule("r",
-            name="example",
             source={
                 "owner": "AWS",
                 "source_identifier": "S3_BUCKET_VERSIONING_ENABLED",
             },
+            name="example",
             opts = pulumi.ResourceOptions(depends_on=[foo]))
         p = aws.iam.get_policy_document(statements=[{
             "effect": "Allow",
@@ -606,12 +606,7 @@ class Rule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cfg.Rule("example",
-            name="example",
             source={
-                "owner": "CUSTOM_POLICY",
-                "source_details": [{
-                    "message_type": "ConfigurationItemChangeNotification",
-                }],
                 "custom_policy_details": {
                     "policy_runtime": "guard-2.x.x",
                     "policy_text": \"\"\"\\t  rule tableisactive when
@@ -626,7 +621,12 @@ class Rule(pulumi.CustomResource):
         \\t  }
         \"\"\",
                 },
-            })
+                "source_details": [{
+                    "message_type": "ConfigurationItemChangeNotification",
+                }],
+                "owner": "CUSTOM_POLICY",
+            },
+            name="example")
         ```
 
         ## Import

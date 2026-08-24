@@ -48,13 +48,13 @@ namespace Pulumi.Aws.AppSync
     /// 
     ///     var exampleDataSource = new Aws.AppSync.DataSource("example", new()
     ///     {
-    ///         ApiId = example.Id,
-    ///         Name = "example",
-    ///         Type = "HTTP",
     ///         HttpConfig = new Aws.AppSync.Inputs.DataSourceHttpConfigArgs
     ///         {
     ///             Endpoint = "http://example.com",
     ///         },
+    ///         ApiId = example.Id,
+    ///         Name = "example",
+    ///         Type = "HTTP",
     ///     });
     /// 
     ///     var exampleFunction = new Aws.AppSync.Function("example", new()
@@ -95,6 +95,11 @@ namespace Pulumi.Aws.AppSync
     /// {
     ///     var example = new Aws.AppSync.Function("example", new()
     ///     {
+    ///         Runtime = new Aws.AppSync.Inputs.FunctionRuntimeArgs
+    ///         {
+    ///             Name = "APPSYNC_JS",
+    ///             RuntimeVersion = "1.0.0",
+    ///         },
     ///         ApiId = exampleAwsAppsyncGraphqlApi.Id,
     ///         DataSource = exampleAwsAppsyncDatasource.Name,
     ///         Name = "example",
@@ -102,11 +107,6 @@ namespace Pulumi.Aws.AppSync
     ///         {
     ///             Input = "some-code-dir",
     ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         Runtime = new Aws.AppSync.Inputs.FunctionRuntimeArgs
-    ///         {
-    ///             Name = "APPSYNC_JS",
-    ///             RuntimeVersion = "1.0.0",
-    ///         },
     ///     });
     /// 
     /// });

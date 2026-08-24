@@ -38,9 +38,10 @@ namespace Pulumi.Aws.DynamoDB
     /// 
     ///     var exampleTable = new Aws.DynamoDB.Table("example", new()
     ///     {
-    ///         Name = "example-table-1",
-    ///         BillingMode = "PAY_PER_REQUEST",
-    ///         HashKey = "user_id",
+    ///         PointInTimeRecovery = new Aws.DynamoDB.Inputs.TablePointInTimeRecoveryArgs
+    ///         {
+    ///             Enabled = true,
+    ///         },
     ///         Attributes = new[]
     ///         {
     ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
@@ -49,10 +50,9 @@ namespace Pulumi.Aws.DynamoDB
     ///                 Type = "S",
     ///             },
     ///         },
-    ///         PointInTimeRecovery = new Aws.DynamoDB.Inputs.TablePointInTimeRecoveryArgs
-    ///         {
-    ///             Enabled = true,
-    ///         },
+    ///         Name = "example-table-1",
+    ///         BillingMode = "PAY_PER_REQUEST",
+    ///         HashKey = "user_id",
     ///     });
     /// 
     ///     var exampleTableExport = new Aws.DynamoDB.TableExport("example", new()
@@ -96,14 +96,14 @@ namespace Pulumi.Aws.DynamoDB
     /// {
     ///     var example = new Aws.DynamoDB.TableExport("example", new()
     ///     {
-    ///         ExportType = "INCREMENTAL_EXPORT",
-    ///         S3Bucket = exampleAwsS3Bucket.Id,
-    ///         TableArn = exampleAwsDynamodbTable.Arn,
     ///         IncrementalExportSpecification = new Aws.DynamoDB.Inputs.TableExportIncrementalExportSpecificationArgs
     ///         {
     ///             ExportFromTime = "2025-02-09T12:00:00+01:00",
     ///             ExportToTime = "2025-02-09T13:00:00+01:00",
     ///         },
+    ///         ExportType = "INCREMENTAL_EXPORT",
+    ///         S3Bucket = exampleAwsS3Bucket.Id,
+    ///         TableArn = exampleAwsDynamodbTable.Arn,
     ///     });
     /// 
     /// });

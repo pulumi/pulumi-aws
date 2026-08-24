@@ -70,11 +70,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new Workforce("example", WorkforceArgs.builder()
- *             .workforceName("example")
  *             .cognitoConfig(WorkforceCognitoConfigArgs.builder()
  *                 .clientId(exampleUserPoolClient.id())
  *                 .userPool(exampleUserPoolDomain.userPoolId())
  *                 .build())
+ *             .workforceName("example")
  *             .build());
  * 
  *     }
@@ -108,7 +108,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Workforce("example", WorkforceArgs.builder()
- *             .workforceName("example")
  *             .oidcConfig(WorkforceOidcConfigArgs.builder()
  *                 .authorizationEndpoint("https://example.com")
  *                 .clientId("example")
@@ -119,6 +118,7 @@ import javax.annotation.Nullable;
  *                 .tokenEndpoint("https://example.com")
  *                 .userInfoEndpoint("https://example.com")
  *                 .build())
+ *             .workforceName("example")
  *             .build());
  * 
  *     }

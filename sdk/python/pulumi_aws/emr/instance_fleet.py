@@ -324,29 +324,6 @@ class InstanceFleet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         task = aws.emr.InstanceFleet("task",
-            cluster_id=cluster["id"],
-            instance_type_configs=[
-                {
-                    "bid_price_as_percentage_of_on_demand_price": float(100),
-                    "ebs_configs": [{
-                        "size": 100,
-                        "type": "gp2",
-                        "volumes_per_instance": 1,
-                    }],
-                    "instance_type": "m4.xlarge",
-                    "weighted_capacity": 1,
-                },
-                {
-                    "bid_price_as_percentage_of_on_demand_price": float(100),
-                    "ebs_configs": [{
-                        "size": 100,
-                        "type": "gp2",
-                        "volumes_per_instance": 1,
-                    }],
-                    "instance_type": "m4.2xlarge",
-                    "weighted_capacity": 2,
-                },
-            ],
             launch_specifications={
                 "spot_specifications": [{
                     "allocation_strategy": "capacity-optimized",
@@ -355,6 +332,29 @@ class InstanceFleet(pulumi.CustomResource):
                     "timeout_duration_minutes": 10,
                 }],
             },
+            instance_type_configs=[
+                {
+                    "ebs_configs": [{
+                        "size": 100,
+                        "type": "gp2",
+                        "volumes_per_instance": 1,
+                    }],
+                    "bid_price_as_percentage_of_on_demand_price": float(100),
+                    "instance_type": "m4.xlarge",
+                    "weighted_capacity": 1,
+                },
+                {
+                    "ebs_configs": [{
+                        "size": 100,
+                        "type": "gp2",
+                        "volumes_per_instance": 1,
+                    }],
+                    "bid_price_as_percentage_of_on_demand_price": float(100),
+                    "instance_type": "m4.2xlarge",
+                    "weighted_capacity": 2,
+                },
+            ],
+            cluster_id=cluster["id"],
             name="task fleet",
             target_on_demand_capacity=1,
             target_spot_capacity=1)
@@ -400,29 +400,6 @@ class InstanceFleet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         task = aws.emr.InstanceFleet("task",
-            cluster_id=cluster["id"],
-            instance_type_configs=[
-                {
-                    "bid_price_as_percentage_of_on_demand_price": float(100),
-                    "ebs_configs": [{
-                        "size": 100,
-                        "type": "gp2",
-                        "volumes_per_instance": 1,
-                    }],
-                    "instance_type": "m4.xlarge",
-                    "weighted_capacity": 1,
-                },
-                {
-                    "bid_price_as_percentage_of_on_demand_price": float(100),
-                    "ebs_configs": [{
-                        "size": 100,
-                        "type": "gp2",
-                        "volumes_per_instance": 1,
-                    }],
-                    "instance_type": "m4.2xlarge",
-                    "weighted_capacity": 2,
-                },
-            ],
             launch_specifications={
                 "spot_specifications": [{
                     "allocation_strategy": "capacity-optimized",
@@ -431,6 +408,29 @@ class InstanceFleet(pulumi.CustomResource):
                     "timeout_duration_minutes": 10,
                 }],
             },
+            instance_type_configs=[
+                {
+                    "ebs_configs": [{
+                        "size": 100,
+                        "type": "gp2",
+                        "volumes_per_instance": 1,
+                    }],
+                    "bid_price_as_percentage_of_on_demand_price": float(100),
+                    "instance_type": "m4.xlarge",
+                    "weighted_capacity": 1,
+                },
+                {
+                    "ebs_configs": [{
+                        "size": 100,
+                        "type": "gp2",
+                        "volumes_per_instance": 1,
+                    }],
+                    "bid_price_as_percentage_of_on_demand_price": float(100),
+                    "instance_type": "m4.2xlarge",
+                    "weighted_capacity": 2,
+                },
+            ],
+            cluster_id=cluster["id"],
             name="task fleet",
             target_on_demand_capacity=1,
             target_spot_capacity=1)

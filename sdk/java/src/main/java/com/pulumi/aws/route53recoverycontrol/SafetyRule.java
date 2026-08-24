@@ -47,15 +47,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new SafetyRule("example", SafetyRuleArgs.builder()
- *             .assertedControls(exampleAwsRoute53recoverycontrolconfigRoutingControl.arn())
- *             .controlPanelArn("arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8")
- *             .name("daisyguttridge")
- *             .waitPeriodMs(5000)
  *             .ruleConfig(SafetyRuleRuleConfigArgs.builder()
  *                 .inverted(false)
  *                 .threshold(1)
  *                 .type("ATLEAST")
  *                 .build())
+ *             .assertedControls(exampleAwsRoute53recoverycontrolconfigRoutingControl.arn())
+ *             .controlPanelArn("arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8")
+ *             .name("daisyguttridge")
+ *             .waitPeriodMs(5000)
  *             .build());
  * 
  *     }
@@ -87,16 +87,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new SafetyRule("example", SafetyRuleArgs.builder()
- *             .name("i_o")
- *             .controlPanelArn("arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8")
- *             .waitPeriodMs(5000)
- *             .gatingControls(exampleAwsRoute53recoverycontrolconfigRoutingControl.arn())
- *             .targetControls(exampleAwsRoute53recoverycontrolconfigRoutingControl.arn())
  *             .ruleConfig(SafetyRuleRuleConfigArgs.builder()
  *                 .inverted(false)
  *                 .threshold(1)
  *                 .type("ATLEAST")
  *                 .build())
+ *             .name("i_o")
+ *             .controlPanelArn("arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8")
+ *             .waitPeriodMs(5000)
+ *             .gatingControls(exampleAwsRoute53recoverycontrolconfigRoutingControl.arn())
+ *             .targetControls(exampleAwsRoute53recoverycontrolconfigRoutingControl.arn())
  *             .build());
  * 
  *     }

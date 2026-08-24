@@ -31,10 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cleanrooms.NewMembership(ctx, "test_membership", &cleanrooms.MembershipArgs{
-//				CollaborationId: pulumi.String("1234abcd-12ab-34cd-56ef-1234567890ab"),
-//				QueryLogStatus:  pulumi.String("DISABLED"),
 //				DefaultResultConfiguration: &cleanrooms.MembershipDefaultResultConfigurationArgs{
-//					RoleArn: pulumi.String("arn:aws:iam::123456789012:role/role-name"),
 //					OutputConfiguration: &cleanrooms.MembershipDefaultResultConfigurationOutputConfigurationArgs{
 //						S3: &cleanrooms.MembershipDefaultResultConfigurationOutputConfigurationS3Args{
 //							Bucket:       pulumi.String("test-bucket"),
@@ -42,7 +39,10 @@ import (
 //							KeyPrefix:    pulumi.String("test-prefix"),
 //						},
 //					},
+//					RoleArn: pulumi.String("arn:aws:iam::123456789012:role/role-name"),
 //				},
+//				CollaborationId: pulumi.String("1234abcd-12ab-34cd-56ef-1234567890ab"),
+//				QueryLogStatus:  pulumi.String("DISABLED"),
 //				Tags: pulumi.StringMap{
 //					"Project": pulumi.String("Terraform"),
 //				},

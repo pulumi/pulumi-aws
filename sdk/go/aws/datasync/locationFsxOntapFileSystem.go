@@ -31,11 +31,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datasync.NewLocationFsxOntapFileSystem(ctx, "test", &datasync.LocationFsxOntapFileSystemArgs{
-//				FsxFilesystemArn: testAwsFsxOntapFileSystem.Arn,
-//				SecurityGroupArns: pulumi.StringArray{
-//					testAwsSecurityGroup.Arn,
-//				},
-//				StorageVirtualMachineArn: pulumi.Any(testAwsFsxOntapStorageVirtualMachine.Arn),
 //				Protocol: &datasync.LocationFsxOntapFileSystemProtocolArgs{
 //					Nfs: &datasync.LocationFsxOntapFileSystemProtocolNfsArgs{
 //						MountOptions: &datasync.LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs{
@@ -43,6 +38,11 @@ import (
 //						},
 //					},
 //				},
+//				FsxFilesystemArn: testAwsFsxOntapFileSystem.Arn,
+//				SecurityGroupArns: pulumi.StringArray{
+//					testAwsSecurityGroup.Arn,
+//				},
+//				StorageVirtualMachineArn: pulumi.Any(testAwsFsxOntapStorageVirtualMachine.Arn),
 //			})
 //			if err != nil {
 //				return err

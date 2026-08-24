@@ -53,10 +53,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBucketAbac = new BucketAbac("exampleBucketAbac", BucketAbacArgs.builder()
- *             .bucket(example.bucket())
  *             .abacStatus(BucketAbacAbacStatusArgs.builder()
  *                 .status("Enabled")
  *                 .build())
+ *             .bucket(example.bucket())
  *             .build());
  * 
  *     }

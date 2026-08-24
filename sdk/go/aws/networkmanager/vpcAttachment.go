@@ -61,17 +61,17 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkmanager.NewVpcAttachment(ctx, "example", &networkmanager.VpcAttachmentArgs{
-//				SubnetArns: pulumi.StringArray{
-//					exampleAwsSubnet.Arn,
-//				},
-//				CoreNetworkId: pulumi.Any(exampleAwsccNetworkmanagerCoreNetwork.Id),
-//				VpcArn:        pulumi.Any(exampleAwsVpc.Arn),
 //				Options: &networkmanager.VpcAttachmentOptionsArgs{
 //					ApplianceModeSupport:            pulumi.Bool(false),
 //					DnsSupport:                      pulumi.Bool(true),
 //					Ipv6Support:                     pulumi.Bool(false),
 //					SecurityGroupReferencingSupport: pulumi.Bool(true),
 //				},
+//				SubnetArns: pulumi.StringArray{
+//					exampleAwsSubnet.Arn,
+//				},
+//				CoreNetworkId: pulumi.Any(exampleAwsccNetworkmanagerCoreNetwork.Id),
+//				VpcArn:        pulumi.Any(exampleAwsVpc.Arn),
 //			})
 //			if err != nil {
 //				return err

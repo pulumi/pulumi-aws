@@ -48,10 +48,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BillingGroup("example", BillingGroupArgs.builder()
- *             .name("example")
  *             .properties(BillingGroupPropertiesArgs.builder()
  *                 .description("This is my billing group")
  *                 .build())
+ *             .name("example")
  *             .tags(Map.of("terraform", "true"))
  *             .build());
  * 

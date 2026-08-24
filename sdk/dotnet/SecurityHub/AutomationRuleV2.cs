@@ -42,10 +42,6 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     ///     var exampleAutomationRuleV2 = new Aws.SecurityHub.AutomationRuleV2("example", new()
     ///     {
-    ///         RuleName = "suppress-guardduty-low",
-    ///         Description = "Suppress low severity GuardDuty findings",
-    ///         RuleOrder = 100,
-    ///         RuleStatus = "ENABLED",
     ///         Criteria = new Aws.SecurityHub.Inputs.AutomationRuleV2CriteriaArgs
     ///         {
     ///             OcsfFindingCriteriaJson = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
@@ -73,14 +69,18 @@ namespace Pulumi.Aws.SecurityHub
     ///         },
     ///         Action = new Aws.SecurityHub.Inputs.AutomationRuleV2ActionArgs
     ///         {
-    ///             Type = "FINDING_FIELDS_UPDATE",
     ///             FindingFieldsUpdate = new Aws.SecurityHub.Inputs.AutomationRuleV2ActionFindingFieldsUpdateArgs
     ///             {
     ///                 SeverityId = 99,
     ///                 StatusId = 3,
     ///                 Comment = "Low severity GuardDuty finding suppressed",
     ///             },
+    ///             Type = "FINDING_FIELDS_UPDATE",
     ///         },
+    ///         RuleName = "suppress-guardduty-low",
+    ///         Description = "Suppress low severity GuardDuty findings",
+    ///         RuleOrder = 100,
+    ///         RuleStatus = "ENABLED",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

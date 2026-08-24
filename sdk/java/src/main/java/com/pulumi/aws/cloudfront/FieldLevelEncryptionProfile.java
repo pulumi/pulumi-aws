@@ -58,17 +58,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var test = new FieldLevelEncryptionProfile("test", FieldLevelEncryptionProfileArgs.builder()
- *             .comment("test comment")
- *             .name("test profile")
  *             .encryptionEntities(FieldLevelEncryptionProfileEncryptionEntitiesArgs.builder()
  *                 .items(FieldLevelEncryptionProfileEncryptionEntitiesItemArgs.builder()
- *                     .publicKeyId(example.id())
- *                     .providerId("test provider")
  *                     .fieldPatterns(FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgs.builder()
  *                         .items("DateOfBirth")
  *                         .build())
+ *                     .publicKeyId(example.id())
+ *                     .providerId("test provider")
  *                     .build())
  *                 .build())
+ *             .comment("test comment")
+ *             .name("test profile")
  *             .build());
  * 
  *     }

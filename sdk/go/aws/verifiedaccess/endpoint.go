@@ -33,17 +33,17 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := verifiedaccess.NewEndpoint(ctx, "example", &verifiedaccess.EndpointArgs{
+//				NetworkInterfaceOptions: &verifiedaccess.EndpointNetworkInterfaceOptionsArgs{
+//					NetworkInterfaceId: pulumi.Any(exampleAwsNetworkInterface.Id),
+//					Port:               pulumi.Int(443),
+//					Protocol:           pulumi.String("https"),
+//				},
 //				ApplicationDomain:    pulumi.String("example.com"),
 //				AttachmentType:       pulumi.String("vpc"),
 //				Description:          pulumi.String("example"),
 //				DomainCertificateArn: pulumi.Any(exampleAwsAcmCertificate.Arn),
 //				EndpointDomainPrefix: pulumi.String("example"),
 //				EndpointType:         pulumi.String("network-interface"),
-//				NetworkInterfaceOptions: &verifiedaccess.EndpointNetworkInterfaceOptionsArgs{
-//					NetworkInterfaceId: pulumi.Any(exampleAwsNetworkInterface.Id),
-//					Port:               pulumi.Int(443),
-//					Protocol:           pulumi.String("https"),
-//				},
 //				SecurityGroupIds: pulumi.StringArray{
 //					exampleAwsSecurityGroup.Id,
 //				},

@@ -17,10 +17,10 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.workspacesweb.Portal("example", {displayName: "example"});
  * const exampleIpAccessSettings = new aws.workspacesweb.IpAccessSettings("example", {
- *     displayName: "example",
  *     ipRules: [{
  *         ipRange: "10.0.0.0/16",
  *     }],
+ *     displayName: "example",
  * });
  * const exampleIpAccessSettingsAssociation = new aws.workspacesweb.IpAccessSettingsAssociation("example", {
  *     ipAccessSettingsArn: exampleIpAccessSettings.ipAccessSettingsArn,

@@ -419,11 +419,11 @@ class User(pulumi.CustomResource):
                 "NAME": "tf-acc-test-transfer-server",
             })
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["transfer.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         foo_role = aws.iam.Role("foo",
@@ -440,14 +440,14 @@ class User(pulumi.CustomResource):
             role=foo_role.id,
             policy=foo.json)
         foo_user = aws.transfer.User("foo",
-            server_id=foo_server.id,
-            user_name="tftestuser",
-            role=foo_role.arn,
-            home_directory_type="LOGICAL",
             home_directory_mappings=[{
                 "entry": "/test.pdf",
                 "target": "/bucket3/test-path/tftestuser.pdf",
-            }])
+            }],
+            server_id=foo_server.id,
+            user_name="tftestuser",
+            role=foo_role.arn,
+            home_directory_type="LOGICAL")
         ```
 
         To restrict a user to their own home directory, use a `home_directory_mappings` block like the following:
@@ -457,11 +457,11 @@ class User(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.transfer.User("example",
-            home_directory_type="LOGICAL",
             home_directory_mappings=[{
                 "entry": "/",
                 "target": f"/{foo['id']}/${{Transfer:UserName}}",
-            }])
+            }],
+            home_directory_type="LOGICAL")
         ```
 
         ## Import
@@ -509,11 +509,11 @@ class User(pulumi.CustomResource):
                 "NAME": "tf-acc-test-transfer-server",
             })
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["transfer.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         foo_role = aws.iam.Role("foo",
@@ -530,14 +530,14 @@ class User(pulumi.CustomResource):
             role=foo_role.id,
             policy=foo.json)
         foo_user = aws.transfer.User("foo",
-            server_id=foo_server.id,
-            user_name="tftestuser",
-            role=foo_role.arn,
-            home_directory_type="LOGICAL",
             home_directory_mappings=[{
                 "entry": "/test.pdf",
                 "target": "/bucket3/test-path/tftestuser.pdf",
-            }])
+            }],
+            server_id=foo_server.id,
+            user_name="tftestuser",
+            role=foo_role.arn,
+            home_directory_type="LOGICAL")
         ```
 
         To restrict a user to their own home directory, use a `home_directory_mappings` block like the following:
@@ -547,11 +547,11 @@ class User(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.transfer.User("example",
-            home_directory_type="LOGICAL",
             home_directory_mappings=[{
                 "entry": "/",
                 "target": f"/{foo['id']}/${{Transfer:UserName}}",
-            }])
+            }],
+            home_directory_type="LOGICAL")
         ```
 
         ## Import

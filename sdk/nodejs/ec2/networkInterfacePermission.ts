@@ -17,13 +17,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2.NetworkInterface("example", {
- *     subnetId: exampleAwsSubnet.id,
- *     privateIps: ["10.0.0.50"],
- *     securityGroups: [exampleAwsSecurityGroup.id],
  *     attachments: [{
  *         instance: exampleAwsInstance.id,
  *         deviceIndex: 1,
  *     }],
+ *     subnetId: exampleAwsSubnet.id,
+ *     privateIps: ["10.0.0.50"],
+ *     securityGroups: [exampleAwsSecurityGroup.id],
  * });
  * const exampleNetworkInterfacePermission = new aws.ec2.NetworkInterfacePermission("example", {
  *     networkInterfaceId: example.id,

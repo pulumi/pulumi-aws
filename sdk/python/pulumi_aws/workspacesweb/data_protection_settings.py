@@ -350,20 +350,20 @@ class DataProtectionSettings(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.workspacesweb.DataProtectionSettings("example",
-            display_name="example",
-            description="Example data protection settings",
             inline_redaction_configuration={
-                "global_confidence_level": 2,
-                "global_enforced_urls": ["https://example.com"],
                 "inline_redaction_patterns": [{
-                    "built_in_pattern_id": "ssn",
-                    "confidence_level": 3,
                     "redaction_place_holders": [{
                         "redaction_place_holder_type": "CustomText",
                         "redaction_place_holder_text": "REDACTED",
                     }],
+                    "built_in_pattern_id": "ssn",
+                    "confidence_level": 3,
                 }],
-            })
+                "global_confidence_level": 2,
+                "global_enforced_urls": ["https://example.com"],
+            },
+            display_name="example",
+            description="Example data protection settings")
         ```
 
         ### Complete Example
@@ -376,29 +376,17 @@ class DataProtectionSettings(pulumi.CustomResource):
             description="KMS key for WorkSpaces Web Data Protection Settings",
             deletion_window_in_days=7)
         example_data_protection_settings = aws.workspacesweb.DataProtectionSettings("example",
-            display_name="example-complete",
-            description="Complete example data protection settings",
-            customer_managed_key=example.arn,
-            additional_encryption_context={
-                "Environment": "Production",
-            },
             inline_redaction_configuration={
-                "global_confidence_level": 2,
-                "global_enforced_urls": [
-                    "https://example.com",
-                    "https://test.example.com",
-                ],
-                "global_exempt_urls": ["https://exempt.example.com"],
                 "inline_redaction_patterns": [
                     {
-                        "built_in_pattern_id": "ssn",
-                        "confidence_level": 3,
-                        "enforced_urls": ["https://pattern1.example.com"],
-                        "exempt_urls": ["https://exempt-pattern1.example.com"],
                         "redaction_place_holders": [{
                             "redaction_place_holder_type": "CustomText",
                             "redaction_place_holder_text": "REDACTED-SSN",
                         }],
+                        "built_in_pattern_id": "ssn",
+                        "confidence_level": 3,
+                        "enforced_urls": ["https://pattern1.example.com"],
+                        "exempt_urls": ["https://exempt-pattern1.example.com"],
                     },
                     {
                         "custom_pattern": {
@@ -413,6 +401,18 @@ class DataProtectionSettings(pulumi.CustomResource):
                         }],
                     },
                 ],
+                "global_confidence_level": 2,
+                "global_enforced_urls": [
+                    "https://example.com",
+                    "https://test.example.com",
+                ],
+                "global_exempt_urls": ["https://exempt.example.com"],
+            },
+            display_name="example-complete",
+            description="Complete example data protection settings",
+            customer_managed_key=example.arn,
+            additional_encryption_context={
+                "Environment": "Production",
             },
             tags={
                 "Name": "example-data-protection-settings",
@@ -467,20 +467,20 @@ class DataProtectionSettings(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.workspacesweb.DataProtectionSettings("example",
-            display_name="example",
-            description="Example data protection settings",
             inline_redaction_configuration={
-                "global_confidence_level": 2,
-                "global_enforced_urls": ["https://example.com"],
                 "inline_redaction_patterns": [{
-                    "built_in_pattern_id": "ssn",
-                    "confidence_level": 3,
                     "redaction_place_holders": [{
                         "redaction_place_holder_type": "CustomText",
                         "redaction_place_holder_text": "REDACTED",
                     }],
+                    "built_in_pattern_id": "ssn",
+                    "confidence_level": 3,
                 }],
-            })
+                "global_confidence_level": 2,
+                "global_enforced_urls": ["https://example.com"],
+            },
+            display_name="example",
+            description="Example data protection settings")
         ```
 
         ### Complete Example
@@ -493,29 +493,17 @@ class DataProtectionSettings(pulumi.CustomResource):
             description="KMS key for WorkSpaces Web Data Protection Settings",
             deletion_window_in_days=7)
         example_data_protection_settings = aws.workspacesweb.DataProtectionSettings("example",
-            display_name="example-complete",
-            description="Complete example data protection settings",
-            customer_managed_key=example.arn,
-            additional_encryption_context={
-                "Environment": "Production",
-            },
             inline_redaction_configuration={
-                "global_confidence_level": 2,
-                "global_enforced_urls": [
-                    "https://example.com",
-                    "https://test.example.com",
-                ],
-                "global_exempt_urls": ["https://exempt.example.com"],
                 "inline_redaction_patterns": [
                     {
-                        "built_in_pattern_id": "ssn",
-                        "confidence_level": 3,
-                        "enforced_urls": ["https://pattern1.example.com"],
-                        "exempt_urls": ["https://exempt-pattern1.example.com"],
                         "redaction_place_holders": [{
                             "redaction_place_holder_type": "CustomText",
                             "redaction_place_holder_text": "REDACTED-SSN",
                         }],
+                        "built_in_pattern_id": "ssn",
+                        "confidence_level": 3,
+                        "enforced_urls": ["https://pattern1.example.com"],
+                        "exempt_urls": ["https://exempt-pattern1.example.com"],
                     },
                     {
                         "custom_pattern": {
@@ -530,6 +518,18 @@ class DataProtectionSettings(pulumi.CustomResource):
                         }],
                     },
                 ],
+                "global_confidence_level": 2,
+                "global_enforced_urls": [
+                    "https://example.com",
+                    "https://test.example.com",
+                ],
+                "global_exempt_urls": ["https://exempt.example.com"],
+            },
+            display_name="example-complete",
+            description="Complete example data protection settings",
+            customer_managed_key=example.arn,
+            additional_encryption_context={
+                "Environment": "Production",
             },
             tags={
                 "Name": "example-data-protection-settings",

@@ -28,10 +28,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := iot.NewBillingGroup(ctx, "example", &iot.BillingGroupArgs{
-//				Name: pulumi.String("example"),
 //				Properties: &iot.BillingGroupPropertiesArgs{
 //					Description: pulumi.String("This is my billing group"),
 //				},
+//				Name: pulumi.String("example"),
 //				Tags: pulumi.StringMap{
 //					"terraform": pulumi.String("true"),
 //				},

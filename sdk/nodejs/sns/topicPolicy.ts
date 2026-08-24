@@ -20,8 +20,16 @@ import * as utilities from "../utilities";
  *
  * const test = new aws.sns.Topic("test", {name: "my-topic-with-policy"});
  * const snsTopicPolicy = aws.iam.getPolicyDocumentOutput({
- *     policyId: "__default_policy_ID",
  *     statements: [{
+ *         conditions: [{
+ *             test: "StringEquals",
+ *             variable: "AWS:SourceOwner",
+ *             values: [account_id],
+ *         }],
+ *         principals: [{
+ *             type: "AWS",
+ *             identifiers: ["*"],
+ *         }],
  *         actions: [
  *             "SNS:Subscribe",
  *             "SNS:SetTopicAttributes",
@@ -33,19 +41,11 @@ import * as utilities from "../utilities";
  *             "SNS:DeleteTopic",
  *             "SNS:AddPermission",
  *         ],
- *         conditions: [{
- *             test: "StringEquals",
- *             variable: "AWS:SourceOwner",
- *             values: [account_id],
- *         }],
  *         effect: "Allow",
- *         principals: [{
- *             type: "AWS",
- *             identifiers: ["*"],
- *         }],
  *         resources: [test.arn],
  *         sid: "__default_statement_ID",
  *     }],
+ *     policyId: "__default_policy_ID",
  * });
  * const _default = new aws.sns.TopicPolicy("default", {
  *     arn: test.arn,

@@ -56,19 +56,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var bar = new Pipeline("bar", PipelineArgs.builder()
- *             .name("tf-test-pipeline")
- *             .roleArn(barAwsIamRole.arn())
  *             .artifactStores(PipelineArtifactStoreArgs.builder()
- *                 .location(barAwsS3Bucket.bucket())
- *                 .type("S3")
  *                 .encryptionKey(PipelineArtifactStoreEncryptionKeyArgs.builder()
  *                     .id(s3kmskey.arn())
  *                     .type("KMS")
  *                     .build())
+ *                 .location(barAwsS3Bucket.bucket())
+ *                 .type("S3")
  *                 .build())
  *             .stages(            
  *                 PipelineStageArgs.builder()
- *                     .name("Source")
  *                     .actions(PipelineStageActionArgs.builder()
  *                         .name("Source")
  *                         .category("Source")
@@ -82,9 +79,9 @@ import javax.annotation.Nullable;
  *                             Map.entry("Branch", "master")
  *                         ))
  *                         .build())
+ *                     .name("Source")
  *                     .build(),
  *                 PipelineStageArgs.builder()
- *                     .name("Build")
  *                     .actions(PipelineStageActionArgs.builder()
  *                         .name("Build")
  *                         .category("Build")
@@ -94,16 +91,15 @@ import javax.annotation.Nullable;
  *                         .version("1")
  *                         .configuration(Map.of("ProjectName", "test"))
  *                         .build())
+ *                     .name("Build")
  *                     .build())
+ *             .name("tf-test-pipeline")
+ *             .roleArn(barAwsIamRole.arn())
  *             .build());
  * 
  *         final var webhookSecret = "super-secret";
  * 
  *         var barWebhook = new Webhook("barWebhook", WebhookArgs.builder()
- *             .name("test-webhook-github-bar")
- *             .authentication("GITHUB_HMAC")
- *             .targetAction("Source")
- *             .targetPipeline(bar.name())
  *             .authenticationConfiguration(WebhookAuthenticationConfigurationArgs.builder()
  *                 .secretToken(webhookSecret)
  *                 .build())
@@ -111,18 +107,22 @@ import javax.annotation.Nullable;
  *                 .jsonPath("$.ref")
  *                 .matchEquals("refs/heads/{Branch}")
  *                 .build())
+ *             .name("test-webhook-github-bar")
+ *             .authentication("GITHUB_HMAC")
+ *             .targetAction("Source")
+ *             .targetPipeline(bar.name())
  *             .build());
  * 
  *         // Wire the CodePipeline webhook into a GitHub repository.
  *         var barRepositoryWebhook = new RepositoryWebhook("barRepositoryWebhook", RepositoryWebhookArgs.builder()
- *             .repository(repo.name())
- *             .name("web")
  *             .configuration(com.pulumi.github.inputs.RepositoryWebhookConfigurationArgs.builder()
  *                 .url(barWebhook.url())
  *                 .contentType("json")
  *                 .insecureSsl(true)
  *                 .secret(webhookSecret)
  *                 .build())
+ *             .repository(repo.name())
+ *             .name("web")
  *             .events("push")
  *             .build());
  * 

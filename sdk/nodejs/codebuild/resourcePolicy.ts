@@ -14,11 +14,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.codebuild.ReportGroup("example", {
- *     name: "example",
- *     type: "TEST",
  *     exportConfig: {
  *         type: "NO_EXPORT",
  *     },
+ *     name: "example",
+ *     type: "TEST",
  * });
  * const current = aws.getPartition({});
  * const currentGetCallerIdentity = aws.getCallerIdentity({});

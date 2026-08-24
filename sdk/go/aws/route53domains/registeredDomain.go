@@ -33,7 +33,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := route53domains.NewRegisteredDomain(ctx, "example", &route53domains.RegisteredDomainArgs{
-//				DomainName: pulumi.String("example.com"),
 //				NameServers: route53domains.RegisteredDomainNameServerArray{
 //					&route53domains.RegisteredDomainNameServerArgs{
 //						Name: pulumi.String("ns-195.awsdns-24.com"),
@@ -42,6 +41,7 @@ import (
 //						Name: pulumi.String("ns-874.awsdns-45.net"),
 //					},
 //				},
+//				DomainName: pulumi.String("example.com"),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("test"),
 //				},

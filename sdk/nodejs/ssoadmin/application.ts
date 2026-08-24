@@ -38,16 +38,16 @@ import * as utilities from "../utilities";
  *
  * const example = aws.ssoadmin.getInstances({});
  * const exampleApplication = new aws.ssoadmin.Application("example", {
- *     name: "example",
- *     applicationProviderArn: "arn:aws:sso::aws:applicationProvider/custom",
- *     instanceArn: example.then(example => example.arns?.[0]),
  *     portalOptions: {
- *         visibility: "ENABLED",
  *         signInOptions: {
  *             applicationUrl: "http://example.com",
  *             origin: "APPLICATION",
  *         },
+ *         visibility: "ENABLED",
  *     },
+ *     name: "example",
+ *     applicationProviderArn: "arn:aws:sso::aws:applicationProvider/custom",
+ *     instanceArn: example.then(example => example.arns?.[0]),
  * });
  * ```
  *

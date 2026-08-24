@@ -17,12 +17,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.gamelift.GameSessionQueue("test", {
- *     name: "example-session-queue",
- *     destinations: [
- *         usWest2Fleet.arn,
- *         euCentral1Fleet.arn,
- *     ],
- *     notificationTarget: gameSessionQueueNotifications.arn,
  *     playerLatencyPolicies: [
  *         {
  *             maximumIndividualPlayerLatencyMilliseconds: 100,
@@ -32,6 +26,12 @@ import * as utilities from "../utilities";
  *             maximumIndividualPlayerLatencyMilliseconds: 200,
  *         },
  *     ],
+ *     name: "example-session-queue",
+ *     destinations: [
+ *         usWest2Fleet.arn,
+ *         euCentral1Fleet.arn,
+ *     ],
+ *     notificationTarget: gameSessionQueueNotifications.arn,
  *     timeoutInSeconds: 60,
  * });
  * ```

@@ -18,10 +18,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ec2.getAmi({
- *     executableUsers: ["self"],
- *     mostRecent: true,
- *     nameRegex: "^myami-[0-9]{3}",
- *     owners: ["self"],
  *     filters: [
  *         {
  *             name: "name",
@@ -36,6 +32,10 @@ import * as utilities from "../utilities";
  *             values: ["hvm"],
  *         },
  *     ],
+ *     executableUsers: ["self"],
+ *     mostRecent: true,
+ *     nameRegex: "^myami-[0-9]{3}",
+ *     owners: ["self"],
  * });
  * ```
  */
@@ -265,10 +265,6 @@ export interface GetAmiResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ec2.getAmi({
- *     executableUsers: ["self"],
- *     mostRecent: true,
- *     nameRegex: "^myami-[0-9]{3}",
- *     owners: ["self"],
  *     filters: [
  *         {
  *             name: "name",
@@ -283,6 +279,10 @@ export interface GetAmiResult {
  *             values: ["hvm"],
  *         },
  *     ],
+ *     executableUsers: ["self"],
+ *     mostRecent: true,
+ *     nameRegex: "^myami-[0-9]{3}",
+ *     owners: ["self"],
  * });
  * ```
  */

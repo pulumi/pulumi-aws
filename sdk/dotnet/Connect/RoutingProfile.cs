@@ -25,29 +25,25 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var example = new Aws.Connect.RoutingProfile("example", new()
     ///     {
-    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-    ///         Name = "example",
-    ///         DefaultOutboundQueueId = "12345678-1234-1234-1234-123456789012",
-    ///         Description = "example description",
     ///         MediaConcurrencies = new[]
     ///         {
     ///             new Aws.Connect.Inputs.RoutingProfileMediaConcurrencyArgs
     ///             {
-    ///                 Channel = "VOICE",
-    ///                 Concurrency = 1,
     ///                 CrossChannelBehavior = new Aws.Connect.Inputs.RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs
     ///                 {
     ///                     BehaviorType = "ROUTE_ANY_CHANNEL",
     ///                 },
+    ///                 Channel = "VOICE",
+    ///                 Concurrency = 1,
     ///             },
     ///             new Aws.Connect.Inputs.RoutingProfileMediaConcurrencyArgs
     ///             {
-    ///                 Channel = "CHAT",
-    ///                 Concurrency = 3,
     ///                 CrossChannelBehavior = new Aws.Connect.Inputs.RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs
     ///                 {
     ///                     BehaviorType = "ROUTE_CURRENT_CHANNEL_ONLY",
     ///                 },
+    ///                 Channel = "CHAT",
+    ///                 Concurrency = 3,
     ///             },
     ///         },
     ///         QueueConfigs = new[]
@@ -60,6 +56,10 @@ namespace Pulumi.Aws.Connect
     ///                 QueueId = "12345678-1234-1234-1234-123456789012",
     ///             },
     ///         },
+    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+    ///         Name = "example",
+    ///         DefaultOutboundQueueId = "12345678-1234-1234-1234-123456789012",
+    ///         Description = "example description",
     ///         Tags = 
     ///         {
     ///             { "Name", "Example Routing Profile" },

@@ -248,12 +248,12 @@ class ResourceServer(pulumi.CustomResource):
 
         pool = aws.cognito.UserPool("pool", name="pool")
         resource = aws.cognito.ResourceServer("resource",
-            identifier="https://example.com",
-            name="example",
             scopes=[{
                 "scope_name": "sample-scope",
                 "scope_description": "a Sample Scope Description",
             }],
+            identifier="https://example.com",
+            name="example",
             user_pool_id=pool.id)
         ```
 
@@ -306,12 +306,12 @@ class ResourceServer(pulumi.CustomResource):
 
         pool = aws.cognito.UserPool("pool", name="pool")
         resource = aws.cognito.ResourceServer("resource",
-            identifier="https://example.com",
-            name="example",
             scopes=[{
                 "scope_name": "sample-scope",
                 "scope_description": "a Sample Scope Description",
             }],
+            identifier="https://example.com",
+            name="example",
             user_pool_id=pool.id)
         ```
 

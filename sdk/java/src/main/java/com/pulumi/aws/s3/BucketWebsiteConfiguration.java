@@ -57,7 +57,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BucketWebsiteConfiguration("example", BucketWebsiteConfigurationArgs.builder()
- *             .bucket(exampleAwsS3Bucket.id())
  *             .indexDocument(BucketWebsiteConfigurationIndexDocumentArgs.builder()
  *                 .suffix("index.html")
  *                 .build())
@@ -72,6 +71,7 @@ import javax.annotation.Nullable;
  *                     .replaceKeyPrefixWith("documents/")
  *                     .build())
  *                 .build())
+ *             .bucket(exampleAwsS3Bucket.id())
  *             .build());
  * 
  *     }
@@ -106,13 +106,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BucketWebsiteConfiguration("example", BucketWebsiteConfigurationArgs.builder()
- *             .bucket(exampleAwsS3Bucket.id())
  *             .indexDocument(BucketWebsiteConfigurationIndexDocumentArgs.builder()
  *                 .suffix("index.html")
  *                 .build())
  *             .errorDocument(BucketWebsiteConfigurationErrorDocumentArgs.builder()
  *                 .key("error.html")
  *                 .build())
+ *             .bucket(exampleAwsS3Bucket.id())
  *             .routingRuleDetails("""
  * [{
  *     \"Condition\": {

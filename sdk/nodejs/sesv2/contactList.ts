@@ -28,14 +28,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sesv2.ContactList("example", {
- *     contactListName: "example",
- *     description: "description",
  *     topics: [{
  *         defaultSubscriptionStatus: "OPT_IN",
  *         description: "topic description",
  *         displayName: "Example Topic",
  *         topicName: "example-topic",
  *     }],
+ *     contactListName: "example",
+ *     description: "description",
  * });
  * ```
  *

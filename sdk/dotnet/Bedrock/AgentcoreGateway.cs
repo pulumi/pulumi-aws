@@ -30,11 +30,6 @@ namespace Pulumi.Aws.Bedrock
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -45,6 +40,11 @@ namespace Pulumi.Aws.Bedrock
     ///                             "bedrock-agentcore.amazonaws.com",
     ///                         },
     ///                     },
+    ///                 },
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
     ///                 },
     ///             },
     ///         },
@@ -58,9 +58,6 @@ namespace Pulumi.Aws.Bedrock
     /// 
     ///     var exampleAgentcoreGateway = new Aws.Bedrock.AgentcoreGateway("example", new()
     ///     {
-    ///         Name = "example-gateway",
-    ///         RoleArn = example.Arn,
-    ///         AuthorizerType = "CUSTOM_JWT",
     ///         AuthorizerConfiguration = new Aws.Bedrock.Inputs.AgentcoreGatewayAuthorizerConfigurationArgs
     ///         {
     ///             CustomJwtAuthorizer = new Aws.Bedrock.Inputs.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs
@@ -73,6 +70,9 @@ namespace Pulumi.Aws.Bedrock
     ///                 },
     ///             },
     ///         },
+    ///         Name = "example-gateway",
+    ///         RoleArn = example.Arn,
+    ///         AuthorizerType = "CUSTOM_JWT",
     ///         ProtocolType = "MCP",
     ///     });
     /// 
@@ -91,10 +91,6 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var example = new Aws.Bedrock.AgentcoreGateway("example", new()
     ///     {
-    ///         Name = "mcp-gateway",
-    ///         Description = "Gateway for MCP communication",
-    ///         RoleArn = exampleAwsIamRole.Arn,
-    ///         AuthorizerType = "CUSTOM_JWT",
     ///         AuthorizerConfiguration = new Aws.Bedrock.Inputs.AgentcoreGatewayAuthorizerConfigurationArgs
     ///         {
     ///             CustomJwtAuthorizer = new Aws.Bedrock.Inputs.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs
@@ -117,7 +113,6 @@ namespace Pulumi.Aws.Bedrock
     ///                 },
     ///             },
     ///         },
-    ///         ProtocolType = "MCP",
     ///         ProtocolConfiguration = new Aws.Bedrock.Inputs.AgentcoreGatewayProtocolConfigurationArgs
     ///         {
     ///             Mcp = new Aws.Bedrock.Inputs.AgentcoreGatewayProtocolConfigurationMcpArgs
@@ -131,6 +126,11 @@ namespace Pulumi.Aws.Bedrock
     ///                 },
     ///             },
     ///         },
+    ///         Name = "mcp-gateway",
+    ///         Description = "Gateway for MCP communication",
+    ///         RoleArn = exampleAwsIamRole.Arn,
+    ///         AuthorizerType = "CUSTOM_JWT",
+    ///         ProtocolType = "MCP",
     ///     });
     /// 
     /// });
@@ -157,19 +157,10 @@ namespace Pulumi.Aws.Bedrock
     /// 
     ///     var example = new Aws.Bedrock.AgentcoreGateway("example", new()
     ///     {
-    ///         Name = "gateway-with-interceptor",
-    ///         RoleArn = exampleAwsIamRole.Arn,
-    ///         AuthorizerType = "AWS_IAM",
-    ///         ProtocolType = "MCP",
     ///         InterceptorConfigurations = new[]
     ///         {
     ///             new Aws.Bedrock.Inputs.AgentcoreGatewayInterceptorConfigurationArgs
     ///             {
-    ///                 InterceptionPoints = new[]
-    ///                 {
-    ///                     "REQUEST",
-    ///                     "RESPONSE",
-    ///                 },
     ///                 Interceptor = new Aws.Bedrock.Inputs.AgentcoreGatewayInterceptorConfigurationInterceptorArgs
     ///                 {
     ///                     Lambda = new Aws.Bedrock.Inputs.AgentcoreGatewayInterceptorConfigurationInterceptorLambdaArgs
@@ -181,8 +172,17 @@ namespace Pulumi.Aws.Bedrock
     ///                 {
     ///                     PassRequestHeaders = true,
     ///                 },
+    ///                 InterceptionPoints = new[]
+    ///                 {
+    ///                     "REQUEST",
+    ///                     "RESPONSE",
+    ///                 },
     ///             },
     ///         },
+    ///         Name = "gateway-with-interceptor",
+    ///         RoleArn = exampleAwsIamRole.Arn,
+    ///         AuthorizerType = "AWS_IAM",
+    ///         ProtocolType = "MCP",
     ///     });
     /// 
     /// });

@@ -26,10 +26,6 @@ namespace Pulumi.Aws.Kendra
     /// {
     ///     var example = new Aws.Kendra.Experience("example", new()
     ///     {
-    ///         IndexId = exampleAwsKendraIndex.Id,
-    ///         Description = "My Kendra Experience",
-    ///         Name = "example",
-    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         Configuration = new Aws.Kendra.Inputs.ExperienceConfigurationArgs
     ///         {
     ///             ContentSourceConfiguration = new Aws.Kendra.Inputs.ExperienceConfigurationContentSourceConfigurationArgs
@@ -45,6 +41,10 @@ namespace Pulumi.Aws.Kendra
     ///                 IdentityAttributeName = "12345ec453-1546651e-79c4-4554-91fa-00b43ccfa245",
     ///             },
     ///         },
+    ///         IndexId = exampleAwsKendraIndex.Id,
+    ///         Description = "My Kendra Experience",
+    ///         Name = "example",
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });

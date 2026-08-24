@@ -32,15 +32,15 @@ import (
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // _, err := mwaa.NewEnvironment(ctx, "example", &mwaa.EnvironmentArgs{
-// DagS3Path: pulumi.String("dags/"),
-// ExecutionRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-// Name: pulumi.String("example"),
 // NetworkConfiguration: &mwaa.EnvironmentNetworkConfigurationArgs{
 // SecurityGroupIds: pulumi.StringArray{
 // exampleAwsSecurityGroup.Id,
 // },
-// SubnetIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:6,24-37)),
+// SubnetIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:3,24-37)),
 // },
+// DagS3Path: pulumi.String("dags/"),
+// ExecutionRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+// Name: pulumi.String("example"),
 // SourceBucketArn: pulumi.Any(exampleAwsS3Bucket.Arn),
 // })
 // if err != nil {
@@ -65,6 +65,12 @@ import (
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // _, err := mwaa.NewEnvironment(ctx, "example", &mwaa.EnvironmentArgs{
+// NetworkConfiguration: &mwaa.EnvironmentNetworkConfigurationArgs{
+// SecurityGroupIds: pulumi.StringArray{
+// exampleAwsSecurityGroup.Id,
+// },
+// SubnetIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:3,24-37)),
+// },
 // AirflowConfigurationOptions: pulumi.StringMap{
 // "core.default_task_retries": pulumi.String("16"),
 // "core.parallelism": pulumi.String("1"),
@@ -72,12 +78,6 @@ import (
 // DagS3Path: pulumi.String("dags/"),
 // ExecutionRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 // Name: pulumi.String("example"),
-// NetworkConfiguration: &mwaa.EnvironmentNetworkConfigurationArgs{
-// SecurityGroupIds: pulumi.StringArray{
-// exampleAwsSecurityGroup.Id,
-// },
-// SubnetIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:10,24-37)),
-// },
 // SourceBucketArn: pulumi.Any(exampleAwsS3Bucket.Arn),
 // })
 // if err != nil {
@@ -104,8 +104,6 @@ import (
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // _, err := mwaa.NewEnvironment(ctx, "example", &mwaa.EnvironmentArgs{
-// DagS3Path: pulumi.String("dags/"),
-// ExecutionRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 // LoggingConfiguration: &mwaa.EnvironmentLoggingConfigurationArgs{
 // DagProcessingLogs: &mwaa.EnvironmentLoggingConfigurationDagProcessingLogsArgs{
 // Enabled: pulumi.Bool(true),
@@ -128,13 +126,15 @@ import (
 // LogLevel: pulumi.String("CRITICAL"),
 // },
 // },
-// Name: pulumi.String("example"),
 // NetworkConfiguration: &mwaa.EnvironmentNetworkConfigurationArgs{
 // SecurityGroupIds: pulumi.StringArray{
 // exampleAwsSecurityGroup.Id,
 // },
-// SubnetIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:28,24-37)),
+// SubnetIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:25,24-37)),
 // },
+// DagS3Path: pulumi.String("dags/"),
+// ExecutionRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+// Name: pulumi.String("example"),
 // SourceBucketArn: pulumi.Any(exampleAwsS3Bucket.Arn),
 // })
 // if err != nil {
@@ -159,15 +159,15 @@ import (
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // _, err := mwaa.NewEnvironment(ctx, "example", &mwaa.EnvironmentArgs{
-// DagS3Path: pulumi.String("dags/"),
-// ExecutionRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-// Name: pulumi.String("example"),
 // NetworkConfiguration: &mwaa.EnvironmentNetworkConfigurationArgs{
 // SecurityGroupIds: pulumi.StringArray{
 // exampleAwsSecurityGroup.Id,
 // },
-// SubnetIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:6,24-37)),
+// SubnetIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:3,24-37)),
 // },
+// DagS3Path: pulumi.String("dags/"),
+// ExecutionRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+// Name: pulumi.String("example"),
 // SourceBucketArn: pulumi.Any(exampleAwsS3Bucket.Arn),
 // Tags: pulumi.StringMap{
 // "Name": pulumi.String("example"),

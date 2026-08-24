@@ -62,14 +62,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := transfer.NewAccess(ctx, "test", &transfer.AccessArgs{
-//				ExternalId:    pulumi.String("S-1-1-12-1234567890-123456789-1234567890-1234"),
-//				ServerId:      pulumi.Any(testAwsTransferServer.Id),
-//				Role:          pulumi.Any(testAwsIamRole.Arn),
-//				HomeDirectory: pulumi.Sprintf("/%v/", testAwsEfsFileSystem.Id),
 //				PosixProfile: &transfer.AccessPosixProfileArgs{
 //					Gid: pulumi.Int(1000),
 //					Uid: pulumi.Int(1000),
 //				},
+//				ExternalId:    pulumi.String("S-1-1-12-1234567890-123456789-1234567890-1234"),
+//				ServerId:      pulumi.Any(testAwsTransferServer.Id),
+//				Role:          pulumi.Any(testAwsIamRole.Arn),
+//				HomeDirectory: pulumi.Sprintf("/%v/", testAwsEfsFileSystem.Id),
 //			})
 //			if err != nil {
 //				return err

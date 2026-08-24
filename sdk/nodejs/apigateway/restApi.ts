@@ -23,12 +23,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.apigateway.RestApi("example", {
- *     name: "example",
- *     securityPolicy: "SecurityPolicy_TLS13_1_2_PFS_PQ_2025_09",
- *     endpointAccessMode: "BASIC",
  *     endpointConfiguration: {
  *         types: "REGIONAL",
  *     },
+ *     name: "example",
+ *     securityPolicy: "SecurityPolicy_TLS13_1_2_PFS_PQ_2025_09",
+ *     endpointAccessMode: "BASIC",
  * });
  * ```
  *

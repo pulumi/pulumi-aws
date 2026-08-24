@@ -47,10 +47,6 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new IndexingConfiguration("example", IndexingConfigurationArgs.builder()
  *             .thingIndexingConfiguration(IndexingConfigurationThingIndexingConfigurationArgs.builder()
- *                 .thingIndexingMode("REGISTRY_AND_SHADOW")
- *                 .thingConnectivityIndexingMode("STATUS")
- *                 .deviceDefenderIndexingMode("VIOLATIONS")
- *                 .namedShadowIndexingMode("ON")
  *                 .filter(IndexingConfigurationThingIndexingConfigurationFilterArgs.builder()
  *                     .namedShadowNames("thing1shadow")
  *                     .build())
@@ -71,6 +67,10 @@ import javax.annotation.Nullable;
  *                         .name("deviceDefender.securityProfile1.NUMBER_VALUE_BEHAVIOR.lastViolationValue.number")
  *                         .type("Number")
  *                         .build())
+ *                 .thingIndexingMode("REGISTRY_AND_SHADOW")
+ *                 .thingConnectivityIndexingMode("STATUS")
+ *                 .deviceDefenderIndexingMode("VIOLATIONS")
+ *                 .namedShadowIndexingMode("ON")
  *                 .build())
  *             .build());
  * 

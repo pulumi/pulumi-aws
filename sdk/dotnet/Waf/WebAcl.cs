@@ -26,7 +26,6 @@ namespace Pulumi.Aws.Waf
     /// {
     ///     var ipset = new Aws.Waf.IpSet("ipset", new()
     ///     {
-    ///         Name = "tfIPSet",
     ///         IpSetDescriptors = new[]
     ///         {
     ///             new Aws.Waf.Inputs.IpSetIpSetDescriptorArgs
@@ -35,12 +34,11 @@ namespace Pulumi.Aws.Waf
     ///                 Value = "192.0.7.0/24",
     ///             },
     ///         },
+    ///         Name = "tfIPSet",
     ///     });
     /// 
     ///     var wafrule = new Aws.Waf.Rule("wafrule", new()
     ///     {
-    ///         Name = "tfWAFRule",
-    ///         MetricName = "tfWAFRule",
     ///         Predicates = new[]
     ///         {
     ///             new Aws.Waf.Inputs.RulePredicateArgs
@@ -50,6 +48,8 @@ namespace Pulumi.Aws.Waf
     ///                 Type = "IPMatch",
     ///             },
     ///         },
+    ///         Name = "tfWAFRule",
+    ///         MetricName = "tfWAFRule",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -60,8 +60,6 @@ namespace Pulumi.Aws.Waf
     /// 
     ///     var wafAcl = new Aws.Waf.WebAcl("waf_acl", new()
     ///     {
-    ///         Name = "tfWebACL",
-    ///         MetricName = "tfWebACL",
     ///         DefaultAction = new Aws.Waf.Inputs.WebAclDefaultActionArgs
     ///         {
     ///             Type = "ALLOW",
@@ -79,6 +77,8 @@ namespace Pulumi.Aws.Waf
     ///                 Type = "REGULAR",
     ///             },
     ///         },
+    ///         Name = "tfWebACL",
+    ///         MetricName = "tfWebACL",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -107,7 +107,6 @@ namespace Pulumi.Aws.Waf
     ///     {
     ///         LoggingConfiguration = new Aws.Waf.Inputs.WebAclLoggingConfigurationArgs
     ///         {
-    ///             LogDestination = exampleAwsKinesisFirehoseDeliveryStream.Arn,
     ///             RedactedFields = new Aws.Waf.Inputs.WebAclLoggingConfigurationRedactedFieldsArgs
     ///             {
     ///                 FieldToMatches = new[]
@@ -123,6 +122,7 @@ namespace Pulumi.Aws.Waf
     ///                     },
     ///                 },
     ///             },
+    ///             LogDestination = exampleAwsKinesisFirehoseDeliveryStream.Arn,
     ///         },
     ///     });
     /// 

@@ -56,10 +56,14 @@ namespace Pulumi.Aws.ImageBuilder
     /// 
     ///     var exampleLifecyclePolicy = new Aws.ImageBuilder.LifecyclePolicy("example", new()
     ///     {
-    ///         Name = "name",
-    ///         Description = "Example description",
-    ///         ExecutionRole = example.Arn,
-    ///         ResourceType = "AMI_IMAGE",
+    ///         ResourceSelection = new Aws.ImageBuilder.Inputs.LifecyclePolicyResourceSelectionArgs
+    ///         {
+    ///             TagMap = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///                 { "key2", "value2" },
+    ///             },
+    ///         },
     ///         PolicyDetails = new[]
     ///         {
     ///             new Aws.ImageBuilder.Inputs.LifecyclePolicyPolicyDetailArgs
@@ -77,14 +81,10 @@ namespace Pulumi.Aws.ImageBuilder
     ///                 },
     ///             },
     ///         },
-    ///         ResourceSelection = new Aws.ImageBuilder.Inputs.LifecyclePolicyResourceSelectionArgs
-    ///         {
-    ///             TagMap = 
-    ///             {
-    ///                 { "key1", "value1" },
-    ///                 { "key2", "value2" },
-    ///             },
-    ///         },
+    ///         Name = "name",
+    ///         Description = "Example description",
+    ///         ExecutionRole = example.Arn,
+    ///         ResourceType = "AMI_IMAGE",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

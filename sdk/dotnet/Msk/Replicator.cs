@@ -26,9 +26,40 @@ namespace Pulumi.Aws.Msk
     /// {
     ///     var test = new Aws.Msk.Replicator("test", new()
     ///     {
-    ///         ReplicatorName = "test-name",
-    ///         Description = "test-description",
-    ///         ServiceExecutionRoleArn = sourceAwsIamRole.Arn,
+    ///         ReplicationInfoList = new Aws.Msk.Inputs.ReplicatorReplicationInfoListArgs
+    ///         {
+    ///             ConsumerGroupReplications = new[]
+    ///             {
+    ///                 new Aws.Msk.Inputs.ReplicatorReplicationInfoListConsumerGroupReplicationArgs
+    ///                 {
+    ///                     ConsumerGroupsToReplicates = new[]
+    ///                     {
+    ///                         ".*",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             TopicReplications = new[]
+    ///             {
+    ///                 new Aws.Msk.Inputs.ReplicatorReplicationInfoListTopicReplicationArgs
+    ///                 {
+    ///                     TopicNameConfiguration = new Aws.Msk.Inputs.ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs
+    ///                     {
+    ///                         Type = "PREFIXED_WITH_SOURCE_CLUSTER_ALIAS",
+    ///                     },
+    ///                     StartingPosition = new Aws.Msk.Inputs.ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs
+    ///                     {
+    ///                         Type = "LATEST",
+    ///                     },
+    ///                     TopicsToReplicates = new[]
+    ///                     {
+    ///                         ".*",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             SourceKafkaClusterArn = source.Arn,
+    ///             TargetKafkaClusterArn = target.Arn,
+    ///             TargetCompressionType = "NONE",
+    ///         },
     ///         KafkaClusters = new[]
     ///         {
     ///             new Aws.Msk.Inputs.ReplicatorKafkaClusterArgs
@@ -62,40 +93,9 @@ namespace Pulumi.Aws.Msk
     ///                 },
     ///             },
     ///         },
-    ///         ReplicationInfoList = new Aws.Msk.Inputs.ReplicatorReplicationInfoListArgs
-    ///         {
-    ///             SourceKafkaClusterArn = source.Arn,
-    ///             TargetKafkaClusterArn = target.Arn,
-    ///             TargetCompressionType = "NONE",
-    ///             TopicReplications = new[]
-    ///             {
-    ///                 new Aws.Msk.Inputs.ReplicatorReplicationInfoListTopicReplicationArgs
-    ///                 {
-    ///                     TopicNameConfiguration = new Aws.Msk.Inputs.ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs
-    ///                     {
-    ///                         Type = "PREFIXED_WITH_SOURCE_CLUSTER_ALIAS",
-    ///                     },
-    ///                     TopicsToReplicates = new[]
-    ///                     {
-    ///                         ".*",
-    ///                     },
-    ///                     StartingPosition = new Aws.Msk.Inputs.ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs
-    ///                     {
-    ///                         Type = "LATEST",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             ConsumerGroupReplications = new[]
-    ///             {
-    ///                 new Aws.Msk.Inputs.ReplicatorReplicationInfoListConsumerGroupReplicationArgs
-    ///                 {
-    ///                     ConsumerGroupsToReplicates = new[]
-    ///                     {
-    ///                         ".*",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
+    ///         ReplicatorName = "test-name",
+    ///         Description = "test-description",
+    ///         ServiceExecutionRoleArn = sourceAwsIamRole.Arn,
     ///     });
     /// 
     /// });

@@ -52,18 +52,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Key("test", KeyArgs.builder()
- *             .exportable(true)
  *             .keyAttributes(KeyKeyAttributeArgs.builder()
- *                 .keyAlgorithm("TDES_3KEY")
- *                 .keyClass("SYMMETRIC_KEY")
- *                 .keyUsage("TR31_P0_PIN_ENCRYPTION_KEY")
  *                 .keyModesOfUses(KeyKeyAttributeKeyModesOfUseArgs.builder()
  *                     .decrypt(true)
  *                     .encrypt(true)
  *                     .wrap(true)
  *                     .unwrap(true)
  *                     .build())
+ *                 .keyAlgorithm("TDES_3KEY")
+ *                 .keyClass("SYMMETRIC_KEY")
+ *                 .keyUsage("TR31_P0_PIN_ENCRYPTION_KEY")
  *                 .build())
+ *             .exportable(true)
  *             .build());
  * 
  *     }

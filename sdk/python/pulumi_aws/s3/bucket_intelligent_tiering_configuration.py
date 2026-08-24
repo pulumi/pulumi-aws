@@ -254,8 +254,6 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
 
         example = aws.s3.Bucket("example", bucket="example")
         example_entire_bucket = aws.s3.BucketIntelligentTieringConfiguration("example-entire-bucket",
-            bucket=example.id,
-            name="EntireBucket",
             tierings=[
                 {
                     "access_tier": "DEEP_ARCHIVE_ACCESS",
@@ -265,7 +263,9 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
                     "access_tier": "ARCHIVE_ACCESS",
                     "days": 125,
                 },
-            ])
+            ],
+            bucket=example.id,
+            name="EntireBucket")
         ```
 
         ### Add intelligent tiering configuration with S3 object filter
@@ -276,9 +276,6 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
 
         example = aws.s3.Bucket("example", bucket="example")
         example_filtered = aws.s3.BucketIntelligentTieringConfiguration("example-filtered",
-            bucket=example.id,
-            name="ImportantBlueDocuments",
-            status="Disabled",
             filter={
                 "prefix": "documents/",
                 "tags": {
@@ -289,7 +286,10 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
             tierings=[{
                 "access_tier": "ARCHIVE_ACCESS",
                 "days": 125,
-            }])
+            }],
+            bucket=example.id,
+            name="ImportantBlueDocuments",
+            status="Disabled")
         ```
 
         ## Import
@@ -331,8 +331,6 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
 
         example = aws.s3.Bucket("example", bucket="example")
         example_entire_bucket = aws.s3.BucketIntelligentTieringConfiguration("example-entire-bucket",
-            bucket=example.id,
-            name="EntireBucket",
             tierings=[
                 {
                     "access_tier": "DEEP_ARCHIVE_ACCESS",
@@ -342,7 +340,9 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
                     "access_tier": "ARCHIVE_ACCESS",
                     "days": 125,
                 },
-            ])
+            ],
+            bucket=example.id,
+            name="EntireBucket")
         ```
 
         ### Add intelligent tiering configuration with S3 object filter
@@ -353,9 +353,6 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
 
         example = aws.s3.Bucket("example", bucket="example")
         example_filtered = aws.s3.BucketIntelligentTieringConfiguration("example-filtered",
-            bucket=example.id,
-            name="ImportantBlueDocuments",
-            status="Disabled",
             filter={
                 "prefix": "documents/",
                 "tags": {
@@ -366,7 +363,10 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
             tierings=[{
                 "access_tier": "ARCHIVE_ACCESS",
                 "days": 125,
-            }])
+            }],
+            bucket=example.id,
+            name="ImportantBlueDocuments",
+            status="Disabled")
         ```
 
         ## Import

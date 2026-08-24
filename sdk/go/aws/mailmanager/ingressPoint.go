@@ -60,14 +60,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := mailmanager.NewIngressPoint(ctx, "example", &mailmanager.IngressPointArgs{
-//				Name:            pulumi.String("example"),
-//				Type:            pulumi.String("AUTH"),
-//				RuleSetId:       pulumi.Any(exampleAwsMailmanagerRuleSet.Id),
-//				TrafficPolicyId: pulumi.Any(exampleAwsMailmanagerTrafficPolicy.Id),
 //				IngressPointConfiguration: &mailmanager.IngressPointIngressPointConfigurationArgs{
 //					SmtpPasswordWo:        pulumi.Any(smtpPassword),
 //					SmtpPasswordWoVersion: pulumi.Int(1),
 //				},
+//				Name:            pulumi.String("example"),
+//				Type:            pulumi.String("AUTH"),
+//				RuleSetId:       pulumi.Any(exampleAwsMailmanagerRuleSet.Id),
+//				TrafficPolicyId: pulumi.Any(exampleAwsMailmanagerTrafficPolicy.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -93,15 +93,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := mailmanager.NewIngressPoint(ctx, "example", &mailmanager.IngressPointArgs{
-//				Name:            pulumi.String("example"),
-//				Type:            pulumi.String("OPEN"),
-//				RuleSetId:       pulumi.Any(exampleAwsMailmanagerRuleSet.Id),
-//				TrafficPolicyId: pulumi.Any(exampleAwsMailmanagerTrafficPolicy.Id),
 //				NetworkConfiguration: &mailmanager.IngressPointNetworkConfigurationArgs{
 //					PrivateNetworkConfiguration: &mailmanager.IngressPointNetworkConfigurationPrivateNetworkConfigurationArgs{
 //						VpcEndpointId: pulumi.Any(exampleAwsVpcEndpoint.Id),
 //					},
 //				},
+//				Name:            pulumi.String("example"),
+//				Type:            pulumi.String("OPEN"),
+//				RuleSetId:       pulumi.Any(exampleAwsMailmanagerRuleSet.Id),
+//				TrafficPolicyId: pulumi.Any(exampleAwsMailmanagerTrafficPolicy.Id),
 //			})
 //			if err != nil {
 //				return err

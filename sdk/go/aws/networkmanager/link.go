@@ -29,13 +29,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkmanager.NewLink(ctx, "example", &networkmanager.LinkArgs{
-//				GlobalNetworkId: pulumi.Any(exampleAwsNetworkmanagerGlobalNetwork.Id),
-//				SiteId:          pulumi.Any(exampleAwsNetworkmanagerSite.Id),
 //				Bandwidth: &networkmanager.LinkBandwidthArgs{
 //					UploadSpeed:   pulumi.Int(10),
 //					DownloadSpeed: pulumi.Int(50),
 //				},
-//				ProviderName: pulumi.String("MegaCorp"),
+//				GlobalNetworkId: pulumi.Any(exampleAwsNetworkmanagerGlobalNetwork.Id),
+//				SiteId:          pulumi.Any(exampleAwsNetworkmanagerSite.Id),
+//				ProviderName:    pulumi.String("MegaCorp"),
 //			})
 //			if err != nil {
 //				return err

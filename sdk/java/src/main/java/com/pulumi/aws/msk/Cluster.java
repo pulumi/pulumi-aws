@@ -79,6 +79,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.msk.inputs.ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs;
  * import com.pulumi.aws.msk.inputs.ClusterLoggingInfoBrokerLogsFirehoseArgs;
  * import com.pulumi.aws.msk.inputs.ClusterLoggingInfoBrokerLogsS3Args;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -141,11 +142,11 @@ import javax.annotation.Nullable;
  * 
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("firehose.amazonaws.com")
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
@@ -156,30 +157,29 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testStream = new FirehoseDeliveryStream("testStream", FirehoseDeliveryStreamArgs.builder()
- *             .name("kinesis-firehose-msk-broker-logs-stream")
- *             .destination("extended_s3")
  *             .extendedS3Configuration(FirehoseDeliveryStreamExtendedS3ConfigurationArgs.builder()
  *                 .roleArn(firehoseRole.arn())
  *                 .bucketArn(bucket.arn())
  *                 .build())
+ *             .name("kinesis-firehose-msk-broker-logs-stream")
+ *             .destination("extended_s3")
  *             .tags(Map.of("LogDeliveryEnabled", "placeholder"))
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .ignoreChanges("tags[\"LogDeliveryEnabled\"]")
+ *                 .build());
  * 
  *         var example = new Cluster("example", ClusterArgs.builder()
- *             .clusterName("example")
- *             .kafkaVersion("3.8.x")
- *             .numberOfBrokerNodes(3)
  *             .brokerNodeGroupInfo(ClusterBrokerNodeGroupInfoArgs.builder()
- *                 .instanceType("kafka.m5.large")
- *                 .clientSubnets(                
- *                     subnetAz1.id(),
- *                     subnetAz2.id(),
- *                     subnetAz3.id())
  *                 .storageInfo(ClusterBrokerNodeGroupInfoStorageInfoArgs.builder()
  *                     .ebsStorageInfo(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs.builder()
  *                         .volumeSize(1000)
  *                         .build())
  *                     .build())
+ *                 .instanceType("kafka.m5.large")
+ *                 .clientSubnets(                
+ *                     subnetAz1.id(),
+ *                     subnetAz2.id(),
+ *                     subnetAz3.id())
  *                 .securityGroups(sg.id())
  *                 .build())
  *             .encryptionInfo(ClusterEncryptionInfoArgs.builder()
@@ -212,6 +212,9 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
+ *             .clusterName("example")
+ *             .kafkaVersion("3.8.x")
+ *             .numberOfBrokerNodes(3)
  *             .tags(Map.of("foo", "bar"))
  *             .build());
  * 
@@ -251,15 +254,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Cluster("example", ClusterArgs.builder()
- *             .clusterName("example")
- *             .kafkaVersion("3.8.x")
- *             .numberOfBrokerNodes(3)
  *             .brokerNodeGroupInfo(ClusterBrokerNodeGroupInfoArgs.builder()
- *                 .instanceType("kafka.m5.4xlarge")
- *                 .clientSubnets(                
- *                     subnetAz1.id(),
- *                     subnetAz2.id(),
- *                     subnetAz3.id())
  *                 .storageInfo(ClusterBrokerNodeGroupInfoStorageInfoArgs.builder()
  *                     .ebsStorageInfo(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs.builder()
  *                         .provisionedThroughput(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs.builder()
@@ -269,8 +264,16 @@ import javax.annotation.Nullable;
  *                         .volumeSize(1000)
  *                         .build())
  *                     .build())
+ *                 .instanceType("kafka.m5.4xlarge")
+ *                 .clientSubnets(                
+ *                     subnetAz1.id(),
+ *                     subnetAz2.id(),
+ *                     subnetAz3.id())
  *                 .securityGroups(sg.id())
  *                 .build())
+ *             .clusterName("example")
+ *             .kafkaVersion("3.8.x")
+ *             .numberOfBrokerNodes(3)
  *             .build());
  * 
  *     }

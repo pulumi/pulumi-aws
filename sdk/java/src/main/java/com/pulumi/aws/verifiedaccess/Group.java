@@ -86,10 +86,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var test = new Group("test", GroupArgs.builder()
- *             .verifiedaccessInstanceId(testAwsVerifiedaccessInstanceTrustProviderAttachment.verifiedaccessInstanceId())
  *             .sseConfiguration(GroupSseConfigurationArgs.builder()
  *                 .kmsKeyArn(testKey.arn())
  *                 .build())
+ *             .verifiedaccessInstanceId(testAwsVerifiedaccessInstanceTrustProviderAttachment.verifiedaccessInstanceId())
  *             .build());
  * 
  *     }

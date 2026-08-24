@@ -51,10 +51,6 @@ namespace Pulumi.Aws.Backup
     /// {
     ///     var example = new Aws.Backup.RestoreTestingSelection("example", new()
     ///     {
-    ///         Name = "ec2_selection",
-    ///         RestoreTestingPlanName = exampleAwsBackupRestoreTestingPlan.Name,
-    ///         ProtectedResourceType = "EC2",
-    ///         IamRoleArn = exampleAwsIamRole.Arn,
     ///         ProtectedResourceConditions = new Aws.Backup.Inputs.RestoreTestingSelectionProtectedResourceConditionsArgs
     ///         {
     ///             StringEquals = new[]
@@ -66,6 +62,10 @@ namespace Pulumi.Aws.Backup
     ///                 },
     ///             },
     ///         },
+    ///         Name = "ec2_selection",
+    ///         RestoreTestingPlanName = exampleAwsBackupRestoreTestingPlan.Name,
+    ///         ProtectedResourceType = "EC2",
+    ///         IamRoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });

@@ -29,21 +29,21 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := codebuild.NewFleet(ctx, "test", &codebuild.FleetArgs{
-//				BaseCapacity:     pulumi.Int(2),
-//				ComputeType:      pulumi.String("BUILD_GENERAL1_SMALL"),
-//				EnvironmentType:  pulumi.String("LINUX_CONTAINER"),
-//				Name:             pulumi.String("full-example-codebuild-fleet"),
-//				OverflowBehavior: pulumi.String("QUEUE"),
 //				ScalingConfiguration: &codebuild.FleetScalingConfigurationArgs{
-//					MaxCapacity: pulumi.Int(5),
-//					ScalingType: pulumi.String("TARGET_TRACKING_SCALING"),
 //					TargetTrackingScalingConfigs: codebuild.FleetScalingConfigurationTargetTrackingScalingConfigArray{
 //						&codebuild.FleetScalingConfigurationTargetTrackingScalingConfigArgs{
 //							MetricType:  pulumi.String("FLEET_UTILIZATION_RATE"),
 //							TargetValue: pulumi.Float64(97.5),
 //						},
 //					},
+//					MaxCapacity: pulumi.Int(5),
+//					ScalingType: pulumi.String("TARGET_TRACKING_SCALING"),
 //				},
+//				BaseCapacity:     pulumi.Int(2),
+//				ComputeType:      pulumi.String("BUILD_GENERAL1_SMALL"),
+//				EnvironmentType:  pulumi.String("LINUX_CONTAINER"),
+//				Name:             pulumi.String("full-example-codebuild-fleet"),
+//				OverflowBehavior: pulumi.String("QUEUE"),
 //			})
 //			if err != nil {
 //				return err

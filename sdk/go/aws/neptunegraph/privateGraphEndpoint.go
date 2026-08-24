@@ -74,9 +74,6 @@ import (
 //			}
 //			// Security Group for Neptune Graph
 //			exampleSecurityGroup, err := ec2.NewSecurityGroup(ctx, "example", &ec2.SecurityGroupArgs{
-//				NamePrefix:  pulumi.String("neptune-graph-sg"),
-//				Description: pulumi.String("Security group for Neptune Graph"),
-//				VpcId:       example.ID().ToIDOutput().ToStringOutput(),
 //				Ingress: ec2.SecurityGroupIngressArray{
 //					&ec2.SecurityGroupIngressArgs{
 //						FromPort: pulumi.Int(8182),
@@ -87,6 +84,9 @@ import (
 //						},
 //					},
 //				},
+//				NamePrefix:  pulumi.String("neptune-graph-sg"),
+//				Description: pulumi.String("Security group for Neptune Graph"),
+//				VpcId:       example.ID().ToIDOutput().ToStringOutput(),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("neptune-graph-sg"),
 //				},

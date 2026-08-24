@@ -44,9 +44,6 @@ import * as utilities from "../utilities";
  *     shardCount: 1,
  * });
  * const yada = new aws.cloudwatch.EventTarget("yada", {
- *     targetId: "Yada",
- *     rule: console.name,
- *     arn: testStream.arn,
  *     runCommandTargets: [
  *         {
  *             key: "tag:Name",
@@ -57,6 +54,9 @@ import * as utilities from "../utilities";
  *             values: ["i-162058cd308bffec2"],
  *         },
  *     ],
+ *     targetId: "Yada",
+ *     rule: console.name,
+ *     arn: testStream.arn,
  * });
  * ```
  *
@@ -68,11 +68,11 @@ import * as utilities from "../utilities";
  *
  * const ssmLifecycleTrust = aws.iam.getPolicyDocument({
  *     statements: [{
- *         actions: ["sts:AssumeRole"],
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["events.amazonaws.com"],
  *         }],
+ *         actions: ["sts:AssumeRole"],
  *     }],
  * });
  * const stopInstance = new aws.ssm.Document("stop_instance", {
@@ -95,14 +95,14 @@ import * as utilities from "../utilities";
  * const ssmLifecycle = aws.iam.getPolicyDocumentOutput({
  *     statements: [
  *         {
- *             effect: "Allow",
- *             actions: ["ssm:SendCommand"],
- *             resources: ["arn:aws:ec2:eu-west-1:1234567890:instance/*"],
  *             conditions: [{
  *                 test: "StringEquals",
  *                 variable: "ec2:ResourceTag/Terminate",
  *                 values: ["*"],
  *             }],
+ *             effect: "Allow",
+ *             actions: ["ssm:SendCommand"],
+ *             resources: ["arn:aws:ec2:eu-west-1:1234567890:instance/*"],
  *         },
  *         {
  *             effect: "Allow",
@@ -129,14 +129,14 @@ import * as utilities from "../utilities";
  *     scheduleExpression: "cron(0 0 * * ? *)",
  * });
  * const stopInstancesEventTarget = new aws.cloudwatch.EventTarget("stop_instances", {
- *     targetId: "StopInstance",
- *     arn: stopInstance.arn,
- *     rule: stopInstances.name,
- *     roleArn: ssmLifecycleRole.arn,
  *     runCommandTargets: [{
  *         key: "tag:Terminate",
  *         values: ["midnight"],
  *     }],
+ *     targetId: "StopInstance",
+ *     arn: stopInstance.arn,
+ *     rule: stopInstances.name,
+ *     roleArn: ssmLifecycleRole.arn,
  * });
  * ```
  *
@@ -152,15 +152,15 @@ import * as utilities from "../utilities";
  *     scheduleExpression: "cron(0 0 * * ? *)",
  * });
  * const stopInstancesEventTarget = new aws.cloudwatch.EventTarget("stop_instances", {
+ *     runCommandTargets: [{
+ *         key: "tag:Terminate",
+ *         values: ["midnight"],
+ *     }],
  *     targetId: "StopInstance",
  *     arn: `arn:aws:ssm:${awsRegion}::document/AWS-RunShellScript`,
  *     input: "{\"commands\":[\"halt\"]}",
  *     rule: stopInstances.name,
  *     roleArn: ssmLifecycle.arn,
- *     runCommandTargets: [{
- *         key: "tag:Terminate",
- *         values: ["midnight"],
- *     }],
  * });
  * ```
  *
@@ -173,11 +173,11 @@ import * as utilities from "../utilities";
  *
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["events.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
@@ -209,14 +209,14 @@ import * as utilities from "../utilities";
  *     policy: ecsEventsRunTaskWithAnyRole.then(ecsEventsRunTaskWithAnyRole => ecsEventsRunTaskWithAnyRole.json),
  * });
  * const ecsScheduledTask = new aws.cloudwatch.EventTarget("ecs_scheduled_task", {
- *     targetId: "run-scheduled-task-every-hour",
- *     arn: clusterName.arn,
- *     rule: everyHour.name,
- *     roleArn: ecsEvents.arn,
  *     ecsTarget: {
  *         taskCount: 1,
  *         taskDefinitionArn: taskName.arn,
  *     },
+ *     targetId: "run-scheduled-task-every-hour",
+ *     arn: clusterName.arn,
+ *     rule: everyHour.name,
+ *     roleArn: ecsEvents.arn,
  *     input: JSON.stringify({
  *         containerOverrides: [{
  *             name: "name-of-container-to-override",
@@ -242,8 +242,6 @@ import * as utilities from "../utilities";
  *     deployment: exampleDeployment.id,
  * });
  * const example = new aws.cloudwatch.EventTarget("example", {
- *     arn: pulumi.interpolate`${exampleStage.executionArn}/GET`,
- *     rule: exampleEventRule.id,
  *     httpTarget: {
  *         queryStringParameters: {
  *             Body: "$.detail.body",
@@ -252,6 +250,8 @@ import * as utilities from "../utilities";
  *             Env: "Test",
  *         },
  *     },
+ *     arn: pulumi.interpolate`${exampleStage.executionArn}/GET`,
+ *     rule: exampleEventRule.id,
  * });
  * ```
  *
@@ -263,11 +263,11 @@ import * as utilities from "../utilities";
  *
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["events.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
@@ -311,8 +311,6 @@ import * as utilities from "../utilities";
  *
  * const exampleEventRule = new aws.cloudwatch.EventRule("example", {});
  * const example = new aws.cloudwatch.EventTarget("example", {
- *     arn: exampleAwsLambdaFunction.arn,
- *     rule: exampleEventRule.id,
  *     inputTransformer: {
  *         inputPaths: {
  *             instance: "$.detail.instance",
@@ -324,6 +322,8 @@ import * as utilities from "../utilities";
  * }
  * `,
  *     },
+ *     arn: exampleAwsLambdaFunction.arn,
+ *     rule: exampleEventRule.id,
  * });
  * ```
  *
@@ -335,8 +335,6 @@ import * as utilities from "../utilities";
  *
  * const exampleEventRule = new aws.cloudwatch.EventRule("example", {});
  * const example = new aws.cloudwatch.EventTarget("example", {
- *     arn: exampleAwsLambdaFunction.arn,
- *     rule: exampleEventRule.id,
  *     inputTransformer: {
  *         inputPaths: {
  *             instance: "$.detail.instance",
@@ -344,6 +342,8 @@ import * as utilities from "../utilities";
  *         },
  *         inputTemplate: "\"<instance> is in state <status>\"",
  *     },
+ *     arn: exampleAwsLambdaFunction.arn,
+ *     rule: exampleEventRule.id,
  * });
  * ```
  *
@@ -370,33 +370,33 @@ import * as utilities from "../utilities";
  * const exampleLogPolicy = aws.iam.getPolicyDocumentOutput({
  *     statements: [
  *         {
+ *             principals: [{
+ *                 type: "Service",
+ *                 identifiers: [
+ *                     "events.amazonaws.com",
+ *                     "delivery.logs.amazonaws.com",
+ *                 ],
+ *             }],
  *             effect: "Allow",
  *             actions: ["logs:CreateLogStream"],
  *             resources: [pulumi.interpolate`${example.arn}:*`],
- *             principals: [{
- *                 type: "Service",
- *                 identifiers: [
- *                     "events.amazonaws.com",
- *                     "delivery.logs.amazonaws.com",
- *                 ],
- *             }],
  *         },
  *         {
- *             effect: "Allow",
- *             actions: ["logs:PutLogEvents"],
- *             resources: [pulumi.interpolate`${example.arn}:*:*`],
- *             principals: [{
- *                 type: "Service",
- *                 identifiers: [
- *                     "events.amazonaws.com",
- *                     "delivery.logs.amazonaws.com",
- *                 ],
- *             }],
  *             conditions: [{
  *                 test: "ArnEquals",
  *                 values: [exampleEventRule.arn],
  *                 variable: "aws:SourceArn",
  *             }],
+ *             principals: [{
+ *                 type: "Service",
+ *                 identifiers: [
+ *                     "events.amazonaws.com",
+ *                     "delivery.logs.amazonaws.com",
+ *                 ],
+ *             }],
+ *             effect: "Allow",
+ *             actions: ["logs:PutLogEvents"],
+ *             resources: [pulumi.interpolate`${example.arn}:*:*`],
  *         },
  *     ],
  * });
@@ -424,11 +424,11 @@ import * as utilities from "../utilities";
  * });
  * const appsyncMutationRoleTrust = aws.iam.getPolicyDocument({
  *     statements: [{
- *         actions: ["sts:AssumeRole"],
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["events.amazonaws.com"],
  *         }],
+ *         actions: ["sts:AssumeRole"],
  *     }],
  * });
  * const appsyncMutationRole = new aws.iam.Role("appsync_mutation_role", {
@@ -461,13 +461,6 @@ import * as utilities from "../utilities";
  * `,
  * });
  * const invokeAppsyncMutationEventTarget = new aws.cloudwatch.EventTarget("invoke_appsync_mutation", {
- *     arn: std.replaceOutput({
- *         text: graphql_api.arn,
- *         search: "apis",
- *         replace: "endpoints/graphql-api",
- *     }).result,
- *     rule: invokeAppsyncMutation.id,
- *     roleArn: appsyncMutationRole.arn,
  *     inputTransformer: {
  *         inputPaths: {
  *             input: "$.detail.input",
@@ -480,6 +473,13 @@ import * as utilities from "../utilities";
  *     appsyncTarget: {
  *         graphqlOperation: "mutation TestMutation($input:MutationInput!){testMutation(input: $input) {test}}",
  *     },
+ *     arn: std.replaceOutput({
+ *         text: graphql_api.arn,
+ *         search: "apis",
+ *         replace: "endpoints/graphql-api",
+ *     }).result,
+ *     rule: invokeAppsyncMutation.id,
+ *     roleArn: appsyncMutationRole.arn,
  * });
  * const appsyncMutationRolePolicyDocument = aws.iam.getPolicyDocumentOutput({
  *     statements: [{

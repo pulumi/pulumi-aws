@@ -49,12 +49,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new LoadBalancer("example", LoadBalancerArgs.builder()
- *             .name("example")
- *             .internal(true)
- *             .loadBalancerType("network")
  *             .subnetMappings(LoadBalancerSubnetMappingArgs.builder()
  *                 .subnetId("12345")
  *                 .build())
+ *             .name("example")
+ *             .internal(true)
+ *             .loadBalancerType("network")
  *             .build());
  * 
  *         var exampleVpcLink = new VpcLink("exampleVpcLink", VpcLinkArgs.builder()

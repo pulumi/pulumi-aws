@@ -85,14 +85,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const customSemantic = new aws.bedrock.AgentcoreMemoryStrategy("custom_semantic", {
- *     name: "custom-semantic-strategy",
- *     memoryId: example.id,
- *     memoryExecutionRoleArn: example.memoryExecutionRoleArn,
- *     type: "CUSTOM",
- *     description: "Custom semantic processing strategy",
- *     namespaceTemplates: ["{sessionId}"],
  *     configuration: {
- *         type: "SEMANTIC_OVERRIDE",
  *         consolidation: {
  *             appendToPrompt: "Focus on extracting key semantic relationships and concepts",
  *             modelId: "anthropic.claude-3-sonnet-20240229-v1:0",
@@ -101,7 +94,14 @@ import * as utilities from "../utilities";
  *             appendToPrompt: "Extract and categorize semantic information",
  *             modelId: "anthropic.claude-3-haiku-20240307-v1:0",
  *         },
+ *         type: "SEMANTIC_OVERRIDE",
  *     },
+ *     name: "custom-semantic-strategy",
+ *     memoryId: example.id,
+ *     memoryExecutionRoleArn: example.memoryExecutionRoleArn,
+ *     type: "CUSTOM",
+ *     description: "Custom semantic processing strategy",
+ *     namespaceTemplates: ["{sessionId}"],
  * });
  * ```
  *
@@ -112,18 +112,18 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const customSummary = new aws.bedrock.AgentcoreMemoryStrategy("custom_summary", {
+ *     configuration: {
+ *         consolidation: {
+ *             appendToPrompt: "Create concise summaries while preserving key details",
+ *             modelId: "anthropic.claude-3-sonnet-20240229-v1:0",
+ *         },
+ *         type: "SUMMARY_OVERRIDE",
+ *     },
  *     name: "custom-summary-strategy",
  *     memoryId: example.id,
  *     type: "CUSTOM",
  *     description: "Custom summarization strategy",
  *     namespaceTemplates: ["summaries"],
- *     configuration: {
- *         type: "SUMMARY_OVERRIDE",
- *         consolidation: {
- *             appendToPrompt: "Create concise summaries while preserving key details",
- *             modelId: "anthropic.claude-3-sonnet-20240229-v1:0",
- *         },
- *     },
  * });
  * ```
  *
@@ -134,13 +134,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const customUserPref = new aws.bedrock.AgentcoreMemoryStrategy("custom_user_pref", {
- *     name: "custom-user-preference-strategy",
- *     memoryId: example.id,
- *     type: "CUSTOM",
- *     description: "Custom user preference tracking strategy",
- *     namespaceTemplates: ["user_prefs"],
  *     configuration: {
- *         type: "USER_PREFERENCE_OVERRIDE",
  *         consolidation: {
  *             appendToPrompt: "Consolidate user preferences and behavioral patterns",
  *             modelId: "anthropic.claude-3-sonnet-20240229-v1:0",
@@ -149,7 +143,13 @@ import * as utilities from "../utilities";
  *             appendToPrompt: "Extract user preferences and interaction patterns",
  *             modelId: "anthropic.claude-3-haiku-20240307-v1:0",
  *         },
+ *         type: "USER_PREFERENCE_OVERRIDE",
  *     },
+ *     name: "custom-user-preference-strategy",
+ *     memoryId: example.id,
+ *     type: "CUSTOM",
+ *     description: "Custom user preference tracking strategy",
+ *     namespaceTemplates: ["user_prefs"],
  * });
  * ```
  *
@@ -160,14 +160,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const customEpisodic = new aws.bedrock.AgentcoreMemoryStrategy("custom_episodic", {
- *     name: "custom-episodic-strategy",
- *     memoryId: example.id,
- *     memoryExecutionRoleArn: example.memoryExecutionRoleArn,
- *     type: "CUSTOM",
- *     description: "Custom episodic processing strategy",
- *     namespaceTemplates: ["/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}"],
  *     configuration: {
- *         type: "EPISODIC_OVERRIDE",
  *         consolidation: {
  *             appendToPrompt: "Consolidate episodic memories into coherent narratives",
  *             modelId: "anthropic.claude-3-sonnet-20240229-v1:0",
@@ -176,7 +169,14 @@ import * as utilities from "../utilities";
  *             appendToPrompt: "Extract key events and episodes from interactions",
  *             modelId: "anthropic.claude-3-haiku-20240307-v1:0",
  *         },
+ *         type: "EPISODIC_OVERRIDE",
  *     },
+ *     name: "custom-episodic-strategy",
+ *     memoryId: example.id,
+ *     memoryExecutionRoleArn: example.memoryExecutionRoleArn,
+ *     type: "CUSTOM",
+ *     description: "Custom episodic processing strategy",
+ *     namespaceTemplates: ["/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}"],
  * });
  * ```
  *

@@ -30,17 +30,8 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     ///     var example = new Aws.NetworkFirewall.FirewallPolicy("example", new()
     ///     {
-    ///         Name = "example",
     ///         FirewallPolicyConfiguration = new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyArgs
     ///         {
-    ///             StatelessDefaultActions = new[]
-    ///             {
-    ///                 "aws:pass",
-    ///             },
-    ///             StatelessFragmentDefaultActions = new[]
-    ///             {
-    ///                 "aws:drop",
-    ///             },
     ///             StatelessRuleGroupReferences = new[]
     ///             {
     ///                 new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs
@@ -48,6 +39,14 @@ namespace Pulumi.Aws.NetworkFirewall
     ///                     Priority = 1,
     ///                     ResourceArn = exampleAwsNetworkfirewallRuleGroup.Arn,
     ///                 },
+    ///             },
+    ///             StatelessDefaultActions = new[]
+    ///             {
+    ///                 "aws:pass",
+    ///             },
+    ///             StatelessFragmentDefaultActions = new[]
+    ///             {
+    ///                 "aws:drop",
     ///             },
     ///             TlsInspectionConfigurationArn = Output.Tuple(currentGetPartition, current, currentGetCallerIdentity).Apply(values =&gt;
     ///             {
@@ -57,6 +56,7 @@ namespace Pulumi.Aws.NetworkFirewall
     ///                 return $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:network-firewall:{current.Apply(getRegionResult =&gt; getRegionResult.Region)}:{currentGetCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:tls-configuration/example";
     ///             }),
     ///         },
+    ///         Name = "example",
     ///         Tags = 
     ///         {
     ///             { "Tag1", "Value1" },
@@ -79,7 +79,6 @@ namespace Pulumi.Aws.NetworkFirewall
     /// {
     ///     var example = new Aws.NetworkFirewall.FirewallPolicy("example", new()
     ///     {
-    ///         Name = "example",
     ///         FirewallPolicyConfiguration = new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyArgs
     ///         {
     ///             PolicyVariables = new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyPolicyVariablesArgs
@@ -88,7 +87,6 @@ namespace Pulumi.Aws.NetworkFirewall
     ///                 {
     ///                     new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs
     ///                     {
-    ///                         Key = "HOME_NET",
     ///                         IpSet = new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs
     ///                         {
     ///                             Definitions = new[]
@@ -97,7 +95,16 @@ namespace Pulumi.Aws.NetworkFirewall
     ///                                 "10.1.0.0/24",
     ///                             },
     ///                         },
+    ///                         Key = "HOME_NET",
     ///                     },
+    ///                 },
+    ///             },
+    ///             StatelessRuleGroupReferences = new[]
+    ///             {
+    ///                 new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs
+    ///                 {
+    ///                     Priority = 1,
+    ///                     ResourceArn = exampleAwsNetworkfirewallRuleGroup.Arn,
     ///                 },
     ///             },
     ///             StatelessDefaultActions = new[]
@@ -108,15 +115,8 @@ namespace Pulumi.Aws.NetworkFirewall
     ///             {
     ///                 "aws:drop",
     ///             },
-    ///             StatelessRuleGroupReferences = new[]
-    ///             {
-    ///                 new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs
-    ///                 {
-    ///                     Priority = 1,
-    ///                     ResourceArn = exampleAwsNetworkfirewallRuleGroup.Arn,
-    ///                 },
-    ///             },
     ///         },
+    ///         Name = "example",
     ///         Tags = 
     ///         {
     ///             { "Tag1", "Value1" },
@@ -139,18 +139,8 @@ namespace Pulumi.Aws.NetworkFirewall
     /// {
     ///     var example = new Aws.NetworkFirewall.FirewallPolicy("example", new()
     ///     {
-    ///         Name = "example",
     ///         FirewallPolicyConfiguration = new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyArgs
     ///         {
-    ///             StatelessDefaultActions = new[]
-    ///             {
-    ///                 "aws:pass",
-    ///                 "ExampleCustomAction",
-    ///             },
-    ///             StatelessFragmentDefaultActions = new[]
-    ///             {
-    ///                 "aws:drop",
-    ///             },
     ///             StatelessCustomActions = new[]
     ///             {
     ///                 new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyStatelessCustomActionArgs
@@ -171,7 +161,17 @@ namespace Pulumi.Aws.NetworkFirewall
     ///                     ActionName = "ExampleCustomAction",
     ///                 },
     ///             },
+    ///             StatelessDefaultActions = new[]
+    ///             {
+    ///                 "aws:pass",
+    ///                 "ExampleCustomAction",
+    ///             },
+    ///             StatelessFragmentDefaultActions = new[]
+    ///             {
+    ///                 "aws:drop",
+    ///             },
     ///         },
+    ///         Name = "example",
     ///     });
     /// 
     /// });
@@ -193,17 +193,8 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     ///     var example = new Aws.NetworkFirewall.FirewallPolicy("example", new()
     ///     {
-    ///         Name = "example",
     ///         FirewallPolicyConfiguration = new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyArgs
     ///         {
-    ///             StatelessFragmentDefaultActions = new[]
-    ///             {
-    ///                 "aws:drop",
-    ///             },
-    ///             StatelessDefaultActions = new[]
-    ///             {
-    ///                 "aws:pass",
-    ///             },
     ///             StatefulRuleGroupReferences = new[]
     ///             {
     ///                 new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs
@@ -217,7 +208,16 @@ namespace Pulumi.Aws.NetworkFirewall
     ///                     }),
     ///                 },
     ///             },
+    ///             StatelessFragmentDefaultActions = new[]
+    ///             {
+    ///                 "aws:drop",
+    ///             },
+    ///             StatelessDefaultActions = new[]
+    ///             {
+    ///                 "aws:pass",
+    ///             },
     ///         },
+    ///         Name = "example",
     ///     });
     /// 
     /// });
@@ -239,17 +239,8 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     ///     var example = new Aws.NetworkFirewall.FirewallPolicy("example", new()
     ///     {
-    ///         Name = "example",
     ///         FirewallPolicyConfiguration = new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyArgs
     ///         {
-    ///             StatelessFragmentDefaultActions = new[]
-    ///             {
-    ///                 "aws:drop",
-    ///             },
-    ///             StatelessDefaultActions = new[]
-    ///             {
-    ///                 "aws:pass",
-    ///             },
     ///             StatefulEngineOptions = new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs
     ///             {
     ///                 RuleOrder = "STRICT_ORDER",
@@ -268,7 +259,16 @@ namespace Pulumi.Aws.NetworkFirewall
     ///                     }),
     ///                 },
     ///             },
+    ///             StatelessFragmentDefaultActions = new[]
+    ///             {
+    ///                 "aws:drop",
+    ///             },
+    ///             StatelessDefaultActions = new[]
+    ///             {
+    ///                 "aws:pass",
+    ///             },
     ///         },
+    ///         Name = "example",
     ///     });
     /// 
     /// });

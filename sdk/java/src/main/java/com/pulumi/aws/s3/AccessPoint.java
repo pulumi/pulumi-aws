@@ -107,11 +107,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccessPoint = new AccessPoint("exampleAccessPoint", AccessPointArgs.builder()
- *             .bucket(example.arn())
- *             .name("example")
  *             .vpcConfiguration(AccessPointVpcConfigurationArgs.builder()
  *                 .vpcId(exampleVpc.id())
  *                 .build())
+ *             .bucket(example.arn())
+ *             .name("example")
  *             .build());
  * 
  *     }
@@ -153,10 +153,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new DirectoryBucket("example", DirectoryBucketArgs.builder()
- *             .bucket("example--zoneId--x-s3")
  *             .location(DirectoryBucketLocationArgs.builder()
  *                 .name(available.zoneIds()[0])
  *                 .build())
+ *             .bucket("example--zoneId--x-s3")
  *             .build());
  * 
  *         var exampleAccessPoint = new AccessPoint("exampleAccessPoint", AccessPointArgs.builder()

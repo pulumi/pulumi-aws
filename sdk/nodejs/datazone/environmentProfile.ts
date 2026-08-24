@@ -19,6 +19,22 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const domainExecutionRole = new aws.iam.Role("domain_execution_role", {
+ *     inlinePolicies: [{
+ *         name: "example-name",
+ *         policy: JSON.stringify({
+ *             Version: "2012-10-17",
+ *             Statement: [{
+ *                 Action: [
+ *                     "datazone:*",
+ *                     "ram:*",
+ *                     "sso:*",
+ *                     "kms:*",
+ *                 ],
+ *                 Effect: "Allow",
+ *                 Resource: "*",
+ *             }],
+ *         }),
+ *     }],
  *     name: "example-name",
  *     assumeRolePolicy: JSON.stringify({
  *         Version: "2012-10-17",
@@ -45,22 +61,6 @@ import * as utilities from "../utilities";
  *             },
  *         ],
  *     }),
- *     inlinePolicies: [{
- *         name: "example-name",
- *         policy: JSON.stringify({
- *             Version: "2012-10-17",
- *             Statement: [{
- *                 Action: [
- *                     "datazone:*",
- *                     "ram:*",
- *                     "sso:*",
- *                     "kms:*",
- *                 ],
- *                 Effect: "Allow",
- *                 Resource: "*",
- *             }],
- *         }),
- *     }],
  * });
  * const testDomain = new aws.datazone.Domain("test", {
  *     name: "example-name",
@@ -88,6 +88,10 @@ import * as utilities from "../utilities";
  *     enabledRegions: [testGetRegion.then(testGetRegion => testGetRegion.region)],
  * });
  * const testEnvironmentProfile = new aws.datazone.EnvironmentProfile("test", {
+ *     userParameters: [{
+ *         name: "consumerGlueDbName",
+ *         value: "value",
+ *     }],
  *     awsAccountId: test.then(test => test.accountId),
  *     awsAccountRegion: testGetRegion.then(testGetRegion => testGetRegion.region),
  *     description: "description",
@@ -95,10 +99,6 @@ import * as utilities from "../utilities";
  *     name: "example-name",
  *     projectIdentifier: testProject.id,
  *     domainIdentifier: testDomain.id,
- *     userParameters: [{
- *         name: "consumerGlueDbName",
- *         value: "value",
- *     }],
  * });
  * ```
  *

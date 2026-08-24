@@ -60,15 +60,15 @@ import javax.annotation.Nullable;
  *         var frontEndTargetGroup = new TargetGroup("frontEndTargetGroup");
  * 
  *         var frontEndListener = new Listener("frontEndListener", ListenerArgs.builder()
+ *             .defaultActions(ListenerDefaultActionArgs.builder()
+ *                 .type("forward")
+ *                 .targetGroupArn(frontEndTargetGroup.arn())
+ *                 .build())
  *             .loadBalancerArn(frontEnd.arn())
  *             .port(443)
  *             .protocol("HTTPS")
  *             .sslPolicy("ELBSecurityPolicy-2016-08")
  *             .certificateArn("arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4")
- *             .defaultActions(ListenerDefaultActionArgs.builder()
- *                 .type("forward")
- *                 .targetGroupArn(frontEndTargetGroup.arn())
- *                 .build())
  *             .build());
  * 
  *     }
@@ -112,13 +112,7 @@ import javax.annotation.Nullable;
  *         var frontEndGreen = new TargetGroup("frontEndGreen");
  * 
  *         var frontEndListener = new Listener("frontEndListener", ListenerArgs.builder()
- *             .loadBalancerArn(frontEnd.arn())
- *             .port(443)
- *             .protocol("HTTPS")
- *             .sslPolicy("ELBSecurityPolicy-2016-08")
- *             .certificateArn("arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4")
  *             .defaultActions(ListenerDefaultActionArgs.builder()
- *                 .type("forward")
  *                 .forward(ListenerDefaultActionForwardArgs.builder()
  *                     .targetGroups(                    
  *                         ListenerDefaultActionForwardTargetGroupArgs.builder()
@@ -130,7 +124,13 @@ import javax.annotation.Nullable;
  *                             .weight(0)
  *                             .build())
  *                     .build())
+ *                 .type("forward")
  *                 .build())
+ *             .loadBalancerArn(frontEnd.arn())
+ *             .port(443)
+ *             .protocol("HTTPS")
+ *             .sslPolicy("ELBSecurityPolicy-2016-08")
+ *             .certificateArn("arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4")
  *             .build());
  * 
  *     }
@@ -164,16 +164,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var frontEnd = new Listener("frontEnd", ListenerArgs.builder()
+ *             .defaultActions(ListenerDefaultActionArgs.builder()
+ *                 .type("forward")
+ *                 .targetGroupArn(frontEndAwsLbTargetGroup.arn())
+ *                 .build())
  *             .loadBalancerArn(frontEndAwsLb.arn())
  *             .port(443)
  *             .protocol("TLS")
  *             .sslPolicy("ELBSecurityPolicy-2016-08")
  *             .certificateArn("arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4")
  *             .alpnPolicy("HTTP2Preferred")
- *             .defaultActions(ListenerDefaultActionArgs.builder()
- *                 .type("forward")
- *                 .targetGroupArn(frontEndAwsLbTargetGroup.arn())
- *                 .build())
  *             .build());
  * 
  *     }
@@ -211,17 +211,17 @@ import javax.annotation.Nullable;
  *         var frontEnd = new LoadBalancer("frontEnd");
  * 
  *         var frontEndListener = new Listener("frontEndListener", ListenerArgs.builder()
- *             .loadBalancerArn(frontEnd.arn())
- *             .port(80)
- *             .protocol("HTTP")
  *             .defaultActions(ListenerDefaultActionArgs.builder()
- *                 .type("redirect")
  *                 .redirect(ListenerDefaultActionRedirectArgs.builder()
  *                     .port("443")
  *                     .protocol("HTTPS")
  *                     .statusCode("HTTP_301")
  *                     .build())
+ *                 .type("redirect")
  *                 .build())
+ *             .loadBalancerArn(frontEnd.arn())
+ *             .port(80)
+ *             .protocol("HTTP")
  *             .build());
  * 
  *     }
@@ -259,17 +259,17 @@ import javax.annotation.Nullable;
  *         var frontEnd = new LoadBalancer("frontEnd");
  * 
  *         var frontEndListener = new Listener("frontEndListener", ListenerArgs.builder()
- *             .loadBalancerArn(frontEnd.arn())
- *             .port(80)
- *             .protocol("HTTP")
  *             .defaultActions(ListenerDefaultActionArgs.builder()
- *                 .type("fixed-response")
  *                 .fixedResponse(ListenerDefaultActionFixedResponseArgs.builder()
  *                     .contentType("text/plain")
  *                     .messageBody("Fixed response content")
  *                     .statusCode("200")
  *                     .build())
+ *                 .type("fixed-response")
  *                 .build())
+ *             .loadBalancerArn(frontEnd.arn())
+ *             .port(80)
+ *             .protocol("HTTP")
  *             .build());
  * 
  *     }
@@ -319,22 +319,22 @@ import javax.annotation.Nullable;
  *         var domain = new UserPoolDomain("domain");
  * 
  *         var frontEndListener = new Listener("frontEndListener", ListenerArgs.builder()
- *             .loadBalancerArn(frontEnd.arn())
- *             .port(80)
- *             .protocol("HTTP")
  *             .defaultActions(            
  *                 ListenerDefaultActionArgs.builder()
- *                     .type("authenticate-cognito")
  *                     .authenticateCognito(ListenerDefaultActionAuthenticateCognitoArgs.builder()
  *                         .userPoolArn(pool.arn())
  *                         .userPoolClientId(client.id())
  *                         .userPoolDomain(domain.domain())
  *                         .build())
+ *                     .type("authenticate-cognito")
  *                     .build(),
  *                 ListenerDefaultActionArgs.builder()
  *                     .type("forward")
  *                     .targetGroupArn(frontEndTargetGroup.arn())
  *                     .build())
+ *             .loadBalancerArn(frontEnd.arn())
+ *             .port(80)
+ *             .protocol("HTTP")
  *             .build());
  * 
  *     }
@@ -375,12 +375,8 @@ import javax.annotation.Nullable;
  *         var frontEndTargetGroup = new TargetGroup("frontEndTargetGroup");
  * 
  *         var frontEndListener = new Listener("frontEndListener", ListenerArgs.builder()
- *             .loadBalancerArn(frontEnd.arn())
- *             .port(80)
- *             .protocol("HTTP")
  *             .defaultActions(            
  *                 ListenerDefaultActionArgs.builder()
- *                     .type("authenticate-oidc")
  *                     .authenticateOidc(ListenerDefaultActionAuthenticateOidcArgs.builder()
  *                         .authorizationEndpoint("https://example.com/authorization_endpoint")
  *                         .clientId("client_id")
@@ -389,11 +385,15 @@ import javax.annotation.Nullable;
  *                         .tokenEndpoint("https://example.com/token_endpoint")
  *                         .userInfoEndpoint("https://example.com/user_info_endpoint")
  *                         .build())
+ *                     .type("authenticate-oidc")
  *                     .build(),
  *                 ListenerDefaultActionArgs.builder()
  *                     .type("forward")
  *                     .targetGroupArn(frontEndTargetGroup.arn())
  *                     .build())
+ *             .loadBalancerArn(frontEnd.arn())
+ *             .port(80)
+ *             .protocol("HTTP")
  *             .build());
  * 
  *     }
@@ -429,17 +429,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Listener("test", ListenerArgs.builder()
- *             .loadBalancerArn(testAwsLb.id())
- *             .protocol("HTTPS")
- *             .port(443)
- *             .sslPolicy("ELBSecurityPolicy-2016-08")
- *             .certificateArn(testAwsIamServerCertificate.arn())
  *             .defaultActions(            
  *                 ListenerDefaultActionArgs.builder()
- *                     .type("jwt-validation")
  *                     .jwtValidation(ListenerDefaultActionJwtValidationArgs.builder()
- *                         .issuer("https://example.com")
- *                         .jwksEndpoint("https://example.com/.well-known/jwks.json")
  *                         .additionalClaims(                        
  *                             ListenerDefaultActionJwtValidationAdditionalClaimArgs.builder()
  *                                 .format("string-array")
@@ -453,12 +445,20 @@ import javax.annotation.Nullable;
  *                                 .name("claim_name2")
  *                                 .values("value1")
  *                                 .build())
+ *                         .issuer("https://example.com")
+ *                         .jwksEndpoint("https://example.com/.well-known/jwks.json")
  *                         .build())
+ *                     .type("jwt-validation")
  *                     .build(),
  *                 ListenerDefaultActionArgs.builder()
  *                     .targetGroupArn(testAwsLbTargetGroup.id())
  *                     .type("forward")
  *                     .build())
+ *             .loadBalancerArn(testAwsLb.id())
+ *             .protocol("HTTPS")
+ *             .port(443)
+ *             .sslPolicy("ELBSecurityPolicy-2016-08")
+ *             .certificateArn(testAwsIamServerCertificate.arn())
  *             .build());
  * 
  *     }
@@ -498,30 +498,30 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new LoadBalancer("example", LoadBalancerArgs.builder()
- *             .loadBalancerType("gateway")
- *             .name("example")
  *             .subnetMappings(LoadBalancerSubnetMappingArgs.builder()
  *                 .subnetId(exampleAwsSubnet.id())
  *                 .build())
+ *             .loadBalancerType("gateway")
+ *             .name("example")
  *             .build());
  * 
  *         var exampleTargetGroup = new TargetGroup("exampleTargetGroup", TargetGroupArgs.builder()
- *             .name("example")
- *             .port(6081)
- *             .protocol("GENEVE")
- *             .vpcId(exampleAwsVpc.id())
  *             .healthCheck(TargetGroupHealthCheckArgs.builder()
  *                 .port("80")
  *                 .protocol("HTTP")
  *                 .build())
+ *             .name("example")
+ *             .port(6081)
+ *             .protocol("GENEVE")
+ *             .vpcId(exampleAwsVpc.id())
  *             .build());
  * 
  *         var exampleListener = new Listener("exampleListener", ListenerArgs.builder()
- *             .loadBalancerArn(example.id())
  *             .defaultActions(ListenerDefaultActionArgs.builder()
  *                 .targetGroupArn(exampleTargetGroup.id())
  *                 .type("forward")
  *                 .build())
+ *             .loadBalancerArn(example.id())
  *             .build());
  * 
  *     }
@@ -543,8 +543,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.lb.TargetGroup;
  * import com.pulumi.aws.lb.Listener;
  * import com.pulumi.aws.lb.ListenerArgs;
- * import com.pulumi.aws.lb.inputs.ListenerDefaultActionArgs;
  * import com.pulumi.aws.lb.inputs.ListenerMutualAuthenticationArgs;
+ * import com.pulumi.aws.lb.inputs.ListenerDefaultActionArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -565,15 +565,15 @@ import javax.annotation.Nullable;
  *         var exampleTargetGroup = new TargetGroup("exampleTargetGroup");
  * 
  *         var exampleListener = new Listener("exampleListener", ListenerArgs.builder()
- *             .loadBalancerArn(example.id())
- *             .defaultActions(ListenerDefaultActionArgs.builder()
- *                 .targetGroupArn(exampleTargetGroup.id())
- *                 .type("forward")
- *                 .build())
  *             .mutualAuthentication(ListenerMutualAuthenticationArgs.builder()
  *                 .mode("verify")
  *                 .trustStoreArn("...")
  *                 .build())
+ *             .defaultActions(ListenerDefaultActionArgs.builder()
+ *                 .targetGroupArn(exampleTargetGroup.id())
+ *                 .type("forward")
+ *                 .build())
+ *             .loadBalancerArn(example.id())
  *             .build());
  * 
  *     }

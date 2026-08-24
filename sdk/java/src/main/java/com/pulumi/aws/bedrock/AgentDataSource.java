@@ -50,14 +50,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AgentDataSource("example", AgentDataSourceArgs.builder()
- *             .knowledgeBaseId("EMDPPAYPZI")
- *             .name("example")
  *             .dataSourceConfiguration(AgentDataSourceDataSourceConfigurationArgs.builder()
- *                 .type("S3")
  *                 .s3Configuration(AgentDataSourceDataSourceConfigurationS3ConfigurationArgs.builder()
  *                     .bucketArn("arn:aws:s3:::example-bucket")
  *                     .build())
+ *                 .type("S3")
  *                 .build())
+ *             .knowledgeBaseId("EMDPPAYPZI")
+ *             .name("example")
  *             .build());
  * 
  *     }
@@ -97,11 +97,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AgentDataSource("example", AgentDataSourceArgs.builder()
- *             .knowledgeBaseId(exampleAwsBedrockagentKnowledgeBase.id())
- *             .name("example-s3-managed")
  *             .dataSourceConfiguration(AgentDataSourceDataSourceConfigurationArgs.builder()
- *                 .type("MANAGED_KNOWLEDGE_BASE_CONNECTOR")
  *                 .managedKnowledgeBaseConnectorConfiguration(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationArgs.builder()
+ *                     .mediaExtractionConfiguration(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationArgs.builder()
+ *                         .imageExtractionConfiguration(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfigurationArgs.builder()
+ *                             .imageExtractionStatus("ENABLED")
+ *                             .build())
+ *                         .build())
  *                     .connectorParameters(serializeJson(
  *                         jsonObject(
  *                             jsonProperty("type", "S3"),
@@ -115,18 +117,16 @@ import javax.annotation.Nullable;
  *                                 jsonProperty("maxFileSizeInMegaBytes", "500")
  *                             ))
  *                         )))
- *                     .mediaExtractionConfiguration(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationArgs.builder()
- *                         .imageExtractionConfiguration(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfigurationArgs.builder()
- *                             .imageExtractionStatus("ENABLED")
- *                             .build())
- *                         .build())
  *                     .build())
+ *                 .type("MANAGED_KNOWLEDGE_BASE_CONNECTOR")
  *                 .build())
  *             .vectorIngestionConfiguration(AgentDataSourceVectorIngestionConfigurationArgs.builder()
  *                 .parsingConfiguration(AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs.builder()
  *                     .parsingStrategy("SMART_PARSING")
  *                     .build())
  *                 .build())
+ *             .knowledgeBaseId(exampleAwsBedrockagentKnowledgeBase.id())
+ *             .name("example-s3-managed")
  *             .build());
  * 
  *     }
@@ -162,10 +162,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sharepoint = new AgentDataSource("sharepoint", AgentDataSourceArgs.builder()
- *             .knowledgeBaseId(example.id())
- *             .name("example-sharepoint")
  *             .dataSourceConfiguration(AgentDataSourceDataSourceConfigurationArgs.builder()
- *                 .type("MANAGED_KNOWLEDGE_BASE_CONNECTOR")
  *                 .managedKnowledgeBaseConnectorConfiguration(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationArgs.builder()
  *                     .connectorParameters(serializeJson(
  *                         jsonObject(
@@ -188,7 +185,10 @@ import javax.annotation.Nullable;
  *                             ))
  *                         )))
  *                     .build())
+ *                 .type("MANAGED_KNOWLEDGE_BASE_CONNECTOR")
  *                 .build())
+ *             .knowledgeBaseId(example.id())
+ *             .name("example-sharepoint")
  *             .build());
  * 
  *     }
@@ -229,33 +229,33 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AgentDataSource("example", AgentDataSourceArgs.builder()
- *             .knowledgeBaseId(exampleAwsBedrockagentKnowledgeBase.id())
- *             .name("multimodal-example")
  *             .dataSourceConfiguration(AgentDataSourceDataSourceConfigurationArgs.builder()
- *                 .type("S3")
  *                 .s3Configuration(AgentDataSourceDataSourceConfigurationS3ConfigurationArgs.builder()
  *                     .bucketArn(exampleAwsS3Bucket.arn())
  *                     .build())
+ *                 .type("S3")
  *                 .build())
  *             .vectorIngestionConfiguration(AgentDataSourceVectorIngestionConfigurationArgs.builder()
  *                 .chunkingConfiguration(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs.builder()
- *                     .chunkingStrategy("FIXED_SIZE")
  *                     .fixedSizeChunkingConfiguration(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs.builder()
  *                         .maxTokens(512)
  *                         .overlapPercentage(20)
  *                         .build())
+ *                     .chunkingStrategy("FIXED_SIZE")
  *                     .build())
  *                 .parsingConfiguration(AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs.builder()
- *                     .parsingStrategy("BEDROCK_FOUNDATION_MODEL")
  *                     .bedrockFoundationModelConfiguration(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs.builder()
- *                         .modelArn("arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-3-sonnet-20240229-v1:0")
- *                         .parsingModality("MULTIMODAL")
  *                         .parsingPrompt(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs.builder()
  *                             .parsingPromptString("Extract and transcribe all text and visual content from the document.")
  *                             .build())
+ *                         .modelArn("arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-3-sonnet-20240229-v1:0")
+ *                         .parsingModality("MULTIMODAL")
  *                         .build())
+ *                     .parsingStrategy("BEDROCK_FOUNDATION_MODEL")
  *                     .build())
  *                 .build())
+ *             .knowledgeBaseId(exampleAwsBedrockagentKnowledgeBase.id())
+ *             .name("multimodal-example")
  *             .build());
  * 
  *     }

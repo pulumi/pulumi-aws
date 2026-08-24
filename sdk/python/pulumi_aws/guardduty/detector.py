@@ -276,7 +276,6 @@ class Detector(pulumi.CustomResource):
         import pulumi_aws as aws
 
         my_detector = aws.guardduty.Detector("MyDetector",
-            enable=True,
             datasources={
                 "s3_logs": {
                     "enable": True,
@@ -293,7 +292,8 @@ class Detector(pulumi.CustomResource):
                         },
                     },
                 },
-            })
+            },
+            enable=True)
         ```
 
         ## Import
@@ -333,7 +333,6 @@ class Detector(pulumi.CustomResource):
         import pulumi_aws as aws
 
         my_detector = aws.guardduty.Detector("MyDetector",
-            enable=True,
             datasources={
                 "s3_logs": {
                     "enable": True,
@@ -350,7 +349,8 @@ class Detector(pulumi.CustomResource):
                         },
                     },
                 },
-            })
+            },
+            enable=True)
         ```
 
         ## Import

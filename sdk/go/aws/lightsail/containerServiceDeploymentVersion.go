@@ -35,6 +35,18 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lightsail.NewContainerServiceDeploymentVersion(ctx, "example", &lightsail.ContainerServiceDeploymentVersionArgs{
+//				PublicEndpoint: &lightsail.ContainerServiceDeploymentVersionPublicEndpointArgs{
+//					HealthCheck: &lightsail.ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs{
+//						HealthyThreshold:   pulumi.Int(2),
+//						UnhealthyThreshold: pulumi.Int(2),
+//						TimeoutSeconds:     pulumi.Int(2),
+//						IntervalSeconds:    pulumi.Int(5),
+//						Path:               pulumi.String("/"),
+//						SuccessCodes:       pulumi.String("200-499"),
+//					},
+//					ContainerName: pulumi.String("hello-world"),
+//					ContainerPort: pulumi.Int(80),
+//				},
 //				Containers: lightsail.ContainerServiceDeploymentVersionContainerArray{
 //					&lightsail.ContainerServiceDeploymentVersionContainerArgs{
 //						ContainerName: pulumi.String("hello-world"),
@@ -46,18 +58,6 @@ import (
 //						Ports: pulumi.StringMap{
 //							"80": pulumi.String("HTTP"),
 //						},
-//					},
-//				},
-//				PublicEndpoint: &lightsail.ContainerServiceDeploymentVersionPublicEndpointArgs{
-//					ContainerName: pulumi.String("hello-world"),
-//					ContainerPort: pulumi.Int(80),
-//					HealthCheck: &lightsail.ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs{
-//						HealthyThreshold:   pulumi.Int(2),
-//						UnhealthyThreshold: pulumi.Int(2),
-//						TimeoutSeconds:     pulumi.Int(2),
-//						IntervalSeconds:    pulumi.Int(5),
-//						Path:               pulumi.String("/"),
-//						SuccessCodes:       pulumi.String("200-499"),
 //					},
 //				},
 //				ServiceName: pulumi.Any(exampleAwsLightsailContainerService.Name),

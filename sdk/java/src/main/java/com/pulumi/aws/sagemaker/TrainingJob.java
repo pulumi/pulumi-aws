@@ -72,8 +72,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new TrainingJob("example", TrainingJobArgs.builder()
- *             .trainingJobName("example")
- *             .roleArn(exampleAwsIamRole.arn())
  *             .algorithmSpecification(TrainingJobAlgorithmSpecificationArgs.builder()
  *                 .trainingInputMode("File")
  *                 .trainingImage(exampleAwsSagemakerPrebuiltEcrImage.registryPath())
@@ -89,6 +87,8 @@ import javax.annotation.Nullable;
  *             .stoppingCondition(TrainingJobStoppingConditionArgs.builder()
  *                 .maxRuntimeInSeconds(3600)
  *                 .build())
+ *             .trainingJobName("example")
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }
@@ -126,8 +126,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new TrainingJob("example", TrainingJobArgs.builder()
- *             .trainingJobName("example")
- *             .roleArn(exampleAwsIamRole.arn())
  *             .algorithmSpecification(TrainingJobAlgorithmSpecificationArgs.builder()
  *                 .trainingInputMode("File")
  *                 .trainingImage(exampleAwsSagemakerPrebuiltEcrImage.registryPath())
@@ -147,6 +145,8 @@ import javax.annotation.Nullable;
  *                 .securityGroupIds(exampleAwsSecurityGroup.id())
  *                 .subnets(exampleAwsSubnet.id())
  *                 .build())
+ *             .trainingJobName("example")
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }
@@ -166,12 +166,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.sagemaker.TrainingJob;
  * import com.pulumi.aws.sagemaker.TrainingJobArgs;
  * import com.pulumi.aws.sagemaker.inputs.TrainingJobAlgorithmSpecificationArgs;
- * import com.pulumi.aws.sagemaker.inputs.TrainingJobInputDataConfigArgs;
- * import com.pulumi.aws.sagemaker.inputs.TrainingJobInputDataConfigDataSourceArgs;
- * import com.pulumi.aws.sagemaker.inputs.TrainingJobInputDataConfigDataSourceS3DataSourceArgs;
  * import com.pulumi.aws.sagemaker.inputs.TrainingJobOutputDataConfigArgs;
  * import com.pulumi.aws.sagemaker.inputs.TrainingJobResourceConfigArgs;
  * import com.pulumi.aws.sagemaker.inputs.TrainingJobStoppingConditionArgs;
+ * import com.pulumi.aws.sagemaker.inputs.TrainingJobInputDataConfigArgs;
+ * import com.pulumi.aws.sagemaker.inputs.TrainingJobInputDataConfigDataSourceArgs;
+ * import com.pulumi.aws.sagemaker.inputs.TrainingJobInputDataConfigDataSourceS3DataSourceArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -186,25 +186,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new TrainingJob("example", TrainingJobArgs.builder()
- *             .trainingJobName("example")
- *             .roleArn(exampleAwsIamRole.arn())
  *             .algorithmSpecification(TrainingJobAlgorithmSpecificationArgs.builder()
  *                 .trainingInputMode("File")
  *                 .trainingImage(exampleAwsSagemakerPrebuiltEcrImage.registryPath())
  *                 .enableSagemakerMetricsTimeSeries(true)
- *                 .build())
- *             .hyperParameters(Map.ofEntries(
- *                 Map.entry("mini_batch_size", "200"),
- *                 Map.entry("epochs", "10")
- *             ))
- *             .inputDataConfigs(TrainingJobInputDataConfigArgs.builder()
- *                 .channelName("train")
- *                 .dataSource(TrainingJobInputDataConfigDataSourceArgs.builder()
- *                     .s3DataSource(TrainingJobInputDataConfigDataSourceS3DataSourceArgs.builder()
- *                         .s3DataType("S3Prefix")
- *                         .s3Uri(String.format("s3://%s/train/", exampleAwsS3Bucket.bucket()))
- *                         .build())
- *                     .build())
  *                 .build())
  *             .outputDataConfig(TrainingJobOutputDataConfigArgs.builder()
  *                 .s3OutputPath(String.format("s3://%s/output/", exampleAwsS3Bucket.bucket()))
@@ -217,6 +202,21 @@ import javax.annotation.Nullable;
  *             .stoppingCondition(TrainingJobStoppingConditionArgs.builder()
  *                 .maxRuntimeInSeconds(3600)
  *                 .build())
+ *             .inputDataConfigs(TrainingJobInputDataConfigArgs.builder()
+ *                 .dataSource(TrainingJobInputDataConfigDataSourceArgs.builder()
+ *                     .s3DataSource(TrainingJobInputDataConfigDataSourceS3DataSourceArgs.builder()
+ *                         .s3DataType("S3Prefix")
+ *                         .s3Uri(String.format("s3://%s/train/", exampleAwsS3Bucket.bucket()))
+ *                         .build())
+ *                     .build())
+ *                 .channelName("train")
+ *                 .build())
+ *             .trainingJobName("example")
+ *             .roleArn(exampleAwsIamRole.arn())
+ *             .hyperParameters(Map.ofEntries(
+ *                 Map.entry("mini_batch_size", "200"),
+ *                 Map.entry("epochs", "10")
+ *             ))
  *             .build());
  * 
  *     }
@@ -255,8 +255,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new TrainingJob("example", TrainingJobArgs.builder()
- *             .trainingJobName("example")
- *             .roleArn(exampleAwsIamRole.arn())
  *             .algorithmSpecification(TrainingJobAlgorithmSpecificationArgs.builder()
  *                 .trainingInputMode("File")
  *                 .trainingImage(exampleAwsSagemakerPrebuiltEcrImage.registryPath())
@@ -283,6 +281,8 @@ import javax.annotation.Nullable;
  *                 .localPath("/opt/ml/output/tensorboard")
  *                 .s3OutputPath(String.format("s3://%s/tensorboard/", exampleAwsS3Bucket.bucket()))
  *                 .build())
+ *             .trainingJobName("example")
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }
@@ -321,12 +321,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new TrainingJob("example", TrainingJobArgs.builder()
- *             .trainingJobName("example")
- *             .roleArn(exampleAwsIamRole.arn())
- *             .enableManagedSpotTraining(true)
- *             .enableNetworkIsolation(true)
- *             .enableInterContainerTrafficEncryption(true)
  *             .algorithmSpecification(TrainingJobAlgorithmSpecificationArgs.builder()
+ *                 .metricDefinitions(                
+ *                     TrainingJobAlgorithmSpecificationMetricDefinitionArgs.builder()
+ *                         .name("train:loss")
+ *                         .regex("loss: ([0-9\\.]+)")
+ *                         .build(),
+ *                     TrainingJobAlgorithmSpecificationMetricDefinitionArgs.builder()
+ *                         .name("validation:accuracy")
+ *                         .regex("accuracy: ([0-9\\.]+)")
+ *                         .build())
  *                 .trainingInputMode("File")
  *                 .trainingImage(trainingImage)
  *                 .containerEntrypoints(                
@@ -337,24 +341,7 @@ import javax.annotation.Nullable;
  *                     "10",
  *                     "--batch-size",
  *                     "128")
- *                 .metricDefinitions(                
- *                     TrainingJobAlgorithmSpecificationMetricDefinitionArgs.builder()
- *                         .name("train:loss")
- *                         .regex("loss: ([0-9\\.]+)")
- *                         .build(),
- *                     TrainingJobAlgorithmSpecificationMetricDefinitionArgs.builder()
- *                         .name("validation:accuracy")
- *                         .regex("accuracy: ([0-9\\.]+)")
- *                         .build())
  *                 .build())
- *             .environment(Map.ofEntries(
- *                 Map.entry("MODEL_DIR", "/opt/ml/model"),
- *                 Map.entry("SM_LOG_LEVEL", "20")
- *             ))
- *             .hyperParameters(Map.ofEntries(
- *                 Map.entry("epochs", "10"),
- *                 Map.entry("batch_size", "128")
- *             ))
  *             .outputDataConfig(TrainingJobOutputDataConfigArgs.builder()
  *                 .s3OutputPath(String.format("s3://%s/output/", exampleAwsS3Bucket.bucket()))
  *                 .build())
@@ -371,6 +358,19 @@ import javax.annotation.Nullable;
  *                 .maxRuntimeInSeconds(3600)
  *                 .maxWaitTimeInSeconds(7200)
  *                 .build())
+ *             .trainingJobName("example")
+ *             .roleArn(exampleAwsIamRole.arn())
+ *             .enableManagedSpotTraining(true)
+ *             .enableNetworkIsolation(true)
+ *             .enableInterContainerTrafficEncryption(true)
+ *             .environment(Map.ofEntries(
+ *                 Map.entry("MODEL_DIR", "/opt/ml/model"),
+ *                 Map.entry("SM_LOG_LEVEL", "20")
+ *             ))
+ *             .hyperParameters(Map.ofEntries(
+ *                 Map.entry("epochs", "10"),
+ *                 Map.entry("batch_size", "128")
+ *             ))
  *             .tags(Map.ofEntries(
  *                 Map.entry("Environment", "test"),
  *                 Map.entry("Workload", "training")
@@ -394,14 +394,14 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.sagemaker.TrainingJob;
  * import com.pulumi.aws.sagemaker.TrainingJobArgs;
  * import com.pulumi.aws.sagemaker.inputs.TrainingJobAlgorithmSpecificationArgs;
- * import com.pulumi.aws.sagemaker.inputs.TrainingJobInputDataConfigArgs;
- * import com.pulumi.aws.sagemaker.inputs.TrainingJobInputDataConfigDataSourceArgs;
- * import com.pulumi.aws.sagemaker.inputs.TrainingJobInputDataConfigDataSourceS3DataSourceArgs;
  * import com.pulumi.aws.sagemaker.inputs.TrainingJobInfraCheckConfigArgs;
  * import com.pulumi.aws.sagemaker.inputs.TrainingJobOutputDataConfigArgs;
  * import com.pulumi.aws.sagemaker.inputs.TrainingJobResourceConfigArgs;
  * import com.pulumi.aws.sagemaker.inputs.TrainingJobSessionChainingConfigArgs;
  * import com.pulumi.aws.sagemaker.inputs.TrainingJobStoppingConditionArgs;
+ * import com.pulumi.aws.sagemaker.inputs.TrainingJobInputDataConfigArgs;
+ * import com.pulumi.aws.sagemaker.inputs.TrainingJobInputDataConfigDataSourceArgs;
+ * import com.pulumi.aws.sagemaker.inputs.TrainingJobInputDataConfigDataSourceS3DataSourceArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -416,37 +416,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new TrainingJob("example", TrainingJobArgs.builder()
- *             .trainingJobName("example")
- *             .roleArn(exampleAwsIamRole.arn())
  *             .algorithmSpecification(TrainingJobAlgorithmSpecificationArgs.builder()
  *                 .trainingInputMode("File")
  *                 .trainingImage(exampleAwsSagemakerPrebuiltEcrImage.registryPath())
  *                 .build())
- *             .inputDataConfigs(            
- *                 TrainingJobInputDataConfigArgs.builder()
- *                     .channelName("train")
- *                     .contentType("text/csv")
- *                     .inputMode("File")
- *                     .dataSource(TrainingJobInputDataConfigDataSourceArgs.builder()
- *                         .s3DataSource(TrainingJobInputDataConfigDataSourceS3DataSourceArgs.builder()
- *                             .s3DataDistributionType("FullyReplicated")
- *                             .s3DataType("S3Prefix")
- *                             .s3Uri(String.format("s3://%s/train/", exampleAwsS3Bucket.bucket()))
- *                             .build())
- *                         .build())
- *                     .build(),
- *                 TrainingJobInputDataConfigArgs.builder()
- *                     .channelName("validation")
- *                     .contentType("text/csv")
- *                     .inputMode("File")
- *                     .dataSource(TrainingJobInputDataConfigDataSourceArgs.builder()
- *                         .s3DataSource(TrainingJobInputDataConfigDataSourceS3DataSourceArgs.builder()
- *                             .s3DataDistributionType("FullyReplicated")
- *                             .s3DataType("S3Prefix")
- *                             .s3Uri(String.format("s3://%s/validation/", exampleAwsS3Bucket.bucket()))
- *                             .build())
- *                         .build())
- *                     .build())
  *             .infraCheckConfig(TrainingJobInfraCheckConfigArgs.builder()
  *                 .enableInfraCheck(true)
  *                 .build())
@@ -464,6 +437,33 @@ import javax.annotation.Nullable;
  *             .stoppingCondition(TrainingJobStoppingConditionArgs.builder()
  *                 .maxRuntimeInSeconds(3600)
  *                 .build())
+ *             .inputDataConfigs(            
+ *                 TrainingJobInputDataConfigArgs.builder()
+ *                     .dataSource(TrainingJobInputDataConfigDataSourceArgs.builder()
+ *                         .s3DataSource(TrainingJobInputDataConfigDataSourceS3DataSourceArgs.builder()
+ *                             .s3DataDistributionType("FullyReplicated")
+ *                             .s3DataType("S3Prefix")
+ *                             .s3Uri(String.format("s3://%s/train/", exampleAwsS3Bucket.bucket()))
+ *                             .build())
+ *                         .build())
+ *                     .channelName("train")
+ *                     .contentType("text/csv")
+ *                     .inputMode("File")
+ *                     .build(),
+ *                 TrainingJobInputDataConfigArgs.builder()
+ *                     .dataSource(TrainingJobInputDataConfigDataSourceArgs.builder()
+ *                         .s3DataSource(TrainingJobInputDataConfigDataSourceS3DataSourceArgs.builder()
+ *                             .s3DataDistributionType("FullyReplicated")
+ *                             .s3DataType("S3Prefix")
+ *                             .s3Uri(String.format("s3://%s/validation/", exampleAwsS3Bucket.bucket()))
+ *                             .build())
+ *                         .build())
+ *                     .channelName("validation")
+ *                     .contentType("text/csv")
+ *                     .inputMode("File")
+ *                     .build())
+ *             .trainingJobName("example")
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }

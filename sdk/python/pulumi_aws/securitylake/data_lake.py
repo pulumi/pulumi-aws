@@ -258,13 +258,11 @@ class DataLake(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.securitylake.DataLake("example",
-            meta_store_manager_role_arn=meta_store_manager["arn"],
             configuration={
-                "region": "eu-west-1",
-                "encryption_configurations": [{
-                    "kms_key_id": "S3_MANAGED_KEY",
-                }],
                 "lifecycle_configuration": {
+                    "expiration": {
+                        "days": 300,
+                    },
                     "transitions": [
                         {
                             "days": 31,
@@ -275,11 +273,13 @@ class DataLake(pulumi.CustomResource):
                             "storage_class": "ONEZONE_IA",
                         },
                     ],
-                    "expiration": {
-                        "days": 300,
-                    },
                 },
-            })
+                "encryption_configurations": [{
+                    "kms_key_id": "S3_MANAGED_KEY",
+                }],
+                "region": "eu-west-1",
+            },
+            meta_store_manager_role_arn=meta_store_manager["arn"])
         ```
 
         ### Basic Usage
@@ -289,13 +289,13 @@ class DataLake(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.securitylake.DataLake("example",
-            meta_store_manager_role_arn=meta_store_manager["arn"],
             configuration={
-                "region": "eu-west-1",
                 "encryption_configurations": [{
                     "kms_key_id": "S3_MANAGED_KEY",
                 }],
-            })
+                "region": "eu-west-1",
+            },
+            meta_store_manager_role_arn=meta_store_manager["arn"])
         ```
 
         ## Import
@@ -338,13 +338,11 @@ class DataLake(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.securitylake.DataLake("example",
-            meta_store_manager_role_arn=meta_store_manager["arn"],
             configuration={
-                "region": "eu-west-1",
-                "encryption_configurations": [{
-                    "kms_key_id": "S3_MANAGED_KEY",
-                }],
                 "lifecycle_configuration": {
+                    "expiration": {
+                        "days": 300,
+                    },
                     "transitions": [
                         {
                             "days": 31,
@@ -355,11 +353,13 @@ class DataLake(pulumi.CustomResource):
                             "storage_class": "ONEZONE_IA",
                         },
                     ],
-                    "expiration": {
-                        "days": 300,
-                    },
                 },
-            })
+                "encryption_configurations": [{
+                    "kms_key_id": "S3_MANAGED_KEY",
+                }],
+                "region": "eu-west-1",
+            },
+            meta_store_manager_role_arn=meta_store_manager["arn"])
         ```
 
         ### Basic Usage
@@ -369,13 +369,13 @@ class DataLake(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.securitylake.DataLake("example",
-            meta_store_manager_role_arn=meta_store_manager["arn"],
             configuration={
-                "region": "eu-west-1",
                 "encryption_configurations": [{
                     "kms_key_id": "S3_MANAGED_KEY",
                 }],
-            })
+                "region": "eu-west-1",
+            },
+            meta_store_manager_role_arn=meta_store_manager["arn"])
         ```
 
         ## Import

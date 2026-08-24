@@ -3028,7 +3028,8 @@ class Instance(pulumi.CustomResource):
             multi_az=False,
             password="avoid-plaintext-passwords",
             username="test",
-            storage_encrypted=True)
+            storage_encrypted=True,
+            opts = pulumi.ResourceOptions(custom_timeouts=pulumi.CustomTimeouts(create="3h", delete="3h", update="3h")))
         test_replica = aws.rds.Instance("test-replica",
             replicate_source_db=default.identifier,
             replica_mode="mounted",
@@ -3040,7 +3041,8 @@ class Instance(pulumi.CustomResource):
             kms_key_id=by_id.arn,
             multi_az=False,
             skip_final_snapshot=True,
-            storage_encrypted=True)
+            storage_encrypted=True,
+            opts = pulumi.ResourceOptions(custom_timeouts=pulumi.CustomTimeouts(create="3h", delete="3h", update="3h")))
         ```
 
         ### RDS Custom for SQL Server
@@ -3074,7 +3076,8 @@ class Instance(pulumi.CustomResource):
             multi_az=False,
             password="avoid-plaintext-passwords",
             storage_encrypted=True,
-            username="test")
+            username="test",
+            opts = pulumi.ResourceOptions(custom_timeouts=pulumi.CustomTimeouts(create="3h", delete="3h", update="3h")))
         ```
 
         ### RDS Db2 Usage
@@ -3097,8 +3100,6 @@ class Instance(pulumi.CustomResource):
             ])
         # The RDS Db2 instance resource requires licensing information. Create a new parameter group using the default paramater group as a source, and set license information.
         example_parameter_group = aws.rds.ParameterGroup("example",
-            name="db-db2-params",
-            family=default.parameter_group_family,
             parameters=[
                 {
                     "apply_method": "immediate",
@@ -3110,7 +3111,9 @@ class Instance(pulumi.CustomResource):
                     "name": "rds.ibm_site_id",
                     "value": "0",
                 },
-            ])
+            ],
+            name="db-db2-params",
+            family=default.parameter_group_family)
         # Create the RDS Db2 instance, use the data sources defined to set attributes
         example_instance = aws.rds.Instance("example",
             allocated_storage=100,
@@ -3431,7 +3434,8 @@ class Instance(pulumi.CustomResource):
             multi_az=False,
             password="avoid-plaintext-passwords",
             username="test",
-            storage_encrypted=True)
+            storage_encrypted=True,
+            opts = pulumi.ResourceOptions(custom_timeouts=pulumi.CustomTimeouts(create="3h", delete="3h", update="3h")))
         test_replica = aws.rds.Instance("test-replica",
             replicate_source_db=default.identifier,
             replica_mode="mounted",
@@ -3443,7 +3447,8 @@ class Instance(pulumi.CustomResource):
             kms_key_id=by_id.arn,
             multi_az=False,
             skip_final_snapshot=True,
-            storage_encrypted=True)
+            storage_encrypted=True,
+            opts = pulumi.ResourceOptions(custom_timeouts=pulumi.CustomTimeouts(create="3h", delete="3h", update="3h")))
         ```
 
         ### RDS Custom for SQL Server
@@ -3477,7 +3482,8 @@ class Instance(pulumi.CustomResource):
             multi_az=False,
             password="avoid-plaintext-passwords",
             storage_encrypted=True,
-            username="test")
+            username="test",
+            opts = pulumi.ResourceOptions(custom_timeouts=pulumi.CustomTimeouts(create="3h", delete="3h", update="3h")))
         ```
 
         ### RDS Db2 Usage
@@ -3500,8 +3506,6 @@ class Instance(pulumi.CustomResource):
             ])
         # The RDS Db2 instance resource requires licensing information. Create a new parameter group using the default paramater group as a source, and set license information.
         example_parameter_group = aws.rds.ParameterGroup("example",
-            name="db-db2-params",
-            family=default.parameter_group_family,
             parameters=[
                 {
                     "apply_method": "immediate",
@@ -3513,7 +3517,9 @@ class Instance(pulumi.CustomResource):
                     "name": "rds.ibm_site_id",
                     "value": "0",
                 },
-            ])
+            ],
+            name="db-db2-params",
+            family=default.parameter_group_family)
         # Create the RDS Db2 instance, use the data sources defined to set attributes
         example_instance = aws.rds.Instance("example",
             allocated_storage=100,

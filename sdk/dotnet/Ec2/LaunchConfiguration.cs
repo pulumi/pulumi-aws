@@ -28,7 +28,6 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var ubuntu = Aws.Ec2.GetAmi.Invoke(new()
     ///     {
-    ///         MostRecent = true,
     ///         Filters = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
@@ -48,6 +47,7 @@ namespace Pulumi.Aws.Ec2
     ///                 },
     ///             },
     ///         },
+    ///         MostRecent = true,
     ///         Owners = new[]
     ///         {
     ///             "099720109477",

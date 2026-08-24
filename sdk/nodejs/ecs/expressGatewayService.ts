@@ -21,11 +21,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ecs.ExpressGatewayService("example", {
- *     executionRoleArn: execution.arn,
- *     infrastructureRoleArn: infrastructure.arn,
  *     primaryContainer: {
  *         image: "nginx:latest",
  *     },
+ *     executionRoleArn: execution.arn,
+ *     infrastructureRoleArn: infrastructure.arn,
  * });
  * ```
  *
@@ -36,13 +36,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ecs.ExpressGatewayService("example", {
- *     executionRoleArn: execution.arn,
- *     infrastructureRoleArn: infrastructure.arn,
- *     healthCheckPath: "/health",
  *     primaryContainer: {
- *         image: "my-app:latest",
- *         containerPort: 8080,
- *         commands: ["./start.sh"],
  *         awsLogsConfigurations: [{
  *             logGroup: app.name,
  *         }],
@@ -60,7 +54,13 @@ import * as utilities from "../utilities";
  *             name: "DB_PASSWORD",
  *             valueFrom: dbPassword.arn,
  *         }],
+ *         image: "my-app:latest",
+ *         containerPort: 8080,
+ *         commands: ["./start.sh"],
  *     },
+ *     executionRoleArn: execution.arn,
+ *     infrastructureRoleArn: infrastructure.arn,
+ *     healthCheckPath: "/health",
  * });
  * ```
  *
@@ -71,12 +71,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ecs.ExpressGatewayService("example", {
- *     serviceName: "my-express-service",
- *     cluster: main.name,
- *     executionRoleArn: execution.arn,
- *     infrastructureRoleArn: infrastructure.arn,
- *     cpu: "256",
- *     memory: "512",
  *     primaryContainer: {
  *         image: "nginx:latest",
  *         containerPort: 80,
@@ -88,6 +82,12 @@ import * as utilities from "../utilities";
  *         ],
  *         securityGroups: [app.id],
  *     }],
+ *     serviceName: "my-express-service",
+ *     cluster: main.name,
+ *     executionRoleArn: execution.arn,
+ *     infrastructureRoleArn: infrastructure.arn,
+ *     cpu: "256",
+ *     memory: "512",
  * });
  * ```
  *

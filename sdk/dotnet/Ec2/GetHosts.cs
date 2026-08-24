@@ -66,7 +66,6 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var outpost = Aws.Ec2.GetHosts.Invoke(new()
         ///     {
-        ///         OutpostArn = example.Arn,
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ec2.Inputs.GetHostsFilterInputArgs
@@ -78,6 +77,7 @@ namespace Pulumi.Aws.Ec2
         ///                 },
         ///             },
         ///         },
+        ///         OutpostArn = example.Arn,
         ///     });
         /// 
         /// });
@@ -141,7 +141,6 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var outpost = Aws.Ec2.GetHosts.Invoke(new()
         ///     {
-        ///         OutpostArn = example.Arn,
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ec2.Inputs.GetHostsFilterInputArgs
@@ -153,6 +152,7 @@ namespace Pulumi.Aws.Ec2
         ///                 },
         ///             },
         ///         },
+        ///         OutpostArn = example.Arn,
         ///     });
         /// 
         /// });
@@ -216,7 +216,6 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var outpost = Aws.Ec2.GetHosts.Invoke(new()
         ///     {
-        ///         OutpostArn = example.Arn,
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ec2.Inputs.GetHostsFilterInputArgs
@@ -228,6 +227,7 @@ namespace Pulumi.Aws.Ec2
         ///                 },
         ///             },
         ///         },
+        ///         OutpostArn = example.Arn,
         ///     });
         /// 
         /// });

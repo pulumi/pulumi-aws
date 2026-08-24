@@ -468,9 +468,6 @@ class Pipeline(pulumi.CustomResource):
         import pulumi_aws as aws
 
         bar = aws.elastictranscoder.Pipeline("bar",
-            input_bucket=input_bucket["id"],
-            name="aws_elastictranscoder_pipeline_my_test_",
-            role=test_role["arn"],
             content_config={
                 "bucket": content_bucket["id"],
                 "storage_class": "Standard",
@@ -478,7 +475,10 @@ class Pipeline(pulumi.CustomResource):
             thumbnail_config={
                 "bucket": thumb_bucket["id"],
                 "storage_class": "Standard",
-            })
+            },
+            input_bucket=input_bucket["id"],
+            name="aws_elastictranscoder_pipeline_my_test_",
+            role=test_role["arn"])
         ```
 
         ## Import
@@ -531,9 +531,6 @@ class Pipeline(pulumi.CustomResource):
         import pulumi_aws as aws
 
         bar = aws.elastictranscoder.Pipeline("bar",
-            input_bucket=input_bucket["id"],
-            name="aws_elastictranscoder_pipeline_my_test_",
-            role=test_role["arn"],
             content_config={
                 "bucket": content_bucket["id"],
                 "storage_class": "Standard",
@@ -541,7 +538,10 @@ class Pipeline(pulumi.CustomResource):
             thumbnail_config={
                 "bucket": thumb_bucket["id"],
                 "storage_class": "Standard",
-            })
+            },
+            input_bucket=input_bucket["id"],
+            name="aws_elastictranscoder_pipeline_my_test_",
+            role=test_role["arn"])
         ```
 
         ## Import

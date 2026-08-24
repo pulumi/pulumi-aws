@@ -36,11 +36,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const example = new aws.lex.V2modelsBot("example", {
- *     name: "example",
- *     description: "Example description",
  *     dataPrivacies: [{
  *         childDirected: false,
  *     }],
+ *     name: "example",
+ *     description: "Example description",
  *     idleSessionTtlInSeconds: 60,
  *     roleArn: exampleRole.arn,
  *     type: "Bot",

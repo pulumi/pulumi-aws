@@ -31,18 +31,18 @@ namespace Pulumi.Aws.MediaLive
     /// 
     ///     var example = new Aws.MediaLive.Multiplex("example", new()
     ///     {
-    ///         Name = "example-multiplex-changed",
-    ///         AvailabilityZones = new[]
-    ///         {
-    ///             available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
-    ///             available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[1]),
-    ///         },
     ///         MultiplexSettings = new Aws.MediaLive.Inputs.MultiplexMultiplexSettingsArgs
     ///         {
     ///             TransportStreamBitrate = 1000000,
     ///             TransportStreamId = 1,
     ///             TransportStreamReservedBitrate = 1,
     ///             MaximumVideoBufferDelayMilliseconds = 1000,
+    ///         },
+    ///         Name = "example-multiplex-changed",
+    ///         AvailabilityZones = new[]
+    ///         {
+    ///             available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
+    ///             available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[1]),
     ///         },
     ///         StartMultiplex = true,
     ///         Tags = 
@@ -53,17 +53,17 @@ namespace Pulumi.Aws.MediaLive
     /// 
     ///     var exampleMultiplexProgram = new Aws.MediaLive.MultiplexProgram("example", new()
     ///     {
-    ///         ProgramName = "example_program",
-    ///         MultiplexId = example.Id,
     ///         MultiplexProgramSettings = new Aws.MediaLive.Inputs.MultiplexProgramMultiplexProgramSettingsArgs
     ///         {
-    ///             ProgramNumber = 1,
-    ///             PreferredChannelPipeline = "CURRENTLY_ACTIVE",
     ///             VideoSettings = new Aws.MediaLive.Inputs.MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs
     ///             {
     ///                 ConstantBitrate = 100000,
     ///             },
+    ///             ProgramNumber = 1,
+    ///             PreferredChannelPipeline = "CURRENTLY_ACTIVE",
     ///         },
+    ///         ProgramName = "example_program",
+    ///         MultiplexId = example.Id,
     ///     });
     /// 
     /// });

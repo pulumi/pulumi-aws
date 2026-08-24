@@ -48,11 +48,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DeviceFleet("example", DeviceFleetArgs.builder()
- *             .deviceFleetName("example")
- *             .roleArn(test.arn())
  *             .outputConfig(DeviceFleetOutputConfigArgs.builder()
  *                 .s3OutputLocation(String.format("s3://%s/prefix/", exampleAwsS3Bucket.bucket()))
  *                 .build())
+ *             .deviceFleetName("example")
+ *             .roleArn(test.arn())
  *             .build());
  * 
  *     }

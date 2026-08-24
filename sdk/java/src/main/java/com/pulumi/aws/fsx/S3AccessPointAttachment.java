@@ -48,18 +48,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new S3AccessPointAttachment("example", S3AccessPointAttachmentArgs.builder()
- *             .name("example-attachment")
- *             .type("OPENZFS")
  *             .openzfsConfiguration(S3AccessPointAttachmentOpenzfsConfigurationArgs.builder()
- *                 .volumeId(exampleAwsFsxOpenzfsVolume.id())
  *                 .fileSystemIdentity(S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityArgs.builder()
- *                     .type("POSIX")
  *                     .posixUser(S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityPosixUserArgs.builder()
  *                         .uid(1001)
  *                         .gid(1001)
  *                         .build())
+ *                     .type("POSIX")
  *                     .build())
+ *                 .volumeId(exampleAwsFsxOpenzfsVolume.id())
  *                 .build())
+ *             .name("example-attachment")
+ *             .type("OPENZFS")
  *             .build());
  * 
  *     }

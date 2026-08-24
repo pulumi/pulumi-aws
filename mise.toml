@@ -18,7 +18,7 @@ golangci-lint = "2.7.0"
 "vfox-pulumi:pulumi/pulumi-local" = "0.1.6"
 "vfox-pulumi:pulumi/pulumi-random" = "4.18.5"
 "vfox-pulumi:pulumi/pulumi-std" = "2.2.0"
-"vfox-pulumi:pulumi/pulumi-converter-terraform" = "1.2.4"
+"vfox-pulumi:pulumi/pulumi-converter-terraform" = "1.4.0"
 
 [deps.agent-skills]
 sources = ["apm.yml", "apm.lock.yaml"]

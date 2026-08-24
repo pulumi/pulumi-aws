@@ -51,13 +51,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new WebAclLoggingConfiguration("example", WebAclLoggingConfigurationArgs.builder()
- *             .logDestinationConfigs(exampleAwsKinesisFirehoseDeliveryStream.arn())
- *             .resourceArn(exampleAwsWafv2WebAcl.arn())
  *             .redactedFields(WebAclLoggingConfigurationRedactedFieldArgs.builder()
  *                 .singleHeader(WebAclLoggingConfigurationRedactedFieldSingleHeaderArgs.builder()
  *                     .name("user-agent")
  *                     .build())
  *                 .build())
+ *             .logDestinationConfigs(exampleAwsKinesisFirehoseDeliveryStream.arn())
+ *             .resourceArn(exampleAwsWafv2WebAcl.arn())
  *             .build());
  * 
  *     }
@@ -95,13 +95,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new WebAclLoggingConfiguration("example", WebAclLoggingConfigurationArgs.builder()
- *             .logDestinationConfigs(exampleAwsKinesisFirehoseDeliveryStream.arn())
- *             .resourceArn(exampleAwsWafv2WebAcl.arn())
  *             .loggingFilter(WebAclLoggingConfigurationLoggingFilterArgs.builder()
- *                 .defaultBehavior("KEEP")
  *                 .filters(                
  *                     WebAclLoggingConfigurationLoggingFilterFilterArgs.builder()
- *                         .behavior("DROP")
  *                         .conditions(                        
  *                             WebAclLoggingConfigurationLoggingFilterFilterConditionArgs.builder()
  *                                 .actionCondition(WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs.builder()
@@ -113,18 +109,22 @@ import javax.annotation.Nullable;
  *                                     .labelName("awswaf:111122223333:rulegroup:testRules:LabelNameZ")
  *                                     .build())
  *                                 .build())
+ *                         .behavior("DROP")
  *                         .requirement("MEETS_ALL")
  *                         .build(),
  *                     WebAclLoggingConfigurationLoggingFilterFilterArgs.builder()
- *                         .behavior("KEEP")
  *                         .conditions(WebAclLoggingConfigurationLoggingFilterFilterConditionArgs.builder()
  *                             .actionCondition(WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs.builder()
  *                                 .action("ALLOW")
  *                                 .build())
  *                             .build())
+ *                         .behavior("KEEP")
  *                         .requirement("MEETS_ANY")
  *                         .build())
+ *                 .defaultBehavior("KEEP")
  *                 .build())
+ *             .logDestinationConfigs(exampleAwsKinesisFirehoseDeliveryStream.arn())
+ *             .resourceArn(exampleAwsWafv2WebAcl.arn())
  *             .build());
  * 
  *     }

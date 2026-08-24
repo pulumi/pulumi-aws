@@ -37,13 +37,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cfg.NewConformancePack(ctx, "example", &cfg.ConformancePackArgs{
-//				Name: pulumi.String("example"),
 //				InputParameters: cfg.ConformancePackInputParameterArray{
 //					&cfg.ConformancePackInputParameterArgs{
 //						ParameterName:  pulumi.String("AccessKeysRotatedParameterMaxAccessKeyAge"),
 //						ParameterValue: pulumi.String("90"),
 //					},
 //				},
+//				Name: pulumi.String("example"),
 //				TemplateBody: pulumi.String(`Parameters:
 //	  AccessKeysRotatedParameterMaxAccessKeyAge:
 //	    Type: String

@@ -52,11 +52,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     ///     var fooPeeringConnectionOptions = new Aws.Ec2.PeeringConnectionOptions("foo", new()
     ///     {
-    ///         VpcPeeringConnectionId = fooVpcPeeringConnection.Id,
     ///         Accepter = new Aws.Ec2.Inputs.PeeringConnectionOptionsAccepterArgs
     ///         {
     ///             AllowRemoteVpcDnsResolution = true,
     ///         },
+    ///         VpcPeeringConnectionId = fooVpcPeeringConnection.Id,
     ///     });
     /// 
     /// });
@@ -114,20 +114,20 @@ namespace Pulumi.Aws.Ec2
     /// 
     ///     var requester = new Aws.Ec2.PeeringConnectionOptions("requester", new()
     ///     {
-    ///         VpcPeeringConnectionId = peerVpcPeeringConnectionAccepter.Id,
     ///         Requester = new Aws.Ec2.Inputs.PeeringConnectionOptionsRequesterArgs
     ///         {
     ///             AllowRemoteVpcDnsResolution = true,
     ///         },
+    ///         VpcPeeringConnectionId = peerVpcPeeringConnectionAccepter.Id,
     ///     });
     /// 
     ///     var accepter = new Aws.Ec2.PeeringConnectionOptions("accepter", new()
     ///     {
-    ///         VpcPeeringConnectionId = peerVpcPeeringConnectionAccepter.Id,
     ///         Accepter = new Aws.Ec2.Inputs.PeeringConnectionOptionsAccepterArgs
     ///         {
     ///             AllowRemoteVpcDnsResolution = true,
     ///         },
+    ///         VpcPeeringConnectionId = peerVpcPeeringConnectionAccepter.Id,
     ///     });
     /// 
     /// });

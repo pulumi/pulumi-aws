@@ -20,11 +20,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.connect.User("example", {
- *     instanceId: exampleAwsConnectInstance.id,
- *     name: "example",
- *     password: "Password123",
- *     routingProfileId: exampleAwsConnectRoutingProfile.routingProfileId,
- *     securityProfileIds: [exampleAwsConnectSecurityProfile.securityProfileId],
  *     identityInfo: {
  *         firstName: "example",
  *         lastName: "example2",
@@ -33,6 +28,11 @@ import * as utilities from "../utilities";
  *         afterContactWorkTimeLimit: 0,
  *         phoneType: "SOFT_PHONE",
  *     },
+ *     instanceId: exampleAwsConnectInstance.id,
+ *     name: "example",
+ *     password: "Password123",
+ *     routingProfileId: exampleAwsConnectRoutingProfile.routingProfileId,
+ *     securityProfileIds: [exampleAwsConnectSecurityProfile.securityProfileId],
  * });
  * ```
  *
@@ -43,12 +43,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.connect.User("example", {
- *     instanceId: exampleAwsConnectInstance.id,
- *     name: "example",
- *     password: "Password123",
- *     routingProfileId: exampleAwsConnectRoutingProfile.routingProfileId,
- *     hierarchyGroupId: exampleAwsConnectUserHierarchyGroup.hierarchyGroupId,
- *     securityProfileIds: [exampleAwsConnectSecurityProfile.securityProfileId],
  *     identityInfo: {
  *         firstName: "example",
  *         lastName: "example2",
@@ -57,6 +51,12 @@ import * as utilities from "../utilities";
  *         afterContactWorkTimeLimit: 0,
  *         phoneType: "SOFT_PHONE",
  *     },
+ *     instanceId: exampleAwsConnectInstance.id,
+ *     name: "example",
+ *     password: "Password123",
+ *     routingProfileId: exampleAwsConnectRoutingProfile.routingProfileId,
+ *     hierarchyGroupId: exampleAwsConnectUserHierarchyGroup.hierarchyGroupId,
+ *     securityProfileIds: [exampleAwsConnectSecurityProfile.securityProfileId],
  * });
  * ```
  *
@@ -67,11 +67,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.connect.User("example", {
- *     instanceId: exampleAwsConnectInstance.id,
- *     name: "example",
- *     password: "Password123",
- *     routingProfileId: exampleAwsConnectRoutingProfile.routingProfileId,
- *     securityProfileIds: [exampleAwsConnectSecurityProfile.securityProfileId],
  *     identityInfo: {
  *         email: "example@example.com",
  *         firstName: "example",
@@ -82,6 +77,11 @@ import * as utilities from "../utilities";
  *         afterContactWorkTimeLimit: 0,
  *         phoneType: "SOFT_PHONE",
  *     },
+ *     instanceId: exampleAwsConnectInstance.id,
+ *     name: "example",
+ *     password: "Password123",
+ *     routingProfileId: exampleAwsConnectRoutingProfile.routingProfileId,
+ *     securityProfileIds: [exampleAwsConnectSecurityProfile.securityProfileId],
  * });
  * ```
  *
@@ -92,15 +92,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.connect.User("example", {
+ *     phoneConfig: {
+ *         afterContactWorkTimeLimit: 0,
+ *         phoneType: "SOFT_PHONE",
+ *     },
  *     instanceId: exampleAwsConnectInstance.id,
  *     name: "example",
  *     password: "Password123",
  *     routingProfileId: exampleAwsConnectRoutingProfile.routingProfileId,
  *     securityProfileIds: [exampleAwsConnectSecurityProfile.securityProfileId],
- *     phoneConfig: {
- *         afterContactWorkTimeLimit: 0,
- *         phoneType: "SOFT_PHONE",
- *     },
  * });
  * ```
  *
@@ -111,6 +111,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.connect.User("example", {
+ *     phoneConfig: {
+ *         afterContactWorkTimeLimit: 0,
+ *         autoAccept: false,
+ *         deskPhoneNumber: "+112345678912",
+ *         phoneType: "DESK_PHONE",
+ *     },
  *     instanceId: exampleAwsConnectInstance.id,
  *     name: "example",
  *     password: "Password123",
@@ -119,12 +125,6 @@ import * as utilities from "../utilities";
  *         exampleAwsConnectSecurityProfile.securityProfileId,
  *         example2.securityProfileId,
  *     ],
- *     phoneConfig: {
- *         afterContactWorkTimeLimit: 0,
- *         autoAccept: false,
- *         deskPhoneNumber: "+112345678912",
- *         phoneType: "DESK_PHONE",
- *     },
  * });
  * ```
  *

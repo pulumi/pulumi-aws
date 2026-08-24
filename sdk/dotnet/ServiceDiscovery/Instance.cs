@@ -38,10 +38,8 @@ namespace Pulumi.Aws.ServiceDiscovery
     /// 
     ///     var exampleService = new Aws.ServiceDiscovery.Service("example", new()
     ///     {
-    ///         Name = "example",
     ///         DnsConfig = new Aws.ServiceDiscovery.Inputs.ServiceDnsConfigArgs
     ///         {
-    ///             NamespaceId = examplePrivateDnsNamespace.Id,
     ///             DnsRecords = new[]
     ///             {
     ///                 new Aws.ServiceDiscovery.Inputs.ServiceDnsConfigDnsRecordArgs
@@ -50,12 +48,14 @@ namespace Pulumi.Aws.ServiceDiscovery
     ///                     Type = "A",
     ///                 },
     ///             },
+    ///             NamespaceId = examplePrivateDnsNamespace.Id,
     ///             RoutingPolicy = "MULTIVALUE",
     ///         },
     ///         HealthCheckCustomConfig = new Aws.ServiceDiscovery.Inputs.ServiceHealthCheckCustomConfigArgs
     ///         {
     ///             FailureThreshold = 1,
     ///         },
+    ///         Name = "example",
     ///     });
     /// 
     ///     var exampleInstance = new Aws.ServiceDiscovery.Instance("example", new()

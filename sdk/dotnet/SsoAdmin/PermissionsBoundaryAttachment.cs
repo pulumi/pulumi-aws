@@ -59,8 +59,6 @@ namespace Pulumi.Aws.SsoAdmin
     /// 
     ///     var examplePermissionsBoundaryAttachment = new Aws.SsoAdmin.PermissionsBoundaryAttachment("example", new()
     ///     {
-    ///         InstanceArn = examplePermissionSet.InstanceArn,
-    ///         PermissionSetArn = examplePermissionSet.Arn,
     ///         PermissionsBoundary = new Aws.SsoAdmin.Inputs.PermissionsBoundaryAttachmentPermissionsBoundaryArgs
     ///         {
     ///             CustomerManagedPolicyReference = new Aws.SsoAdmin.Inputs.PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs
@@ -69,6 +67,8 @@ namespace Pulumi.Aws.SsoAdmin
     ///                 Path = "/",
     ///             },
     ///         },
+    ///         InstanceArn = examplePermissionSet.InstanceArn,
+    ///         PermissionSetArn = examplePermissionSet.Arn,
     ///     });
     /// 
     /// });
@@ -86,12 +86,12 @@ namespace Pulumi.Aws.SsoAdmin
     /// {
     ///     var example = new Aws.SsoAdmin.PermissionsBoundaryAttachment("example", new()
     ///     {
-    ///         InstanceArn = exampleAwsSsoadminPermissionSet.InstanceArn,
-    ///         PermissionSetArn = exampleAwsSsoadminPermissionSet.Arn,
     ///         PermissionsBoundary = new Aws.SsoAdmin.Inputs.PermissionsBoundaryAttachmentPermissionsBoundaryArgs
     ///         {
     ///             ManagedPolicyArn = "arn:aws:iam::aws:policy/ReadOnlyAccess",
     ///         },
+    ///         InstanceArn = exampleAwsSsoadminPermissionSet.InstanceArn,
+    ///         PermissionSetArn = exampleAwsSsoadminPermissionSet.Arn,
     ///     });
     /// 
     /// });

@@ -19,14 +19,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.bedrock.AgentDataSource("example", {
- *     knowledgeBaseId: "EMDPPAYPZI",
- *     name: "example",
  *     dataSourceConfiguration: {
- *         type: "S3",
  *         s3Configuration: {
  *             bucketArn: "arn:aws:s3:::example-bucket",
  *         },
+ *         type: "S3",
  *     },
+ *     knowledgeBaseId: "EMDPPAYPZI",
+ *     name: "example",
  * });
  * ```
  *
@@ -37,11 +37,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.bedrock.AgentDataSource("example", {
- *     knowledgeBaseId: exampleAwsBedrockagentKnowledgeBase.id,
- *     name: "example-s3-managed",
  *     dataSourceConfiguration: {
- *         type: "MANAGED_KNOWLEDGE_BASE_CONNECTOR",
  *         managedKnowledgeBaseConnectorConfiguration: {
+ *             mediaExtractionConfiguration: {
+ *                 imageExtractionConfiguration: {
+ *                     imageExtractionStatus: "ENABLED",
+ *                 },
+ *             },
  *             connectorParameters: JSON.stringify({
  *                 type: "S3",
  *                 version: "1",
@@ -54,18 +56,16 @@ import * as utilities from "../utilities";
  *                     maxFileSizeInMegaBytes: "500",
  *                 },
  *             }),
- *             mediaExtractionConfiguration: {
- *                 imageExtractionConfiguration: {
- *                     imageExtractionStatus: "ENABLED",
- *                 },
- *             },
  *         },
+ *         type: "MANAGED_KNOWLEDGE_BASE_CONNECTOR",
  *     },
  *     vectorIngestionConfiguration: {
  *         parsingConfiguration: {
  *             parsingStrategy: "SMART_PARSING",
  *         },
  *     },
+ *     knowledgeBaseId: exampleAwsBedrockagentKnowledgeBase.id,
+ *     name: "example-s3-managed",
  * });
  * ```
  *
@@ -76,10 +76,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const sharepoint = new aws.bedrock.AgentDataSource("sharepoint", {
- *     knowledgeBaseId: example.id,
- *     name: "example-sharepoint",
  *     dataSourceConfiguration: {
- *         type: "MANAGED_KNOWLEDGE_BASE_CONNECTOR",
  *         managedKnowledgeBaseConnectorConfiguration: {
  *             connectorParameters: JSON.stringify({
  *                 type: "SHAREPOINT",
@@ -101,7 +98,10 @@ import * as utilities from "../utilities";
  *                 },
  *             }),
  *         },
+ *         type: "MANAGED_KNOWLEDGE_BASE_CONNECTOR",
  *     },
+ *     knowledgeBaseId: example.id,
+ *     name: "example-sharepoint",
  * });
  * ```
  *
@@ -112,33 +112,33 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.bedrock.AgentDataSource("example", {
- *     knowledgeBaseId: exampleAwsBedrockagentKnowledgeBase.id,
- *     name: "multimodal-example",
  *     dataSourceConfiguration: {
- *         type: "S3",
  *         s3Configuration: {
  *             bucketArn: exampleAwsS3Bucket.arn,
  *         },
+ *         type: "S3",
  *     },
  *     vectorIngestionConfiguration: {
  *         chunkingConfiguration: {
- *             chunkingStrategy: "FIXED_SIZE",
  *             fixedSizeChunkingConfiguration: {
  *                 maxTokens: 512,
  *                 overlapPercentage: 20,
  *             },
+ *             chunkingStrategy: "FIXED_SIZE",
  *         },
  *         parsingConfiguration: {
- *             parsingStrategy: "BEDROCK_FOUNDATION_MODEL",
  *             bedrockFoundationModelConfiguration: {
- *                 modelArn: "arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-3-sonnet-20240229-v1:0",
- *                 parsingModality: "MULTIMODAL",
  *                 parsingPrompt: {
  *                     parsingPromptString: "Extract and transcribe all text and visual content from the document.",
  *                 },
+ *                 modelArn: "arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-3-sonnet-20240229-v1:0",
+ *                 parsingModality: "MULTIMODAL",
  *             },
+ *             parsingStrategy: "BEDROCK_FOUNDATION_MODEL",
  *         },
  *     },
+ *     knowledgeBaseId: exampleAwsBedrockagentKnowledgeBase.id,
+ *     name: "multimodal-example",
  * });
  * ```
  *

@@ -455,8 +455,6 @@ class DataSource(pulumi.CustomResource):
         import pulumi_aws as aws
 
         default = aws.quicksight.DataSource("default",
-            data_source_id="example-id",
-            name="My Cool Data in S3",
             parameters={
                 "s3": {
                     "manifest_file_location": {
@@ -465,6 +463,8 @@ class DataSource(pulumi.CustomResource):
                     },
                 },
             },
+            data_source_id="example-id",
+            name="My Cool Data in S3",
             type="S3")
         ```
 
@@ -536,8 +536,6 @@ class DataSource(pulumi.CustomResource):
             policy_arn=example_policy.arn,
             role=example_role.name)
         example_data_source = aws.quicksight.DataSource("example",
-            data_source_id="example-id",
-            name="manifest in S3",
             parameters={
                 "s3": {
                     "manifest_file_location": {
@@ -547,6 +545,8 @@ class DataSource(pulumi.CustomResource):
                     "role_arn": example_role.arn,
                 },
             },
+            data_source_id="example-id",
+            name="manifest in S3",
             type="S3")
         ```
 
@@ -593,8 +593,6 @@ class DataSource(pulumi.CustomResource):
         import pulumi_aws as aws
 
         default = aws.quicksight.DataSource("default",
-            data_source_id="example-id",
-            name="My Cool Data in S3",
             parameters={
                 "s3": {
                     "manifest_file_location": {
@@ -603,6 +601,8 @@ class DataSource(pulumi.CustomResource):
                     },
                 },
             },
+            data_source_id="example-id",
+            name="My Cool Data in S3",
             type="S3")
         ```
 
@@ -674,8 +674,6 @@ class DataSource(pulumi.CustomResource):
             policy_arn=example_policy.arn,
             role=example_role.name)
         example_data_source = aws.quicksight.DataSource("example",
-            data_source_id="example-id",
-            name="manifest in S3",
             parameters={
                 "s3": {
                     "manifest_file_location": {
@@ -685,6 +683,8 @@ class DataSource(pulumi.CustomResource):
                     "role_arn": example_role.arn,
                 },
             },
+            data_source_id="example-id",
+            name="manifest in S3",
             type="S3")
         ```
 

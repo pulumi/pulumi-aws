@@ -30,11 +30,11 @@ namespace Pulumi.Aws.Efs
     /// 
     ///     var exampleReplicationConfiguration = new Aws.Efs.ReplicationConfiguration("example", new()
     ///     {
-    ///         SourceFileSystemId = example.Id,
     ///         Destination = new Aws.Efs.Inputs.ReplicationConfigurationDestinationArgs
     ///         {
     ///             Region = "us-west-2",
     ///         },
+    ///         SourceFileSystemId = example.Id,
     ///     });
     /// 
     /// });
@@ -54,12 +54,12 @@ namespace Pulumi.Aws.Efs
     /// 
     ///     var exampleReplicationConfiguration = new Aws.Efs.ReplicationConfiguration("example", new()
     ///     {
-    ///         SourceFileSystemId = example.Id,
     ///         Destination = new Aws.Efs.Inputs.ReplicationConfigurationDestinationArgs
     ///         {
     ///             AvailabilityZoneName = "us-west-2b",
     ///             KmsKeyId = "1234abcd-12ab-34cd-56ef-1234567890ab",
     ///         },
+    ///         SourceFileSystemId = example.Id,
     ///     });
     /// 
     /// });
@@ -79,12 +79,12 @@ namespace Pulumi.Aws.Efs
     /// 
     ///     var exampleReplicationConfiguration = new Aws.Efs.ReplicationConfiguration("example", new()
     ///     {
-    ///         SourceFileSystemId = example.Id,
     ///         Destination = new Aws.Efs.Inputs.ReplicationConfigurationDestinationArgs
     ///         {
     ///             FileSystemId = "fs-1234567890",
     ///             Region = "us-west-2",
     ///         },
+    ///         SourceFileSystemId = example.Id,
     ///     });
     /// 
     /// });

@@ -55,11 +55,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.sns.TopicArgs;
  * import com.pulumi.aws.codedeploy.DeploymentGroup;
  * import com.pulumi.aws.codedeploy.DeploymentGroupArgs;
+ * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupAutoRollbackConfigurationArgs;
+ * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupAlarmConfigurationArgs;
  * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupEc2TagSetArgs;
  * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupEc2TagSetEc2TagFilterArgs;
  * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupTriggerConfigurationArgs;
- * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupAutoRollbackConfigurationArgs;
- * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupAlarmConfigurationArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -75,11 +75,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("codedeploy.amazonaws.com")
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
@@ -103,9 +103,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDeploymentGroup = new DeploymentGroup("exampleDeploymentGroup", DeploymentGroupArgs.builder()
- *             .appName(exampleApplication.name())
- *             .deploymentGroupName("example-group")
- *             .serviceRoleArn(example.arn())
+ *             .autoRollbackConfiguration(DeploymentGroupAutoRollbackConfigurationArgs.builder()
+ *                 .enabled(true)
+ *                 .events("DEPLOYMENT_FAILURE")
+ *                 .build())
+ *             .alarmConfiguration(DeploymentGroupAlarmConfigurationArgs.builder()
+ *                 .alarms("my-alarm-name")
+ *                 .enabled(true)
+ *                 .build())
  *             .ec2TagSets(DeploymentGroupEc2TagSetArgs.builder()
  *                 .ec2TagFilters(                
  *                     DeploymentGroupEc2TagSetEc2TagFilterArgs.builder()
@@ -124,14 +129,9 @@ import javax.annotation.Nullable;
  *                 .triggerName("example-trigger")
  *                 .triggerTargetArn(exampleTopic.arn())
  *                 .build())
- *             .autoRollbackConfiguration(DeploymentGroupAutoRollbackConfigurationArgs.builder()
- *                 .enabled(true)
- *                 .events("DEPLOYMENT_FAILURE")
- *                 .build())
- *             .alarmConfiguration(DeploymentGroupAlarmConfigurationArgs.builder()
- *                 .alarms("my-alarm-name")
- *                 .enabled(true)
- *                 .build())
+ *             .appName(exampleApplication.name())
+ *             .deploymentGroupName("example-group")
+ *             .serviceRoleArn(example.arn())
  *             .outdatedInstancesStrategy("UPDATE")
  *             .build());
  * 
@@ -182,10 +182,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDeploymentGroup = new DeploymentGroup("exampleDeploymentGroup", DeploymentGroupArgs.builder()
- *             .appName(example.name())
- *             .deploymentConfigName("CodeDeployDefault.ECSAllAtOnce")
- *             .deploymentGroupName("example")
- *             .serviceRoleArn(exampleAwsIamRole.arn())
  *             .autoRollbackConfiguration(DeploymentGroupAutoRollbackConfigurationArgs.builder()
  *                 .enabled(true)
  *                 .events("DEPLOYMENT_FAILURE")
@@ -221,6 +217,10 @@ import javax.annotation.Nullable;
  *                             .build())
  *                     .build())
  *                 .build())
+ *             .appName(example.name())
+ *             .deploymentConfigName("CodeDeployDefault.ECSAllAtOnce")
+ *             .deploymentGroupName("example")
+ *             .serviceRoleArn(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }
@@ -266,9 +266,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDeploymentGroup = new DeploymentGroup("exampleDeploymentGroup", DeploymentGroupArgs.builder()
- *             .appName(example.name())
- *             .deploymentGroupName("example-group")
- *             .serviceRoleArn(exampleAwsIamRole.arn())
  *             .deploymentStyle(DeploymentGroupDeploymentStyleArgs.builder()
  *                 .deploymentOption("WITH_TRAFFIC_CONTROL")
  *                 .deploymentType("BLUE_GREEN")
@@ -290,6 +287,9 @@ import javax.annotation.Nullable;
  *                     .action("KEEP_ALIVE")
  *                     .build())
  *                 .build())
+ *             .appName(example.name())
+ *             .deploymentGroupName("example-group")
+ *             .serviceRoleArn(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }

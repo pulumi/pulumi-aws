@@ -75,12 +75,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new ZonalAutoshiftConfiguration("example", ZonalAutoshiftConfigurationArgs.builder()
- *             .resourceArn(exampleLoadBalancer.arn())
- *             .zonalAutoshiftStatus("ENABLED")
  *             .outcomeAlarms(ZonalAutoshiftConfigurationOutcomeAlarmArgs.builder()
  *                 .alarmIdentifier(exampleMetricAlarm.arn())
  *                 .type("CLOUDWATCH")
  *                 .build())
+ *             .resourceArn(exampleLoadBalancer.arn())
+ *             .zonalAutoshiftStatus("ENABLED")
  *             .build());
  * 
  *     }
@@ -99,8 +99,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.arczonalshift.ZonalAutoshiftConfiguration;
  * import com.pulumi.aws.arczonalshift.ZonalAutoshiftConfigurationArgs;
- * import com.pulumi.aws.arczonalshift.inputs.ZonalAutoshiftConfigurationOutcomeAlarmArgs;
  * import com.pulumi.aws.arczonalshift.inputs.ZonalAutoshiftConfigurationBlockingAlarmArgs;
+ * import com.pulumi.aws.arczonalshift.inputs.ZonalAutoshiftConfigurationOutcomeAlarmArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -115,16 +115,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ZonalAutoshiftConfiguration("example", ZonalAutoshiftConfigurationArgs.builder()
- *             .resourceArn(exampleAwsLb.arn())
- *             .zonalAutoshiftStatus("ENABLED")
- *             .outcomeAlarms(ZonalAutoshiftConfigurationOutcomeAlarmArgs.builder()
- *                 .alarmIdentifier(outcome.arn())
- *                 .type("CLOUDWATCH")
- *                 .build())
  *             .blockingAlarms(ZonalAutoshiftConfigurationBlockingAlarmArgs.builder()
  *                 .alarmIdentifier(blocking.arn())
  *                 .type("CLOUDWATCH")
  *                 .build())
+ *             .outcomeAlarms(ZonalAutoshiftConfigurationOutcomeAlarmArgs.builder()
+ *                 .alarmIdentifier(outcome.arn())
+ *                 .type("CLOUDWATCH")
+ *                 .build())
+ *             .resourceArn(exampleAwsLb.arn())
+ *             .zonalAutoshiftStatus("ENABLED")
  *             .build());
  * 
  *     }
@@ -158,13 +158,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ZonalAutoshiftConfiguration("example", ZonalAutoshiftConfigurationArgs.builder()
- *             .resourceArn(exampleAwsLb.arn())
- *             .zonalAutoshiftStatus("ENABLED")
- *             .blockedWindows("Mon:00:00-Mon:08:00")
  *             .outcomeAlarms(ZonalAutoshiftConfigurationOutcomeAlarmArgs.builder()
  *                 .alarmIdentifier(exampleAwsCloudwatchMetricAlarm.arn())
  *                 .type("CLOUDWATCH")
  *                 .build())
+ *             .resourceArn(exampleAwsLb.arn())
+ *             .zonalAutoshiftStatus("ENABLED")
+ *             .blockedWindows("Mon:00:00-Mon:08:00")
  *             .build());
  * 
  *     }

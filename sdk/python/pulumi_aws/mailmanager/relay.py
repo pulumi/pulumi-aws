@@ -323,12 +323,12 @@ class Relay(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mailmanager.Relay("example",
-            name="example",
-            server_name="smtp.example.com",
-            server_port=25,
             authentication={
                 "no_authentication": {},
-            })
+            },
+            name="example",
+            server_name="smtp.example.com",
+            server_port=25)
         ```
 
         ### With Secret Authentication
@@ -346,12 +346,12 @@ class Relay(pulumi.CustomResource):
                 "password": "pass",
             }))
         example_relay = aws.mailmanager.Relay("example",
-            name="example",
-            server_name="smtp.example.com",
-            server_port=587,
             authentication={
                 "secret_arn": example_secret_version.arn,
-            })
+            },
+            name="example",
+            server_name="smtp.example.com",
+            server_port=587)
         ```
 
         ## Import
@@ -403,12 +403,12 @@ class Relay(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mailmanager.Relay("example",
-            name="example",
-            server_name="smtp.example.com",
-            server_port=25,
             authentication={
                 "no_authentication": {},
-            })
+            },
+            name="example",
+            server_name="smtp.example.com",
+            server_port=25)
         ```
 
         ### With Secret Authentication
@@ -426,12 +426,12 @@ class Relay(pulumi.CustomResource):
                 "password": "pass",
             }))
         example_relay = aws.mailmanager.Relay("example",
-            name="example",
-            server_name="smtp.example.com",
-            server_port=587,
             authentication={
                 "secret_arn": example_secret_version.arn,
-            })
+            },
+            name="example",
+            server_name="smtp.example.com",
+            server_port=587)
         ```
 
         ## Import

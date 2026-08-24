@@ -28,13 +28,13 @@ import * as utilities from "../utilities";
  *     explicitAuthFlows: ["ADMIN_NO_SRP_AUTH"],
  * });
  * const exampleIdentitySource = new aws.verifiedpermissions.IdentitySource("example", {
- *     policyStoreId: example.id,
  *     configuration: {
  *         cognitoUserPoolConfiguration: {
  *             userPoolArn: exampleUserPool.arn,
  *             clientIds: [exampleUserPoolClient.id],
  *         },
  *     },
+ *     policyStoreId: example.id,
  * });
  * ```
  *
@@ -48,23 +48,23 @@ import * as utilities from "../utilities";
  *     mode: "STRICT",
  * }});
  * const exampleIdentitySource = new aws.verifiedpermissions.IdentitySource("example", {
- *     policyStoreId: example.id,
  *     configuration: {
  *         openIdConnectConfiguration: {
- *             issuer: "https://auth.example.com",
  *             tokenSelection: {
  *                 accessTokenOnly: {
  *                     audiences: ["https://myapp.example.com"],
  *                     principalIdClaim: "sub",
  *                 },
  *             },
- *             entityIdPrefix: "MyOIDCProvider",
  *             groupConfiguration: {
  *                 groupClaim: "groups",
  *                 groupEntityType: "MyCorp::UserGroup",
  *             },
+ *             issuer: "https://auth.example.com",
+ *             entityIdPrefix: "MyOIDCProvider",
  *         },
  *     },
+ *     policyStoreId: example.id,
  *     principalEntityType: "MyCorp::User",
  * });
  * ```

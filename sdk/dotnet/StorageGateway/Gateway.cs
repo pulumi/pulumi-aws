@@ -60,16 +60,16 @@ namespace Pulumi.Aws.StorageGateway
     /// {
     ///     var example = new Aws.StorageGateway.Gateway("example", new()
     ///     {
-    ///         GatewayIpAddress = "1.2.3.4",
-    ///         GatewayName = "example",
-    ///         GatewayTimezone = "GMT",
-    ///         GatewayType = "FILE_FSX_SMB",
     ///         SmbActiveDirectorySettings = new Aws.StorageGateway.Inputs.GatewaySmbActiveDirectorySettingsArgs
     ///         {
     ///             DomainName = "corp.example.com",
     ///             Password = "avoid-plaintext-passwords",
     ///             Username = "Admin",
     ///         },
+    ///         GatewayIpAddress = "1.2.3.4",
+    ///         GatewayName = "example",
+    ///         GatewayTimezone = "GMT",
+    ///         GatewayType = "FILE_FSX_SMB",
     ///     });
     /// 
     /// });
@@ -182,6 +182,12 @@ namespace Pulumi.Aws.StorageGateway
     ///     var example = new Aws.StorageGateway.Gateway("example", new()
     ///     {
     ///         GatewayIpAddress = sgw.PrivateIp,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
+    ///         {
+    ///             "gatewayIpAddress",
+    ///         },
     ///     });
     /// 
     /// });

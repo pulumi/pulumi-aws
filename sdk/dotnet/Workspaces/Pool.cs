@@ -45,15 +45,15 @@ namespace Pulumi.Aws.Workspaces
     /// 
     ///     var examplePool = new Aws.Workspaces.Pool("example", new()
     ///     {
+    ///         Capacity = new Aws.Workspaces.Inputs.PoolCapacityArgs
+    ///         {
+    ///             DesiredUserSessions = 10,
+    ///         },
     ///         BundleId = example.Apply(getBundleResult =&gt; getBundleResult.Id),
     ///         PoolName = "example-pool",
     ///         Description = "Example WorkSpaces Pool",
     ///         DirectoryId = exampleDirectory.DirectoryId,
     ///         RunningMode = "AUTO_STOP",
-    ///         Capacity = new Aws.Workspaces.Inputs.PoolCapacityArgs
-    ///         {
-    ///             DesiredUserSessions = 10,
-    ///         },
     ///     });
     /// 
     /// });
@@ -71,15 +71,15 @@ namespace Pulumi.Aws.Workspaces
     /// {
     ///     var example = new Aws.Workspaces.Pool("example", new()
     ///     {
+    ///         Capacity = new Aws.Workspaces.Inputs.PoolCapacityArgs
+    ///         {
+    ///             DesiredUserSessions = 10,
+    ///         },
     ///         BundleId = exampleAwsWorkspacesBundle.Id,
     ///         PoolName = "example-pool",
     ///         Description = "Example WorkSpaces Pool with Application Settings",
     ///         DirectoryId = exampleAwsWorkspacesDirectory.DirectoryId,
     ///         RunningMode = "AUTO_STOP",
-    ///         Capacity = new Aws.Workspaces.Inputs.PoolCapacityArgs
-    ///         {
-    ///             DesiredUserSessions = 10,
-    ///         },
     ///         ApplicationSettings = new[]
     ///         {
     ///             new Aws.Workspaces.Inputs.PoolApplicationSettingArgs
@@ -105,15 +105,15 @@ namespace Pulumi.Aws.Workspaces
     /// {
     ///     var example = new Aws.Workspaces.Pool("example", new()
     ///     {
+    ///         Capacity = new Aws.Workspaces.Inputs.PoolCapacityArgs
+    ///         {
+    ///             DesiredUserSessions = 10,
+    ///         },
     ///         BundleId = exampleAwsWorkspacesBundle.Id,
     ///         PoolName = "example-pool",
     ///         Description = "Example WorkSpaces Pool with Timeout Settings",
     ///         DirectoryId = exampleAwsWorkspacesDirectory.DirectoryId,
     ///         RunningMode = "AUTO_STOP",
-    ///         Capacity = new Aws.Workspaces.Inputs.PoolCapacityArgs
-    ///         {
-    ///             DesiredUserSessions = 10,
-    ///         },
     ///         TimeoutSettings = new[]
     ///         {
     ///             new Aws.Workspaces.Inputs.PoolTimeoutSettingArgs

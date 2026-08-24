@@ -386,12 +386,12 @@ class Application(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.qbusiness.Application("example",
-            display_name="example-app",
-            iam_service_role_arn=example_aws_iam_role["arn"],
-            identity_center_instance_arn=example_aws_ssoadmin_instances["arns"][0],
             attachments_configuration={
                 "attachments_control_mode": "ENABLED",
-            })
+            },
+            display_name="example-app",
+            iam_service_role_arn=example_aws_iam_role["arn"],
+            identity_center_instance_arn=example_aws_ssoadmin_instances["arns"][0])
         ```
 
         ## Import
@@ -431,12 +431,12 @@ class Application(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.qbusiness.Application("example",
-            display_name="example-app",
-            iam_service_role_arn=example_aws_iam_role["arn"],
-            identity_center_instance_arn=example_aws_ssoadmin_instances["arns"][0],
             attachments_configuration={
                 "attachments_control_mode": "ENABLED",
-            })
+            },
+            display_name="example-app",
+            iam_service_role_arn=example_aws_iam_role["arn"],
+            identity_center_instance_arn=example_aws_ssoadmin_instances["arns"][0])
         ```
 
         ## Import

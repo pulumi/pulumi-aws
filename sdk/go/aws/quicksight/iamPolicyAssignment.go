@@ -31,14 +31,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := quicksight.NewIamPolicyAssignment(ctx, "example", &quicksight.IamPolicyAssignmentArgs{
-//				AssignmentName:   pulumi.String("example"),
-//				AssignmentStatus: pulumi.String("ENABLED"),
-//				PolicyArn:        pulumi.Any(exampleAwsIamPolicy.Arn),
 //				Identities: &quicksight.IamPolicyAssignmentIdentitiesArgs{
 //					Users: pulumi.StringArray{
 //						exampleAwsQuicksightUser.UserName,
 //					},
 //				},
+//				AssignmentName:   pulumi.String("example"),
+//				AssignmentStatus: pulumi.String("ENABLED"),
+//				PolicyArn:        pulumi.Any(exampleAwsIamPolicy.Arn),
 //			})
 //			if err != nil {
 //				return err

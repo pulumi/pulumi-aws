@@ -124,11 +124,11 @@ import {Function} from "./index";
  * const _default = new aws.cloudwatch.LogGroup("default", {name: "/default"});
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["lambda.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });

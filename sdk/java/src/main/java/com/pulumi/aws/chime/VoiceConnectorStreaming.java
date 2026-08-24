@@ -112,11 +112,11 @@ import javax.annotation.Nullable;
  * 
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("mediapipelines.chime.amazonaws.com")
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
@@ -132,32 +132,32 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new MediaInsightsPipelineConfiguration("example", MediaInsightsPipelineConfigurationArgs.builder()
- *             .name("ExampleConfig")
- *             .resourceAccessRoleArn(exampleRole.arn())
  *             .elements(            
  *                 MediaInsightsPipelineConfigurationElementArgs.builder()
- *                     .type("AmazonTranscribeCallAnalyticsProcessor")
  *                     .amazonTranscribeCallAnalyticsProcessorConfiguration(MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs.builder()
  *                         .languageCode("en-US")
  *                         .build())
+ *                     .type("AmazonTranscribeCallAnalyticsProcessor")
  *                     .build(),
  *                 MediaInsightsPipelineConfigurationElementArgs.builder()
- *                     .type("KinesisDataStreamSink")
  *                     .kinesisDataStreamSinkConfiguration(MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs.builder()
  *                         .insightsTarget(exampleStream.arn())
  *                         .build())
+ *                     .type("KinesisDataStreamSink")
  *                     .build())
+ *             .name("ExampleConfig")
+ *             .resourceAccessRoleArn(exampleRole.arn())
  *             .build());
  * 
  *         var defaultVoiceConnectorStreaming = new VoiceConnectorStreaming("defaultVoiceConnectorStreaming", VoiceConnectorStreamingArgs.builder()
- *             .disabled(false)
- *             .voiceConnectorId(default_.id())
- *             .dataRetention(7)
- *             .streamingNotificationTargets("SQS")
  *             .mediaInsightsConfiguration(VoiceConnectorStreamingMediaInsightsConfigurationArgs.builder()
  *                 .disabled(false)
  *                 .configurationArn(example.arn())
  *                 .build())
+ *             .disabled(false)
+ *             .voiceConnectorId(default_.id())
+ *             .dataRetention(7)
+ *             .streamingNotificationTargets("SQS")
  *             .build());
  * 
  *     }

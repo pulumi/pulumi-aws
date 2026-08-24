@@ -47,12 +47,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new UserHierarchyStructure("example", UserHierarchyStructureArgs.builder()
- *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
  *             .hierarchyStructure(UserHierarchyStructureHierarchyStructureArgs.builder()
  *                 .levelOne(UserHierarchyStructureHierarchyStructureLevelOneArgs.builder()
  *                     .name("levelone")
  *                     .build())
  *                 .build())
+ *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
  *             .build());
  * 
  *     }
@@ -91,7 +91,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new UserHierarchyStructure("example", UserHierarchyStructureArgs.builder()
- *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
  *             .hierarchyStructure(UserHierarchyStructureHierarchyStructureArgs.builder()
  *                 .levelOne(UserHierarchyStructureHierarchyStructureLevelOneArgs.builder()
  *                     .name("levelone")
@@ -109,6 +108,7 @@ import javax.annotation.Nullable;
  *                     .name("levelfive")
  *                     .build())
  *                 .build())
+ *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
  *             .build());
  * 
  *     }

@@ -18,14 +18,16 @@ import * as utilities from "../utilities";
  * const example = aws.cloudfront.getLogDeliveryCanonicalUserId({});
  * const exampleBucket = new aws.s3.Bucket("example", {bucket: "example"});
  * const exampleBucketOwnershipControls = new aws.s3.BucketOwnershipControls("example", {
- *     bucket: exampleBucket.id,
  *     rule: {
  *         objectOwnership: "BucketOwnerPreferred",
  *     },
+ *     bucket: exampleBucket.id,
  * });
  * const exampleBucketAcl = new aws.s3.BucketAcl("example", {
- *     bucket: exampleBucket.id,
  *     accessControlPolicy: {
+ *         owner: {
+ *             id: current.then(current => current.id),
+ *         },
  *         grants: [{
  *             grantee: {
  *                 id: example.then(example => example.id),
@@ -33,10 +35,8 @@ import * as utilities from "../utilities";
  *             },
  *             permission: "FULL_CONTROL",
  *         }],
- *         owner: {
- *             id: current.then(current => current.id),
- *         },
  *     },
+ *     bucket: exampleBucket.id,
  * }, {
  *     dependsOn: [exampleBucketOwnershipControls],
  * });
@@ -84,14 +84,16 @@ export interface GetLogDeliveryCanonicalUserIdResult {
  * const example = aws.cloudfront.getLogDeliveryCanonicalUserId({});
  * const exampleBucket = new aws.s3.Bucket("example", {bucket: "example"});
  * const exampleBucketOwnershipControls = new aws.s3.BucketOwnershipControls("example", {
- *     bucket: exampleBucket.id,
  *     rule: {
  *         objectOwnership: "BucketOwnerPreferred",
  *     },
+ *     bucket: exampleBucket.id,
  * });
  * const exampleBucketAcl = new aws.s3.BucketAcl("example", {
- *     bucket: exampleBucket.id,
  *     accessControlPolicy: {
+ *         owner: {
+ *             id: current.then(current => current.id),
+ *         },
  *         grants: [{
  *             grantee: {
  *                 id: example.then(example => example.id),
@@ -99,10 +101,8 @@ export interface GetLogDeliveryCanonicalUserIdResult {
  *             },
  *             permission: "FULL_CONTROL",
  *         }],
- *         owner: {
- *             id: current.then(current => current.id),
- *         },
  *     },
+ *     bucket: exampleBucket.id,
  * }, {
  *     dependsOn: [exampleBucketOwnershipControls],
  * });

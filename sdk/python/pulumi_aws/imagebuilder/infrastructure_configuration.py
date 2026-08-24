@@ -619,6 +619,12 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.imagebuilder.InfrastructureConfiguration("example",
+            logging={
+                "s3_logs": {
+                    "s3_bucket_name": example_aws_s3_bucket["bucket"],
+                    "s3_key_prefix": "logs",
+                },
+            },
             description="example description",
             instance_profile_name=example_aws_iam_instance_profile["name"],
             instance_types=[
@@ -631,12 +637,6 @@ class InfrastructureConfiguration(pulumi.CustomResource):
             sns_topic_arn=example_aws_sns_topic["arn"],
             subnet_id=main["id"],
             terminate_instance_on_failure=True,
-            logging={
-                "s3_logs": {
-                    "s3_bucket_name": example_aws_s3_bucket["bucket"],
-                    "s3_key_prefix": "logs",
-                },
-            },
             tags={
                 "foo": "bar",
             })
@@ -693,6 +693,12 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.imagebuilder.InfrastructureConfiguration("example",
+            logging={
+                "s3_logs": {
+                    "s3_bucket_name": example_aws_s3_bucket["bucket"],
+                    "s3_key_prefix": "logs",
+                },
+            },
             description="example description",
             instance_profile_name=example_aws_iam_instance_profile["name"],
             instance_types=[
@@ -705,12 +711,6 @@ class InfrastructureConfiguration(pulumi.CustomResource):
             sns_topic_arn=example_aws_sns_topic["arn"],
             subnet_id=main["id"],
             terminate_instance_on_failure=True,
-            logging={
-                "s3_logs": {
-                    "s3_bucket_name": example_aws_s3_bucket["bucket"],
-                    "s3_key_prefix": "logs",
-                },
-            },
             tags={
                 "foo": "bar",
             })

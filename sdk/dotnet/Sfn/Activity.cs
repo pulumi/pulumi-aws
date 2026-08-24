@@ -46,13 +46,13 @@ namespace Pulumi.Aws.Sfn
     /// {
     ///     var sfnActivity = new Aws.Sfn.Activity("sfn_activity", new()
     ///     {
-    ///         Name = "my-activity",
     ///         EncryptionConfiguration = new Aws.Sfn.Inputs.ActivityEncryptionConfigurationArgs
     ///         {
     ///             KmsKeyId = kmsKeyForSfn.Arn,
     ///             Type = "CUSTOMER_MANAGED_KMS_KEY",
     ///             KmsDataKeyReusePeriodSeconds = 900,
     ///         },
+    ///         Name = "my-activity",
     ///     });
     /// 
     /// });

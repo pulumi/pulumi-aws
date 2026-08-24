@@ -55,8 +55,6 @@ import javax.annotation.Nullable;
  *         var example = new Workspace("example");
  * 
  *         var exampleAnomalyDetector = new AnomalyDetector("exampleAnomalyDetector", AnomalyDetectorArgs.builder()
- *             .alias("example")
- *             .workspaceId(example.id())
  *             .configuration(AnomalyDetectorConfigurationArgs.builder()
  *                 .randomCutForest(AnomalyDetectorConfigurationRandomCutForestArgs.builder()
  *                     .query("avg(up)")
@@ -65,6 +63,8 @@ import javax.annotation.Nullable;
  *             .missingDataAction(AnomalyDetectorMissingDataActionArgs.builder()
  *                 .skip(true)
  *                 .build())
+ *             .alias("example")
+ *             .workspaceId(example.id())
  *             .build());
  * 
  *     }
@@ -105,6 +105,22 @@ import javax.annotation.Nullable;
  *         var example = new Workspace("example");
  * 
  *         var exampleAnomalyDetector = new AnomalyDetector("exampleAnomalyDetector", AnomalyDetectorArgs.builder()
+ *             .configuration(AnomalyDetectorConfigurationArgs.builder()
+ *                 .randomCutForest(AnomalyDetectorConfigurationRandomCutForestArgs.builder()
+ *                     .ignoreNearExpectedFromAbove(AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveArgs.builder()
+ *                         .ratio(1.5)
+ *                         .build())
+ *                     .ignoreNearExpectedFromBelow(AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowArgs.builder()
+ *                         .amount(2.0)
+ *                         .build())
+ *                     .query("avg(up)")
+ *                     .sampleSize(256)
+ *                     .shingleSize(4)
+ *                     .build())
+ *                 .build())
+ *             .missingDataAction(AnomalyDetectorMissingDataActionArgs.builder()
+ *                 .markAsAnomaly(true)
+ *                 .build())
  *             .alias("example")
  *             .workspaceId(example.id())
  *             .evaluationIntervalInSeconds(120)
@@ -112,22 +128,6 @@ import javax.annotation.Nullable;
  *                 Map.entry("env", "production"),
  *                 Map.entry("team", "platform")
  *             ))
- *             .configuration(AnomalyDetectorConfigurationArgs.builder()
- *                 .randomCutForest(AnomalyDetectorConfigurationRandomCutForestArgs.builder()
- *                     .query("avg(up)")
- *                     .sampleSize(256)
- *                     .shingleSize(4)
- *                     .ignoreNearExpectedFromAbove(AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveArgs.builder()
- *                         .ratio(1.5)
- *                         .build())
- *                     .ignoreNearExpectedFromBelow(AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowArgs.builder()
- *                         .amount(2.0)
- *                         .build())
- *                     .build())
- *                 .build())
- *             .missingDataAction(AnomalyDetectorMissingDataActionArgs.builder()
- *                 .markAsAnomaly(true)
- *                 .build())
  *             .build());
  * 
  *     }

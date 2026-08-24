@@ -21,15 +21,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.evidently.Feature("example", {
- *     name: "example",
- *     project: exampleAwsEvidentlyProject.name,
- *     description: "example description",
  *     variations: [{
- *         name: "Variation1",
  *         value: {
  *             stringValue: "example",
  *         },
+ *         name: "Variation1",
  *     }],
+ *     name: "example",
+ *     project: exampleAwsEvidentlyProject.name,
+ *     description: "example description",
  *     tags: {
  *         Key1: "example Feature",
  *     },
@@ -43,23 +43,23 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.evidently.Feature("example", {
- *     name: "example",
- *     project: exampleAwsEvidentlyProject.name,
- *     defaultVariation: "Variation2",
  *     variations: [
  *         {
- *             name: "Variation1",
  *             value: {
  *                 stringValue: "exampleval1",
  *             },
+ *             name: "Variation1",
  *         },
  *         {
- *             name: "Variation2",
  *             value: {
  *                 stringValue: "exampleval2",
  *             },
+ *             name: "Variation2",
  *         },
  *     ],
+ *     name: "example",
+ *     project: exampleAwsEvidentlyProject.name,
+ *     defaultVariation: "Variation2",
  * });
  * ```
  *
@@ -70,25 +70,25 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.evidently.Feature("example", {
+ *     variations: [
+ *         {
+ *             value: {
+ *                 stringValue: "exampleval1",
+ *             },
+ *             name: "Variation1",
+ *         },
+ *         {
+ *             value: {
+ *                 stringValue: "exampleval2",
+ *             },
+ *             name: "Variation2",
+ *         },
+ *     ],
  *     name: "example",
  *     project: exampleAwsEvidentlyProject.name,
  *     entityOverrides: {
  *         test1: "Variation1",
  *     },
- *     variations: [
- *         {
- *             name: "Variation1",
- *             value: {
- *                 stringValue: "exampleval1",
- *             },
- *         },
- *         {
- *             name: "Variation2",
- *             value: {
- *                 stringValue: "exampleval2",
- *             },
- *         },
- *     ],
  * });
  * ```
  *
@@ -99,18 +99,18 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.evidently.Feature("example", {
+ *     variations: [{
+ *         value: {
+ *             stringValue: "exampleval1",
+ *         },
+ *         name: "Variation1",
+ *     }],
  *     name: "example",
  *     project: exampleAwsEvidentlyProject.name,
  *     evaluationStrategy: "ALL_RULES",
  *     entityOverrides: {
  *         test1: "Variation1",
  *     },
- *     variations: [{
- *         name: "Variation1",
- *         value: {
- *             stringValue: "exampleval1",
- *         },
- *     }],
  * });
  * ```
  *

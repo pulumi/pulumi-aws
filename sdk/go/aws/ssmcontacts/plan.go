@@ -31,12 +31,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssmcontacts.NewPlan(ctx, "example", &ssmcontacts.PlanArgs{
-//				ContactId: pulumi.String("arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias"),
 //				Stages: ssmcontacts.PlanStageArray{
 //					&ssmcontacts.PlanStageArgs{
 //						DurationInMinutes: pulumi.Int(1),
 //					},
 //				},
+//				ContactId: pulumi.String("arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias"),
 //			})
 //			if err != nil {
 //				return err
@@ -69,12 +69,12 @@ import (
 //				return err
 //			}
 //			_, err = ssmcontacts.NewPlan(ctx, "plan", &ssmcontacts.PlanArgs{
-//				ContactId: contact.Arn,
 //				Stages: ssmcontacts.PlanStageArray{
 //					&ssmcontacts.PlanStageArgs{
 //						DurationInMinutes: pulumi.Int(1),
 //					},
 //				},
+//				ContactId: contact.Arn,
 //			})
 //			if err != nil {
 //				return err
@@ -121,10 +121,8 @@ import (
 //				return err
 //			}
 //			_, err = ssmcontacts.NewPlan(ctx, "test", &ssmcontacts.PlanArgs{
-//				ContactId: escalationPlan.Arn,
 //				Stages: ssmcontacts.PlanStageArray{
 //					&ssmcontacts.PlanStageArgs{
-//						DurationInMinutes: pulumi.Int(0),
 //						Targets: ssmcontacts.PlanStageTargetArray{
 //							&ssmcontacts.PlanStageTargetArgs{
 //								ContactTargetInfo: &ssmcontacts.PlanStageTargetContactTargetInfoArgs{
@@ -145,8 +143,10 @@ import (
 //								},
 //							},
 //						},
+//						DurationInMinutes: pulumi.Int(0),
 //					},
 //				},
+//				ContactId: escalationPlan.Arn,
 //			})
 //			if err != nil {
 //				return err

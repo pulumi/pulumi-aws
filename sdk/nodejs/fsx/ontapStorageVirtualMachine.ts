@@ -34,10 +34,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.fsx.OntapStorageVirtualMachine("test", {
- *     fileSystemId: testAwsFsxOntapFileSystem.id,
- *     name: "mysvm",
  *     activeDirectoryConfiguration: {
- *         netbiosName: "mysvm",
  *         selfManagedActiveDirectoryConfiguration: {
  *             dnsIps: [
  *                 "10.0.0.111",
@@ -47,7 +44,10 @@ import * as utilities from "../utilities";
  *             password: "avoid-plaintext-passwords",
  *             username: "Admin",
  *         },
+ *         netbiosName: "mysvm",
  *     },
+ *     fileSystemId: testAwsFsxOntapFileSystem.id,
+ *     name: "mysvm",
  * });
  * ```
  *
@@ -65,7 +65,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.fsx.OntapStorageVirtualMachine("example", {svmAdminPassword: "avoid-plaintext-passwords"});
+ * const example = new aws.fsx.OntapStorageVirtualMachine("example", {svmAdminPassword: "avoid-plaintext-passwords"}, {
+ *     ignoreChanges: ["svmAdminPassword"],
+ * });
  * ```
  */
 export class OntapStorageVirtualMachine extends pulumi.CustomResource {

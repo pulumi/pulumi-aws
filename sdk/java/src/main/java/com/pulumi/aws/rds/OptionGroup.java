@@ -53,28 +53,28 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new OptionGroup("example", OptionGroupArgs.builder()
- *             .name("option-group-test")
- *             .optionGroupDescription("Option Group")
- *             .engineName("sqlserver-ee")
- *             .majorEngineVersion("11.00")
  *             .options(            
  *                 OptionGroupOptionArgs.builder()
- *                     .optionName("Timezone")
  *                     .optionSettings(OptionGroupOptionOptionSettingArgs.builder()
  *                         .name("TIME_ZONE")
  *                         .value("UTC")
  *                         .build())
+ *                     .optionName("Timezone")
  *                     .build(),
  *                 OptionGroupOptionArgs.builder()
- *                     .optionName("SQLSERVER_BACKUP_RESTORE")
  *                     .optionSettings(OptionGroupOptionOptionSettingArgs.builder()
  *                         .name("IAM_ROLE_ARN")
  *                         .value(exampleAwsIamRole.arn())
  *                         .build())
+ *                     .optionName("SQLSERVER_BACKUP_RESTORE")
  *                     .build(),
  *                 OptionGroupOptionArgs.builder()
  *                     .optionName("TDE")
  *                     .build())
+ *             .name("option-group-test")
+ *             .optionGroupDescription("Option Group")
+ *             .engineName("sqlserver-ee")
+ *             .majorEngineVersion("11.00")
  *             .build());
  * 
  *     }

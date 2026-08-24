@@ -33,13 +33,13 @@ import (
 //				return err
 //			}
 //			exampleGetUser, err := identitystore.LookupUser(ctx, &identitystore.LookupUserArgs{
-//				IdentityStoreId: example.IdentityStoreIds[0],
 //				AlternateIdentifier: identitystore.GetUserAlternateIdentifier{
 //					UniqueAttribute: identitystore.GetUserAlternateIdentifierUniqueAttribute{
 //						AttributePath:  "UserName",
 //						AttributeValue: "ExampleUser",
 //					},
 //				},
+//				IdentityStoreId: example.IdentityStoreIds[0],
 //			}, nil)
 //			if err != nil {
 //				return err

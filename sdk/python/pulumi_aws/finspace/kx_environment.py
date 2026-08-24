@@ -423,9 +423,6 @@ class KxEnvironment(pulumi.CustomResource):
             deletion_window_in_days=7)
         example_transit_gateway = aws.ec2transitgateway.TransitGateway("example", description="example")
         example_env = aws.finspace.KxEnvironment("example_env",
-            name="my-tf-kx-environment",
-            description="Environment description",
-            kms_key_id=example.arn,
             transit_gateway_configuration={
                 "transit_gateway_id": example_transit_gateway.id,
                 "routable_cidr_space": "100.64.0.0/26",
@@ -433,7 +430,10 @@ class KxEnvironment(pulumi.CustomResource):
             custom_dns_configurations=[{
                 "custom_dns_server_name": "example.finspace.amazonaws.com",
                 "custom_dns_server_ip": "10.0.0.76",
-            }])
+            }],
+            name="my-tf-kx-environment",
+            description="Environment description",
+            kms_key_id=example.arn)
         ```
 
         ### With Transit Gateway Attachment Network ACL Configuration
@@ -447,17 +447,8 @@ class KxEnvironment(pulumi.CustomResource):
             deletion_window_in_days=7)
         example_transit_gateway = aws.ec2transitgateway.TransitGateway("example", description="example")
         example_env = aws.finspace.KxEnvironment("example_env",
-            name="my-tf-kx-environment",
-            description="Environment description",
-            kms_key_id=example.arn,
             transit_gateway_configuration={
-                "transit_gateway_id": example_transit_gateway.id,
-                "routable_cidr_space": "100.64.0.0/26",
                 "attachment_network_acl_configurations": [{
-                    "rule_number": 1,
-                    "protocol": "6",
-                    "rule_action": "allow",
-                    "cidr_block": "0.0.0.0/0",
                     "port_range": {
                         "from_": 53,
                         "to": 53,
@@ -466,12 +457,21 @@ class KxEnvironment(pulumi.CustomResource):
                         "type": -1,
                         "code": -1,
                     },
+                    "rule_number": 1,
+                    "protocol": "6",
+                    "rule_action": "allow",
+                    "cidr_block": "0.0.0.0/0",
                 }],
+                "transit_gateway_id": example_transit_gateway.id,
+                "routable_cidr_space": "100.64.0.0/26",
             },
             custom_dns_configurations=[{
                 "custom_dns_server_name": "example.finspace.amazonaws.com",
                 "custom_dns_server_ip": "10.0.0.76",
-            }])
+            }],
+            name="my-tf-kx-environment",
+            description="Environment description",
+            kms_key_id=example.arn)
         ```
 
         ## Import
@@ -531,9 +531,6 @@ class KxEnvironment(pulumi.CustomResource):
             deletion_window_in_days=7)
         example_transit_gateway = aws.ec2transitgateway.TransitGateway("example", description="example")
         example_env = aws.finspace.KxEnvironment("example_env",
-            name="my-tf-kx-environment",
-            description="Environment description",
-            kms_key_id=example.arn,
             transit_gateway_configuration={
                 "transit_gateway_id": example_transit_gateway.id,
                 "routable_cidr_space": "100.64.0.0/26",
@@ -541,7 +538,10 @@ class KxEnvironment(pulumi.CustomResource):
             custom_dns_configurations=[{
                 "custom_dns_server_name": "example.finspace.amazonaws.com",
                 "custom_dns_server_ip": "10.0.0.76",
-            }])
+            }],
+            name="my-tf-kx-environment",
+            description="Environment description",
+            kms_key_id=example.arn)
         ```
 
         ### With Transit Gateway Attachment Network ACL Configuration
@@ -555,17 +555,8 @@ class KxEnvironment(pulumi.CustomResource):
             deletion_window_in_days=7)
         example_transit_gateway = aws.ec2transitgateway.TransitGateway("example", description="example")
         example_env = aws.finspace.KxEnvironment("example_env",
-            name="my-tf-kx-environment",
-            description="Environment description",
-            kms_key_id=example.arn,
             transit_gateway_configuration={
-                "transit_gateway_id": example_transit_gateway.id,
-                "routable_cidr_space": "100.64.0.0/26",
                 "attachment_network_acl_configurations": [{
-                    "rule_number": 1,
-                    "protocol": "6",
-                    "rule_action": "allow",
-                    "cidr_block": "0.0.0.0/0",
                     "port_range": {
                         "from_": 53,
                         "to": 53,
@@ -574,12 +565,21 @@ class KxEnvironment(pulumi.CustomResource):
                         "type": -1,
                         "code": -1,
                     },
+                    "rule_number": 1,
+                    "protocol": "6",
+                    "rule_action": "allow",
+                    "cidr_block": "0.0.0.0/0",
                 }],
+                "transit_gateway_id": example_transit_gateway.id,
+                "routable_cidr_space": "100.64.0.0/26",
             },
             custom_dns_configurations=[{
                 "custom_dns_server_name": "example.finspace.amazonaws.com",
                 "custom_dns_server_ip": "10.0.0.76",
-            }])
+            }],
+            name="my-tf-kx-environment",
+            description="Environment description",
+            kms_key_id=example.arn)
         ```
 
         ## Import

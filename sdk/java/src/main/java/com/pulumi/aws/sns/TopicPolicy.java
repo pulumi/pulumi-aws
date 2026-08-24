@@ -54,8 +54,16 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .policyId("__default_policy_ID")
  *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
+ *                     .test("StringEquals")
+ *                     .variable("AWS:SourceOwner")
+ *                     .values(account_id)
+ *                     .build())
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type("AWS")
+ *                     .identifiers("*")
+ *                     .build())
  *                 .actions(                
  *                     "SNS:Subscribe",
  *                     "SNS:SetTopicAttributes",
@@ -66,19 +74,11 @@ import javax.annotation.Nullable;
  *                     "SNS:GetTopicAttributes",
  *                     "SNS:DeleteTopic",
  *                     "SNS:AddPermission")
- *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                     .test("StringEquals")
- *                     .variable("AWS:SourceOwner")
- *                     .values(account_id)
- *                     .build())
  *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("AWS")
- *                     .identifiers("*")
- *                     .build())
  *                 .resources(test.arn())
  *                 .sid("__default_statement_ID")
  *                 .build())
+ *             .policyId("__default_policy_ID")
  *             .build());
  * 
  *         var default_ = new TopicPolicy("default", TopicPolicyArgs.builder()

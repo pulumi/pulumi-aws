@@ -28,12 +28,12 @@ namespace Pulumi.Aws.SsmIncidents
     /// {
     ///     var example = new Aws.SsmIncidents.ResponsePlan("example", new()
     ///     {
-    ///         Name = "name",
     ///         IncidentTemplate = new Aws.SsmIncidents.Inputs.ResponsePlanIncidentTemplateArgs
     ///         {
     ///             Title = "title",
     ///             Impact = 3,
     ///         },
+    ///         Name = "name",
     ///         Tags = 
     ///         {
     ///             { "key", "value" },
@@ -61,16 +61,8 @@ namespace Pulumi.Aws.SsmIncidents
     /// {
     ///     var example = new Aws.SsmIncidents.ResponsePlan("example", new()
     ///     {
-    ///         Name = "name",
     ///         IncidentTemplate = new Aws.SsmIncidents.Inputs.ResponsePlanIncidentTemplateArgs
     ///         {
-    ///             Title = "title",
-    ///             Impact = 3,
-    ///             DedupeString = "dedupe",
-    ///             IncidentTags = 
-    ///             {
-    ///                 { "key", "value" },
-    ///             },
     ///             NotificationTargets = new[]
     ///             {
     ///                 new Aws.SsmIncidents.Inputs.ResponsePlanIncidentTemplateNotificationTargetArgs
@@ -82,16 +74,14 @@ namespace Pulumi.Aws.SsmIncidents
     ///                     SnsTopicArn = example2.Arn,
     ///                 },
     ///             },
+    ///             Title = "title",
+    ///             Impact = 3,
+    ///             DedupeString = "dedupe",
+    ///             IncidentTags = 
+    ///             {
+    ///                 { "key", "value" },
+    ///             },
     ///             Summary = "summary",
-    ///         },
-    ///         DisplayName = "display name",
-    ///         ChatChannels = new[]
-    ///         {
-    ///             topic.Arn,
-    ///         },
-    ///         Engagements = new[]
-    ///         {
-    ///             "arn:aws:ssm-contacts:us-east-2:111122223333:contact/test1",
     ///         },
     ///         Action = new Aws.SsmIncidents.Inputs.ResponsePlanActionArgs
     ///         {
@@ -99,10 +89,6 @@ namespace Pulumi.Aws.SsmIncidents
     ///             {
     ///                 new Aws.SsmIncidents.Inputs.ResponsePlanActionSsmAutomationArgs
     ///                 {
-    ///                     DocumentName = document1.Name,
-    ///                     RoleArn = role1.Arn,
-    ///                     DocumentVersion = "version1",
-    ///                     TargetAccount = "RESPONSE_PLAN_OWNER_ACCOUNT",
     ///                     Parameters = new[]
     ///                     {
     ///                         new Aws.SsmIncidents.Inputs.ResponsePlanActionSsmAutomationParameterArgs
@@ -123,6 +109,10 @@ namespace Pulumi.Aws.SsmIncidents
     ///                             },
     ///                         },
     ///                     },
+    ///                     DocumentName = document1.Name,
+    ///                     RoleArn = role1.Arn,
+    ///                     DocumentVersion = "version1",
+    ///                     TargetAccount = "RESPONSE_PLAN_OWNER_ACCOUNT",
     ///                     DynamicParameters = 
     ///                     {
     ///                         { "someKey", "INVOLVED_RESOURCES" },
@@ -142,6 +132,16 @@ namespace Pulumi.Aws.SsmIncidents
     ///                     SecretId = "example",
     ///                 },
     ///             },
+    ///         },
+    ///         Name = "name",
+    ///         DisplayName = "display name",
+    ///         ChatChannels = new[]
+    ///         {
+    ///             topic.Arn,
+    ///         },
+    ///         Engagements = new[]
+    ///         {
+    ///             "arn:aws:ssm-contacts:us-east-2:111122223333:contact/test1",
     ///         },
     ///         Tags = 
     ///         {

@@ -108,11 +108,11 @@ import javax.annotation.Nullable;
  * 
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("firehose.amazonaws.com")
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
@@ -123,12 +123,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new FirehoseDeliveryStream("example", FirehoseDeliveryStreamArgs.builder()
- *             .name("pulumi-kinesis-firehose-extended-s3-example-stream")
- *             .destination("extended_s3")
  *             .extendedS3Configuration(FirehoseDeliveryStreamExtendedS3ConfigurationArgs.builder()
  *                 .roleArn(exampleRole.arn())
  *                 .bucketArn(exampleBucket.arn())
  *                 .build())
+ *             .name("pulumi-kinesis-firehose-extended-s3-example-stream")
+ *             .destination("extended_s3")
  *             .tags(Map.of("LogDeliveryEnabled", "true"))
  *             .build());
  * 

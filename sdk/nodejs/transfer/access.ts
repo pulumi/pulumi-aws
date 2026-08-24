@@ -35,14 +35,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.transfer.Access("test", {
- *     externalId: "S-1-1-12-1234567890-123456789-1234567890-1234",
- *     serverId: testAwsTransferServer.id,
- *     role: testAwsIamRole.arn,
- *     homeDirectory: `/${testAwsEfsFileSystem.id}/`,
  *     posixProfile: {
  *         gid: 1000,
  *         uid: 1000,
  *     },
+ *     externalId: "S-1-1-12-1234567890-123456789-1234567890-1234",
+ *     serverId: testAwsTransferServer.id,
+ *     role: testAwsIamRole.arn,
+ *     homeDirectory: `/${testAwsEfsFileSystem.id}/`,
  * });
  * ```
  *

@@ -18,11 +18,11 @@ import * as utilities from "../utilities";
  *
  * const iotAssumeRolePolicy = aws.iam.getPolicyDocument({
  *     statements: [{
- *         actions: ["sts:AssumeRole"],
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["iot.amazonaws.com"],
  *         }],
+ *         actions: ["sts:AssumeRole"],
  *     }],
  * });
  * const iotFleetProvisioning = new aws.iam.Role("iot_fleet_provisioning", {

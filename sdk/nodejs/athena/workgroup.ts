@@ -17,18 +17,18 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.athena.Workgroup("example", {
- *     name: "example",
  *     configuration: {
- *         enforceWorkgroupConfiguration: true,
- *         publishCloudwatchMetricsEnabled: true,
  *         resultConfiguration: {
- *             outputLocation: `s3://${exampleAwsS3Bucket.bucket}/output/`,
  *             encryptionConfiguration: {
  *                 encryptionOption: "SSE_KMS",
  *                 kmsKeyArn: exampleAwsKmsKey.arn,
  *             },
+ *             outputLocation: `s3://${exampleAwsS3Bucket.bucket}/output/`,
  *         },
+ *         enforceWorkgroupConfiguration: true,
+ *         publishCloudwatchMetricsEnabled: true,
  *     },
+ *     name: "example",
  * });
  * ```
  *

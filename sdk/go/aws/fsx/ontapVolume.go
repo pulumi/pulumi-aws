@@ -64,15 +64,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := fsx.NewOntapVolume(ctx, "test", &fsx.OntapVolumeArgs{
+//				TieringPolicy: &fsx.OntapVolumeTieringPolicyArgs{
+//					Name:          pulumi.String("AUTO"),
+//					CoolingPeriod: pulumi.Int(31),
+//				},
 //				Name:                     pulumi.String("test"),
 //				JunctionPath:             pulumi.String("/test"),
 //				SizeInMegabytes:          pulumi.Int(1024),
 //				StorageEfficiencyEnabled: pulumi.Bool(true),
 //				StorageVirtualMachineId:  pulumi.Any(testAwsFsxOntapStorageVirtualMachine.Id),
-//				TieringPolicy: &fsx.OntapVolumeTieringPolicyArgs{
-//					Name:          pulumi.String("AUTO"),
-//					CoolingPeriod: pulumi.Int(31),
-//				},
 //			})
 //			if err != nil {
 //				return err

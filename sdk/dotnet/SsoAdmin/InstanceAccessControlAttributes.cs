@@ -26,12 +26,10 @@ namespace Pulumi.Aws.SsoAdmin
     /// 
     ///     var exampleInstanceAccessControlAttributes = new Aws.SsoAdmin.InstanceAccessControlAttributes("example", new()
     ///     {
-    ///         InstanceArn = example.Apply(getInstancesResult =&gt; getInstancesResult.Arns[0]),
     ///         Attributes = new[]
     ///         {
     ///             new Aws.SsoAdmin.Inputs.InstanceAccessControlAttributesAttributeArgs
     ///             {
-    ///                 Key = "name",
     ///                 Values = new[]
     ///                 {
     ///                     new Aws.SsoAdmin.Inputs.InstanceAccessControlAttributesAttributeValueArgs
@@ -42,10 +40,10 @@ namespace Pulumi.Aws.SsoAdmin
     ///                         },
     ///                     },
     ///                 },
+    ///                 Key = "name",
     ///             },
     ///             new Aws.SsoAdmin.Inputs.InstanceAccessControlAttributesAttributeArgs
     ///             {
-    ///                 Key = "last",
     ///                 Values = new[]
     ///                 {
     ///                     new Aws.SsoAdmin.Inputs.InstanceAccessControlAttributesAttributeValueArgs
@@ -56,8 +54,10 @@ namespace Pulumi.Aws.SsoAdmin
     ///                         },
     ///                     },
     ///                 },
+    ///                 Key = "last",
     ///             },
     ///         },
+    ///         InstanceArn = example.Apply(getInstancesResult =&gt; getInstancesResult.Arns[0]),
     ///     });
     /// 
     /// });

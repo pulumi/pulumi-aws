@@ -38,6 +38,12 @@ namespace Pulumi.Aws.Ec2
         ///     {
         ///         IpamPoolId = testAwsVpcIpamPool.Id,
         ///         Cidr = test.Apply(getIpamPreviewNextCidrResult =&gt; getIpamPreviewNextCidrResult.Cidr),
+        ///     }, new CustomResourceOptions
+        ///     {
+        ///         IgnoreChanges =
+        ///         {
+        ///             "cidr",
+        ///         },
         ///     });
         /// 
         /// });
@@ -73,6 +79,12 @@ namespace Pulumi.Aws.Ec2
         ///     {
         ///         IpamPoolId = testAwsVpcIpamPool.Id,
         ///         Cidr = test.Apply(getIpamPreviewNextCidrResult =&gt; getIpamPreviewNextCidrResult.Cidr),
+        ///     }, new CustomResourceOptions
+        ///     {
+        ///         IgnoreChanges =
+        ///         {
+        ///             "cidr",
+        ///         },
         ///     });
         /// 
         /// });
@@ -108,6 +120,12 @@ namespace Pulumi.Aws.Ec2
         ///     {
         ///         IpamPoolId = testAwsVpcIpamPool.Id,
         ///         Cidr = test.Apply(getIpamPreviewNextCidrResult =&gt; getIpamPreviewNextCidrResult.Cidr),
+        ///     }, new CustomResourceOptions
+        ///     {
+        ///         IgnoreChanges =
+        ///         {
+        ///             "cidr",
+        ///         },
         ///     });
         /// 
         /// });

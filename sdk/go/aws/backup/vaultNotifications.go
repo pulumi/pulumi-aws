@@ -37,13 +37,8 @@ import (
 //				return err
 //			}
 //			test := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				PolicyId: pulumi.String("__default_policy_ID"),
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
-//						Actions: pulumi.StringArray{
-//							pulumi.String("SNS:Publish"),
-//						},
-//						Effect: pulumi.String("Allow"),
 //						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
 //							&iam.GetPolicyDocumentStatementPrincipalArgs{
 //								Type: pulumi.String("Service"),
@@ -52,12 +47,17 @@ import (
 //								},
 //							},
 //						},
+//						Actions: pulumi.StringArray{
+//							pulumi.String("SNS:Publish"),
+//						},
+//						Effect: pulumi.String("Allow"),
 //						Resources: pulumi.StringArray{
 //							testTopic.Arn,
 //						},
 //						Sid: pulumi.String("__default_statement_ID"),
 //					},
 //				},
+//				PolicyId: pulumi.String("__default_policy_ID"),
 //			}, nil)
 //			_, err = sns.NewTopicPolicy(ctx, "test", &sns.TopicPolicyArgs{
 //				Arn:    testTopic.Arn,

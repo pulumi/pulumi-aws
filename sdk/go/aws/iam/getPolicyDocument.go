@@ -46,12 +46,6 @@ import (
 //						},
 //					},
 //					{
-//						Actions: []string{
-//							"s3:ListBucket",
-//						},
-//						Resources: []string{
-//							fmt.Sprintf("arn:aws:s3:::%v", s3BucketName),
-//						},
 //						Conditions: []iam.GetPolicyDocumentStatementCondition{
 //							{
 //								Test:     "StringLike",
@@ -62,6 +56,12 @@ import (
 //									"home/&{aws:username}/",
 //								},
 //							},
+//						},
+//						Actions: []string{
+//							"s3:ListBucket",
+//						},
+//						Resources: []string{
+//							fmt.Sprintf("arn:aws:s3:::%v", s3BucketName),
 //						},
 //					},
 //					{
@@ -111,13 +111,6 @@ import (
 //			_, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Actions: []string{
-//							"kms:Decrypt",
-//							"kms:GenerateDataKey",
-//						},
-//						Resources: []string{
-//							"*",
-//						},
 //						Conditions: []iam.GetPolicyDocumentStatementCondition{
 //							{
 //								Test:     "ForAnyValue:StringEquals",
@@ -141,6 +134,13 @@ import (
 //									"db-EEEEEDDDDDCCCCCBBBBBAAAAA",
 //								},
 //							},
+//						},
+//						Actions: []string{
+//							"kms:Decrypt",
+//							"kms:GenerateDataKey",
+//						},
+//						Resources: []string{
+//							"*",
 //						},
 //					},
 //				},
@@ -177,9 +177,6 @@ import (
 //			_, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -200,6 +197,9 @@ import (
 //									"cognito-identity.amazonaws.com",
 //								},
 //							},
+//						},
+//						Actions: []string{
+//							"sts:AssumeRole",
 //						},
 //					},
 //				},
@@ -252,9 +252,6 @@ import (
 //				return err
 //			}
 //			_, err = iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				SourcePolicyDocuments: pulumi.StringArray{
-//					source.Json,
-//				},
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Sid: pulumi.StringRef("SidToOverride"),
@@ -266,6 +263,9 @@ import (
 //							"arn:aws:s3:::somebucket/*",
 //						},
 //					},
+//				},
+//				SourcePolicyDocuments: pulumi.StringArray{
+//					source.Json,
 //				},
 //			}, nil)
 //			if err != nil {
@@ -310,9 +310,6 @@ import (
 //				return err
 //			}
 //			_, err = iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				OverridePolicyDocuments: pulumi.StringArray{
-//					override.Json,
-//				},
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Actions: []string{
@@ -332,6 +329,9 @@ import (
 //							"arn:aws:s3:::somebucket/*",
 //						},
 //					},
+//				},
+//				OverridePolicyDocuments: pulumi.StringArray{
+//					override.Json,
 //				},
 //			}, nil)
 //			if err != nil {
@@ -568,11 +568,6 @@ import (
 //				return err
 //			}
 //			_, err = iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				OverridePolicyDocuments: pulumi.StringArray{
-//					policyOne.Json,
-//					policyTwo.Json,
-//					policyThree.Json,
-//				},
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Sid:    pulumi.StringRef("OverridePlaceHolderTwo"),
@@ -584,6 +579,11 @@ import (
 //							"*",
 //						},
 //					},
+//				},
+//				OverridePolicyDocuments: pulumi.StringArray{
+//					policyOne.Json,
+//					policyTwo.Json,
+//					policyThree.Json,
 //				},
 //			}, nil)
 //			if err != nil {

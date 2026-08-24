@@ -44,8 +44,6 @@ namespace Pulumi.Aws.SesV2
     /// {
     ///     var example = new Aws.SesV2.ContactList("example", new()
     ///     {
-    ///         ContactListName = "example",
-    ///         Description = "description",
     ///         Topics = new[]
     ///         {
     ///             new Aws.SesV2.Inputs.ContactListTopicArgs
@@ -56,6 +54,8 @@ namespace Pulumi.Aws.SesV2
     ///                 TopicName = "example-topic",
     ///             },
     ///         },
+    ///         ContactListName = "example",
+    ///         Description = "description",
     ///     });
     /// 
     /// });

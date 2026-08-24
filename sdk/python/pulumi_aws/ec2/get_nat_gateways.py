@@ -115,11 +115,11 @@ def get_nat_gateways(filters: Optional[Sequence[Union['GetNatGatewaysFilterArgs'
     import pulumi
     import pulumi_aws as aws
 
-    ngws = aws.ec2.get_nat_gateways(vpc_id=vpc_id,
-        filters=[{
+    ngws = aws.ec2.get_nat_gateways(filters=[{
             "name": "state",
             "values": ["available"],
-        }])
+        }],
+        vpc_id=vpc_id)
     ngw = [aws.ec2.get_nat_gateway(id=ngws.ids[__index]) for __index in len(ngws.ids).apply(lambda length: range(length))]
     ```
 
@@ -161,11 +161,11 @@ def get_nat_gateways_output(filters: pulumi.Input[Optional[Optional[Sequence[Uni
     import pulumi
     import pulumi_aws as aws
 
-    ngws = aws.ec2.get_nat_gateways(vpc_id=vpc_id,
-        filters=[{
+    ngws = aws.ec2.get_nat_gateways(filters=[{
             "name": "state",
             "values": ["available"],
-        }])
+        }],
+        vpc_id=vpc_id)
     ngw = [aws.ec2.get_nat_gateway(id=ngws.ids[__index]) for __index in len(ngws.ids).apply(lambda length: range(length))]
     ```
 

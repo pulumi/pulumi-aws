@@ -20,12 +20,12 @@ import * as utilities from "../utilities";
  *
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
- *         actions: ["sts:AssumeRole"],
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["bedrock-agentcore.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
+ *         actions: ["sts:AssumeRole"],
  *     }],
  * });
  * const ecrPermissions = aws.iam.getPolicyDocument({
@@ -54,8 +54,6 @@ import * as utilities from "../utilities";
  *     policy: ecrPermissions.then(ecrPermissions => ecrPermissions.json),
  * });
  * const exampleAgentcoreAgentRuntime = new aws.bedrock.AgentcoreAgentRuntime("example", {
- *     agentRuntimeName: "example_agent_runtime",
- *     roleArn: example.arn,
  *     agentRuntimeArtifact: {
  *         containerConfiguration: {
  *             containerUri: `${exampleAwsEcrRepository.repositoryUrl}:latest`,
@@ -64,6 +62,8 @@ import * as utilities from "../utilities";
  *     networkConfiguration: {
  *         networkMode: "PUBLIC",
  *     },
+ *     agentRuntimeName: "example_agent_runtime",
+ *     roleArn: example.arn,
  * });
  * ```
  *
@@ -74,17 +74,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.bedrock.AgentcoreAgentRuntime("example", {
- *     agentRuntimeName: "example_agent_runtime",
- *     description: "Agent runtime with JWT authorization",
- *     roleArn: exampleAwsIamRole.arn,
  *     agentRuntimeArtifact: {
  *         containerConfiguration: {
  *             containerUri: `${exampleAwsEcrRepository.repositoryUrl}:v1.0`,
  *         },
- *     },
- *     environmentVariables: {
- *         LOG_LEVEL: "INFO",
- *         ENV: "production",
  *     },
  *     authorizerConfiguration: {
  *         customJwtAuthorizer: {
@@ -109,6 +102,13 @@ import * as utilities from "../utilities";
  *     protocolConfiguration: {
  *         serverProtocol: "MCP",
  *     },
+ *     agentRuntimeName: "example_agent_runtime",
+ *     description: "Agent runtime with JWT authorization",
+ *     roleArn: exampleAwsIamRole.arn,
+ *     environmentVariables: {
+ *         LOG_LEVEL: "INFO",
+ *         ENV: "production",
+ *     },
  * });
  * ```
  *
@@ -119,9 +119,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.bedrock.AgentcoreAgentRuntime("example", {
- *     agentRuntimeName: "example_agui_runtime",
- *     description: "Agent runtime with AG-UI protocol",
- *     roleArn: exampleAwsIamRole.arn,
  *     agentRuntimeArtifact: {
  *         containerConfiguration: {
  *             containerUri: `${exampleAwsEcrRepository.repositoryUrl}:latest`,
@@ -133,6 +130,9 @@ import * as utilities from "../utilities";
  *     protocolConfiguration: {
  *         serverProtocol: "AGUI",
  *     },
+ *     agentRuntimeName: "example_agui_runtime",
+ *     description: "Agent runtime with AG-UI protocol",
+ *     roleArn: exampleAwsIamRole.arn,
  * });
  * ```
  *
@@ -143,23 +143,23 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.bedrock.AgentcoreAgentRuntime("example", {
- *     agentRuntimeName: "example_agent_runtime",
- *     roleArn: exampleAwsIamRole.arn,
  *     agentRuntimeArtifact: {
  *         codeConfiguration: {
- *             entryPoints: ["main.py"],
- *             runtime: "PYTHON_3_13",
  *             code: {
  *                 s3: {
  *                     bucket: "example-bucket",
  *                     prefix: "example-agent-runtime-code.zip",
  *                 },
  *             },
+ *             entryPoints: ["main.py"],
+ *             runtime: "PYTHON_3_13",
  *         },
  *     },
  *     networkConfiguration: {
  *         networkMode: "PUBLIC",
  *     },
+ *     agentRuntimeName: "example_agent_runtime",
+ *     roleArn: exampleAwsIamRole.arn,
  * });
  * ```
  *

@@ -54,28 +54,28 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new FileCache("example", FileCacheArgs.builder()
  *             .dataRepositoryAssociations(FileCacheDataRepositoryAssociationArgs.builder()
- *                 .dataRepositoryPath("nfs://filer.domain.com")
- *                 .dataRepositorySubdirectories(                
- *                     "test",
- *                     "test2")
- *                 .fileCachePath("/ns1")
  *                 .nfs(FileCacheDataRepositoryAssociationNfArgs.builder()
  *                     .dnsIps(                    
  *                         "192.168.0.1",
  *                         "192.168.0.2")
  *                     .version("NFS3")
  *                     .build())
+ *                 .dataRepositoryPath("nfs://filer.domain.com")
+ *                 .dataRepositorySubdirectories(                
+ *                     "test",
+ *                     "test2")
+ *                 .fileCachePath("/ns1")
  *                 .build())
- *             .fileCacheType("LUSTRE")
- *             .fileCacheTypeVersion("2.12")
  *             .lustreConfigurations(FileCacheLustreConfigurationArgs.builder()
- *                 .deploymentType("CACHE_1")
  *                 .metadataConfigurations(FileCacheLustreConfigurationMetadataConfigurationArgs.builder()
  *                     .storageCapacity(2400)
  *                     .build())
+ *                 .deploymentType("CACHE_1")
  *                 .perUnitStorageThroughput(1000)
  *                 .weeklyMaintenanceStartTime("2:05:00")
  *                 .build())
+ *             .fileCacheType("LUSTRE")
+ *             .fileCacheTypeVersion("2.12")
  *             .subnetIds(test1.id())
  *             .storageCapacity(1200)
  *             .build());

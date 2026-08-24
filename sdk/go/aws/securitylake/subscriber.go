@@ -33,8 +33,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := securitylake.NewSubscriber(ctx, "example", &securitylake.SubscriberArgs{
-//				SubscriberName: pulumi.String("example-name"),
-//				AccessType:     pulumi.String("S3"),
+//				SubscriberIdentity: &securitylake.SubscriberSubscriberIdentityArgs{
+//					ExternalId: pulumi.String("example"),
+//					Principal:  pulumi.String("1234567890"),
+//				},
 //				Sources: securitylake.SubscriberSourceArray{
 //					&securitylake.SubscriberSourceArgs{
 //						AwsLogSourceResource: &securitylake.SubscriberSourceAwsLogSourceResourceArgs{
@@ -43,10 +45,8 @@ import (
 //						},
 //					},
 //				},
-//				SubscriberIdentity: &securitylake.SubscriberSubscriberIdentityArgs{
-//					ExternalId: pulumi.String("example"),
-//					Principal:  pulumi.String("1234567890"),
-//				},
+//				SubscriberName: pulumi.String("example-name"),
+//				AccessType:     pulumi.String("S3"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleAwsSecuritylakeDataLake,
 //			}))
@@ -74,8 +74,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := securitylake.NewSubscriber(ctx, "example", &securitylake.SubscriberArgs{
-//				SubscriberName: pulumi.String("example-name"),
-//				AccessType:     pulumi.String("S3"),
+//				SubscriberIdentity: &securitylake.SubscriberSubscriberIdentityArgs{
+//					ExternalId: pulumi.String("example"),
+//					Principal:  pulumi.String("1234567890"),
+//				},
 //				Sources: securitylake.SubscriberSourceArray{
 //					&securitylake.SubscriberSourceArgs{
 //						AwsLogSourceResource: &securitylake.SubscriberSourceAwsLogSourceResourceArgs{
@@ -90,10 +92,8 @@ import (
 //						},
 //					},
 //				},
-//				SubscriberIdentity: &securitylake.SubscriberSubscriberIdentityArgs{
-//					ExternalId: pulumi.String("example"),
-//					Principal:  pulumi.String("1234567890"),
-//				},
+//				SubscriberName: pulumi.String("example-name"),
+//				AccessType:     pulumi.String("S3"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleAwsSecuritylakeDataLake,
 //			}))

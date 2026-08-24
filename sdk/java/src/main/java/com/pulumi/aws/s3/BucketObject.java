@@ -264,10 +264,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBucketVersioning = new BucketVersioning("exampleBucketVersioning", BucketVersioningArgs.builder()
- *             .bucket(examplebucket.id())
  *             .versioningConfiguration(BucketVersioningVersioningConfigurationArgs.builder()
  *                 .status("Enabled")
  *                 .build())
+ *             .bucket(examplebucket.id())
  *             .build());
  * 
  *         var exampleBucketObject = new BucketObject("exampleBucketObject", BucketObjectArgs.builder()

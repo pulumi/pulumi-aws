@@ -162,11 +162,11 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ami = aws.ec2.get_ami(most_recent=True,
-            filters=[{
+        ami = aws.ec2.get_ami(filters=[{
                 "name": "name",
                 "values": ["amzn-ami-hvm-*"],
             }],
+            most_recent=True,
             owners=["amazon"])
         instance = aws.ec2.Instance("instance",
             instance_type=aws.ec2.InstanceType.T2_MICRO,
@@ -244,11 +244,11 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ami = aws.ec2.get_ami(most_recent=True,
-            filters=[{
+        ami = aws.ec2.get_ami(filters=[{
                 "name": "name",
                 "values": ["amzn-ami-hvm-*"],
             }],
+            most_recent=True,
             owners=["amazon"])
         instance = aws.ec2.Instance("instance",
             instance_type=aws.ec2.InstanceType.T2_MICRO,

@@ -19,10 +19,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.workspacesweb.IpAccessSettings("example", {
- *     displayName: "example",
  *     ipRules: [{
  *         ipRange: "10.0.0.0/16",
  *     }],
+ *     displayName: "example",
  * });
  * ```
  *
@@ -33,8 +33,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.workspacesweb.IpAccessSettings("example", {
- *     displayName: "example",
- *     description: "Example IP access settings",
  *     ipRules: [
  *         {
  *             ipRange: "10.0.0.0/16",
@@ -45,6 +43,8 @@ import * as utilities from "../utilities";
  *             description: "Branch office",
  *         },
  *     ],
+ *     displayName: "example",
+ *     description: "Example IP access settings",
  * });
  * ```
  *
@@ -59,12 +59,6 @@ import * as utilities from "../utilities";
  *     deletionWindowInDays: 7,
  * });
  * const exampleIpAccessSettings = new aws.workspacesweb.IpAccessSettings("example", {
- *     displayName: "example",
- *     description: "Example IP access settings",
- *     customerManagedKey: example.arn,
- *     additionalEncryptionContext: {
- *         Environment: "Production",
- *     },
  *     ipRules: [
  *         {
  *             ipRange: "10.0.0.0/16",
@@ -75,6 +69,12 @@ import * as utilities from "../utilities";
  *             description: "Branch office",
  *         },
  *     ],
+ *     displayName: "example",
+ *     description: "Example IP access settings",
+ *     customerManagedKey: example.arn,
+ *     additionalEncryptionContext: {
+ *         Environment: "Production",
+ *     },
  *     tags: {
  *         Name: "example-ip-access-settings",
  *     },

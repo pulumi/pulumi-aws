@@ -31,17 +31,17 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datasync.NewLocationHdfs(ctx, "example", &datasync.LocationHdfsArgs{
-//				AgentArns: pulumi.StringArray{
-//					exampleAwsDatasyncAgent.Arn,
-//				},
-//				AuthenticationType: pulumi.String("SIMPLE"),
-//				SimpleUser:         pulumi.String("example"),
 //				NameNodes: datasync.LocationHdfsNameNodeArray{
 //					&datasync.LocationHdfsNameNodeArgs{
 //						Hostname: pulumi.Any(exampleAwsInstance.PrivateDns),
 //						Port:     pulumi.Int(80),
 //					},
 //				},
+//				AgentArns: pulumi.StringArray{
+//					exampleAwsDatasyncAgent.Arn,
+//				},
+//				AuthenticationType: pulumi.String("SIMPLE"),
+//				SimpleUser:         pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -80,16 +80,16 @@ import (
 //				return err
 //			}
 //			_, err = datasync.NewLocationHdfs(ctx, "example", &datasync.LocationHdfsArgs{
-//				AgentArns: pulumi.StringArray{
-//					exampleAwsDatasyncAgent.Arn,
-//				},
-//				AuthenticationType: pulumi.String("KERBEROS"),
 //				NameNodes: datasync.LocationHdfsNameNodeArray{
 //					&datasync.LocationHdfsNameNodeArgs{
 //						Hostname: pulumi.Any(exampleAwsInstance.PrivateDns),
 //						Port:     pulumi.Int(80),
 //					},
 //				},
+//				AgentArns: pulumi.StringArray{
+//					exampleAwsDatasyncAgent.Arn,
+//				},
+//				AuthenticationType:   pulumi.String("KERBEROS"),
 //				KerberosPrincipal:    pulumi.String("user@example.com"),
 //				KerberosKeytabBase64: pulumi.String(invokeFilebase64.Result),
 //				KerberosKrb5Conf:     pulumi.String(invokeFile1.Result),

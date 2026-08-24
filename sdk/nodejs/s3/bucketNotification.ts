@@ -25,18 +25,18 @@ import * as utilities from "../utilities";
  * const bucket = new aws.s3.Bucket("bucket", {bucket: "your-bucket-name"});
  * const topic = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["s3.amazonaws.com"],
- *         }],
- *         actions: ["SNS:Publish"],
- *         resources: ["arn:aws:sns:*:*:s3-event-notification-topic"],
  *         conditions: [{
  *             test: "ArnLike",
  *             variable: "aws:SourceArn",
  *             values: [bucket.arn],
  *         }],
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["s3.amazonaws.com"],
+ *         }],
+ *         effect: "Allow",
+ *         actions: ["SNS:Publish"],
+ *         resources: ["arn:aws:sns:*:*:s3-event-notification-topic"],
  *     }],
  * });
  * const topicTopic = new aws.sns.Topic("topic", {
@@ -44,12 +44,12 @@ import * as utilities from "../utilities";
  *     policy: topic.json,
  * });
  * const bucketNotification = new aws.s3.BucketNotification("bucket_notification", {
- *     bucket: bucket.id,
  *     topics: [{
  *         topicArn: topicTopic.arn,
  *         events: ["s3:ObjectCreated:*"],
  *         filterSuffix: ".log",
  *     }],
+ *     bucket: bucket.id,
  * });
  * ```
  *
@@ -62,18 +62,18 @@ import * as utilities from "../utilities";
  * const bucket = new aws.s3.Bucket("bucket", {bucket: "your-bucket-name"});
  * const queue = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "*",
- *             identifiers: ["*"],
- *         }],
- *         actions: ["sqs:SendMessage"],
- *         resources: ["arn:aws:sqs:*:*:s3-event-notification-queue"],
  *         conditions: [{
  *             test: "ArnEquals",
  *             variable: "aws:SourceArn",
  *             values: [bucket.arn],
  *         }],
+ *         principals: [{
+ *             type: "*",
+ *             identifiers: ["*"],
+ *         }],
+ *         effect: "Allow",
+ *         actions: ["sqs:SendMessage"],
+ *         resources: ["arn:aws:sqs:*:*:s3-event-notification-queue"],
  *     }],
  * });
  * const queueQueue = new aws.sqs.Queue("queue", {
@@ -81,12 +81,12 @@ import * as utilities from "../utilities";
  *     policy: queue.json,
  * });
  * const bucketNotification = new aws.s3.BucketNotification("bucket_notification", {
- *     bucket: bucket.id,
  *     queues: [{
  *         queueArn: queueQueue.arn,
  *         events: ["s3:ObjectCreated:*"],
  *         filterSuffix: ".log",
  *     }],
+ *     bucket: bucket.id,
  * });
  * ```
  *
@@ -98,11 +98,11 @@ import * as utilities from "../utilities";
  *
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["lambda.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
@@ -126,13 +126,13 @@ import * as utilities from "../utilities";
  *     sourceArn: bucket.arn,
  * });
  * const bucketNotification = new aws.s3.BucketNotification("bucket_notification", {
- *     bucket: bucket.id,
  *     lambdaFunctions: [{
  *         lambdaFunctionArn: func.arn,
  *         events: ["s3:ObjectCreated:*"],
  *         filterPrefix: "AWSLogs/",
  *         filterSuffix: ".log",
  *     }],
+ *     bucket: bucket.id,
  * }, {
  *     dependsOn: [allowBucket],
  * });
@@ -146,11 +146,11 @@ import * as utilities from "../utilities";
  *
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["lambda.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
@@ -187,7 +187,6 @@ import * as utilities from "../utilities";
  *     sourceArn: bucket.arn,
  * });
  * const bucketNotification = new aws.s3.BucketNotification("bucket_notification", {
- *     bucket: bucket.id,
  *     lambdaFunctions: [
  *         {
  *             lambdaFunctionArn: func1.arn,
@@ -202,6 +201,7 @@ import * as utilities from "../utilities";
  *             filterSuffix: ".log",
  *         },
  *     ],
+ *     bucket: bucket.id,
  * }, {
  *     dependsOn: [
  *         allowBucket1,
@@ -219,18 +219,18 @@ import * as utilities from "../utilities";
  * const bucket = new aws.s3.Bucket("bucket", {bucket: "your-bucket-name"});
  * const queue = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "*",
- *             identifiers: ["*"],
- *         }],
- *         actions: ["sqs:SendMessage"],
- *         resources: ["arn:aws:sqs:*:*:s3-event-notification-queue"],
  *         conditions: [{
  *             test: "ArnEquals",
  *             variable: "aws:SourceArn",
  *             values: [bucket.arn],
  *         }],
+ *         principals: [{
+ *             type: "*",
+ *             identifiers: ["*"],
+ *         }],
+ *         effect: "Allow",
+ *         actions: ["sqs:SendMessage"],
+ *         resources: ["arn:aws:sqs:*:*:s3-event-notification-queue"],
  *     }],
  * });
  * const queueQueue = new aws.sqs.Queue("queue", {
@@ -238,7 +238,6 @@ import * as utilities from "../utilities";
  *     policy: queue.json,
  * });
  * const bucketNotification = new aws.s3.BucketNotification("bucket_notification", {
- *     bucket: bucket.id,
  *     queues: [
  *         {
  *             id: "image-upload-event",
@@ -253,6 +252,7 @@ import * as utilities from "../utilities";
  *             filterPrefix: "videos/",
  *         },
  *     ],
+ *     bucket: bucket.id,
  * });
  * ```
  *

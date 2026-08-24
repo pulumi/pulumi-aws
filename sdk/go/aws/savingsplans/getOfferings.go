@@ -30,7 +30,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := savingsplans.GetOfferings(ctx, &savingsplans.GetOfferingsArgs{
-//				ProductType: pulumi.StringRef("EC2"),
 //				Filters: []savingsplans.GetOfferingsFilter{
 //					{
 //						Name: "region",
@@ -39,6 +38,7 @@ import (
 //						},
 //					},
 //				},
+//				ProductType: pulumi.StringRef("EC2"),
 //			}, nil)
 //			if err != nil {
 //				return err

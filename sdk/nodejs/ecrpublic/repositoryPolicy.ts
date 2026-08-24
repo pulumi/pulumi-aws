@@ -20,12 +20,12 @@ import * as utilities from "../utilities";
  * const exampleRepository = new aws.ecrpublic.Repository("example", {repositoryName: "example"});
  * const example = aws.iam.getPolicyDocument({
  *     statements: [{
- *         sid: "new policy",
- *         effect: "Allow",
  *         principals: [{
  *             type: "AWS",
  *             identifiers: ["123456789012"],
  *         }],
+ *         sid: "new policy",
+ *         effect: "Allow",
  *         actions: [
  *             "ecr:GetDownloadUrlForLayer",
  *             "ecr:BatchGetImage",

@@ -406,9 +406,6 @@ class DataRepositoryAssociation(pulumi.CustomResource):
             deployment_type="PERSISTENT_2",
             per_unit_storage_throughput=125)
         example_data_repository_association = aws.fsx.DataRepositoryAssociation("example",
-            file_system_id=example_lustre_file_system.id,
-            data_repository_path=example.id.apply(lambda id: f"s3://{id}"),
-            file_system_path="/my-bucket",
             s3={
                 "auto_export_policy": {
                     "events": [
@@ -424,7 +421,10 @@ class DataRepositoryAssociation(pulumi.CustomResource):
                         "DELETED",
                     ],
                 },
-            })
+            },
+            file_system_id=example_lustre_file_system.id,
+            data_repository_path=example.id.apply(lambda id: f"s3://{id}"),
+            file_system_path="/my-bucket")
         ```
 
         ## Import
@@ -475,9 +475,6 @@ class DataRepositoryAssociation(pulumi.CustomResource):
             deployment_type="PERSISTENT_2",
             per_unit_storage_throughput=125)
         example_data_repository_association = aws.fsx.DataRepositoryAssociation("example",
-            file_system_id=example_lustre_file_system.id,
-            data_repository_path=example.id.apply(lambda id: f"s3://{id}"),
-            file_system_path="/my-bucket",
             s3={
                 "auto_export_policy": {
                     "events": [
@@ -493,7 +490,10 @@ class DataRepositoryAssociation(pulumi.CustomResource):
                         "DELETED",
                     ],
                 },
-            })
+            },
+            file_system_id=example_lustre_file_system.id,
+            data_repository_path=example.id.apply(lambda id: f"s3://{id}"),
+            file_system_path="/my-bucket")
         ```
 
         ## Import

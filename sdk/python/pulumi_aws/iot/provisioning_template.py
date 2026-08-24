@@ -397,11 +397,11 @@ class ProvisioningTemplate(pulumi.CustomResource):
         import pulumi_aws as aws
 
         iot_assume_role_policy = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["iot.amazonaws.com"],
             }],
+            "actions": ["sts:AssumeRole"],
         }])
         iot_fleet_provisioning = aws.iam.Role("iot_fleet_provisioning",
             name="IoTProvisioningServiceRole",
@@ -486,11 +486,11 @@ class ProvisioningTemplate(pulumi.CustomResource):
         import pulumi_aws as aws
 
         iot_assume_role_policy = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["iot.amazonaws.com"],
             }],
+            "actions": ["sts:AssumeRole"],
         }])
         iot_fleet_provisioning = aws.iam.Role("iot_fleet_provisioning",
             name="IoTProvisioningServiceRole",

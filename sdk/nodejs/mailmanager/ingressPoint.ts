@@ -33,14 +33,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.mailmanager.IngressPoint("example", {
- *     name: "example",
- *     type: "AUTH",
- *     ruleSetId: exampleAwsMailmanagerRuleSet.id,
- *     trafficPolicyId: exampleAwsMailmanagerTrafficPolicy.id,
  *     ingressPointConfiguration: {
  *         smtpPasswordWo: smtpPassword,
  *         smtpPasswordWoVersion: 1,
  *     },
+ *     name: "example",
+ *     type: "AUTH",
+ *     ruleSetId: exampleAwsMailmanagerRuleSet.id,
+ *     trafficPolicyId: exampleAwsMailmanagerTrafficPolicy.id,
  * });
  * ```
  *
@@ -51,15 +51,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.mailmanager.IngressPoint("example", {
- *     name: "example",
- *     type: "OPEN",
- *     ruleSetId: exampleAwsMailmanagerRuleSet.id,
- *     trafficPolicyId: exampleAwsMailmanagerTrafficPolicy.id,
  *     networkConfiguration: {
  *         privateNetworkConfiguration: {
  *             vpcEndpointId: exampleAwsVpcEndpoint.id,
  *         },
  *     },
+ *     name: "example",
+ *     type: "OPEN",
+ *     ruleSetId: exampleAwsMailmanagerRuleSet.id,
+ *     trafficPolicyId: exampleAwsMailmanagerTrafficPolicy.id,
  * });
  * ```
  *

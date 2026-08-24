@@ -29,10 +29,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appstream.NewDirectoryConfig(ctx, "example", &appstream.DirectoryConfigArgs{
-//				DirectoryName: pulumi.String("NAME OF DIRECTORY"),
-//				OrganizationalUnitDistinguishedNames: pulumi.StringArray{
-//					pulumi.String("DISTINGUISHED NAME"),
-//				},
 //				ServiceAccountCredentials: &appstream.DirectoryConfigServiceAccountCredentialsArgs{
 //					AccountName:     pulumi.String("NAME OF ACCOUNT"),
 //					AccountPassword: pulumi.String("PASSWORD OF ACCOUNT"),
@@ -40,6 +36,10 @@ import (
 //				CertificateBasedAuthProperties: &appstream.DirectoryConfigCertificateBasedAuthPropertiesArgs{
 //					CertificateAuthorityArn: pulumi.String("ARN OF CERTIFICATE AUTHORITY"),
 //					Status:                  pulumi.String("STATUS OF CERTIFICATE BASED AUTHENTICATION"),
+//				},
+//				DirectoryName: pulumi.String("NAME OF DIRECTORY"),
+//				OrganizationalUnitDistinguishedNames: pulumi.StringArray{
+//					pulumi.String("DISTINGUISHED NAME"),
 //				},
 //			})
 //			if err != nil {

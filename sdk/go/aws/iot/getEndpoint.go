@@ -42,14 +42,14 @@ import (
 //					map[string][]map[string]interface{}{
 //						"container": []map[string]interface{}{
 //							map[string]interface{}{
-//								"image": "gcr.io/my-project/image-name",
-//								"name":  "image-name",
 //								"env": []map[string]interface{}{
 //									map[string]interface{}{
 //										"name":  "IOT_ENDPOINT",
 //										"value": example.EndpointAddress,
 //									},
 //								},
+//								"image": "gcr.io/my-project/image-name",
+//								"name":  "image-name",
 //							},
 //						},
 //					},

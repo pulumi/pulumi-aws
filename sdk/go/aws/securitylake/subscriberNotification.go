@@ -31,10 +31,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := securitylake.NewSubscriberNotification(ctx, "example", &securitylake.SubscriberNotificationArgs{
-//				SubscriberId: pulumi.Any(exampleAwsSecuritylakeSubscriber.Id),
 //				Configuration: &securitylake.SubscriberNotificationConfigurationArgs{
 //					SqsNotificationConfiguration: &securitylake.SubscriberNotificationConfigurationSqsNotificationConfigurationArgs{},
 //				},
+//				SubscriberId: pulumi.Any(exampleAwsSecuritylakeSubscriber.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -60,13 +60,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := securitylake.NewSubscriberNotification(ctx, "example", &securitylake.SubscriberNotificationArgs{
-//				SubscriberId: pulumi.Any(exampleAwsSecuritylakeSubscriber.Id),
 //				Configuration: &securitylake.SubscriberNotificationConfigurationArgs{
 //					HttpsNotificationConfiguration: &securitylake.SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs{
 //						Endpoint:      pulumi.Any(test.ApiEndpoint),
 //						TargetRoleArn: pulumi.Any(eventBridge.Arn),
 //					},
 //				},
+//				SubscriberId: pulumi.Any(exampleAwsSecuritylakeSubscriber.Id),
 //			})
 //			if err != nil {
 //				return err

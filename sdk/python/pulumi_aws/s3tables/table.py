@@ -554,10 +554,6 @@ class Table(pulumi.CustomResource):
             namespace="example_namespace",
             table_bucket_arn=example_table_bucket.arn)
         example = aws.s3tables.Table("example",
-            name="example_table",
-            namespace=example_namespace.namespace,
-            table_bucket_arn=example_namespace.table_bucket_arn,
-            format="ICEBERG",
             metadata={
                 "iceberg": {
                     "schema": {
@@ -585,7 +581,11 @@ class Table(pulumi.CustomResource):
                         ],
                     },
                 },
-            })
+            },
+            name="example_table",
+            namespace=example_namespace.namespace,
+            table_bucket_arn=example_namespace.table_bucket_arn,
+            format="ICEBERG")
         ```
 
         ## Import
@@ -650,10 +650,6 @@ class Table(pulumi.CustomResource):
             namespace="example_namespace",
             table_bucket_arn=example_table_bucket.arn)
         example = aws.s3tables.Table("example",
-            name="example_table",
-            namespace=example_namespace.namespace,
-            table_bucket_arn=example_namespace.table_bucket_arn,
-            format="ICEBERG",
             metadata={
                 "iceberg": {
                     "schema": {
@@ -681,7 +677,11 @@ class Table(pulumi.CustomResource):
                         ],
                     },
                 },
-            })
+            },
+            name="example_table",
+            namespace=example_namespace.namespace,
+            table_bucket_arn=example_namespace.table_bucket_arn,
+            format="ICEBERG")
         ```
 
         ## Import

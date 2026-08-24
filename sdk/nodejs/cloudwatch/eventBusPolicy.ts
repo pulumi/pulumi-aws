@@ -21,14 +21,14 @@ import * as utilities from "../utilities";
  *
  * const test = aws.iam.getPolicyDocument({
  *     statements: [{
- *         sid: "DevAccountAccess",
- *         effect: "Allow",
- *         actions: ["events:PutEvents"],
- *         resources: ["arn:aws:events:eu-west-1:123456789012:event-bus/default"],
  *         principals: [{
  *             type: "AWS",
  *             identifiers: ["123456789012"],
  *         }],
+ *         sid: "DevAccountAccess",
+ *         effect: "Allow",
+ *         actions: ["events:PutEvents"],
+ *         resources: ["arn:aws:events:eu-west-1:123456789012:event-bus/default"],
  *     }],
  * });
  * const testEventBusPolicy = new aws.cloudwatch.EventBusPolicy("test", {
@@ -45,6 +45,15 @@ import * as utilities from "../utilities";
  *
  * const test = aws.iam.getPolicyDocument({
  *     statements: [{
+ *         conditions: [{
+ *             test: "StringEquals",
+ *             variable: "aws:PrincipalOrgID",
+ *             values: [example.id],
+ *         }],
+ *         principals: [{
+ *             type: "AWS",
+ *             identifiers: ["*"],
+ *         }],
  *         sid: "OrganizationAccess",
  *         effect: "Allow",
  *         actions: [
@@ -57,15 +66,6 @@ import * as utilities from "../utilities";
  *             "arn:aws:events:eu-west-1:123456789012:rule/*",
  *             "arn:aws:events:eu-west-1:123456789012:event-bus/default",
  *         ],
- *         principals: [{
- *             type: "AWS",
- *             identifiers: ["*"],
- *         }],
- *         conditions: [{
- *             test: "StringEquals",
- *             variable: "aws:PrincipalOrgID",
- *             values: [example.id],
- *         }],
  *     }],
  * });
  * const testEventBusPolicy = new aws.cloudwatch.EventBusPolicy("test", {
@@ -83,16 +83,25 @@ import * as utilities from "../utilities";
  * const test = aws.iam.getPolicyDocument({
  *     statements: [
  *         {
- *             sid: "DevAccountAccess",
- *             effect: "Allow",
- *             actions: ["events:PutEvents"],
- *             resources: ["arn:aws:events:eu-west-1:123456789012:event-bus/default"],
  *             principals: [{
  *                 type: "AWS",
  *                 identifiers: ["123456789012"],
  *             }],
+ *             sid: "DevAccountAccess",
+ *             effect: "Allow",
+ *             actions: ["events:PutEvents"],
+ *             resources: ["arn:aws:events:eu-west-1:123456789012:event-bus/default"],
  *         },
  *         {
+ *             conditions: [{
+ *                 test: "StringEquals",
+ *                 variable: "aws:PrincipalOrgID",
+ *                 values: [example.id],
+ *             }],
+ *             principals: [{
+ *                 type: "AWS",
+ *                 identifiers: ["*"],
+ *             }],
  *             sid: "OrganizationAccess",
  *             effect: "Allow",
  *             actions: [
@@ -105,15 +114,6 @@ import * as utilities from "../utilities";
  *                 "arn:aws:events:eu-west-1:123456789012:rule/*",
  *                 "arn:aws:events:eu-west-1:123456789012:event-bus/default",
  *             ],
- *             principals: [{
- *                 type: "AWS",
- *                 identifiers: ["*"],
- *             }],
- *             conditions: [{
- *                 test: "StringEquals",
- *                 variable: "aws:PrincipalOrgID",
- *                 values: [example.id],
- *             }],
  *         },
  *     ],
  * });

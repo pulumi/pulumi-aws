@@ -42,6 +42,14 @@ namespace Pulumi.Aws.Bedrock
     /// 
     ///     var exampleCustomModel = new Aws.Bedrock.CustomModel("example", new()
     ///     {
+    ///         OutputDataConfig = new Aws.Bedrock.Inputs.CustomModelOutputDataConfigArgs
+    ///         {
+    ///             S3Uri = $"s3://{output.Id}/data/",
+    ///         },
+    ///         TrainingDataConfig = new Aws.Bedrock.Inputs.CustomModelTrainingDataConfigArgs
+    ///         {
+    ///             S3Uri = $"s3://{training.Id}/data/train.jsonl",
+    ///         },
     ///         CustomModelName = "example-model",
     ///         JobName = "example-job-1",
     ///         BaseModelIdentifier = example.Apply(getModelResult =&gt; getModelResult.ModelArn),
@@ -52,14 +60,6 @@ namespace Pulumi.Aws.Bedrock
     ///             { "batchSize", "1" },
     ///             { "learningRate", "0.005" },
     ///             { "learningRateWarmupSteps", "0" },
-    ///         },
-    ///         OutputDataConfig = new Aws.Bedrock.Inputs.CustomModelOutputDataConfigArgs
-    ///         {
-    ///             S3Uri = $"s3://{output.Id}/data/",
-    ///         },
-    ///         TrainingDataConfig = new Aws.Bedrock.Inputs.CustomModelTrainingDataConfigArgs
-    ///         {
-    ///             S3Uri = $"s3://{training.Id}/data/train.jsonl",
     ///         },
     ///     });
     /// 

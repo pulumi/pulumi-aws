@@ -437,14 +437,14 @@ class Template(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.Template("example",
-            template_id="example-id",
-            name="example-name",
-            version_description="version",
             source_entity={
                 "source_template": {
                     "arn": source["arn"],
                 },
-            })
+            },
+            template_id="example-id",
+            name="example-name",
+            version_description="version")
         ```
 
         ### With Definition
@@ -454,9 +454,6 @@ class Template(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.Template("example",
-            template_id="example-id",
-            name="example-name",
-            version_description="version",
             definition={
                 "dataSetConfigurations": [{
                     "dataSetSchema": {
@@ -474,26 +471,22 @@ class Template(pulumi.CustomResource):
                     "placeholder": "1",
                 }],
                 "sheets": [{
-                    "title": "Test",
-                    "sheetId": "Test1",
                     "visuals": [{
                         "barChartVisual": {
-                            "visualId": "BarChart",
                             "chartConfiguration": {
                                 "fieldWells": {
                                     "barChartAggregatedFieldWells": {
                                         "categories": [{
                                             "categoricalDimensionField": {
-                                                "fieldId": "1",
                                                 "column": {
                                                     "columnName": "Column1",
                                                     "dataSetIdentifier": "1",
                                                 },
+                                                "fieldId": "1",
                                             },
                                         }],
                                         "values": [{
                                             "numericalMeasureField": {
-                                                "fieldId": "2",
                                                 "column": {
                                                     "columnName": "Column2",
                                                     "dataSetIdentifier": "1",
@@ -501,15 +494,22 @@ class Template(pulumi.CustomResource):
                                                 "aggregationFunction": {
                                                     "simpleNumericalAggregation": "SUM",
                                                 },
+                                                "fieldId": "2",
                                             },
                                         }],
                                     },
                                 },
                             },
+                            "visualId": "BarChart",
                         },
                     }],
+                    "title": "Test",
+                    "sheetId": "Test1",
                 }],
-            })
+            },
+            template_id="example-id",
+            name="example-name",
+            version_description="version")
         ```
 
         ## Import
@@ -552,14 +552,14 @@ class Template(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.Template("example",
-            template_id="example-id",
-            name="example-name",
-            version_description="version",
             source_entity={
                 "source_template": {
                     "arn": source["arn"],
                 },
-            })
+            },
+            template_id="example-id",
+            name="example-name",
+            version_description="version")
         ```
 
         ### With Definition
@@ -569,9 +569,6 @@ class Template(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.Template("example",
-            template_id="example-id",
-            name="example-name",
-            version_description="version",
             definition={
                 "dataSetConfigurations": [{
                     "dataSetSchema": {
@@ -589,26 +586,22 @@ class Template(pulumi.CustomResource):
                     "placeholder": "1",
                 }],
                 "sheets": [{
-                    "title": "Test",
-                    "sheetId": "Test1",
                     "visuals": [{
                         "barChartVisual": {
-                            "visualId": "BarChart",
                             "chartConfiguration": {
                                 "fieldWells": {
                                     "barChartAggregatedFieldWells": {
                                         "categories": [{
                                             "categoricalDimensionField": {
-                                                "fieldId": "1",
                                                 "column": {
                                                     "columnName": "Column1",
                                                     "dataSetIdentifier": "1",
                                                 },
+                                                "fieldId": "1",
                                             },
                                         }],
                                         "values": [{
                                             "numericalMeasureField": {
-                                                "fieldId": "2",
                                                 "column": {
                                                     "columnName": "Column2",
                                                     "dataSetIdentifier": "1",
@@ -616,15 +609,22 @@ class Template(pulumi.CustomResource):
                                                 "aggregationFunction": {
                                                     "simpleNumericalAggregation": "SUM",
                                                 },
+                                                "fieldId": "2",
                                             },
                                         }],
                                     },
                                 },
                             },
+                            "visualId": "BarChart",
                         },
                     }],
+                    "title": "Test",
+                    "sheetId": "Test1",
                 }],
-            })
+            },
+            template_id="example-id",
+            name="example-name",
+            version_description="version")
         ```
 
         ## Import

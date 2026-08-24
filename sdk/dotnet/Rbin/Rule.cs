@@ -26,8 +26,11 @@ namespace Pulumi.Aws.Rbin
     /// {
     ///     var example = new Aws.Rbin.Rule("example", new()
     ///     {
-    ///         Description = "Example tag-level retention rule",
-    ///         ResourceType = "EBS_SNAPSHOT",
+    ///         RetentionPeriod = new Aws.Rbin.Inputs.RuleRetentionPeriodArgs
+    ///         {
+    ///             RetentionPeriodValue = 10,
+    ///             RetentionPeriodUnit = "DAYS",
+    ///         },
     ///         ResourceTags = new[]
     ///         {
     ///             new Aws.Rbin.Inputs.RuleResourceTagArgs
@@ -36,11 +39,8 @@ namespace Pulumi.Aws.Rbin
     ///                 ResourceTagValue = "tag_value",
     ///             },
     ///         },
-    ///         RetentionPeriod = new Aws.Rbin.Inputs.RuleRetentionPeriodArgs
-    ///         {
-    ///             RetentionPeriodValue = 10,
-    ///             RetentionPeriodUnit = "DAYS",
-    ///         },
+    ///         Description = "Example tag-level retention rule",
+    ///         ResourceType = "EBS_SNAPSHOT",
     ///         Tags = 
     ///         {
     ///             { "test_tag_key", "test_tag_value" },
@@ -62,8 +62,11 @@ namespace Pulumi.Aws.Rbin
     /// {
     ///     var example = new Aws.Rbin.Rule("example", new()
     ///     {
-    ///         Description = "Example region-level retention rule with exclusion tags",
-    ///         ResourceType = "EC2_IMAGE",
+    ///         RetentionPeriod = new Aws.Rbin.Inputs.RuleRetentionPeriodArgs
+    ///         {
+    ///             RetentionPeriodValue = 10,
+    ///             RetentionPeriodUnit = "DAYS",
+    ///         },
     ///         ExcludeResourceTags = new[]
     ///         {
     ///             new Aws.Rbin.Inputs.RuleExcludeResourceTagArgs
@@ -72,11 +75,8 @@ namespace Pulumi.Aws.Rbin
     ///                 ResourceTagValue = "tag_value",
     ///             },
     ///         },
-    ///         RetentionPeriod = new Aws.Rbin.Inputs.RuleRetentionPeriodArgs
-    ///         {
-    ///             RetentionPeriodValue = 10,
-    ///             RetentionPeriodUnit = "DAYS",
-    ///         },
+    ///         Description = "Example region-level retention rule with exclusion tags",
+    ///         ResourceType = "EC2_IMAGE",
     ///         Tags = 
     ///         {
     ///             { "test_tag_key", "test_tag_value" },

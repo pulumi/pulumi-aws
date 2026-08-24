@@ -61,11 +61,11 @@ import * as utilities from "../utilities";
  * }});
  * const example = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "AWS",
  *             identifiers: [exampleContainerService.privateRegistryAccess.apply(privateRegistryAccess => privateRegistryAccess.ecrImagePullerRole?.principalArn)],
  *         }],
+ *         effect: "Allow",
  *         actions: [
  *             "ecr:BatchGetImage",
  *             "ecr:GetDownloadUrlForLayer",

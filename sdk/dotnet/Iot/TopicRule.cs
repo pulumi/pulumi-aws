@@ -34,20 +34,6 @@ namespace Pulumi.Aws.Iot
     /// 
     ///     var rule = new Aws.Iot.TopicRule("rule", new()
     ///     {
-    ///         Name = "MyRule",
-    ///         Description = "Example rule",
-    ///         Enabled = true,
-    ///         Sql = "SELECT * FROM 'topic/test'",
-    ///         SqlVersion = "2016-03-23",
-    ///         Sns = new[]
-    ///         {
-    ///             new Aws.Iot.Inputs.TopicRuleSnsArgs
-    ///             {
-    ///                 MessageFormat = "RAW",
-    ///                 RoleArn = role.Arn,
-    ///                 TargetArn = mytopic.Arn,
-    ///             },
-    ///         },
     ///         ErrorAction = new Aws.Iot.Inputs.TopicRuleErrorActionArgs
     ///         {
     ///             Sns = new Aws.Iot.Inputs.TopicRuleErrorActionSnsArgs
@@ -57,6 +43,20 @@ namespace Pulumi.Aws.Iot
     ///                 TargetArn = myerrortopic.Arn,
     ///             },
     ///         },
+    ///         Sns = new[]
+    ///         {
+    ///             new Aws.Iot.Inputs.TopicRuleSnsArgs
+    ///             {
+    ///                 MessageFormat = "RAW",
+    ///                 RoleArn = role.Arn,
+    ///                 TargetArn = mytopic.Arn,
+    ///             },
+    ///         },
+    ///         Name = "MyRule",
+    ///         Description = "Example rule",
+    ///         Enabled = true,
+    ///         Sql = "SELECT * FROM 'topic/test'",
+    ///         SqlVersion = "2016-03-23",
     ///     });
     /// 
     ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
@@ -65,7 +65,6 @@ namespace Pulumi.Aws.Iot
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -77,6 +76,7 @@ namespace Pulumi.Aws.Iot
     ///                         },
     ///                     },
     ///                 },
+    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "sts:AssumeRole",

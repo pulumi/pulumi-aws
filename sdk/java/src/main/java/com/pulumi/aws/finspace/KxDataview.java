@@ -35,6 +35,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.finspace.KxDataview;
  * import com.pulumi.aws.finspace.KxDataviewArgs;
  * import com.pulumi.aws.finspace.inputs.KxDataviewSegmentConfigurationArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import com.pulumi.resources.CustomTimeouts;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -49,6 +51,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new KxDataview("example", KxDataviewArgs.builder()
+ *             .segmentConfigurations(KxDataviewSegmentConfigurationArgs.builder()
+ *                 .volumeName(exampleAwsFinspaceKxVolume.name())
+ *                 .dbPaths("/*")
+ *                 .build())
  *             .name("my-tf-kx-dataview")
  *             .environmentId(exampleAwsFinspaceKxEnvironment.id())
  *             .databaseName(exampleAwsFinspaceKxDatabase.name())
@@ -56,11 +62,13 @@ import javax.annotation.Nullable;
  *             .description("Terraform managed Kx Dataview")
  *             .azMode("SINGLE")
  *             .autoUpdate(true)
- *             .segmentConfigurations(KxDataviewSegmentConfigurationArgs.builder()
- *                 .volumeName(exampleAwsFinspaceKxVolume.name())
- *                 .dbPaths("/*")
+ *             .build(), CustomResourceOptions.builder()
+ *                 .customTimeouts(CustomTimeouts.builder()
+ *                     .create(CustomTimeouts.parseTimeoutString("24h"))
+ *                     .update(CustomTimeouts.parseTimeoutString("24h"))
+ *                     .delete(CustomTimeouts.parseTimeoutString("12h"))
  *                 .build())
- *             .build());
+ *                 .build());
  * 
  *     }
  * }

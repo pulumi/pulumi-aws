@@ -29,6 +29,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkfirewall.NewFirewall(ctx, "example", &networkfirewall.FirewallArgs{
+//				SubnetMappings: networkfirewall.FirewallSubnetMappingArray{
+//					&networkfirewall.FirewallSubnetMappingArgs{
+//						SubnetId: pulumi.Any(exampleAwsSubnet.Id),
+//					},
+//				},
 //				Name:              pulumi.String("example"),
 //				FirewallPolicyArn: pulumi.Any(exampleAwsNetworkfirewallFirewallPolicy.Arn),
 //				VpcId:             pulumi.Any(exampleAwsVpc.Id),
@@ -36,16 +41,11 @@ import (
 //					pulumi.String("TLS_SNI"),
 //					pulumi.String("HTTP_HOST"),
 //				},
-//				SubnetMappings: networkfirewall.FirewallSubnetMappingArray{
-//					&networkfirewall.FirewallSubnetMappingArgs{
-//						SubnetId: pulumi.Any(exampleAwsSubnet.Id),
-//					},
-//				},
 //				Tags: pulumi.StringMap{
 //					"Tag1": pulumi.String("Value1"),
 //					"Tag2": pulumi.String("Value2"),
 //				},
-//			})
+//			}, pulumi.Timeouts(&pulumi.CustomTimeouts{Create: "40m", Update: "50m", Delete: "1h"}))
 //			if err != nil {
 //				return err
 //			}
@@ -77,9 +77,6 @@ import (
 //				return err
 //			}
 //			_, err = networkfirewall.NewFirewall(ctx, "example", &networkfirewall.FirewallArgs{
-//				Name:              pulumi.String("example"),
-//				FirewallPolicyArn: pulumi.Any(exampleAwsNetworkfirewallFirewallPolicy.Arn),
-//				TransitGatewayId:  pulumi.Any(exampleAwsEc2TransitGateway.Id),
 //				AvailabilityZoneMappings: networkfirewall.FirewallAvailabilityZoneMappingArray{
 //					&networkfirewall.FirewallAvailabilityZoneMappingArgs{
 //						AvailabilityZoneId: pulumi.String(example.ZoneIds[0]),
@@ -88,6 +85,9 @@ import (
 //						AvailabilityZoneId: pulumi.String(example.ZoneIds[1]),
 //					},
 //				},
+//				Name:              pulumi.String("example"),
+//				FirewallPolicyArn: pulumi.Any(exampleAwsNetworkfirewallFirewallPolicy.Arn),
+//				TransitGatewayId:  pulumi.Any(exampleAwsEc2TransitGateway.Id),
 //			})
 //			if err != nil {
 //				return err

@@ -31,8 +31,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appfabric.NewIngestionDestination(ctx, "example", &appfabric.IngestionDestinationArgs{
-//				AppBundleArn: pulumi.Any(exampleAwsAppfabricAppBundle.Arn),
-//				IngestionArn: pulumi.Any(exampleAwsAppfabricIngestion.Arn),
 //				ProcessingConfiguration: &appfabric.IngestionDestinationProcessingConfigurationArgs{
 //					AuditLog: &appfabric.IngestionDestinationProcessingConfigurationAuditLogArgs{
 //						Format: pulumi.String("json"),
@@ -48,6 +46,8 @@ import (
 //						},
 //					},
 //				},
+//				AppBundleArn: pulumi.Any(exampleAwsAppfabricAppBundle.Arn),
+//				IngestionArn: pulumi.Any(exampleAwsAppfabricIngestion.Arn),
 //			})
 //			if err != nil {
 //				return err

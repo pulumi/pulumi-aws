@@ -26,8 +26,6 @@ namespace Pulumi.Aws.AppMesh
     /// {
     ///     var serviceb = new Aws.AppMesh.VirtualRouter("serviceb", new()
     ///     {
-    ///         Name = "serviceB",
-    ///         MeshName = simple.Id,
     ///         Spec = new Aws.AppMesh.Inputs.VirtualRouterSpecArgs
     ///         {
     ///             Listeners = new[]
@@ -42,6 +40,8 @@ namespace Pulumi.Aws.AppMesh
     ///                 },
     ///             },
     ///         },
+    ///         Name = "serviceB",
+    ///         MeshName = simple.Id,
     ///     });
     /// 
     /// });

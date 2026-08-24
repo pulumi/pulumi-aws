@@ -48,11 +48,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new Cluster("foo", ClusterArgs.builder()
- *             .name("white-hart")
  *             .settings(ClusterSettingArgs.builder()
  *                 .name("containerInsights")
  *                 .value("enabled")
  *                 .build())
+ *             .name("white-hart")
  *             .build());
  * 
  *     }
@@ -101,17 +101,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var test = new Cluster("test", ClusterArgs.builder()
- *             .name("example")
  *             .configuration(ClusterConfigurationArgs.builder()
  *                 .executeCommandConfiguration(ClusterConfigurationExecuteCommandConfigurationArgs.builder()
- *                     .kmsKeyId(example.arn())
- *                     .logging("OVERRIDE")
  *                     .logConfiguration(ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs.builder()
  *                         .cloudWatchEncryptionEnabled(true)
  *                         .cloudWatchLogGroupName(exampleLogGroup.name())
  *                         .build())
+ *                     .kmsKeyId(example.arn())
+ *                     .logging("OVERRIDE")
  *                     .build())
  *                 .build())
+ *             .name("example")
  *             .build());
  * 
  *     }
@@ -215,12 +215,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var test = new Cluster("test", ClusterArgs.builder()
- *             .name("example")
  *             .configuration(ClusterConfigurationArgs.builder()
  *                 .managedStorageConfiguration(ClusterConfigurationManagedStorageConfigurationArgs.builder()
  *                     .fargateEphemeralStorageKmsKeyId(example.arn())
  *                     .build())
  *                 .build())
+ *             .name("example")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleKeyPolicy)
  *                 .build());

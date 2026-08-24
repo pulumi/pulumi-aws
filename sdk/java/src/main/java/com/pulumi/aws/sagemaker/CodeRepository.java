@@ -47,10 +47,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CodeRepository("example", CodeRepositoryArgs.builder()
- *             .codeRepositoryName("example")
  *             .gitConfig(CodeRepositoryGitConfigArgs.builder()
  *                 .repositoryUrl("https://github.com/github/docs.git")
  *                 .build())
+ *             .codeRepositoryName("example")
  *             .build());
  * 
  *     }
@@ -103,11 +103,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCodeRepository = new CodeRepository("exampleCodeRepository", CodeRepositoryArgs.builder()
- *             .codeRepositoryName("example")
  *             .gitConfig(CodeRepositoryGitConfigArgs.builder()
  *                 .repositoryUrl("https://github.com/github/docs.git")
  *                 .secretArn(example.arn())
  *                 .build())
+ *             .codeRepositoryName("example")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleSecretVersion)
  *                 .build());

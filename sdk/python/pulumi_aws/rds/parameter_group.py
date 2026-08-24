@@ -364,8 +364,6 @@ class ParameterGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         default = aws.rds.ParameterGroup("default",
-            name="rds-pg",
-            family="mysql5.6",
             parameters=[
                 {
                     "name": "character_set_server",
@@ -375,7 +373,9 @@ class ParameterGroup(pulumi.CustomResource):
                     "name": "character_set_client",
                     "value": "utf8",
                 },
-            ])
+            ],
+            name="rds-pg",
+            family="mysql5.6")
         ```
 
         ### Example of Problematic Configuration
@@ -392,12 +392,12 @@ class ParameterGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.rds.ParameterGroup("test",
-            name="random-test-parameter",
-            family="mysql5.7",
             parameters=[{
                 "name": "default_password_lifetime",
                 "value": "0",
-            }])
+            }],
+            name="random-test-parameter",
+            family="mysql5.7")
         ```
 
         ### Solution 1: Remove the Default Parameter
@@ -422,12 +422,12 @@ class ParameterGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.rds.ParameterGroup("test",
-            name="random-test-parameter",
-            family="mysql5.7",
             parameters=[{
                 "name": "default_password_lifetime",
                 "value": "1",
-            }])
+            }],
+            name="random-test-parameter",
+            family="mysql5.7")
         ```
 
         ### Solution 3: Align `apply_method` with AWS Defaults
@@ -439,13 +439,13 @@ class ParameterGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.rds.ParameterGroup("test",
-            name="random-test-parameter",
-            family="mysql5.7",
             parameters=[{
                 "apply_method": "pending-reboot",
                 "name": "default_password_lifetime",
                 "value": "0",
-            }])
+            }],
+            name="random-test-parameter",
+            family="mysql5.7")
         ```
 
         ## Import
@@ -507,8 +507,6 @@ class ParameterGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         default = aws.rds.ParameterGroup("default",
-            name="rds-pg",
-            family="mysql5.6",
             parameters=[
                 {
                     "name": "character_set_server",
@@ -518,7 +516,9 @@ class ParameterGroup(pulumi.CustomResource):
                     "name": "character_set_client",
                     "value": "utf8",
                 },
-            ])
+            ],
+            name="rds-pg",
+            family="mysql5.6")
         ```
 
         ### Example of Problematic Configuration
@@ -535,12 +535,12 @@ class ParameterGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.rds.ParameterGroup("test",
-            name="random-test-parameter",
-            family="mysql5.7",
             parameters=[{
                 "name": "default_password_lifetime",
                 "value": "0",
-            }])
+            }],
+            name="random-test-parameter",
+            family="mysql5.7")
         ```
 
         ### Solution 1: Remove the Default Parameter
@@ -565,12 +565,12 @@ class ParameterGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.rds.ParameterGroup("test",
-            name="random-test-parameter",
-            family="mysql5.7",
             parameters=[{
                 "name": "default_password_lifetime",
                 "value": "1",
-            }])
+            }],
+            name="random-test-parameter",
+            family="mysql5.7")
         ```
 
         ### Solution 3: Align `apply_method` with AWS Defaults
@@ -582,13 +582,13 @@ class ParameterGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.rds.ParameterGroup("test",
-            name="random-test-parameter",
-            family="mysql5.7",
             parameters=[{
                 "apply_method": "pending-reboot",
                 "name": "default_password_lifetime",
                 "value": "0",
-            }])
+            }],
+            name="random-test-parameter",
+            family="mysql5.7")
         ```
 
         ## Import

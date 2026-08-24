@@ -30,11 +30,11 @@ namespace Pulumi.Aws.ResilienceHub
     /// {
     ///     var example = new Aws.ResilienceHub.V2InputSource("example", new()
     ///     {
-    ///         ServiceArn = exampleAwsResiliencehubv2Service.Arn,
     ///         ResourceConfiguration = new Aws.ResilienceHub.Inputs.V2InputSourceResourceConfigurationArgs
     ///         {
     ///             CfnStackArn = "arn:aws:cloudformation:us-west-2:123456789012:stack/my-stack/abc123",
     ///         },
+    ///         ServiceArn = exampleAwsResiliencehubv2Service.Arn,
     ///     });
     /// 
     /// });
@@ -52,11 +52,11 @@ namespace Pulumi.Aws.ResilienceHub
     /// {
     ///     var example = new Aws.ResilienceHub.V2InputSource("example", new()
     ///     {
-    ///         ServiceArn = exampleAwsResiliencehubv2Service.Arn,
     ///         ResourceConfiguration = new Aws.ResilienceHub.Inputs.V2InputSourceResourceConfigurationArgs
     ///         {
     ///             TfStateFileUrl = "s3://my-bucket/terraform.tfstate",
     ///         },
+    ///         ServiceArn = exampleAwsResiliencehubv2Service.Arn,
     ///     });
     /// 
     /// });
@@ -74,7 +74,6 @@ namespace Pulumi.Aws.ResilienceHub
     /// {
     ///     var example = new Aws.ResilienceHub.V2InputSource("example", new()
     ///     {
-    ///         ServiceArn = exampleAwsResiliencehubv2Service.Arn,
     ///         ResourceConfiguration = new Aws.ResilienceHub.Inputs.V2InputSourceResourceConfigurationArgs
     ///         {
     ///             Eks = new Aws.ResilienceHub.Inputs.V2InputSourceResourceConfigurationEksArgs
@@ -87,6 +86,7 @@ namespace Pulumi.Aws.ResilienceHub
     ///                 },
     ///             },
     ///         },
+    ///         ServiceArn = exampleAwsResiliencehubv2Service.Arn,
     ///     });
     /// 
     /// });

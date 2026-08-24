@@ -38,16 +38,16 @@ import (
 //				return err
 //			}
 //			_, err = bedrock.NewAgentAgentActionGroup(ctx, "example", &bedrock.AgentAgentActionGroupArgs{
-//				ActionGroupName:        pulumi.String("example"),
-//				AgentId:                pulumi.String("GGRRAED6JP"),
-//				AgentVersion:           pulumi.String("DRAFT"),
-//				SkipResourceInUseCheck: pulumi.Bool(true),
 //				ActionGroupExecutor: &bedrock.AgentAgentActionGroupActionGroupExecutorArgs{
 //					Lambda: pulumi.String("arn:aws:lambda:us-west-2:123456789012:function:example-function"),
 //				},
 //				ApiSchema: &bedrock.AgentAgentActionGroupApiSchemaArgs{
 //					Payload: pulumi.String(invokeFile.Result),
 //				},
+//				ActionGroupName:        pulumi.String("example"),
+//				AgentId:                pulumi.String("GGRRAED6JP"),
+//				AgentVersion:           pulumi.String("DRAFT"),
+//				SkipResourceInUseCheck: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
@@ -73,10 +73,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentAgentActionGroup(ctx, "example", &bedrock.AgentAgentActionGroupArgs{
-//				ActionGroupName:        pulumi.String("example"),
-//				AgentId:                pulumi.String("GGRRAED6JP"),
-//				AgentVersion:           pulumi.String("DRAFT"),
-//				SkipResourceInUseCheck: pulumi.Bool(true),
 //				ActionGroupExecutor: &bedrock.AgentAgentActionGroupActionGroupExecutorArgs{
 //					Lambda: pulumi.String("arn:aws:lambda:us-west-2:123456789012:function:example-function"),
 //				},
@@ -86,6 +82,10 @@ import (
 //						S3ObjectKey:  pulumi.String("path/to/schema.json"),
 //					},
 //				},
+//				ActionGroupName:        pulumi.String("example"),
+//				AgentId:                pulumi.String("GGRRAED6JP"),
+//				AgentVersion:           pulumi.String("DRAFT"),
+//				SkipResourceInUseCheck: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
@@ -111,10 +111,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentAgentActionGroup(ctx, "example", &bedrock.AgentAgentActionGroupArgs{
-//				ActionGroupName:        pulumi.String("example"),
-//				AgentId:                pulumi.String("GGRRAED6JP"),
-//				AgentVersion:           pulumi.String("DRAFT"),
-//				SkipResourceInUseCheck: pulumi.Bool(true),
 //				ActionGroupExecutor: &bedrock.AgentAgentActionGroupActionGroupExecutorArgs{
 //					Lambda: pulumi.String("arn:aws:lambda:us-west-2:123456789012:function:example-function"),
 //				},
@@ -122,8 +118,6 @@ import (
 //					MemberFunctions: &bedrock.AgentAgentActionGroupFunctionSchemaMemberFunctionsArgs{
 //						Functions: bedrock.AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArray{
 //							&bedrock.AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArgs{
-//								Name:        pulumi.String("example-function"),
-//								Description: pulumi.String("Example function"),
 //								Parameters: bedrock.AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArray{
 //									&bedrock.AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs{
 //										MapBlockKey: pulumi.String("param1"),
@@ -138,10 +132,16 @@ import (
 //										Required:    pulumi.Bool(false),
 //									},
 //								},
+//								Name:        pulumi.String("example-function"),
+//								Description: pulumi.String("Example function"),
 //							},
 //						},
 //					},
 //				},
+//				ActionGroupName:        pulumi.String("example"),
+//				AgentId:                pulumi.String("GGRRAED6JP"),
+//				AgentVersion:           pulumi.String("DRAFT"),
+//				SkipResourceInUseCheck: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
@@ -174,16 +174,16 @@ import (
 //				return err
 //			}
 //			_, err = bedrock.NewAgentAgentActionGroup(ctx, "example", &bedrock.AgentAgentActionGroupArgs{
-//				ActionGroupName:        pulumi.String("example"),
-//				AgentId:                pulumi.String("GGRRAED6JP"),
-//				AgentVersion:           pulumi.String("DRAFT"),
-//				SkipResourceInUseCheck: pulumi.Bool(true),
 //				ActionGroupExecutor: &bedrock.AgentAgentActionGroupActionGroupExecutorArgs{
 //					CustomControl: pulumi.String("RETURN_CONTROL"),
 //				},
 //				ApiSchema: &bedrock.AgentAgentActionGroupApiSchemaArgs{
 //					Payload: pulumi.String(invokeFile.Result),
 //				},
+//				ActionGroupName:        pulumi.String("example"),
+//				AgentId:                pulumi.String("GGRRAED6JP"),
+//				AgentVersion:           pulumi.String("DRAFT"),
+//				SkipResourceInUseCheck: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err

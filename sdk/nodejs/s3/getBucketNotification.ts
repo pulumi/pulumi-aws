@@ -68,27 +68,27 @@ import * as utilities from "../utilities";
  *     bucket: exampleAwsS3Bucket.id,
  * });
  * const example = new aws.s3.BucketNotification("example", {
- *     lambdaFunctions: .map(entry => ({
- *         id: entry.value.id,
- *         lambdaFunctionArn: entry.value.lambdaFunctionArn,
- *         events: entry.value.events,
- *         filterPrefix: entry.value.filterPrefix,
- *         filterSuffix: entry.value.filterSuffix,
- *     })),
- *     queues: .map(entry2 => ({
- *         id: entry2.value.id,
- *         queueArn: entry2.value.queueArn,
- *         events: entry2.value.events,
- *         filterPrefix: entry2.value.filterPrefix,
- *         filterSuffix: entry2.value.filterSuffix,
- *     })),
- *     topics: .map(entry3 => ({
- *         id: entry3.value.id,
- *         topicArn: entry3.value.topicArn,
- *         events: entry3.value.events,
- *         filterPrefix: entry3.value.filterPrefix,
- *         filterSuffix: entry3.value.filterSuffix,
- *     })),
+ *     lambdaFunctions: existing.then(existing => .map(entry => ({
+ *         id: entry.id,
+ *         lambdaFunctionArn: entry.lambdaFunctionArn,
+ *         events: entry.events,
+ *         filterPrefix: entry.filterPrefix,
+ *         filterSuffix: entry.filterSuffix,
+ *     }))),
+ *     queues: existing.then(existing => .map(entry2 => ({
+ *         id: entry2.id,
+ *         queueArn: entry2.queueArn,
+ *         events: entry2.events,
+ *         filterPrefix: entry2.filterPrefix,
+ *         filterSuffix: entry2.filterSuffix,
+ *     }))),
+ *     topics: existing.then(existing => .map(entry3 => ({
+ *         id: entry3.id,
+ *         topicArn: entry3.topicArn,
+ *         events: entry3.events,
+ *         filterPrefix: entry3.filterPrefix,
+ *         filterSuffix: entry3.filterSuffix,
+ *     }))),
  *     bucket: exampleAwsS3Bucket.id,
  *     eventbridge: existing.then(existing => existing.eventbridge),
  * });
@@ -218,27 +218,27 @@ export interface GetBucketNotificationResult {
  *     bucket: exampleAwsS3Bucket.id,
  * });
  * const example = new aws.s3.BucketNotification("example", {
- *     lambdaFunctions: .map(entry => ({
- *         id: entry.value.id,
- *         lambdaFunctionArn: entry.value.lambdaFunctionArn,
- *         events: entry.value.events,
- *         filterPrefix: entry.value.filterPrefix,
- *         filterSuffix: entry.value.filterSuffix,
- *     })),
- *     queues: .map(entry2 => ({
- *         id: entry2.value.id,
- *         queueArn: entry2.value.queueArn,
- *         events: entry2.value.events,
- *         filterPrefix: entry2.value.filterPrefix,
- *         filterSuffix: entry2.value.filterSuffix,
- *     })),
- *     topics: .map(entry3 => ({
- *         id: entry3.value.id,
- *         topicArn: entry3.value.topicArn,
- *         events: entry3.value.events,
- *         filterPrefix: entry3.value.filterPrefix,
- *         filterSuffix: entry3.value.filterSuffix,
- *     })),
+ *     lambdaFunctions: existing.then(existing => .map(entry => ({
+ *         id: entry.id,
+ *         lambdaFunctionArn: entry.lambdaFunctionArn,
+ *         events: entry.events,
+ *         filterPrefix: entry.filterPrefix,
+ *         filterSuffix: entry.filterSuffix,
+ *     }))),
+ *     queues: existing.then(existing => .map(entry2 => ({
+ *         id: entry2.id,
+ *         queueArn: entry2.queueArn,
+ *         events: entry2.events,
+ *         filterPrefix: entry2.filterPrefix,
+ *         filterSuffix: entry2.filterSuffix,
+ *     }))),
+ *     topics: existing.then(existing => .map(entry3 => ({
+ *         id: entry3.id,
+ *         topicArn: entry3.topicArn,
+ *         events: entry3.events,
+ *         filterPrefix: entry3.filterPrefix,
+ *         filterSuffix: entry3.filterSuffix,
+ *     }))),
  *     bucket: exampleAwsS3Bucket.id,
  *     eventbridge: existing.then(existing => existing.eventbridge),
  * });

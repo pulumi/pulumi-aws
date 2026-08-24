@@ -24,22 +24,22 @@ import * as utilities from "../utilities";
  * const allowCloudtrailLogging = aws.iam.getPolicyDocumentOutput({
  *     statements: [
  *         {
- *             sid: "Put bucket policy needed for trails",
- *             effect: "Allow",
  *             principals: [{
  *                 type: "AWS",
  *                 identifiers: [main.then(main => main.arn)],
  *             }],
+ *             sid: "Put bucket policy needed for trails",
+ *             effect: "Allow",
  *             actions: ["s3:PutObject"],
  *             resources: [pulumi.interpolate`${bucket.arn}/*`],
  *         },
  *         {
- *             sid: "Get bucket policy needed for trails",
- *             effect: "Allow",
  *             principals: [{
  *                 type: "AWS",
  *                 identifiers: [main.then(main => main.arn)],
  *             }],
+ *             sid: "Get bucket policy needed for trails",
+ *             effect: "Allow",
  *             actions: ["s3:GetBucketAcl"],
  *             resources: [bucket.arn],
  *         },
@@ -103,22 +103,22 @@ export interface GetServiceAccountResult {
  * const allowCloudtrailLogging = aws.iam.getPolicyDocumentOutput({
  *     statements: [
  *         {
- *             sid: "Put bucket policy needed for trails",
- *             effect: "Allow",
  *             principals: [{
  *                 type: "AWS",
  *                 identifiers: [main.then(main => main.arn)],
  *             }],
+ *             sid: "Put bucket policy needed for trails",
+ *             effect: "Allow",
  *             actions: ["s3:PutObject"],
  *             resources: [pulumi.interpolate`${bucket.arn}/*`],
  *         },
  *         {
- *             sid: "Get bucket policy needed for trails",
- *             effect: "Allow",
  *             principals: [{
  *                 type: "AWS",
  *                 identifiers: [main.then(main => main.arn)],
  *             }],
+ *             sid: "Get bucket policy needed for trails",
+ *             effect: "Allow",
  *             actions: ["s3:GetBucketAcl"],
  *             resources: [bucket.arn],
  *         },

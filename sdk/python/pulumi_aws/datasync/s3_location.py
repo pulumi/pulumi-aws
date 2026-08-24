@@ -327,11 +327,11 @@ class S3Location(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.datasync.S3Location("example",
-            s3_bucket_arn=example_aws_s3_bucket["arn"],
-            subdirectory="/example/prefix",
             s3_config={
                 "bucket_access_role_arn": example_aws_iam_role["arn"],
-            })
+            },
+            s3_bucket_arn=example_aws_s3_bucket["arn"],
+            subdirectory="/example/prefix")
         ```
 
         ### S3 Bucket on AWS Outposts
@@ -341,13 +341,13 @@ class S3Location(pulumi.CustomResource):
         import pulumi_aws as aws
 
         destination = aws.datasync.S3Location("destination",
+            s3_config={
+                "bucket_access_role_arn": example["arn"],
+            },
             agent_arns=[example_aws_datasync_agent["arn"]],
             s3_bucket_arn=example_aws_s3_access_point["arn"],
             s3_storage_class="OUTPOSTS",
-            subdirectory="/example/prefix",
-            s3_config={
-                "bucket_access_role_arn": example["arn"],
-            })
+            subdirectory="/example/prefix")
         ```
 
         ## Import
@@ -393,11 +393,11 @@ class S3Location(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.datasync.S3Location("example",
-            s3_bucket_arn=example_aws_s3_bucket["arn"],
-            subdirectory="/example/prefix",
             s3_config={
                 "bucket_access_role_arn": example_aws_iam_role["arn"],
-            })
+            },
+            s3_bucket_arn=example_aws_s3_bucket["arn"],
+            subdirectory="/example/prefix")
         ```
 
         ### S3 Bucket on AWS Outposts
@@ -407,13 +407,13 @@ class S3Location(pulumi.CustomResource):
         import pulumi_aws as aws
 
         destination = aws.datasync.S3Location("destination",
+            s3_config={
+                "bucket_access_role_arn": example["arn"],
+            },
             agent_arns=[example_aws_datasync_agent["arn"]],
             s3_bucket_arn=example_aws_s3_access_point["arn"],
             s3_storage_class="OUTPOSTS",
-            subdirectory="/example/prefix",
-            s3_config={
-                "bucket_access_role_arn": example["arn"],
-            })
+            subdirectory="/example/prefix")
         ```
 
         ## Import

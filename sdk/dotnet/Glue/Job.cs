@@ -51,6 +51,20 @@ namespace Pulumi.Aws.Glue
     /// 
     ///     var etlJob = new Aws.Glue.Job("etl_job", new()
     ///     {
+    ///         Command = new Aws.Glue.Inputs.JobCommandArgs
+    ///         {
+    ///             ScriptLocation = $"s3://{glueScripts.Bucket}/jobs/etl_job.py",
+    ///             Name = "glueetl",
+    ///             PythonVersion = "3",
+    ///         },
+    ///         NotificationProperty = new Aws.Glue.Inputs.JobNotificationPropertyArgs
+    ///         {
+    ///             NotifyDelayAfter = 3,
+    ///         },
+    ///         ExecutionProperty = new Aws.Glue.Inputs.JobExecutionPropertyArgs
+    ///         {
+    ///             MaxConcurrentRuns = 1,
+    ///         },
     ///         Name = "example-etl-job",
     ///         Description = "An example Glue ETL job",
     ///         RoleArn = glueJobRole.Arn,
@@ -64,16 +78,6 @@ namespace Pulumi.Aws.Glue
     ///             example.Name,
     ///         },
     ///         ExecutionClass = "STANDARD",
-    ///         Command = new Aws.Glue.Inputs.JobCommandArgs
-    ///         {
-    ///             ScriptLocation = $"s3://{glueScripts.Bucket}/jobs/etl_job.py",
-    ///             Name = "glueetl",
-    ///             PythonVersion = "3",
-    ///         },
-    ///         NotificationProperty = new Aws.Glue.Inputs.JobNotificationPropertyArgs
-    ///         {
-    ///             NotifyDelayAfter = 3,
-    ///         },
     ///         DefaultArguments = 
     ///         {
     ///             { "--job-language", "python" },
@@ -82,10 +86,6 @@ namespace Pulumi.Aws.Glue
     ///             { "--enable-continuous-log-filter", "true" },
     ///             { "--enable-metrics", "" },
     ///             { "--enable-auto-scaling", "true" },
-    ///         },
-    ///         ExecutionProperty = new Aws.Glue.Inputs.JobExecutionPropertyArgs
-    ///         {
-    ///             MaxConcurrentRuns = 1,
     ///         },
     ///         Tags = 
     ///         {
@@ -138,6 +138,16 @@ namespace Pulumi.Aws.Glue
     /// 
     ///     var pythonShellJob = new Aws.Glue.Job("python_shell_job", new()
     ///     {
+    ///         Command = new Aws.Glue.Inputs.JobCommandArgs
+    ///         {
+    ///             ScriptLocation = $"s3://{glueScripts.Bucket}/jobs/shell_job.py",
+    ///             Name = "pythonshell",
+    ///             PythonVersion = "3.9",
+    ///         },
+    ///         ExecutionProperty = new Aws.Glue.Inputs.JobExecutionPropertyArgs
+    ///         {
+    ///             MaxConcurrentRuns = 1,
+    ///         },
     ///         Name = "example-python-shell-job",
     ///         Description = "An example Python shell job",
     ///         RoleArn = glueJobRole.Arn,
@@ -148,22 +158,12 @@ namespace Pulumi.Aws.Glue
     ///         {
     ///             example.Name,
     ///         },
-    ///         Command = new Aws.Glue.Inputs.JobCommandArgs
-    ///         {
-    ///             ScriptLocation = $"s3://{glueScripts.Bucket}/jobs/shell_job.py",
-    ///             Name = "pythonshell",
-    ///             PythonVersion = "3.9",
-    ///         },
     ///         DefaultArguments = 
     ///         {
     ///             { "--job-language", "python" },
     ///             { "--continuous-log-logGroup", "/aws-glue/jobs" },
     ///             { "--enable-continuous-cloudwatch-log", "true" },
     ///             { "library-set", "analytics" },
-    ///         },
-    ///         ExecutionProperty = new Aws.Glue.Inputs.JobExecutionPropertyArgs
-    ///         {
-    ///             MaxConcurrentRuns = 1,
     ///         },
     ///         Tags = 
     ///         {
@@ -193,10 +193,6 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.Job("example", new()
     ///     {
-    ///         Name = "example",
-    ///         RoleArn = exampleAwsIamRole.Arn,
-    ///         GlueVersion = "4.0",
-    ///         WorkerType = "Z.2X",
     ///         Command = new Aws.Glue.Inputs.JobCommandArgs
     ///         {
     ///             Name = "glueray",
@@ -204,6 +200,10 @@ namespace Pulumi.Aws.Glue
     ///             Runtime = "Ray2.4",
     ///             ScriptLocation = $"s3://{exampleAwsS3Bucket.Bucket}/example.py",
     ///         },
+    ///         Name = "example",
+    ///         RoleArn = exampleAwsIamRole.Arn,
+    ///         GlueVersion = "4.0",
+    ///         WorkerType = "Z.2X",
     ///     });
     /// 
     /// });
@@ -221,12 +221,12 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.Job("example", new()
     ///     {
-    ///         Name = "example",
-    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         Command = new Aws.Glue.Inputs.JobCommandArgs
     ///         {
     ///             ScriptLocation = $"s3://{exampleAwsS3Bucket.Bucket}/example.scala",
     ///         },
+    ///         Name = "example",
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         DefaultArguments = 
     ///         {
     ///             { "--job-language", "scala" },
@@ -248,13 +248,13 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.Job("example", new()
     ///     {
-    ///         Name = "example streaming job",
-    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         Command = new Aws.Glue.Inputs.JobCommandArgs
     ///         {
     ///             Name = "gluestreaming",
     ///             ScriptLocation = $"s3://{exampleAwsS3Bucket.Bucket}/example.script",
     ///         },
+    ///         Name = "example streaming job",
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });

@@ -35,25 +35,24 @@ import (
 //				return err
 //			}
 //			testCatalogTable, err := glue.NewCatalogTable(ctx, "test", &glue.CatalogTableArgs{
-//				Name:             pulumi.String("example"),
-//				DatabaseName:     testCatalogDatabase.Name,
-//				Owner:            pulumi.String("my_owner"),
-//				Retention:        pulumi.Int(1),
-//				TableType:        pulumi.String("VIRTUAL_VIEW"),
-//				ViewExpandedText: pulumi.String("view_expanded_text_1"),
-//				ViewOriginalText: pulumi.String("view_original_text_1"),
 //				StorageDescriptor: &glue.CatalogTableStorageDescriptorArgs{
-//					BucketColumns: pulumi.StringArray{
-//						pulumi.String("bucket_column_1"),
+//					SerDeInfo: &glue.CatalogTableStorageDescriptorSerDeInfoArgs{
+//						Name: pulumi.String("ser_de_name"),
+//						Parameters: pulumi.StringMap{
+//							"param1": pulumi.String("param_val_1"),
+//						},
+//						SerializationLibrary: pulumi.String("org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe"),
 //					},
-//					Compressed:             pulumi.Bool(false),
-//					InputFormat:            pulumi.String("SequenceFileInputFormat"),
-//					Location:               pulumi.String("my_location"),
-//					NumberOfBuckets:        pulumi.Int(1),
-//					OutputFormat:           pulumi.String("SequenceFileInputFormat"),
-//					StoredAsSubDirectories: pulumi.Bool(false),
-//					Parameters: pulumi.StringMap{
-//						"param1": pulumi.String("param1_val"),
+//					SkewedInfo: &glue.CatalogTableStorageDescriptorSkewedInfoArgs{
+//						SkewedColumnNames: pulumi.StringArray{
+//							pulumi.String("my_column_1"),
+//						},
+//						SkewedColumnValueLocationMaps: pulumi.StringMap{
+//							"my_column_1": pulumi.String("my_column_1_val_loc_map"),
+//						},
+//						SkewedColumnValues: pulumi.StringArray{
+//							pulumi.String("skewed_val_1"),
+//						},
 //					},
 //					Columns: glue.CatalogTableStorageDescriptorColumnArray{
 //						&glue.CatalogTableStorageDescriptorColumnArgs{
@@ -67,29 +66,23 @@ import (
 //							Comment: pulumi.String("my_column2_comment"),
 //						},
 //					},
-//					SerDeInfo: &glue.CatalogTableStorageDescriptorSerDeInfoArgs{
-//						Name: pulumi.String("ser_de_name"),
-//						Parameters: pulumi.StringMap{
-//							"param1": pulumi.String("param_val_1"),
-//						},
-//						SerializationLibrary: pulumi.String("org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe"),
-//					},
 //					SortColumns: glue.CatalogTableStorageDescriptorSortColumnArray{
 //						&glue.CatalogTableStorageDescriptorSortColumnArgs{
 //							Column:    pulumi.String("my_column_1"),
 //							SortOrder: pulumi.Int(1),
 //						},
 //					},
-//					SkewedInfo: &glue.CatalogTableStorageDescriptorSkewedInfoArgs{
-//						SkewedColumnNames: pulumi.StringArray{
-//							pulumi.String("my_column_1"),
-//						},
-//						SkewedColumnValueLocationMaps: pulumi.StringMap{
-//							"my_column_1": pulumi.String("my_column_1_val_loc_map"),
-//						},
-//						SkewedColumnValues: pulumi.StringArray{
-//							pulumi.String("skewed_val_1"),
-//						},
+//					BucketColumns: pulumi.StringArray{
+//						pulumi.String("bucket_column_1"),
+//					},
+//					Compressed:             pulumi.Bool(false),
+//					InputFormat:            pulumi.String("SequenceFileInputFormat"),
+//					Location:               pulumi.String("my_location"),
+//					NumberOfBuckets:        pulumi.Int(1),
+//					OutputFormat:           pulumi.String("SequenceFileInputFormat"),
+//					StoredAsSubDirectories: pulumi.Bool(false),
+//					Parameters: pulumi.StringMap{
+//						"param1": pulumi.String("param1_val"),
 //					},
 //				},
 //				PartitionKeys: glue.CatalogTablePartitionKeyArray{
@@ -104,6 +97,13 @@ import (
 //						Comment: pulumi.String("my_column_2_comment"),
 //					},
 //				},
+//				Name:             pulumi.String("example"),
+//				DatabaseName:     testCatalogDatabase.Name,
+//				Owner:            pulumi.String("my_owner"),
+//				Retention:        pulumi.Int(1),
+//				TableType:        pulumi.String("VIRTUAL_VIEW"),
+//				ViewExpandedText: pulumi.String("view_expanded_text_1"),
+//				ViewOriginalText: pulumi.String("view_original_text_1"),
 //				Parameters: pulumi.StringMap{
 //					"param1": pulumi.String("param1_val"),
 //				},
@@ -112,20 +112,20 @@ import (
 //				return err
 //			}
 //			_, err = glue.NewMLTransform(ctx, "test", &glue.MLTransformArgs{
-//				Name:    pulumi.String("example"),
-//				RoleArn: pulumi.Any(testAwsIamRole.Arn),
+//				Parameters: &glue.MLTransformParametersArgs{
+//					FindMatchesParameters: &glue.MLTransformParametersFindMatchesParametersArgs{
+//						PrimaryKeyColumnName: pulumi.String("my_column_1"),
+//					},
+//					TransformType: pulumi.String("FIND_MATCHES"),
+//				},
 //				InputRecordTables: glue.MLTransformInputRecordTableArray{
 //					&glue.MLTransformInputRecordTableArgs{
 //						DatabaseName: testCatalogTable.DatabaseName,
 //						TableName:    testCatalogTable.Name,
 //					},
 //				},
-//				Parameters: &glue.MLTransformParametersArgs{
-//					TransformType: pulumi.String("FIND_MATCHES"),
-//					FindMatchesParameters: &glue.MLTransformParametersFindMatchesParametersArgs{
-//						PrimaryKeyColumnName: pulumi.String("my_column_1"),
-//					},
-//				},
+//				Name:    pulumi.String("example"),
+//				RoleArn: pulumi.Any(testAwsIamRole.Arn),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				testAwsIamRolePolicyAttachment,
 //			}))

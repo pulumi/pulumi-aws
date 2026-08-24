@@ -28,7 +28,6 @@ namespace Pulumi.Aws.LightSail
     /// {
     ///     var available = Aws.GetAvailabilityZones.Invoke(new()
     ///     {
-    ///         State = "available",
     ///         Filters = new[]
     ///         {
     ///             new Aws.Inputs.GetAvailabilityZonesFilterInputArgs
@@ -40,6 +39,7 @@ namespace Pulumi.Aws.LightSail
     ///                 },
     ///             },
     ///         },
+    ///         State = "available",
     ///     });
     /// 
     ///     var example = new Aws.LightSail.Instance("example", new()
@@ -52,7 +52,6 @@ namespace Pulumi.Aws.LightSail
     /// 
     ///     var exampleInstancePublicPorts = new Aws.LightSail.InstancePublicPorts("example", new()
     ///     {
-    ///         InstanceName = example.Name,
     ///         PortInfos = new[]
     ///         {
     ///             new Aws.LightSail.Inputs.InstancePublicPortsPortInfoArgs
@@ -72,6 +71,7 @@ namespace Pulumi.Aws.LightSail
     ///                 },
     ///             },
     ///         },
+    ///         InstanceName = example.Name,
     ///     });
     /// 
     /// });

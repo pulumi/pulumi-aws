@@ -32,12 +32,6 @@ import (
 //			_, err := fsx.NewFileCache(ctx, "example", &fsx.FileCacheArgs{
 //				DataRepositoryAssociations: fsx.FileCacheDataRepositoryAssociationArray{
 //					&fsx.FileCacheDataRepositoryAssociationArgs{
-//						DataRepositoryPath: pulumi.String("nfs://filer.domain.com"),
-//						DataRepositorySubdirectories: pulumi.StringArray{
-//							pulumi.String("test"),
-//							pulumi.String("test2"),
-//						},
-//						FileCachePath: pulumi.String("/ns1"),
 //						Nfs: fsx.FileCacheDataRepositoryAssociationNfArray{
 //							&fsx.FileCacheDataRepositoryAssociationNfArgs{
 //								DnsIps: pulumi.StringArray{
@@ -47,22 +41,28 @@ import (
 //								Version: pulumi.String("NFS3"),
 //							},
 //						},
+//						DataRepositoryPath: pulumi.String("nfs://filer.domain.com"),
+//						DataRepositorySubdirectories: pulumi.StringArray{
+//							pulumi.String("test"),
+//							pulumi.String("test2"),
+//						},
+//						FileCachePath: pulumi.String("/ns1"),
 //					},
 //				},
-//				FileCacheType:        pulumi.String("LUSTRE"),
-//				FileCacheTypeVersion: pulumi.String("2.12"),
 //				LustreConfigurations: fsx.FileCacheLustreConfigurationArray{
 //					&fsx.FileCacheLustreConfigurationArgs{
-//						DeploymentType: pulumi.String("CACHE_1"),
 //						MetadataConfigurations: fsx.FileCacheLustreConfigurationMetadataConfigurationArray{
 //							&fsx.FileCacheLustreConfigurationMetadataConfigurationArgs{
 //								StorageCapacity: pulumi.Int(2400),
 //							},
 //						},
+//						DeploymentType:             pulumi.String("CACHE_1"),
 //						PerUnitStorageThroughput:   pulumi.Int(1000),
 //						WeeklyMaintenanceStartTime: pulumi.String("2:05:00"),
 //					},
 //				},
+//				FileCacheType:        pulumi.String("LUSTRE"),
+//				FileCacheTypeVersion: pulumi.String("2.12"),
 //				SubnetIds: pulumi.StringArray{
 //					test1.Id,
 //				},

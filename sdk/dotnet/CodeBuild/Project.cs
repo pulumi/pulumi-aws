@@ -43,7 +43,6 @@ namespace Pulumi.Aws.CodeBuild
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -55,6 +54,7 @@ namespace Pulumi.Aws.CodeBuild
     ///                         },
     ///                     },
     ///                 },
+    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "sts:AssumeRole",
@@ -107,15 +107,6 @@ namespace Pulumi.Aws.CodeBuild
     ///             },
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "ec2:CreateNetworkInterfacePermission",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     "arn:aws:ec2:us-east-1:123456789012:network-interface/*",
-    ///                 },
     ///                 Conditions = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
@@ -137,6 +128,15 @@ namespace Pulumi.Aws.CodeBuild
     ///                             "codebuild.amazonaws.com",
     ///                         },
     ///                     },
+    ///                 },
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "ec2:CreateNetworkInterfacePermission",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "arn:aws:ec2:us-east-1:123456789012:network-interface/*",
     ///                 },
     ///             },
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
@@ -176,10 +176,6 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     ///     var exampleProject = new Aws.CodeBuild.Project("example", new()
     ///     {
-    ///         Name = "test-project",
-    ///         Description = "test_codebuild_project",
-    ///         BuildTimeout = 5,
-    ///         ServiceRole = exampleRole.Arn,
     ///         Artifacts = new Aws.CodeBuild.Inputs.ProjectArtifactsArgs
     ///         {
     ///             Type = "NO_ARTIFACTS",
@@ -191,11 +187,6 @@ namespace Pulumi.Aws.CodeBuild
     ///         },
     ///         Environment = new Aws.CodeBuild.Inputs.ProjectEnvironmentArgs
     ///         {
-    ///             ComputeType = "BUILD_GENERAL1_SMALL",
-    ///             Image = "aws/codebuild/amazonlinux-x86_64-standard:6.0",
-    ///             Type = "LINUX_CONTAINER",
-    ///             ImagePullCredentialsType = "CODEBUILD",
-    ///             HostKernel = "LINUX_KERNEL_6",
     ///             EnvironmentVariables = new[]
     ///             {
     ///                 new Aws.CodeBuild.Inputs.ProjectEnvironmentEnvironmentVariableArgs
@@ -210,6 +201,11 @@ namespace Pulumi.Aws.CodeBuild
     ///                     Type = "PARAMETER_STORE",
     ///                 },
     ///             },
+    ///             ComputeType = "BUILD_GENERAL1_SMALL",
+    ///             Image = "aws/codebuild/amazonlinux-x86_64-standard:6.0",
+    ///             Type = "LINUX_CONTAINER",
+    ///             ImagePullCredentialsType = "CODEBUILD",
+    ///             HostKernel = "LINUX_KERNEL_6",
     ///         },
     ///         LogsConfig = new Aws.CodeBuild.Inputs.ProjectLogsConfigArgs
     ///         {
@@ -226,15 +222,14 @@ namespace Pulumi.Aws.CodeBuild
     ///         },
     ///         Source = new Aws.CodeBuild.Inputs.ProjectSourceArgs
     ///         {
-    ///             Type = "GITHUB",
-    ///             Location = "https://github.com/mitchellh/packer.git",
-    ///             GitCloneDepth = 1,
     ///             GitSubmodulesConfig = new Aws.CodeBuild.Inputs.ProjectSourceGitSubmodulesConfigArgs
     ///             {
     ///                 FetchSubmodules = true,
     ///             },
+    ///             Type = "GITHUB",
+    ///             Location = "https://github.com/mitchellh/packer.git",
+    ///             GitCloneDepth = 1,
     ///         },
-    ///         SourceVersion = "master",
     ///         VpcConfig = new Aws.CodeBuild.Inputs.ProjectVpcConfigArgs
     ///         {
     ///             VpcId = exampleAwsVpc.Id,
@@ -249,6 +244,11 @@ namespace Pulumi.Aws.CodeBuild
     ///                 example2AwsSecurityGroup.Id,
     ///             },
     ///         },
+    ///         Name = "test-project",
+    ///         Description = "test_codebuild_project",
+    ///         BuildTimeout = 5,
+    ///         ServiceRole = exampleRole.Arn,
+    ///         SourceVersion = "master",
     ///         Tags = 
     ///         {
     ///             { "Environment", "Test" },
@@ -257,11 +257,6 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     ///     var project_with_cache = new Aws.CodeBuild.Project("project-with-cache", new()
     ///     {
-    ///         Name = "test-project-cache",
-    ///         Description = "test_codebuild_project_cache",
-    ///         BuildTimeout = 5,
-    ///         QueuedTimeout = 5,
-    ///         ServiceRole = exampleRole.Arn,
     ///         Artifacts = new Aws.CodeBuild.Inputs.ProjectArtifactsArgs
     ///         {
     ///             Type = "NO_ARTIFACTS",
@@ -277,10 +272,6 @@ namespace Pulumi.Aws.CodeBuild
     ///         },
     ///         Environment = new Aws.CodeBuild.Inputs.ProjectEnvironmentArgs
     ///         {
-    ///             ComputeType = "BUILD_GENERAL1_SMALL",
-    ///             Image = "aws/codebuild/amazonlinux2-x86_64-standard:4.0",
-    ///             Type = "LINUX_CONTAINER",
-    ///             ImagePullCredentialsType = "CODEBUILD",
     ///             EnvironmentVariables = new[]
     ///             {
     ///                 new Aws.CodeBuild.Inputs.ProjectEnvironmentEnvironmentVariableArgs
@@ -289,6 +280,10 @@ namespace Pulumi.Aws.CodeBuild
     ///                     Value = "SOME_VALUE1",
     ///                 },
     ///             },
+    ///             ComputeType = "BUILD_GENERAL1_SMALL",
+    ///             Image = "aws/codebuild/amazonlinux2-x86_64-standard:4.0",
+    ///             Type = "LINUX_CONTAINER",
+    ///             ImagePullCredentialsType = "CODEBUILD",
     ///         },
     ///         Source = new Aws.CodeBuild.Inputs.ProjectSourceArgs
     ///         {
@@ -296,6 +291,11 @@ namespace Pulumi.Aws.CodeBuild
     ///             Location = "https://github.com/mitchellh/packer.git",
     ///             GitCloneDepth = 1,
     ///         },
+    ///         Name = "test-project-cache",
+    ///         Description = "test_codebuild_project_cache",
+    ///         BuildTimeout = 5,
+    ///         QueuedTimeout = 5,
+    ///         ServiceRole = exampleRole.Arn,
     ///         Tags = 
     ///         {
     ///             { "Environment", "Test" },
@@ -304,9 +304,6 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     ///     var project_using_github_app = new Aws.CodeBuild.Project("project-using-github-app", new()
     ///     {
-    ///         Name = "project-using-github-app",
-    ///         Description = "gets_source_from_github_via_the_github_app",
-    ///         ServiceRole = exampleRole.Arn,
     ///         Artifacts = new Aws.CodeBuild.Inputs.ProjectArtifactsArgs
     ///         {
     ///             Type = "NO_ARTIFACTS",
@@ -320,14 +317,17 @@ namespace Pulumi.Aws.CodeBuild
     ///         },
     ///         Source = new Aws.CodeBuild.Inputs.ProjectSourceArgs
     ///         {
-    ///             Type = "GITHUB",
-    ///             Location = "https://github.com/example/example.git",
     ///             Auth = new Aws.CodeBuild.Inputs.ProjectSourceAuthArgs
     ///             {
     ///                 Type = "CODECONNECTIONS",
     ///                 Resource = "arn:aws:codestar-connections:us-east-1:123456789012:connection/guid-string",
     ///             },
+    ///             Type = "GITHUB",
+    ///             Location = "https://github.com/example/example.git",
     ///         },
+    ///         Name = "project-using-github-app",
+    ///         Description = "gets_source_from_github_via_the_github_app",
+    ///         ServiceRole = exampleRole.Arn,
     ///     });
     /// 
     /// });

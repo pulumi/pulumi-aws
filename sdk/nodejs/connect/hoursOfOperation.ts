@@ -18,13 +18,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.connect.HoursOfOperation("test", {
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- *     name: "Office Hours",
- *     description: "Monday office hours",
- *     timeZone: "EST",
  *     configs: [
  *         {
- *             day: "MONDAY",
  *             endTime: {
  *                 hours: 23,
  *                 minutes: 8,
@@ -33,9 +28,9 @@ import * as utilities from "../utilities";
  *                 hours: 8,
  *                 minutes: 0,
  *             },
+ *             day: "MONDAY",
  *         },
  *         {
- *             day: "TUESDAY",
  *             endTime: {
  *                 hours: 21,
  *                 minutes: 0,
@@ -44,8 +39,13 @@ import * as utilities from "../utilities";
  *                 hours: 9,
  *                 minutes: 0,
  *             },
+ *             day: "TUESDAY",
  *         },
  *     ],
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     name: "Office Hours",
+ *     description: "Monday office hours",
+ *     timeZone: "EST",
  *     tags: {
  *         Name: "Example Hours of Operation",
  *     },

@@ -73,10 +73,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var fooPeeringConnectionOptions = new PeeringConnectionOptions("fooPeeringConnectionOptions", PeeringConnectionOptionsArgs.builder()
- *             .vpcPeeringConnectionId(fooVpcPeeringConnection.id())
  *             .accepter(PeeringConnectionOptionsAccepterArgs.builder()
  *                 .allowRemoteVpcDnsResolution(true)
  *                 .build())
+ *             .vpcPeeringConnectionId(fooVpcPeeringConnection.id())
  *             .build());
  * 
  *     }
@@ -150,17 +150,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var requester = new PeeringConnectionOptions("requester", PeeringConnectionOptionsArgs.builder()
- *             .vpcPeeringConnectionId(peerVpcPeeringConnectionAccepter.id())
  *             .requester(PeeringConnectionOptionsRequesterArgs.builder()
  *                 .allowRemoteVpcDnsResolution(true)
  *                 .build())
+ *             .vpcPeeringConnectionId(peerVpcPeeringConnectionAccepter.id())
  *             .build());
  * 
  *         var accepter = new PeeringConnectionOptions("accepter", PeeringConnectionOptionsArgs.builder()
- *             .vpcPeeringConnectionId(peerVpcPeeringConnectionAccepter.id())
  *             .accepter(PeeringConnectionOptionsAccepterArgs.builder()
  *                 .allowRemoteVpcDnsResolution(true)
  *                 .build())
+ *             .vpcPeeringConnectionId(peerVpcPeeringConnectionAccepter.id())
  *             .build());
  * 
  *     }

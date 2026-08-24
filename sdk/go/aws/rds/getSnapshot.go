@@ -53,7 +53,9 @@ import (
 //				InstanceClass:      pulumi.String(rds.InstanceType_T2_Micro),
 //				DbName:             pulumi.String("mydbdev"),
 //				SnapshotIdentifier: latestProdSnapshot.Id(),
-//			})
+//			}, pulumi.IgnoreChanges([]string{
+//				"snapshotIdentifier",
+//			}))
 //			if err != nil {
 //				return err
 //			}

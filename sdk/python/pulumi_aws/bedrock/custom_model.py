@@ -610,6 +610,12 @@ class CustomModel(pulumi.CustomResource):
 
         example = aws.bedrockfoundation.get_model(model_id="amazon.titan-text-express-v1")
         example_custom_model = aws.bedrock.CustomModel("example",
+            output_data_config={
+                "s3_uri": f"s3://{output['id']}/data/",
+            },
+            training_data_config={
+                "s3_uri": f"s3://{training['id']}/data/train.jsonl",
+            },
             custom_model_name="example-model",
             job_name="example-job-1",
             base_model_identifier=example.model_arn,
@@ -619,12 +625,6 @@ class CustomModel(pulumi.CustomResource):
                 "batchSize": "1",
                 "learningRate": "0.005",
                 "learningRateWarmupSteps": "0",
-            },
-            output_data_config={
-                "s3_uri": f"s3://{output['id']}/data/",
-            },
-            training_data_config={
-                "s3_uri": f"s3://{training['id']}/data/train.jsonl",
             })
         ```
 
@@ -689,6 +689,12 @@ class CustomModel(pulumi.CustomResource):
 
         example = aws.bedrockfoundation.get_model(model_id="amazon.titan-text-express-v1")
         example_custom_model = aws.bedrock.CustomModel("example",
+            output_data_config={
+                "s3_uri": f"s3://{output['id']}/data/",
+            },
+            training_data_config={
+                "s3_uri": f"s3://{training['id']}/data/train.jsonl",
+            },
             custom_model_name="example-model",
             job_name="example-job-1",
             base_model_identifier=example.model_arn,
@@ -698,12 +704,6 @@ class CustomModel(pulumi.CustomResource):
                 "batchSize": "1",
                 "learningRate": "0.005",
                 "learningRateWarmupSteps": "0",
-            },
-            output_data_config={
-                "s3_uri": f"s3://{output['id']}/data/",
-            },
-            training_data_config={
-                "s3_uri": f"s3://{training['id']}/data/train.jsonl",
             })
         ```
 

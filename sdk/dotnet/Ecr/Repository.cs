@@ -24,12 +24,12 @@ namespace Pulumi.Aws.Ecr
     /// {
     ///     var foo = new Aws.Ecr.Repository("foo", new()
     ///     {
-    ///         Name = "bar",
-    ///         ImageTagMutability = "MUTABLE",
     ///         ImageScanningConfiguration = new Aws.Ecr.Inputs.RepositoryImageScanningConfigurationArgs
     ///         {
     ///             ScanOnPush = true,
     ///         },
+    ///         Name = "bar",
+    ///         ImageTagMutability = "MUTABLE",
     ///     });
     /// 
     /// });
@@ -47,8 +47,6 @@ namespace Pulumi.Aws.Ecr
     /// {
     ///     var example = new Aws.Ecr.Repository("example", new()
     ///     {
-    ///         Name = "example-repo",
-    ///         ImageTagMutability = "IMMUTABLE_WITH_EXCLUSION",
     ///         ImageTagMutabilityExclusionFilters = new[]
     ///         {
     ///             new Aws.Ecr.Inputs.RepositoryImageTagMutabilityExclusionFilterArgs
@@ -62,6 +60,8 @@ namespace Pulumi.Aws.Ecr
     ///                 FilterType = "WILDCARD",
     ///             },
     ///         },
+    ///         Name = "example-repo",
+    ///         ImageTagMutability = "IMMUTABLE_WITH_EXCLUSION",
     ///     });
     /// 
     /// });

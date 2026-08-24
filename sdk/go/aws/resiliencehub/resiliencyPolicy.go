@@ -29,10 +29,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := resiliencehub.NewResiliencyPolicy(ctx, "example", &resiliencehub.ResiliencyPolicyArgs{
-//				Name:                   pulumi.String("testexample"),
-//				Description:            pulumi.String("testexample"),
-//				Tier:                   pulumi.String("NonCritical"),
-//				DataLocationConstraint: pulumi.String("AnyLocation"),
 //				Policy: &resiliencehub.ResiliencyPolicyPolicyArgs{
 //					Region: &resiliencehub.ResiliencyPolicyPolicyRegionArgs{
 //						Rpo: pulumi.String("24h"),
@@ -51,6 +47,10 @@ import (
 //						Rto: pulumi.String("24h"),
 //					},
 //				},
+//				Name:                   pulumi.String("testexample"),
+//				Description:            pulumi.String("testexample"),
+//				Tier:                   pulumi.String("NonCritical"),
+//				DataLocationConstraint: pulumi.String("AnyLocation"),
 //			})
 //			if err != nil {
 //				return err

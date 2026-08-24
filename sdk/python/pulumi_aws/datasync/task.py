@@ -487,12 +487,12 @@ class Task(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.datasync.Task("example",
-            destination_location_arn=destination["arn"],
-            name="example",
-            source_location_arn=source["arn"],
             options={
                 "bytes_per_second": -1,
-            })
+            },
+            destination_location_arn=destination["arn"],
+            name="example",
+            source_location_arn=source["arn"])
         ```
 
         ### Example Usage with Scheduling
@@ -502,12 +502,12 @@ class Task(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.datasync.Task("example",
-            destination_location_arn=destination["arn"],
-            name="example",
-            source_location_arn=source["arn"],
             schedule={
                 "schedule_expression": "cron(0 12 ? * SUN,WED *)",
-            })
+            },
+            destination_location_arn=destination["arn"],
+            name="example",
+            source_location_arn=source["arn"])
         ```
 
         ### Example Usage with Filtering
@@ -517,9 +517,6 @@ class Task(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.datasync.Task("example",
-            destination_location_arn=destination["arn"],
-            name="example",
-            source_location_arn=source["arn"],
             excludes={
                 "filter_type": "SIMPLE_PATTERN",
                 "value": "/folder1|/folder2",
@@ -527,7 +524,10 @@ class Task(pulumi.CustomResource):
             includes={
                 "filter_type": "SIMPLE_PATTERN",
                 "value": "/folder1|/folder2",
-            })
+            },
+            destination_location_arn=destination["arn"],
+            name="example",
+            source_location_arn=source["arn"])
         ```
 
         ### Example Usage with Enhanced Task Mode
@@ -537,16 +537,16 @@ class Task(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.datasync.Task("example",
-            destination_location_arn=destination["arn"],
-            name="example",
-            source_location_arn=source["arn"],
-            task_mode="ENHANCED",
             options={
                 "gid": "NONE",
                 "posix_permissions": "NONE",
                 "uid": "NONE",
                 "verify_mode": "ONLY_FILES_TRANSFERRED",
-            })
+            },
+            destination_location_arn=destination["arn"],
+            name="example",
+            source_location_arn=source["arn"],
+            task_mode="ENHANCED")
         ```
 
         ## Import
@@ -597,12 +597,12 @@ class Task(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.datasync.Task("example",
-            destination_location_arn=destination["arn"],
-            name="example",
-            source_location_arn=source["arn"],
             options={
                 "bytes_per_second": -1,
-            })
+            },
+            destination_location_arn=destination["arn"],
+            name="example",
+            source_location_arn=source["arn"])
         ```
 
         ### Example Usage with Scheduling
@@ -612,12 +612,12 @@ class Task(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.datasync.Task("example",
-            destination_location_arn=destination["arn"],
-            name="example",
-            source_location_arn=source["arn"],
             schedule={
                 "schedule_expression": "cron(0 12 ? * SUN,WED *)",
-            })
+            },
+            destination_location_arn=destination["arn"],
+            name="example",
+            source_location_arn=source["arn"])
         ```
 
         ### Example Usage with Filtering
@@ -627,9 +627,6 @@ class Task(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.datasync.Task("example",
-            destination_location_arn=destination["arn"],
-            name="example",
-            source_location_arn=source["arn"],
             excludes={
                 "filter_type": "SIMPLE_PATTERN",
                 "value": "/folder1|/folder2",
@@ -637,7 +634,10 @@ class Task(pulumi.CustomResource):
             includes={
                 "filter_type": "SIMPLE_PATTERN",
                 "value": "/folder1|/folder2",
-            })
+            },
+            destination_location_arn=destination["arn"],
+            name="example",
+            source_location_arn=source["arn"])
         ```
 
         ### Example Usage with Enhanced Task Mode
@@ -647,16 +647,16 @@ class Task(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.datasync.Task("example",
-            destination_location_arn=destination["arn"],
-            name="example",
-            source_location_arn=source["arn"],
-            task_mode="ENHANCED",
             options={
                 "gid": "NONE",
                 "posix_permissions": "NONE",
                 "uid": "NONE",
                 "verify_mode": "ONLY_FILES_TRANSFERRED",
-            })
+            },
+            destination_location_arn=destination["arn"],
+            name="example",
+            source_location_arn=source["arn"],
+            task_mode="ENHANCED")
         ```
 
         ## Import

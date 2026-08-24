@@ -21,15 +21,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ecs.getTaskExecution({
- *     cluster: exampleAwsEcsCluster.id,
- *     taskDefinition: exampleAwsEcsTaskDefinition.arn,
- *     desiredCount: 1,
- *     launchType: "FARGATE",
  *     networkConfiguration: {
  *         subnets: exampleAwsSubnet.map(__item => __item.id),
  *         securityGroups: [exampleAwsSecurityGroup.id],
  *         assignPublicIp: false,
  *     },
+ *     cluster: exampleAwsEcsCluster.id,
+ *     taskDefinition: exampleAwsEcsTaskDefinition.arn,
+ *     desiredCount: 1,
+ *     launchType: "FARGATE",
  * });
  * ```
  */
@@ -188,15 +188,15 @@ export interface GetTaskExecutionResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ecs.getTaskExecution({
- *     cluster: exampleAwsEcsCluster.id,
- *     taskDefinition: exampleAwsEcsTaskDefinition.arn,
- *     desiredCount: 1,
- *     launchType: "FARGATE",
  *     networkConfiguration: {
  *         subnets: exampleAwsSubnet.map(__item => __item.id),
  *         securityGroups: [exampleAwsSecurityGroup.id],
  *         assignPublicIp: false,
  *     },
+ *     cluster: exampleAwsEcsCluster.id,
+ *     taskDefinition: exampleAwsEcsTaskDefinition.arn,
+ *     desiredCount: 1,
+ *     launchType: "FARGATE",
  * });
  * ```
  */

@@ -36,7 +36,6 @@ import (
 //			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -45,6 +44,7 @@ import (
 //								},
 //							},
 //						},
+//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"sts:AssumeRole",
 //						},
@@ -89,10 +89,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cfg.NewRecorder(ctx, "foo", &cfg.RecorderArgs{
-//				Name:    pulumi.String("example"),
-//				RoleArn: pulumi.Any(r.Arn),
 //				RecordingGroup: &cfg.RecorderRecordingGroupArgs{
-//					AllSupported: pulumi.Bool(false),
 //					ExclusionByResourceTypes: cfg.RecorderRecordingGroupExclusionByResourceTypeArray{
 //						&cfg.RecorderRecordingGroupExclusionByResourceTypeArgs{
 //							ResourceTypes: pulumi.StringArray{
@@ -105,7 +102,10 @@ import (
 //							UseOnly: pulumi.String("EXCLUSION_BY_RESOURCE_TYPES"),
 //						},
 //					},
+//					AllSupported: pulumi.Bool(false),
 //				},
+//				Name:    pulumi.String("example"),
+//				RoleArn: pulumi.Any(r.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -131,8 +131,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cfg.NewRecorder(ctx, "foo", &cfg.RecorderArgs{
-//				Name:    pulumi.String("example"),
-//				RoleArn: pulumi.Any(r.Arn),
 //				RecordingGroup: &cfg.RecorderRecordingGroupArgs{
 //					AllSupported:               pulumi.Bool(false),
 //					IncludeGlobalResourceTypes: pulumi.Bool(false),
@@ -142,7 +140,6 @@ import (
 //					},
 //				},
 //				RecordingMode: &cfg.RecorderRecordingModeArgs{
-//					RecordingFrequency: pulumi.String("CONTINUOUS"),
 //					RecordingModeOverride: &cfg.RecorderRecordingModeRecordingModeOverrideArgs{
 //						Description: pulumi.String("Only record EC2 network interfaces daily"),
 //						ResourceTypes: pulumi.StringArray{
@@ -150,7 +147,10 @@ import (
 //						},
 //						RecordingFrequency: pulumi.String("DAILY"),
 //					},
+//					RecordingFrequency: pulumi.String("CONTINUOUS"),
 //				},
+//				Name:    pulumi.String("example"),
+//				RoleArn: pulumi.Any(r.Arn),
 //			})
 //			if err != nil {
 //				return err

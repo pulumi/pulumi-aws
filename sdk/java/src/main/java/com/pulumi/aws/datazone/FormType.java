@@ -59,6 +59,23 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) }{{@code
  *         var domainExecutionRole = new Role("domainExecutionRole", RoleArgs.builder()
+ *             .inlinePolicies(RoleInlinePolicyArgs.builder()
+ *                 .name("example-policy")
+ *                 .policy(serializeJson(
+ *                     jsonObject(
+ *                         jsonProperty("Version", "2012-10-17"),
+ *                         jsonProperty("Statement", jsonArray(jsonObject(
+ *                             jsonProperty("Action", jsonArray(
+ *                                 "datazone:*", 
+ *                                 "ram:*", 
+ *                                 "sso:*", 
+ *                                 "kms:*"
+ *                             )),
+ *                             jsonProperty("Effect", "Allow"),
+ *                             jsonProperty("Resource", "*")
+ *                         )))
+ *                     )))
+ *                 .build())
  *             .name("example-role")
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
@@ -86,23 +103,6 @@ import javax.annotation.Nullable;
  *                         )
  *                     ))
  *                 )))
- *             .inlinePolicies(RoleInlinePolicyArgs.builder()
- *                 .name("example-policy")
- *                 .policy(serializeJson(
- *                     jsonObject(
- *                         jsonProperty("Version", "2012-10-17"),
- *                         jsonProperty("Statement", jsonArray(jsonObject(
- *                             jsonProperty("Action", jsonArray(
- *                                 "datazone:*", 
- *                                 "ram:*", 
- *                                 "sso:*", 
- *                                 "kms:*"
- *                             )),
- *                             jsonProperty("Effect", "Allow"),
- *                             jsonProperty("Resource", "*")
- *                         )))
- *                     )))
- *                 .build())
  *             .build());
  * 
  *         var test = new Domain("test", DomainArgs.builder()
@@ -123,11 +123,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testFormType = new FormType("testFormType", FormTypeArgs.builder()
- *             .description("desc")
- *             .name("SageMakerModelFormType")
- *             .domainIdentifier(test.id())
- *             .owningProjectIdentifier(testProject.id())
- *             .status("DISABLED")
  *             .model(FormTypeModelArgs.builder()
  *                 .smithy("""
  * \tstructure SageMakerModelFormType }{{@code
@@ -143,6 +138,11 @@ import javax.annotation.Nullable;
  * \t\t\t}}{@code
  *                 """)
  *                 .build())
+ *             .description("desc")
+ *             .name("SageMakerModelFormType")
+ *             .domainIdentifier(test.id())
+ *             .owningProjectIdentifier(testProject.id())
+ *             .status("DISABLED")
  *             .build());
  * 
  *     }}{@code

@@ -401,6 +401,22 @@ class FormType(pulumi.CustomResource):
         import pulumi_aws as aws
 
         domain_execution_role = aws.iam.Role("domain_execution_role",
+            inline_policies=[{
+                "name": "example-policy",
+                "policy": json.dumps({
+                    "Version": "2012-10-17",
+                    "Statement": [{
+                        "Action": [
+                            "datazone:*",
+                            "ram:*",
+                            "sso:*",
+                            "kms:*",
+                        ],
+                        "Effect": "Allow",
+                        "Resource": "*",
+                    }],
+                }),
+            }],
             name="example-role",
             assume_role_policy=json.dumps({
                 "Version": "2012-10-17",
@@ -426,23 +442,7 @@ class FormType(pulumi.CustomResource):
                         },
                     },
                 ],
-            }),
-            inline_policies=[{
-                "name": "example-policy",
-                "policy": json.dumps({
-                    "Version": "2012-10-17",
-                    "Statement": [{
-                        "Action": [
-                            "datazone:*",
-                            "ram:*",
-                            "sso:*",
-                            "kms:*",
-                        ],
-                        "Effect": "Allow",
-                        "Resource": "*",
-                    }],
-                }),
-            }])
+            }))
         test = aws.datazone.Domain("test",
             name="example",
             domain_execution_role=domain_execution_role.arn)
@@ -454,11 +454,6 @@ class FormType(pulumi.CustomResource):
             description="desc",
             skip_deletion_check=True)
         test_form_type = aws.datazone.FormType("test",
-            description="desc",
-            name="SageMakerModelFormType",
-            domain_identifier=test.id,
-            owning_project_identifier=test_project.id,
-            status="DISABLED",
             model={
                 "smithy": \"\"\"\\tstructure SageMakerModelFormType {
         \\t\\t\\t@required
@@ -472,7 +467,12 @@ class FormType(pulumi.CustomResource):
         \\t\\t\\tcreationTime: String
         \\t\\t\\t}
         \"\"\",
-            })
+            },
+            description="desc",
+            name="SageMakerModelFormType",
+            domain_identifier=test.id,
+            owning_project_identifier=test_project.id,
+            status="DISABLED")
         ```
 
         ## Import
@@ -526,6 +526,22 @@ class FormType(pulumi.CustomResource):
         import pulumi_aws as aws
 
         domain_execution_role = aws.iam.Role("domain_execution_role",
+            inline_policies=[{
+                "name": "example-policy",
+                "policy": json.dumps({
+                    "Version": "2012-10-17",
+                    "Statement": [{
+                        "Action": [
+                            "datazone:*",
+                            "ram:*",
+                            "sso:*",
+                            "kms:*",
+                        ],
+                        "Effect": "Allow",
+                        "Resource": "*",
+                    }],
+                }),
+            }],
             name="example-role",
             assume_role_policy=json.dumps({
                 "Version": "2012-10-17",
@@ -551,23 +567,7 @@ class FormType(pulumi.CustomResource):
                         },
                     },
                 ],
-            }),
-            inline_policies=[{
-                "name": "example-policy",
-                "policy": json.dumps({
-                    "Version": "2012-10-17",
-                    "Statement": [{
-                        "Action": [
-                            "datazone:*",
-                            "ram:*",
-                            "sso:*",
-                            "kms:*",
-                        ],
-                        "Effect": "Allow",
-                        "Resource": "*",
-                    }],
-                }),
-            }])
+            }))
         test = aws.datazone.Domain("test",
             name="example",
             domain_execution_role=domain_execution_role.arn)
@@ -579,11 +579,6 @@ class FormType(pulumi.CustomResource):
             description="desc",
             skip_deletion_check=True)
         test_form_type = aws.datazone.FormType("test",
-            description="desc",
-            name="SageMakerModelFormType",
-            domain_identifier=test.id,
-            owning_project_identifier=test_project.id,
-            status="DISABLED",
             model={
                 "smithy": \"\"\"\\tstructure SageMakerModelFormType {
         \\t\\t\\t@required
@@ -597,7 +592,12 @@ class FormType(pulumi.CustomResource):
         \\t\\t\\tcreationTime: String
         \\t\\t\\t}
         \"\"\",
-            })
+            },
+            description="desc",
+            name="SageMakerModelFormType",
+            domain_identifier=test.id,
+            owning_project_identifier=test_project.id,
+            status="DISABLED")
         ```
 
         ## Import

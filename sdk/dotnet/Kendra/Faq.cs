@@ -26,14 +26,14 @@ namespace Pulumi.Aws.Kendra
     /// {
     ///     var example = new Aws.Kendra.Faq("example", new()
     ///     {
-    ///         IndexId = exampleAwsKendraIndex.Id,
-    ///         Name = "Example",
-    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         S3Path = new Aws.Kendra.Inputs.FaqS3PathArgs
     ///         {
     ///             Bucket = exampleAwsS3Bucket.Id,
     ///             Key = exampleAwsS3Object.Key,
     ///         },
+    ///         IndexId = exampleAwsKendraIndex.Id,
+    ///         Name = "Example",
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         Tags = 
     ///         {
     ///             { "Name", "Example Kendra Faq" },
@@ -55,15 +55,15 @@ namespace Pulumi.Aws.Kendra
     /// {
     ///     var example = new Aws.Kendra.Faq("example", new()
     ///     {
-    ///         IndexId = exampleAwsKendraIndex.Id,
-    ///         Name = "Example",
-    ///         FileFormat = "CSV",
-    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         S3Path = new Aws.Kendra.Inputs.FaqS3PathArgs
     ///         {
     ///             Bucket = exampleAwsS3Bucket.Id,
     ///             Key = exampleAwsS3Object.Key,
     ///         },
+    ///         IndexId = exampleAwsKendraIndex.Id,
+    ///         Name = "Example",
+    ///         FileFormat = "CSV",
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });
@@ -81,15 +81,15 @@ namespace Pulumi.Aws.Kendra
     /// {
     ///     var example = new Aws.Kendra.Faq("example", new()
     ///     {
-    ///         IndexId = exampleAwsKendraIndex.Id,
-    ///         Name = "Example",
-    ///         LanguageCode = "en",
-    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         S3Path = new Aws.Kendra.Inputs.FaqS3PathArgs
     ///         {
     ///             Bucket = exampleAwsS3Bucket.Id,
     ///             Key = exampleAwsS3Object.Key,
     ///         },
+    ///         IndexId = exampleAwsKendraIndex.Id,
+    ///         Name = "Example",
+    ///         LanguageCode = "en",
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });

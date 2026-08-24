@@ -40,8 +40,6 @@ import (
 //			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Sid:    pulumi.StringRef("EnableAnotherAWSAccountToReadTheSecret"),
-//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "AWS",
@@ -50,6 +48,8 @@ import (
 //								},
 //							},
 //						},
+//						Sid:    pulumi.StringRef("EnableAnotherAWSAccountToReadTheSecret"),
+//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"secretsmanager:GetSecretValue",
 //						},

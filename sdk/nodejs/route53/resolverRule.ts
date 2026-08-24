@@ -31,13 +31,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const fwd = new aws.route53.ResolverRule("fwd", {
+ *     targetIps: [{
+ *         ip: "123.45.67.89",
+ *     }],
  *     domainName: "example.com",
  *     name: "example",
  *     ruleType: "FORWARD",
  *     resolverEndpointId: foo.id,
- *     targetIps: [{
- *         ip: "123.45.67.89",
- *     }],
  *     tags: {
  *         Environment: "Prod",
  *     },
@@ -51,13 +51,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const fwd = new aws.route53.ResolverRule("fwd", {
+ *     targetIps: [{
+ *         ipv6: "2600:1f18:1686:2000:4e60:6e3e:258:da36",
+ *     }],
  *     domainName: "example.com",
  *     name: "example",
  *     ruleType: "FORWARD",
  *     resolverEndpointId: foo.id,
- *     targetIps: [{
- *         ipv6: "2600:1f18:1686:2000:4e60:6e3e:258:da36",
- *     }],
  *     tags: {
  *         Environment: "Prod",
  *     },

@@ -120,11 +120,11 @@ import javax.annotation.Nullable;
  *                 .build());
  * 
  *         var exampleOrganizationConfiguration = new OrganizationConfiguration("exampleOrganizationConfiguration", OrganizationConfigurationArgs.builder()
- *             .autoEnable(false)
- *             .autoEnableStandards("NONE")
  *             .organizationConfiguration(OrganizationConfigurationOrganizationConfigurationArgs.builder()
  *                 .configurationType("CENTRAL")
  *                 .build())
+ *             .autoEnable(false)
+ *             .autoEnableStandards("NONE")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleFindingAggregator)
  *                 .build());

@@ -49,6 +49,12 @@ import (
 //				return err
 //			}
 //			_, err = bedrock.NewCustomModel(ctx, "example", &bedrock.CustomModelArgs{
+//				OutputDataConfig: &bedrock.CustomModelOutputDataConfigArgs{
+//					S3Uri: pulumi.Sprintf("s3://%v/data/", output.Id),
+//				},
+//				TrainingDataConfig: &bedrock.CustomModelTrainingDataConfigArgs{
+//					S3Uri: pulumi.Sprintf("s3://%v/data/train.jsonl", training.Id),
+//				},
 //				CustomModelName:     pulumi.String("example-model"),
 //				JobName:             pulumi.String("example-job-1"),
 //				BaseModelIdentifier: pulumi.String(example.ModelArn),
@@ -58,12 +64,6 @@ import (
 //					"batchSize":               pulumi.String("1"),
 //					"learningRate":            pulumi.String("0.005"),
 //					"learningRateWarmupSteps": pulumi.String("0"),
-//				},
-//				OutputDataConfig: &bedrock.CustomModelOutputDataConfigArgs{
-//					S3Uri: pulumi.Sprintf("s3://%v/data/", output.Id),
-//				},
-//				TrainingDataConfig: &bedrock.CustomModelTrainingDataConfigArgs{
-//					S3Uri: pulumi.Sprintf("s3://%v/data/train.jsonl", training.Id),
 //				},
 //			})
 //			if err != nil {

@@ -456,11 +456,11 @@ class V2modelsBot(pulumi.CustomResource):
                 "created_by": "aws",
             })
         example = aws.lex.V2modelsBot("example",
-            name="example",
-            description="Example description",
             data_privacies=[{
                 "child_directed": False,
             }],
+            name="example",
+            description="Example description",
             idle_session_ttl_in_seconds=60,
             role_arn=example_role.arn,
             type="Bot",
@@ -528,11 +528,11 @@ class V2modelsBot(pulumi.CustomResource):
                 "created_by": "aws",
             })
         example = aws.lex.V2modelsBot("example",
-            name="example",
-            description="Example description",
             data_privacies=[{
                 "child_directed": False,
             }],
+            name="example",
+            description="Example description",
             idle_session_ttl_in_seconds=60,
             role_arn=example_role.arn,
             type="Bot",

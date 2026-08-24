@@ -35,18 +35,20 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := dynamodb.NewTable(ctx, "example", &dynamodb.TableArgs{
-//				Name:           pulumi.String("TestTable"),
-//				HashKey:        pulumi.String("BrodoBaggins"),
-//				BillingMode:    pulumi.String("PAY_PER_REQUEST"),
-//				StreamEnabled:  pulumi.Bool(true),
-//				StreamViewType: pulumi.String("NEW_AND_OLD_IMAGES"),
 //				Attributes: dynamodb.TableAttributeArray{
 //					&dynamodb.TableAttributeArgs{
 //						Name: pulumi.String("BrodoBaggins"),
 //						Type: pulumi.String("S"),
 //					},
 //				},
-//			})
+//				Name:           pulumi.String("TestTable"),
+//				HashKey:        pulumi.String("BrodoBaggins"),
+//				BillingMode:    pulumi.String("PAY_PER_REQUEST"),
+//				StreamEnabled:  pulumi.Bool(true),
+//				StreamViewType: pulumi.String("NEW_AND_OLD_IMAGES"),
+//			}, pulumi.IgnoreChanges([]string{
+//				"replicas",
+//			}))
 //			if err != nil {
 //				return err
 //			}

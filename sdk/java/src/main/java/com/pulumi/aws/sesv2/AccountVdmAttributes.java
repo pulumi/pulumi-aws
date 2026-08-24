@@ -47,13 +47,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AccountVdmAttributes("example", AccountVdmAttributesArgs.builder()
- *             .vdmEnabled("ENABLED")
  *             .dashboardAttributes(AccountVdmAttributesDashboardAttributesArgs.builder()
  *                 .engagementMetrics("ENABLED")
  *                 .build())
  *             .guardianAttributes(AccountVdmAttributesGuardianAttributesArgs.builder()
  *                 .optimizedSharedDelivery("ENABLED")
  *                 .build())
+ *             .vdmEnabled("ENABLED")
  *             .build());
  * 
  *     }

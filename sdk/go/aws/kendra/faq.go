@@ -31,13 +31,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kendra.NewFaq(ctx, "example", &kendra.FaqArgs{
-//				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
-//				Name:    pulumi.String("Example"),
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				S3Path: &kendra.FaqS3PathArgs{
 //					Bucket: pulumi.Any(exampleAwsS3Bucket.Id),
 //					Key:    pulumi.Any(exampleAwsS3Object.Key),
 //				},
+//				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
+//				Name:    pulumi.String("Example"),
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("Example Kendra Faq"),
 //				},
@@ -66,14 +66,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kendra.NewFaq(ctx, "example", &kendra.FaqArgs{
-//				IndexId:    pulumi.Any(exampleAwsKendraIndex.Id),
-//				Name:       pulumi.String("Example"),
-//				FileFormat: pulumi.String("CSV"),
-//				RoleArn:    pulumi.Any(exampleAwsIamRole.Arn),
 //				S3Path: &kendra.FaqS3PathArgs{
 //					Bucket: pulumi.Any(exampleAwsS3Bucket.Id),
 //					Key:    pulumi.Any(exampleAwsS3Object.Key),
 //				},
+//				IndexId:    pulumi.Any(exampleAwsKendraIndex.Id),
+//				Name:       pulumi.String("Example"),
+//				FileFormat: pulumi.String("CSV"),
+//				RoleArn:    pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -99,14 +99,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kendra.NewFaq(ctx, "example", &kendra.FaqArgs{
-//				IndexId:      pulumi.Any(exampleAwsKendraIndex.Id),
-//				Name:         pulumi.String("Example"),
-//				LanguageCode: pulumi.String("en"),
-//				RoleArn:      pulumi.Any(exampleAwsIamRole.Arn),
 //				S3Path: &kendra.FaqS3PathArgs{
 //					Bucket: pulumi.Any(exampleAwsS3Bucket.Id),
 //					Key:    pulumi.Any(exampleAwsS3Object.Key),
 //				},
+//				IndexId:      pulumi.Any(exampleAwsKendraIndex.Id),
+//				Name:         pulumi.String("Example"),
+//				LanguageCode: pulumi.String("en"),
+//				RoleArn:      pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err

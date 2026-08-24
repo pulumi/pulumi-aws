@@ -126,15 +126,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Catalog("example", CatalogArgs.builder()
- *             .name("example")
- *             .description("Example Glue Catalog with data lake access")
  *             .catalogProperties(CatalogCatalogPropertiesArgs.builder()
- *                 .customProperties(Map.of("property1", "value1"))
  *                 .dataLakeAccessProperties(CatalogCatalogPropertiesDataLakeAccessPropertiesArgs.builder()
  *                     .dataLakeAccess(true)
  *                     .catalogType("aws:glue:datacatalog")
  *                     .build())
+ *                 .customProperties(Map.of("property1", "value1"))
  *                 .build())
+ *             .name("example")
+ *             .description("Example Glue Catalog with data lake access")
  *             .build());
  * 
  *     }
@@ -168,11 +168,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Catalog("example", CatalogArgs.builder()
- *             .name("example")
  *             .federatedCatalog(CatalogFederatedCatalogArgs.builder()
  *                 .connectionName(exampleAwsGlueConnection.name())
  *                 .identifier("arn:aws:glue:us-east-1:123456789012:catalog")
  *                 .build())
+ *             .name("example")
  *             .build());
  * 
  *     }
@@ -209,20 +209,20 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Catalog("example", CatalogArgs.builder()
- *             .name("example")
- *             .description("Example Glue Catalog")
  *             .createDatabaseDefaultPermissions(CatalogCreateDatabaseDefaultPermissionArgs.builder()
- *                 .permissions("ALL")
  *                 .principal(CatalogCreateDatabaseDefaultPermissionPrincipalArgs.builder()
  *                     .dataLakePrincipalIdentifier("IAM_ALLOWED_PRINCIPALS")
  *                     .build())
+ *                 .permissions("ALL")
  *                 .build())
  *             .createTableDefaultPermissions(CatalogCreateTableDefaultPermissionArgs.builder()
- *                 .permissions("ALL")
  *                 .principal(CatalogCreateTableDefaultPermissionPrincipalArgs.builder()
  *                     .dataLakePrincipalIdentifier("IAM_ALLOWED_PRINCIPALS")
  *                     .build())
+ *                 .permissions("ALL")
  *                 .build())
+ *             .name("example")
+ *             .description("Example Glue Catalog")
  *             .build());
  * 
  *     }

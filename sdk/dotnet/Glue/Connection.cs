@@ -80,13 +80,6 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.Connection("example", new()
     ///     {
-    ///         Name = "example",
-    ///         ConnectionProperties = 
-    ///         {
-    ///             { "JDBC_CONNECTION_URL", $"jdbc:mysql://{exampleAwsRdsCluster.Endpoint}/exampledatabase" },
-    ///             { "PASSWORD", "examplepassword" },
-    ///             { "USERNAME", "exampleusername" },
-    ///         },
     ///         PhysicalConnectionRequirements = new Aws.Glue.Inputs.ConnectionPhysicalConnectionRequirementsArgs
     ///         {
     ///             AvailabilityZone = exampleAwsSubnet.AvailabilityZone,
@@ -95,6 +88,13 @@ namespace Pulumi.Aws.Glue
     ///                 exampleAwsSecurityGroup.Id,
     ///             },
     ///             SubnetId = exampleAwsSubnet.Id,
+    ///         },
+    ///         Name = "example",
+    ///         ConnectionProperties = 
+    ///         {
+    ///             { "JDBC_CONNECTION_URL", $"jdbc:mysql://{exampleAwsRdsCluster.Endpoint}/exampledatabase" },
+    ///             { "PASSWORD", "examplepassword" },
+    ///             { "USERNAME", "exampleusername" },
     ///         },
     ///     });
     /// 
@@ -442,19 +442,6 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.Connection("example", new()
     ///     {
-    ///         Name = "athenafederatedcatalog_mysql",
-    ///         ConnectionType = "MYSQL",
-    ///         AthenaProperties = 
-    ///         {
-    ///             { "lambda_function_arn", "arn:aws:lambda:us-east-1:123456789012:function:athenafederatedcatalog_mysql" },
-    ///             { "spill_bucket", exampleAwsS3Bucket.Bucket },
-    ///         },
-    ///         ConnectionProperties = 
-    ///         {
-    ///             { "HOST", exampleAwsRdsCluster.Endpoint },
-    ///             { "PORT", exampleAwsRdsCluster.Port },
-    ///             { "DATABASE", exampleAwsRdsCluster.DatabaseName },
-    ///         },
     ///         AuthenticationConfiguration = new Aws.Glue.Inputs.ConnectionAuthenticationConfigurationArgs
     ///         {
     ///             AuthenticationType = "BASIC",
@@ -468,6 +455,19 @@ namespace Pulumi.Aws.Glue
     ///                 exampleAwsSecurityGroup.Id,
     ///             },
     ///             SubnetId = exampleAwsSubnet.Id,
+    ///         },
+    ///         Name = "athenafederatedcatalog_mysql",
+    ///         ConnectionType = "MYSQL",
+    ///         AthenaProperties = 
+    ///         {
+    ///             { "lambda_function_arn", "arn:aws:lambda:us-east-1:123456789012:function:athenafederatedcatalog_mysql" },
+    ///             { "spill_bucket", exampleAwsS3Bucket.Bucket },
+    ///         },
+    ///         ConnectionProperties = 
+    ///         {
+    ///             { "HOST", exampleAwsRdsCluster.Endpoint },
+    ///             { "PORT", exampleAwsRdsCluster.Port },
+    ///             { "DATABASE", exampleAwsRdsCluster.DatabaseName },
     ///         },
     ///     });
     /// 

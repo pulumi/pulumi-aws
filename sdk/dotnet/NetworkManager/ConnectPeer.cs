@@ -35,23 +35,23 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     ///     var exampleConnectAttachment = new Aws.NetworkManager.ConnectAttachment("example", new()
     ///     {
-    ///         CoreNetworkId = exampleAwsccNetworkmanagerCoreNetwork.Id,
-    ///         TransportAttachmentId = example.Id,
-    ///         EdgeLocation = example.EdgeLocation,
     ///         Options = new Aws.NetworkManager.Inputs.ConnectAttachmentOptionsArgs
     ///         {
     ///             Protocol = "GRE",
     ///         },
+    ///         CoreNetworkId = exampleAwsccNetworkmanagerCoreNetwork.Id,
+    ///         TransportAttachmentId = example.Id,
+    ///         EdgeLocation = example.EdgeLocation,
     ///     });
     /// 
     ///     var exampleConnectPeer = new Aws.NetworkManager.ConnectPeer("example", new()
     ///     {
-    ///         ConnectAttachmentId = exampleConnectAttachment.Id,
-    ///         PeerAddress = "127.0.0.1",
     ///         BgpOptions = new Aws.NetworkManager.Inputs.ConnectPeerBgpOptionsArgs
     ///         {
     ///             PeerAsn = "65000",
     ///         },
+    ///         ConnectAttachmentId = exampleConnectAttachment.Id,
+    ///         PeerAddress = "127.0.0.1",
     ///         InsideCidrBlocks = new[]
     ///         {
     ///             "172.16.0.0/16",
@@ -86,13 +86,13 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     ///     var exampleConnectAttachment = new Aws.NetworkManager.ConnectAttachment("example", new()
     ///     {
-    ///         CoreNetworkId = exampleAwsccNetworkmanagerCoreNetwork.Id,
-    ///         TransportAttachmentId = example.Id,
-    ///         EdgeLocation = example.EdgeLocation,
     ///         Options = new Aws.NetworkManager.Inputs.ConnectAttachmentOptionsArgs
     ///         {
     ///             Protocol = "GRE",
     ///         },
+    ///         CoreNetworkId = exampleAwsccNetworkmanagerCoreNetwork.Id,
+    ///         TransportAttachmentId = example.Id,
+    ///         EdgeLocation = example.EdgeLocation,
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -109,12 +109,12 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     ///     var exampleConnectPeer = new Aws.NetworkManager.ConnectPeer("example", new()
     ///     {
-    ///         ConnectAttachmentId = exampleConnectAttachment.Id,
-    ///         PeerAddress = "127.0.0.1",
     ///         BgpOptions = new Aws.NetworkManager.Inputs.ConnectPeerBgpOptionsArgs
     ///         {
     ///             PeerAsn = "65500",
     ///         },
+    ///         ConnectAttachmentId = exampleConnectAttachment.Id,
+    ///         PeerAddress = "127.0.0.1",
     ///         InsideCidrBlocks = new[]
     ///         {
     ///             "172.16.0.0/16",
@@ -149,23 +149,23 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     ///     var exampleConnectAttachment = new Aws.NetworkManager.ConnectAttachment("example", new()
     ///     {
-    ///         CoreNetworkId = exampleAwsccNetworkmanagerCoreNetwork.Id,
-    ///         TransportAttachmentId = example.Id,
-    ///         EdgeLocation = example.EdgeLocation,
     ///         Options = new Aws.NetworkManager.Inputs.ConnectAttachmentOptionsArgs
     ///         {
     ///             Protocol = "NO_ENCAP",
     ///         },
+    ///         CoreNetworkId = exampleAwsccNetworkmanagerCoreNetwork.Id,
+    ///         TransportAttachmentId = example.Id,
+    ///         EdgeLocation = example.EdgeLocation,
     ///     });
     /// 
     ///     var exampleConnectPeer = new Aws.NetworkManager.ConnectPeer("example", new()
     ///     {
-    ///         ConnectAttachmentId = exampleConnectAttachment.Id,
-    ///         PeerAddress = "127.0.0.1",
     ///         BgpOptions = new Aws.NetworkManager.Inputs.ConnectPeerBgpOptionsArgs
     ///         {
     ///             PeerAsn = "65000",
     ///         },
+    ///         ConnectAttachmentId = exampleConnectAttachment.Id,
+    ///         PeerAddress = "127.0.0.1",
     ///         SubnetArn = example2.Arn,
     ///     });
     /// 

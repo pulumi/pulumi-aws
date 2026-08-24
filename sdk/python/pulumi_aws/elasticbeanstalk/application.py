@@ -247,13 +247,13 @@ class Application(pulumi.CustomResource):
         import pulumi_aws as aws
 
         tftest = aws.elasticbeanstalk.Application("tftest",
-            name="tf-test-name",
-            description="tf-test-desc",
             appversion_lifecycle={
                 "service_role": beanstalk_service["arn"],
                 "max_count": 128,
                 "delete_source_from_s3": True,
-            })
+            },
+            name="tf-test-name",
+            description="tf-test-desc")
         ```
 
         ## Import
@@ -293,13 +293,13 @@ class Application(pulumi.CustomResource):
         import pulumi_aws as aws
 
         tftest = aws.elasticbeanstalk.Application("tftest",
-            name="tf-test-name",
-            description="tf-test-desc",
             appversion_lifecycle={
                 "service_role": beanstalk_service["arn"],
                 "max_count": 128,
                 "delete_source_from_s3": True,
-            })
+            },
+            name="tf-test-name",
+            description="tf-test-desc")
         ```
 
         ## Import

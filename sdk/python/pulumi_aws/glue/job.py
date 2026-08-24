@@ -860,6 +860,17 @@ class Job(pulumi.CustomResource):
                 }],
             }))
         etl_job = aws.glue.Job("etl_job",
+            command={
+                "script_location": f"s3://{glue_scripts['bucket']}/jobs/etl_job.py",
+                "name": "glueetl",
+                "python_version": "3",
+            },
+            notification_property={
+                "notify_delay_after": 3,
+            },
+            execution_property={
+                "max_concurrent_runs": 1,
+            },
             name="example-etl-job",
             description="An example Glue ETL job",
             role_arn=glue_job_role.arn,
@@ -870,14 +881,6 @@ class Job(pulumi.CustomResource):
             worker_type="G.1X",
             connections=[example["name"]],
             execution_class="STANDARD",
-            command={
-                "script_location": f"s3://{glue_scripts['bucket']}/jobs/etl_job.py",
-                "name": "glueetl",
-                "python_version": "3",
-            },
-            notification_property={
-                "notify_delay_after": 3,
-            },
             default_arguments={
                 "--job-language": "python",
                 "--continuous-log-logGroup": "/aws-glue/jobs",
@@ -885,9 +888,6 @@ class Job(pulumi.CustomResource):
                 "--enable-continuous-log-filter": "true",
                 "--enable-metrics": "",
                 "--enable-auto-scaling": "true",
-            },
-            execution_property={
-                "max_concurrent_runs": 1,
             },
             tags={
                 "ManagedBy": "AWS",
@@ -919,6 +919,14 @@ class Job(pulumi.CustomResource):
                 }],
             }))
         python_shell_job = aws.glue.Job("python_shell_job",
+            command={
+                "script_location": f"s3://{glue_scripts['bucket']}/jobs/shell_job.py",
+                "name": "pythonshell",
+                "python_version": "3.9",
+            },
+            execution_property={
+                "max_concurrent_runs": 1,
+            },
             name="example-python-shell-job",
             description="An example Python shell job",
             role_arn=glue_job_role.arn,
@@ -926,19 +934,11 @@ class Job(pulumi.CustomResource):
             max_retries=0,
             timeout=2880,
             connections=[example["name"]],
-            command={
-                "script_location": f"s3://{glue_scripts['bucket']}/jobs/shell_job.py",
-                "name": "pythonshell",
-                "python_version": "3.9",
-            },
             default_arguments={
                 "--job-language": "python",
                 "--continuous-log-logGroup": "/aws-glue/jobs",
                 "--enable-continuous-cloudwatch-log": "true",
                 "library-set": "analytics",
-            },
-            execution_property={
-                "max_concurrent_runs": 1,
             },
             tags={
                 "ManagedBy": "AWS",
@@ -956,16 +956,16 @@ class Job(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Job("example",
-            name="example",
-            role_arn=example_aws_iam_role["arn"],
-            glue_version="4.0",
-            worker_type="Z.2X",
             command={
                 "name": "glueray",
                 "python_version": "3.9",
                 "runtime": "Ray2.4",
                 "script_location": f"s3://{example_aws_s3_bucket['bucket']}/example.py",
-            })
+            },
+            name="example",
+            role_arn=example_aws_iam_role["arn"],
+            glue_version="4.0",
+            worker_type="Z.2X")
         ```
 
         ### Scala Job
@@ -975,11 +975,11 @@ class Job(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Job("example",
-            name="example",
-            role_arn=example_aws_iam_role["arn"],
             command={
                 "script_location": f"s3://{example_aws_s3_bucket['bucket']}/example.scala",
             },
+            name="example",
+            role_arn=example_aws_iam_role["arn"],
             default_arguments={
                 "--job-language": "scala",
             })
@@ -992,12 +992,12 @@ class Job(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Job("example",
-            name="example streaming job",
-            role_arn=example_aws_iam_role["arn"],
             command={
                 "name": "gluestreaming",
                 "script_location": f"s3://{example_aws_s3_bucket['bucket']}/example.script",
-            })
+            },
+            name="example streaming job",
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         ### Enabling CloudWatch Logs and Metrics
@@ -1097,6 +1097,17 @@ class Job(pulumi.CustomResource):
                 }],
             }))
         etl_job = aws.glue.Job("etl_job",
+            command={
+                "script_location": f"s3://{glue_scripts['bucket']}/jobs/etl_job.py",
+                "name": "glueetl",
+                "python_version": "3",
+            },
+            notification_property={
+                "notify_delay_after": 3,
+            },
+            execution_property={
+                "max_concurrent_runs": 1,
+            },
             name="example-etl-job",
             description="An example Glue ETL job",
             role_arn=glue_job_role.arn,
@@ -1107,14 +1118,6 @@ class Job(pulumi.CustomResource):
             worker_type="G.1X",
             connections=[example["name"]],
             execution_class="STANDARD",
-            command={
-                "script_location": f"s3://{glue_scripts['bucket']}/jobs/etl_job.py",
-                "name": "glueetl",
-                "python_version": "3",
-            },
-            notification_property={
-                "notify_delay_after": 3,
-            },
             default_arguments={
                 "--job-language": "python",
                 "--continuous-log-logGroup": "/aws-glue/jobs",
@@ -1122,9 +1125,6 @@ class Job(pulumi.CustomResource):
                 "--enable-continuous-log-filter": "true",
                 "--enable-metrics": "",
                 "--enable-auto-scaling": "true",
-            },
-            execution_property={
-                "max_concurrent_runs": 1,
             },
             tags={
                 "ManagedBy": "AWS",
@@ -1156,6 +1156,14 @@ class Job(pulumi.CustomResource):
                 }],
             }))
         python_shell_job = aws.glue.Job("python_shell_job",
+            command={
+                "script_location": f"s3://{glue_scripts['bucket']}/jobs/shell_job.py",
+                "name": "pythonshell",
+                "python_version": "3.9",
+            },
+            execution_property={
+                "max_concurrent_runs": 1,
+            },
             name="example-python-shell-job",
             description="An example Python shell job",
             role_arn=glue_job_role.arn,
@@ -1163,19 +1171,11 @@ class Job(pulumi.CustomResource):
             max_retries=0,
             timeout=2880,
             connections=[example["name"]],
-            command={
-                "script_location": f"s3://{glue_scripts['bucket']}/jobs/shell_job.py",
-                "name": "pythonshell",
-                "python_version": "3.9",
-            },
             default_arguments={
                 "--job-language": "python",
                 "--continuous-log-logGroup": "/aws-glue/jobs",
                 "--enable-continuous-cloudwatch-log": "true",
                 "library-set": "analytics",
-            },
-            execution_property={
-                "max_concurrent_runs": 1,
             },
             tags={
                 "ManagedBy": "AWS",
@@ -1193,16 +1193,16 @@ class Job(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Job("example",
-            name="example",
-            role_arn=example_aws_iam_role["arn"],
-            glue_version="4.0",
-            worker_type="Z.2X",
             command={
                 "name": "glueray",
                 "python_version": "3.9",
                 "runtime": "Ray2.4",
                 "script_location": f"s3://{example_aws_s3_bucket['bucket']}/example.py",
-            })
+            },
+            name="example",
+            role_arn=example_aws_iam_role["arn"],
+            glue_version="4.0",
+            worker_type="Z.2X")
         ```
 
         ### Scala Job
@@ -1212,11 +1212,11 @@ class Job(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Job("example",
-            name="example",
-            role_arn=example_aws_iam_role["arn"],
             command={
                 "script_location": f"s3://{example_aws_s3_bucket['bucket']}/example.scala",
             },
+            name="example",
+            role_arn=example_aws_iam_role["arn"],
             default_arguments={
                 "--job-language": "scala",
             })
@@ -1229,12 +1229,12 @@ class Job(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Job("example",
-            name="example streaming job",
-            role_arn=example_aws_iam_role["arn"],
             command={
                 "name": "gluestreaming",
                 "script_location": f"s3://{example_aws_s3_bucket['bucket']}/example.script",
-            })
+            },
+            name="example streaming job",
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         ### Enabling CloudWatch Logs and Metrics

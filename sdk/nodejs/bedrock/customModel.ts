@@ -33,6 +33,12 @@ import * as utilities from "../utilities";
  *     modelId: "amazon.titan-text-express-v1",
  * });
  * const exampleCustomModel = new aws.bedrock.CustomModel("example", {
+ *     outputDataConfig: {
+ *         s3Uri: `s3://${output.id}/data/`,
+ *     },
+ *     trainingDataConfig: {
+ *         s3Uri: `s3://${training.id}/data/train.jsonl`,
+ *     },
  *     customModelName: "example-model",
  *     jobName: "example-job-1",
  *     baseModelIdentifier: example.then(example => example.modelArn),
@@ -42,12 +48,6 @@ import * as utilities from "../utilities";
  *         batchSize: "1",
  *         learningRate: "0.005",
  *         learningRateWarmupSteps: "0",
- *     },
- *     outputDataConfig: {
- *         s3Uri: `s3://${output.id}/data/`,
- *     },
- *     trainingDataConfig: {
- *         s3Uri: `s3://${training.id}/data/train.jsonl`,
  *     },
  * });
  * ```

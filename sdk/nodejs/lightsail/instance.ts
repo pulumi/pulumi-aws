@@ -56,15 +56,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lightsail.Instance("example", {
- *     name: "example",
- *     availabilityZone: "us-east-1b",
- *     blueprintId: "amazon_linux_2",
- *     bundleId: "nano_3_0",
  *     addOn: {
  *         type: "AutoSnapshot",
  *         snapshotTime: "06:00",
  *         status: "Enabled",
  *     },
+ *     name: "example",
+ *     availabilityZone: "us-east-1b",
+ *     blueprintId: "amazon_linux_2",
+ *     bundleId: "nano_3_0",
  *     tags: {
  *         foo: "bar",
  *     },

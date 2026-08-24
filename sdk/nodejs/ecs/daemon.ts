@@ -33,18 +33,18 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ecs.Daemon("example", {
- *     name: "example-daemon",
- *     clusterArn: exampleAwsEcsCluster.arn,
- *     daemonTaskDefinitionArn: exampleAwsEcsDaemonTaskDefinition.arn,
- *     capacityProviderArns: [exampleAwsEcsCapacityProvider.arn],
  *     deploymentConfiguration: {
- *         drainPercent: 50,
- *         bakeTimeInMinutes: 10,
  *         alarms: {
  *             alarmNames: ["example-alarm"],
  *             enable: true,
  *         },
+ *         drainPercent: 50,
+ *         bakeTimeInMinutes: 10,
  *     },
+ *     name: "example-daemon",
+ *     clusterArn: exampleAwsEcsCluster.arn,
+ *     daemonTaskDefinitionArn: exampleAwsEcsDaemonTaskDefinition.arn,
+ *     capacityProviderArns: [exampleAwsEcsCapacityProvider.arn],
  * });
  * ```
  *

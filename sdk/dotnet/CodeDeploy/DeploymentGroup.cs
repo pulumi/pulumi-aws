@@ -30,7 +30,6 @@ namespace Pulumi.Aws.CodeDeploy
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -42,6 +41,7 @@ namespace Pulumi.Aws.CodeDeploy
     ///                         },
     ///                     },
     ///                 },
+    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "sts:AssumeRole",
@@ -74,9 +74,22 @@ namespace Pulumi.Aws.CodeDeploy
     /// 
     ///     var exampleDeploymentGroup = new Aws.CodeDeploy.DeploymentGroup("example", new()
     ///     {
-    ///         AppName = exampleApplication.Name,
-    ///         DeploymentGroupName = "example-group",
-    ///         ServiceRoleArn = example.Arn,
+    ///         AutoRollbackConfiguration = new Aws.CodeDeploy.Inputs.DeploymentGroupAutoRollbackConfigurationArgs
+    ///         {
+    ///             Enabled = true,
+    ///             Events = new[]
+    ///             {
+    ///                 "DEPLOYMENT_FAILURE",
+    ///             },
+    ///         },
+    ///         AlarmConfiguration = new Aws.CodeDeploy.Inputs.DeploymentGroupAlarmConfigurationArgs
+    ///         {
+    ///             Alarms = new[]
+    ///             {
+    ///                 "my-alarm-name",
+    ///             },
+    ///             Enabled = true,
+    ///         },
     ///         Ec2TagSets = new[]
     ///         {
     ///             new Aws.CodeDeploy.Inputs.DeploymentGroupEc2TagSetArgs
@@ -110,22 +123,9 @@ namespace Pulumi.Aws.CodeDeploy
     ///                 TriggerTargetArn = exampleTopic.Arn,
     ///             },
     ///         },
-    ///         AutoRollbackConfiguration = new Aws.CodeDeploy.Inputs.DeploymentGroupAutoRollbackConfigurationArgs
-    ///         {
-    ///             Enabled = true,
-    ///             Events = new[]
-    ///             {
-    ///                 "DEPLOYMENT_FAILURE",
-    ///             },
-    ///         },
-    ///         AlarmConfiguration = new Aws.CodeDeploy.Inputs.DeploymentGroupAlarmConfigurationArgs
-    ///         {
-    ///             Alarms = new[]
-    ///             {
-    ///                 "my-alarm-name",
-    ///             },
-    ///             Enabled = true,
-    ///         },
+    ///         AppName = exampleApplication.Name,
+    ///         DeploymentGroupName = "example-group",
+    ///         ServiceRoleArn = example.Arn,
     ///         OutdatedInstancesStrategy = "UPDATE",
     ///     });
     /// 
@@ -150,10 +150,6 @@ namespace Pulumi.Aws.CodeDeploy
     /// 
     ///     var exampleDeploymentGroup = new Aws.CodeDeploy.DeploymentGroup("example", new()
     ///     {
-    ///         AppName = example.Name,
-    ///         DeploymentConfigName = "CodeDeployDefault.ECSAllAtOnce",
-    ///         DeploymentGroupName = "example",
-    ///         ServiceRoleArn = exampleAwsIamRole.Arn,
     ///         AutoRollbackConfiguration = new Aws.CodeDeploy.Inputs.DeploymentGroupAutoRollbackConfigurationArgs
     ///         {
     ///             Enabled = true,
@@ -208,6 +204,10 @@ namespace Pulumi.Aws.CodeDeploy
     ///                 },
     ///             },
     ///         },
+    ///         AppName = example.Name,
+    ///         DeploymentConfigName = "CodeDeployDefault.ECSAllAtOnce",
+    ///         DeploymentGroupName = "example",
+    ///         ServiceRoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });
@@ -230,9 +230,6 @@ namespace Pulumi.Aws.CodeDeploy
     /// 
     ///     var exampleDeploymentGroup = new Aws.CodeDeploy.DeploymentGroup("example", new()
     ///     {
-    ///         AppName = example.Name,
-    ///         DeploymentGroupName = "example-group",
-    ///         ServiceRoleArn = exampleAwsIamRole.Arn,
     ///         DeploymentStyle = new Aws.CodeDeploy.Inputs.DeploymentGroupDeploymentStyleArgs
     ///         {
     ///             DeploymentOption = "WITH_TRAFFIC_CONTROL",
@@ -264,6 +261,9 @@ namespace Pulumi.Aws.CodeDeploy
     ///                 Action = "KEEP_ALIVE",
     ///             },
     ///         },
+    ///         AppName = example.Name,
+    ///         DeploymentGroupName = "example-group",
+    ///         ServiceRoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });

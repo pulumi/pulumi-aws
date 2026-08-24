@@ -49,15 +49,15 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * const testGateway = new aws.storagegateway.Gateway("test", {
- *     gatewayIpAddress: test.publicIp,
- *     gatewayName: "test-sgw",
- *     gatewayTimezone: "GMT",
- *     gatewayType: "FILE_FSX_SMB",
  *     smbActiveDirectorySettings: {
  *         domainName: testAwsDirectoryServiceDirectory.name,
  *         password: testAwsDirectoryServiceDirectory.password,
  *         username: "Admin",
  *     },
+ *     gatewayIpAddress: test.publicIp,
+ *     gatewayName: "test-sgw",
+ *     gatewayTimezone: "GMT",
+ *     gatewayType: "FILE_FSX_SMB",
  * });
  * const testWindowsFileSystem = new aws.fsx.WindowsFileSystem("test", {
  *     activeDirectoryId: testAwsDirectoryServiceDirectory.id,
@@ -68,13 +68,13 @@ import * as utilities from "../utilities";
  *     throughputCapacity: 8,
  * });
  * const fsx = new aws.storagegateway.FileSystemAssociation("fsx", {
+ *     cacheAttributes: {
+ *         cacheStaleTimeoutInSeconds: 400,
+ *     },
  *     gatewayArn: testGateway.arn,
  *     locationArn: testWindowsFileSystem.arn,
  *     username: "Admin",
  *     password: testAwsDirectoryServiceDirectory.password,
- *     cacheAttributes: {
- *         cacheStaleTimeoutInSeconds: 400,
- *     },
  *     auditDestinationArn: testAwsCloudwatchLogGroup.arn,
  * });
  * ```

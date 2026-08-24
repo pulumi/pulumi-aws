@@ -234,15 +234,15 @@ class EmailTemplate(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.pinpoint.EmailTemplate("test",
-            template_name="testing",
             email_templates=[{
-                "subject": "testing",
-                "text_part": "we are testing template text part",
                 "headers": [{
                     "name": "testingname",
                     "value": "testingvalue",
                 }],
-            }])
+                "subject": "testing",
+                "text_part": "we are testing template text part",
+            }],
+            template_name="testing")
         ```
 
         ## Import
@@ -279,15 +279,15 @@ class EmailTemplate(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.pinpoint.EmailTemplate("test",
-            template_name="testing",
             email_templates=[{
-                "subject": "testing",
-                "text_part": "we are testing template text part",
                 "headers": [{
                     "name": "testingname",
                     "value": "testingvalue",
                 }],
-            }])
+                "subject": "testing",
+                "text_part": "we are testing template text part",
+            }],
+            template_name="testing")
         ```
 
         ## Import

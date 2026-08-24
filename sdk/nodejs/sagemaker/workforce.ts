@@ -29,11 +29,11 @@ import * as utilities from "../utilities";
  *     userPoolId: exampleUserPool.id,
  * });
  * const example = new aws.sagemaker.Workforce("example", {
- *     workforceName: "example",
  *     cognitoConfig: {
  *         clientId: exampleUserPoolClient.id,
  *         userPool: exampleUserPoolDomain.userPoolId,
  *     },
+ *     workforceName: "example",
  * });
  * ```
  *
@@ -44,7 +44,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sagemaker.Workforce("example", {
- *     workforceName: "example",
  *     oidcConfig: {
  *         authorizationEndpoint: "https://example.com",
  *         clientId: "example",
@@ -55,6 +54,7 @@ import * as utilities from "../utilities";
  *         tokenEndpoint: "https://example.com",
  *         userInfoEndpoint: "https://example.com",
  *     },
+ *     workforceName: "example",
  * });
  * ```
  *

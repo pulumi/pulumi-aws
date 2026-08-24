@@ -84,13 +84,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Alias("example", AliasArgs.builder()
+ *             .routingConfig(AliasRoutingConfigArgs.builder()
+ *                 .additionalVersionWeights(Map.of("1", 0.1))
+ *                 .build())
  *             .name("staging")
  *             .description("Staging environment with traffic splitting")
  *             .functionName(exampleAwsLambdaFunction.functionName())
  *             .functionVersion("2")
- *             .routingConfig(AliasRoutingConfigArgs.builder()
- *                 .additionalVersionWeights(Map.of("1", 0.1))
- *                 .build())
  *             .build());
  * 
  *     }
@@ -125,13 +125,13 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Alias for gradual rollout
  *         var example = new Alias("example", AliasArgs.builder()
+ *             .routingConfig(AliasRoutingConfigArgs.builder()
+ *                 .additionalVersionWeights(Map.of("6", 0.05))
+ *                 .build())
  *             .name("live")
  *             .description("Live traffic with gradual rollout to new version")
  *             .functionName(exampleAwsLambdaFunction.functionName())
  *             .functionVersion("5")
- *             .routingConfig(AliasRoutingConfigArgs.builder()
- *                 .additionalVersionWeights(Map.of("6", 0.05))
- *                 .build())
  *             .build());
  * 
  *     }

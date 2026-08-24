@@ -17,8 +17,6 @@ import * as utilities from "../utilities";
  *     state: "available",
  * });
  * const amazonLinux = aws.ec2.getAmi({
- *     mostRecent: true,
- *     owners: ["amazon"],
  *     filters: [
  *         {
  *             name: "name",
@@ -29,6 +27,8 @@ import * as utilities from "../utilities";
  *             values: ["amazon"],
  *         },
  *     ],
+ *     mostRecent: true,
+ *     owners: ["amazon"],
  * });
  * const vpc1 = new aws.ec2.Vpc("vpc1", {cidrBlock: "10.0.0.0/16"});
  * const vpc2 = new aws.ec2.Vpc("vpc2", {cidrBlock: "10.1.0.0/16"});

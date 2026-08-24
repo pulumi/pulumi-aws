@@ -88,9 +88,6 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     ///     var exampleServerlessCollection = new Aws.OpenSearch.ServerlessCollection("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Type = "SEARCH",
-    ///         CollectionGroupName = exampleServerlessCollectionGroup.Name,
     ///         EncryptionConfigs = new[]
     ///         {
     ///             new Aws.OpenSearch.Inputs.ServerlessCollectionEncryptionConfigArgs
@@ -98,6 +95,9 @@ namespace Pulumi.Aws.OpenSearch
     ///                 KmsKeyArn = example.Arn,
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         Type = "SEARCH",
+    ///         CollectionGroupName = exampleServerlessCollectionGroup.Name,
     ///     });
     /// 
     /// });

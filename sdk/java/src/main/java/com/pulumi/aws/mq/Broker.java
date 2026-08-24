@@ -65,19 +65,19 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Broker("example", BrokerArgs.builder()
- *             .brokerName("example")
  *             .configuration(BrokerConfigurationArgs.builder()
  *                 .id(test.id())
  *                 .revision(test.latestRevision())
  *                 .build())
- *             .engineType("ActiveMQ")
- *             .engineVersion("5.17.6")
- *             .hostInstanceType("mq.t2.micro")
- *             .securityGroups(testAwsSecurityGroup.id())
  *             .users(BrokerUserArgs.builder()
  *                 .username("example_user")
  *                 .password("<password>")
  *                 .build())
+ *             .brokerName("example")
+ *             .engineType("ActiveMQ")
+ *             .engineVersion("5.17.6")
+ *             .hostInstanceType("mq.t2.micro")
+ *             .securityGroups(testAwsSecurityGroup.id())
  *             .build());
  * 
  *     }
@@ -112,20 +112,20 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Broker("example", BrokerArgs.builder()
- *             .brokerName("example")
  *             .configuration(BrokerConfigurationArgs.builder()
  *                 .id(test.id())
  *                 .revision(test.latestRevision())
  *                 .build())
+ *             .users(BrokerUserArgs.builder()
+ *                 .username("example_user")
+ *                 .password("<password>")
+ *                 .build())
+ *             .brokerName("example")
  *             .engineType("ActiveMQ")
  *             .engineVersion("5.17.6")
  *             .storageType("ebs")
  *             .hostInstanceType("mq.m5.large")
  *             .securityGroups(testAwsSecurityGroup.id())
- *             .users(BrokerUserArgs.builder()
- *                 .username("example_user")
- *                 .password("<password>")
- *                 .build())
  *             .build());
  * 
  *     }
@@ -159,13 +159,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var examplePrimary = new Broker("examplePrimary", BrokerArgs.builder()
- *             .applyImmediately(true)
- *             .brokerName("example_primary")
- *             .engineType("ActiveMQ")
- *             .engineVersion("5.17.6")
- *             .hostInstanceType("mq.m5.large")
- *             .securityGroups(examplePrimaryAwsSecurityGroup.id())
- *             .deploymentMode("ACTIVE_STANDBY_MULTI_AZ")
  *             .users(            
  *                 BrokerUserArgs.builder()
  *                     .username("example_user")
@@ -176,9 +169,26 @@ import javax.annotation.Nullable;
  *                     .password("<password>")
  *                     .replicationUser(true)
  *                     .build())
+ *             .applyImmediately(true)
+ *             .brokerName("example_primary")
+ *             .engineType("ActiveMQ")
+ *             .engineVersion("5.17.6")
+ *             .hostInstanceType("mq.m5.large")
+ *             .securityGroups(examplePrimaryAwsSecurityGroup.id())
+ *             .deploymentMode("ACTIVE_STANDBY_MULTI_AZ")
  *             .build());
  * 
  *         var example = new Broker("example", BrokerArgs.builder()
+ *             .users(            
+ *                 BrokerUserArgs.builder()
+ *                     .username("example_user")
+ *                     .password("<password>")
+ *                     .build(),
+ *                 BrokerUserArgs.builder()
+ *                     .username("example_replication_user")
+ *                     .password("<password>")
+ *                     .replicationUser(true)
+ *                     .build())
  *             .applyImmediately(true)
  *             .brokerName("example")
  *             .engineType("ActiveMQ")
@@ -188,16 +198,6 @@ import javax.annotation.Nullable;
  *             .deploymentMode("ACTIVE_STANDBY_MULTI_AZ")
  *             .dataReplicationMode("CRDR")
  *             .dataReplicationPrimaryBrokerArn(primary.arn())
- *             .users(            
- *                 BrokerUserArgs.builder()
- *                     .username("example_user")
- *                     .password("<password>")
- *                     .build(),
- *                 BrokerUserArgs.builder()
- *                     .username("example_replication_user")
- *                     .password("<password>")
- *                     .replicationUser(true)
- *                     .build())
  *             .build());
  * 
  *     }

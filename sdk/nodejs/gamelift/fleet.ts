@@ -17,16 +17,16 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.gamelift.Fleet("example", {
- *     buildId: exampleAwsGameliftBuild.id,
- *     ec2InstanceType: "t2.micro",
- *     fleetType: "ON_DEMAND",
- *     name: "example-fleet-name",
  *     runtimeConfiguration: {
  *         serverProcesses: [{
  *             concurrentExecutions: 1,
  *             launchPath: "C:\\game\\GomokuServer.exe",
  *         }],
  *     },
+ *     buildId: exampleAwsGameliftBuild.id,
+ *     ec2InstanceType: "t2.micro",
+ *     fleetType: "ON_DEMAND",
+ *     name: "example-fleet-name",
  * });
  * ```
  *

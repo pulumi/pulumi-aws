@@ -50,24 +50,20 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RoutingProfile("example", RoutingProfileArgs.builder()
- *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
- *             .name("example")
- *             .defaultOutboundQueueId("12345678-1234-1234-1234-123456789012")
- *             .description("example description")
  *             .mediaConcurrencies(            
  *                 RoutingProfileMediaConcurrencyArgs.builder()
- *                     .channel("VOICE")
- *                     .concurrency(1)
  *                     .crossChannelBehavior(RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs.builder()
  *                         .behaviorType("ROUTE_ANY_CHANNEL")
  *                         .build())
+ *                     .channel("VOICE")
+ *                     .concurrency(1)
  *                     .build(),
  *                 RoutingProfileMediaConcurrencyArgs.builder()
- *                     .channel("CHAT")
- *                     .concurrency(3)
  *                     .crossChannelBehavior(RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs.builder()
  *                         .behaviorType("ROUTE_CURRENT_CHANNEL_ONLY")
  *                         .build())
+ *                     .channel("CHAT")
+ *                     .concurrency(3)
  *                     .build())
  *             .queueConfigs(RoutingProfileQueueConfigArgs.builder()
  *                 .channel("VOICE")
@@ -75,6 +71,10 @@ import javax.annotation.Nullable;
  *                 .priority(1)
  *                 .queueId("12345678-1234-1234-1234-123456789012")
  *                 .build())
+ *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+ *             .name("example")
+ *             .defaultOutboundQueueId("12345678-1234-1234-1234-123456789012")
+ *             .description("example description")
  *             .tags(Map.of("Name", "Example Routing Profile"))
  *             .build());
  * 

@@ -66,10 +66,6 @@ import javax.annotation.Nullable;
  *                 .build());
  * 
  *         var exampleAutomationRuleV2 = new AutomationRuleV2("exampleAutomationRuleV2", AutomationRuleV2Args.builder()
- *             .ruleName("suppress-guardduty-low")
- *             .description("Suppress low severity GuardDuty findings")
- *             .ruleOrder(100.0)
- *             .ruleStatus("ENABLED")
  *             .criteria(AutomationRuleV2CriteriaArgs.builder()
  *                 .ocsfFindingCriteriaJson(serializeJson(
  *                     jsonObject(
@@ -86,13 +82,17 @@ import javax.annotation.Nullable;
  *                     )))
  *                 .build())
  *             .action(AutomationRuleV2ActionArgs.builder()
- *                 .type("FINDING_FIELDS_UPDATE")
  *                 .findingFieldsUpdate(AutomationRuleV2ActionFindingFieldsUpdateArgs.builder()
  *                     .severityId(99)
  *                     .statusId(3)
  *                     .comment("Low severity GuardDuty finding suppressed")
  *                     .build())
+ *                 .type("FINDING_FIELDS_UPDATE")
  *                 .build())
+ *             .ruleName("suppress-guardduty-low")
+ *             .description("Suppress low severity GuardDuty findings")
+ *             .ruleOrder(100.0)
+ *             .ruleStatus("ENABLED")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAggregatorV2)
  *                 .build());

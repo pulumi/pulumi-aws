@@ -38,6 +38,12 @@ import (
 //				return err
 //			}
 //			_, err = redshiftserverless.NewWorkgroup(ctx, "example", &redshiftserverless.WorkgroupArgs{
+//				ConfigParameters: redshiftserverless.WorkgroupConfigParameterArray{
+//					&redshiftserverless.WorkgroupConfigParameterArgs{
+//						ParameterKey:   pulumi.String("enable_case_sensitive_identifier"),
+//						ParameterValue: pulumi.String("true"),
+//					},
+//				},
 //				NamespaceName:      example.NamespaceName,
 //				WorkgroupName:      pulumi.String("example-workspace"),
 //				BaseCapacity:       pulumi.Int(8),
@@ -47,12 +53,6 @@ import (
 //					example2.Id,
 //					example3.Id,
 //				},
-//				ConfigParameters: redshiftserverless.WorkgroupConfigParameterArray{
-//					&redshiftserverless.WorkgroupConfigParameterArgs{
-//						ParameterKey:   pulumi.String("enable_case_sensitive_identifier"),
-//						ParameterValue: pulumi.String("true"),
-//					},
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -61,7 +61,9 @@ import (
 //				IntegrationName: pulumi.String("example"),
 //				SourceArn:       pulumi.Any(exampleAwsRdsCluster.Arn),
 //				TargetArn:       example.Arn,
-//			})
+//			}, pulumi.IgnoreChanges([]string{
+//				"kmsKeyId",
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -97,12 +99,6 @@ import (
 //			keyPolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Actions: []string{
-//							"kms:*",
-//						},
-//						Resources: []string{
-//							"*",
-//						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "AWS",
@@ -111,14 +107,14 @@ import (
 //								},
 //							},
 //						},
-//					},
-//					{
 //						Actions: []string{
-//							"kms:CreateGrant",
+//							"kms:*",
 //						},
 //						Resources: []string{
 //							"*",
 //						},
+//					},
+//					{
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -126,6 +122,12 @@ import (
 //									"redshift.amazonaws.com",
 //								},
 //							},
+//						},
+//						Actions: []string{
+//							"kms:CreateGrant",
+//						},
+//						Resources: []string{
+//							"*",
 //						},
 //					},
 //				},

@@ -32,8 +32,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementConditionArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.cognito.UserGroup;
@@ -57,12 +57,6 @@ import javax.annotation.Nullable;
  * 
  *         final var groupRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("Federated")
- *                     .identifiers("cognito-identity.amazonaws.com")
- *                     .build())
- *                 .actions("sts:AssumeRoleWithWebIdentity")
  *                 .conditions(                
  *                     GetPolicyDocumentStatementConditionArgs.builder()
  *                         .test("StringEquals")
@@ -74,6 +68,12 @@ import javax.annotation.Nullable;
  *                         .variable("cognito-identity.amazonaws.com:amr")
  *                         .values("authenticated")
  *                         .build())
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type("Federated")
+ *                     .identifiers("cognito-identity.amazonaws.com")
+ *                     .build())
+ *                 .effect("Allow")
+ *                 .actions("sts:AssumeRoleWithWebIdentity")
  *                 .build())
  *             .build());
  * 

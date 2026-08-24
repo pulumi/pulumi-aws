@@ -54,17 +54,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         final var test = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .policyId("__default_policy_ID")
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions("SNS:Publish")
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("backup.amazonaws.com")
  *                     .build())
+ *                 .actions("SNS:Publish")
+ *                 .effect("Allow")
  *                 .resources(testTopic.arn())
  *                 .sid("__default_statement_ID")
  *                 .build())
+ *             .policyId("__default_policy_ID")
  *             .build());
  * 
  *         var testTopicPolicy = new TopicPolicy("testTopicPolicy", TopicPolicyArgs.builder()

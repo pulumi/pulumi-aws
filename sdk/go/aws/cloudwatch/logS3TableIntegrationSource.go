@@ -34,11 +34,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudwatch.NewLogS3TableIntegrationSource(ctx, "example", &cloudwatch.LogS3TableIntegrationSourceArgs{
-//				IntegrationArn: pulumi.Any(exampleAwsObservabilityadminS3TableIntegration.Arn),
 //				DataSource: &cloudwatch.LogS3TableIntegrationSourceDataSourceArgs{
 //					Name: pulumi.String("*"),
 //					Type: pulumi.String("*"),
 //				},
+//				IntegrationArn: pulumi.Any(exampleAwsObservabilityadminS3TableIntegration.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -79,11 +79,11 @@ import (
 //				return err
 //			}
 //			_, err = cloudwatch.NewLogS3TableIntegrationSource(ctx, "example", &cloudwatch.LogS3TableIntegrationSourceArgs{
-//				IntegrationArn: pulumi.Any(exampleAwsObservabilityadminS3TableIntegration.Arn),
 //				DataSource: &cloudwatch.LogS3TableIntegrationSourceDataSourceArgs{
 //					Name: pulumi.String("myapp"),
 //					Type: pulumi.String("events"),
 //				},
+//				IntegrationArn: pulumi.Any(exampleAwsObservabilityadminS3TableIntegration.Arn),
 //			})
 //			if err != nil {
 //				return err

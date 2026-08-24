@@ -215,10 +215,10 @@ import (
 //				return err
 //			}
 //			exampleBucketVersioning, err := s3.NewBucketVersioning(ctx, "example", &s3.BucketVersioningArgs{
-//				Bucket: examplebucket.ID().ToIDOutput().ToStringOutput(),
 //				VersioningConfiguration: &s3.BucketVersioningVersioningConfigurationArgs{
 //					Status: pulumi.String("Enabled"),
 //				},
+//				Bucket: examplebucket.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -269,16 +269,16 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketObjectv2(ctx, "examplebucket_object", &s3.BucketObjectv2Args{
+//				OverrideProvider: &s3.BucketObjectv2OverrideProviderArgs{
+//					DefaultTags: &s3.BucketObjectv2OverrideProviderDefaultTagsArgs{
+//						Tags: pulumi.StringMap{},
+//					},
+//				},
 //				Key:    pulumi.String("someobject"),
 //				Bucket: examplebucket.ID().ToIDOutput().ToStringOutput(),
 //				Source: pulumi.NewFileAsset("important.txt"),
 //				Tags: pulumi.StringMap{
 //					"Env": pulumi.String("test"),
-//				},
-//				OverrideProvider: &s3.BucketObjectv2OverrideProviderArgs{
-//					DefaultTags: &s3.BucketObjectv2OverrideProviderDefaultTagsArgs{
-//						Tags: pulumi.StringMap{},
-//					},
 //				},
 //			})
 //			if err != nil {

@@ -25,11 +25,11 @@ import * as utilities from "../utilities";
  * });
  * const mediaPipelinesAssumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["mediapipelines.chime.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
@@ -38,22 +38,22 @@ import * as utilities from "../utilities";
  *     assumeRolePolicy: mediaPipelinesAssumeRole.then(mediaPipelinesAssumeRole => mediaPipelinesAssumeRole.json),
  * });
  * const myConfiguration = new aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("my_configuration", {
- *     name: "MyBasicConfiguration",
- *     resourceAccessRoleArn: callAnalyticsRole.arn,
  *     elements: [
  *         {
- *             type: "AmazonTranscribeCallAnalyticsProcessor",
  *             amazonTranscribeCallAnalyticsProcessorConfiguration: {
  *                 languageCode: "en-US",
  *             },
+ *             type: "AmazonTranscribeCallAnalyticsProcessor",
  *         },
  *         {
- *             type: "KinesisDataStreamSink",
  *             kinesisDataStreamSinkConfiguration: {
  *                 insightsTarget: example.arn,
  *             },
+ *             type: "KinesisDataStreamSink",
  *         },
  *     ],
+ *     name: "MyBasicConfiguration",
+ *     resourceAccessRoleArn: callAnalyticsRole.arn,
  *     tags: {
  *         Key1: "Value1",
  *         Key2: "Value2",
@@ -71,11 +71,11 @@ import * as utilities from "../utilities";
  *
  * const transcribeAssumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["transcribe.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
@@ -84,12 +84,15 @@ import * as utilities from "../utilities";
  *     assumeRolePolicy: transcribeAssumeRole.then(transcribeAssumeRole => transcribeAssumeRole.json),
  * });
  * const myConfiguration = new aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("my_configuration", {
- *     name: "MyCallAnalyticsConfiguration",
- *     resourceAccessRoleArn: exampleAwsIamRole.arn,
  *     elements: [
  *         {
- *             type: "AmazonTranscribeCallAnalyticsProcessor",
  *             amazonTranscribeCallAnalyticsProcessorConfiguration: {
+ *                 postCallAnalyticsSettings: {
+ *                     contentRedactionOutput: "redacted",
+ *                     dataAccessRoleArn: postCallRole.arn,
+ *                     outputEncryptionKmsKeyId: "MyKmsKeyId",
+ *                     outputLocation: "s3://MyBucket",
+ *                 },
  *                 callAnalyticsStreamCategories: [
  *                     "category_1",
  *                     "category_2",
@@ -101,24 +104,21 @@ import * as utilities from "../utilities";
  *                 languageModelName: "MyLanguageModel",
  *                 partialResultsStability: "high",
  *                 piiEntityTypes: "ADDRESS,BANK_ACCOUNT_NUMBER",
- *                 postCallAnalyticsSettings: {
- *                     contentRedactionOutput: "redacted",
- *                     dataAccessRoleArn: postCallRole.arn,
- *                     outputEncryptionKmsKeyId: "MyKmsKeyId",
- *                     outputLocation: "s3://MyBucket",
- *                 },
  *                 vocabularyFilterMethod: "mask",
  *                 vocabularyFilterName: "MyVocabularyFilter",
  *                 vocabularyName: "MyVocabulary",
  *             },
+ *             type: "AmazonTranscribeCallAnalyticsProcessor",
  *         },
  *         {
- *             type: "KinesisDataStreamSink",
  *             kinesisDataStreamSinkConfiguration: {
  *                 insightsTarget: example.arn,
  *             },
+ *             type: "KinesisDataStreamSink",
  *         },
  *     ],
+ *     name: "MyCallAnalyticsConfiguration",
+ *     resourceAccessRoleArn: exampleAwsIamRole.arn,
  * });
  * ```
  *
@@ -129,33 +129,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const myConfiguration = new aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("my_configuration", {
- *     name: "MyRealTimeAlertConfiguration",
- *     resourceAccessRoleArn: callAnalyticsRole.arn,
- *     elements: [
- *         {
- *             type: "AmazonTranscribeCallAnalyticsProcessor",
- *             amazonTranscribeCallAnalyticsProcessorConfiguration: {
- *                 languageCode: "en-US",
- *             },
- *         },
- *         {
- *             type: "KinesisDataStreamSink",
- *             kinesisDataStreamSinkConfiguration: {
- *                 insightsTarget: example.arn,
- *             },
- *         },
- *     ],
  *     realTimeAlertConfiguration: {
- *         disabled: false,
  *         rules: [
  *             {
- *                 type: "IssueDetection",
  *                 issueDetectionConfiguration: {
  *                     ruleName: "MyIssueDetectionRule",
  *                 },
+ *                 type: "IssueDetection",
  *             },
  *             {
- *                 type: "KeywordMatch",
  *                 keywordMatchConfiguration: {
  *                     keywords: [
  *                         "keyword1",
@@ -164,17 +146,35 @@ import * as utilities from "../utilities";
  *                     negate: false,
  *                     ruleName: "MyKeywordMatchRule",
  *                 },
+ *                 type: "KeywordMatch",
  *             },
  *             {
- *                 type: "Sentiment",
  *                 sentimentConfiguration: {
  *                     ruleName: "MySentimentRule",
  *                     sentimentType: "NEGATIVE",
  *                     timePeriod: 60,
  *                 },
+ *                 type: "Sentiment",
  *             },
  *         ],
+ *         disabled: false,
  *     },
+ *     elements: [
+ *         {
+ *             amazonTranscribeCallAnalyticsProcessorConfiguration: {
+ *                 languageCode: "en-US",
+ *             },
+ *             type: "AmazonTranscribeCallAnalyticsProcessor",
+ *         },
+ *         {
+ *             kinesisDataStreamSinkConfiguration: {
+ *                 insightsTarget: example.arn,
+ *             },
+ *             type: "KinesisDataStreamSink",
+ *         },
+ *     ],
+ *     name: "MyRealTimeAlertConfiguration",
+ *     resourceAccessRoleArn: callAnalyticsRole.arn,
  * });
  * ```
  *
@@ -185,11 +185,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const myConfiguration = new aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("my_configuration", {
- *     name: "MyTranscribeConfiguration",
- *     resourceAccessRoleArn: exampleAwsIamRole.arn,
  *     elements: [
  *         {
- *             type: "AmazonTranscribeProcessor",
  *             amazonTranscribeProcessorConfiguration: {
  *                 contentIdentificationType: "PII",
  *                 enablePartialResultsStabilization: true,
@@ -203,14 +200,17 @@ import * as utilities from "../utilities";
  *                 vocabularyFilterName: "MyVocabularyFilter",
  *                 vocabularyName: "MyVocabulary",
  *             },
+ *             type: "AmazonTranscribeProcessor",
  *         },
  *         {
- *             type: "KinesisDataStreamSink",
  *             kinesisDataStreamSinkConfiguration: {
  *                 insightsTarget: example.arn,
  *             },
+ *             type: "KinesisDataStreamSink",
  *         },
  *     ],
+ *     name: "MyTranscribeConfiguration",
+ *     resourceAccessRoleArn: exampleAwsIamRole.arn,
  * });
  * ```
  *
@@ -221,41 +221,41 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const myConfiguration = new aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("my_configuration", {
- *     name: "MyVoiceAnalyticsConfiguration",
- *     resourceAccessRoleArn: example.arn,
  *     elements: [
  *         {
- *             type: "VoiceAnalyticsProcessor",
  *             voiceAnalyticsProcessorConfiguration: {
  *                 speakerSearchStatus: "Enabled",
  *                 voiceToneAnalysisStatus: "Enabled",
  *             },
+ *             type: "VoiceAnalyticsProcessor",
  *         },
  *         {
- *             type: "LambdaFunctionSink",
  *             lambdaFunctionSinkConfiguration: {
  *                 insightsTarget: "arn:aws:lambda:us-west-2:1111111111:function:MyFunction",
  *             },
+ *             type: "LambdaFunctionSink",
  *         },
  *         {
- *             type: "SnsTopicSink",
  *             snsTopicSinkConfiguration: {
  *                 insightsTarget: "arn:aws:sns:us-west-2:1111111111:topic/MyTopic",
  *             },
+ *             type: "SnsTopicSink",
  *         },
  *         {
- *             type: "SqsQueueSink",
  *             sqsQueueSinkConfiguration: {
  *                 insightsTarget: "arn:aws:sqs:us-west-2:1111111111:queue/MyQueue",
  *             },
+ *             type: "SqsQueueSink",
  *         },
  *         {
- *             type: "KinesisDataStreamSink",
  *             kinesisDataStreamSinkConfiguration: {
  *                 insightsTarget: test.arn,
  *             },
+ *             type: "KinesisDataStreamSink",
  *         },
  *     ],
+ *     name: "MyVoiceAnalyticsConfiguration",
+ *     resourceAccessRoleArn: example.arn,
  * });
  * ```
  *
@@ -266,14 +266,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const myConfiguration = new aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("my_configuration", {
- *     name: "MyS3RecordingConfiguration",
- *     resourceAccessRoleArn: example.arn,
  *     elements: [{
- *         type: "S3RecordingSink",
  *         s3RecordingSinkConfiguration: {
  *             destination: "arn:aws:s3:::MyBucket",
  *         },
+ *         type: "S3RecordingSink",
  *     }],
+ *     name: "MyS3RecordingConfiguration",
+ *     resourceAccessRoleArn: example.arn,
  * });
  * ```
  *

@@ -17,19 +17,19 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.codebuild.Fleet("test", {
+ *     scalingConfiguration: {
+ *         targetTrackingScalingConfigs: [{
+ *             metricType: "FLEET_UTILIZATION_RATE",
+ *             targetValue: 97.5,
+ *         }],
+ *         maxCapacity: 5,
+ *         scalingType: "TARGET_TRACKING_SCALING",
+ *     },
  *     baseCapacity: 2,
  *     computeType: "BUILD_GENERAL1_SMALL",
  *     environmentType: "LINUX_CONTAINER",
  *     name: "full-example-codebuild-fleet",
  *     overflowBehavior: "QUEUE",
- *     scalingConfiguration: {
- *         maxCapacity: 5,
- *         scalingType: "TARGET_TRACKING_SCALING",
- *         targetTrackingScalingConfigs: [{
- *             metricType: "FLEET_UTILIZATION_RATE",
- *             targetValue: 97.5,
- *         }],
- *     },
  * });
  * ```
  *

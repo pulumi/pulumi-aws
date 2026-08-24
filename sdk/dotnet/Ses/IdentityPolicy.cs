@@ -33,15 +33,6 @@ namespace Pulumi.Aws.Ses
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "SES:SendEmail",
-    ///                     "SES:SendRawEmail",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     exampleDomainIdentity.Arn,
-    ///                 },
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -52,6 +43,15 @@ namespace Pulumi.Aws.Ses
     ///                         },
     ///                         Type = "AWS",
     ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "SES:SendEmail",
+    ///                     "SES:SendRawEmail",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     exampleDomainIdentity.Arn,
     ///                 },
     ///             },
     ///         },

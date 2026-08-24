@@ -79,11 +79,11 @@ import {RestApi} from "./index";
  * // IAM
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["lambda.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
@@ -216,17 +216,17 @@ import {RestApi} from "./index";
  *     subnets: exampleAwsSubnet.map(__item => __item.id),
  * });
  * const exampleListener = new aws.lb.Listener("example", {
- *     loadBalancerArn: exampleLoadBalancer.arn,
- *     port: 80,
- *     protocol: "HTTP",
  *     defaultActions: [{
- *         type: "fixed-response",
  *         fixedResponse: {
  *             contentType: "text/plain",
  *             messageBody: "OK",
  *             statusCode: "200",
  *         },
+ *         type: "fixed-response",
  *     }],
+ *     loadBalancerArn: exampleLoadBalancer.arn,
+ *     port: 80,
+ *     protocol: "HTTP",
  * });
  * const exampleRestApi = new aws.apigateway.RestApi("example", {name: "example"});
  * const exampleResource = new aws.apigateway.Resource("example", {

@@ -19,11 +19,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sagemaker.ModelCardExportJob("example", {
- *     modelCardExportJobName: "my-model-card-export-job",
- *     modelCardName: exampleAwsSagemakerModelCard.modelCardName,
  *     outputConfig: {
  *         s3OutputPath: `s3://${test.example}/`,
  *     },
+ *     modelCardExportJobName: "my-model-card-export-job",
+ *     modelCardName: exampleAwsSagemakerModelCard.modelCardName,
  * });
  * ```
  *

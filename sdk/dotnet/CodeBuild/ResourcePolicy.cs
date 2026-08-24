@@ -25,12 +25,12 @@ namespace Pulumi.Aws.CodeBuild
     /// {
     ///     var example = new Aws.CodeBuild.ReportGroup("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Type = "TEST",
     ///         ExportConfig = new Aws.CodeBuild.Inputs.ReportGroupExportConfigArgs
     ///         {
     ///             Type = "NO_EXPORT",
     ///         },
+    ///         Name = "example",
+    ///         Type = "TEST",
     ///     });
     /// 
     ///     var current = Aws.GetPartition.Invoke();

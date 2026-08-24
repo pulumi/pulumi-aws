@@ -151,21 +151,21 @@ class DomainServiceAccessPolicy(pulumi.CustomResource):
 
         example_domain = aws.cloudsearch.Domain("example", name="example-domain")
         example = aws.iam.get_policy_document(statements=[{
-            "sid": "search_only",
-            "effect": "Allow",
-            "principals": [{
-                "type": "*",
-                "identifiers": ["*"],
-            }],
-            "actions": [
-                "cloudsearch:search",
-                "cloudsearch:document",
-            ],
             "conditions": [{
                 "test": "IpAddress",
                 "variable": "aws:SourceIp",
                 "values": ["192.0.2.0/32"],
             }],
+            "principals": [{
+                "type": "*",
+                "identifiers": ["*"],
+            }],
+            "sid": "search_only",
+            "effect": "Allow",
+            "actions": [
+                "cloudsearch:search",
+                "cloudsearch:document",
+            ],
         }])
         example_domain_service_access_policy = aws.cloudsearch.DomainServiceAccessPolicy("example",
             domain_name=example_domain.id,
@@ -206,21 +206,21 @@ class DomainServiceAccessPolicy(pulumi.CustomResource):
 
         example_domain = aws.cloudsearch.Domain("example", name="example-domain")
         example = aws.iam.get_policy_document(statements=[{
-            "sid": "search_only",
-            "effect": "Allow",
-            "principals": [{
-                "type": "*",
-                "identifiers": ["*"],
-            }],
-            "actions": [
-                "cloudsearch:search",
-                "cloudsearch:document",
-            ],
             "conditions": [{
                 "test": "IpAddress",
                 "variable": "aws:SourceIp",
                 "values": ["192.0.2.0/32"],
             }],
+            "principals": [{
+                "type": "*",
+                "identifiers": ["*"],
+            }],
+            "sid": "search_only",
+            "effect": "Allow",
+            "actions": [
+                "cloudsearch:search",
+                "cloudsearch:document",
+            ],
         }])
         example_domain_service_access_policy = aws.cloudsearch.DomainServiceAccessPolicy("example",
             domain_name=example_domain.id,

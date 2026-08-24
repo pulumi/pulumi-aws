@@ -60,13 +60,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := elasticache.NewUser(ctx, "test", &elasticache.UserArgs{
+//				AuthenticationMode: &elasticache.UserAuthenticationModeArgs{
+//					Type: pulumi.String("iam"),
+//				},
 //				UserId:       pulumi.String("testUserId"),
 //				UserName:     pulumi.String("testUserName"),
 //				AccessString: pulumi.String("on ~* +@all"),
 //				Engine:       pulumi.String("redis"),
-//				AuthenticationMode: &elasticache.UserAuthenticationModeArgs{
-//					Type: pulumi.String("iam"),
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -90,10 +90,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := elasticache.NewUser(ctx, "test", &elasticache.UserArgs{
-//				UserId:       pulumi.String("testUserId"),
-//				UserName:     pulumi.String("testUserName"),
-//				AccessString: pulumi.String("on ~* +@all"),
-//				Engine:       pulumi.String("redis"),
 //				AuthenticationMode: &elasticache.UserAuthenticationModeArgs{
 //					Type: pulumi.String("password"),
 //					Passwords: pulumi.StringArray{
@@ -101,6 +97,10 @@ import (
 //						pulumi.String("password2"),
 //					},
 //				},
+//				UserId:       pulumi.String("testUserId"),
+//				UserName:     pulumi.String("testUserName"),
+//				AccessString: pulumi.String("on ~* +@all"),
+//				Engine:       pulumi.String("redis"),
 //			})
 //			if err != nil {
 //				return err

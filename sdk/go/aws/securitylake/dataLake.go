@@ -31,15 +31,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := securitylake.NewDataLake(ctx, "example", &securitylake.DataLakeArgs{
-//				MetaStoreManagerRoleArn: pulumi.Any(metaStoreManager.Arn),
 //				Configuration: &securitylake.DataLakeConfigurationArgs{
-//					Region: pulumi.String("eu-west-1"),
-//					EncryptionConfigurations: securitylake.DataLakeConfigurationEncryptionConfigurationArray{
-//						&securitylake.DataLakeConfigurationEncryptionConfigurationArgs{
-//							KmsKeyId: pulumi.String("S3_MANAGED_KEY"),
-//						},
-//					},
 //					LifecycleConfiguration: &securitylake.DataLakeConfigurationLifecycleConfigurationArgs{
+//						Expiration: &securitylake.DataLakeConfigurationLifecycleConfigurationExpirationArgs{
+//							Days: pulumi.Int(300),
+//						},
 //						Transitions: securitylake.DataLakeConfigurationLifecycleConfigurationTransitionArray{
 //							&securitylake.DataLakeConfigurationLifecycleConfigurationTransitionArgs{
 //								Days:         pulumi.Int(31),
@@ -50,11 +46,15 @@ import (
 //								StorageClass: pulumi.String("ONEZONE_IA"),
 //							},
 //						},
-//						Expiration: &securitylake.DataLakeConfigurationLifecycleConfigurationExpirationArgs{
-//							Days: pulumi.Int(300),
+//					},
+//					EncryptionConfigurations: securitylake.DataLakeConfigurationEncryptionConfigurationArray{
+//						&securitylake.DataLakeConfigurationEncryptionConfigurationArgs{
+//							KmsKeyId: pulumi.String("S3_MANAGED_KEY"),
 //						},
 //					},
+//					Region: pulumi.String("eu-west-1"),
 //				},
+//				MetaStoreManagerRoleArn: pulumi.Any(metaStoreManager.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -80,15 +80,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := securitylake.NewDataLake(ctx, "example", &securitylake.DataLakeArgs{
-//				MetaStoreManagerRoleArn: pulumi.Any(metaStoreManager.Arn),
 //				Configuration: &securitylake.DataLakeConfigurationArgs{
-//					Region: pulumi.String("eu-west-1"),
 //					EncryptionConfigurations: securitylake.DataLakeConfigurationEncryptionConfigurationArray{
 //						&securitylake.DataLakeConfigurationEncryptionConfigurationArgs{
 //							KmsKeyId: pulumi.String("S3_MANAGED_KEY"),
 //						},
 //					},
+//					Region: pulumi.String("eu-west-1"),
 //				},
+//				MetaStoreManagerRoleArn: pulumi.Any(metaStoreManager.Arn),
 //			})
 //			if err != nil {
 //				return err

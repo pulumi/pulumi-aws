@@ -186,11 +186,11 @@ import javax.annotation.Nullable;
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions("s3:PutObject")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("timestream-influxdb.amazonaws.com")
  *                     .build())
+ *                 .actions("s3:PutObject")
  *                 .resources(exampleBucket.arn().applyValue(_arn -> String.format("%s/*", _arn)))
  *                 .build())
  *             .build());
@@ -201,6 +201,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDbCluster = new DbCluster("exampleDbCluster", DbClusterArgs.builder()
+ *             .logDeliveryConfiguration(DbClusterLogDeliveryConfigurationArgs.builder()
+ *                 .s3Configuration(DbClusterLogDeliveryConfigurationS3ConfigurationArgs.builder()
+ *                     .bucketName(exampleBucket.bucket())
+ *                     .enabled(true)
+ *                     .build())
+ *                 .build())
  *             .allocatedStorage(20)
  *             .bucket("example-bucket-name")
  *             .dbInstanceType("db.influx.medium")
@@ -212,12 +218,6 @@ import javax.annotation.Nullable;
  *                 example2.id())
  *             .vpcSecurityGroupIds(exampleAwsSecurityGroup.id())
  *             .name("example-db-cluster")
- *             .logDeliveryConfiguration(DbClusterLogDeliveryConfigurationArgs.builder()
- *                 .s3Configuration(DbClusterLogDeliveryConfigurationS3ConfigurationArgs.builder()
- *                     .bucketName(exampleBucket.bucket())
- *                     .enabled(true)
- *                     .build())
- *                 .build())
  *             .build());
  * 
  *     }
@@ -253,6 +253,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DbCluster("example", DbClusterArgs.builder()
+ *             .maintenanceSchedule(DbClusterMaintenanceScheduleArgs.builder()
+ *                 .preferredMaintenanceWindow("Sun:02:00-Sun:06:00")
+ *                 .timezone("America/New_York")
+ *                 .build())
  *             .name("example-v3-cluster")
  *             .dbInstanceType("db.influx.large")
  *             .dbParameterGroupIdentifier("InfluxDBV3Core")
@@ -260,10 +264,6 @@ import javax.annotation.Nullable;
  *                 example1.id(),
  *                 example2.id())
  *             .vpcSecurityGroupIds(exampleAwsSecurityGroup.id())
- *             .maintenanceSchedule(DbClusterMaintenanceScheduleArgs.builder()
- *                 .preferredMaintenanceWindow("Sun:02:00-Sun:06:00")
- *                 .timezone("America/New_York")
- *                 .build())
  *             .build());
  * 
  *     }

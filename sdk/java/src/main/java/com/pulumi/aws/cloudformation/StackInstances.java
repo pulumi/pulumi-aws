@@ -102,12 +102,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions("sts:AssumeRole")
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .identifiers(aWSCloudFormationStackSetAdministrationRole.arn())
  *                     .type("AWS")
  *                     .build())
+ *                 .actions("sts:AssumeRole")
+ *                 .effect("Allow")
  *                 .build())
  *             .build());
  * 

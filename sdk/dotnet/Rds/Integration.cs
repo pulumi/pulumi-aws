@@ -31,6 +31,14 @@ namespace Pulumi.Aws.Rds
     /// 
     ///     var exampleWorkgroup = new Aws.RedshiftServerless.Workgroup("example", new()
     ///     {
+    ///         ConfigParameters = new[]
+    ///         {
+    ///             new Aws.RedshiftServerless.Inputs.WorkgroupConfigParameterArgs
+    ///             {
+    ///                 ParameterKey = "enable_case_sensitive_identifier",
+    ///                 ParameterValue = "true",
+    ///             },
+    ///         },
     ///         NamespaceName = example.NamespaceName,
     ///         WorkgroupName = "example-workspace",
     ///         BaseCapacity = 8,
@@ -41,14 +49,6 @@ namespace Pulumi.Aws.Rds
     ///             example2.Id,
     ///             example3.Id,
     ///         },
-    ///         ConfigParameters = new[]
-    ///         {
-    ///             new Aws.RedshiftServerless.Inputs.WorkgroupConfigParameterArgs
-    ///             {
-    ///                 ParameterKey = "enable_case_sensitive_identifier",
-    ///                 ParameterValue = "true",
-    ///             },
-    ///         },
     ///     });
     /// 
     ///     var exampleIntegration = new Aws.Rds.Integration("example", new()
@@ -56,6 +56,12 @@ namespace Pulumi.Aws.Rds
     ///         IntegrationName = "example",
     ///         SourceArn = exampleAwsRdsCluster.Arn,
     ///         TargetArn = example.Arn,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
+    ///         {
+    ///             "kmsKeyId",
+    ///         },
     ///     });
     /// 
     /// });
@@ -79,14 +85,6 @@ namespace Pulumi.Aws.Rds
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "kms:*",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     "*",
-    ///                 },
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -98,17 +96,17 @@ namespace Pulumi.Aws.Rds
     ///                         },
     ///                     },
     ///                 },
-    ///             },
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
     ///                 Actions = new[]
     ///                 {
-    ///                     "kms:CreateGrant",
+    ///                     "kms:*",
     ///                 },
     ///                 Resources = new[]
     ///                 {
     ///                     "*",
     ///                 },
+    ///             },
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -119,6 +117,14 @@ namespace Pulumi.Aws.Rds
     ///                             "redshift.amazonaws.com",
     ///                         },
     ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "kms:CreateGrant",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "*",
     ///                 },
     ///             },
     ///         },

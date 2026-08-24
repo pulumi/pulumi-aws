@@ -42,7 +42,6 @@ namespace Pulumi.Aws.S3Control
     ///     {
     ///         Details = new Aws.S3Control.Inputs.MultiRegionAccessPointDetailsArgs
     ///         {
-    ///             Name = "example",
     ///             Regions = new[]
     ///             {
     ///                 new Aws.S3Control.Inputs.MultiRegionAccessPointDetailsRegionArgs
@@ -54,6 +53,7 @@ namespace Pulumi.Aws.S3Control
     ///                     Bucket = barBucket.Id,
     ///                 },
     ///             },
+    ///             Name = "example",
     ///         },
     ///     });
     /// 

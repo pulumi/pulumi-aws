@@ -317,11 +317,11 @@ class ConformancePack(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cfg.ConformancePack("example",
-            name="example",
             input_parameters=[{
                 "parameter_name": "AccessKeysRotatedParameterMaxAccessKeyAge",
                 "parameter_value": "90",
             }],
+            name="example",
             template_body=\"\"\"Parameters:
           AccessKeysRotatedParameterMaxAccessKeyAge:
             Type: String
@@ -423,11 +423,11 @@ class ConformancePack(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cfg.ConformancePack("example",
-            name="example",
             input_parameters=[{
                 "parameter_name": "AccessKeysRotatedParameterMaxAccessKeyAge",
                 "parameter_value": "90",
             }],
+            name="example",
             template_body=\"\"\"Parameters:
           AccessKeysRotatedParameterMaxAccessKeyAge:
             Type: String

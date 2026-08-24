@@ -19,18 +19,18 @@ import * as utilities from "../utilities";
  * });
  * const main = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "*",
- *             identifiers: ["*"],
- *         }],
- *         actions: ["es:*"],
- *         resources: [pulumi.interpolate`${example.arn}/*`],
  *         conditions: [{
  *             test: "IpAddress",
  *             variable: "aws:SourceIp",
  *             values: ["127.0.0.1/32"],
  *         }],
+ *         principals: [{
+ *             type: "*",
+ *             identifiers: ["*"],
+ *         }],
+ *         effect: "Allow",
+ *         actions: ["es:*"],
+ *         resources: [pulumi.interpolate`${example.arn}/*`],
  *     }],
  * });
  * const mainDomainPolicy = new aws.opensearch.DomainPolicy("main", {

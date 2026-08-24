@@ -33,16 +33,16 @@ namespace Pulumi.Aws.Pinpoint
     /// 
     ///     var exampleSmsvoicev2EventDestination = new Aws.Pinpoint.Smsvoicev2EventDestination("example", new()
     ///     {
+    ///         CloudwatchLogsDestination = new Aws.Pinpoint.Inputs.Smsvoicev2EventDestinationCloudwatchLogsDestinationArgs
+    ///         {
+    ///             IamRoleArn = exampleAwsIamRole.Arn,
+    ///             LogGroupArn = exampleAwsCloudwatchLogGroup.Arn,
+    ///         },
     ///         ConfigurationSetName = example.Name,
     ///         EventDestinationName = "example",
     ///         MatchingEventTypes = new[]
     ///         {
     ///             "ALL",
-    ///         },
-    ///         CloudwatchLogsDestination = new Aws.Pinpoint.Inputs.Smsvoicev2EventDestinationCloudwatchLogsDestinationArgs
-    ///         {
-    ///             IamRoleArn = exampleAwsIamRole.Arn,
-    ///             LogGroupArn = exampleAwsCloudwatchLogGroup.Arn,
     ///         },
     ///     });
     /// 
@@ -66,16 +66,16 @@ namespace Pulumi.Aws.Pinpoint
     /// 
     ///     var exampleSmsvoicev2EventDestination = new Aws.Pinpoint.Smsvoicev2EventDestination("example", new()
     ///     {
+    ///         KinesisFirehoseDestination = new Aws.Pinpoint.Inputs.Smsvoicev2EventDestinationKinesisFirehoseDestinationArgs
+    ///         {
+    ///             DeliveryStreamArn = exampleAwsKinesisFirehoseDeliveryStream.Arn,
+    ///             IamRoleArn = exampleAwsIamRole.Arn,
+    ///         },
     ///         ConfigurationSetName = example.Name,
     ///         EventDestinationName = "example",
     ///         MatchingEventTypes = new[]
     ///         {
     ///             "ALL",
-    ///         },
-    ///         KinesisFirehoseDestination = new Aws.Pinpoint.Inputs.Smsvoicev2EventDestinationKinesisFirehoseDestinationArgs
-    ///         {
-    ///             DeliveryStreamArn = exampleAwsKinesisFirehoseDeliveryStream.Arn,
-    ///             IamRoleArn = exampleAwsIamRole.Arn,
     ///         },
     ///     });
     /// 
@@ -99,15 +99,15 @@ namespace Pulumi.Aws.Pinpoint
     /// 
     ///     var exampleSmsvoicev2EventDestination = new Aws.Pinpoint.Smsvoicev2EventDestination("example", new()
     ///     {
+    ///         SnsDestination = new Aws.Pinpoint.Inputs.Smsvoicev2EventDestinationSnsDestinationArgs
+    ///         {
+    ///             TopicArn = exampleAwsSnsTopic.Arn,
+    ///         },
     ///         ConfigurationSetName = example.Name,
     ///         EventDestinationName = "example",
     ///         MatchingEventTypes = new[]
     ///         {
     ///             "ALL",
-    ///         },
-    ///         SnsDestination = new Aws.Pinpoint.Inputs.Smsvoicev2EventDestinationSnsDestinationArgs
-    ///         {
-    ///             TopicArn = exampleAwsSnsTopic.Arn,
     ///         },
     ///     });
     /// 

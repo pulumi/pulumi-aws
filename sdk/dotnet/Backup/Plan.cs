@@ -24,20 +24,6 @@ namespace Pulumi.Aws.Backup
     /// {
     ///     var example = new Aws.Backup.Plan("example", new()
     ///     {
-    ///         Name = "my_example_backup_plan",
-    ///         Rules = new[]
-    ///         {
-    ///             new Aws.Backup.Inputs.PlanRuleArgs
-    ///             {
-    ///                 RuleName = "my_example_backup_rule",
-    ///                 TargetVaultName = test.Name,
-    ///                 Schedule = "cron(0 12 * * ? *)",
-    ///                 Lifecycle = new Aws.Backup.Inputs.PlanRuleLifecycleArgs
-    ///                 {
-    ///                     DeleteAfter = 14,
-    ///                 },
-    ///             },
-    ///         },
     ///         AdvancedBackupSettings = new[]
     ///         {
     ///             new Aws.Backup.Inputs.PlanAdvancedBackupSettingArgs
@@ -49,6 +35,20 @@ namespace Pulumi.Aws.Backup
     ///                 ResourceType = "EC2",
     ///             },
     ///         },
+    ///         Rules = new[]
+    ///         {
+    ///             new Aws.Backup.Inputs.PlanRuleArgs
+    ///             {
+    ///                 Lifecycle = new Aws.Backup.Inputs.PlanRuleLifecycleArgs
+    ///                 {
+    ///                     DeleteAfter = 14,
+    ///                 },
+    ///                 RuleName = "my_example_backup_rule",
+    ///                 TargetVaultName = test.Name,
+    ///                 Schedule = "cron(0 12 * * ? *)",
+    ///             },
+    ///         },
+    ///         Name = "my_example_backup_plan",
     ///     });
     /// 
     /// });

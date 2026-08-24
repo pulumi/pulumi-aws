@@ -20,6 +20,10 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.redshiftserverless.Namespace("example", {namespaceName: "redshift-example"});
  * const exampleWorkgroup = new aws.redshiftserverless.Workgroup("example", {
+ *     configParameters: [{
+ *         parameterKey: "enable_case_sensitive_identifier",
+ *         parameterValue: "true",
+ *     }],
  *     namespaceName: example.namespaceName,
  *     workgroupName: "example-workspace",
  *     baseCapacity: 8,
@@ -29,15 +33,13 @@ import * as utilities from "../utilities";
  *         example2.id,
  *         example3.id,
  *     ],
- *     configParameters: [{
- *         parameterKey: "enable_case_sensitive_identifier",
- *         parameterValue: "true",
- *     }],
  * });
  * const exampleIntegration = new aws.rds.Integration("example", {
  *     integrationName: "example",
  *     sourceArn: exampleAwsRdsCluster.arn,
  *     targetArn: example.arn,
+ * }, {
+ *     ignoreChanges: ["kmsKeyId"],
  * });
  * ```
  *
@@ -51,20 +53,20 @@ import * as utilities from "../utilities";
  * const keyPolicy = current.then(current => aws.iam.getPolicyDocument({
  *     statements: [
  *         {
- *             actions: ["kms:*"],
- *             resources: ["*"],
  *             principals: [{
  *                 type: "AWS",
  *                 identifiers: [`arn:aws:iam::${current.accountId}:root`],
  *             }],
+ *             actions: ["kms:*"],
+ *             resources: ["*"],
  *         },
  *         {
- *             actions: ["kms:CreateGrant"],
- *             resources: ["*"],
  *             principals: [{
  *                 type: "Service",
  *                 identifiers: ["redshift.amazonaws.com"],
  *             }],
+ *             actions: ["kms:CreateGrant"],
+ *             resources: ["*"],
  *         },
  *     ],
  * }));

@@ -56,7 +56,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBucketCorsConfiguration = new BucketCorsConfiguration("exampleBucketCorsConfiguration", BucketCorsConfigurationArgs.builder()
- *             .bucket(example.id())
  *             .corsRules(            
  *                 BucketCorsConfigurationCorsRuleArgs.builder()
  *                     .allowedHeaders("*")
@@ -71,6 +70,7 @@ import javax.annotation.Nullable;
  *                     .allowedMethods("GET")
  *                     .allowedOrigins("*")
  *                     .build())
+ *             .bucket(example.id())
  *             .build());
  * 
  *     }

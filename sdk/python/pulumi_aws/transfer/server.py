@@ -935,12 +935,12 @@ class Server(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.transfer.Server("example",
-            endpoint_type="VPC",
             endpoint_details={
                 "address_allocation_ids": [example_aws_eip["id"]],
                 "subnet_ids": [example_aws_subnet["id"]],
                 "vpc_id": example_aws_vpc["id"],
-            })
+            },
+            endpoint_type="VPC")
         ```
 
         ### AWS Directory authentication
@@ -972,11 +972,11 @@ class Server(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.transfer.Server("example",
-            endpoint_type="VPC",
             endpoint_details={
                 "subnet_ids": [example_aws_subnet["id"]],
                 "vpc_id": example_aws_vpc["id"],
             },
+            endpoint_type="VPC",
             protocols=[
                 "FTP",
                 "FTPS",
@@ -994,11 +994,11 @@ class Server(pulumi.CustomResource):
 
         transfer = aws.cloudwatch.LogGroup("transfer", name_prefix="transfer_test_")
         transfer_assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["transfer.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         iam_for_transfer = aws.iam.Role("iam_for_transfer",
@@ -1094,12 +1094,12 @@ class Server(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.transfer.Server("example",
-            endpoint_type="VPC",
             endpoint_details={
                 "address_allocation_ids": [example_aws_eip["id"]],
                 "subnet_ids": [example_aws_subnet["id"]],
                 "vpc_id": example_aws_vpc["id"],
-            })
+            },
+            endpoint_type="VPC")
         ```
 
         ### AWS Directory authentication
@@ -1131,11 +1131,11 @@ class Server(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.transfer.Server("example",
-            endpoint_type="VPC",
             endpoint_details={
                 "subnet_ids": [example_aws_subnet["id"]],
                 "vpc_id": example_aws_vpc["id"],
             },
+            endpoint_type="VPC",
             protocols=[
                 "FTP",
                 "FTPS",
@@ -1153,11 +1153,11 @@ class Server(pulumi.CustomResource):
 
         transfer = aws.cloudwatch.LogGroup("transfer", name_prefix="transfer_test_")
         transfer_assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["transfer.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         iam_for_transfer = aws.iam.Role("iam_for_transfer",

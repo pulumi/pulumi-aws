@@ -506,16 +506,16 @@ class AgentAgentActionGroup(pulumi.CustomResource):
         import pulumi_std as std
 
         example = aws.bedrock.AgentAgentActionGroup("example",
-            action_group_name="example",
-            agent_id="GGRRAED6JP",
-            agent_version="DRAFT",
-            skip_resource_in_use_check=True,
             action_group_executor={
                 "lambda_": "arn:aws:lambda:us-west-2:123456789012:function:example-function",
             },
             api_schema={
                 "payload": std.file(input="path/to/schema.yaml").result,
-            })
+            },
+            action_group_name="example",
+            agent_id="GGRRAED6JP",
+            agent_version="DRAFT",
+            skip_resource_in_use_check=True)
         ```
 
         ### API Schema in S3 Bucket
@@ -525,10 +525,6 @@ class AgentAgentActionGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentAgentActionGroup("example",
-            action_group_name="example",
-            agent_id="GGRRAED6JP",
-            agent_version="DRAFT",
-            skip_resource_in_use_check=True,
             action_group_executor={
                 "lambda_": "arn:aws:lambda:us-west-2:123456789012:function:example-function",
             },
@@ -537,7 +533,11 @@ class AgentAgentActionGroup(pulumi.CustomResource):
                     "s3_bucket_name": "example-bucket",
                     "s3_object_key": "path/to/schema.json",
                 },
-            })
+            },
+            action_group_name="example",
+            agent_id="GGRRAED6JP",
+            agent_version="DRAFT",
+            skip_resource_in_use_check=True)
         ```
 
         ### Function Schema (Simplified Schema)
@@ -547,18 +547,12 @@ class AgentAgentActionGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentAgentActionGroup("example",
-            action_group_name="example",
-            agent_id="GGRRAED6JP",
-            agent_version="DRAFT",
-            skip_resource_in_use_check=True,
             action_group_executor={
                 "lambda_": "arn:aws:lambda:us-west-2:123456789012:function:example-function",
             },
             function_schema={
                 "member_functions": {
                     "functions": [{
-                        "name": "example-function",
-                        "description": "Example function",
                         "parameters": [
                             {
                                 "map_block_key": "param1",
@@ -573,9 +567,15 @@ class AgentAgentActionGroup(pulumi.CustomResource):
                                 "required": False,
                             },
                         ],
+                        "name": "example-function",
+                        "description": "Example function",
                     }],
                 },
-            })
+            },
+            action_group_name="example",
+            agent_id="GGRRAED6JP",
+            agent_version="DRAFT",
+            skip_resource_in_use_check=True)
         ```
 
         ### Return of Control
@@ -586,16 +586,16 @@ class AgentAgentActionGroup(pulumi.CustomResource):
         import pulumi_std as std
 
         example = aws.bedrock.AgentAgentActionGroup("example",
-            action_group_name="example",
-            agent_id="GGRRAED6JP",
-            agent_version="DRAFT",
-            skip_resource_in_use_check=True,
             action_group_executor={
                 "custom_control": "RETURN_CONTROL",
             },
             api_schema={
                 "payload": std.file(input="path/to/schema.yaml").result,
-            })
+            },
+            action_group_name="example",
+            agent_id="GGRRAED6JP",
+            agent_version="DRAFT",
+            skip_resource_in_use_check=True)
         ```
 
         ## Import
@@ -645,16 +645,16 @@ class AgentAgentActionGroup(pulumi.CustomResource):
         import pulumi_std as std
 
         example = aws.bedrock.AgentAgentActionGroup("example",
-            action_group_name="example",
-            agent_id="GGRRAED6JP",
-            agent_version="DRAFT",
-            skip_resource_in_use_check=True,
             action_group_executor={
                 "lambda_": "arn:aws:lambda:us-west-2:123456789012:function:example-function",
             },
             api_schema={
                 "payload": std.file(input="path/to/schema.yaml").result,
-            })
+            },
+            action_group_name="example",
+            agent_id="GGRRAED6JP",
+            agent_version="DRAFT",
+            skip_resource_in_use_check=True)
         ```
 
         ### API Schema in S3 Bucket
@@ -664,10 +664,6 @@ class AgentAgentActionGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentAgentActionGroup("example",
-            action_group_name="example",
-            agent_id="GGRRAED6JP",
-            agent_version="DRAFT",
-            skip_resource_in_use_check=True,
             action_group_executor={
                 "lambda_": "arn:aws:lambda:us-west-2:123456789012:function:example-function",
             },
@@ -676,7 +672,11 @@ class AgentAgentActionGroup(pulumi.CustomResource):
                     "s3_bucket_name": "example-bucket",
                     "s3_object_key": "path/to/schema.json",
                 },
-            })
+            },
+            action_group_name="example",
+            agent_id="GGRRAED6JP",
+            agent_version="DRAFT",
+            skip_resource_in_use_check=True)
         ```
 
         ### Function Schema (Simplified Schema)
@@ -686,18 +686,12 @@ class AgentAgentActionGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentAgentActionGroup("example",
-            action_group_name="example",
-            agent_id="GGRRAED6JP",
-            agent_version="DRAFT",
-            skip_resource_in_use_check=True,
             action_group_executor={
                 "lambda_": "arn:aws:lambda:us-west-2:123456789012:function:example-function",
             },
             function_schema={
                 "member_functions": {
                     "functions": [{
-                        "name": "example-function",
-                        "description": "Example function",
                         "parameters": [
                             {
                                 "map_block_key": "param1",
@@ -712,9 +706,15 @@ class AgentAgentActionGroup(pulumi.CustomResource):
                                 "required": False,
                             },
                         ],
+                        "name": "example-function",
+                        "description": "Example function",
                     }],
                 },
-            })
+            },
+            action_group_name="example",
+            agent_id="GGRRAED6JP",
+            agent_version="DRAFT",
+            skip_resource_in_use_check=True)
         ```
 
         ### Return of Control
@@ -725,16 +725,16 @@ class AgentAgentActionGroup(pulumi.CustomResource):
         import pulumi_std as std
 
         example = aws.bedrock.AgentAgentActionGroup("example",
-            action_group_name="example",
-            agent_id="GGRRAED6JP",
-            agent_version="DRAFT",
-            skip_resource_in_use_check=True,
             action_group_executor={
                 "custom_control": "RETURN_CONTROL",
             },
             api_schema={
                 "payload": std.file(input="path/to/schema.yaml").result,
-            })
+            },
+            action_group_name="example",
+            agent_id="GGRRAED6JP",
+            agent_version="DRAFT",
+            skip_resource_in_use_check=True)
         ```
 
         ## Import

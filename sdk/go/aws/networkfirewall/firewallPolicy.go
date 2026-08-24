@@ -42,22 +42,22 @@ import (
 //				return err
 //			}
 //			_, err = networkfirewall.NewFirewallPolicy(ctx, "example", &networkfirewall.FirewallPolicyArgs{
-//				Name: pulumi.String("example"),
 //				FirewallPolicy: &networkfirewall.FirewallPolicyFirewallPolicyArgs{
-//					StatelessDefaultActions: pulumi.StringArray{
-//						pulumi.String("aws:pass"),
-//					},
-//					StatelessFragmentDefaultActions: pulumi.StringArray{
-//						pulumi.String("aws:drop"),
-//					},
 //					StatelessRuleGroupReferences: networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArray{
 //						&networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs{
 //							Priority:    pulumi.Int(1),
 //							ResourceArn: pulumi.Any(exampleAwsNetworkfirewallRuleGroup.Arn),
 //						},
 //					},
+//					StatelessDefaultActions: pulumi.StringArray{
+//						pulumi.String("aws:pass"),
+//					},
+//					StatelessFragmentDefaultActions: pulumi.StringArray{
+//						pulumi.String("aws:drop"),
+//					},
 //					TlsInspectionConfigurationArn: pulumi.Sprintf("arn:%v:network-firewall:%v:%v:tls-configuration/example", currentGetPartition.Partition, current.Region, currentGetCallerIdentity.AccountId),
 //				},
+//				Name: pulumi.String("example"),
 //				Tags: pulumi.StringMap{
 //					"Tag1": pulumi.String("Value1"),
 //					"Tag2": pulumi.String("Value2"),
@@ -87,19 +87,24 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkfirewall.NewFirewallPolicy(ctx, "example", &networkfirewall.FirewallPolicyArgs{
-//				Name: pulumi.String("example"),
 //				FirewallPolicy: &networkfirewall.FirewallPolicyFirewallPolicyArgs{
 //					PolicyVariables: &networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesArgs{
 //						RuleVariables: networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArray{
 //							&networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs{
-//								Key: pulumi.String("HOME_NET"),
 //								IpSet: &networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs{
 //									Definitions: pulumi.StringArray{
 //										pulumi.String("10.0.0.0/16"),
 //										pulumi.String("10.1.0.0/24"),
 //									},
 //								},
+//								Key: pulumi.String("HOME_NET"),
 //							},
+//						},
+//					},
+//					StatelessRuleGroupReferences: networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArray{
+//						&networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs{
+//							Priority:    pulumi.Int(1),
+//							ResourceArn: pulumi.Any(exampleAwsNetworkfirewallRuleGroup.Arn),
 //						},
 //					},
 //					StatelessDefaultActions: pulumi.StringArray{
@@ -108,13 +113,8 @@ import (
 //					StatelessFragmentDefaultActions: pulumi.StringArray{
 //						pulumi.String("aws:drop"),
 //					},
-//					StatelessRuleGroupReferences: networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArray{
-//						&networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs{
-//							Priority:    pulumi.Int(1),
-//							ResourceArn: pulumi.Any(exampleAwsNetworkfirewallRuleGroup.Arn),
-//						},
-//					},
 //				},
+//				Name: pulumi.String("example"),
 //				Tags: pulumi.StringMap{
 //					"Tag1": pulumi.String("Value1"),
 //					"Tag2": pulumi.String("Value2"),
@@ -144,15 +144,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkfirewall.NewFirewallPolicy(ctx, "example", &networkfirewall.FirewallPolicyArgs{
-//				Name: pulumi.String("example"),
 //				FirewallPolicy: &networkfirewall.FirewallPolicyFirewallPolicyArgs{
-//					StatelessDefaultActions: pulumi.StringArray{
-//						pulumi.String("aws:pass"),
-//						pulumi.String("ExampleCustomAction"),
-//					},
-//					StatelessFragmentDefaultActions: pulumi.StringArray{
-//						pulumi.String("aws:drop"),
-//					},
 //					StatelessCustomActions: networkfirewall.FirewallPolicyFirewallPolicyStatelessCustomActionArray{
 //						&networkfirewall.FirewallPolicyFirewallPolicyStatelessCustomActionArgs{
 //							ActionDefinition: &networkfirewall.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs{
@@ -167,7 +159,15 @@ import (
 //							ActionName: pulumi.String("ExampleCustomAction"),
 //						},
 //					},
+//					StatelessDefaultActions: pulumi.StringArray{
+//						pulumi.String("aws:pass"),
+//						pulumi.String("ExampleCustomAction"),
+//					},
+//					StatelessFragmentDefaultActions: pulumi.StringArray{
+//						pulumi.String("aws:drop"),
+//					},
 //				},
+//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -202,21 +202,21 @@ import (
 //				return err
 //			}
 //			_, err = networkfirewall.NewFirewallPolicy(ctx, "example", &networkfirewall.FirewallPolicyArgs{
-//				Name: pulumi.String("example"),
 //				FirewallPolicy: &networkfirewall.FirewallPolicyFirewallPolicyArgs{
-//					StatelessFragmentDefaultActions: pulumi.StringArray{
-//						pulumi.String("aws:drop"),
-//					},
-//					StatelessDefaultActions: pulumi.StringArray{
-//						pulumi.String("aws:pass"),
-//					},
 //					StatefulRuleGroupReferences: networkfirewall.FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArray{
 //						&networkfirewall.FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs{
 //							DeepThreatInspection: pulumi.String("true"),
 //							ResourceArn:          pulumi.Sprintf("arn:%v:network-firewall:%v:aws-managed:stateful-rulegroup/AttackInfrastructureActionOrder", currentGetPartition.Partition, current.Region),
 //						},
 //					},
+//					StatelessFragmentDefaultActions: pulumi.StringArray{
+//						pulumi.String("aws:drop"),
+//					},
+//					StatelessDefaultActions: pulumi.StringArray{
+//						pulumi.String("aws:pass"),
+//					},
 //				},
+//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -251,14 +251,7 @@ import (
 //				return err
 //			}
 //			_, err = networkfirewall.NewFirewallPolicy(ctx, "example", &networkfirewall.FirewallPolicyArgs{
-//				Name: pulumi.String("example"),
 //				FirewallPolicy: &networkfirewall.FirewallPolicyFirewallPolicyArgs{
-//					StatelessFragmentDefaultActions: pulumi.StringArray{
-//						pulumi.String("aws:drop"),
-//					},
-//					StatelessDefaultActions: pulumi.StringArray{
-//						pulumi.String("aws:pass"),
-//					},
 //					StatefulEngineOptions: &networkfirewall.FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs{
 //						RuleOrder: pulumi.String("STRICT_ORDER"),
 //					},
@@ -269,7 +262,14 @@ import (
 //							ResourceArn:          pulumi.Sprintf("arn:%v:network-firewall:%v:aws-managed:stateful-rulegroup/AttackInfrastructureStrictOrder", currentGetPartition.Partition, current.Region),
 //						},
 //					},
+//					StatelessFragmentDefaultActions: pulumi.StringArray{
+//						pulumi.String("aws:drop"),
+//					},
+//					StatelessDefaultActions: pulumi.StringArray{
+//						pulumi.String("aws:pass"),
+//					},
 //				},
+//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

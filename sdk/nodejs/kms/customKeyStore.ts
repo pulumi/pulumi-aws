@@ -36,12 +36,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.kms.CustomKeyStore("example", {
- *     customKeyStoreName: "example-vpc-xks",
- *     customKeyStoreType: "EXTERNAL_KEY_STORE",
  *     xksProxyAuthenticationCredential: {
  *         accessKeyId: ephemeralAccessKeyId,
  *         rawSecretAccessKey: ephemeralSecretAccessKey,
  *     },
+ *     customKeyStoreName: "example-vpc-xks",
+ *     customKeyStoreType: "EXTERNAL_KEY_STORE",
  *     xksProxyConnectivity: "VPC_ENDPOINT_SERVICE",
  *     xksProxyUriEndpoint: "https://myproxy-private.xks.example.com",
  *     xksProxyUriPath: "/kms/xks/v1",
@@ -56,12 +56,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.kms.CustomKeyStore("example", {
- *     customKeyStoreName: "example-public-xks",
- *     customKeyStoreType: "EXTERNAL_KEY_STORE",
  *     xksProxyAuthenticationCredential: {
  *         accessKeyId: ephemeralAccessKeyId,
  *         rawSecretAccessKey: ephemeralSecretAccessKey,
  *     },
+ *     customKeyStoreName: "example-public-xks",
+ *     customKeyStoreType: "EXTERNAL_KEY_STORE",
  *     xksProxyConnectivity: "PUBLIC_ENDPOINT",
  *     xksProxyUriEndpoint: "https://myproxy.xks.example.com",
  *     xksProxyUriPath: "/kms/xks/v1",

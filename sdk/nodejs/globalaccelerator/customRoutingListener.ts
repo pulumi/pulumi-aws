@@ -17,21 +17,21 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.globalaccelerator.CustomRoutingAccelerator("example", {
- *     name: "Example",
- *     ipAddressType: "IPV4",
- *     enabled: true,
  *     attributes: {
  *         flowLogsEnabled: true,
  *         flowLogsS3Bucket: "example-bucket",
  *         flowLogsS3Prefix: "flow-logs/",
  *     },
+ *     name: "Example",
+ *     ipAddressType: "IPV4",
+ *     enabled: true,
  * });
  * const exampleCustomRoutingListener = new aws.globalaccelerator.CustomRoutingListener("example", {
- *     acceleratorArn: example.arn,
  *     portRanges: [{
  *         fromPort: 80,
  *         toPort: 80,
  *     }],
+ *     acceleratorArn: example.arn,
  * });
  * ```
  *

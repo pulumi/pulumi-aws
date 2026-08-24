@@ -30,17 +30,17 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewQuickConnect(ctx, "test", &connect.QuickConnectArgs{
-//				InstanceId:  pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-//				Name:        pulumi.String("Example Name"),
-//				Description: pulumi.String("quick connect phone number"),
 //				QuickConnectConfig: &connect.QuickConnectQuickConnectConfigArgs{
-//					QuickConnectType: pulumi.String("PHONE_NUMBER"),
 //					PhoneConfigs: connect.QuickConnectQuickConnectConfigPhoneConfigArray{
 //						&connect.QuickConnectQuickConnectConfigPhoneConfigArgs{
 //							PhoneNumber: pulumi.String("+12345678912"),
 //						},
 //					},
+//					QuickConnectType: pulumi.String("PHONE_NUMBER"),
 //				},
+//				InstanceId:  pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
+//				Name:        pulumi.String("Example Name"),
+//				Description: pulumi.String("quick connect phone number"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("Example Quick Connect"),
 //				},

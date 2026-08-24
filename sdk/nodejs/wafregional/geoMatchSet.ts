@@ -17,7 +17,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const geoMatchSet = new aws.wafregional.GeoMatchSet("geo_match_set", {
- *     name: "geo_match_set",
  *     geoMatchConstraints: [
  *         {
  *             type: "Country",
@@ -28,6 +27,7 @@ import * as utilities from "../utilities";
  *             value: "CA",
  *         },
  *     ],
+ *     name: "geo_match_set",
  * });
  * ```
  *

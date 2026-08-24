@@ -126,9 +126,6 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var ec2 = new Aws.Ec2.VpcEndpoint("ec2", new()
     ///     {
-    ///         VpcId = example.Id,
-    ///         ServiceName = "com.amazonaws.us-west-2.ec2",
-    ///         VpcEndpointType = "Interface",
     ///         SubnetConfigurations = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.VpcEndpointSubnetConfigurationArgs
@@ -142,6 +139,9 @@ namespace Pulumi.Aws.Ec2
     ///                 SubnetId = example2.Id,
     ///             },
     ///         },
+    ///         VpcId = example.Id,
+    ///         ServiceName = "com.amazonaws.us-west-2.ec2",
+    ///         VpcEndpointType = "Interface",
     ///         SubnetIds = new[]
     ///         {
     ///             example1.Id,

@@ -85,15 +85,15 @@ import (
 //				return err
 //			}
 //			testGateway, err := storagegateway.NewGateway(ctx, "test", &storagegateway.GatewayArgs{
-//				GatewayIpAddress: test.PublicIp,
-//				GatewayName:      pulumi.String("test-sgw"),
-//				GatewayTimezone:  pulumi.String("GMT"),
-//				GatewayType:      pulumi.String("FILE_FSX_SMB"),
 //				SmbActiveDirectorySettings: &storagegateway.GatewaySmbActiveDirectorySettingsArgs{
 //					DomainName: pulumi.Any(testAwsDirectoryServiceDirectory.Name),
 //					Password:   pulumi.Any(testAwsDirectoryServiceDirectory.Password),
 //					Username:   pulumi.String("Admin"),
 //				},
+//				GatewayIpAddress: test.PublicIp,
+//				GatewayName:      pulumi.String("test-sgw"),
+//				GatewayTimezone:  pulumi.String("GMT"),
+//				GatewayType:      pulumi.String("FILE_FSX_SMB"),
 //			})
 //			if err != nil {
 //				return err
@@ -114,13 +114,13 @@ import (
 //				return err
 //			}
 //			_, err = storagegateway.NewFileSystemAssociation(ctx, "fsx", &storagegateway.FileSystemAssociationArgs{
-//				GatewayArn:  testGateway.Arn,
-//				LocationArn: testWindowsFileSystem.Arn,
-//				Username:    pulumi.String("Admin"),
-//				Password:    pulumi.Any(testAwsDirectoryServiceDirectory.Password),
 //				CacheAttributes: &storagegateway.FileSystemAssociationCacheAttributesArgs{
 //					CacheStaleTimeoutInSeconds: pulumi.Int(400),
 //				},
+//				GatewayArn:          testGateway.Arn,
+//				LocationArn:         testWindowsFileSystem.Arn,
+//				Username:            pulumi.String("Admin"),
+//				Password:            pulumi.Any(testAwsDirectoryServiceDirectory.Password),
 //				AuditDestinationArn: pulumi.Any(testAwsCloudwatchLogGroup.Arn),
 //			})
 //			if err != nil {

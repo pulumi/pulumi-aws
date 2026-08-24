@@ -20,11 +20,11 @@ import * as utilities from "../utilities";
  *
  * const example = aws.iam.getPolicyDocument({
  *     statements: [{
- *         actions: ["sts:AssumeRole"],
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["sagemaker.amazonaws.com"],
  *         }],
+ *         actions: ["sts:AssumeRole"],
  *     }],
  * });
  * const exampleRole = new aws.iam.Role("example", {
@@ -33,13 +33,13 @@ import * as utilities from "../utilities";
  *     assumeRolePolicy: example.then(example => example.json),
  * });
  * const exampleDomain = new aws.sagemaker.Domain("example", {
+ *     defaultUserSettings: {
+ *         executionRole: exampleRole.arn,
+ *     },
  *     domainName: "example",
  *     authMode: "IAM",
  *     vpcId: exampleAwsVpc.id,
  *     subnetIds: [exampleAwsSubnet.id],
- *     defaultUserSettings: {
- *         executionRole: exampleRole.arn,
- *     },
  * });
  * ```
  *
@@ -54,31 +54,31 @@ import * as utilities from "../utilities";
  *     roleArn: exampleAwsIamRole.arn,
  * });
  * const exampleAppImageConfig = new aws.sagemaker.AppImageConfig("example", {
- *     appImageConfigName: "example",
  *     kernelGatewayImageConfig: {
  *         kernelSpecs: [{
  *             name: "example",
  *         }],
  *     },
+ *     appImageConfigName: "example",
  * });
  * const exampleImageVersion = new aws.sagemaker.ImageVersion("example", {
  *     imageName: example.id,
  *     baseImage: "base-image",
  * });
  * const exampleDomain = new aws.sagemaker.Domain("example", {
- *     domainName: "example",
- *     authMode: "IAM",
- *     vpcId: exampleAwsVpc.id,
- *     subnetIds: [exampleAwsSubnet.id],
  *     defaultUserSettings: {
- *         executionRole: exampleAwsIamRole.arn,
  *         kernelGatewayAppSettings: {
  *             customImages: [{
  *                 appImageConfigName: exampleAppImageConfig.appImageConfigName,
  *                 imageName: exampleImageVersion.imageName,
  *             }],
  *         },
+ *         executionRole: exampleAwsIamRole.arn,
  *     },
+ *     domainName: "example",
+ *     authMode: "IAM",
+ *     vpcId: exampleAwsVpc.id,
+ *     subnetIds: [exampleAwsSubnet.id],
  * });
  * ```
  *

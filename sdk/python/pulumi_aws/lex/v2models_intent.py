@@ -745,12 +745,12 @@ class V2modelsIntent(pulumi.CustomResource):
             role=test.name,
             policy_arn=f"arn:{current.partition}:iam::aws:policy/AmazonLexFullAccess")
         test_v2models_bot = aws.lex.V2modelsBot("test",
-            name="botens_namn",
-            idle_session_ttl_in_seconds=60,
-            role_arn=test.arn,
             data_privacies=[{
                 "child_directed": True,
-            }])
+            }],
+            name="botens_namn",
+            idle_session_ttl_in_seconds=60,
+            role_arn=test.arn)
         test_v2models_bot_locale = aws.lex.V2modelsBotLocale("test",
             locale_id="en_US",
             bot_id=test_v2models_bot.id,
@@ -779,68 +779,68 @@ class V2modelsIntent(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lex.V2modelsIntent("example",
-            bot_id=test["id"],
-            bot_version=test_aws_lexv2models_bot_locale["botVersion"],
-            name="botens_namn",
-            locale_id=test_aws_lexv2models_bot_locale["localeId"],
             confirmation_setting={
-                "active": True,
                 "prompt_specification": {
+                    "prompt_attempts_specifications": [
+                        {
+                            "allowed_input_types": {
+                                "allow_audio_input": True,
+                                "allow_dtmf_input": True,
+                            },
+                            "audio_and_dtmf_input_specification": {
+                                "audio_specification": {
+                                    "end_timeout_ms": 640,
+                                    "max_length_ms": 15000,
+                                },
+                                "dtmf_specification": {
+                                    "deletion_character": "*",
+                                    "end_character": "#",
+                                    "end_timeout_ms": 5000,
+                                    "max_length": 513,
+                                },
+                                "start_timeout_ms": 4000,
+                            },
+                            "text_input_specification": {
+                                "start_timeout_ms": 30000,
+                            },
+                            "allow_interrupt": True,
+                            "map_block_key": "Initial",
+                        },
+                        {
+                            "allowed_input_types": {
+                                "allow_audio_input": True,
+                                "allow_dtmf_input": True,
+                            },
+                            "audio_and_dtmf_input_specification": {
+                                "audio_specification": {
+                                    "end_timeout_ms": 640,
+                                    "max_length_ms": 15000,
+                                },
+                                "dtmf_specification": {
+                                    "deletion_character": "*",
+                                    "end_character": "#",
+                                    "end_timeout_ms": 5000,
+                                    "max_length": 513,
+                                },
+                                "start_timeout_ms": 4000,
+                            },
+                            "text_input_specification": {
+                                "start_timeout_ms": 30000,
+                            },
+                            "allow_interrupt": True,
+                            "map_block_key": "Retry1",
+                        },
+                    ],
                     "allow_interrupt": True,
                     "max_retries": 1,
                     "message_selection_strategy": "Ordered",
-                    "prompt_attempts_specifications": [
-                        {
-                            "allow_interrupt": True,
-                            "map_block_key": "Initial",
-                            "allowed_input_types": {
-                                "allow_audio_input": True,
-                                "allow_dtmf_input": True,
-                            },
-                            "audio_and_dtmf_input_specification": {
-                                "start_timeout_ms": 4000,
-                                "audio_specification": {
-                                    "end_timeout_ms": 640,
-                                    "max_length_ms": 15000,
-                                },
-                                "dtmf_specification": {
-                                    "deletion_character": "*",
-                                    "end_character": "#",
-                                    "end_timeout_ms": 5000,
-                                    "max_length": 513,
-                                },
-                            },
-                            "text_input_specification": {
-                                "start_timeout_ms": 30000,
-                            },
-                        },
-                        {
-                            "allow_interrupt": True,
-                            "map_block_key": "Retry1",
-                            "allowed_input_types": {
-                                "allow_audio_input": True,
-                                "allow_dtmf_input": True,
-                            },
-                            "audio_and_dtmf_input_specification": {
-                                "start_timeout_ms": 4000,
-                                "audio_specification": {
-                                    "end_timeout_ms": 640,
-                                    "max_length_ms": 15000,
-                                },
-                                "dtmf_specification": {
-                                    "deletion_character": "*",
-                                    "end_character": "#",
-                                    "end_timeout_ms": 5000,
-                                    "max_length": 513,
-                                },
-                            },
-                            "text_input_specification": {
-                                "start_timeout_ms": 30000,
-                            },
-                        },
-                    ],
                 },
-            })
+                "active": True,
+            },
+            bot_id=test["id"],
+            bot_version=test_aws_lexv2models_bot_locale["botVersion"],
+            name="botens_namn",
+            locale_id=test_aws_lexv2models_bot_locale["localeId"])
         ```
 
         ### QnA Intent Example
@@ -850,11 +850,6 @@ class V2modelsIntent(pulumi.CustomResource):
         import pulumi_aws as aws
 
         qna_example = aws.lex.V2modelsIntent("qna_example",
-            bot_id=test["id"],
-            bot_version=test_aws_lexv2models_bot_locale["botVersion"],
-            name="qna_intent",
-            locale_id=test_aws_lexv2models_bot_locale["localeId"],
-            parent_intent_signature="AMAZON.QnAIntent",
             qna_intent_configuration={
                 "data_source_configuration": {
                     "kendra_configuration": {
@@ -866,7 +861,12 @@ class V2modelsIntent(pulumi.CustomResource):
             },
             sample_utterances=[{
                 "utterance": "What is the answer?",
-            }])
+            }],
+            bot_id=test["id"],
+            bot_version=test_aws_lexv2models_bot_locale["botVersion"],
+            name="qna_intent",
+            locale_id=test_aws_lexv2models_bot_locale["localeId"],
+            parent_intent_signature="AMAZON.QnAIntent")
         ```
 
         ## Import
@@ -937,12 +937,12 @@ class V2modelsIntent(pulumi.CustomResource):
             role=test.name,
             policy_arn=f"arn:{current.partition}:iam::aws:policy/AmazonLexFullAccess")
         test_v2models_bot = aws.lex.V2modelsBot("test",
-            name="botens_namn",
-            idle_session_ttl_in_seconds=60,
-            role_arn=test.arn,
             data_privacies=[{
                 "child_directed": True,
-            }])
+            }],
+            name="botens_namn",
+            idle_session_ttl_in_seconds=60,
+            role_arn=test.arn)
         test_v2models_bot_locale = aws.lex.V2modelsBotLocale("test",
             locale_id="en_US",
             bot_id=test_v2models_bot.id,
@@ -971,68 +971,68 @@ class V2modelsIntent(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lex.V2modelsIntent("example",
-            bot_id=test["id"],
-            bot_version=test_aws_lexv2models_bot_locale["botVersion"],
-            name="botens_namn",
-            locale_id=test_aws_lexv2models_bot_locale["localeId"],
             confirmation_setting={
-                "active": True,
                 "prompt_specification": {
+                    "prompt_attempts_specifications": [
+                        {
+                            "allowed_input_types": {
+                                "allow_audio_input": True,
+                                "allow_dtmf_input": True,
+                            },
+                            "audio_and_dtmf_input_specification": {
+                                "audio_specification": {
+                                    "end_timeout_ms": 640,
+                                    "max_length_ms": 15000,
+                                },
+                                "dtmf_specification": {
+                                    "deletion_character": "*",
+                                    "end_character": "#",
+                                    "end_timeout_ms": 5000,
+                                    "max_length": 513,
+                                },
+                                "start_timeout_ms": 4000,
+                            },
+                            "text_input_specification": {
+                                "start_timeout_ms": 30000,
+                            },
+                            "allow_interrupt": True,
+                            "map_block_key": "Initial",
+                        },
+                        {
+                            "allowed_input_types": {
+                                "allow_audio_input": True,
+                                "allow_dtmf_input": True,
+                            },
+                            "audio_and_dtmf_input_specification": {
+                                "audio_specification": {
+                                    "end_timeout_ms": 640,
+                                    "max_length_ms": 15000,
+                                },
+                                "dtmf_specification": {
+                                    "deletion_character": "*",
+                                    "end_character": "#",
+                                    "end_timeout_ms": 5000,
+                                    "max_length": 513,
+                                },
+                                "start_timeout_ms": 4000,
+                            },
+                            "text_input_specification": {
+                                "start_timeout_ms": 30000,
+                            },
+                            "allow_interrupt": True,
+                            "map_block_key": "Retry1",
+                        },
+                    ],
                     "allow_interrupt": True,
                     "max_retries": 1,
                     "message_selection_strategy": "Ordered",
-                    "prompt_attempts_specifications": [
-                        {
-                            "allow_interrupt": True,
-                            "map_block_key": "Initial",
-                            "allowed_input_types": {
-                                "allow_audio_input": True,
-                                "allow_dtmf_input": True,
-                            },
-                            "audio_and_dtmf_input_specification": {
-                                "start_timeout_ms": 4000,
-                                "audio_specification": {
-                                    "end_timeout_ms": 640,
-                                    "max_length_ms": 15000,
-                                },
-                                "dtmf_specification": {
-                                    "deletion_character": "*",
-                                    "end_character": "#",
-                                    "end_timeout_ms": 5000,
-                                    "max_length": 513,
-                                },
-                            },
-                            "text_input_specification": {
-                                "start_timeout_ms": 30000,
-                            },
-                        },
-                        {
-                            "allow_interrupt": True,
-                            "map_block_key": "Retry1",
-                            "allowed_input_types": {
-                                "allow_audio_input": True,
-                                "allow_dtmf_input": True,
-                            },
-                            "audio_and_dtmf_input_specification": {
-                                "start_timeout_ms": 4000,
-                                "audio_specification": {
-                                    "end_timeout_ms": 640,
-                                    "max_length_ms": 15000,
-                                },
-                                "dtmf_specification": {
-                                    "deletion_character": "*",
-                                    "end_character": "#",
-                                    "end_timeout_ms": 5000,
-                                    "max_length": 513,
-                                },
-                            },
-                            "text_input_specification": {
-                                "start_timeout_ms": 30000,
-                            },
-                        },
-                    ],
                 },
-            })
+                "active": True,
+            },
+            bot_id=test["id"],
+            bot_version=test_aws_lexv2models_bot_locale["botVersion"],
+            name="botens_namn",
+            locale_id=test_aws_lexv2models_bot_locale["localeId"])
         ```
 
         ### QnA Intent Example
@@ -1042,11 +1042,6 @@ class V2modelsIntent(pulumi.CustomResource):
         import pulumi_aws as aws
 
         qna_example = aws.lex.V2modelsIntent("qna_example",
-            bot_id=test["id"],
-            bot_version=test_aws_lexv2models_bot_locale["botVersion"],
-            name="qna_intent",
-            locale_id=test_aws_lexv2models_bot_locale["localeId"],
-            parent_intent_signature="AMAZON.QnAIntent",
             qna_intent_configuration={
                 "data_source_configuration": {
                     "kendra_configuration": {
@@ -1058,7 +1053,12 @@ class V2modelsIntent(pulumi.CustomResource):
             },
             sample_utterances=[{
                 "utterance": "What is the answer?",
-            }])
+            }],
+            bot_id=test["id"],
+            bot_version=test_aws_lexv2models_bot_locale["botVersion"],
+            name="qna_intent",
+            locale_id=test_aws_lexv2models_bot_locale["localeId"],
+            parent_intent_signature="AMAZON.QnAIntent")
         ```
 
         ## Import

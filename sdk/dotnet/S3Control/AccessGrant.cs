@@ -40,8 +40,6 @@ namespace Pulumi.Aws.S3Control
     /// 
     ///     var exampleAccessGrant = new Aws.S3Control.AccessGrant("example", new()
     ///     {
-    ///         AccessGrantsLocationId = exampleAccessGrantsLocation.AccessGrantsLocationId,
-    ///         Permission = "READ",
     ///         AccessGrantsLocationConfiguration = new Aws.S3Control.Inputs.AccessGrantAccessGrantsLocationConfigurationArgs
     ///         {
     ///             S3SubPrefix = "prefixB*",
@@ -51,6 +49,8 @@ namespace Pulumi.Aws.S3Control
     ///             GranteeType = "IAM",
     ///             GranteeIdentifier = exampleAwsIamUser.Arn,
     ///         },
+    ///         AccessGrantsLocationId = exampleAccessGrantsLocation.AccessGrantsLocationId,
+    ///         Permission = "READ",
     ///     });
     /// 
     /// });

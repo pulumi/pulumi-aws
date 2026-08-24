@@ -24,12 +24,12 @@ import * as utilities from "../utilities";
  *
  * const aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy = aws.iam.getPolicyDocument({
  *     statements: [{
- *         actions: ["sts:AssumeRole"],
- *         effect: "Allow",
  *         principals: [{
  *             identifiers: ["cloudformation.amazonaws.com"],
  *             type: "Service",
  *         }],
+ *         actions: ["sts:AssumeRole"],
+ *         effect: "Allow",
  *     }],
  * });
  * const aWSCloudFormationStackSetAdministrationRole = new aws.iam.Role("AWSCloudFormationStackSetAdministrationRole", {

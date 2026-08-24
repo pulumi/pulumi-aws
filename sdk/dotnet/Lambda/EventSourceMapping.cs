@@ -52,12 +52,6 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     var example = new Aws.Lambda.EventSourceMapping("example", new()
     ///     {
-    ///         EventSourceArn = exampleAwsKinesisStream.Arn,
-    ///         FunctionName = exampleAwsLambdaFunction.Arn,
-    ///         StartingPosition = "LATEST",
-    ///         BatchSize = 100,
-    ///         MaximumBatchingWindowInSeconds = 5,
-    ///         ParallelizationFactor = 2,
     ///         DestinationConfig = new Aws.Lambda.Inputs.EventSourceMappingDestinationConfigArgs
     ///         {
     ///             OnFailure = new Aws.Lambda.Inputs.EventSourceMappingDestinationConfigOnFailureArgs
@@ -65,6 +59,12 @@ namespace Pulumi.Aws.Lambda
     ///                 DestinationArn = dlq.Arn,
     ///             },
     ///         },
+    ///         EventSourceArn = exampleAwsKinesisStream.Arn,
+    ///         FunctionName = exampleAwsLambdaFunction.Arn,
+    ///         StartingPosition = "LATEST",
+    ///         BatchSize = 100,
+    ///         MaximumBatchingWindowInSeconds = 5,
+    ///         ParallelizationFactor = 2,
     ///     });
     /// 
     /// });
@@ -82,13 +82,13 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     var example = new Aws.Lambda.EventSourceMapping("example", new()
     ///     {
-    ///         EventSourceArn = exampleAwsSqsQueue.Arn,
-    ///         FunctionName = exampleAwsLambdaFunction.Arn,
-    ///         BatchSize = 10,
     ///         ScalingConfig = new Aws.Lambda.Inputs.EventSourceMappingScalingConfigArgs
     ///         {
     ///             MaximumConcurrency = 100,
     ///         },
+    ///         EventSourceArn = exampleAwsSqsQueue.Arn,
+    ///         FunctionName = exampleAwsLambdaFunction.Arn,
+    ///         BatchSize = 10,
     ///     });
     /// 
     /// });
@@ -107,8 +107,6 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     var example = new Aws.Lambda.EventSourceMapping("example", new()
     ///     {
-    ///         EventSourceArn = exampleAwsSqsQueue.Arn,
-    ///         FunctionName = exampleAwsLambdaFunction.Arn,
     ///         FilterCriteria = new Aws.Lambda.Inputs.EventSourceMappingFilterCriteriaArgs
     ///         {
     ///             Filters = new[]
@@ -141,6 +139,8 @@ namespace Pulumi.Aws.Lambda
     ///                 },
     ///             },
     ///         },
+    ///         EventSourceArn = exampleAwsSqsQueue.Arn,
+    ///         FunctionName = exampleAwsLambdaFunction.Arn,
     ///     });
     /// 
     /// });
@@ -158,6 +158,10 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     var example = new Aws.Lambda.EventSourceMapping("example", new()
     ///     {
+    ///         AmazonManagedKafkaEventSourceConfig = new Aws.Lambda.Inputs.EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs
+    ///         {
+    ///             ConsumerGroupId = "lambda-consumer-group",
+    ///         },
     ///         EventSourceArn = exampleAwsMskCluster.Arn,
     ///         FunctionName = exampleAwsLambdaFunction.Arn,
     ///         Topics = new[]
@@ -167,10 +171,6 @@ namespace Pulumi.Aws.Lambda
     ///         },
     ///         StartingPosition = "TRIM_HORIZON",
     ///         BatchSize = 100,
-    ///         AmazonManagedKafkaEventSourceConfig = new Aws.Lambda.Inputs.EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs
-    ///         {
-    ///             ConsumerGroupId = "lambda-consumer-group",
-    ///         },
     ///     });
     /// 
     /// });
@@ -188,12 +188,6 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     var example = new Aws.Lambda.EventSourceMapping("example", new()
     ///     {
-    ///         FunctionName = exampleAwsLambdaFunction.Arn,
-    ///         Topics = new[]
-    ///         {
-    ///             "orders",
-    ///         },
-    ///         StartingPosition = "TRIM_HORIZON",
     ///         SelfManagedEventSource = new Aws.Lambda.Inputs.EventSourceMappingSelfManagedEventSourceArgs
     ///         {
     ///             Endpoints = 
@@ -204,6 +198,12 @@ namespace Pulumi.Aws.Lambda
     ///         SelfManagedKafkaEventSourceConfig = new Aws.Lambda.Inputs.EventSourceMappingSelfManagedKafkaEventSourceConfigArgs
     ///         {
     ///             ConsumerGroupId = "lambda-consumer-group",
+    ///         },
+    ///         ProvisionedPollerConfig = new Aws.Lambda.Inputs.EventSourceMappingProvisionedPollerConfigArgs
+    ///         {
+    ///             MaximumPollers = 100,
+    ///             MinimumPollers = 10,
+    ///             PollerGroupName = "group-123",
     ///         },
     ///         SourceAccessConfigurations = new[]
     ///         {
@@ -223,12 +223,12 @@ namespace Pulumi.Aws.Lambda
     ///                 Uri = $"security_group:{exampleAwsSecurityGroup.Id}",
     ///             },
     ///         },
-    ///         ProvisionedPollerConfig = new Aws.Lambda.Inputs.EventSourceMappingProvisionedPollerConfigArgs
+    ///         FunctionName = exampleAwsLambdaFunction.Arn,
+    ///         Topics = new[]
     ///         {
-    ///             MaximumPollers = 100,
-    ///             MinimumPollers = 10,
-    ///             PollerGroupName = "group-123",
+    ///             "orders",
     ///         },
+    ///         StartingPosition = "TRIM_HORIZON",
     ///     });
     /// 
     /// });
@@ -246,10 +246,6 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     var example = new Aws.Lambda.EventSourceMapping("example", new()
     ///     {
-    ///         EventSourceArn = exampleAwsMqBroker.Arn,
-    ///         FunctionName = exampleAwsLambdaFunction.Arn,
-    ///         Queues = "orders",
-    ///         BatchSize = 10,
     ///         SourceAccessConfigurations = new[]
     ///         {
     ///             new Aws.Lambda.Inputs.EventSourceMappingSourceAccessConfigurationArgs
@@ -258,6 +254,10 @@ namespace Pulumi.Aws.Lambda
     ///                 Uri = exampleAwsSecretsmanagerSecretVersion.Arn,
     ///             },
     ///         },
+    ///         EventSourceArn = exampleAwsMqBroker.Arn,
+    ///         FunctionName = exampleAwsLambdaFunction.Arn,
+    ///         Queues = "orders",
+    ///         BatchSize = 10,
     ///     });
     /// 
     /// });
@@ -275,10 +275,6 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     var example = new Aws.Lambda.EventSourceMapping("example", new()
     ///     {
-    ///         EventSourceArn = exampleAwsMqBroker.Arn,
-    ///         FunctionName = exampleAwsLambdaFunction.Arn,
-    ///         Queues = "orders",
-    ///         BatchSize = 1,
     ///         SourceAccessConfigurations = new[]
     ///         {
     ///             new Aws.Lambda.Inputs.EventSourceMappingSourceAccessConfigurationArgs
@@ -292,6 +288,10 @@ namespace Pulumi.Aws.Lambda
     ///                 Uri = exampleAwsSecretsmanagerSecretVersion.Arn,
     ///             },
     ///         },
+    ///         EventSourceArn = exampleAwsMqBroker.Arn,
+    ///         FunctionName = exampleAwsLambdaFunction.Arn,
+    ///         Queues = "orders",
+    ///         BatchSize = 1,
     ///     });
     /// 
     /// });
@@ -309,9 +309,6 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     var example = new Aws.Lambda.EventSourceMapping("example", new()
     ///     {
-    ///         EventSourceArn = exampleAwsDocdbCluster.Arn,
-    ///         FunctionName = exampleAwsLambdaFunction.Arn,
-    ///         StartingPosition = "LATEST",
     ///         DocumentDbEventSourceConfig = new Aws.Lambda.Inputs.EventSourceMappingDocumentDbEventSourceConfigArgs
     ///         {
     ///             DatabaseName = "orders",
@@ -326,6 +323,9 @@ namespace Pulumi.Aws.Lambda
     ///                 Uri = exampleAwsSecretsmanagerSecretVersion.Arn,
     ///             },
     ///         },
+    ///         EventSourceArn = exampleAwsDocdbCluster.Arn,
+    ///         FunctionName = exampleAwsLambdaFunction.Arn,
+    ///         StartingPosition = "LATEST",
     ///     });
     /// 
     /// });

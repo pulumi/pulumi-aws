@@ -37,15 +37,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.fsx.OntapVolume("test", {
+ *     tieringPolicy: {
+ *         name: "AUTO",
+ *         coolingPeriod: 31,
+ *     },
  *     name: "test",
  *     junctionPath: "/test",
  *     sizeInMegabytes: 1024,
  *     storageEfficiencyEnabled: true,
  *     storageVirtualMachineId: testAwsFsxOntapStorageVirtualMachine.id,
- *     tieringPolicy: {
- *         name: "AUTO",
- *         coolingPeriod: 31,
- *     },
  * });
  * ```
  *

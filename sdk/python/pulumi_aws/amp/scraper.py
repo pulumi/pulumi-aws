@@ -591,13 +591,13 @@ class Scraper(pulumi.CustomResource):
                     "workspace_arn": example_aws_prometheus_workspace["arn"],
                 },
             },
-            scrape_configuration=example.configuration,
             source={
                 "eks": {
                     "cluster_arn": example_aws_eks_cluster["arn"],
                     "subnet_ids": example_aws_eks_cluster["vpcConfig"][0]["subnetIds"],
                 },
-            })
+            },
+            scrape_configuration=example.configuration)
         ```
 
         ### Ignoring changes to Prometheus Workspace destination
@@ -622,12 +622,12 @@ class Scraper(pulumi.CustomResource):
                     "subnet_ids": example_aws_eks_cluster["vpcConfig"][0]["subnetIds"],
                 },
             },
-            scrape_configuration="...",
             destination={
                 "amp": {
                     "workspace_arn": example.arn,
                 },
-            })
+            },
+            scrape_configuration="...")
         ```
 
         ### Configure aws-auth
@@ -913,13 +913,13 @@ class Scraper(pulumi.CustomResource):
                     "workspace_arn": example_aws_prometheus_workspace["arn"],
                 },
             },
-            scrape_configuration=example.configuration,
             source={
                 "eks": {
                     "cluster_arn": example_aws_eks_cluster["arn"],
                     "subnet_ids": example_aws_eks_cluster["vpcConfig"][0]["subnetIds"],
                 },
-            })
+            },
+            scrape_configuration=example.configuration)
         ```
 
         ### Ignoring changes to Prometheus Workspace destination
@@ -944,12 +944,12 @@ class Scraper(pulumi.CustomResource):
                     "subnet_ids": example_aws_eks_cluster["vpcConfig"][0]["subnetIds"],
                 },
             },
-            scrape_configuration="...",
             destination={
                 "amp": {
                     "workspace_arn": example.arn,
                 },
-            })
+            },
+            scrape_configuration="...")
         ```
 
         ### Configure aws-auth

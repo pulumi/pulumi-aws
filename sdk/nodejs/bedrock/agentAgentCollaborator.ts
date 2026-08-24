@@ -23,11 +23,6 @@ import * as utilities from "../utilities";
  * const currentGetRegion = aws.getRegion({});
  * const exampleAgentTrust = Promise.all([current, currentGetPartition, currentGetRegion]).then(([current, currentGetPartition, currentGetRegion]) => aws.iam.getPolicyDocument({
  *     statements: [{
- *         actions: ["sts:AssumeRole"],
- *         principals: [{
- *             identifiers: ["bedrock.amazonaws.com"],
- *             type: "Service",
- *         }],
  *         conditions: [
  *             {
  *                 test: "StringEquals",
@@ -40,6 +35,11 @@ import * as utilities from "../utilities";
  *                 variable: "AWS:SourceArn",
  *             },
  *         ],
+ *         principals: [{
+ *             identifiers: ["bedrock.amazonaws.com"],
+ *             type: "Service",
+ *         }],
+ *         actions: ["sts:AssumeRole"],
  *     }],
  * }));
  * const exampleAgentPermissions = Promise.all([currentGetPartition, currentGetRegion, current]).then(([currentGetPartition, currentGetRegion, current]) => aws.iam.getPolicyDocument({
@@ -90,13 +90,13 @@ import * as utilities from "../utilities";
  *     description: "Test Alias",
  * });
  * const exampleAgentAgentCollaborator = new aws.bedrock.AgentAgentCollaborator("example", {
+ *     agentDescriptor: {
+ *         aliasArn: exampleAgentAgentAlias.agentAliasArn,
+ *     },
  *     agentId: exampleSupervisor.agentId,
  *     collaborationInstruction: "tell the other agent what to do",
  *     collaboratorName: "my-collab-example",
  *     relayConversationHistory: "TO_COLLABORATOR",
- *     agentDescriptor: {
- *         aliasArn: exampleAgentAgentAlias.agentAliasArn,
- *     },
  * });
  * ```
  *

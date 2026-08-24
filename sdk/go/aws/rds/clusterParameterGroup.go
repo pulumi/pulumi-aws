@@ -32,9 +32,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := rds.NewClusterParameterGroup(ctx, "default", &rds.ClusterParameterGroupArgs{
-//				Name:        pulumi.String("rds-cluster-pg"),
-//				Family:      pulumi.String("aurora5.6"),
-//				Description: pulumi.String("RDS default cluster parameter group"),
 //				Parameters: rds.ClusterParameterGroupParameterArray{
 //					&rds.ClusterParameterGroupParameterArgs{
 //						Name:  pulumi.String("character_set_server"),
@@ -45,6 +42,9 @@ import (
 //						Value: pulumi.String("utf8"),
 //					},
 //				},
+//				Name:        pulumi.String("rds-cluster-pg"),
+//				Family:      pulumi.String("aurora5.6"),
+//				Description: pulumi.String("RDS default cluster parameter group"),
 //			})
 //			if err != nil {
 //				return err

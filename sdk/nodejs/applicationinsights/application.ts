@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const exampleGroup = new aws.resourcegroups.Group("example", {
- *     name: "example",
  *     resourceQuery: {
  *         query: JSON.stringify({
  *             ResourceTypeFilters: ["AWS::EC2::Instance"],
@@ -24,6 +23,7 @@ import * as utilities from "../utilities";
  *             }],
  *         }),
  *     },
+ *     name: "example",
  * });
  * const example = new aws.applicationinsights.Application("example", {resourceGroupName: exampleGroup.name});
  * ```

@@ -19,24 +19,22 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const ipset = new aws.wafregional.IpSet("ipset", {
- *     name: "tfIPSet",
  *     ipSetDescriptors: [{
  *         type: "IPV4",
  *         value: "192.0.7.0/24",
  *     }],
+ *     name: "tfIPSet",
  * });
  * const wafrule = new aws.wafregional.Rule("wafrule", {
- *     name: "tfWAFRule",
- *     metricName: "tfWAFRule",
  *     predicates: [{
  *         dataId: ipset.id,
  *         negated: false,
  *         type: "IPMatch",
  *     }],
+ *     name: "tfWAFRule",
+ *     metricName: "tfWAFRule",
  * });
  * const wafacl = new aws.wafregional.WebAcl("wafacl", {
- *     name: "tfWebACL",
- *     metricName: "tfWebACL",
  *     defaultAction: {
  *         type: "ALLOW",
  *     },
@@ -48,6 +46,8 @@ import * as utilities from "../utilities";
  *         ruleId: wafrule.id,
  *         type: "REGULAR",
  *     }],
+ *     name: "tfWebACL",
+ *     metricName: "tfWebACL",
  * });
  * ```
  *
@@ -58,19 +58,19 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.wafregional.WebAcl("example", {
- *     name: "example",
- *     metricName: "example",
  *     defaultAction: {
  *         type: "ALLOW",
  *     },
  *     rules: [{
- *         priority: 1,
- *         ruleId: exampleAwsWafregionalRuleGroup.id,
- *         type: "GROUP",
  *         overrideAction: {
  *             type: "NONE",
  *         },
+ *         priority: 1,
+ *         ruleId: exampleAwsWafregionalRuleGroup.id,
+ *         type: "GROUP",
  *     }],
+ *     name: "example",
+ *     metricName: "example",
  * });
  * ```
  *
@@ -83,7 +83,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.wafregional.WebAcl("example", {loggingConfiguration: {
- *     logDestination: exampleAwsKinesisFirehoseDeliveryStream.arn,
  *     redactedFields: {
  *         fieldToMatches: [
  *             {
@@ -95,6 +94,7 @@ import * as utilities from "../utilities";
  *             },
  *         ],
  *     },
+ *     logDestination: exampleAwsKinesisFirehoseDeliveryStream.arn,
  * }});
  * ```
  *

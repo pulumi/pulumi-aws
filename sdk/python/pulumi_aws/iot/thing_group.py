@@ -275,8 +275,6 @@ class ThingGroup(pulumi.CustomResource):
 
         parent = aws.iot.ThingGroup("parent", name="parent")
         example = aws.iot.ThingGroup("example",
-            name="example",
-            parent_group_name=parent.name,
             properties={
                 "attribute_payload": {
                     "attributes": {
@@ -286,6 +284,8 @@ class ThingGroup(pulumi.CustomResource):
                 },
                 "description": "This is my thing group",
             },
+            name="example",
+            parent_group_name=parent.name,
             tags={
                 "managed": "true",
             })
@@ -325,8 +325,6 @@ class ThingGroup(pulumi.CustomResource):
 
         parent = aws.iot.ThingGroup("parent", name="parent")
         example = aws.iot.ThingGroup("example",
-            name="example",
-            parent_group_name=parent.name,
             properties={
                 "attribute_payload": {
                     "attributes": {
@@ -336,6 +334,8 @@ class ThingGroup(pulumi.CustomResource):
                 },
                 "description": "This is my thing group",
             },
+            name="example",
+            parent_group_name=parent.name,
             tags={
                 "managed": "true",
             })

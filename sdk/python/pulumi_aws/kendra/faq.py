@@ -429,13 +429,13 @@ class Faq(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Faq("example",
-            index_id=example_aws_kendra_index["id"],
-            name="Example",
-            role_arn=example_aws_iam_role["arn"],
             s3_path={
                 "bucket": example_aws_s3_bucket["id"],
                 "key": example_aws_s3_object["key"],
             },
+            index_id=example_aws_kendra_index["id"],
+            name="Example",
+            role_arn=example_aws_iam_role["arn"],
             tags={
                 "Name": "Example Kendra Faq",
             })
@@ -448,14 +448,14 @@ class Faq(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Faq("example",
-            index_id=example_aws_kendra_index["id"],
-            name="Example",
-            file_format="CSV",
-            role_arn=example_aws_iam_role["arn"],
             s3_path={
                 "bucket": example_aws_s3_bucket["id"],
                 "key": example_aws_s3_object["key"],
-            })
+            },
+            index_id=example_aws_kendra_index["id"],
+            name="Example",
+            file_format="CSV",
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         ### With Language Code
@@ -465,14 +465,14 @@ class Faq(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Faq("example",
-            index_id=example_aws_kendra_index["id"],
-            name="Example",
-            language_code="en",
-            role_arn=example_aws_iam_role["arn"],
             s3_path={
                 "bucket": example_aws_s3_bucket["id"],
                 "key": example_aws_s3_object["key"],
-            })
+            },
+            index_id=example_aws_kendra_index["id"],
+            name="Example",
+            language_code="en",
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         ## Import
@@ -510,13 +510,13 @@ class Faq(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Faq("example",
-            index_id=example_aws_kendra_index["id"],
-            name="Example",
-            role_arn=example_aws_iam_role["arn"],
             s3_path={
                 "bucket": example_aws_s3_bucket["id"],
                 "key": example_aws_s3_object["key"],
             },
+            index_id=example_aws_kendra_index["id"],
+            name="Example",
+            role_arn=example_aws_iam_role["arn"],
             tags={
                 "Name": "Example Kendra Faq",
             })
@@ -529,14 +529,14 @@ class Faq(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Faq("example",
-            index_id=example_aws_kendra_index["id"],
-            name="Example",
-            file_format="CSV",
-            role_arn=example_aws_iam_role["arn"],
             s3_path={
                 "bucket": example_aws_s3_bucket["id"],
                 "key": example_aws_s3_object["key"],
-            })
+            },
+            index_id=example_aws_kendra_index["id"],
+            name="Example",
+            file_format="CSV",
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         ### With Language Code
@@ -546,14 +546,14 @@ class Faq(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Faq("example",
-            index_id=example_aws_kendra_index["id"],
-            name="Example",
-            language_code="en",
-            role_arn=example_aws_iam_role["arn"],
             s3_path={
                 "bucket": example_aws_s3_bucket["id"],
                 "key": example_aws_s3_object["key"],
-            })
+            },
+            index_id=example_aws_kendra_index["id"],
+            name="Example",
+            language_code="en",
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         ## Import

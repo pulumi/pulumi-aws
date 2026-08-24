@@ -190,22 +190,22 @@ class FileSystemPolicy(pulumi.CustomResource):
 
         fs = aws.efs.FileSystem("fs", creation_token="my-product")
         policy = aws.iam.get_policy_document_output(statements=[{
-            "sid": "ExampleStatement01",
-            "effect": "Allow",
-            "principals": [{
-                "type": "AWS",
-                "identifiers": ["*"],
-            }],
-            "actions": [
-                "elasticfilesystem:ClientMount",
-                "elasticfilesystem:ClientWrite",
-            ],
-            "resources": [fs.arn],
             "conditions": [{
                 "test": "Bool",
                 "variable": "aws:SecureTransport",
                 "values": ["true"],
             }],
+            "principals": [{
+                "type": "AWS",
+                "identifiers": ["*"],
+            }],
+            "sid": "ExampleStatement01",
+            "effect": "Allow",
+            "actions": [
+                "elasticfilesystem:ClientMount",
+                "elasticfilesystem:ClientWrite",
+            ],
+            "resources": [fs.arn],
         }])
         policy_file_system_policy = aws.efs.FileSystemPolicy("policy",
             file_system_id=fs.id,
@@ -247,22 +247,22 @@ class FileSystemPolicy(pulumi.CustomResource):
 
         fs = aws.efs.FileSystem("fs", creation_token="my-product")
         policy = aws.iam.get_policy_document_output(statements=[{
-            "sid": "ExampleStatement01",
-            "effect": "Allow",
-            "principals": [{
-                "type": "AWS",
-                "identifiers": ["*"],
-            }],
-            "actions": [
-                "elasticfilesystem:ClientMount",
-                "elasticfilesystem:ClientWrite",
-            ],
-            "resources": [fs.arn],
             "conditions": [{
                 "test": "Bool",
                 "variable": "aws:SecureTransport",
                 "values": ["true"],
             }],
+            "principals": [{
+                "type": "AWS",
+                "identifiers": ["*"],
+            }],
+            "sid": "ExampleStatement01",
+            "effect": "Allow",
+            "actions": [
+                "elasticfilesystem:ClientMount",
+                "elasticfilesystem:ClientWrite",
+            ],
+            "resources": [fs.arn],
         }])
         policy_file_system_policy = aws.efs.FileSystemPolicy("policy",
             file_system_id=fs.id,

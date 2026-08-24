@@ -50,8 +50,6 @@ namespace Pulumi.Aws.Xray
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Sid = "Enable IAM User Permissions",
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -63,6 +61,8 @@ namespace Pulumi.Aws.Xray
     ///                         },
     ///                     },
     ///                 },
+    ///                 Sid = "Enable IAM User Permissions",
+    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "kms:*",

@@ -150,11 +150,11 @@ import javax.annotation.Nullable;
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("AWS")
  *                     .identifiers(exampleContainerService.privateRegistryAccess().applyValue(_privateRegistryAccess -> _privateRegistryAccess.ecrImagePullerRole().principalArn()))
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions(                
  *                     "ecr:BatchGetImage",
  *                     "ecr:GetDownloadUrlForLayer")

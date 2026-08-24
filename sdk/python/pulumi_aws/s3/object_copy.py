@@ -1611,14 +1611,14 @@ class ObjectCopy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.s3.ObjectCopy("test",
-            bucket="destination_bucket",
-            key="destination_key",
-            source="source_bucket/source_key",
             grants=[{
                 "uri": "http://acs.amazonaws.com/groups/global/AllUsers",
                 "type": "Group",
                 "permissions": ["READ"],
-            }])
+            }],
+            bucket="destination_bucket",
+            key="destination_key",
+            source="source_bucket/source_key")
         ```
 
         ### Ignoring Provider `default_tags`
@@ -1631,14 +1631,14 @@ class ObjectCopy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.s3.ObjectCopy("test",
-            bucket="destination_bucket",
-            key="destination_key",
-            source="source_bucket/source_key",
             override_provider={
                 "default_tags": {
                     "tags": {},
                 },
-            })
+            },
+            bucket="destination_bucket",
+            key="destination_key",
+            source="source_bucket/source_key")
         ```
 
 
@@ -1703,14 +1703,14 @@ class ObjectCopy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.s3.ObjectCopy("test",
-            bucket="destination_bucket",
-            key="destination_key",
-            source="source_bucket/source_key",
             grants=[{
                 "uri": "http://acs.amazonaws.com/groups/global/AllUsers",
                 "type": "Group",
                 "permissions": ["READ"],
-            }])
+            }],
+            bucket="destination_bucket",
+            key="destination_key",
+            source="source_bucket/source_key")
         ```
 
         ### Ignoring Provider `default_tags`
@@ -1723,14 +1723,14 @@ class ObjectCopy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.s3.ObjectCopy("test",
-            bucket="destination_bucket",
-            key="destination_key",
-            source="source_bucket/source_key",
             override_provider={
                 "default_tags": {
                     "tags": {},
                 },
-            })
+            },
+            bucket="destination_bucket",
+            key="destination_key",
+            source="source_bucket/source_key")
         ```
 
 

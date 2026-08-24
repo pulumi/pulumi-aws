@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.Classifier("example", {
- *     name: "example",
  *     csvClassifier: {
  *         allowSingleColumn: false,
  *         containsHeader: "PRESENT",
@@ -33,6 +32,7 @@ import * as utilities from "../utilities";
  *         ],
  *         quoteSymbol: "'",
  *     },
+ *     name: "example",
  * });
  * ```
  *
@@ -43,11 +43,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.Classifier("example", {
- *     name: "example",
  *     grokClassifier: {
  *         classification: "example",
  *         grokPattern: "example",
  *     },
+ *     name: "example",
  * });
  * ```
  *
@@ -58,10 +58,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.Classifier("example", {
- *     name: "example",
  *     jsonClassifier: {
  *         jsonPath: "example",
  *     },
+ *     name: "example",
  * });
  * ```
  *
@@ -72,11 +72,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.Classifier("example", {
- *     name: "example",
  *     xmlClassifier: {
  *         classification: "example",
  *         rowTag: "example",
  *     },
+ *     name: "example",
  * });
  * ```
  *

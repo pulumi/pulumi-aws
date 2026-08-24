@@ -31,12 +31,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := verifiedpermissions.NewPolicy(ctx, "test", &verifiedpermissions.PolicyArgs{
-//				PolicyStoreId: pulumi.Any(testAwsVerifiedpermissionsPolicyStore.Id),
 //				Definition: &verifiedpermissions.PolicyDefinitionArgs{
 //					Static: &verifiedpermissions.PolicyDefinitionStaticArgs{
 //						Statement: pulumi.String("permit (principal, action == Action::\"view\", resource in Album:: \"test_album\");"),
 //					},
 //				},
+//				PolicyStoreId: pulumi.Any(testAwsVerifiedpermissionsPolicyStore.Id),
 //			})
 //			if err != nil {
 //				return err

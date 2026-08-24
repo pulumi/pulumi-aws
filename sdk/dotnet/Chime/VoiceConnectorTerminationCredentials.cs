@@ -48,7 +48,6 @@ namespace Pulumi.Aws.Chime
     /// 
     ///     var defaultVoiceConnectorTerminationCredentials = new Aws.Chime.VoiceConnectorTerminationCredentials("default", new()
     ///     {
-    ///         VoiceConnectorId = @default.Id,
     ///         Credentials = new[]
     ///         {
     ///             new Aws.Chime.Inputs.VoiceConnectorTerminationCredentialsCredentialArgs
@@ -57,6 +56,7 @@ namespace Pulumi.Aws.Chime
     ///                 Password = "test!",
     ///             },
     ///         },
+    ///         VoiceConnectorId = @default.Id,
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

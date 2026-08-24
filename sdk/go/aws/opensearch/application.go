@@ -56,7 +56,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := opensearch.NewApplication(ctx, "example", &opensearch.ApplicationArgs{
-//				Name: pulumi.String("my-opensearch-app"),
 //				AppConfigs: opensearch.ApplicationAppConfigArray{
 //					&opensearch.ApplicationAppConfigArgs{
 //						Key:   pulumi.String("opensearchDashboards.dashboardAdmin.users"),
@@ -67,6 +66,7 @@ import (
 //						Value: pulumi.String("admin-group"),
 //					},
 //				},
+//				Name: pulumi.String("my-opensearch-app"),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("production"),
 //					"Team":        pulumi.String("data-platform"),
@@ -96,8 +96,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := opensearch.NewDomain(ctx, "example", &opensearch.DomainArgs{
-//				DomainName:    pulumi.String("example-domain"),
-//				EngineVersion: pulumi.String("OpenSearch_2.3"),
 //				ClusterConfig: &opensearch.DomainClusterConfigArgs{
 //					InstanceType: pulumi.String("t3.small.search"),
 //				},
@@ -105,18 +103,20 @@ import (
 //					EbsEnabled: pulumi.Bool(true),
 //					VolumeSize: pulumi.Int(20),
 //				},
+//				DomainName:    pulumi.String("example-domain"),
+//				EngineVersion: pulumi.String("OpenSearch_2.3"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = opensearch.NewApplication(ctx, "example", &opensearch.ApplicationArgs{
-//				Name: pulumi.String("my-opensearch-app"),
 //				DataSources: opensearch.ApplicationDataSourceArray{
 //					&opensearch.ApplicationDataSourceArgs{
 //						DataSourceArn:         example.Arn,
 //						DataSourceDescription: pulumi.String("Primary OpenSearch domain for analytics"),
 //					},
 //				},
+//				Name: pulumi.String("my-opensearch-app"),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("production"),
 //				},
@@ -257,12 +257,12 @@ import (
 //				return err
 //			}
 //			_, err = opensearch.NewApplication(ctx, "example", &opensearch.ApplicationArgs{
-//				Name: pulumi.String("my-opensearch-app"),
 //				IamIdentityCenterOptions: &opensearch.ApplicationIamIdentityCenterOptionsArgs{
 //					Enabled:                                pulumi.Bool(true),
 //					IamIdentityCenterInstanceArn:           pulumi.String(example.Arns[0]),
 //					IamRoleForIdentityCenterApplicationArn: opensearchApplication.Arn,
 //				},
+//				Name: pulumi.String("my-opensearch-app"),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("production"),
 //				},

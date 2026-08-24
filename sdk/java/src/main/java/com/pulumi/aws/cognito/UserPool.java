@@ -98,8 +98,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new UserPool("example", UserPoolArgs.builder()
- *             .mfaConfiguration("ON")
- *             .smsAuthenticationMessage("Your code is {####}")
  *             .smsConfiguration(UserPoolSmsConfigurationArgs.builder()
  *                 .externalId("example")
  *                 .snsCallerArn(exampleAwsIamRole.arn())
@@ -108,6 +106,8 @@ import javax.annotation.Nullable;
  *             .softwareTokenMfaConfiguration(UserPoolSoftwareTokenMfaConfigurationArgs.builder()
  *                 .enabled(true)
  *                 .build())
+ *             .mfaConfiguration("ON")
+ *             .smsAuthenticationMessage("Your code is {####}")
  *             .build());
  * 
  *     }
@@ -142,7 +142,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new UserPool("test", UserPoolArgs.builder()
- *             .name("mypool")
  *             .accountRecoverySetting(UserPoolAccountRecoverySettingArgs.builder()
  *                 .recoveryMechanisms(                
  *                     UserPoolAccountRecoverySettingRecoveryMechanismArgs.builder()
@@ -154,6 +153,7 @@ import javax.annotation.Nullable;
  *                         .priority(2)
  *                         .build())
  *                 .build())
+ *             .name("mypool")
  *             .build());
  * 
  *     }

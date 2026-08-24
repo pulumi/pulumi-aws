@@ -26,11 +26,11 @@ import * as utilities from "../utilities";
  *
  * const ec2AssumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["ec2.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
@@ -48,11 +48,11 @@ import * as utilities from "../utilities";
  * });
  * const batchAssumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["batch.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
@@ -65,13 +65,13 @@ import * as utilities from "../utilities";
  *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole",
  * });
  * const sample = new aws.ec2.SecurityGroup("sample", {
- *     name: "aws_batch_compute_environment_security_group",
  *     egress: [{
  *         fromPort: 0,
  *         toPort: 0,
  *         protocol: "-1",
  *         cidrBlocks: ["0.0.0.0/0"],
  *     }],
+ *     name: "aws_batch_compute_environment_security_group",
  * });
  * const sampleVpc = new aws.ec2.Vpc("sample", {cidrBlock: "10.1.0.0/16"});
  * const sampleSubnet = new aws.ec2.Subnet("sample", {
@@ -83,7 +83,6 @@ import * as utilities from "../utilities";
  *     strategy: aws.ec2.PlacementStrategy.Cluster,
  * });
  * const sampleComputeEnvironment = new aws.batch.ComputeEnvironment("sample", {
- *     name: "sample",
  *     computeResources: {
  *         instanceRole: ecsInstanceRoleInstanceProfile.arn,
  *         instanceTypes: ["c4.large"],
@@ -94,6 +93,7 @@ import * as utilities from "../utilities";
  *         subnets: [sampleSubnet.id],
  *         type: "EC2",
  *     },
+ *     name: "sample",
  *     serviceRole: awsBatchServiceRole.arn,
  *     type: "MANAGED",
  * }, {
@@ -108,13 +108,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const sample = new aws.batch.ComputeEnvironment("sample", {
- *     name: "sample",
  *     computeResources: {
  *         maxVcpus: 16,
  *         securityGroupIds: [sampleAwsSecurityGroup.id],
  *         subnets: [sampleAwsSubnet.id],
  *         type: "FARGATE",
  *     },
+ *     name: "sample",
  *     serviceRole: awsBatchServiceRoleAwsIamRole.arn,
  *     type: "MANAGED",
  * }, {
@@ -129,7 +129,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const sample = new aws.batch.ComputeEnvironment("sample", {
- *     name: "sample",
  *     computeResources: {
  *         allocationStrategy: "BEST_FIT_PROGRESSIVE",
  *         instanceRole: ecsInstance.arn,
@@ -144,6 +143,7 @@ import * as utilities from "../utilities";
  *         jobExecutionTimeoutMinutes: 30,
  *         terminateJobsOnUpdate: false,
  *     },
+ *     name: "sample",
  *     type: "MANAGED",
  * });
  * ```

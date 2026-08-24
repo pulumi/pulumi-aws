@@ -67,12 +67,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kms.NewCustomKeyStore(ctx, "example", &kms.CustomKeyStoreArgs{
-//				CustomKeyStoreName: pulumi.String("example-vpc-xks"),
-//				CustomKeyStoreType: pulumi.String("EXTERNAL_KEY_STORE"),
 //				XksProxyAuthenticationCredential: &kms.CustomKeyStoreXksProxyAuthenticationCredentialArgs{
 //					AccessKeyId:        pulumi.Any(ephemeralAccessKeyId),
 //					RawSecretAccessKey: pulumi.Any(ephemeralSecretAccessKey),
 //				},
+//				CustomKeyStoreName:             pulumi.String("example-vpc-xks"),
+//				CustomKeyStoreType:             pulumi.String("EXTERNAL_KEY_STORE"),
 //				XksProxyConnectivity:           pulumi.String("VPC_ENDPOINT_SERVICE"),
 //				XksProxyUriEndpoint:            pulumi.String("https://myproxy-private.xks.example.com"),
 //				XksProxyUriPath:                pulumi.String("/kms/xks/v1"),
@@ -102,12 +102,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kms.NewCustomKeyStore(ctx, "example", &kms.CustomKeyStoreArgs{
-//				CustomKeyStoreName: pulumi.String("example-public-xks"),
-//				CustomKeyStoreType: pulumi.String("EXTERNAL_KEY_STORE"),
 //				XksProxyAuthenticationCredential: &kms.CustomKeyStoreXksProxyAuthenticationCredentialArgs{
 //					AccessKeyId:        pulumi.Any(ephemeralAccessKeyId),
 //					RawSecretAccessKey: pulumi.Any(ephemeralSecretAccessKey),
 //				},
+//				CustomKeyStoreName:   pulumi.String("example-public-xks"),
+//				CustomKeyStoreType:   pulumi.String("EXTERNAL_KEY_STORE"),
 //				XksProxyConnectivity: pulumi.String("PUBLIC_ENDPOINT"),
 //				XksProxyUriEndpoint:  pulumi.String("https://myproxy.xks.example.com"),
 //				XksProxyUriPath:      pulumi.String("/kms/xks/v1"),

@@ -63,13 +63,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kendra.NewIndex(ctx, "example", &kendra.IndexArgs{
-//				Name:    pulumi.String("example"),
-//				Edition: pulumi.String("DEVELOPER_EDITION"),
-//				RoleArn: pulumi.Any(this.Arn),
 //				CapacityUnits: &kendra.IndexCapacityUnitsArgs{
 //					QueryCapacityUnits:   pulumi.Int(2),
 //					StorageCapacityUnits: pulumi.Int(2),
 //				},
+//				Name:    pulumi.String("example"),
+//				Edition: pulumi.String("DEVELOPER_EDITION"),
+//				RoleArn: pulumi.Any(this.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -95,11 +95,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kendra.NewIndex(ctx, "example", &kendra.IndexArgs{
-//				Name:    pulumi.String("example"),
-//				RoleArn: pulumi.Any(thisAwsIamRole.Arn),
 //				ServerSideEncryptionConfiguration: &kendra.IndexServerSideEncryptionConfigurationArgs{
 //					KmsKeyId: pulumi.Any(this.Arn),
 //				},
+//				Name:    pulumi.String("example"),
+//				RoleArn: pulumi.Any(thisAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -125,11 +125,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kendra.NewIndex(ctx, "example", &kendra.IndexArgs{
-//				Name:    pulumi.String("example"),
-//				RoleArn: pulumi.Any(this.Arn),
 //				UserGroupResolutionConfiguration: &kendra.IndexUserGroupResolutionConfigurationArgs{
 //					UserGroupResolutionMode: pulumi.String("AWS_SSO"),
 //				},
+//				Name:    pulumi.String("example"),
+//				RoleArn: pulumi.Any(this.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -159,12 +159,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kendra.NewIndex(ctx, "example", &kendra.IndexArgs{
-//				Name:    pulumi.String("example"),
-//				RoleArn: pulumi.Any(this.Arn),
 //				DocumentMetadataConfigurationUpdates: kendra.IndexDocumentMetadataConfigurationUpdateArray{
 //					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("_authors"),
-//						Type: pulumi.String("STRING_LIST_VALUE"),
 //						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
 //							Displayable: pulumi.Bool(false),
 //							Facetable:   pulumi.Bool(false),
@@ -174,10 +170,10 @@ import (
 //						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
 //							Importance: pulumi.Int(1),
 //						},
+//						Name: pulumi.String("_authors"),
+//						Type: pulumi.String("STRING_LIST_VALUE"),
 //					},
 //					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("_category"),
-//						Type: pulumi.String("STRING_VALUE"),
 //						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
 //							Displayable: pulumi.Bool(false),
 //							Facetable:   pulumi.Bool(false),
@@ -188,10 +184,10 @@ import (
 //							Importance:          pulumi.Int(1),
 //							ValuesImportanceMap: pulumi.IntMap{},
 //						},
+//						Name: pulumi.String("_category"),
+//						Type: pulumi.String("STRING_VALUE"),
 //					},
 //					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("_created_at"),
-//						Type: pulumi.String("DATE_VALUE"),
 //						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
 //							Displayable: pulumi.Bool(false),
 //							Facetable:   pulumi.Bool(false),
@@ -204,10 +200,10 @@ import (
 //							Duration:   pulumi.String("25920000s"),
 //							RankOrder:  pulumi.String("ASCENDING"),
 //						},
+//						Name: pulumi.String("_created_at"),
+//						Type: pulumi.String("DATE_VALUE"),
 //					},
 //					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("_data_source_id"),
-//						Type: pulumi.String("STRING_VALUE"),
 //						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
 //							Displayable: pulumi.Bool(false),
 //							Facetable:   pulumi.Bool(false),
@@ -218,10 +214,10 @@ import (
 //							Importance:          pulumi.Int(1),
 //							ValuesImportanceMap: pulumi.IntMap{},
 //						},
+//						Name: pulumi.String("_data_source_id"),
+//						Type: pulumi.String("STRING_VALUE"),
 //					},
 //					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("_document_title"),
-//						Type: pulumi.String("STRING_VALUE"),
 //						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
 //							Displayable: pulumi.Bool(true),
 //							Facetable:   pulumi.Bool(false),
@@ -232,10 +228,10 @@ import (
 //							Importance:          pulumi.Int(2),
 //							ValuesImportanceMap: pulumi.IntMap{},
 //						},
+//						Name: pulumi.String("_document_title"),
+//						Type: pulumi.String("STRING_VALUE"),
 //					},
 //					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("_excerpt_page_number"),
-//						Type: pulumi.String("LONG_VALUE"),
 //						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
 //							Displayable: pulumi.Bool(false),
 //							Facetable:   pulumi.Bool(false),
@@ -246,10 +242,24 @@ import (
 //							Importance: pulumi.Int(2),
 //							RankOrder:  pulumi.String("ASCENDING"),
 //						},
+//						Name: pulumi.String("_excerpt_page_number"),
+//						Type: pulumi.String("LONG_VALUE"),
 //					},
 //					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
+//						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
+//							Displayable: pulumi.Bool(false),
+//							Facetable:   pulumi.Bool(false),
+//							Searchable:  pulumi.Bool(false),
+//							Sortable:    pulumi.Bool(true),
+//						},
+//						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
+//							Importance:          pulumi.Int(1),
+//							ValuesImportanceMap: pulumi.IntMap{},
+//						},
 //						Name: pulumi.String("_faq_id"),
 //						Type: pulumi.String("STRING_VALUE"),
+//					},
+//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
 //						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
 //							Displayable: pulumi.Bool(false),
 //							Facetable:   pulumi.Bool(false),
@@ -260,10 +270,10 @@ import (
 //							Importance:          pulumi.Int(1),
 //							ValuesImportanceMap: pulumi.IntMap{},
 //						},
-//					},
-//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
 //						Name: pulumi.String("_file_type"),
 //						Type: pulumi.String("STRING_VALUE"),
+//					},
+//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
 //						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
 //							Displayable: pulumi.Bool(false),
 //							Facetable:   pulumi.Bool(false),
@@ -274,24 +284,10 @@ import (
 //							Importance:          pulumi.Int(1),
 //							ValuesImportanceMap: pulumi.IntMap{},
 //						},
-//					},
-//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
 //						Name: pulumi.String("_language_code"),
 //						Type: pulumi.String("STRING_VALUE"),
-//						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
-//							Displayable: pulumi.Bool(false),
-//							Facetable:   pulumi.Bool(false),
-//							Searchable:  pulumi.Bool(false),
-//							Sortable:    pulumi.Bool(true),
-//						},
-//						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
-//							Importance:          pulumi.Int(1),
-//							ValuesImportanceMap: pulumi.IntMap{},
-//						},
 //					},
 //					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("_last_updated_at"),
-//						Type: pulumi.String("DATE_VALUE"),
 //						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
 //							Displayable: pulumi.Bool(false),
 //							Facetable:   pulumi.Bool(false),
@@ -304,10 +300,10 @@ import (
 //							Duration:   pulumi.String("25920000s"),
 //							RankOrder:  pulumi.String("ASCENDING"),
 //						},
+//						Name: pulumi.String("_last_updated_at"),
+//						Type: pulumi.String("DATE_VALUE"),
 //					},
 //					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("_source_uri"),
-//						Type: pulumi.String("STRING_VALUE"),
 //						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
 //							Displayable: pulumi.Bool(true),
 //							Facetable:   pulumi.Bool(false),
@@ -318,10 +314,24 @@ import (
 //							Importance:          pulumi.Int(1),
 //							ValuesImportanceMap: pulumi.IntMap{},
 //						},
+//						Name: pulumi.String("_source_uri"),
+//						Type: pulumi.String("STRING_VALUE"),
 //					},
 //					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
+//						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
+//							Displayable: pulumi.Bool(false),
+//							Facetable:   pulumi.Bool(false),
+//							Searchable:  pulumi.Bool(false),
+//							Sortable:    pulumi.Bool(true),
+//						},
+//						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
+//							Importance:          pulumi.Int(1),
+//							ValuesImportanceMap: pulumi.IntMap{},
+//						},
 //						Name: pulumi.String("_tenant_id"),
 //						Type: pulumi.String("STRING_VALUE"),
+//					},
+//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
 //						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
 //							Displayable: pulumi.Bool(false),
 //							Facetable:   pulumi.Bool(false),
@@ -332,24 +342,10 @@ import (
 //							Importance:          pulumi.Int(1),
 //							ValuesImportanceMap: pulumi.IntMap{},
 //						},
-//					},
-//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
 //						Name: pulumi.String("_version"),
 //						Type: pulumi.String("STRING_VALUE"),
-//						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
-//							Displayable: pulumi.Bool(false),
-//							Facetable:   pulumi.Bool(false),
-//							Searchable:  pulumi.Bool(false),
-//							Sortable:    pulumi.Bool(true),
-//						},
-//						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
-//							Importance:          pulumi.Int(1),
-//							ValuesImportanceMap: pulumi.IntMap{},
-//						},
 //					},
 //					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("_view_count"),
-//						Type: pulumi.String("LONG_VALUE"),
 //						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
 //							Displayable: pulumi.Bool(false),
 //							Facetable:   pulumi.Bool(false),
@@ -360,8 +356,12 @@ import (
 //							Importance: pulumi.Int(1),
 //							RankOrder:  pulumi.String("ASCENDING"),
 //						},
+//						Name: pulumi.String("_view_count"),
+//						Type: pulumi.String("LONG_VALUE"),
 //					},
 //				},
+//				Name:    pulumi.String("example"),
+//				RoleArn: pulumi.Any(this.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -389,12 +389,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kendra.NewIndex(ctx, "example", &kendra.IndexArgs{
-//				Name:    pulumi.String("example"),
-//				RoleArn: pulumi.Any(this.Arn),
 //				DocumentMetadataConfigurationUpdates: kendra.IndexDocumentMetadataConfigurationUpdateArray{
 //					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("_authors"),
-//						Type: pulumi.String("STRING_LIST_VALUE"),
 //						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
 //							Displayable: pulumi.Bool(false),
 //							Facetable:   pulumi.Bool(false),
@@ -404,10 +400,10 @@ import (
 //						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
 //							Importance: pulumi.Int(1),
 //						},
+//						Name: pulumi.String("_authors"),
+//						Type: pulumi.String("STRING_LIST_VALUE"),
 //					},
 //					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("_category"),
-//						Type: pulumi.String("STRING_VALUE"),
 //						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
 //							Displayable: pulumi.Bool(false),
 //							Facetable:   pulumi.Bool(false),
@@ -418,10 +414,10 @@ import (
 //							Importance:          pulumi.Int(1),
 //							ValuesImportanceMap: pulumi.IntMap{},
 //						},
+//						Name: pulumi.String("_category"),
+//						Type: pulumi.String("STRING_VALUE"),
 //					},
 //					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("_created_at"),
-//						Type: pulumi.String("DATE_VALUE"),
 //						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
 //							Displayable: pulumi.Bool(false),
 //							Facetable:   pulumi.Bool(false),
@@ -434,10 +430,10 @@ import (
 //							Duration:   pulumi.String("25920000s"),
 //							RankOrder:  pulumi.String("ASCENDING"),
 //						},
+//						Name: pulumi.String("_created_at"),
+//						Type: pulumi.String("DATE_VALUE"),
 //					},
 //					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("_data_source_id"),
-//						Type: pulumi.String("STRING_VALUE"),
 //						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
 //							Displayable: pulumi.Bool(false),
 //							Facetable:   pulumi.Bool(false),
@@ -448,10 +444,10 @@ import (
 //							Importance:          pulumi.Int(1),
 //							ValuesImportanceMap: pulumi.IntMap{},
 //						},
+//						Name: pulumi.String("_data_source_id"),
+//						Type: pulumi.String("STRING_VALUE"),
 //					},
 //					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("_document_title"),
-//						Type: pulumi.String("STRING_VALUE"),
 //						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
 //							Displayable: pulumi.Bool(true),
 //							Facetable:   pulumi.Bool(false),
@@ -462,10 +458,10 @@ import (
 //							Importance:          pulumi.Int(2),
 //							ValuesImportanceMap: pulumi.IntMap{},
 //						},
+//						Name: pulumi.String("_document_title"),
+//						Type: pulumi.String("STRING_VALUE"),
 //					},
 //					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("_excerpt_page_number"),
-//						Type: pulumi.String("LONG_VALUE"),
 //						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
 //							Displayable: pulumi.Bool(false),
 //							Facetable:   pulumi.Bool(false),
@@ -476,10 +472,24 @@ import (
 //							Importance: pulumi.Int(2),
 //							RankOrder:  pulumi.String("ASCENDING"),
 //						},
+//						Name: pulumi.String("_excerpt_page_number"),
+//						Type: pulumi.String("LONG_VALUE"),
 //					},
 //					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
+//						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
+//							Displayable: pulumi.Bool(false),
+//							Facetable:   pulumi.Bool(false),
+//							Searchable:  pulumi.Bool(false),
+//							Sortable:    pulumi.Bool(true),
+//						},
+//						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
+//							Importance:          pulumi.Int(1),
+//							ValuesImportanceMap: pulumi.IntMap{},
+//						},
 //						Name: pulumi.String("_faq_id"),
 //						Type: pulumi.String("STRING_VALUE"),
+//					},
+//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
 //						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
 //							Displayable: pulumi.Bool(false),
 //							Facetable:   pulumi.Bool(false),
@@ -490,10 +500,10 @@ import (
 //							Importance:          pulumi.Int(1),
 //							ValuesImportanceMap: pulumi.IntMap{},
 //						},
-//					},
-//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
 //						Name: pulumi.String("_file_type"),
 //						Type: pulumi.String("STRING_VALUE"),
+//					},
+//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
 //						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
 //							Displayable: pulumi.Bool(false),
 //							Facetable:   pulumi.Bool(false),
@@ -504,10 +514,10 @@ import (
 //							Importance:          pulumi.Int(1),
 //							ValuesImportanceMap: pulumi.IntMap{},
 //						},
-//					},
-//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
 //						Name: pulumi.String("_language_code"),
 //						Type: pulumi.String("STRING_VALUE"),
+//					},
+//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
 //						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
 //							Displayable: pulumi.Bool(false),
 //							Facetable:   pulumi.Bool(false),
@@ -515,43 +525,43 @@ import (
 //							Sortable:    pulumi.Bool(true),
 //						},
 //						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
-//							Importance:          pulumi.Int(1),
-//							ValuesImportanceMap: pulumi.IntMap{},
+//							Freshness:  pulumi.Bool(false),
+//							Importance: pulumi.Int(1),
+//							Duration:   pulumi.String("25920000s"),
+//							RankOrder:  pulumi.String("ASCENDING"),
 //						},
-//					},
-//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
 //						Name: pulumi.String("_last_updated_at"),
 //						Type: pulumi.String("DATE_VALUE"),
-//						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
-//							Displayable: pulumi.Bool(false),
-//							Facetable:   pulumi.Bool(false),
-//							Searchable:  pulumi.Bool(false),
-//							Sortable:    pulumi.Bool(true),
-//						},
-//						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
-//							Freshness:  pulumi.Bool(false),
-//							Importance: pulumi.Int(1),
-//							Duration:   pulumi.String("25920000s"),
-//							RankOrder:  pulumi.String("ASCENDING"),
-//						},
 //					},
 //					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
+//						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
+//							Displayable: pulumi.Bool(true),
+//							Facetable:   pulumi.Bool(false),
+//							Searchable:  pulumi.Bool(false),
+//							Sortable:    pulumi.Bool(false),
+//						},
+//						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
+//							Importance:          pulumi.Int(1),
+//							ValuesImportanceMap: pulumi.IntMap{},
+//						},
 //						Name: pulumi.String("_source_uri"),
 //						Type: pulumi.String("STRING_VALUE"),
+//					},
+//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
 //						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
-//							Displayable: pulumi.Bool(true),
+//							Displayable: pulumi.Bool(false),
 //							Facetable:   pulumi.Bool(false),
 //							Searchable:  pulumi.Bool(false),
-//							Sortable:    pulumi.Bool(false),
+//							Sortable:    pulumi.Bool(true),
 //						},
 //						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
 //							Importance:          pulumi.Int(1),
 //							ValuesImportanceMap: pulumi.IntMap{},
 //						},
-//					},
-//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
 //						Name: pulumi.String("_tenant_id"),
 //						Type: pulumi.String("STRING_VALUE"),
+//					},
+//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
 //						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
 //							Displayable: pulumi.Bool(false),
 //							Facetable:   pulumi.Bool(false),
@@ -562,24 +572,10 @@ import (
 //							Importance:          pulumi.Int(1),
 //							ValuesImportanceMap: pulumi.IntMap{},
 //						},
-//					},
-//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
 //						Name: pulumi.String("_version"),
 //						Type: pulumi.String("STRING_VALUE"),
-//						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
-//							Displayable: pulumi.Bool(false),
-//							Facetable:   pulumi.Bool(false),
-//							Searchable:  pulumi.Bool(false),
-//							Sortable:    pulumi.Bool(true),
-//						},
-//						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
-//							Importance:          pulumi.Int(1),
-//							ValuesImportanceMap: pulumi.IntMap{},
-//						},
 //					},
 //					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("_view_count"),
-//						Type: pulumi.String("LONG_VALUE"),
 //						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
 //							Displayable: pulumi.Bool(false),
 //							Facetable:   pulumi.Bool(false),
@@ -590,10 +586,10 @@ import (
 //							Importance: pulumi.Int(1),
 //							RankOrder:  pulumi.String("ASCENDING"),
 //						},
+//						Name: pulumi.String("_view_count"),
+//						Type: pulumi.String("LONG_VALUE"),
 //					},
 //					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("example-string-value"),
-//						Type: pulumi.String("STRING_VALUE"),
 //						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
 //							Displayable: pulumi.Bool(true),
 //							Facetable:   pulumi.Bool(true),
@@ -604,10 +600,10 @@ import (
 //							Importance:          pulumi.Int(1),
 //							ValuesImportanceMap: pulumi.IntMap{},
 //						},
+//						Name: pulumi.String("example-string-value"),
+//						Type: pulumi.String("STRING_VALUE"),
 //					},
 //					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("example-long-value"),
-//						Type: pulumi.String("LONG_VALUE"),
 //						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
 //							Displayable: pulumi.Bool(true),
 //							Facetable:   pulumi.Bool(true),
@@ -618,10 +614,10 @@ import (
 //							Importance: pulumi.Int(1),
 //							RankOrder:  pulumi.String("ASCENDING"),
 //						},
+//						Name: pulumi.String("example-long-value"),
+//						Type: pulumi.String("LONG_VALUE"),
 //					},
 //					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("example-string-list-value"),
-//						Type: pulumi.String("STRING_LIST_VALUE"),
 //						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
 //							Displayable: pulumi.Bool(true),
 //							Facetable:   pulumi.Bool(true),
@@ -631,10 +627,10 @@ import (
 //						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
 //							Importance: pulumi.Int(1),
 //						},
+//						Name: pulumi.String("example-string-list-value"),
+//						Type: pulumi.String("STRING_LIST_VALUE"),
 //					},
 //					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
-//						Name: pulumi.String("example-date-value"),
-//						Type: pulumi.String("DATE_VALUE"),
 //						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
 //							Displayable: pulumi.Bool(true),
 //							Facetable:   pulumi.Bool(true),
@@ -647,8 +643,12 @@ import (
 //							Duration:   pulumi.String("25920000s"),
 //							RankOrder:  pulumi.String("ASCENDING"),
 //						},
+//						Name: pulumi.String("example-date-value"),
+//						Type: pulumi.String("DATE_VALUE"),
 //					},
 //				},
+//				Name:    pulumi.String("example"),
+//				RoleArn: pulumi.Any(this.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -674,14 +674,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kendra.NewIndex(ctx, "example", &kendra.IndexArgs{
-//				Name:    pulumi.String("example"),
-//				RoleArn: pulumi.Any(this.Arn),
 //				UserTokenConfigurations: &kendra.IndexUserTokenConfigurationsArgs{
 //					JsonTokenTypeConfiguration: &kendra.IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs{
 //						GroupAttributeField:    pulumi.String("groups"),
 //						UserNameAttributeField: pulumi.String("username"),
 //					},
 //				},
+//				Name:    pulumi.String("example"),
+//				RoleArn: pulumi.Any(this.Arn),
 //			})
 //			if err != nil {
 //				return err

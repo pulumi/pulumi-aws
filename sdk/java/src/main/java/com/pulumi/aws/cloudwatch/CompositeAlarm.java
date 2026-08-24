@@ -49,6 +49,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CompositeAlarm("example", CompositeAlarmArgs.builder()
+ *             .actionsSuppressor(CompositeAlarmActionsSuppressorArgs.builder()
+ *                 .alarm("suppressor-alarm")
+ *                 .extensionPeriod(10)
+ *                 .waitPeriod(20)
+ *                 .build())
  *             .alarmDescription("This is a composite alarm!")
  *             .alarmName("example-composite-alarm")
  *             .alarmActions(exampleAwsSnsTopic.arn())
@@ -57,11 +62,6 @@ import javax.annotation.Nullable;
  * ALARM(%s) OR
  * ALARM(%s)
  * ", alpha.alarmName(),bravo.alarmName()))
- *             .actionsSuppressor(CompositeAlarmActionsSuppressorArgs.builder()
- *                 .alarm("suppressor-alarm")
- *                 .extensionPeriod(10)
- *                 .waitPeriod(20)
- *                 .build())
  *             .build());
  * 
  *     }

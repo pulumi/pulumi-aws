@@ -744,22 +744,22 @@ class Directory(pulumi.CustomResource):
             availability_zone="us-east-1b",
             cidr_block="10.0.1.0/24")
         example_directory = aws.directoryservice.Directory("example",
-            name="corp.example.com",
-            password="#S1ncerely",
-            size="Small",
             vpc_settings={
                 "vpc_id": example_vpc.id,
                 "subnet_ids": [
                     example_a.id,
                     example_b.id,
                 ],
-            })
+            },
+            name="corp.example.com",
+            password="#S1ncerely",
+            size="Small")
         workspaces = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["workspaces.amazonaws.com"],
             }],
+            "actions": ["sts:AssumeRole"],
         }])
         workspaces_default = aws.iam.Role("workspaces_default",
             name="workspaces_DefaultRole",
@@ -779,14 +779,6 @@ class Directory(pulumi.CustomResource):
             availability_zone="us-east-1d",
             cidr_block="10.0.3.0/24")
         example = aws.workspaces.Directory("example",
-            directory_id=example_directory.id,
-            subnet_ids=[
-                example_c.id,
-                example_d.id,
-            ],
-            tags={
-                "Example": "true",
-            },
             certificate_based_auth_properties={
                 "certificate_authority_arn": "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012",
                 "status": "ENABLED",
@@ -819,6 +811,14 @@ class Directory(pulumi.CustomResource):
                 "enable_maintenance_mode": True,
                 "user_enabled_as_local_administrator": True,
             },
+            directory_id=example_directory.id,
+            subnet_ids=[
+                example_c.id,
+                example_d.id,
+            ],
+            tags={
+                "Example": "true",
+            },
             opts = pulumi.ResourceOptions(depends_on=[
                     workspaces_default_service_access,
                     workspaces_default_self_service_access,
@@ -832,14 +832,6 @@ class Directory(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.workspaces.Directory("example",
-            subnet_ids=[
-                example_c["id"],
-                example_d["id"],
-            ],
-            workspace_type="POOLS",
-            workspace_directory_name="Pool directory",
-            workspace_directory_description="WorkSpaces Pools directory",
-            user_identity_type="CUSTOMER_MANAGED",
             active_directory_config={
                 "domain_name": "example.internal",
                 "service_account_secret_arn": example_aws_secretsmanager_secret["arn"],
@@ -863,7 +855,15 @@ class Directory(pulumi.CustomResource):
                 "relay_state_parameter_name": "RelayState",
                 "user_access_url": "https://sso.example.com/",
                 "status": "ENABLED",
-            })
+            },
+            subnet_ids=[
+                example_c["id"],
+                example_d["id"],
+            ],
+            workspace_type="POOLS",
+            workspace_directory_name="Pool directory",
+            workspace_directory_description="WorkSpaces Pools directory",
+            user_identity_type="CUSTOMER_MANAGED")
         ```
 
         ### IP Groups
@@ -935,22 +935,22 @@ class Directory(pulumi.CustomResource):
             availability_zone="us-east-1b",
             cidr_block="10.0.1.0/24")
         example_directory = aws.directoryservice.Directory("example",
-            name="corp.example.com",
-            password="#S1ncerely",
-            size="Small",
             vpc_settings={
                 "vpc_id": example_vpc.id,
                 "subnet_ids": [
                     example_a.id,
                     example_b.id,
                 ],
-            })
+            },
+            name="corp.example.com",
+            password="#S1ncerely",
+            size="Small")
         workspaces = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["workspaces.amazonaws.com"],
             }],
+            "actions": ["sts:AssumeRole"],
         }])
         workspaces_default = aws.iam.Role("workspaces_default",
             name="workspaces_DefaultRole",
@@ -970,14 +970,6 @@ class Directory(pulumi.CustomResource):
             availability_zone="us-east-1d",
             cidr_block="10.0.3.0/24")
         example = aws.workspaces.Directory("example",
-            directory_id=example_directory.id,
-            subnet_ids=[
-                example_c.id,
-                example_d.id,
-            ],
-            tags={
-                "Example": "true",
-            },
             certificate_based_auth_properties={
                 "certificate_authority_arn": "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012",
                 "status": "ENABLED",
@@ -1010,6 +1002,14 @@ class Directory(pulumi.CustomResource):
                 "enable_maintenance_mode": True,
                 "user_enabled_as_local_administrator": True,
             },
+            directory_id=example_directory.id,
+            subnet_ids=[
+                example_c.id,
+                example_d.id,
+            ],
+            tags={
+                "Example": "true",
+            },
             opts = pulumi.ResourceOptions(depends_on=[
                     workspaces_default_service_access,
                     workspaces_default_self_service_access,
@@ -1023,14 +1023,6 @@ class Directory(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.workspaces.Directory("example",
-            subnet_ids=[
-                example_c["id"],
-                example_d["id"],
-            ],
-            workspace_type="POOLS",
-            workspace_directory_name="Pool directory",
-            workspace_directory_description="WorkSpaces Pools directory",
-            user_identity_type="CUSTOMER_MANAGED",
             active_directory_config={
                 "domain_name": "example.internal",
                 "service_account_secret_arn": example_aws_secretsmanager_secret["arn"],
@@ -1054,7 +1046,15 @@ class Directory(pulumi.CustomResource):
                 "relay_state_parameter_name": "RelayState",
                 "user_access_url": "https://sso.example.com/",
                 "status": "ENABLED",
-            })
+            },
+            subnet_ids=[
+                example_c["id"],
+                example_d["id"],
+            ],
+            workspace_type="POOLS",
+            workspace_directory_name="Pool directory",
+            workspace_directory_description="WorkSpaces Pools directory",
+            user_identity_type="CUSTOMER_MANAGED")
         ```
 
         ### IP Groups

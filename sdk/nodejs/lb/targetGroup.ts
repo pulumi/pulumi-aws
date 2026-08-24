@@ -79,13 +79,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const tcp_example = new aws.lb.TargetGroup("tcp-example", {
+ *     targetHealthStates: [{
+ *         enableUnhealthyConnectionTermination: false,
+ *     }],
  *     name: "tf-example-lb-nlb-tg",
  *     port: 25,
  *     protocol: "TCP",
  *     vpcId: main.id,
- *     targetHealthStates: [{
- *         enableUnhealthyConnectionTermination: false,
- *     }],
  * });
  * ```
  *
@@ -96,10 +96,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const tcp_example = new aws.lb.TargetGroup("tcp-example", {
- *     name: "tf-example-lb-nlb-tg",
- *     port: 80,
- *     protocol: "TCP",
- *     vpcId: main.id,
  *     targetGroupHealth: {
  *         dnsFailover: {
  *             minimumHealthyTargetsCount: "1",
@@ -110,6 +106,10 @@ import * as utilities from "../utilities";
  *             minimumHealthyTargetsPercentage: "off",
  *         },
  *     },
+ *     name: "tf-example-lb-nlb-tg",
+ *     port: 80,
+ *     protocol: "TCP",
+ *     vpcId: main.id,
  * });
  * ```
  *

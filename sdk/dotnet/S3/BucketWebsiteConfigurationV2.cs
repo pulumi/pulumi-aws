@@ -28,7 +28,6 @@ namespace Pulumi.Aws.S3
     /// {
     ///     var example = new Aws.S3.BucketWebsiteConfiguration("example", new()
     ///     {
-    ///         Bucket = exampleAwsS3Bucket.Id,
     ///         IndexDocument = new Aws.S3.Inputs.BucketWebsiteConfigurationIndexDocumentArgs
     ///         {
     ///             Suffix = "index.html",
@@ -51,6 +50,7 @@ namespace Pulumi.Aws.S3
     ///                 },
     ///             },
     ///         },
+    ///         Bucket = exampleAwsS3Bucket.Id,
     ///     });
     /// 
     /// });
@@ -68,7 +68,6 @@ namespace Pulumi.Aws.S3
     /// {
     ///     var example = new Aws.S3.BucketWebsiteConfiguration("example", new()
     ///     {
-    ///         Bucket = exampleAwsS3Bucket.Id,
     ///         IndexDocument = new Aws.S3.Inputs.BucketWebsiteConfigurationIndexDocumentArgs
     ///         {
     ///             Suffix = "index.html",
@@ -77,6 +76,7 @@ namespace Pulumi.Aws.S3
     ///         {
     ///             Key = "error.html",
     ///         },
+    ///         Bucket = exampleAwsS3Bucket.Id,
     ///         RoutingRuleDetails = @"[{
     ///     \""Condition\"": {
     ///         \""KeyPrefixEquals\"": \""docs/\""

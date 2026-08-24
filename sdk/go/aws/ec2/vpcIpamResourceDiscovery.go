@@ -36,12 +36,12 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewVpcIpamResourceDiscovery(ctx, "main", &ec2.VpcIpamResourceDiscoveryArgs{
-//				Description: pulumi.String("My IPAM Resource Discovery"),
 //				OperatingRegions: ec2.VpcIpamResourceDiscoveryOperatingRegionArray{
 //					&ec2.VpcIpamResourceDiscoveryOperatingRegionArgs{
 //						RegionName: pulumi.String(current.Region),
 //					},
 //				},
+//				Description: pulumi.String("My IPAM Resource Discovery"),
 //				Tags: pulumi.StringMap{
 //					"Test": pulumi.String("Main"),
 //				},

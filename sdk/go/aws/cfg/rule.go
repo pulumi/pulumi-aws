@@ -38,7 +38,6 @@ import (
 //			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -47,6 +46,7 @@ import (
 //								},
 //							},
 //						},
+//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"sts:AssumeRole",
 //						},
@@ -71,11 +71,11 @@ import (
 //				return err
 //			}
 //			_, err = cfg.NewRule(ctx, "r", &cfg.RuleArgs{
-//				Name: pulumi.String("example"),
 //				Source: &cfg.RuleSourceArgs{
 //					Owner:            pulumi.String("AWS"),
 //					SourceIdentifier: pulumi.String("S3_BUCKET_VERSIONING_ENABLED"),
 //				},
+//				Name: pulumi.String("example"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				foo,
 //			}))
@@ -179,14 +179,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cfg.NewRule(ctx, "example", &cfg.RuleArgs{
-//				Name: pulumi.String("example"),
 //				Source: &cfg.RuleSourceArgs{
-//					Owner: pulumi.String("CUSTOM_POLICY"),
-//					SourceDetails: cfg.RuleSourceSourceDetailArray{
-//						&cfg.RuleSourceSourceDetailArgs{
-//							MessageType: pulumi.String("ConfigurationItemChangeNotification"),
-//						},
-//					},
 //					CustomPolicyDetails: &cfg.RuleSourceCustomPolicyDetailsArgs{
 //						PolicyRuntime: pulumi.String("guard-2.x.x"),
 //						PolicyText: pulumi.String(`\t  rule tableisactive when
@@ -203,7 +196,14 @@ import (
 // `),
 //
 //					},
+//					SourceDetails: cfg.RuleSourceSourceDetailArray{
+//						&cfg.RuleSourceSourceDetailArgs{
+//							MessageType: pulumi.String("ConfigurationItemChangeNotification"),
+//						},
+//					},
+//					Owner: pulumi.String("CUSTOM_POLICY"),
 //				},
+//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

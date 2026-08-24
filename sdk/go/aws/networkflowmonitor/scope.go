@@ -38,13 +38,13 @@ import (
 //			_, err = networkflowmonitor.NewScope(ctx, "example", &networkflowmonitor.ScopeArgs{
 //				Targets: networkflowmonitor.ScopeTargetArray{
 //					&networkflowmonitor.ScopeTargetArgs{
-//						Region: pulumi.String("us-east-1"),
 //						TargetIdentifier: &networkflowmonitor.ScopeTargetTargetIdentifierArgs{
-//							TargetType: pulumi.String("ACCOUNT"),
 //							TargetId: &networkflowmonitor.ScopeTargetTargetIdentifierTargetIdArgs{
 //								AccountId: pulumi.String(current.AccountId),
 //							},
+//							TargetType: pulumi.String("ACCOUNT"),
 //						},
+//						Region: pulumi.String("us-east-1"),
 //					},
 //				},
 //				Tags: pulumi.StringMap{

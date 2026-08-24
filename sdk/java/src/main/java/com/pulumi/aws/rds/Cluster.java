@@ -253,6 +253,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Cluster("example", ClusterArgs.builder()
+ *             .serverlessv2ScalingConfiguration(ClusterServerlessv2ScalingConfigurationArgs.builder()
+ *                 .maxCapacity(1.0)
+ *                 .minCapacity(0.0)
+ *                 .secondsUntilAutoPause(3600)
+ *                 .build())
  *             .clusterIdentifier("example")
  *             .engine("aurora-postgresql")
  *             .engineMode("provisioned")
@@ -261,11 +266,6 @@ import javax.annotation.Nullable;
  *             .masterUsername("test")
  *             .masterPassword("must_be_eight_characters")
  *             .storageEncrypted(true)
- *             .serverlessv2ScalingConfiguration(ClusterServerlessv2ScalingConfigurationArgs.builder()
- *                 .maxCapacity(1.0)
- *                 .minCapacity(0.0)
- *                 .secondsUntilAutoPause(3600)
- *                 .build())
  *             .build());
  * 
  *         var exampleClusterInstance = new ClusterInstance("exampleClusterInstance", ClusterInstanceArgs.builder()
@@ -382,6 +382,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.rds.ClusterArgs;
  * import com.pulumi.aws.rds.GlobalCluster;
  * import com.pulumi.aws.rds.GlobalClusterArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -405,7 +406,9 @@ import javax.annotation.Nullable;
  *             .engineVersion("5.6.mysql_aurora.1.22.4")
  *             .clusterIdentifier("example")
  *             .snapshotIdentifier(example.id())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .ignoreChanges("snapshotIdentifier", "globalClusterIdentifier")
+ *                 .build());
  * 
  *         var exampleGlobalCluster = new GlobalCluster("exampleGlobalCluster", GlobalClusterArgs.builder()
  *             .globalClusterIdentifier("example")

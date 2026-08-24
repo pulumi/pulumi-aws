@@ -873,42 +873,40 @@ class Cluster(pulumi.CustomResource):
             bucket=bucket.id,
             acl="private")
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["firehose.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         firehose_role = aws.iam.Role("firehose_role",
             name="firehose_test_role",
             assume_role_policy=assume_role.json)
         test_stream = aws.kinesis.FirehoseDeliveryStream("test_stream",
-            name="kinesis-firehose-msk-broker-logs-stream",
-            destination="extended_s3",
             extended_s3_configuration={
                 "role_arn": firehose_role.arn,
                 "bucket_arn": bucket.arn,
             },
+            name="kinesis-firehose-msk-broker-logs-stream",
+            destination="extended_s3",
             tags={
                 "LogDeliveryEnabled": "placeholder",
-            })
+            },
+            opts = pulumi.ResourceOptions(ignore_changes=["tags[\\"LogDeliveryEnabled\\"]"]))
         example = aws.msk.Cluster("example",
-            cluster_name="example",
-            kafka_version="3.8.x",
-            number_of_broker_nodes=3,
             broker_node_group_info={
+                "storage_info": {
+                    "ebs_storage_info": {
+                        "volume_size": 1000,
+                    },
+                },
                 "instance_type": "kafka.m5.large",
                 "client_subnets": [
                     subnet_az1.id,
                     subnet_az2.id,
                     subnet_az3.id,
                 ],
-                "storage_info": {
-                    "ebs_storage_info": {
-                        "volume_size": 1000,
-                    },
-                },
                 "security_groups": [sg.id],
             },
             encryption_info={
@@ -941,6 +939,9 @@ class Cluster(pulumi.CustomResource):
                     },
                 },
             },
+            cluster_name="example",
+            kafka_version="3.8.x",
+            number_of_broker_nodes=3,
             tags={
                 "foo": "bar",
             })
@@ -955,16 +956,7 @@ class Cluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.msk.Cluster("example",
-            cluster_name="example",
-            kafka_version="3.8.x",
-            number_of_broker_nodes=3,
             broker_node_group_info={
-                "instance_type": "kafka.m5.4xlarge",
-                "client_subnets": [
-                    subnet_az1["id"],
-                    subnet_az2["id"],
-                    subnet_az3["id"],
-                ],
                 "storage_info": {
                     "ebs_storage_info": {
                         "provisioned_throughput": {
@@ -974,8 +966,17 @@ class Cluster(pulumi.CustomResource):
                         "volume_size": 1000,
                     },
                 },
+                "instance_type": "kafka.m5.4xlarge",
+                "client_subnets": [
+                    subnet_az1["id"],
+                    subnet_az2["id"],
+                    subnet_az3["id"],
+                ],
                 "security_groups": [sg["id"]],
-            })
+            },
+            cluster_name="example",
+            kafka_version="3.8.x",
+            number_of_broker_nodes=3)
         ```
 
         ## Import
@@ -1051,42 +1052,40 @@ class Cluster(pulumi.CustomResource):
             bucket=bucket.id,
             acl="private")
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["firehose.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         firehose_role = aws.iam.Role("firehose_role",
             name="firehose_test_role",
             assume_role_policy=assume_role.json)
         test_stream = aws.kinesis.FirehoseDeliveryStream("test_stream",
-            name="kinesis-firehose-msk-broker-logs-stream",
-            destination="extended_s3",
             extended_s3_configuration={
                 "role_arn": firehose_role.arn,
                 "bucket_arn": bucket.arn,
             },
+            name="kinesis-firehose-msk-broker-logs-stream",
+            destination="extended_s3",
             tags={
                 "LogDeliveryEnabled": "placeholder",
-            })
+            },
+            opts = pulumi.ResourceOptions(ignore_changes=["tags[\\"LogDeliveryEnabled\\"]"]))
         example = aws.msk.Cluster("example",
-            cluster_name="example",
-            kafka_version="3.8.x",
-            number_of_broker_nodes=3,
             broker_node_group_info={
+                "storage_info": {
+                    "ebs_storage_info": {
+                        "volume_size": 1000,
+                    },
+                },
                 "instance_type": "kafka.m5.large",
                 "client_subnets": [
                     subnet_az1.id,
                     subnet_az2.id,
                     subnet_az3.id,
                 ],
-                "storage_info": {
-                    "ebs_storage_info": {
-                        "volume_size": 1000,
-                    },
-                },
                 "security_groups": [sg.id],
             },
             encryption_info={
@@ -1119,6 +1118,9 @@ class Cluster(pulumi.CustomResource):
                     },
                 },
             },
+            cluster_name="example",
+            kafka_version="3.8.x",
+            number_of_broker_nodes=3,
             tags={
                 "foo": "bar",
             })
@@ -1133,16 +1135,7 @@ class Cluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.msk.Cluster("example",
-            cluster_name="example",
-            kafka_version="3.8.x",
-            number_of_broker_nodes=3,
             broker_node_group_info={
-                "instance_type": "kafka.m5.4xlarge",
-                "client_subnets": [
-                    subnet_az1["id"],
-                    subnet_az2["id"],
-                    subnet_az3["id"],
-                ],
                 "storage_info": {
                     "ebs_storage_info": {
                         "provisioned_throughput": {
@@ -1152,8 +1145,17 @@ class Cluster(pulumi.CustomResource):
                         "volume_size": 1000,
                     },
                 },
+                "instance_type": "kafka.m5.4xlarge",
+                "client_subnets": [
+                    subnet_az1["id"],
+                    subnet_az2["id"],
+                    subnet_az3["id"],
+                ],
                 "security_groups": [sg["id"]],
-            })
+            },
+            cluster_name="example",
+            kafka_version="3.8.x",
+            number_of_broker_nodes=3)
         ```
 
         ## Import

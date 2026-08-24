@@ -359,15 +359,15 @@ class LifecycleHook(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foobar = aws.autoscaling.Group("foobar",
-            availability_zones=["us-west-2a"],
-            name="test-foobar5",
-            health_check_type="EC2",
-            termination_policies=["OldestInstance"],
             tags=[{
                 "key": "Foo",
                 "value": "foo-bar",
                 "propagate_at_launch": True,
-            }])
+            }],
+            availability_zones=["us-west-2a"],
+            name="test-foobar5",
+            health_check_type="EC2",
+            termination_policies=["OldestInstance"])
         foobar_lifecycle_hook = aws.autoscaling.LifecycleHook("foobar",
             name="foobar",
             autoscaling_group_name=foobar.name,
@@ -443,15 +443,15 @@ class LifecycleHook(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foobar = aws.autoscaling.Group("foobar",
-            availability_zones=["us-west-2a"],
-            name="test-foobar5",
-            health_check_type="EC2",
-            termination_policies=["OldestInstance"],
             tags=[{
                 "key": "Foo",
                 "value": "foo-bar",
                 "propagate_at_launch": True,
-            }])
+            }],
+            availability_zones=["us-west-2a"],
+            name="test-foobar5",
+            health_check_type="EC2",
+            termination_policies=["OldestInstance"])
         foobar_lifecycle_hook = aws.autoscaling.LifecycleHook("foobar",
             name="foobar",
             autoscaling_group_name=foobar.name,

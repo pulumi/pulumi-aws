@@ -69,6 +69,10 @@ namespace Pulumi.Aws.Rds
     ///         {
     ///             primaryClusterInstance,
     ///         },
+    ///         IgnoreChanges =
+    ///         {
+    ///             "replicationSourceIdentifier",
+    ///         },
     ///     });
     /// 
     ///     var secondaryClusterInstance = new Aws.Rds.ClusterInstance("secondary", new()
@@ -138,6 +142,10 @@ namespace Pulumi.Aws.Rds
     ///         {
     ///             primaryClusterInstance,
     ///         },
+    ///         IgnoreChanges =
+    ///         {
+    ///             "replicationSourceIdentifier",
+    ///         },
     ///     });
     /// 
     ///     var secondaryClusterInstance = new Aws.Rds.ClusterInstance("secondary", new()
@@ -163,7 +171,15 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Rds.Cluster("example");
+    ///     var example = new Aws.Rds.Cluster("example", new()
+    ///     {
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
+    ///         {
+    ///             "globalClusterIdentifier",
+    ///         },
+    ///     });
     /// 
     ///     var exampleGlobalCluster = new Aws.Rds.GlobalCluster("example", new()
     ///     {
@@ -206,6 +222,12 @@ namespace Pulumi.Aws.Rds
     ///         MasterPassword = "satsukimae",
     ///         MasterUsername = "maesatsuki",
     ///         SkipFinalSnapshot = true,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
+    ///         {
+    ///             "engineVersion",
+    ///         },
     ///     });
     /// 
     ///     var primaryClusterInstance = new Aws.Rds.ClusterInstance("primary", new()
@@ -241,7 +263,15 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Rds.GlobalCluster("example");
+    ///     var example = new Aws.Rds.GlobalCluster("example", new()
+    ///     {
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
+    ///         {
+    ///             "sourceDbClusterIdentifier",
+    ///         },
+    ///     });
     /// 
     /// });
     /// ```

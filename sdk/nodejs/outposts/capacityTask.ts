@@ -24,11 +24,11 @@ import * as utilities from "../utilities";
  *
  * const example = aws.outposts.getOutposts({});
  * const exampleCapacityTask = new aws.outposts.CapacityTask("example", {
- *     outpostIdentifier: example.then(example => example.arns?.[0]),
  *     instancePools: [{
  *         instanceType: "m5.large",
  *         count: 2,
  *     }],
+ *     outpostIdentifier: example.then(example => example.arns?.[0]),
  * });
  * ```
  *
@@ -42,9 +42,12 @@ import * as utilities from "../utilities";
  *     arn: "arn:aws:outposts:us-west-2:123456789012:outpost/op-1234567890abcdef",
  * });
  * const exampleCapacityTask = new aws.outposts.CapacityTask("example", {
- *     outpostIdentifier: "op-1234567890abcdef",
- *     taskActionOnBlockingInstances: "WAIT_FOR_EVACUATION",
- *     assetId: example.then(example => example.assetIds?.[0]),
+ *     instancesToExclude: {
+ *         instances: [
+ *             "i-0123456789abcdef0",
+ *             "i-0fedcba9876543210",
+ *         ],
+ *     },
  *     instancePools: [
  *         {
  *             instanceType: "m5.large",
@@ -55,11 +58,13 @@ import * as utilities from "../utilities";
  *             count: 2,
  *         },
  *     ],
- *     instancesToExclude: {
- *         instances: [
- *             "i-0123456789abcdef0",
- *             "i-0fedcba9876543210",
- *         ],
+ *     outpostIdentifier: "op-1234567890abcdef",
+ *     taskActionOnBlockingInstances: "WAIT_FOR_EVACUATION",
+ *     assetId: example.then(example => example.assetIds?.[0]),
+ * }, {
+ *     customTimeouts: {
+ *         create: "90m",
+ *         "delete": "15m",
  *     },
  * });
  * ```

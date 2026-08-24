@@ -325,16 +325,16 @@ class ContactsRotation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssm.ContactsRotation("example",
-            contact_ids=[example_aws_ssmcontacts_contact["arn"]],
-            name="rotation",
             recurrence={
-                "number_of_on_calls": 1,
-                "recurrence_multiplier": 1,
                 "daily_settings": [{
                     "hour_of_day": 9,
                     "minute_of_hour": 0,
                 }],
+                "number_of_on_calls": 1,
+                "recurrence_multiplier": 1,
             },
+            contact_ids=[example_aws_ssmcontacts_contact["arn"]],
+            name="rotation",
             time_zone_id="Australia/Sydney",
             opts = pulumi.ResourceOptions(depends_on=[example_aws_ssmincidents_replication_set]))
         ```
@@ -346,29 +346,8 @@ class ContactsRotation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssm.ContactsRotation("example",
-            contact_ids=[example_aws_ssmcontacts_contact["arn"]],
-            name="rotation",
             recurrence={
-                "number_of_on_calls": 1,
-                "recurrence_multiplier": 1,
-                "weekly_settings": [
-                    {
-                        "day_of_week": "WED",
-                        "hand_off_time": {
-                            "hour_of_day": 4,
-                            "minute_of_hour": 25,
-                        },
-                    },
-                    {
-                        "day_of_week": "FRI",
-                        "hand_off_time": {
-                            "hour_of_day": 15,
-                            "minute_of_hour": 57,
-                        },
-                    },
-                ],
                 "shift_coverages": [{
-                    "map_block_key": "MON",
                     "coverage_times": [{
                         "start": {
                             "hour_of_day": 1,
@@ -379,8 +358,29 @@ class ContactsRotation(pulumi.CustomResource):
                             "minute_of_hour": 0,
                         },
                     }],
+                    "map_block_key": "MON",
                 }],
+                "weekly_settings": [
+                    {
+                        "hand_off_time": {
+                            "hour_of_day": 4,
+                            "minute_of_hour": 25,
+                        },
+                        "day_of_week": "WED",
+                    },
+                    {
+                        "hand_off_time": {
+                            "hour_of_day": 15,
+                            "minute_of_hour": 57,
+                        },
+                        "day_of_week": "FRI",
+                    },
+                ],
+                "number_of_on_calls": 1,
+                "recurrence_multiplier": 1,
             },
+            contact_ids=[example_aws_ssmcontacts_contact["arn"]],
+            name="rotation",
             start_time="2023-07-20T02:21:49+00:00",
             time_zone_id="Australia/Sydney",
             tags={
@@ -397,28 +397,28 @@ class ContactsRotation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssm.ContactsRotation("example",
-            contact_ids=[example_aws_ssmcontacts_contact["arn"]],
-            name="rotation",
             recurrence={
-                "number_of_on_calls": 1,
-                "recurrence_multiplier": 1,
                 "monthly_settings": [
                     {
-                        "day_of_month": 20,
                         "hand_off_time": {
                             "hour_of_day": 8,
                             "minute_of_hour": 0,
                         },
+                        "day_of_month": 20,
                     },
                     {
-                        "day_of_month": 13,
                         "hand_off_time": {
                             "hour_of_day": 12,
                             "minute_of_hour": 34,
                         },
+                        "day_of_month": 13,
                     },
                 ],
+                "number_of_on_calls": 1,
+                "recurrence_multiplier": 1,
             },
+            contact_ids=[example_aws_ssmcontacts_contact["arn"]],
+            name="rotation",
             time_zone_id="Australia/Sydney",
             opts = pulumi.ResourceOptions(depends_on=[example_aws_ssmincidents_replication_set]))
         ```
@@ -470,16 +470,16 @@ class ContactsRotation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssm.ContactsRotation("example",
-            contact_ids=[example_aws_ssmcontacts_contact["arn"]],
-            name="rotation",
             recurrence={
-                "number_of_on_calls": 1,
-                "recurrence_multiplier": 1,
                 "daily_settings": [{
                     "hour_of_day": 9,
                     "minute_of_hour": 0,
                 }],
+                "number_of_on_calls": 1,
+                "recurrence_multiplier": 1,
             },
+            contact_ids=[example_aws_ssmcontacts_contact["arn"]],
+            name="rotation",
             time_zone_id="Australia/Sydney",
             opts = pulumi.ResourceOptions(depends_on=[example_aws_ssmincidents_replication_set]))
         ```
@@ -491,29 +491,8 @@ class ContactsRotation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssm.ContactsRotation("example",
-            contact_ids=[example_aws_ssmcontacts_contact["arn"]],
-            name="rotation",
             recurrence={
-                "number_of_on_calls": 1,
-                "recurrence_multiplier": 1,
-                "weekly_settings": [
-                    {
-                        "day_of_week": "WED",
-                        "hand_off_time": {
-                            "hour_of_day": 4,
-                            "minute_of_hour": 25,
-                        },
-                    },
-                    {
-                        "day_of_week": "FRI",
-                        "hand_off_time": {
-                            "hour_of_day": 15,
-                            "minute_of_hour": 57,
-                        },
-                    },
-                ],
                 "shift_coverages": [{
-                    "map_block_key": "MON",
                     "coverage_times": [{
                         "start": {
                             "hour_of_day": 1,
@@ -524,8 +503,29 @@ class ContactsRotation(pulumi.CustomResource):
                             "minute_of_hour": 0,
                         },
                     }],
+                    "map_block_key": "MON",
                 }],
+                "weekly_settings": [
+                    {
+                        "hand_off_time": {
+                            "hour_of_day": 4,
+                            "minute_of_hour": 25,
+                        },
+                        "day_of_week": "WED",
+                    },
+                    {
+                        "hand_off_time": {
+                            "hour_of_day": 15,
+                            "minute_of_hour": 57,
+                        },
+                        "day_of_week": "FRI",
+                    },
+                ],
+                "number_of_on_calls": 1,
+                "recurrence_multiplier": 1,
             },
+            contact_ids=[example_aws_ssmcontacts_contact["arn"]],
+            name="rotation",
             start_time="2023-07-20T02:21:49+00:00",
             time_zone_id="Australia/Sydney",
             tags={
@@ -542,28 +542,28 @@ class ContactsRotation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssm.ContactsRotation("example",
-            contact_ids=[example_aws_ssmcontacts_contact["arn"]],
-            name="rotation",
             recurrence={
-                "number_of_on_calls": 1,
-                "recurrence_multiplier": 1,
                 "monthly_settings": [
                     {
-                        "day_of_month": 20,
                         "hand_off_time": {
                             "hour_of_day": 8,
                             "minute_of_hour": 0,
                         },
+                        "day_of_month": 20,
                     },
                     {
-                        "day_of_month": 13,
                         "hand_off_time": {
                             "hour_of_day": 12,
                             "minute_of_hour": 34,
                         },
+                        "day_of_month": 13,
                     },
                 ],
+                "number_of_on_calls": 1,
+                "recurrence_multiplier": 1,
             },
+            contact_ids=[example_aws_ssmcontacts_contact["arn"]],
+            name="rotation",
             time_zone_id="Australia/Sydney",
             opts = pulumi.ResourceOptions(depends_on=[example_aws_ssmincidents_replication_set]))
         ```

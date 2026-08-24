@@ -42,13 +42,13 @@ import (
 //				return err
 //			}
 //			_, err = cfg.NewOrganizationConformancePack(ctx, "example", &cfg.OrganizationConformancePackArgs{
-//				Name: pulumi.String("example"),
 //				InputParameters: cfg.OrganizationConformancePackInputParameterArray{
 //					&cfg.OrganizationConformancePackInputParameterArgs{
 //						ParameterName:  pulumi.String("AccessKeysRotatedParameterMaxAccessKeyAge"),
 //						ParameterValue: pulumi.String("90"),
 //					},
 //				},
+//				Name: pulumi.String("example"),
 //				TemplateBody: pulumi.String(`Parameters:
 //	  AccessKeysRotatedParameterMaxAccessKeyAge:
 //	    Type: String

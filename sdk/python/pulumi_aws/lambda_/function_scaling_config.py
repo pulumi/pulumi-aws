@@ -253,15 +253,20 @@ class FunctionScalingConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.CapacityProvider("example",
-            name="example",
             vpc_config={
                 "subnet_ids": [__item["id"] for __item in example_aws_subnet],
                 "security_group_ids": [example_aws_security_group["id"]],
             },
             permissions_config={
                 "capacity_provider_operator_role_arn": example_aws_iam_role["arn"],
-            })
+            },
+            name="example")
         example_function = aws.lambda_.Function("example",
+            capacity_provider_config={
+                "lambda_managed_instances_capacity_provider_config": {
+                    "capacity_provider_arn": example.arn,
+                },
+            },
             code=pulumi.FileArchive("lambda_function.zip"),
             name="example",
             role=example_aws_iam_role["arn"],
@@ -269,19 +274,14 @@ class FunctionScalingConfig(pulumi.CustomResource):
             runtime=aws.lambda_.Runtime.PYTHON3D14,
             memory_size=32768,
             publish=True,
-            publish_to="LATEST_PUBLISHED",
-            capacity_provider_config={
-                "lambda_managed_instances_capacity_provider_config": {
-                    "capacity_provider_arn": example.arn,
-                },
-            })
+            publish_to="LATEST_PUBLISHED")
         example_function_scaling_config = aws.lambda_.FunctionScalingConfig("example",
-            function_name=example_function.name,
-            qualifier="$LATEST.PUBLISHED",
             function_scaling_config={
                 "min_execution_environments": 3,
                 "max_execution_environments": 100,
-            })
+            },
+            function_name=example_function.name,
+            qualifier="$LATEST.PUBLISHED")
         ```
 
         ## Import
@@ -336,15 +336,20 @@ class FunctionScalingConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.CapacityProvider("example",
-            name="example",
             vpc_config={
                 "subnet_ids": [__item["id"] for __item in example_aws_subnet],
                 "security_group_ids": [example_aws_security_group["id"]],
             },
             permissions_config={
                 "capacity_provider_operator_role_arn": example_aws_iam_role["arn"],
-            })
+            },
+            name="example")
         example_function = aws.lambda_.Function("example",
+            capacity_provider_config={
+                "lambda_managed_instances_capacity_provider_config": {
+                    "capacity_provider_arn": example.arn,
+                },
+            },
             code=pulumi.FileArchive("lambda_function.zip"),
             name="example",
             role=example_aws_iam_role["arn"],
@@ -352,19 +357,14 @@ class FunctionScalingConfig(pulumi.CustomResource):
             runtime=aws.lambda_.Runtime.PYTHON3D14,
             memory_size=32768,
             publish=True,
-            publish_to="LATEST_PUBLISHED",
-            capacity_provider_config={
-                "lambda_managed_instances_capacity_provider_config": {
-                    "capacity_provider_arn": example.arn,
-                },
-            })
+            publish_to="LATEST_PUBLISHED")
         example_function_scaling_config = aws.lambda_.FunctionScalingConfig("example",
-            function_name=example_function.name,
-            qualifier="$LATEST.PUBLISHED",
             function_scaling_config={
                 "min_execution_environments": 3,
                 "max_execution_environments": 100,
-            })
+            },
+            function_name=example_function.name,
+            qualifier="$LATEST.PUBLISHED")
         ```
 
         ## Import

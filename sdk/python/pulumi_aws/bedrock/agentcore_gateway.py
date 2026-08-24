@@ -595,20 +595,17 @@ class AgentcoreGateway(pulumi.CustomResource):
         import pulumi_aws as aws
 
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["bedrock-agentcore.amazonaws.com"],
             }],
+            "effect": "Allow",
+            "actions": ["sts:AssumeRole"],
         }])
         example = aws.iam.Role("example",
             name="bedrock-agentcore-gateway-role",
             assume_role_policy=assume_role.json)
         example_agentcore_gateway = aws.bedrock.AgentcoreGateway("example",
-            name="example-gateway",
-            role_arn=example.arn,
-            authorizer_type="CUSTOM_JWT",
             authorizer_configuration={
                 "custom_jwt_authorizer": {
                     "discovery_url": "https://accounts.google.com/.well-known/openid-configuration",
@@ -618,6 +615,9 @@ class AgentcoreGateway(pulumi.CustomResource):
                     ],
                 },
             },
+            name="example-gateway",
+            role_arn=example.arn,
+            authorizer_type="CUSTOM_JWT",
             protocol_type="MCP")
         ```
 
@@ -628,10 +628,6 @@ class AgentcoreGateway(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentcoreGateway("example",
-            name="mcp-gateway",
-            description="Gateway for MCP communication",
-            role_arn=example_aws_iam_role["arn"],
-            authorizer_type="CUSTOM_JWT",
             authorizer_configuration={
                 "custom_jwt_authorizer": {
                     "discovery_url": "https://auth.example.com/.well-known/openid-configuration",
@@ -649,7 +645,6 @@ class AgentcoreGateway(pulumi.CustomResource):
                     ],
                 },
             },
-            protocol_type="MCP",
             protocol_configuration={
                 "mcp": {
                     "instructions": "Gateway for handling MCP requests",
@@ -659,7 +654,12 @@ class AgentcoreGateway(pulumi.CustomResource):
                         "2025-06-18",
                     ],
                 },
-            })
+            },
+            name="mcp-gateway",
+            description="Gateway for MCP communication",
+            role_arn=example_aws_iam_role["arn"],
+            authorizer_type="CUSTOM_JWT",
+            protocol_type="MCP")
         ```
 
         ### Gateway with Interceptor Configuration
@@ -675,15 +675,7 @@ class AgentcoreGateway(pulumi.CustomResource):
             handler="index.handler",
             runtime=aws.lambda_.Runtime.PYTHON3D12)
         example = aws.bedrock.AgentcoreGateway("example",
-            name="gateway-with-interceptor",
-            role_arn=example_aws_iam_role["arn"],
-            authorizer_type="AWS_IAM",
-            protocol_type="MCP",
             interceptor_configurations=[{
-                "interception_points": [
-                    "REQUEST",
-                    "RESPONSE",
-                ],
                 "interceptor": {
                     "lambda_": {
                         "arn": interceptor.arn,
@@ -692,7 +684,15 @@ class AgentcoreGateway(pulumi.CustomResource):
                 "input_configuration": {
                     "pass_request_headers": True,
                 },
-            }])
+                "interception_points": [
+                    "REQUEST",
+                    "RESPONSE",
+                ],
+            }],
+            name="gateway-with-interceptor",
+            role_arn=example_aws_iam_role["arn"],
+            authorizer_type="AWS_IAM",
+            protocol_type="MCP")
         ```
 
         ## Import
@@ -740,20 +740,17 @@ class AgentcoreGateway(pulumi.CustomResource):
         import pulumi_aws as aws
 
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["bedrock-agentcore.amazonaws.com"],
             }],
+            "effect": "Allow",
+            "actions": ["sts:AssumeRole"],
         }])
         example = aws.iam.Role("example",
             name="bedrock-agentcore-gateway-role",
             assume_role_policy=assume_role.json)
         example_agentcore_gateway = aws.bedrock.AgentcoreGateway("example",
-            name="example-gateway",
-            role_arn=example.arn,
-            authorizer_type="CUSTOM_JWT",
             authorizer_configuration={
                 "custom_jwt_authorizer": {
                     "discovery_url": "https://accounts.google.com/.well-known/openid-configuration",
@@ -763,6 +760,9 @@ class AgentcoreGateway(pulumi.CustomResource):
                     ],
                 },
             },
+            name="example-gateway",
+            role_arn=example.arn,
+            authorizer_type="CUSTOM_JWT",
             protocol_type="MCP")
         ```
 
@@ -773,10 +773,6 @@ class AgentcoreGateway(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentcoreGateway("example",
-            name="mcp-gateway",
-            description="Gateway for MCP communication",
-            role_arn=example_aws_iam_role["arn"],
-            authorizer_type="CUSTOM_JWT",
             authorizer_configuration={
                 "custom_jwt_authorizer": {
                     "discovery_url": "https://auth.example.com/.well-known/openid-configuration",
@@ -794,7 +790,6 @@ class AgentcoreGateway(pulumi.CustomResource):
                     ],
                 },
             },
-            protocol_type="MCP",
             protocol_configuration={
                 "mcp": {
                     "instructions": "Gateway for handling MCP requests",
@@ -804,7 +799,12 @@ class AgentcoreGateway(pulumi.CustomResource):
                         "2025-06-18",
                     ],
                 },
-            })
+            },
+            name="mcp-gateway",
+            description="Gateway for MCP communication",
+            role_arn=example_aws_iam_role["arn"],
+            authorizer_type="CUSTOM_JWT",
+            protocol_type="MCP")
         ```
 
         ### Gateway with Interceptor Configuration
@@ -820,15 +820,7 @@ class AgentcoreGateway(pulumi.CustomResource):
             handler="index.handler",
             runtime=aws.lambda_.Runtime.PYTHON3D12)
         example = aws.bedrock.AgentcoreGateway("example",
-            name="gateway-with-interceptor",
-            role_arn=example_aws_iam_role["arn"],
-            authorizer_type="AWS_IAM",
-            protocol_type="MCP",
             interceptor_configurations=[{
-                "interception_points": [
-                    "REQUEST",
-                    "RESPONSE",
-                ],
                 "interceptor": {
                     "lambda_": {
                         "arn": interceptor.arn,
@@ -837,7 +829,15 @@ class AgentcoreGateway(pulumi.CustomResource):
                 "input_configuration": {
                     "pass_request_headers": True,
                 },
-            }])
+                "interception_points": [
+                    "REQUEST",
+                    "RESPONSE",
+                ],
+            }],
+            name="gateway-with-interceptor",
+            role_arn=example_aws_iam_role["arn"],
+            authorizer_type="AWS_IAM",
+            protocol_type="MCP")
         ```
 
         ## Import

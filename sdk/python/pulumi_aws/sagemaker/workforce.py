@@ -292,11 +292,11 @@ class Workforce(pulumi.CustomResource):
             domain="example",
             user_pool_id=example_user_pool.id)
         example = aws.sagemaker.Workforce("example",
-            workforce_name="example",
             cognito_config={
                 "client_id": example_user_pool_client.id,
                 "user_pool": example_user_pool_domain.user_pool_id,
-            })
+            },
+            workforce_name="example")
         ```
 
         ### Oidc Usage
@@ -306,7 +306,6 @@ class Workforce(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.Workforce("example",
-            workforce_name="example",
             oidc_config={
                 "authorization_endpoint": "https://example.com",
                 "client_id": "example",
@@ -316,7 +315,8 @@ class Workforce(pulumi.CustomResource):
                 "logout_endpoint": "https://example.com",
                 "token_endpoint": "https://example.com",
                 "user_info_endpoint": "https://example.com",
-            })
+            },
+            workforce_name="example")
         ```
 
         ## Import
@@ -363,11 +363,11 @@ class Workforce(pulumi.CustomResource):
             domain="example",
             user_pool_id=example_user_pool.id)
         example = aws.sagemaker.Workforce("example",
-            workforce_name="example",
             cognito_config={
                 "client_id": example_user_pool_client.id,
                 "user_pool": example_user_pool_domain.user_pool_id,
-            })
+            },
+            workforce_name="example")
         ```
 
         ### Oidc Usage
@@ -377,7 +377,6 @@ class Workforce(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.Workforce("example",
-            workforce_name="example",
             oidc_config={
                 "authorization_endpoint": "https://example.com",
                 "client_id": "example",
@@ -387,7 +386,8 @@ class Workforce(pulumi.CustomResource):
                 "logout_endpoint": "https://example.com",
                 "token_endpoint": "https://example.com",
                 "user_info_endpoint": "https://example.com",
-            })
+            },
+            workforce_name="example")
         ```
 
         ## Import

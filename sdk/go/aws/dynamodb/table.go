@@ -40,12 +40,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := dynamodb.NewTable(ctx, "basic-dynamodb-table", &dynamodb.TableArgs{
-//				Name:          pulumi.String("GameScores"),
-//				BillingMode:   pulumi.String("PROVISIONED"),
-//				ReadCapacity:  pulumi.Int(20),
-//				WriteCapacity: pulumi.Int(20),
-//				HashKey:       pulumi.String("UserId"),
-//				RangeKey:      pulumi.String("GameTitle"),
+//				Ttl: &dynamodb.TableTtlArgs{
+//					AttributeName: pulumi.String("TimeToExist"),
+//					Enabled:       pulumi.Bool(true),
+//				},
 //				Attributes: dynamodb.TableAttributeArray{
 //					&dynamodb.TableAttributeArgs{
 //						Name: pulumi.String("UserId"),
@@ -60,10 +58,6 @@ import (
 //						Type: pulumi.String("N"),
 //					},
 //				},
-//				Ttl: &dynamodb.TableTtlArgs{
-//					AttributeName: pulumi.String("TimeToExist"),
-//					Enabled:       pulumi.Bool(true),
-//				},
 //				GlobalSecondaryIndexes: dynamodb.TableGlobalSecondaryIndexArray{
 //					&dynamodb.TableGlobalSecondaryIndexArgs{
 //						Name:           pulumi.String("GameTitleIndex"),
@@ -77,6 +71,12 @@ import (
 //						},
 //					},
 //				},
+//				Name:          pulumi.String("GameScores"),
+//				BillingMode:   pulumi.String("PROVISIONED"),
+//				ReadCapacity:  pulumi.Int(20),
+//				WriteCapacity: pulumi.Int(20),
+//				HashKey:       pulumi.String("UserId"),
+//				RangeKey:      pulumi.String("GameTitle"),
 //				Tags: pulumi.StringMap{
 //					"Name":        pulumi.String("dynamodb-table-1"),
 //					"Environment": pulumi.String("production"),
@@ -110,11 +110,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := dynamodb.NewTable(ctx, "basic-dynamodb-table", &dynamodb.TableArgs{
-//				Name:          pulumi.String("TournamentMatches"),
-//				BillingMode:   pulumi.String("PROVISIONED"),
-//				ReadCapacity:  pulumi.Int(20),
-//				WriteCapacity: pulumi.Int(20),
-//				HashKey:       pulumi.String("matchId"),
+//				Ttl: &dynamodb.TableTtlArgs{
+//					AttributeName: pulumi.String("TimeToExist"),
+//					Enabled:       pulumi.Bool(true),
+//				},
 //				Attributes: dynamodb.TableAttributeArray{
 //					&dynamodb.TableAttributeArgs{
 //						Name: pulumi.String("matchId"),
@@ -145,13 +144,8 @@ import (
 //						Type: pulumi.String("S"),
 //					},
 //				},
-//				Ttl: &dynamodb.TableTtlArgs{
-//					AttributeName: pulumi.String("TimeToExist"),
-//					Enabled:       pulumi.Bool(true),
-//				},
 //				GlobalSecondaryIndexes: dynamodb.TableGlobalSecondaryIndexArray{
 //					&dynamodb.TableGlobalSecondaryIndexArgs{
-//						Name: pulumi.String("TournamentRegionIndex"),
 //						KeySchemas: dynamodb.TableGlobalSecondaryIndexKeySchemaArray{
 //							&dynamodb.TableGlobalSecondaryIndexKeySchemaArgs{
 //								AttributeName: pulumi.String("tournamentId"),
@@ -174,12 +168,12 @@ import (
 //								KeyType:       pulumi.String("RANGE"),
 //							},
 //						},
+//						Name:           pulumi.String("TournamentRegionIndex"),
 //						WriteCapacity:  pulumi.Int(10),
 //						ReadCapacity:   pulumi.Int(10),
 //						ProjectionType: pulumi.String("ALL"),
 //					},
 //					&dynamodb.TableGlobalSecondaryIndexArgs{
-//						Name: pulumi.String("PlayerMatchHistoryIndex"),
 //						KeySchemas: dynamodb.TableGlobalSecondaryIndexKeySchemaArray{
 //							&dynamodb.TableGlobalSecondaryIndexKeySchemaArgs{
 //								AttributeName: pulumi.String("playerId"),
@@ -194,11 +188,17 @@ import (
 //								KeyType:       pulumi.String("RANGE"),
 //							},
 //						},
+//						Name:           pulumi.String("PlayerMatchHistoryIndex"),
 //						WriteCapacity:  pulumi.Int(10),
 //						ReadCapacity:   pulumi.Int(10),
 //						ProjectionType: pulumi.String("ALL"),
 //					},
 //				},
+//				Name:          pulumi.String("TournamentMatches"),
+//				BillingMode:   pulumi.String("PROVISIONED"),
+//				ReadCapacity:  pulumi.Int(20),
+//				WriteCapacity: pulumi.Int(20),
+//				HashKey:       pulumi.String("matchId"),
 //				Tags: pulumi.StringMap{
 //					"Name":        pulumi.String("dynamodb-table-1"),
 //					"Environment": pulumi.String("production"),
@@ -232,11 +232,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := dynamodb.NewTable(ctx, "example", &dynamodb.TableArgs{
-//				Name:           pulumi.String("example"),
-//				HashKey:        pulumi.String("TestTableHashKey"),
-//				BillingMode:    pulumi.String("PAY_PER_REQUEST"),
-//				StreamEnabled:  pulumi.Bool(true),
-//				StreamViewType: pulumi.String("NEW_AND_OLD_IMAGES"),
 //				Attributes: dynamodb.TableAttributeArray{
 //					&dynamodb.TableAttributeArgs{
 //						Name: pulumi.String("TestTableHashKey"),
@@ -251,6 +246,11 @@ import (
 //						RegionName: pulumi.String("us-west-2"),
 //					},
 //				},
+//				Name:           pulumi.String("example"),
+//				HashKey:        pulumi.String("TestTableHashKey"),
+//				BillingMode:    pulumi.String("PAY_PER_REQUEST"),
+//				StreamEnabled:  pulumi.Bool(true),
+//				StreamViewType: pulumi.String("NEW_AND_OLD_IMAGES"),
 //			})
 //			if err != nil {
 //				return err
@@ -286,11 +286,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := dynamodb.NewTable(ctx, "example", &dynamodb.TableArgs{
-//				Name:           pulumi.String("example"),
-//				HashKey:        pulumi.String("TestTableHashKey"),
-//				BillingMode:    pulumi.String("PAY_PER_REQUEST"),
-//				StreamEnabled:  pulumi.Bool(true),
-//				StreamViewType: pulumi.String("NEW_AND_OLD_IMAGES"),
 //				Attributes: dynamodb.TableAttributeArray{
 //					&dynamodb.TableAttributeArgs{
 //						Name: pulumi.String("TestTableHashKey"),
@@ -307,6 +302,11 @@ import (
 //						ConsistencyMode: pulumi.String("STRONG"),
 //					},
 //				},
+//				Name:           pulumi.String("example"),
+//				HashKey:        pulumi.String("TestTableHashKey"),
+//				BillingMode:    pulumi.String("PAY_PER_REQUEST"),
+//				StreamEnabled:  pulumi.Bool(true),
+//				StreamViewType: pulumi.String("NEW_AND_OLD_IMAGES"),
 //			})
 //			if err != nil {
 //				return err
@@ -332,11 +332,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := dynamodb.NewTable(ctx, "example", &dynamodb.TableArgs{
-//				Name:           pulumi.String("example"),
-//				HashKey:        pulumi.String("TestTableHashKey"),
-//				BillingMode:    pulumi.String("PAY_PER_REQUEST"),
-//				StreamEnabled:  pulumi.Bool(true),
-//				StreamViewType: pulumi.String("NEW_AND_OLD_IMAGES"),
+//				GlobalTableWitness: &dynamodb.TableGlobalTableWitnessArgs{
+//					RegionName: pulumi.String("us-west-2"),
+//				},
 //				Attributes: dynamodb.TableAttributeArray{
 //					&dynamodb.TableAttributeArgs{
 //						Name: pulumi.String("TestTableHashKey"),
@@ -349,9 +347,11 @@ import (
 //						ConsistencyMode: pulumi.String("STRONG"),
 //					},
 //				},
-//				GlobalTableWitness: &dynamodb.TableGlobalTableWitnessArgs{
-//					RegionName: pulumi.String("us-west-2"),
-//				},
+//				Name:           pulumi.String("example"),
+//				HashKey:        pulumi.String("TestTableHashKey"),
+//				BillingMode:    pulumi.String("PAY_PER_REQUEST"),
+//				StreamEnabled:  pulumi.Bool(true),
+//				StreamViewType: pulumi.String("NEW_AND_OLD_IMAGES"),
 //			})
 //			if err != nil {
 //				return err
@@ -393,11 +393,6 @@ import (
 //				return err
 //			}
 //			example, err := dynamodb.NewTable(ctx, "example", &dynamodb.TableArgs{
-//				BillingMode:    pulumi.String("PAY_PER_REQUEST"),
-//				HashKey:        pulumi.String("TestTableHashKey"),
-//				Name:           pulumi.String("example-13281"),
-//				StreamEnabled:  pulumi.Bool(true),
-//				StreamViewType: pulumi.String("NEW_AND_OLD_IMAGES"),
 //				Attributes: dynamodb.TableAttributeArray{
 //					&dynamodb.TableAttributeArgs{
 //						Name: pulumi.String("TestTableHashKey"),
@@ -413,6 +408,11 @@ import (
 //						PropagateTags: pulumi.Bool(true),
 //					},
 //				},
+//				BillingMode:    pulumi.String("PAY_PER_REQUEST"),
+//				HashKey:        pulumi.String("TestTableHashKey"),
+//				Name:           pulumi.String("example-13281"),
+//				StreamEnabled:  pulumi.Bool(true),
+//				StreamViewType: pulumi.String("NEW_AND_OLD_IMAGES"),
 //				Tags: pulumi.StringMap{
 //					"Architect": pulumi.String("Eleanor"),
 //					"Zone":      pulumi.String("SW"),

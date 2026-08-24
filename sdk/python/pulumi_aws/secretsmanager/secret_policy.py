@@ -192,12 +192,12 @@ class SecretPolicy(pulumi.CustomResource):
 
         example_secret = aws.secretsmanager.Secret("example", name="example")
         example = aws.iam.get_policy_document(statements=[{
-            "sid": "EnableAnotherAWSAccountToReadTheSecret",
-            "effect": "Allow",
             "principals": [{
                 "type": "AWS",
                 "identifiers": ["arn:aws:iam::123456789012:root"],
             }],
+            "sid": "EnableAnotherAWSAccountToReadTheSecret",
+            "effect": "Allow",
             "actions": ["secretsmanager:GetSecretValue"],
             "resources": ["*"],
         }])
@@ -249,12 +249,12 @@ class SecretPolicy(pulumi.CustomResource):
 
         example_secret = aws.secretsmanager.Secret("example", name="example")
         example = aws.iam.get_policy_document(statements=[{
-            "sid": "EnableAnotherAWSAccountToReadTheSecret",
-            "effect": "Allow",
             "principals": [{
                 "type": "AWS",
                 "identifiers": ["arn:aws:iam::123456789012:root"],
             }],
+            "sid": "EnableAnotherAWSAccountToReadTheSecret",
+            "effect": "Allow",
             "actions": ["secretsmanager:GetSecretValue"],
             "resources": ["*"],
         }])

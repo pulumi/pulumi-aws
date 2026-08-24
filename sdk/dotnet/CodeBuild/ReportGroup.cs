@@ -30,8 +30,6 @@ namespace Pulumi.Aws.CodeBuild
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Sid = "Enable IAM User Permissions",
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -43,6 +41,8 @@ namespace Pulumi.Aws.CodeBuild
     ///                         },
     ///                     },
     ///                 },
+    ///                 Sid = "Enable IAM User Permissions",
+    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "kms:*",
@@ -69,11 +69,8 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     ///     var exampleReportGroup = new Aws.CodeBuild.ReportGroup("example", new()
     ///     {
-    ///         Name = "my test report group",
-    ///         Type = "TEST",
     ///         ExportConfig = new Aws.CodeBuild.Inputs.ReportGroupExportConfigArgs
     ///         {
-    ///             Type = "S3",
     ///             S3Destination = new Aws.CodeBuild.Inputs.ReportGroupExportConfigS3DestinationArgs
     ///             {
     ///                 Bucket = exampleBucket.Id,
@@ -82,7 +79,10 @@ namespace Pulumi.Aws.CodeBuild
     ///                 Packaging = "NONE",
     ///                 Path = "/some",
     ///             },
+    ///             Type = "S3",
     ///         },
+    ///         Name = "my test report group",
+    ///         Type = "TEST",
     ///     });
     /// 
     /// });

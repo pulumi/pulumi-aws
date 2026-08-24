@@ -385,11 +385,11 @@ class Repository(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foo = aws.ecr.Repository("foo",
-            name="bar",
-            image_tag_mutability="MUTABLE",
             image_scanning_configuration={
                 "scan_on_push": True,
-            })
+            },
+            name="bar",
+            image_tag_mutability="MUTABLE")
         ```
 
         ### With Image Tag Mutability Exclusion
@@ -399,8 +399,6 @@ class Repository(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecr.Repository("example",
-            name="example-repo",
-            image_tag_mutability="IMMUTABLE_WITH_EXCLUSION",
             image_tag_mutability_exclusion_filters=[
                 {
                     "filter": "latest*",
@@ -410,7 +408,9 @@ class Repository(pulumi.CustomResource):
                     "filter": "dev-*",
                     "filter_type": "WILDCARD",
                 },
-            ])
+            ],
+            name="example-repo",
+            image_tag_mutability="IMMUTABLE_WITH_EXCLUSION")
         ```
 
         ## Import
@@ -461,11 +461,11 @@ class Repository(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foo = aws.ecr.Repository("foo",
-            name="bar",
-            image_tag_mutability="MUTABLE",
             image_scanning_configuration={
                 "scan_on_push": True,
-            })
+            },
+            name="bar",
+            image_tag_mutability="MUTABLE")
         ```
 
         ### With Image Tag Mutability Exclusion
@@ -475,8 +475,6 @@ class Repository(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecr.Repository("example",
-            name="example-repo",
-            image_tag_mutability="IMMUTABLE_WITH_EXCLUSION",
             image_tag_mutability_exclusion_filters=[
                 {
                     "filter": "latest*",
@@ -486,7 +484,9 @@ class Repository(pulumi.CustomResource):
                     "filter": "dev-*",
                     "filter_type": "WILDCARD",
                 },
-            ])
+            ],
+            name="example-repo",
+            image_tag_mutability="IMMUTABLE_WITH_EXCLUSION")
         ```
 
         ## Import

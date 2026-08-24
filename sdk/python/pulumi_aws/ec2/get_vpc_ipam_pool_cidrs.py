@@ -126,17 +126,17 @@ def get_vpc_ipam_pool_cidrs(filters: Optional[Sequence[Union['GetVpcIpamPoolCidr
     import pulumi
     import pulumi_aws as aws
 
-    c = aws.ec2.get_vpc_ipam_pool_cidrs(ipam_pool_id="ipam-pool-123",
-        filters=[{
+    c = aws.ec2.get_vpc_ipam_pool_cidrs(filters=[{
             "name": "cidr",
             "values": ["10.*"],
-        }])
+        }],
+        ipam_pool_id="ipam-pool-123")
     mycidrs = [cidr.cidr for cidr in c.ipam_pool_cidrs if cidr.state == "provisioned"]
     pls = aws.ec2.ManagedPrefixList("pls",
-        entries=[{"key": k, "value": v} for k, v in sorted(mycidrs.items())].apply(lambda entries: [aws.ec2.ManagedPrefixListEntryArgs(
-            cidr=entry["value"],
-            description=entry["value"],
-        ) for entry in entries]),
+        entries=[{
+            "cidr": entry,
+            "description": entry,
+        } for entry in mycidrs],
         name=f"IPAM Pool ({test['id']}) Cidrs",
         address_family="IPv4",
         max_entries=len(mycidrs))
@@ -196,17 +196,17 @@ def get_vpc_ipam_pool_cidrs_output(filters: pulumi.Input[Optional[Optional[Seque
     import pulumi
     import pulumi_aws as aws
 
-    c = aws.ec2.get_vpc_ipam_pool_cidrs(ipam_pool_id="ipam-pool-123",
-        filters=[{
+    c = aws.ec2.get_vpc_ipam_pool_cidrs(filters=[{
             "name": "cidr",
             "values": ["10.*"],
-        }])
+        }],
+        ipam_pool_id="ipam-pool-123")
     mycidrs = [cidr.cidr for cidr in c.ipam_pool_cidrs if cidr.state == "provisioned"]
     pls = aws.ec2.ManagedPrefixList("pls",
-        entries=[{"key": k, "value": v} for k, v in sorted(mycidrs.items())].apply(lambda entries: [aws.ec2.ManagedPrefixListEntryArgs(
-            cidr=entry["value"],
-            description=entry["value"],
-        ) for entry in entries]),
+        entries=[{
+            "cidr": entry,
+            "description": entry,
+        } for entry in mycidrs],
         name=f"IPAM Pool ({test['id']}) Cidrs",
         address_family="IPv4",
         max_entries=len(mycidrs))

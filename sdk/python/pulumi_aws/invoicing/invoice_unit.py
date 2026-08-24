@@ -372,12 +372,12 @@ class InvoiceUnit(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.invoicing.InvoiceUnit("example",
-            name="example-unit",
-            description="Example invoice unit",
-            invoice_receiver="123456789012",
             rules=[{
                 "linked_accounts": ["098765432109"],
             }],
+            name="example-unit",
+            description="Example invoice unit",
+            invoice_receiver="123456789012",
             tags={
                 "Environment": "production",
             })
@@ -426,12 +426,12 @@ class InvoiceUnit(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.invoicing.InvoiceUnit("example",
-            name="example-unit",
-            description="Example invoice unit",
-            invoice_receiver="123456789012",
             rules=[{
                 "linked_accounts": ["098765432109"],
             }],
+            name="example-unit",
+            description="Example invoice unit",
+            invoice_receiver="123456789012",
             tags={
                 "Environment": "production",
             })

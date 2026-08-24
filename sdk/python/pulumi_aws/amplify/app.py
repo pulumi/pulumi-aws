@@ -878,6 +878,11 @@ class App(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.amplify.App("example",
+            custom_rules=[{
+                "source": "/<*>",
+                "status": "404",
+                "target": "/index.html",
+            }],
             name="example",
             repository="https://github.com/example/app",
             build_spec=\"\"\"version: 0.1
@@ -897,11 +902,6 @@ class App(pulumi.CustomResource):
             paths:
               - node_modules/**/*
         \"\"\",
-            custom_rules=[{
-                "source": "/<*>",
-                "status": "404",
-                "target": "/index.html",
-            }],
             environment_variables={
                 "ENV": "test",
             })
@@ -930,15 +930,15 @@ class App(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.amplify.App("example",
+            auto_branch_creation_config={
+                "enable_auto_build": True,
+            },
             name="example",
             enable_auto_branch_creation=True,
             auto_branch_creation_patterns=[
                 "*",
                 "*/**",
-            ],
-            auto_branch_creation_config={
-                "enable_auto_build": True,
-            })
+            ])
         ```
 
         ### Basic Authorization
@@ -961,7 +961,6 @@ class App(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.amplify.App("example",
-            name="example",
             custom_rules=[
                 {
                     "source": "/api/<*>",
@@ -973,7 +972,8 @@ class App(pulumi.CustomResource):
                     "status": "200",
                     "target": "/index.html",
                 },
-            ])
+            ],
+            name="example")
         ```
 
         ### Custom Image
@@ -1020,10 +1020,10 @@ class App(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.amplify.App("example",
-            name="example",
             job_config={
                 "build_compute_type": "STANDARD_8GB",
-            })
+            },
+            name="example")
         ```
 
         ## Import
@@ -1081,6 +1081,11 @@ class App(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.amplify.App("example",
+            custom_rules=[{
+                "source": "/<*>",
+                "status": "404",
+                "target": "/index.html",
+            }],
             name="example",
             repository="https://github.com/example/app",
             build_spec=\"\"\"version: 0.1
@@ -1100,11 +1105,6 @@ class App(pulumi.CustomResource):
             paths:
               - node_modules/**/*
         \"\"\",
-            custom_rules=[{
-                "source": "/<*>",
-                "status": "404",
-                "target": "/index.html",
-            }],
             environment_variables={
                 "ENV": "test",
             })
@@ -1133,15 +1133,15 @@ class App(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.amplify.App("example",
+            auto_branch_creation_config={
+                "enable_auto_build": True,
+            },
             name="example",
             enable_auto_branch_creation=True,
             auto_branch_creation_patterns=[
                 "*",
                 "*/**",
-            ],
-            auto_branch_creation_config={
-                "enable_auto_build": True,
-            })
+            ])
         ```
 
         ### Basic Authorization
@@ -1164,7 +1164,6 @@ class App(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.amplify.App("example",
-            name="example",
             custom_rules=[
                 {
                     "source": "/api/<*>",
@@ -1176,7 +1175,8 @@ class App(pulumi.CustomResource):
                     "status": "200",
                     "target": "/index.html",
                 },
-            ])
+            ],
+            name="example")
         ```
 
         ### Custom Image
@@ -1223,10 +1223,10 @@ class App(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.amplify.App("example",
-            name="example",
             job_config={
                 "build_compute_type": "STANDARD_8GB",
-            })
+            },
+            name="example")
         ```
 
         ## Import

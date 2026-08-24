@@ -20,16 +20,7 @@ import * as utilities from "../utilities";
  *     clusterIdentifier: "example-cluster",
  * });
  * const exampleStream = new aws.kinesis.FirehoseDeliveryStream("example_stream", {
- *     name: "kinesis-firehose-example-stream",
- *     destination: "redshift",
  *     redshiftConfiguration: {
- *         roleArn: firehoseRole.arn,
- *         clusterJdbcurl: example.then(example => `jdbc:redshift://${example.endpoint}/${example.databaseName}`),
- *         username: "exampleuser",
- *         password: "Exampl3Pass",
- *         dataTableName: "example-table",
- *         copyOptions: "delimiter '|'",
- *         dataTableColumns: "example-col",
  *         s3Configuration: {
  *             roleArn: firehoseRole.arn,
  *             bucketArn: bucket.arn,
@@ -37,7 +28,16 @@ import * as utilities from "../utilities";
  *             bufferInterval: 400,
  *             compressionFormat: "GZIP",
  *         },
+ *         roleArn: firehoseRole.arn,
+ *         clusterJdbcurl: example.then(example => `jdbc:redshift://${example.endpoint}/${example.databaseName}`),
+ *         username: "exampleuser",
+ *         password: "Exampl3Pass",
+ *         dataTableName: "example-table",
+ *         copyOptions: "delimiter '|'",
+ *         dataTableColumns: "example-col",
  *     },
+ *     name: "kinesis-firehose-example-stream",
+ *     destination: "redshift",
  * });
  * ```
  */
@@ -248,16 +248,7 @@ export interface GetClusterResult {
  *     clusterIdentifier: "example-cluster",
  * });
  * const exampleStream = new aws.kinesis.FirehoseDeliveryStream("example_stream", {
- *     name: "kinesis-firehose-example-stream",
- *     destination: "redshift",
  *     redshiftConfiguration: {
- *         roleArn: firehoseRole.arn,
- *         clusterJdbcurl: example.then(example => `jdbc:redshift://${example.endpoint}/${example.databaseName}`),
- *         username: "exampleuser",
- *         password: "Exampl3Pass",
- *         dataTableName: "example-table",
- *         copyOptions: "delimiter '|'",
- *         dataTableColumns: "example-col",
  *         s3Configuration: {
  *             roleArn: firehoseRole.arn,
  *             bucketArn: bucket.arn,
@@ -265,7 +256,16 @@ export interface GetClusterResult {
  *             bufferInterval: 400,
  *             compressionFormat: "GZIP",
  *         },
+ *         roleArn: firehoseRole.arn,
+ *         clusterJdbcurl: example.then(example => `jdbc:redshift://${example.endpoint}/${example.databaseName}`),
+ *         username: "exampleuser",
+ *         password: "Exampl3Pass",
+ *         dataTableName: "example-table",
+ *         copyOptions: "delimiter '|'",
+ *         dataTableColumns: "example-col",
  *     },
+ *     name: "kinesis-firehose-example-stream",
+ *     destination: "redshift",
  * });
  * ```
  */

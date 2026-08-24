@@ -19,9 +19,23 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.msk.Replicator("test", {
- *     replicatorName: "test-name",
- *     description: "test-description",
- *     serviceExecutionRoleArn: sourceAwsIamRole.arn,
+ *     replicationInfoList: {
+ *         consumerGroupReplications: [{
+ *             consumerGroupsToReplicates: [".*"],
+ *         }],
+ *         topicReplications: [{
+ *             topicNameConfiguration: {
+ *                 type: "PREFIXED_WITH_SOURCE_CLUSTER_ALIAS",
+ *             },
+ *             startingPosition: {
+ *                 type: "LATEST",
+ *             },
+ *             topicsToReplicates: [".*"],
+ *         }],
+ *         sourceKafkaClusterArn: source.arn,
+ *         targetKafkaClusterArn: target.arn,
+ *         targetCompressionType: "NONE",
+ *     },
  *     kafkaClusters: [
  *         {
  *             amazonMskCluster: {
@@ -42,23 +56,9 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     ],
- *     replicationInfoList: {
- *         sourceKafkaClusterArn: source.arn,
- *         targetKafkaClusterArn: target.arn,
- *         targetCompressionType: "NONE",
- *         topicReplications: [{
- *             topicNameConfiguration: {
- *                 type: "PREFIXED_WITH_SOURCE_CLUSTER_ALIAS",
- *             },
- *             topicsToReplicates: [".*"],
- *             startingPosition: {
- *                 type: "LATEST",
- *             },
- *         }],
- *         consumerGroupReplications: [{
- *             consumerGroupsToReplicates: [".*"],
- *         }],
- *     },
+ *     replicatorName: "test-name",
+ *     description: "test-description",
+ *     serviceExecutionRoleArn: sourceAwsIamRole.arn,
  * });
  * ```
  *

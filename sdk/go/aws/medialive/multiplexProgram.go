@@ -38,16 +38,16 @@ import (
 //				return err
 //			}
 //			example, err := medialive.NewMultiplex(ctx, "example", &medialive.MultiplexArgs{
-//				Name: pulumi.String("example-multiplex-changed"),
-//				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String(available.Names[0]),
-//					pulumi.String(available.Names[1]),
-//				},
 //				MultiplexSettings: &medialive.MultiplexMultiplexSettingsArgs{
 //					TransportStreamBitrate:              pulumi.Int(1000000),
 //					TransportStreamId:                   pulumi.Int(1),
 //					TransportStreamReservedBitrate:      pulumi.Int(1),
 //					MaximumVideoBufferDelayMilliseconds: pulumi.Int(1000),
+//				},
+//				Name: pulumi.String("example-multiplex-changed"),
+//				AvailabilityZones: pulumi.StringArray{
+//					pulumi.String(available.Names[0]),
+//					pulumi.String(available.Names[1]),
 //				},
 //				StartMultiplex: pulumi.Bool(true),
 //				Tags: pulumi.StringMap{
@@ -58,15 +58,15 @@ import (
 //				return err
 //			}
 //			_, err = medialive.NewMultiplexProgram(ctx, "example", &medialive.MultiplexProgramArgs{
-//				ProgramName: pulumi.String("example_program"),
-//				MultiplexId: example.ID().ToIDOutput().ToStringOutput(),
 //				MultiplexProgramSettings: &medialive.MultiplexProgramMultiplexProgramSettingsArgs{
-//					ProgramNumber:            pulumi.Int(1),
-//					PreferredChannelPipeline: pulumi.String("CURRENTLY_ACTIVE"),
 //					VideoSettings: &medialive.MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs{
 //						ConstantBitrate: pulumi.Int(100000),
 //					},
+//					ProgramNumber:            pulumi.Int(1),
+//					PreferredChannelPipeline: pulumi.String("CURRENTLY_ACTIVE"),
 //				},
+//				ProgramName: pulumi.String("example_program"),
+//				MultiplexId: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

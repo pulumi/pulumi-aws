@@ -48,6 +48,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var name = new ReplicationConfig("name", ReplicationConfigArgs.builder()
+ *             .computeConfig(ReplicationConfigComputeConfigArgs.builder()
+ *                 .replicationSubnetGroupId(default_.replicationSubnetGroupId())
+ *                 .maxCapacityUnits(64)
+ *                 .minCapacityUnits(2)
+ *                 .preferredMaintenanceWindow("sun:23:45-mon:00:30")
+ *                 .build())
  *             .replicationConfigIdentifier("test-dms-serverless-replication-tf")
  *             .resourceIdentifier("test-dms-serverless-replication-tf")
  *             .replicationType("cdc")
@@ -59,12 +65,6 @@ import javax.annotation.Nullable;
  *   }
  *             """)
  *             .startReplication(true)
- *             .computeConfig(ReplicationConfigComputeConfigArgs.builder()
- *                 .replicationSubnetGroupId(default_.replicationSubnetGroupId())
- *                 .maxCapacityUnits(64)
- *                 .minCapacityUnits(2)
- *                 .preferredMaintenanceWindow("sun:23:45-mon:00:30")
- *                 .build())
  *             .build());
  * 
  *     }

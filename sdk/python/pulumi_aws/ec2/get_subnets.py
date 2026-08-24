@@ -122,7 +122,6 @@ def get_subnets(filters: Optional[Sequence[Union['GetSubnetsFilterArgs', 'GetSub
     import pulumi
     from typing import Any
     import pulumi_aws as aws
-    import pulumi_std as std
 
     private = aws.ec2.get_subnets(filters=[{
             "name": "vpc-id",
@@ -132,7 +131,7 @@ def get_subnets(filters: Optional[Sequence[Union['GetSubnetsFilterArgs', 'GetSub
             "Tier": "Private",
         })
     app: list[aws.ec2.Instance] = []
-    for app_range in [{"key": k, "value": v} for [k, v] in enumerate(std.toset(input=private.ids).result)]:
+    for app_range in [{"key": k, "value": v} for [k, v] in enumerate({entry: entry for entry in private.ids})]:
         app.append(aws.ec2.Instance(f"app-{app_range['key']}",
             ami=ami,
             instance_type=aws.ec2.InstanceType.T2_MICRO,
@@ -190,7 +189,6 @@ def get_subnets_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['G
     import pulumi
     from typing import Any
     import pulumi_aws as aws
-    import pulumi_std as std
 
     private = aws.ec2.get_subnets(filters=[{
             "name": "vpc-id",
@@ -200,7 +198,7 @@ def get_subnets_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['G
             "Tier": "Private",
         })
     app: list[aws.ec2.Instance] = []
-    for app_range in [{"key": k, "value": v} for [k, v] in enumerate(std.toset(input=private.ids).result)]:
+    for app_range in [{"key": k, "value": v} for [k, v] in enumerate({entry: entry for entry in private.ids})]:
         app.append(aws.ec2.Instance(f"app-{app_range['key']}",
             ami=ami,
             instance_type=aws.ec2.InstanceType.T2_MICRO,

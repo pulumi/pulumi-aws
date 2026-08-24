@@ -39,13 +39,13 @@ import (
 //				return err
 //			}
 //			_, err = tls.NewCertRequest(ctx, "verification", &tls.CertRequestArgs{
-//				KeyAlgorithm:  "RSA",
-//				PrivateKeyPem: verification.PrivateKeyPem,
 //				Subject: tls.CertRequestSubjectArgs{
 //					map[string]interface{}{
 //						"commonName": example.RegistrationCode,
 //					},
 //				},
+//				KeyAlgorithm:  "RSA",
+//				PrivateKeyPem: verification.PrivateKeyPem,
 //			})
 //			if err != nil {
 //				return err

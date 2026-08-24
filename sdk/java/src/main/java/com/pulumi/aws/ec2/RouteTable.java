@@ -61,7 +61,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RouteTable("example", RouteTableArgs.builder()
- *             .vpcId(exampleAwsVpc.id())
  *             .routes(            
  *                 RouteTableRouteArgs.builder()
  *                     .cidrBlock("10.0.1.0/24")
@@ -71,6 +70,7 @@ import javax.annotation.Nullable;
  *                     .ipv6CidrBlock("::/0")
  *                     .egressOnlyGatewayId(exampleAwsEgressOnlyInternetGateway.id())
  *                     .build())
+ *             .vpcId(exampleAwsVpc.id())
  *             .tags(Map.of("Name", "example"))
  *             .build());
  * 
@@ -150,11 +150,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testRouteTable = new RouteTable("testRouteTable", RouteTableArgs.builder()
- *             .vpcId(test.id())
  *             .routes(RouteTableRouteArgs.builder()
  *                 .cidrBlock("10.1.0.0/16")
  *                 .gatewayId("local")
  *                 .build())
+ *             .vpcId(test.id())
  *             .build());
  * 
  *     }
@@ -207,11 +207,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testRouteTable = new RouteTable("testRouteTable", RouteTableArgs.builder()
- *             .vpcId(test.id())
  *             .routes(RouteTableRouteArgs.builder()
  *                 .cidrBlock(test.cidrBlock())
  *                 .networkInterfaceId(testNetworkInterface.id())
  *                 .build())
+ *             .vpcId(test.id())
  *             .build());
  * 
  *     }

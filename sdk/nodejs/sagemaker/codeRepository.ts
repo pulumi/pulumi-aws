@@ -19,10 +19,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sagemaker.CodeRepository("example", {
- *     codeRepositoryName: "example",
  *     gitConfig: {
  *         repositoryUrl: "https://github.com/github/docs.git",
  *     },
+ *     codeRepositoryName: "example",
  * });
  * ```
  *
@@ -41,11 +41,11 @@ import * as utilities from "../utilities";
  *     }),
  * });
  * const exampleCodeRepository = new aws.sagemaker.CodeRepository("example", {
- *     codeRepositoryName: "example",
  *     gitConfig: {
  *         repositoryUrl: "https://github.com/github/docs.git",
  *         secretArn: example.arn,
  *     },
+ *     codeRepositoryName: "example",
  * }, {
  *     dependsOn: [exampleSecretVersion],
  * });

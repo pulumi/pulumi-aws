@@ -38,10 +38,6 @@ import (
 //			// an EBS volume populated from a snapshot. We assume that such a snapshot
 //			// already exists with the id "snap-xxxxxxxx".
 //			_, err := ec2.NewAmi(ctx, "example", &ec2.AmiArgs{
-//				Name:               pulumi.String("example"),
-//				VirtualizationType: pulumi.String("hvm"),
-//				RootDeviceName:     pulumi.String("/dev/xvda"),
-//				ImdsSupport:        pulumi.String("v2.0"),
 //				EbsBlockDevices: ec2.AmiEbsBlockDeviceArray{
 //					&ec2.AmiEbsBlockDeviceArgs{
 //						DeviceName: pulumi.String("/dev/xvda"),
@@ -49,6 +45,10 @@ import (
 //						VolumeSize: pulumi.Int(8),
 //					},
 //				},
+//				Name:               pulumi.String("example"),
+//				VirtualizationType: pulumi.String("hvm"),
+//				RootDeviceName:     pulumi.String("/dev/xvda"),
+//				ImdsSupport:        pulumi.String("v2.0"),
 //			})
 //			if err != nil {
 //				return err

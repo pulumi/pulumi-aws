@@ -17,8 +17,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.route53domains.Domain("example", {
- *     domainName: "example.com",
- *     autoRenew: false,
  *     adminContact: {
  *         addressLine1: "101 Main Street",
  *         city: "San Francisco",
@@ -61,6 +59,8 @@ import * as utilities from "../utilities";
  *         state: "CA",
  *         zipCode: "94105",
  *     },
+ *     domainName: "example.com",
+ *     autoRenew: false,
  *     tags: {
  *         Environment: "test",
  *     },

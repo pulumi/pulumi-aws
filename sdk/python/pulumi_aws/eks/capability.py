@@ -385,11 +385,6 @@ class Capability(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.eks.Capability("example",
-            cluster_name=example_aws_eks_cluster["name"],
-            capability_name="argocd",
-            type="ARGOCD",
-            role_arn=example_aws_iam_role["arn"],
-            delete_propagation_policy="RETAIN",
             configuration={
                 "argo_cd": {
                     "aws_idc": {
@@ -398,6 +393,11 @@ class Capability(pulumi.CustomResource):
                     "namespace": "argocd",
                 },
             },
+            cluster_name=example_aws_eks_cluster["name"],
+            capability_name="argocd",
+            type="ARGOCD",
+            role_arn=example_aws_iam_role["arn"],
+            delete_propagation_policy="RETAIN",
             tags={
                 "Name": "example-capability",
             })
@@ -451,11 +451,6 @@ class Capability(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.eks.Capability("example",
-            cluster_name=example_aws_eks_cluster["name"],
-            capability_name="argocd",
-            type="ARGOCD",
-            role_arn=example_aws_iam_role["arn"],
-            delete_propagation_policy="RETAIN",
             configuration={
                 "argo_cd": {
                     "aws_idc": {
@@ -464,6 +459,11 @@ class Capability(pulumi.CustomResource):
                     "namespace": "argocd",
                 },
             },
+            cluster_name=example_aws_eks_cluster["name"],
+            capability_name="argocd",
+            type="ARGOCD",
+            role_arn=example_aws_iam_role["arn"],
+            delete_propagation_policy="RETAIN",
             tags={
                 "Name": "example-capability",
             })

@@ -17,11 +17,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.eks.Capability("example", {
- *     clusterName: exampleAwsEksCluster.name,
- *     capabilityName: "argocd",
- *     type: "ARGOCD",
- *     roleArn: exampleAwsIamRole.arn,
- *     deletePropagationPolicy: "RETAIN",
  *     configuration: {
  *         argoCd: {
  *             awsIdc: {
@@ -30,6 +25,11 @@ import * as utilities from "../utilities";
  *             namespace: "argocd",
  *         },
  *     },
+ *     clusterName: exampleAwsEksCluster.name,
+ *     capabilityName: "argocd",
+ *     type: "ARGOCD",
+ *     roleArn: exampleAwsIamRole.arn,
+ *     deletePropagationPolicy: "RETAIN",
  *     tags: {
  *         Name: "example-capability",
  *     },

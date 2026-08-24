@@ -26,11 +26,11 @@ import * as utilities from "../utilities";
  * //  * dms-access-for-endpoint
  * const dmsAssumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         actions: ["sts:AssumeRole"],
  *         principals: [{
  *             identifiers: ["dms.amazonaws.com"],
  *             type: "Service",
  *         }],
+ *         actions: ["sts:AssumeRole"],
  *     }],
  * });
  * const dms_access_for_endpoint = new aws.iam.Role("dms-access-for-endpoint", {

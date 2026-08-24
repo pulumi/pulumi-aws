@@ -19,10 +19,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.securitylake.SubscriberNotification("example", {
- *     subscriberId: exampleAwsSecuritylakeSubscriber.id,
  *     configuration: {
  *         sqsNotificationConfiguration: {},
  *     },
+ *     subscriberId: exampleAwsSecuritylakeSubscriber.id,
  * });
  * ```
  *
@@ -33,13 +33,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.securitylake.SubscriberNotification("example", {
- *     subscriberId: exampleAwsSecuritylakeSubscriber.id,
  *     configuration: {
  *         httpsNotificationConfiguration: {
  *             endpoint: test.apiEndpoint,
  *             targetRoleArn: eventBridge.arn,
  *         },
  *     },
+ *     subscriberId: exampleAwsSecuritylakeSubscriber.id,
  * });
  * ```
  */

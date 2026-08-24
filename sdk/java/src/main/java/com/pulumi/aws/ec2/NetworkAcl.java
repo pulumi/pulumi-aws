@@ -59,7 +59,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var main = new NetworkAcl("main", NetworkAclArgs.builder()
- *             .vpcId(mainAwsVpc.id())
  *             .egress(NetworkAclEgressArgs.builder()
  *                 .protocol("tcp")
  *                 .ruleNo(200)
@@ -76,6 +75,7 @@ import javax.annotation.Nullable;
  *                 .fromPort(80)
  *                 .toPort(80)
  *                 .build())
+ *             .vpcId(mainAwsVpc.id())
  *             .tags(Map.of("Name", "main"))
  *             .build());
  * 

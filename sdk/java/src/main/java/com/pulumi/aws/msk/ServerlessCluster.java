@@ -34,10 +34,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.msk.ServerlessCluster;
  * import com.pulumi.aws.msk.ServerlessClusterArgs;
- * import com.pulumi.aws.msk.inputs.ServerlessClusterVpcConfigArgs;
  * import com.pulumi.aws.msk.inputs.ServerlessClusterClientAuthenticationArgs;
  * import com.pulumi.aws.msk.inputs.ServerlessClusterClientAuthenticationSaslArgs;
  * import com.pulumi.aws.msk.inputs.ServerlessClusterClientAuthenticationSaslIamArgs;
+ * import com.pulumi.aws.msk.inputs.ServerlessClusterVpcConfigArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -52,11 +52,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ServerlessCluster("example", ServerlessClusterArgs.builder()
- *             .clusterName("Example")
- *             .vpcConfigs(ServerlessClusterVpcConfigArgs.builder()
- *                 .subnetIds(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
- *                 .securityGroupIds(exampleAwsSecurityGroup.id())
- *                 .build())
  *             .clientAuthentication(ServerlessClusterClientAuthenticationArgs.builder()
  *                 .sasl(ServerlessClusterClientAuthenticationSaslArgs.builder()
  *                     .iam(ServerlessClusterClientAuthenticationSaslIamArgs.builder()
@@ -64,6 +59,11 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
+ *             .vpcConfigs(ServerlessClusterVpcConfigArgs.builder()
+ *                 .subnetIds(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
+ *                 .securityGroupIds(exampleAwsSecurityGroup.id())
+ *                 .build())
+ *             .clusterName("Example")
  *             .build());
  * 
  *     }

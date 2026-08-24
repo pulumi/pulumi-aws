@@ -24,13 +24,6 @@ namespace Pulumi.Aws.Budgets
     /// {
     ///     var ec2 = new Aws.Budgets.Budget("ec2", new()
     ///     {
-    ///         Name = "budget-ec2-monthly",
-    ///         BudgetType = "COST",
-    ///         LimitAmount = "1200",
-    ///         LimitUnit = "USD",
-    ///         TimePeriodEnd = "2087-06-15_00:00",
-    ///         TimePeriodStart = "2017-07-01_00:00",
-    ///         TimeUnit = "MONTHLY",
     ///         CostFilters = new[]
     ///         {
     ///             new Aws.Budgets.Inputs.BudgetCostFilterArgs
@@ -56,6 +49,13 @@ namespace Pulumi.Aws.Budgets
     ///                 },
     ///             },
     ///         },
+    ///         Name = "budget-ec2-monthly",
+    ///         BudgetType = "COST",
+    ///         LimitAmount = "1200",
+    ///         LimitUnit = "USD",
+    ///         TimePeriodEnd = "2087-06-15_00:00",
+    ///         TimePeriodStart = "2017-07-01_00:00",
+    ///         TimeUnit = "MONTHLY",
     ///         Tags = 
     ///         {
     ///             { "Tag1", "Value1" },
@@ -150,9 +150,6 @@ namespace Pulumi.Aws.Budgets
     /// {
     ///     var savingsPlanUtilization = new Aws.Budgets.Budget("savings_plan_utilization", new()
     ///     {
-    ///         BudgetType = "SAVINGS_PLANS_UTILIZATION",
-    ///         LimitAmount = "100.0",
-    ///         LimitUnit = "PERCENTAGE",
     ///         CostTypes = new Aws.Budgets.Inputs.BudgetCostTypesArgs
     ///         {
     ///             IncludeCredit = false,
@@ -166,6 +163,9 @@ namespace Pulumi.Aws.Budgets
     ///             IncludeUpfront = false,
     ///             UseBlended = false,
     ///         },
+    ///         BudgetType = "SAVINGS_PLANS_UTILIZATION",
+    ///         LimitAmount = "100.0",
+    ///         LimitUnit = "PERCENTAGE",
     ///     });
     /// 
     /// });
@@ -183,9 +183,6 @@ namespace Pulumi.Aws.Budgets
     /// {
     ///     var riUtilization = new Aws.Budgets.Budget("ri_utilization", new()
     ///     {
-    ///         BudgetType = "RI_UTILIZATION",
-    ///         LimitAmount = "100.0",
-    ///         LimitUnit = "PERCENTAGE",
     ///         CostTypes = new Aws.Budgets.Inputs.BudgetCostTypesArgs
     ///         {
     ///             IncludeCredit = false,
@@ -210,6 +207,9 @@ namespace Pulumi.Aws.Budgets
     ///                 },
     ///             },
     ///         },
+    ///         BudgetType = "RI_UTILIZATION",
+    ///         LimitAmount = "100.0",
+    ///         LimitUnit = "PERCENTAGE",
     ///     });
     /// 
     /// });
@@ -284,12 +284,6 @@ namespace Pulumi.Aws.Budgets
     /// {
     ///     var simple = new Aws.Budgets.Budget("simple", new()
     ///     {
-    ///         Name = "budget-ec2-filter",
-    ///         BudgetType = "COST",
-    ///         LimitAmount = "500",
-    ///         LimitUnit = "USD",
-    ///         TimeUnit = "MONTHLY",
-    ///         Metrics = "UnblendedCost",
     ///         FilterExpression = new Aws.Budgets.Inputs.BudgetFilterExpressionArgs
     ///         {
     ///             Dimensions = new Aws.Budgets.Inputs.BudgetFilterExpressionDimensionsArgs
@@ -301,6 +295,12 @@ namespace Pulumi.Aws.Budgets
     ///                 },
     ///             },
     ///         },
+    ///         Name = "budget-ec2-filter",
+    ///         BudgetType = "COST",
+    ///         LimitAmount = "500",
+    ///         LimitUnit = "USD",
+    ///         TimeUnit = "MONTHLY",
+    ///         Metrics = "UnblendedCost",
     ///     });
     /// 
     /// });
@@ -318,12 +318,6 @@ namespace Pulumi.Aws.Budgets
     /// {
     ///     var andExample = new Aws.Budgets.Budget("and_example", new()
     ///     {
-    ///         Name = "budget-and-filter",
-    ///         BudgetType = "COST",
-    ///         LimitAmount = "1200",
-    ///         LimitUnit = "USD",
-    ///         TimeUnit = "MONTHLY",
-    ///         Metrics = "BlendedCost",
     ///         FilterExpression = new Aws.Budgets.Inputs.BudgetFilterExpressionArgs
     ///         {
     ///             Ands = new[]
@@ -352,6 +346,12 @@ namespace Pulumi.Aws.Budgets
     ///                 },
     ///             },
     ///         },
+    ///         Name = "budget-and-filter",
+    ///         BudgetType = "COST",
+    ///         LimitAmount = "1200",
+    ///         LimitUnit = "USD",
+    ///         TimeUnit = "MONTHLY",
+    ///         Metrics = "BlendedCost",
     ///     });
     /// 
     /// });
@@ -369,12 +369,6 @@ namespace Pulumi.Aws.Budgets
     /// {
     ///     var orExample = new Aws.Budgets.Budget("or_example", new()
     ///     {
-    ///         Name = "budget-or-filter",
-    ///         BudgetType = "COST",
-    ///         LimitAmount = "2000",
-    ///         LimitUnit = "USD",
-    ///         TimeUnit = "MONTHLY",
-    ///         Metrics = "AmortizedCost",
     ///         FilterExpression = new Aws.Budgets.Inputs.BudgetFilterExpressionArgs
     ///         {
     ///             Ors = new[]
@@ -403,6 +397,12 @@ namespace Pulumi.Aws.Budgets
     ///                 },
     ///             },
     ///         },
+    ///         Name = "budget-or-filter",
+    ///         BudgetType = "COST",
+    ///         LimitAmount = "2000",
+    ///         LimitUnit = "USD",
+    ///         TimeUnit = "MONTHLY",
+    ///         Metrics = "AmortizedCost",
     ///     });
     /// 
     /// });
@@ -420,12 +420,6 @@ namespace Pulumi.Aws.Budgets
     /// {
     ///     var notExample = new Aws.Budgets.Budget("not_example", new()
     ///     {
-    ///         Name = "budget-not-filter",
-    ///         BudgetType = "COST",
-    ///         LimitAmount = "1000",
-    ///         LimitUnit = "USD",
-    ///         TimeUnit = "MONTHLY",
-    ///         Metrics = "NetUnblendedCost",
     ///         FilterExpression = new Aws.Budgets.Inputs.BudgetFilterExpressionArgs
     ///         {
     ///             Not = new Aws.Budgets.Inputs.BudgetFilterExpressionNotArgs
@@ -440,6 +434,12 @@ namespace Pulumi.Aws.Budgets
     ///                 },
     ///             },
     ///         },
+    ///         Name = "budget-not-filter",
+    ///         BudgetType = "COST",
+    ///         LimitAmount = "1000",
+    ///         LimitUnit = "USD",
+    ///         TimeUnit = "MONTHLY",
+    ///         Metrics = "NetUnblendedCost",
     ///     });
     /// 
     /// });
@@ -457,12 +457,6 @@ namespace Pulumi.Aws.Budgets
     /// {
     ///     var compoundExample = new Aws.Budgets.Budget("compound_example", new()
     ///     {
-    ///         Name = "budget-compound-filter",
-    ///         BudgetType = "COST",
-    ///         LimitAmount = "1500",
-    ///         LimitUnit = "USD",
-    ///         TimeUnit = "MONTHLY",
-    ///         Metrics = "NetAmortizedCost",
     ///         FilterExpression = new Aws.Budgets.Inputs.BudgetFilterExpressionArgs
     ///         {
     ///             Ors = new[]
@@ -536,6 +530,12 @@ namespace Pulumi.Aws.Budgets
     ///                 },
     ///             },
     ///         },
+    ///         Name = "budget-compound-filter",
+    ///         BudgetType = "COST",
+    ///         LimitAmount = "1500",
+    ///         LimitUnit = "USD",
+    ///         TimeUnit = "MONTHLY",
+    ///         Metrics = "NetAmortizedCost",
     ///     });
     /// 
     /// });

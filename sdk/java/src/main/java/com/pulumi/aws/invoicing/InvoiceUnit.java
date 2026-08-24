@@ -48,12 +48,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new InvoiceUnit("example", InvoiceUnitArgs.builder()
- *             .name("example-unit")
- *             .description("Example invoice unit")
- *             .invoiceReceiver("123456789012")
  *             .rules(InvoiceUnitRuleArgs.builder()
  *                 .linkedAccounts("098765432109")
  *                 .build())
+ *             .name("example-unit")
+ *             .description("Example invoice unit")
+ *             .invoiceReceiver("123456789012")
  *             .tags(Map.of("Environment", "production"))
  *             .build());
  * 

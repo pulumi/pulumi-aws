@@ -37,7 +37,6 @@ namespace Pulumi.Aws.Kinesis
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -49,6 +48,7 @@ namespace Pulumi.Aws.Kinesis
     ///                         },
     ///                     },
     ///                 },
+    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "sts:AssumeRole",
@@ -69,7 +69,6 @@ namespace Pulumi.Aws.Kinesis
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -81,6 +80,7 @@ namespace Pulumi.Aws.Kinesis
     ///                         },
     ///                     },
     ///                 },
+    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "sts:AssumeRole",
@@ -106,20 +106,14 @@ namespace Pulumi.Aws.Kinesis
     /// 
     ///     var extendedS3Stream = new Aws.Kinesis.FirehoseDeliveryStream("extended_s3_stream", new()
     ///     {
-    ///         Name = "kinesis-firehose-extended-s3-test-stream",
-    ///         Destination = "extended_s3",
     ///         ExtendedS3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs
     ///         {
-    ///             RoleArn = firehoseRole.Arn,
-    ///             BucketArn = bucket.Arn,
     ///             ProcessingConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs
     ///             {
-    ///                 Enabled = true,
     ///                 Processors = new[]
     ///                 {
     ///                     new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs
     ///                     {
-    ///                         Type = "Lambda",
     ///                         Parameters = new[]
     ///                         {
     ///                             new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs
@@ -128,10 +122,16 @@ namespace Pulumi.Aws.Kinesis
     ///                                 ParameterValue = lambdaProcessor.Arn.Apply(arn =&gt; $"{arn}:$LATEST"),
     ///                             },
     ///                         },
+    ///                         Type = "Lambda",
     ///                     },
     ///                 },
+    ///                 Enabled = true,
     ///             },
+    ///             RoleArn = firehoseRole.Arn,
+    ///             BucketArn = bucket.Arn,
     ///         },
+    ///         Name = "kinesis-firehose-extended-s3-test-stream",
+    ///         Destination = "extended_s3",
     ///     });
     /// 
     ///     var bucketAcl = new Aws.S3.BucketAcl("bucket_acl", new()
@@ -157,27 +157,18 @@ namespace Pulumi.Aws.Kinesis
     /// {
     ///     var extendedS3Stream = new Aws.Kinesis.FirehoseDeliveryStream("extended_s3_stream", new()
     ///     {
-    ///         Name = "kinesis-firehose-extended-s3-test-stream",
-    ///         Destination = "extended_s3",
     ///         ExtendedS3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs
     ///         {
-    ///             RoleArn = firehoseRole.Arn,
-    ///             BucketArn = bucket.Arn,
-    ///             BufferingSize = 64,
     ///             DynamicPartitioningConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs
     ///             {
     ///                 Enabled = true,
     ///             },
-    ///             Prefix = "data/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/",
-    ///             ErrorOutputPrefix = "errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/",
     ///             ProcessingConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs
     ///             {
-    ///                 Enabled = true,
     ///                 Processors = new[]
     ///                 {
     ///                     new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs
     ///                     {
-    ///                         Type = "RecordDeAggregation",
     ///                         Parameters = new[]
     ///                         {
     ///                             new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs
@@ -186,6 +177,7 @@ namespace Pulumi.Aws.Kinesis
     ///                                 ParameterValue = "JSON",
     ///                             },
     ///                         },
+    ///                         Type = "RecordDeAggregation",
     ///                     },
     ///                     new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs
     ///                     {
@@ -193,7 +185,6 @@ namespace Pulumi.Aws.Kinesis
     ///                     },
     ///                     new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs
     ///                     {
-    ///                         Type = "MetadataExtraction",
     ///                         Parameters = new[]
     ///                         {
     ///                             new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs
@@ -207,10 +198,19 @@ namespace Pulumi.Aws.Kinesis
     ///                                 ParameterValue = "{customer_id:.customer_id}",
     ///                             },
     ///                         },
+    ///                         Type = "MetadataExtraction",
     ///                     },
     ///                 },
+    ///                 Enabled = true,
     ///             },
+    ///             RoleArn = firehoseRole.Arn,
+    ///             BucketArn = bucket.Arn,
+    ///             BufferingSize = 64,
+    ///             Prefix = "data/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/",
+    ///             ErrorOutputPrefix = "errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/",
     ///         },
+    ///         Name = "kinesis-firehose-extended-s3-test-stream",
+    ///         Destination = "extended_s3",
     ///     });
     /// 
     /// });
@@ -230,27 +230,18 @@ namespace Pulumi.Aws.Kinesis
     /// {
     ///     var extendedS3Stream = new Aws.Kinesis.FirehoseDeliveryStream("extended_s3_stream", new()
     ///     {
-    ///         Name = "kinesis-firehose-extended-s3-test-stream",
-    ///         Destination = "extended_s3",
     ///         ExtendedS3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs
     ///         {
-    ///             RoleArn = firehoseRole.Arn,
-    ///             BucketArn = bucket.Arn,
-    ///             BufferingSize = 64,
     ///             DynamicPartitioningConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs
     ///             {
     ///                 Enabled = true,
     ///             },
-    ///             Prefix = "data/store_id=!{partitionKeyFromQuery:store_id}/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/",
-    ///             ErrorOutputPrefix = "errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/",
     ///             ProcessingConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs
     ///             {
-    ///                 Enabled = true,
     ///                 Processors = new[]
     ///                 {
     ///                     new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs
     ///                     {
-    ///                         Type = "MetadataExtraction",
     ///                         Parameters = new[]
     ///                         {
     ///                             new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs
@@ -264,10 +255,19 @@ namespace Pulumi.Aws.Kinesis
     ///                                 ParameterValue = "{store_id:.store_id,customer_id:.customer_id}",
     ///                             },
     ///                         },
+    ///                         Type = "MetadataExtraction",
     ///                     },
     ///                 },
+    ///                 Enabled = true,
     ///             },
+    ///             RoleArn = firehoseRole.Arn,
+    ///             BucketArn = bucket.Arn,
+    ///             BufferingSize = 64,
+    ///             Prefix = "data/store_id=!{partitionKeyFromQuery:store_id}/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/",
+    ///             ErrorOutputPrefix = "errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/",
     ///         },
+    ///         Name = "kinesis-firehose-extended-s3-test-stream",
+    ///         Destination = "extended_s3",
     ///     });
     /// 
     /// });
@@ -295,23 +295,8 @@ namespace Pulumi.Aws.Kinesis
     /// 
     ///     var testStream = new Aws.Kinesis.FirehoseDeliveryStream("test_stream", new()
     ///     {
-    ///         Name = "kinesis-firehose-test-stream",
-    ///         Destination = "redshift",
     ///         RedshiftConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs
     ///         {
-    ///             RoleArn = firehoseRole.Arn,
-    ///             ClusterJdbcurl = Output.Tuple(testCluster.Endpoint, testCluster.DatabaseName).Apply(values =&gt;
-    ///             {
-    ///                 var endpoint = values.Item1;
-    ///                 var databaseName = values.Item2;
-    ///                 return $"jdbc:redshift://{endpoint}/{databaseName}";
-    ///             }),
-    ///             Username = "testuser",
-    ///             Password = "T3stPass",
-    ///             DataTableName = "test-table",
-    ///             CopyOptions = "delimiter '|'",
-    ///             DataTableColumns = "test-col",
-    ///             S3BackupMode = "Enabled",
     ///             S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs
     ///             {
     ///                 RoleArn = firehoseRole.Arn,
@@ -328,7 +313,22 @@ namespace Pulumi.Aws.Kinesis
     ///                 BufferingInterval = 300,
     ///                 CompressionFormat = "GZIP",
     ///             },
+    ///             RoleArn = firehoseRole.Arn,
+    ///             ClusterJdbcurl = Output.Tuple(testCluster.Endpoint, testCluster.DatabaseName).Apply(values =&gt;
+    ///             {
+    ///                 var endpoint = values.Item1;
+    ///                 var databaseName = values.Item2;
+    ///                 return $"jdbc:redshift://{endpoint}/{databaseName}";
+    ///             }),
+    ///             Username = "testuser",
+    ///             Password = "T3stPass",
+    ///             DataTableName = "test-table",
+    ///             CopyOptions = "delimiter '|'",
+    ///             DataTableColumns = "test-col",
+    ///             S3BackupMode = "Enabled",
     ///         },
+    ///         Name = "kinesis-firehose-test-stream",
+    ///         Destination = "redshift",
     ///     });
     /// 
     /// });
@@ -351,14 +351,8 @@ namespace Pulumi.Aws.Kinesis
     /// 
     ///     var testStream = new Aws.Kinesis.FirehoseDeliveryStream("test_stream", new()
     ///     {
-    ///         Name = "kinesis-firehose-test-stream",
-    ///         Destination = "elasticsearch",
     ///         ElasticsearchConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamElasticsearchConfigurationArgs
     ///         {
-    ///             DomainArn = testCluster.Arn,
-    ///             RoleArn = firehoseRole.Arn,
-    ///             IndexName = "test",
-    ///             TypeName = "test",
     ///             S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationArgs
     ///             {
     ///                 RoleArn = firehoseRole.Arn,
@@ -369,12 +363,10 @@ namespace Pulumi.Aws.Kinesis
     ///             },
     ///             ProcessingConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs
     ///             {
-    ///                 Enabled = true,
     ///                 Processors = new[]
     ///                 {
     ///                     new Aws.Kinesis.Inputs.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArgs
     ///                     {
-    ///                         Type = "Lambda",
     ///                         Parameters = new[]
     ///                         {
     ///                             new Aws.Kinesis.Inputs.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArgs
@@ -383,10 +375,18 @@ namespace Pulumi.Aws.Kinesis
     ///                                 ParameterValue = $"{lambdaProcessor.Arn}:$LATEST",
     ///                             },
     ///                         },
+    ///                         Type = "Lambda",
     ///                     },
     ///                 },
+    ///                 Enabled = true,
     ///             },
+    ///             DomainArn = testCluster.Arn,
+    ///             RoleArn = firehoseRole.Arn,
+    ///             IndexName = "test",
+    ///             TypeName = "test",
     ///         },
+    ///         Name = "kinesis-firehose-test-stream",
+    ///         Destination = "elasticsearch",
     ///     });
     /// 
     /// });
@@ -404,7 +404,6 @@ namespace Pulumi.Aws.Kinesis
     /// {
     ///     var testCluster = new Aws.ElasticSearch.Domain("test_cluster", new()
     ///     {
-    ///         DomainName = "es-test",
     ///         ClusterConfig = new Aws.ElasticSearch.Inputs.DomainClusterConfigArgs
     ///         {
     ///             InstanceCount = 2,
@@ -428,6 +427,7 @@ namespace Pulumi.Aws.Kinesis
     ///                 second.Id,
     ///             },
     ///         },
+    ///         DomainName = "es-test",
     ///     });
     /// 
     ///     var firehose_elasticsearch = Aws.Iam.GetPolicyDocument.Invoke(new()
@@ -478,14 +478,8 @@ namespace Pulumi.Aws.Kinesis
     /// 
     ///     var test = new Aws.Kinesis.FirehoseDeliveryStream("test", new()
     ///     {
-    ///         Name = "kinesis-firehose-es",
-    ///         Destination = "elasticsearch",
     ///         ElasticsearchConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamElasticsearchConfigurationArgs
     ///         {
-    ///             DomainArn = testCluster.Arn,
-    ///             RoleArn = firehose.Arn,
-    ///             IndexName = "test",
-    ///             TypeName = "test",
     ///             S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationArgs
     ///             {
     ///                 RoleArn = firehose.Arn,
@@ -504,7 +498,13 @@ namespace Pulumi.Aws.Kinesis
     ///                 },
     ///                 RoleArn = firehose.Arn,
     ///             },
+    ///             DomainArn = testCluster.Arn,
+    ///             RoleArn = firehose.Arn,
+    ///             IndexName = "test",
+    ///             TypeName = "test",
     ///         },
+    ///         Name = "kinesis-firehose-es",
+    ///         Destination = "elasticsearch",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -533,13 +533,8 @@ namespace Pulumi.Aws.Kinesis
     /// 
     ///     var testStream = new Aws.Kinesis.FirehoseDeliveryStream("test_stream", new()
     ///     {
-    ///         Name = "kinesis-firehose-test-stream",
-    ///         Destination = "opensearch",
     ///         OpensearchConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamOpensearchConfigurationArgs
     ///         {
-    ///             DomainArn = testCluster.Arn,
-    ///             RoleArn = firehoseRole.Arn,
-    ///             IndexName = "test",
     ///             S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationArgs
     ///             {
     ///                 RoleArn = firehoseRole.Arn,
@@ -550,12 +545,10 @@ namespace Pulumi.Aws.Kinesis
     ///             },
     ///             ProcessingConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationArgs
     ///             {
-    ///                 Enabled = true,
     ///                 Processors = new[]
     ///                 {
     ///                     new Aws.Kinesis.Inputs.FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorArgs
     ///                     {
-    ///                         Type = "Lambda",
     ///                         Parameters = new[]
     ///                         {
     ///                             new Aws.Kinesis.Inputs.FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterArgs
@@ -564,10 +557,17 @@ namespace Pulumi.Aws.Kinesis
     ///                                 ParameterValue = $"{lambdaProcessor.Arn}:$LATEST",
     ///                             },
     ///                         },
+    ///                         Type = "Lambda",
     ///                     },
     ///                 },
+    ///                 Enabled = true,
     ///             },
+    ///             DomainArn = testCluster.Arn,
+    ///             RoleArn = firehoseRole.Arn,
+    ///             IndexName = "test",
     ///         },
+    ///         Name = "kinesis-firehose-test-stream",
+    ///         Destination = "opensearch",
     ///     });
     /// 
     /// });
@@ -585,7 +585,6 @@ namespace Pulumi.Aws.Kinesis
     /// {
     ///     var testCluster = new Aws.OpenSearch.Domain("test_cluster", new()
     ///     {
-    ///         DomainName = "es-test",
     ///         ClusterConfig = new Aws.OpenSearch.Inputs.DomainClusterConfigArgs
     ///         {
     ///             InstanceCount = 2,
@@ -609,6 +608,7 @@ namespace Pulumi.Aws.Kinesis
     ///                 second.Id,
     ///             },
     ///         },
+    ///         DomainName = "es-test",
     ///     });
     /// 
     ///     var firehose_opensearch = new Aws.Iam.RolePolicy("firehose-opensearch", new()
@@ -651,13 +651,8 @@ namespace Pulumi.Aws.Kinesis
     /// 
     ///     var test = new Aws.Kinesis.FirehoseDeliveryStream("test", new()
     ///     {
-    ///         Name = "pulumi-kinesis-firehose-os",
-    ///         Destination = "opensearch",
     ///         OpensearchConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamOpensearchConfigurationArgs
     ///         {
-    ///             DomainArn = testCluster.Arn,
-    ///             RoleArn = firehose.Arn,
-    ///             IndexName = "test",
     ///             S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationArgs
     ///             {
     ///                 RoleArn = firehose.Arn,
@@ -676,7 +671,12 @@ namespace Pulumi.Aws.Kinesis
     ///                 },
     ///                 RoleArn = firehose.Arn,
     ///             },
+    ///             DomainArn = testCluster.Arn,
+    ///             RoleArn = firehose.Arn,
+    ///             IndexName = "test",
     ///         },
+    ///         Name = "pulumi-kinesis-firehose-os",
+    ///         Destination = "opensearch",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -705,13 +705,8 @@ namespace Pulumi.Aws.Kinesis
     /// 
     ///     var testStream = new Aws.Kinesis.FirehoseDeliveryStream("test_stream", new()
     ///     {
-    ///         Name = "kinesis-firehose-test-stream",
-    ///         Destination = "opensearchserverless",
     ///         OpensearchserverlessConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs
     ///         {
-    ///             CollectionEndpoint = testCollection.CollectionEndpoint,
-    ///             RoleArn = firehoseRole.Arn,
-    ///             IndexName = "test",
     ///             S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs
     ///             {
     ///                 RoleArn = firehoseRole.Arn,
@@ -722,12 +717,10 @@ namespace Pulumi.Aws.Kinesis
     ///             },
     ///             ProcessingConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationArgs
     ///             {
-    ///                 Enabled = true,
     ///                 Processors = new[]
     ///                 {
     ///                     new Aws.Kinesis.Inputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArgs
     ///                     {
-    ///                         Type = "Lambda",
     ///                         Parameters = new[]
     ///                         {
     ///                             new Aws.Kinesis.Inputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArgs
@@ -736,10 +729,17 @@ namespace Pulumi.Aws.Kinesis
     ///                                 ParameterValue = $"{lambdaProcessor.Arn}:$LATEST",
     ///                             },
     ///                         },
+    ///                         Type = "Lambda",
     ///                     },
     ///                 },
+    ///                 Enabled = true,
     ///             },
+    ///             CollectionEndpoint = testCollection.CollectionEndpoint,
+    ///             RoleArn = firehoseRole.Arn,
+    ///             IndexName = "test",
     ///         },
+    ///         Name = "kinesis-firehose-test-stream",
+    ///         Destination = "opensearchserverless",
     ///     });
     /// 
     /// });
@@ -774,13 +774,6 @@ namespace Pulumi.Aws.Kinesis
     /// 
     ///     var testCatalogTable = new Aws.Glue.CatalogTable("test", new()
     ///     {
-    ///         Name = "test",
-    ///         DatabaseName = test.Name,
-    ///         Parameters = 
-    ///         {
-    ///             { "format", "parquet" },
-    ///         },
-    ///         TableType = "EXTERNAL_TABLE",
     ///         OpenTableFormatInput = new Aws.Glue.Inputs.CatalogTableOpenTableFormatInputArgs
     ///         {
     ///             IcebergInput = new Aws.Glue.Inputs.CatalogTableOpenTableFormatInputIcebergInputArgs
@@ -791,7 +784,6 @@ namespace Pulumi.Aws.Kinesis
     ///         },
     ///         StorageDescriptor = new Aws.Glue.Inputs.CatalogTableStorageDescriptorArgs
     ///         {
-    ///             Location = bucket.Id.Apply(id =&gt; $"s3://{id}"),
     ///             Columns = new[]
     ///             {
     ///                 new Aws.Glue.Inputs.CatalogTableStorageDescriptorColumnArgs
@@ -800,15 +792,53 @@ namespace Pulumi.Aws.Kinesis
     ///                     Type = "int",
     ///                 },
     ///             },
+    ///             Location = bucket.Id.Apply(id =&gt; $"s3://{id}"),
     ///         },
+    ///         Name = "test",
+    ///         DatabaseName = test.Name,
+    ///         Parameters = 
+    ///         {
+    ///             { "format", "parquet" },
+    ///         },
+    ///         TableType = "EXTERNAL_TABLE",
     ///     });
     /// 
     ///     var testStream = new Aws.Kinesis.FirehoseDeliveryStream("test_stream", new()
     ///     {
-    ///         Name = "kinesis-firehose-test-stream",
-    ///         Destination = "iceberg",
     ///         IcebergConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamIcebergConfigurationArgs
     ///         {
+    ///             S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationArgs
+    ///             {
+    ///                 RoleArn = firehoseRole.Arn,
+    ///                 BucketArn = bucket.Arn,
+    ///             },
+    ///             ProcessingConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationArgs
+    ///             {
+    ///                 Processors = new[]
+    ///                 {
+    ///                     new Aws.Kinesis.Inputs.FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArgs
+    ///                     {
+    ///                         Parameters = new[]
+    ///                         {
+    ///                             new Aws.Kinesis.Inputs.FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArgs
+    ///                             {
+    ///                                 ParameterName = "LambdaArn",
+    ///                                 ParameterValue = $"{lambdaProcessor.Arn}:$LATEST",
+    ///                             },
+    ///                         },
+    ///                         Type = "Lambda",
+    ///                     },
+    ///                 },
+    ///                 Enabled = true,
+    ///             },
+    ///             DestinationTableConfigurations = new[]
+    ///             {
+    ///                 new Aws.Kinesis.Inputs.FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArgs
+    ///                 {
+    ///                     DatabaseName = test.Name,
+    ///                     TableName = testCatalogTable.Name,
+    ///                 },
+    ///             },
     ///             RoleArn = firehoseRole.Arn,
     ///             CatalogArn = Output.Tuple(currentGetPartition, currentGetRegion, current).Apply(values =&gt;
     ///             {
@@ -819,39 +849,9 @@ namespace Pulumi.Aws.Kinesis
     ///             }),
     ///             BufferingSize = 10,
     ///             BufferingInterval = 400,
-    ///             S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationArgs
-    ///             {
-    ///                 RoleArn = firehoseRole.Arn,
-    ///                 BucketArn = bucket.Arn,
-    ///             },
-    ///             DestinationTableConfigurations = new[]
-    ///             {
-    ///                 new Aws.Kinesis.Inputs.FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArgs
-    ///                 {
-    ///                     DatabaseName = test.Name,
-    ///                     TableName = testCatalogTable.Name,
-    ///                 },
-    ///             },
-    ///             ProcessingConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationArgs
-    ///             {
-    ///                 Enabled = true,
-    ///                 Processors = new[]
-    ///                 {
-    ///                     new Aws.Kinesis.Inputs.FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArgs
-    ///                     {
-    ///                         Type = "Lambda",
-    ///                         Parameters = new[]
-    ///                         {
-    ///                             new Aws.Kinesis.Inputs.FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArgs
-    ///                             {
-    ///                                 ParameterName = "LambdaArn",
-    ///                                 ParameterValue = $"{lambdaProcessor.Arn}:$LATEST",
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
     ///         },
+    ///         Name = "kinesis-firehose-test-stream",
+    ///         Destination = "iceberg",
     ///     });
     /// 
     /// });
@@ -869,15 +869,8 @@ namespace Pulumi.Aws.Kinesis
     /// {
     ///     var testStream = new Aws.Kinesis.FirehoseDeliveryStream("test_stream", new()
     ///     {
-    ///         Name = "kinesis-firehose-test-stream",
-    ///         Destination = "splunk",
     ///         SplunkConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamSplunkConfigurationArgs
     ///         {
-    ///             HecEndpoint = "https://http-inputs-mydomain.splunkcloud.com:443",
-    ///             HecToken = "51D4DA16-C61B-4F5F-8EC7-ED4301342A4A",
-    ///             HecAcknowledgmentTimeout = 600,
-    ///             HecEndpointType = "Event",
-    ///             S3BackupMode = "FailedEventsOnly",
     ///             S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs
     ///             {
     ///                 RoleArn = firehose.Arn,
@@ -886,7 +879,14 @@ namespace Pulumi.Aws.Kinesis
     ///                 BufferingInterval = 400,
     ///                 CompressionFormat = "GZIP",
     ///             },
+    ///             HecEndpoint = "https://http-inputs-mydomain.splunkcloud.com:443",
+    ///             HecToken = "51D4DA16-C61B-4F5F-8EC7-ED4301342A4A",
+    ///             HecAcknowledgmentTimeout = 600,
+    ///             HecEndpointType = "Event",
+    ///             S3BackupMode = "FailedEventsOnly",
     ///         },
+    ///         Name = "kinesis-firehose-test-stream",
+    ///         Destination = "splunk",
     ///     });
     /// 
     /// });
@@ -906,17 +906,8 @@ namespace Pulumi.Aws.Kinesis
     /// {
     ///     var testStream = new Aws.Kinesis.FirehoseDeliveryStream("test_stream", new()
     ///     {
-    ///         Name = "kinesis-firehose-test-stream",
-    ///         Destination = "http_endpoint",
     ///         HttpEndpointConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationArgs
     ///         {
-    ///             Url = "https://aws-api.newrelic.com/firehose/v1",
-    ///             Name = "New Relic",
-    ///             AccessKey = "my-key",
-    ///             BufferingSize = 15,
-    ///             BufferingInterval = 600,
-    ///             RoleArn = firehose.Arn,
-    ///             S3BackupMode = "FailedDataOnly",
     ///             S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationArgs
     ///             {
     ///                 RoleArn = firehose.Arn,
@@ -927,7 +918,6 @@ namespace Pulumi.Aws.Kinesis
     ///             },
     ///             RequestConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs
     ///             {
-    ///                 ContentEncoding = "GZIP",
     ///                 CommonAttributes = new[]
     ///                 {
     ///                     new Aws.Kinesis.Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs
@@ -941,8 +931,18 @@ namespace Pulumi.Aws.Kinesis
     ///                         Value = "testvalue2",
     ///                     },
     ///                 },
+    ///                 ContentEncoding = "GZIP",
     ///             },
+    ///             Url = "https://aws-api.newrelic.com/firehose/v1",
+    ///             Name = "New Relic",
+    ///             AccessKey = "my-key",
+    ///             BufferingSize = 15,
+    ///             BufferingInterval = 600,
+    ///             RoleArn = firehose.Arn,
+    ///             S3BackupMode = "FailedDataOnly",
     ///         },
+    ///         Name = "kinesis-firehose-test-stream",
+    ///         Destination = "http_endpoint",
     ///     });
     /// 
     /// });
@@ -960,10 +960,16 @@ namespace Pulumi.Aws.Kinesis
     /// {
     ///     var exampleSnowflakeDestination = new Aws.Kinesis.FirehoseDeliveryStream("example_snowflake_destination", new()
     ///     {
-    ///         Name = "example-snowflake-destination",
-    ///         Destination = "snowflake",
     ///         SnowflakeConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamSnowflakeConfigurationArgs
     ///         {
+    ///             S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationArgs
+    ///             {
+    ///                 RoleArn = firehose.Arn,
+    ///                 BucketArn = bucket.Arn,
+    ///                 BufferingSize = 10,
+    ///                 BufferingInterval = 400,
+    ///                 CompressionFormat = "GZIP",
+    ///             },
     ///             AccountUrl = "https://example.snowflakecomputing.com",
     ///             BufferingSize = 15,
     ///             BufferingInterval = 600,
@@ -973,15 +979,9 @@ namespace Pulumi.Aws.Kinesis
     ///             Schema = "example-schema",
     ///             Table = "example-table",
     ///             User = "example-usr",
-    ///             S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationArgs
-    ///             {
-    ///                 RoleArn = firehose.Arn,
-    ///                 BucketArn = bucket.Arn,
-    ///                 BufferingSize = 10,
-    ///                 BufferingInterval = 400,
-    ///                 CompressionFormat = "GZIP",
-    ///             },
     ///         },
+    ///         Name = "example-snowflake-destination",
+    ///         Destination = "snowflake",
     ///     });
     /// 
     /// });

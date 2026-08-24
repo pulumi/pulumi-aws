@@ -496,12 +496,12 @@ class V2modelsSlotType(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lex.V2modelsBot("example",
-            name="example",
-            idle_session_ttl_in_seconds=60,
-            role_arn=example_aws_iam_role["arn"],
             data_privacies=[{
                 "child_directed": True,
-            }])
+            }],
+            name="example",
+            idle_session_ttl_in_seconds=60,
+            role_arn=example_aws_iam_role["arn"])
         example_v2models_bot_locale = aws.lex.V2modelsBotLocale("example",
             locale_id="en_US",
             bot_id=example.id,
@@ -528,21 +528,21 @@ class V2modelsSlotType(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lex.V2modelsSlotType("example",
-            bot_id=example_aws_lexv2models_bot["id"],
-            bot_version=example_aws_lexv2models_bot_locale["botVersion"],
-            name="example",
-            locale_id=example_aws_lexv2models_bot_locale["localeId"],
             value_selection_setting={
-                "resolution_strategy": "OriginalValue",
                 "advanced_recognition_settings": [{
                     "audio_recognition_strategy": "UseSlotValuesAsCustomVocabulary",
                 }],
+                "resolution_strategy": "OriginalValue",
             },
             slot_type_values=[{
                 "sample_values": [{
                     "value": "exampleValue",
                 }],
-            }])
+            }],
+            bot_id=example_aws_lexv2models_bot["id"],
+            bot_version=example_aws_lexv2models_bot_locale["botVersion"],
+            name="example",
+            locale_id=example_aws_lexv2models_bot_locale["localeId"])
         ```
 
         ## Import
@@ -596,12 +596,12 @@ class V2modelsSlotType(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lex.V2modelsBot("example",
-            name="example",
-            idle_session_ttl_in_seconds=60,
-            role_arn=example_aws_iam_role["arn"],
             data_privacies=[{
                 "child_directed": True,
-            }])
+            }],
+            name="example",
+            idle_session_ttl_in_seconds=60,
+            role_arn=example_aws_iam_role["arn"])
         example_v2models_bot_locale = aws.lex.V2modelsBotLocale("example",
             locale_id="en_US",
             bot_id=example.id,
@@ -628,21 +628,21 @@ class V2modelsSlotType(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lex.V2modelsSlotType("example",
-            bot_id=example_aws_lexv2models_bot["id"],
-            bot_version=example_aws_lexv2models_bot_locale["botVersion"],
-            name="example",
-            locale_id=example_aws_lexv2models_bot_locale["localeId"],
             value_selection_setting={
-                "resolution_strategy": "OriginalValue",
                 "advanced_recognition_settings": [{
                     "audio_recognition_strategy": "UseSlotValuesAsCustomVocabulary",
                 }],
+                "resolution_strategy": "OriginalValue",
             },
             slot_type_values=[{
                 "sample_values": [{
                     "value": "exampleValue",
                 }],
-            }])
+            }],
+            bot_id=example_aws_lexv2models_bot["id"],
+            bot_version=example_aws_lexv2models_bot_locale["botVersion"],
+            name="example",
+            locale_id=example_aws_lexv2models_bot_locale["localeId"])
         ```
 
         ## Import

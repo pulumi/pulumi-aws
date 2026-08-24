@@ -20,11 +20,11 @@ import * as utilities from "../utilities";
  * const notif = new aws.sns.Topic("notif", {name: "notification"});
  * const notifAccess = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
- *         actions: ["sns:Publish"],
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["codestar-notifications.amazonaws.com"],
  *         }],
+ *         actions: ["sns:Publish"],
  *         resources: [notif.arn],
  *     }],
  * });
@@ -33,13 +33,13 @@ import * as utilities from "../utilities";
  *     policy: notifAccess.json,
  * });
  * const commits = new aws.codestarnotifications.NotificationRule("commits", {
+ *     targets: [{
+ *         address: notif.arn,
+ *     }],
  *     detailType: "BASIC",
  *     eventTypeIds: ["codecommit-repository-comments-on-commits"],
  *     name: "example-code-repo-commits",
  *     resource: code.arn,
- *     targets: [{
- *         address: notif.arn,
- *     }],
  * });
  * ```
  *

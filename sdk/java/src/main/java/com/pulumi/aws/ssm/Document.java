@@ -156,6 +156,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ssm.Document;
  * import com.pulumi.aws.ssm.DocumentArgs;
  * import com.pulumi.aws.ssm.inputs.DocumentAttachmentsSourceArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -170,13 +171,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Document("test", DocumentArgs.builder()
- *             .name("test_document")
- *             .documentType("Package")
  *             .attachmentsSources(DocumentAttachmentsSourceArgs.builder()
  *                 .key("SourceUrl")
  *                 .values(String.format("s3://%s/test.zip", objectBucket.bucket()))
  *                 .build())
- *             .build());
+ *             .name("test_document")
+ *             .documentType("Package")
+ *             .build(), CustomResourceOptions.builder()
+ *                 .ignoreChanges("attachmentsSources")
+ *                 .build());
  * 
  *     }
  * }

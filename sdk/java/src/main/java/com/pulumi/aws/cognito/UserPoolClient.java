@@ -159,11 +159,11 @@ import javax.annotation.Nullable;
  * 
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("cognito-idp.amazonaws.com")
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
@@ -174,14 +174,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testUserPoolClient = new UserPoolClient("testUserPoolClient", UserPoolClientArgs.builder()
- *             .name("pool_client")
- *             .userPoolId(testUserPool.id())
  *             .analyticsConfiguration(UserPoolClientAnalyticsConfigurationArgs.builder()
  *                 .applicationId(testApp.applicationId())
  *                 .externalId("some_id")
  *                 .roleArn(testRole.arn())
  *                 .userDataShared(true)
  *                 .build())
+ *             .name("pool_client")
+ *             .userPoolId(testUserPool.id())
  *             .build());
  * 
  *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
@@ -289,13 +289,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var userpoolClient = new UserPoolClient("userpoolClient", UserPoolClientArgs.builder()
- *             .name("client")
- *             .userPoolId(pool.id())
- *             .explicitAuthFlows("ADMIN_NO_SRP_AUTH")
  *             .refreshTokenRotation(UserPoolClientRefreshTokenRotationArgs.builder()
  *                 .feature("ENABLED")
  *                 .retryGracePeriodSeconds(10)
  *                 .build())
+ *             .name("client")
+ *             .userPoolId(pool.id())
+ *             .explicitAuthFlows("ADMIN_NO_SRP_AUTH")
  *             .build());
  * 
  *     }

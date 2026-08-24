@@ -19,13 +19,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.datasync.LocationHdfs("example", {
- *     agentArns: [exampleAwsDatasyncAgent.arn],
- *     authenticationType: "SIMPLE",
- *     simpleUser: "example",
  *     nameNodes: [{
  *         hostname: exampleAwsInstance.privateDns,
  *         port: 80,
  *     }],
+ *     agentArns: [exampleAwsDatasyncAgent.arn],
+ *     authenticationType: "SIMPLE",
+ *     simpleUser: "example",
  * });
  * ```
  *
@@ -37,12 +37,12 @@ import * as utilities from "../utilities";
  * import * as std from "@pulumi/std";
  *
  * const example = new aws.datasync.LocationHdfs("example", {
- *     agentArns: [exampleAwsDatasyncAgent.arn],
- *     authenticationType: "KERBEROS",
  *     nameNodes: [{
  *         hostname: exampleAwsInstance.privateDns,
  *         port: 80,
  *     }],
+ *     agentArns: [exampleAwsDatasyncAgent.arn],
+ *     authenticationType: "KERBEROS",
  *     kerberosPrincipal: "user@example.com",
  *     kerberosKeytabBase64: std.filebase64({
  *         input: "user.keytab",

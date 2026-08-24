@@ -53,15 +53,15 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Create Neptune Graph
  *         var example = new Graph("example", GraphArgs.builder()
+ *             .vectorSearchConfiguration(GraphVectorSearchConfigurationArgs.builder()
+ *                 .vectorSearchDimension(128)
+ *                 .build())
  *             .graphName("example-graph-test-20250203")
  *             .provisionedMemory(16)
  *             .deletionProtection(false)
  *             .publicConnectivity(false)
  *             .replicaCount(1)
  *             .kmsKeyIdentifier("arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012")
- *             .vectorSearchConfiguration(GraphVectorSearchConfigurationArgs.builder()
- *                 .vectorSearchDimension(128)
- *                 .build())
  *             .tags(Map.ofEntries(
  *                 Map.entry("Environment", "Development"),
  *                 Map.entry("ModifiedBy", "AWS")

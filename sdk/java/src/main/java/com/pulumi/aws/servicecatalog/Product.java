@@ -52,12 +52,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Product("example", ProductArgs.builder()
- *             .name("example")
- *             .owner("example-owner")
- *             .type("CLOUD_FORMATION_TEMPLATE")
  *             .provisioningArtifactParameters(ProductProvisioningArtifactParametersArgs.builder()
  *                 .templateUrl("https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/temp1.json")
  *                 .build())
+ *             .name("example")
+ *             .owner("example-owner")
+ *             .type("CLOUD_FORMATION_TEMPLATE")
  *             .tags(Map.of("foo", "bar"))
  *             .build());
  * 

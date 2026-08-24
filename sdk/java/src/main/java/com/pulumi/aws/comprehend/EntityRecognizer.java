@@ -35,9 +35,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.comprehend.EntityRecognizer;
  * import com.pulumi.aws.comprehend.EntityRecognizerArgs;
  * import com.pulumi.aws.comprehend.inputs.EntityRecognizerInputDataConfigArgs;
- * import com.pulumi.aws.comprehend.inputs.EntityRecognizerInputDataConfigEntityTypeArgs;
  * import com.pulumi.aws.comprehend.inputs.EntityRecognizerInputDataConfigDocumentsArgs;
  * import com.pulumi.aws.comprehend.inputs.EntityRecognizerInputDataConfigEntityListArgs;
+ * import com.pulumi.aws.comprehend.inputs.EntityRecognizerInputDataConfigEntityTypeArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
@@ -57,10 +57,13 @@ import javax.annotation.Nullable;
  *         var entities = new BucketObjectv2("entities");
  * 
  *         var example = new EntityRecognizer("example", EntityRecognizerArgs.builder()
- *             .name("example")
- *             .dataAccessRoleArn(exampleAwsIamRole.arn())
- *             .languageCode("en")
  *             .inputDataConfig(EntityRecognizerInputDataConfigArgs.builder()
+ *                 .documents(EntityRecognizerInputDataConfigDocumentsArgs.builder()
+ *                     .s3Uri(documents.key().applyValue(_key -> String.format("s3://%s/%s", documentsAwsS3Bucket.bucket(),_key)))
+ *                     .build())
+ *                 .entityList(EntityRecognizerInputDataConfigEntityListArgs.builder()
+ *                     .s3Uri(entities.key().applyValue(_key -> String.format("s3://%s/%s", entitiesAwsS3Bucket.bucket(),_key)))
+ *                     .build())
  *                 .entityTypes(                
  *                     EntityRecognizerInputDataConfigEntityTypeArgs.builder()
  *                         .type("ENTITY_1")
@@ -68,13 +71,10 @@ import javax.annotation.Nullable;
  *                     EntityRecognizerInputDataConfigEntityTypeArgs.builder()
  *                         .type("ENTITY_2")
  *                         .build())
- *                 .documents(EntityRecognizerInputDataConfigDocumentsArgs.builder()
- *                     .s3Uri(documents.key().applyValue(_key -> String.format("s3://%s/%s", documentsAwsS3Bucket.bucket(),_key)))
- *                     .build())
- *                 .entityList(EntityRecognizerInputDataConfigEntityListArgs.builder()
- *                     .s3Uri(entities.key().applyValue(_key -> String.format("s3://%s/%s", entitiesAwsS3Bucket.bucket(),_key)))
- *                     .build())
  *                 .build())
+ *             .name("example")
+ *             .dataAccessRoleArn(exampleAwsIamRole.arn())
+ *             .languageCode("en")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAwsIamRolePolicy)
  *                 .build());

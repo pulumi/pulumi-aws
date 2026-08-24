@@ -315,12 +315,12 @@ class ParameterGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.neptune.ParameterGroup("example",
-            family="neptune1",
-            name="example",
             parameters=[{
                 "name": "neptune_query_timeout",
                 "value": "25",
-            }])
+            }],
+            family="neptune1",
+            name="example")
         ```
 
         ## Import
@@ -358,12 +358,12 @@ class ParameterGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.neptune.ParameterGroup("example",
-            family="neptune1",
-            name="example",
             parameters=[{
                 "name": "neptune_query_timeout",
                 "value": "25",
-            }])
+            }],
+            family="neptune1",
+            name="example")
         ```
 
         ## Import

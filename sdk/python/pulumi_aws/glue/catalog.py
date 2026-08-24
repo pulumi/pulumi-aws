@@ -582,17 +582,17 @@ class Catalog(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Catalog("example",
-            name="example",
-            description="Example Glue Catalog with data lake access",
             catalog_properties={
-                "custom_properties": {
-                    "property1": "value1",
-                },
                 "data_lake_access_properties": {
                     "data_lake_access": True,
                     "catalog_type": "aws:glue:datacatalog",
                 },
-            })
+                "custom_properties": {
+                    "property1": "value1",
+                },
+            },
+            name="example",
+            description="Example Glue Catalog with data lake access")
         ```
 
         ### With Federated Catalog
@@ -602,11 +602,11 @@ class Catalog(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Catalog("example",
-            name="example",
             federated_catalog={
                 "connection_name": example_aws_glue_connection["name"],
                 "identifier": "arn:aws:glue:us-east-1:123456789012:catalog",
-            })
+            },
+            name="example")
         ```
 
         ### With Default Permissions
@@ -616,20 +616,20 @@ class Catalog(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Catalog("example",
-            name="example",
-            description="Example Glue Catalog",
             create_database_default_permissions=[{
-                "permissions": ["ALL"],
                 "principal": {
                     "data_lake_principal_identifier": "IAM_ALLOWED_PRINCIPALS",
                 },
+                "permissions": ["ALL"],
             }],
             create_table_default_permissions=[{
-                "permissions": ["ALL"],
                 "principal": {
                     "data_lake_principal_identifier": "IAM_ALLOWED_PRINCIPALS",
                 },
-            }])
+                "permissions": ["ALL"],
+            }],
+            name="example",
+            description="Example Glue Catalog")
         ```
 
         ## Import
@@ -711,17 +711,17 @@ class Catalog(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Catalog("example",
-            name="example",
-            description="Example Glue Catalog with data lake access",
             catalog_properties={
-                "custom_properties": {
-                    "property1": "value1",
-                },
                 "data_lake_access_properties": {
                     "data_lake_access": True,
                     "catalog_type": "aws:glue:datacatalog",
                 },
-            })
+                "custom_properties": {
+                    "property1": "value1",
+                },
+            },
+            name="example",
+            description="Example Glue Catalog with data lake access")
         ```
 
         ### With Federated Catalog
@@ -731,11 +731,11 @@ class Catalog(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Catalog("example",
-            name="example",
             federated_catalog={
                 "connection_name": example_aws_glue_connection["name"],
                 "identifier": "arn:aws:glue:us-east-1:123456789012:catalog",
-            })
+            },
+            name="example")
         ```
 
         ### With Default Permissions
@@ -745,20 +745,20 @@ class Catalog(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Catalog("example",
-            name="example",
-            description="Example Glue Catalog",
             create_database_default_permissions=[{
-                "permissions": ["ALL"],
                 "principal": {
                     "data_lake_principal_identifier": "IAM_ALLOWED_PRINCIPALS",
                 },
+                "permissions": ["ALL"],
             }],
             create_table_default_permissions=[{
-                "permissions": ["ALL"],
                 "principal": {
                     "data_lake_principal_identifier": "IAM_ALLOWED_PRINCIPALS",
                 },
-            }])
+                "permissions": ["ALL"],
+            }],
+            name="example",
+            description="Example Glue Catalog")
         ```
 
         ## Import

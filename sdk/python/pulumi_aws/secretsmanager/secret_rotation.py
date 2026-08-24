@@ -300,11 +300,11 @@ class SecretRotation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.secretsmanager.SecretRotation("example",
-            secret_id=example_aws_secretsmanager_secret["id"],
-            rotation_lambda_arn=example_aws_lambda_function["arn"],
             rotation_rules={
                 "automatically_after_days": 30,
-            })
+            },
+            secret_id=example_aws_secretsmanager_secret["id"],
+            rotation_lambda_arn=example_aws_lambda_function["arn"])
         ```
 
         ### Managed External Secret Rotation
@@ -319,8 +319,9 @@ class SecretRotation(pulumi.CustomResource):
             name="example-salesforce-client-secret",
             type="SalesforceClientSecret")
         example_secret_rotation = aws.secretsmanager.SecretRotation("example",
-            secret_id=example.id,
-            external_secret_rotation_role_arn=example_aws_iam_role["arn"],
+            rotation_rules={
+                "automatically_after_days": int(rotation_days),
+            },
             external_secret_rotation_metadatas=[
                 {
                     "key": "adminSecretArn",
@@ -331,9 +332,8 @@ class SecretRotation(pulumi.CustomResource):
                     "value": "v65.0",
                 },
             ],
-            rotation_rules={
-                "automatically_after_days": int(rotation_days),
-            })
+            secret_id=example.id,
+            external_secret_rotation_role_arn=example_aws_iam_role["arn"])
         ```
 
         For more information about managed external secrets and partner-specific metadata requirements, see the [AWS documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/managed-external-secrets.html) and [partner-specific guides](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html).
@@ -389,11 +389,11 @@ class SecretRotation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.secretsmanager.SecretRotation("example",
-            secret_id=example_aws_secretsmanager_secret["id"],
-            rotation_lambda_arn=example_aws_lambda_function["arn"],
             rotation_rules={
                 "automatically_after_days": 30,
-            })
+            },
+            secret_id=example_aws_secretsmanager_secret["id"],
+            rotation_lambda_arn=example_aws_lambda_function["arn"])
         ```
 
         ### Managed External Secret Rotation
@@ -408,8 +408,9 @@ class SecretRotation(pulumi.CustomResource):
             name="example-salesforce-client-secret",
             type="SalesforceClientSecret")
         example_secret_rotation = aws.secretsmanager.SecretRotation("example",
-            secret_id=example.id,
-            external_secret_rotation_role_arn=example_aws_iam_role["arn"],
+            rotation_rules={
+                "automatically_after_days": int(rotation_days),
+            },
             external_secret_rotation_metadatas=[
                 {
                     "key": "adminSecretArn",
@@ -420,9 +421,8 @@ class SecretRotation(pulumi.CustomResource):
                     "value": "v65.0",
                 },
             ],
-            rotation_rules={
-                "automatically_after_days": int(rotation_days),
-            })
+            secret_id=example.id,
+            external_secret_rotation_role_arn=example_aws_iam_role["arn"])
         ```
 
         For more information about managed external secrets and partner-specific metadata requirements, see the [AWS documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/managed-external-secrets.html) and [partner-specific guides](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html).

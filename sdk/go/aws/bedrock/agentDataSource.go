@@ -31,14 +31,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentDataSource(ctx, "example", &bedrock.AgentDataSourceArgs{
-//				KnowledgeBaseId: pulumi.String("EMDPPAYPZI"),
-//				Name:            pulumi.String("example"),
 //				DataSourceConfiguration: &bedrock.AgentDataSourceDataSourceConfigurationArgs{
-//					Type: pulumi.String("S3"),
 //					S3Configuration: &bedrock.AgentDataSourceDataSourceConfigurationS3ConfigurationArgs{
 //						BucketArn: pulumi.String("arn:aws:s3:::example-bucket"),
 //					},
+//					Type: pulumi.String("S3"),
 //				},
+//				KnowledgeBaseId: pulumi.String("EMDPPAYPZI"),
+//				Name:            pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -82,24 +82,24 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = bedrock.NewAgentDataSource(ctx, "example", &bedrock.AgentDataSourceArgs{
-//				KnowledgeBaseId: pulumi.Any(exampleAwsBedrockagentKnowledgeBase.Id),
-//				Name:            pulumi.String("example-s3-managed"),
 //				DataSourceConfiguration: &bedrock.AgentDataSourceDataSourceConfigurationArgs{
-//					Type: pulumi.String("MANAGED_KNOWLEDGE_BASE_CONNECTOR"),
 //					ManagedKnowledgeBaseConnectorConfiguration: &bedrock.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationArgs{
-//						ConnectorParameters: pulumi.String(json0),
 //						MediaExtractionConfiguration: &bedrock.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationArgs{
 //							ImageExtractionConfiguration: &bedrock.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfigurationArgs{
 //								ImageExtractionStatus: pulumi.String("ENABLED"),
 //							},
 //						},
+//						ConnectorParameters: pulumi.String(json0),
 //					},
+//					Type: pulumi.String("MANAGED_KNOWLEDGE_BASE_CONNECTOR"),
 //				},
 //				VectorIngestionConfiguration: &bedrock.AgentDataSourceVectorIngestionConfigurationArgs{
 //					ParsingConfiguration: &bedrock.AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs{
 //						ParsingStrategy: pulumi.String("SMART_PARSING"),
 //					},
 //				},
+//				KnowledgeBaseId: pulumi.Any(exampleAwsBedrockagentKnowledgeBase.Id),
+//				Name:            pulumi.String("example-s3-managed"),
 //			})
 //			if err != nil {
 //				return err
@@ -152,14 +152,14 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = bedrock.NewAgentDataSource(ctx, "sharepoint", &bedrock.AgentDataSourceArgs{
-//				KnowledgeBaseId: pulumi.Any(example.Id),
-//				Name:            pulumi.String("example-sharepoint"),
 //				DataSourceConfiguration: &bedrock.AgentDataSourceDataSourceConfigurationArgs{
-//					Type: pulumi.String("MANAGED_KNOWLEDGE_BASE_CONNECTOR"),
 //					ManagedKnowledgeBaseConnectorConfiguration: &bedrock.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationArgs{
 //						ConnectorParameters: pulumi.String(json0),
 //					},
+//					Type: pulumi.String("MANAGED_KNOWLEDGE_BASE_CONNECTOR"),
 //				},
+//				KnowledgeBaseId: pulumi.Any(example.Id),
+//				Name:            pulumi.String("example-sharepoint"),
 //			})
 //			if err != nil {
 //				return err
@@ -185,33 +185,33 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentDataSource(ctx, "example", &bedrock.AgentDataSourceArgs{
-//				KnowledgeBaseId: pulumi.Any(exampleAwsBedrockagentKnowledgeBase.Id),
-//				Name:            pulumi.String("multimodal-example"),
 //				DataSourceConfiguration: &bedrock.AgentDataSourceDataSourceConfigurationArgs{
-//					Type: pulumi.String("S3"),
 //					S3Configuration: &bedrock.AgentDataSourceDataSourceConfigurationS3ConfigurationArgs{
 //						BucketArn: pulumi.Any(exampleAwsS3Bucket.Arn),
 //					},
+//					Type: pulumi.String("S3"),
 //				},
 //				VectorIngestionConfiguration: &bedrock.AgentDataSourceVectorIngestionConfigurationArgs{
 //					ChunkingConfiguration: &bedrock.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs{
-//						ChunkingStrategy: pulumi.String("FIXED_SIZE"),
 //						FixedSizeChunkingConfiguration: &bedrock.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs{
 //							MaxTokens:         pulumi.Int(512),
 //							OverlapPercentage: pulumi.Int(20),
 //						},
+//						ChunkingStrategy: pulumi.String("FIXED_SIZE"),
 //					},
 //					ParsingConfiguration: &bedrock.AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs{
-//						ParsingStrategy: pulumi.String("BEDROCK_FOUNDATION_MODEL"),
 //						BedrockFoundationModelConfiguration: &bedrock.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs{
-//							ModelArn:        pulumi.String("arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-3-sonnet-20240229-v1:0"),
-//							ParsingModality: pulumi.String("MULTIMODAL"),
 //							ParsingPrompt: &bedrock.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs{
 //								ParsingPromptString: pulumi.String("Extract and transcribe all text and visual content from the document."),
 //							},
+//							ModelArn:        pulumi.String("arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-3-sonnet-20240229-v1:0"),
+//							ParsingModality: pulumi.String("MULTIMODAL"),
 //						},
+//						ParsingStrategy: pulumi.String("BEDROCK_FOUNDATION_MODEL"),
 //					},
 //				},
+//				KnowledgeBaseId: pulumi.Any(exampleAwsBedrockagentKnowledgeBase.Id),
+//				Name:            pulumi.String("multimodal-example"),
 //			})
 //			if err != nil {
 //				return err

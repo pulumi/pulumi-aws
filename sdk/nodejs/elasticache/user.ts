@@ -31,13 +31,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.elasticache.User("test", {
+ *     authenticationMode: {
+ *         type: "iam",
+ *     },
  *     userId: "testUserId",
  *     userName: "testUserName",
  *     accessString: "on ~* +@all",
  *     engine: "redis",
- *     authenticationMode: {
- *         type: "iam",
- *     },
  * });
  * ```
  *
@@ -46,10 +46,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.elasticache.User("test", {
- *     userId: "testUserId",
- *     userName: "testUserName",
- *     accessString: "on ~* +@all",
- *     engine: "redis",
  *     authenticationMode: {
  *         type: "password",
  *         passwords: [
@@ -57,6 +53,10 @@ import * as utilities from "../utilities";
  *             "password2",
  *         ],
  *     },
+ *     userId: "testUserId",
+ *     userName: "testUserName",
+ *     accessString: "on ~* +@all",
+ *     engine: "redis",
  * });
  * ```
  *

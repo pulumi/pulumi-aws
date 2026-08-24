@@ -423,12 +423,12 @@ class ConnectAttachment(pulumi.CustomResource):
             core_network_id=example_awscc_networkmanager_core_network["id"],
             vpc_arn=example_aws_vpc["arn"])
         example_connect_attachment = aws.networkmanager.ConnectAttachment("example",
-            core_network_id=example_awscc_networkmanager_core_network["id"],
-            transport_attachment_id=example.id,
-            edge_location=example.edge_location,
             options={
                 "protocol": "GRE",
-            })
+            },
+            core_network_id=example_awscc_networkmanager_core_network["id"],
+            transport_attachment_id=example.id,
+            edge_location=example.edge_location)
         ```
 
         ### Usage with attachment accepter
@@ -445,12 +445,12 @@ class ConnectAttachment(pulumi.CustomResource):
             attachment_id=example.id,
             attachment_type=example.attachment_type)
         example_connect_attachment = aws.networkmanager.ConnectAttachment("example",
-            core_network_id=example_awscc_networkmanager_core_network["id"],
-            transport_attachment_id=example.id,
-            edge_location=example.edge_location,
             options={
                 "protocol": "GRE",
             },
+            core_network_id=example_awscc_networkmanager_core_network["id"],
+            transport_attachment_id=example.id,
+            edge_location=example.edge_location,
             opts = pulumi.ResourceOptions(depends_on=[example_attachment_accepter]))
         example2 = aws.networkmanager.AttachmentAccepter("example2",
             attachment_id=example_connect_attachment.id,
@@ -501,12 +501,12 @@ class ConnectAttachment(pulumi.CustomResource):
             core_network_id=example_awscc_networkmanager_core_network["id"],
             vpc_arn=example_aws_vpc["arn"])
         example_connect_attachment = aws.networkmanager.ConnectAttachment("example",
-            core_network_id=example_awscc_networkmanager_core_network["id"],
-            transport_attachment_id=example.id,
-            edge_location=example.edge_location,
             options={
                 "protocol": "GRE",
-            })
+            },
+            core_network_id=example_awscc_networkmanager_core_network["id"],
+            transport_attachment_id=example.id,
+            edge_location=example.edge_location)
         ```
 
         ### Usage with attachment accepter
@@ -523,12 +523,12 @@ class ConnectAttachment(pulumi.CustomResource):
             attachment_id=example.id,
             attachment_type=example.attachment_type)
         example_connect_attachment = aws.networkmanager.ConnectAttachment("example",
-            core_network_id=example_awscc_networkmanager_core_network["id"],
-            transport_attachment_id=example.id,
-            edge_location=example.edge_location,
             options={
                 "protocol": "GRE",
             },
+            core_network_id=example_awscc_networkmanager_core_network["id"],
+            transport_attachment_id=example.id,
+            edge_location=example.edge_location,
             opts = pulumi.ResourceOptions(depends_on=[example_attachment_accepter]))
         example2 = aws.networkmanager.AttachmentAccepter("example2",
             attachment_id=example_connect_attachment.id,

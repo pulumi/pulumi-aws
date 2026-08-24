@@ -59,7 +59,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Service("example", ServiceArgs.builder()
- *             .serviceName("example")
  *             .sourceConfiguration(ServiceSourceConfigurationArgs.builder()
  *                 .authenticationConfiguration(ServiceSourceConfigurationAuthenticationConfigurationArgs.builder()
  *                     .connectionArn(exampleAwsApprunnerConnection.arn())
@@ -74,11 +73,11 @@ import javax.annotation.Nullable;
  *                             .build())
  *                         .configurationSource("API")
  *                         .build())
- *                     .repositoryUrl("https://github.com/example/my-example-python-app")
  *                     .sourceCodeVersion(ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs.builder()
  *                         .type("BRANCH")
  *                         .value("main")
  *                         .build())
+ *                     .repositoryUrl("https://github.com/example/my-example-python-app")
  *                     .build())
  *                 .build())
  *             .networkConfiguration(ServiceNetworkConfigurationArgs.builder()
@@ -87,6 +86,7 @@ import javax.annotation.Nullable;
  *                     .vpcConnectorArn(connector.arn())
  *                     .build())
  *                 .build())
+ *             .serviceName("example")
  *             .tags(Map.of("Name", "example-apprunner-service"))
  *             .build());
  * 
@@ -123,7 +123,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Service("example", ServiceArgs.builder()
- *             .serviceName("example")
  *             .sourceConfiguration(ServiceSourceConfigurationArgs.builder()
  *                 .imageRepository(ServiceSourceConfigurationImageRepositoryArgs.builder()
  *                     .imageConfiguration(ServiceSourceConfigurationImageRepositoryImageConfigurationArgs.builder()
@@ -134,6 +133,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .autoDeploymentsEnabled(false)
  *                 .build())
+ *             .serviceName("example")
  *             .tags(Map.of("Name", "example-apprunner-service"))
  *             .build());
  * 
@@ -174,14 +174,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleObservabilityConfiguration = new ObservabilityConfiguration("exampleObservabilityConfiguration", ObservabilityConfigurationArgs.builder()
- *             .observabilityConfigurationName("example")
  *             .traceConfiguration(ObservabilityConfigurationTraceConfigurationArgs.builder()
  *                 .vendor("AWSXRAY")
  *                 .build())
+ *             .observabilityConfigurationName("example")
  *             .build());
  * 
  *         var example = new Service("example", ServiceArgs.builder()
- *             .serviceName("example")
  *             .observabilityConfiguration(ServiceObservabilityConfigurationArgs.builder()
  *                 .observabilityConfigurationArn(exampleObservabilityConfiguration.arn())
  *                 .observabilityEnabled(true)
@@ -196,6 +195,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .autoDeploymentsEnabled(false)
  *                 .build())
+ *             .serviceName("example")
  *             .tags(Map.of("Name", "example-apprunner-service"))
  *             .build());
  * 

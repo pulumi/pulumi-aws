@@ -33,14 +33,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := lb.NewLoadBalancer(ctx, "example", &lb.LoadBalancerArgs{
-//				Name:             pulumi.String("example"),
-//				Internal:         pulumi.Bool(true),
-//				LoadBalancerType: pulumi.String("network"),
 //				SubnetMappings: lb.LoadBalancerSubnetMappingArray{
 //					&lb.LoadBalancerSubnetMappingArgs{
 //						SubnetId: pulumi.String("12345"),
 //					},
 //				},
+//				Name:             pulumi.String("example"),
+//				Internal:         pulumi.Bool(true),
+//				LoadBalancerType: pulumi.String("network"),
 //			})
 //			if err != nil {
 //				return err

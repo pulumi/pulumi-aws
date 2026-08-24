@@ -264,10 +264,10 @@ class ObservabilityConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.apprunner.ObservabilityConfiguration("example",
-            observability_configuration_name="example",
             trace_configuration={
                 "vendor": "AWSXRAY",
             },
+            observability_configuration_name="example",
             tags={
                 "Name": "example-apprunner-observability-configuration",
             })
@@ -311,10 +311,10 @@ class ObservabilityConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.apprunner.ObservabilityConfiguration("example",
-            observability_configuration_name="example",
             trace_configuration={
                 "vendor": "AWSXRAY",
             },
+            observability_configuration_name="example",
             tags={
                 "Name": "example-apprunner-observability-configuration",
             })

@@ -1295,13 +1295,8 @@ public final class CloudwatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudwatchFunctions.getLogDataProtectionPolicyDocument(GetLogDataProtectionPolicyDocumentArgs.builder()
-     *             .name("Example")
      *             .statements(            
      *                 GetLogDataProtectionPolicyDocumentStatementArgs.builder()
-     *                     .sid("Audit")
-     *                     .dataIdentifiers(                    
-     *                         "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
-     *                         "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US")
      *                     .operation(GetLogDataProtectionPolicyDocumentStatementOperationArgs.builder()
      *                         .audit(GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs.builder()
      *                             .findingsDestination(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs.builder()
@@ -1317,19 +1312,24 @@ public final class CloudwatchFunctions {
      *                                 .build())
      *                             .build())
      *                         .build())
-     *                     .build(),
-     *                 GetLogDataProtectionPolicyDocumentStatementArgs.builder()
-     *                     .sid("Deidentify")
+     *                     .sid("Audit")
      *                     .dataIdentifiers(                    
      *                         "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
      *                         "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US")
+     *                     .build(),
+     *                 GetLogDataProtectionPolicyDocumentStatementArgs.builder()
      *                     .operation(GetLogDataProtectionPolicyDocumentStatementOperationArgs.builder()
      *                         .deidentify(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs.builder()
      *                             .maskConfig(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs.builder()
      *                                 .build())
      *                             .build())
      *                         .build())
+     *                     .sid("Deidentify")
+     *                     .dataIdentifiers(                    
+     *                         "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
+     *                         "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US")
      *                     .build())
+     *             .name("Example")
      *             .build());
      * 
      *         var exampleLogDataProtectionPolicy = new LogDataProtectionPolicy("exampleLogDataProtectionPolicy", LogDataProtectionPolicyArgs.builder()
@@ -1387,13 +1387,8 @@ public final class CloudwatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudwatchFunctions.getLogDataProtectionPolicyDocument(GetLogDataProtectionPolicyDocumentArgs.builder()
-     *             .name("Example")
      *             .statements(            
      *                 GetLogDataProtectionPolicyDocumentStatementArgs.builder()
-     *                     .sid("Audit")
-     *                     .dataIdentifiers(                    
-     *                         "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
-     *                         "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US")
      *                     .operation(GetLogDataProtectionPolicyDocumentStatementOperationArgs.builder()
      *                         .audit(GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs.builder()
      *                             .findingsDestination(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs.builder()
@@ -1409,19 +1404,24 @@ public final class CloudwatchFunctions {
      *                                 .build())
      *                             .build())
      *                         .build())
-     *                     .build(),
-     *                 GetLogDataProtectionPolicyDocumentStatementArgs.builder()
-     *                     .sid("Deidentify")
+     *                     .sid("Audit")
      *                     .dataIdentifiers(                    
      *                         "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
      *                         "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US")
+     *                     .build(),
+     *                 GetLogDataProtectionPolicyDocumentStatementArgs.builder()
      *                     .operation(GetLogDataProtectionPolicyDocumentStatementOperationArgs.builder()
      *                         .deidentify(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs.builder()
      *                             .maskConfig(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs.builder()
      *                                 .build())
      *                             .build())
      *                         .build())
+     *                     .sid("Deidentify")
+     *                     .dataIdentifiers(                    
+     *                         "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
+     *                         "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US")
      *                     .build())
+     *             .name("Example")
      *             .build());
      * 
      *         var exampleLogDataProtectionPolicy = new LogDataProtectionPolicy("exampleLogDataProtectionPolicy", LogDataProtectionPolicyArgs.builder()
@@ -1479,13 +1479,8 @@ public final class CloudwatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudwatchFunctions.getLogDataProtectionPolicyDocument(GetLogDataProtectionPolicyDocumentArgs.builder()
-     *             .name("Example")
      *             .statements(            
      *                 GetLogDataProtectionPolicyDocumentStatementArgs.builder()
-     *                     .sid("Audit")
-     *                     .dataIdentifiers(                    
-     *                         "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
-     *                         "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US")
      *                     .operation(GetLogDataProtectionPolicyDocumentStatementOperationArgs.builder()
      *                         .audit(GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs.builder()
      *                             .findingsDestination(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs.builder()
@@ -1501,19 +1496,24 @@ public final class CloudwatchFunctions {
      *                                 .build())
      *                             .build())
      *                         .build())
-     *                     .build(),
-     *                 GetLogDataProtectionPolicyDocumentStatementArgs.builder()
-     *                     .sid("Deidentify")
+     *                     .sid("Audit")
      *                     .dataIdentifiers(                    
      *                         "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
      *                         "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US")
+     *                     .build(),
+     *                 GetLogDataProtectionPolicyDocumentStatementArgs.builder()
      *                     .operation(GetLogDataProtectionPolicyDocumentStatementOperationArgs.builder()
      *                         .deidentify(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs.builder()
      *                             .maskConfig(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs.builder()
      *                                 .build())
      *                             .build())
      *                         .build())
+     *                     .sid("Deidentify")
+     *                     .dataIdentifiers(                    
+     *                         "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
+     *                         "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US")
      *                     .build())
+     *             .name("Example")
      *             .build());
      * 
      *         var exampleLogDataProtectionPolicy = new LogDataProtectionPolicy("exampleLogDataProtectionPolicy", LogDataProtectionPolicyArgs.builder()
@@ -1571,13 +1571,8 @@ public final class CloudwatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudwatchFunctions.getLogDataProtectionPolicyDocument(GetLogDataProtectionPolicyDocumentArgs.builder()
-     *             .name("Example")
      *             .statements(            
      *                 GetLogDataProtectionPolicyDocumentStatementArgs.builder()
-     *                     .sid("Audit")
-     *                     .dataIdentifiers(                    
-     *                         "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
-     *                         "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US")
      *                     .operation(GetLogDataProtectionPolicyDocumentStatementOperationArgs.builder()
      *                         .audit(GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs.builder()
      *                             .findingsDestination(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs.builder()
@@ -1593,19 +1588,24 @@ public final class CloudwatchFunctions {
      *                                 .build())
      *                             .build())
      *                         .build())
-     *                     .build(),
-     *                 GetLogDataProtectionPolicyDocumentStatementArgs.builder()
-     *                     .sid("Deidentify")
+     *                     .sid("Audit")
      *                     .dataIdentifiers(                    
      *                         "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
      *                         "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US")
+     *                     .build(),
+     *                 GetLogDataProtectionPolicyDocumentStatementArgs.builder()
      *                     .operation(GetLogDataProtectionPolicyDocumentStatementOperationArgs.builder()
      *                         .deidentify(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs.builder()
      *                             .maskConfig(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs.builder()
      *                                 .build())
      *                             .build())
      *                         .build())
+     *                     .sid("Deidentify")
+     *                     .dataIdentifiers(                    
+     *                         "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
+     *                         "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US")
      *                     .build())
+     *             .name("Example")
      *             .build());
      * 
      *         var exampleLogDataProtectionPolicy = new LogDataProtectionPolicy("exampleLogDataProtectionPolicy", LogDataProtectionPolicyArgs.builder()
@@ -1663,13 +1663,8 @@ public final class CloudwatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudwatchFunctions.getLogDataProtectionPolicyDocument(GetLogDataProtectionPolicyDocumentArgs.builder()
-     *             .name("Example")
      *             .statements(            
      *                 GetLogDataProtectionPolicyDocumentStatementArgs.builder()
-     *                     .sid("Audit")
-     *                     .dataIdentifiers(                    
-     *                         "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
-     *                         "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US")
      *                     .operation(GetLogDataProtectionPolicyDocumentStatementOperationArgs.builder()
      *                         .audit(GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs.builder()
      *                             .findingsDestination(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs.builder()
@@ -1685,19 +1680,24 @@ public final class CloudwatchFunctions {
      *                                 .build())
      *                             .build())
      *                         .build())
-     *                     .build(),
-     *                 GetLogDataProtectionPolicyDocumentStatementArgs.builder()
-     *                     .sid("Deidentify")
+     *                     .sid("Audit")
      *                     .dataIdentifiers(                    
      *                         "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
      *                         "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US")
+     *                     .build(),
+     *                 GetLogDataProtectionPolicyDocumentStatementArgs.builder()
      *                     .operation(GetLogDataProtectionPolicyDocumentStatementOperationArgs.builder()
      *                         .deidentify(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs.builder()
      *                             .maskConfig(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs.builder()
      *                                 .build())
      *                             .build())
      *                         .build())
+     *                     .sid("Deidentify")
+     *                     .dataIdentifiers(                    
+     *                         "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
+     *                         "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US")
      *                     .build())
+     *             .name("Example")
      *             .build());
      * 
      *         var exampleLogDataProtectionPolicy = new LogDataProtectionPolicy("exampleLogDataProtectionPolicy", LogDataProtectionPolicyArgs.builder()

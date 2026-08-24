@@ -127,11 +127,11 @@ import (
 //				return err
 //			}
 //			example, err := cloudwatch.NewEventBus(ctx, "example", &cloudwatch.EventBusArgs{
-//				Name: pulumi.String("example-event-bus"),
 //				LogConfig: &cloudwatch.EventBusLogConfigArgs{
 //					IncludeDetail: pulumi.String("FULL"),
 //					Level:         pulumi.String("TRACE"),
 //				},
+//				Name: pulumi.String("example-event-bus"),
 //			})
 //			if err != nil {
 //				return err
@@ -177,23 +177,6 @@ import (
 //			bucket := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Type: pulumi.String("Service"),
-//								Identifiers: pulumi.StringArray{
-//									pulumi.String("delivery.logs.amazonaws.com"),
-//								},
-//							},
-//						},
-//						Actions: pulumi.StringArray{
-//							pulumi.String("s3:PutObject"),
-//						},
-//						Resources: pulumi.StringArray{
-//							exampleBucket.Arn.ApplyT(func(arn string) (string, error) {
-//								return fmt.Sprintf("%v/AWSLogs/%v/EventBusLogs/*", arn, current.AccountId), nil
-//							}).(pulumi.StringOutput),
-//						},
 //						Conditions: iam.GetPolicyDocumentStatementConditionArray{
 //							&iam.GetPolicyDocumentStatementConditionArgs{
 //								Test:     pulumi.String("StringEquals"),
@@ -219,6 +202,23 @@ import (
 //								},
 //							},
 //						},
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Type: pulumi.String("Service"),
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String("delivery.logs.amazonaws.com"),
+//								},
+//							},
+//						},
+//						Effect: pulumi.String("Allow"),
+//						Actions: pulumi.StringArray{
+//							pulumi.String("s3:PutObject"),
+//						},
+//						Resources: pulumi.StringArray{
+//							exampleBucket.Arn.ApplyT(func(arn string) (string, error) {
+//								return fmt.Sprintf("%v/AWSLogs/%v/EventBusLogs/*", arn, current.AccountId), nil
+//							}).(pulumi.StringOutput),
+//						},
 //					},
 //				},
 //			}, nil)
@@ -230,12 +230,12 @@ import (
 //				return err
 //			}
 //			s32, err := cloudwatch.NewLogDeliveryDestination(ctx, "s3", &cloudwatch.LogDeliveryDestinationArgs{
-//				Name: example.Name.ApplyT(func(name string) (string, error) {
-//					return fmt.Sprintf("EventsDeliveryDestination-%v-S3", name), nil
-//				}).(pulumi.StringOutput),
 //				DeliveryDestinationConfiguration: &cloudwatch.LogDeliveryDestinationDeliveryDestinationConfigurationArgs{
 //					DestinationResourceArn: exampleBucket.Arn,
 //				},
+//				Name: example.Name.ApplyT(func(name string) (string, error) {
+//					return fmt.Sprintf("EventsDeliveryDestination-%v-S3", name), nil
+//				}).(pulumi.StringOutput),
 //			})
 //			if err != nil {
 //				return err
@@ -277,24 +277,6 @@ import (
 //			cwlogs := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Type: pulumi.String("Service"),
-//								Identifiers: pulumi.StringArray{
-//									pulumi.String("delivery.logs.amazonaws.com"),
-//								},
-//							},
-//						},
-//						Actions: pulumi.StringArray{
-//							pulumi.String("logs:CreateLogStream"),
-//							pulumi.String("logs:PutLogEvents"),
-//						},
-//						Resources: pulumi.StringArray{
-//							eventBusLogs.Arn.ApplyT(func(arn string) (string, error) {
-//								return fmt.Sprintf("%v:log-stream:*", arn), nil
-//							}).(pulumi.StringOutput),
-//						},
 //						Conditions: iam.GetPolicyDocumentStatementConditionArray{
 //							&iam.GetPolicyDocumentStatementConditionArgs{
 //								Test:     pulumi.String("StringEquals"),
@@ -313,6 +295,24 @@ import (
 //								},
 //							},
 //						},
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Type: pulumi.String("Service"),
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String("delivery.logs.amazonaws.com"),
+//								},
+//							},
+//						},
+//						Effect: pulumi.String("Allow"),
+//						Actions: pulumi.StringArray{
+//							pulumi.String("logs:CreateLogStream"),
+//							pulumi.String("logs:PutLogEvents"),
+//						},
+//						Resources: pulumi.StringArray{
+//							eventBusLogs.Arn.ApplyT(func(arn string) (string, error) {
+//								return fmt.Sprintf("%v:log-stream:*", arn), nil
+//							}).(pulumi.StringOutput),
+//						},
 //					},
 //				},
 //			}, nil)
@@ -326,12 +326,12 @@ import (
 //				return err
 //			}
 //			cwlogsLogDeliveryDestination, err := cloudwatch.NewLogDeliveryDestination(ctx, "cwlogs", &cloudwatch.LogDeliveryDestinationArgs{
-//				Name: example.Name.ApplyT(func(name string) (string, error) {
-//					return fmt.Sprintf("EventsDeliveryDestination-%v-CWLogs", name), nil
-//				}).(pulumi.StringOutput),
 //				DeliveryDestinationConfiguration: &cloudwatch.LogDeliveryDestinationDeliveryDestinationConfigurationArgs{
 //					DestinationResourceArn: eventBusLogs.Arn,
 //				},
+//				Name: example.Name.ApplyT(func(name string) (string, error) {
+//					return fmt.Sprintf("EventsDeliveryDestination-%v-CWLogs", name), nil
+//				}).(pulumi.StringOutput),
 //			})
 //			if err != nil {
 //				return err
@@ -375,12 +375,12 @@ import (
 //				return err
 //			}
 //			firehose, err := cloudwatch.NewLogDeliveryDestination(ctx, "firehose", &cloudwatch.LogDeliveryDestinationArgs{
-//				Name: example.Name.ApplyT(func(name string) (string, error) {
-//					return fmt.Sprintf("EventsDeliveryDestination-%v-Firehose", name), nil
-//				}).(pulumi.StringOutput),
 //				DeliveryDestinationConfiguration: &cloudwatch.LogDeliveryDestinationDeliveryDestinationConfigurationArgs{
 //					DestinationResourceArn: cloudfrontLogs.Arn,
 //				},
+//				Name: example.Name.ApplyT(func(name string) (string, error) {
+//					return fmt.Sprintf("EventsDeliveryDestination-%v-Firehose", name), nil
+//				}).(pulumi.StringOutput),
 //			})
 //			if err != nil {
 //				return err

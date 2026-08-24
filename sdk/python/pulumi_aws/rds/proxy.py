@@ -564,6 +564,12 @@ class Proxy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.rds.Proxy("example",
+            auths=[{
+                "auth_scheme": "SECRETS",
+                "description": "example",
+                "iam_auth": "DISABLED",
+                "secret_arn": example_aws_secretsmanager_secret["arn"],
+            }],
             name="example",
             debug_logging=False,
             engine_family="MYSQL",
@@ -572,12 +578,6 @@ class Proxy(pulumi.CustomResource):
             role_arn=example_aws_iam_role["arn"],
             vpc_security_group_ids=[example_aws_security_group["id"]],
             vpc_subnet_ids=[example_aws_subnet["id"]],
-            auths=[{
-                "auth_scheme": "SECRETS",
-                "description": "example",
-                "iam_auth": "DISABLED",
-                "secret_arn": example_aws_secretsmanager_secret["arn"],
-            }],
             tags={
                 "Name": "example",
                 "Key": "value",
@@ -596,12 +596,12 @@ class Proxy(pulumi.CustomResource):
         import pulumi_aws as aws
         import pulumi_std as std
 
-        available = aws.get_availability_zones(exclude_zone_ids=["use1-az3"],
-            state="available",
-            filters=[{
+        available = aws.get_availability_zones(filters=[{
                 "name": "opt-in-status",
                 "values": ["opt-in-not-required"],
-            }])
+            }],
+            exclude_zone_ids=["use1-az3"],
+            state="available")
         example = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
         example_subnet: list[aws.ec2.Subnet] = []
         for example_subnet_range in [{"value": i} for i in range(0, 5)]:
@@ -624,7 +624,8 @@ class Proxy(pulumi.CustomResource):
 
         example = aws.rds.Proxy("example",
             name="example",
-            vpc_subnet_ids=[example_aws_subnet["id"]])
+            vpc_subnet_ids=[example_aws_subnet["id"]],
+            opts = pulumi.ResourceOptions(ignore_changes=["vpcSubnetIds"]))
         ```
 
         ## Import
@@ -673,6 +674,12 @@ class Proxy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.rds.Proxy("example",
+            auths=[{
+                "auth_scheme": "SECRETS",
+                "description": "example",
+                "iam_auth": "DISABLED",
+                "secret_arn": example_aws_secretsmanager_secret["arn"],
+            }],
             name="example",
             debug_logging=False,
             engine_family="MYSQL",
@@ -681,12 +688,6 @@ class Proxy(pulumi.CustomResource):
             role_arn=example_aws_iam_role["arn"],
             vpc_security_group_ids=[example_aws_security_group["id"]],
             vpc_subnet_ids=[example_aws_subnet["id"]],
-            auths=[{
-                "auth_scheme": "SECRETS",
-                "description": "example",
-                "iam_auth": "DISABLED",
-                "secret_arn": example_aws_secretsmanager_secret["arn"],
-            }],
             tags={
                 "Name": "example",
                 "Key": "value",
@@ -705,12 +706,12 @@ class Proxy(pulumi.CustomResource):
         import pulumi_aws as aws
         import pulumi_std as std
 
-        available = aws.get_availability_zones(exclude_zone_ids=["use1-az3"],
-            state="available",
-            filters=[{
+        available = aws.get_availability_zones(filters=[{
                 "name": "opt-in-status",
                 "values": ["opt-in-not-required"],
-            }])
+            }],
+            exclude_zone_ids=["use1-az3"],
+            state="available")
         example = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
         example_subnet: list[aws.ec2.Subnet] = []
         for example_subnet_range in [{"value": i} for i in range(0, 5)]:
@@ -733,7 +734,8 @@ class Proxy(pulumi.CustomResource):
 
         example = aws.rds.Proxy("example",
             name="example",
-            vpc_subnet_ids=[example_aws_subnet["id"]])
+            vpc_subnet_ids=[example_aws_subnet["id"]],
+            opts = pulumi.ResourceOptions(ignore_changes=["vpcSubnetIds"]))
         ```
 
         ## Import

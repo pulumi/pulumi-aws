@@ -29,12 +29,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := xray.NewGroup(ctx, "example", &xray.GroupArgs{
-//				GroupName:        pulumi.String("example"),
-//				FilterExpression: pulumi.String("responsetime > 5"),
 //				InsightsConfiguration: &xray.GroupInsightsConfigurationArgs{
 //					InsightsEnabled:      pulumi.Bool(true),
 //					NotificationsEnabled: pulumi.Bool(true),
 //				},
+//				GroupName:        pulumi.String("example"),
+//				FilterExpression: pulumi.String("responsetime > 5"),
 //			})
 //			if err != nil {
 //				return err

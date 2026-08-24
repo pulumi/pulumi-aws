@@ -347,13 +347,13 @@ def get_subnet(availability_zone: Optional[_builtins.str] = None,
     subnet_id = config.require_object("subnetId")
     selected = aws.ec2.get_subnet(id=subnet_id)
     subnet_security_group = aws.ec2.SecurityGroup("subnet_security_group",
-        vpc_id=selected.vpc_id,
         ingress=[{
             "cidr_blocks": [selected.cidr_block],
             "from_port": 80,
             "to_port": 80,
             "protocol": "tcp",
-        }])
+        }],
+        vpc_id=selected.vpc_id)
     ```
 
     ### Filter Example
@@ -454,13 +454,13 @@ def get_subnet_output(availability_zone: pulumi.Input[Optional[Optional[_builtin
     subnet_id = config.require_object("subnetId")
     selected = aws.ec2.get_subnet(id=subnet_id)
     subnet_security_group = aws.ec2.SecurityGroup("subnet_security_group",
-        vpc_id=selected.vpc_id,
         ingress=[{
             "cidr_blocks": [selected.cidr_block],
             "from_port": 80,
             "to_port": 80,
             "protocol": "tcp",
-        }])
+        }],
+        vpc_id=selected.vpc_id)
     ```
 
     ### Filter Example

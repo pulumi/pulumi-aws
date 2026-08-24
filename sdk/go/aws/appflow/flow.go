@@ -39,8 +39,6 @@ import (
 //			exampleSource, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Sid:    pulumi.StringRef("AllowAppFlowSourceActions"),
-//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -49,6 +47,8 @@ import (
 //								},
 //							},
 //						},
+//						Sid:    pulumi.StringRef("AllowAppFlowSourceActions"),
+//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"s3:ListBucket",
 //							"s3:GetObject",
@@ -87,8 +87,6 @@ import (
 //			exampleDestination, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Sid:    pulumi.StringRef("AllowAppFlowDestinationActions"),
-//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -97,6 +95,8 @@ import (
 //								},
 //							},
 //						},
+//						Sid:    pulumi.StringRef("AllowAppFlowDestinationActions"),
+//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"s3:PutObject",
 //							"s3:AbortMultipartUpload",
@@ -123,48 +123,48 @@ import (
 //				return err
 //			}
 //			_, err = appflow.NewFlow(ctx, "example", &appflow.FlowArgs{
-//				Name: pulumi.String("example"),
 //				SourceFlowConfig: &appflow.FlowSourceFlowConfigArgs{
-//					ConnectorType: pulumi.String("S3"),
 //					SourceConnectorProperties: &appflow.FlowSourceFlowConfigSourceConnectorPropertiesArgs{
 //						S3: &appflow.FlowSourceFlowConfigSourceConnectorPropertiesS3Args{
 //							BucketName:   exampleSourceBucketPolicy.Bucket,
 //							BucketPrefix: pulumi.String("example"),
 //						},
 //					},
+//					ConnectorType: pulumi.String("S3"),
+//				},
+//				TriggerConfig: &appflow.FlowTriggerConfigArgs{
+//					TriggerType: pulumi.String("OnDemand"),
 //				},
 //				DestinationFlowConfigs: appflow.FlowDestinationFlowConfigArray{
 //					&appflow.FlowDestinationFlowConfigArgs{
-//						ConnectorType: pulumi.String("S3"),
 //						DestinationConnectorProperties: &appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesArgs{
 //							S3: &appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args{
-//								BucketName: exampleDestinationBucketPolicy.Bucket,
 //								S3OutputFormatConfig: &appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs{
 //									PrefixConfig: &appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs{
 //										PrefixType: pulumi.String("PATH"),
 //									},
 //								},
+//								BucketName: exampleDestinationBucketPolicy.Bucket,
 //							},
 //						},
+//						ConnectorType: pulumi.String("S3"),
 //					},
 //				},
 //				Tasks: appflow.FlowTaskArray{
 //					&appflow.FlowTaskArgs{
-//						SourceFields: pulumi.StringArray{
-//							pulumi.String("exampleField"),
-//						},
-//						DestinationField: pulumi.String("exampleField"),
-//						TaskType:         pulumi.String("Map"),
 //						ConnectorOperators: appflow.FlowTaskConnectorOperatorArray{
 //							&appflow.FlowTaskConnectorOperatorArgs{
 //								S3: pulumi.String("NO_OP"),
 //							},
 //						},
+//						SourceFields: pulumi.StringArray{
+//							pulumi.String("exampleField"),
+//						},
+//						DestinationField: pulumi.String("exampleField"),
+//						TaskType:         pulumi.String("Map"),
 //					},
 //				},
-//				TriggerConfig: &appflow.FlowTriggerConfigArgs{
-//					TriggerType: pulumi.String("OnDemand"),
-//				},
+//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

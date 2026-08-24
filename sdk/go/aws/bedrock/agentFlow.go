@@ -58,39 +58,35 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentFlow(ctx, "example", &bedrock.AgentFlowArgs{
-//				Name:             pulumi.String("example"),
-//				ExecutionRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				Definition: &bedrock.AgentFlowDefinitionArgs{
 //					Connections: bedrock.AgentFlowDefinitionConnectionArray{
 //						&bedrock.AgentFlowDefinitionConnectionArgs{
-//							Name:   pulumi.String("FlowInputNodeFlowInputNode0ToPrompt_1PromptsNode0"),
-//							Source: pulumi.String("FlowInputNode"),
-//							Target: pulumi.String("Prompt_1"),
-//							Type:   pulumi.String("Data"),
 //							Configuration: &bedrock.AgentFlowDefinitionConnectionConfigurationArgs{
 //								Data: &bedrock.AgentFlowDefinitionConnectionConfigurationDataArgs{
 //									SourceOutput: pulumi.String("document"),
 //									TargetInput:  pulumi.String("topic"),
 //								},
 //							},
+//							Name:   pulumi.String("FlowInputNodeFlowInputNode0ToPrompt_1PromptsNode0"),
+//							Source: pulumi.String("FlowInputNode"),
+//							Target: pulumi.String("Prompt_1"),
+//							Type:   pulumi.String("Data"),
 //						},
 //						&bedrock.AgentFlowDefinitionConnectionArgs{
-//							Name:   pulumi.String("Prompt_1PromptsNode0ToFlowOutputNodeFlowOutputNode0"),
-//							Source: pulumi.String("Prompt_1"),
-//							Target: pulumi.String("FlowOutputNode"),
-//							Type:   pulumi.String("Data"),
 //							Configuration: &bedrock.AgentFlowDefinitionConnectionConfigurationArgs{
 //								Data: &bedrock.AgentFlowDefinitionConnectionConfigurationDataArgs{
 //									SourceOutput: pulumi.String("modelCompletion"),
 //									TargetInput:  pulumi.String("document"),
 //								},
 //							},
+//							Name:   pulumi.String("Prompt_1PromptsNode0ToFlowOutputNodeFlowOutputNode0"),
+//							Source: pulumi.String("Prompt_1"),
+//							Target: pulumi.String("FlowOutputNode"),
+//							Type:   pulumi.String("Data"),
 //						},
 //					},
 //					Nodes: bedrock.AgentFlowDefinitionNodeArray{
 //						&bedrock.AgentFlowDefinitionNodeArgs{
-//							Name: pulumi.String("FlowInputNode"),
-//							Type: pulumi.String("Input"),
 //							Configuration: &bedrock.AgentFlowDefinitionNodeConfigurationArgs{
 //								Input: &bedrock.AgentFlowDefinitionNodeConfigurationInputTypeArgs{},
 //							},
@@ -100,16 +96,14 @@ import (
 //									Type: pulumi.String("String"),
 //								},
 //							},
+//							Name: pulumi.String("FlowInputNode"),
+//							Type: pulumi.String("Input"),
 //						},
 //						&bedrock.AgentFlowDefinitionNodeArgs{
-//							Name: pulumi.String("Prompt_1"),
-//							Type: pulumi.String("Prompt"),
 //							Configuration: &bedrock.AgentFlowDefinitionNodeConfigurationArgs{
 //								Prompt: &bedrock.AgentFlowDefinitionNodeConfigurationPromptArgs{
 //									SourceConfiguration: &bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationArgs{
 //										Inline: &bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgs{
-//											ModelId:      pulumi.String("amazon.titan-text-express-v1"),
-//											TemplateType: pulumi.String("TEXT"),
 //											InferenceConfiguration: &bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs{
 //												Text: &bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextArgs{
 //													MaxTokens: pulumi.Int(2048),
@@ -122,14 +116,16 @@ import (
 //											},
 //											TemplateConfiguration: &bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgs{
 //												Text: &bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgs{
-//													Text: pulumi.String("Write a paragraph about {{topic}}."),
 //													InputVariables: bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArray{
 //														&bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArgs{
 //															Name: pulumi.String("topic"),
 //														},
 //													},
+//													Text: pulumi.String("Write a paragraph about {{topic}}."),
 //												},
 //											},
+//											ModelId:      pulumi.String("amazon.titan-text-express-v1"),
+//											TemplateType: pulumi.String("TEXT"),
 //										},
 //									},
 //								},
@@ -147,10 +143,10 @@ import (
 //									Type: pulumi.String("String"),
 //								},
 //							},
+//							Name: pulumi.String("Prompt_1"),
+//							Type: pulumi.String("Prompt"),
 //						},
 //						&bedrock.AgentFlowDefinitionNodeArgs{
-//							Name: pulumi.String("FlowOutputNode"),
-//							Type: pulumi.String("Output"),
 //							Configuration: &bedrock.AgentFlowDefinitionNodeConfigurationArgs{
 //								Output: &bedrock.AgentFlowDefinitionNodeConfigurationOutputTypeArgs{},
 //							},
@@ -161,9 +157,13 @@ import (
 //									Type:       pulumi.String("String"),
 //								},
 //							},
+//							Name: pulumi.String("FlowOutputNode"),
+//							Type: pulumi.String("Output"),
 //						},
 //					},
 //				},
+//				Name:             pulumi.String("example"),
+//				ExecutionRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err

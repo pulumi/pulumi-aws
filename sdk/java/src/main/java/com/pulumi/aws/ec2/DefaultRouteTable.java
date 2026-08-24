@@ -52,7 +52,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DefaultRouteTable("example", DefaultRouteTableArgs.builder()
- *             .defaultRouteTableId(exampleAwsVpc.defaultRouteTableId())
  *             .routes(            
  *                 DefaultRouteTableRouteArgs.builder()
  *                     .cidrBlock("10.0.1.0/24")
@@ -62,6 +61,7 @@ import javax.annotation.Nullable;
  *                     .ipv6CidrBlock("::/0")
  *                     .egressOnlyGatewayId(exampleAwsEgressOnlyInternetGateway.id())
  *                     .build())
+ *             .defaultRouteTableId(exampleAwsVpc.defaultRouteTableId())
  *             .tags(Map.of("Name", "example"))
  *             .build());
  * 

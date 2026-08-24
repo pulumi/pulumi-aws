@@ -48,10 +48,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new IpAccessSettings("example", IpAccessSettingsArgs.builder()
- *             .displayName("example")
  *             .ipRules(IpAccessSettingsIpRuleArgs.builder()
  *                 .ipRange("10.0.0.0/16")
  *                 .build())
+ *             .displayName("example")
  *             .build());
  * 
  *     }
@@ -85,8 +85,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new IpAccessSettings("example", IpAccessSettingsArgs.builder()
- *             .displayName("example")
- *             .description("Example IP access settings")
  *             .ipRules(            
  *                 IpAccessSettingsIpRuleArgs.builder()
  *                     .ipRange("10.0.0.0/16")
@@ -96,6 +94,8 @@ import javax.annotation.Nullable;
  *                     .ipRange("192.168.0.0/24")
  *                     .description("Branch office")
  *                     .build())
+ *             .displayName("example")
+ *             .description("Example IP access settings")
  *             .build());
  * 
  *     }
@@ -136,10 +136,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleIpAccessSettings = new IpAccessSettings("exampleIpAccessSettings", IpAccessSettingsArgs.builder()
- *             .displayName("example")
- *             .description("Example IP access settings")
- *             .customerManagedKey(example.arn())
- *             .additionalEncryptionContext(Map.of("Environment", "Production"))
  *             .ipRules(            
  *                 IpAccessSettingsIpRuleArgs.builder()
  *                     .ipRange("10.0.0.0/16")
@@ -149,6 +145,10 @@ import javax.annotation.Nullable;
  *                     .ipRange("192.168.0.0/24")
  *                     .description("Branch office")
  *                     .build())
+ *             .displayName("example")
+ *             .description("Example IP access settings")
+ *             .customerManagedKey(example.arn())
+ *             .additionalEncryptionContext(Map.of("Environment", "Production"))
  *             .tags(Map.of("Name", "example-ip-access-settings"))
  *             .build());
  * 

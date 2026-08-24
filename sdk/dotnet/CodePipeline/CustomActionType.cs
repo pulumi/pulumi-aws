@@ -24,7 +24,6 @@ namespace Pulumi.Aws.CodePipeline
     /// {
     ///     var example = new Aws.CodePipeline.CustomActionType("example", new()
     ///     {
-    ///         Category = "Build",
     ///         InputArtifactDetails = new Aws.CodePipeline.Inputs.CustomActionTypeInputArtifactDetailsArgs
     ///         {
     ///             MaximumCount = 1,
@@ -35,6 +34,7 @@ namespace Pulumi.Aws.CodePipeline
     ///             MaximumCount = 1,
     ///             MinimumCount = 0,
     ///         },
+    ///         Category = "Build",
     ///         ProviderName = "example",
     ///         Version = "1",
     ///     });

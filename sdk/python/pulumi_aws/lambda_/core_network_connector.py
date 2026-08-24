@@ -247,8 +247,6 @@ class CoreNetworkConnector(pulumi.CustomResource):
                 }],
             }))
         example = aws.lambda_.CoreNetworkConnector("example",
-            name="example",
-            operator_role=example_role.arn,
             configuration={
                 "vpc_egress_configuration": {
                     "associated_compute_resource_types": ["MicroVm"],
@@ -256,7 +254,9 @@ class CoreNetworkConnector(pulumi.CustomResource):
                     "subnet_ids": [__item["id"] for __item in example_aws_subnet],
                     "security_group_ids": [example_aws_security_group["id"]],
                 },
-            })
+            },
+            name="example",
+            operator_role=example_role.arn)
         example_role_policy = aws.iam.RolePolicy("example",
             name="example-network-connector-operator",
             role=example_role.id,
@@ -343,8 +343,6 @@ class CoreNetworkConnector(pulumi.CustomResource):
                 }],
             }))
         example = aws.lambda_.CoreNetworkConnector("example",
-            name="example",
-            operator_role=example_role.arn,
             configuration={
                 "vpc_egress_configuration": {
                     "associated_compute_resource_types": ["MicroVm"],
@@ -352,7 +350,9 @@ class CoreNetworkConnector(pulumi.CustomResource):
                     "subnet_ids": [__item["id"] for __item in example_aws_subnet],
                     "security_group_ids": [example_aws_security_group["id"]],
                 },
-            })
+            },
+            name="example",
+            operator_role=example_role.arn)
         example_role_policy = aws.iam.RolePolicy("example",
             name="example-network-connector-operator",
             role=example_role.id,

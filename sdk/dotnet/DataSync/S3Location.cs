@@ -26,12 +26,12 @@ namespace Pulumi.Aws.DataSync
     /// {
     ///     var example = new Aws.DataSync.S3Location("example", new()
     ///     {
-    ///         S3BucketArn = exampleAwsS3Bucket.Arn,
-    ///         Subdirectory = "/example/prefix",
     ///         S3Config = new Aws.DataSync.Inputs.S3LocationS3ConfigArgs
     ///         {
     ///             BucketAccessRoleArn = exampleAwsIamRole.Arn,
     ///         },
+    ///         S3BucketArn = exampleAwsS3Bucket.Arn,
+    ///         Subdirectory = "/example/prefix",
     ///     });
     /// 
     /// });
@@ -49,6 +49,10 @@ namespace Pulumi.Aws.DataSync
     /// {
     ///     var destination = new Aws.DataSync.S3Location("destination", new()
     ///     {
+    ///         S3Config = new Aws.DataSync.Inputs.S3LocationS3ConfigArgs
+    ///         {
+    ///             BucketAccessRoleArn = example.Arn,
+    ///         },
     ///         AgentArns = new[]
     ///         {
     ///             exampleAwsDatasyncAgent.Arn,
@@ -56,10 +60,6 @@ namespace Pulumi.Aws.DataSync
     ///         S3BucketArn = exampleAwsS3AccessPoint.Arn,
     ///         S3StorageClass = "OUTPOSTS",
     ///         Subdirectory = "/example/prefix",
-    ///         S3Config = new Aws.DataSync.Inputs.S3LocationS3ConfigArgs
-    ///         {
-    ///             BucketAccessRoleArn = example.Arn,
-    ///         },
     ///     });
     /// 
     /// });

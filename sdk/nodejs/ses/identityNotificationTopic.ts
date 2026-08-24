@@ -14,9 +14,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.ses.IdentityNotificationTopic("test", {
- *     topicArn: exampleAwsSnsTopic.arn,
+ *     topicArn: example.arn,
  *     notificationType: "Bounce",
- *     identity: example.domain,
+ *     identity: exampleAwsSesDomainIdentity.domain,
  *     includeOriginalHeaders: true,
  * });
  * ```

@@ -497,17 +497,17 @@ class Trigger(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Trigger("example",
-            name="example",
-            type="CONDITIONAL",
-            actions=[{
-                "job_name": example1["name"],
-            }],
             predicate={
                 "conditions": [{
                     "job_name": example2["name"],
                     "state": "SUCCEEDED",
                 }],
-            })
+            },
+            actions=[{
+                "job_name": example1["name"],
+            }],
+            name="example",
+            type="CONDITIONAL")
         ```
 
         ### On-Demand Trigger
@@ -517,11 +517,11 @@ class Trigger(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Trigger("example",
-            name="example",
-            type="ON_DEMAND",
             actions=[{
                 "job_name": example_aws_glue_job["name"],
-            }])
+            }],
+            name="example",
+            type="ON_DEMAND")
         ```
 
         ### Scheduled Trigger
@@ -531,12 +531,12 @@ class Trigger(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Trigger("example",
-            name="example",
-            schedule="cron(15 12 * * ? *)",
-            type="SCHEDULED",
             actions=[{
                 "job_name": example_aws_glue_job["name"],
-            }])
+            }],
+            name="example",
+            schedule="cron(15 12 * * ? *)",
+            type="SCHEDULED")
         ```
 
         ### Conditional Trigger with Crawler Action
@@ -548,17 +548,17 @@ class Trigger(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Trigger("example",
-            name="example",
-            type="CONDITIONAL",
-            actions=[{
-                "crawler_name": example1["name"],
-            }],
             predicate={
                 "conditions": [{
                     "job_name": example2["name"],
                     "state": "SUCCEEDED",
                 }],
-            })
+            },
+            actions=[{
+                "crawler_name": example1["name"],
+            }],
+            name="example",
+            type="CONDITIONAL")
         ```
 
         ### Conditional Trigger with Crawler Condition
@@ -570,17 +570,17 @@ class Trigger(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Trigger("example",
-            name="example",
-            type="CONDITIONAL",
-            actions=[{
-                "job_name": example1["name"],
-            }],
             predicate={
                 "conditions": [{
                     "crawler_name": example2["name"],
                     "crawl_state": "SUCCEEDED",
                 }],
-            })
+            },
+            actions=[{
+                "job_name": example1["name"],
+            }],
+            name="example",
+            type="CONDITIONAL")
         ```
 
         ## Import
@@ -625,17 +625,17 @@ class Trigger(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Trigger("example",
-            name="example",
-            type="CONDITIONAL",
-            actions=[{
-                "job_name": example1["name"],
-            }],
             predicate={
                 "conditions": [{
                     "job_name": example2["name"],
                     "state": "SUCCEEDED",
                 }],
-            })
+            },
+            actions=[{
+                "job_name": example1["name"],
+            }],
+            name="example",
+            type="CONDITIONAL")
         ```
 
         ### On-Demand Trigger
@@ -645,11 +645,11 @@ class Trigger(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Trigger("example",
-            name="example",
-            type="ON_DEMAND",
             actions=[{
                 "job_name": example_aws_glue_job["name"],
-            }])
+            }],
+            name="example",
+            type="ON_DEMAND")
         ```
 
         ### Scheduled Trigger
@@ -659,12 +659,12 @@ class Trigger(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Trigger("example",
-            name="example",
-            schedule="cron(15 12 * * ? *)",
-            type="SCHEDULED",
             actions=[{
                 "job_name": example_aws_glue_job["name"],
-            }])
+            }],
+            name="example",
+            schedule="cron(15 12 * * ? *)",
+            type="SCHEDULED")
         ```
 
         ### Conditional Trigger with Crawler Action
@@ -676,17 +676,17 @@ class Trigger(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Trigger("example",
-            name="example",
-            type="CONDITIONAL",
-            actions=[{
-                "crawler_name": example1["name"],
-            }],
             predicate={
                 "conditions": [{
                     "job_name": example2["name"],
                     "state": "SUCCEEDED",
                 }],
-            })
+            },
+            actions=[{
+                "crawler_name": example1["name"],
+            }],
+            name="example",
+            type="CONDITIONAL")
         ```
 
         ### Conditional Trigger with Crawler Condition
@@ -698,17 +698,17 @@ class Trigger(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Trigger("example",
-            name="example",
-            type="CONDITIONAL",
-            actions=[{
-                "job_name": example1["name"],
-            }],
             predicate={
                 "conditions": [{
                     "crawler_name": example2["name"],
                     "crawl_state": "SUCCEEDED",
                 }],
-            })
+            },
+            actions=[{
+                "job_name": example1["name"],
+            }],
+            name="example",
+            type="CONDITIONAL")
         ```
 
         ## Import

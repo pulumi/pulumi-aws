@@ -31,11 +31,11 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var exampleBucketOwnershipControls = new Aws.S3.BucketOwnershipControls("example", new()
     ///     {
-    ///         Bucket = example.Id,
     ///         Rule = new Aws.S3.Inputs.BucketOwnershipControlsRuleArgs
     ///         {
     ///             ObjectOwnership = "BucketOwnerPreferred",
     ///         },
+    ///         Bucket = example.Id,
     ///     });
     /// 
     /// });

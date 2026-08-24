@@ -51,9 +51,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var testQueue = new JobQueue("testQueue", JobQueueArgs.builder()
- *             .name("tf-test-batch-job-queue")
- *             .state("ENABLED")
- *             .priority(1)
  *             .computeEnvironmentOrders(            
  *                 JobQueueComputeEnvironmentOrderArgs.builder()
  *                     .order(1)
@@ -63,6 +60,9 @@ import javax.annotation.Nullable;
  *                     .order(2)
  *                     .computeEnvironment(testEnvironment2.arn())
  *                     .build())
+ *             .name("tf-test-batch-job-queue")
+ *             .state("ENABLED")
+ *             .priority(1)
  *             .build());
  * 
  *     }
@@ -100,22 +100,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new SchedulingPolicy("example", SchedulingPolicyArgs.builder()
- *             .name("example")
  *             .fairSharePolicy(SchedulingPolicyFairSharePolicyArgs.builder()
- *                 .computeReservation(1)
- *                 .shareDecaySeconds(3600)
  *                 .shareDistributions(SchedulingPolicyFairSharePolicyShareDistributionArgs.builder()
  *                     .shareIdentifier("A1*")
  *                     .weightFactor(0.1)
  *                     .build())
+ *                 .computeReservation(1)
+ *                 .shareDecaySeconds(3600)
  *                 .build())
+ *             .name("example")
  *             .build());
  * 
  *         var exampleJobQueue = new JobQueue("exampleJobQueue", JobQueueArgs.builder()
- *             .name("tf-test-batch-job-queue")
- *             .schedulingPolicyArn(example.arn())
- *             .state("ENABLED")
- *             .priority(1)
  *             .computeEnvironmentOrders(            
  *                 JobQueueComputeEnvironmentOrderArgs.builder()
  *                     .order(1)
@@ -125,6 +121,10 @@ import javax.annotation.Nullable;
  *                     .order(2)
  *                     .computeEnvironment(testEnvironment2.arn())
  *                     .build())
+ *             .name("tf-test-batch-job-queue")
+ *             .schedulingPolicyArn(example.arn())
+ *             .state("ENABLED")
+ *             .priority(1)
  *             .build());
  * 
  *     }

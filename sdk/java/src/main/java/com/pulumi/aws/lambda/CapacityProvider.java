@@ -53,7 +53,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CapacityProvider("example", CapacityProviderArgs.builder()
- *             .name("example")
  *             .vpcConfig(CapacityProviderVpcConfigArgs.builder()
  *                 .subnetIds(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
  *                 .securityGroupIds(exampleAwsSecurityGroup.id())
@@ -61,6 +60,7 @@ import javax.annotation.Nullable;
  *             .permissionsConfig(CapacityProviderPermissionsConfigArgs.builder()
  *                 .capacityProviderOperatorRoleArn(exampleAwsIamRole.arn())
  *                 .build())
+ *             .name("example")
  *             .build());
  * 
  *     }
@@ -81,9 +81,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.lambda.CapacityProviderArgs;
  * import com.pulumi.aws.lambda.inputs.CapacityProviderVpcConfigArgs;
  * import com.pulumi.aws.lambda.inputs.CapacityProviderPermissionsConfigArgs;
- * import com.pulumi.aws.lambda.inputs.CapacityProviderInstanceRequirementArgs;
  * import com.pulumi.aws.lambda.inputs.CapacityProviderCapacityProviderScalingConfigArgs;
  * import com.pulumi.aws.lambda.inputs.CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs;
+ * import com.pulumi.aws.lambda.inputs.CapacityProviderInstanceRequirementArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -98,19 +98,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CapacityProvider("example", CapacityProviderArgs.builder()
- *             .name("example")
  *             .vpcConfig(CapacityProviderVpcConfigArgs.builder()
  *                 .subnetIds(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
  *                 .securityGroupIds(exampleAwsSecurityGroup.id())
  *                 .build())
  *             .permissionsConfig(CapacityProviderPermissionsConfigArgs.builder()
  *                 .capacityProviderOperatorRoleArn(exampleAwsIamRole.arn())
- *                 .build())
- *             .instanceRequirements(CapacityProviderInstanceRequirementArgs.builder()
- *                 .architectures("x86_64")
- *                 .allowedInstanceTypes(                
- *                     "c6i.2xlarge",
- *                     "c7i.2xlarge")
  *                 .build())
  *             .capacityProviderScalingConfigs(CapacityProviderCapacityProviderScalingConfigArgs.builder()
  *                 .scalingMode("Manual")
@@ -119,6 +112,13 @@ import javax.annotation.Nullable;
  *                     .targetValue(50.0)
  *                     .build())
  *                 .build())
+ *             .instanceRequirements(CapacityProviderInstanceRequirementArgs.builder()
+ *                 .architectures("x86_64")
+ *                 .allowedInstanceTypes(                
+ *                     "c6i.2xlarge",
+ *                     "c7i.2xlarge")
+ *                 .build())
+ *             .name("example")
  *             .build());
  * 
  *     }

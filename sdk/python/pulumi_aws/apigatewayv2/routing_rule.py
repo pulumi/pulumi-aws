@@ -256,7 +256,13 @@ class RoutingRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.apigatewayv2.RoutingRule("example",
-            domain_name="test.example.com",
+            actions=[{
+                "invoke_api": {
+                    "api_id": "example-api-id",
+                    "stage": "example-stage",
+                    "strip_base_path": True,
+                },
+            }],
             conditions=[{
                 "match_headers": {
                     "any_of": {
@@ -271,13 +277,7 @@ class RoutingRule(pulumi.CustomResource):
                     ],
                 },
             }],
-            actions=[{
-                "invoke_api": {
-                    "api_id": "example-api-id",
-                    "stage": "example-stage",
-                    "strip_base_path": True,
-                },
-            }],
+            domain_name="test.example.com",
             priority=1)
         ```
 
@@ -318,7 +318,13 @@ class RoutingRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.apigatewayv2.RoutingRule("example",
-            domain_name="test.example.com",
+            actions=[{
+                "invoke_api": {
+                    "api_id": "example-api-id",
+                    "stage": "example-stage",
+                    "strip_base_path": True,
+                },
+            }],
             conditions=[{
                 "match_headers": {
                     "any_of": {
@@ -333,13 +339,7 @@ class RoutingRule(pulumi.CustomResource):
                     ],
                 },
             }],
-            actions=[{
-                "invoke_api": {
-                    "api_id": "example-api-id",
-                    "stage": "example-stage",
-                    "strip_base_path": True,
-                },
-            }],
+            domain_name="test.example.com",
             priority=1)
         ```
 

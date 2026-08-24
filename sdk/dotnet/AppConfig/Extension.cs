@@ -33,10 +33,6 @@ namespace Pulumi.Aws.AppConfig
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -47,6 +43,10 @@ namespace Pulumi.Aws.AppConfig
     ///                             "appconfig.amazonaws.com",
     ///                         },
     ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
     ///                 },
     ///             },
     ///         },
@@ -60,13 +60,10 @@ namespace Pulumi.Aws.AppConfig
     /// 
     ///     var testExtension = new Aws.AppConfig.Extension("test", new()
     ///     {
-    ///         Name = "test",
-    ///         Description = "test description",
     ///         ActionPoints = new[]
     ///         {
     ///             new Aws.AppConfig.Inputs.ExtensionActionPointArgs
     ///             {
-    ///                 Point = "ON_DEPLOYMENT_COMPLETE",
     ///                 Actions = new[]
     ///                 {
     ///                     new Aws.AppConfig.Inputs.ExtensionActionPointActionArgs
@@ -76,8 +73,11 @@ namespace Pulumi.Aws.AppConfig
     ///                         Uri = testTopic.Arn,
     ///                     },
     ///                 },
+    ///                 Point = "ON_DEPLOYMENT_COMPLETE",
     ///             },
     ///         },
+    ///         Name = "test",
+    ///         Description = "test description",
     ///         Tags = 
     ///         {
     ///             { "Type", "AppConfig Extension" },

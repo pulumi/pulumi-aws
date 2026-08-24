@@ -448,14 +448,6 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
             rule_action="accept",
             traffic_direction="egress")
         rulein = aws.ec2.TrafficMirrorFilterRule("rulein",
-            description="test rule",
-            traffic_mirror_filter_id=filter.id,
-            destination_cidr_block="10.0.0.0/8",
-            source_cidr_block="10.0.0.0/8",
-            rule_number=1,
-            rule_action="accept",
-            traffic_direction="ingress",
-            protocol=6,
             destination_port_range={
                 "from_port": 22,
                 "to_port": 53,
@@ -463,7 +455,15 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
             source_port_range={
                 "from_port": 0,
                 "to_port": 10,
-            })
+            },
+            description="test rule",
+            traffic_mirror_filter_id=filter.id,
+            destination_cidr_block="10.0.0.0/8",
+            source_cidr_block="10.0.0.0/8",
+            rule_number=1,
+            rule_action="accept",
+            traffic_direction="ingress",
+            protocol=6)
         ```
 
         ## Import
@@ -521,14 +521,6 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
             rule_action="accept",
             traffic_direction="egress")
         rulein = aws.ec2.TrafficMirrorFilterRule("rulein",
-            description="test rule",
-            traffic_mirror_filter_id=filter.id,
-            destination_cidr_block="10.0.0.0/8",
-            source_cidr_block="10.0.0.0/8",
-            rule_number=1,
-            rule_action="accept",
-            traffic_direction="ingress",
-            protocol=6,
             destination_port_range={
                 "from_port": 22,
                 "to_port": 53,
@@ -536,7 +528,15 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
             source_port_range={
                 "from_port": 0,
                 "to_port": 10,
-            })
+            },
+            description="test rule",
+            traffic_mirror_filter_id=filter.id,
+            destination_cidr_block="10.0.0.0/8",
+            source_cidr_block="10.0.0.0/8",
+            rule_number=1,
+            rule_action="accept",
+            traffic_direction="ingress",
+            protocol=6)
         ```
 
         ## Import

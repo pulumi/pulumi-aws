@@ -39,22 +39,22 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := mq.NewBroker(ctx, "example", &mq.BrokerArgs{
-//				BrokerName: pulumi.String("example"),
 //				Configuration: &mq.BrokerConfigurationArgs{
 //					Id:       pulumi.Any(test.Id),
 //					Revision: pulumi.Any(test.LatestRevision),
-//				},
-//				EngineType:       pulumi.String("ActiveMQ"),
-//				EngineVersion:    pulumi.String("5.17.6"),
-//				HostInstanceType: pulumi.String("mq.t2.micro"),
-//				SecurityGroups: pulumi.StringArray{
-//					testAwsSecurityGroup.Id,
 //				},
 //				Users: mq.BrokerUserArray{
 //					&mq.BrokerUserArgs{
 //						Username: pulumi.String("example_user"),
 //						Password: pulumi.String("<password>"),
 //					},
+//				},
+//				BrokerName:       pulumi.String("example"),
+//				EngineType:       pulumi.String("ActiveMQ"),
+//				EngineVersion:    pulumi.String("5.17.6"),
+//				HostInstanceType: pulumi.String("mq.t2.micro"),
+//				SecurityGroups: pulumi.StringArray{
+//					testAwsSecurityGroup.Id,
 //				},
 //			})
 //			if err != nil {
@@ -81,23 +81,23 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := mq.NewBroker(ctx, "example", &mq.BrokerArgs{
-//				BrokerName: pulumi.String("example"),
 //				Configuration: &mq.BrokerConfigurationArgs{
 //					Id:       pulumi.Any(test.Id),
 //					Revision: pulumi.Any(test.LatestRevision),
-//				},
-//				EngineType:       pulumi.String("ActiveMQ"),
-//				EngineVersion:    pulumi.String("5.17.6"),
-//				StorageType:      pulumi.String("ebs"),
-//				HostInstanceType: pulumi.String("mq.m5.large"),
-//				SecurityGroups: pulumi.StringArray{
-//					testAwsSecurityGroup.Id,
 //				},
 //				Users: mq.BrokerUserArray{
 //					&mq.BrokerUserArgs{
 //						Username: pulumi.String("example_user"),
 //						Password: pulumi.String("<password>"),
 //					},
+//				},
+//				BrokerName:       pulumi.String("example"),
+//				EngineType:       pulumi.String("ActiveMQ"),
+//				EngineVersion:    pulumi.String("5.17.6"),
+//				StorageType:      pulumi.String("ebs"),
+//				HostInstanceType: pulumi.String("mq.m5.large"),
+//				SecurityGroups: pulumi.StringArray{
+//					testAwsSecurityGroup.Id,
 //				},
 //			})
 //			if err != nil {
@@ -124,15 +124,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := mq.NewBroker(ctx, "example_primary", &mq.BrokerArgs{
-//				ApplyImmediately: pulumi.Bool(true),
-//				BrokerName:       pulumi.String("example_primary"),
-//				EngineType:       pulumi.String("ActiveMQ"),
-//				EngineVersion:    pulumi.String("5.17.6"),
-//				HostInstanceType: pulumi.String("mq.m5.large"),
-//				SecurityGroups: pulumi.StringArray{
-//					examplePrimaryAwsSecurityGroup.Id,
-//				},
-//				DeploymentMode: pulumi.String("ACTIVE_STANDBY_MULTI_AZ"),
 //				Users: mq.BrokerUserArray{
 //					&mq.BrokerUserArgs{
 //						Username: pulumi.String("example_user"),
@@ -144,11 +135,31 @@ import (
 //						ReplicationUser: pulumi.Bool(true),
 //					},
 //				},
+//				ApplyImmediately: pulumi.Bool(true),
+//				BrokerName:       pulumi.String("example_primary"),
+//				EngineType:       pulumi.String("ActiveMQ"),
+//				EngineVersion:    pulumi.String("5.17.6"),
+//				HostInstanceType: pulumi.String("mq.m5.large"),
+//				SecurityGroups: pulumi.StringArray{
+//					examplePrimaryAwsSecurityGroup.Id,
+//				},
+//				DeploymentMode: pulumi.String("ACTIVE_STANDBY_MULTI_AZ"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = mq.NewBroker(ctx, "example", &mq.BrokerArgs{
+//				Users: mq.BrokerUserArray{
+//					&mq.BrokerUserArgs{
+//						Username: pulumi.String("example_user"),
+//						Password: pulumi.String("<password>"),
+//					},
+//					&mq.BrokerUserArgs{
+//						Username:        pulumi.String("example_replication_user"),
+//						Password:        pulumi.String("<password>"),
+//						ReplicationUser: pulumi.Bool(true),
+//					},
+//				},
 //				ApplyImmediately: pulumi.Bool(true),
 //				BrokerName:       pulumi.String("example"),
 //				EngineType:       pulumi.String("ActiveMQ"),
@@ -160,17 +171,6 @@ import (
 //				DeploymentMode:                  pulumi.String("ACTIVE_STANDBY_MULTI_AZ"),
 //				DataReplicationMode:             pulumi.String("CRDR"),
 //				DataReplicationPrimaryBrokerArn: pulumi.Any(primary.Arn),
-//				Users: mq.BrokerUserArray{
-//					&mq.BrokerUserArgs{
-//						Username: pulumi.String("example_user"),
-//						Password: pulumi.String("<password>"),
-//					},
-//					&mq.BrokerUserArgs{
-//						Username:        pulumi.String("example_replication_user"),
-//						Password:        pulumi.String("<password>"),
-//						ReplicationUser: pulumi.Bool(true),
-//					},
-//				},
 //			})
 //			if err != nil {
 //				return err

@@ -40,9 +40,6 @@ import * as utilities from "../utilities";
  * });
  * const exampleTransitGateway = new aws.ec2transitgateway.TransitGateway("example", {description: "example"});
  * const exampleEnv = new aws.finspace.KxEnvironment("example_env", {
- *     name: "my-tf-kx-environment",
- *     description: "Environment description",
- *     kmsKeyId: example.arn,
  *     transitGatewayConfiguration: {
  *         transitGatewayId: exampleTransitGateway.id,
  *         routableCidrSpace: "100.64.0.0/26",
@@ -51,6 +48,9 @@ import * as utilities from "../utilities";
  *         customDnsServerName: "example.finspace.amazonaws.com",
  *         customDnsServerIp: "10.0.0.76",
  *     }],
+ *     name: "my-tf-kx-environment",
+ *     description: "Environment description",
+ *     kmsKeyId: example.arn,
  * });
  * ```
  *
@@ -66,17 +66,8 @@ import * as utilities from "../utilities";
  * });
  * const exampleTransitGateway = new aws.ec2transitgateway.TransitGateway("example", {description: "example"});
  * const exampleEnv = new aws.finspace.KxEnvironment("example_env", {
- *     name: "my-tf-kx-environment",
- *     description: "Environment description",
- *     kmsKeyId: example.arn,
  *     transitGatewayConfiguration: {
- *         transitGatewayId: exampleTransitGateway.id,
- *         routableCidrSpace: "100.64.0.0/26",
  *         attachmentNetworkAclConfigurations: [{
- *             ruleNumber: 1,
- *             protocol: "6",
- *             ruleAction: "allow",
- *             cidrBlock: "0.0.0.0/0",
  *             portRange: {
  *                 from: 53,
  *                 to: 53,
@@ -85,12 +76,21 @@ import * as utilities from "../utilities";
  *                 type: -1,
  *                 code: -1,
  *             },
+ *             ruleNumber: 1,
+ *             protocol: "6",
+ *             ruleAction: "allow",
+ *             cidrBlock: "0.0.0.0/0",
  *         }],
+ *         transitGatewayId: exampleTransitGateway.id,
+ *         routableCidrSpace: "100.64.0.0/26",
  *     },
  *     customDnsConfigurations: [{
  *         customDnsServerName: "example.finspace.amazonaws.com",
  *         customDnsServerIp: "10.0.0.76",
  *     }],
+ *     name: "my-tf-kx-environment",
+ *     description: "Environment description",
+ *     kmsKeyId: example.arn,
  * });
  * ```
  *

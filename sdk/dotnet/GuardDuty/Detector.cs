@@ -26,7 +26,6 @@ namespace Pulumi.Aws.GuardDuty
     /// {
     ///     var myDetector = new Aws.GuardDuty.Detector("MyDetector", new()
     ///     {
-    ///         Enable = true,
     ///         Datasources = new Aws.GuardDuty.Inputs.DetectorDatasourcesArgs
     ///         {
     ///             S3Logs = new Aws.GuardDuty.Inputs.DetectorDatasourcesS3LogsArgs
@@ -51,6 +50,7 @@ namespace Pulumi.Aws.GuardDuty
     ///                 },
     ///             },
     ///         },
+    ///         Enable = true,
     ///     });
     /// 
     /// });

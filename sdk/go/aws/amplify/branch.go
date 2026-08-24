@@ -183,9 +183,6 @@ import (
 //				return err
 //			}
 //			_, err = cloudwatch.NewEventTarget(ctx, "amplify_app_master", &cloudwatch.EventTargetArgs{
-//				Rule:     amplifyAppMasterEventRule.Name,
-//				TargetId: master.BranchName,
-//				Arn:      amplifyAppMasterTopic.Arn,
 //				InputTransformer: &cloudwatch.EventTargetInputTransformerArgs{
 //					InputPaths: pulumi.StringMap{
 //						"jobId":  pulumi.String("$.detail.jobId"),
@@ -196,6 +193,9 @@ import (
 //					},
 //					InputTemplate: pulumi.String("\"Build notification from the AWS Amplify Console for app: https://<branch>.<appId>.amplifyapp.com/. Your build status is <status>. Go to https://console.aws.amazon.com/amplify/home?region=<region>#<appId>/<branch>/<jobId> to view details on your build. \""),
 //				},
+//				Rule:     amplifyAppMasterEventRule.Name,
+//				TargetId: master.BranchName,
+//				Arn:      amplifyAppMasterTopic.Arn,
 //			})
 //			if err != nil {
 //				return err
@@ -203,13 +203,6 @@ import (
 //			amplifyAppMaster := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
-//						Sid: master.Arn.ApplyT(func(arn string) (string, error) {
-//							return fmt.Sprintf("Allow_Publish_Events %v", arn), nil
-//						}).(pulumi.StringOutput),
-//						Effect: pulumi.String("Allow"),
-//						Actions: pulumi.StringArray{
-//							pulumi.String("SNS:Publish"),
-//						},
 //						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
 //							&iam.GetPolicyDocumentStatementPrincipalArgs{
 //								Type: pulumi.String("Service"),
@@ -217,6 +210,13 @@ import (
 //									pulumi.String("events.amazonaws.com"),
 //								},
 //							},
+//						},
+//						Sid: master.Arn.ApplyT(func(arn string) (string, error) {
+//							return fmt.Sprintf("Allow_Publish_Events %v", arn), nil
+//						}).(pulumi.StringOutput),
+//						Effect: pulumi.String("Allow"),
+//						Actions: pulumi.StringArray{
+//							pulumi.String("SNS:Publish"),
 //						},
 //						Resources: pulumi.StringArray{
 //							amplifyAppMasterTopic.Arn,

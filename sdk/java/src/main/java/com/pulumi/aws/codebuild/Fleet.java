@@ -51,19 +51,19 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Fleet("test", FleetArgs.builder()
+ *             .scalingConfiguration(FleetScalingConfigurationArgs.builder()
+ *                 .targetTrackingScalingConfigs(FleetScalingConfigurationTargetTrackingScalingConfigArgs.builder()
+ *                     .metricType("FLEET_UTILIZATION_RATE")
+ *                     .targetValue(97.5)
+ *                     .build())
+ *                 .maxCapacity(5)
+ *                 .scalingType("TARGET_TRACKING_SCALING")
+ *                 .build())
  *             .baseCapacity(2)
  *             .computeType("BUILD_GENERAL1_SMALL")
  *             .environmentType("LINUX_CONTAINER")
  *             .name("full-example-codebuild-fleet")
  *             .overflowBehavior("QUEUE")
- *             .scalingConfiguration(FleetScalingConfigurationArgs.builder()
- *                 .maxCapacity(5)
- *                 .scalingType("TARGET_TRACKING_SCALING")
- *                 .targetTrackingScalingConfigs(FleetScalingConfigurationTargetTrackingScalingConfigArgs.builder()
- *                     .metricType("FLEET_UTILIZATION_RATE")
- *                     .targetValue(97.5)
- *                     .build())
- *                 .build())
  *             .build());
  * 
  *     }

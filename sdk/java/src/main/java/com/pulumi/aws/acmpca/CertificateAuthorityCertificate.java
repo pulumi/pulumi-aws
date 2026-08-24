@@ -53,28 +53,28 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleCertificateAuthority = new CertificateAuthority("exampleCertificateAuthority", CertificateAuthorityArgs.builder()
- *             .type("ROOT")
  *             .certificateAuthorityConfiguration(CertificateAuthorityCertificateAuthorityConfigurationArgs.builder()
- *                 .keyAlgorithm("RSA_4096")
- *                 .signingAlgorithm("SHA512WITHRSA")
  *                 .subject(CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs.builder()
  *                     .commonName("example.com")
  *                     .build())
+ *                 .keyAlgorithm("RSA_4096")
+ *                 .signingAlgorithm("SHA512WITHRSA")
  *                 .build())
+ *             .type("ROOT")
  *             .build());
  * 
  *         final var current = AwsFunctions.getPartition(GetPartitionArgs.builder()
  *             .build());
  * 
  *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()
- *             .certificateAuthorityArn(exampleCertificateAuthority.arn())
- *             .certificateSigningRequest(exampleCertificateAuthority.certificateSigningRequest())
- *             .signingAlgorithm("SHA512WITHRSA")
- *             .templateArn(String.format("arn:%s:acm-pca:::template/RootCACertificate/V1", current.partition()))
  *             .validity(CertificateValidityArgs.builder()
  *                 .type("YEARS")
  *                 .value("1")
  *                 .build())
+ *             .certificateAuthorityArn(exampleCertificateAuthority.arn())
+ *             .certificateSigningRequest(exampleCertificateAuthority.certificateSigningRequest())
+ *             .signingAlgorithm("SHA512WITHRSA")
+ *             .templateArn(String.format("arn:%s:acm-pca:::template/RootCACertificate/V1", current.partition()))
  *             .build());
  * 
  *         var example = new CertificateAuthorityCertificate("example", CertificateAuthorityCertificateArgs.builder()
@@ -124,14 +124,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var subordinateCertificateAuthority = new CertificateAuthority("subordinateCertificateAuthority", CertificateAuthorityArgs.builder()
- *             .type("SUBORDINATE")
  *             .certificateAuthorityConfiguration(CertificateAuthorityCertificateAuthorityConfigurationArgs.builder()
- *                 .keyAlgorithm("RSA_2048")
- *                 .signingAlgorithm("SHA512WITHRSA")
  *                 .subject(CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs.builder()
  *                     .commonName("sub.example.com")
  *                     .build())
+ *                 .keyAlgorithm("RSA_2048")
+ *                 .signingAlgorithm("SHA512WITHRSA")
  *                 .build())
+ *             .type("SUBORDINATE")
  *             .build());
  * 
  *         var root = new CertificateAuthority("root");
@@ -140,14 +140,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var subordinateCertificate = new Certificate("subordinateCertificate", CertificateArgs.builder()
- *             .certificateAuthorityArn(root.arn())
- *             .certificateSigningRequest(subordinateCertificateAuthority.certificateSigningRequest())
- *             .signingAlgorithm("SHA512WITHRSA")
- *             .templateArn(String.format("arn:%s:acm-pca:::template/SubordinateCACertificate_PathLen0/V1", current.partition()))
  *             .validity(CertificateValidityArgs.builder()
  *                 .type("YEARS")
  *                 .value("1")
  *                 .build())
+ *             .certificateAuthorityArn(root.arn())
+ *             .certificateSigningRequest(subordinateCertificateAuthority.certificateSigningRequest())
+ *             .signingAlgorithm("SHA512WITHRSA")
+ *             .templateArn(String.format("arn:%s:acm-pca:::template/SubordinateCACertificate_PathLen0/V1", current.partition()))
  *             .build());
  * 
  *         var subordinate = new CertificateAuthorityCertificate("subordinate", CertificateAuthorityCertificateArgs.builder()

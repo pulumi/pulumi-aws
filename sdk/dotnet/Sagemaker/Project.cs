@@ -26,11 +26,11 @@ namespace Pulumi.Aws.Sagemaker
     /// {
     ///     var example = new Aws.Sagemaker.Project("example", new()
     ///     {
-    ///         ProjectName = "example",
     ///         ServiceCatalogProvisioningDetails = new Aws.Sagemaker.Inputs.ProjectServiceCatalogProvisioningDetailsArgs
     ///         {
     ///             ProductId = exampleAwsServicecatalogProduct.Id,
     ///         },
+    ///         ProjectName = "example",
     ///     });
     /// 
     /// });

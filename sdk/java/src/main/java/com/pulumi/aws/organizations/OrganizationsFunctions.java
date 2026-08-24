@@ -1024,10 +1024,6 @@ public final class OrganizationsFunctions {
      * 
      *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .effect("Allow")
-     *                 .actions(                
-     *                     "SNS:Subscribe",
-     *                     "SNS:Publish")
      *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
      *                     .test("StringEquals")
      *                     .variable("aws:PrincipalOrgID")
@@ -1037,6 +1033,10 @@ public final class OrganizationsFunctions {
      *                     .type("AWS")
      *                     .identifiers("*")
      *                     .build())
+     *                 .effect("Allow")
+     *                 .actions(                
+     *                     "SNS:Subscribe",
+     *                     "SNS:Publish")
      *                 .resources(snsTopic.arn())
      *                 .build())
      *             .build());
@@ -1135,10 +1135,6 @@ public final class OrganizationsFunctions {
      * 
      *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .effect("Allow")
-     *                 .actions(                
-     *                     "SNS:Subscribe",
-     *                     "SNS:Publish")
      *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
      *                     .test("StringEquals")
      *                     .variable("aws:PrincipalOrgID")
@@ -1148,6 +1144,10 @@ public final class OrganizationsFunctions {
      *                     .type("AWS")
      *                     .identifiers("*")
      *                     .build())
+     *                 .effect("Allow")
+     *                 .actions(                
+     *                     "SNS:Subscribe",
+     *                     "SNS:Publish")
      *                 .resources(snsTopic.arn())
      *                 .build())
      *             .build());
@@ -1246,10 +1246,6 @@ public final class OrganizationsFunctions {
      * 
      *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .effect("Allow")
-     *                 .actions(                
-     *                     "SNS:Subscribe",
-     *                     "SNS:Publish")
      *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
      *                     .test("StringEquals")
      *                     .variable("aws:PrincipalOrgID")
@@ -1259,6 +1255,10 @@ public final class OrganizationsFunctions {
      *                     .type("AWS")
      *                     .identifiers("*")
      *                     .build())
+     *                 .effect("Allow")
+     *                 .actions(                
+     *                     "SNS:Subscribe",
+     *                     "SNS:Publish")
      *                 .resources(snsTopic.arn())
      *                 .build())
      *             .build());
@@ -1357,10 +1357,6 @@ public final class OrganizationsFunctions {
      * 
      *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .effect("Allow")
-     *                 .actions(                
-     *                     "SNS:Subscribe",
-     *                     "SNS:Publish")
      *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
      *                     .test("StringEquals")
      *                     .variable("aws:PrincipalOrgID")
@@ -1370,6 +1366,10 @@ public final class OrganizationsFunctions {
      *                     .type("AWS")
      *                     .identifiers("*")
      *                     .build())
+     *                 .effect("Allow")
+     *                 .actions(                
+     *                     "SNS:Subscribe",
+     *                     "SNS:Publish")
      *                 .resources(snsTopic.arn())
      *                 .build())
      *             .build());
@@ -1468,10 +1468,6 @@ public final class OrganizationsFunctions {
      * 
      *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .effect("Allow")
-     *                 .actions(                
-     *                     "SNS:Subscribe",
-     *                     "SNS:Publish")
      *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
      *                     .test("StringEquals")
      *                     .variable("aws:PrincipalOrgID")
@@ -1481,6 +1477,10 @@ public final class OrganizationsFunctions {
      *                     .type("AWS")
      *                     .identifiers("*")
      *                     .build())
+     *                 .effect("Allow")
+     *                 .actions(                
+     *                     "SNS:Subscribe",
+     *                     "SNS:Publish")
      *                 .resources(snsTopic.arn())
      *                 .build())
      *             .build());
@@ -1579,10 +1579,6 @@ public final class OrganizationsFunctions {
      * 
      *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .effect("Allow")
-     *                 .actions(                
-     *                     "SNS:Subscribe",
-     *                     "SNS:Publish")
      *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
      *                     .test("StringEquals")
      *                     .variable("aws:PrincipalOrgID")
@@ -1592,6 +1588,10 @@ public final class OrganizationsFunctions {
      *                     .type("AWS")
      *                     .identifiers("*")
      *                     .build())
+     *                 .effect("Allow")
+     *                 .actions(                
+     *                     "SNS:Subscribe",
+     *                     "SNS:Publish")
      *                 .resources(snsTopic.arn())
      *                 .build())
      *             .build());
@@ -1690,10 +1690,6 @@ public final class OrganizationsFunctions {
      * 
      *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .effect("Allow")
-     *                 .actions(                
-     *                     "SNS:Subscribe",
-     *                     "SNS:Publish")
      *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
      *                     .test("StringEquals")
      *                     .variable("aws:PrincipalOrgID")
@@ -1703,6 +1699,10 @@ public final class OrganizationsFunctions {
      *                     .type("AWS")
      *                     .identifiers("*")
      *                     .build())
+     *                 .effect("Allow")
+     *                 .actions(                
+     *                     "SNS:Subscribe",
+     *                     "SNS:Publish")
      *                 .resources(snsTopic.arn())
      *                 .build())
      *             .build());

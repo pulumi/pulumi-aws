@@ -37,14 +37,14 @@ import (
 //				return err
 //			}
 //			_, err = vpclattice.NewListener(ctx, "example", &vpclattice.ListenerArgs{
-//				Name:              pulumi.String("example"),
-//				Protocol:          pulumi.String("HTTPS"),
-//				ServiceIdentifier: example.ID().ToIDOutput().ToStringOutput(),
 //				DefaultAction: &vpclattice.ListenerDefaultActionArgs{
 //					FixedResponse: &vpclattice.ListenerDefaultActionFixedResponseArgs{
 //						StatusCode: pulumi.Int(404),
 //					},
 //				},
+//				Name:              pulumi.String("example"),
+//				Protocol:          pulumi.String("HTTPS"),
+//				ServiceIdentifier: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -76,21 +76,18 @@ import (
 //				return err
 //			}
 //			exampleTargetGroup, err := vpclattice.NewTargetGroup(ctx, "example", &vpclattice.TargetGroupArgs{
-//				Name: pulumi.String("example-target-group-1"),
-//				Type: pulumi.String("INSTANCE"),
 //				Config: &vpclattice.TargetGroupConfigArgs{
 //					Port:          pulumi.Int(80),
 //					Protocol:      pulumi.String("HTTP"),
 //					VpcIdentifier: pulumi.Any(exampleAwsVpc.Id),
 //				},
+//				Name: pulumi.String("example-target-group-1"),
+//				Type: pulumi.String("INSTANCE"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = vpclattice.NewListener(ctx, "example", &vpclattice.ListenerArgs{
-//				Name:              pulumi.String("example"),
-//				Protocol:          pulumi.String("HTTP"),
-//				ServiceIdentifier: example.ID().ToIDOutput().ToStringOutput(),
 //				DefaultAction: &vpclattice.ListenerDefaultActionArgs{
 //					Forwards: vpclattice.ListenerDefaultActionForwardArray{
 //						&vpclattice.ListenerDefaultActionForwardArgs{
@@ -102,6 +99,9 @@ import (
 //						},
 //					},
 //				},
+//				Name:              pulumi.String("example"),
+//				Protocol:          pulumi.String("HTTP"),
+//				ServiceIdentifier: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -133,33 +133,30 @@ import (
 //				return err
 //			}
 //			example1, err := vpclattice.NewTargetGroup(ctx, "example1", &vpclattice.TargetGroupArgs{
-//				Name: pulumi.String("example-target-group-1"),
-//				Type: pulumi.String("INSTANCE"),
 //				Config: &vpclattice.TargetGroupConfigArgs{
 //					Port:          pulumi.Int(80),
 //					Protocol:      pulumi.String("HTTP"),
 //					VpcIdentifier: pulumi.Any(exampleAwsVpc.Id),
 //				},
+//				Name: pulumi.String("example-target-group-1"),
+//				Type: pulumi.String("INSTANCE"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			example2, err := vpclattice.NewTargetGroup(ctx, "example2", &vpclattice.TargetGroupArgs{
-//				Name: pulumi.String("example-target-group-2"),
-//				Type: pulumi.String("INSTANCE"),
 //				Config: &vpclattice.TargetGroupConfigArgs{
 //					Port:          pulumi.Int(8080),
 //					Protocol:      pulumi.String("HTTP"),
 //					VpcIdentifier: pulumi.Any(exampleAwsVpc.Id),
 //				},
+//				Name: pulumi.String("example-target-group-2"),
+//				Type: pulumi.String("INSTANCE"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = vpclattice.NewListener(ctx, "example", &vpclattice.ListenerArgs{
-//				Name:              pulumi.String("example"),
-//				Protocol:          pulumi.String("HTTP"),
-//				ServiceIdentifier: example.ID().ToIDOutput().ToStringOutput(),
 //				DefaultAction: &vpclattice.ListenerDefaultActionArgs{
 //					Forwards: vpclattice.ListenerDefaultActionForwardArray{
 //						&vpclattice.ListenerDefaultActionForwardArgs{
@@ -176,6 +173,9 @@ import (
 //						},
 //					},
 //				},
+//				Name:              pulumi.String("example"),
+//				Protocol:          pulumi.String("HTTP"),
+//				ServiceIdentifier: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

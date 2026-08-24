@@ -169,11 +169,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := pipes.NewPipe(ctx, "example", &pipes.PipeArgs{
-//				Name:       pulumi.String("example-pipe"),
-//				RoleArn:    pulumi.Any(exampleAwsIamRole.Arn),
-//				Source:     pulumi.Any(source.Arn),
-//				Target:     pulumi.Any(target.Arn),
-//				Enrichment: pulumi.Any(exampleAwsCloudwatchEventApiDestination.Arn),
 //				EnrichmentParameters: &pipes.PipeEnrichmentParametersArgs{
 //					HttpParameters: &pipes.PipeEnrichmentParametersHttpParametersArgs{
 //						PathParameterValues: pulumi.String("example-path-param"),
@@ -187,6 +182,11 @@ import (
 //						},
 //					},
 //				},
+//				Name:       pulumi.String("example-pipe"),
+//				RoleArn:    pulumi.Any(exampleAwsIamRole.Arn),
+//				Source:     pulumi.Any(source.Arn),
+//				Target:     pulumi.Any(target.Arn),
+//				Enrichment: pulumi.Any(exampleAwsCloudwatchEventApiDestination.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -223,10 +223,6 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = pipes.NewPipe(ctx, "example", &pipes.PipeArgs{
-//				Name:    pulumi.String("example-pipe"),
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-//				Source:  pulumi.Any(source.Arn),
-//				Target:  pulumi.Any(target.Arn),
 //				SourceParameters: &pipes.PipeSourceParametersArgs{
 //					FilterCriteria: &pipes.PipeSourceParametersFilterCriteriaArgs{
 //						Filters: pipes.PipeSourceParametersFilterCriteriaFilterArray{
@@ -236,6 +232,10 @@ import (
 //						},
 //					},
 //				},
+//				Name:    pulumi.String("example-pipe"),
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//				Source:  pulumi.Any(source.Arn),
+//				Target:  pulumi.Any(target.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -268,19 +268,19 @@ import (
 //				return err
 //			}
 //			_, err = pipes.NewPipe(ctx, "example", &pipes.PipeArgs{
-//				Name:    pulumi.String("example-pipe"),
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-//				Source:  pulumi.Any(sourceAwsSqsQueue.Arn),
-//				Target:  pulumi.Any(targetAwsSqsQueue.Arn),
 //				LogConfiguration: &pipes.PipeLogConfigurationArgs{
+//					CloudwatchLogsLogDestination: &pipes.PipeLogConfigurationCloudwatchLogsLogDestinationArgs{
+//						LogGroupArn: pulumi.Any(targetAwsCloudwatchLogGroup.Arn),
+//					},
 //					IncludeExecutionDatas: pulumi.StringArray{
 //						pulumi.String("ALL"),
 //					},
 //					Level: pulumi.String("INFO"),
-//					CloudwatchLogsLogDestination: &pipes.PipeLogConfigurationCloudwatchLogsLogDestinationArgs{
-//						LogGroupArn: pulumi.Any(targetAwsCloudwatchLogGroup.Arn),
-//					},
 //				},
+//				Name:    pulumi.String("example-pipe"),
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//				Source:  pulumi.Any(sourceAwsSqsQueue.Arn),
+//				Target:  pulumi.Any(targetAwsSqsQueue.Arn),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				source,
 //				target,
@@ -309,10 +309,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := pipes.NewPipe(ctx, "example", &pipes.PipeArgs{
-//				Name:    pulumi.String("example-pipe"),
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-//				Source:  pulumi.Any(source.Arn),
-//				Target:  pulumi.Any(target.Arn),
 //				SourceParameters: &pipes.PipeSourceParametersArgs{
 //					SqsQueueParameters: &pipes.PipeSourceParametersSqsQueueParametersArgs{
 //						BatchSize:                      pulumi.Int(1),
@@ -325,6 +321,10 @@ import (
 //						MessageGroupId:         pulumi.String("example-group"),
 //					},
 //				},
+//				Name:    pulumi.String("example-pipe"),
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//				Source:  pulumi.Any(source.Arn),
+//				Target:  pulumi.Any(target.Arn),
 //			})
 //			if err != nil {
 //				return err

@@ -19,12 +19,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ec2.getKeyPair({
- *     keyName: "test",
- *     includePublicKey: true,
  *     filters: [{
  *         name: "tag:Component",
  *         values: ["web"],
  *     }],
+ *     keyName: "test",
+ *     includePublicKey: true,
  * });
  * export const fingerprint = example.then(example => example.fingerprint);
  * export const name = example.then(example => example.keyName);
@@ -128,12 +128,12 @@ export interface GetKeyPairResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ec2.getKeyPair({
- *     keyName: "test",
- *     includePublicKey: true,
  *     filters: [{
  *         name: "tag:Component",
  *         values: ["web"],
  *     }],
+ *     keyName: "test",
+ *     includePublicKey: true,
  * });
  * export const fingerprint = example.then(example => example.fingerprint);
  * export const name = example.then(example => example.keyName);

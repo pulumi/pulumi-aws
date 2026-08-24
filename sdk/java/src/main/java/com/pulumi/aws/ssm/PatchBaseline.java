@@ -76,9 +76,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ssm.PatchBaseline;
  * import com.pulumi.aws.ssm.PatchBaselineArgs;
- * import com.pulumi.aws.ssm.inputs.PatchBaselineGlobalFilterArgs;
  * import com.pulumi.aws.ssm.inputs.PatchBaselineApprovalRuleArgs;
  * import com.pulumi.aws.ssm.inputs.PatchBaselineApprovalRulePatchFilterArgs;
+ * import com.pulumi.aws.ssm.inputs.PatchBaselineGlobalFilterArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -93,29 +93,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var production = new PatchBaseline("production", PatchBaselineArgs.builder()
- *             .name("patch-baseline")
- *             .description("Patch Baseline Description")
- *             .approvedPatches(            
- *                 "KB123456",
- *                 "KB456789")
- *             .rejectedPatches("KB987654")
- *             .globalFilters(            
- *                 PatchBaselineGlobalFilterArgs.builder()
- *                     .key("PRODUCT")
- *                     .values("WindowsServer2008")
- *                     .build(),
- *                 PatchBaselineGlobalFilterArgs.builder()
- *                     .key("CLASSIFICATION")
- *                     .values("ServicePacks")
- *                     .build(),
- *                 PatchBaselineGlobalFilterArgs.builder()
- *                     .key("MSRC_SEVERITY")
- *                     .values("Low")
- *                     .build())
  *             .approvalRules(            
  *                 PatchBaselineApprovalRuleArgs.builder()
- *                     .approveAfterDays(7)
- *                     .complianceLevel("HIGH")
  *                     .patchFilters(                    
  *                         PatchBaselineApprovalRulePatchFilterArgs.builder()
  *                             .key("PRODUCT")
@@ -135,14 +114,35 @@ import javax.annotation.Nullable;
  *                                 "Important",
  *                                 "Moderate")
  *                             .build())
+ *                     .approveAfterDays(7)
+ *                     .complianceLevel("HIGH")
  *                     .build(),
  *                 PatchBaselineApprovalRuleArgs.builder()
- *                     .approveAfterDays(7)
  *                     .patchFilters(PatchBaselineApprovalRulePatchFilterArgs.builder()
  *                         .key("PRODUCT")
  *                         .values("WindowsServer2012")
  *                         .build())
+ *                     .approveAfterDays(7)
  *                     .build())
+ *             .globalFilters(            
+ *                 PatchBaselineGlobalFilterArgs.builder()
+ *                     .key("PRODUCT")
+ *                     .values("WindowsServer2008")
+ *                     .build(),
+ *                 PatchBaselineGlobalFilterArgs.builder()
+ *                     .key("CLASSIFICATION")
+ *                     .values("ServicePacks")
+ *                     .build(),
+ *                 PatchBaselineGlobalFilterArgs.builder()
+ *                     .key("MSRC_SEVERITY")
+ *                     .values("Low")
+ *                     .build())
+ *             .name("patch-baseline")
+ *             .description("Patch Baseline Description")
+ *             .approvedPatches(            
+ *                 "KB123456",
+ *                 "KB456789")
+ *             .rejectedPatches("KB987654")
  *             .build());
  * 
  *     }
@@ -177,12 +177,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var windowsOsApps = new PatchBaseline("windowsOsApps", PatchBaselineArgs.builder()
- *             .name("WindowsOSAndMicrosoftApps")
- *             .description("Patch both Windows and Microsoft apps")
- *             .operatingSystem("WINDOWS")
  *             .approvalRules(            
  *                 PatchBaselineApprovalRuleArgs.builder()
- *                     .approveAfterDays(7)
  *                     .patchFilters(                    
  *                         PatchBaselineApprovalRulePatchFilterArgs.builder()
  *                             .key("CLASSIFICATION")
@@ -196,9 +192,9 @@ import javax.annotation.Nullable;
  *                                 "Critical",
  *                                 "Important")
  *                             .build())
+ *                     .approveAfterDays(7)
  *                     .build(),
  *                 PatchBaselineApprovalRuleArgs.builder()
- *                     .approveAfterDays(7)
  *                     .patchFilters(                    
  *                         PatchBaselineApprovalRulePatchFilterArgs.builder()
  *                             .key("PATCH_SET")
@@ -210,7 +206,11 @@ import javax.annotation.Nullable;
  *                                 "Office 2013",
  *                                 "Office 2016")
  *                             .build())
+ *                     .approveAfterDays(7)
  *                     .build())
+ *             .name("WindowsOSAndMicrosoftApps")
+ *             .description("Patch both Windows and Microsoft apps")
+ *             .operatingSystem("WINDOWS")
  *             .build());
  * 
  *     }
@@ -247,9 +247,6 @@ import javax.annotation.Nullable;
  *         var al201709 = new PatchBaseline("al201709", PatchBaselineArgs.builder()
  *             .approvalRules(PatchBaselineApprovalRuleArgs.builder()
  *                 .build())
- *             .name("Amazon-Linux-2017.09")
- *             .description("My patch repository for Amazon Linux 2017.09")
- *             .operatingSystem("AMAZON_LINUX")
  *             .sources(PatchBaselineSourceArgs.builder()
  *                 .name("My-AL2017.09")
  *                 .products("AmazonLinux2017.09")
@@ -270,6 +267,9 @@ import javax.annotation.Nullable;
  * report_instanceid=yes
  *                 """)
  *                 .build())
+ *             .name("Amazon-Linux-2017.09")
+ *             .description("My patch repository for Amazon Linux 2017.09")
+ *             .operatingSystem("AMAZON_LINUX")
  *             .build());
  * 
  *     }

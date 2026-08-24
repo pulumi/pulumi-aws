@@ -72,12 +72,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .actions("sts:AssumeRole")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("bedrock-agentcore.amazonaws.com")
  *                     .build())
+ *                 .effect("Allow")
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
@@ -103,8 +103,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAgentcoreHarness = new AgentcoreHarness("exampleAgentcoreHarness", AgentcoreHarnessArgs.builder()
- *             .harnessName("example_harness")
- *             .executionRoleArn(example.arn())
  *             .model(AgentcoreHarnessModelArgs.builder()
  *                 .bedrockModelConfig(AgentcoreHarnessModelBedrockModelConfigArgs.builder()
  *                     .modelId("anthropic.claude-sonnet-4-20250514")
@@ -113,6 +111,8 @@ import javax.annotation.Nullable;
  *             .systemPrompts(AgentcoreHarnessSystemPromptArgs.builder()
  *                 .text("You are a helpful assistant.")
  *                 .build())
+ *             .harnessName("example_harness")
+ *             .executionRoleArn(example.arn())
  *             .build());
  * 
  *     }
@@ -153,8 +153,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AgentcoreHarness("example", AgentcoreHarnessArgs.builder()
- *             .harnessName("example_with_tools")
- *             .executionRoleArn(exampleAwsIamRole.arn())
  *             .model(AgentcoreHarnessModelArgs.builder()
  *                 .bedrockModelConfig(AgentcoreHarnessModelBedrockModelConfigArgs.builder()
  *                     .modelId("anthropic.claude-sonnet-4-20250514")
@@ -165,13 +163,7 @@ import javax.annotation.Nullable;
  *             .systemPrompts(AgentcoreHarnessSystemPromptArgs.builder()
  *                 .text("You are a coding assistant.")
  *                 .build())
- *             .allowedTools("*")
- *             .maxIterations(10)
- *             .maxTokens(4096)
- *             .timeoutSeconds(300)
  *             .tools(AgentcoreHarnessToolArgs.builder()
- *                 .type("inline_function")
- *                 .name("get_weather")
  *                 .config(AgentcoreHarnessToolConfigArgs.builder()
  *                     .inlineFunction(AgentcoreHarnessToolConfigInlineFunctionArgs.builder()
  *                         .description("Get the current weather for a location")
@@ -188,11 +180,19 @@ import javax.annotation.Nullable;
  *                             )))
  *                         .build())
  *                     .build())
+ *                 .type("inline_function")
+ *                 .name("get_weather")
  *                 .build())
  *             .truncations(AgentcoreHarnessTruncationArgs.builder()
- *                 .strategy("sliding_window")
  *                 .config(Arrays.asList(Map.of("slidingWindow", Arrays.asList(Map.of("messagesCount", 50)))))
+ *                 .strategy("sliding_window")
  *                 .build())
+ *             .harnessName("example_with_tools")
+ *             .executionRoleArn(exampleAwsIamRole.arn())
+ *             .allowedTools("*")
+ *             .maxIterations(10)
+ *             .maxTokens(4096)
+ *             .timeoutSeconds(300)
  *             .build());
  * 
  *     }
@@ -213,9 +213,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.bedrock.AgentcoreHarnessArgs;
  * import com.pulumi.aws.bedrock.inputs.AgentcoreHarnessModelArgs;
  * import com.pulumi.aws.bedrock.inputs.AgentcoreHarnessModelBedrockModelConfigArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentcoreHarnessSystemPromptArgs;
  * import com.pulumi.aws.bedrock.inputs.AgentcoreHarnessMemoryArgs;
  * import com.pulumi.aws.bedrock.inputs.AgentcoreHarnessMemoryManagedMemoryConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreHarnessSystemPromptArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -230,15 +230,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AgentcoreHarness("example", AgentcoreHarnessArgs.builder()
- *             .harnessName("my_harness")
- *             .executionRoleArn(exampleAwsIamRole.arn())
  *             .model(AgentcoreHarnessModelArgs.builder()
  *                 .bedrockModelConfig(AgentcoreHarnessModelBedrockModelConfigArgs.builder()
  *                     .modelId("anthropic.claude-sonnet-4-20250514")
  *                     .build())
- *                 .build())
- *             .systemPrompts(AgentcoreHarnessSystemPromptArgs.builder()
- *                 .text("You are a helpful assistant.")
  *                 .build())
  *             .memory(AgentcoreHarnessMemoryArgs.builder()
  *                 .managedMemoryConfiguration(AgentcoreHarnessMemoryManagedMemoryConfigurationArgs.builder()
@@ -248,6 +243,11 @@ import javax.annotation.Nullable;
  *                         "SUMMARIZATION")
  *                     .build())
  *                 .build())
+ *             .systemPrompts(AgentcoreHarnessSystemPromptArgs.builder()
+ *                 .text("You are a helpful assistant.")
+ *                 .build())
+ *             .harnessName("my_harness")
+ *             .executionRoleArn(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }

@@ -841,18 +841,18 @@ class Endpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2clientvpn.Endpoint("example",
-            description="clientvpn-example",
-            server_certificate_arn=cert["arn"],
-            client_cidr_block="10.0.0.0/16",
-            authentication_options=[{
-                "type": "certificate-authentication",
-                "root_certificate_chain_arn": root_cert["arn"],
-            }],
             connection_log_options={
                 "enabled": True,
                 "cloudwatch_log_group": lg["name"],
                 "cloudwatch_log_stream": ls["name"],
-            })
+            },
+            authentication_options=[{
+                "type": "certificate-authentication",
+                "root_certificate_chain_arn": root_cert["arn"],
+            }],
+            description="clientvpn-example",
+            server_certificate_arn=cert["arn"],
+            client_cidr_block="10.0.0.0/16")
         ```
 
         ## Import
@@ -906,18 +906,18 @@ class Endpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2clientvpn.Endpoint("example",
-            description="clientvpn-example",
-            server_certificate_arn=cert["arn"],
-            client_cidr_block="10.0.0.0/16",
-            authentication_options=[{
-                "type": "certificate-authentication",
-                "root_certificate_chain_arn": root_cert["arn"],
-            }],
             connection_log_options={
                 "enabled": True,
                 "cloudwatch_log_group": lg["name"],
                 "cloudwatch_log_stream": ls["name"],
-            })
+            },
+            authentication_options=[{
+                "type": "certificate-authentication",
+                "root_certificate_chain_arn": root_cert["arn"],
+            }],
+            description="clientvpn-example",
+            server_certificate_arn=cert["arn"],
+            client_cidr_block="10.0.0.0/16")
         ```
 
         ## Import

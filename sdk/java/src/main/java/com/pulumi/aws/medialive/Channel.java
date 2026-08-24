@@ -41,13 +41,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.medialive.Channel;
  * import com.pulumi.aws.medialive.ChannelArgs;
  * import com.pulumi.aws.medialive.inputs.ChannelInputSpecificationArgs;
- * import com.pulumi.aws.medialive.inputs.ChannelInputAttachmentArgs;
- * import com.pulumi.aws.medialive.inputs.ChannelDestinationArgs;
- * import com.pulumi.aws.medialive.inputs.ChannelDestinationSettingArgs;
  * import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsArgs;
  * import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsTimecodeConfigArgs;
  * import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsAudioDescriptionArgs;
- * import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsVideoDescriptionArgs;
  * import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsOutputGroupArgs;
  * import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs;
  * import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArgs;
@@ -57,6 +53,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArgs;
  * import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArgs;
  * import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs;
+ * import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsVideoDescriptionArgs;
+ * import com.pulumi.aws.medialive.inputs.ChannelDestinationArgs;
+ * import com.pulumi.aws.medialive.inputs.ChannelDestinationSettingArgs;
+ * import com.pulumi.aws.medialive.inputs.ChannelInputAttachmentArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -71,27 +71,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Channel("example", ChannelArgs.builder()
- *             .name("example-channel")
- *             .channelClass("STANDARD")
- *             .roleArn(exampleAwsIamRole.arn())
  *             .inputSpecification(ChannelInputSpecificationArgs.builder()
  *                 .codec("AVC")
  *                 .inputResolution("HD")
  *                 .maximumBitrate("MAX_20_MBPS")
- *                 .build())
- *             .inputAttachments(ChannelInputAttachmentArgs.builder()
- *                 .inputAttachmentName("example-input")
- *                 .inputId(exampleAwsMedialiveInput.id())
- *                 .build())
- *             .destinations(ChannelDestinationArgs.builder()
- *                 .id("destination")
- *                 .settings(                
- *                     ChannelDestinationSettingArgs.builder()
- *                         .url(String.format("s3://%s/test1", main.id()))
- *                         .build(),
- *                     ChannelDestinationSettingArgs.builder()
- *                         .url(String.format("s3://%s/test2", main2.id()))
- *                         .build())
  *                 .build())
  *             .encoderSettings(ChannelEncoderSettingsArgs.builder()
  *                 .timecodeConfig(ChannelEncoderSettingsTimecodeConfigArgs.builder()
@@ -100,9 +83,6 @@ import javax.annotation.Nullable;
  *                 .audioDescriptions(ChannelEncoderSettingsAudioDescriptionArgs.builder()
  *                     .audioSelectorName("example audio selector")
  *                     .name("audio-selector")
- *                     .build())
- *                 .videoDescriptions(ChannelEncoderSettingsVideoDescriptionArgs.builder()
- *                     .name("example-video")
  *                     .build())
  *                 .outputGroups(ChannelEncoderSettingsOutputGroupArgs.builder()
  *                     .outputGroupSettings(ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs.builder()
@@ -113,13 +93,8 @@ import javax.annotation.Nullable;
  *                             .build())
  *                         .build())
  *                     .outputs(ChannelEncoderSettingsOutputGroupOutputArgs.builder()
- *                         .outputName("example-name")
- *                         .videoDescriptionName("example-video")
- *                         .audioDescriptionNames("audio-selector")
  *                         .outputSettings(ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs.builder()
  *                             .archiveOutputSettings(ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArgs.builder()
- *                                 .nameModifier("_1")
- *                                 .extension("m2ts")
  *                                 .containerSettings(ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArgs.builder()
  *                                     .m2tsSettings(ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.builder()
  *                                         .audioBufferModel("ATSC")
@@ -127,11 +102,36 @@ import javax.annotation.Nullable;
  *                                         .rateMode("CBR")
  *                                         .build())
  *                                     .build())
+ *                                 .nameModifier("_1")
+ *                                 .extension("m2ts")
  *                                 .build())
  *                             .build())
+ *                         .outputName("example-name")
+ *                         .videoDescriptionName("example-video")
+ *                         .audioDescriptionNames("audio-selector")
  *                         .build())
  *                     .build())
+ *                 .videoDescriptions(ChannelEncoderSettingsVideoDescriptionArgs.builder()
+ *                     .name("example-video")
+ *                     .build())
  *                 .build())
+ *             .destinations(ChannelDestinationArgs.builder()
+ *                 .settings(                
+ *                     ChannelDestinationSettingArgs.builder()
+ *                         .url(String.format("s3://%s/test1", main.id()))
+ *                         .build(),
+ *                     ChannelDestinationSettingArgs.builder()
+ *                         .url(String.format("s3://%s/test2", main2.id()))
+ *                         .build())
+ *                 .id("destination")
+ *                 .build())
+ *             .inputAttachments(ChannelInputAttachmentArgs.builder()
+ *                 .inputAttachmentName("example-input")
+ *                 .inputId(exampleAwsMedialiveInput.id())
+ *                 .build())
+ *             .name("example-channel")
+ *             .channelClass("STANDARD")
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }

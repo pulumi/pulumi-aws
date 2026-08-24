@@ -21,17 +21,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.drs.ReplicationConfigurationTemplate("example", {
- *     associateDefaultSecurityGroup: false,
- *     bandwidthThrottling: 12,
- *     createPublicIp: false,
- *     dataPlaneRouting: "PRIVATE_IP",
- *     defaultLargeStagingDiskType: "GP2",
- *     ebsEncryption: "DEFAULT",
- *     ebsEncryptionKeyArn: "arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- *     replicationServerInstanceType: "t3.small",
- *     replicationServersSecurityGroupsIds: exampleAwsSecurityGroup.map(__item => __item.id),
- *     stagingAreaSubnetId: exampleAwsSubnet.id,
- *     useDedicatedReplicationServer: false,
  *     pitPolicies: [
  *         {
  *             enabled: true,
@@ -55,6 +44,17 @@ import * as utilities from "../utilities";
  *             ruleId: 3,
  *         },
  *     ],
+ *     associateDefaultSecurityGroup: false,
+ *     bandwidthThrottling: 12,
+ *     createPublicIp: false,
+ *     dataPlaneRouting: "PRIVATE_IP",
+ *     defaultLargeStagingDiskType: "GP2",
+ *     ebsEncryption: "DEFAULT",
+ *     ebsEncryptionKeyArn: "arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+ *     replicationServerInstanceType: "t3.small",
+ *     replicationServersSecurityGroupsIds: exampleAwsSecurityGroup.map(__item => __item.id),
+ *     stagingAreaSubnetId: exampleAwsSubnet.id,
+ *     useDedicatedReplicationServer: false,
  * });
  * ```
  *

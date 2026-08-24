@@ -22,13 +22,13 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.ecs.Cluster("example", {name: "my-cluster"});
  * const exampleClusterCapacityProviders = new aws.ecs.ClusterCapacityProviders("example", {
- *     clusterName: example.name,
- *     capacityProviders: ["FARGATE"],
  *     defaultCapacityProviderStrategies: [{
  *         base: 1,
  *         weight: 100,
  *         capacityProvider: "FARGATE",
  *     }],
+ *     clusterName: example.name,
+ *     capacityProviders: ["FARGATE"],
  * });
  * ```
  *

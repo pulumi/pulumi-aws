@@ -901,25 +901,25 @@ class UserPoolClient(pulumi.CustomResource):
         test_user_pool = aws.cognito.UserPool("test", name="pool")
         test_app = aws.pinpoint.App("test", name="pinpoint")
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["cognito-idp.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         test_role = aws.iam.Role("test",
             name="role",
             assume_role_policy=assume_role.json)
         test_user_pool_client = aws.cognito.UserPoolClient("test",
-            name="pool_client",
-            user_pool_id=test_user_pool.id,
             analytics_configuration={
                 "application_id": test_app.application_id,
                 "external_id": "some_id",
                 "role_arn": test_role.arn,
                 "user_data_shared": True,
-            })
+            },
+            name="pool_client",
+            user_pool_id=test_user_pool.id)
         current = aws.get_caller_identity()
         test = aws.iam.get_policy_document_output(statements=[{
             "effect": "Allow",
@@ -966,13 +966,13 @@ class UserPoolClient(pulumi.CustomResource):
 
         pool = aws.cognito.UserPool("pool", name="pool")
         userpool_client = aws.cognito.UserPoolClient("userpool_client",
-            name="client",
-            user_pool_id=pool.id,
-            explicit_auth_flows=["ADMIN_NO_SRP_AUTH"],
             refresh_token_rotation={
                 "feature": "ENABLED",
                 "retry_grace_period_seconds": 10,
-            })
+            },
+            name="client",
+            user_pool_id=pool.id,
+            explicit_auth_flows=["ADMIN_NO_SRP_AUTH"])
         ```
 
         ## Import
@@ -1062,25 +1062,25 @@ class UserPoolClient(pulumi.CustomResource):
         test_user_pool = aws.cognito.UserPool("test", name="pool")
         test_app = aws.pinpoint.App("test", name="pinpoint")
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["cognito-idp.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         test_role = aws.iam.Role("test",
             name="role",
             assume_role_policy=assume_role.json)
         test_user_pool_client = aws.cognito.UserPoolClient("test",
-            name="pool_client",
-            user_pool_id=test_user_pool.id,
             analytics_configuration={
                 "application_id": test_app.application_id,
                 "external_id": "some_id",
                 "role_arn": test_role.arn,
                 "user_data_shared": True,
-            })
+            },
+            name="pool_client",
+            user_pool_id=test_user_pool.id)
         current = aws.get_caller_identity()
         test = aws.iam.get_policy_document_output(statements=[{
             "effect": "Allow",
@@ -1127,13 +1127,13 @@ class UserPoolClient(pulumi.CustomResource):
 
         pool = aws.cognito.UserPool("pool", name="pool")
         userpool_client = aws.cognito.UserPoolClient("userpool_client",
-            name="client",
-            user_pool_id=pool.id,
-            explicit_auth_flows=["ADMIN_NO_SRP_AUTH"],
             refresh_token_rotation={
                 "feature": "ENABLED",
                 "retry_grace_period_seconds": 10,
-            })
+            },
+            name="client",
+            user_pool_id=pool.id,
+            explicit_auth_flows=["ADMIN_NO_SRP_AUTH"])
         ```
 
         ## Import

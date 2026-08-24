@@ -29,12 +29,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appconfig.NewEventIntegration(ctx, "example", &appconfig.EventIntegrationArgs{
-//				Name:           pulumi.String("example-name"),
-//				Description:    pulumi.String("Example Description"),
-//				EventbridgeBus: pulumi.String("default"),
 //				EventFilter: &appconfig.EventIntegrationEventFilterArgs{
 //					Source: pulumi.String("aws.partner/example.com"),
 //				},
+//				Name:           pulumi.String("example-name"),
+//				Description:    pulumi.String("Example Description"),
+//				EventbridgeBus: pulumi.String("default"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("Example Event Integration"),
 //				},

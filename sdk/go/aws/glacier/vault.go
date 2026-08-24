@@ -40,8 +40,6 @@ import (
 //			myArchive, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Sid:    pulumi.StringRef("add-read-only-perm"),
-//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "*",
@@ -50,6 +48,8 @@ import (
 //								},
 //							},
 //						},
+//						Sid:    pulumi.StringRef("add-read-only-perm"),
+//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"glacier:InitiateJob",
 //							"glacier:GetJobOutput",
@@ -64,7 +64,6 @@ import (
 //				return err
 //			}
 //			_, err = glacier.NewVault(ctx, "my_archive", &glacier.VaultArgs{
-//				Name: pulumi.String("MyArchive"),
 //				Notification: &glacier.VaultNotificationArgs{
 //					SnsTopic: awsSnsTopic.Arn,
 //					Events: pulumi.StringArray{
@@ -72,6 +71,7 @@ import (
 //						pulumi.String("InventoryRetrievalCompleted"),
 //					},
 //				},
+//				Name:         pulumi.String("MyArchive"),
 //				AccessPolicy: pulumi.String(myArchive.Json),
 //				Tags: pulumi.StringMap{
 //					"Test": pulumi.String("MyArchive"),

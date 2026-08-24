@@ -668,14 +668,14 @@ class TaskSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.TaskSet("example",
-            service=example_aws_ecs_service["id"],
-            cluster=example_aws_ecs_cluster["id"],
-            task_definition=example_aws_ecs_task_definition["arn"],
             load_balancers=[{
                 "target_group_arn": example_aws_lb_target_group["arn"],
                 "container_name": "mongo",
                 "container_port": 8080,
-            }])
+            }],
+            service=example_aws_ecs_service["id"],
+            cluster=example_aws_ecs_cluster["id"],
+            task_definition=example_aws_ecs_task_definition["arn"])
         ```
 
         ### Ignoring Changes to Scale
@@ -688,7 +688,8 @@ class TaskSet(pulumi.CustomResource):
 
         example = aws.ecs.TaskSet("example", scale={
             "value": float(50),
-        })
+        },
+        opts = pulumi.ResourceOptions(ignore_changes=["scale"]))
         ```
 
         ## Import
@@ -739,14 +740,14 @@ class TaskSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.TaskSet("example",
-            service=example_aws_ecs_service["id"],
-            cluster=example_aws_ecs_cluster["id"],
-            task_definition=example_aws_ecs_task_definition["arn"],
             load_balancers=[{
                 "target_group_arn": example_aws_lb_target_group["arn"],
                 "container_name": "mongo",
                 "container_port": 8080,
-            }])
+            }],
+            service=example_aws_ecs_service["id"],
+            cluster=example_aws_ecs_cluster["id"],
+            task_definition=example_aws_ecs_task_definition["arn"])
         ```
 
         ### Ignoring Changes to Scale
@@ -759,7 +760,8 @@ class TaskSet(pulumi.CustomResource):
 
         example = aws.ecs.TaskSet("example", scale={
             "value": float(50),
-        })
+        },
+        opts = pulumi.ResourceOptions(ignore_changes=["scale"]))
         ```
 
         ## Import

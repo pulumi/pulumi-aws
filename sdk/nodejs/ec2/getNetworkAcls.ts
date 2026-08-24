@@ -49,11 +49,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ec2.getNetworkAcls({
- *     vpcId: vpcId,
  *     filters: [{
  *         name: "association.subnet-id",
  *         values: [test.id],
  *     }],
+ *     vpcId: vpcId,
  * });
  * ```
  */
@@ -150,11 +150,11 @@ export interface GetNetworkAclsResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ec2.getNetworkAcls({
- *     vpcId: vpcId,
  *     filters: [{
  *         name: "association.subnet-id",
  *         values: [test.id],
  *     }],
+ *     vpcId: vpcId,
  * });
  * ```
  */

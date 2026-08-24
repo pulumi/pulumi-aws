@@ -48,8 +48,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new FsxOpenZfsFileSystem("example", FsxOpenZfsFileSystemArgs.builder()
- *             .fsxFilesystemArn(exampleAwsFsxOpenzfsFileSystem.arn())
- *             .securityGroupArns(exampleAwsSecurityGroup.arn())
  *             .protocol(FsxOpenZfsFileSystemProtocolArgs.builder()
  *                 .nfs(FsxOpenZfsFileSystemProtocolNfsArgs.builder()
  *                     .mountOptions(FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs.builder()
@@ -57,6 +55,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
+ *             .fsxFilesystemArn(exampleAwsFsxOpenzfsFileSystem.arn())
+ *             .securityGroupArns(exampleAwsSecurityGroup.arn())
  *             .build());
  * 
  *     }

@@ -39,10 +39,10 @@ import (
 //				return err
 //			}
 //			_, err = chime.NewSdkvoiceVoiceProfileDomain(ctx, "example", &chime.SdkvoiceVoiceProfileDomainArgs{
-//				Name: pulumi.String("ExampleVoiceProfileDomain"),
 //				ServerSideEncryptionConfiguration: &chime.SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs{
 //					KmsKeyArn: example.Arn,
 //				},
+//				Name:        pulumi.String("ExampleVoiceProfileDomain"),
 //				Description: pulumi.String("My Voice Profile Domain"),
 //				Tags: pulumi.StringMap{
 //					"key1": pulumi.String("value1"),

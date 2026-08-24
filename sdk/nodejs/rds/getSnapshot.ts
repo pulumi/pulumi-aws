@@ -36,6 +36,8 @@ import * as utilities from "../utilities";
  *     instanceClass: aws.rds.InstanceType.T2_Micro,
  *     dbName: "mydbdev",
  *     snapshotIdentifier: latestProdSnapshot.id,
+ * }, {
+ *     ignoreChanges: ["snapshotIdentifier"],
  * });
  * ```
  */
@@ -219,6 +221,8 @@ export interface GetSnapshotResult {
  *     instanceClass: aws.rds.InstanceType.T2_Micro,
  *     dbName: "mydbdev",
  *     snapshotIdentifier: latestProdSnapshot.id,
+ * }, {
+ *     ignoreChanges: ["snapshotIdentifier"],
  * });
  * ```
  */

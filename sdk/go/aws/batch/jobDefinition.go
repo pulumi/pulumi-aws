@@ -174,33 +174,33 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := batch.NewJobDefinition(ctx, "test", &batch.JobDefinitionArgs{
-//				Name: pulumi.String(" tf_test_batch_job_definition_eks"),
-//				Type: pulumi.String("container"),
 //				EksProperties: &batch.JobDefinitionEksPropertiesArgs{
 //					PodProperties: &batch.JobDefinitionEksPropertiesPodPropertiesArgs{
-//						HostNetwork: pulumi.Bool(true),
+//						Metadata: &batch.JobDefinitionEksPropertiesPodPropertiesMetadataArgs{
+//							Labels: pulumi.StringMap{
+//								"environment": pulumi.String("test"),
+//							},
+//						},
 //						Containers: batch.JobDefinitionEksPropertiesPodPropertiesContainerArray{
 //							&batch.JobDefinitionEksPropertiesPodPropertiesContainerArgs{
-//								Image: pulumi.String("public.ecr.aws/amazonlinux/amazonlinux:1"),
-//								Commands: pulumi.StringArray{
-//									pulumi.String("sleep"),
-//									pulumi.String("60"),
-//								},
 //								Resources: &batch.JobDefinitionEksPropertiesPodPropertiesContainerResourcesArgs{
 //									Limits: pulumi.StringMap{
 //										"cpu":    pulumi.String("1"),
 //										"memory": pulumi.String("1024Mi"),
 //									},
 //								},
+//								Image: pulumi.String("public.ecr.aws/amazonlinux/amazonlinux:1"),
+//								Commands: pulumi.StringArray{
+//									pulumi.String("sleep"),
+//									pulumi.String("60"),
+//								},
 //							},
 //						},
-//						Metadata: &batch.JobDefinitionEksPropertiesPodPropertiesMetadataArgs{
-//							Labels: pulumi.StringMap{
-//								"environment": pulumi.String("test"),
-//							},
-//						},
+//						HostNetwork: pulumi.Bool(true),
 //					},
 //				},
+//				Name: pulumi.String(" tf_test_batch_job_definition_eks"),
+//				Type: pulumi.String("container"),
 //			})
 //			if err != nil {
 //				return err
@@ -231,9 +231,6 @@ import (
 //			assumeRolePolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -241,6 +238,9 @@ import (
 //									"ecs-tasks.amazonaws.com",
 //								},
 //							},
+//						},
+//						Actions: []string{
+//							"sts:AssumeRole",
 //						},
 //					},
 //				},

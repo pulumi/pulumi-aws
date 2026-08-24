@@ -52,14 +52,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var github = new AgentcoreOauth2CredentialProvider("github", AgentcoreOauth2CredentialProviderArgs.builder()
- *             .name("github-oauth-provider")
- *             .credentialProviderVendor("GithubOauth2")
  *             .oauth2ProviderConfig(AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs.builder()
  *                 .githubOauth2ProviderConfig(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigArgs.builder()
  *                     .clientId("your-github-client-id")
  *                     .clientSecret("your-github-client-secret")
  *                     .build())
  *                 .build())
+ *             .name("github-oauth-provider")
+ *             .credentialProviderVendor("GithubOauth2")
  *             .build());
  * 
  *     }
@@ -92,14 +92,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var auth0 = new AgentcoreOauth2CredentialProvider("auth0", AgentcoreOauth2CredentialProviderArgs.builder()
- *             .name("auth0-oauth-provider")
- *             .credentialProviderVendor("CustomOauth2")
  *             .customOauth2ProviderConfig(Arrays.asList(Map.of("custom", Arrays.asList(Map.ofEntries(
+ *                 Map.entry("oauthDiscovery", Arrays.asList(Map.of("discoveryUrl", "https://dev-company.auth0.com/.well-known/openid-configuration"))),
  *                 Map.entry("clientIdWo", "auth0-client-id"),
  *                 Map.entry("clientSecretWo", "auth0-client-secret"),
- *                 Map.entry("clientCredentialsWoVersion", 1),
- *                 Map.entry("oauthDiscovery", Arrays.asList(Map.of("discoveryUrl", "https://dev-company.auth0.com/.well-known/openid-configuration")))
+ *                 Map.entry("clientCredentialsWoVersion", 1)
  *             )))))
+ *             .name("auth0-oauth-provider")
+ *             .credentialProviderVendor("CustomOauth2")
  *             .build());
  * 
  *     }
@@ -136,13 +136,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var keycloak = new AgentcoreOauth2CredentialProvider("keycloak", AgentcoreOauth2CredentialProviderArgs.builder()
- *             .name("keycloak-oauth-provider")
- *             .credentialProviderVendor("CustomOauth2")
  *             .oauth2ProviderConfig(AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs.builder()
  *                 .customOauth2ProviderConfig(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigArgs.builder()
- *                     .clientIdWo("keycloak-client-id")
- *                     .clientSecretWo("keycloak-client-secret")
- *                     .clientCredentialsWoVersion(1)
  *                     .oauthDiscovery(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryArgs.builder()
  *                         .authorizationServerMetadata(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs.builder()
  *                             .issuer("https://auth.company.com/realms/production")
@@ -153,8 +148,13 @@ import javax.annotation.Nullable;
  *                                 "id_token")
  *                             .build())
  *                         .build())
+ *                     .clientIdWo("keycloak-client-id")
+ *                     .clientSecretWo("keycloak-client-secret")
+ *                     .clientCredentialsWoVersion(1)
  *                     .build())
  *                 .build())
+ *             .name("keycloak-oauth-provider")
+ *             .credentialProviderVendor("CustomOauth2")
  *             .build());
  * 
  *     }

@@ -288,11 +288,11 @@ class DeliveryChannel(pulumi.CustomResource):
             bucket="example-awsconfig",
             force_destroy=True)
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["config.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         r = aws.iam.Role("r",
@@ -370,11 +370,11 @@ class DeliveryChannel(pulumi.CustomResource):
             bucket="example-awsconfig",
             force_destroy=True)
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["config.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         r = aws.iam.Role("r",

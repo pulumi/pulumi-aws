@@ -21,11 +21,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const available = aws.getAvailabilityZones({
- *     state: "available",
  *     filters: [{
  *         name: "opt-in-status",
  *         values: ["opt-in-not-required"],
  *     }],
+ *     state: "available",
  * });
  * const example = new aws.lightsail.Instance("example", {
  *     name: "example-instance",
@@ -34,7 +34,6 @@ import * as utilities from "../utilities";
  *     bundleId: "nano_3_0",
  * });
  * const exampleInstancePublicPorts = new aws.lightsail.InstancePublicPorts("example", {
- *     instanceName: example.name,
  *     portInfos: [
  *         {
  *             protocol: "tcp",
@@ -48,6 +47,7 @@ import * as utilities from "../utilities";
  *             cidrs: ["192.168.1.0/24"],
  *         },
  *     ],
+ *     instanceName: example.name,
  * });
  * ```
  */

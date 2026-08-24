@@ -111,12 +111,6 @@ namespace Pulumi.Aws.ElastiCache
     /// {
     ///     var test = new Aws.ElastiCache.Cluster("test", new()
     ///     {
-    ///         ClusterId = "mycluster",
-    ///         Engine = "redis",
-    ///         NodeType = "cache.t3.micro",
-    ///         NumCacheNodes = 1,
-    ///         Port = 6379,
-    ///         ApplyImmediately = true,
     ///         LogDeliveryConfigurations = new[]
     ///         {
     ///             new Aws.ElastiCache.Inputs.ClusterLogDeliveryConfigurationArgs
@@ -134,6 +128,12 @@ namespace Pulumi.Aws.ElastiCache
     ///                 LogType = "engine-log",
     ///             },
     ///         },
+    ///         ClusterId = "mycluster",
+    ///         Engine = "redis",
+    ///         NodeType = "cache.t3.micro",
+    ///         NumCacheNodes = 1,
+    ///         Port = 6379,
+    ///         ApplyImmediately = true,
     ///     });
     /// 
     /// });

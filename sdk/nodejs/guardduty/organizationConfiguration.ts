@@ -20,8 +20,6 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.guardduty.Detector("example", {enable: true});
  * const exampleOrganizationConfiguration = new aws.guardduty.OrganizationConfiguration("example", {
- *     autoEnableOrganizationMembers: "ALL",
- *     detectorId: example.id,
  *     datasources: {
  *         s3Logs: {
  *             autoEnable: true,
@@ -39,6 +37,8 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     },
+ *     autoEnableOrganizationMembers: "ALL",
+ *     detectorId: example.id,
  * });
  * ```
  *

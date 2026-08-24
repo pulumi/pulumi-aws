@@ -40,15 +40,15 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.networkfirewall.TlsInspectionConfiguration;
  * import com.pulumi.aws.networkfirewall.TlsInspectionConfigurationArgs;
- * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationEncryptionConfigurationArgs;
  * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationArgs;
  * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs;
- * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArgs;
  * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs;
  * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgs;
  * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationArgs;
  * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePortArgs;
  * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourceArgs;
+ * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArgs;
+ * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationEncryptionConfigurationArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -63,19 +63,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new TlsInspectionConfiguration("example", TlsInspectionConfigurationArgs.builder()
- *             .name("example")
- *             .description("example")
- *             .encryptionConfigurations(TlsInspectionConfigurationEncryptionConfigurationArgs.builder()
- *                 .keyId("AWS_OWNED_KMS_KEY")
- *                 .type("AWS_OWNED_KMS_KEY")
- *                 .build())
  *             .tlsInspectionConfiguration(TlsInspectionConfigurationTlsInspectionConfigurationArgs.builder()
  *                 .serverCertificateConfiguration(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs.builder()
- *                     .serverCertificates(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArgs.builder()
- *                         .resourceArn(example1.arn())
- *                         .build())
  *                     .scopes(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs.builder()
- *                         .protocols(6)
  *                         .destinationPorts(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgs.builder()
  *                             .fromPort(443)
  *                             .toPort(443)
@@ -90,9 +80,19 @@ import javax.annotation.Nullable;
  *                         .sources(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourceArgs.builder()
  *                             .addressDefinition("0.0.0.0/0")
  *                             .build())
+ *                         .protocols(6)
+ *                         .build())
+ *                     .serverCertificates(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArgs.builder()
+ *                         .resourceArn(example1.arn())
  *                         .build())
  *                     .build())
  *                 .build())
+ *             .encryptionConfigurations(TlsInspectionConfigurationEncryptionConfigurationArgs.builder()
+ *                 .keyId("AWS_OWNED_KMS_KEY")
+ *                 .type("AWS_OWNED_KMS_KEY")
+ *                 .build())
+ *             .name("example")
+ *             .description("example")
  *             .build());
  * 
  *     }
@@ -111,7 +111,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.networkfirewall.TlsInspectionConfiguration;
  * import com.pulumi.aws.networkfirewall.TlsInspectionConfigurationArgs;
- * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationEncryptionConfigurationArgs;
  * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationArgs;
  * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs;
  * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusArgs;
@@ -120,6 +119,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationArgs;
  * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePortArgs;
  * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourceArgs;
+ * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationEncryptionConfigurationArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -134,21 +134,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new TlsInspectionConfiguration("example", TlsInspectionConfigurationArgs.builder()
- *             .name("example")
- *             .description("example")
- *             .encryptionConfigurations(TlsInspectionConfigurationEncryptionConfigurationArgs.builder()
- *                 .keyId("AWS_OWNED_KMS_KEY")
- *                 .type("AWS_OWNED_KMS_KEY")
- *                 .build())
  *             .tlsInspectionConfiguration(TlsInspectionConfigurationTlsInspectionConfigurationArgs.builder()
  *                 .serverCertificateConfiguration(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs.builder()
- *                     .certificateAuthorityArn(example1.arn())
  *                     .checkCertificateRevocationStatus(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusArgs.builder()
  *                         .revokedStatusAction("REJECT")
  *                         .unknownStatusAction("PASS")
  *                         .build())
  *                     .scopes(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs.builder()
- *                         .protocols(6)
  *                         .destinationPorts(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgs.builder()
  *                             .fromPort(443)
  *                             .toPort(443)
@@ -163,9 +155,17 @@ import javax.annotation.Nullable;
  *                         .sources(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourceArgs.builder()
  *                             .addressDefinition("0.0.0.0/0")
  *                             .build())
+ *                         .protocols(6)
  *                         .build())
+ *                     .certificateAuthorityArn(example1.arn())
  *                     .build())
  *                 .build())
+ *             .encryptionConfigurations(TlsInspectionConfigurationEncryptionConfigurationArgs.builder()
+ *                 .keyId("AWS_OWNED_KMS_KEY")
+ *                 .type("AWS_OWNED_KMS_KEY")
+ *                 .build())
+ *             .name("example")
+ *             .description("example")
  *             .build());
  * 
  *     }
@@ -186,15 +186,15 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kms.KeyArgs;
  * import com.pulumi.aws.networkfirewall.TlsInspectionConfiguration;
  * import com.pulumi.aws.networkfirewall.TlsInspectionConfigurationArgs;
- * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationEncryptionConfigurationArgs;
  * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationArgs;
  * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs;
- * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArgs;
  * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs;
  * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgs;
  * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationArgs;
  * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePortArgs;
  * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourceArgs;
+ * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArgs;
+ * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationEncryptionConfigurationArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -214,19 +214,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleTlsInspectionConfiguration = new TlsInspectionConfiguration("exampleTlsInspectionConfiguration", TlsInspectionConfigurationArgs.builder()
- *             .name("example")
- *             .description("example")
- *             .encryptionConfigurations(TlsInspectionConfigurationEncryptionConfigurationArgs.builder()
- *                 .keyId(example.arn())
- *                 .type("CUSTOMER_KMS")
- *                 .build())
  *             .tlsInspectionConfiguration(TlsInspectionConfigurationTlsInspectionConfigurationArgs.builder()
  *                 .serverCertificateConfiguration(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs.builder()
- *                     .serverCertificates(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArgs.builder()
- *                         .resourceArn(example1.arn())
- *                         .build())
  *                     .scopes(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs.builder()
- *                         .protocols(6)
  *                         .destinationPorts(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgs.builder()
  *                             .fromPort(443)
  *                             .toPort(443)
@@ -241,9 +231,19 @@ import javax.annotation.Nullable;
  *                         .sources(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourceArgs.builder()
  *                             .addressDefinition("0.0.0.0/0")
  *                             .build())
+ *                         .protocols(6)
+ *                         .build())
+ *                     .serverCertificates(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArgs.builder()
+ *                         .resourceArn(example1.arn())
  *                         .build())
  *                     .build())
  *                 .build())
+ *             .encryptionConfigurations(TlsInspectionConfigurationEncryptionConfigurationArgs.builder()
+ *                 .keyId(example.arn())
+ *                 .type("CUSTOMER_KMS")
+ *                 .build())
+ *             .name("example")
+ *             .description("example")
  *             .build());
  * 
  *     }
@@ -264,8 +264,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kms.KeyArgs;
  * import com.pulumi.aws.networkfirewall.TlsInspectionConfiguration;
  * import com.pulumi.aws.networkfirewall.TlsInspectionConfigurationArgs;
- * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationEncryptionConfigurationArgs;
  * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationArgs;
+ * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationEncryptionConfigurationArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -285,34 +285,34 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleTlsInspectionConfiguration = new TlsInspectionConfiguration("exampleTlsInspectionConfiguration", TlsInspectionConfigurationArgs.builder()
- *             .name("example")
- *             .description("example")
- *             .encryptionConfigurations(TlsInspectionConfigurationEncryptionConfigurationArgs.builder()
- *                 .keyId(example.arn())
- *                 .type("CUSTOMER_KMS")
- *                 .build())
  *             .tlsInspectionConfiguration(TlsInspectionConfigurationTlsInspectionConfigurationArgs.builder()
  *                 .serverCertificateConfigurations(Arrays.asList(Map.ofEntries(
- *                     Map.entry("certificateAuthorityArn", example1.arn()),
  *                     Map.entry("checkCertificateRevocationStatus", Arrays.asList(Map.ofEntries(
  *                         Map.entry("revokedStatusAction", "REJECT"),
  *                         Map.entry("unknownStatusAction", "PASS")
  *                     ))),
  *                     Map.entry("scope", Arrays.asList(Map.ofEntries(
- *                         Map.entry("protocols", Arrays.asList(6)),
+ *                         Map.entry("destination", Arrays.asList(Map.of("addressDefinition", "0.0.0.0/0"))),
  *                         Map.entry("destinationPorts", Arrays.asList(Map.ofEntries(
  *                             Map.entry("fromPort", 443),
  *                             Map.entry("toPort", 443)
  *                         ))),
- *                         Map.entry("destination", Arrays.asList(Map.of("addressDefinition", "0.0.0.0/0"))),
+ *                         Map.entry("source", Arrays.asList(Map.of("addressDefinition", "0.0.0.0/0"))),
  *                         Map.entry("sourcePorts", Arrays.asList(Map.ofEntries(
  *                             Map.entry("fromPort", 0),
  *                             Map.entry("toPort", 65535)
  *                         ))),
- *                         Map.entry("source", Arrays.asList(Map.of("addressDefinition", "0.0.0.0/0")))
- *                     )))
+ *                         Map.entry("protocols", Arrays.asList(6))
+ *                     ))),
+ *                     Map.entry("certificateAuthorityArn", example1.arn())
  *                 )))
  *                 .build())
+ *             .encryptionConfigurations(TlsInspectionConfigurationEncryptionConfigurationArgs.builder()
+ *                 .keyId(example.arn())
+ *                 .type("CUSTOMER_KMS")
+ *                 .build())
+ *             .name("example")
+ *             .description("example")
  *             .build());
  * 
  *     }
@@ -331,16 +331,16 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.networkfirewall.TlsInspectionConfiguration;
  * import com.pulumi.aws.networkfirewall.TlsInspectionConfigurationArgs;
- * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationEncryptionConfigurationArgs;
  * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationArgs;
  * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs;
  * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusArgs;
- * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArgs;
  * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs;
  * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgs;
  * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationArgs;
  * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePortArgs;
  * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourceArgs;
+ * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArgs;
+ * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationEncryptionConfigurationArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -355,24 +355,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new TlsInspectionConfiguration("example", TlsInspectionConfigurationArgs.builder()
- *             .name("example")
- *             .description("example")
- *             .encryptionConfigurations(TlsInspectionConfigurationEncryptionConfigurationArgs.builder()
- *                 .keyId("AWS_OWNED_KMS_KEY")
- *                 .type("AWS_OWNED_KMS_KEY")
- *                 .build())
  *             .tlsInspectionConfiguration(TlsInspectionConfigurationTlsInspectionConfigurationArgs.builder()
  *                 .serverCertificateConfiguration(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs.builder()
- *                     .certificateAuthorityArn(example1.arn())
  *                     .checkCertificateRevocationStatus(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusArgs.builder()
  *                         .revokedStatusAction("REJECT")
  *                         .unknownStatusAction("PASS")
  *                         .build())
- *                     .serverCertificates(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArgs.builder()
- *                         .resourceArn(example2.arn())
- *                         .build())
  *                     .scopes(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs.builder()
- *                         .protocols(6)
  *                         .destinationPorts(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgs.builder()
  *                             .fromPort(443)
  *                             .toPort(443)
@@ -387,9 +376,20 @@ import javax.annotation.Nullable;
  *                         .sources(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourceArgs.builder()
  *                             .addressDefinition("0.0.0.0/0")
  *                             .build())
+ *                         .protocols(6)
  *                         .build())
+ *                     .serverCertificates(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArgs.builder()
+ *                         .resourceArn(example2.arn())
+ *                         .build())
+ *                     .certificateAuthorityArn(example1.arn())
  *                     .build())
  *                 .build())
+ *             .encryptionConfigurations(TlsInspectionConfigurationEncryptionConfigurationArgs.builder()
+ *                 .keyId("AWS_OWNED_KMS_KEY")
+ *                 .type("AWS_OWNED_KMS_KEY")
+ *                 .build())
+ *             .name("example")
+ *             .description("example")
  *             .build());
  * 
  *     }

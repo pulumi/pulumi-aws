@@ -55,12 +55,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AgentcoreEvaluator("example", AgentcoreEvaluatorArgs.builder()
- *             .evaluatorName("helpfulness_evaluator")
- *             .description("Rates assistant helpfulness from 1 to 5")
- *             .level("TRACE")
  *             .evaluatorConfig(AgentcoreEvaluatorEvaluatorConfigArgs.builder()
  *                 .llmAsAJudge(AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeArgs.builder()
- *                     .instructions("Given the {context} and the {assistant_turn}, compare against {expected_response} and rate from 1 to 5.")
  *                     .ratingScale(AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeRatingScaleArgs.builder()
  *                         .numericals(                        
  *                             AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeRatingScaleNumericalArgs.builder()
@@ -76,16 +72,20 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .modelConfig(AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeModelConfigArgs.builder()
  *                         .bedrockEvaluatorModelConfig(AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeModelConfigBedrockEvaluatorModelConfigArgs.builder()
- *                             .modelId("us.amazon.nova-2-lite-v1:0")
  *                             .inferenceConfig(AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeModelConfigBedrockEvaluatorModelConfigInferenceConfigArgs.builder()
  *                                 .maxTokens(1024)
  *                                 .temperature(0.0)
  *                                 .topP(1.0)
  *                                 .build())
+ *                             .modelId("us.amazon.nova-2-lite-v1:0")
  *                             .build())
  *                         .build())
+ *                     .instructions("Given the {context} and the {assistant_turn}, compare against {expected_response} and rate from 1 to 5.")
  *                     .build())
  *                 .build())
+ *             .evaluatorName("helpfulness_evaluator")
+ *             .description("Rates assistant helpfulness from 1 to 5")
+ *             .level("TRACE")
  *             .build());
  * 
  *     }
@@ -124,11 +124,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AgentcoreEvaluator("example", AgentcoreEvaluatorArgs.builder()
- *             .evaluatorName("tone_evaluator")
- *             .level("SESSION")
  *             .evaluatorConfig(AgentcoreEvaluatorEvaluatorConfigArgs.builder()
  *                 .llmAsAJudge(AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeArgs.builder()
- *                     .instructions("Classify the tone of the {assistant_turn} given the {context}.")
  *                     .ratingScale(AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeRatingScaleArgs.builder()
  *                         .categoricals(                        
  *                             AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeRatingScaleCategoricalArgs.builder()
@@ -149,8 +146,11 @@ import javax.annotation.Nullable;
  *                             .modelId("us.amazon.nova-2-lite-v1:0")
  *                             .build())
  *                         .build())
+ *                     .instructions("Classify the tone of the {assistant_turn} given the {context}.")
  *                     .build())
  *                 .build())
+ *             .evaluatorName("tone_evaluator")
+ *             .level("SESSION")
  *             .build());
  * 
  *     }
@@ -186,8 +186,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AgentcoreEvaluator("example", AgentcoreEvaluatorArgs.builder()
- *             .evaluatorName("lambda_evaluator")
- *             .level("TOOL_CALL")
  *             .evaluatorConfig(AgentcoreEvaluatorEvaluatorConfigArgs.builder()
  *                 .codeBased(AgentcoreEvaluatorEvaluatorConfigCodeBasedArgs.builder()
  *                     .lambdaConfig(AgentcoreEvaluatorEvaluatorConfigCodeBasedLambdaConfigArgs.builder()
@@ -196,6 +194,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
+ *             .evaluatorName("lambda_evaluator")
+ *             .level("TOOL_CALL")
  *             .build());
  * 
  *     }

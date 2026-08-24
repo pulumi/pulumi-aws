@@ -62,11 +62,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var ca = new SelfSignedCert("ca", SelfSignedCertArgs.builder()
- *             .privateKeyPem(caPrivateKey.privateKeyPem())
  *             .subject(com.pulumi.tls.inputs.SelfSignedCertSubjectArgs.builder()
  *                 .commonName("example.com")
  *                 .organization("ACME Examples, Inc")
  *                 .build())
+ *             .privateKeyPem(caPrivateKey.privateKeyPem())
  *             .validityPeriodHours(12)
  *             .allowedUses(            
  *                 "key_encipherment",
@@ -83,10 +83,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var verification = new CertRequest("verification", CertRequestArgs.builder()
- *             .privateKeyPem(verificationPrivateKey.privateKeyPem())
  *             .subject(com.pulumi.tls.inputs.CertRequestSubjectArgs.builder()
  *                 .commonName(example.registrationCode())
  *                 .build())
+ *             .privateKeyPem(verificationPrivateKey.privateKeyPem())
  *             .build());
  * 
  *         var verificationLocallySignedCert = new LocallySignedCert("verificationLocallySignedCert", LocallySignedCertArgs.builder()

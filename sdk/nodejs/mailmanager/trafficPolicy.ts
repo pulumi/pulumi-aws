@@ -19,20 +19,20 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.mailmanager.TrafficPolicy("example", {
- *     defaultAction: "ALLOW",
- *     name: "example",
  *     policyStatements: [{
- *         action: "DENY",
  *         conditions: [{
  *             ipExpression: {
- *                 operator: "CIDR_MATCHES",
- *                 values: ["192.0.2.0/24"],
  *                 evaluate: {
  *                     attribute: "SENDER_IP",
  *                 },
+ *                 operator: "CIDR_MATCHES",
+ *                 values: ["192.0.2.0/24"],
  *             },
  *         }],
+ *         action: "DENY",
  *     }],
+ *     defaultAction: "ALLOW",
+ *     name: "example",
  * });
  * ```
  *

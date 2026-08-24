@@ -25,6 +25,32 @@ namespace Pulumi.Aws.DataZone
     /// {
     ///     var example = new Aws.Iam.Role("example", new()
     ///     {
+    ///         InlinePolicies = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.RoleInlinePolicyArgs
+    ///             {
+    ///                 Name = "example",
+    ///                 Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Version"] = "2012-10-17",
+    ///                     ["Statement"] = new[]
+    ///                     {
+    ///                         new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["Action"] = new[]
+    ///                             {
+    ///                                 "datazone:*",
+    ///                                 "ram:*",
+    ///                                 "sso:*",
+    ///                                 "kms:*",
+    ///                             },
+    ///                             ["Effect"] = "Allow",
+    ///                             ["Resource"] = "*",
+    ///                         },
+    ///                     },
+    ///                 }),
+    ///             },
+    ///         },
     ///         Name = "example",
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
@@ -59,32 +85,6 @@ namespace Pulumi.Aws.DataZone
     ///                 },
     ///             },
     ///         }),
-    ///         InlinePolicies = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.RoleInlinePolicyArgs
-    ///             {
-    ///                 Name = "example",
-    ///                 Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Version"] = "2012-10-17",
-    ///                     ["Statement"] = new[]
-    ///                     {
-    ///                         new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             ["Action"] = new[]
-    ///                             {
-    ///                                 "datazone:*",
-    ///                                 "ram:*",
-    ///                                 "sso:*",
-    ///                                 "kms:*",
-    ///                             },
-    ///                             ["Effect"] = "Allow",
-    ///                             ["Resource"] = "*",
-    ///                         },
-    ///                     },
-    ///                 }),
-    ///             },
-    ///         },
     ///     });
     /// 
     ///     var exampleDomain = new Aws.DataZone.Domain("example", new()

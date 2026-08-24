@@ -24,7 +24,6 @@ namespace Pulumi.Aws.Cognito
     /// {
     ///     var example = new Aws.Cognito.UserPool("example", new()
     ///     {
-    ///         Name = "example",
     ///         PasswordPolicy = new Aws.Cognito.Inputs.UserPoolPasswordPolicyArgs
     ///         {
     ///             TemporaryPasswordValidityDays = 7,
@@ -33,6 +32,7 @@ namespace Pulumi.Aws.Cognito
     ///             RequireSymbols = false,
     ///             RequireNumbers = false,
     ///         },
+    ///         Name = "example",
     ///     });
     /// 
     ///     var exampleUser = new Aws.Cognito.User("example", new()

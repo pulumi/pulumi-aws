@@ -24,8 +24,6 @@ namespace Pulumi.Aws.RedShift
     /// {
     ///     var bar = new Aws.RedShift.ParameterGroup("bar", new()
     ///     {
-    ///         Name = "parameter-group-test",
-    ///         Family = "redshift-1.0",
     ///         Parameters = new[]
     ///         {
     ///             new Aws.RedShift.Inputs.ParameterGroupParameterArgs
@@ -44,6 +42,8 @@ namespace Pulumi.Aws.RedShift
     ///                 Value = "true",
     ///             },
     ///         },
+    ///         Name = "parameter-group-test",
+    ///         Family = "redshift-1.0",
     ///     });
     /// 
     /// });

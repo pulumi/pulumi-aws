@@ -31,15 +31,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := acmpca.NewCertificateAuthority(ctx, "example", &acmpca.CertificateAuthorityArgs{
-//				PermanentDeletionTimeInDays: pulumi.Int(7),
-//				Type:                        pulumi.String("ROOT"),
 //				CertificateAuthorityConfiguration: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs{
-//					KeyAlgorithm:     pulumi.String("RSA_4096"),
-//					SigningAlgorithm: pulumi.String("SHA512WITHRSA"),
 //					Subject: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs{
 //						CommonName: pulumi.String("example.com"),
 //					},
+//					KeyAlgorithm:     pulumi.String("RSA_4096"),
+//					SigningAlgorithm: pulumi.String("SHA512WITHRSA"),
 //				},
+//				PermanentDeletionTimeInDays: pulumi.Int(7),
+//				Type:                        pulumi.String("ROOT"),
 //			})
 //			if err != nil {
 //				return err
@@ -49,14 +49,14 @@ import (
 //				return err
 //			}
 //			_, err = acmpca.NewCertificate(ctx, "test", &acmpca.CertificateArgs{
-//				CertificateAuthorityArn:   example.Arn,
-//				CertificateSigningRequest: example.CertificateSigningRequest,
-//				SigningAlgorithm:          pulumi.String("SHA512WITHRSA"),
-//				TemplateArn:               pulumi.Sprintf("arn:%v:acm-pca:::template/RootCACertificate/V1", current.Partition),
 //				Validity: &acmpca.CertificateValidityArgs{
 //					Type:  pulumi.String("YEARS"),
 //					Value: pulumi.String("1"),
 //				},
+//				CertificateAuthorityArn:   example.Arn,
+//				CertificateSigningRequest: example.CertificateSigningRequest,
+//				SigningAlgorithm:          pulumi.String("SHA512WITHRSA"),
+//				TemplateArn:               pulumi.Sprintf("arn:%v:acm-pca:::template/RootCACertificate/V1", current.Partition),
 //			})
 //			if err != nil {
 //				return err
@@ -70,13 +70,13 @@ import (
 //				return err
 //			}
 //			_, err = rolesanywhere.NewTrustAnchor(ctx, "test", &rolesanywhere.TrustAnchorArgs{
-//				Name: pulumi.String("example"),
 //				Source: &rolesanywhere.TrustAnchorSourceArgs{
 //					SourceData: &rolesanywhere.TrustAnchorSourceSourceDataArgs{
 //						AcmPcaArn: example.Arn,
 //					},
 //					SourceType: pulumi.String("AWS_ACM_PCA"),
 //				},
+//				Name: pulumi.String("example"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleCertificateAuthorityCertificate,
 //			}))

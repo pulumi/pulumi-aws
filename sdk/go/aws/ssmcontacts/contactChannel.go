@@ -33,12 +33,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssmcontacts.NewContactChannel(ctx, "example", &ssmcontacts.ContactChannelArgs{
-//				ContactId: pulumi.String("arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias"),
 //				DeliveryAddress: &ssmcontacts.ContactChannelDeliveryAddressArgs{
 //					SimpleAddress: pulumi.String("email@example.com"),
 //				},
-//				Name: pulumi.String("Example contact channel"),
-//				Type: pulumi.String("EMAIL"),
+//				ContactId: pulumi.String("arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias"),
+//				Name:      pulumi.String("Example contact channel"),
+//				Type:      pulumi.String("EMAIL"),
 //			})
 //			if err != nil {
 //				return err
@@ -71,12 +71,12 @@ import (
 //				return err
 //			}
 //			_, err = ssmcontacts.NewContactChannel(ctx, "example", &ssmcontacts.ContactChannelArgs{
-//				ContactId: exampleContact.Arn,
 //				DeliveryAddress: &ssmcontacts.ContactChannelDeliveryAddressArgs{
 //					SimpleAddress: pulumi.String("email@example.com"),
 //				},
-//				Name: pulumi.String("Example contact channel"),
-//				Type: pulumi.String("EMAIL"),
+//				ContactId: exampleContact.Arn,
+//				Name:      pulumi.String("Example contact channel"),
+//				Type:      pulumi.String("EMAIL"),
 //			})
 //			if err != nil {
 //				return err

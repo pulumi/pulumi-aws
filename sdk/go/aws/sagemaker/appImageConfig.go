@@ -31,7 +31,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewAppImageConfig(ctx, "test", &sagemaker.AppImageConfigArgs{
-//				AppImageConfigName: pulumi.String("example"),
 //				KernelGatewayImageConfig: &sagemaker.AppImageConfigKernelGatewayImageConfigArgs{
 //					KernelSpecs: sagemaker.AppImageConfigKernelGatewayImageConfigKernelSpecArray{
 //						&sagemaker.AppImageConfigKernelGatewayImageConfigKernelSpecArgs{
@@ -39,6 +38,7 @@ import (
 //						},
 //					},
 //				},
+//				AppImageConfigName: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -64,8 +64,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewAppImageConfig(ctx, "test", &sagemaker.AppImageConfigArgs{
-//				AppImageConfigName:       pulumi.String("example"),
 //				CodeEditorAppImageConfig: &sagemaker.AppImageConfigCodeEditorAppImageConfigArgs{},
+//				AppImageConfigName:       pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -91,15 +91,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewAppImageConfig(ctx, "test", &sagemaker.AppImageConfigArgs{
-//				AppImageConfigName: pulumi.String("example"),
 //				KernelGatewayImageConfig: &sagemaker.AppImageConfigKernelGatewayImageConfigArgs{
+//					FileSystemConfig: &sagemaker.AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs{},
 //					KernelSpecs: sagemaker.AppImageConfigKernelGatewayImageConfigKernelSpecArray{
 //						&sagemaker.AppImageConfigKernelGatewayImageConfigKernelSpecArgs{
 //							Name: pulumi.String("example"),
 //						},
 //					},
-//					FileSystemConfig: &sagemaker.AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs{},
 //				},
+//				AppImageConfigName: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

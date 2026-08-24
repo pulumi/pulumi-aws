@@ -285,11 +285,11 @@ class Package(pulumi.CustomResource):
             source=pulumi.FileAsset("./example.txt"),
             etag=std.filemd5(input="./example.txt").result)
         example_package = aws.opensearch.Package("example",
-            package_name="example-txt",
             package_source={
                 "s3_bucket_name": my_opensearch_packages.bucket,
                 "s3_key": example.key,
             },
+            package_name="example-txt",
             package_type="TXT-DICTIONARY")
         ```
 
@@ -336,11 +336,11 @@ class Package(pulumi.CustomResource):
             source=pulumi.FileAsset("./example.txt"),
             etag=std.filemd5(input="./example.txt").result)
         example_package = aws.opensearch.Package("example",
-            package_name="example-txt",
             package_source={
                 "s3_bucket_name": my_opensearch_packages.bucket,
                 "s3_key": example.key,
             },
+            package_name="example-txt",
             package_type="TXT-DICTIONARY")
         ```
 

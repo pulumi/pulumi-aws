@@ -45,9 +45,6 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     ///     var bar = new Aws.DirectoryService.Directory("bar", new()
     ///     {
-    ///         Name = "corp.notexample.com",
-    ///         Password = "SuperSecretPassw0rd",
-    ///         Size = "Small",
     ///         VpcSettings = new Aws.DirectoryService.Inputs.DirectoryVpcSettingsArgs
     ///         {
     ///             VpcId = main.Id,
@@ -57,6 +54,9 @@ namespace Pulumi.Aws.DirectoryService
     ///                 barSubnet.Id,
     ///             },
     ///         },
+    ///         Name = "corp.notexample.com",
+    ///         Password = "SuperSecretPassw0rd",
+    ///         Size = "Small",
     ///         Tags = 
     ///         {
     ///             { "Project", "foo" },
@@ -97,10 +97,6 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     ///     var bar = new Aws.DirectoryService.Directory("bar", new()
     ///     {
-    ///         Name = "corp.notexample.com",
-    ///         Password = "SuperSecretPassw0rd",
-    ///         Edition = "Standard",
-    ///         Type = "MicrosoftAD",
     ///         VpcSettings = new Aws.DirectoryService.Inputs.DirectoryVpcSettingsArgs
     ///         {
     ///             VpcId = main.Id,
@@ -110,6 +106,10 @@ namespace Pulumi.Aws.DirectoryService
     ///                 barSubnet.Id,
     ///             },
     ///         },
+    ///         Name = "corp.notexample.com",
+    ///         Password = "SuperSecretPassw0rd",
+    ///         Edition = "Standard",
+    ///         Type = "MicrosoftAD",
     ///         Tags = 
     ///         {
     ///             { "Project", "foo" },
@@ -150,10 +150,6 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     ///     var connector = new Aws.DirectoryService.Directory("connector", new()
     ///     {
-    ///         Name = "corp.notexample.com",
-    ///         Password = "SuperSecretPassw0rd",
-    ///         Size = "Small",
-    ///         Type = "ADConnector",
     ///         ConnectSettings = new Aws.DirectoryService.Inputs.DirectoryConnectSettingsArgs
     ///         {
     ///             CustomerDnsIps = new[]
@@ -168,6 +164,10 @@ namespace Pulumi.Aws.DirectoryService
     ///             },
     ///             VpcId = main.Id,
     ///         },
+    ///         Name = "corp.notexample.com",
+    ///         Password = "SuperSecretPassw0rd",
+    ///         Size = "Small",
+    ///         Type = "ADConnector",
     ///     });
     /// 
     /// });

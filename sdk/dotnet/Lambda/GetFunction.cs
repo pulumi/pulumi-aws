@@ -89,15 +89,6 @@ namespace Pulumi.Aws.Lambda
         ///     // Create new function with similar configuration
         ///     var example = new Aws.Lambda.Function("example", new()
         ///     {
-        ///         DurableConfig = Enumerable.SingleOrDefault(),
-        ///         Code = new FileArchive("new-function.zip"),
-        ///         Name = "new-function",
-        ///         Role = reference.Apply(getFunctionResult =&gt; getFunctionResult.Role),
-        ///         Handler = reference.Apply(getFunctionResult =&gt; getFunctionResult.Handler),
-        ///         Runtime = reference.Apply(getFunctionResult =&gt; getFunctionResult.Runtime).Apply(System.Enum.Parse&lt;Aws.Lambda.Runtime&gt;),
-        ///         MemorySize = reference.Apply(getFunctionResult =&gt; getFunctionResult.MemorySize),
-        ///         Timeout = reference.Apply(getFunctionResult =&gt; getFunctionResult.Timeout),
-        ///         Architectures = reference.Apply(getFunctionResult =&gt; getFunctionResult.Architectures),
         ///         VpcConfig = new Aws.Lambda.Inputs.FunctionVpcConfigArgs
         ///         {
         ///             SubnetIds = reference.Apply(getFunctionResult =&gt; getFunctionResult.VpcConfig?.SubnetIds),
@@ -107,6 +98,22 @@ namespace Pulumi.Aws.Lambda
         ///         {
         ///             Variables = reference.Apply(getFunctionResult =&gt; getFunctionResult.Environment?.Variables),
         ///         },
+        ///         DurableConfig = Enumerable.SingleOrDefault(.Select(entry =&gt; 
+        ///         {
+        ///             return 
+        ///             {
+        ///                 { "executionTimeout", entry.ExecutionTimeout },
+        ///                 { "retentionPeriod", entry.RetentionPeriod },
+        ///             };
+        ///         }).ToList()),
+        ///         Code = new FileArchive("new-function.zip"),
+        ///         Name = "new-function",
+        ///         Role = reference.Apply(getFunctionResult =&gt; getFunctionResult.Role),
+        ///         Handler = reference.Apply(getFunctionResult =&gt; getFunctionResult.Handler),
+        ///         Runtime = reference.Apply(getFunctionResult =&gt; getFunctionResult.Runtime).Apply(System.Enum.Parse&lt;Aws.Lambda.Runtime&gt;),
+        ///         MemorySize = reference.Apply(getFunctionResult =&gt; getFunctionResult.MemorySize),
+        ///         Timeout = reference.Apply(getFunctionResult =&gt; getFunctionResult.Timeout),
+        ///         Architectures = reference.Apply(getFunctionResult =&gt; getFunctionResult.Architectures),
         ///     });
         /// 
         /// });
@@ -271,15 +278,6 @@ namespace Pulumi.Aws.Lambda
         ///     // Create new function with similar configuration
         ///     var example = new Aws.Lambda.Function("example", new()
         ///     {
-        ///         DurableConfig = Enumerable.SingleOrDefault(),
-        ///         Code = new FileArchive("new-function.zip"),
-        ///         Name = "new-function",
-        ///         Role = reference.Apply(getFunctionResult =&gt; getFunctionResult.Role),
-        ///         Handler = reference.Apply(getFunctionResult =&gt; getFunctionResult.Handler),
-        ///         Runtime = reference.Apply(getFunctionResult =&gt; getFunctionResult.Runtime).Apply(System.Enum.Parse&lt;Aws.Lambda.Runtime&gt;),
-        ///         MemorySize = reference.Apply(getFunctionResult =&gt; getFunctionResult.MemorySize),
-        ///         Timeout = reference.Apply(getFunctionResult =&gt; getFunctionResult.Timeout),
-        ///         Architectures = reference.Apply(getFunctionResult =&gt; getFunctionResult.Architectures),
         ///         VpcConfig = new Aws.Lambda.Inputs.FunctionVpcConfigArgs
         ///         {
         ///             SubnetIds = reference.Apply(getFunctionResult =&gt; getFunctionResult.VpcConfig?.SubnetIds),
@@ -289,6 +287,22 @@ namespace Pulumi.Aws.Lambda
         ///         {
         ///             Variables = reference.Apply(getFunctionResult =&gt; getFunctionResult.Environment?.Variables),
         ///         },
+        ///         DurableConfig = Enumerable.SingleOrDefault(.Select(entry =&gt; 
+        ///         {
+        ///             return 
+        ///             {
+        ///                 { "executionTimeout", entry.ExecutionTimeout },
+        ///                 { "retentionPeriod", entry.RetentionPeriod },
+        ///             };
+        ///         }).ToList()),
+        ///         Code = new FileArchive("new-function.zip"),
+        ///         Name = "new-function",
+        ///         Role = reference.Apply(getFunctionResult =&gt; getFunctionResult.Role),
+        ///         Handler = reference.Apply(getFunctionResult =&gt; getFunctionResult.Handler),
+        ///         Runtime = reference.Apply(getFunctionResult =&gt; getFunctionResult.Runtime).Apply(System.Enum.Parse&lt;Aws.Lambda.Runtime&gt;),
+        ///         MemorySize = reference.Apply(getFunctionResult =&gt; getFunctionResult.MemorySize),
+        ///         Timeout = reference.Apply(getFunctionResult =&gt; getFunctionResult.Timeout),
+        ///         Architectures = reference.Apply(getFunctionResult =&gt; getFunctionResult.Architectures),
         ///     });
         /// 
         /// });
@@ -453,15 +467,6 @@ namespace Pulumi.Aws.Lambda
         ///     // Create new function with similar configuration
         ///     var example = new Aws.Lambda.Function("example", new()
         ///     {
-        ///         DurableConfig = Enumerable.SingleOrDefault(),
-        ///         Code = new FileArchive("new-function.zip"),
-        ///         Name = "new-function",
-        ///         Role = reference.Apply(getFunctionResult =&gt; getFunctionResult.Role),
-        ///         Handler = reference.Apply(getFunctionResult =&gt; getFunctionResult.Handler),
-        ///         Runtime = reference.Apply(getFunctionResult =&gt; getFunctionResult.Runtime).Apply(System.Enum.Parse&lt;Aws.Lambda.Runtime&gt;),
-        ///         MemorySize = reference.Apply(getFunctionResult =&gt; getFunctionResult.MemorySize),
-        ///         Timeout = reference.Apply(getFunctionResult =&gt; getFunctionResult.Timeout),
-        ///         Architectures = reference.Apply(getFunctionResult =&gt; getFunctionResult.Architectures),
         ///         VpcConfig = new Aws.Lambda.Inputs.FunctionVpcConfigArgs
         ///         {
         ///             SubnetIds = reference.Apply(getFunctionResult =&gt; getFunctionResult.VpcConfig?.SubnetIds),
@@ -471,6 +476,22 @@ namespace Pulumi.Aws.Lambda
         ///         {
         ///             Variables = reference.Apply(getFunctionResult =&gt; getFunctionResult.Environment?.Variables),
         ///         },
+        ///         DurableConfig = Enumerable.SingleOrDefault(.Select(entry =&gt; 
+        ///         {
+        ///             return 
+        ///             {
+        ///                 { "executionTimeout", entry.ExecutionTimeout },
+        ///                 { "retentionPeriod", entry.RetentionPeriod },
+        ///             };
+        ///         }).ToList()),
+        ///         Code = new FileArchive("new-function.zip"),
+        ///         Name = "new-function",
+        ///         Role = reference.Apply(getFunctionResult =&gt; getFunctionResult.Role),
+        ///         Handler = reference.Apply(getFunctionResult =&gt; getFunctionResult.Handler),
+        ///         Runtime = reference.Apply(getFunctionResult =&gt; getFunctionResult.Runtime).Apply(System.Enum.Parse&lt;Aws.Lambda.Runtime&gt;),
+        ///         MemorySize = reference.Apply(getFunctionResult =&gt; getFunctionResult.MemorySize),
+        ///         Timeout = reference.Apply(getFunctionResult =&gt; getFunctionResult.Timeout),
+        ///         Architectures = reference.Apply(getFunctionResult =&gt; getFunctionResult.Architectures),
         ///     });
         /// 
         /// });

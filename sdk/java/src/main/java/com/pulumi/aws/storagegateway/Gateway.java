@@ -103,15 +103,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Gateway("example", GatewayArgs.builder()
- *             .gatewayIpAddress("1.2.3.4")
- *             .gatewayName("example")
- *             .gatewayTimezone("GMT")
- *             .gatewayType("FILE_FSX_SMB")
  *             .smbActiveDirectorySettings(GatewaySmbActiveDirectorySettingsArgs.builder()
  *                 .domainName("corp.example.com")
  *                 .password("avoid-plaintext-passwords")
  *                 .username("Admin")
  *                 .build())
+ *             .gatewayIpAddress("1.2.3.4")
+ *             .gatewayName("example")
+ *             .gatewayTimezone("GMT")
+ *             .gatewayType("FILE_FSX_SMB")
  *             .build());
  * 
  *     }
@@ -284,6 +284,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.storagegateway.Gateway;
  * import com.pulumi.aws.storagegateway.GatewayArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -299,7 +300,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Gateway("example", GatewayArgs.builder()
  *             .gatewayIpAddress(sgw.privateIp())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .ignoreChanges("gatewayIpAddress")
+ *                 .build());
  * 
  *     }
  * }

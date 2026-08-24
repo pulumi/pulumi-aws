@@ -40,9 +40,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cfg.inputs.RuleSourceArgs;
  * import com.pulumi.aws.cfg.RemediationConfiguration;
  * import com.pulumi.aws.cfg.RemediationConfigurationArgs;
- * import com.pulumi.aws.cfg.inputs.RemediationConfigurationParameterArgs;
  * import com.pulumi.aws.cfg.inputs.RemediationConfigurationExecutionControlsArgs;
  * import com.pulumi.aws.cfg.inputs.RemediationConfigurationExecutionControlsSsmControlsArgs;
+ * import com.pulumi.aws.cfg.inputs.RemediationConfigurationParameterArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -57,19 +57,20 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var this_ = new Rule("this", RuleArgs.builder()
- *             .name("example")
  *             .source(RuleSourceArgs.builder()
  *                 .owner("AWS")
  *                 .sourceIdentifier("S3_BUCKET_VERSIONING_ENABLED")
  *                 .build())
+ *             .name("example")
  *             .build());
  * 
  *         var thisRemediationConfiguration = new RemediationConfiguration("thisRemediationConfiguration", RemediationConfigurationArgs.builder()
- *             .configRuleName(this_.name())
- *             .resourceType("AWS::S3::Bucket")
- *             .targetType("SSM_DOCUMENT")
- *             .targetId("AWS-EnableS3BucketEncryption")
- *             .targetVersion("1")
+ *             .executionControls(RemediationConfigurationExecutionControlsArgs.builder()
+ *                 .ssmControls(RemediationConfigurationExecutionControlsSsmControlsArgs.builder()
+ *                     .concurrentExecutionRatePercentage(25)
+ *                     .errorPercentage(20)
+ *                     .build())
+ *                 .build())
  *             .parameters(            
  *                 RemediationConfigurationParameterArgs.builder()
  *                     .name("AutomationAssumeRole")
@@ -83,15 +84,14 @@ import javax.annotation.Nullable;
  *                     .name("SSEAlgorithm")
  *                     .staticValue("AES256")
  *                     .build())
+ *             .configRuleName(this_.name())
+ *             .resourceType("AWS::S3::Bucket")
+ *             .targetType("SSM_DOCUMENT")
+ *             .targetId("AWS-EnableS3BucketEncryption")
+ *             .targetVersion("1")
  *             .automatic(true)
  *             .maximumAutomaticAttempts(10)
  *             .retryAttemptSeconds(600)
- *             .executionControls(RemediationConfigurationExecutionControlsArgs.builder()
- *                 .ssmControls(RemediationConfigurationExecutionControlsSsmControlsArgs.builder()
- *                     .concurrentExecutionRatePercentage(25)
- *                     .errorPercentage(20)
- *                     .build())
- *                 .build())
  *             .build());
  * 
  *     }

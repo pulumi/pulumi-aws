@@ -33,8 +33,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.lb.TrustStoreArgs;
  * import com.pulumi.aws.lb.Listener;
  * import com.pulumi.aws.lb.ListenerArgs;
- * import com.pulumi.aws.lb.inputs.ListenerDefaultActionArgs;
  * import com.pulumi.aws.lb.inputs.ListenerMutualAuthenticationArgs;
+ * import com.pulumi.aws.lb.inputs.ListenerDefaultActionArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -55,15 +55,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new Listener("example", ListenerArgs.builder()
- *             .loadBalancerArn(exampleAwsLb.id())
- *             .defaultActions(ListenerDefaultActionArgs.builder()
- *                 .targetGroupArn(exampleAwsLbTargetGroup.id())
- *                 .type("forward")
- *                 .build())
  *             .mutualAuthentication(ListenerMutualAuthenticationArgs.builder()
  *                 .mode("verify")
  *                 .trustStoreArn(test.arn())
  *                 .build())
+ *             .defaultActions(ListenerDefaultActionArgs.builder()
+ *                 .targetGroupArn(exampleAwsLbTargetGroup.id())
+ *                 .type("forward")
+ *                 .build())
+ *             .loadBalancerArn(exampleAwsLb.id())
  *             .build());
  * 
  *     }

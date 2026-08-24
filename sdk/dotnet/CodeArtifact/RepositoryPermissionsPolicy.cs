@@ -45,7 +45,6 @@ namespace Pulumi.Aws.CodeArtifact
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -57,6 +56,7 @@ namespace Pulumi.Aws.CodeArtifact
     ///                         },
     ///                     },
     ///                 },
+    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "codeartifact:ReadFromRepository",

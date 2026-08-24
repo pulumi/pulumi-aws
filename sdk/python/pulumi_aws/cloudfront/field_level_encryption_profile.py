@@ -204,17 +204,17 @@ class FieldLevelEncryptionProfile(pulumi.CustomResource):
             encoded_key=std.file(input="public_key.pem").result,
             name="test_key")
         test = aws.cloudfront.FieldLevelEncryptionProfile("test",
-            comment="test comment",
-            name="test profile",
             encryption_entities={
                 "items": [{
-                    "public_key_id": example.id,
-                    "provider_id": "test provider",
                     "field_patterns": {
                         "items": ["DateOfBirth"],
                     },
+                    "public_key_id": example.id,
+                    "provider_id": "test provider",
                 }],
-            })
+            },
+            comment="test comment",
+            name="test profile")
         ```
 
         ## Import
@@ -253,17 +253,17 @@ class FieldLevelEncryptionProfile(pulumi.CustomResource):
             encoded_key=std.file(input="public_key.pem").result,
             name="test_key")
         test = aws.cloudfront.FieldLevelEncryptionProfile("test",
-            comment="test comment",
-            name="test profile",
             encryption_entities={
                 "items": [{
-                    "public_key_id": example.id,
-                    "provider_id": "test provider",
                     "field_patterns": {
                         "items": ["DateOfBirth"],
                     },
+                    "public_key_id": example.id,
+                    "provider_id": "test provider",
                 }],
-            })
+            },
+            comment="test comment",
+            name="test profile")
         ```
 
         ## Import

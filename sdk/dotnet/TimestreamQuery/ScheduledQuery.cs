@@ -30,19 +30,6 @@ namespace Pulumi.Aws.TimestreamQuery
     /// {
     ///     var example = new Aws.TimestreamQuery.ScheduledQuery("example", new()
     ///     {
-    ///         ExecutionRoleArn = exampleAwsIamRole.Arn,
-    ///         Name = exampleAwsTimestreamwriteTable.TableName,
-    ///         QueryString = @"SELECT region, az, hostname, BIN(time, 15s) AS binned_timestamp,
-    /// \tROUND(AVG(cpu_utilization), 2) AS avg_cpu_utilization,
-    /// \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.9), 2) AS p90_cpu_utilization,
-    /// \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.95), 2) AS p95_cpu_utilization,
-    /// \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.99), 2) AS p99_cpu_utilization
-    /// FROM exampledatabase.exampletable
-    /// WHERE measure_name = 'metrics' AND time &gt; ago(2h)
-    /// GROUP BY region, hostname, az, BIN(time, 15s)
-    /// ORDER BY binned_timestamp ASC
-    /// LIMIT 5
-    /// ",
     ///         ErrorReportConfiguration = new Aws.TimestreamQuery.Inputs.ScheduledQueryErrorReportConfigurationArgs
     ///         {
     ///             S3Configuration = new Aws.TimestreamQuery.Inputs.ScheduledQueryErrorReportConfigurationS3ConfigurationArgs
@@ -65,30 +52,8 @@ namespace Pulumi.Aws.TimestreamQuery
     ///         {
     ///             TimestreamConfiguration = new Aws.TimestreamQuery.Inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationArgs
     ///             {
-    ///                 DatabaseName = results.DatabaseName,
-    ///                 TableName = resultsAwsTimestreamwriteTable.TableName,
-    ///                 TimeColumn = "binned_timestamp",
-    ///                 DimensionMappings = new[]
-    ///                 {
-    ///                     new Aws.TimestreamQuery.Inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs
-    ///                     {
-    ///                         DimensionValueType = "VARCHAR",
-    ///                         Name = "az",
-    ///                     },
-    ///                     new Aws.TimestreamQuery.Inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs
-    ///                     {
-    ///                         DimensionValueType = "VARCHAR",
-    ///                         Name = "region",
-    ///                     },
-    ///                     new Aws.TimestreamQuery.Inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs
-    ///                     {
-    ///                         DimensionValueType = "VARCHAR",
-    ///                         Name = "hostname",
-    ///                     },
-    ///                 },
     ///                 MultiMeasureMappings = new Aws.TimestreamQuery.Inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsArgs
     ///                 {
-    ///                     TargetMultiMeasureName = "multi-metrics",
     ///                     MultiMeasureAttributeMappings = new[]
     ///                     {
     ///                         new Aws.TimestreamQuery.Inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArgs
@@ -112,9 +77,44 @@ namespace Pulumi.Aws.TimestreamQuery
     ///                             SourceColumn = "p99_cpu_utilization",
     ///                         },
     ///                     },
+    ///                     TargetMultiMeasureName = "multi-metrics",
     ///                 },
+    ///                 DimensionMappings = new[]
+    ///                 {
+    ///                     new Aws.TimestreamQuery.Inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs
+    ///                     {
+    ///                         DimensionValueType = "VARCHAR",
+    ///                         Name = "az",
+    ///                     },
+    ///                     new Aws.TimestreamQuery.Inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs
+    ///                     {
+    ///                         DimensionValueType = "VARCHAR",
+    ///                         Name = "region",
+    ///                     },
+    ///                     new Aws.TimestreamQuery.Inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs
+    ///                     {
+    ///                         DimensionValueType = "VARCHAR",
+    ///                         Name = "hostname",
+    ///                     },
+    ///                 },
+    ///                 DatabaseName = results.DatabaseName,
+    ///                 TableName = resultsAwsTimestreamwriteTable.TableName,
+    ///                 TimeColumn = "binned_timestamp",
     ///             },
     ///         },
+    ///         ExecutionRoleArn = exampleAwsIamRole.Arn,
+    ///         Name = exampleAwsTimestreamwriteTable.TableName,
+    ///         QueryString = @"SELECT region, az, hostname, BIN(time, 15s) AS binned_timestamp,
+    /// \tROUND(AVG(cpu_utilization), 2) AS avg_cpu_utilization,
+    /// \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.9), 2) AS p90_cpu_utilization,
+    /// \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.95), 2) AS p95_cpu_utilization,
+    /// \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.99), 2) AS p99_cpu_utilization
+    /// FROM exampledatabase.exampletable
+    /// WHERE measure_name = 'metrics' AND time &gt; ago(2h)
+    /// GROUP BY region, hostname, az, BIN(time, 15s)
+    /// ORDER BY binned_timestamp ASC
+    /// LIMIT 5
+    /// ",
     ///     });
     /// 
     /// });
@@ -255,8 +255,6 @@ namespace Pulumi.Aws.TimestreamQuery
     /// 
     ///     var testTable = new Aws.TimestreamWrite.Table("test", new()
     ///     {
-    ///         DatabaseName = testDatabase.DatabaseName,
-    ///         TableName = "exampletable",
     ///         MagneticStoreWriteProperties = new Aws.TimestreamWrite.Inputs.TableMagneticStoreWritePropertiesArgs
     ///         {
     ///             EnableMagneticStoreWrites = true,
@@ -266,6 +264,8 @@ namespace Pulumi.Aws.TimestreamQuery
     ///             MagneticStoreRetentionPeriodInDays = 1,
     ///             MemoryStoreRetentionPeriodInHours = 1,
     ///         },
+    ///         DatabaseName = testDatabase.DatabaseName,
+    ///         TableName = "exampletable",
     ///     });
     /// 
     ///     var results = new Aws.TimestreamWrite.Database("results", new()
@@ -275,8 +275,6 @@ namespace Pulumi.Aws.TimestreamQuery
     /// 
     ///     var resultsTable = new Aws.TimestreamWrite.Table("results", new()
     ///     {
-    ///         DatabaseName = results.DatabaseName,
-    ///         TableName = "exampletable-results",
     ///         MagneticStoreWriteProperties = new Aws.TimestreamWrite.Inputs.TableMagneticStoreWritePropertiesArgs
     ///         {
     ///             EnableMagneticStoreWrites = true,
@@ -286,6 +284,8 @@ namespace Pulumi.Aws.TimestreamQuery
     ///             MagneticStoreRetentionPeriodInDays = 1,
     ///             MemoryStoreRetentionPeriodInHours = 1,
     ///         },
+    ///         DatabaseName = results.DatabaseName,
+    ///         TableName = "exampletable-results",
     ///     });
     /// 
     /// });
@@ -307,19 +307,6 @@ namespace Pulumi.Aws.TimestreamQuery
     /// {
     ///     var example = new Aws.TimestreamQuery.ScheduledQuery("example", new()
     ///     {
-    ///         ExecutionRoleArn = exampleAwsIamRole.Arn,
-    ///         Name = exampleAwsTimestreamwriteTable.TableName,
-    ///         QueryString = @"SELECT region, az, hostname, BIN(time, 15s) AS binned_timestamp,
-    /// \tROUND(AVG(cpu_utilization), 2) AS avg_cpu_utilization,
-    /// \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.9), 2) AS p90_cpu_utilization,
-    /// \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.95), 2) AS p95_cpu_utilization,
-    /// \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.99), 2) AS p99_cpu_utilization
-    /// FROM exampledatabase.exampletable
-    /// WHERE measure_name = 'metrics' AND time &gt; ago(2h)
-    /// GROUP BY region, hostname, az, BIN(time, 15s)
-    /// ORDER BY binned_timestamp ASC
-    /// LIMIT 5
-    /// ",
     ///         ErrorReportConfiguration = new Aws.TimestreamQuery.Inputs.ScheduledQueryErrorReportConfigurationArgs
     ///         {
     ///             S3Configuration = new Aws.TimestreamQuery.Inputs.ScheduledQueryErrorReportConfigurationS3ConfigurationArgs
@@ -342,30 +329,8 @@ namespace Pulumi.Aws.TimestreamQuery
     ///         {
     ///             TimestreamConfiguration = new Aws.TimestreamQuery.Inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationArgs
     ///             {
-    ///                 DatabaseName = results.DatabaseName,
-    ///                 TableName = resultsAwsTimestreamwriteTable.TableName,
-    ///                 TimeColumn = "binned_timestamp",
-    ///                 DimensionMappings = new[]
-    ///                 {
-    ///                     new Aws.TimestreamQuery.Inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs
-    ///                     {
-    ///                         DimensionValueType = "VARCHAR",
-    ///                         Name = "az",
-    ///                     },
-    ///                     new Aws.TimestreamQuery.Inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs
-    ///                     {
-    ///                         DimensionValueType = "VARCHAR",
-    ///                         Name = "region",
-    ///                     },
-    ///                     new Aws.TimestreamQuery.Inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs
-    ///                     {
-    ///                         DimensionValueType = "VARCHAR",
-    ///                         Name = "hostname",
-    ///                     },
-    ///                 },
     ///                 MultiMeasureMappings = new Aws.TimestreamQuery.Inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsArgs
     ///                 {
-    ///                     TargetMultiMeasureName = "multi-metrics",
     ///                     MultiMeasureAttributeMappings = new[]
     ///                     {
     ///                         new Aws.TimestreamQuery.Inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArgs
@@ -389,9 +354,44 @@ namespace Pulumi.Aws.TimestreamQuery
     ///                             SourceColumn = "p99_cpu_utilization",
     ///                         },
     ///                     },
+    ///                     TargetMultiMeasureName = "multi-metrics",
     ///                 },
+    ///                 DimensionMappings = new[]
+    ///                 {
+    ///                     new Aws.TimestreamQuery.Inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs
+    ///                     {
+    ///                         DimensionValueType = "VARCHAR",
+    ///                         Name = "az",
+    ///                     },
+    ///                     new Aws.TimestreamQuery.Inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs
+    ///                     {
+    ///                         DimensionValueType = "VARCHAR",
+    ///                         Name = "region",
+    ///                     },
+    ///                     new Aws.TimestreamQuery.Inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs
+    ///                     {
+    ///                         DimensionValueType = "VARCHAR",
+    ///                         Name = "hostname",
+    ///                     },
+    ///                 },
+    ///                 DatabaseName = results.DatabaseName,
+    ///                 TableName = resultsAwsTimestreamwriteTable.TableName,
+    ///                 TimeColumn = "binned_timestamp",
     ///             },
     ///         },
+    ///         ExecutionRoleArn = exampleAwsIamRole.Arn,
+    ///         Name = exampleAwsTimestreamwriteTable.TableName,
+    ///         QueryString = @"SELECT region, az, hostname, BIN(time, 15s) AS binned_timestamp,
+    /// \tROUND(AVG(cpu_utilization), 2) AS avg_cpu_utilization,
+    /// \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.9), 2) AS p90_cpu_utilization,
+    /// \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.95), 2) AS p95_cpu_utilization,
+    /// \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.99), 2) AS p99_cpu_utilization
+    /// FROM exampledatabase.exampletable
+    /// WHERE measure_name = 'metrics' AND time &gt; ago(2h)
+    /// GROUP BY region, hostname, az, BIN(time, 15s)
+    /// ORDER BY binned_timestamp ASC
+    /// LIMIT 5
+    /// ",
     ///     });
     /// 
     /// });

@@ -332,16 +332,16 @@ class AgentcoreGatewayRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentcoreGatewayRule("example",
-            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"],
-            priority=100,
-            description="Route all requests to the primary target",
             actions=[{
                 "route_to_target": {
                     "static_route": {
                         "target_name": example_aws_bedrockagentcore_gateway_target["name"],
                     },
                 },
-            }])
+            }],
+            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"],
+            priority=100,
+            description="Route all requests to the primary target")
         ```
 
         ### Weighted Route (Canary Traffic Split)
@@ -351,8 +351,6 @@ class AgentcoreGatewayRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         canary = aws.bedrock.AgentcoreGatewayRule("canary",
-            gateway_identifier=example["gatewayId"],
-            priority=100,
             actions=[{
                 "route_to_target": {
                     "weighted_route": {
@@ -370,7 +368,9 @@ class AgentcoreGatewayRule(pulumi.CustomResource):
                         ],
                     },
                 },
-            }])
+            }],
+            gateway_identifier=example["gatewayId"],
+            priority=100)
         ```
 
         ### Match on IAM Principals and Paths
@@ -382,8 +382,6 @@ class AgentcoreGatewayRule(pulumi.CustomResource):
         current = aws.get_caller_identity()
         current_get_partition = aws.get_partition()
         restricted = aws.bedrock.AgentcoreGatewayRule("restricted",
-            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"],
-            priority=50,
             actions=[{
                 "route_to_target": {
                     "static_route": {
@@ -407,7 +405,9 @@ class AgentcoreGatewayRule(pulumi.CustomResource):
                         "any_ofs": ["/api/*"],
                     },
                 },
-            ])
+            ],
+            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"],
+            priority=50)
         ```
 
         ## Import
@@ -460,16 +460,16 @@ class AgentcoreGatewayRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentcoreGatewayRule("example",
-            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"],
-            priority=100,
-            description="Route all requests to the primary target",
             actions=[{
                 "route_to_target": {
                     "static_route": {
                         "target_name": example_aws_bedrockagentcore_gateway_target["name"],
                     },
                 },
-            }])
+            }],
+            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"],
+            priority=100,
+            description="Route all requests to the primary target")
         ```
 
         ### Weighted Route (Canary Traffic Split)
@@ -479,8 +479,6 @@ class AgentcoreGatewayRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         canary = aws.bedrock.AgentcoreGatewayRule("canary",
-            gateway_identifier=example["gatewayId"],
-            priority=100,
             actions=[{
                 "route_to_target": {
                     "weighted_route": {
@@ -498,7 +496,9 @@ class AgentcoreGatewayRule(pulumi.CustomResource):
                         ],
                     },
                 },
-            }])
+            }],
+            gateway_identifier=example["gatewayId"],
+            priority=100)
         ```
 
         ### Match on IAM Principals and Paths
@@ -510,8 +510,6 @@ class AgentcoreGatewayRule(pulumi.CustomResource):
         current = aws.get_caller_identity()
         current_get_partition = aws.get_partition()
         restricted = aws.bedrock.AgentcoreGatewayRule("restricted",
-            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"],
-            priority=50,
             actions=[{
                 "route_to_target": {
                     "static_route": {
@@ -535,7 +533,9 @@ class AgentcoreGatewayRule(pulumi.CustomResource):
                         "any_ofs": ["/api/*"],
                     },
                 },
-            ])
+            ],
+            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"],
+            priority=50)
         ```
 
         ## Import

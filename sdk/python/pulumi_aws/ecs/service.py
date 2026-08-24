@@ -1256,24 +1256,24 @@ class Service(pulumi.CustomResource):
         import pulumi_aws as aws
 
         mongo = aws.ecs.Service("mongo",
-            name="mongodb",
-            cluster=foo_aws_ecs_cluster["id"],
-            task_definition=mongo_aws_ecs_task_definition["arn"],
-            desired_count=3,
-            iam_role=foo_aws_iam_role["arn"],
-            ordered_placement_strategies=[{
-                "type": "binpack",
-                "field": "cpu",
-            }],
             load_balancers=[{
                 "target_group_arn": foo_aws_lb_target_group["arn"],
                 "container_name": "mongo",
                 "container_port": 8080,
             }],
+            ordered_placement_strategies=[{
+                "type": "binpack",
+                "field": "cpu",
+            }],
             placement_constraints=[{
                 "type": "memberOf",
                 "expression": "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]",
             }],
+            name="mongodb",
+            cluster=foo_aws_ecs_cluster["id"],
+            task_definition=mongo_aws_ecs_task_definition["arn"],
+            desired_count=3,
+            iam_role=foo_aws_iam_role["arn"],
             opts = pulumi.ResourceOptions(depends_on=[foo]))
         ```
 
@@ -1285,7 +1285,8 @@ class Service(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ecs.Service("example", desired_count=2)
+        example = aws.ecs.Service("example", desired_count=2,
+        opts = pulumi.ResourceOptions(ignore_changes=["desiredCount"]))
         ```
 
         ### Daemon Scheduling Strategy
@@ -1308,13 +1309,13 @@ class Service(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.Service("example",
-            name="example",
-            cluster=example_aws_ecs_cluster["id"],
             alarms={
                 "enable": True,
                 "rollback": True,
                 "alarm_names": [example_aws_cloudwatch_metric_alarm["alarmName"]],
-            })
+            },
+            name="example",
+            cluster=example_aws_ecs_cluster["id"])
         ```
 
         ### External Deployment Controller
@@ -1324,11 +1325,11 @@ class Service(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.Service("example",
-            name="example",
-            cluster=example_aws_ecs_cluster["id"],
             deployment_controller={
                 "type": "EXTERNAL",
-            })
+            },
+            name="example",
+            cluster=example_aws_ecs_cluster["id"])
         ```
 
         ### Blue/Green Deployment with SIGINT Rollback
@@ -1338,11 +1339,11 @@ class Service(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.Service("example",
-            name="example",
-            cluster=example_aws_ecs_cluster["id"],
             deployment_configuration={
                 "strategy": "BLUE_GREEN",
             },
+            name="example",
+            cluster=example_aws_ecs_cluster["id"],
             sigint_rollback=True,
             wait_for_steady_state=True)
         ```
@@ -1354,16 +1355,16 @@ class Service(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.Service("example",
-            name="example",
-            cluster=example_aws_ecs_cluster["id"],
             deployment_configuration={
-                "strategy": "LINEAR",
-                "bake_time_in_minutes": "10",
                 "linear_configuration": {
                     "step_percent": float(25),
                     "step_bake_time_in_minutes": "5",
                 },
-            })
+                "strategy": "LINEAR",
+                "bake_time_in_minutes": "10",
+            },
+            name="example",
+            cluster=example_aws_ecs_cluster["id"])
         ```
 
         ### Canary Deployment Strategy
@@ -1373,16 +1374,16 @@ class Service(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.Service("example",
-            name="example",
-            cluster=example_aws_ecs_cluster["id"],
             deployment_configuration={
-                "strategy": "CANARY",
-                "bake_time_in_minutes": "15",
                 "canary_configuration": {
                     "canary_percent": float(10),
                     "canary_bake_time_in_minutes": "5",
                 },
-            })
+                "strategy": "CANARY",
+                "bake_time_in_minutes": "15",
+            },
+            name="example",
+            cluster=example_aws_ecs_cluster["id"])
         ```
 
         ### Redeploy Service On Every Apply
@@ -1409,13 +1410,7 @@ class Service(pulumi.CustomResource):
         example_log_group = aws.cloudwatch.LogGroup("example", name="/ecs/example/service-connect")
         current = aws.get_region()
         example = aws.ecs.Service("example",
-            name="example",
-            cluster=example_aws_ecs_cluster["id"],
-            task_definition=example_aws_ecs_task_definition["arn"],
-            desired_count=1,
             service_connect_configuration={
-                "enabled": True,
-                "namespace": example_aws_service_discovery_http_namespace["arn"],
                 "log_configuration": {
                     "log_driver": "awslogs",
                     "options": {
@@ -1429,14 +1424,20 @@ class Service(pulumi.CustomResource):
                     "include_query_parameters": "ENABLED",
                 },
                 "services": [{
-                    "port_name": "http",
-                    "discovery_name": "example",
                     "client_alias": {
                         "dnsName": "example",
                         "port": 8080,
                     },
+                    "port_name": "http",
+                    "discovery_name": "example",
                 }],
-            })
+                "enabled": True,
+                "namespace": example_aws_service_discovery_http_namespace["arn"],
+            },
+            name="example",
+            cluster=example_aws_ecs_cluster["id"],
+            task_definition=example_aws_ecs_task_definition["arn"],
+            desired_count=1)
         ```
 
         ## Import
@@ -1521,24 +1522,24 @@ class Service(pulumi.CustomResource):
         import pulumi_aws as aws
 
         mongo = aws.ecs.Service("mongo",
-            name="mongodb",
-            cluster=foo_aws_ecs_cluster["id"],
-            task_definition=mongo_aws_ecs_task_definition["arn"],
-            desired_count=3,
-            iam_role=foo_aws_iam_role["arn"],
-            ordered_placement_strategies=[{
-                "type": "binpack",
-                "field": "cpu",
-            }],
             load_balancers=[{
                 "target_group_arn": foo_aws_lb_target_group["arn"],
                 "container_name": "mongo",
                 "container_port": 8080,
             }],
+            ordered_placement_strategies=[{
+                "type": "binpack",
+                "field": "cpu",
+            }],
             placement_constraints=[{
                 "type": "memberOf",
                 "expression": "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]",
             }],
+            name="mongodb",
+            cluster=foo_aws_ecs_cluster["id"],
+            task_definition=mongo_aws_ecs_task_definition["arn"],
+            desired_count=3,
+            iam_role=foo_aws_iam_role["arn"],
             opts = pulumi.ResourceOptions(depends_on=[foo]))
         ```
 
@@ -1550,7 +1551,8 @@ class Service(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ecs.Service("example", desired_count=2)
+        example = aws.ecs.Service("example", desired_count=2,
+        opts = pulumi.ResourceOptions(ignore_changes=["desiredCount"]))
         ```
 
         ### Daemon Scheduling Strategy
@@ -1573,13 +1575,13 @@ class Service(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.Service("example",
-            name="example",
-            cluster=example_aws_ecs_cluster["id"],
             alarms={
                 "enable": True,
                 "rollback": True,
                 "alarm_names": [example_aws_cloudwatch_metric_alarm["alarmName"]],
-            })
+            },
+            name="example",
+            cluster=example_aws_ecs_cluster["id"])
         ```
 
         ### External Deployment Controller
@@ -1589,11 +1591,11 @@ class Service(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.Service("example",
-            name="example",
-            cluster=example_aws_ecs_cluster["id"],
             deployment_controller={
                 "type": "EXTERNAL",
-            })
+            },
+            name="example",
+            cluster=example_aws_ecs_cluster["id"])
         ```
 
         ### Blue/Green Deployment with SIGINT Rollback
@@ -1603,11 +1605,11 @@ class Service(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.Service("example",
-            name="example",
-            cluster=example_aws_ecs_cluster["id"],
             deployment_configuration={
                 "strategy": "BLUE_GREEN",
             },
+            name="example",
+            cluster=example_aws_ecs_cluster["id"],
             sigint_rollback=True,
             wait_for_steady_state=True)
         ```
@@ -1619,16 +1621,16 @@ class Service(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.Service("example",
-            name="example",
-            cluster=example_aws_ecs_cluster["id"],
             deployment_configuration={
-                "strategy": "LINEAR",
-                "bake_time_in_minutes": "10",
                 "linear_configuration": {
                     "step_percent": float(25),
                     "step_bake_time_in_minutes": "5",
                 },
-            })
+                "strategy": "LINEAR",
+                "bake_time_in_minutes": "10",
+            },
+            name="example",
+            cluster=example_aws_ecs_cluster["id"])
         ```
 
         ### Canary Deployment Strategy
@@ -1638,16 +1640,16 @@ class Service(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.Service("example",
-            name="example",
-            cluster=example_aws_ecs_cluster["id"],
             deployment_configuration={
-                "strategy": "CANARY",
-                "bake_time_in_minutes": "15",
                 "canary_configuration": {
                     "canary_percent": float(10),
                     "canary_bake_time_in_minutes": "5",
                 },
-            })
+                "strategy": "CANARY",
+                "bake_time_in_minutes": "15",
+            },
+            name="example",
+            cluster=example_aws_ecs_cluster["id"])
         ```
 
         ### Redeploy Service On Every Apply
@@ -1674,13 +1676,7 @@ class Service(pulumi.CustomResource):
         example_log_group = aws.cloudwatch.LogGroup("example", name="/ecs/example/service-connect")
         current = aws.get_region()
         example = aws.ecs.Service("example",
-            name="example",
-            cluster=example_aws_ecs_cluster["id"],
-            task_definition=example_aws_ecs_task_definition["arn"],
-            desired_count=1,
             service_connect_configuration={
-                "enabled": True,
-                "namespace": example_aws_service_discovery_http_namespace["arn"],
                 "log_configuration": {
                     "log_driver": "awslogs",
                     "options": {
@@ -1694,14 +1690,20 @@ class Service(pulumi.CustomResource):
                     "include_query_parameters": "ENABLED",
                 },
                 "services": [{
-                    "port_name": "http",
-                    "discovery_name": "example",
                     "client_alias": {
                         "dnsName": "example",
                         "port": 8080,
                     },
+                    "port_name": "http",
+                    "discovery_name": "example",
                 }],
-            })
+                "enabled": True,
+                "namespace": example_aws_service_discovery_http_namespace["arn"],
+            },
+            name="example",
+            cluster=example_aws_ecs_cluster["id"],
+            task_definition=example_aws_ecs_task_definition["arn"],
+            desired_count=1)
         ```
 
         ## Import

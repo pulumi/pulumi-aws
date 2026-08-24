@@ -34,11 +34,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewBotAssociation(ctx, "example", &connect.BotAssociationArgs{
-//				InstanceId: pulumi.Any(exampleAwsConnectInstance.Id),
 //				LexBot: &connect.BotAssociationLexBotArgs{
 //					LexRegion: pulumi.String("us-west-2"),
 //					Name:      pulumi.String("Test"),
 //				},
+//				InstanceId: pulumi.Any(exampleAwsConnectInstance.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -70,11 +70,11 @@ import (
 //				return err
 //			}
 //			example, err := lex.NewIntent(ctx, "example", &lex.IntentArgs{
-//				CreateVersion: pulumi.Bool(true),
-//				Name:          pulumi.String("connect_lex_intent"),
 //				FulfillmentActivity: &lex.IntentFulfillmentActivityArgs{
 //					Type: pulumi.String("ReturnIntent"),
 //				},
+//				CreateVersion: pulumi.Bool(true),
+//				Name:          pulumi.String("connect_lex_intent"),
 //				SampleUtterances: pulumi.StringArray{
 //					pulumi.String("I would like to pick up flowers."),
 //				},
@@ -92,13 +92,13 @@ import (
 //					},
 //				},
 //				ClarificationPrompt: &lex.BotClarificationPromptArgs{
-//					MaxAttempts: pulumi.Int(2),
 //					Messages: lex.BotClarificationPromptMessageArray{
 //						&lex.BotClarificationPromptMessageArgs{
 //							Content:     pulumi.String("I didn't understand you, what would you like to do?"),
 //							ContentType: pulumi.String("PlainText"),
 //						},
 //					},
+//					MaxAttempts: pulumi.Int(2),
 //				},
 //				Intents: lex.BotIntentArray{
 //					&lex.BotIntentArgs{
@@ -114,11 +114,11 @@ import (
 //				return err
 //			}
 //			_, err = connect.NewBotAssociation(ctx, "example", &connect.BotAssociationArgs{
-//				InstanceId: pulumi.Any(exampleAwsConnectInstance.Id),
 //				LexBot: &connect.BotAssociationLexBotArgs{
 //					LexRegion: pulumi.String(current.Region),
 //					Name:      exampleBot.Name,
 //				},
+//				InstanceId: pulumi.Any(exampleAwsConnectInstance.Id),
 //			})
 //			if err != nil {
 //				return err

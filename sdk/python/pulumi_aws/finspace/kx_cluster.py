@@ -847,12 +847,6 @@ class KxCluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.finspace.KxCluster("example",
-            name="my-tf-kx-cluster",
-            environment_id=example_aws_finspace_kx_environment["id"],
-            type="HDB",
-            release_label="1.0",
-            az_mode="SINGLE",
-            availability_zone_id="use1-az2",
             capacity_configuration={
                 "node_type": "kx.s.2xlarge",
                 "node_count": 2,
@@ -863,21 +857,28 @@ class KxCluster(pulumi.CustomResource):
                 "subnet_ids": [example_aws_subnet["id"]],
                 "ip_address_type": "IP_V4",
             },
+            code={
+                "s3_bucket": test_aws_s3_bucket["id"],
+                "s3_key": object["key"],
+            },
             cache_storage_configurations=[{
                 "type": "CACHE_1000",
                 "size": 1200,
             }],
             databases=[{
-                "database_name": example_aws_finspace_kx_database["name"],
                 "cache_configuration": [{
                     "cacheType": "CACHE_1000",
                     "dbPaths": "/",
                 }],
+                "database_name": example_aws_finspace_kx_database["name"],
             }],
-            code={
-                "s3_bucket": test_aws_s3_bucket["id"],
-                "s3_key": object["key"],
-            })
+            name="my-tf-kx-cluster",
+            environment_id=example_aws_finspace_kx_environment["id"],
+            type="HDB",
+            release_label="1.0",
+            az_mode="SINGLE",
+            availability_zone_id="use1-az2",
+            opts = pulumi.ResourceOptions(custom_timeouts=pulumi.CustomTimeouts(create="18h", update="18h")))
         ```
 
         ## Import
@@ -933,12 +934,6 @@ class KxCluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.finspace.KxCluster("example",
-            name="my-tf-kx-cluster",
-            environment_id=example_aws_finspace_kx_environment["id"],
-            type="HDB",
-            release_label="1.0",
-            az_mode="SINGLE",
-            availability_zone_id="use1-az2",
             capacity_configuration={
                 "node_type": "kx.s.2xlarge",
                 "node_count": 2,
@@ -949,21 +944,28 @@ class KxCluster(pulumi.CustomResource):
                 "subnet_ids": [example_aws_subnet["id"]],
                 "ip_address_type": "IP_V4",
             },
+            code={
+                "s3_bucket": test_aws_s3_bucket["id"],
+                "s3_key": object["key"],
+            },
             cache_storage_configurations=[{
                 "type": "CACHE_1000",
                 "size": 1200,
             }],
             databases=[{
-                "database_name": example_aws_finspace_kx_database["name"],
                 "cache_configuration": [{
                     "cacheType": "CACHE_1000",
                     "dbPaths": "/",
                 }],
+                "database_name": example_aws_finspace_kx_database["name"],
             }],
-            code={
-                "s3_bucket": test_aws_s3_bucket["id"],
-                "s3_key": object["key"],
-            })
+            name="my-tf-kx-cluster",
+            environment_id=example_aws_finspace_kx_environment["id"],
+            type="HDB",
+            release_label="1.0",
+            az_mode="SINGLE",
+            availability_zone_id="use1-az2",
+            opts = pulumi.ResourceOptions(custom_timeouts=pulumi.CustomTimeouts(create="18h", update="18h")))
         ```
 
         ## Import

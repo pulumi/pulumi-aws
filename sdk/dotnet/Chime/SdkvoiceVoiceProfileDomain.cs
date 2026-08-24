@@ -32,11 +32,11 @@ namespace Pulumi.Aws.Chime
     /// 
     ///     var exampleSdkvoiceVoiceProfileDomain = new Aws.Chime.SdkvoiceVoiceProfileDomain("example", new()
     ///     {
-    ///         Name = "ExampleVoiceProfileDomain",
     ///         ServerSideEncryptionConfiguration = new Aws.Chime.Inputs.SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs
     ///         {
     ///             KmsKeyArn = example.Arn,
     ///         },
+    ///         Name = "ExampleVoiceProfileDomain",
     ///         Description = "My Voice Profile Domain",
     ///         Tags = 
     ///         {

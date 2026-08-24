@@ -17,8 +17,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.appstream.DirectoryConfig("example", {
- *     directoryName: "NAME OF DIRECTORY",
- *     organizationalUnitDistinguishedNames: ["DISTINGUISHED NAME"],
  *     serviceAccountCredentials: {
  *         accountName: "NAME OF ACCOUNT",
  *         accountPassword: "PASSWORD OF ACCOUNT",
@@ -27,6 +25,8 @@ import * as utilities from "../utilities";
  *         certificateAuthorityArn: "ARN OF CERTIFICATE AUTHORITY",
  *         status: "STATUS OF CERTIFICATE BASED AUTHENTICATION",
  *     },
+ *     directoryName: "NAME OF DIRECTORY",
+ *     organizationalUnitDistinguishedNames: ["DISTINGUISHED NAME"],
  * });
  * ```
  *

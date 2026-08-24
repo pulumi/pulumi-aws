@@ -200,11 +200,11 @@ class RealtimeLogConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["cloudfront.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         example_role = aws.iam.Role("example",
@@ -225,19 +225,19 @@ class RealtimeLogConfig(pulumi.CustomResource):
             role=example_role.id,
             policy=example.json)
         example_realtime_log_config = aws.cloudfront.RealtimeLogConfig("example",
+            endpoint={
+                "kinesis_stream_config": {
+                    "role_arn": example_role.arn,
+                    "stream_arn": example_aws_kinesis_stream["arn"],
+                },
+                "stream_type": "Kinesis",
+            },
             name="example",
             sampling_rate=75,
             fields=[
                 "timestamp",
                 "c-ip",
             ],
-            endpoint={
-                "stream_type": "Kinesis",
-                "kinesis_stream_config": {
-                    "role_arn": example_role.arn,
-                    "stream_arn": example_aws_kinesis_stream["arn"],
-                },
-            },
             opts = pulumi.ResourceOptions(depends_on=[example_role_policy]))
         ```
 
@@ -262,6 +262,13 @@ class RealtimeLogConfig(pulumi.CustomResource):
         }
         \"\"\")
         example_realtime_log_config = aws.cloudfront.RealtimeLogConfig("example",
+            endpoint={
+                "kinesis_stream_config": {
+                    "role_arn": example_aws_iam_role["arn"],
+                    "stream_arn": example_aws_kinesis_stream["arn"],
+                },
+                "stream_type": "Kinesis",
+            },
             name="example",
             sampling_rate=100,
             fields=[
@@ -271,13 +278,6 @@ class RealtimeLogConfig(pulumi.CustomResource):
                 "viewer-request-log-data",
                 "viewer-response-log-data",
             ],
-            endpoint={
-                "stream_type": "Kinesis",
-                "kinesis_stream_config": {
-                    "role_arn": example_aws_iam_role["arn"],
-                    "stream_arn": example_aws_kinesis_stream["arn"],
-                },
-            },
             opts = pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy]))
         ```
 
@@ -323,11 +323,11 @@ class RealtimeLogConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["cloudfront.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         example_role = aws.iam.Role("example",
@@ -348,19 +348,19 @@ class RealtimeLogConfig(pulumi.CustomResource):
             role=example_role.id,
             policy=example.json)
         example_realtime_log_config = aws.cloudfront.RealtimeLogConfig("example",
+            endpoint={
+                "kinesis_stream_config": {
+                    "role_arn": example_role.arn,
+                    "stream_arn": example_aws_kinesis_stream["arn"],
+                },
+                "stream_type": "Kinesis",
+            },
             name="example",
             sampling_rate=75,
             fields=[
                 "timestamp",
                 "c-ip",
             ],
-            endpoint={
-                "stream_type": "Kinesis",
-                "kinesis_stream_config": {
-                    "role_arn": example_role.arn,
-                    "stream_arn": example_aws_kinesis_stream["arn"],
-                },
-            },
             opts = pulumi.ResourceOptions(depends_on=[example_role_policy]))
         ```
 
@@ -385,6 +385,13 @@ class RealtimeLogConfig(pulumi.CustomResource):
         }
         \"\"\")
         example_realtime_log_config = aws.cloudfront.RealtimeLogConfig("example",
+            endpoint={
+                "kinesis_stream_config": {
+                    "role_arn": example_aws_iam_role["arn"],
+                    "stream_arn": example_aws_kinesis_stream["arn"],
+                },
+                "stream_type": "Kinesis",
+            },
             name="example",
             sampling_rate=100,
             fields=[
@@ -394,13 +401,6 @@ class RealtimeLogConfig(pulumi.CustomResource):
                 "viewer-request-log-data",
                 "viewer-response-log-data",
             ],
-            endpoint={
-                "stream_type": "Kinesis",
-                "kinesis_stream_config": {
-                    "role_arn": example_aws_iam_role["arn"],
-                    "stream_arn": example_aws_kinesis_stream["arn"],
-                },
-            },
             opts = pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy]))
         ```
 

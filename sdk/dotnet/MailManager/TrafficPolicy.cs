@@ -26,33 +26,33 @@ namespace Pulumi.Aws.MailManager
     /// {
     ///     var example = new Aws.MailManager.TrafficPolicy("example", new()
     ///     {
-    ///         DefaultAction = "ALLOW",
-    ///         Name = "example",
     ///         PolicyStatements = new[]
     ///         {
     ///             new Aws.MailManager.Inputs.TrafficPolicyPolicyStatementArgs
     ///             {
-    ///                 Action = "DENY",
     ///                 Conditions = new[]
     ///                 {
     ///                     new Aws.MailManager.Inputs.TrafficPolicyPolicyStatementConditionArgs
     ///                     {
     ///                         IpExpression = new Aws.MailManager.Inputs.TrafficPolicyPolicyStatementConditionIpExpressionArgs
     ///                         {
+    ///                             Evaluate = new Aws.MailManager.Inputs.TrafficPolicyPolicyStatementConditionIpExpressionEvaluateArgs
+    ///                             {
+    ///                                 Attribute = "SENDER_IP",
+    ///                             },
     ///                             Operator = "CIDR_MATCHES",
     ///                             Values = new[]
     ///                             {
     ///                                 "192.0.2.0/24",
     ///                             },
-    ///                             Evaluate = new Aws.MailManager.Inputs.TrafficPolicyPolicyStatementConditionIpExpressionEvaluateArgs
-    ///                             {
-    ///                                 Attribute = "SENDER_IP",
-    ///                             },
     ///                         },
     ///                     },
     ///                 },
+    ///                 Action = "DENY",
     ///             },
     ///         },
+    ///         DefaultAction = "ALLOW",
+    ///         Name = "example",
     ///     });
     /// 
     /// });

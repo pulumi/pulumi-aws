@@ -390,18 +390,18 @@ class Key(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.paymentcryptography.Key("test",
-            exportable=True,
             key_attributes=[{
-                "key_algorithm": "TDES_3KEY",
-                "key_class": "SYMMETRIC_KEY",
-                "key_usage": "TR31_P0_PIN_ENCRYPTION_KEY",
                 "key_modes_of_uses": [{
                     "decrypt": True,
                     "encrypt": True,
                     "wrap": True,
                     "unwrap": True,
                 }],
-            }])
+                "key_algorithm": "TDES_3KEY",
+                "key_class": "SYMMETRIC_KEY",
+                "key_usage": "TR31_P0_PIN_ENCRYPTION_KEY",
+            }],
+            exportable=True)
         ```
 
         ## Import
@@ -448,18 +448,18 @@ class Key(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.paymentcryptography.Key("test",
-            exportable=True,
             key_attributes=[{
-                "key_algorithm": "TDES_3KEY",
-                "key_class": "SYMMETRIC_KEY",
-                "key_usage": "TR31_P0_PIN_ENCRYPTION_KEY",
                 "key_modes_of_uses": [{
                     "decrypt": True,
                     "encrypt": True,
                     "wrap": True,
                     "unwrap": True,
                 }],
-            }])
+                "key_algorithm": "TDES_3KEY",
+                "key_class": "SYMMETRIC_KEY",
+                "key_usage": "TR31_P0_PIN_ENCRYPTION_KEY",
+            }],
+            exportable=True)
         ```
 
         ## Import

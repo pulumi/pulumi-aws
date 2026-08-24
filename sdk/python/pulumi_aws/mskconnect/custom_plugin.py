@@ -320,14 +320,14 @@ class CustomPlugin(pulumi.CustomResource):
             key="debezium.zip",
             source=pulumi.FileAsset("debezium.zip"))
         example_custom_plugin = aws.mskconnect.CustomPlugin("example",
-            name="debezium-example",
-            content_type="ZIP",
             location={
                 "s3": {
                     "bucket_arn": example.arn,
                     "file_key": example_bucket_objectv2.key,
                 },
-            })
+            },
+            name="debezium-example",
+            content_type="ZIP")
         ```
 
         ## Import
@@ -371,14 +371,14 @@ class CustomPlugin(pulumi.CustomResource):
             key="debezium.zip",
             source=pulumi.FileAsset("debezium.zip"))
         example_custom_plugin = aws.mskconnect.CustomPlugin("example",
-            name="debezium-example",
-            content_type="ZIP",
             location={
                 "s3": {
                     "bucket_arn": example.arn,
                     "file_key": example_bucket_objectv2.key,
                 },
-            })
+            },
+            name="debezium-example",
+            content_type="ZIP")
         ```
 
         ## Import

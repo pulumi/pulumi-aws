@@ -1755,7 +1755,8 @@ class ReplicationGroup(pulumi.CustomResource):
             node_type="cache.m4.large",
             num_cache_clusters=2,
             parameter_group_name="default.redis3.2",
-            port=6379)
+            port=6379,
+            opts = pulumi.ResourceOptions(ignore_changes=["numCacheClusters"]))
         replica: list[aws.elasticache.Cluster] = []
         for replica_range in [{"value": i} for i in range(0, 1)]:
             replica.append(aws.elasticache.Cluster(f"replica-{replica_range['value']}",
@@ -1791,13 +1792,6 @@ class ReplicationGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.elasticache.ReplicationGroup("example",
-            replication_group_id="tf-redis-cluster",
-            description="example description",
-            node_type="cache.t2.small",
-            port=6379,
-            parameter_group_name="default.redis3.2.cluster.on",
-            automatic_failover_enabled=True,
-            num_node_groups=2,
             node_group_configurations=[
                 {
                     "node_group_id": "0001",
@@ -1813,7 +1807,14 @@ class ReplicationGroup(pulumi.CustomResource):
                     "replica_count": 1,
                     "slots": "8192-16383",
                 },
-            ])
+            ],
+            replication_group_id="tf-redis-cluster",
+            description="example description",
+            node_type="cache.t2.small",
+            port=6379,
+            parameter_group_name="default.redis3.2.cluster.on",
+            automatic_failover_enabled=True,
+            num_node_groups=2)
         ```
 
         ### Redis Log Delivery configuration
@@ -1823,14 +1824,6 @@ class ReplicationGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.elasticache.ReplicationGroup("test",
-            replication_group_id="myreplicaciongroup",
-            description="test description",
-            node_type="cache.t3.small",
-            port=6379,
-            apply_immediately=True,
-            auto_minor_version_upgrade=False,
-            maintenance_window="tue:06:30-tue:07:30",
-            snapshot_window="01:00-02:00",
             log_delivery_configurations=[
                 {
                     "destination": example["name"],
@@ -1844,7 +1837,15 @@ class ReplicationGroup(pulumi.CustomResource):
                     "log_format": "json",
                     "log_type": "engine-log",
                 },
-            ])
+            ],
+            replication_group_id="myreplicaciongroup",
+            description="test description",
+            node_type="cache.t3.small",
+            port=6379,
+            apply_immediately=True,
+            auto_minor_version_upgrade=False,
+            maintenance_window="tue:06:30-tue:07:30",
+            snapshot_window="01:00-02:00")
         ```
 
         > **Note:** We currently do not support passing a `primary_cluster_id` in order to create the Replication Group.
@@ -2061,7 +2062,8 @@ class ReplicationGroup(pulumi.CustomResource):
             node_type="cache.m4.large",
             num_cache_clusters=2,
             parameter_group_name="default.redis3.2",
-            port=6379)
+            port=6379,
+            opts = pulumi.ResourceOptions(ignore_changes=["numCacheClusters"]))
         replica: list[aws.elasticache.Cluster] = []
         for replica_range in [{"value": i} for i in range(0, 1)]:
             replica.append(aws.elasticache.Cluster(f"replica-{replica_range['value']}",
@@ -2097,13 +2099,6 @@ class ReplicationGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.elasticache.ReplicationGroup("example",
-            replication_group_id="tf-redis-cluster",
-            description="example description",
-            node_type="cache.t2.small",
-            port=6379,
-            parameter_group_name="default.redis3.2.cluster.on",
-            automatic_failover_enabled=True,
-            num_node_groups=2,
             node_group_configurations=[
                 {
                     "node_group_id": "0001",
@@ -2119,7 +2114,14 @@ class ReplicationGroup(pulumi.CustomResource):
                     "replica_count": 1,
                     "slots": "8192-16383",
                 },
-            ])
+            ],
+            replication_group_id="tf-redis-cluster",
+            description="example description",
+            node_type="cache.t2.small",
+            port=6379,
+            parameter_group_name="default.redis3.2.cluster.on",
+            automatic_failover_enabled=True,
+            num_node_groups=2)
         ```
 
         ### Redis Log Delivery configuration
@@ -2129,14 +2131,6 @@ class ReplicationGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.elasticache.ReplicationGroup("test",
-            replication_group_id="myreplicaciongroup",
-            description="test description",
-            node_type="cache.t3.small",
-            port=6379,
-            apply_immediately=True,
-            auto_minor_version_upgrade=False,
-            maintenance_window="tue:06:30-tue:07:30",
-            snapshot_window="01:00-02:00",
             log_delivery_configurations=[
                 {
                     "destination": example["name"],
@@ -2150,7 +2144,15 @@ class ReplicationGroup(pulumi.CustomResource):
                     "log_format": "json",
                     "log_type": "engine-log",
                 },
-            ])
+            ],
+            replication_group_id="myreplicaciongroup",
+            description="test description",
+            node_type="cache.t3.small",
+            port=6379,
+            apply_immediately=True,
+            auto_minor_version_upgrade=False,
+            maintenance_window="tue:06:30-tue:07:30",
+            snapshot_window="01:00-02:00")
         ```
 
         > **Note:** We currently do not support passing a `primary_cluster_id` in order to create the Replication Group.

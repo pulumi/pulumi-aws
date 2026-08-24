@@ -90,13 +90,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Index("example", IndexArgs.builder()
- *             .name("example")
- *             .edition("DEVELOPER_EDITION")
- *             .roleArn(this_.arn())
  *             .capacityUnits(IndexCapacityUnitsArgs.builder()
  *                 .queryCapacityUnits(2)
  *                 .storageCapacityUnits(2)
  *                 .build())
+ *             .name("example")
+ *             .edition("DEVELOPER_EDITION")
+ *             .roleArn(this_.arn())
  *             .build());
  * 
  *     }
@@ -130,11 +130,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Index("example", IndexArgs.builder()
- *             .name("example")
- *             .roleArn(thisAwsIamRole.arn())
  *             .serverSideEncryptionConfiguration(IndexServerSideEncryptionConfigurationArgs.builder()
  *                 .kmsKeyId(this_.arn())
  *                 .build())
+ *             .name("example")
+ *             .roleArn(thisAwsIamRole.arn())
  *             .build());
  * 
  *     }
@@ -168,11 +168,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Index("example", IndexArgs.builder()
- *             .name("example")
- *             .roleArn(this_.arn())
  *             .userGroupResolutionConfiguration(IndexUserGroupResolutionConfigurationArgs.builder()
  *                 .userGroupResolutionMode("AWS_SSO")
  *                 .build())
+ *             .name("example")
+ *             .roleArn(this_.arn())
  *             .build());
  * 
  *     }
@@ -212,12 +212,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Index("example", IndexArgs.builder()
- *             .name("example")
- *             .roleArn(this_.arn())
  *             .documentMetadataConfigurationUpdates(            
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name("_authors")
- *                     .type("STRING_LIST_VALUE")
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(false)
  *                         .facetable(false)
@@ -227,10 +223,10 @@ import javax.annotation.Nullable;
  *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
  *                         .importance(1)
  *                         .build())
+ *                     .name("_authors")
+ *                     .type("STRING_LIST_VALUE")
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name("_category")
- *                     .type("STRING_VALUE")
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(false)
  *                         .facetable(false)
@@ -242,10 +238,10 @@ import javax.annotation.Nullable;
  *                         .valuesImportanceMap(Map.ofEntries(
  *                         ))
  *                         .build())
+ *                     .name("_category")
+ *                     .type("STRING_VALUE")
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name("_created_at")
- *                     .type("DATE_VALUE")
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(false)
  *                         .facetable(false)
@@ -258,10 +254,10 @@ import javax.annotation.Nullable;
  *                         .duration("25920000s")
  *                         .rankOrder("ASCENDING")
  *                         .build())
+ *                     .name("_created_at")
+ *                     .type("DATE_VALUE")
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name("_data_source_id")
- *                     .type("STRING_VALUE")
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(false)
  *                         .facetable(false)
@@ -273,10 +269,10 @@ import javax.annotation.Nullable;
  *                         .valuesImportanceMap(Map.ofEntries(
  *                         ))
  *                         .build())
+ *                     .name("_data_source_id")
+ *                     .type("STRING_VALUE")
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name("_document_title")
- *                     .type("STRING_VALUE")
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(true)
  *                         .facetable(false)
@@ -288,10 +284,10 @@ import javax.annotation.Nullable;
  *                         .valuesImportanceMap(Map.ofEntries(
  *                         ))
  *                         .build())
+ *                     .name("_document_title")
+ *                     .type("STRING_VALUE")
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name("_excerpt_page_number")
- *                     .type("LONG_VALUE")
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(false)
  *                         .facetable(false)
@@ -302,10 +298,25 @@ import javax.annotation.Nullable;
  *                         .importance(2)
  *                         .rankOrder("ASCENDING")
  *                         .build())
+ *                     .name("_excerpt_page_number")
+ *                     .type("LONG_VALUE")
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
+ *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
+ *                         .displayable(false)
+ *                         .facetable(false)
+ *                         .searchable(false)
+ *                         .sortable(true)
+ *                         .build())
+ *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
+ *                         .importance(1)
+ *                         .valuesImportanceMap(Map.ofEntries(
+ *                         ))
+ *                         .build())
  *                     .name("_faq_id")
  *                     .type("STRING_VALUE")
+ *                     .build(),
+ *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(false)
  *                         .facetable(false)
@@ -317,10 +328,10 @@ import javax.annotation.Nullable;
  *                         .valuesImportanceMap(Map.ofEntries(
  *                         ))
  *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
  *                     .name("_file_type")
  *                     .type("STRING_VALUE")
+ *                     .build(),
+ *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(false)
  *                         .facetable(false)
@@ -332,25 +343,10 @@ import javax.annotation.Nullable;
  *                         .valuesImportanceMap(Map.ofEntries(
  *                         ))
  *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
  *                     .name("_language_code")
  *                     .type("STRING_VALUE")
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
- *                         .valuesImportanceMap(Map.ofEntries(
- *                         ))
- *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name("_last_updated_at")
- *                     .type("DATE_VALUE")
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(false)
  *                         .facetable(false)
@@ -363,10 +359,10 @@ import javax.annotation.Nullable;
  *                         .duration("25920000s")
  *                         .rankOrder("ASCENDING")
  *                         .build())
+ *                     .name("_last_updated_at")
+ *                     .type("DATE_VALUE")
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name("_source_uri")
- *                     .type("STRING_VALUE")
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(true)
  *                         .facetable(false)
@@ -378,10 +374,25 @@ import javax.annotation.Nullable;
  *                         .valuesImportanceMap(Map.ofEntries(
  *                         ))
  *                         .build())
+ *                     .name("_source_uri")
+ *                     .type("STRING_VALUE")
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
+ *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
+ *                         .displayable(false)
+ *                         .facetable(false)
+ *                         .searchable(false)
+ *                         .sortable(true)
+ *                         .build())
+ *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
+ *                         .importance(1)
+ *                         .valuesImportanceMap(Map.ofEntries(
+ *                         ))
+ *                         .build())
  *                     .name("_tenant_id")
  *                     .type("STRING_VALUE")
+ *                     .build(),
+ *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(false)
  *                         .facetable(false)
@@ -393,25 +404,10 @@ import javax.annotation.Nullable;
  *                         .valuesImportanceMap(Map.ofEntries(
  *                         ))
  *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
  *                     .name("_version")
  *                     .type("STRING_VALUE")
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
- *                         .valuesImportanceMap(Map.ofEntries(
- *                         ))
- *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name("_view_count")
- *                     .type("LONG_VALUE")
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(false)
  *                         .facetable(false)
@@ -422,7 +418,11 @@ import javax.annotation.Nullable;
  *                         .importance(1)
  *                         .rankOrder("ASCENDING")
  *                         .build())
+ *                     .name("_view_count")
+ *                     .type("LONG_VALUE")
  *                     .build())
+ *             .name("example")
+ *             .roleArn(this_.arn())
  *             .build());
  * 
  *     }
@@ -460,25 +460,36 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Index("example", IndexArgs.builder()
- *             .name("example")
- *             .roleArn(this_.arn())
  *             .documentMetadataConfigurationUpdates(            
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
+ *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
+ *                         .displayable(false)
+ *                         .facetable(false)
+ *                         .searchable(false)
+ *                         .sortable(false)
+ *                         .build())
+ *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
+ *                         .importance(1)
+ *                         .build())
  *                     .name("_authors")
  *                     .type("STRING_LIST_VALUE")
+ *                     .build(),
+ *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(false)
  *                         .facetable(false)
  *                         .searchable(false)
- *                         .sortable(false)
+ *                         .sortable(true)
  *                         .build())
  *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
  *                         .importance(1)
+ *                         .valuesImportanceMap(Map.ofEntries(
+ *                         ))
  *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
  *                     .name("_category")
  *                     .type("STRING_VALUE")
+ *                     .build(),
+ *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(false)
  *                         .facetable(false)
@@ -486,14 +497,15 @@ import javax.annotation.Nullable;
  *                         .sortable(true)
  *                         .build())
  *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
+ *                         .freshness(false)
  *                         .importance(1)
- *                         .valuesImportanceMap(Map.ofEntries(
- *                         ))
+ *                         .duration("25920000s")
+ *                         .rankOrder("ASCENDING")
  *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
  *                     .name("_created_at")
  *                     .type("DATE_VALUE")
+ *                     .build(),
+ *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(false)
  *                         .facetable(false)
@@ -501,59 +513,58 @@ import javax.annotation.Nullable;
  *                         .sortable(true)
  *                         .build())
  *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .freshness(false)
  *                         .importance(1)
- *                         .duration("25920000s")
- *                         .rankOrder("ASCENDING")
+ *                         .valuesImportanceMap(Map.ofEntries(
+ *                         ))
  *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
  *                     .name("_data_source_id")
  *                     .type("STRING_VALUE")
+ *                     .build(),
+ *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
+ *                         .displayable(true)
  *                         .facetable(false)
- *                         .searchable(false)
+ *                         .searchable(true)
  *                         .sortable(true)
  *                         .build())
  *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
+ *                         .importance(2)
  *                         .valuesImportanceMap(Map.ofEntries(
  *                         ))
  *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
  *                     .name("_document_title")
  *                     .type("STRING_VALUE")
+ *                     .build(),
+ *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(true)
+ *                         .displayable(false)
  *                         .facetable(false)
- *                         .searchable(true)
- *                         .sortable(true)
+ *                         .searchable(false)
+ *                         .sortable(false)
  *                         .build())
  *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
  *                         .importance(2)
- *                         .valuesImportanceMap(Map.ofEntries(
- *                         ))
+ *                         .rankOrder("ASCENDING")
  *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
  *                     .name("_excerpt_page_number")
  *                     .type("LONG_VALUE")
+ *                     .build(),
+ *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(false)
  *                         .facetable(false)
  *                         .searchable(false)
- *                         .sortable(false)
+ *                         .sortable(true)
  *                         .build())
  *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(2)
- *                         .rankOrder("ASCENDING")
+ *                         .importance(1)
+ *                         .valuesImportanceMap(Map.ofEntries(
+ *                         ))
  *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
  *                     .name("_faq_id")
  *                     .type("STRING_VALUE")
+ *                     .build(),
+ *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(false)
  *                         .facetable(false)
@@ -565,10 +576,10 @@ import javax.annotation.Nullable;
  *                         .valuesImportanceMap(Map.ofEntries(
  *                         ))
  *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
  *                     .name("_file_type")
  *                     .type("STRING_VALUE")
+ *                     .build(),
+ *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(false)
  *                         .facetable(false)
@@ -580,10 +591,10 @@ import javax.annotation.Nullable;
  *                         .valuesImportanceMap(Map.ofEntries(
  *                         ))
  *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
  *                     .name("_language_code")
  *                     .type("STRING_VALUE")
+ *                     .build(),
+ *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(false)
  *                         .facetable(false)
@@ -591,45 +602,45 @@ import javax.annotation.Nullable;
  *                         .sortable(true)
  *                         .build())
  *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
+ *                         .freshness(false)
  *                         .importance(1)
- *                         .valuesImportanceMap(Map.ofEntries(
- *                         ))
+ *                         .duration("25920000s")
+ *                         .rankOrder("ASCENDING")
  *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
  *                     .name("_last_updated_at")
  *                     .type("DATE_VALUE")
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .freshness(false)
- *                         .importance(1)
- *                         .duration("25920000s")
- *                         .rankOrder("ASCENDING")
- *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
+ *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
+ *                         .displayable(true)
+ *                         .facetable(false)
+ *                         .searchable(false)
+ *                         .sortable(false)
+ *                         .build())
+ *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
+ *                         .importance(1)
+ *                         .valuesImportanceMap(Map.ofEntries(
+ *                         ))
+ *                         .build())
  *                     .name("_source_uri")
  *                     .type("STRING_VALUE")
+ *                     .build(),
+ *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(true)
+ *                         .displayable(false)
  *                         .facetable(false)
  *                         .searchable(false)
- *                         .sortable(false)
+ *                         .sortable(true)
  *                         .build())
  *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
  *                         .importance(1)
  *                         .valuesImportanceMap(Map.ofEntries(
  *                         ))
  *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
  *                     .name("_tenant_id")
  *                     .type("STRING_VALUE")
+ *                     .build(),
+ *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(false)
  *                         .facetable(false)
@@ -641,25 +652,10 @@ import javax.annotation.Nullable;
  *                         .valuesImportanceMap(Map.ofEntries(
  *                         ))
  *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
  *                     .name("_version")
  *                     .type("STRING_VALUE")
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
- *                         .valuesImportanceMap(Map.ofEntries(
- *                         ))
- *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name("_view_count")
- *                     .type("LONG_VALUE")
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(false)
  *                         .facetable(false)
@@ -670,10 +666,10 @@ import javax.annotation.Nullable;
  *                         .importance(1)
  *                         .rankOrder("ASCENDING")
  *                         .build())
+ *                     .name("_view_count")
+ *                     .type("LONG_VALUE")
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name("example-string-value")
- *                     .type("STRING_VALUE")
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(true)
  *                         .facetable(true)
@@ -685,10 +681,10 @@ import javax.annotation.Nullable;
  *                         .valuesImportanceMap(Map.ofEntries(
  *                         ))
  *                         .build())
+ *                     .name("example-string-value")
+ *                     .type("STRING_VALUE")
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name("example-long-value")
- *                     .type("LONG_VALUE")
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(true)
  *                         .facetable(true)
@@ -699,10 +695,10 @@ import javax.annotation.Nullable;
  *                         .importance(1)
  *                         .rankOrder("ASCENDING")
  *                         .build())
+ *                     .name("example-long-value")
+ *                     .type("LONG_VALUE")
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name("example-string-list-value")
- *                     .type("STRING_LIST_VALUE")
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(true)
  *                         .facetable(true)
@@ -712,10 +708,10 @@ import javax.annotation.Nullable;
  *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
  *                         .importance(1)
  *                         .build())
+ *                     .name("example-string-list-value")
+ *                     .type("STRING_LIST_VALUE")
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name("example-date-value")
- *                     .type("DATE_VALUE")
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(true)
  *                         .facetable(true)
@@ -728,7 +724,11 @@ import javax.annotation.Nullable;
  *                         .duration("25920000s")
  *                         .rankOrder("ASCENDING")
  *                         .build())
+ *                     .name("example-date-value")
+ *                     .type("DATE_VALUE")
  *                     .build())
+ *             .name("example")
+ *             .roleArn(this_.arn())
  *             .build());
  * 
  *     }
@@ -763,14 +763,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Index("example", IndexArgs.builder()
- *             .name("example")
- *             .roleArn(this_.arn())
  *             .userTokenConfigurations(IndexUserTokenConfigurationsArgs.builder()
  *                 .jsonTokenTypeConfiguration(IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs.builder()
  *                     .groupAttributeField("groups")
  *                     .userNameAttributeField("username")
  *                     .build())
  *                 .build())
+ *             .name("example")
+ *             .roleArn(this_.arn())
  *             .build());
  * 
  *     }

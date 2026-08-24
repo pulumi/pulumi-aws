@@ -34,15 +34,15 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Create Neptune Graph
 //			_, err := neptunegraph.NewGraph(ctx, "example", &neptunegraph.GraphArgs{
+//				VectorSearchConfiguration: &neptunegraph.GraphVectorSearchConfigurationArgs{
+//					VectorSearchDimension: pulumi.Int(128),
+//				},
 //				GraphName:          pulumi.String("example-graph-test-20250203"),
 //				ProvisionedMemory:  pulumi.Int(16),
 //				DeletionProtection: pulumi.Bool(false),
 //				PublicConnectivity: pulumi.Bool(false),
 //				ReplicaCount:       pulumi.Int(1),
 //				KmsKeyIdentifier:   pulumi.String("arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012"),
-//				VectorSearchConfiguration: &neptunegraph.GraphVectorSearchConfigurationArgs{
-//					VectorSearchDimension: pulumi.Int(128),
-//				},
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("Development"),
 //					"ModifiedBy":  pulumi.String("AWS"),

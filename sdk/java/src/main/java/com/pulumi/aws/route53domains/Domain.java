@@ -55,8 +55,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) }{{@code
  *         var example = new Domain("example", DomainArgs.builder()
- *             .domainName("example.com")
- *             .autoRenew(false)
  *             .adminContact(DomainAdminContactArgs.builder()
  *                 .addressLine1("101 Main Street")
  *                 .city("San Francisco")
@@ -99,6 +97,8 @@ import javax.annotation.Nullable;
  *                 .state("CA")
  *                 .zipCode("94105")
  *                 .build())
+ *             .domainName("example.com")
+ *             .autoRenew(false)
  *             .tags(Map.of("Environment", "test"))
  *             .build());
  * 

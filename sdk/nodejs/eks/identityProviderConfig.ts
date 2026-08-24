@@ -17,12 +17,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.eks.IdentityProviderConfig("example", {
- *     clusterName: exampleAwsEksCluster.name,
  *     oidc: {
  *         clientId: "your client_id",
  *         identityProviderConfigName: "example",
  *         issuerUrl: "your issuer_url",
  *     },
+ *     clusterName: exampleAwsEksCluster.name,
  * });
  * ```
  *

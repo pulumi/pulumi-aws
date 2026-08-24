@@ -39,8 +39,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := wafv2.NewWebAcl(ctx, "example", &wafv2.WebAclArgs{
-//				Name:  pulumi.String("example"),
-//				Scope: pulumi.String("REGIONAL"),
 //				DefaultAction: &wafv2.WebAclDefaultActionArgs{
 //					Allow: &wafv2.WebAclDefaultActionAllowArgs{},
 //				},
@@ -49,15 +47,16 @@ import (
 //					MetricName:               pulumi.String("example"),
 //					SampledRequestsEnabled:   pulumi.Bool(false),
 //				},
-//			})
+//				Name:  pulumi.String("example"),
+//				Scope: pulumi.String("REGIONAL"),
+//			}, pulumi.IgnoreChanges([]string{
+//				"rules",
+//			}))
 //			if err != nil {
 //				return err
 //			}
 //			// Separate rule resource with identical configuration
 //			_, err = wafv2.NewWebAclRule(ctx, "block_countries", &wafv2.WebAclRuleArgs{
-//				Name:      pulumi.String("block-countries"),
-//				Priority:  pulumi.Int(1),
-//				WebAclArn: example.Arn,
 //				Action: &wafv2.WebAclRuleActionArgs{
 //					Block: &wafv2.WebAclRuleActionBlockArgs{},
 //				},
@@ -74,6 +73,9 @@ import (
 //					MetricName:               pulumi.String("block-countries"),
 //					SampledRequestsEnabled:   pulumi.Bool(false),
 //				},
+//				Name:      pulumi.String("block-countries"),
+//				Priority:  pulumi.Int(1),
+//				WebAclArn: example.Arn,
 //			})
 //			if err != nil {
 //				return err
@@ -107,8 +109,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := wafv2.NewWebAcl(ctx, "example", &wafv2.WebAclArgs{
-//				Name:  pulumi.String("example"),
-//				Scope: pulumi.String("REGIONAL"),
 //				DefaultAction: &wafv2.WebAclDefaultActionArgs{
 //					Allow: &wafv2.WebAclDefaultActionAllowArgs{},
 //				},
@@ -117,14 +117,15 @@ import (
 //					MetricName:               pulumi.String("example"),
 //					SampledRequestsEnabled:   pulumi.Bool(false),
 //				},
-//			})
+//				Name:  pulumi.String("example"),
+//				Scope: pulumi.String("REGIONAL"),
+//			}, pulumi.IgnoreChanges([]string{
+//				"rules",
+//			}))
 //			if err != nil {
 //				return err
 //			}
 //			_, err = wafv2.NewWebAclRule(ctx, "block_countries", &wafv2.WebAclRuleArgs{
-//				Name:      pulumi.String("block-countries"),
-//				Priority:  pulumi.Int(1),
-//				WebAclArn: example.Arn,
 //				Action: &wafv2.WebAclRuleActionArgs{
 //					Block: &wafv2.WebAclRuleActionBlockArgs{},
 //				},
@@ -141,6 +142,9 @@ import (
 //					MetricName:               pulumi.String("block-countries"),
 //					SampledRequestsEnabled:   pulumi.Bool(false),
 //				},
+//				Name:      pulumi.String("block-countries"),
+//				Priority:  pulumi.Int(1),
+//				WebAclArn: example.Arn,
 //			})
 //			if err != nil {
 //				return err
@@ -180,8 +184,6 @@ import (
 //				return err
 //			}
 //			example, err := wafv2.NewWebAcl(ctx, "example", &wafv2.WebAclArgs{
-//				Name:  pulumi.String("example"),
-//				Scope: pulumi.String("REGIONAL"),
 //				DefaultAction: &wafv2.WebAclDefaultActionArgs{
 //					Allow: &wafv2.WebAclDefaultActionAllowArgs{},
 //				},
@@ -190,14 +192,15 @@ import (
 //					MetricName:               pulumi.String("example"),
 //					SampledRequestsEnabled:   pulumi.Bool(true),
 //				},
-//			})
+//				Name:  pulumi.String("example"),
+//				Scope: pulumi.String("REGIONAL"),
+//			}, pulumi.IgnoreChanges([]string{
+//				"rules",
+//			}))
 //			if err != nil {
 //				return err
 //			}
 //			_, err = wafv2.NewWebAclRule(ctx, "block_ips", &wafv2.WebAclRuleArgs{
-//				Name:      pulumi.String("block-bad-ips"),
-//				Priority:  pulumi.Int(1),
-//				WebAclArn: example.Arn,
 //				Action: &wafv2.WebAclRuleActionArgs{
 //					Block: &wafv2.WebAclRuleActionBlockArgs{},
 //				},
@@ -211,6 +214,9 @@ import (
 //					MetricName:               pulumi.String("block-bad-ips"),
 //					SampledRequestsEnabled:   pulumi.Bool(true),
 //				},
+//				Name:      pulumi.String("block-bad-ips"),
+//				Priority:  pulumi.Int(1),
+//				WebAclArn: example.Arn,
 //			})
 //			if err != nil {
 //				return err
@@ -236,9 +242,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := wafv2.NewWebAclRule(ctx, "rate_limit", &wafv2.WebAclRuleArgs{
-//				Name:      pulumi.String("rate-limit"),
-//				Priority:  pulumi.Int(2),
-//				WebAclArn: pulumi.Any(example.Arn),
 //				Action: &wafv2.WebAclRuleActionArgs{
 //					Block: &wafv2.WebAclRuleActionBlockArgs{},
 //				},
@@ -253,6 +256,9 @@ import (
 //					MetricName:               pulumi.String("rate-limit"),
 //					SampledRequestsEnabled:   pulumi.Bool(true),
 //				},
+//				Name:      pulumi.String("rate-limit"),
+//				Priority:  pulumi.Int(2),
+//				WebAclArn: pulumi.Any(example.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -278,9 +284,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := wafv2.NewWebAclRule(ctx, "aws_managed_rules", &wafv2.WebAclRuleArgs{
-//				Name:      pulumi.String("aws-managed-rules"),
-//				Priority:  pulumi.Int(3),
-//				WebAclArn: pulumi.Any(example.Arn),
 //				OverrideAction: &wafv2.WebAclRuleOverrideActionArgs{
 //					None: &wafv2.WebAclRuleOverrideActionNoneArgs{},
 //				},
@@ -295,6 +298,9 @@ import (
 //					MetricName:               pulumi.String("aws-managed-rules"),
 //					SampledRequestsEnabled:   pulumi.Bool(true),
 //				},
+//				Name:      pulumi.String("aws-managed-rules"),
+//				Priority:  pulumi.Int(3),
+//				WebAclArn: pulumi.Any(example.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -320,9 +326,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := wafv2.NewWebAclRule(ctx, "captcha_with_headers", &wafv2.WebAclRuleArgs{
-//				Name:      pulumi.String("captcha-with-headers"),
-//				Priority:  pulumi.Int(4),
-//				WebAclArn: pulumi.Any(example.Arn),
 //				Action: &wafv2.WebAclRuleActionArgs{
 //					Captcha: &wafv2.WebAclRuleActionCaptchaArgs{
 //						CustomRequestHandling: &wafv2.WebAclRuleActionCaptchaCustomRequestHandlingArgs{
@@ -347,6 +350,9 @@ import (
 //					MetricName:               pulumi.String("captcha-with-headers"),
 //					SampledRequestsEnabled:   pulumi.Bool(true),
 //				},
+//				Name:      pulumi.String("captcha-with-headers"),
+//				Priority:  pulumi.Int(4),
+//				WebAclArn: pulumi.Any(example.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -372,9 +378,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := wafv2.NewWebAclRule(ctx, "blocked_ips", &wafv2.WebAclRuleArgs{
-//				Name:      pulumi.String("blocked-ips"),
-//				Priority:  pulumi.Int(1),
-//				WebAclArn: pulumi.Any(example.Arn),
 //				Action: &wafv2.WebAclRuleActionArgs{
 //					Block: &wafv2.WebAclRuleActionBlockArgs{},
 //				},
@@ -388,6 +391,9 @@ import (
 //					MetricName:               pulumi.String("block-bad-ips"),
 //					SampledRequestsEnabled:   pulumi.Bool(true),
 //				},
+//				Name:      pulumi.String("blocked-ips"),
+//				Priority:  pulumi.Int(1),
+//				WebAclArn: pulumi.Any(example.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -422,9 +428,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := wafv2.NewWebAclRule(ctx, "block_suspicious", &wafv2.WebAclRuleArgs{
-//				Name:      pulumi.String("block-suspicious"),
-//				Priority:  pulumi.Int(1),
-//				WebAclArn: pulumi.Any(example.Arn),
 //				Action: &wafv2.WebAclRuleActionArgs{
 //					Block: &wafv2.WebAclRuleActionBlockArgs{},
 //				},
@@ -440,8 +443,6 @@ import (
 //							},
 //							&wafv2.WebAclRuleStatementArgs{
 //								ByteMatchStatement: &wafv2.WebAclRuleStatementByteMatchStatementArgs{
-//									SearchString:         pulumi.String("admin"),
-//									PositionalConstraint: pulumi.String("CONTAINS"),
 //									FieldToMatch: &wafv2.WebAclRuleStatementByteMatchStatementFieldToMatchArgs{
 //										UriPath: &wafv2.WebAclRuleStatementByteMatchStatementFieldToMatchUriPathArgs{},
 //									},
@@ -451,6 +452,8 @@ import (
 //											Type:     pulumi.String("LOWERCASE"),
 //										},
 //									},
+//									SearchString:         pulumi.String("admin"),
+//									PositionalConstraint: pulumi.String("CONTAINS"),
 //								},
 //							},
 //						},
@@ -461,6 +464,9 @@ import (
 //					MetricName:               pulumi.String("block-suspicious"),
 //					SampledRequestsEnabled:   pulumi.Bool(true),
 //				},
+//				Name:      pulumi.String("block-suspicious"),
+//				Priority:  pulumi.Int(1),
+//				WebAclArn: pulumi.Any(example.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -488,9 +494,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := wafv2.NewWebAclRule(ctx, "block_countries", &wafv2.WebAclRuleArgs{
-//				Name:      pulumi.String("block-countries"),
-//				Priority:  pulumi.Int(2),
-//				WebAclArn: pulumi.Any(example.Arn),
 //				Action: &wafv2.WebAclRuleActionArgs{
 //					Block: &wafv2.WebAclRuleActionBlockArgs{},
 //				},
@@ -519,6 +522,9 @@ import (
 //					MetricName:               pulumi.String("block-countries"),
 //					SampledRequestsEnabled:   pulumi.Bool(true),
 //				},
+//				Name:      pulumi.String("block-countries"),
+//				Priority:  pulumi.Int(2),
+//				WebAclArn: pulumi.Any(example.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -546,9 +552,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := wafv2.NewWebAclRule(ctx, "allow_only_us", &wafv2.WebAclRuleArgs{
-//				Name:      pulumi.String("allow-only-us"),
-//				Priority:  pulumi.Int(3),
-//				WebAclArn: pulumi.Any(example.Arn),
 //				Action: &wafv2.WebAclRuleActionArgs{
 //					Block: &wafv2.WebAclRuleActionBlockArgs{},
 //				},
@@ -569,6 +572,9 @@ import (
 //					MetricName:               pulumi.String("allow-only-us"),
 //					SampledRequestsEnabled:   pulumi.Bool(true),
 //				},
+//				Name:      pulumi.String("allow-only-us"),
+//				Priority:  pulumi.Int(3),
+//				WebAclArn: pulumi.Any(example.Arn),
 //			})
 //			if err != nil {
 //				return err

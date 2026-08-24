@@ -333,9 +333,12 @@ class VirtualNode(pulumi.CustomResource):
         import pulumi_aws as aws
 
         serviceb1 = aws.appmesh.VirtualNode("serviceb1",
-            name="serviceBv1",
-            mesh_name=simple["id"],
             spec={
+                "service_discovery": {
+                    "dns": {
+                        "hostname": "serviceb.simpleapp.local",
+                    },
+                },
                 "backends": [{
                     "virtual_service": {
                         "virtual_service_name": "servicea.simpleapp.local",
@@ -347,12 +350,9 @@ class VirtualNode(pulumi.CustomResource):
                         "protocol": "http",
                     },
                 }],
-                "service_discovery": {
-                    "dns": {
-                        "hostname": "serviceb.simpleapp.local",
-                    },
-                },
-            })
+            },
+            name="serviceBv1",
+            mesh_name=simple["id"])
         ```
 
         ### AWS Cloud Map Service Discovery
@@ -363,9 +363,16 @@ class VirtualNode(pulumi.CustomResource):
 
         example = aws.servicediscovery.HttpNamespace("example", name="example-ns")
         serviceb1 = aws.appmesh.VirtualNode("serviceb1",
-            name="serviceBv1",
-            mesh_name=simple["id"],
             spec={
+                "service_discovery": {
+                    "aws_cloud_map": {
+                        "attributes": {
+                            "stack": "blue",
+                        },
+                        "service_name": "serviceb1",
+                        "namespace_name": example.name,
+                    },
+                },
                 "backends": [{
                     "virtual_service": {
                         "virtual_service_name": "servicea.simpleapp.local",
@@ -377,16 +384,9 @@ class VirtualNode(pulumi.CustomResource):
                         "protocol": "http",
                     },
                 }],
-                "service_discovery": {
-                    "aws_cloud_map": {
-                        "attributes": {
-                            "stack": "blue",
-                        },
-                        "service_name": "serviceb1",
-                        "namespace_name": example.name,
-                    },
-                },
-            })
+            },
+            name="serviceBv1",
+            mesh_name=simple["id"])
         ```
 
         ### Listener Health Check
@@ -396,9 +396,12 @@ class VirtualNode(pulumi.CustomResource):
         import pulumi_aws as aws
 
         serviceb1 = aws.appmesh.VirtualNode("serviceb1",
-            name="serviceBv1",
-            mesh_name=simple["id"],
             spec={
+                "service_discovery": {
+                    "dns": {
+                        "hostname": "serviceb.simpleapp.local",
+                    },
+                },
                 "backends": [{
                     "virtual_service": {
                         "virtual_service_name": "servicea.simpleapp.local",
@@ -418,12 +421,9 @@ class VirtualNode(pulumi.CustomResource):
                         "interval_millis": 5000,
                     },
                 }],
-                "service_discovery": {
-                    "dns": {
-                        "hostname": "serviceb.simpleapp.local",
-                    },
-                },
-            })
+            },
+            name="serviceBv1",
+            mesh_name=simple["id"])
         ```
 
         ### Logging
@@ -433,20 +433,7 @@ class VirtualNode(pulumi.CustomResource):
         import pulumi_aws as aws
 
         serviceb1 = aws.appmesh.VirtualNode("serviceb1",
-            name="serviceBv1",
-            mesh_name=simple["id"],
             spec={
-                "backends": [{
-                    "virtual_service": {
-                        "virtual_service_name": "servicea.simpleapp.local",
-                    },
-                }],
-                "listeners": [{
-                    "port_mapping": {
-                        "port": 8080,
-                        "protocol": "http",
-                    },
-                }],
                 "service_discovery": {
                     "dns": {
                         "hostname": "serviceb.simpleapp.local",
@@ -459,7 +446,20 @@ class VirtualNode(pulumi.CustomResource):
                         },
                     },
                 },
-            })
+                "backends": [{
+                    "virtual_service": {
+                        "virtual_service_name": "servicea.simpleapp.local",
+                    },
+                }],
+                "listeners": [{
+                    "port_mapping": {
+                        "port": 8080,
+                        "protocol": "http",
+                    },
+                }],
+            },
+            name="serviceBv1",
+            mesh_name=simple["id"])
         ```
 
         ## Import
@@ -500,9 +500,12 @@ class VirtualNode(pulumi.CustomResource):
         import pulumi_aws as aws
 
         serviceb1 = aws.appmesh.VirtualNode("serviceb1",
-            name="serviceBv1",
-            mesh_name=simple["id"],
             spec={
+                "service_discovery": {
+                    "dns": {
+                        "hostname": "serviceb.simpleapp.local",
+                    },
+                },
                 "backends": [{
                     "virtual_service": {
                         "virtual_service_name": "servicea.simpleapp.local",
@@ -514,12 +517,9 @@ class VirtualNode(pulumi.CustomResource):
                         "protocol": "http",
                     },
                 }],
-                "service_discovery": {
-                    "dns": {
-                        "hostname": "serviceb.simpleapp.local",
-                    },
-                },
-            })
+            },
+            name="serviceBv1",
+            mesh_name=simple["id"])
         ```
 
         ### AWS Cloud Map Service Discovery
@@ -530,9 +530,16 @@ class VirtualNode(pulumi.CustomResource):
 
         example = aws.servicediscovery.HttpNamespace("example", name="example-ns")
         serviceb1 = aws.appmesh.VirtualNode("serviceb1",
-            name="serviceBv1",
-            mesh_name=simple["id"],
             spec={
+                "service_discovery": {
+                    "aws_cloud_map": {
+                        "attributes": {
+                            "stack": "blue",
+                        },
+                        "service_name": "serviceb1",
+                        "namespace_name": example.name,
+                    },
+                },
                 "backends": [{
                     "virtual_service": {
                         "virtual_service_name": "servicea.simpleapp.local",
@@ -544,16 +551,9 @@ class VirtualNode(pulumi.CustomResource):
                         "protocol": "http",
                     },
                 }],
-                "service_discovery": {
-                    "aws_cloud_map": {
-                        "attributes": {
-                            "stack": "blue",
-                        },
-                        "service_name": "serviceb1",
-                        "namespace_name": example.name,
-                    },
-                },
-            })
+            },
+            name="serviceBv1",
+            mesh_name=simple["id"])
         ```
 
         ### Listener Health Check
@@ -563,9 +563,12 @@ class VirtualNode(pulumi.CustomResource):
         import pulumi_aws as aws
 
         serviceb1 = aws.appmesh.VirtualNode("serviceb1",
-            name="serviceBv1",
-            mesh_name=simple["id"],
             spec={
+                "service_discovery": {
+                    "dns": {
+                        "hostname": "serviceb.simpleapp.local",
+                    },
+                },
                 "backends": [{
                     "virtual_service": {
                         "virtual_service_name": "servicea.simpleapp.local",
@@ -585,12 +588,9 @@ class VirtualNode(pulumi.CustomResource):
                         "interval_millis": 5000,
                     },
                 }],
-                "service_discovery": {
-                    "dns": {
-                        "hostname": "serviceb.simpleapp.local",
-                    },
-                },
-            })
+            },
+            name="serviceBv1",
+            mesh_name=simple["id"])
         ```
 
         ### Logging
@@ -600,20 +600,7 @@ class VirtualNode(pulumi.CustomResource):
         import pulumi_aws as aws
 
         serviceb1 = aws.appmesh.VirtualNode("serviceb1",
-            name="serviceBv1",
-            mesh_name=simple["id"],
             spec={
-                "backends": [{
-                    "virtual_service": {
-                        "virtual_service_name": "servicea.simpleapp.local",
-                    },
-                }],
-                "listeners": [{
-                    "port_mapping": {
-                        "port": 8080,
-                        "protocol": "http",
-                    },
-                }],
                 "service_discovery": {
                     "dns": {
                         "hostname": "serviceb.simpleapp.local",
@@ -626,7 +613,20 @@ class VirtualNode(pulumi.CustomResource):
                         },
                     },
                 },
-            })
+                "backends": [{
+                    "virtual_service": {
+                        "virtual_service_name": "servicea.simpleapp.local",
+                    },
+                }],
+                "listeners": [{
+                    "port_mapping": {
+                        "port": 8080,
+                        "protocol": "http",
+                    },
+                }],
+            },
+            name="serviceBv1",
+            mesh_name=simple["id"])
         ```
 
         ## Import

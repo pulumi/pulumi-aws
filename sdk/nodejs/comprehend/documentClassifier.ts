@@ -20,12 +20,12 @@ import * as utilities from "../utilities";
  *
  * const documents = new aws.s3.BucketObjectv2("documents", {});
  * const example = new aws.comprehend.DocumentClassifier("example", {
- *     name: "example",
- *     dataAccessRoleArn: exampleAwsIamRole.arn,
- *     languageCode: "en",
  *     inputDataConfig: {
  *         s3Uri: pulumi.interpolate`s3://${test.bucket}/${documents.key}`,
  *     },
+ *     name: "example",
+ *     dataAccessRoleArn: exampleAwsIamRole.arn,
+ *     languageCode: "en",
  * }, {
  *     dependsOn: [exampleAwsIamRolePolicy],
  * });

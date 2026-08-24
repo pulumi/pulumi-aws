@@ -30,13 +30,13 @@ namespace Pulumi.Aws.ApiGateway
     /// {
     ///     var example = new Aws.ApiGateway.RestApi("example", new()
     ///     {
-    ///         Name = "example",
-    ///         SecurityPolicy = "SecurityPolicy_TLS13_1_2_PFS_PQ_2025_09",
-    ///         EndpointAccessMode = "BASIC",
     ///         EndpointConfiguration = new Aws.ApiGateway.Inputs.RestApiEndpointConfigurationArgs
     ///         {
     ///             Types = "REGIONAL",
     ///         },
+    ///         Name = "example",
+    ///         SecurityPolicy = "SecurityPolicy_TLS13_1_2_PFS_PQ_2025_09",
+    ///         EndpointAccessMode = "BASIC",
     ///     });
     /// 
     /// });

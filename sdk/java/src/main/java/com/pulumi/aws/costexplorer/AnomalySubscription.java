@@ -36,9 +36,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.costexplorer.AnomalyMonitorArgs;
  * import com.pulumi.aws.costexplorer.AnomalySubscription;
  * import com.pulumi.aws.costexplorer.AnomalySubscriptionArgs;
- * import com.pulumi.aws.costexplorer.inputs.AnomalySubscriptionSubscriberArgs;
  * import com.pulumi.aws.costexplorer.inputs.AnomalySubscriptionThresholdExpressionArgs;
  * import com.pulumi.aws.costexplorer.inputs.AnomalySubscriptionThresholdExpressionDimensionArgs;
+ * import com.pulumi.aws.costexplorer.inputs.AnomalySubscriptionSubscriberArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -59,13 +59,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testAnomalySubscription = new AnomalySubscription("testAnomalySubscription", AnomalySubscriptionArgs.builder()
- *             .name("DAILYSUBSCRIPTION")
- *             .frequency("DAILY")
- *             .monitorArnLists(test.arn())
- *             .subscribers(AnomalySubscriptionSubscriberArgs.builder()
- *                 .type("EMAIL")
- *                 .address("abc}{@literal @}{@code example.com")
- *                 .build())
  *             .thresholdExpression(AnomalySubscriptionThresholdExpressionArgs.builder()
  *                 .dimension(AnomalySubscriptionThresholdExpressionDimensionArgs.builder()
  *                     .key("ANOMALY_TOTAL_IMPACT_ABSOLUTE")
@@ -73,6 +66,13 @@ import javax.annotation.Nullable;
  *                     .values("100")
  *                     .build())
  *                 .build())
+ *             .subscribers(AnomalySubscriptionSubscriberArgs.builder()
+ *                 .type("EMAIL")
+ *                 .address("abc}{@literal @}{@code example.com")
+ *                 .build())
+ *             .name("DAILYSUBSCRIPTION")
+ *             .frequency("DAILY")
+ *             .monitorArnLists(test.arn())
  *             .build());
  * 
  *     }}{@code
@@ -93,9 +93,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.costexplorer.AnomalySubscription;
  * import com.pulumi.aws.costexplorer.AnomalySubscriptionArgs;
- * import com.pulumi.aws.costexplorer.inputs.AnomalySubscriptionSubscriberArgs;
  * import com.pulumi.aws.costexplorer.inputs.AnomalySubscriptionThresholdExpressionArgs;
  * import com.pulumi.aws.costexplorer.inputs.AnomalySubscriptionThresholdExpressionDimensionArgs;
+ * import com.pulumi.aws.costexplorer.inputs.AnomalySubscriptionSubscriberArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -110,13 +110,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) }{{@code
  *         var test = new AnomalySubscription("test", AnomalySubscriptionArgs.builder()
- *             .name("AWSServiceMonitor")
- *             .frequency("DAILY")
- *             .monitorArnLists(testAwsCeAnomalyMonitor.arn())
- *             .subscribers(AnomalySubscriptionSubscriberArgs.builder()
- *                 .type("EMAIL")
- *                 .address("abc}{@literal @}{@code example.com")
- *                 .build())
  *             .thresholdExpression(AnomalySubscriptionThresholdExpressionArgs.builder()
  *                 .dimension(AnomalySubscriptionThresholdExpressionDimensionArgs.builder()
  *                     .key("ANOMALY_TOTAL_IMPACT_PERCENTAGE")
@@ -124,6 +117,13 @@ import javax.annotation.Nullable;
  *                     .values("100")
  *                     .build())
  *                 .build())
+ *             .subscribers(AnomalySubscriptionSubscriberArgs.builder()
+ *                 .type("EMAIL")
+ *                 .address("abc}{@literal @}{@code example.com")
+ *                 .build())
+ *             .name("AWSServiceMonitor")
+ *             .frequency("DAILY")
+ *             .monitorArnLists(testAwsCeAnomalyMonitor.arn())
  *             .build());
  * 
  *     }}{@code
@@ -142,10 +142,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.costexplorer.AnomalySubscription;
  * import com.pulumi.aws.costexplorer.AnomalySubscriptionArgs;
- * import com.pulumi.aws.costexplorer.inputs.AnomalySubscriptionSubscriberArgs;
  * import com.pulumi.aws.costexplorer.inputs.AnomalySubscriptionThresholdExpressionArgs;
  * import com.pulumi.aws.costexplorer.inputs.AnomalySubscriptionThresholdExpressionAndArgs;
  * import com.pulumi.aws.costexplorer.inputs.AnomalySubscriptionThresholdExpressionAndDimensionArgs;
+ * import com.pulumi.aws.costexplorer.inputs.AnomalySubscriptionSubscriberArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -160,13 +160,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) }{{@code
  *         var test = new AnomalySubscription("test", AnomalySubscriptionArgs.builder()
- *             .name("AWSServiceMonitor")
- *             .frequency("DAILY")
- *             .monitorArnLists(testAwsCeAnomalyMonitor.arn())
- *             .subscribers(AnomalySubscriptionSubscriberArgs.builder()
- *                 .type("EMAIL")
- *                 .address("abc}{@literal @}{@code example.com")
- *                 .build())
  *             .thresholdExpression(AnomalySubscriptionThresholdExpressionArgs.builder()
  *                 .ands(                
  *                     AnomalySubscriptionThresholdExpressionAndArgs.builder()
@@ -184,6 +177,13 @@ import javax.annotation.Nullable;
  *                             .build())
  *                         .build())
  *                 .build())
+ *             .subscribers(AnomalySubscriptionSubscriberArgs.builder()
+ *                 .type("EMAIL")
+ *                 .address("abc}{@literal @}{@code example.com")
+ *                 .build())
+ *             .name("AWSServiceMonitor")
+ *             .frequency("DAILY")
+ *             .monitorArnLists(testAwsCeAnomalyMonitor.arn())
  *             .build());
  * 
  *     }}{@code
@@ -233,19 +233,27 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .policyId("__default_policy_ID")
  *             .statements(            
  *                 GetPolicyDocumentStatementArgs.builder()
- *                     .sid("AWSAnomalyDetectionSNSPublishingPermissions")
- *                     .actions("SNS:Publish")
- *                     .effect("Allow")
  *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                         .type("Service")
  *                         .identifiers("costalerts.amazonaws.com")
  *                         .build())
+ *                     .sid("AWSAnomalyDetectionSNSPublishingPermissions")
+ *                     .actions("SNS:Publish")
+ *                     .effect("Allow")
  *                     .resources(costAnomalyUpdates.arn())
  *                     .build(),
  *                 GetPolicyDocumentStatementArgs.builder()
+ *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
+ *                         .test("StringEquals")
+ *                         .variable("AWS:SourceOwner")
+ *                         .values(accountId)
+ *                         .build())
+ *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                         .type("AWS")
+ *                         .identifiers("*")
+ *                         .build())
  *                     .sid("__default_statement_ID")
  *                     .actions(                    
  *                         "SNS:Subscribe",
@@ -257,18 +265,10 @@ import javax.annotation.Nullable;
  *                         "SNS:GetTopicAttributes",
  *                         "SNS:DeleteTopic",
  *                         "SNS:AddPermission")
- *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                         .test("StringEquals")
- *                         .variable("AWS:SourceOwner")
- *                         .values(accountId)
- *                         .build())
  *                     .effect("Allow")
- *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                         .type("AWS")
- *                         .identifiers("*")
- *                         .build())
  *                     .resources(costAnomalyUpdates.arn())
  *                     .build())
+ *             .policyId("__default_policy_ID")
  *             .build());
  * 
  *         var default_ = new TopicPolicy("default", TopicPolicyArgs.builder()
@@ -283,13 +283,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var realtimeSubscription = new AnomalySubscription("realtimeSubscription", AnomalySubscriptionArgs.builder()
- *             .name("RealtimeAnomalySubscription")
- *             .frequency("IMMEDIATE")
- *             .monitorArnLists(anomalyMonitor.arn())
  *             .subscribers(AnomalySubscriptionSubscriberArgs.builder()
  *                 .type("SNS")
  *                 .address(costAnomalyUpdates.arn())
  *                 .build())
+ *             .name("RealtimeAnomalySubscription")
+ *             .frequency("IMMEDIATE")
+ *             .monitorArnLists(anomalyMonitor.arn())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(default_)
  *                 .build());

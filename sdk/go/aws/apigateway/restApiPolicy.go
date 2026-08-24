@@ -44,23 +44,6 @@ import (
 //			test := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Type: pulumi.String("AWS"),
-//								Identifiers: pulumi.StringArray{
-//									pulumi.String("*"),
-//								},
-//							},
-//						},
-//						Actions: pulumi.StringArray{
-//							pulumi.String("execute-api:Invoke"),
-//						},
-//						Resources: pulumi.StringArray{
-//							testRestApi.ExecutionArn.ApplyT(func(executionArn string) (string, error) {
-//								return fmt.Sprintf("%v/*", executionArn), nil
-//							}).(pulumi.StringOutput),
-//						},
 //						Conditions: iam.GetPolicyDocumentStatementConditionArray{
 //							&iam.GetPolicyDocumentStatementConditionArgs{
 //								Test:     pulumi.String("IpAddress"),
@@ -69,6 +52,23 @@ import (
 //									pulumi.String("123.123.123.123/32"),
 //								},
 //							},
+//						},
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Type: pulumi.String("AWS"),
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String("*"),
+//								},
+//							},
+//						},
+//						Effect: pulumi.String("Allow"),
+//						Actions: pulumi.StringArray{
+//							pulumi.String("execute-api:Invoke"),
+//						},
+//						Resources: pulumi.StringArray{
+//							testRestApi.ExecutionArn.ApplyT(func(executionArn string) (string, error) {
+//								return fmt.Sprintf("%v/*", executionArn), nil
+//							}).(pulumi.StringOutput),
 //						},
 //					},
 //				},

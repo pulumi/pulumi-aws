@@ -31,20 +31,20 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := quicksight.NewDashboard(ctx, "example", &quicksight.DashboardArgs{
-//				DashboardId:        pulumi.String("example-id"),
-//				Name:               pulumi.String("example-name"),
-//				VersionDescription: pulumi.String("version"),
 //				SourceEntity: &quicksight.DashboardSourceEntityArgs{
 //					SourceTemplate: &quicksight.DashboardSourceEntitySourceTemplateArgs{
-//						Arn: pulumi.Any(source.Arn),
 //						DataSetReferences: quicksight.DashboardSourceEntitySourceTemplateDataSetReferenceArray{
 //							&quicksight.DashboardSourceEntitySourceTemplateDataSetReferenceArgs{
 //								DataSetArn:         pulumi.Any(dataset.Arn),
 //								DataSetPlaceholder: pulumi.String("1"),
 //							},
 //						},
+//						Arn: pulumi.Any(source.Arn),
 //					},
 //				},
+//				DashboardId:        pulumi.String("example-id"),
+//				Name:               pulumi.String("example-name"),
+//				VersionDescription: pulumi.String("version"),
 //			})
 //			if err != nil {
 //				return err
@@ -70,9 +70,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := quicksight.NewDashboard(ctx, "example", &quicksight.DashboardArgs{
-//				DashboardId:        pulumi.String("example-id"),
-//				Name:               pulumi.String("example-name"),
-//				VersionDescription: pulumi.String("version"),
 //				Definition: map[string][]map[string]interface{}{
 //					"dataSetIdentifiersDeclarations": []map[string]interface{}{
 //						map[string]interface{}{
@@ -82,12 +79,9 @@ import (
 //					},
 //					"sheets": []map[string]interface{}{
 //						map[string]interface{}{
-//							"title":   "Example",
-//							"sheetId": "Example1",
 //							"visuals": []map[string]map[string]interface{}{
 //								map[string]map[string]interface{}{
 //									"lineChartVisual": map[string]interface{}{
-//										"visualId": "LineChart",
 //										"title": map[string]map[string]string{
 //											"formatText": map[string]string{
 //												"plainText": "Line Chart Example",
@@ -99,22 +93,22 @@ import (
 //													"categories": []map[string]map[string]interface{}{
 //														map[string]map[string]interface{}{
 //															"categoricalDimensionField": map[string]interface{}{
-//																"fieldId": "1",
 //																"column": map[string]string{
 //																	"dataSetIdentifier": "1",
 //																	"columnName":        "Column1",
 //																},
+//																"fieldId": "1",
 //															},
 //														},
 //													},
 //													"values": []map[string]map[string]interface{}{
 //														map[string]map[string]interface{}{
 //															"categoricalMeasureField": map[string]interface{}{
-//																"fieldId": "2",
 //																"column": map[string]string{
 //																	"dataSetIdentifier": "1",
 //																	"columnName":        "Column1",
 //																},
+//																"fieldId":             "2",
 //																"aggregationFunction": "COUNT",
 //															},
 //														},
@@ -122,12 +116,18 @@ import (
 //												},
 //											},
 //										},
+//										"visualId": "LineChart",
 //									},
 //								},
 //							},
+//							"title":   "Example",
+//							"sheetId": "Example1",
 //						},
 //					},
 //				},
+//				DashboardId:        pulumi.String("example-id"),
+//				Name:               pulumi.String("example-name"),
+//				VersionDescription: pulumi.String("version"),
 //			})
 //			if err != nil {
 //				return err

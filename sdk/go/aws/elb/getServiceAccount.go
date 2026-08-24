@@ -54,7 +54,6 @@ import (
 //			allowElbLogging := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
 //						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
 //							&iam.GetPolicyDocumentStatementPrincipalArgs{
 //								Type: pulumi.String("AWS"),
@@ -63,6 +62,7 @@ import (
 //								},
 //							},
 //						},
+//						Effect: pulumi.String("Allow"),
 //						Actions: pulumi.StringArray{
 //							pulumi.String("s3:PutObject"),
 //						},
@@ -82,10 +82,6 @@ import (
 //				return err
 //			}
 //			_, err = elb.NewLoadBalancer(ctx, "bar", &elb.LoadBalancerArgs{
-//				Name: pulumi.String("my-foobar-elb"),
-//				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String("us-west-2a"),
-//				},
 //				AccessLogs: &elb.LoadBalancerAccessLogsArgs{
 //					Bucket:   elbLogs.ID().ToIDOutput().ToStringOutput(),
 //					Interval: pulumi.Int(5),
@@ -97,6 +93,10 @@ import (
 //						LbPort:           pulumi.Int(80),
 //						LbProtocol:       pulumi.String("http"),
 //					},
+//				},
+//				Name: pulumi.String("my-foobar-elb"),
+//				AvailabilityZones: pulumi.StringArray{
+//					pulumi.String("us-west-2a"),
 //				},
 //			})
 //			if err != nil {

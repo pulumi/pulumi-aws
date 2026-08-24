@@ -19,10 +19,10 @@ import * as utilities from "../utilities";
  *
  * const fs = new aws.efs.FileSystem("fs", {creationToken: "my-product"});
  * const policy = new aws.efs.BackupPolicy("policy", {
- *     fileSystemId: fs.id,
  *     backupPolicy: {
  *         status: "ENABLED",
  *     },
+ *     fileSystemId: fs.id,
  * });
  * ```
  *

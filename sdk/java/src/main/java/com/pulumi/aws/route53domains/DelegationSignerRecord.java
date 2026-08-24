@@ -134,12 +134,12 @@ import javax.annotation.Nullable;
  *                 .build());
  * 
  *         var exampleDelegationSignerRecord = new DelegationSignerRecord("exampleDelegationSignerRecord", DelegationSignerRecordArgs.builder()
- *             .domainName("example.com")
  *             .signingAttributes(DelegationSignerRecordSigningAttributesArgs.builder()
  *                 .algorithm(exampleKeySigningKey.signingAlgorithmType())
  *                 .flags(exampleKeySigningKey.flag())
  *                 .publicKey(exampleKeySigningKey.publicKey())
  *                 .build())
+ *             .domainName("example.com")
  *             .build());
  * 
  *     }

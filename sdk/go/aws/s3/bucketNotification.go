@@ -45,21 +45,6 @@ import (
 //			topic := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Type: pulumi.String("Service"),
-//								Identifiers: pulumi.StringArray{
-//									pulumi.String("s3.amazonaws.com"),
-//								},
-//							},
-//						},
-//						Actions: pulumi.StringArray{
-//							pulumi.String("SNS:Publish"),
-//						},
-//						Resources: pulumi.StringArray{
-//							pulumi.String("arn:aws:sns:*:*:s3-event-notification-topic"),
-//						},
 //						Conditions: iam.GetPolicyDocumentStatementConditionArray{
 //							&iam.GetPolicyDocumentStatementConditionArgs{
 //								Test:     pulumi.String("ArnLike"),
@@ -68,6 +53,21 @@ import (
 //									bucket.Arn,
 //								},
 //							},
+//						},
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Type: pulumi.String("Service"),
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String("s3.amazonaws.com"),
+//								},
+//							},
+//						},
+//						Effect: pulumi.String("Allow"),
+//						Actions: pulumi.StringArray{
+//							pulumi.String("SNS:Publish"),
+//						},
+//						Resources: pulumi.StringArray{
+//							pulumi.String("arn:aws:sns:*:*:s3-event-notification-topic"),
 //						},
 //					},
 //				},
@@ -80,7 +80,6 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketNotification(ctx, "bucket_notification", &s3.BucketNotificationArgs{
-//				Bucket: bucket.ID().ToIDOutput().ToStringOutput(),
 //				Topics: s3.BucketNotificationTopicArray{
 //					&s3.BucketNotificationTopicArgs{
 //						TopicArn: topicTopic.Arn,
@@ -90,6 +89,7 @@ import (
 //						FilterSuffix: pulumi.String(".log"),
 //					},
 //				},
+//				Bucket: bucket.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -125,21 +125,6 @@ import (
 //			queue := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Type: pulumi.String("*"),
-//								Identifiers: pulumi.StringArray{
-//									pulumi.String("*"),
-//								},
-//							},
-//						},
-//						Actions: pulumi.StringArray{
-//							pulumi.String("sqs:SendMessage"),
-//						},
-//						Resources: pulumi.StringArray{
-//							pulumi.String("arn:aws:sqs:*:*:s3-event-notification-queue"),
-//						},
 //						Conditions: iam.GetPolicyDocumentStatementConditionArray{
 //							&iam.GetPolicyDocumentStatementConditionArgs{
 //								Test:     pulumi.String("ArnEquals"),
@@ -148,6 +133,21 @@ import (
 //									bucket.Arn,
 //								},
 //							},
+//						},
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Type: pulumi.String("*"),
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String("*"),
+//								},
+//							},
+//						},
+//						Effect: pulumi.String("Allow"),
+//						Actions: pulumi.StringArray{
+//							pulumi.String("sqs:SendMessage"),
+//						},
+//						Resources: pulumi.StringArray{
+//							pulumi.String("arn:aws:sqs:*:*:s3-event-notification-queue"),
 //						},
 //					},
 //				},
@@ -160,7 +160,6 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketNotification(ctx, "bucket_notification", &s3.BucketNotificationArgs{
-//				Bucket: bucket.ID().ToIDOutput().ToStringOutput(),
 //				Queues: s3.BucketNotificationQueueArray{
 //					&s3.BucketNotificationQueueArgs{
 //						QueueArn: queueQueue.Arn,
@@ -170,6 +169,7 @@ import (
 //						FilterSuffix: pulumi.String(".log"),
 //					},
 //				},
+//				Bucket: bucket.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -199,7 +199,6 @@ import (
 //			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -208,6 +207,7 @@ import (
 //								},
 //							},
 //						},
+//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"sts:AssumeRole",
 //						},
@@ -251,7 +251,6 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketNotification(ctx, "bucket_notification", &s3.BucketNotificationArgs{
-//				Bucket: bucket.ID().ToIDOutput().ToStringOutput(),
 //				LambdaFunctions: s3.BucketNotificationLambdaFunctionArray{
 //					&s3.BucketNotificationLambdaFunctionArgs{
 //						LambdaFunctionArn: _func.Arn,
@@ -262,6 +261,7 @@ import (
 //						FilterSuffix: pulumi.String(".log"),
 //					},
 //				},
+//				Bucket: bucket.ID().ToIDOutput().ToStringOutput(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				allowBucket,
 //			}))
@@ -293,7 +293,6 @@ import (
 //			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -302,6 +301,7 @@ import (
 //								},
 //							},
 //						},
+//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"sts:AssumeRole",
 //						},
@@ -364,7 +364,6 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketNotification(ctx, "bucket_notification", &s3.BucketNotificationArgs{
-//				Bucket: bucket.ID().ToIDOutput().ToStringOutput(),
 //				LambdaFunctions: s3.BucketNotificationLambdaFunctionArray{
 //					&s3.BucketNotificationLambdaFunctionArgs{
 //						LambdaFunctionArn: func1.Arn,
@@ -383,6 +382,7 @@ import (
 //						FilterSuffix: pulumi.String(".log"),
 //					},
 //				},
+//				Bucket: bucket.ID().ToIDOutput().ToStringOutput(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				allowBucket1,
 //				allowBucket2,
@@ -421,21 +421,6 @@ import (
 //			queue := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Type: pulumi.String("*"),
-//								Identifiers: pulumi.StringArray{
-//									pulumi.String("*"),
-//								},
-//							},
-//						},
-//						Actions: pulumi.StringArray{
-//							pulumi.String("sqs:SendMessage"),
-//						},
-//						Resources: pulumi.StringArray{
-//							pulumi.String("arn:aws:sqs:*:*:s3-event-notification-queue"),
-//						},
 //						Conditions: iam.GetPolicyDocumentStatementConditionArray{
 //							&iam.GetPolicyDocumentStatementConditionArgs{
 //								Test:     pulumi.String("ArnEquals"),
@@ -444,6 +429,21 @@ import (
 //									bucket.Arn,
 //								},
 //							},
+//						},
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Type: pulumi.String("*"),
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String("*"),
+//								},
+//							},
+//						},
+//						Effect: pulumi.String("Allow"),
+//						Actions: pulumi.StringArray{
+//							pulumi.String("sqs:SendMessage"),
+//						},
+//						Resources: pulumi.StringArray{
+//							pulumi.String("arn:aws:sqs:*:*:s3-event-notification-queue"),
 //						},
 //					},
 //				},
@@ -456,7 +456,6 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketNotification(ctx, "bucket_notification", &s3.BucketNotificationArgs{
-//				Bucket: bucket.ID().ToIDOutput().ToStringOutput(),
 //				Queues: s3.BucketNotificationQueueArray{
 //					&s3.BucketNotificationQueueArgs{
 //						Id:       pulumi.String("image-upload-event"),
@@ -475,6 +474,7 @@ import (
 //						FilterPrefix: pulumi.String("videos/"),
 //					},
 //				},
+//				Bucket: bucket.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

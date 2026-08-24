@@ -26,11 +26,11 @@ import * as utilities from "../utilities";
  *
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["s3.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
@@ -79,35 +79,35 @@ import * as utilities from "../utilities";
  *     policyArn: replicationPolicy.arn,
  * });
  * const destinationBucketVersioning = new aws.s3.BucketVersioning("destination", {
- *     bucket: destination.id,
  *     versioningConfiguration: {
  *         status: "Enabled",
  *     },
+ *     bucket: destination.id,
  * });
  * const sourceBucketAcl = new aws.s3.BucketAcl("source_bucket_acl", {
  *     bucket: source.id,
  *     acl: "private",
  * });
  * const sourceBucketVersioning = new aws.s3.BucketVersioning("source", {
- *     bucket: source.id,
  *     versioningConfiguration: {
  *         status: "Enabled",
  *     },
+ *     bucket: source.id,
  * });
  * const replicationBucketReplicationConfig = new aws.s3.BucketReplicationConfig("replication", {
- *     role: replicationRole.arn,
- *     bucket: source.id,
  *     rules: [{
- *         id: "examplerule",
  *         filter: {
  *             prefix: "example",
  *         },
- *         status: "Enabled",
  *         destination: {
  *             bucket: destination.arn,
  *             storageClass: "STANDARD",
  *         },
+ *         id: "examplerule",
+ *         status: "Enabled",
  *     }],
+ *     role: replicationRole.arn,
+ *     bucket: source.id,
  * }, {
  *     dependsOn: [sourceBucketVersioning],
  * });
@@ -121,11 +121,11 @@ import * as utilities from "../utilities";
  *
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["s3.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
@@ -177,10 +177,10 @@ import * as utilities from "../utilities";
  *     policyArn: replicationPolicy.arn,
  * });
  * const destinationBucketVersioning = new aws.s3.BucketVersioning("destination", {
- *     bucket: destination.id,
  *     versioningConfiguration: {
  *         status: "Enabled",
  *     },
+ *     bucket: destination.id,
  * });
  * const sourceBucketAcl = new aws.s3.BucketAcl("source_bucket_acl", {
  *     region: "eu-central-1",
@@ -188,27 +188,27 @@ import * as utilities from "../utilities";
  *     acl: "private",
  * });
  * const sourceBucketVersioning = new aws.s3.BucketVersioning("source", {
- *     region: "eu-central-1",
- *     bucket: source.id,
  *     versioningConfiguration: {
  *         status: "Enabled",
  *     },
+ *     region: "eu-central-1",
+ *     bucket: source.id,
  * });
  * const replicationBucketReplicationConfig = new aws.s3.BucketReplicationConfig("replication", {
- *     region: "eu-central-1",
- *     role: replicationRole.arn,
- *     bucket: source.id,
  *     rules: [{
- *         id: "examplerule",
  *         filter: {
  *             prefix: "example",
  *         },
- *         status: "Enabled",
  *         destination: {
  *             bucket: destination.arn,
  *             storageClass: "STANDARD",
  *         },
+ *         id: "examplerule",
+ *         status: "Enabled",
  *     }],
+ *     region: "eu-central-1",
+ *     role: replicationRole.arn,
+ *     bucket: source.id,
  * }, {
  *     dependsOn: [sourceBucketVersioning],
  * });
@@ -223,49 +223,49 @@ import * as utilities from "../utilities";
  * // ... other configuration ...
  * const east = new aws.s3.Bucket("east", {bucket: "tf-test-bucket-east-12345"});
  * const eastBucketVersioning = new aws.s3.BucketVersioning("east", {
- *     bucket: east.id,
  *     versioningConfiguration: {
  *         status: "Enabled",
  *     },
+ *     bucket: east.id,
  * });
  * const west = new aws.s3.Bucket("west", {bucket: "tf-test-bucket-west-12345"});
  * const westBucketVersioning = new aws.s3.BucketVersioning("west", {
- *     bucket: west.id,
  *     versioningConfiguration: {
  *         status: "Enabled",
  *     },
+ *     bucket: west.id,
  * });
  * const eastToWest = new aws.s3.BucketReplicationConfig("east_to_west", {
- *     role: eastReplication.arn,
- *     bucket: east.id,
  *     rules: [{
- *         id: "foobar",
  *         filter: {
  *             prefix: "foo",
  *         },
- *         status: "Enabled",
  *         destination: {
  *             bucket: west.arn,
  *             storageClass: "STANDARD",
  *         },
+ *         id: "foobar",
+ *         status: "Enabled",
  *     }],
+ *     role: eastReplication.arn,
+ *     bucket: east.id,
  * }, {
  *     dependsOn: [eastBucketVersioning],
  * });
  * const westToEast = new aws.s3.BucketReplicationConfig("west_to_east", {
- *     role: westReplication.arn,
- *     bucket: west.id,
  *     rules: [{
- *         id: "foobar",
  *         filter: {
  *             prefix: "foo",
  *         },
- *         status: "Enabled",
  *         destination: {
  *             bucket: east.arn,
  *             storageClass: "STANDARD",
  *         },
+ *         id: "foobar",
+ *         status: "Enabled",
  *     }],
+ *     role: westReplication.arn,
+ *     bucket: west.id,
  * }, {
  *     dependsOn: [westBucketVersioning],
  * });

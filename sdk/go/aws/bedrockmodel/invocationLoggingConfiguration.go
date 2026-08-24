@@ -43,7 +43,10 @@ import (
 //			example, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
 //				Bucket:       pulumi.String("example"),
 //				ForceDestroy: pulumi.Bool(true),
-//			})
+//			}, pulumi.IgnoreChanges([]string{
+//				"tags[\"CreatorId\"]",
+//				"tags[\"CreatorName\"]",
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -85,14 +88,14 @@ import (
 //			}
 //			_, err = bedrockmodel.NewInvocationLoggingConfiguration(ctx, "example", &bedrockmodel.InvocationLoggingConfigurationArgs{
 //				LoggingConfig: &bedrockmodel.InvocationLoggingConfigurationLoggingConfigArgs{
-//					EmbeddingDataDeliveryEnabled: pulumi.Bool(true),
-//					ImageDataDeliveryEnabled:     pulumi.Bool(true),
-//					TextDataDeliveryEnabled:      pulumi.Bool(true),
-//					VideoDataDeliveryEnabled:     pulumi.Bool(true),
 //					S3Config: &bedrockmodel.InvocationLoggingConfigurationLoggingConfigS3ConfigArgs{
 //						BucketName: example.ID().ToIDOutput().ToStringOutput(),
 //						KeyPrefix:  pulumi.String("bedrock"),
 //					},
+//					EmbeddingDataDeliveryEnabled: pulumi.Bool(true),
+//					ImageDataDeliveryEnabled:     pulumi.Bool(true),
+//					TextDataDeliveryEnabled:      pulumi.Bool(true),
+//					VideoDataDeliveryEnabled:     pulumi.Bool(true),
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleBucketPolicy,

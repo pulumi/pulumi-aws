@@ -18,14 +18,14 @@ import * as utilities from "../utilities";
  *
  * const dada = new aws.cloudwatch.LogGroup("dada", {name: "MyApp/access.log"});
  * const yada = new aws.cloudwatch.LogMetricFilter("yada", {
- *     name: "MyAppAccessCount",
- *     pattern: "",
- *     logGroupName: dada.name,
  *     metricTransformation: {
  *         name: "EventCount",
  *         namespace: "YourNamespace",
  *         value: "1",
  *     },
+ *     name: "MyAppAccessCount",
+ *     pattern: "",
+ *     logGroupName: dada.name,
  * });
  * ```
  *

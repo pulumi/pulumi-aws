@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.sagemaker.DataQualityJobDefinition("test", {
- *     name: "my-data-quality-job-definition",
  *     dataQualityAppSpecification: {
  *         imageUri: monitor.registryPath,
  *     },
@@ -42,6 +41,7 @@ import * as utilities from "../utilities";
  *             volumeSizeInGb: 20,
  *         },
  *     },
+ *     name: "my-data-quality-job-definition",
  *     roleArn: myRole.arn,
  * });
  * ```

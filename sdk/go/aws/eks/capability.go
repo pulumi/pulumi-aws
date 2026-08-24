@@ -29,11 +29,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := eks.NewCapability(ctx, "example", &eks.CapabilityArgs{
-//				ClusterName:             pulumi.Any(exampleAwsEksCluster.Name),
-//				CapabilityName:          pulumi.String("argocd"),
-//				Type:                    pulumi.String("ARGOCD"),
-//				RoleArn:                 pulumi.Any(exampleAwsIamRole.Arn),
-//				DeletePropagationPolicy: pulumi.String("RETAIN"),
 //				Configuration: &eks.CapabilityConfigurationArgs{
 //					ArgoCd: &eks.CapabilityConfigurationArgoCdArgs{
 //						AwsIdc: &eks.CapabilityConfigurationArgoCdAwsIdcArgs{
@@ -42,6 +37,11 @@ import (
 //						Namespace: pulumi.String("argocd"),
 //					},
 //				},
+//				ClusterName:             pulumi.Any(exampleAwsEksCluster.Name),
+//				CapabilityName:          pulumi.String("argocd"),
+//				Type:                    pulumi.String("ARGOCD"),
+//				RoleArn:                 pulumi.Any(exampleAwsIamRole.Arn),
+//				DeletePropagationPolicy: pulumi.String("RETAIN"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("example-capability"),
 //				},

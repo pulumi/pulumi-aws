@@ -25,10 +25,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2.AllowedImagesSettings("example", {
- *     state: "enabled",
  *     imageCriterions: [{
  *         imageProviders: ["amazon"],
  *     }],
+ *     state: "enabled",
  * });
  * ```
  *
@@ -39,13 +39,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2.AllowedImagesSettings("example", {
- *     state: "audit-mode",
  *     imageCriterions: [{
  *         imageProviders: [
  *             "amazon",
  *             "123456789012",
  *         ],
  *     }],
+ *     state: "audit-mode",
  * });
  * ```
  *

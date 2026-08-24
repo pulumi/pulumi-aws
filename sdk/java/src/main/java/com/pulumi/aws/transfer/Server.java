@@ -122,12 +122,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Server("example", ServerArgs.builder()
- *             .endpointType("VPC")
  *             .endpointDetails(ServerEndpointDetailsArgs.builder()
  *                 .addressAllocationIds(exampleAwsEip.id())
  *                 .subnetIds(exampleAwsSubnet.id())
  *                 .vpcId(exampleAwsVpc.id())
  *                 .build())
+ *             .endpointType("VPC")
  *             .build());
  * 
  *     }
@@ -229,11 +229,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Server("example", ServerArgs.builder()
- *             .endpointType("VPC")
  *             .endpointDetails(ServerEndpointDetailsArgs.builder()
  *                 .subnetIds(exampleAwsSubnet.id())
  *                 .vpcId(exampleAwsVpc.id())
  *                 .build())
+ *             .endpointType("VPC")
  *             .protocols(            
  *                 "FTP",
  *                 "FTPS")
@@ -285,11 +285,11 @@ import javax.annotation.Nullable;
  * 
  *         final var transferAssumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("transfer.amazonaws.com")
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());

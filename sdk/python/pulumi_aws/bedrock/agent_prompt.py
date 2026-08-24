@@ -385,21 +385,14 @@ class AgentPrompt(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentPrompt("example",
-            name="MakePlaylist",
-            description="My first prompt.",
-            default_variant="Variant1",
             variants=[{
-                "name": "Variant1",
-                "model_id": "amazon.titan-text-express-v1",
                 "inference_configuration": {
                     "text": {
                         "temperature": 0.8,
                     },
                 },
-                "template_type": "TEXT",
                 "template_configuration": {
                     "text": {
-                        "text": "Make me a {{genre}} playlist consisting of the following number of songs: {{number}}.",
                         "input_variables": [
                             {
                                 "name": "genre",
@@ -408,9 +401,16 @@ class AgentPrompt(pulumi.CustomResource):
                                 "name": "number",
                             },
                         ],
+                        "text": "Make me a {{genre}} playlist consisting of the following number of songs: {{number}}.",
                     },
                 },
-            }])
+                "name": "Variant1",
+                "model_id": "amazon.titan-text-express-v1",
+                "template_type": "TEXT",
+            }],
+            name="MakePlaylist",
+            description="My first prompt.",
+            default_variant="Variant1")
         ```
 
         ## Import
@@ -463,21 +463,14 @@ class AgentPrompt(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentPrompt("example",
-            name="MakePlaylist",
-            description="My first prompt.",
-            default_variant="Variant1",
             variants=[{
-                "name": "Variant1",
-                "model_id": "amazon.titan-text-express-v1",
                 "inference_configuration": {
                     "text": {
                         "temperature": 0.8,
                     },
                 },
-                "template_type": "TEXT",
                 "template_configuration": {
                     "text": {
-                        "text": "Make me a {{genre}} playlist consisting of the following number of songs: {{number}}.",
                         "input_variables": [
                             {
                                 "name": "genre",
@@ -486,9 +479,16 @@ class AgentPrompt(pulumi.CustomResource):
                                 "name": "number",
                             },
                         ],
+                        "text": "Make me a {{genre}} playlist consisting of the following number of songs: {{number}}.",
                     },
                 },
-            }])
+                "name": "Variant1",
+                "model_id": "amazon.titan-text-express-v1",
+                "template_type": "TEXT",
+            }],
+            name="MakePlaylist",
+            description="My first prompt.",
+            default_variant="Variant1")
         ```
 
         ## Import

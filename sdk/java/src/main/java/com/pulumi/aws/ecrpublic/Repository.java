@@ -50,7 +50,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new Repository("foo", RepositoryArgs.builder()
- *             .repositoryName("bar")
  *             .catalogData(RepositoryCatalogDataArgs.builder()
  *                 .aboutText("About Text")
  *                 .architectures("ARM")
@@ -61,6 +60,7 @@ import javax.annotation.Nullable;
  *                 .operatingSystems("Linux")
  *                 .usageText("Usage Text")
  *                 .build())
+ *             .repositoryName("bar")
  *             .tags(Map.of("env", "production"))
  *             .build());
  * 

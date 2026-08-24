@@ -51,15 +51,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var testStream = new Stream("testStream", StreamArgs.builder()
+ *             .streamModeDetails(StreamStreamModeDetailsArgs.builder()
+ *                 .streamMode("PROVISIONED")
+ *                 .build())
  *             .name("kinesis-test")
  *             .shardCount(1)
  *             .retentionPeriod(48)
  *             .shardLevelMetrics(            
  *                 "IncomingBytes",
  *                 "OutgoingBytes")
- *             .streamModeDetails(StreamStreamModeDetailsArgs.builder()
- *                 .streamMode("PROVISIONED")
- *                 .build())
  *             .tags(Map.of("Environment", "test"))
  *             .build());
  * 

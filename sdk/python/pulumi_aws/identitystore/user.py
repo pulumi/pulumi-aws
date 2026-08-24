@@ -616,16 +616,16 @@ class User(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.identitystore.User("example",
-            identity_store_id=example_aws_ssoadmin_instances["identityStoreIds"][0],
-            display_name="John Doe",
-            user_name="johndoe",
             name={
                 "given_name": "John",
                 "family_name": "Doe",
             },
             emails={
                 "value": "john@example.com",
-            })
+            },
+            identity_store_id=example_aws_ssoadmin_instances["identityStoreIds"][0],
+            display_name="John Doe",
+            user_name="johndoe")
         ```
 
         ## Import
@@ -682,16 +682,16 @@ class User(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.identitystore.User("example",
-            identity_store_id=example_aws_ssoadmin_instances["identityStoreIds"][0],
-            display_name="John Doe",
-            user_name="johndoe",
             name={
                 "given_name": "John",
                 "family_name": "Doe",
             },
             emails={
                 "value": "john@example.com",
-            })
+            },
+            identity_store_id=example_aws_ssoadmin_instances["identityStoreIds"][0],
+            display_name="John Doe",
+            user_name="johndoe")
         ```
 
         ## Import

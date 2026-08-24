@@ -1258,12 +1258,6 @@ class Cluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.elasticache.Cluster("test",
-            cluster_id="mycluster",
-            engine="redis",
-            node_type="cache.t3.micro",
-            num_cache_nodes=1,
-            port=6379,
-            apply_immediately=True,
             log_delivery_configurations=[
                 {
                     "destination": example["name"],
@@ -1277,7 +1271,13 @@ class Cluster(pulumi.CustomResource):
                     "log_format": "json",
                     "log_type": "engine-log",
                 },
-            ])
+            ],
+            cluster_id="mycluster",
+            engine="redis",
+            node_type="cache.t3.micro",
+            num_cache_nodes=1,
+            port=6379,
+            apply_immediately=True)
         ```
 
         ### Elasticache Cluster in Outpost
@@ -1445,12 +1445,6 @@ class Cluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.elasticache.Cluster("test",
-            cluster_id="mycluster",
-            engine="redis",
-            node_type="cache.t3.micro",
-            num_cache_nodes=1,
-            port=6379,
-            apply_immediately=True,
             log_delivery_configurations=[
                 {
                     "destination": example["name"],
@@ -1464,7 +1458,13 @@ class Cluster(pulumi.CustomResource):
                     "log_format": "json",
                     "log_type": "engine-log",
                 },
-            ])
+            ],
+            cluster_id="mycluster",
+            engine="redis",
+            node_type="cache.t3.micro",
+            num_cache_nodes=1,
+            port=6379,
+            apply_immediately=True)
         ```
 
         ### Elasticache Cluster in Outpost

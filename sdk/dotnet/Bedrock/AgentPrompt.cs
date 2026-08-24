@@ -45,15 +45,10 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var example = new Aws.Bedrock.AgentPrompt("example", new()
     ///     {
-    ///         Name = "MakePlaylist",
-    ///         Description = "My first prompt.",
-    ///         DefaultVariant = "Variant1",
     ///         Variants = new[]
     ///         {
     ///             new Aws.Bedrock.Inputs.AgentPromptVariantArgs
     ///             {
-    ///                 Name = "Variant1",
-    ///                 ModelId = "amazon.titan-text-express-v1",
     ///                 InferenceConfiguration = new Aws.Bedrock.Inputs.AgentPromptVariantInferenceConfigurationArgs
     ///                 {
     ///                     Text = new Aws.Bedrock.Inputs.AgentPromptVariantInferenceConfigurationTextArgs
@@ -61,12 +56,10 @@ namespace Pulumi.Aws.Bedrock
     ///                         Temperature = 0.8,
     ///                     },
     ///                 },
-    ///                 TemplateType = "TEXT",
     ///                 TemplateConfiguration = new Aws.Bedrock.Inputs.AgentPromptVariantTemplateConfigurationArgs
     ///                 {
     ///                     Text = new Aws.Bedrock.Inputs.AgentPromptVariantTemplateConfigurationTextArgs
     ///                     {
-    ///                         Text = "Make me a {{genre}} playlist consisting of the following number of songs: {{number}}.",
     ///                         InputVariables = new[]
     ///                         {
     ///                             new Aws.Bedrock.Inputs.AgentPromptVariantTemplateConfigurationTextInputVariableArgs
@@ -78,10 +71,17 @@ namespace Pulumi.Aws.Bedrock
     ///                                 Name = "number",
     ///                             },
     ///                         },
+    ///                         Text = "Make me a {{genre}} playlist consisting of the following number of songs: {{number}}.",
     ///                     },
     ///                 },
+    ///                 Name = "Variant1",
+    ///                 ModelId = "amazon.titan-text-express-v1",
+    ///                 TemplateType = "TEXT",
     ///             },
     ///         },
+    ///         Name = "MakePlaylist",
+    ///         Description = "My first prompt.",
+    ///         DefaultVariant = "Variant1",
     ///     });
     /// 
     /// });

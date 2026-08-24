@@ -19,6 +19,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cloudwatch.CompositeAlarm("example", {
+ *     actionsSuppressor: {
+ *         alarm: "suppressor-alarm",
+ *         extensionPeriod: 10,
+ *         waitPeriod: 20,
+ *     },
  *     alarmDescription: "This is a composite alarm!",
  *     alarmName: "example-composite-alarm",
  *     alarmActions: exampleAwsSnsTopic.arn,
@@ -26,11 +31,6 @@ import * as utilities from "../utilities";
  *     alarmRule: `ALARM(${alpha.alarmName}) OR
  * ALARM(${bravo.alarmName})
  * `,
- *     actionsSuppressor: {
- *         alarm: "suppressor-alarm",
- *         extensionPeriod: 10,
- *         waitPeriod: 20,
- *     },
  * });
  * ```
  *

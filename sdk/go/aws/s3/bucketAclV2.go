@@ -41,10 +41,10 @@ import (
 //				return err
 //			}
 //			exampleBucketOwnershipControls, err := s3.NewBucketOwnershipControls(ctx, "example", &s3.BucketOwnershipControlsArgs{
-//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
 //				Rule: &s3.BucketOwnershipControlsRuleArgs{
 //					ObjectOwnership: pulumi.String("BucketOwnerPreferred"),
 //				},
+//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -88,10 +88,10 @@ import (
 //				return err
 //			}
 //			exampleBucketOwnershipControls, err := s3.NewBucketOwnershipControls(ctx, "example", &s3.BucketOwnershipControlsArgs{
-//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
 //				Rule: &s3.BucketOwnershipControlsRuleArgs{
 //					ObjectOwnership: pulumi.String("BucketOwnerPreferred"),
 //				},
+//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -147,17 +147,19 @@ import (
 //				return err
 //			}
 //			exampleBucketOwnershipControls, err := s3.NewBucketOwnershipControls(ctx, "example", &s3.BucketOwnershipControlsArgs{
-//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
 //				Rule: &s3.BucketOwnershipControlsRuleArgs{
 //					ObjectOwnership: pulumi.String("BucketOwnerPreferred"),
 //				},
+//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = s3.NewBucketAcl(ctx, "example", &s3.BucketAclArgs{
-//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
 //				AccessControlPolicy: &s3.BucketAclAccessControlPolicyArgs{
+//					Owner: &s3.BucketAclAccessControlPolicyOwnerArgs{
+//						Id: pulumi.String(current.Id),
+//					},
 //					Grants: s3.BucketAclAccessControlPolicyGrantArray{
 //						&s3.BucketAclAccessControlPolicyGrantArgs{
 //							Grantee: &s3.BucketAclAccessControlPolicyGrantGranteeArgs{
@@ -174,10 +176,8 @@ import (
 //							Permission: pulumi.String("READ_ACP"),
 //						},
 //					},
-//					Owner: &s3.BucketAclAccessControlPolicyOwnerArgs{
-//						Id: pulumi.String(current.Id),
-//					},
 //				},
+//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleBucketOwnershipControls,
 //			}))

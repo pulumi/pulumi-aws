@@ -56,10 +56,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResponseHeadersPolicy("example", ResponseHeadersPolicyArgs.builder()
- *             .name("example-policy")
- *             .comment("test comment")
  *             .corsConfig(ResponseHeadersPolicyCorsConfigArgs.builder()
- *                 .accessControlAllowCredentials(true)
  *                 .accessControlAllowHeaders(ResponseHeadersPolicyCorsConfigAccessControlAllowHeadersArgs.builder()
  *                     .items("test")
  *                     .build())
@@ -69,8 +66,11 @@ import javax.annotation.Nullable;
  *                 .accessControlAllowOrigins(ResponseHeadersPolicyCorsConfigAccessControlAllowOriginsArgs.builder()
  *                     .items("test.example.comtest")
  *                     .build())
+ *                 .accessControlAllowCredentials(true)
  *                 .originOverride(true)
  *                 .build())
+ *             .name("example-policy")
+ *             .comment("test comment")
  *             .build());
  * 
  *     }
@@ -105,7 +105,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResponseHeadersPolicy("example", ResponseHeadersPolicyArgs.builder()
- *             .name("example-headers-policy")
  *             .customHeadersConfig(ResponseHeadersPolicyCustomHeadersConfigArgs.builder()
  *                 .items(                
  *                     ResponseHeadersPolicyCustomHeadersConfigItemArgs.builder()
@@ -119,6 +118,7 @@ import javax.annotation.Nullable;
  *                         .value("none")
  *                         .build())
  *                 .build())
+ *             .name("example-headers-policy")
  *             .build());
  * 
  *     }
@@ -158,7 +158,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResponseHeadersPolicy("example", ResponseHeadersPolicyArgs.builder()
- *             .name("example-headers-policy")
  *             .customHeadersConfig(ResponseHeadersPolicyCustomHeadersConfigArgs.builder()
  *                 .items(ResponseHeadersPolicyCustomHeadersConfigItemArgs.builder()
  *                     .header("X-Permitted-Cross-Domain-Policies")
@@ -175,6 +174,7 @@ import javax.annotation.Nullable;
  *                 .enabled(true)
  *                 .samplingRate(50.0)
  *                 .build())
+ *             .name("example-headers-policy")
  *             .build());
  * 
  *     }

@@ -31,13 +31,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datasync.NewEfsLocation(ctx, "example", &datasync.EfsLocationArgs{
-//				EfsFileSystemArn: pulumi.Any(exampleAwsEfsMountTarget.FileSystemArn),
 //				Ec2Config: &datasync.EfsLocationEc2ConfigArgs{
 //					SecurityGroupArns: pulumi.StringArray{
 //						exampleAwsSecurityGroup.Arn,
 //					},
 //					SubnetArn: pulumi.Any(exampleAwsSubnet.Arn),
 //				},
+//				EfsFileSystemArn: pulumi.Any(exampleAwsEfsMountTarget.FileSystemArn),
 //			})
 //			if err != nil {
 //				return err

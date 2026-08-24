@@ -33,10 +33,6 @@ namespace Pulumi.Aws.Transcribe
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -47,6 +43,10 @@ namespace Pulumi.Aws.Transcribe
     ///                             "transcribe.amazonaws.com",
     ///                         },
     ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
     ///                 },
     ///             },
     ///         },
@@ -99,13 +99,13 @@ namespace Pulumi.Aws.Transcribe
     /// 
     ///     var exampleLanguageModel = new Aws.Transcribe.LanguageModel("example", new()
     ///     {
-    ///         ModelName = "example",
-    ///         BaseModelName = "NarrowBand",
     ///         InputDataConfig = new Aws.Transcribe.Inputs.LanguageModelInputDataConfigArgs
     ///         {
     ///             DataAccessRoleArn = exampleRole.Arn,
     ///             S3Uri = exampleBucket.Id.Apply(id =&gt; $"s3://{id}/transcribe/"),
     ///         },
+    ///         ModelName = "example",
+    ///         BaseModelName = "NarrowBand",
     ///         LanguageCode = "en-US",
     ///         Tags = 
     ///         {

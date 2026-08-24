@@ -58,6 +58,12 @@ namespace Pulumi.Aws.Athena
     ///     {
     ///         Name = "database_name",
     ///         Bucket = exampleAwsS3Bucket.Id,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
+    ///         {
+    ///             "bucket",
+    ///         },
     ///     });
     /// 
     /// });

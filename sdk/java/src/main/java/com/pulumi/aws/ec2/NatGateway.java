@@ -273,8 +273,6 @@ import javax.annotation.Nullable;
  *         
  * }
  *         var exampleNatGateway = new NatGateway("exampleNatGateway", NatGatewayArgs.builder()
- *             .vpcId(example.id())
- *             .availabilityMode("regional")
  *             .availabilityZoneAddresses(            
  *                 NatGatewayAvailabilityZoneAddressArgs.builder()
  *                     .allocationIds(exampleEip[0].id())
@@ -286,6 +284,8 @@ import javax.annotation.Nullable;
  *                         exampleEip[2].id())
  *                     .availabilityZone(available.names()[1])
  *                     .build())
+ *             .vpcId(example.id())
+ *             .availabilityMode("regional")
  *             .build());
  * 
  *     }

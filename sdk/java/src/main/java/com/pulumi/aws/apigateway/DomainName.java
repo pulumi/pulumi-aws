@@ -83,14 +83,14 @@ import javax.annotation.Nullable;
  *         // Example DNS record using Route53.
  *         // Route53 is not specifically required; any DNS host can be used.
  *         var exampleRecord = new Record("exampleRecord", RecordArgs.builder()
- *             .name(example.domainName())
- *             .type("A")
- *             .zoneId(exampleAwsRoute53Zone.id())
  *             .aliases(RecordAliasArgs.builder()
  *                 .evaluateTargetHealth(true)
  *                 .name(example.cloudfrontDomainName())
  *                 .zoneId(example.cloudfrontZoneId())
  *                 .build())
+ *             .name(example.domainName())
+ *             .type("A")
+ *             .zoneId(exampleAwsRoute53Zone.id())
  *             .build());
  * 
  *     }
@@ -127,24 +127,24 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DomainName("example", DomainNameArgs.builder()
- *             .domainName("api.example.com")
- *             .regionalCertificateArn(exampleAwsAcmCertificateValidation.certificateArn())
  *             .endpointConfiguration(DomainNameEndpointConfigurationArgs.builder()
  *                 .types("REGIONAL")
  *                 .build())
+ *             .domainName("api.example.com")
+ *             .regionalCertificateArn(exampleAwsAcmCertificateValidation.certificateArn())
  *             .build());
  * 
  *         // Example DNS record using Route53.
  *         // Route53 is not specifically required; any DNS host can be used.
  *         var exampleRecord = new Record("exampleRecord", RecordArgs.builder()
- *             .name(example.domainName())
- *             .type("A")
- *             .zoneId(exampleAwsRoute53Zone.id())
  *             .aliases(RecordAliasArgs.builder()
  *                 .evaluateTargetHealth(true)
  *                 .name(example.regionalDomainName())
  *                 .zoneId(example.regionalZoneId())
  *                 .build())
+ *             .name(example.domainName())
+ *             .type("A")
+ *             .zoneId(exampleAwsRoute53Zone.id())
  *             .build());
  * 
  *     }
@@ -178,13 +178,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DomainName("example", DomainNameArgs.builder()
+ *             .endpointConfiguration(DomainNameEndpointConfigurationArgs.builder()
+ *                 .types("REGIONAL")
+ *                 .build())
  *             .domainName("api.example.com")
  *             .regionalCertificateArn(exampleAwsAcmCertificateValidation.certificateArn())
  *             .securityPolicy("SecurityPolicy_TLS13_1_3_2025_09")
  *             .endpointAccessMode("STRICT")
- *             .endpointConfiguration(DomainNameEndpointConfigurationArgs.builder()
- *                 .types("REGIONAL")
- *                 .build())
  *             .build());
  * 
  *     }

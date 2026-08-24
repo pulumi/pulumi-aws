@@ -21,6 +21,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.rds.Proxy("example", {
+ *     auths: [{
+ *         authScheme: "SECRETS",
+ *         description: "example",
+ *         iamAuth: "DISABLED",
+ *         secretArn: exampleAwsSecretsmanagerSecret.arn,
+ *     }],
  *     name: "example",
  *     debugLogging: false,
  *     engineFamily: "MYSQL",
@@ -29,12 +35,6 @@ import * as utilities from "../utilities";
  *     roleArn: exampleAwsIamRole.arn,
  *     vpcSecurityGroupIds: [exampleAwsSecurityGroup.id],
  *     vpcSubnetIds: [exampleAwsSubnet.id],
- *     auths: [{
- *         authScheme: "SECRETS",
- *         description: "example",
- *         iamAuth: "DISABLED",
- *         secretArn: exampleAwsSecretsmanagerSecret.arn,
- *     }],
  *     tags: {
  *         Name: "example",
  *         Key: "value",
@@ -54,12 +54,12 @@ import * as utilities from "../utilities";
  * import * as std from "@pulumi/std";
  *
  * const available = aws.getAvailabilityZones({
- *     excludeZoneIds: ["use1-az3"],
- *     state: "available",
  *     filters: [{
  *         name: "opt-in-status",
  *         values: ["opt-in-not-required"],
  *     }],
+ *     excludeZoneIds: ["use1-az3"],
+ *     state: "available",
  * });
  * const example = new aws.ec2.Vpc("example", {cidrBlock: "10.0.0.0/16"});
  * const exampleSubnet: aws.ec2.Subnet[] = [];
@@ -89,6 +89,8 @@ import * as utilities from "../utilities";
  * const example = new aws.rds.Proxy("example", {
  *     name: "example",
  *     vpcSubnetIds: [exampleAwsSubnet.id],
+ * }, {
+ *     ignoreChanges: ["vpcSubnetIds"],
  * });
  * ```
  *

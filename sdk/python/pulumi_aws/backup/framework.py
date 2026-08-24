@@ -299,18 +299,15 @@ class Framework(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.backup.Framework("Example",
-            name="exampleFramework",
-            description="this is an example framework",
             controls=[
                 {
-                    "name": "BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK",
                     "input_parameters": [{
                         "name": "requiredRetentionDays",
                         "value": "35",
                     }],
+                    "name": "BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK",
                 },
                 {
-                    "name": "BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK",
                     "input_parameters": [
                         {
                             "name": "requiredFrequencyUnit",
@@ -325,21 +322,24 @@ class Framework(pulumi.CustomResource):
                             "value": "1",
                         },
                     ],
+                    "name": "BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK",
                 },
                 {
                     "name": "BACKUP_RECOVERY_POINT_ENCRYPTED",
                 },
                 {
-                    "name": "BACKUP_RESOURCES_PROTECTED_BY_BACKUP_PLAN",
                     "scope": {
                         "compliance_resource_types": ["EBS"],
                     },
+                    "name": "BACKUP_RESOURCES_PROTECTED_BY_BACKUP_PLAN",
                 },
                 {
                     "name": "BACKUP_RECOVERY_POINT_MANUAL_DELETION_DISABLED",
                 },
                 {
-                    "name": "BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK",
+                    "scope": {
+                        "compliance_resource_types": ["EBS"],
+                    },
                     "input_parameters": [
                         {
                             "name": "maxRetentionDays",
@@ -350,12 +350,12 @@ class Framework(pulumi.CustomResource):
                             "value": "1",
                         },
                     ],
+                    "name": "BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK",
+                },
+                {
                     "scope": {
                         "compliance_resource_types": ["EBS"],
                     },
-                },
-                {
-                    "name": "BACKUP_LAST_RECOVERY_POINT_CREATED",
                     "input_parameters": [
                         {
                             "name": "recoveryPointAgeUnit",
@@ -366,11 +366,11 @@ class Framework(pulumi.CustomResource):
                             "value": "1",
                         },
                     ],
-                    "scope": {
-                        "compliance_resource_types": ["EBS"],
-                    },
+                    "name": "BACKUP_LAST_RECOVERY_POINT_CREATED",
                 },
             ],
+            name="exampleFramework",
+            description="this is an example framework",
             tags={
                 "Name": "Example Framework",
             })
@@ -411,18 +411,15 @@ class Framework(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.backup.Framework("Example",
-            name="exampleFramework",
-            description="this is an example framework",
             controls=[
                 {
-                    "name": "BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK",
                     "input_parameters": [{
                         "name": "requiredRetentionDays",
                         "value": "35",
                     }],
+                    "name": "BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK",
                 },
                 {
-                    "name": "BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK",
                     "input_parameters": [
                         {
                             "name": "requiredFrequencyUnit",
@@ -437,21 +434,24 @@ class Framework(pulumi.CustomResource):
                             "value": "1",
                         },
                     ],
+                    "name": "BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK",
                 },
                 {
                     "name": "BACKUP_RECOVERY_POINT_ENCRYPTED",
                 },
                 {
-                    "name": "BACKUP_RESOURCES_PROTECTED_BY_BACKUP_PLAN",
                     "scope": {
                         "compliance_resource_types": ["EBS"],
                     },
+                    "name": "BACKUP_RESOURCES_PROTECTED_BY_BACKUP_PLAN",
                 },
                 {
                     "name": "BACKUP_RECOVERY_POINT_MANUAL_DELETION_DISABLED",
                 },
                 {
-                    "name": "BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK",
+                    "scope": {
+                        "compliance_resource_types": ["EBS"],
+                    },
                     "input_parameters": [
                         {
                             "name": "maxRetentionDays",
@@ -462,12 +462,12 @@ class Framework(pulumi.CustomResource):
                             "value": "1",
                         },
                     ],
+                    "name": "BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK",
+                },
+                {
                     "scope": {
                         "compliance_resource_types": ["EBS"],
                     },
-                },
-                {
-                    "name": "BACKUP_LAST_RECOVERY_POINT_CREATED",
                     "input_parameters": [
                         {
                             "name": "recoveryPointAgeUnit",
@@ -478,11 +478,11 @@ class Framework(pulumi.CustomResource):
                             "value": "1",
                         },
                     ],
-                    "scope": {
-                        "compliance_resource_types": ["EBS"],
-                    },
+                    "name": "BACKUP_LAST_RECOVERY_POINT_CREATED",
                 },
             ],
+            name="exampleFramework",
+            description="this is an example framework",
             tags={
                 "Name": "Example Framework",
             })

@@ -70,14 +70,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Function("example", FunctionArgs.builder()
- *             .name("example_container_function")
- *             .role(exampleAwsIamRole.arn())
- *             .packageType("Image")
- *             .imageUri(String.format("%s:latest", exampleAwsEcrRepository.repositoryUrl()))
  *             .imageConfig(FunctionImageConfigArgs.builder()
  *                 .entryPoints("/lambda-entrypoint.sh")
  *                 .commands("app.handler")
  *                 .build())
+ *             .name("example_container_function")
+ *             .role(exampleAwsIamRole.arn())
+ *             .packageType("Image")
+ *             .imageUri(String.format("%s:latest", exampleAwsEcrRepository.repositoryUrl()))
  *             .memorySize(512)
  *             .timeout(30)
  *             .architectures("arm64")
@@ -133,15 +133,15 @@ import javax.annotation.Nullable;
  * 
  *         // Function using the layer
  *         var exampleFunction = new Function("exampleFunction", FunctionArgs.builder()
+ *             .tracingConfig(FunctionTracingConfigArgs.builder()
+ *                 .mode("Active")
+ *                 .build())
  *             .code(new FileArchive("function.zip"))
  *             .name("example_layered_function")
  *             .role(exampleAwsIamRole.arn())
  *             .handler("index.handler")
  *             .runtime("nodejs24.x")
  *             .layers(example.arn())
- *             .tracingConfig(FunctionTracingConfigArgs.builder()
- *                 .mode("Active")
- *                 .build())
  *             .build());
  * 
  *     }
@@ -178,13 +178,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Function("example", FunctionArgs.builder()
- *             .code(new FileArchive("function.zip"))
- *             .name("example_vpc_function")
- *             .role(exampleAwsIamRole.arn())
- *             .handler("app.handler")
- *             .runtime("python3.12")
- *             .memorySize(1024)
- *             .timeout(30)
  *             .vpcConfig(FunctionVpcConfigArgs.builder()
  *                 .subnetIds(                
  *                     examplePrivate1.id(),
@@ -198,6 +191,13 @@ import javax.annotation.Nullable;
  *             .snapStart(FunctionSnapStartArgs.builder()
  *                 .applyOn("PublishedVersions")
  *                 .build())
+ *             .code(new FileArchive("function.zip"))
+ *             .name("example_vpc_function")
+ *             .role(exampleAwsIamRole.arn())
+ *             .handler("app.handler")
+ *             .runtime("python3.12")
+ *             .memorySize(1024)
+ *             .timeout(30)
  *             .build());
  * 
  *     }
@@ -265,28 +265,23 @@ import javax.annotation.Nullable;
  * }
  *         // Access point for Lambda
  *         var exampleAccessPoint = new AccessPoint("exampleAccessPoint", AccessPointArgs.builder()
- *             .fileSystemId(example.id())
  *             .rootDirectory(AccessPointRootDirectoryArgs.builder()
- *                 .path("/lambda")
  *                 .creationInfo(AccessPointRootDirectoryCreationInfoArgs.builder()
  *                     .ownerGid(1000)
  *                     .ownerUid(1000)
  *                     .permissions("755")
  *                     .build())
+ *                 .path("/lambda")
  *                 .build())
  *             .posixUser(AccessPointPosixUserArgs.builder()
  *                 .gid(1000)
  *                 .uid(1000)
  *                 .build())
+ *             .fileSystemId(example.id())
  *             .build());
  * 
  *         // Lambda function with EFS
  *         var exampleFunction = new Function("exampleFunction", FunctionArgs.builder()
- *             .code(new FileArchive("function.zip"))
- *             .name("example_efs_function")
- *             .role(exampleAwsIamRole.arn())
- *             .handler("index.handler")
- *             .runtime("nodejs24.x")
  *             .vpcConfig(FunctionVpcConfigArgs.builder()
  *                 .subnetIds(subnetIds)
  *                 .securityGroupIds(lambda.id())
@@ -295,6 +290,11 @@ import javax.annotation.Nullable;
  *                 .arn(exampleAccessPoint.arn())
  *                 .localMountPath("/mnt/data")
  *                 .build())
+ *             .code(new FileArchive("function.zip"))
+ *             .name("example_efs_function")
+ *             .role(exampleAwsIamRole.arn())
+ *             .handler("index.handler")
+ *             .runtime("nodejs24.x")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleMountTarget)
  *                 .build());
@@ -325,9 +325,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.FilesFileSystemArgs;
  * import com.pulumi.aws.s3.FilesAccessPoint;
  * import com.pulumi.aws.s3.FilesAccessPointArgs;
+ * import com.pulumi.aws.s3.inputs.FilesAccessPointPosixUserArgs;
  * import com.pulumi.aws.s3.inputs.FilesAccessPointRootDirectoryArgs;
  * import com.pulumi.aws.s3.inputs.FilesAccessPointRootDirectoryCreationPermissionArgs;
- * import com.pulumi.aws.s3.inputs.FilesAccessPointPosixUserArgs;
  * import com.pulumi.aws.ec2.SecurityGroup;
  * import com.pulumi.aws.ec2.SecurityGroupArgs;
  * import com.pulumi.aws.vpc.SecurityGroupIngressRule;
@@ -365,10 +365,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var lambdaFileSystemBucketVersioning = new BucketVersioning("lambdaFileSystemBucketVersioning", BucketVersioningArgs.builder()
- *             .bucket(lambdaFileSystem.bucket())
  *             .versioningConfiguration(BucketVersioningVersioningConfigurationArgs.builder()
  *                 .status("Enabled")
  *                 .build())
+ *             .bucket(lambdaFileSystem.bucket())
  *             .build());
  * 
  *         var forLambda = new FilesFileSystem("forLambda", FilesFileSystemArgs.builder()
@@ -379,19 +379,19 @@ import javax.annotation.Nullable;
  *                 .build());
  * 
  *         var forLambdaFilesAccessPoint = new FilesAccessPoint("forLambdaFilesAccessPoint", FilesAccessPointArgs.builder()
- *             .fileSystemId(forLambda.id())
+ *             .posixUsers(FilesAccessPointPosixUserArgs.builder()
+ *                 .gid(1000)
+ *                 .uid(1000)
+ *                 .build())
  *             .rootDirectories(FilesAccessPointRootDirectoryArgs.builder()
- *                 .path("/lambda")
  *                 .creationPermissions(FilesAccessPointRootDirectoryCreationPermissionArgs.builder()
  *                     .ownerGid(1000)
  *                     .ownerUid(1000)
  *                     .permissions("755")
  *                     .build())
+ *                 .path("/lambda")
  *                 .build())
- *             .posixUsers(FilesAccessPointPosixUserArgs.builder()
- *                 .gid(1000)
- *                 .uid(1000)
- *                 .build())
+ *             .fileSystemId(forLambda.id())
  *             .build());
  * 
  *         var s3filesMountTargets = new SecurityGroup("s3filesMountTargets", SecurityGroupArgs.builder()
@@ -421,11 +421,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new Function("example", FunctionArgs.builder()
- *             .code(new FileArchive("function.zip"))
- *             .name("example_s3files_function")
- *             .role(iamForLambda.arn())
- *             .handler("exports.example")
- *             .runtime("nodejs24.x")
  *             .vpcConfig(FunctionVpcConfigArgs.builder()
  *                 .subnetIds(subnetForLambdaAz1.id())
  *                 .securityGroupIds(lambdaS3files.id())
@@ -434,6 +429,11 @@ import javax.annotation.Nullable;
  *                 .arn(forLambdaFilesAccessPoint.arn())
  *                 .localMountPath("/mnt/s3files")
  *                 .build())
+ *             .code(new FileArchive("function.zip"))
+ *             .name("example_s3files_function")
+ *             .role(iamForLambda.arn())
+ *             .handler("exports.example")
+ *             .runtime("nodejs24.x")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(forLambdaAwsS3filesMountTarget)
  *                 .build());
@@ -482,16 +482,16 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFunction = new Function("exampleFunction", FunctionArgs.builder()
- *             .code(new FileArchive("function.zip"))
- *             .name("example_function")
- *             .role(exampleAwsIamRole.arn())
- *             .handler("index.handler")
- *             .runtime("nodejs24.x")
  *             .loggingConfig(FunctionLoggingConfigArgs.builder()
  *                 .logFormat("JSON")
  *                 .applicationLogLevel("INFO")
  *                 .systemLogLevel("WARN")
  *                 .build())
+ *             .code(new FileArchive("function.zip"))
+ *             .name("example_function")
+ *             .role(exampleAwsIamRole.arn())
+ *             .handler("index.handler")
+ *             .runtime("nodejs24.x")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
  *                 .build());
@@ -577,12 +577,12 @@ import javax.annotation.Nullable;
  * 
  *         final var logsAssumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions("sts:AssumeRole")
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("logs.amazonaws.com")
  *                     .build())
+ *                 .actions("sts:AssumeRole")
+ *                 .effect("Allow")
  *                 .build())
  *             .build());
  * 
@@ -613,15 +613,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var logExport = new Function("logExport", FunctionArgs.builder()
+ *             .loggingConfig(FunctionLoggingConfigArgs.builder()
+ *                 .logFormat("Text")
+ *                 .logGroup(export.name())
+ *                 .build())
  *             .name(lambdaFunctionName)
  *             .handler("index.lambda_handler")
  *             .runtime("python3.13")
  *             .role(example.arn())
  *             .code(new FileArchive("function.zip"))
- *             .loggingConfig(FunctionLoggingConfigArgs.builder()
- *                 .logFormat("Text")
- *                 .logGroup(export.name())
- *                 .build())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(export)
  *                 .build());
@@ -664,21 +664,18 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Main Lambda function
  *         var example = new Function("example", FunctionArgs.builder()
+ *             .deadLetterConfig(FunctionDeadLetterConfigArgs.builder()
+ *                 .targetArn(dlq.arn())
+ *                 .build())
  *             .code(new FileArchive("function.zip"))
  *             .name("example_function")
  *             .role(exampleAwsIamRole.arn())
  *             .handler("index.handler")
  *             .runtime("nodejs24.x")
- *             .deadLetterConfig(FunctionDeadLetterConfigArgs.builder()
- *                 .targetArn(dlq.arn())
- *                 .build())
  *             .build());
  * 
  *         // Event invoke configuration for retries
  *         var exampleFunctionEventInvokeConfig = new FunctionEventInvokeConfig("exampleFunctionEventInvokeConfig", FunctionEventInvokeConfigArgs.builder()
- *             .functionName(example.name())
- *             .maximumEventAgeInSeconds(60)
- *             .maximumRetryAttempts(2)
  *             .destinationConfig(FunctionEventInvokeConfigDestinationConfigArgs.builder()
  *                 .onFailure(FunctionEventInvokeConfigDestinationConfigOnFailureArgs.builder()
  *                     .destination(dlq.arn())
@@ -687,6 +684,9 @@ import javax.annotation.Nullable;
  *                     .destination(success.arn())
  *                     .build())
  *                 .build())
+ *             .functionName(example.name())
+ *             .maximumEventAgeInSeconds(60)
+ *             .maximumRetryAttempts(2)
  *             .build());
  * 
  *     }
@@ -786,16 +786,16 @@ import javax.annotation.Nullable;
  * 
  *         // Lambda function with logging
  *         var exampleFunction = new Function("exampleFunction", FunctionArgs.builder()
- *             .code(new FileArchive("function.zip"))
- *             .name(functionName)
- *             .role(exampleRole.arn())
- *             .handler("index.handler")
- *             .runtime("nodejs24.x")
  *             .loggingConfig(FunctionLoggingConfigArgs.builder()
  *                 .logFormat("JSON")
  *                 .applicationLogLevel("INFO")
  *                 .systemLogLevel("WARN")
  *                 .build())
+ *             .code(new FileArchive("function.zip"))
+ *             .name(functionName)
+ *             .role(exampleRole.arn())
+ *             .handler("index.handler")
+ *             .runtime("nodejs24.x")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
  *                     lambdaLogs,
@@ -823,6 +823,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.lambda.inputs.FunctionDurableConfigArgs;
  * import com.pulumi.aws.lambda.inputs.FunctionEnvironmentArgs;
  * import com.pulumi.asset.FileArchive;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import com.pulumi.resources.CustomTimeouts;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -837,13 +839,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Function("example", FunctionArgs.builder()
- *             .code(new FileArchive("function.zip"))
- *             .name("example_durable_function")
- *             .role(exampleAwsIamRole.arn())
- *             .handler("index.handler")
- *             .runtime("nodejs24.x")
- *             .memorySize(512)
- *             .timeout(30)
  *             .durableConfig(FunctionDurableConfigArgs.builder()
  *                 .executionTimeout(3600)
  *                 .retentionPeriod(7)
@@ -851,11 +846,22 @@ import javax.annotation.Nullable;
  *             .environment(FunctionEnvironmentArgs.builder()
  *                 .variables(Map.of("DURABLE_MODE", "enabled"))
  *                 .build())
+ *             .code(new FileArchive("function.zip"))
+ *             .name("example_durable_function")
+ *             .role(exampleAwsIamRole.arn())
+ *             .handler("index.handler")
+ *             .runtime("nodejs24.x")
+ *             .memorySize(512)
+ *             .timeout(30)
  *             .tags(Map.ofEntries(
  *                 Map.entry("Environment", "production"),
  *                 Map.entry("Type", "durable")
  *             ))
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .customTimeouts(CustomTimeouts.builder()
+ *                     .delete(CustomTimeouts.parseTimeoutString("60m"))
+ *                 .build())
+ *                 .build());
  * 
  *     }
  * }
@@ -894,7 +900,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleCapacityProvider = new CapacityProvider("exampleCapacityProvider", CapacityProviderArgs.builder()
- *             .name("example")
  *             .vpcConfig(CapacityProviderVpcConfigArgs.builder()
  *                 .subnetIds(exampleAwsSubnet.id())
  *                 .securityGroupIds(exampleAwsSecurityGroup.id())
@@ -902,9 +907,15 @@ import javax.annotation.Nullable;
  *             .permissionsConfig(CapacityProviderPermissionsConfigArgs.builder()
  *                 .capacityProviderOperatorRoleArn(exampleAwsIamRole.arn())
  *                 .build())
+ *             .name("example")
  *             .build());
  * 
  *         var example = new Function("example", FunctionArgs.builder()
+ *             .capacityProviderConfig(FunctionCapacityProviderConfigArgs.builder()
+ *                 .lambdaManagedInstancesCapacityProviderConfig(FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs.builder()
+ *                     .capacityProviderArn(exampleCapacityProvider.arn())
+ *                     .build())
+ *                 .build())
  *             .code(new FileArchive("function.zip"))
  *             .name("example")
  *             .role(exampleAwsIamRole.arn())
@@ -912,11 +923,6 @@ import javax.annotation.Nullable;
  *             .runtime("nodejs24.x")
  *             .memorySize(2048)
  *             .publish(true)
- *             .capacityProviderConfig(FunctionCapacityProviderConfigArgs.builder()
- *                 .lambdaManagedInstancesCapacityProviderConfig(FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs.builder()
- *                     .capacityProviderArn(exampleCapacityProvider.arn())
- *                     .build())
- *                 .build())
  *             .build());
  * 
  *     }

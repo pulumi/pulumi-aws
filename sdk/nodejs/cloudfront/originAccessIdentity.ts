@@ -55,12 +55,12 @@ import * as utilities from "../utilities";
  *
  * const s3Policy = aws.iam.getPolicyDocument({
  *     statements: [{
- *         actions: ["s3:GetObject"],
- *         resources: [`${exampleAwsS3Bucket.arn}/*`],
  *         principals: [{
  *             type: "AWS",
  *             identifiers: [exampleAwsCloudfrontOriginAccessIdentity.iamArn],
  *         }],
+ *         actions: ["s3:GetObject"],
+ *         resources: [`${exampleAwsS3Bucket.arn}/*`],
  *     }],
  * });
  * const example = new aws.s3.BucketPolicy("example", {

@@ -214,8 +214,6 @@ namespace Pulumi.Aws.Rds
     ///     // The RDS Db2 instance resource requires licensing information. Create a new parameter group using the default paramater group as a source, and set license information.
     ///     var exampleParameterGroup = new Aws.Rds.ParameterGroup("example", new()
     ///     {
-    ///         Name = "db-db2-params",
-    ///         Family = @default.Apply(@default =&gt; @default.Apply(getEngineVersionResult =&gt; getEngineVersionResult.ParameterGroupFamily)),
     ///         Parameters = new[]
     ///         {
     ///             new Aws.Rds.Inputs.ParameterGroupParameterArgs
@@ -231,6 +229,8 @@ namespace Pulumi.Aws.Rds
     ///                 Value = "0",
     ///             },
     ///         },
+    ///         Name = "db-db2-params",
+    ///         Family = @default.Apply(@default =&gt; @default.Apply(getEngineVersionResult =&gt; getEngineVersionResult.ParameterGroupFamily)),
     ///     });
     /// 
     ///     // Create the RDS Db2 instance, use the data sources defined to set attributes

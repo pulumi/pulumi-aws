@@ -54,11 +54,6 @@ namespace Pulumi.Aws.Kendra
     /// {
     ///     var example = new Aws.Kendra.DataSource("example", new()
     ///     {
-    ///         IndexId = exampleAwsKendraIndex.Id,
-    ///         Name = "example",
-    ///         Type = "S3",
-    ///         RoleArn = exampleAwsIamRole.Arn,
-    ///         Schedule = "cron(9 10 1 * ? *)",
     ///         Configuration = new Aws.Kendra.Inputs.DataSourceConfigurationArgs
     ///         {
     ///             S3Configuration = new Aws.Kendra.Inputs.DataSourceConfigurationS3ConfigurationArgs
@@ -66,6 +61,11 @@ namespace Pulumi.Aws.Kendra
     ///                 BucketName = exampleAwsS3Bucket.Id,
     ///             },
     ///         },
+    ///         IndexId = exampleAwsKendraIndex.Id,
+    ///         Name = "example",
+    ///         Type = "S3",
+    ///         RoleArn = exampleAwsIamRole.Arn,
+    ///         Schedule = "cron(9 10 1 * ? *)",
     ///     });
     /// 
     /// });
@@ -83,21 +83,21 @@ namespace Pulumi.Aws.Kendra
     /// {
     ///     var example = new Aws.Kendra.DataSource("example", new()
     ///     {
-    ///         IndexId = exampleAwsKendraIndex.Id,
-    ///         Name = "example",
-    ///         Type = "S3",
-    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         Configuration = new Aws.Kendra.Inputs.DataSourceConfigurationArgs
     ///         {
     ///             S3Configuration = new Aws.Kendra.Inputs.DataSourceConfigurationS3ConfigurationArgs
     ///             {
-    ///                 BucketName = exampleAwsS3Bucket.Id,
     ///                 AccessControlListConfiguration = new Aws.Kendra.Inputs.DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs
     ///                 {
     ///                     KeyPath = $"s3://{exampleAwsS3Bucket.Id}/path-1",
     ///                 },
+    ///                 BucketName = exampleAwsS3Bucket.Id,
     ///             },
     ///         },
+    ///         IndexId = exampleAwsKendraIndex.Id,
+    ///         Name = "example",
+    ///         Type = "S3",
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });
@@ -115,14 +115,14 @@ namespace Pulumi.Aws.Kendra
     /// {
     ///     var example = new Aws.Kendra.DataSource("example", new()
     ///     {
-    ///         IndexId = exampleAwsKendraIndex.Id,
-    ///         Name = "example",
-    ///         Type = "S3",
-    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         Configuration = new Aws.Kendra.Inputs.DataSourceConfigurationArgs
     ///         {
     ///             S3Configuration = new Aws.Kendra.Inputs.DataSourceConfigurationS3ConfigurationArgs
     ///             {
+    ///                 DocumentsMetadataConfiguration = new Aws.Kendra.Inputs.DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs
+    ///                 {
+    ///                     S3Prefix = "example",
+    ///                 },
     ///                 BucketName = exampleAwsS3Bucket.Id,
     ///                 ExclusionPatterns = new[]
     ///                 {
@@ -136,12 +136,12 @@ namespace Pulumi.Aws.Kendra
     ///                 {
     ///                     "world",
     ///                 },
-    ///                 DocumentsMetadataConfiguration = new Aws.Kendra.Inputs.DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs
-    ///                 {
-    ///                     S3Prefix = "example",
-    ///                 },
     ///             },
     ///         },
+    ///         IndexId = exampleAwsKendraIndex.Id,
+    ///         Name = "example",
+    ///         Type = "S3",
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });
@@ -161,10 +161,6 @@ namespace Pulumi.Aws.Kendra
     /// {
     ///     var example = new Aws.Kendra.DataSource("example", new()
     ///     {
-    ///         IndexId = exampleAwsKendraIndex.Id,
-    ///         Name = "example",
-    ///         Type = "WEBCRAWLER",
-    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         Configuration = new Aws.Kendra.Inputs.DataSourceConfigurationArgs
     ///         {
     ///             WebCrawlerConfiguration = new Aws.Kendra.Inputs.DataSourceConfigurationWebCrawlerConfigurationArgs
@@ -181,6 +177,10 @@ namespace Pulumi.Aws.Kendra
     ///                 },
     ///             },
     ///         },
+    ///         IndexId = exampleAwsKendraIndex.Id,
+    ///         Name = "example",
+    ///         Type = "WEBCRAWLER",
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });
@@ -198,10 +198,6 @@ namespace Pulumi.Aws.Kendra
     /// {
     ///     var example = new Aws.Kendra.DataSource("example", new()
     ///     {
-    ///         IndexId = exampleAwsKendraIndex.Id,
-    ///         Name = "example",
-    ///         Type = "WEBCRAWLER",
-    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         Configuration = new Aws.Kendra.Inputs.DataSourceConfigurationArgs
     ///         {
     ///             WebCrawlerConfiguration = new Aws.Kendra.Inputs.DataSourceConfigurationWebCrawlerConfigurationArgs
@@ -218,6 +214,10 @@ namespace Pulumi.Aws.Kendra
     ///                 },
     ///             },
     ///         },
+    ///         IndexId = exampleAwsKendraIndex.Id,
+    ///         Name = "example",
+    ///         Type = "WEBCRAWLER",
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });
@@ -235,10 +235,6 @@ namespace Pulumi.Aws.Kendra
     /// {
     ///     var example = new Aws.Kendra.DataSource("example", new()
     ///     {
-    ///         IndexId = exampleAwsKendraIndex.Id,
-    ///         Name = "example",
-    ///         Type = "WEBCRAWLER",
-    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         Configuration = new Aws.Kendra.Inputs.DataSourceConfigurationArgs
     ///         {
     ///             WebCrawlerConfiguration = new Aws.Kendra.Inputs.DataSourceConfigurationWebCrawlerConfigurationArgs
@@ -256,6 +252,10 @@ namespace Pulumi.Aws.Kendra
     ///                 },
     ///             },
     ///         },
+    ///         IndexId = exampleAwsKendraIndex.Id,
+    ///         Name = "example",
+    ///         Type = "WEBCRAWLER",
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });
@@ -273,10 +273,6 @@ namespace Pulumi.Aws.Kendra
     /// {
     ///     var example = new Aws.Kendra.DataSource("example", new()
     ///     {
-    ///         IndexId = exampleAwsKendraIndex.Id,
-    ///         Name = "example",
-    ///         Type = "WEBCRAWLER",
-    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         Configuration = new Aws.Kendra.Inputs.DataSourceConfigurationArgs
     ///         {
     ///             WebCrawlerConfiguration = new Aws.Kendra.Inputs.DataSourceConfigurationWebCrawlerConfigurationArgs
@@ -305,6 +301,10 @@ namespace Pulumi.Aws.Kendra
     ///                 },
     ///             },
     ///         },
+    ///         IndexId = exampleAwsKendraIndex.Id,
+    ///         Name = "example",
+    ///         Type = "WEBCRAWLER",
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -328,15 +328,10 @@ namespace Pulumi.Aws.Kendra
     /// {
     ///     var example = new Aws.Kendra.DataSource("example", new()
     ///     {
-    ///         IndexId = exampleAwsKendraIndex.Id,
-    ///         Name = "example",
-    ///         Type = "WEBCRAWLER",
-    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         Configuration = new Aws.Kendra.Inputs.DataSourceConfigurationArgs
     ///         {
     ///             WebCrawlerConfiguration = new Aws.Kendra.Inputs.DataSourceConfigurationWebCrawlerConfigurationArgs
     ///             {
-    ///                 CrawlDepth = 3,
     ///                 Urls = new Aws.Kendra.Inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs
     ///                 {
     ///                     SeedUrlConfiguration = new Aws.Kendra.Inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs
@@ -347,8 +342,13 @@ namespace Pulumi.Aws.Kendra
     ///                         },
     ///                     },
     ///                 },
+    ///                 CrawlDepth = 3,
     ///             },
     ///         },
+    ///         IndexId = exampleAwsKendraIndex.Id,
+    ///         Name = "example",
+    ///         Type = "WEBCRAWLER",
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });
@@ -366,15 +366,10 @@ namespace Pulumi.Aws.Kendra
     /// {
     ///     var example = new Aws.Kendra.DataSource("example", new()
     ///     {
-    ///         IndexId = exampleAwsKendraIndex.Id,
-    ///         Name = "example",
-    ///         Type = "WEBCRAWLER",
-    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         Configuration = new Aws.Kendra.Inputs.DataSourceConfigurationArgs
     ///         {
     ///             WebCrawlerConfiguration = new Aws.Kendra.Inputs.DataSourceConfigurationWebCrawlerConfigurationArgs
     ///             {
-    ///                 MaxLinksPerPage = 100,
     ///                 Urls = new Aws.Kendra.Inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs
     ///                 {
     ///                     SeedUrlConfiguration = new Aws.Kendra.Inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs
@@ -385,8 +380,13 @@ namespace Pulumi.Aws.Kendra
     ///                         },
     ///                     },
     ///                 },
+    ///                 MaxLinksPerPage = 100,
     ///             },
     ///         },
+    ///         IndexId = exampleAwsKendraIndex.Id,
+    ///         Name = "example",
+    ///         Type = "WEBCRAWLER",
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });
@@ -404,15 +404,10 @@ namespace Pulumi.Aws.Kendra
     /// {
     ///     var example = new Aws.Kendra.DataSource("example", new()
     ///     {
-    ///         IndexId = exampleAwsKendraIndex.Id,
-    ///         Name = "example",
-    ///         Type = "WEBCRAWLER",
-    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         Configuration = new Aws.Kendra.Inputs.DataSourceConfigurationArgs
     ///         {
     ///             WebCrawlerConfiguration = new Aws.Kendra.Inputs.DataSourceConfigurationWebCrawlerConfigurationArgs
     ///             {
-    ///                 MaxUrlsPerMinuteCrawlRate = 300,
     ///                 Urls = new Aws.Kendra.Inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs
     ///                 {
     ///                     SeedUrlConfiguration = new Aws.Kendra.Inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs
@@ -423,8 +418,13 @@ namespace Pulumi.Aws.Kendra
     ///                         },
     ///                     },
     ///                 },
+    ///                 MaxUrlsPerMinuteCrawlRate = 300,
     ///             },
     ///         },
+    ///         IndexId = exampleAwsKendraIndex.Id,
+    ///         Name = "example",
+    ///         Type = "WEBCRAWLER",
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });
@@ -442,10 +442,6 @@ namespace Pulumi.Aws.Kendra
     /// {
     ///     var example = new Aws.Kendra.DataSource("example", new()
     ///     {
-    ///         IndexId = exampleAwsKendraIndex.Id,
-    ///         Name = "example",
-    ///         Type = "WEBCRAWLER",
-    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         Configuration = new Aws.Kendra.Inputs.DataSourceConfigurationArgs
     ///         {
     ///             WebCrawlerConfiguration = new Aws.Kendra.Inputs.DataSourceConfigurationWebCrawlerConfigurationArgs
@@ -468,6 +464,10 @@ namespace Pulumi.Aws.Kendra
     ///                 },
     ///             },
     ///         },
+    ///         IndexId = exampleAwsKendraIndex.Id,
+    ///         Name = "example",
+    ///         Type = "WEBCRAWLER",
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -491,22 +491,10 @@ namespace Pulumi.Aws.Kendra
     /// {
     ///     var example = new Aws.Kendra.DataSource("example", new()
     ///     {
-    ///         IndexId = exampleAwsKendraIndex.Id,
-    ///         Name = "example",
-    ///         Type = "WEBCRAWLER",
-    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         Configuration = new Aws.Kendra.Inputs.DataSourceConfigurationArgs
     ///         {
     ///             WebCrawlerConfiguration = new Aws.Kendra.Inputs.DataSourceConfigurationWebCrawlerConfigurationArgs
     ///             {
-    ///                 UrlExclusionPatterns = new[]
-    ///                 {
-    ///                     "example",
-    ///                 },
-    ///                 UrlInclusionPatterns = new[]
-    ///                 {
-    ///                     "hello",
-    ///                 },
     ///                 Urls = new Aws.Kendra.Inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs
     ///                 {
     ///                     SeedUrlConfiguration = new Aws.Kendra.Inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs
@@ -517,8 +505,20 @@ namespace Pulumi.Aws.Kendra
     ///                         },
     ///                     },
     ///                 },
+    ///                 UrlExclusionPatterns = new[]
+    ///                 {
+    ///                     "example",
+    ///                 },
+    ///                 UrlInclusionPatterns = new[]
+    ///                 {
+    ///                     "hello",
+    ///                 },
     ///             },
     ///         },
+    ///         IndexId = exampleAwsKendraIndex.Id,
+    ///         Name = "example",
+    ///         Type = "WEBCRAWLER",
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });
@@ -537,10 +537,6 @@ namespace Pulumi.Aws.Kendra
     /// {
     ///     var example = new Aws.Kendra.DataSource("example", new()
     ///     {
-    ///         IndexId = exampleAwsKendraIndex.Id,
-    ///         Name = "example",
-    ///         Type = "TEMPLATE",
-    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         Configuration = new Aws.Kendra.Inputs.DataSourceConfigurationArgs
     ///         {
     ///             TemplateConfiguration = new Aws.Kendra.Inputs.DataSourceConfigurationTemplateConfigurationArgs
@@ -573,6 +569,10 @@ namespace Pulumi.Aws.Kendra
     ///                 }),
     ///             },
     ///         },
+    ///         IndexId = exampleAwsKendraIndex.Id,
+    ///         Name = "example",
+    ///         Type = "TEMPLATE",
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });

@@ -306,12 +306,12 @@ class ConnectionFunction(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudfront.ConnectionFunction("example",
-            name="example-connection-function",
-            connection_function_code="function handler(event) { return event.request; }",
             connection_function_config={
                 "runtime": "cloudfront-js-2.0",
                 "comment": "Example connection function",
-            })
+            },
+            name="example-connection-function",
+            connection_function_code="function handler(event) { return event.request; }")
         ```
 
         ### With Publish Enabled
@@ -321,12 +321,12 @@ class ConnectionFunction(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudfront.ConnectionFunction("example",
-            name="example-connection-function",
-            connection_function_code="function handler(event) { return event.request; }",
             connection_function_config={
                 "runtime": "cloudfront-js-2.0",
                 "comment": "Example connection function",
             },
+            name="example-connection-function",
+            connection_function_code="function handler(event) { return event.request; }",
             publish=True)
         ```
 
@@ -340,15 +340,15 @@ class ConnectionFunction(pulumi.CustomResource):
             name="example-kvs",
             comment="Example key value store")
         example_connection_function = aws.cloudfront.ConnectionFunction("example",
-            name="example-connection-function",
-            connection_function_code="function handler(event) { return event.request; }",
             connection_function_config={
-                "runtime": "cloudfront-js-2.0",
-                "comment": "Example connection function",
                 "key_value_store_association": {
                     "key_value_store_arn": example.arn,
                 },
-            })
+                "runtime": "cloudfront-js-2.0",
+                "comment": "Example connection function",
+            },
+            name="example-connection-function",
+            connection_function_code="function handler(event) { return event.request; }")
         ```
 
         ### With Tags
@@ -358,12 +358,12 @@ class ConnectionFunction(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudfront.ConnectionFunction("example",
-            name="example-connection-function",
-            connection_function_code="function handler(event) { return event.request; }",
             connection_function_config={
                 "runtime": "cloudfront-js-2.0",
                 "comment": "Example connection function",
             },
+            name="example-connection-function",
+            connection_function_code="function handler(event) { return event.request; }",
             tags={
                 "Environment": "production",
                 "Team": "web",
@@ -407,12 +407,12 @@ class ConnectionFunction(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudfront.ConnectionFunction("example",
-            name="example-connection-function",
-            connection_function_code="function handler(event) { return event.request; }",
             connection_function_config={
                 "runtime": "cloudfront-js-2.0",
                 "comment": "Example connection function",
-            })
+            },
+            name="example-connection-function",
+            connection_function_code="function handler(event) { return event.request; }")
         ```
 
         ### With Publish Enabled
@@ -422,12 +422,12 @@ class ConnectionFunction(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudfront.ConnectionFunction("example",
-            name="example-connection-function",
-            connection_function_code="function handler(event) { return event.request; }",
             connection_function_config={
                 "runtime": "cloudfront-js-2.0",
                 "comment": "Example connection function",
             },
+            name="example-connection-function",
+            connection_function_code="function handler(event) { return event.request; }",
             publish=True)
         ```
 
@@ -441,15 +441,15 @@ class ConnectionFunction(pulumi.CustomResource):
             name="example-kvs",
             comment="Example key value store")
         example_connection_function = aws.cloudfront.ConnectionFunction("example",
-            name="example-connection-function",
-            connection_function_code="function handler(event) { return event.request; }",
             connection_function_config={
-                "runtime": "cloudfront-js-2.0",
-                "comment": "Example connection function",
                 "key_value_store_association": {
                     "key_value_store_arn": example.arn,
                 },
-            })
+                "runtime": "cloudfront-js-2.0",
+                "comment": "Example connection function",
+            },
+            name="example-connection-function",
+            connection_function_code="function handler(event) { return event.request; }")
         ```
 
         ### With Tags
@@ -459,12 +459,12 @@ class ConnectionFunction(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudfront.ConnectionFunction("example",
-            name="example-connection-function",
-            connection_function_code="function handler(event) { return event.request; }",
             connection_function_config={
                 "runtime": "cloudfront-js-2.0",
                 "comment": "Example connection function",
             },
+            name="example-connection-function",
+            connection_function_code="function handler(event) { return event.request; }",
             tags={
                 "Environment": "production",
                 "Team": "web",

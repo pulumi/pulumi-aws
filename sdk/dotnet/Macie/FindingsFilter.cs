@@ -26,10 +26,6 @@ namespace Pulumi.Aws.Macie
     /// 
     ///     var test = new Aws.Macie.FindingsFilter("test", new()
     ///     {
-    ///         Name = "NAME OF THE FINDINGS FILTER",
-    ///         Description = "DESCRIPTION",
-    ///         Position = 1,
-    ///         Action = "ARCHIVE",
     ///         FindingCriteria = new Aws.Macie.Inputs.FindingsFilterFindingCriteriaArgs
     ///         {
     ///             Criterions = new[]
@@ -44,6 +40,10 @@ namespace Pulumi.Aws.Macie
     ///                 },
     ///             },
     ///         },
+    ///         Name = "NAME OF THE FINDINGS FILTER",
+    ///         Description = "DESCRIPTION",
+    ///         Position = 1,
+    ///         Action = "ARCHIVE",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

@@ -30,11 +30,11 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ebs.NewSnapshotImport(ctx, "example", &ebs.SnapshotImportArgs{
 //				DiskContainer: &ebs.SnapshotImportDiskContainerArgs{
-//					Format: pulumi.String("VHD"),
 //					UserBucket: &ebs.SnapshotImportDiskContainerUserBucketArgs{
 //						S3Bucket: pulumi.String("disk-images"),
 //						S3Key:    pulumi.String("source.vhd"),
 //					},
+//					Format: pulumi.String("VHD"),
 //				},
 //				RoleName: pulumi.String("disk-image-import"),
 //				Tags: pulumi.StringMap{

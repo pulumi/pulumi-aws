@@ -720,8 +720,6 @@ class Domain(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.route53domains.Domain("example",
-            domain_name="example.com",
-            auto_renew=False,
             admin_contact={
                 "address_line1": "101 Main Street",
                 "city": "San Francisco",
@@ -764,6 +762,8 @@ class Domain(pulumi.CustomResource):
                 "state": "CA",
                 "zip_code": "94105",
             },
+            domain_name="example.com",
+            auto_renew=False,
             tags={
                 "Environment": "test",
             })
@@ -813,8 +813,6 @@ class Domain(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.route53domains.Domain("example",
-            domain_name="example.com",
-            auto_renew=False,
             admin_contact={
                 "address_line1": "101 Main Street",
                 "city": "San Francisco",
@@ -857,6 +855,8 @@ class Domain(pulumi.CustomResource):
                 "state": "CA",
                 "zip_code": "94105",
             },
+            domain_name="example.com",
+            auto_renew=False,
             tags={
                 "Environment": "test",
             })

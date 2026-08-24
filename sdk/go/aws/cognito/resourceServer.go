@@ -71,14 +71,14 @@ import (
 //				return err
 //			}
 //			_, err = cognito.NewResourceServer(ctx, "resource", &cognito.ResourceServerArgs{
-//				Identifier: pulumi.String("https://example.com"),
-//				Name:       pulumi.String("example"),
 //				Scopes: cognito.ResourceServerScopeArray{
 //					&cognito.ResourceServerScopeArgs{
 //						ScopeName:        pulumi.String("sample-scope"),
 //						ScopeDescription: pulumi.String("a Sample Scope Description"),
 //					},
 //				},
+//				Identifier: pulumi.String("https://example.com"),
+//				Name:       pulumi.String("example"),
 //				UserPoolId: pool.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {

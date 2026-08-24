@@ -38,10 +38,8 @@ namespace Pulumi.Aws.ServiceDiscovery
     /// 
     ///     var exampleService = new Aws.ServiceDiscovery.Service("example", new()
     ///     {
-    ///         Name = "example",
     ///         DnsConfig = new Aws.ServiceDiscovery.Inputs.ServiceDnsConfigArgs
     ///         {
-    ///             NamespaceId = examplePrivateDnsNamespace.Id,
     ///             DnsRecords = new[]
     ///             {
     ///                 new Aws.ServiceDiscovery.Inputs.ServiceDnsConfigDnsRecordArgs
@@ -50,12 +48,14 @@ namespace Pulumi.Aws.ServiceDiscovery
     ///                     Type = "A",
     ///                 },
     ///             },
+    ///             NamespaceId = examplePrivateDnsNamespace.Id,
     ///             RoutingPolicy = "MULTIVALUE",
     ///         },
     ///         HealthCheckConfig = new Aws.ServiceDiscovery.Inputs.ServiceHealthCheckConfigArgs
     ///         {
     ///             FailureThreshold = 1,
     ///         },
+    ///         Name = "example",
     ///     });
     /// 
     /// });
@@ -77,10 +77,8 @@ namespace Pulumi.Aws.ServiceDiscovery
     /// 
     ///     var exampleService = new Aws.ServiceDiscovery.Service("example", new()
     ///     {
-    ///         Name = "example",
     ///         DnsConfig = new Aws.ServiceDiscovery.Inputs.ServiceDnsConfigArgs
     ///         {
-    ///             NamespaceId = example.Id,
     ///             DnsRecords = new[]
     ///             {
     ///                 new Aws.ServiceDiscovery.Inputs.ServiceDnsConfigDnsRecordArgs
@@ -89,6 +87,7 @@ namespace Pulumi.Aws.ServiceDiscovery
     ///                     Type = "A",
     ///                 },
     ///             },
+    ///             NamespaceId = example.Id,
     ///         },
     ///         HealthCheckConfig = new Aws.ServiceDiscovery.Inputs.ServiceHealthCheckConfigArgs
     ///         {
@@ -96,6 +95,7 @@ namespace Pulumi.Aws.ServiceDiscovery
     ///             ResourcePath = "path",
     ///             Type = "HTTP",
     ///         },
+    ///         Name = "example",
     ///     });
     /// 
     /// });

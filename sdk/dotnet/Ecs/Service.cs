@@ -28,19 +28,6 @@ namespace Pulumi.Aws.Ecs
     /// {
     ///     var mongo = new Aws.Ecs.Service("mongo", new()
     ///     {
-    ///         Name = "mongodb",
-    ///         Cluster = fooAwsEcsCluster.Id,
-    ///         TaskDefinition = mongoAwsEcsTaskDefinition.Arn,
-    ///         DesiredCount = 3,
-    ///         IamRole = fooAwsIamRole.Arn,
-    ///         OrderedPlacementStrategies = new[]
-    ///         {
-    ///             new Aws.Ecs.Inputs.ServiceOrderedPlacementStrategyArgs
-    ///             {
-    ///                 Type = "binpack",
-    ///                 Field = "cpu",
-    ///             },
-    ///         },
     ///         LoadBalancers = new[]
     ///         {
     ///             new Aws.Ecs.Inputs.ServiceLoadBalancerArgs
@@ -48,6 +35,14 @@ namespace Pulumi.Aws.Ecs
     ///                 TargetGroupArn = fooAwsLbTargetGroup.Arn,
     ///                 ContainerName = "mongo",
     ///                 ContainerPort = 8080,
+    ///             },
+    ///         },
+    ///         OrderedPlacementStrategies = new[]
+    ///         {
+    ///             new Aws.Ecs.Inputs.ServiceOrderedPlacementStrategyArgs
+    ///             {
+    ///                 Type = "binpack",
+    ///                 Field = "cpu",
     ///             },
     ///         },
     ///         PlacementConstraints = new[]
@@ -58,6 +53,11 @@ namespace Pulumi.Aws.Ecs
     ///                 Expression = "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]",
     ///             },
     ///         },
+    ///         Name = "mongodb",
+    ///         Cluster = fooAwsEcsCluster.Id,
+    ///         TaskDefinition = mongoAwsEcsTaskDefinition.Arn,
+    ///         DesiredCount = 3,
+    ///         IamRole = fooAwsIamRole.Arn,
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -84,6 +84,12 @@ namespace Pulumi.Aws.Ecs
     ///     var example = new Aws.Ecs.Service("example", new()
     ///     {
     ///         DesiredCount = 2,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
+    ///         {
+    ///             "desiredCount",
+    ///         },
     ///     });
     /// 
     /// });
@@ -122,8 +128,6 @@ namespace Pulumi.Aws.Ecs
     /// {
     ///     var example = new Aws.Ecs.Service("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Cluster = exampleAwsEcsCluster.Id,
     ///         Alarms = new Aws.Ecs.Inputs.ServiceAlarmsArgs
     ///         {
     ///             Enable = true,
@@ -133,6 +137,8 @@ namespace Pulumi.Aws.Ecs
     ///                 exampleAwsCloudwatchMetricAlarm.AlarmName,
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         Cluster = exampleAwsEcsCluster.Id,
     ///     });
     /// 
     /// });
@@ -150,12 +156,12 @@ namespace Pulumi.Aws.Ecs
     /// {
     ///     var example = new Aws.Ecs.Service("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Cluster = exampleAwsEcsCluster.Id,
     ///         DeploymentController = new Aws.Ecs.Inputs.ServiceDeploymentControllerArgs
     ///         {
     ///             Type = "EXTERNAL",
     ///         },
+    ///         Name = "example",
+    ///         Cluster = exampleAwsEcsCluster.Id,
     ///     });
     /// 
     /// });
@@ -173,12 +179,12 @@ namespace Pulumi.Aws.Ecs
     /// {
     ///     var example = new Aws.Ecs.Service("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Cluster = exampleAwsEcsCluster.Id,
     ///         DeploymentConfiguration = new Aws.Ecs.Inputs.ServiceDeploymentConfigurationArgs
     ///         {
     ///             Strategy = "BLUE_GREEN",
     ///         },
+    ///         Name = "example",
+    ///         Cluster = exampleAwsEcsCluster.Id,
     ///         SigintRollback = true,
     ///         WaitForSteadyState = true,
     ///     });
@@ -198,18 +204,18 @@ namespace Pulumi.Aws.Ecs
     /// {
     ///     var example = new Aws.Ecs.Service("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Cluster = exampleAwsEcsCluster.Id,
     ///         DeploymentConfiguration = new Aws.Ecs.Inputs.ServiceDeploymentConfigurationArgs
     ///         {
-    ///             Strategy = "LINEAR",
-    ///             BakeTimeInMinutes = "10",
     ///             LinearConfiguration = new Aws.Ecs.Inputs.ServiceDeploymentConfigurationLinearConfigurationArgs
     ///             {
     ///                 StepPercent = 25,
     ///                 StepBakeTimeInMinutes = "5",
     ///             },
+    ///             Strategy = "LINEAR",
+    ///             BakeTimeInMinutes = "10",
     ///         },
+    ///         Name = "example",
+    ///         Cluster = exampleAwsEcsCluster.Id,
     ///     });
     /// 
     /// });
@@ -227,18 +233,18 @@ namespace Pulumi.Aws.Ecs
     /// {
     ///     var example = new Aws.Ecs.Service("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Cluster = exampleAwsEcsCluster.Id,
     ///         DeploymentConfiguration = new Aws.Ecs.Inputs.ServiceDeploymentConfigurationArgs
     ///         {
-    ///             Strategy = "CANARY",
-    ///             BakeTimeInMinutes = "15",
     ///             CanaryConfiguration = new Aws.Ecs.Inputs.ServiceDeploymentConfigurationCanaryConfigurationArgs
     ///             {
     ///                 CanaryPercent = 10,
     ///                 CanaryBakeTimeInMinutes = "5",
     ///             },
+    ///             Strategy = "CANARY",
+    ///             BakeTimeInMinutes = "15",
     ///         },
+    ///         Name = "example",
+    ///         Cluster = exampleAwsEcsCluster.Id,
     ///     });
     /// 
     /// });
@@ -287,14 +293,8 @@ namespace Pulumi.Aws.Ecs
     /// 
     ///     var example = new Aws.Ecs.Service("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Cluster = exampleAwsEcsCluster.Id,
-    ///         TaskDefinition = exampleAwsEcsTaskDefinition.Arn,
-    ///         DesiredCount = 1,
     ///         ServiceConnectConfiguration = new Aws.Ecs.Inputs.ServiceServiceConnectConfigurationArgs
     ///         {
-    ///             Enabled = true,
-    ///             Namespace = exampleAwsServiceDiscoveryHttpNamespace.Arn,
     ///             LogConfiguration = new Aws.Ecs.Inputs.ServiceServiceConnectConfigurationLogConfigurationArgs
     ///             {
     ///                 LogDriver = "awslogs",
@@ -314,16 +314,22 @@ namespace Pulumi.Aws.Ecs
     ///             {
     ///                 new Aws.Ecs.Inputs.ServiceServiceConnectConfigurationServiceArgs
     ///                 {
-    ///                     PortName = "http",
-    ///                     DiscoveryName = "example",
     ///                     ClientAlias = 
     ///                     {
     ///                         { "dnsName", "example" },
     ///                         { "port", 8080 },
     ///                     },
+    ///                     PortName = "http",
+    ///                     DiscoveryName = "example",
     ///                 },
     ///             },
+    ///             Enabled = true,
+    ///             Namespace = exampleAwsServiceDiscoveryHttpNamespace.Arn,
     ///         },
+    ///         Name = "example",
+    ///         Cluster = exampleAwsEcsCluster.Id,
+    ///         TaskDefinition = exampleAwsEcsTaskDefinition.Arn,
+    ///         DesiredCount = 1,
     ///     });
     /// 
     /// });

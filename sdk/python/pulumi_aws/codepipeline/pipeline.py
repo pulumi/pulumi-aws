@@ -440,11 +440,11 @@ class Pipeline(pulumi.CustomResource):
             provider_type="GitHub")
         codepipeline_bucket = aws.s3.Bucket("codepipeline_bucket", bucket="test-bucket")
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["codepipeline.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         codepipeline_role = aws.iam.Role("codepipeline_role",
@@ -452,19 +452,16 @@ class Pipeline(pulumi.CustomResource):
             assume_role_policy=assume_role.json)
         s3kmskey = aws.kms.get_alias(name="alias/myKmsKey")
         codepipeline = aws.codepipeline.Pipeline("codepipeline",
-            name="tf-test-pipeline",
-            role_arn=codepipeline_role.arn,
             artifact_stores=[{
-                "location": codepipeline_bucket.bucket,
-                "type": "S3",
                 "encryption_key": {
                     "id": s3kmskey.arn,
                     "type": "KMS",
                 },
+                "location": codepipeline_bucket.bucket,
+                "type": "S3",
             }],
             stages=[
                 {
-                    "name": "Source",
                     "actions": [{
                         "name": "Source",
                         "category": "Source",
@@ -478,9 +475,9 @@ class Pipeline(pulumi.CustomResource):
                             "BranchName": "main",
                         },
                     }],
+                    "name": "Source",
                 },
                 {
-                    "name": "Build",
                     "actions": [{
                         "name": "Build",
                         "category": "Build",
@@ -493,9 +490,9 @@ class Pipeline(pulumi.CustomResource):
                             "ProjectName": "test",
                         },
                     }],
+                    "name": "Build",
                 },
                 {
-                    "name": "Deploy",
                     "actions": [{
                         "name": "Deploy",
                         "category": "Deploy",
@@ -511,8 +508,11 @@ class Pipeline(pulumi.CustomResource):
                             "TemplatePath": "build_output::sam-templated.yaml",
                         },
                     }],
+                    "name": "Deploy",
                 },
-            ])
+            ],
+            name="tf-test-pipeline",
+            role_arn=codepipeline_role.arn)
         codepipeline_bucket_pab = aws.s3.BucketPublicAccessBlock("codepipeline_bucket_pab",
             bucket=codepipeline_bucket.id,
             block_public_acls=True,
@@ -609,11 +609,11 @@ class Pipeline(pulumi.CustomResource):
             provider_type="GitHub")
         codepipeline_bucket = aws.s3.Bucket("codepipeline_bucket", bucket="test-bucket")
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["codepipeline.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         codepipeline_role = aws.iam.Role("codepipeline_role",
@@ -621,19 +621,16 @@ class Pipeline(pulumi.CustomResource):
             assume_role_policy=assume_role.json)
         s3kmskey = aws.kms.get_alias(name="alias/myKmsKey")
         codepipeline = aws.codepipeline.Pipeline("codepipeline",
-            name="tf-test-pipeline",
-            role_arn=codepipeline_role.arn,
             artifact_stores=[{
-                "location": codepipeline_bucket.bucket,
-                "type": "S3",
                 "encryption_key": {
                     "id": s3kmskey.arn,
                     "type": "KMS",
                 },
+                "location": codepipeline_bucket.bucket,
+                "type": "S3",
             }],
             stages=[
                 {
-                    "name": "Source",
                     "actions": [{
                         "name": "Source",
                         "category": "Source",
@@ -647,9 +644,9 @@ class Pipeline(pulumi.CustomResource):
                             "BranchName": "main",
                         },
                     }],
+                    "name": "Source",
                 },
                 {
-                    "name": "Build",
                     "actions": [{
                         "name": "Build",
                         "category": "Build",
@@ -662,9 +659,9 @@ class Pipeline(pulumi.CustomResource):
                             "ProjectName": "test",
                         },
                     }],
+                    "name": "Build",
                 },
                 {
-                    "name": "Deploy",
                     "actions": [{
                         "name": "Deploy",
                         "category": "Deploy",
@@ -680,8 +677,11 @@ class Pipeline(pulumi.CustomResource):
                             "TemplatePath": "build_output::sam-templated.yaml",
                         },
                     }],
+                    "name": "Deploy",
                 },
-            ])
+            ],
+            name="tf-test-pipeline",
+            role_arn=codepipeline_role.arn)
         codepipeline_bucket_pab = aws.s3.BucketPublicAccessBlock("codepipeline_bucket_pab",
             bucket=codepipeline_bucket.id,
             block_public_acls=True,

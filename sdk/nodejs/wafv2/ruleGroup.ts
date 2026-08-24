@@ -19,12 +19,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.wafv2.RuleGroup("example", {
- *     name: "example-rule",
- *     scope: "REGIONAL",
- *     capacity: 2,
+ *     visibilityConfig: {
+ *         cloudwatchMetricsEnabled: false,
+ *         metricName: "friendly-metric-name",
+ *         sampledRequestsEnabled: false,
+ *     },
  *     rules: [{
- *         name: "rule-1",
- *         priority: 1,
  *         action: {
  *             allow: {},
  *         },
@@ -41,12 +41,12 @@ import * as utilities from "../utilities";
  *             metricName: "friendly-rule-metric-name",
  *             sampledRequestsEnabled: false,
  *         },
+ *         name: "rule-1",
+ *         priority: 1,
  *     }],
- *     visibilityConfig: {
- *         cloudwatchMetricsEnabled: false,
- *         metricName: "friendly-metric-name",
- *         sampledRequestsEnabled: false,
- *     },
+ *     name: "example-rule",
+ *     scope: "REGIONAL",
+ *     capacity: 2,
  * });
  * ```
  *
@@ -66,21 +66,25 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * const testRegexPatternSet = new aws.wafv2.RegexPatternSet("test", {
- *     name: "test",
- *     scope: "REGIONAL",
  *     regularExpressions: [{
  *         regexString: "one",
  *     }],
+ *     name: "test",
+ *     scope: "REGIONAL",
  * });
  * const example = new aws.wafv2.RuleGroup("example", {
- *     name: "complex-example",
- *     description: "An rule group containing all statements",
- *     scope: "REGIONAL",
- *     capacity: 500,
+ *     visibilityConfig: {
+ *         cloudwatchMetricsEnabled: false,
+ *         metricName: "friendly-metric-name",
+ *         sampledRequestsEnabled: false,
+ *     },
+ *     captchaConfig: [{
+ *         immunityTimeProperty: [{
+ *             immunityTime: 120,
+ *         }],
+ *     }],
  *     rules: [
  *         {
- *             name: "rule-1",
- *             priority: 1,
  *             action: {
  *                 block: {},
  *             },
@@ -96,8 +100,6 @@ import * as utilities from "../utilities";
  *                                 },
  *                                 {
  *                                     byteMatchStatement: {
- *                                         positionalConstraint: "CONTAINS",
- *                                         searchString: "word",
  *                                         fieldToMatch: {
  *                                             allQueryArguments: {},
  *                                         },
@@ -111,6 +113,8 @@ import * as utilities from "../utilities";
  *                                                 type: "LOWERCASE",
  *                                             },
  *                                         ],
+ *                                         positionalConstraint: "CONTAINS",
+ *                                         searchString: "word",
  *                                     },
  *                                 },
  *                             ],
@@ -123,10 +127,10 @@ import * as utilities from "../utilities";
  *                 metricName: "rule-1",
  *                 sampledRequestsEnabled: false,
  *             },
+ *             name: "rule-1",
+ *             priority: 1,
  *         },
  *         {
- *             name: "rule-2",
- *             priority: 2,
  *             action: {
  *                 count: {},
  *             },
@@ -135,7 +139,6 @@ import * as utilities from "../utilities";
  *                     statements: [
  *                         {
  *                             regexMatchStatement: {
- *                                 regexString: "a-z?",
  *                                 fieldToMatch: {
  *                                     singleHeader: {
  *                                         name: "user-agent",
@@ -145,6 +148,7 @@ import * as utilities from "../utilities";
  *                                     priority: 6,
  *                                     type: "NONE",
  *                                 }],
+ *                                 regexString: "a-z?",
  *                             },
  *                         },
  *                         {
@@ -192,17 +196,15 @@ import * as utilities from "../utilities";
  *                     immunityTime: 240,
  *                 },
  *             },
+ *             name: "rule-2",
+ *             priority: 2,
  *         },
  *         {
- *             name: "rule-3",
- *             priority: 3,
  *             action: {
  *                 block: {},
  *             },
  *             statement: {
  *                 sizeConstraintStatement: {
- *                     comparisonOperator: "GT",
- *                     size: 100,
  *                     fieldToMatch: {
  *                         singleQueryArgument: {
  *                             name: "username",
@@ -212,6 +214,8 @@ import * as utilities from "../utilities";
  *                         priority: 5,
  *                         type: "NONE",
  *                     }],
+ *                     comparisonOperator: "GT",
+ *                     size: 100,
  *                 },
  *             },
  *             visibilityConfig: {
@@ -219,10 +223,10 @@ import * as utilities from "../utilities";
  *                 metricName: "rule-3",
  *                 sampledRequestsEnabled: false,
  *             },
+ *             name: "rule-3",
+ *             priority: 3,
  *         },
  *         {
- *             name: "rule-4",
- *             priority: 4,
  *             action: {
  *                 block: {},
  *             },
@@ -236,7 +240,6 @@ import * as utilities from "../utilities";
  *                         },
  *                         {
  *                             regexPatternSetReferenceStatement: {
- *                                 arn: testRegexPatternSet.arn,
  *                                 fieldToMatch: {
  *                                     singleHeader: {
  *                                         name: "referer",
@@ -246,6 +249,7 @@ import * as utilities from "../utilities";
  *                                     priority: 2,
  *                                     type: "NONE",
  *                                 }],
+ *                                 arn: testRegexPatternSet.arn,
  *                             },
  *                         },
  *                     ],
@@ -256,18 +260,14 @@ import * as utilities from "../utilities";
  *                 metricName: "rule-4",
  *                 sampledRequestsEnabled: false,
  *             },
+ *             name: "rule-4",
+ *             priority: 4,
  *         },
  *     ],
- *     visibilityConfig: {
- *         cloudwatchMetricsEnabled: false,
- *         metricName: "friendly-metric-name",
- *         sampledRequestsEnabled: false,
- *     },
- *     captchaConfig: [{
- *         immunityTimeProperty: [{
- *             immunityTime: 120,
- *         }],
- *     }],
+ *     name: "complex-example",
+ *     description: "An rule group containing all statements",
+ *     scope: "REGIONAL",
+ *     capacity: 500,
  *     tags: {
  *         Name: "example-and-statement",
  *         Code: "123456",
@@ -282,6 +282,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.wafv2.RuleGroup("example", {
+ *     visibilityConfig: {
+ *         cloudwatchMetricsEnabled: false,
+ *         metricName: "friendly-metric-name",
+ *         sampledRequestsEnabled: false,
+ *     },
  *     name: "example-rule-group",
  *     scope: "REGIONAL",
  *     capacity: 100,
@@ -310,11 +315,6 @@ import * as utilities from "../utilities";
  *             SampledRequestsEnabled: false,
  *         },
  *     }]),
- *     visibilityConfig: {
- *         cloudwatchMetricsEnabled: false,
- *         metricName: "friendly-metric-name",
- *         sampledRequestsEnabled: false,
- *     },
  * });
  * ```
  *

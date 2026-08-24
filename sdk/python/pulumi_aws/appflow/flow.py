@@ -428,12 +428,12 @@ class Flow(pulumi.CustomResource):
 
         example_source_bucket = aws.s3.Bucket("example_source", bucket="example-source")
         example_source = aws.iam.get_policy_document(statements=[{
-            "sid": "AllowAppFlowSourceActions",
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["appflow.amazonaws.com"],
             }],
+            "sid": "AllowAppFlowSourceActions",
+            "effect": "Allow",
             "actions": [
                 "s3:ListBucket",
                 "s3:GetObject",
@@ -452,12 +452,12 @@ class Flow(pulumi.CustomResource):
             source=pulumi.FileAsset("example_source.csv"))
         example_destination_bucket = aws.s3.Bucket("example_destination", bucket="example-destination")
         example_destination = aws.iam.get_policy_document(statements=[{
-            "sid": "AllowAppFlowDestinationActions",
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["appflow.amazonaws.com"],
             }],
+            "sid": "AllowAppFlowDestinationActions",
+            "effect": "Allow",
             "actions": [
                 "s3:PutObject",
                 "s3:AbortMultipartUpload",
@@ -475,40 +475,40 @@ class Flow(pulumi.CustomResource):
             bucket=example_destination_bucket.id,
             policy=example_destination.json)
         example_flow = aws.appflow.Flow("example",
-            name="example",
             source_flow_config={
-                "connector_type": "S3",
                 "source_connector_properties": {
                     "s3": {
                         "bucket_name": example_source_bucket_policy.bucket,
                         "bucket_prefix": "example",
                     },
                 },
+                "connector_type": "S3",
+            },
+            trigger_config={
+                "trigger_type": "OnDemand",
             },
             destination_flow_configs=[{
-                "connector_type": "S3",
                 "destination_connector_properties": {
                     "s3": {
-                        "bucket_name": example_destination_bucket_policy.bucket,
                         "s3_output_format_config": {
                             "prefix_config": {
                                 "prefix_type": "PATH",
                             },
                         },
+                        "bucket_name": example_destination_bucket_policy.bucket,
                     },
                 },
+                "connector_type": "S3",
             }],
             tasks=[{
-                "source_fields": ["exampleField"],
-                "destination_field": "exampleField",
-                "task_type": "Map",
                 "connector_operators": [{
                     "s3": "NO_OP",
                 }],
+                "source_fields": ["exampleField"],
+                "destination_field": "exampleField",
+                "task_type": "Map",
             }],
-            trigger_config={
-                "trigger_type": "OnDemand",
-            })
+            name="example")
         ```
 
         ## Import
@@ -561,12 +561,12 @@ class Flow(pulumi.CustomResource):
 
         example_source_bucket = aws.s3.Bucket("example_source", bucket="example-source")
         example_source = aws.iam.get_policy_document(statements=[{
-            "sid": "AllowAppFlowSourceActions",
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["appflow.amazonaws.com"],
             }],
+            "sid": "AllowAppFlowSourceActions",
+            "effect": "Allow",
             "actions": [
                 "s3:ListBucket",
                 "s3:GetObject",
@@ -585,12 +585,12 @@ class Flow(pulumi.CustomResource):
             source=pulumi.FileAsset("example_source.csv"))
         example_destination_bucket = aws.s3.Bucket("example_destination", bucket="example-destination")
         example_destination = aws.iam.get_policy_document(statements=[{
-            "sid": "AllowAppFlowDestinationActions",
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["appflow.amazonaws.com"],
             }],
+            "sid": "AllowAppFlowDestinationActions",
+            "effect": "Allow",
             "actions": [
                 "s3:PutObject",
                 "s3:AbortMultipartUpload",
@@ -608,40 +608,40 @@ class Flow(pulumi.CustomResource):
             bucket=example_destination_bucket.id,
             policy=example_destination.json)
         example_flow = aws.appflow.Flow("example",
-            name="example",
             source_flow_config={
-                "connector_type": "S3",
                 "source_connector_properties": {
                     "s3": {
                         "bucket_name": example_source_bucket_policy.bucket,
                         "bucket_prefix": "example",
                     },
                 },
+                "connector_type": "S3",
+            },
+            trigger_config={
+                "trigger_type": "OnDemand",
             },
             destination_flow_configs=[{
-                "connector_type": "S3",
                 "destination_connector_properties": {
                     "s3": {
-                        "bucket_name": example_destination_bucket_policy.bucket,
                         "s3_output_format_config": {
                             "prefix_config": {
                                 "prefix_type": "PATH",
                             },
                         },
+                        "bucket_name": example_destination_bucket_policy.bucket,
                     },
                 },
+                "connector_type": "S3",
             }],
             tasks=[{
-                "source_fields": ["exampleField"],
-                "destination_field": "exampleField",
-                "task_type": "Map",
                 "connector_operators": [{
                     "s3": "NO_OP",
                 }],
+                "source_fields": ["exampleField"],
+                "destination_field": "exampleField",
+                "task_type": "Map",
             }],
-            trigger_config={
-                "trigger_type": "OnDemand",
-            })
+            name="example")
         ```
 
         ## Import

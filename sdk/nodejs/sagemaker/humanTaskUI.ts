@@ -18,12 +18,12 @@ import * as utilities from "../utilities";
  * import * as std from "@pulumi/std";
  *
  * const example = new aws.sagemaker.HumanTaskUI("example", {
- *     humanTaskUiName: "example",
  *     uiTemplate: {
  *         content: std.file({
  *             input: "sagemaker-human-task-ui-template.html",
  *         }).then(invoke => invoke.result),
  *     },
+ *     humanTaskUiName: "example",
  * });
  * ```
  *

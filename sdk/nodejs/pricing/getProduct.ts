@@ -18,7 +18,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.pricing.getProduct({
- *     serviceCode: "AmazonEC2",
  *     filters: [
  *         {
  *             field: "instanceType",
@@ -49,6 +48,7 @@ import * as utilities from "../utilities";
  *             value: "Used",
  *         },
  *     ],
+ *     serviceCode: "AmazonEC2",
  * });
  * ```
  *
@@ -57,7 +57,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.pricing.getProduct({
- *     serviceCode: "AmazonRedshift",
  *     filters: [
  *         {
  *             field: "instanceType",
@@ -68,6 +67,7 @@ import * as utilities from "../utilities";
  *             value: "US East (N. Virginia)",
  *         },
  *     ],
+ *     serviceCode: "AmazonRedshift",
  * });
  * ```
  */
@@ -119,7 +119,6 @@ export interface GetProductResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.pricing.getProduct({
- *     serviceCode: "AmazonEC2",
  *     filters: [
  *         {
  *             field: "instanceType",
@@ -150,6 +149,7 @@ export interface GetProductResult {
  *             value: "Used",
  *         },
  *     ],
+ *     serviceCode: "AmazonEC2",
  * });
  * ```
  *
@@ -158,7 +158,6 @@ export interface GetProductResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.pricing.getProduct({
- *     serviceCode: "AmazonRedshift",
  *     filters: [
  *         {
  *             field: "instanceType",
@@ -169,6 +168,7 @@ export interface GetProductResult {
  *             value: "US East (N. Virginia)",
  *         },
  *     ],
+ *     serviceCode: "AmazonRedshift",
  * });
  * ```
  */

@@ -99,11 +99,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var test = new Repository("test", RepositoryArgs.builder()
- *             .repository("example")
- *             .domain(example.domain())
  *             .upstreams(RepositoryUpstreamArgs.builder()
  *                 .repositoryName(upstream.repository())
  *                 .build())
+ *             .repository("example")
+ *             .domain(example.domain())
  *             .build());
  * 
  *     }
@@ -142,11 +142,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var test = new Repository("test", RepositoryArgs.builder()
- *             .repository("example")
- *             .domain(example.domain())
  *             .externalConnections(RepositoryExternalConnectionsArgs.builder()
  *                 .externalConnectionName("public:npmjs")
  *                 .build())
+ *             .repository("example")
+ *             .domain(example.domain())
  *             .build());
  * 
  *     }

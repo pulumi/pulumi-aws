@@ -593,12 +593,12 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
         import pulumi_aws as aws
 
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["bedrock-agentcore.amazonaws.com"],
             }],
+            "effect": "Allow",
+            "actions": ["sts:AssumeRole"],
         }])
         ecr_permissions = aws.iam.get_policy_document(statements=[
             {
@@ -622,8 +622,6 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
             role=example.id,
             policy=ecr_permissions.json)
         example_agentcore_agent_runtime = aws.bedrock.AgentcoreAgentRuntime("example",
-            agent_runtime_name="example_agent_runtime",
-            role_arn=example.arn,
             agent_runtime_artifact={
                 "container_configuration": {
                     "container_uri": f"{example_aws_ecr_repository['repositoryUrl']}:latest",
@@ -631,7 +629,9 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
             },
             network_configuration={
                 "network_mode": "PUBLIC",
-            })
+            },
+            agent_runtime_name="example_agent_runtime",
+            role_arn=example.arn)
         ```
 
         ### MCP Server With Custom JWT Authorizer
@@ -641,17 +641,10 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentcoreAgentRuntime("example",
-            agent_runtime_name="example_agent_runtime",
-            description="Agent runtime with JWT authorization",
-            role_arn=example_aws_iam_role["arn"],
             agent_runtime_artifact={
                 "container_configuration": {
                     "container_uri": f"{example_aws_ecr_repository['repositoryUrl']}:v1.0",
                 },
-            },
-            environment_variables={
-                "LOG_LEVEL": "INFO",
-                "ENV": "production",
             },
             authorizer_configuration={
                 "custom_jwt_authorizer": {
@@ -675,6 +668,13 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
             },
             protocol_configuration={
                 "server_protocol": "MCP",
+            },
+            agent_runtime_name="example_agent_runtime",
+            description="Agent runtime with JWT authorization",
+            role_arn=example_aws_iam_role["arn"],
+            environment_variables={
+                "LOG_LEVEL": "INFO",
+                "ENV": "production",
             })
         ```
 
@@ -685,9 +685,6 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentcoreAgentRuntime("example",
-            agent_runtime_name="example_agui_runtime",
-            description="Agent runtime with AG-UI protocol",
-            role_arn=example_aws_iam_role["arn"],
             agent_runtime_artifact={
                 "container_configuration": {
                     "container_uri": f"{example_aws_ecr_repository['repositoryUrl']}:latest",
@@ -698,7 +695,10 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
             },
             protocol_configuration={
                 "server_protocol": "AGUI",
-            })
+            },
+            agent_runtime_name="example_agui_runtime",
+            description="Agent runtime with AG-UI protocol",
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         ### Agent runtime artifact from S3 with Code Configuration
@@ -708,23 +708,23 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentcoreAgentRuntime("example",
-            agent_runtime_name="example_agent_runtime",
-            role_arn=example_aws_iam_role["arn"],
             agent_runtime_artifact={
                 "code_configuration": {
-                    "entry_points": ["main.py"],
-                    "runtime": "PYTHON_3_13",
                     "code": {
                         "s3": {
                             "bucket": "example-bucket",
                             "prefix": "example-agent-runtime-code.zip",
                         },
                     },
+                    "entry_points": ["main.py"],
+                    "runtime": "PYTHON_3_13",
                 },
             },
             network_configuration={
                 "network_mode": "PUBLIC",
-            })
+            },
+            agent_runtime_name="example_agent_runtime",
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         ## Import
@@ -772,12 +772,12 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
         import pulumi_aws as aws
 
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["bedrock-agentcore.amazonaws.com"],
             }],
+            "effect": "Allow",
+            "actions": ["sts:AssumeRole"],
         }])
         ecr_permissions = aws.iam.get_policy_document(statements=[
             {
@@ -801,8 +801,6 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
             role=example.id,
             policy=ecr_permissions.json)
         example_agentcore_agent_runtime = aws.bedrock.AgentcoreAgentRuntime("example",
-            agent_runtime_name="example_agent_runtime",
-            role_arn=example.arn,
             agent_runtime_artifact={
                 "container_configuration": {
                     "container_uri": f"{example_aws_ecr_repository['repositoryUrl']}:latest",
@@ -810,7 +808,9 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
             },
             network_configuration={
                 "network_mode": "PUBLIC",
-            })
+            },
+            agent_runtime_name="example_agent_runtime",
+            role_arn=example.arn)
         ```
 
         ### MCP Server With Custom JWT Authorizer
@@ -820,17 +820,10 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentcoreAgentRuntime("example",
-            agent_runtime_name="example_agent_runtime",
-            description="Agent runtime with JWT authorization",
-            role_arn=example_aws_iam_role["arn"],
             agent_runtime_artifact={
                 "container_configuration": {
                     "container_uri": f"{example_aws_ecr_repository['repositoryUrl']}:v1.0",
                 },
-            },
-            environment_variables={
-                "LOG_LEVEL": "INFO",
-                "ENV": "production",
             },
             authorizer_configuration={
                 "custom_jwt_authorizer": {
@@ -854,6 +847,13 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
             },
             protocol_configuration={
                 "server_protocol": "MCP",
+            },
+            agent_runtime_name="example_agent_runtime",
+            description="Agent runtime with JWT authorization",
+            role_arn=example_aws_iam_role["arn"],
+            environment_variables={
+                "LOG_LEVEL": "INFO",
+                "ENV": "production",
             })
         ```
 
@@ -864,9 +864,6 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentcoreAgentRuntime("example",
-            agent_runtime_name="example_agui_runtime",
-            description="Agent runtime with AG-UI protocol",
-            role_arn=example_aws_iam_role["arn"],
             agent_runtime_artifact={
                 "container_configuration": {
                     "container_uri": f"{example_aws_ecr_repository['repositoryUrl']}:latest",
@@ -877,7 +874,10 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
             },
             protocol_configuration={
                 "server_protocol": "AGUI",
-            })
+            },
+            agent_runtime_name="example_agui_runtime",
+            description="Agent runtime with AG-UI protocol",
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         ### Agent runtime artifact from S3 with Code Configuration
@@ -887,23 +887,23 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentcoreAgentRuntime("example",
-            agent_runtime_name="example_agent_runtime",
-            role_arn=example_aws_iam_role["arn"],
             agent_runtime_artifact={
                 "code_configuration": {
-                    "entry_points": ["main.py"],
-                    "runtime": "PYTHON_3_13",
                     "code": {
                         "s3": {
                             "bucket": "example-bucket",
                             "prefix": "example-agent-runtime-code.zip",
                         },
                     },
+                    "entry_points": ["main.py"],
+                    "runtime": "PYTHON_3_13",
                 },
             },
             network_configuration={
                 "network_mode": "PUBLIC",
-            })
+            },
+            agent_runtime_name="example_agent_runtime",
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         ## Import

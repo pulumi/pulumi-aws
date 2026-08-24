@@ -28,18 +28,16 @@ import * as utilities from "../utilities";
  *     state: "available",
  * });
  * const example = new aws.s3.DirectoryBucket("example", {
- *     bucket: "example--zoneId--x-s3",
  *     location: {
  *         name: available.then(available => available.zoneIds?.[0]),
  *     },
+ *     bucket: "example--zoneId--x-s3",
  * });
  * const exampleAccessPoint = new aws.s3.AccessPoint("example", {
  *     bucket: example.id,
  *     name: "example--zoneId--xa-s3",
  * });
  * const exampleDirectoryBucketAccessPointScope = new aws.s3control.DirectoryBucketAccessPointScope("example", {
- *     name: "example--zoneId--xa-s3",
- *     accountId: "123456789012",
  *     scope: {
  *         permissions: [
  *             "GetObject",
@@ -50,6 +48,8 @@ import * as utilities from "../utilities";
  *             "myobject2*",
  *         ],
  *     },
+ *     name: "example--zoneId--xa-s3",
+ *     accountId: "123456789012",
  * });
  * ```
  *

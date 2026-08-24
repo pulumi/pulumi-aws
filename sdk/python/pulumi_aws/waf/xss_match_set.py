@@ -135,21 +135,21 @@ class XssMatchSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         xss_match_set = aws.waf.XssMatchSet("xss_match_set",
-            name="xss_match_set",
             xss_match_tuples=[
                 {
-                    "text_transformation": "NONE",
                     "field_to_match": {
                         "type": "URI",
                     },
+                    "text_transformation": "NONE",
                 },
                 {
-                    "text_transformation": "NONE",
                     "field_to_match": {
                         "type": "QUERY_STRING",
                     },
+                    "text_transformation": "NONE",
                 },
-            ])
+            ],
+            name="xss_match_set")
         ```
 
         ## Import
@@ -182,21 +182,21 @@ class XssMatchSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         xss_match_set = aws.waf.XssMatchSet("xss_match_set",
-            name="xss_match_set",
             xss_match_tuples=[
                 {
-                    "text_transformation": "NONE",
                     "field_to_match": {
                         "type": "URI",
                     },
+                    "text_transformation": "NONE",
                 },
                 {
-                    "text_transformation": "NONE",
                     "field_to_match": {
                         "type": "QUERY_STRING",
                     },
+                    "text_transformation": "NONE",
                 },
-            ])
+            ],
+            name="xss_match_set")
         ```
 
         ## Import

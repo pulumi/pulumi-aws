@@ -28,7 +28,6 @@ namespace Pulumi.Aws.Glue
         /// {
         ///     var example = Aws.Glue.GetScript.Invoke(new()
         ///     {
-        ///         Language = "PYTHON",
         ///         DagEdges = new[]
         ///         {
         ///             new Aws.Glue.Inputs.GetScriptDagEdgeInputArgs
@@ -56,8 +55,6 @@ namespace Pulumi.Aws.Glue
         ///         {
         ///             new Aws.Glue.Inputs.GetScriptDagNodeInputArgs
         ///             {
-        ///                 Id = "datasource0",
-        ///                 NodeType = "DataSource",
         ///                 Args = new[]
         ///                 {
         ///                     new Aws.Glue.Inputs.GetScriptDagNodeArgInputArgs
@@ -71,11 +68,11 @@ namespace Pulumi.Aws.Glue
         ///                         Value = $"\"{sourceAwsGlueCatalogTable.Name}\"",
         ///                     },
         ///                 },
+        ///                 Id = "datasource0",
+        ///                 NodeType = "DataSource",
         ///             },
         ///             new Aws.Glue.Inputs.GetScriptDagNodeInputArgs
         ///             {
-        ///                 Id = "applymapping1",
-        ///                 NodeType = "ApplyMapping",
         ///                 Args = new[]
         ///                 {
         ///                     new Aws.Glue.Inputs.GetScriptDagNodeArgInputArgs
@@ -84,11 +81,11 @@ namespace Pulumi.Aws.Glue
         ///                         Value = "[(\"column1\", \"string\", \"column1\", \"string\")]",
         ///                     },
         ///                 },
+        ///                 Id = "applymapping1",
+        ///                 NodeType = "ApplyMapping",
         ///             },
         ///             new Aws.Glue.Inputs.GetScriptDagNodeInputArgs
         ///             {
-        ///                 Id = "selectfields2",
-        ///                 NodeType = "SelectFields",
         ///                 Args = new[]
         ///                 {
         ///                     new Aws.Glue.Inputs.GetScriptDagNodeArgInputArgs
@@ -97,11 +94,11 @@ namespace Pulumi.Aws.Glue
         ///                         Value = "[\"column1\"]",
         ///                     },
         ///                 },
+        ///                 Id = "selectfields2",
+        ///                 NodeType = "SelectFields",
         ///             },
         ///             new Aws.Glue.Inputs.GetScriptDagNodeInputArgs
         ///             {
-        ///                 Id = "resolvechoice3",
-        ///                 NodeType = "ResolveChoice",
         ///                 Args = new[]
         ///                 {
         ///                     new Aws.Glue.Inputs.GetScriptDagNodeArgInputArgs
@@ -120,11 +117,11 @@ namespace Pulumi.Aws.Glue
         ///                         Value = $"\"{destinationAwsGlueCatalogTable.Name}\"",
         ///                     },
         ///                 },
+        ///                 Id = "resolvechoice3",
+        ///                 NodeType = "ResolveChoice",
         ///             },
         ///             new Aws.Glue.Inputs.GetScriptDagNodeInputArgs
         ///             {
-        ///                 Id = "datasink4",
-        ///                 NodeType = "DataSink",
         ///                 Args = new[]
         ///                 {
         ///                     new Aws.Glue.Inputs.GetScriptDagNodeArgInputArgs
@@ -138,8 +135,11 @@ namespace Pulumi.Aws.Glue
         ///                         Value = $"\"{destinationAwsGlueCatalogTable.Name}\"",
         ///                     },
         ///                 },
+        ///                 Id = "datasink4",
+        ///                 NodeType = "DataSink",
         ///             },
         ///         },
+        ///         Language = "PYTHON",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -161,7 +161,6 @@ namespace Pulumi.Aws.Glue
         /// {
         ///     var example = Aws.Glue.GetScript.Invoke(new()
         ///     {
-        ///         Language = "SCALA",
         ///         DagEdges = new[]
         ///         {
         ///             new Aws.Glue.Inputs.GetScriptDagEdgeInputArgs
@@ -189,8 +188,6 @@ namespace Pulumi.Aws.Glue
         ///         {
         ///             new Aws.Glue.Inputs.GetScriptDagNodeInputArgs
         ///             {
-        ///                 Id = "datasource0",
-        ///                 NodeType = "DataSource",
         ///                 Args = new[]
         ///                 {
         ///                     new Aws.Glue.Inputs.GetScriptDagNodeArgInputArgs
@@ -204,11 +201,11 @@ namespace Pulumi.Aws.Glue
         ///                         Value = $"\"{sourceAwsGlueCatalogTable.Name}\"",
         ///                     },
         ///                 },
+        ///                 Id = "datasource0",
+        ///                 NodeType = "DataSource",
         ///             },
         ///             new Aws.Glue.Inputs.GetScriptDagNodeInputArgs
         ///             {
-        ///                 Id = "applymapping1",
-        ///                 NodeType = "ApplyMapping",
         ///                 Args = new[]
         ///                 {
         ///                     new Aws.Glue.Inputs.GetScriptDagNodeArgInputArgs
@@ -217,11 +214,11 @@ namespace Pulumi.Aws.Glue
         ///                         Value = "[(\"column1\", \"string\", \"column1\", \"string\")]",
         ///                     },
         ///                 },
+        ///                 Id = "applymapping1",
+        ///                 NodeType = "ApplyMapping",
         ///             },
         ///             new Aws.Glue.Inputs.GetScriptDagNodeInputArgs
         ///             {
-        ///                 Id = "selectfields2",
-        ///                 NodeType = "SelectFields",
         ///                 Args = new[]
         ///                 {
         ///                     new Aws.Glue.Inputs.GetScriptDagNodeArgInputArgs
@@ -230,11 +227,11 @@ namespace Pulumi.Aws.Glue
         ///                         Value = "[\"column1\"]",
         ///                     },
         ///                 },
+        ///                 Id = "selectfields2",
+        ///                 NodeType = "SelectFields",
         ///             },
         ///             new Aws.Glue.Inputs.GetScriptDagNodeInputArgs
         ///             {
-        ///                 Id = "resolvechoice3",
-        ///                 NodeType = "ResolveChoice",
         ///                 Args = new[]
         ///                 {
         ///                     new Aws.Glue.Inputs.GetScriptDagNodeArgInputArgs
@@ -253,11 +250,11 @@ namespace Pulumi.Aws.Glue
         ///                         Value = $"\"{destinationAwsGlueCatalogTable.Name}\"",
         ///                     },
         ///                 },
+        ///                 Id = "resolvechoice3",
+        ///                 NodeType = "ResolveChoice",
         ///             },
         ///             new Aws.Glue.Inputs.GetScriptDagNodeInputArgs
         ///             {
-        ///                 Id = "datasink4",
-        ///                 NodeType = "DataSink",
         ///                 Args = new[]
         ///                 {
         ///                     new Aws.Glue.Inputs.GetScriptDagNodeArgInputArgs
@@ -271,8 +268,11 @@ namespace Pulumi.Aws.Glue
         ///                         Value = $"\"{destinationAwsGlueCatalogTable.Name}\"",
         ///                     },
         ///                 },
+        ///                 Id = "datasink4",
+        ///                 NodeType = "DataSink",
         ///             },
         ///         },
+        ///         Language = "SCALA",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -302,7 +302,6 @@ namespace Pulumi.Aws.Glue
         /// {
         ///     var example = Aws.Glue.GetScript.Invoke(new()
         ///     {
-        ///         Language = "PYTHON",
         ///         DagEdges = new[]
         ///         {
         ///             new Aws.Glue.Inputs.GetScriptDagEdgeInputArgs
@@ -330,8 +329,6 @@ namespace Pulumi.Aws.Glue
         ///         {
         ///             new Aws.Glue.Inputs.GetScriptDagNodeInputArgs
         ///             {
-        ///                 Id = "datasource0",
-        ///                 NodeType = "DataSource",
         ///                 Args = new[]
         ///                 {
         ///                     new Aws.Glue.Inputs.GetScriptDagNodeArgInputArgs
@@ -345,11 +342,11 @@ namespace Pulumi.Aws.Glue
         ///                         Value = $"\"{sourceAwsGlueCatalogTable.Name}\"",
         ///                     },
         ///                 },
+        ///                 Id = "datasource0",
+        ///                 NodeType = "DataSource",
         ///             },
         ///             new Aws.Glue.Inputs.GetScriptDagNodeInputArgs
         ///             {
-        ///                 Id = "applymapping1",
-        ///                 NodeType = "ApplyMapping",
         ///                 Args = new[]
         ///                 {
         ///                     new Aws.Glue.Inputs.GetScriptDagNodeArgInputArgs
@@ -358,11 +355,11 @@ namespace Pulumi.Aws.Glue
         ///                         Value = "[(\"column1\", \"string\", \"column1\", \"string\")]",
         ///                     },
         ///                 },
+        ///                 Id = "applymapping1",
+        ///                 NodeType = "ApplyMapping",
         ///             },
         ///             new Aws.Glue.Inputs.GetScriptDagNodeInputArgs
         ///             {
-        ///                 Id = "selectfields2",
-        ///                 NodeType = "SelectFields",
         ///                 Args = new[]
         ///                 {
         ///                     new Aws.Glue.Inputs.GetScriptDagNodeArgInputArgs
@@ -371,11 +368,11 @@ namespace Pulumi.Aws.Glue
         ///                         Value = "[\"column1\"]",
         ///                     },
         ///                 },
+        ///                 Id = "selectfields2",
+        ///                 NodeType = "SelectFields",
         ///             },
         ///             new Aws.Glue.Inputs.GetScriptDagNodeInputArgs
         ///             {
-        ///                 Id = "resolvechoice3",
-        ///                 NodeType = "ResolveChoice",
         ///                 Args = new[]
         ///                 {
         ///                     new Aws.Glue.Inputs.GetScriptDagNodeArgInputArgs
@@ -394,11 +391,11 @@ namespace Pulumi.Aws.Glue
         ///                         Value = $"\"{destinationAwsGlueCatalogTable.Name}\"",
         ///                     },
         ///                 },
+        ///                 Id = "resolvechoice3",
+        ///                 NodeType = "ResolveChoice",
         ///             },
         ///             new Aws.Glue.Inputs.GetScriptDagNodeInputArgs
         ///             {
-        ///                 Id = "datasink4",
-        ///                 NodeType = "DataSink",
         ///                 Args = new[]
         ///                 {
         ///                     new Aws.Glue.Inputs.GetScriptDagNodeArgInputArgs
@@ -412,8 +409,11 @@ namespace Pulumi.Aws.Glue
         ///                         Value = $"\"{destinationAwsGlueCatalogTable.Name}\"",
         ///                     },
         ///                 },
+        ///                 Id = "datasink4",
+        ///                 NodeType = "DataSink",
         ///             },
         ///         },
+        ///         Language = "PYTHON",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -435,7 +435,6 @@ namespace Pulumi.Aws.Glue
         /// {
         ///     var example = Aws.Glue.GetScript.Invoke(new()
         ///     {
-        ///         Language = "SCALA",
         ///         DagEdges = new[]
         ///         {
         ///             new Aws.Glue.Inputs.GetScriptDagEdgeInputArgs
@@ -463,8 +462,6 @@ namespace Pulumi.Aws.Glue
         ///         {
         ///             new Aws.Glue.Inputs.GetScriptDagNodeInputArgs
         ///             {
-        ///                 Id = "datasource0",
-        ///                 NodeType = "DataSource",
         ///                 Args = new[]
         ///                 {
         ///                     new Aws.Glue.Inputs.GetScriptDagNodeArgInputArgs
@@ -478,11 +475,11 @@ namespace Pulumi.Aws.Glue
         ///                         Value = $"\"{sourceAwsGlueCatalogTable.Name}\"",
         ///                     },
         ///                 },
+        ///                 Id = "datasource0",
+        ///                 NodeType = "DataSource",
         ///             },
         ///             new Aws.Glue.Inputs.GetScriptDagNodeInputArgs
         ///             {
-        ///                 Id = "applymapping1",
-        ///                 NodeType = "ApplyMapping",
         ///                 Args = new[]
         ///                 {
         ///                     new Aws.Glue.Inputs.GetScriptDagNodeArgInputArgs
@@ -491,11 +488,11 @@ namespace Pulumi.Aws.Glue
         ///                         Value = "[(\"column1\", \"string\", \"column1\", \"string\")]",
         ///                     },
         ///                 },
+        ///                 Id = "applymapping1",
+        ///                 NodeType = "ApplyMapping",
         ///             },
         ///             new Aws.Glue.Inputs.GetScriptDagNodeInputArgs
         ///             {
-        ///                 Id = "selectfields2",
-        ///                 NodeType = "SelectFields",
         ///                 Args = new[]
         ///                 {
         ///                     new Aws.Glue.Inputs.GetScriptDagNodeArgInputArgs
@@ -504,11 +501,11 @@ namespace Pulumi.Aws.Glue
         ///                         Value = "[\"column1\"]",
         ///                     },
         ///                 },
+        ///                 Id = "selectfields2",
+        ///                 NodeType = "SelectFields",
         ///             },
         ///             new Aws.Glue.Inputs.GetScriptDagNodeInputArgs
         ///             {
-        ///                 Id = "resolvechoice3",
-        ///                 NodeType = "ResolveChoice",
         ///                 Args = new[]
         ///                 {
         ///                     new Aws.Glue.Inputs.GetScriptDagNodeArgInputArgs
@@ -527,11 +524,11 @@ namespace Pulumi.Aws.Glue
         ///                         Value = $"\"{destinationAwsGlueCatalogTable.Name}\"",
         ///                     },
         ///                 },
+        ///                 Id = "resolvechoice3",
+        ///                 NodeType = "ResolveChoice",
         ///             },
         ///             new Aws.Glue.Inputs.GetScriptDagNodeInputArgs
         ///             {
-        ///                 Id = "datasink4",
-        ///                 NodeType = "DataSink",
         ///                 Args = new[]
         ///                 {
         ///                     new Aws.Glue.Inputs.GetScriptDagNodeArgInputArgs
@@ -545,8 +542,11 @@ namespace Pulumi.Aws.Glue
         ///                         Value = $"\"{destinationAwsGlueCatalogTable.Name}\"",
         ///                     },
         ///                 },
+        ///                 Id = "datasink4",
+        ///                 NodeType = "DataSink",
         ///             },
         ///         },
+        ///         Language = "SCALA",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -576,7 +576,6 @@ namespace Pulumi.Aws.Glue
         /// {
         ///     var example = Aws.Glue.GetScript.Invoke(new()
         ///     {
-        ///         Language = "PYTHON",
         ///         DagEdges = new[]
         ///         {
         ///             new Aws.Glue.Inputs.GetScriptDagEdgeInputArgs
@@ -604,8 +603,6 @@ namespace Pulumi.Aws.Glue
         ///         {
         ///             new Aws.Glue.Inputs.GetScriptDagNodeInputArgs
         ///             {
-        ///                 Id = "datasource0",
-        ///                 NodeType = "DataSource",
         ///                 Args = new[]
         ///                 {
         ///                     new Aws.Glue.Inputs.GetScriptDagNodeArgInputArgs
@@ -619,11 +616,11 @@ namespace Pulumi.Aws.Glue
         ///                         Value = $"\"{sourceAwsGlueCatalogTable.Name}\"",
         ///                     },
         ///                 },
+        ///                 Id = "datasource0",
+        ///                 NodeType = "DataSource",
         ///             },
         ///             new Aws.Glue.Inputs.GetScriptDagNodeInputArgs
         ///             {
-        ///                 Id = "applymapping1",
-        ///                 NodeType = "ApplyMapping",
         ///                 Args = new[]
         ///                 {
         ///                     new Aws.Glue.Inputs.GetScriptDagNodeArgInputArgs
@@ -632,11 +629,11 @@ namespace Pulumi.Aws.Glue
         ///                         Value = "[(\"column1\", \"string\", \"column1\", \"string\")]",
         ///                     },
         ///                 },
+        ///                 Id = "applymapping1",
+        ///                 NodeType = "ApplyMapping",
         ///             },
         ///             new Aws.Glue.Inputs.GetScriptDagNodeInputArgs
         ///             {
-        ///                 Id = "selectfields2",
-        ///                 NodeType = "SelectFields",
         ///                 Args = new[]
         ///                 {
         ///                     new Aws.Glue.Inputs.GetScriptDagNodeArgInputArgs
@@ -645,11 +642,11 @@ namespace Pulumi.Aws.Glue
         ///                         Value = "[\"column1\"]",
         ///                     },
         ///                 },
+        ///                 Id = "selectfields2",
+        ///                 NodeType = "SelectFields",
         ///             },
         ///             new Aws.Glue.Inputs.GetScriptDagNodeInputArgs
         ///             {
-        ///                 Id = "resolvechoice3",
-        ///                 NodeType = "ResolveChoice",
         ///                 Args = new[]
         ///                 {
         ///                     new Aws.Glue.Inputs.GetScriptDagNodeArgInputArgs
@@ -668,11 +665,11 @@ namespace Pulumi.Aws.Glue
         ///                         Value = $"\"{destinationAwsGlueCatalogTable.Name}\"",
         ///                     },
         ///                 },
+        ///                 Id = "resolvechoice3",
+        ///                 NodeType = "ResolveChoice",
         ///             },
         ///             new Aws.Glue.Inputs.GetScriptDagNodeInputArgs
         ///             {
-        ///                 Id = "datasink4",
-        ///                 NodeType = "DataSink",
         ///                 Args = new[]
         ///                 {
         ///                     new Aws.Glue.Inputs.GetScriptDagNodeArgInputArgs
@@ -686,8 +683,11 @@ namespace Pulumi.Aws.Glue
         ///                         Value = $"\"{destinationAwsGlueCatalogTable.Name}\"",
         ///                     },
         ///                 },
+        ///                 Id = "datasink4",
+        ///                 NodeType = "DataSink",
         ///             },
         ///         },
+        ///         Language = "PYTHON",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -709,7 +709,6 @@ namespace Pulumi.Aws.Glue
         /// {
         ///     var example = Aws.Glue.GetScript.Invoke(new()
         ///     {
-        ///         Language = "SCALA",
         ///         DagEdges = new[]
         ///         {
         ///             new Aws.Glue.Inputs.GetScriptDagEdgeInputArgs
@@ -737,8 +736,6 @@ namespace Pulumi.Aws.Glue
         ///         {
         ///             new Aws.Glue.Inputs.GetScriptDagNodeInputArgs
         ///             {
-        ///                 Id = "datasource0",
-        ///                 NodeType = "DataSource",
         ///                 Args = new[]
         ///                 {
         ///                     new Aws.Glue.Inputs.GetScriptDagNodeArgInputArgs
@@ -752,11 +749,11 @@ namespace Pulumi.Aws.Glue
         ///                         Value = $"\"{sourceAwsGlueCatalogTable.Name}\"",
         ///                     },
         ///                 },
+        ///                 Id = "datasource0",
+        ///                 NodeType = "DataSource",
         ///             },
         ///             new Aws.Glue.Inputs.GetScriptDagNodeInputArgs
         ///             {
-        ///                 Id = "applymapping1",
-        ///                 NodeType = "ApplyMapping",
         ///                 Args = new[]
         ///                 {
         ///                     new Aws.Glue.Inputs.GetScriptDagNodeArgInputArgs
@@ -765,11 +762,11 @@ namespace Pulumi.Aws.Glue
         ///                         Value = "[(\"column1\", \"string\", \"column1\", \"string\")]",
         ///                     },
         ///                 },
+        ///                 Id = "applymapping1",
+        ///                 NodeType = "ApplyMapping",
         ///             },
         ///             new Aws.Glue.Inputs.GetScriptDagNodeInputArgs
         ///             {
-        ///                 Id = "selectfields2",
-        ///                 NodeType = "SelectFields",
         ///                 Args = new[]
         ///                 {
         ///                     new Aws.Glue.Inputs.GetScriptDagNodeArgInputArgs
@@ -778,11 +775,11 @@ namespace Pulumi.Aws.Glue
         ///                         Value = "[\"column1\"]",
         ///                     },
         ///                 },
+        ///                 Id = "selectfields2",
+        ///                 NodeType = "SelectFields",
         ///             },
         ///             new Aws.Glue.Inputs.GetScriptDagNodeInputArgs
         ///             {
-        ///                 Id = "resolvechoice3",
-        ///                 NodeType = "ResolveChoice",
         ///                 Args = new[]
         ///                 {
         ///                     new Aws.Glue.Inputs.GetScriptDagNodeArgInputArgs
@@ -801,11 +798,11 @@ namespace Pulumi.Aws.Glue
         ///                         Value = $"\"{destinationAwsGlueCatalogTable.Name}\"",
         ///                     },
         ///                 },
+        ///                 Id = "resolvechoice3",
+        ///                 NodeType = "ResolveChoice",
         ///             },
         ///             new Aws.Glue.Inputs.GetScriptDagNodeInputArgs
         ///             {
-        ///                 Id = "datasink4",
-        ///                 NodeType = "DataSink",
         ///                 Args = new[]
         ///                 {
         ///                     new Aws.Glue.Inputs.GetScriptDagNodeArgInputArgs
@@ -819,8 +816,11 @@ namespace Pulumi.Aws.Glue
         ///                         Value = $"\"{destinationAwsGlueCatalogTable.Name}\"",
         ///                     },
         ///                 },
+        ///                 Id = "datasink4",
+        ///                 NodeType = "DataSink",
         ///             },
         ///         },
+        ///         Language = "SCALA",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;

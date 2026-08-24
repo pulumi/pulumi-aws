@@ -24,7 +24,6 @@ namespace Pulumi.Aws.Dax
     /// {
     ///     var example = new Aws.Dax.ParameterGroup("example", new()
     ///     {
-    ///         Name = "example",
     ///         Parameters = new[]
     ///         {
     ///             new Aws.Dax.Inputs.ParameterGroupParameterArgs
@@ -38,6 +37,7 @@ namespace Pulumi.Aws.Dax
     ///                 Value = "100000",
     ///             },
     ///         },
+    ///         Name = "example",
     ///     });
     /// 
     /// });

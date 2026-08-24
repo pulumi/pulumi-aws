@@ -66,11 +66,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("config.amazonaws.com")
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
@@ -86,11 +86,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var r = new Rule("r", RuleArgs.builder()
- *             .name("example")
  *             .source(RuleSourceArgs.builder()
  *                 .owner("AWS")
  *                 .sourceIdentifier("S3_BUCKET_VERSIONING_ENABLED")
  *                 .build())
+ *             .name("example")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(foo)
  *                 .build());
@@ -185,8 +185,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cfg.Rule;
  * import com.pulumi.aws.cfg.RuleArgs;
  * import com.pulumi.aws.cfg.inputs.RuleSourceArgs;
- * import com.pulumi.aws.cfg.inputs.RuleSourceSourceDetailArgs;
  * import com.pulumi.aws.cfg.inputs.RuleSourceCustomPolicyDetailsArgs;
+ * import com.pulumi.aws.cfg.inputs.RuleSourceSourceDetailArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -201,12 +201,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Rule("example", RuleArgs.builder()
- *             .name("example")
  *             .source(RuleSourceArgs.builder()
- *                 .owner("CUSTOM_POLICY")
- *                 .sourceDetails(RuleSourceSourceDetailArgs.builder()
- *                     .messageType("ConfigurationItemChangeNotification")
- *                     .build())
  *                 .customPolicyDetails(RuleSourceCustomPolicyDetailsArgs.builder()
  *                     .policyRuntime("guard-2.x.x")
  *                     .policyText("""
@@ -222,7 +217,12 @@ import javax.annotation.Nullable;
  * \t  }
  *                     """)
  *                     .build())
+ *                 .sourceDetails(RuleSourceSourceDetailArgs.builder()
+ *                     .messageType("ConfigurationItemChangeNotification")
+ *                     .build())
+ *                 .owner("CUSTOM_POLICY")
  *                 .build())
+ *             .name("example")
  *             .build());
  * 
  *     }

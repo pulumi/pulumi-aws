@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3control.BucketLifecycleConfiguration("example", {
- *     bucket: exampleAwsS3controlBucket.arn,
  *     rules: [
  *         {
  *             expiration: {
@@ -42,6 +41,7 @@ import * as utilities from "../utilities";
  *             id: "temp",
  *         },
  *     ],
+ *     bucket: exampleAwsS3controlBucket.arn,
  * });
  * ```
  *

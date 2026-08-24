@@ -28,7 +28,6 @@ namespace Pulumi.Aws.RedShift
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -40,6 +39,7 @@ namespace Pulumi.Aws.RedShift
     ///                         },
     ///                     },
     ///                 },
+    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "sts:AssumeRole",
@@ -89,9 +89,6 @@ namespace Pulumi.Aws.RedShift
     /// 
     ///     var exampleScheduledAction = new Aws.RedShift.ScheduledAction("example", new()
     ///     {
-    ///         Name = "tf-redshift-scheduled-action",
-    ///         Schedule = "cron(00 23 * * ? *)",
-    ///         IamRole = exampleRole.Arn,
     ///         TargetAction = new Aws.RedShift.Inputs.ScheduledActionTargetActionArgs
     ///         {
     ///             PauseCluster = new Aws.RedShift.Inputs.ScheduledActionTargetActionPauseClusterArgs
@@ -99,6 +96,9 @@ namespace Pulumi.Aws.RedShift
     ///                 ClusterIdentifier = "tf-redshift001",
     ///             },
     ///         },
+    ///         Name = "tf-redshift-scheduled-action",
+    ///         Schedule = "cron(00 23 * * ? *)",
+    ///         IamRole = exampleRole.Arn,
     ///     });
     /// 
     /// });
@@ -116,9 +116,6 @@ namespace Pulumi.Aws.RedShift
     /// {
     ///     var example = new Aws.RedShift.ScheduledAction("example", new()
     ///     {
-    ///         Name = "tf-redshift-scheduled-action",
-    ///         Schedule = "cron(00 23 * * ? *)",
-    ///         IamRole = exampleAwsIamRole.Arn,
     ///         TargetAction = new Aws.RedShift.Inputs.ScheduledActionTargetActionArgs
     ///         {
     ///             ResizeCluster = new Aws.RedShift.Inputs.ScheduledActionTargetActionResizeClusterArgs
@@ -129,6 +126,9 @@ namespace Pulumi.Aws.RedShift
     ///                 NumberOfNodes = 2,
     ///             },
     ///         },
+    ///         Name = "tf-redshift-scheduled-action",
+    ///         Schedule = "cron(00 23 * * ? *)",
+    ///         IamRole = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });

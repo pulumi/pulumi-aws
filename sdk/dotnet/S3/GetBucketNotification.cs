@@ -108,9 +108,39 @@ namespace Pulumi.Aws.S3
         /// 
         ///     var example = new Aws.S3.BucketNotification("example", new()
         ///     {
-        ///         LambdaFunctions = ,
-        ///         Queues = ,
-        ///         Topics = ,
+        ///         LambdaFunctions = .Select(entry =&gt; 
+        ///         {
+        ///             return 
+        ///             {
+        ///                 { "id", entry.Id },
+        ///                 { "lambdaFunctionArn", entry.LambdaFunctionArn },
+        ///                 { "events", entry.Events },
+        ///                 { "filterPrefix", entry.FilterPrefix },
+        ///                 { "filterSuffix", entry.FilterSuffix },
+        ///             };
+        ///         }).ToList(),
+        ///         Queues = .Select(entry2 =&gt; 
+        ///         {
+        ///             return 
+        ///             {
+        ///                 { "id", entry2.Id },
+        ///                 { "queueArn", entry2.QueueArn },
+        ///                 { "events", entry2.Events },
+        ///                 { "filterPrefix", entry2.FilterPrefix },
+        ///                 { "filterSuffix", entry2.FilterSuffix },
+        ///             };
+        ///         }).ToList(),
+        ///         Topics = .Select(entry3 =&gt; 
+        ///         {
+        ///             return 
+        ///             {
+        ///                 { "id", entry3.Id },
+        ///                 { "topicArn", entry3.TopicArn },
+        ///                 { "events", entry3.Events },
+        ///                 { "filterPrefix", entry3.FilterPrefix },
+        ///                 { "filterSuffix", entry3.FilterSuffix },
+        ///             };
+        ///         }).ToList(),
         ///         Bucket = exampleAwsS3Bucket.Id,
         ///         Eventbridge = existing.Apply(getBucketNotificationResult =&gt; getBucketNotificationResult.Eventbridge),
         ///     });
@@ -250,9 +280,39 @@ namespace Pulumi.Aws.S3
         /// 
         ///     var example = new Aws.S3.BucketNotification("example", new()
         ///     {
-        ///         LambdaFunctions = ,
-        ///         Queues = ,
-        ///         Topics = ,
+        ///         LambdaFunctions = .Select(entry =&gt; 
+        ///         {
+        ///             return 
+        ///             {
+        ///                 { "id", entry.Id },
+        ///                 { "lambdaFunctionArn", entry.LambdaFunctionArn },
+        ///                 { "events", entry.Events },
+        ///                 { "filterPrefix", entry.FilterPrefix },
+        ///                 { "filterSuffix", entry.FilterSuffix },
+        ///             };
+        ///         }).ToList(),
+        ///         Queues = .Select(entry2 =&gt; 
+        ///         {
+        ///             return 
+        ///             {
+        ///                 { "id", entry2.Id },
+        ///                 { "queueArn", entry2.QueueArn },
+        ///                 { "events", entry2.Events },
+        ///                 { "filterPrefix", entry2.FilterPrefix },
+        ///                 { "filterSuffix", entry2.FilterSuffix },
+        ///             };
+        ///         }).ToList(),
+        ///         Topics = .Select(entry3 =&gt; 
+        ///         {
+        ///             return 
+        ///             {
+        ///                 { "id", entry3.Id },
+        ///                 { "topicArn", entry3.TopicArn },
+        ///                 { "events", entry3.Events },
+        ///                 { "filterPrefix", entry3.FilterPrefix },
+        ///                 { "filterSuffix", entry3.FilterSuffix },
+        ///             };
+        ///         }).ToList(),
         ///         Bucket = exampleAwsS3Bucket.Id,
         ///         Eventbridge = existing.Apply(getBucketNotificationResult =&gt; getBucketNotificationResult.Eventbridge),
         ///     });
@@ -392,9 +452,39 @@ namespace Pulumi.Aws.S3
         /// 
         ///     var example = new Aws.S3.BucketNotification("example", new()
         ///     {
-        ///         LambdaFunctions = ,
-        ///         Queues = ,
-        ///         Topics = ,
+        ///         LambdaFunctions = .Select(entry =&gt; 
+        ///         {
+        ///             return 
+        ///             {
+        ///                 { "id", entry.Id },
+        ///                 { "lambdaFunctionArn", entry.LambdaFunctionArn },
+        ///                 { "events", entry.Events },
+        ///                 { "filterPrefix", entry.FilterPrefix },
+        ///                 { "filterSuffix", entry.FilterSuffix },
+        ///             };
+        ///         }).ToList(),
+        ///         Queues = .Select(entry2 =&gt; 
+        ///         {
+        ///             return 
+        ///             {
+        ///                 { "id", entry2.Id },
+        ///                 { "queueArn", entry2.QueueArn },
+        ///                 { "events", entry2.Events },
+        ///                 { "filterPrefix", entry2.FilterPrefix },
+        ///                 { "filterSuffix", entry2.FilterSuffix },
+        ///             };
+        ///         }).ToList(),
+        ///         Topics = .Select(entry3 =&gt; 
+        ///         {
+        ///             return 
+        ///             {
+        ///                 { "id", entry3.Id },
+        ///                 { "topicArn", entry3.TopicArn },
+        ///                 { "events", entry3.Events },
+        ///                 { "filterPrefix", entry3.FilterPrefix },
+        ///                 { "filterSuffix", entry3.FilterSuffix },
+        ///             };
+        ///         }).ToList(),
         ///         Bucket = exampleAwsS3Bucket.Id,
         ///         Eventbridge = existing.Apply(getBucketNotificationResult =&gt; getBucketNotificationResult.Eventbridge),
         ///     });

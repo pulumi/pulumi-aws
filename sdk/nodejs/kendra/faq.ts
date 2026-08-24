@@ -19,13 +19,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.kendra.Faq("example", {
- *     indexId: exampleAwsKendraIndex.id,
- *     name: "Example",
- *     roleArn: exampleAwsIamRole.arn,
  *     s3Path: {
  *         bucket: exampleAwsS3Bucket.id,
  *         key: exampleAwsS3Object.key,
  *     },
+ *     indexId: exampleAwsKendraIndex.id,
+ *     name: "Example",
+ *     roleArn: exampleAwsIamRole.arn,
  *     tags: {
  *         Name: "Example Kendra Faq",
  *     },
@@ -39,14 +39,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.kendra.Faq("example", {
- *     indexId: exampleAwsKendraIndex.id,
- *     name: "Example",
- *     fileFormat: "CSV",
- *     roleArn: exampleAwsIamRole.arn,
  *     s3Path: {
  *         bucket: exampleAwsS3Bucket.id,
  *         key: exampleAwsS3Object.key,
  *     },
+ *     indexId: exampleAwsKendraIndex.id,
+ *     name: "Example",
+ *     fileFormat: "CSV",
+ *     roleArn: exampleAwsIamRole.arn,
  * });
  * ```
  *
@@ -57,14 +57,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.kendra.Faq("example", {
- *     indexId: exampleAwsKendraIndex.id,
- *     name: "Example",
- *     languageCode: "en",
- *     roleArn: exampleAwsIamRole.arn,
  *     s3Path: {
  *         bucket: exampleAwsS3Bucket.id,
  *         key: exampleAwsS3Object.key,
  *     },
+ *     indexId: exampleAwsKendraIndex.id,
+ *     name: "Example",
+ *     languageCode: "en",
+ *     roleArn: exampleAwsIamRole.arn,
  * });
  * ```
  *

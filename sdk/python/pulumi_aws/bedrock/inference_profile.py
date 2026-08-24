@@ -362,11 +362,11 @@ class InferenceProfile(pulumi.CustomResource):
 
         current = aws.get_caller_identity()
         example = aws.bedrock.InferenceProfile("example",
-            name="Claude Sonnet for Project 123",
-            description="Profile with tag for cost allocation tracking",
             model_source={
                 "copy_from": "arn:aws:bedrock:us-west-2::foundation-model/anthropic.claude-3-5-sonnet-20241022-v2:0",
             },
+            name="Claude Sonnet for Project 123",
+            description="Profile with tag for cost allocation tracking",
             tags={
                 "ProjectID": "123",
             })
@@ -410,11 +410,11 @@ class InferenceProfile(pulumi.CustomResource):
 
         current = aws.get_caller_identity()
         example = aws.bedrock.InferenceProfile("example",
-            name="Claude Sonnet for Project 123",
-            description="Profile with tag for cost allocation tracking",
             model_source={
                 "copy_from": "arn:aws:bedrock:us-west-2::foundation-model/anthropic.claude-3-5-sonnet-20241022-v2:0",
             },
+            name="Claude Sonnet for Project 123",
+            description="Profile with tag for cost allocation tracking",
             tags={
                 "ProjectID": "123",
             })

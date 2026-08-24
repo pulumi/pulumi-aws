@@ -26,13 +26,13 @@ import * as utilities from "../utilities";
  *     }).then(invoke => invoke.result),
  * });
  * const exampleIdentityPool = new aws.cognito.IdentityPool("example", {
- *     identityPoolName: "identity pool",
- *     allowUnauthenticatedIdentities: false,
  *     cognitoIdentityProviders: [{
  *         clientId: exampleUserPoolClient.id,
  *         providerName: example.endpoint,
  *         serverSideTokenCheck: false,
  *     }],
+ *     identityPoolName: "identity pool",
+ *     allowUnauthenticatedIdentities: false,
  * });
  * const exampleIdentityPoolProviderPrincipalTag = new aws.cognito.IdentityPoolProviderPrincipalTag("example", {
  *     identityPoolId: exampleIdentityPool.id,

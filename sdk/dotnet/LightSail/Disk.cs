@@ -24,7 +24,6 @@ namespace Pulumi.Aws.LightSail
     /// {
     ///     var available = Aws.GetAvailabilityZones.Invoke(new()
     ///     {
-    ///         State = "available",
     ///         Filters = new[]
     ///         {
     ///             new Aws.Inputs.GetAvailabilityZonesFilterInputArgs
@@ -36,6 +35,7 @@ namespace Pulumi.Aws.LightSail
     ///                 },
     ///             },
     ///         },
+    ///         State = "available",
     ///     });
     /// 
     ///     var example = new Aws.LightSail.Disk("example", new()

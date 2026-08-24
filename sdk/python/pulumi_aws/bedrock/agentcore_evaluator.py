@@ -412,12 +412,8 @@ class AgentcoreEvaluator(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentcoreEvaluator("example",
-            evaluator_name="helpfulness_evaluator",
-            description="Rates assistant helpfulness from 1 to 5",
-            level="TRACE",
             evaluator_config={
                 "llm_as_a_judge": {
-                    "instructions": "Given the {context} and the {assistant_turn}, compare against {expected_response} and rate from 1 to 5.",
                     "rating_scale": {
                         "numericals": [
                             {
@@ -434,16 +430,20 @@ class AgentcoreEvaluator(pulumi.CustomResource):
                     },
                     "model_config": {
                         "bedrock_evaluator_model_config": {
-                            "model_id": "us.amazon.nova-2-lite-v1:0",
                             "inference_config": {
                                 "max_tokens": 1024,
                                 "temperature": float(0),
                                 "top_p": float(1),
                             },
+                            "model_id": "us.amazon.nova-2-lite-v1:0",
                         },
                     },
+                    "instructions": "Given the {context} and the {assistant_turn}, compare against {expected_response} and rate from 1 to 5.",
                 },
-            })
+            },
+            evaluator_name="helpfulness_evaluator",
+            description="Rates assistant helpfulness from 1 to 5",
+            level="TRACE")
         ```
 
         ### LLM-as-a-Judge with Categorical Rating Scale
@@ -453,11 +453,8 @@ class AgentcoreEvaluator(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentcoreEvaluator("example",
-            evaluator_name="tone_evaluator",
-            level="SESSION",
             evaluator_config={
                 "llm_as_a_judge": {
-                    "instructions": "Classify the tone of the {assistant_turn} given the {context}.",
                     "rating_scale": {
                         "categoricals": [
                             {
@@ -479,8 +476,11 @@ class AgentcoreEvaluator(pulumi.CustomResource):
                             "model_id": "us.amazon.nova-2-lite-v1:0",
                         },
                     },
+                    "instructions": "Classify the tone of the {assistant_turn} given the {context}.",
                 },
-            })
+            },
+            evaluator_name="tone_evaluator",
+            level="SESSION")
         ```
 
         ### Code-based Evaluator (Lambda)
@@ -490,8 +490,6 @@ class AgentcoreEvaluator(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentcoreEvaluator("example",
-            evaluator_name="lambda_evaluator",
-            level="TOOL_CALL",
             evaluator_config={
                 "code_based": {
                     "lambda_config": {
@@ -499,7 +497,9 @@ class AgentcoreEvaluator(pulumi.CustomResource):
                         "lambda_timeout_in_seconds": 60,
                     },
                 },
-            })
+            },
+            evaluator_name="lambda_evaluator",
+            level="TOOL_CALL")
         ```
 
         ## Import
@@ -552,12 +552,8 @@ class AgentcoreEvaluator(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentcoreEvaluator("example",
-            evaluator_name="helpfulness_evaluator",
-            description="Rates assistant helpfulness from 1 to 5",
-            level="TRACE",
             evaluator_config={
                 "llm_as_a_judge": {
-                    "instructions": "Given the {context} and the {assistant_turn}, compare against {expected_response} and rate from 1 to 5.",
                     "rating_scale": {
                         "numericals": [
                             {
@@ -574,16 +570,20 @@ class AgentcoreEvaluator(pulumi.CustomResource):
                     },
                     "model_config": {
                         "bedrock_evaluator_model_config": {
-                            "model_id": "us.amazon.nova-2-lite-v1:0",
                             "inference_config": {
                                 "max_tokens": 1024,
                                 "temperature": float(0),
                                 "top_p": float(1),
                             },
+                            "model_id": "us.amazon.nova-2-lite-v1:0",
                         },
                     },
+                    "instructions": "Given the {context} and the {assistant_turn}, compare against {expected_response} and rate from 1 to 5.",
                 },
-            })
+            },
+            evaluator_name="helpfulness_evaluator",
+            description="Rates assistant helpfulness from 1 to 5",
+            level="TRACE")
         ```
 
         ### LLM-as-a-Judge with Categorical Rating Scale
@@ -593,11 +593,8 @@ class AgentcoreEvaluator(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentcoreEvaluator("example",
-            evaluator_name="tone_evaluator",
-            level="SESSION",
             evaluator_config={
                 "llm_as_a_judge": {
-                    "instructions": "Classify the tone of the {assistant_turn} given the {context}.",
                     "rating_scale": {
                         "categoricals": [
                             {
@@ -619,8 +616,11 @@ class AgentcoreEvaluator(pulumi.CustomResource):
                             "model_id": "us.amazon.nova-2-lite-v1:0",
                         },
                     },
+                    "instructions": "Classify the tone of the {assistant_turn} given the {context}.",
                 },
-            })
+            },
+            evaluator_name="tone_evaluator",
+            level="SESSION")
         ```
 
         ### Code-based Evaluator (Lambda)
@@ -630,8 +630,6 @@ class AgentcoreEvaluator(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentcoreEvaluator("example",
-            evaluator_name="lambda_evaluator",
-            level="TOOL_CALL",
             evaluator_config={
                 "code_based": {
                     "lambda_config": {
@@ -639,7 +637,9 @@ class AgentcoreEvaluator(pulumi.CustomResource):
                         "lambda_timeout_in_seconds": 60,
                     },
                 },
-            })
+            },
+            evaluator_name="lambda_evaluator",
+            level="TOOL_CALL")
         ```
 
         ## Import

@@ -65,7 +65,6 @@ import (
 //				return err
 //			}
 //			_, err = shield.NewProactiveEngagement(ctx, "example", &shield.ProactiveEngagementArgs{
-//				Enabled: pulumi.Bool(true),
 //				EmergencyContacts: shield.ProactiveEngagementEmergencyContactArray{
 //					&shield.ProactiveEngagementEmergencyContactArgs{
 //						ContactNotes: pulumi.String("Notes"),
@@ -78,6 +77,7 @@ import (
 //						PhoneNumber:  pulumi.String("+12358132134"),
 //					},
 //				},
+//				Enabled: pulumi.Bool(true),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleDrtAccessRoleArnAssociation,
 //			}))

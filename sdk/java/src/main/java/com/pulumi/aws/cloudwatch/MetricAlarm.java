@@ -148,12 +148,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foobar = new MetricAlarm("foobar", MetricAlarmArgs.builder()
- *             .name("test-foobar")
- *             .comparisonOperator("GreaterThanOrEqualToThreshold")
- *             .evaluationPeriods(2)
- *             .threshold(10.0)
- *             .alarmDescription("Request error rate has exceeded 10%")
- *             .insufficientDataActions()
  *             .metricQueries(            
  *                 MetricAlarmMetricQueryArgs.builder()
  *                     .id("e1")
@@ -162,7 +156,6 @@ import javax.annotation.Nullable;
  *                     .returnData(true)
  *                     .build(),
  *                 MetricAlarmMetricQueryArgs.builder()
- *                     .id("m1")
  *                     .metric(MetricAlarmMetricQueryMetricArgs.builder()
  *                         .metricName("RequestCount")
  *                         .namespace("AWS/ApplicationELB")
@@ -171,9 +164,9 @@ import javax.annotation.Nullable;
  *                         .unit("Count")
  *                         .dimensions(Map.of("LoadBalancer", "app/web"))
  *                         .build())
+ *                     .id("m1")
  *                     .build(),
  *                 MetricAlarmMetricQueryArgs.builder()
- *                     .id("m2")
  *                     .metric(MetricAlarmMetricQueryMetricArgs.builder()
  *                         .metricName("HTTPCode_ELB_5XX_Count")
  *                         .namespace("AWS/ApplicationELB")
@@ -182,7 +175,14 @@ import javax.annotation.Nullable;
  *                         .unit("Count")
  *                         .dimensions(Map.of("LoadBalancer", "app/web"))
  *                         .build())
+ *                     .id("m2")
  *                     .build())
+ *             .name("test-foobar")
+ *             .comparisonOperator("GreaterThanOrEqualToThreshold")
+ *             .evaluationPeriods(2)
+ *             .threshold(10.0)
+ *             .alarmDescription("Request error rate has exceeded 10%")
+ *             .insufficientDataActions()
  *             .build());
  * 
  *     }
@@ -217,8 +217,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var promqlAlarm = new MetricAlarm("promqlAlarm", MetricAlarmArgs.builder()
- *             .name("high-cpu-promql")
- *             .alarmDescription("Alarm when average CPU exceeds 80% using PromQL")
  *             .evaluationCriteria(MetricAlarmEvaluationCriteriaArgs.builder()
  *                 .promqlCriteria(MetricAlarmEvaluationCriteriaPromqlCriteriaArgs.builder()
  *                     .query("avg(cpu_utilization_percent) > 80")
@@ -226,6 +224,8 @@ import javax.annotation.Nullable;
  *                     .recoveryPeriod(120)
  *                     .build())
  *                 .build())
+ *             .name("high-cpu-promql")
+ *             .alarmDescription("Alarm when average CPU exceeds 80% using PromQL")
  *             .evaluationInterval(30)
  *             .alarmActions(alerts.arn())
  *             .build());
@@ -260,12 +260,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var xxAnomalyDetection = new MetricAlarm("xxAnomalyDetection", MetricAlarmArgs.builder()
- *             .name("test-foobar")
- *             .comparisonOperator("GreaterThanUpperThreshold")
- *             .evaluationPeriods(2)
- *             .thresholdMetricId("e1")
- *             .alarmDescription("This metric monitors ec2 cpu utilization")
- *             .insufficientDataActions()
  *             .metricQueries(            
  *                 MetricAlarmMetricQueryArgs.builder()
  *                     .id("e1")
@@ -274,8 +268,6 @@ import javax.annotation.Nullable;
  *                     .label("CPUUtilization (Expected)")
  *                     .build(),
  *                 MetricAlarmMetricQueryArgs.builder()
- *                     .id("m1")
- *                     .returnData(true)
  *                     .metric(MetricAlarmMetricQueryMetricArgs.builder()
  *                         .metricName("CPUUtilization")
  *                         .namespace("AWS/EC2")
@@ -284,7 +276,15 @@ import javax.annotation.Nullable;
  *                         .unit("Count")
  *                         .dimensions(Map.of("InstanceId", "i-abc123"))
  *                         .build())
+ *                     .id("m1")
+ *                     .returnData(true)
  *                     .build())
+ *             .name("test-foobar")
+ *             .comparisonOperator("GreaterThanUpperThreshold")
+ *             .evaluationPeriods(2)
+ *             .thresholdMetricId("e1")
+ *             .alarmDescription("This metric monitors ec2 cpu utilization")
+ *             .insufficientDataActions()
  *             .build());
  * 
  *     }
@@ -318,12 +318,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new MetricAlarm("example", MetricAlarmArgs.builder()
- *             .name("example-alarm")
- *             .alarmDescription("Triggers if the smallest per-instance maximum load during the evaluation period exceeds the threshold")
- *             .comparisonOperator("GreaterThanThreshold")
- *             .evaluationPeriods(1)
- *             .threshold(0.6)
- *             .treatMissingData("notBreaching")
  *             .metricQueries(MetricAlarmMetricQueryArgs.builder()
  *                 .id("q1")
  *                 .expression("""
@@ -339,6 +333,12 @@ import javax.annotation.Nullable;
  *                 .returnData(true)
  *                 .label("Max DB Load of the Least-Loaded RDS Instance")
  *                 .build())
+ *             .name("example-alarm")
+ *             .alarmDescription("Triggers if the smallest per-instance maximum load during the evaluation period exceeds the threshold")
+ *             .comparisonOperator("GreaterThanThreshold")
+ *             .evaluationPeriods(1)
+ *             .threshold(0.6)
+ *             .treatMissingData("notBreaching")
  *             .build());
  * 
  *     }

@@ -26,8 +26,6 @@ namespace Pulumi.Aws.Quicksight
     /// {
     ///     var @default = new Aws.Quicksight.DataSource("default", new()
     ///     {
-    ///         DataSourceId = "example-id",
-    ///         Name = "My Cool Data in S3",
     ///         Parameters = new Aws.Quicksight.Inputs.DataSourceParametersArgs
     ///         {
     ///             S3 = new Aws.Quicksight.Inputs.DataSourceParametersS3Args
@@ -39,6 +37,8 @@ namespace Pulumi.Aws.Quicksight
     ///                 },
     ///             },
     ///         },
+    ///         DataSourceId = "example-id",
+    ///         Name = "My Cool Data in S3",
     ///         Type = "S3",
     ///     });
     /// 
@@ -168,8 +168,6 @@ namespace Pulumi.Aws.Quicksight
     /// 
     ///     var exampleDataSource = new Aws.Quicksight.DataSource("example", new()
     ///     {
-    ///         DataSourceId = "example-id",
-    ///         Name = "manifest in S3",
     ///         Parameters = new Aws.Quicksight.Inputs.DataSourceParametersArgs
     ///         {
     ///             S3 = new Aws.Quicksight.Inputs.DataSourceParametersS3Args
@@ -182,6 +180,8 @@ namespace Pulumi.Aws.Quicksight
     ///                 RoleArn = exampleRole.Arn,
     ///             },
     ///         },
+    ///         DataSourceId = "example-id",
+    ///         Name = "manifest in S3",
     ///         Type = "S3",
     ///     });
     /// 

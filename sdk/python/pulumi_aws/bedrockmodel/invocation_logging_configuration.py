@@ -124,7 +124,11 @@ class InvocationLoggingConfiguration(pulumi.CustomResource):
         current = aws.get_caller_identity()
         example = aws.s3.Bucket("example",
             bucket="example",
-            force_destroy=True)
+            force_destroy=True,
+            opts = pulumi.ResourceOptions(ignore_changes=[
+                    "tags[\\"CreatorId\\"]",
+                    "tags[\\"CreatorName\\"]",
+                ]))
         example_bucket_policy = aws.s3.BucketPolicy("example",
             bucket=example.bucket,
             policy=example.arn.apply(lambda arn: f\"\"\"{{
@@ -154,14 +158,14 @@ class InvocationLoggingConfiguration(pulumi.CustomResource):
         }}
         \"\"\"))
         example_invocation_logging_configuration = aws.bedrockmodel.InvocationLoggingConfiguration("example", logging_config={
-            "embedding_data_delivery_enabled": True,
-            "image_data_delivery_enabled": True,
-            "text_data_delivery_enabled": True,
-            "video_data_delivery_enabled": True,
             "s3_config": {
                 "bucket_name": example.id,
                 "key_prefix": "bedrock",
             },
+            "embedding_data_delivery_enabled": True,
+            "image_data_delivery_enabled": True,
+            "text_data_delivery_enabled": True,
+            "video_data_delivery_enabled": True,
         },
         opts = pulumi.ResourceOptions(depends_on=[example_bucket_policy]))
         ```
@@ -209,7 +213,11 @@ class InvocationLoggingConfiguration(pulumi.CustomResource):
         current = aws.get_caller_identity()
         example = aws.s3.Bucket("example",
             bucket="example",
-            force_destroy=True)
+            force_destroy=True,
+            opts = pulumi.ResourceOptions(ignore_changes=[
+                    "tags[\\"CreatorId\\"]",
+                    "tags[\\"CreatorName\\"]",
+                ]))
         example_bucket_policy = aws.s3.BucketPolicy("example",
             bucket=example.bucket,
             policy=example.arn.apply(lambda arn: f\"\"\"{{
@@ -239,14 +247,14 @@ class InvocationLoggingConfiguration(pulumi.CustomResource):
         }}
         \"\"\"))
         example_invocation_logging_configuration = aws.bedrockmodel.InvocationLoggingConfiguration("example", logging_config={
-            "embedding_data_delivery_enabled": True,
-            "image_data_delivery_enabled": True,
-            "text_data_delivery_enabled": True,
-            "video_data_delivery_enabled": True,
             "s3_config": {
                 "bucket_name": example.id,
                 "key_prefix": "bedrock",
             },
+            "embedding_data_delivery_enabled": True,
+            "image_data_delivery_enabled": True,
+            "text_data_delivery_enabled": True,
+            "video_data_delivery_enabled": True,
         },
         opts = pulumi.ResourceOptions(depends_on=[example_bucket_policy]))
         ```

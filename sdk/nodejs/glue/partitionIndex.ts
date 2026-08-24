@@ -16,23 +16,20 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.glue.CatalogDatabase("example", {name: "example"});
  * const exampleCatalogTable = new aws.glue.CatalogTable("example", {
- *     name: "example",
- *     databaseName: example.name,
- *     owner: "my_owner",
- *     retention: 1,
- *     tableType: "VIRTUAL_VIEW",
- *     viewExpandedText: "view_expanded_text_1",
- *     viewOriginalText: "view_original_text_1",
  *     storageDescriptor: {
- *         bucketColumns: ["bucket_column_1"],
- *         compressed: false,
- *         inputFormat: "SequenceFileInputFormat",
- *         location: "my_location",
- *         numberOfBuckets: 1,
- *         outputFormat: "SequenceFileInputFormat",
- *         storedAsSubDirectories: false,
- *         parameters: {
- *             param1: "param1_val",
+ *         serDeInfo: {
+ *             name: "ser_de_name",
+ *             parameters: {
+ *                 param1: "param_val_1",
+ *             },
+ *             serializationLibrary: "org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe",
+ *         },
+ *         skewedInfo: {
+ *             skewedColumnNames: ["my_column_1"],
+ *             skewedColumnValueLocationMaps: {
+ *                 my_column_1: "my_column_1_val_loc_map",
+ *             },
+ *             skewedColumnValues: ["skewed_val_1"],
  *         },
  *         columns: [
  *             {
@@ -46,23 +43,19 @@ import * as utilities from "../utilities";
  *                 comment: "my_column2_comment",
  *             },
  *         ],
- *         serDeInfo: {
- *             name: "ser_de_name",
- *             parameters: {
- *                 param1: "param_val_1",
- *             },
- *             serializationLibrary: "org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe",
- *         },
  *         sortColumns: [{
  *             column: "my_column_1",
  *             sortOrder: 1,
  *         }],
- *         skewedInfo: {
- *             skewedColumnNames: ["my_column_1"],
- *             skewedColumnValueLocationMaps: {
- *                 my_column_1: "my_column_1_val_loc_map",
- *             },
- *             skewedColumnValues: ["skewed_val_1"],
+ *         bucketColumns: ["bucket_column_1"],
+ *         compressed: false,
+ *         inputFormat: "SequenceFileInputFormat",
+ *         location: "my_location",
+ *         numberOfBuckets: 1,
+ *         outputFormat: "SequenceFileInputFormat",
+ *         storedAsSubDirectories: false,
+ *         parameters: {
+ *             param1: "param1_val",
  *         },
  *     },
  *     partitionKeys: [
@@ -77,13 +70,18 @@ import * as utilities from "../utilities";
  *             comment: "my_column_2_comment",
  *         },
  *     ],
+ *     name: "example",
+ *     databaseName: example.name,
+ *     owner: "my_owner",
+ *     retention: 1,
+ *     tableType: "VIRTUAL_VIEW",
+ *     viewExpandedText: "view_expanded_text_1",
+ *     viewOriginalText: "view_original_text_1",
  *     parameters: {
  *         param1: "param1_val",
  *     },
  * });
  * const examplePartitionIndex = new aws.glue.PartitionIndex("example", {
- *     databaseName: example.name,
- *     tableName: exampleCatalogTable.name,
  *     partitionIndex: {
  *         indexName: "example",
  *         keys: [
@@ -91,6 +89,8 @@ import * as utilities from "../utilities";
  *             "my_column_2",
  *         ],
  *     },
+ *     databaseName: example.name,
+ *     tableName: exampleCatalogTable.name,
  * });
  * ```
  *

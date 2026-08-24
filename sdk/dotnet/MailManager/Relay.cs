@@ -26,13 +26,13 @@ namespace Pulumi.Aws.MailManager
     /// {
     ///     var example = new Aws.MailManager.Relay("example", new()
     ///     {
-    ///         Name = "example",
-    ///         ServerName = "smtp.example.com",
-    ///         ServerPort = 25,
     ///         Authentication = new Aws.MailManager.Inputs.RelayAuthenticationArgs
     ///         {
     ///             NoAuthentication = null,
     ///         },
+    ///         Name = "example",
+    ///         ServerName = "smtp.example.com",
+    ///         ServerPort = 25,
     ///     });
     /// 
     /// });
@@ -66,13 +66,13 @@ namespace Pulumi.Aws.MailManager
     /// 
     ///     var exampleRelay = new Aws.MailManager.Relay("example", new()
     ///     {
-    ///         Name = "example",
-    ///         ServerName = "smtp.example.com",
-    ///         ServerPort = 587,
     ///         Authentication = new Aws.MailManager.Inputs.RelayAuthenticationArgs
     ///         {
     ///             SecretArn = exampleSecretVersion.Arn,
     ///         },
+    ///         Name = "example",
+    ///         ServerName = "smtp.example.com",
+    ///         ServerPort = 587,
     ///     });
     /// 
     /// });

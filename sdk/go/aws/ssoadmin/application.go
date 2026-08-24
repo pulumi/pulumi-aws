@@ -71,16 +71,16 @@ import (
 //				return err
 //			}
 //			_, err = ssoadmin.NewApplication(ctx, "example", &ssoadmin.ApplicationArgs{
-//				Name:                   pulumi.String("example"),
-//				ApplicationProviderArn: pulumi.String("arn:aws:sso::aws:applicationProvider/custom"),
-//				InstanceArn:            pulumi.String(example.Arns[0]),
 //				PortalOptions: &ssoadmin.ApplicationPortalOptionsArgs{
-//					Visibility: pulumi.String("ENABLED"),
 //					SignInOptions: &ssoadmin.ApplicationPortalOptionsSignInOptionsArgs{
 //						ApplicationUrl: pulumi.String("http://example.com"),
 //						Origin:         pulumi.String("APPLICATION"),
 //					},
+//					Visibility: pulumi.String("ENABLED"),
 //				},
+//				Name:                   pulumi.String("example"),
+//				ApplicationProviderArn: pulumi.String("arn:aws:sso::aws:applicationProvider/custom"),
+//				InstanceArn:            pulumi.String(example.Arns[0]),
 //			})
 //			if err != nil {
 //				return err

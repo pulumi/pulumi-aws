@@ -35,11 +35,6 @@ namespace Pulumi.Aws.ControlTower
     /// 
     ///     var exampleControlTowerControl = new Aws.ControlTower.ControlTowerControl("example", new()
     ///     {
-    ///         ControlIdentifier = $"arn:aws:controltower:{current.Apply(getRegionResult =&gt; getRegionResult.Region)}::control/AWS-GR_EC2_VOLUME_INUSE_CHECK",
-    ///         TargetIdentifier = .Where(x =&gt; x.Name == "Infrastructure").Select(x =&gt; 
-    ///         {
-    ///             return x.Arn;
-    ///         }).ToList()[0],
     ///         Parameters = new[]
     ///         {
     ///             new Aws.ControlTower.Inputs.ControlTowerControlParameterArgs
@@ -51,6 +46,11 @@ namespace Pulumi.Aws.ControlTower
     ///                 }),
     ///             },
     ///         },
+    ///         ControlIdentifier = $"arn:aws:controltower:{current.Apply(getRegionResult =&gt; getRegionResult.Region)}::control/AWS-GR_EC2_VOLUME_INUSE_CHECK",
+    ///         TargetIdentifier = .Where(x =&gt; x.Name == "Infrastructure").Select(x =&gt; 
+    ///         {
+    ///             return x.Arn;
+    ///         }).ToList()[0],
     ///     });
     /// 
     /// });

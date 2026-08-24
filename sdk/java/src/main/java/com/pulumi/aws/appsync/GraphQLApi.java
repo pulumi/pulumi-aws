@@ -123,13 +123,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new GraphQLApi("example", GraphQLApiArgs.builder()
- *             .authenticationType("AMAZON_COGNITO_USER_POOLS")
- *             .name("example")
  *             .userPoolConfig(GraphQLApiUserPoolConfigArgs.builder()
  *                 .awsRegion(current.region())
  *                 .defaultAction("DENY")
  *                 .userPoolId(exampleAwsCognitoUserPool.id())
  *                 .build())
+ *             .authenticationType("AMAZON_COGNITO_USER_POOLS")
+ *             .name("example")
  *             .build());
  * 
  *     }
@@ -163,11 +163,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new GraphQLApi("example", GraphQLApiArgs.builder()
- *             .authenticationType("OPENID_CONNECT")
- *             .name("example")
  *             .openidConnectConfig(GraphQLApiOpenidConnectConfigArgs.builder()
  *                 .issuer("https://example.com")
  *                 .build())
+ *             .authenticationType("OPENID_CONNECT")
+ *             .name("example")
  *             .build());
  * 
  *     }
@@ -203,11 +203,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new GraphQLApi("example", GraphQLApiArgs.builder()
- *             .authenticationType("AWS_LAMBDA")
- *             .name("example")
  *             .lambdaAuthorizerConfig(GraphQLApiLambdaAuthorizerConfigArgs.builder()
  *                 .authorizerUri("arn:aws:lambda:us-east-1:123456789012:function:custom_lambda_authorizer")
  *                 .build())
+ *             .authenticationType("AWS_LAMBDA")
+ *             .name("example")
  *             .build());
  * 
  *         var appsyncLambdaAuthorizer = new Permission("appsyncLambdaAuthorizer", PermissionArgs.builder()
@@ -249,11 +249,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new GraphQLApi("example", GraphQLApiArgs.builder()
- *             .authenticationType("API_KEY")
- *             .name("example")
  *             .additionalAuthenticationProviders(GraphQLApiAdditionalAuthenticationProviderArgs.builder()
  *                 .authenticationType("AWS_IAM")
  *                 .build())
+ *             .authenticationType("API_KEY")
+ *             .name("example")
  *             .build());
  * 
  *     }
@@ -338,11 +338,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("appsync.amazonaws.com")
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
@@ -384,12 +384,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.wafv2.WebAclArgs;
  * import com.pulumi.aws.wafv2.inputs.WebAclDefaultActionArgs;
  * import com.pulumi.aws.wafv2.inputs.WebAclDefaultActionAllowArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclVisibilityConfigArgs;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleArgs;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleOverrideActionArgs;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementArgs;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementArgs;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleVisibilityConfigArgs;
- * import com.pulumi.aws.wafv2.inputs.WebAclVisibilityConfigArgs;
  * import com.pulumi.aws.wafv2.WebAclAssociation;
  * import com.pulumi.aws.wafv2.WebAclAssociationArgs;
  * import java.util.ArrayList;
@@ -411,16 +411,16 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleWebAcl = new WebAcl("exampleWebAcl", WebAclArgs.builder()
- *             .name("managed-rule-example")
- *             .description("Example of a managed rule.")
- *             .scope("REGIONAL")
  *             .defaultAction(WebAclDefaultActionArgs.builder()
  *                 .allow(WebAclDefaultActionAllowArgs.builder()
  *                     .build())
  *                 .build())
+ *             .visibilityConfig(WebAclVisibilityConfigArgs.builder()
+ *                 .cloudwatchMetricsEnabled(false)
+ *                 .metricName("friendly-metric-name")
+ *                 .sampledRequestsEnabled(false)
+ *                 .build())
  *             .rules(WebAclRuleArgs.builder()
- *                 .name("rule-1")
- *                 .priority(1)
  *                 .overrideAction(WebAclRuleOverrideActionArgs.builder()
  *                     .block(Arrays.asList(Map.ofEntries(
  *                     )))
@@ -436,12 +436,12 @@ import javax.annotation.Nullable;
  *                     .metricName("friendly-rule-metric-name")
  *                     .sampledRequestsEnabled(false)
  *                     .build())
+ *                 .name("rule-1")
+ *                 .priority(1)
  *                 .build())
- *             .visibilityConfig(WebAclVisibilityConfigArgs.builder()
- *                 .cloudwatchMetricsEnabled(false)
- *                 .metricName("friendly-metric-name")
- *                 .sampledRequestsEnabled(false)
- *                 .build())
+ *             .name("managed-rule-example")
+ *             .description("Example of a managed rule.")
+ *             .scope("REGIONAL")
  *             .build());
  * 
  *         var exampleWebAclAssociation = new WebAclAssociation("exampleWebAclAssociation", WebAclAssociationArgs.builder()

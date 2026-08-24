@@ -252,15 +252,15 @@ class RuleGroup(pulumi.CustomResource):
             name="example",
             metric_name="example")
         example_rule_group = aws.wafregional.RuleGroup("example",
-            name="example",
-            metric_name="example",
             activated_rules=[{
                 "action": {
                     "type": "COUNT",
                 },
                 "priority": 50,
                 "rule_id": example.id,
-            }])
+            }],
+            name="example",
+            metric_name="example")
         ```
 
         ## Import
@@ -299,15 +299,15 @@ class RuleGroup(pulumi.CustomResource):
             name="example",
             metric_name="example")
         example_rule_group = aws.wafregional.RuleGroup("example",
-            name="example",
-            metric_name="example",
             activated_rules=[{
                 "action": {
                     "type": "COUNT",
                 },
                 "priority": 50,
                 "rule_id": example.id,
-            }])
+            }],
+            name="example",
+            metric_name="example")
         ```
 
         ## Import

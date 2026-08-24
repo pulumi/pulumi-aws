@@ -18,13 +18,13 @@ import * as utilities from "../utilities";
  *
  * const example = aws.ssoadmin.getInstances({});
  * const exampleGetUser = example.then(example => aws.identitystore.getUser({
- *     identityStoreId: example.identityStoreIds?.[0],
  *     alternateIdentifier: {
  *         uniqueAttribute: {
  *             attributePath: "UserName",
  *             attributeValue: "ExampleUser",
  *         },
  *     },
+ *     identityStoreId: example.identityStoreIds?.[0],
  * }));
  * export const userId = exampleGetUser.then(exampleGetUser => exampleGetUser.userId);
  * ```
@@ -152,13 +152,13 @@ export interface GetUserResult {
  *
  * const example = aws.ssoadmin.getInstances({});
  * const exampleGetUser = example.then(example => aws.identitystore.getUser({
- *     identityStoreId: example.identityStoreIds?.[0],
  *     alternateIdentifier: {
  *         uniqueAttribute: {
  *             attributePath: "UserName",
  *             attributeValue: "ExampleUser",
  *         },
  *     },
+ *     identityStoreId: example.identityStoreIds?.[0],
  * }));
  * export const userId = exampleGetUser.then(exampleGetUser => exampleGetUser.userId);
  * ```

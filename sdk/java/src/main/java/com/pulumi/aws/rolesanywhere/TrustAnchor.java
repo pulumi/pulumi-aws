@@ -61,29 +61,29 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CertificateAuthority("example", CertificateAuthorityArgs.builder()
- *             .permanentDeletionTimeInDays(7)
- *             .type("ROOT")
  *             .certificateAuthorityConfiguration(CertificateAuthorityCertificateAuthorityConfigurationArgs.builder()
- *                 .keyAlgorithm("RSA_4096")
- *                 .signingAlgorithm("SHA512WITHRSA")
  *                 .subject(CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs.builder()
  *                     .commonName("example.com")
  *                     .build())
+ *                 .keyAlgorithm("RSA_4096")
+ *                 .signingAlgorithm("SHA512WITHRSA")
  *                 .build())
+ *             .permanentDeletionTimeInDays(7)
+ *             .type("ROOT")
  *             .build());
  * 
  *         final var current = AwsFunctions.getPartition(GetPartitionArgs.builder()
  *             .build());
  * 
  *         var test = new Certificate("test", CertificateArgs.builder()
- *             .certificateAuthorityArn(example.arn())
- *             .certificateSigningRequest(example.certificateSigningRequest())
- *             .signingAlgorithm("SHA512WITHRSA")
- *             .templateArn(String.format("arn:%s:acm-pca:::template/RootCACertificate/V1", current.partition()))
  *             .validity(CertificateValidityArgs.builder()
  *                 .type("YEARS")
  *                 .value("1")
  *                 .build())
+ *             .certificateAuthorityArn(example.arn())
+ *             .certificateSigningRequest(example.certificateSigningRequest())
+ *             .signingAlgorithm("SHA512WITHRSA")
+ *             .templateArn(String.format("arn:%s:acm-pca:::template/RootCACertificate/V1", current.partition()))
  *             .build());
  * 
  *         var exampleCertificateAuthorityCertificate = new CertificateAuthorityCertificate("exampleCertificateAuthorityCertificate", CertificateAuthorityCertificateArgs.builder()
@@ -93,13 +93,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testTrustAnchor = new TrustAnchor("testTrustAnchor", TrustAnchorArgs.builder()
- *             .name("example")
  *             .source(TrustAnchorSourceArgs.builder()
  *                 .sourceData(TrustAnchorSourceSourceDataArgs.builder()
  *                     .acmPcaArn(example.arn())
  *                     .build())
  *                 .sourceType("AWS_ACM_PCA")
  *                 .build())
+ *             .name("example")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleCertificateAuthorityCertificate)
  *                 .build());

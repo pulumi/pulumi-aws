@@ -33,11 +33,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := autoscaling.NewTrafficSourceAttachment(ctx, "example", &autoscaling.TrafficSourceAttachmentArgs{
-//				AutoscalingGroupName: pulumi.Any(exampleAwsAutoscalingGroup.Id),
 //				TrafficSource: &autoscaling.TrafficSourceAttachmentTrafficSourceArgs{
 //					Identifier: pulumi.Any(exampleAwsLbTargetGroup.Arn),
 //					Type:       pulumi.String("elbv2"),
 //				},
+//				AutoscalingGroupName: pulumi.Any(exampleAwsAutoscalingGroup.Id),
 //			})
 //			if err != nil {
 //				return err

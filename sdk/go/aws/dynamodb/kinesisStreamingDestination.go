@@ -30,14 +30,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := dynamodb.NewTable(ctx, "example", &dynamodb.TableArgs{
-//				Name:    pulumi.String("orders"),
-//				HashKey: pulumi.String("id"),
 //				Attributes: dynamodb.TableAttributeArray{
 //					&dynamodb.TableAttributeArgs{
 //						Name: pulumi.String("id"),
 //						Type: pulumi.String("S"),
 //					},
 //				},
+//				Name:    pulumi.String("orders"),
+//				HashKey: pulumi.String("id"),
 //			})
 //			if err != nil {
 //				return err

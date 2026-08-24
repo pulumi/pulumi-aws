@@ -47,15 +47,15 @@ namespace Pulumi.Aws.MailManager
     /// {
     ///     var example = new Aws.MailManager.IngressPoint("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Type = "AUTH",
-    ///         RuleSetId = exampleAwsMailmanagerRuleSet.Id,
-    ///         TrafficPolicyId = exampleAwsMailmanagerTrafficPolicy.Id,
     ///         IngressPointConfiguration = new Aws.MailManager.Inputs.IngressPointIngressPointConfigurationArgs
     ///         {
     ///             SmtpPasswordWo = smtpPassword,
     ///             SmtpPasswordWoVersion = 1,
     ///         },
+    ///         Name = "example",
+    ///         Type = "AUTH",
+    ///         RuleSetId = exampleAwsMailmanagerRuleSet.Id,
+    ///         TrafficPolicyId = exampleAwsMailmanagerTrafficPolicy.Id,
     ///     });
     /// 
     /// });
@@ -73,10 +73,6 @@ namespace Pulumi.Aws.MailManager
     /// {
     ///     var example = new Aws.MailManager.IngressPoint("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Type = "OPEN",
-    ///         RuleSetId = exampleAwsMailmanagerRuleSet.Id,
-    ///         TrafficPolicyId = exampleAwsMailmanagerTrafficPolicy.Id,
     ///         NetworkConfiguration = new Aws.MailManager.Inputs.IngressPointNetworkConfigurationArgs
     ///         {
     ///             PrivateNetworkConfiguration = new Aws.MailManager.Inputs.IngressPointNetworkConfigurationPrivateNetworkConfigurationArgs
@@ -84,6 +80,10 @@ namespace Pulumi.Aws.MailManager
     ///                 VpcEndpointId = exampleAwsVpcEndpoint.Id,
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         Type = "OPEN",
+    ///         RuleSetId = exampleAwsMailmanagerRuleSet.Id,
+    ///         TrafficPolicyId = exampleAwsMailmanagerTrafficPolicy.Id,
     ///     });
     /// 
     /// });

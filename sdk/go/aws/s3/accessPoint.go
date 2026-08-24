@@ -84,11 +84,11 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewAccessPoint(ctx, "example", &s3.AccessPointArgs{
-//				Bucket: example.Arn,
-//				Name:   pulumi.String("example"),
 //				VpcConfiguration: &s3.AccessPointVpcConfigurationArgs{
 //					VpcId: exampleVpc.ID().ToIDOutput().ToStringOutput(),
 //				},
+//				Bucket: example.Arn,
+//				Name:   pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -121,10 +121,10 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewDirectoryBucket(ctx, "example", &s3.DirectoryBucketArgs{
-//				Bucket: pulumi.String("example--zoneId--x-s3"),
 //				Location: &s3.DirectoryBucketLocationArgs{
 //					Name: pulumi.String(available.ZoneIds[0]),
 //				},
+//				Bucket: pulumi.String("example--zoneId--x-s3"),
 //			})
 //			if err != nil {
 //				return err

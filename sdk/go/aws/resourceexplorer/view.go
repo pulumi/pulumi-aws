@@ -34,7 +34,6 @@ import (
 //				return err
 //			}
 //			_, err = resourceexplorer.NewView(ctx, "example", &resourceexplorer.ViewArgs{
-//				Name: pulumi.String("exampleview"),
 //				Filters: &resourceexplorer.ViewFiltersArgs{
 //					FilterString: pulumi.String("resourcetype:ec2:instance"),
 //				},
@@ -43,6 +42,7 @@ import (
 //						Name: pulumi.String("tags"),
 //					},
 //				},
+//				Name: pulumi.String("exampleview"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				example,
 //			}))

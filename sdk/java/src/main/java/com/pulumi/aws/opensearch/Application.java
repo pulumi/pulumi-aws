@@ -84,7 +84,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Application("example", ApplicationArgs.builder()
- *             .name("my-opensearch-app")
  *             .appConfigs(            
  *                 ApplicationAppConfigArgs.builder()
  *                     .key("opensearchDashboards.dashboardAdmin.users")
@@ -94,6 +93,7 @@ import javax.annotation.Nullable;
  *                     .key("opensearchDashboards.dashboardAdmin.groups")
  *                     .value("admin-group")
  *                     .build())
+ *             .name("my-opensearch-app")
  *             .tags(Map.ofEntries(
  *                 Map.entry("Environment", "production"),
  *                 Map.entry("Team", "data-platform")
@@ -135,8 +135,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Domain("example", DomainArgs.builder()
- *             .domainName("example-domain")
- *             .engineVersion("OpenSearch_2.3")
  *             .clusterConfig(DomainClusterConfigArgs.builder()
  *                 .instanceType("t3.small.search")
  *                 .build())
@@ -144,14 +142,16 @@ import javax.annotation.Nullable;
  *                 .ebsEnabled(true)
  *                 .volumeSize(20)
  *                 .build())
+ *             .domainName("example-domain")
+ *             .engineVersion("OpenSearch_2.3")
  *             .build());
  * 
  *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()
- *             .name("my-opensearch-app")
  *             .dataSources(ApplicationDataSourceArgs.builder()
  *                 .dataSourceArn(example.arn())
  *                 .dataSourceDescription("Primary OpenSearch domain for analytics")
  *                 .build())
+ *             .name("my-opensearch-app")
  *             .tags(Map.of("Environment", "production"))
  *             .build());
  * 
@@ -283,12 +283,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()
- *             .name("my-opensearch-app")
  *             .iamIdentityCenterOptions(ApplicationIamIdentityCenterOptionsArgs.builder()
  *                 .enabled(true)
  *                 .iamIdentityCenterInstanceArn(example.arns()[0])
  *                 .iamRoleForIdentityCenterApplicationArn(opensearchApplication.arn())
  *                 .build())
+ *             .name("my-opensearch-app")
  *             .tags(Map.of("Environment", "production"))
  *             .build());
  * 

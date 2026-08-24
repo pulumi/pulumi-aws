@@ -71,11 +71,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new V2modelsBot("example", V2modelsBotArgs.builder()
- *             .name("example")
- *             .description("Example description")
  *             .dataPrivacies(V2modelsBotDataPrivacyArgs.builder()
  *                 .childDirected(false)
  *                 .build())
+ *             .name("example")
+ *             .description("Example description")
  *             .idleSessionTtlInSeconds(60)
  *             .roleArn(exampleRole.arn())
  *             .type("Bot")

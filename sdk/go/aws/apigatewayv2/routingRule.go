@@ -31,7 +31,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := apigatewayv2.NewRoutingRule(ctx, "example", &apigatewayv2.RoutingRuleArgs{
-//				DomainName: pulumi.String("test.example.com"),
+//				Actions: apigatewayv2.RoutingRuleActionArray{
+//					&apigatewayv2.RoutingRuleActionArgs{
+//						InvokeApi: &apigatewayv2.RoutingRuleActionInvokeApiArgs{
+//							ApiId:         pulumi.String("example-api-id"),
+//							Stage:         pulumi.String("example-stage"),
+//							StripBasePath: pulumi.Bool(true),
+//						},
+//					},
+//				},
 //				Conditions: apigatewayv2.RoutingRuleConditionArray{
 //					&apigatewayv2.RoutingRuleConditionArgs{
 //						MatchHeaders: &apigatewayv2.RoutingRuleConditionMatchHeadersArgs{
@@ -48,16 +56,8 @@ import (
 //						},
 //					},
 //				},
-//				Actions: apigatewayv2.RoutingRuleActionArray{
-//					&apigatewayv2.RoutingRuleActionArgs{
-//						InvokeApi: &apigatewayv2.RoutingRuleActionInvokeApiArgs{
-//							ApiId:         pulumi.String("example-api-id"),
-//							Stage:         pulumi.String("example-stage"),
-//							StripBasePath: pulumi.Bool(true),
-//						},
-//					},
-//				},
-//				Priority: pulumi.Int(1),
+//				DomainName: pulumi.String("test.example.com"),
+//				Priority:   pulumi.Int(1),
 //			})
 //			if err != nil {
 //				return err

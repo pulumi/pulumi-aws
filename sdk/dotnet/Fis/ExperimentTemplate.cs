@@ -28,8 +28,19 @@ namespace Pulumi.Aws.Fis
     /// {
     ///     var example = new Aws.Fis.ExperimentTemplate("example", new()
     ///     {
-    ///         Description = "example",
-    ///         RoleArn = exampleAwsIamRole.Arn,
+    ///         Actions = new[]
+    ///         {
+    ///             new Aws.Fis.Inputs.ExperimentTemplateActionArgs
+    ///             {
+    ///                 Target = new Aws.Fis.Inputs.ExperimentTemplateActionTargetArgs
+    ///                 {
+    ///                     Key = "Instances",
+    ///                     Value = "example-target",
+    ///                 },
+    ///                 Name = "example-action",
+    ///                 ActionId = "aws:ec2:terminate-instances",
+    ///             },
+    ///         },
     ///         StopConditions = new[]
     ///         {
     ///             new Aws.Fis.Inputs.ExperimentTemplateStopConditionArgs
@@ -37,26 +48,10 @@ namespace Pulumi.Aws.Fis
     ///                 Source = "none",
     ///             },
     ///         },
-    ///         Actions = new[]
-    ///         {
-    ///             new Aws.Fis.Inputs.ExperimentTemplateActionArgs
-    ///             {
-    ///                 Name = "example-action",
-    ///                 ActionId = "aws:ec2:terminate-instances",
-    ///                 Target = new Aws.Fis.Inputs.ExperimentTemplateActionTargetArgs
-    ///                 {
-    ///                     Key = "Instances",
-    ///                     Value = "example-target",
-    ///                 },
-    ///             },
-    ///         },
     ///         Targets = new[]
     ///         {
     ///             new Aws.Fis.Inputs.ExperimentTemplateTargetArgs
     ///             {
-    ///                 Name = "example-target",
-    ///                 ResourceType = "aws:ec2:instance",
-    ///                 SelectionMode = "COUNT(1)",
     ///                 ResourceTags = new[]
     ///                 {
     ///                     new Aws.Fis.Inputs.ExperimentTemplateTargetResourceTagArgs
@@ -65,8 +60,13 @@ namespace Pulumi.Aws.Fis
     ///                         Value = "example",
     ///                     },
     ///                 },
+    ///                 Name = "example-target",
+    ///                 ResourceType = "aws:ec2:instance",
+    ///                 SelectionMode = "COUNT(1)",
     ///             },
     ///         },
+    ///         Description = "example",
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });
@@ -111,7 +111,6 @@ namespace Pulumi.Aws.Fis
     /// 
     ///     var reportAccess = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
-    ///         Version = "2012-10-17",
     ///         Statements = new[]
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
@@ -168,6 +167,7 @@ namespace Pulumi.Aws.Fis
     ///                 },
     ///             },
     ///         },
+    ///         Version = "2012-10-17",
     ///     });
     /// 
     ///     var reportAccessPolicy = new Aws.Iam.Policy("report_access", new()
@@ -184,45 +184,6 @@ namespace Pulumi.Aws.Fis
     /// 
     ///     var exampleExperimentTemplate = new Aws.Fis.ExperimentTemplate("example", new()
     ///     {
-    ///         Description = "example",
-    ///         RoleArn = example.Arn,
-    ///         StopConditions = new[]
-    ///         {
-    ///             new Aws.Fis.Inputs.ExperimentTemplateStopConditionArgs
-    ///             {
-    ///                 Source = "none",
-    ///             },
-    ///         },
-    ///         Actions = new[]
-    ///         {
-    ///             new Aws.Fis.Inputs.ExperimentTemplateActionArgs
-    ///             {
-    ///                 Name = "example-action",
-    ///                 ActionId = "aws:ec2:terminate-instances",
-    ///                 Target = new Aws.Fis.Inputs.ExperimentTemplateActionTargetArgs
-    ///                 {
-    ///                     Key = "Instances",
-    ///                     Value = "example-target",
-    ///                 },
-    ///             },
-    ///         },
-    ///         Targets = new[]
-    ///         {
-    ///             new Aws.Fis.Inputs.ExperimentTemplateTargetArgs
-    ///             {
-    ///                 Name = "example-target",
-    ///                 ResourceType = "aws:ec2:instance",
-    ///                 SelectionMode = "COUNT(1)",
-    ///                 ResourceTags = new[]
-    ///                 {
-    ///                     new Aws.Fis.Inputs.ExperimentTemplateTargetResourceTagArgs
-    ///                     {
-    ///                         Key = "env",
-    ///                         Value = "example",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
     ///         ExperimentReportConfiguration = new Aws.Fis.Inputs.ExperimentTemplateExperimentReportConfigurationArgs
     ///         {
     ///             DataSources = new Aws.Fis.Inputs.ExperimentTemplateExperimentReportConfigurationDataSourcesArgs
@@ -246,6 +207,45 @@ namespace Pulumi.Aws.Fis
     ///             PostExperimentDuration = "PT10M",
     ///             PreExperimentDuration = "PT10M",
     ///         },
+    ///         Actions = new[]
+    ///         {
+    ///             new Aws.Fis.Inputs.ExperimentTemplateActionArgs
+    ///             {
+    ///                 Target = new Aws.Fis.Inputs.ExperimentTemplateActionTargetArgs
+    ///                 {
+    ///                     Key = "Instances",
+    ///                     Value = "example-target",
+    ///                 },
+    ///                 Name = "example-action",
+    ///                 ActionId = "aws:ec2:terminate-instances",
+    ///             },
+    ///         },
+    ///         StopConditions = new[]
+    ///         {
+    ///             new Aws.Fis.Inputs.ExperimentTemplateStopConditionArgs
+    ///             {
+    ///                 Source = "none",
+    ///             },
+    ///         },
+    ///         Targets = new[]
+    ///         {
+    ///             new Aws.Fis.Inputs.ExperimentTemplateTargetArgs
+    ///             {
+    ///                 ResourceTags = new[]
+    ///                 {
+    ///                     new Aws.Fis.Inputs.ExperimentTemplateTargetResourceTagArgs
+    ///                     {
+    ///                         Key = "env",
+    ///                         Value = "example",
+    ///                     },
+    ///                 },
+    ///                 Name = "example-target",
+    ///                 ResourceType = "aws:ec2:instance",
+    ///                 SelectionMode = "COUNT(1)",
+    ///             },
+    ///         },
+    ///         Description = "example",
+    ///         RoleArn = example.Arn,
     ///         Tags = 
     ///         {
     ///             { "Name", "example" },

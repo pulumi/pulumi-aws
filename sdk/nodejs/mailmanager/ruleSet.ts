@@ -19,16 +19,16 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.mailmanager.RuleSet("example", {
- *     name: "example",
  *     rules: [{
- *         name: "add-header",
  *         actions: [{
  *             addHeader: {
  *                 headerName: "X-Example",
  *                 headerValue: "example",
  *             },
  *         }],
+ *         name: "add-header",
  *     }],
+ *     name: "example",
  * });
  * ```
  *

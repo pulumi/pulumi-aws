@@ -72,6 +72,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCustomModel = new CustomModel("exampleCustomModel", CustomModelArgs.builder()
+ *             .outputDataConfig(CustomModelOutputDataConfigArgs.builder()
+ *                 .s3Uri(String.format("s3://%s/data/", output.id()))
+ *                 .build())
+ *             .trainingDataConfig(CustomModelTrainingDataConfigArgs.builder()
+ *                 .s3Uri(String.format("s3://%s/data/train.jsonl", training.id()))
+ *                 .build())
  *             .customModelName("example-model")
  *             .jobName("example-job-1")
  *             .baseModelIdentifier(example.modelArn())
@@ -82,12 +88,6 @@ import javax.annotation.Nullable;
  *                 Map.entry("learningRate", "0.005"),
  *                 Map.entry("learningRateWarmupSteps", "0")
  *             ))
- *             .outputDataConfig(CustomModelOutputDataConfigArgs.builder()
- *                 .s3Uri(String.format("s3://%s/data/", output.id()))
- *                 .build())
- *             .trainingDataConfig(CustomModelTrainingDataConfigArgs.builder()
- *                 .s3Uri(String.format("s3://%s/data/train.jsonl", training.id()))
- *                 .build())
  *             .build());
  * 
  *     }

@@ -170,10 +170,10 @@ class VpcEndpointConnectionAccepter(pulumi.CustomResource):
             network_load_balancer_arns=[example_aws_lb["arn"]])
         example_vpc_endpoint = aws.ec2.VpcEndpoint("example",
             vpc_id=test_alternate["id"],
-            service_name=test_aws_vpc_endpoint_service["serviceName"],
+            service_name=test["serviceName"],
             vpc_endpoint_type="Interface",
             private_dns_enabled=False,
-            security_group_ids=[test["id"]])
+            security_group_ids=[test_aws_security_group["id"]])
         example_vpc_endpoint_connection_accepter = aws.ec2.VpcEndpointConnectionAccepter("example",
             vpc_endpoint_service_id=example.id,
             vpc_endpoint_id=example_vpc_endpoint.id)
@@ -216,10 +216,10 @@ class VpcEndpointConnectionAccepter(pulumi.CustomResource):
             network_load_balancer_arns=[example_aws_lb["arn"]])
         example_vpc_endpoint = aws.ec2.VpcEndpoint("example",
             vpc_id=test_alternate["id"],
-            service_name=test_aws_vpc_endpoint_service["serviceName"],
+            service_name=test["serviceName"],
             vpc_endpoint_type="Interface",
             private_dns_enabled=False,
-            security_group_ids=[test["id"]])
+            security_group_ids=[test_aws_security_group["id"]])
         example_vpc_endpoint_connection_accepter = aws.ec2.VpcEndpointConnectionAccepter("example",
             vpc_endpoint_service_id=example.id,
             vpc_endpoint_id=example_vpc_endpoint.id)

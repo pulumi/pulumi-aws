@@ -48,11 +48,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BotAssociation("example", BotAssociationArgs.builder()
- *             .instanceId(exampleAwsConnectInstance.id())
  *             .lexBot(BotAssociationLexBotArgs.builder()
  *                 .lexRegion("us-west-2")
  *                 .name("Test")
  *                 .build())
+ *             .instanceId(exampleAwsConnectInstance.id())
  *             .build());
  * 
  *     }
@@ -101,11 +101,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new Intent("example", IntentArgs.builder()
- *             .createVersion(true)
- *             .name("connect_lex_intent")
  *             .fulfillmentActivity(IntentFulfillmentActivityArgs.builder()
  *                 .type("ReturnIntent")
  *                 .build())
+ *             .createVersion(true)
+ *             .name("connect_lex_intent")
  *             .sampleUtterances("I would like to pick up flowers.")
  *             .build());
  * 
@@ -117,11 +117,11 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .clarificationPrompt(BotClarificationPromptArgs.builder()
- *                 .maxAttempts(2)
  *                 .messages(BotClarificationPromptMessageArgs.builder()
  *                     .content("I didn't understand you, what would you like to do?")
  *                     .contentType("PlainText")
  *                     .build())
+ *                 .maxAttempts(2)
  *                 .build())
  *             .intents(BotIntentArgs.builder()
  *                 .intentName(example.name())
@@ -133,11 +133,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBotAssociation = new BotAssociation("exampleBotAssociation", BotAssociationArgs.builder()
- *             .instanceId(exampleAwsConnectInstance.id())
  *             .lexBot(BotAssociationLexBotArgs.builder()
  *                 .lexRegion(current.region())
  *                 .name(exampleBot.name())
  *                 .build())
+ *             .instanceId(exampleAwsConnectInstance.id())
  *             .build());
  * 
  *     }

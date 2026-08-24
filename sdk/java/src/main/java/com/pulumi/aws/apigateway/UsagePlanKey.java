@@ -53,11 +53,11 @@ import javax.annotation.Nullable;
  * 
  *         // ...
  *         var myusageplan = new UsagePlan("myusageplan", UsagePlanArgs.builder()
- *             .name("my_usage_plan")
  *             .apiStages(UsagePlanApiStageArgs.builder()
  *                 .apiId(test.id())
  *                 .stage(foo.stageName())
  *                 .build())
+ *             .name("my_usage_plan")
  *             .build());
  * 
  *         var mykey = new ApiKey("mykey", ApiKeyArgs.builder()

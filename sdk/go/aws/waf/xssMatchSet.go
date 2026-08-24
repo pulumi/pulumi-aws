@@ -28,21 +28,21 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := waf.NewXssMatchSet(ctx, "xss_match_set", &waf.XssMatchSetArgs{
-//				Name: pulumi.String("xss_match_set"),
 //				XssMatchTuples: waf.XssMatchSetXssMatchTupleArray{
 //					&waf.XssMatchSetXssMatchTupleArgs{
-//						TextTransformation: pulumi.String("NONE"),
 //						FieldToMatch: &waf.XssMatchSetXssMatchTupleFieldToMatchArgs{
 //							Type: pulumi.String("URI"),
 //						},
+//						TextTransformation: pulumi.String("NONE"),
 //					},
 //					&waf.XssMatchSetXssMatchTupleArgs{
-//						TextTransformation: pulumi.String("NONE"),
 //						FieldToMatch: &waf.XssMatchSetXssMatchTupleFieldToMatchArgs{
 //							Type: pulumi.String("QUERY_STRING"),
 //						},
+//						TextTransformation: pulumi.String("NONE"),
 //					},
 //				},
+//				Name: pulumi.String("xss_match_set"),
 //			})
 //			if err != nil {
 //				return err

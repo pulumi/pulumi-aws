@@ -54,11 +54,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new CertificateAuthority("example", CertificateAuthorityArgs.builder()
  *             .certificateAuthorityConfiguration(CertificateAuthorityCertificateAuthorityConfigurationArgs.builder()
- *                 .keyAlgorithm("RSA_4096")
- *                 .signingAlgorithm("SHA512WITHRSA")
  *                 .subject(CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs.builder()
  *                     .commonName("example.com")
  *                     .build())
+ *                 .keyAlgorithm("RSA_4096")
+ *                 .signingAlgorithm("SHA512WITHRSA")
  *                 .build())
  *             .permanentDeletionTimeInDays(7)
  *             .build());
@@ -95,14 +95,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CertificateAuthority("example", CertificateAuthorityArgs.builder()
- *             .usageMode("SHORT_LIVED_CERTIFICATE")
  *             .certificateAuthorityConfiguration(CertificateAuthorityCertificateAuthorityConfigurationArgs.builder()
- *                 .keyAlgorithm("RSA_4096")
- *                 .signingAlgorithm("SHA512WITHRSA")
  *                 .subject(CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs.builder()
  *                     .commonName("example.com")
  *                     .build())
+ *                 .keyAlgorithm("RSA_4096")
+ *                 .signingAlgorithm("SHA512WITHRSA")
  *                 .build())
+ *             .usageMode("SHORT_LIVED_CERTIFICATE")
  *             .build());
  * 
  *     }
@@ -154,6 +154,10 @@ import javax.annotation.Nullable;
  * 
  *         final var acmpcaBucketAccess = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .identifiers("acm-pca.amazonaws.com")
+ *                     .type("Service")
+ *                     .build())
  *                 .actions(                
  *                     "s3:GetBucketAcl",
  *                     "s3:GetBucketLocation",
@@ -162,10 +166,6 @@ import javax.annotation.Nullable;
  *                 .resources(                
  *                     example.arn(),
  *                     example.arn().applyValue(_arn -> String.format("%s/*", _arn)))
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .identifiers("acm-pca.amazonaws.com")
- *                     .type("Service")
- *                     .build())
  *                 .build())
  *             .build());
  * 
@@ -176,11 +176,11 @@ import javax.annotation.Nullable;
  * 
  *         var exampleCertificateAuthority = new CertificateAuthority("exampleCertificateAuthority", CertificateAuthorityArgs.builder()
  *             .certificateAuthorityConfiguration(CertificateAuthorityCertificateAuthorityConfigurationArgs.builder()
- *                 .keyAlgorithm("RSA_4096")
- *                 .signingAlgorithm("SHA512WITHRSA")
  *                 .subject(CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs.builder()
  *                     .commonName("example.com")
  *                     .build())
+ *                 .keyAlgorithm("RSA_4096")
+ *                 .signingAlgorithm("SHA512WITHRSA")
  *                 .build())
  *             .revocationConfiguration(CertificateAuthorityRevocationConfigurationArgs.builder()
  *                 .crlConfiguration(CertificateAuthorityRevocationConfigurationCrlConfigurationArgs.builder()

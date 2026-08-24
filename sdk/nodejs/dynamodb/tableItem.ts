@@ -17,14 +17,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const exampleTable = new aws.dynamodb.Table("example", {
- *     name: "example-name",
- *     readCapacity: 10,
- *     writeCapacity: 10,
- *     hashKey: "exampleHashKey",
  *     attributes: [{
  *         name: "exampleHashKey",
  *         type: "S",
  *     }],
+ *     name: "example-name",
+ *     readCapacity: 10,
+ *     writeCapacity: 10,
+ *     hashKey: "exampleHashKey",
  * });
  * const example = new aws.dynamodb.TableItem("example", {
  *     tableName: exampleTable.name,

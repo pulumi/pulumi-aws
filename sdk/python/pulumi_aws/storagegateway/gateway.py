@@ -786,15 +786,15 @@ class Gateway(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.storagegateway.Gateway("example",
-            gateway_ip_address="1.2.3.4",
-            gateway_name="example",
-            gateway_timezone="GMT",
-            gateway_type="FILE_FSX_SMB",
             smb_active_directory_settings={
                 "domain_name": "corp.example.com",
                 "password": "avoid-plaintext-passwords",
                 "username": "Admin",
-            })
+            },
+            gateway_ip_address="1.2.3.4",
+            gateway_name="example",
+            gateway_timezone="GMT",
+            gateway_type="FILE_FSX_SMB")
         ```
 
         ### S3 File Gateway
@@ -865,7 +865,8 @@ class Gateway(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.storagegateway.Gateway("example", gateway_ip_address=sgw["privateIp"])
+        example = aws.storagegateway.Gateway("example", gateway_ip_address=sgw["privateIp"],
+        opts = pulumi.ResourceOptions(ignore_changes=["gatewayIpAddress"]))
         ```
 
 
@@ -929,15 +930,15 @@ class Gateway(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.storagegateway.Gateway("example",
-            gateway_ip_address="1.2.3.4",
-            gateway_name="example",
-            gateway_timezone="GMT",
-            gateway_type="FILE_FSX_SMB",
             smb_active_directory_settings={
                 "domain_name": "corp.example.com",
                 "password": "avoid-plaintext-passwords",
                 "username": "Admin",
-            })
+            },
+            gateway_ip_address="1.2.3.4",
+            gateway_name="example",
+            gateway_timezone="GMT",
+            gateway_type="FILE_FSX_SMB")
         ```
 
         ### S3 File Gateway
@@ -1008,7 +1009,8 @@ class Gateway(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.storagegateway.Gateway("example", gateway_ip_address=sgw["privateIp"])
+        example = aws.storagegateway.Gateway("example", gateway_ip_address=sgw["privateIp"],
+        opts = pulumi.ResourceOptions(ignore_changes=["gatewayIpAddress"]))
         ```
 
 

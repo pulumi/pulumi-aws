@@ -397,6 +397,22 @@ class EnvironmentProfile(pulumi.CustomResource):
         import pulumi_aws as aws
 
         domain_execution_role = aws.iam.Role("domain_execution_role",
+            inline_policies=[{
+                "name": "example-name",
+                "policy": json.dumps({
+                    "Version": "2012-10-17",
+                    "Statement": [{
+                        "Action": [
+                            "datazone:*",
+                            "ram:*",
+                            "sso:*",
+                            "kms:*",
+                        ],
+                        "Effect": "Allow",
+                        "Resource": "*",
+                    }],
+                }),
+            }],
             name="example-name",
             assume_role_policy=json.dumps({
                 "Version": "2012-10-17",
@@ -422,23 +438,7 @@ class EnvironmentProfile(pulumi.CustomResource):
                         },
                     },
                 ],
-            }),
-            inline_policies=[{
-                "name": "example-name",
-                "policy": json.dumps({
-                    "Version": "2012-10-17",
-                    "Statement": [{
-                        "Action": [
-                            "datazone:*",
-                            "ram:*",
-                            "sso:*",
-                            "kms:*",
-                        ],
-                        "Effect": "Allow",
-                        "Resource": "*",
-                    }],
-                }),
-            }])
+            }))
         test_domain = aws.datazone.Domain("test",
             name="example-name",
             domain_execution_role=domain_execution_role.arn)
@@ -460,17 +460,17 @@ class EnvironmentProfile(pulumi.CustomResource):
             provisioning_role_arn=domain_execution_role.arn,
             enabled_regions=[test_get_region.region])
         test_environment_profile = aws.datazone.EnvironmentProfile("test",
+            user_parameters=[{
+                "name": "consumerGlueDbName",
+                "value": "value",
+            }],
             aws_account_id=test.account_id,
             aws_account_region=test_get_region.region,
             description="description",
             environment_blueprint_identifier=test_get_environment_blueprint.id,
             name="example-name",
             project_identifier=test_project.id,
-            domain_identifier=test_domain.id,
-            user_parameters=[{
-                "name": "consumerGlueDbName",
-                "value": "value",
-            }])
+            domain_identifier=test_domain.id)
         ```
 
         ## Import
@@ -525,6 +525,22 @@ class EnvironmentProfile(pulumi.CustomResource):
         import pulumi_aws as aws
 
         domain_execution_role = aws.iam.Role("domain_execution_role",
+            inline_policies=[{
+                "name": "example-name",
+                "policy": json.dumps({
+                    "Version": "2012-10-17",
+                    "Statement": [{
+                        "Action": [
+                            "datazone:*",
+                            "ram:*",
+                            "sso:*",
+                            "kms:*",
+                        ],
+                        "Effect": "Allow",
+                        "Resource": "*",
+                    }],
+                }),
+            }],
             name="example-name",
             assume_role_policy=json.dumps({
                 "Version": "2012-10-17",
@@ -550,23 +566,7 @@ class EnvironmentProfile(pulumi.CustomResource):
                         },
                     },
                 ],
-            }),
-            inline_policies=[{
-                "name": "example-name",
-                "policy": json.dumps({
-                    "Version": "2012-10-17",
-                    "Statement": [{
-                        "Action": [
-                            "datazone:*",
-                            "ram:*",
-                            "sso:*",
-                            "kms:*",
-                        ],
-                        "Effect": "Allow",
-                        "Resource": "*",
-                    }],
-                }),
-            }])
+            }))
         test_domain = aws.datazone.Domain("test",
             name="example-name",
             domain_execution_role=domain_execution_role.arn)
@@ -588,17 +588,17 @@ class EnvironmentProfile(pulumi.CustomResource):
             provisioning_role_arn=domain_execution_role.arn,
             enabled_regions=[test_get_region.region])
         test_environment_profile = aws.datazone.EnvironmentProfile("test",
+            user_parameters=[{
+                "name": "consumerGlueDbName",
+                "value": "value",
+            }],
             aws_account_id=test.account_id,
             aws_account_region=test_get_region.region,
             description="description",
             environment_blueprint_identifier=test_get_environment_blueprint.id,
             name="example-name",
             project_identifier=test_project.id,
-            domain_identifier=test_domain.id,
-            user_parameters=[{
-                "name": "consumerGlueDbName",
-                "value": "value",
-            }])
+            domain_identifier=test_domain.id)
         ```
 
         ## Import

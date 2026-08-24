@@ -46,12 +46,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Table("example", TableArgs.builder()
- *             .name("orders")
- *             .hashKey("id")
  *             .attributes(TableAttributeArgs.builder()
  *                 .name("id")
  *                 .type("S")
  *                 .build())
+ *             .name("orders")
+ *             .hashKey("id")
  *             .build());
  * 
  *         var exampleStream = new Stream("exampleStream", StreamArgs.builder()

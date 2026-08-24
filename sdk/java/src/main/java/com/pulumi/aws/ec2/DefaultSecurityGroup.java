@@ -45,8 +45,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ec2.VpcArgs;
  * import com.pulumi.aws.ec2.DefaultSecurityGroup;
  * import com.pulumi.aws.ec2.DefaultSecurityGroupArgs;
- * import com.pulumi.aws.ec2.inputs.DefaultSecurityGroupIngressArgs;
  * import com.pulumi.aws.ec2.inputs.DefaultSecurityGroupEgressArgs;
+ * import com.pulumi.aws.ec2.inputs.DefaultSecurityGroupIngressArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -65,19 +65,19 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var default_ = new DefaultSecurityGroup("default", DefaultSecurityGroupArgs.builder()
- *             .vpcId(mainvpc.id())
- *             .ingress(DefaultSecurityGroupIngressArgs.builder()
- *                 .protocol("-1")
- *                 .self(true)
- *                 .fromPort(0)
- *                 .toPort(0)
- *                 .build())
  *             .egress(DefaultSecurityGroupEgressArgs.builder()
  *                 .fromPort(0)
  *                 .toPort(0)
  *                 .protocol("-1")
  *                 .cidrBlocks("0.0.0.0/0")
  *                 .build())
+ *             .ingress(DefaultSecurityGroupIngressArgs.builder()
+ *                 .protocol("-1")
+ *                 .self(true)
+ *                 .fromPort(0)
+ *                 .toPort(0)
+ *                 .build())
+ *             .vpcId(mainvpc.id())
  *             .build());
  * 
  *     }
@@ -119,13 +119,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var default_ = new DefaultSecurityGroup("default", DefaultSecurityGroupArgs.builder()
- *             .vpcId(mainvpc.id())
  *             .ingress(DefaultSecurityGroupIngressArgs.builder()
  *                 .protocol("-1")
  *                 .self(true)
  *                 .fromPort(0)
  *                 .toPort(0)
  *                 .build())
+ *             .vpcId(mainvpc.id())
  *             .build());
  * 
  *     }

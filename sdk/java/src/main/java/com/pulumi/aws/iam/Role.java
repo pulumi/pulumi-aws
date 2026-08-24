@@ -107,11 +107,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var instanceAssumeRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions("sts:AssumeRole")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("ec2.amazonaws.com")
  *                     .build())
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
@@ -167,8 +167,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new Role("example", RoleArgs.builder()
- *             .name("yak_role")
- *             .assumeRolePolicy(instanceAssumeRolePolicy.json())
  *             .inlinePolicies(            
  *                 RoleInlinePolicyArgs.builder()
  *                     .name("my_inline_policy")
@@ -186,6 +184,8 @@ import javax.annotation.Nullable;
  *                     .name("policy-8675309")
  *                     .policy(inlinePolicy.json())
  *                     .build())
+ *             .name("yak_role")
+ *             .assumeRolePolicy(instanceAssumeRolePolicy.json())
  *             .build());
  * 
  *     }

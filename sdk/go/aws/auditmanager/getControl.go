@@ -71,25 +71,25 @@ import (
 //				return err
 //			}
 //			_, err = auditmanager.NewFramework(ctx, "example", &auditmanager.FrameworkArgs{
-//				Name: pulumi.String("example"),
 //				ControlSets: auditmanager.FrameworkControlSetArray{
 //					&auditmanager.FrameworkControlSetArgs{
-//						Name: pulumi.String("example"),
 //						Controls: auditmanager.FrameworkControlSetControlArray{
 //							&auditmanager.FrameworkControlSetControlArgs{
 //								Id: pulumi.String(example.Id),
 //							},
 //						},
+//						Name: pulumi.String("example"),
 //					},
 //					&auditmanager.FrameworkControlSetArgs{
-//						Name: pulumi.String("example2"),
 //						Controls: auditmanager.FrameworkControlSetControlArray{
 //							&auditmanager.FrameworkControlSetControlArgs{
 //								Id: pulumi.String(example2.Id),
 //							},
 //						},
+//						Name: pulumi.String("example2"),
 //					},
 //				},
+//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

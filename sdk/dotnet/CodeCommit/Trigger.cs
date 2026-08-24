@@ -29,7 +29,6 @@ namespace Pulumi.Aws.CodeCommit
     /// 
     ///     var testTrigger = new Aws.CodeCommit.Trigger("test", new()
     ///     {
-    ///         RepositoryName = test.RepositoryName,
     ///         Triggers = new[]
     ///         {
     ///             new Aws.CodeCommit.Inputs.TriggerTriggerArgs
@@ -42,6 +41,7 @@ namespace Pulumi.Aws.CodeCommit
     ///                 DestinationArn = testAwsSnsTopic.Arn,
     ///             },
     ///         },
+    ///         RepositoryName = test.RepositoryName,
     ///     });
     /// 
     /// });

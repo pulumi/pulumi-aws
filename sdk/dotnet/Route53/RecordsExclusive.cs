@@ -38,14 +38,10 @@ namespace Pulumi.Aws.Route53
     /// 
     ///     var test = new Aws.Route53.RecordsExclusive("test", new()
     ///     {
-    ///         ZoneId = testAwsRoute53Zone.ZoneId,
     ///         ResourceRecordSets = new[]
     ///         {
     ///             new Aws.Route53.Inputs.RecordsExclusiveResourceRecordSetArgs
     ///             {
-    ///                 Name = "subdomain.example.com",
-    ///                 Type = "A",
-    ///                 Ttl = 30,
     ///                 ResourceRecords = new[]
     ///                 {
     ///                     new Aws.Route53.Inputs.RecordsExclusiveResourceRecordSetResourceRecordArgs
@@ -57,8 +53,12 @@ namespace Pulumi.Aws.Route53
     ///                         Value = "127.0.0.27",
     ///                     },
     ///                 },
+    ///                 Name = "subdomain.example.com",
+    ///                 Type = "A",
+    ///                 Ttl = 30,
     ///             },
     ///         },
+    ///         ZoneId = testAwsRoute53Zone.ZoneId,
     ///     });
     /// 
     /// });

@@ -29,8 +29,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := backup.NewReportPlan(ctx, "example", &backup.ReportPlanArgs{
-//				Name:        pulumi.String("example_name"),
-//				Description: pulumi.String("example description"),
 //				ReportDeliveryChannel: &backup.ReportPlanReportDeliveryChannelArgs{
 //					Formats: pulumi.StringArray{
 //						pulumi.String("CSV"),
@@ -41,6 +39,8 @@ import (
 //				ReportSetting: &backup.ReportPlanReportSettingArgs{
 //					ReportTemplate: pulumi.String("RESTORE_JOB_REPORT"),
 //				},
+//				Name:        pulumi.String("example_name"),
+//				Description: pulumi.String("example description"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("Example Report Plan"),
 //				},

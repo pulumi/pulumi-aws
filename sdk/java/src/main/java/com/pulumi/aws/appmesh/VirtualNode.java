@@ -35,12 +35,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.appmesh.VirtualNode;
  * import com.pulumi.aws.appmesh.VirtualNodeArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryDnsArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecBackendArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecBackendVirtualServiceArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerPortMappingArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryDnsArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -55,9 +55,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var serviceb1 = new VirtualNode("serviceb1", VirtualNodeArgs.builder()
- *             .name("serviceBv1")
- *             .meshName(simple.id())
  *             .spec(VirtualNodeSpecArgs.builder()
+ *                 .serviceDiscovery(VirtualNodeSpecServiceDiscoveryArgs.builder()
+ *                     .dns(VirtualNodeSpecServiceDiscoveryDnsArgs.builder()
+ *                         .hostname("serviceb.simpleapp.local")
+ *                         .build())
+ *                     .build())
  *                 .backends(VirtualNodeSpecBackendArgs.builder()
  *                     .virtualService(VirtualNodeSpecBackendVirtualServiceArgs.builder()
  *                         .virtualServiceName("servicea.simpleapp.local")
@@ -69,12 +72,9 @@ import javax.annotation.Nullable;
  *                         .protocol("http")
  *                         .build())
  *                     .build())
- *                 .serviceDiscovery(VirtualNodeSpecServiceDiscoveryArgs.builder()
- *                     .dns(VirtualNodeSpecServiceDiscoveryDnsArgs.builder()
- *                         .hostname("serviceb.simpleapp.local")
- *                         .build())
- *                     .build())
  *                 .build())
+ *             .name("serviceBv1")
+ *             .meshName(simple.id())
  *             .build());
  * 
  *     }
@@ -96,12 +96,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.appmesh.VirtualNode;
  * import com.pulumi.aws.appmesh.VirtualNodeArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecBackendArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecBackendVirtualServiceArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerPortMappingArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -120,9 +120,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var serviceb1 = new VirtualNode("serviceb1", VirtualNodeArgs.builder()
- *             .name("serviceBv1")
- *             .meshName(simple.id())
  *             .spec(VirtualNodeSpecArgs.builder()
+ *                 .serviceDiscovery(VirtualNodeSpecServiceDiscoveryArgs.builder()
+ *                     .awsCloudMap(VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs.builder()
+ *                         .attributes(Map.of("stack", "blue"))
+ *                         .serviceName("serviceb1")
+ *                         .namespaceName(example.name())
+ *                         .build())
+ *                     .build())
  *                 .backends(VirtualNodeSpecBackendArgs.builder()
  *                     .virtualService(VirtualNodeSpecBackendVirtualServiceArgs.builder()
  *                         .virtualServiceName("servicea.simpleapp.local")
@@ -134,14 +139,9 @@ import javax.annotation.Nullable;
  *                         .protocol("http")
  *                         .build())
  *                     .build())
- *                 .serviceDiscovery(VirtualNodeSpecServiceDiscoveryArgs.builder()
- *                     .awsCloudMap(VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs.builder()
- *                         .attributes(Map.of("stack", "blue"))
- *                         .serviceName("serviceb1")
- *                         .namespaceName(example.name())
- *                         .build())
- *                     .build())
  *                 .build())
+ *             .name("serviceBv1")
+ *             .meshName(simple.id())
  *             .build());
  * 
  *     }
@@ -161,13 +161,13 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.appmesh.VirtualNode;
  * import com.pulumi.aws.appmesh.VirtualNodeArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryDnsArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecBackendArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecBackendVirtualServiceArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerPortMappingArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerHealthCheckArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryDnsArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -182,9 +182,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var serviceb1 = new VirtualNode("serviceb1", VirtualNodeArgs.builder()
- *             .name("serviceBv1")
- *             .meshName(simple.id())
  *             .spec(VirtualNodeSpecArgs.builder()
+ *                 .serviceDiscovery(VirtualNodeSpecServiceDiscoveryArgs.builder()
+ *                     .dns(VirtualNodeSpecServiceDiscoveryDnsArgs.builder()
+ *                         .hostname("serviceb.simpleapp.local")
+ *                         .build())
+ *                     .build())
  *                 .backends(VirtualNodeSpecBackendArgs.builder()
  *                     .virtualService(VirtualNodeSpecBackendVirtualServiceArgs.builder()
  *                         .virtualServiceName("servicea.simpleapp.local")
@@ -204,12 +207,9 @@ import javax.annotation.Nullable;
  *                         .intervalMillis(5000)
  *                         .build())
  *                     .build())
- *                 .serviceDiscovery(VirtualNodeSpecServiceDiscoveryArgs.builder()
- *                     .dns(VirtualNodeSpecServiceDiscoveryDnsArgs.builder()
- *                         .hostname("serviceb.simpleapp.local")
- *                         .build())
- *                     .build())
  *                 .build())
+ *             .name("serviceBv1")
+ *             .meshName(simple.id())
  *             .build());
  * 
  *     }
@@ -229,15 +229,15 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.appmesh.VirtualNode;
  * import com.pulumi.aws.appmesh.VirtualNodeArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecBackendArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecBackendVirtualServiceArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerPortMappingArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryDnsArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecLoggingArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecLoggingAccessLogArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecLoggingAccessLogFileArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecBackendArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecBackendVirtualServiceArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerPortMappingArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -252,20 +252,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var serviceb1 = new VirtualNode("serviceb1", VirtualNodeArgs.builder()
- *             .name("serviceBv1")
- *             .meshName(simple.id())
  *             .spec(VirtualNodeSpecArgs.builder()
- *                 .backends(VirtualNodeSpecBackendArgs.builder()
- *                     .virtualService(VirtualNodeSpecBackendVirtualServiceArgs.builder()
- *                         .virtualServiceName("servicea.simpleapp.local")
- *                         .build())
- *                     .build())
- *                 .listeners(VirtualNodeSpecListenerArgs.builder()
- *                     .portMapping(VirtualNodeSpecListenerPortMappingArgs.builder()
- *                         .port(8080)
- *                         .protocol("http")
- *                         .build())
- *                     .build())
  *                 .serviceDiscovery(VirtualNodeSpecServiceDiscoveryArgs.builder()
  *                     .dns(VirtualNodeSpecServiceDiscoveryDnsArgs.builder()
  *                         .hostname("serviceb.simpleapp.local")
@@ -278,7 +265,20 @@ import javax.annotation.Nullable;
  *                             .build())
  *                         .build())
  *                     .build())
+ *                 .backends(VirtualNodeSpecBackendArgs.builder()
+ *                     .virtualService(VirtualNodeSpecBackendVirtualServiceArgs.builder()
+ *                         .virtualServiceName("servicea.simpleapp.local")
+ *                         .build())
+ *                     .build())
+ *                 .listeners(VirtualNodeSpecListenerArgs.builder()
+ *                     .portMapping(VirtualNodeSpecListenerPortMappingArgs.builder()
+ *                         .port(8080)
+ *                         .protocol("http")
+ *                         .build())
+ *                     .build())
  *                 .build())
+ *             .name("serviceBv1")
+ *             .meshName(simple.id())
  *             .build());
  * 
  *     }

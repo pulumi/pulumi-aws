@@ -26,13 +26,13 @@ import * as utilities from "../utilities";
  *     id: subnetId,
  * });
  * const subnetSecurityGroup = new aws.ec2.SecurityGroup("subnet_security_group", {
- *     vpcId: selected.then(selected => selected.vpcId),
  *     ingress: [{
  *         cidrBlocks: [selected.then(selected => selected.cidrBlock)],
  *         fromPort: 80,
  *         toPort: 80,
  *         protocol: "tcp",
  *     }],
+ *     vpcId: selected.then(selected => selected.vpcId),
  * });
  * ```
  *
@@ -215,13 +215,13 @@ export interface GetSubnetResult {
  *     id: subnetId,
  * });
  * const subnetSecurityGroup = new aws.ec2.SecurityGroup("subnet_security_group", {
- *     vpcId: selected.then(selected => selected.vpcId),
  *     ingress: [{
  *         cidrBlocks: [selected.then(selected => selected.cidrBlock)],
  *         fromPort: 80,
  *         toPort: 80,
  *         protocol: "tcp",
  *     }],
+ *     vpcId: selected.then(selected => selected.vpcId),
  * });
  * ```
  *

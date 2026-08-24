@@ -32,15 +32,15 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lakeformation.NewDataCellsFilter(ctx, "example", &lakeformation.DataCellsFilterArgs{
 //				TableData: &lakeformation.DataCellsFilterTableDataArgs{
+//					RowFilter: &lakeformation.DataCellsFilterTableDataRowFilterArgs{
+//						FilterExpression: pulumi.String("my_column='example'"),
+//					},
 //					DatabaseName:   pulumi.Any(exampleAwsGlueCatalogDatabase.Name),
 //					Name:           pulumi.String("example"),
 //					TableCatalogId: pulumi.Any(current.AccountId),
 //					TableName:      pulumi.Any(exampleAwsGlueCatalogTable.Name),
 //					ColumnNames: pulumi.StringArray{
 //						pulumi.String("my_column"),
-//					},
-//					RowFilter: &lakeformation.DataCellsFilterTableDataRowFilterArgs{
-//						FilterExpression: pulumi.String("my_column='example'"),
 //					},
 //				},
 //			})
@@ -71,10 +71,6 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lakeformation.NewDataCellsFilter(ctx, "excluded_columns", &lakeformation.DataCellsFilterArgs{
 //				TableData: &lakeformation.DataCellsFilterTableDataArgs{
-//					DatabaseName:   pulumi.Any(example.Name),
-//					Name:           pulumi.String("exclude-pii"),
-//					TableCatalogId: pulumi.Any(current.AccountId),
-//					TableName:      pulumi.Any(exampleAwsGlueCatalogTable.Name),
 //					ColumnWildcard: &lakeformation.DataCellsFilterTableDataColumnWildcardArgs{
 //						ExcludedColumnNames: pulumi.StringArray{
 //							pulumi.String("ssn"),
@@ -84,6 +80,10 @@ import (
 //					RowFilter: &lakeformation.DataCellsFilterTableDataRowFilterArgs{
 //						AllRowsWildcard: &lakeformation.DataCellsFilterTableDataRowFilterAllRowsWildcardArgs{},
 //					},
+//					DatabaseName:   pulumi.Any(example.Name),
+//					Name:           pulumi.String("exclude-pii"),
+//					TableCatalogId: pulumi.Any(current.AccountId),
+//					TableName:      pulumi.Any(exampleAwsGlueCatalogTable.Name),
 //				},
 //			})
 //			if err != nil {
@@ -111,10 +111,6 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lakeformation.NewDataCellsFilter(ctx, "row_and_column", &lakeformation.DataCellsFilterArgs{
 //				TableData: &lakeformation.DataCellsFilterTableDataArgs{
-//					DatabaseName:   pulumi.Any(example.Name),
-//					Name:           pulumi.String("marketing-filtered"),
-//					TableCatalogId: pulumi.Any(current.AccountId),
-//					TableName:      pulumi.Any(exampleAwsGlueCatalogTable.Name),
 //					ColumnWildcard: &lakeformation.DataCellsFilterTableDataColumnWildcardArgs{
 //						ExcludedColumnNames: pulumi.StringArray{
 //							pulumi.String("salary"),
@@ -124,6 +120,10 @@ import (
 //					RowFilter: &lakeformation.DataCellsFilterTableDataRowFilterArgs{
 //						FilterExpression: pulumi.String("department = 'Marketing'"),
 //					},
+//					DatabaseName:   pulumi.Any(example.Name),
+//					Name:           pulumi.String("marketing-filtered"),
+//					TableCatalogId: pulumi.Any(current.AccountId),
+//					TableName:      pulumi.Any(exampleAwsGlueCatalogTable.Name),
 //				},
 //			})
 //			if err != nil {
@@ -153,16 +153,16 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lakeformation.NewDataCellsFilter(ctx, "row_only", &lakeformation.DataCellsFilterArgs{
 //				TableData: &lakeformation.DataCellsFilterTableDataArgs{
-//					DatabaseName:   pulumi.Any(example.Name),
-//					Name:           pulumi.String("regional-filter"),
-//					TableCatalogId: pulumi.Any(current.AccountId),
-//					TableName:      pulumi.Any(exampleAwsGlueCatalogTable.Name),
 //					ColumnWildcard: &lakeformation.DataCellsFilterTableDataColumnWildcardArgs{
 //						ExcludedColumnNames: pulumi.StringArray{},
 //					},
 //					RowFilter: &lakeformation.DataCellsFilterTableDataRowFilterArgs{
 //						FilterExpression: pulumi.String("region = 'US-WEST'"),
 //					},
+//					DatabaseName:   pulumi.Any(example.Name),
+//					Name:           pulumi.String("regional-filter"),
+//					TableCatalogId: pulumi.Any(current.AccountId),
+//					TableName:      pulumi.Any(exampleAwsGlueCatalogTable.Name),
 //				},
 //			})
 //			if err != nil {

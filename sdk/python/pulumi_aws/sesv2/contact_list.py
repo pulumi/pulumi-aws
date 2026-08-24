@@ -292,14 +292,14 @@ class ContactList(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sesv2.ContactList("example",
-            contact_list_name="example",
-            description="description",
             topics=[{
                 "default_subscription_status": "OPT_IN",
                 "description": "topic description",
                 "display_name": "Example Topic",
                 "topic_name": "example-topic",
-            }])
+            }],
+            contact_list_name="example",
+            description="description")
         ```
 
         ## Import
@@ -348,14 +348,14 @@ class ContactList(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sesv2.ContactList("example",
-            contact_list_name="example",
-            description="description",
             topics=[{
                 "default_subscription_status": "OPT_IN",
                 "description": "topic description",
                 "display_name": "Example Topic",
                 "topic_name": "example-topic",
-            }])
+            }],
+            contact_list_name="example",
+            description="description")
         ```
 
         ## Import

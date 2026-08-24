@@ -26,10 +26,6 @@ namespace Pulumi.Aws.Iot
     ///     {
     ///         ThingIndexingConfiguration = new Aws.Iot.Inputs.IndexingConfigurationThingIndexingConfigurationArgs
     ///         {
-    ///             ThingIndexingMode = "REGISTRY_AND_SHADOW",
-    ///             ThingConnectivityIndexingMode = "STATUS",
-    ///             DeviceDefenderIndexingMode = "VIOLATIONS",
-    ///             NamedShadowIndexingMode = "ON",
     ///             Filter = new Aws.Iot.Inputs.IndexingConfigurationThingIndexingConfigurationFilterArgs
     ///             {
     ///                 NamedShadowNames = new[]
@@ -60,6 +56,10 @@ namespace Pulumi.Aws.Iot
     ///                     Type = "Number",
     ///                 },
     ///             },
+    ///             ThingIndexingMode = "REGISTRY_AND_SHADOW",
+    ///             ThingConnectivityIndexingMode = "STATUS",
+    ///             DeviceDefenderIndexingMode = "VIOLATIONS",
+    ///             NamedShadowIndexingMode = "ON",
     ///         },
     ///     });
     /// 

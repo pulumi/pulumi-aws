@@ -50,10 +50,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var policy = new BackupPolicy("policy", BackupPolicyArgs.builder()
- *             .fileSystemId(fs.id())
  *             .backupPolicy(BackupPolicyBackupPolicyArgs.builder()
  *                 .status("ENABLED")
  *                 .build())
+ *             .fileSystemId(fs.id())
  *             .build());
  * 
  *     }

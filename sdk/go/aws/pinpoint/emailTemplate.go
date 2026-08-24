@@ -31,19 +31,19 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := pinpoint.NewEmailTemplate(ctx, "test", &pinpoint.EmailTemplateArgs{
-//				TemplateName: pulumi.String("testing"),
 //				EmailTemplates: pinpoint.EmailTemplateEmailTemplateArray{
 //					&pinpoint.EmailTemplateEmailTemplateArgs{
-//						Subject:  pulumi.String("testing"),
-//						TextPart: pulumi.String("we are testing template text part"),
 //						Headers: pinpoint.EmailTemplateEmailTemplateHeaderArray{
 //							&pinpoint.EmailTemplateEmailTemplateHeaderArgs{
 //								Name:  pulumi.String("testingname"),
 //								Value: pulumi.String("testingvalue"),
 //							},
 //						},
+//						Subject:  pulumi.String("testing"),
+//						TextPart: pulumi.String("we are testing template text part"),
 //					},
 //				},
+//				TemplateName: pulumi.String("testing"),
 //			})
 //			if err != nil {
 //				return err

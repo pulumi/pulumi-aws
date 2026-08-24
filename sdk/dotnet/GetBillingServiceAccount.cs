@@ -43,7 +43,6 @@ namespace Pulumi.Aws
         ///         {
         ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
         ///             {
-        ///                 Effect = "Allow",
         ///                 Principals = new[]
         ///                 {
         ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -55,6 +54,7 @@ namespace Pulumi.Aws
         ///                         },
         ///                     },
         ///                 },
+        ///                 Effect = "Allow",
         ///                 Actions = new[]
         ///                 {
         ///                     "s3:GetBucketAcl",
@@ -67,7 +67,6 @@ namespace Pulumi.Aws
         ///             },
         ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
         ///             {
-        ///                 Effect = "Allow",
         ///                 Principals = new[]
         ///                 {
         ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -79,6 +78,7 @@ namespace Pulumi.Aws
         ///                         },
         ///                     },
         ///                 },
+        ///                 Effect = "Allow",
         ///                 Actions = new[]
         ///                 {
         ///                     "s3:PutObject",
@@ -135,7 +135,6 @@ namespace Pulumi.Aws
         ///         {
         ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
         ///             {
-        ///                 Effect = "Allow",
         ///                 Principals = new[]
         ///                 {
         ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -147,6 +146,7 @@ namespace Pulumi.Aws
         ///                         },
         ///                     },
         ///                 },
+        ///                 Effect = "Allow",
         ///                 Actions = new[]
         ///                 {
         ///                     "s3:GetBucketAcl",
@@ -159,7 +159,6 @@ namespace Pulumi.Aws
         ///             },
         ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
         ///             {
-        ///                 Effect = "Allow",
         ///                 Principals = new[]
         ///                 {
         ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -171,6 +170,7 @@ namespace Pulumi.Aws
         ///                         },
         ///                     },
         ///                 },
+        ///                 Effect = "Allow",
         ///                 Actions = new[]
         ///                 {
         ///                     "s3:PutObject",
@@ -227,7 +227,6 @@ namespace Pulumi.Aws
         ///         {
         ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
         ///             {
-        ///                 Effect = "Allow",
         ///                 Principals = new[]
         ///                 {
         ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -239,6 +238,7 @@ namespace Pulumi.Aws
         ///                         },
         ///                     },
         ///                 },
+        ///                 Effect = "Allow",
         ///                 Actions = new[]
         ///                 {
         ///                     "s3:GetBucketAcl",
@@ -251,7 +251,6 @@ namespace Pulumi.Aws
         ///             },
         ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
         ///             {
-        ///                 Effect = "Allow",
         ///                 Principals = new[]
         ///                 {
         ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -263,6 +262,7 @@ namespace Pulumi.Aws
         ///                         },
         ///                     },
         ///                 },
+        ///                 Effect = "Allow",
         ///                 Actions = new[]
         ///                 {
         ///                     "s3:PutObject",

@@ -164,15 +164,15 @@ class SizeConstraintSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         size_constraint_set = aws.wafregional.SizeConstraintSet("size_constraint_set",
-            name="tfsize_constraints",
             size_constraints=[{
-                "text_transformation": "NONE",
-                "comparison_operator": "EQ",
-                "size": 4096,
                 "field_to_match": {
                     "type": "BODY",
                 },
-            }])
+                "text_transformation": "NONE",
+                "comparison_operator": "EQ",
+                "size": 4096,
+            }],
+            name="tfsize_constraints")
         ```
 
         ## Import
@@ -206,15 +206,15 @@ class SizeConstraintSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         size_constraint_set = aws.wafregional.SizeConstraintSet("size_constraint_set",
-            name="tfsize_constraints",
             size_constraints=[{
-                "text_transformation": "NONE",
-                "comparison_operator": "EQ",
-                "size": 4096,
                 "field_to_match": {
                     "type": "BODY",
                 },
-            }])
+                "text_transformation": "NONE",
+                "comparison_operator": "EQ",
+                "size": 4096,
+            }],
+            name="tfsize_constraints")
         ```
 
         ## Import

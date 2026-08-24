@@ -34,10 +34,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.securitylake.DataLake;
  * import com.pulumi.aws.securitylake.DataLakeArgs;
  * import com.pulumi.aws.securitylake.inputs.DataLakeConfigurationArgs;
- * import com.pulumi.aws.securitylake.inputs.DataLakeConfigurationEncryptionConfigurationArgs;
  * import com.pulumi.aws.securitylake.inputs.DataLakeConfigurationLifecycleConfigurationArgs;
- * import com.pulumi.aws.securitylake.inputs.DataLakeConfigurationLifecycleConfigurationTransitionArgs;
  * import com.pulumi.aws.securitylake.inputs.DataLakeConfigurationLifecycleConfigurationExpirationArgs;
+ * import com.pulumi.aws.securitylake.inputs.DataLakeConfigurationLifecycleConfigurationTransitionArgs;
+ * import com.pulumi.aws.securitylake.inputs.DataLakeConfigurationEncryptionConfigurationArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -52,13 +52,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataLake("example", DataLakeArgs.builder()
- *             .metaStoreManagerRoleArn(metaStoreManager.arn())
  *             .configuration(DataLakeConfigurationArgs.builder()
- *                 .region("eu-west-1")
- *                 .encryptionConfigurations(DataLakeConfigurationEncryptionConfigurationArgs.builder()
- *                     .kmsKeyId("S3_MANAGED_KEY")
- *                     .build())
  *                 .lifecycleConfiguration(DataLakeConfigurationLifecycleConfigurationArgs.builder()
+ *                     .expiration(DataLakeConfigurationLifecycleConfigurationExpirationArgs.builder()
+ *                         .days(300)
+ *                         .build())
  *                     .transitions(                    
  *                         DataLakeConfigurationLifecycleConfigurationTransitionArgs.builder()
  *                             .days(31)
@@ -68,11 +66,13 @@ import javax.annotation.Nullable;
  *                             .days(80)
  *                             .storageClass("ONEZONE_IA")
  *                             .build())
- *                     .expiration(DataLakeConfigurationLifecycleConfigurationExpirationArgs.builder()
- *                         .days(300)
- *                         .build())
  *                     .build())
+ *                 .encryptionConfigurations(DataLakeConfigurationEncryptionConfigurationArgs.builder()
+ *                     .kmsKeyId("S3_MANAGED_KEY")
+ *                     .build())
+ *                 .region("eu-west-1")
  *                 .build())
+ *             .metaStoreManagerRoleArn(metaStoreManager.arn())
  *             .build());
  * 
  *     }
@@ -107,13 +107,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataLake("example", DataLakeArgs.builder()
- *             .metaStoreManagerRoleArn(metaStoreManager.arn())
  *             .configuration(DataLakeConfigurationArgs.builder()
- *                 .region("eu-west-1")
  *                 .encryptionConfigurations(DataLakeConfigurationEncryptionConfigurationArgs.builder()
  *                     .kmsKeyId("S3_MANAGED_KEY")
  *                     .build())
+ *                 .region("eu-west-1")
  *                 .build())
+ *             .metaStoreManagerRoleArn(metaStoreManager.arn())
  *             .build());
  * 
  *     }

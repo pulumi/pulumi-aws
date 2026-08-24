@@ -51,10 +51,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var testMembership = new Membership("testMembership", MembershipArgs.builder()
- *             .collaborationId("1234abcd-12ab-34cd-56ef-1234567890ab")
- *             .queryLogStatus("DISABLED")
  *             .defaultResultConfiguration(MembershipDefaultResultConfigurationArgs.builder()
- *                 .roleArn("arn:aws:iam::123456789012:role/role-name")
  *                 .outputConfiguration(MembershipDefaultResultConfigurationOutputConfigurationArgs.builder()
  *                     .s3(MembershipDefaultResultConfigurationOutputConfigurationS3Args.builder()
  *                         .bucket("test-bucket")
@@ -62,7 +59,10 @@ import javax.annotation.Nullable;
  *                         .keyPrefix("test-prefix")
  *                         .build())
  *                     .build())
+ *                 .roleArn("arn:aws:iam::123456789012:role/role-name")
  *                 .build())
+ *             .collaborationId("1234abcd-12ab-34cd-56ef-1234567890ab")
+ *             .queryLogStatus("DISABLED")
  *             .tags(Map.of("Project", "Terraform"))
  *             .build());
  * 

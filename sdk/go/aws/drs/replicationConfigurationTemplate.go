@@ -36,17 +36,6 @@ import (
 // splat0 = append(splat0, val0.(map[string]interface{})["id"])
 // }
 // _, err := drs.NewReplicationConfigurationTemplate(ctx, "example", &drs.ReplicationConfigurationTemplateArgs{
-// AssociateDefaultSecurityGroup: pulumi.Bool(false),
-// BandwidthThrottling: pulumi.Int(12),
-// CreatePublicIp: pulumi.Bool(false),
-// DataPlaneRouting: pulumi.String("PRIVATE_IP"),
-// DefaultLargeStagingDiskType: pulumi.String("GP2"),
-// EbsEncryption: pulumi.String("DEFAULT"),
-// EbsEncryptionKeyArn: pulumi.String("arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"),
-// ReplicationServerInstanceType: pulumi.String("t3.small"),
-// ReplicationServersSecurityGroupsIds: toPulumiArray(splat0),
-// StagingAreaSubnetId: pulumi.Any(exampleAwsSubnet.Id),
-// UseDedicatedReplicationServer: pulumi.Bool(false),
 // PitPolicies: drs.ReplicationConfigurationTemplatePitPolicyArray{
 // &drs.ReplicationConfigurationTemplatePitPolicyArgs{
 // Enabled: pulumi.Bool(true),
@@ -70,6 +59,17 @@ import (
 // RuleId: pulumi.Int(3),
 // },
 // },
+// AssociateDefaultSecurityGroup: pulumi.Bool(false),
+// BandwidthThrottling: pulumi.Int(12),
+// CreatePublicIp: pulumi.Bool(false),
+// DataPlaneRouting: pulumi.String("PRIVATE_IP"),
+// DefaultLargeStagingDiskType: pulumi.String("GP2"),
+// EbsEncryption: pulumi.String("DEFAULT"),
+// EbsEncryptionKeyArn: pulumi.String("arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"),
+// ReplicationServerInstanceType: pulumi.String("t3.small"),
+// ReplicationServersSecurityGroupsIds: toPulumiArray(splat0),
+// StagingAreaSubnetId: pulumi.Any(exampleAwsSubnet.Id),
+// UseDedicatedReplicationServer: pulumi.Bool(false),
 // })
 // if err != nil {
 // return err

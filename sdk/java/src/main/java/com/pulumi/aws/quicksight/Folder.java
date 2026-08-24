@@ -82,8 +82,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Folder("example", FolderArgs.builder()
- *             .folderId("example-id")
- *             .name("example-name")
  *             .permissions(FolderPermissionArgs.builder()
  *                 .actions(                
  *                     "quicksight:CreateFolder",
@@ -96,6 +94,8 @@ import javax.annotation.Nullable;
  *                     "quicksight:UpdateFolderPermissions")
  *                 .principal(exampleAwsQuicksightUser.arn())
  *                 .build())
+ *             .folderId("example-id")
+ *             .name("example-name")
  *             .build());
  * 
  *     }

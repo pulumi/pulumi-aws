@@ -19,11 +19,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.datasync.EfsLocation("example", {
- *     efsFileSystemArn: exampleAwsEfsMountTarget.fileSystemArn,
  *     ec2Config: {
  *         securityGroupArns: [exampleAwsSecurityGroup.arn],
  *         subnetArn: exampleAwsSubnet.arn,
  *     },
+ *     efsFileSystemArn: exampleAwsEfsMountTarget.fileSystemArn,
  * });
  * ```
  *

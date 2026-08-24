@@ -32,6 +32,32 @@ import * as utilities from "../utilities";
  *     }),
  * });
  * const examplePlan = new aws.arcregionswitch.Plan("example", {
+ *     workflows: [
+ *         {
+ *             steps: [{
+ *                 executionApprovalConfigs: [{
+ *                     approvalRole: example.arn,
+ *                     timeoutMinutes: 60,
+ *                 }],
+ *                 name: "manual-approval",
+ *                 executionBlockType: "ManualApproval",
+ *             }],
+ *             workflowTargetAction: "activate",
+ *             workflowTargetRegion: "us-west-2",
+ *         },
+ *         {
+ *             steps: [{
+ *                 executionApprovalConfigs: [{
+ *                     approvalRole: example.arn,
+ *                     timeoutMinutes: 60,
+ *                 }],
+ *                 name: "manual-approval",
+ *                 executionBlockType: "ManualApproval",
+ *             }],
+ *             workflowTargetAction: "deactivate",
+ *             workflowTargetRegion: "us-east-1",
+ *         },
+ *     ],
  *     name: "example-plan",
  *     executionRole: example.arn,
  *     recoveryApproach: "activePassive",
@@ -40,32 +66,6 @@ import * as utilities from "../utilities";
  *         "us-west-2",
  *     ],
  *     primaryRegion: "us-east-1",
- *     workflows: [
- *         {
- *             workflowTargetAction: "activate",
- *             workflowTargetRegion: "us-west-2",
- *             steps: [{
- *                 name: "manual-approval",
- *                 executionBlockType: "ManualApproval",
- *                 executionApprovalConfigs: [{
- *                     approvalRole: example.arn,
- *                     timeoutMinutes: 60,
- *                 }],
- *             }],
- *         },
- *         {
- *             workflowTargetAction: "deactivate",
- *             workflowTargetRegion: "us-east-1",
- *             steps: [{
- *                 name: "manual-approval",
- *                 executionBlockType: "ManualApproval",
- *                 executionApprovalConfigs: [{
- *                     approvalRole: example.arn,
- *                     timeoutMinutes: 60,
- *                 }],
- *             }],
- *         },
- *     ],
  * });
  * ```
  *
@@ -76,6 +76,81 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const complex = new aws.arcregionswitch.Plan("complex", {
+ *     associatedAlarms: [{
+ *         name: "application-health-alarm",
+ *         alarmType: "applicationHealth",
+ *         resourceIdentifier: "arn:aws:cloudwatch:us-east-1:123456789012:alarm:MyAlarm",
+ *     }],
+ *     triggers: [{
+ *         conditions: [{
+ *             associatedAlarmName: "application-health-alarm",
+ *             condition: "red",
+ *         }],
+ *         action: "activate",
+ *         targetRegion: "us-west-2",
+ *         minDelayMinutesBetweenExecutions: 30,
+ *     }],
+ *     workflows: [
+ *         {
+ *             steps: [
+ *                 {
+ *                     customActionLambdaConfigs: [{
+ *                         lambdas: [{
+ *                             arn: example.arn,
+ *                         }],
+ *                         regionToRun: "activatingRegion",
+ *                         retryIntervalMinutes: 5,
+ *                         timeoutMinutes: 30,
+ *                     }],
+ *                     name: "lambda-step",
+ *                     executionBlockType: "CustomActionLambda",
+ *                 },
+ *                 {
+ *                     parallelConfigs: [{
+ *                         steps: [
+ *                             {
+ *                                 ec2AsgCapacityIncreaseConfigs: [{
+ *                                     asgs: [{
+ *                                         arn: exampleAwsAutoscalingGroup.arn,
+ *                                     }],
+ *                                     targetPercent: 150,
+ *                                 }],
+ *                                 name: "asg-scaling",
+ *                                 executionBlockType: "EC2AutoScaling",
+ *                             },
+ *                             {
+ *                                 ecsCapacityIncreaseConfigs: [{
+ *                                     services: [{
+ *                                         clusterArn: exampleAwsEcsCluster.arn,
+ *                                         serviceArn: exampleAwsEcsService.arn,
+ *                                     }],
+ *                                     targetPercent: 200,
+ *                                 }],
+ *                                 name: "ecs-scaling",
+ *                                 executionBlockType: "ECSServiceScaling",
+ *                             },
+ *                         ],
+ *                     }],
+ *                     name: "parallel-step",
+ *                     executionBlockType: "Parallel",
+ *                 },
+ *             ],
+ *             workflowTargetAction: "activate",
+ *             workflowTargetRegion: "us-west-2",
+ *         },
+ *         {
+ *             steps: [{
+ *                 route53HealthCheckConfigs: [{
+ *                     hostedZoneId: exampleAwsRoute53Zone.zoneId,
+ *                     recordName: "api.example.com",
+ *                 }],
+ *                 name: "route53-health-check",
+ *                 executionBlockType: "Route53HealthCheck",
+ *             }],
+ *             workflowTargetAction: "deactivate",
+ *             workflowTargetRegion: "us-east-1",
+ *         },
+ *     ],
  *     name: "complex-plan",
  *     executionRole: exampleAwsIamRole.arn,
  *     recoveryApproach: "activeActive",
@@ -85,81 +160,6 @@ import * as utilities from "../utilities";
  *     ],
  *     description: "Complex plan with multiple execution block types",
  *     recoveryTimeObjectiveMinutes: 60,
- *     associatedAlarms: [{
- *         name: "application-health-alarm",
- *         alarmType: "applicationHealth",
- *         resourceIdentifier: "arn:aws:cloudwatch:us-east-1:123456789012:alarm:MyAlarm",
- *     }],
- *     workflows: [
- *         {
- *             workflowTargetAction: "activate",
- *             workflowTargetRegion: "us-west-2",
- *             steps: [
- *                 {
- *                     name: "lambda-step",
- *                     executionBlockType: "CustomActionLambda",
- *                     customActionLambdaConfigs: [{
- *                         regionToRun: "activatingRegion",
- *                         retryIntervalMinutes: 5,
- *                         timeoutMinutes: 30,
- *                         lambdas: [{
- *                             arn: example.arn,
- *                         }],
- *                     }],
- *                 },
- *                 {
- *                     name: "parallel-step",
- *                     executionBlockType: "Parallel",
- *                     parallelConfigs: [{
- *                         steps: [
- *                             {
- *                                 name: "asg-scaling",
- *                                 executionBlockType: "EC2AutoScaling",
- *                                 ec2AsgCapacityIncreaseConfigs: [{
- *                                     asgs: [{
- *                                         arn: exampleAwsAutoscalingGroup.arn,
- *                                     }],
- *                                     targetPercent: 150,
- *                                 }],
- *                             },
- *                             {
- *                                 name: "ecs-scaling",
- *                                 executionBlockType: "ECSServiceScaling",
- *                                 ecsCapacityIncreaseConfigs: [{
- *                                     services: [{
- *                                         clusterArn: exampleAwsEcsCluster.arn,
- *                                         serviceArn: exampleAwsEcsService.arn,
- *                                     }],
- *                                     targetPercent: 200,
- *                                 }],
- *                             },
- *                         ],
- *                     }],
- *                 },
- *             ],
- *         },
- *         {
- *             workflowTargetAction: "deactivate",
- *             workflowTargetRegion: "us-east-1",
- *             steps: [{
- *                 name: "route53-health-check",
- *                 executionBlockType: "Route53HealthCheck",
- *                 route53HealthCheckConfigs: [{
- *                     hostedZoneId: exampleAwsRoute53Zone.zoneId,
- *                     recordName: "api.example.com",
- *                 }],
- *             }],
- *         },
- *     ],
- *     triggers: [{
- *         action: "activate",
- *         targetRegion: "us-west-2",
- *         minDelayMinutesBetweenExecutions: 30,
- *         conditions: [{
- *             associatedAlarmName: "application-health-alarm",
- *             condition: "red",
- *         }],
- *     }],
  *     tags: {
  *         Environment: "production",
  *     },

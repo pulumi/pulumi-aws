@@ -21,10 +21,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.lakeformation.getPermissions({
- *     principal: workflowRole.arn,
  *     dataLocation: {
  *         arn: testAwsLakeformationResource.arn,
  *     },
+ *     principal: workflowRole.arn,
  * });
  * ```
  *
@@ -35,11 +35,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.lakeformation.getPermissions({
- *     principal: workflowRole.arn,
  *     database: {
  *         name: testAwsGlueCatalogDatabase.name,
  *         catalogId: "110376042874",
  *     },
+ *     principal: workflowRole.arn,
  * });
  * ```
  *
@@ -50,9 +50,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.lakeformation.getPermissions({
- *     principal: workflowRole.arn,
  *     lfTagPolicy: {
- *         resourceType: "DATABASE",
  *         expressions: [
  *             {
  *                 key: "Team",
@@ -66,7 +64,9 @@ import * as utilities from "../utilities";
  *                 ],
  *             },
  *         ],
+ *         resourceType: "DATABASE",
  *     },
+ *     principal: workflowRole.arn,
  * });
  * ```
  */
@@ -183,10 +183,10 @@ export interface GetPermissionsResult {
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.lakeformation.getPermissions({
- *     principal: workflowRole.arn,
  *     dataLocation: {
  *         arn: testAwsLakeformationResource.arn,
  *     },
+ *     principal: workflowRole.arn,
  * });
  * ```
  *
@@ -197,11 +197,11 @@ export interface GetPermissionsResult {
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.lakeformation.getPermissions({
- *     principal: workflowRole.arn,
  *     database: {
  *         name: testAwsGlueCatalogDatabase.name,
  *         catalogId: "110376042874",
  *     },
+ *     principal: workflowRole.arn,
  * });
  * ```
  *
@@ -212,9 +212,7 @@ export interface GetPermissionsResult {
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.lakeformation.getPermissions({
- *     principal: workflowRole.arn,
  *     lfTagPolicy: {
- *         resourceType: "DATABASE",
  *         expressions: [
  *             {
  *                 key: "Team",
@@ -228,7 +226,9 @@ export interface GetPermissionsResult {
  *                 ],
  *             },
  *         ],
+ *         resourceType: "DATABASE",
  *     },
+ *     principal: workflowRole.arn,
  * });
  * ```
  */

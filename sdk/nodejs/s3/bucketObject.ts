@@ -104,10 +104,10 @@ import {Bucket} from "./index";
  *     acl: "private",
  * });
  * const exampleBucketVersioning = new aws.s3.BucketVersioning("example", {
- *     bucket: examplebucket.id,
  *     versioningConfiguration: {
  *         status: "Enabled",
  *     },
+ *     bucket: examplebucket.id,
  * });
  * const exampleBucketObject = new aws.s3.BucketObject("example", {
  *     key: "someobject",

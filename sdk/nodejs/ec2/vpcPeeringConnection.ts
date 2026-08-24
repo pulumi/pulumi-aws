@@ -49,15 +49,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const foo = new aws.ec2.VpcPeeringConnection("foo", {
- *     peerOwnerId: peerOwnerId,
- *     peerVpcId: bar.id,
- *     vpcId: fooAwsVpc.id,
  *     accepter: {
  *         allowRemoteVpcDnsResolution: true,
  *     },
  *     requester: {
  *         allowRemoteVpcDnsResolution: true,
  *     },
+ *     peerOwnerId: peerOwnerId,
+ *     peerVpcId: bar.id,
+ *     vpcId: fooAwsVpc.id,
  * });
  * ```
  *

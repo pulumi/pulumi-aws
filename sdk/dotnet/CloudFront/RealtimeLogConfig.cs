@@ -30,7 +30,6 @@ namespace Pulumi.Aws.CloudFront
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -42,6 +41,7 @@ namespace Pulumi.Aws.CloudFront
     ///                         },
     ///                     },
     ///                 },
+    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "sts:AssumeRole",
@@ -87,21 +87,21 @@ namespace Pulumi.Aws.CloudFront
     /// 
     ///     var exampleRealtimeLogConfig = new Aws.CloudFront.RealtimeLogConfig("example", new()
     ///     {
+    ///         Endpoint = new Aws.CloudFront.Inputs.RealtimeLogConfigEndpointArgs
+    ///         {
+    ///             KinesisStreamConfig = new Aws.CloudFront.Inputs.RealtimeLogConfigEndpointKinesisStreamConfigArgs
+    ///             {
+    ///                 RoleArn = exampleRole.Arn,
+    ///                 StreamArn = exampleAwsKinesisStream.Arn,
+    ///             },
+    ///             StreamType = "Kinesis",
+    ///         },
     ///         Name = "example",
     ///         SamplingRate = 75,
     ///         Fields = new[]
     ///         {
     ///             "timestamp",
     ///             "c-ip",
-    ///         },
-    ///         Endpoint = new Aws.CloudFront.Inputs.RealtimeLogConfigEndpointArgs
-    ///         {
-    ///             StreamType = "Kinesis",
-    ///             KinesisStreamConfig = new Aws.CloudFront.Inputs.RealtimeLogConfigEndpointKinesisStreamConfigArgs
-    ///             {
-    ///                 RoleArn = exampleRole.Arn,
-    ///                 StreamArn = exampleAwsKinesisStream.Arn,
-    ///             },
     ///         },
     ///     }, new CustomResourceOptions
     ///     {
@@ -143,6 +143,15 @@ namespace Pulumi.Aws.CloudFront
     /// 
     ///     var exampleRealtimeLogConfig = new Aws.CloudFront.RealtimeLogConfig("example", new()
     ///     {
+    ///         Endpoint = new Aws.CloudFront.Inputs.RealtimeLogConfigEndpointArgs
+    ///         {
+    ///             KinesisStreamConfig = new Aws.CloudFront.Inputs.RealtimeLogConfigEndpointKinesisStreamConfigArgs
+    ///             {
+    ///                 RoleArn = exampleAwsIamRole.Arn,
+    ///                 StreamArn = exampleAwsKinesisStream.Arn,
+    ///             },
+    ///             StreamType = "Kinesis",
+    ///         },
     ///         Name = "example",
     ///         SamplingRate = 100,
     ///         Fields = new[]
@@ -152,15 +161,6 @@ namespace Pulumi.Aws.CloudFront
     ///             "sc-status",
     ///             "viewer-request-log-data",
     ///             "viewer-response-log-data",
-    ///         },
-    ///         Endpoint = new Aws.CloudFront.Inputs.RealtimeLogConfigEndpointArgs
-    ///         {
-    ///             StreamType = "Kinesis",
-    ///             KinesisStreamConfig = new Aws.CloudFront.Inputs.RealtimeLogConfigEndpointKinesisStreamConfigArgs
-    ///             {
-    ///                 RoleArn = exampleAwsIamRole.Arn,
-    ///                 StreamArn = exampleAwsKinesisStream.Arn,
-    ///             },
     ///         },
     ///     }, new CustomResourceOptions
     ///     {

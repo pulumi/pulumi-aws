@@ -295,26 +295,26 @@ class Extension(pulumi.CustomResource):
 
         test_topic = aws.sns.Topic("test", name="test")
         test = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["appconfig.amazonaws.com"],
             }],
+            "actions": ["sts:AssumeRole"],
         }])
         test_role = aws.iam.Role("test",
             name="test",
             assume_role_policy=test.json)
         test_extension = aws.appconfig.Extension("test",
-            name="test",
-            description="test description",
             action_points=[{
-                "point": "ON_DEPLOYMENT_COMPLETE",
                 "actions": [{
                     "name": "test",
                     "role_arn": test_role.arn,
                     "uri": test_topic.arn,
                 }],
+                "point": "ON_DEPLOYMENT_COMPLETE",
             }],
+            name="test",
+            description="test description",
             tags={
                 "Type": "AppConfig Extension",
             })
@@ -355,26 +355,26 @@ class Extension(pulumi.CustomResource):
 
         test_topic = aws.sns.Topic("test", name="test")
         test = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["appconfig.amazonaws.com"],
             }],
+            "actions": ["sts:AssumeRole"],
         }])
         test_role = aws.iam.Role("test",
             name="test",
             assume_role_policy=test.json)
         test_extension = aws.appconfig.Extension("test",
-            name="test",
-            description="test description",
             action_points=[{
-                "point": "ON_DEPLOYMENT_COMPLETE",
                 "actions": [{
                     "name": "test",
                     "role_arn": test_role.arn,
                     "uri": test_topic.arn,
                 }],
+                "point": "ON_DEPLOYMENT_COMPLETE",
             }],
+            name="test",
+            description="test description",
             tags={
                 "Type": "AppConfig Extension",
             })

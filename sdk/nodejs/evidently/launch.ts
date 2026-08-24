@@ -21,13 +21,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.evidently.Launch("example", {
- *     name: "example",
- *     project: exampleAwsEvidentlyProject.name,
- *     groups: [{
- *         feature: exampleAwsEvidentlyFeature.name,
- *         name: "Variation1",
- *         variation: "Variation1",
- *     }],
  *     scheduledSplitsConfig: {
  *         steps: [{
  *             groupWeights: {
@@ -36,6 +29,13 @@ import * as utilities from "../utilities";
  *             startTime: "2024-01-07 01:43:59+00:00",
  *         }],
  *     },
+ *     groups: [{
+ *         feature: exampleAwsEvidentlyFeature.name,
+ *         name: "Variation1",
+ *         variation: "Variation1",
+ *     }],
+ *     name: "example",
+ *     project: exampleAwsEvidentlyProject.name,
  * });
  * ```
  *
@@ -46,14 +46,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.evidently.Launch("example", {
- *     name: "example",
- *     project: exampleAwsEvidentlyProject.name,
- *     description: "example description",
- *     groups: [{
- *         feature: exampleAwsEvidentlyFeature.name,
- *         name: "Variation1",
- *         variation: "Variation1",
- *     }],
  *     scheduledSplitsConfig: {
  *         steps: [{
  *             groupWeights: {
@@ -62,6 +54,14 @@ import * as utilities from "../utilities";
  *             startTime: "2024-01-07 01:43:59+00:00",
  *         }],
  *     },
+ *     groups: [{
+ *         feature: exampleAwsEvidentlyFeature.name,
+ *         name: "Variation1",
+ *         variation: "Variation1",
+ *     }],
+ *     name: "example",
+ *     project: exampleAwsEvidentlyProject.name,
+ *     description: "example description",
  * });
  * ```
  *
@@ -72,8 +72,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.evidently.Launch("example", {
- *     name: "example",
- *     project: exampleAwsEvidentlyProject.name,
+ *     scheduledSplitsConfig: {
+ *         steps: [{
+ *             groupWeights: {
+ *                 Variation1: 0,
+ *                 Variation2: 0,
+ *             },
+ *             startTime: "2024-01-07 01:43:59+00:00",
+ *         }],
+ *     },
  *     groups: [
  *         {
  *             feature: exampleAwsEvidentlyFeature.name,
@@ -88,15 +95,8 @@ import * as utilities from "../utilities";
  *             description: "second-group",
  *         },
  *     ],
- *     scheduledSplitsConfig: {
- *         steps: [{
- *             groupWeights: {
- *                 Variation1: 0,
- *                 Variation2: 0,
- *             },
- *             startTime: "2024-01-07 01:43:59+00:00",
- *         }],
- *     },
+ *     name: "example",
+ *     project: exampleAwsEvidentlyProject.name,
  * });
  * ```
  *
@@ -107,8 +107,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.evidently.Launch("example", {
- *     name: "example",
- *     project: exampleAwsEvidentlyProject.name,
+ *     scheduledSplitsConfig: {
+ *         steps: [{
+ *             groupWeights: {
+ *                 Variation1: 0,
+ *             },
+ *             startTime: "2024-01-07 01:43:59+00:00",
+ *         }],
+ *     },
  *     groups: [{
  *         feature: exampleAwsEvidentlyFeature.name,
  *         name: "Variation1",
@@ -134,14 +140,8 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     ],
- *     scheduledSplitsConfig: {
- *         steps: [{
- *             groupWeights: {
- *                 Variation1: 0,
- *             },
- *             startTime: "2024-01-07 01:43:59+00:00",
- *         }],
- *     },
+ *     name: "example",
+ *     project: exampleAwsEvidentlyProject.name,
  * });
  * ```
  *
@@ -152,14 +152,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.evidently.Launch("example", {
- *     name: "example",
- *     project: exampleAwsEvidentlyProject.name,
- *     randomizationSalt: "example randomization salt",
- *     groups: [{
- *         feature: exampleAwsEvidentlyFeature.name,
- *         name: "Variation1",
- *         variation: "Variation1",
- *     }],
  *     scheduledSplitsConfig: {
  *         steps: [{
  *             groupWeights: {
@@ -168,6 +160,14 @@ import * as utilities from "../utilities";
  *             startTime: "2024-01-07 01:43:59+00:00",
  *         }],
  *     },
+ *     groups: [{
+ *         feature: exampleAwsEvidentlyFeature.name,
+ *         name: "Variation1",
+ *         variation: "Variation1",
+ *     }],
+ *     name: "example",
+ *     project: exampleAwsEvidentlyProject.name,
+ *     randomizationSalt: "example randomization salt",
  * });
  * ```
  *
@@ -178,20 +178,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.evidently.Launch("example", {
- *     name: "example",
- *     project: exampleAwsEvidentlyProject.name,
- *     groups: [
- *         {
- *             feature: exampleAwsEvidentlyFeature.name,
- *             name: "Variation1",
- *             variation: "Variation1",
- *         },
- *         {
- *             feature: exampleAwsEvidentlyFeature.name,
- *             name: "Variation2",
- *             variation: "Variation2",
- *         },
- *     ],
  *     scheduledSplitsConfig: {
  *         steps: [
  *             {
@@ -210,18 +196,6 @@ import * as utilities from "../utilities";
  *             },
  *         ],
  *     },
- * });
- * ```
- *
- * ### With segment overrides
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.evidently.Launch("example", {
- *     name: "example",
- *     project: exampleAwsEvidentlyProject.name,
  *     groups: [
  *         {
  *             feature: exampleAwsEvidentlyFeature.name,
@@ -234,12 +208,20 @@ import * as utilities from "../utilities";
  *             variation: "Variation2",
  *         },
  *     ],
+ *     name: "example",
+ *     project: exampleAwsEvidentlyProject.name,
+ * });
+ * ```
+ *
+ * ### With segment overrides
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.evidently.Launch("example", {
  *     scheduledSplitsConfig: {
  *         steps: [{
- *             groupWeights: {
- *                 Variation1: 0,
- *                 Variation2: 0,
- *             },
  *             segmentOverrides: [
  *                 {
  *                     evaluationOrder: 1,
@@ -257,9 +239,27 @@ import * as utilities from "../utilities";
  *                     },
  *                 },
  *             ],
+ *             groupWeights: {
+ *                 Variation1: 0,
+ *                 Variation2: 0,
+ *             },
  *             startTime: "2024-01-08 01:43:59+00:00",
  *         }],
  *     },
+ *     groups: [
+ *         {
+ *             feature: exampleAwsEvidentlyFeature.name,
+ *             name: "Variation1",
+ *             variation: "Variation1",
+ *         },
+ *         {
+ *             feature: exampleAwsEvidentlyFeature.name,
+ *             name: "Variation2",
+ *             variation: "Variation2",
+ *         },
+ *     ],
+ *     name: "example",
+ *     project: exampleAwsEvidentlyProject.name,
  * });
  * ```
  *

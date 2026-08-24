@@ -122,10 +122,6 @@ namespace Pulumi.Aws.Alb
     /// {
     ///     var tcp_example = new Aws.LB.TargetGroup("tcp-example", new()
     ///     {
-    ///         Name = "tf-example-lb-nlb-tg",
-    ///         Port = 25,
-    ///         Protocol = "TCP",
-    ///         VpcId = main.Id,
     ///         TargetHealthStates = new[]
     ///         {
     ///             new Aws.LB.Inputs.TargetGroupTargetHealthStateArgs
@@ -133,6 +129,10 @@ namespace Pulumi.Aws.Alb
     ///                 EnableUnhealthyConnectionTermination = false,
     ///             },
     ///         },
+    ///         Name = "tf-example-lb-nlb-tg",
+    ///         Port = 25,
+    ///         Protocol = "TCP",
+    ///         VpcId = main.Id,
     ///     });
     /// 
     /// });
@@ -150,10 +150,6 @@ namespace Pulumi.Aws.Alb
     /// {
     ///     var tcp_example = new Aws.LB.TargetGroup("tcp-example", new()
     ///     {
-    ///         Name = "tf-example-lb-nlb-tg",
-    ///         Port = 80,
-    ///         Protocol = "TCP",
-    ///         VpcId = main.Id,
     ///         TargetGroupHealth = new Aws.LB.Inputs.TargetGroupTargetGroupHealthArgs
     ///         {
     ///             DnsFailover = new Aws.LB.Inputs.TargetGroupTargetGroupHealthDnsFailoverArgs
@@ -167,6 +163,10 @@ namespace Pulumi.Aws.Alb
     ///                 MinimumHealthyTargetsPercentage = "off",
     ///             },
     ///         },
+    ///         Name = "tf-example-lb-nlb-tg",
+    ///         Port = 80,
+    ///         Protocol = "TCP",
+    ///         VpcId = main.Id,
     ///     });
     /// 
     /// });

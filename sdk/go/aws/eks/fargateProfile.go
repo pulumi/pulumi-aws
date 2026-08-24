@@ -32,15 +32,15 @@ import (
 // splat0 = append(splat0, val0.(map[string]interface{})["id"])
 // }
 // _, err := eks.NewFargateProfile(ctx, "example", &eks.FargateProfileArgs{
-// ClusterName: pulumi.Any(exampleAwsEksCluster.Name),
-// FargateProfileName: pulumi.String("example"),
-// PodExecutionRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-// SubnetIds: toPulumiArray(splat0),
 // Selectors: eks.FargateProfileSelectorArray{
 // &eks.FargateProfileSelectorArgs{
 // Namespace: pulumi.String("example"),
 // },
 // },
+// ClusterName: pulumi.Any(exampleAwsEksCluster.Name),
+// FargateProfileName: pulumi.String("example"),
+// PodExecutionRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+// SubnetIds: toPulumiArray(splat0),
 // })
 // if err != nil {
 // return err

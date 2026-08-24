@@ -29,6 +29,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := imagebuilder.NewInfrastructureConfiguration(ctx, "example", &imagebuilder.InfrastructureConfigurationArgs{
+//				Logging: &imagebuilder.InfrastructureConfigurationLoggingArgs{
+//					S3Logs: &imagebuilder.InfrastructureConfigurationLoggingS3LogsArgs{
+//						S3BucketName: pulumi.Any(exampleAwsS3Bucket.Bucket),
+//						S3KeyPrefix:  pulumi.String("logs"),
+//					},
+//				},
 //				Description:         pulumi.String("example description"),
 //				InstanceProfileName: pulumi.Any(exampleAwsIamInstanceProfile.Name),
 //				InstanceTypes: pulumi.StringArray{
@@ -43,12 +49,6 @@ import (
 //				SnsTopicArn:                pulumi.Any(exampleAwsSnsTopic.Arn),
 //				SubnetId:                   pulumi.Any(main.Id),
 //				TerminateInstanceOnFailure: pulumi.Bool(true),
-//				Logging: &imagebuilder.InfrastructureConfigurationLoggingArgs{
-//					S3Logs: &imagebuilder.InfrastructureConfigurationLoggingS3LogsArgs{
-//						S3BucketName: pulumi.Any(exampleAwsS3Bucket.Bucket),
-//						S3KeyPrefix:  pulumi.String("logs"),
-//					},
-//				},
 //				Tags: pulumi.StringMap{
 //					"foo": pulumi.String("bar"),
 //				},

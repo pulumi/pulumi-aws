@@ -47,10 +47,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Project("example", ProjectArgs.builder()
- *             .projectName("example")
  *             .serviceCatalogProvisioningDetails(ProjectServiceCatalogProvisioningDetailsArgs.builder()
  *                 .productId(exampleAwsServicecatalogProduct.id())
  *                 .build())
+ *             .projectName("example")
  *             .build());
  * 
  *     }

@@ -83,20 +83,20 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataProtectionSettings("example", DataProtectionSettingsArgs.builder()
- *             .displayName("example")
- *             .description("Example data protection settings")
  *             .inlineRedactionConfiguration(DataProtectionSettingsInlineRedactionConfigurationArgs.builder()
- *                 .globalConfidenceLevel(2)
- *                 .globalEnforcedUrls("https://example.com")
  *                 .inlineRedactionPatterns(DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs.builder()
- *                     .builtInPatternId("ssn")
- *                     .confidenceLevel(3)
  *                     .redactionPlaceHolders(DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs.builder()
  *                         .redactionPlaceHolderType("CustomText")
  *                         .redactionPlaceHolderText("REDACTED")
  *                         .build())
+ *                     .builtInPatternId("ssn")
+ *                     .confidenceLevel(3)
  *                     .build())
+ *                 .globalConfidenceLevel(2)
+ *                 .globalEnforcedUrls("https://example.com")
  *                 .build())
+ *             .displayName("example")
+ *             .description("Example data protection settings")
  *             .build());
  * 
  *     }
@@ -140,26 +140,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDataProtectionSettings = new DataProtectionSettings("exampleDataProtectionSettings", DataProtectionSettingsArgs.builder()
- *             .displayName("example-complete")
- *             .description("Complete example data protection settings")
- *             .customerManagedKey(example.arn())
- *             .additionalEncryptionContext(Map.of("Environment", "Production"))
  *             .inlineRedactionConfiguration(DataProtectionSettingsInlineRedactionConfigurationArgs.builder()
- *                 .globalConfidenceLevel(2)
- *                 .globalEnforcedUrls(                
- *                     "https://example.com",
- *                     "https://test.example.com")
- *                 .globalExemptUrls("https://exempt.example.com")
  *                 .inlineRedactionPatterns(                
  *                     DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs.builder()
- *                         .builtInPatternId("ssn")
- *                         .confidenceLevel(3)
- *                         .enforcedUrls("https://pattern1.example.com")
- *                         .exemptUrls("https://exempt-pattern1.example.com")
  *                         .redactionPlaceHolders(DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs.builder()
  *                             .redactionPlaceHolderType("CustomText")
  *                             .redactionPlaceHolderText("REDACTED-SSN")
  *                             .build())
+ *                         .builtInPatternId("ssn")
+ *                         .confidenceLevel(3)
+ *                         .enforcedUrls("https://pattern1.example.com")
+ *                         .exemptUrls("https://exempt-pattern1.example.com")
  *                         .build(),
  *                     DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs.builder()
  *                         .customPattern(DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternArgs.builder()
@@ -173,7 +164,16 @@ import javax.annotation.Nullable;
  *                             .redactionPlaceHolderText("REDACTED-CUSTOM")
  *                             .build())
  *                         .build())
+ *                 .globalConfidenceLevel(2)
+ *                 .globalEnforcedUrls(                
+ *                     "https://example.com",
+ *                     "https://test.example.com")
+ *                 .globalExemptUrls("https://exempt.example.com")
  *                 .build())
+ *             .displayName("example-complete")
+ *             .description("Complete example data protection settings")
+ *             .customerManagedKey(example.arn())
+ *             .additionalEncryptionContext(Map.of("Environment", "Production"))
  *             .tags(Map.of("Name", "example-data-protection-settings"))
  *             .build());
  * 

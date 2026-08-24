@@ -430,16 +430,6 @@ class VpcConnection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         vpc_connection_role = aws.iam.Role("vpc_connection_role",
-            assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Action": "sts:AssumeRole",
-                    "Principal": {
-                        "Service": "quicksight.amazonaws.com",
-                    },
-                }],
-            }),
             inline_policies=[{
                 "name": "QuickSightVPCConnectionRolePolicy",
                 "policy": json.dumps({
@@ -456,7 +446,17 @@ class VpcConnection(pulumi.CustomResource):
                         "Resource": ["*"],
                     }],
                 }),
-            }])
+            }],
+            assume_role_policy=json.dumps({
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Effect": "Allow",
+                    "Action": "sts:AssumeRole",
+                    "Principal": {
+                        "Service": "quicksight.amazonaws.com",
+                    },
+                }],
+            }))
         example = aws.quicksight.VpcConnection("example",
             vpc_connection_id="example-connection-id",
             name="Example Connection",
@@ -510,16 +510,6 @@ class VpcConnection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         vpc_connection_role = aws.iam.Role("vpc_connection_role",
-            assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Action": "sts:AssumeRole",
-                    "Principal": {
-                        "Service": "quicksight.amazonaws.com",
-                    },
-                }],
-            }),
             inline_policies=[{
                 "name": "QuickSightVPCConnectionRolePolicy",
                 "policy": json.dumps({
@@ -536,7 +526,17 @@ class VpcConnection(pulumi.CustomResource):
                         "Resource": ["*"],
                     }],
                 }),
-            }])
+            }],
+            assume_role_policy=json.dumps({
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Effect": "Allow",
+                    "Action": "sts:AssumeRole",
+                    "Principal": {
+                        "Service": "quicksight.amazonaws.com",
+                    },
+                }],
+            }))
         example = aws.quicksight.VpcConnection("example",
             vpc_connection_id="example-connection-id",
             name="Example Connection",

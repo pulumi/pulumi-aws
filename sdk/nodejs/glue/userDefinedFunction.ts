@@ -18,16 +18,16 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.glue.CatalogDatabase("example", {name: "my_database"});
  * const exampleUserDefinedFunction = new aws.glue.UserDefinedFunction("example", {
+ *     resourceUris: [{
+ *         resourceType: "ARCHIVE",
+ *         uri: "uri",
+ *     }],
  *     name: "my_func",
  *     catalogId: example.catalogId,
  *     databaseName: example.name,
  *     className: "class",
  *     ownerName: "owner",
  *     ownerType: "GROUP",
- *     resourceUris: [{
- *         resourceType: "ARCHIVE",
- *         uri: "uri",
- *     }],
  * });
  * ```
  *

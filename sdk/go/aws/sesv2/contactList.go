@@ -57,8 +57,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sesv2.NewContactList(ctx, "example", &sesv2.ContactListArgs{
-//				ContactListName: pulumi.String("example"),
-//				Description:     pulumi.String("description"),
 //				Topics: sesv2.ContactListTopicArray{
 //					&sesv2.ContactListTopicArgs{
 //						DefaultSubscriptionStatus: pulumi.String("OPT_IN"),
@@ -67,6 +65,8 @@ import (
 //						TopicName:                 pulumi.String("example-topic"),
 //					},
 //				},
+//				ContactListName: pulumi.String("example"),
+//				Description:     pulumi.String("description"),
 //			})
 //			if err != nil {
 //				return err

@@ -49,15 +49,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new KxVolume("example", KxVolumeArgs.builder()
+ *             .nas1Configurations(KxVolumeNas1ConfigurationArgs.builder()
+ *                 .size(1200)
+ *                 .type("SSD_250")
+ *                 .build())
  *             .name("my-tf-kx-volume")
  *             .environmentId(exampleAwsFinspaceKxEnvironment.id())
  *             .availabilityZones("use1-az2")
  *             .azMode("SINGLE")
  *             .type("NAS_1")
- *             .nas1Configurations(KxVolumeNas1ConfigurationArgs.builder()
- *                 .size(1200)
- *                 .type("SSD_250")
- *                 .build())
  *             .build());
  * 
  *     }

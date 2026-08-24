@@ -34,7 +34,6 @@ namespace Pulumi.Aws.Observabilityadmin
     /// 
     ///     var example = new Aws.Observabilityadmin.CentralizationRuleForOrganization("example", new()
     ///     {
-    ///         RuleName = "example-centralization-rule",
     ///         Rule = new Aws.Observabilityadmin.Inputs.CentralizationRuleForOrganizationRuleArgs
     ///         {
     ///             Destination = new Aws.Observabilityadmin.Inputs.CentralizationRuleForOrganizationRuleDestinationArgs
@@ -44,18 +43,19 @@ namespace Pulumi.Aws.Observabilityadmin
     ///             },
     ///             Source = new Aws.Observabilityadmin.Inputs.CentralizationRuleForOrganizationRuleSourceArgs
     ///             {
-    ///                 Regions = new[]
-    ///                 {
-    ///                     "ap-southeast-1",
-    ///                 },
-    ///                 Scope = $"OrganizationId = '{currentGetOrganization.Apply(getOrganizationResult =&gt; getOrganizationResult.Id)}'",
     ///                 SourceLogsConfiguration = new Aws.Observabilityadmin.Inputs.CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs
     ///                 {
     ///                     EncryptedLogGroupStrategy = "SKIP",
     ///                     LogGroupSelectionCriteria = "*",
     ///                 },
+    ///                 Regions = new[]
+    ///                 {
+    ///                     "ap-southeast-1",
+    ///                 },
+    ///                 Scope = $"OrganizationId = '{currentGetOrganization.Apply(getOrganizationResult =&gt; getOrganizationResult.Id)}'",
     ///             },
     ///         },
+    ///         RuleName = "example-centralization-rule",
     ///         Tags = 
     ///         {
     ///             { "Name", "example-centralization-rule" },
@@ -82,13 +82,10 @@ namespace Pulumi.Aws.Observabilityadmin
     /// 
     ///     var advanced = new Aws.Observabilityadmin.CentralizationRuleForOrganization("advanced", new()
     ///     {
-    ///         RuleName = "advanced-centralization-rule",
     ///         Rule = new Aws.Observabilityadmin.Inputs.CentralizationRuleForOrganizationRuleArgs
     ///         {
     ///             Destination = new Aws.Observabilityadmin.Inputs.CentralizationRuleForOrganizationRuleDestinationArgs
     ///             {
-    ///                 Region = "eu-west-1",
-    ///                 Account = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
     ///                 DestinationLogsConfiguration = new Aws.Observabilityadmin.Inputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgs
     ///                 {
     ///                     LogsEncryptionConfiguration = new Aws.Observabilityadmin.Inputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgs
@@ -104,22 +101,25 @@ namespace Pulumi.Aws.Observabilityadmin
     ///                         LogGroupNamePattern = "/centralized-logs/${source.accountId}/${source.region}/${source.logGroup}",
     ///                     },
     ///                 },
+    ///                 Region = "eu-west-1",
+    ///                 Account = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
     ///             },
     ///             Source = new Aws.Observabilityadmin.Inputs.CentralizationRuleForOrganizationRuleSourceArgs
     ///             {
+    ///                 SourceLogsConfiguration = new Aws.Observabilityadmin.Inputs.CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs
+    ///                 {
+    ///                     EncryptedLogGroupStrategy = "ALLOW",
+    ///                     LogGroupSelectionCriteria = "*",
+    ///                 },
     ///                 Regions = new[]
     ///                 {
     ///                     "ap-southeast-1",
     ///                     "us-east-1",
     ///                 },
     ///                 Scope = $"OrganizationId = '{currentGetOrganization.Apply(getOrganizationResult =&gt; getOrganizationResult.Id)}'",
-    ///                 SourceLogsConfiguration = new Aws.Observabilityadmin.Inputs.CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs
-    ///                 {
-    ///                     EncryptedLogGroupStrategy = "ALLOW",
-    ///                     LogGroupSelectionCriteria = "*",
-    ///                 },
     ///             },
     ///         },
+    ///         RuleName = "advanced-centralization-rule",
     ///         Tags = 
     ///         {
     ///             { "Name", "advanced-centralization-rule" },
@@ -147,7 +147,6 @@ namespace Pulumi.Aws.Observabilityadmin
     /// 
     ///     var filtered = new Aws.Observabilityadmin.CentralizationRuleForOrganization("filtered", new()
     ///     {
-    ///         RuleName = "filtered-centralization-rule",
     ///         Rule = new Aws.Observabilityadmin.Inputs.CentralizationRuleForOrganizationRuleArgs
     ///         {
     ///             Destination = new Aws.Observabilityadmin.Inputs.CentralizationRuleForOrganizationRuleDestinationArgs
@@ -157,19 +156,20 @@ namespace Pulumi.Aws.Observabilityadmin
     ///             },
     ///             Source = new Aws.Observabilityadmin.Inputs.CentralizationRuleForOrganizationRuleSourceArgs
     ///             {
+    ///                 SourceLogsConfiguration = new Aws.Observabilityadmin.Inputs.CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs
+    ///                 {
+    ///                     EncryptedLogGroupStrategy = "ALLOW",
+    ///                     LogGroupSelectionCriteria = "LogGroupName LIKE '/aws/lambda%'",
+    ///                 },
     ///                 Regions = new[]
     ///                 {
     ///                     "ap-southeast-1",
     ///                     "us-east-1",
     ///                 },
     ///                 Scope = $"OrganizationId = '{currentGetOrganization.Apply(getOrganizationResult =&gt; getOrganizationResult.Id)}'",
-    ///                 SourceLogsConfiguration = new Aws.Observabilityadmin.Inputs.CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs
-    ///                 {
-    ///                     EncryptedLogGroupStrategy = "ALLOW",
-    ///                     LogGroupSelectionCriteria = "LogGroupName LIKE '/aws/lambda%'",
-    ///                 },
     ///             },
     ///         },
+    ///         RuleName = "filtered-centralization-rule",
     ///         Tags = 
     ///         {
     ///             { "Name", "filtered-centralization-rule" },
@@ -196,13 +196,10 @@ namespace Pulumi.Aws.Observabilityadmin
     /// 
     ///     var metrics = new Aws.Observabilityadmin.CentralizationRuleForOrganization("metrics", new()
     ///     {
-    ///         RuleName = "metrics-centralization-rule",
     ///         Rule = new Aws.Observabilityadmin.Inputs.CentralizationRuleForOrganizationRuleArgs
     ///         {
     ///             Destination = new Aws.Observabilityadmin.Inputs.CentralizationRuleForOrganizationRuleDestinationArgs
     ///             {
-    ///                 Region = "eu-west-1",
-    ///                 Account = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
     ///                 DestinationMetricsConfiguration = new Aws.Observabilityadmin.Inputs.CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationArgs
     ///                 {
     ///                     BackupConfiguration = new Aws.Observabilityadmin.Inputs.CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationArgs
@@ -210,21 +207,24 @@ namespace Pulumi.Aws.Observabilityadmin
     ///                         Region = "us-west-1",
     ///                     },
     ///                 },
+    ///                 Region = "eu-west-1",
+    ///                 Account = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
     ///             },
     ///             Source = new Aws.Observabilityadmin.Inputs.CentralizationRuleForOrganizationRuleSourceArgs
     ///             {
+    ///                 SourceMetricsConfiguration = new Aws.Observabilityadmin.Inputs.CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationArgs
+    ///                 {
+    ///                     MetricsSelectionCriteria = "*",
+    ///                 },
     ///                 Regions = new[]
     ///                 {
     ///                     "ap-southeast-1",
     ///                     "us-east-1",
     ///                 },
     ///                 Scope = $"OrganizationId = '{currentGetOrganization.Apply(getOrganizationResult =&gt; getOrganizationResult.Id)}'",
-    ///                 SourceMetricsConfiguration = new Aws.Observabilityadmin.Inputs.CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationArgs
-    ///                 {
-    ///                     MetricsSelectionCriteria = "*",
-    ///                 },
     ///             },
     ///         },
+    ///         RuleName = "metrics-centralization-rule",
     ///     });
     /// 
     /// });

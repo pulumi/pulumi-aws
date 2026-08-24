@@ -174,14 +174,14 @@ def get_server_certificate(latest: Optional[_builtins.bool] = None,
     my_domain = aws.iam.get_server_certificate(name_prefix="my-domain.org",
         latest=True)
     elb = aws.elb.LoadBalancer("elb",
-        name="my-domain-elb",
         listeners=[{
             "instance_port": 8000,
             "instance_protocol": "https",
             "lb_port": 443,
             "lb_protocol": "https",
             "ssl_certificate_id": my_domain.arn,
-        }])
+        }],
+        name="my-domain-elb")
     ```
 
 
@@ -227,14 +227,14 @@ def get_server_certificate_output(latest: pulumi.Input[Optional[Optional[_builti
     my_domain = aws.iam.get_server_certificate(name_prefix="my-domain.org",
         latest=True)
     elb = aws.elb.LoadBalancer("elb",
-        name="my-domain-elb",
         listeners=[{
             "instance_port": 8000,
             "instance_protocol": "https",
             "lb_port": 443,
             "lb_protocol": "https",
             "ssl_certificate_id": my_domain.arn,
-        }])
+        }],
+        name="my-domain-elb")
     ```
 
 

@@ -82,13 +82,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var fwd = new ResolverRule("fwd", ResolverRuleArgs.builder()
+ *             .targetIps(ResolverRuleTargetIpArgs.builder()
+ *                 .ip("123.45.67.89")
+ *                 .build())
  *             .domainName("example.com")
  *             .name("example")
  *             .ruleType("FORWARD")
  *             .resolverEndpointId(foo.id())
- *             .targetIps(ResolverRuleTargetIpArgs.builder()
- *                 .ip("123.45.67.89")
- *                 .build())
  *             .tags(Map.of("Environment", "Prod"))
  *             .build());
  * 
@@ -123,13 +123,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var fwd = new ResolverRule("fwd", ResolverRuleArgs.builder()
+ *             .targetIps(ResolverRuleTargetIpArgs.builder()
+ *                 .ipv6("2600:1f18:1686:2000:4e60:6e3e:258:da36")
+ *                 .build())
  *             .domainName("example.com")
  *             .name("example")
  *             .ruleType("FORWARD")
  *             .resolverEndpointId(foo.id())
- *             .targetIps(ResolverRuleTargetIpArgs.builder()
- *                 .ipv6("2600:1f18:1686:2000:4e60:6e3e:258:da36")
- *                 .build())
  *             .tags(Map.of("Environment", "Prod"))
  *             .build());
  * 

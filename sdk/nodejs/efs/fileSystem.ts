@@ -33,10 +33,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const fooWithLifecylePolicy = new aws.efs.FileSystem("foo_with_lifecyle_policy", {
- *     creationToken: "my-product",
  *     lifecyclePolicies: [{
  *         transitionToIa: "AFTER_30_DAYS",
  *     }],
+ *     creationToken: "my-product",
  * });
  * ```
  *

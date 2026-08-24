@@ -48,13 +48,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Baseline("example", BaselineArgs.builder()
- *             .baselineIdentifier("arn:aws:controltower:us-east-1::baseline/17BSJV3IGJ2QSGA2")
- *             .baselineVersion("4.0")
- *             .targetIdentifier(test.arn())
  *             .parameters(BaselineParametersArgs.builder()
  *                 .key("IdentityCenterEnabledBaselineArn")
  *                 .value("arn:aws:controltower:us-east-1:664418989480:enabledbaseline/XALULM96QHI525UOC")
  *                 .build())
+ *             .baselineIdentifier("arn:aws:controltower:us-east-1::baseline/17BSJV3IGJ2QSGA2")
+ *             .baselineVersion("4.0")
+ *             .targetIdentifier(test.arn())
  *             .build());
  * 
  *     }

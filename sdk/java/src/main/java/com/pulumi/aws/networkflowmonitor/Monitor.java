@@ -58,8 +58,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleMonitor = new Monitor("exampleMonitor", MonitorArgs.builder()
- *             .monitorName("example-monitor")
- *             .scopeArn(exampleAwsNetworkflowmonitorScope.scopeArn())
  *             .localResources(MonitorLocalResourceArgs.builder()
  *                 .type("AWS::EC2::VPC")
  *                 .identifier(example.arn())
@@ -68,6 +66,8 @@ import javax.annotation.Nullable;
  *                 .type("AWS::EC2::VPC")
  *                 .identifier(example.arn())
  *                 .build())
+ *             .monitorName("example-monitor")
+ *             .scopeArn(exampleAwsNetworkflowmonitorScope.scopeArn())
  *             .tags(Map.of("Name", "example"))
  *             .build());
  * 

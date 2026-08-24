@@ -57,10 +57,10 @@ import * as utilities from "../utilities";
  *     }),
  * });
  * const exampleS3TableIntegration = new aws.observabilityadmin.S3TableIntegration("example", {
- *     roleArn: example.arn,
  *     encryption: {
  *         sseAlgorithm: "AES256",
  *     },
+ *     roleArn: example.arn,
  * });
  * ```
  *
@@ -88,11 +88,11 @@ import * as utilities from "../utilities";
  *     deletionWindowInDays: 7,
  * });
  * const exampleS3TableIntegration = new aws.observabilityadmin.S3TableIntegration("example", {
- *     roleArn: example.arn,
  *     encryption: {
  *         sseAlgorithm: "aws:kms",
  *         kmsKeyArn: exampleKey.arn,
  *     },
+ *     roleArn: example.arn,
  * });
  * ```
  *

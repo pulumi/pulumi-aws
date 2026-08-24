@@ -30,12 +30,12 @@ import * as utilities from "../utilities";
  * });
  * const snsTopicPolicy = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
- *         effect: "Allow",
- *         actions: ["SNS:Publish"],
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["events.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
+ *         actions: ["SNS:Publish"],
  *         resources: [awsLogins.arn],
  *     }],
  * });

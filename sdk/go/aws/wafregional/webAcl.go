@@ -31,20 +31,18 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			ipset, err := wafregional.NewIpSet(ctx, "ipset", &wafregional.IpSetArgs{
-//				Name: pulumi.String("tfIPSet"),
 //				IpSetDescriptors: wafregional.IpSetIpSetDescriptorArray{
 //					&wafregional.IpSetIpSetDescriptorArgs{
 //						Type:  pulumi.String("IPV4"),
 //						Value: pulumi.String("192.0.7.0/24"),
 //					},
 //				},
+//				Name: pulumi.String("tfIPSet"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			wafrule, err := wafregional.NewRule(ctx, "wafrule", &wafregional.RuleArgs{
-//				Name:       pulumi.String("tfWAFRule"),
-//				MetricName: pulumi.String("tfWAFRule"),
 //				Predicates: wafregional.RulePredicateArray{
 //					&wafregional.RulePredicateArgs{
 //						DataId:  ipset.ID().ToIDOutput().ToStringOutput(),
@@ -52,13 +50,13 @@ import (
 //						Type:    pulumi.String("IPMatch"),
 //					},
 //				},
+//				Name:       pulumi.String("tfWAFRule"),
+//				MetricName: pulumi.String("tfWAFRule"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = wafregional.NewWebAcl(ctx, "wafacl", &wafregional.WebAclArgs{
-//				Name:       pulumi.String("tfWebACL"),
-//				MetricName: pulumi.String("tfWebACL"),
 //				DefaultAction: &wafregional.WebAclDefaultActionArgs{
 //					Type: pulumi.String("ALLOW"),
 //				},
@@ -72,6 +70,8 @@ import (
 //						Type:     pulumi.String("REGULAR"),
 //					},
 //				},
+//				Name:       pulumi.String("tfWebACL"),
+//				MetricName: pulumi.String("tfWebACL"),
 //			})
 //			if err != nil {
 //				return err
@@ -97,21 +97,21 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := wafregional.NewWebAcl(ctx, "example", &wafregional.WebAclArgs{
-//				Name:       pulumi.String("example"),
-//				MetricName: pulumi.String("example"),
 //				DefaultAction: &wafregional.WebAclDefaultActionArgs{
 //					Type: pulumi.String("ALLOW"),
 //				},
 //				Rules: wafregional.WebAclRuleArray{
 //					&wafregional.WebAclRuleArgs{
-//						Priority: pulumi.Int(1),
-//						RuleId:   pulumi.Any(exampleAwsWafregionalRuleGroup.Id),
-//						Type:     pulumi.String("GROUP"),
 //						OverrideAction: &wafregional.WebAclRuleOverrideActionArgs{
 //							Type: pulumi.String("NONE"),
 //						},
+//						Priority: pulumi.Int(1),
+//						RuleId:   pulumi.Any(exampleAwsWafregionalRuleGroup.Id),
+//						Type:     pulumi.String("GROUP"),
 //					},
 //				},
+//				Name:       pulumi.String("example"),
+//				MetricName: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -140,7 +140,6 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := wafregional.NewWebAcl(ctx, "example", &wafregional.WebAclArgs{
 //				LoggingConfiguration: &wafregional.WebAclLoggingConfigurationArgs{
-//					LogDestination: pulumi.Any(exampleAwsKinesisFirehoseDeliveryStream.Arn),
 //					RedactedFields: &wafregional.WebAclLoggingConfigurationRedactedFieldsArgs{
 //						FieldToMatches: wafregional.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArray{
 //							&wafregional.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs{
@@ -152,6 +151,7 @@ import (
 //							},
 //						},
 //					},
+//					LogDestination: pulumi.Any(exampleAwsKinesisFirehoseDeliveryStream.Arn),
 //				},
 //			})
 //			if err != nil {

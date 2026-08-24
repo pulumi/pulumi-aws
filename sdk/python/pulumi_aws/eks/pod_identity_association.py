@@ -449,11 +449,11 @@ class PodIdentityAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["pods.eks.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": [
                 "sts:AssumeRole",
                 "sts:TagSession",
@@ -556,11 +556,11 @@ class PodIdentityAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["pods.eks.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": [
                 "sts:AssumeRole",
                 "sts:TagSession",

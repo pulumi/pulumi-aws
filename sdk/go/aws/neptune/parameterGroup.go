@@ -29,14 +29,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := neptune.NewParameterGroup(ctx, "example", &neptune.ParameterGroupArgs{
-//				Family: pulumi.String("neptune1"),
-//				Name:   pulumi.String("example"),
 //				Parameters: neptune.ParameterGroupParameterArray{
 //					&neptune.ParameterGroupParameterArgs{
 //						Name:  pulumi.String("neptune_query_timeout"),
 //						Value: pulumi.String("25"),
 //					},
 //				},
+//				Family: pulumi.String("neptune1"),
+//				Name:   pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

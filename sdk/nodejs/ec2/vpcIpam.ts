@@ -20,10 +20,10 @@ import * as utilities from "../utilities";
  *
  * const current = aws.getRegion({});
  * const main = new aws.ec2.VpcIpam("main", {
- *     description: "My IPAM",
  *     operatingRegions: [{
  *         regionName: current.then(current => current.region),
  *     }],
+ *     description: "My IPAM",
  *     tags: {
  *         Test: "Main",
  *     },
@@ -53,9 +53,9 @@ import * as utilities from "../utilities";
  *     input: invoke.result,
  * })).then(invoke => invoke.result);
  * const main = new aws.ec2.VpcIpam("main", {
- *     operatingRegions: allIpamRegions.map((v, k) => ({key: k, value: v})).apply(entries => entries.map(entry => ({
- *         regionName: entry.value,
- *     }))),
+ *     operatingRegions: .map(entry => ({
+ *         regionName: entry,
+ *     })),
  *     description: "multi region ipam",
  * });
  * ```

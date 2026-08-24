@@ -34,7 +34,6 @@ namespace Pulumi.Aws.Waf
     /// 
     ///     var example = new Aws.Waf.RegexMatchSet("example", new()
     ///     {
-    ///         Name = "example",
     ///         RegexMatchTuples = new[]
     ///         {
     ///             new Aws.Waf.Inputs.RegexMatchSetRegexMatchTupleArgs
@@ -48,6 +47,7 @@ namespace Pulumi.Aws.Waf
     ///                 TextTransformation = "NONE",
     ///             },
     ///         },
+    ///         Name = "example",
     ///     });
     /// 
     /// });

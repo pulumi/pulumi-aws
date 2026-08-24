@@ -41,12 +41,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.oam.Link("example", {
- *     labelTemplate: "$AccountName",
  *     linkConfiguration: {
  *         logGroupConfiguration: {
  *             filter: "LogGroupName LIKE 'aws/lambda/%' OR LogGroupName LIKE 'AWSLogs%'",
  *         },
  *     },
+ *     labelTemplate: "$AccountName",
  *     resourceTypes: ["AWS::Logs::LogGroup"],
  *     sinkIdentifier: exampleAwsOamSink.arn,
  * }, {
@@ -61,12 +61,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.oam.Link("example", {
- *     labelTemplate: "$AccountName",
  *     linkConfiguration: {
  *         metricConfiguration: {
  *             filter: "Namespace IN ('AWS/EC2', 'AWS/ELB', 'AWS/S3')",
  *         },
  *     },
+ *     labelTemplate: "$AccountName",
  *     resourceTypes: ["AWS::CloudWatch::Metric"],
  *     sinkIdentifier: exampleAwsOamSink.arn,
  * }, {

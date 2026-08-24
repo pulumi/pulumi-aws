@@ -621,9 +621,6 @@ class Directory(pulumi.CustomResource):
             availability_zone="us-west-2b",
             cidr_block="10.0.2.0/24")
         bar = aws.directoryservice.Directory("bar",
-            name="corp.notexample.com",
-            password="SuperSecretPassw0rd",
-            size="Small",
             vpc_settings={
                 "vpc_id": main.id,
                 "subnet_ids": [
@@ -631,6 +628,9 @@ class Directory(pulumi.CustomResource):
                     bar_subnet.id,
                 ],
             },
+            name="corp.notexample.com",
+            password="SuperSecretPassw0rd",
+            size="Small",
             tags={
                 "Project": "foo",
             })
@@ -652,10 +652,6 @@ class Directory(pulumi.CustomResource):
             availability_zone="us-west-2b",
             cidr_block="10.0.2.0/24")
         bar = aws.directoryservice.Directory("bar",
-            name="corp.notexample.com",
-            password="SuperSecretPassw0rd",
-            edition="Standard",
-            type="MicrosoftAD",
             vpc_settings={
                 "vpc_id": main.id,
                 "subnet_ids": [
@@ -663,6 +659,10 @@ class Directory(pulumi.CustomResource):
                     bar_subnet.id,
                 ],
             },
+            name="corp.notexample.com",
+            password="SuperSecretPassw0rd",
+            edition="Standard",
+            type="MicrosoftAD",
             tags={
                 "Project": "foo",
             })
@@ -684,10 +684,6 @@ class Directory(pulumi.CustomResource):
             availability_zone="us-west-2b",
             cidr_block="10.0.2.0/24")
         connector = aws.directoryservice.Directory("connector",
-            name="corp.notexample.com",
-            password="SuperSecretPassw0rd",
-            size="Small",
-            type="ADConnector",
             connect_settings={
                 "customer_dns_ips": ["A.B.C.D"],
                 "customer_username": "Admin",
@@ -696,7 +692,11 @@ class Directory(pulumi.CustomResource):
                     bar.id,
                 ],
                 "vpc_id": main.id,
-            })
+            },
+            name="corp.notexample.com",
+            password="SuperSecretPassw0rd",
+            size="Small",
+            type="ADConnector")
         ```
 
         ## Import
@@ -753,9 +753,6 @@ class Directory(pulumi.CustomResource):
             availability_zone="us-west-2b",
             cidr_block="10.0.2.0/24")
         bar = aws.directoryservice.Directory("bar",
-            name="corp.notexample.com",
-            password="SuperSecretPassw0rd",
-            size="Small",
             vpc_settings={
                 "vpc_id": main.id,
                 "subnet_ids": [
@@ -763,6 +760,9 @@ class Directory(pulumi.CustomResource):
                     bar_subnet.id,
                 ],
             },
+            name="corp.notexample.com",
+            password="SuperSecretPassw0rd",
+            size="Small",
             tags={
                 "Project": "foo",
             })
@@ -784,10 +784,6 @@ class Directory(pulumi.CustomResource):
             availability_zone="us-west-2b",
             cidr_block="10.0.2.0/24")
         bar = aws.directoryservice.Directory("bar",
-            name="corp.notexample.com",
-            password="SuperSecretPassw0rd",
-            edition="Standard",
-            type="MicrosoftAD",
             vpc_settings={
                 "vpc_id": main.id,
                 "subnet_ids": [
@@ -795,6 +791,10 @@ class Directory(pulumi.CustomResource):
                     bar_subnet.id,
                 ],
             },
+            name="corp.notexample.com",
+            password="SuperSecretPassw0rd",
+            edition="Standard",
+            type="MicrosoftAD",
             tags={
                 "Project": "foo",
             })
@@ -816,10 +816,6 @@ class Directory(pulumi.CustomResource):
             availability_zone="us-west-2b",
             cidr_block="10.0.2.0/24")
         connector = aws.directoryservice.Directory("connector",
-            name="corp.notexample.com",
-            password="SuperSecretPassw0rd",
-            size="Small",
-            type="ADConnector",
             connect_settings={
                 "customer_dns_ips": ["A.B.C.D"],
                 "customer_username": "Admin",
@@ -828,7 +824,11 @@ class Directory(pulumi.CustomResource):
                     bar.id,
                 ],
                 "vpc_id": main.id,
-            })
+            },
+            name="corp.notexample.com",
+            password="SuperSecretPassw0rd",
+            size="Small",
+            type="ADConnector")
         ```
 
         ## Import

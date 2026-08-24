@@ -50,7 +50,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new App("example", AppArgs.builder()
- *             .name("test-app")
  *             .limits(AppLimitsArgs.builder()
  *                 .maximumDuration(600)
  *                 .build())
@@ -58,6 +57,7 @@ import javax.annotation.Nullable;
  *                 .start("00:00")
  *                 .end("06:00")
  *                 .build())
+ *             .name("test-app")
  *             .build());
  * 
  *     }

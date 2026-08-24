@@ -29,22 +29,18 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			ipset, err := waf.NewIpSet(ctx, "ipset", &waf.IpSetArgs{
-//				Name: pulumi.String("tfIPSet"),
 //				IpSetDescriptors: waf.IpSetIpSetDescriptorArray{
 //					&waf.IpSetIpSetDescriptorArgs{
 //						Type:  pulumi.String("IPV4"),
 //						Value: pulumi.String("192.0.7.0/24"),
 //					},
 //				},
+//				Name: pulumi.String("tfIPSet"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = waf.NewRateBasedRule(ctx, "wafrule", &waf.RateBasedRuleArgs{
-//				Name:       pulumi.String("tfWAFRule"),
-//				MetricName: pulumi.String("tfWAFRule"),
-//				RateKey:    pulumi.String("IP"),
-//				RateLimit:  pulumi.Int(100),
 //				Predicates: waf.RateBasedRulePredicateArray{
 //					&waf.RateBasedRulePredicateArgs{
 //						DataId:  ipset.ID().ToIDOutput().ToStringOutput(),
@@ -52,6 +48,10 @@ import (
 //						Type:    pulumi.String("IPMatch"),
 //					},
 //				},
+//				Name:       pulumi.String("tfWAFRule"),
+//				MetricName: pulumi.String("tfWAFRule"),
+//				RateKey:    pulumi.String("IP"),
+//				RateLimit:  pulumi.Int(100),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				ipset,
 //			}))

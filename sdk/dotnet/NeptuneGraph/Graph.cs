@@ -29,16 +29,16 @@ namespace Pulumi.Aws.NeptuneGraph
     ///     // Create Neptune Graph
     ///     var example = new Aws.NeptuneGraph.Graph("example", new()
     ///     {
+    ///         VectorSearchConfiguration = new Aws.NeptuneGraph.Inputs.GraphVectorSearchConfigurationArgs
+    ///         {
+    ///             VectorSearchDimension = 128,
+    ///         },
     ///         GraphName = "example-graph-test-20250203",
     ///         ProvisionedMemory = 16,
     ///         DeletionProtection = false,
     ///         PublicConnectivity = false,
     ///         ReplicaCount = 1,
     ///         KmsKeyIdentifier = "arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012",
-    ///         VectorSearchConfiguration = new Aws.NeptuneGraph.Inputs.GraphVectorSearchConfigurationArgs
-    ///         {
-    ///             VectorSearchDimension = 128,
-    ///         },
     ///         Tags = 
     ///         {
     ///             { "Environment", "Development" },

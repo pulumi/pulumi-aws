@@ -47,11 +47,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new SdkvoiceSipMediaApplication("example", SdkvoiceSipMediaApplicationArgs.builder()
- *             .awsRegion("us-east-1")
- *             .name("example-sip-media-application")
  *             .endpoints(SdkvoiceSipMediaApplicationEndpointsArgs.builder()
  *                 .lambdaArn(test.arn())
  *                 .build())
+ *             .awsRegion("us-east-1")
+ *             .name("example-sip-media-application")
  *             .build());
  * 
  *     }

@@ -29,8 +29,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const _default = new aws.rds.ParameterGroup("default", {
- *     name: "rds-pg",
- *     family: "mysql5.6",
  *     parameters: [
  *         {
  *             name: "character_set_server",
@@ -41,6 +39,8 @@ import * as utilities from "../utilities";
  *             value: "utf8",
  *         },
  *     ],
+ *     name: "rds-pg",
+ *     family: "mysql5.6",
  * });
  * ```
  *
@@ -58,12 +58,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.rds.ParameterGroup("test", {
- *     name: "random-test-parameter",
- *     family: "mysql5.7",
  *     parameters: [{
  *         name: "default_password_lifetime",
  *         value: "0",
  *     }],
+ *     name: "random-test-parameter",
+ *     family: "mysql5.7",
  * });
  * ```
  *
@@ -90,12 +90,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.rds.ParameterGroup("test", {
- *     name: "random-test-parameter",
- *     family: "mysql5.7",
  *     parameters: [{
  *         name: "default_password_lifetime",
  *         value: "1",
  *     }],
+ *     name: "random-test-parameter",
+ *     family: "mysql5.7",
  * });
  * ```
  *
@@ -108,13 +108,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.rds.ParameterGroup("test", {
- *     name: "random-test-parameter",
- *     family: "mysql5.7",
  *     parameters: [{
  *         applyMethod: "pending-reboot",
  *         name: "default_password_lifetime",
  *         value: "0",
  *     }],
+ *     name: "random-test-parameter",
+ *     family: "mysql5.7",
  * });
  * ```
  *

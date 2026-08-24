@@ -62,15 +62,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lambda.NewAlias(ctx, "example", &lambda.AliasArgs{
-//				Name:            pulumi.String("staging"),
-//				Description:     pulumi.String("Staging environment with traffic splitting"),
-//				FunctionName:    pulumi.Any(exampleAwsLambdaFunction.FunctionName),
-//				FunctionVersion: pulumi.String("2"),
 //				RoutingConfig: &lambda.AliasRoutingConfigArgs{
 //					AdditionalVersionWeights: pulumi.Float64Map{
 //						"1": pulumi.Float64(0.1),
 //					},
 //				},
+//				Name:            pulumi.String("staging"),
+//				Description:     pulumi.String("Staging environment with traffic splitting"),
+//				FunctionName:    pulumi.Any(exampleAwsLambdaFunction.FunctionName),
+//				FunctionVersion: pulumi.String("2"),
 //			})
 //			if err != nil {
 //				return err
@@ -97,15 +97,15 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Alias for gradual rollout
 //			_, err := lambda.NewAlias(ctx, "example", &lambda.AliasArgs{
-//				Name:            pulumi.String("live"),
-//				Description:     pulumi.String("Live traffic with gradual rollout to new version"),
-//				FunctionName:    pulumi.Any(exampleAwsLambdaFunction.FunctionName),
-//				FunctionVersion: pulumi.String("5"),
 //				RoutingConfig: &lambda.AliasRoutingConfigArgs{
 //					AdditionalVersionWeights: pulumi.Float64Map{
 //						"6": pulumi.Float64(0.05),
 //					},
 //				},
+//				Name:            pulumi.String("live"),
+//				Description:     pulumi.String("Live traffic with gradual rollout to new version"),
+//				FunctionName:    pulumi.Any(exampleAwsLambdaFunction.FunctionName),
+//				FunctionVersion: pulumi.String("5"),
 //			})
 //			if err != nil {
 //				return err

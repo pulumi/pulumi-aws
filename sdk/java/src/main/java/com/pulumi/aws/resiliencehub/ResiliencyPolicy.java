@@ -50,10 +50,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResiliencyPolicy("example", ResiliencyPolicyArgs.builder()
- *             .name("testexample")
- *             .description("testexample")
- *             .tier("NonCritical")
- *             .dataLocationConstraint("AnyLocation")
  *             .policy(ResiliencyPolicyPolicyArgs.builder()
  *                 .region(ResiliencyPolicyPolicyRegionArgs.builder()
  *                     .rpo("24h")
@@ -72,6 +68,10 @@ import javax.annotation.Nullable;
  *                     .rto("24h")
  *                     .build())
  *                 .build())
+ *             .name("testexample")
+ *             .description("testexample")
+ *             .tier("NonCritical")
+ *             .dataLocationConstraint("AnyLocation")
  *             .build());
  * 
  *     }

@@ -251,7 +251,6 @@ class NamedQuery(pulumi.CustomResource):
             deletion_window_in_days=7,
             description="Athena KMS Key")
         test_workgroup = aws.athena.Workgroup("test",
-            name="example",
             configuration={
                 "result_configuration": {
                     "encryption_configuration": {
@@ -259,7 +258,8 @@ class NamedQuery(pulumi.CustomResource):
                         "kms_key_arn": test.arn,
                     },
                 },
-            })
+            },
+            name="example")
         hoge_database = aws.athena.Database("hoge",
             name="users",
             bucket=hoge.id)
@@ -308,7 +308,6 @@ class NamedQuery(pulumi.CustomResource):
             deletion_window_in_days=7,
             description="Athena KMS Key")
         test_workgroup = aws.athena.Workgroup("test",
-            name="example",
             configuration={
                 "result_configuration": {
                     "encryption_configuration": {
@@ -316,7 +315,8 @@ class NamedQuery(pulumi.CustomResource):
                         "kms_key_arn": test.arn,
                     },
                 },
-            })
+            },
+            name="example")
         hoge_database = aws.athena.Database("hoge",
             name="users",
             bucket=hoge.id)

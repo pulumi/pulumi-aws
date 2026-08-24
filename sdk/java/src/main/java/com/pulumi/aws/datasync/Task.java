@@ -49,12 +49,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Task("example", TaskArgs.builder()
- *             .destinationLocationArn(destination.arn())
- *             .name("example")
- *             .sourceLocationArn(source.arn())
  *             .options(TaskOptionsArgs.builder()
  *                 .bytesPerSecond(-1)
  *                 .build())
+ *             .destinationLocationArn(destination.arn())
+ *             .name("example")
+ *             .sourceLocationArn(source.arn())
  *             .build());
  * 
  *     }
@@ -88,12 +88,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Task("example", TaskArgs.builder()
- *             .destinationLocationArn(destination.arn())
- *             .name("example")
- *             .sourceLocationArn(source.arn())
  *             .schedule(TaskScheduleArgs.builder()
  *                 .scheduleExpression("cron(0 12 ? * SUN,WED *)")
  *                 .build())
+ *             .destinationLocationArn(destination.arn())
+ *             .name("example")
+ *             .sourceLocationArn(source.arn())
  *             .build());
  * 
  *     }
@@ -128,9 +128,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Task("example", TaskArgs.builder()
- *             .destinationLocationArn(destination.arn())
- *             .name("example")
- *             .sourceLocationArn(source.arn())
  *             .excludes(TaskExcludesArgs.builder()
  *                 .filterType("SIMPLE_PATTERN")
  *                 .value("/folder1|/folder2")
@@ -139,6 +136,9 @@ import javax.annotation.Nullable;
  *                 .filterType("SIMPLE_PATTERN")
  *                 .value("/folder1|/folder2")
  *                 .build())
+ *             .destinationLocationArn(destination.arn())
+ *             .name("example")
+ *             .sourceLocationArn(source.arn())
  *             .build());
  * 
  *     }
@@ -172,16 +172,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Task("example", TaskArgs.builder()
- *             .destinationLocationArn(destination.arn())
- *             .name("example")
- *             .sourceLocationArn(source.arn())
- *             .taskMode("ENHANCED")
  *             .options(TaskOptionsArgs.builder()
  *                 .gid("NONE")
  *                 .posixPermissions("NONE")
  *                 .uid("NONE")
  *                 .verifyMode("ONLY_FILES_TRANSFERRED")
  *                 .build())
+ *             .destinationLocationArn(destination.arn())
+ *             .name("example")
+ *             .sourceLocationArn(source.arn())
+ *             .taskMode("ENHANCED")
  *             .build());
  * 
  *     }

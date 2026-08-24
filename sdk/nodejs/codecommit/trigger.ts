@@ -18,12 +18,12 @@ import * as utilities from "../utilities";
  *
  * const test = new aws.codecommit.Repository("test", {repositoryName: "test"});
  * const testTrigger = new aws.codecommit.Trigger("test", {
- *     repositoryName: test.repositoryName,
  *     triggers: [{
  *         name: "all",
  *         events: ["all"],
  *         destinationArn: testAwsSnsTopic.arn,
  *     }],
+ *     repositoryName: test.repositoryName,
  * });
  * ```
  */

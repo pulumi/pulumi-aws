@@ -48,8 +48,6 @@ import (
 //			allowCloudtrailLogging := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
-//						Sid:    pulumi.String("Put bucket policy needed for trails"),
-//						Effect: pulumi.String("Allow"),
 //						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
 //							&iam.GetPolicyDocumentStatementPrincipalArgs{
 //								Type: pulumi.String("AWS"),
@@ -58,6 +56,8 @@ import (
 //								},
 //							},
 //						},
+//						Sid:    pulumi.String("Put bucket policy needed for trails"),
+//						Effect: pulumi.String("Allow"),
 //						Actions: pulumi.StringArray{
 //							pulumi.String("s3:PutObject"),
 //						},
@@ -68,8 +68,6 @@ import (
 //						},
 //					},
 //					&iam.GetPolicyDocumentStatementArgs{
-//						Sid:    pulumi.String("Get bucket policy needed for trails"),
-//						Effect: pulumi.String("Allow"),
 //						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
 //							&iam.GetPolicyDocumentStatementPrincipalArgs{
 //								Type: pulumi.String("AWS"),
@@ -78,6 +76,8 @@ import (
 //								},
 //							},
 //						},
+//						Sid:    pulumi.String("Get bucket policy needed for trails"),
+//						Effect: pulumi.String("Allow"),
 //						Actions: pulumi.StringArray{
 //							pulumi.String("s3:GetBucketAcl"),
 //						},

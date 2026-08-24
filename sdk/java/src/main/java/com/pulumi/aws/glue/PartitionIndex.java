@@ -29,10 +29,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.glue.CatalogTable;
  * import com.pulumi.aws.glue.CatalogTableArgs;
  * import com.pulumi.aws.glue.inputs.CatalogTableStorageDescriptorArgs;
- * import com.pulumi.aws.glue.inputs.CatalogTableStorageDescriptorColumnArgs;
  * import com.pulumi.aws.glue.inputs.CatalogTableStorageDescriptorSerDeInfoArgs;
- * import com.pulumi.aws.glue.inputs.CatalogTableStorageDescriptorSortColumnArgs;
  * import com.pulumi.aws.glue.inputs.CatalogTableStorageDescriptorSkewedInfoArgs;
+ * import com.pulumi.aws.glue.inputs.CatalogTableStorageDescriptorColumnArgs;
+ * import com.pulumi.aws.glue.inputs.CatalogTableStorageDescriptorSortColumnArgs;
  * import com.pulumi.aws.glue.inputs.CatalogTablePartitionKeyArgs;
  * import com.pulumi.aws.glue.PartitionIndex;
  * import com.pulumi.aws.glue.PartitionIndexArgs;
@@ -55,22 +55,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCatalogTable = new CatalogTable("exampleCatalogTable", CatalogTableArgs.builder()
- *             .name("example")
- *             .databaseName(example.name())
- *             .owner("my_owner")
- *             .retention(1)
- *             .tableType("VIRTUAL_VIEW")
- *             .viewExpandedText("view_expanded_text_1")
- *             .viewOriginalText("view_original_text_1")
  *             .storageDescriptor(CatalogTableStorageDescriptorArgs.builder()
- *                 .bucketColumns("bucket_column_1")
- *                 .compressed(false)
- *                 .inputFormat("SequenceFileInputFormat")
- *                 .location("my_location")
- *                 .numberOfBuckets(1)
- *                 .outputFormat("SequenceFileInputFormat")
- *                 .storedAsSubDirectories(false)
- *                 .parameters(Map.of("param1", "param1_val"))
+ *                 .serDeInfo(CatalogTableStorageDescriptorSerDeInfoArgs.builder()
+ *                     .name("ser_de_name")
+ *                     .parameters(Map.of("param1", "param_val_1"))
+ *                     .serializationLibrary("org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe")
+ *                     .build())
+ *                 .skewedInfo(CatalogTableStorageDescriptorSkewedInfoArgs.builder()
+ *                     .skewedColumnNames("my_column_1")
+ *                     .skewedColumnValueLocationMaps(Map.of("my_column_1", "my_column_1_val_loc_map"))
+ *                     .skewedColumnValues("skewed_val_1")
+ *                     .build())
  *                 .columns(                
  *                     CatalogTableStorageDescriptorColumnArgs.builder()
  *                         .name("my_column_1")
@@ -82,20 +77,18 @@ import javax.annotation.Nullable;
  *                         .type("string")
  *                         .comment("my_column2_comment")
  *                         .build())
- *                 .serDeInfo(CatalogTableStorageDescriptorSerDeInfoArgs.builder()
- *                     .name("ser_de_name")
- *                     .parameters(Map.of("param1", "param_val_1"))
- *                     .serializationLibrary("org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe")
- *                     .build())
  *                 .sortColumns(CatalogTableStorageDescriptorSortColumnArgs.builder()
  *                     .column("my_column_1")
  *                     .sortOrder(1)
  *                     .build())
- *                 .skewedInfo(CatalogTableStorageDescriptorSkewedInfoArgs.builder()
- *                     .skewedColumnNames("my_column_1")
- *                     .skewedColumnValueLocationMaps(Map.of("my_column_1", "my_column_1_val_loc_map"))
- *                     .skewedColumnValues("skewed_val_1")
- *                     .build())
+ *                 .bucketColumns("bucket_column_1")
+ *                 .compressed(false)
+ *                 .inputFormat("SequenceFileInputFormat")
+ *                 .location("my_location")
+ *                 .numberOfBuckets(1)
+ *                 .outputFormat("SequenceFileInputFormat")
+ *                 .storedAsSubDirectories(false)
+ *                 .parameters(Map.of("param1", "param1_val"))
  *                 .build())
  *             .partitionKeys(            
  *                 CatalogTablePartitionKeyArgs.builder()
@@ -108,18 +101,25 @@ import javax.annotation.Nullable;
  *                     .type("string")
  *                     .comment("my_column_2_comment")
  *                     .build())
+ *             .name("example")
+ *             .databaseName(example.name())
+ *             .owner("my_owner")
+ *             .retention(1)
+ *             .tableType("VIRTUAL_VIEW")
+ *             .viewExpandedText("view_expanded_text_1")
+ *             .viewOriginalText("view_original_text_1")
  *             .parameters(Map.of("param1", "param1_val"))
  *             .build());
  * 
  *         var examplePartitionIndex = new PartitionIndex("examplePartitionIndex", PartitionIndexArgs.builder()
- *             .databaseName(example.name())
- *             .tableName(exampleCatalogTable.name())
  *             .partitionIndex(PartitionIndexPartitionIndexArgs.builder()
  *                 .indexName("example")
  *                 .keys(                
  *                     "my_column_1",
  *                     "my_column_2")
  *                 .build())
+ *             .databaseName(example.name())
+ *             .tableName(exampleCatalogTable.name())
  *             .build());
  * 
  *     }

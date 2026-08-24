@@ -20,13 +20,13 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.guardduty.Detector("example", {enable: true});
  * const eksRuntimeMonitoring = new aws.guardduty.OrganizationConfigurationFeature("eks_runtime_monitoring", {
- *     detectorId: example.id,
- *     name: "EKS_RUNTIME_MONITORING",
- *     autoEnable: "ALL",
  *     additionalConfigurations: [{
  *         name: "EKS_ADDON_MANAGEMENT",
  *         autoEnable: "NEW",
  *     }],
+ *     detectorId: example.id,
+ *     name: "EKS_RUNTIME_MONITORING",
+ *     autoEnable: "ALL",
  * });
  * ```
  */

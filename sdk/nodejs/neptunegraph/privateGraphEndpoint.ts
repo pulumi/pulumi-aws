@@ -48,15 +48,15 @@ import * as utilities from "../utilities";
  * });
  * // Security Group for Neptune Graph
  * const exampleSecurityGroup = new aws.ec2.SecurityGroup("example", {
- *     namePrefix: "neptune-graph-sg",
- *     description: "Security group for Neptune Graph",
- *     vpcId: example.id,
  *     ingress: [{
  *         fromPort: 8182,
  *         toPort: 8182,
  *         protocol: "tcp",
  *         cidrBlocks: ["10.0.0.0/16"],
  *     }],
+ *     namePrefix: "neptune-graph-sg",
+ *     description: "Security group for Neptune Graph",
+ *     vpcId: example.id,
  *     tags: {
  *         Name: "neptune-graph-sg",
  *     },

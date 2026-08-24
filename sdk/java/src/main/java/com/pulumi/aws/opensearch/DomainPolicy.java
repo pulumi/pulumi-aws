@@ -30,8 +30,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementConditionArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.opensearch.DomainPolicy;
  * import com.pulumi.aws.opensearch.DomainPolicyArgs;
  * import java.util.ArrayList;
@@ -54,18 +54,18 @@ import javax.annotation.Nullable;
  * 
  *         final var main = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("*")
- *                     .identifiers("*")
- *                     .build())
- *                 .actions("es:*")
- *                 .resources(example.arn().applyValue(_arn -> String.format("%s/*", _arn)))
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                     .test("IpAddress")
  *                     .variable("aws:SourceIp")
  *                     .values("127.0.0.1/32")
  *                     .build())
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type("*")
+ *                     .identifiers("*")
+ *                     .build())
+ *                 .effect("Allow")
+ *                 .actions("es:*")
+ *                 .resources(example.arn().applyValue(_arn -> String.format("%s/*", _arn)))
  *                 .build())
  *             .build());
  * 

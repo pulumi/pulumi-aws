@@ -422,16 +422,16 @@ class DaemonTaskDefinition(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.DaemonTaskDefinition("example",
-            family="my-daemon-service",
-            cpu="512",
-            memory="1024",
             container_definitions=[{
                 "name": "app",
                 "image": "nginx:latest",
                 "cpu": 256,
                 "memory": 512,
                 "essential": True,
-            }])
+            }],
+            family="my-daemon-service",
+            cpu="512",
+            memory="1024")
         ```
 
         ### With IAM Roles
@@ -466,18 +466,18 @@ class DaemonTaskDefinition(pulumi.CustomResource):
                 }],
             }))
         example = aws.ecs.DaemonTaskDefinition("example",
-            family="my-daemon-service",
-            execution_role_arn=task_execution.arn,
-            task_role_arn=task.arn,
-            cpu="512",
-            memory="1024",
             container_definitions=[{
                 "name": "app",
                 "image": "nginx:latest",
                 "cpu": 256,
                 "memory": 512,
                 "essential": True,
-            }])
+            }],
+            family="my-daemon-service",
+            execution_role_arn=task_execution.arn,
+            task_role_arn=task.arn,
+            cpu="512",
+            memory="1024")
         ```
 
         ### With Volumes
@@ -487,9 +487,6 @@ class DaemonTaskDefinition(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.DaemonTaskDefinition("example",
-            family="my-daemon-service",
-            cpu="512",
-            memory="1024",
             container_definitions=[{
                 "name": "app",
                 "image": "nginx:latest",
@@ -499,18 +496,21 @@ class DaemonTaskDefinition(pulumi.CustomResource):
             }],
             volumes=[
                 {
-                    "name": "data-volume",
                     "hosts": [{
                         "source_path": "/data",
                     }],
+                    "name": "data-volume",
                 },
                 {
-                    "name": "logs-volume",
                     "hosts": [{
                         "source_path": "/var/log",
                     }],
+                    "name": "logs-volume",
                 },
-            ])
+            ],
+            family="my-daemon-service",
+            cpu="512",
+            memory="1024")
         ```
 
         ### With Multiple Containers
@@ -520,9 +520,6 @@ class DaemonTaskDefinition(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.DaemonTaskDefinition("example",
-            family="my-daemon-service",
-            cpu="512",
-            memory="1024",
             container_definitions=[
                 {
                     "name": "app",
@@ -538,7 +535,10 @@ class DaemonTaskDefinition(pulumi.CustomResource):
                     "memory": 256,
                     "essential": False,
                 },
-            ])
+            ],
+            family="my-daemon-service",
+            cpu="512",
+            memory="1024")
         ```
 
         ## Import
@@ -588,16 +588,16 @@ class DaemonTaskDefinition(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.DaemonTaskDefinition("example",
-            family="my-daemon-service",
-            cpu="512",
-            memory="1024",
             container_definitions=[{
                 "name": "app",
                 "image": "nginx:latest",
                 "cpu": 256,
                 "memory": 512,
                 "essential": True,
-            }])
+            }],
+            family="my-daemon-service",
+            cpu="512",
+            memory="1024")
         ```
 
         ### With IAM Roles
@@ -632,18 +632,18 @@ class DaemonTaskDefinition(pulumi.CustomResource):
                 }],
             }))
         example = aws.ecs.DaemonTaskDefinition("example",
-            family="my-daemon-service",
-            execution_role_arn=task_execution.arn,
-            task_role_arn=task.arn,
-            cpu="512",
-            memory="1024",
             container_definitions=[{
                 "name": "app",
                 "image": "nginx:latest",
                 "cpu": 256,
                 "memory": 512,
                 "essential": True,
-            }])
+            }],
+            family="my-daemon-service",
+            execution_role_arn=task_execution.arn,
+            task_role_arn=task.arn,
+            cpu="512",
+            memory="1024")
         ```
 
         ### With Volumes
@@ -653,9 +653,6 @@ class DaemonTaskDefinition(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.DaemonTaskDefinition("example",
-            family="my-daemon-service",
-            cpu="512",
-            memory="1024",
             container_definitions=[{
                 "name": "app",
                 "image": "nginx:latest",
@@ -665,18 +662,21 @@ class DaemonTaskDefinition(pulumi.CustomResource):
             }],
             volumes=[
                 {
-                    "name": "data-volume",
                     "hosts": [{
                         "source_path": "/data",
                     }],
+                    "name": "data-volume",
                 },
                 {
-                    "name": "logs-volume",
                     "hosts": [{
                         "source_path": "/var/log",
                     }],
+                    "name": "logs-volume",
                 },
-            ])
+            ],
+            family="my-daemon-service",
+            cpu="512",
+            memory="1024")
         ```
 
         ### With Multiple Containers
@@ -686,9 +686,6 @@ class DaemonTaskDefinition(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.DaemonTaskDefinition("example",
-            family="my-daemon-service",
-            cpu="512",
-            memory="1024",
             container_definitions=[
                 {
                     "name": "app",
@@ -704,7 +701,10 @@ class DaemonTaskDefinition(pulumi.CustomResource):
                     "memory": 256,
                     "essential": False,
                 },
-            ])
+            ],
+            family="my-daemon-service",
+            cpu="512",
+            memory="1024")
         ```
 
         ## Import

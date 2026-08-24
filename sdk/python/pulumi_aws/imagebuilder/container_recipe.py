@@ -647,16 +647,11 @@ class ContainerRecipe(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.imagebuilder.ContainerRecipe("example",
-            name="example",
-            version="1.0.0",
-            container_type="DOCKER",
-            parent_image="arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x",
             target_repository={
                 "repository_name": example_aws_ecr_repository["name"],
                 "service": "ECR",
             },
             components=[{
-                "component_arn": example_aws_imagebuilder_component["arn"],
                 "parameters": [
                     {
                         "name": "Parameter1",
@@ -667,7 +662,12 @@ class ContainerRecipe(pulumi.CustomResource):
                         "value": "Value2",
                     },
                 ],
+                "component_arn": example_aws_imagebuilder_component["arn"],
             }],
+            name="example",
+            version="1.0.0",
+            container_type="DOCKER",
+            parent_image="arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x",
             dockerfile_template_data=\"\"\"FROM {{{ imagebuilder:parentImage }}}
         {{{ imagebuilder:environments }}}
         {{{ imagebuilder:components }}}
@@ -725,16 +725,11 @@ class ContainerRecipe(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.imagebuilder.ContainerRecipe("example",
-            name="example",
-            version="1.0.0",
-            container_type="DOCKER",
-            parent_image="arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x",
             target_repository={
                 "repository_name": example_aws_ecr_repository["name"],
                 "service": "ECR",
             },
             components=[{
-                "component_arn": example_aws_imagebuilder_component["arn"],
                 "parameters": [
                     {
                         "name": "Parameter1",
@@ -745,7 +740,12 @@ class ContainerRecipe(pulumi.CustomResource):
                         "value": "Value2",
                     },
                 ],
+                "component_arn": example_aws_imagebuilder_component["arn"],
             }],
+            name="example",
+            version="1.0.0",
+            container_type="DOCKER",
+            parent_image="arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x",
             dockerfile_template_data=\"\"\"FROM {{{ imagebuilder:parentImage }}}
         {{{ imagebuilder:environments }}}
         {{{ imagebuilder:components }}}

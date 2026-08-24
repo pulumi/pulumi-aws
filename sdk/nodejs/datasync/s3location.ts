@@ -19,11 +19,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.datasync.S3Location("example", {
- *     s3BucketArn: exampleAwsS3Bucket.arn,
- *     subdirectory: "/example/prefix",
  *     s3Config: {
  *         bucketAccessRoleArn: exampleAwsIamRole.arn,
  *     },
+ *     s3BucketArn: exampleAwsS3Bucket.arn,
+ *     subdirectory: "/example/prefix",
  * });
  * ```
  *
@@ -34,13 +34,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const destination = new aws.datasync.S3Location("destination", {
+ *     s3Config: {
+ *         bucketAccessRoleArn: example.arn,
+ *     },
  *     agentArns: [exampleAwsDatasyncAgent.arn],
  *     s3BucketArn: exampleAwsS3AccessPoint.arn,
  *     s3StorageClass: "OUTPOSTS",
  *     subdirectory: "/example/prefix",
- *     s3Config: {
- *         bucketAccessRoleArn: example.arn,
- *     },
  * });
  * ```
  *

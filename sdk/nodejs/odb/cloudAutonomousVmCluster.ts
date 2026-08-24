@@ -21,6 +21,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const avmcWithMinimumParameters = new aws.odb.CloudAutonomousVmCluster("avmc_with_minimum_parameters", {
+ *     maintenanceWindow: {
+ *         preference: "NO_PREFERENCE",
+ *     },
  *     cloudExadataInfrastructureId: "<aws_odb_cloud_exadata_infrastructure_id>",
  *     odbNetworkId: "<aws_odb_network_id>",
  *     displayName: "my_autonomous_vm_cluster",
@@ -32,27 +35,8 @@ import * as utilities from "../utilities";
  *     dbServers: ["<my_db_server_id>"],
  *     scanListenerPortTls: 8561,
  *     scanListenerPortNonTls: 1024,
- *     maintenanceWindow: {
- *         preference: "NO_PREFERENCE",
- *     },
  * });
  * const avmcWithAllParams = new aws.odb.CloudAutonomousVmCluster("avmc_with_all_params", {
- *     description: "my first avmc",
- *     timeZone: "UTC",
- *     cloudExadataInfrastructureId: "<aws_odb_cloud_exadata_infrastructure_id>",
- *     odbNetworkId: "<aws_odb_network_id>",
- *     displayName: "my_autonomous_vm_cluster",
- *     autonomousDataStorageSizeInTbs: 5,
- *     memoryPerOracleComputeUnitInGbs: 2,
- *     totalContainerDatabases: 1,
- *     cpuCoreCountPerNode: 40,
- *     licenseModel: "LICENSE_INCLUDED",
- *     dbServers: [
- *         "<my_db_server_1>",
- *         "<my_db_server_2>",
- *     ],
- *     scanListenerPortTls: 8561,
- *     scanListenerPortNonTls: 1024,
  *     maintenanceWindow: {
  *         daysOfWeeks: [
  *             {
@@ -87,6 +71,22 @@ import * as utilities from "../utilities";
  *             4,
  *         ],
  *     },
+ *     description: "my first avmc",
+ *     timeZone: "UTC",
+ *     cloudExadataInfrastructureId: "<aws_odb_cloud_exadata_infrastructure_id>",
+ *     odbNetworkId: "<aws_odb_network_id>",
+ *     displayName: "my_autonomous_vm_cluster",
+ *     autonomousDataStorageSizeInTbs: 5,
+ *     memoryPerOracleComputeUnitInGbs: 2,
+ *     totalContainerDatabases: 1,
+ *     cpuCoreCountPerNode: 40,
+ *     licenseModel: "LICENSE_INCLUDED",
+ *     dbServers: [
+ *         "<my_db_server_1>",
+ *         "<my_db_server_2>",
+ *     ],
+ *     scanListenerPortTls: 8561,
+ *     scanListenerPortNonTls: 1024,
  *     tags: {
  *         env: "dev",
  *     },

@@ -46,12 +46,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Fleet("example", FleetArgs.builder()
- *             .name("NAME")
- *             .imageName("Amazon-AppStream2-Sample-Image-03-11-2023")
- *             .instanceType("stream.standard.small")
  *             .computeCapacity(FleetComputeCapacityArgs.builder()
  *                 .desiredInstances(1)
  *                 .build())
+ *             .name("NAME")
+ *             .imageName("Amazon-AppStream2-Sample-Image-03-11-2023")
+ *             .instanceType("stream.standard.small")
  *             .build());
  * 
  *         var exampleStack = new Stack("exampleStack", StackArgs.builder()

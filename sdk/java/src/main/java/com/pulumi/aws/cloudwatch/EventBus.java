@@ -144,8 +144,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementConditionArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.s3.BucketPolicy;
  * import com.pulumi.aws.s3.BucketPolicyArgs;
  * import com.pulumi.aws.cloudwatch.LogDeliveryDestination;
@@ -177,11 +177,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new EventBus("example", EventBusArgs.builder()
- *             .name("example-event-bus")
  *             .logConfig(EventBusLogConfigArgs.builder()
  *                 .includeDetail("FULL")
  *                 .level("TRACE")
  *                 .build())
+ *             .name("example-event-bus")
  *             .build());
  * 
  *         // CloudWatch Log Delivery Sources for INFO, ERROR, and TRACE logs
@@ -210,13 +210,6 @@ import javax.annotation.Nullable;
  * 
  *         final var bucket = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("Service")
- *                     .identifiers("delivery.logs.amazonaws.com")
- *                     .build())
- *                 .actions("s3:PutObject")
- *                 .resources(exampleBucket.arn().applyValue(_arn -> String.format("%s/AWSLogs/%s/EventBusLogs/*", _arn,current.accountId())))
  *                 .conditions(                
  *                     GetPolicyDocumentStatementConditionArgs.builder()
  *                         .test("StringEquals")
@@ -236,6 +229,13 @@ import javax.annotation.Nullable;
  *                             errorLogs.arn(),
  *                             traceLogs.arn())
  *                         .build())
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type("Service")
+ *                     .identifiers("delivery.logs.amazonaws.com")
+ *                     .build())
+ *                 .effect("Allow")
+ *                 .actions("s3:PutObject")
+ *                 .resources(exampleBucket.arn().applyValue(_arn -> String.format("%s/AWSLogs/%s/EventBusLogs/*", _arn,current.accountId())))
  *                 .build())
  *             .build());
  * 
@@ -245,10 +245,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var s3 = new LogDeliveryDestination("s3", LogDeliveryDestinationArgs.builder()
- *             .name(example.name().applyValue(_name -> String.format("EventsDeliveryDestination-%s-S3", _name)))
  *             .deliveryDestinationConfiguration(LogDeliveryDestinationDeliveryDestinationConfigurationArgs.builder()
  *                 .destinationResourceArn(exampleBucket.arn())
  *                 .build())
+ *             .name(example.name().applyValue(_name -> String.format("EventsDeliveryDestination-%s-S3", _name)))
  *             .build());
  * 
  *         var s3InfoLogs = new LogDelivery("s3InfoLogs", LogDeliveryArgs.builder()
@@ -277,15 +277,6 @@ import javax.annotation.Nullable;
  * 
  *         final var cwlogs = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("Service")
- *                     .identifiers("delivery.logs.amazonaws.com")
- *                     .build())
- *                 .actions(                
- *                     "logs:CreateLogStream",
- *                     "logs:PutLogEvents")
- *                 .resources(eventBusLogs.arn().applyValue(_arn -> String.format("%s:log-stream:*", _arn)))
  *                 .conditions(                
  *                     GetPolicyDocumentStatementConditionArgs.builder()
  *                         .test("StringEquals")
@@ -300,6 +291,15 @@ import javax.annotation.Nullable;
  *                             errorLogs.arn(),
  *                             traceLogs.arn())
  *                         .build())
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type("Service")
+ *                     .identifiers("delivery.logs.amazonaws.com")
+ *                     .build())
+ *                 .effect("Allow")
+ *                 .actions(                
+ *                     "logs:CreateLogStream",
+ *                     "logs:PutLogEvents")
+ *                 .resources(eventBusLogs.arn().applyValue(_arn -> String.format("%s:log-stream:*", _arn)))
  *                 .build())
  *             .build());
  * 
@@ -309,10 +309,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var cwlogsLogDeliveryDestination = new LogDeliveryDestination("cwlogsLogDeliveryDestination", LogDeliveryDestinationArgs.builder()
- *             .name(example.name().applyValue(_name -> String.format("EventsDeliveryDestination-%s-CWLogs", _name)))
  *             .deliveryDestinationConfiguration(LogDeliveryDestinationDeliveryDestinationConfigurationArgs.builder()
  *                 .destinationResourceArn(eventBusLogs.arn())
  *                 .build())
+ *             .name(example.name().applyValue(_name -> String.format("EventsDeliveryDestination-%s-CWLogs", _name)))
  *             .build());
  * 
  *         var cwlogsInfoLogs = new LogDelivery("cwlogsInfoLogs", LogDeliveryArgs.builder()
@@ -346,10 +346,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var firehose = new LogDeliveryDestination("firehose", LogDeliveryDestinationArgs.builder()
- *             .name(example.name().applyValue(_name -> String.format("EventsDeliveryDestination-%s-Firehose", _name)))
  *             .deliveryDestinationConfiguration(LogDeliveryDestinationDeliveryDestinationConfigurationArgs.builder()
  *                 .destinationResourceArn(cloudfrontLogs.arn())
  *                 .build())
+ *             .name(example.name().applyValue(_name -> String.format("EventsDeliveryDestination-%s-Firehose", _name)))
  *             .build());
  * 
  *         var firehoseInfoLogs = new LogDelivery("firehoseInfoLogs", LogDeliveryArgs.builder()

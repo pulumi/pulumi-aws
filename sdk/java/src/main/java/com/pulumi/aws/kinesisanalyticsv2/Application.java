@@ -77,9 +77,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()
- *             .name("example-flink-application")
- *             .runtimeEnvironment("FLINK-1_8")
- *             .serviceExecutionRole(exampleAwsIamRole.arn())
  *             .applicationConfiguration(ApplicationApplicationConfigurationArgs.builder()
  *                 .applicationCodeConfiguration(ApplicationApplicationConfigurationApplicationCodeConfigurationArgs.builder()
  *                     .codeContent(ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs.builder()
@@ -121,6 +118,9 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
+ *             .name("example-flink-application")
+ *             .runtimeEnvironment("FLINK-1_8")
+ *             .serviceExecutionRole(exampleAwsIamRole.arn())
  *             .tags(Map.of("Environment", "test"))
  *             .build());
  * 
@@ -151,22 +151,22 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs;
  * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgs;
  * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgs;
- * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs;
  * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgs;
  * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersArgs;
  * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgs;
+ * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs;
  * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs;
+ * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs;
+ * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs;
+ * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgs;
+ * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs;
+ * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs;
+ * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArgs;
+ * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs;
  * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs;
  * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs;
  * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs;
  * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs;
- * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs;
- * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs;
- * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArgs;
- * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgs;
- * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs;
- * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs;
- * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs;
  * import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationCloudwatchLoggingOptionsArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
@@ -191,9 +191,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()
- *             .name("example-sql-application")
- *             .runtimeEnvironment("SQL-1_0")
- *             .serviceExecutionRole(exampleAwsIamRole.arn())
  *             .applicationConfiguration(ApplicationApplicationConfigurationArgs.builder()
  *                 .applicationCodeConfiguration(ApplicationApplicationConfigurationApplicationCodeConfigurationArgs.builder()
  *                     .codeContent(ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs.builder()
@@ -205,11 +202,21 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .sqlApplicationConfiguration(ApplicationApplicationConfigurationSqlApplicationConfigurationArgs.builder()
  *                     .input(ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs.builder()
- *                         .namePrefix("PREFIX_1")
  *                         .inputParallelism(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgs.builder()
  *                             .count(3)
  *                             .build())
  *                         .inputSchema(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgs.builder()
+ *                             .recordFormat(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgs.builder()
+ *                                 .mappingParameters(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersArgs.builder()
+ *                                     .csvMappingParameters(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgs.builder()
+ *                                         .recordColumnDelimiter(",")
+ *                                         .recordRowDelimiter("""
+ * 
+ *                                         """)
+ *                                         .build())
+ *                                     .build())
+ *                                 .recordFormatType("CSV")
+ *                                 .build())
  *                             .recordColumns(                            
  *                                 ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs.builder()
  *                                     .name("COLUMN_1")
@@ -221,67 +228,60 @@ import javax.annotation.Nullable;
  *                                     .sqlType("DOUBLE")
  *                                     .build())
  *                             .recordEncoding("UTF-8")
- *                             .recordFormat(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgs.builder()
- *                                 .recordFormatType("CSV")
- *                                 .mappingParameters(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersArgs.builder()
- *                                     .csvMappingParameters(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgs.builder()
- *                                         .recordColumnDelimiter(",")
- *                                         .recordRowDelimiter("""
- * 
- *                                         """)
- *                                         .build())
- *                                     .build())
- *                                 .build())
  *                             .build())
  *                         .kinesisStreamsInput(ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs.builder()
  *                             .resourceArn(exampleAwsKinesisStream.arn())
  *                             .build())
+ *                         .namePrefix("PREFIX_1")
  *                         .build())
- *                     .outputs(                    
- *                         ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs.builder()
- *                             .name("OUTPUT_1")
- *                             .destinationSchema(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs.builder()
- *                                 .recordFormatType("JSON")
- *                                 .build())
- *                             .lambdaOutput(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs.builder()
- *                                 .resourceArn(exampleAwsLambdaFunction.arn())
- *                                 .build())
- *                             .build(),
- *                         ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs.builder()
- *                             .name("OUTPUT_2")
- *                             .destinationSchema(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs.builder()
- *                                 .recordFormatType("CSV")
- *                                 .build())
- *                             .kinesisFirehoseOutput(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs.builder()
- *                                 .resourceArn(exampleAwsKinesisFirehoseDeliveryStream.arn())
- *                                 .build())
- *                             .build())
  *                     .referenceDataSource(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs.builder()
- *                         .tableName("TABLE-1")
  *                         .referenceSchema(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs.builder()
- *                             .recordColumns(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArgs.builder()
- *                                 .name("COLUMN_1")
- *                                 .sqlType("INTEGER")
- *                                 .build())
  *                             .recordFormat(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgs.builder()
- *                                 .recordFormatType("JSON")
  *                                 .mappingParameters(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs.builder()
  *                                     .jsonMappingParameters(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs.builder()
  *                                         .recordRowPath("$")
  *                                         .build())
  *                                     .build())
+ *                                 .recordFormatType("JSON")
+ *                                 .build())
+ *                             .recordColumns(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArgs.builder()
+ *                                 .name("COLUMN_1")
+ *                                 .sqlType("INTEGER")
  *                                 .build())
  *                             .build())
  *                         .s3ReferenceDataSource(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs.builder()
  *                             .bucketArn(exampleAwsS3Bucket.arn())
  *                             .fileKey("KEY-1")
  *                             .build())
+ *                         .tableName("TABLE-1")
  *                         .build())
+ *                     .outputs(                    
+ *                         ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs.builder()
+ *                             .destinationSchema(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs.builder()
+ *                                 .recordFormatType("JSON")
+ *                                 .build())
+ *                             .lambdaOutput(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs.builder()
+ *                                 .resourceArn(exampleAwsLambdaFunction.arn())
+ *                                 .build())
+ *                             .name("OUTPUT_1")
+ *                             .build(),
+ *                         ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs.builder()
+ *                             .destinationSchema(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs.builder()
+ *                                 .recordFormatType("CSV")
+ *                                 .build())
+ *                             .kinesisFirehoseOutput(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs.builder()
+ *                                 .resourceArn(exampleAwsKinesisFirehoseDeliveryStream.arn())
+ *                                 .build())
+ *                             .name("OUTPUT_2")
+ *                             .build())
  *                     .build())
  *                 .build())
  *             .cloudwatchLoggingOptions(ApplicationCloudwatchLoggingOptionsArgs.builder()
  *                 .logStreamArn(exampleLogStream.arn())
  *                 .build())
+ *             .name("example-sql-application")
+ *             .runtimeEnvironment("SQL-1_0")
+ *             .serviceExecutionRole(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }
@@ -334,9 +334,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()
- *             .name("example-flink-application")
- *             .runtimeEnvironment("FLINK-1_8")
- *             .serviceExecutionRole(exampleAwsIamRole.arn())
  *             .applicationConfiguration(ApplicationApplicationConfigurationArgs.builder()
  *                 .applicationCodeConfiguration(ApplicationApplicationConfigurationApplicationCodeConfigurationArgs.builder()
  *                     .codeContent(ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs.builder()
@@ -354,6 +351,9 @@ import javax.annotation.Nullable;
  *                     .subnetIds(exampleAwsSubnet.id())
  *                     .build())
  *                 .build())
+ *             .name("example-flink-application")
+ *             .runtimeEnvironment("FLINK-1_8")
+ *             .serviceExecutionRole(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }

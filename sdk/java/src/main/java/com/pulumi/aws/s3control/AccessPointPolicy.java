@@ -36,6 +36,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3control.AccessPointPolicy;
  * import com.pulumi.aws.s3control.AccessPointPolicyArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -54,15 +55,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccessPoint = new AccessPoint("exampleAccessPoint", AccessPointArgs.builder()
- *             .bucket(example.id())
- *             .name("example")
  *             .publicAccessBlockConfiguration(AccessPointPublicAccessBlockConfigurationArgs.builder()
  *                 .blockPublicAcls(true)
  *                 .blockPublicPolicy(false)
  *                 .ignorePublicAcls(true)
  *                 .restrictPublicBuckets(false)
  *                 .build())
- *             .build());
+ *             .bucket(example.id())
+ *             .name("example")
+ *             .build(), CustomResourceOptions.builder()
+ *                 .ignoreChanges("policy")
+ *                 .build());
  * 
  *         var exampleAccessPointPolicy = new AccessPointPolicy("exampleAccessPointPolicy", AccessPointPolicyArgs.builder()
  *             .accessPointArn(exampleAccessPoint.arn())

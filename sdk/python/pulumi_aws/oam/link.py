@@ -354,12 +354,12 @@ class Link(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.oam.Link("example",
-            label_template="$AccountName",
             link_configuration={
                 "log_group_configuration": {
                     "filter": "LogGroupName LIKE 'aws/lambda/%' OR LogGroupName LIKE 'AWSLogs%'",
                 },
             },
+            label_template="$AccountName",
             resource_types=["AWS::Logs::LogGroup"],
             sink_identifier=example_aws_oam_sink["arn"],
             opts = pulumi.ResourceOptions(depends_on=[example_aws_oam_sink_policy]))
@@ -372,12 +372,12 @@ class Link(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.oam.Link("example",
-            label_template="$AccountName",
             link_configuration={
                 "metric_configuration": {
                     "filter": "Namespace IN ('AWS/EC2', 'AWS/ELB', 'AWS/S3')",
                 },
             },
+            label_template="$AccountName",
             resource_types=["AWS::CloudWatch::Metric"],
             sink_identifier=example_aws_oam_sink["arn"],
             opts = pulumi.ResourceOptions(depends_on=[example_aws_oam_sink_policy]))
@@ -441,12 +441,12 @@ class Link(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.oam.Link("example",
-            label_template="$AccountName",
             link_configuration={
                 "log_group_configuration": {
                     "filter": "LogGroupName LIKE 'aws/lambda/%' OR LogGroupName LIKE 'AWSLogs%'",
                 },
             },
+            label_template="$AccountName",
             resource_types=["AWS::Logs::LogGroup"],
             sink_identifier=example_aws_oam_sink["arn"],
             opts = pulumi.ResourceOptions(depends_on=[example_aws_oam_sink_policy]))
@@ -459,12 +459,12 @@ class Link(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.oam.Link("example",
-            label_template="$AccountName",
             link_configuration={
                 "metric_configuration": {
                     "filter": "Namespace IN ('AWS/EC2', 'AWS/ELB', 'AWS/S3')",
                 },
             },
+            label_template="$AccountName",
             resource_types=["AWS::CloudWatch::Metric"],
             sink_identifier=example_aws_oam_sink["arn"],
             opts = pulumi.ResourceOptions(depends_on=[example_aws_oam_sink_policy]))

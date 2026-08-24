@@ -31,12 +31,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentcoreEvaluator(ctx, "example", &bedrock.AgentcoreEvaluatorArgs{
-//				EvaluatorName: pulumi.String("helpfulness_evaluator"),
-//				Description:   pulumi.String("Rates assistant helpfulness from 1 to 5"),
-//				Level:         pulumi.String("TRACE"),
 //				EvaluatorConfig: &bedrock.AgentcoreEvaluatorEvaluatorConfigArgs{
 //					LlmAsAJudge: &bedrock.AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeArgs{
-//						Instructions: pulumi.String("Given the {context} and the {assistant_turn}, compare against {expected_response} and rate from 1 to 5."),
 //						RatingScale: &bedrock.AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeRatingScaleArgs{
 //							Numericals: bedrock.AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeRatingScaleNumericalArray{
 //								&bedrock.AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeRatingScaleNumericalArgs{
@@ -53,16 +49,20 @@ import (
 //						},
 //						ModelConfig: &bedrock.AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeModelConfigArgs{
 //							BedrockEvaluatorModelConfig: &bedrock.AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeModelConfigBedrockEvaluatorModelConfigArgs{
-//								ModelId: pulumi.String("us.amazon.nova-2-lite-v1:0"),
 //								InferenceConfig: &bedrock.AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeModelConfigBedrockEvaluatorModelConfigInferenceConfigArgs{
 //									MaxTokens:   pulumi.Int(1024),
 //									Temperature: pulumi.Float64(0),
 //									TopP:        pulumi.Float64(1),
 //								},
+//								ModelId: pulumi.String("us.amazon.nova-2-lite-v1:0"),
 //							},
 //						},
+//						Instructions: pulumi.String("Given the {context} and the {assistant_turn}, compare against {expected_response} and rate from 1 to 5."),
 //					},
 //				},
+//				EvaluatorName: pulumi.String("helpfulness_evaluator"),
+//				Description:   pulumi.String("Rates assistant helpfulness from 1 to 5"),
+//				Level:         pulumi.String("TRACE"),
 //			})
 //			if err != nil {
 //				return err
@@ -88,11 +88,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentcoreEvaluator(ctx, "example", &bedrock.AgentcoreEvaluatorArgs{
-//				EvaluatorName: pulumi.String("tone_evaluator"),
-//				Level:         pulumi.String("SESSION"),
 //				EvaluatorConfig: &bedrock.AgentcoreEvaluatorEvaluatorConfigArgs{
 //					LlmAsAJudge: &bedrock.AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeArgs{
-//						Instructions: pulumi.String("Classify the tone of the {assistant_turn} given the {context}."),
 //						RatingScale: &bedrock.AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeRatingScaleArgs{
 //							Categoricals: bedrock.AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeRatingScaleCategoricalArray{
 //								&bedrock.AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeRatingScaleCategoricalArgs{
@@ -114,8 +111,11 @@ import (
 //								ModelId: pulumi.String("us.amazon.nova-2-lite-v1:0"),
 //							},
 //						},
+//						Instructions: pulumi.String("Classify the tone of the {assistant_turn} given the {context}."),
 //					},
 //				},
+//				EvaluatorName: pulumi.String("tone_evaluator"),
+//				Level:         pulumi.String("SESSION"),
 //			})
 //			if err != nil {
 //				return err
@@ -141,8 +141,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentcoreEvaluator(ctx, "example", &bedrock.AgentcoreEvaluatorArgs{
-//				EvaluatorName: pulumi.String("lambda_evaluator"),
-//				Level:         pulumi.String("TOOL_CALL"),
 //				EvaluatorConfig: &bedrock.AgentcoreEvaluatorEvaluatorConfigArgs{
 //					CodeBased: &bedrock.AgentcoreEvaluatorEvaluatorConfigCodeBasedArgs{
 //						LambdaConfig: &bedrock.AgentcoreEvaluatorEvaluatorConfigCodeBasedLambdaConfigArgs{
@@ -151,6 +149,8 @@ import (
 //						},
 //					},
 //				},
+//				EvaluatorName: pulumi.String("lambda_evaluator"),
+//				Level:         pulumi.String("TOOL_CALL"),
 //			})
 //			if err != nil {
 //				return err

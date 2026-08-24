@@ -69,10 +69,6 @@ namespace Pulumi.Aws.S3Tables
     /// 
     ///     var example = new Aws.S3Tables.Table("example", new()
     ///     {
-    ///         Name = "example_table",
-    ///         Namespace = exampleNamespace.NameSpace,
-    ///         TableBucketArn = exampleNamespace.TableBucketArn,
-    ///         Format = "ICEBERG",
     ///         Metadata = new Aws.S3Tables.Inputs.TableMetadataArgs
     ///         {
     ///             Iceberg = new Aws.S3Tables.Inputs.TableMetadataIcebergArgs
@@ -109,6 +105,10 @@ namespace Pulumi.Aws.S3Tables
     ///                 },
     ///             },
     ///         },
+    ///         Name = "example_table",
+    ///         Namespace = exampleNamespace.NameSpace,
+    ///         TableBucketArn = exampleNamespace.TableBucketArn,
+    ///         Format = "ICEBERG",
     ///     });
     /// 
     /// });

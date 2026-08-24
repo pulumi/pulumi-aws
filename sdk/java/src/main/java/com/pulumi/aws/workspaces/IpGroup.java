@@ -46,8 +46,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var contractors = new IpGroup("contractors", IpGroupArgs.builder()
- *             .name("Contractors")
- *             .description("Contractors IP access control group")
  *             .rules(            
  *                 IpGroupRuleArgs.builder()
  *                     .source("150.24.14.0/24")
@@ -61,6 +59,8 @@ import javax.annotation.Nullable;
  *                     .source("44.98.100.0/24")
  *                     .description("STL")
  *                     .build())
+ *             .name("Contractors")
+ *             .description("Contractors IP access control group")
  *             .build());
  * 
  *     }

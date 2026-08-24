@@ -35,29 +35,21 @@ import * as utilities from "../utilities";
  * const example = aws.iam.getPolicyDocumentOutput({
  *     statements: [
  *         {
- *             sid: "AWSCloudTrailAclCheck",
- *             effect: "Allow",
- *             principals: [{
- *                 type: "Service",
- *                 identifiers: ["cloudtrail.amazonaws.com"],
- *             }],
- *             actions: ["s3:GetBucketAcl"],
- *             resources: [exampleBucket.arn],
  *             conditions: [{
  *                 test: "StringEquals",
  *                 variable: "aws:SourceArn",
  *                 values: [Promise.all([currentGetPartition, currentGetRegion, current]).then(([currentGetPartition, currentGetRegion, current]) => `arn:${currentGetPartition.partition}:cloudtrail:${currentGetRegion.region}:${current.accountId}:trail/example`)],
  *             }],
- *         },
- *         {
- *             sid: "AWSCloudTrailWrite",
- *             effect: "Allow",
  *             principals: [{
  *                 type: "Service",
  *                 identifiers: ["cloudtrail.amazonaws.com"],
  *             }],
- *             actions: ["s3:PutObject"],
- *             resources: [pulumi.all([exampleBucket.arn, current]).apply(([arn, current]) => `${arn}/prefix/AWSLogs/${current.accountId}/*`)],
+ *             sid: "AWSCloudTrailAclCheck",
+ *             effect: "Allow",
+ *             actions: ["s3:GetBucketAcl"],
+ *             resources: [exampleBucket.arn],
+ *         },
+ *         {
  *             conditions: [
  *                 {
  *                     test: "StringEquals",
@@ -70,6 +62,14 @@ import * as utilities from "../utilities";
  *                     values: [Promise.all([currentGetPartition, currentGetRegion, current]).then(([currentGetPartition, currentGetRegion, current]) => `arn:${currentGetPartition.partition}:cloudtrail:${currentGetRegion.region}:${current.accountId}:trail/example`)],
  *                 },
  *             ],
+ *             principals: [{
+ *                 type: "Service",
+ *                 identifiers: ["cloudtrail.amazonaws.com"],
+ *             }],
+ *             sid: "AWSCloudTrailWrite",
+ *             effect: "Allow",
+ *             actions: ["s3:PutObject"],
+ *             resources: [pulumi.all([exampleBucket.arn, current]).apply(([arn, current]) => `${arn}/prefix/AWSLogs/${current.accountId}/*`)],
  *         },
  *     ],
  * });
@@ -101,12 +101,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cloudtrail.Trail("example", {eventSelectors: [{
- *     readWriteType: "All",
- *     includeManagementEvents: true,
  *     dataResources: [{
  *         type: "AWS::Lambda::Function",
  *         values: ["arn:aws:lambda"],
  *     }],
+ *     readWriteType: "All",
+ *     includeManagementEvents: true,
  * }]});
  * ```
  *
@@ -117,12 +117,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cloudtrail.Trail("example", {eventSelectors: [{
- *     readWriteType: "All",
- *     includeManagementEvents: true,
  *     dataResources: [{
  *         type: "AWS::S3::Object",
  *         values: ["arn:aws:s3"],
  *     }],
+ *     readWriteType: "All",
+ *     includeManagementEvents: true,
  * }]});
  * ```
  *
@@ -136,12 +136,12 @@ import * as utilities from "../utilities";
  *     bucket: "important-bucket",
  * });
  * const example = new aws.cloudtrail.Trail("example", {eventSelectors: [{
- *     readWriteType: "All",
- *     includeManagementEvents: true,
  *     dataResources: [{
  *         type: "AWS::S3::Object",
  *         values: [important_bucket.then(important_bucket => `${important_bucket.arn}/`)],
  *     }],
+ *     readWriteType: "All",
+ *     includeManagementEvents: true,
  * }]});
  * ```
  *
@@ -159,7 +159,6 @@ import * as utilities from "../utilities";
  * });
  * const example = new aws.cloudtrail.Trail("example", {advancedEventSelectors: [
  *     {
- *         name: "Log all S3 objects events except for two S3 buckets",
  *         fieldSelectors: [
  *             {
  *                 field: "eventCategory",
@@ -177,13 +176,14 @@ import * as utilities from "../utilities";
  *                 equals: ["AWS::S3::Object"],
  *             },
  *         ],
+ *         name: "Log all S3 objects events except for two S3 buckets",
  *     },
  *     {
- *         name: "Log readOnly and writeOnly management events",
  *         fieldSelectors: [{
  *             field: "eventCategory",
  *             equals: ["Management"],
  *         }],
+ *         name: "Log readOnly and writeOnly management events",
  *     },
  * ]});
  * ```
@@ -205,7 +205,6 @@ import * as utilities from "../utilities";
  * });
  * const example = new aws.cloudtrail.Trail("example", {advancedEventSelectors: [
  *     {
- *         name: "Log PutObject and DeleteObject events for two S3 buckets",
  *         fieldSelectors: [
  *             {
  *                 field: "eventCategory",
@@ -234,9 +233,9 @@ import * as utilities from "../utilities";
  *                 equals: ["AWS::S3::Object"],
  *             },
  *         ],
+ *         name: "Log PutObject and DeleteObject events for two S3 buckets",
  *     },
  *     {
- *         name: "Log Delete* events for one S3 bucket",
  *         fieldSelectors: [
  *             {
  *                 field: "eventCategory",
@@ -259,6 +258,7 @@ import * as utilities from "../utilities";
  *                 equals: ["AWS::S3::Object"],
  *             },
  *         ],
+ *         name: "Log Delete* events for one S3 bucket",
  *     },
  * ]});
  * ```

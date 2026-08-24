@@ -258,14 +258,14 @@ class SdkvoiceSipRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.chime.SdkvoiceSipRule("example",
-            name="example-sip-rule",
-            trigger_type="RequestUriHostname",
-            trigger_value=example_voice_connector["outboundHostName"],
             target_applications=[{
                 "priority": 1,
                 "sip_media_application_id": example_sma["id"],
                 "aws_region": "us-east-1",
-            }])
+            }],
+            name="example-sip-rule",
+            trigger_type="RequestUriHostname",
+            trigger_value=example_voice_connector["outboundHostName"])
         ```
 
         ## Import
@@ -306,14 +306,14 @@ class SdkvoiceSipRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.chime.SdkvoiceSipRule("example",
-            name="example-sip-rule",
-            trigger_type="RequestUriHostname",
-            trigger_value=example_voice_connector["outboundHostName"],
             target_applications=[{
                 "priority": 1,
                 "sip_media_application_id": example_sma["id"],
                 "aws_region": "us-east-1",
-            }])
+            }],
+            name="example-sip-rule",
+            trigger_type="RequestUriHostname",
+            trigger_value=example_voice_connector["outboundHostName"])
         ```
 
         ## Import

@@ -47,10 +47,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) }{{@code
  *         var example = new ContactChannel("example", ContactChannelArgs.builder()
- *             .contactId("arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias")
  *             .deliveryAddress(ContactChannelDeliveryAddressArgs.builder()
  *                 .simpleAddress("email}{@literal @}{@code example.com")
  *                 .build())
+ *             .contactId("arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias")
  *             .name("Example contact channel")
  *             .type("EMAIL")
  *             .build());
@@ -93,10 +93,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new ContactChannel("example", ContactChannelArgs.builder()
- *             .contactId(exampleContact.arn())
  *             .deliveryAddress(ContactChannelDeliveryAddressArgs.builder()
  *                 .simpleAddress("email}{@literal @}{@code example.com")
  *                 .build())
+ *             .contactId(exampleContact.arn())
  *             .name("Example contact channel")
  *             .type("EMAIL")
  *             .build());

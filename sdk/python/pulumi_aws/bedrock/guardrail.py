@@ -615,10 +615,6 @@ class Guardrail(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.Guardrail("example",
-            name="example",
-            blocked_input_messaging="example",
-            blocked_outputs_messaging="example",
-            description="example",
             content_policy_config={
                 "filters_configs": [{
                     "input_strength": "MEDIUM",
@@ -650,14 +646,14 @@ class Guardrail(pulumi.CustomResource):
                 }],
             },
             topic_policy_config={
+                "tier_configs": [{
+                    "tier_name": "CLASSIC",
+                }],
                 "topics_configs": [{
                     "name": "investment_topic",
                     "examples": ["Where should I invest my money ?"],
                     "type": "DENY",
                     "definition": "Investment advice refers to inquiries, guidance, or recommendations regarding the management or allocation of funds or assets with the goal of generating returns .",
-                }],
-                "tier_configs": [{
-                    "tier_name": "CLASSIC",
                 }],
             },
             word_policy_config={
@@ -667,7 +663,11 @@ class Guardrail(pulumi.CustomResource):
                 "words_configs": [{
                     "text": "HATE",
                 }],
-            })
+            },
+            name="example",
+            blocked_input_messaging="example",
+            blocked_outputs_messaging="example",
+            description="example")
         ```
 
         ## Import
@@ -714,10 +714,6 @@ class Guardrail(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.Guardrail("example",
-            name="example",
-            blocked_input_messaging="example",
-            blocked_outputs_messaging="example",
-            description="example",
             content_policy_config={
                 "filters_configs": [{
                     "input_strength": "MEDIUM",
@@ -749,14 +745,14 @@ class Guardrail(pulumi.CustomResource):
                 }],
             },
             topic_policy_config={
+                "tier_configs": [{
+                    "tier_name": "CLASSIC",
+                }],
                 "topics_configs": [{
                     "name": "investment_topic",
                     "examples": ["Where should I invest my money ?"],
                     "type": "DENY",
                     "definition": "Investment advice refers to inquiries, guidance, or recommendations regarding the management or allocation of funds or assets with the goal of generating returns .",
-                }],
-                "tier_configs": [{
-                    "tier_name": "CLASSIC",
                 }],
             },
             word_policy_config={
@@ -766,7 +762,11 @@ class Guardrail(pulumi.CustomResource):
                 "words_configs": [{
                     "text": "HATE",
                 }],
-            })
+            },
+            name="example",
+            blocked_input_messaging="example",
+            blocked_outputs_messaging="example",
+            description="example")
         ```
 
         ## Import

@@ -45,9 +45,6 @@ namespace Pulumi.Aws.Fsx
     /// 
     ///     var exampleDataRepositoryAssociation = new Aws.Fsx.DataRepositoryAssociation("example", new()
     ///     {
-    ///         FileSystemId = exampleLustreFileSystem.Id,
-    ///         DataRepositoryPath = example.Id.Apply(id =&gt; $"s3://{id}"),
-    ///         FileSystemPath = "/my-bucket",
     ///         S3 = new Aws.Fsx.Inputs.DataRepositoryAssociationS3Args
     ///         {
     ///             AutoExportPolicy = new Aws.Fsx.Inputs.DataRepositoryAssociationS3AutoExportPolicyArgs
@@ -69,6 +66,9 @@ namespace Pulumi.Aws.Fsx
     ///                 },
     ///             },
     ///         },
+    ///         FileSystemId = exampleLustreFileSystem.Id,
+    ///         DataRepositoryPath = example.Id.Apply(id =&gt; $"s3://{id}"),
+    ///         FileSystemPath = "/my-bucket",
     ///     });
     /// 
     /// });

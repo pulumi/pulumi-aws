@@ -18,7 +18,6 @@ import * as utilities from "../utilities";
  * const current = aws.getCallerIdentity({});
  * const currentGetRegion = aws.getRegion({});
  * const foo = new aws.opensearch.OutboundConnection("foo", {
- *     connectionAlias: "outbound_connection",
  *     localDomainInfo: {
  *         ownerId: current.then(current => current.accountId),
  *         region: currentGetRegion.then(currentGetRegion => currentGetRegion.region),
@@ -29,6 +28,7 @@ import * as utilities from "../utilities";
  *         region: currentGetRegion.then(currentGetRegion => currentGetRegion.region),
  *         domainName: remoteDomain.domainName,
  *     },
+ *     connectionAlias: "outbound_connection",
  * });
  * const fooInboundConnectionAccepter = new aws.opensearch.InboundConnectionAccepter("foo", {connectionId: foo.id});
  * ```

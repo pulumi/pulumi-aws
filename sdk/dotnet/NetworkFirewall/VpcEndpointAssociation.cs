@@ -28,12 +28,12 @@ namespace Pulumi.Aws.NetworkFirewall
     /// {
     ///     var example = new Aws.NetworkFirewall.VpcEndpointAssociation("example", new()
     ///     {
-    ///         FirewallArn = exampleAwsNetworkfirewallFirewall.Arn,
-    ///         VpcId = exampleAwsVpc.Id,
     ///         SubnetMapping = new Aws.NetworkFirewall.Inputs.VpcEndpointAssociationSubnetMappingArgs
     ///         {
     ///             SubnetId = exampleAwsSubnet.Id,
     ///         },
+    ///         FirewallArn = exampleAwsNetworkfirewallFirewall.Arn,
+    ///         VpcId = exampleAwsVpc.Id,
     ///         Tags = 
     ///         {
     ///             { "Name", "example endpoint" },

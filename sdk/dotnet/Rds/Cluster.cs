@@ -171,6 +171,12 @@ namespace Pulumi.Aws.Rds
     /// {
     ///     var example = new Aws.Rds.Cluster("example", new()
     ///     {
+    ///         Serverlessv2ScalingConfiguration = new Aws.Rds.Inputs.ClusterServerlessv2ScalingConfigurationArgs
+    ///         {
+    ///             MaxCapacity = 1,
+    ///             MinCapacity = 0,
+    ///             SecondsUntilAutoPause = 3600,
+    ///         },
     ///         ClusterIdentifier = "example",
     ///         Engine = Aws.Rds.EngineType.AuroraPostgresql,
     ///         EngineMode = Aws.Rds.EngineMode.Provisioned,
@@ -179,12 +185,6 @@ namespace Pulumi.Aws.Rds
     ///         MasterUsername = "test",
     ///         MasterPassword = "must_be_eight_characters",
     ///         StorageEncrypted = true,
-    ///         Serverlessv2ScalingConfiguration = new Aws.Rds.Inputs.ClusterServerlessv2ScalingConfigurationArgs
-    ///         {
-    ///             MaxCapacity = 1,
-    ///             MinCapacity = 0,
-    ///             SecondsUntilAutoPause = 3600,
-    ///         },
     ///     });
     /// 
     ///     var exampleClusterInstance = new Aws.Rds.ClusterInstance("example", new()
@@ -276,6 +276,13 @@ namespace Pulumi.Aws.Rds
     ///         EngineVersion = "5.6.mysql_aurora.1.22.4",
     ///         ClusterIdentifier = "example",
     ///         SnapshotIdentifier = example.Apply(getClusterSnapshotResult =&gt; getClusterSnapshotResult.Id),
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
+    ///         {
+    ///             "snapshotIdentifier",
+    ///             "globalClusterIdentifier",
+    ///         },
     ///     });
     /// 
     ///     var exampleGlobalCluster = new Aws.Rds.GlobalCluster("example", new()

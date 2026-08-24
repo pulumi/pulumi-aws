@@ -58,26 +58,24 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var ipset = new IpSet("ipset", IpSetArgs.builder()
- *             .name("tfIPSet")
  *             .ipSetDescriptors(IpSetIpSetDescriptorArgs.builder()
  *                 .type("IPV4")
  *                 .value("192.0.7.0/24")
  *                 .build())
+ *             .name("tfIPSet")
  *             .build());
  * 
  *         var wafrule = new Rule("wafrule", RuleArgs.builder()
- *             .name("tfWAFRule")
- *             .metricName("tfWAFRule")
  *             .predicates(RulePredicateArgs.builder()
  *                 .dataId(ipset.id())
  *                 .negated(false)
  *                 .type("IPMatch")
  *                 .build())
+ *             .name("tfWAFRule")
+ *             .metricName("tfWAFRule")
  *             .build());
  * 
  *         var wafacl = new WebAcl("wafacl", WebAclArgs.builder()
- *             .name("tfWebACL")
- *             .metricName("tfWebACL")
  *             .defaultAction(WebAclDefaultActionArgs.builder()
  *                 .type("ALLOW")
  *                 .build())
@@ -89,6 +87,8 @@ import javax.annotation.Nullable;
  *                 .ruleId(wafrule.id())
  *                 .type("REGULAR")
  *                 .build())
+ *             .name("tfWebACL")
+ *             .metricName("tfWebACL")
  *             .build());
  * 
  *     }
@@ -124,19 +124,19 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new WebAcl("example", WebAclArgs.builder()
- *             .name("example")
- *             .metricName("example")
  *             .defaultAction(WebAclDefaultActionArgs.builder()
  *                 .type("ALLOW")
  *                 .build())
  *             .rules(WebAclRuleArgs.builder()
- *                 .priority(1)
- *                 .ruleId(exampleAwsWafregionalRuleGroup.id())
- *                 .type("GROUP")
  *                 .overrideAction(WebAclRuleOverrideActionArgs.builder()
  *                     .type("NONE")
  *                     .build())
+ *                 .priority(1)
+ *                 .ruleId(exampleAwsWafregionalRuleGroup.id())
+ *                 .type("GROUP")
  *                 .build())
+ *             .name("example")
+ *             .metricName("example")
  *             .build());
  * 
  *     }
@@ -175,7 +175,6 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new WebAcl("example", WebAclArgs.builder()
  *             .loggingConfiguration(WebAclLoggingConfigurationArgs.builder()
- *                 .logDestination(exampleAwsKinesisFirehoseDeliveryStream.arn())
  *                 .redactedFields(WebAclLoggingConfigurationRedactedFieldsArgs.builder()
  *                     .fieldToMatches(                    
  *                         WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs.builder()
@@ -186,6 +185,7 @@ import javax.annotation.Nullable;
  *                             .type("HEADER")
  *                             .build())
  *                     .build())
+ *                 .logDestination(exampleAwsKinesisFirehoseDeliveryStream.arn())
  *                 .build())
  *             .build());
  * 

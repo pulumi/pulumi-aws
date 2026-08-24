@@ -266,10 +266,10 @@ class Project(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.Project("example",
-            project_name="example",
             service_catalog_provisioning_details={
                 "product_id": example_aws_servicecatalog_product["id"],
-            })
+            },
+            project_name="example")
         ```
 
         ## Import
@@ -307,10 +307,10 @@ class Project(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.Project("example",
-            project_name="example",
             service_catalog_provisioning_details={
                 "product_id": example_aws_servicecatalog_product["id"],
-            })
+            },
+            project_name="example")
         ```
 
         ## Import

@@ -17,10 +17,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.codecatalyst.DevEnvironment("test", {
- *     alias: "devenv",
- *     spaceName: "myspace",
- *     projectName: "myproject",
- *     instanceType: "dev.standard1.small",
  *     persistentStorage: {
  *         size: 16,
  *     },
@@ -28,11 +24,15 @@ import * as utilities from "../utilities";
  *         name: "PyCharm",
  *         runtime: "public.ecr.aws/jetbrains/py",
  *     },
- *     inactivityTimeoutMinutes: 40,
  *     repositories: [{
  *         repositoryName: "pulumi-provider-aws",
  *         branchName: "main",
  *     }],
+ *     alias: "devenv",
+ *     spaceName: "myspace",
+ *     projectName: "myproject",
+ *     instanceType: "dev.standard1.small",
+ *     inactivityTimeoutMinutes: 40,
  * });
  * ```
  */

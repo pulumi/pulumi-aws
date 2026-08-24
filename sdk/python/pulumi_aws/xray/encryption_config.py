@@ -161,12 +161,12 @@ class EncryptionConfig(pulumi.CustomResource):
 
         current = aws.get_caller_identity()
         example = aws.iam.get_policy_document(statements=[{
-            "sid": "Enable IAM User Permissions",
-            "effect": "Allow",
             "principals": [{
                 "type": "AWS",
                 "identifiers": [f"arn:aws:iam::{current.account_id}:root"],
             }],
+            "sid": "Enable IAM User Permissions",
+            "effect": "Allow",
             "actions": ["kms:*"],
             "resources": ["*"],
         }])
@@ -229,12 +229,12 @@ class EncryptionConfig(pulumi.CustomResource):
 
         current = aws.get_caller_identity()
         example = aws.iam.get_policy_document(statements=[{
-            "sid": "Enable IAM User Permissions",
-            "effect": "Allow",
             "principals": [{
                 "type": "AWS",
                 "identifiers": [f"arn:aws:iam::{current.account_id}:root"],
             }],
+            "sid": "Enable IAM User Permissions",
+            "effect": "Allow",
             "actions": ["kms:*"],
             "resources": ["*"],
         }])

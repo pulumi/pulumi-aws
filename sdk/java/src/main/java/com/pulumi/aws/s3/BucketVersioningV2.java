@@ -69,10 +69,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var versioningExample = new BucketVersioning("versioningExample", BucketVersioningArgs.builder()
- *             .bucket(example.id())
  *             .versioningConfiguration(BucketVersioningVersioningConfigurationArgs.builder()
  *                 .status("Enabled")
  *                 .build())
+ *             .bucket(example.id())
  *             .build());
  * 
  *     }
@@ -119,10 +119,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var versioningExample = new BucketVersioning("versioningExample", BucketVersioningArgs.builder()
- *             .bucket(example.id())
  *             .versioningConfiguration(BucketVersioningVersioningConfigurationArgs.builder()
  *                 .status("Disabled")
  *                 .build())
+ *             .bucket(example.id())
  *             .build());
  * 
  *     }
@@ -171,10 +171,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBucketVersioning = new BucketVersioning("exampleBucketVersioning", BucketVersioningArgs.builder()
- *             .bucket(example.id())
  *             .versioningConfiguration(BucketVersioningVersioningConfigurationArgs.builder()
  *                 .status("Enabled")
  *                 .build())
+ *             .bucket(example.id())
  *             .build());
  * 
  *         var exampleBucketObjectv2 = new BucketObjectv2("exampleBucketObjectv2", BucketObjectv2Args.builder()

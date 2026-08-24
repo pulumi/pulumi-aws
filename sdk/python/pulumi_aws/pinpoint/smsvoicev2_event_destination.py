@@ -343,13 +343,13 @@ class Smsvoicev2EventDestination(pulumi.CustomResource):
 
         example = aws.pinpoint.Smsvoicev2ConfigurationSet("example", name="example-configuration-set")
         example_smsvoicev2_event_destination = aws.pinpoint.Smsvoicev2EventDestination("example",
-            configuration_set_name=example.name,
-            event_destination_name="example",
-            matching_event_types=["ALL"],
             cloudwatch_logs_destination={
                 "iam_role_arn": example_aws_iam_role["arn"],
                 "log_group_arn": example_aws_cloudwatch_log_group["arn"],
-            })
+            },
+            configuration_set_name=example.name,
+            event_destination_name="example",
+            matching_event_types=["ALL"])
         ```
 
         ### Kinesis Firehose Destination
@@ -360,13 +360,13 @@ class Smsvoicev2EventDestination(pulumi.CustomResource):
 
         example = aws.pinpoint.Smsvoicev2ConfigurationSet("example", name="example-configuration-set")
         example_smsvoicev2_event_destination = aws.pinpoint.Smsvoicev2EventDestination("example",
-            configuration_set_name=example.name,
-            event_destination_name="example",
-            matching_event_types=["ALL"],
             kinesis_firehose_destination={
                 "delivery_stream_arn": example_aws_kinesis_firehose_delivery_stream["arn"],
                 "iam_role_arn": example_aws_iam_role["arn"],
-            })
+            },
+            configuration_set_name=example.name,
+            event_destination_name="example",
+            matching_event_types=["ALL"])
         ```
 
         ### SNS Destination
@@ -377,12 +377,12 @@ class Smsvoicev2EventDestination(pulumi.CustomResource):
 
         example = aws.pinpoint.Smsvoicev2ConfigurationSet("example", name="example-configuration-set")
         example_smsvoicev2_event_destination = aws.pinpoint.Smsvoicev2EventDestination("example",
-            configuration_set_name=example.name,
-            event_destination_name="example",
-            matching_event_types=["ALL"],
             sns_destination={
                 "topic_arn": example_aws_sns_topic["arn"],
-            })
+            },
+            configuration_set_name=example.name,
+            event_destination_name="example",
+            matching_event_types=["ALL"])
         ```
 
         ## Import
@@ -440,13 +440,13 @@ class Smsvoicev2EventDestination(pulumi.CustomResource):
 
         example = aws.pinpoint.Smsvoicev2ConfigurationSet("example", name="example-configuration-set")
         example_smsvoicev2_event_destination = aws.pinpoint.Smsvoicev2EventDestination("example",
-            configuration_set_name=example.name,
-            event_destination_name="example",
-            matching_event_types=["ALL"],
             cloudwatch_logs_destination={
                 "iam_role_arn": example_aws_iam_role["arn"],
                 "log_group_arn": example_aws_cloudwatch_log_group["arn"],
-            })
+            },
+            configuration_set_name=example.name,
+            event_destination_name="example",
+            matching_event_types=["ALL"])
         ```
 
         ### Kinesis Firehose Destination
@@ -457,13 +457,13 @@ class Smsvoicev2EventDestination(pulumi.CustomResource):
 
         example = aws.pinpoint.Smsvoicev2ConfigurationSet("example", name="example-configuration-set")
         example_smsvoicev2_event_destination = aws.pinpoint.Smsvoicev2EventDestination("example",
-            configuration_set_name=example.name,
-            event_destination_name="example",
-            matching_event_types=["ALL"],
             kinesis_firehose_destination={
                 "delivery_stream_arn": example_aws_kinesis_firehose_delivery_stream["arn"],
                 "iam_role_arn": example_aws_iam_role["arn"],
-            })
+            },
+            configuration_set_name=example.name,
+            event_destination_name="example",
+            matching_event_types=["ALL"])
         ```
 
         ### SNS Destination
@@ -474,12 +474,12 @@ class Smsvoicev2EventDestination(pulumi.CustomResource):
 
         example = aws.pinpoint.Smsvoicev2ConfigurationSet("example", name="example-configuration-set")
         example_smsvoicev2_event_destination = aws.pinpoint.Smsvoicev2EventDestination("example",
-            configuration_set_name=example.name,
-            event_destination_name="example",
-            matching_event_types=["ALL"],
             sns_destination={
                 "topic_arn": example_aws_sns_topic["arn"],
-            })
+            },
+            configuration_set_name=example.name,
+            event_destination_name="example",
+            matching_event_types=["ALL"])
         ```
 
         ## Import

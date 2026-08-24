@@ -46,9 +46,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.bedrock.AgentcoreOnlineEvaluationConfigArgs;
  * import com.pulumi.aws.bedrock.inputs.AgentcoreOnlineEvaluationConfigDataSourceConfigArgs;
  * import com.pulumi.aws.bedrock.inputs.AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentcoreOnlineEvaluationConfigEvaluatorArgs;
  * import com.pulumi.aws.bedrock.inputs.AgentcoreOnlineEvaluationConfigRuleArgs;
  * import com.pulumi.aws.bedrock.inputs.AgentcoreOnlineEvaluationConfigRuleSamplingConfigArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreOnlineEvaluationConfigEvaluatorArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.ArrayList;
  * import java.util.Arrays;
@@ -83,14 +83,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAgentcoreOnlineEvaluationConfig = new AgentcoreOnlineEvaluationConfig("exampleAgentcoreOnlineEvaluationConfig", AgentcoreOnlineEvaluationConfigArgs.builder()
- *             .onlineEvaluationConfigName("my_evaluation_config")
- *             .description("Continuous evaluation of agent performance")
- *             .enableOnCreate(true)
- *             .evaluationExecutionRoleArn(example.arn())
  *             .dataSourceConfig(AgentcoreOnlineEvaluationConfigDataSourceConfigArgs.builder()
  *                 .cloudwatchLogs(AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgs.builder()
  *                     .logGroupNames(exampleLogGroup.name())
  *                     .serviceNames("my_agent_service")
+ *                     .build())
+ *                 .build())
+ *             .rule(AgentcoreOnlineEvaluationConfigRuleArgs.builder()
+ *                 .samplingConfig(AgentcoreOnlineEvaluationConfigRuleSamplingConfigArgs.builder()
+ *                     .samplingPercentage(10.0)
  *                     .build())
  *                 .build())
  *             .evaluators(            
@@ -100,11 +101,10 @@ import javax.annotation.Nullable;
  *                 AgentcoreOnlineEvaluationConfigEvaluatorArgs.builder()
  *                     .evaluatorId("Builtin.GoalSuccessRate")
  *                     .build())
- *             .rule(AgentcoreOnlineEvaluationConfigRuleArgs.builder()
- *                 .samplingConfig(AgentcoreOnlineEvaluationConfigRuleSamplingConfigArgs.builder()
- *                     .samplingPercentage(10.0)
- *                     .build())
- *                 .build())
+ *             .onlineEvaluationConfigName("my_evaluation_config")
+ *             .description("Continuous evaluation of agent performance")
+ *             .enableOnCreate(true)
+ *             .evaluationExecutionRoleArn(example.arn())
  *             .build());
  * 
  *     }
@@ -125,12 +125,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.bedrock.AgentcoreOnlineEvaluationConfigArgs;
  * import com.pulumi.aws.bedrock.inputs.AgentcoreOnlineEvaluationConfigDataSourceConfigArgs;
  * import com.pulumi.aws.bedrock.inputs.AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentcoreOnlineEvaluationConfigEvaluatorArgs;
  * import com.pulumi.aws.bedrock.inputs.AgentcoreOnlineEvaluationConfigRuleArgs;
  * import com.pulumi.aws.bedrock.inputs.AgentcoreOnlineEvaluationConfigRuleSamplingConfigArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreOnlineEvaluationConfigRuleSessionConfigArgs;
  * import com.pulumi.aws.bedrock.inputs.AgentcoreOnlineEvaluationConfigRuleFilterArgs;
  * import com.pulumi.aws.bedrock.inputs.AgentcoreOnlineEvaluationConfigRuleFilterValueArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentcoreOnlineEvaluationConfigRuleSessionConfigArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreOnlineEvaluationConfigEvaluatorArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -145,33 +145,33 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var filtered = new AgentcoreOnlineEvaluationConfig("filtered", AgentcoreOnlineEvaluationConfigArgs.builder()
- *             .onlineEvaluationConfigName("filtered_evaluation")
- *             .enableOnCreate(true)
- *             .evaluationExecutionRoleArn(exampleAwsIamRole.arn())
  *             .dataSourceConfig(AgentcoreOnlineEvaluationConfigDataSourceConfigArgs.builder()
  *                 .cloudwatchLogs(AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgs.builder()
  *                     .logGroupNames(example.name())
  *                     .serviceNames("my_agent_service")
  *                     .build())
  *                 .build())
- *             .evaluators(AgentcoreOnlineEvaluationConfigEvaluatorArgs.builder()
- *                 .evaluatorId("Builtin.Helpfulness")
- *                 .build())
  *             .rule(AgentcoreOnlineEvaluationConfigRuleArgs.builder()
  *                 .samplingConfig(AgentcoreOnlineEvaluationConfigRuleSamplingConfigArgs.builder()
  *                     .samplingPercentage(50.0)
  *                     .build())
- *                 .filters(AgentcoreOnlineEvaluationConfigRuleFilterArgs.builder()
- *                     .key("environment")
- *                     .operator("Equals")
- *                     .value(AgentcoreOnlineEvaluationConfigRuleFilterValueArgs.builder()
- *                         .stringValue("production")
- *                         .build())
- *                     .build())
  *                 .sessionConfig(AgentcoreOnlineEvaluationConfigRuleSessionConfigArgs.builder()
  *                     .sessionTimeoutMinutes(30)
  *                     .build())
+ *                 .filters(AgentcoreOnlineEvaluationConfigRuleFilterArgs.builder()
+ *                     .value(AgentcoreOnlineEvaluationConfigRuleFilterValueArgs.builder()
+ *                         .stringValue("production")
+ *                         .build())
+ *                     .key("environment")
+ *                     .operator("Equals")
+ *                     .build())
  *                 .build())
+ *             .evaluators(AgentcoreOnlineEvaluationConfigEvaluatorArgs.builder()
+ *                 .evaluatorId("Builtin.Helpfulness")
+ *                 .build())
+ *             .onlineEvaluationConfigName("filtered_evaluation")
+ *             .enableOnCreate(true)
+ *             .evaluationExecutionRoleArn(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }

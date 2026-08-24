@@ -26,8 +26,6 @@ namespace Pulumi.Aws.Sagemaker
     /// {
     ///     var example = new Aws.Sagemaker.TrainingJob("example", new()
     ///     {
-    ///         TrainingJobName = "example",
-    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         AlgorithmSpecification = new Aws.Sagemaker.Inputs.TrainingJobAlgorithmSpecificationArgs
     ///         {
     ///             TrainingInputMode = "File",
@@ -47,6 +45,8 @@ namespace Pulumi.Aws.Sagemaker
     ///         {
     ///             MaxRuntimeInSeconds = 3600,
     ///         },
+    ///         TrainingJobName = "example",
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });
@@ -64,8 +64,6 @@ namespace Pulumi.Aws.Sagemaker
     /// {
     ///     var example = new Aws.Sagemaker.TrainingJob("example", new()
     ///     {
-    ///         TrainingJobName = "example",
-    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         AlgorithmSpecification = new Aws.Sagemaker.Inputs.TrainingJobAlgorithmSpecificationArgs
     ///         {
     ///             TrainingInputMode = "File",
@@ -96,6 +94,8 @@ namespace Pulumi.Aws.Sagemaker
     ///                 exampleAwsSubnet.Id,
     ///             },
     ///         },
+    ///         TrainingJobName = "example",
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });
@@ -113,33 +113,11 @@ namespace Pulumi.Aws.Sagemaker
     /// {
     ///     var example = new Aws.Sagemaker.TrainingJob("example", new()
     ///     {
-    ///         TrainingJobName = "example",
-    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         AlgorithmSpecification = new Aws.Sagemaker.Inputs.TrainingJobAlgorithmSpecificationArgs
     ///         {
     ///             TrainingInputMode = "File",
     ///             TrainingImage = exampleAwsSagemakerPrebuiltEcrImage.RegistryPath,
     ///             EnableSagemakerMetricsTimeSeries = true,
-    ///         },
-    ///         HyperParameters = 
-    ///         {
-    ///             { "mini_batch_size", "200" },
-    ///             { "epochs", "10" },
-    ///         },
-    ///         InputDataConfigs = new[]
-    ///         {
-    ///             new Aws.Sagemaker.Inputs.TrainingJobInputDataConfigArgs
-    ///             {
-    ///                 ChannelName = "train",
-    ///                 DataSource = new Aws.Sagemaker.Inputs.TrainingJobInputDataConfigDataSourceArgs
-    ///                 {
-    ///                     S3DataSource = new Aws.Sagemaker.Inputs.TrainingJobInputDataConfigDataSourceS3DataSourceArgs
-    ///                     {
-    ///                         S3DataType = "S3Prefix",
-    ///                         S3Uri = $"s3://{exampleAwsS3Bucket.Bucket}/train/",
-    ///                     },
-    ///                 },
-    ///             },
     ///         },
     ///         OutputDataConfig = new Aws.Sagemaker.Inputs.TrainingJobOutputDataConfigArgs
     ///         {
@@ -154,6 +132,28 @@ namespace Pulumi.Aws.Sagemaker
     ///         StoppingCondition = new Aws.Sagemaker.Inputs.TrainingJobStoppingConditionArgs
     ///         {
     ///             MaxRuntimeInSeconds = 3600,
+    ///         },
+    ///         InputDataConfigs = new[]
+    ///         {
+    ///             new Aws.Sagemaker.Inputs.TrainingJobInputDataConfigArgs
+    ///             {
+    ///                 DataSource = new Aws.Sagemaker.Inputs.TrainingJobInputDataConfigDataSourceArgs
+    ///                 {
+    ///                     S3DataSource = new Aws.Sagemaker.Inputs.TrainingJobInputDataConfigDataSourceS3DataSourceArgs
+    ///                     {
+    ///                         S3DataType = "S3Prefix",
+    ///                         S3Uri = $"s3://{exampleAwsS3Bucket.Bucket}/train/",
+    ///                     },
+    ///                 },
+    ///                 ChannelName = "train",
+    ///             },
+    ///         },
+    ///         TrainingJobName = "example",
+    ///         RoleArn = exampleAwsIamRole.Arn,
+    ///         HyperParameters = 
+    ///         {
+    ///             { "mini_batch_size", "200" },
+    ///             { "epochs", "10" },
     ///         },
     ///     });
     /// 
@@ -172,8 +172,6 @@ namespace Pulumi.Aws.Sagemaker
     /// {
     ///     var example = new Aws.Sagemaker.TrainingJob("example", new()
     ///     {
-    ///         TrainingJobName = "example",
-    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         AlgorithmSpecification = new Aws.Sagemaker.Inputs.TrainingJobAlgorithmSpecificationArgs
     ///         {
     ///             TrainingInputMode = "File",
@@ -206,6 +204,8 @@ namespace Pulumi.Aws.Sagemaker
     ///             LocalPath = "/opt/ml/output/tensorboard",
     ///             S3OutputPath = $"s3://{exampleAwsS3Bucket.Bucket}/tensorboard/",
     ///         },
+    ///         TrainingJobName = "example",
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });
@@ -223,13 +223,21 @@ namespace Pulumi.Aws.Sagemaker
     /// {
     ///     var example = new Aws.Sagemaker.TrainingJob("example", new()
     ///     {
-    ///         TrainingJobName = "example",
-    ///         RoleArn = exampleAwsIamRole.Arn,
-    ///         EnableManagedSpotTraining = true,
-    ///         EnableNetworkIsolation = true,
-    ///         EnableInterContainerTrafficEncryption = true,
     ///         AlgorithmSpecification = new Aws.Sagemaker.Inputs.TrainingJobAlgorithmSpecificationArgs
     ///         {
+    ///             MetricDefinitions = new[]
+    ///             {
+    ///                 new Aws.Sagemaker.Inputs.TrainingJobAlgorithmSpecificationMetricDefinitionArgs
+    ///                 {
+    ///                     Name = "train:loss",
+    ///                     Regex = "loss: ([0-9\\.]+)",
+    ///                 },
+    ///                 new Aws.Sagemaker.Inputs.TrainingJobAlgorithmSpecificationMetricDefinitionArgs
+    ///                 {
+    ///                     Name = "validation:accuracy",
+    ///                     Regex = "accuracy: ([0-9\\.]+)",
+    ///                 },
+    ///             },
     ///             TrainingInputMode = "File",
     ///             TrainingImage = trainingImage,
     ///             ContainerEntrypoints = new[]
@@ -244,29 +252,6 @@ namespace Pulumi.Aws.Sagemaker
     ///                 "--batch-size",
     ///                 "128",
     ///             },
-    ///             MetricDefinitions = new[]
-    ///             {
-    ///                 new Aws.Sagemaker.Inputs.TrainingJobAlgorithmSpecificationMetricDefinitionArgs
-    ///                 {
-    ///                     Name = "train:loss",
-    ///                     Regex = "loss: ([0-9\\.]+)",
-    ///                 },
-    ///                 new Aws.Sagemaker.Inputs.TrainingJobAlgorithmSpecificationMetricDefinitionArgs
-    ///                 {
-    ///                     Name = "validation:accuracy",
-    ///                     Regex = "accuracy: ([0-9\\.]+)",
-    ///                 },
-    ///             },
-    ///         },
-    ///         Environment = 
-    ///         {
-    ///             { "MODEL_DIR", "/opt/ml/model" },
-    ///             { "SM_LOG_LEVEL", "20" },
-    ///         },
-    ///         HyperParameters = 
-    ///         {
-    ///             { "epochs", "10" },
-    ///             { "batch_size", "128" },
     ///         },
     ///         OutputDataConfig = new Aws.Sagemaker.Inputs.TrainingJobOutputDataConfigArgs
     ///         {
@@ -287,6 +272,21 @@ namespace Pulumi.Aws.Sagemaker
     ///         {
     ///             MaxRuntimeInSeconds = 3600,
     ///             MaxWaitTimeInSeconds = 7200,
+    ///         },
+    ///         TrainingJobName = "example",
+    ///         RoleArn = exampleAwsIamRole.Arn,
+    ///         EnableManagedSpotTraining = true,
+    ///         EnableNetworkIsolation = true,
+    ///         EnableInterContainerTrafficEncryption = true,
+    ///         Environment = 
+    ///         {
+    ///             { "MODEL_DIR", "/opt/ml/model" },
+    ///             { "SM_LOG_LEVEL", "20" },
+    ///         },
+    ///         HyperParameters = 
+    ///         {
+    ///             { "epochs", "10" },
+    ///             { "batch_size", "128" },
     ///         },
     ///         Tags = 
     ///         {
@@ -310,45 +310,10 @@ namespace Pulumi.Aws.Sagemaker
     /// {
     ///     var example = new Aws.Sagemaker.TrainingJob("example", new()
     ///     {
-    ///         TrainingJobName = "example",
-    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         AlgorithmSpecification = new Aws.Sagemaker.Inputs.TrainingJobAlgorithmSpecificationArgs
     ///         {
     ///             TrainingInputMode = "File",
     ///             TrainingImage = exampleAwsSagemakerPrebuiltEcrImage.RegistryPath,
-    ///         },
-    ///         InputDataConfigs = new[]
-    ///         {
-    ///             new Aws.Sagemaker.Inputs.TrainingJobInputDataConfigArgs
-    ///             {
-    ///                 ChannelName = "train",
-    ///                 ContentType = "text/csv",
-    ///                 InputMode = "File",
-    ///                 DataSource = new Aws.Sagemaker.Inputs.TrainingJobInputDataConfigDataSourceArgs
-    ///                 {
-    ///                     S3DataSource = new Aws.Sagemaker.Inputs.TrainingJobInputDataConfigDataSourceS3DataSourceArgs
-    ///                     {
-    ///                         S3DataDistributionType = "FullyReplicated",
-    ///                         S3DataType = "S3Prefix",
-    ///                         S3Uri = $"s3://{exampleAwsS3Bucket.Bucket}/train/",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             new Aws.Sagemaker.Inputs.TrainingJobInputDataConfigArgs
-    ///             {
-    ///                 ChannelName = "validation",
-    ///                 ContentType = "text/csv",
-    ///                 InputMode = "File",
-    ///                 DataSource = new Aws.Sagemaker.Inputs.TrainingJobInputDataConfigDataSourceArgs
-    ///                 {
-    ///                     S3DataSource = new Aws.Sagemaker.Inputs.TrainingJobInputDataConfigDataSourceS3DataSourceArgs
-    ///                     {
-    ///                         S3DataDistributionType = "FullyReplicated",
-    ///                         S3DataType = "S3Prefix",
-    ///                         S3Uri = $"s3://{exampleAwsS3Bucket.Bucket}/validation/",
-    ///                     },
-    ///                 },
-    ///             },
     ///         },
     ///         InfraCheckConfig = new Aws.Sagemaker.Inputs.TrainingJobInfraCheckConfigArgs
     ///         {
@@ -372,6 +337,41 @@ namespace Pulumi.Aws.Sagemaker
     ///         {
     ///             MaxRuntimeInSeconds = 3600,
     ///         },
+    ///         InputDataConfigs = new[]
+    ///         {
+    ///             new Aws.Sagemaker.Inputs.TrainingJobInputDataConfigArgs
+    ///             {
+    ///                 DataSource = new Aws.Sagemaker.Inputs.TrainingJobInputDataConfigDataSourceArgs
+    ///                 {
+    ///                     S3DataSource = new Aws.Sagemaker.Inputs.TrainingJobInputDataConfigDataSourceS3DataSourceArgs
+    ///                     {
+    ///                         S3DataDistributionType = "FullyReplicated",
+    ///                         S3DataType = "S3Prefix",
+    ///                         S3Uri = $"s3://{exampleAwsS3Bucket.Bucket}/train/",
+    ///                     },
+    ///                 },
+    ///                 ChannelName = "train",
+    ///                 ContentType = "text/csv",
+    ///                 InputMode = "File",
+    ///             },
+    ///             new Aws.Sagemaker.Inputs.TrainingJobInputDataConfigArgs
+    ///             {
+    ///                 DataSource = new Aws.Sagemaker.Inputs.TrainingJobInputDataConfigDataSourceArgs
+    ///                 {
+    ///                     S3DataSource = new Aws.Sagemaker.Inputs.TrainingJobInputDataConfigDataSourceS3DataSourceArgs
+    ///                     {
+    ///                         S3DataDistributionType = "FullyReplicated",
+    ///                         S3DataType = "S3Prefix",
+    ///                         S3Uri = $"s3://{exampleAwsS3Bucket.Bucket}/validation/",
+    ///                     },
+    ///                 },
+    ///                 ChannelName = "validation",
+    ///                 ContentType = "text/csv",
+    ///                 InputMode = "File",
+    ///             },
+    ///         },
+    ///         TrainingJobName = "example",
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });

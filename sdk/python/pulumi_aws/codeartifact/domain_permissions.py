@@ -235,11 +235,11 @@ class DomainPermissions(pulumi.CustomResource):
             domain="example",
             encryption_key=example.arn)
         test = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "*",
                 "identifiers": ["*"],
             }],
+            "effect": "Allow",
             "actions": ["codeartifact:CreateRepository"],
             "resources": [example_domain.arn],
         }])
@@ -291,11 +291,11 @@ class DomainPermissions(pulumi.CustomResource):
             domain="example",
             encryption_key=example.arn)
         test = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "*",
                 "identifiers": ["*"],
             }],
+            "effect": "Allow",
             "actions": ["codeartifact:CreateRepository"],
             "resources": [example_domain.arn],
         }])

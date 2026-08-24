@@ -39,10 +39,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
  * import com.pulumi.aws.imagebuilder.LifecyclePolicy;
  * import com.pulumi.aws.imagebuilder.LifecyclePolicyArgs;
+ * import com.pulumi.aws.imagebuilder.inputs.LifecyclePolicyResourceSelectionArgs;
  * import com.pulumi.aws.imagebuilder.inputs.LifecyclePolicyPolicyDetailArgs;
  * import com.pulumi.aws.imagebuilder.inputs.LifecyclePolicyPolicyDetailActionArgs;
  * import com.pulumi.aws.imagebuilder.inputs.LifecyclePolicyPolicyDetailFilterArgs;
- * import com.pulumi.aws.imagebuilder.inputs.LifecyclePolicyResourceSelectionArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
@@ -85,10 +85,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLifecyclePolicy = new LifecyclePolicy("exampleLifecyclePolicy", LifecyclePolicyArgs.builder()
- *             .name("name")
- *             .description("Example description")
- *             .executionRole(example.arn())
- *             .resourceType("AMI_IMAGE")
+ *             .resourceSelection(LifecyclePolicyResourceSelectionArgs.builder()
+ *                 .tagMap(Map.ofEntries(
+ *                     Map.entry("key1", "value1"),
+ *                     Map.entry("key2", "value2")
+ *                 ))
+ *                 .build())
  *             .policyDetails(LifecyclePolicyPolicyDetailArgs.builder()
  *                 .action(LifecyclePolicyPolicyDetailActionArgs.builder()
  *                     .type("DELETE")
@@ -100,12 +102,10 @@ import javax.annotation.Nullable;
  *                     .unit("YEARS")
  *                     .build())
  *                 .build())
- *             .resourceSelection(LifecyclePolicyResourceSelectionArgs.builder()
- *                 .tagMap(Map.ofEntries(
- *                     Map.entry("key1", "value1"),
- *                     Map.entry("key2", "value2")
- *                 ))
- *                 .build())
+ *             .name("name")
+ *             .description("Example description")
+ *             .executionRole(example.arn())
+ *             .resourceType("AMI_IMAGE")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleRolePolicyAttachment)
  *                 .build());

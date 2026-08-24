@@ -32,14 +32,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := elasticsearch.NewDomain(ctx, "example", &elasticsearch.DomainArgs{
-//				DomainName:           pulumi.String("example"),
-//				ElasticsearchVersion: pulumi.String("1.5"),
 //				ClusterConfig: &elasticsearch.DomainClusterConfigArgs{
 //					InstanceType: pulumi.String("r4.large.elasticsearch"),
 //				},
 //				SnapshotOptions: &elasticsearch.DomainSnapshotOptionsArgs{
 //					AutomatedSnapshotStartHour: pulumi.Int(23),
 //				},
+//				DomainName:           pulumi.String("example"),
+//				ElasticsearchVersion: pulumi.String("1.5"),
 //				Tags: pulumi.StringMap{
 //					"Domain": pulumi.String("TestDomain"),
 //				},
@@ -54,14 +54,14 @@ import (
 //				return err
 //			}
 //			_, err = elasticsearch.NewDomainSamlOptions(ctx, "example", &elasticsearch.DomainSamlOptionsArgs{
-//				DomainName: example.DomainName,
 //				SamlOptions: &elasticsearch.DomainSamlOptionsSamlOptionsArgs{
-//					Enabled: pulumi.Bool(true),
 //					Idp: &elasticsearch.DomainSamlOptionsSamlOptionsIdpArgs{
 //						EntityId:        pulumi.String("https://example.com"),
 //						MetadataContent: pulumi.String(invokeFile.Result),
 //					},
+//					Enabled: pulumi.Bool(true),
 //				},
+//				DomainName: example.DomainName,
 //			})
 //			if err != nil {
 //				return err

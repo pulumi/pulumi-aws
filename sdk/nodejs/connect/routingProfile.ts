@@ -18,24 +18,20 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.connect.RoutingProfile("example", {
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- *     name: "example",
- *     defaultOutboundQueueId: "12345678-1234-1234-1234-123456789012",
- *     description: "example description",
  *     mediaConcurrencies: [
  *         {
- *             channel: "VOICE",
- *             concurrency: 1,
  *             crossChannelBehavior: {
  *                 behaviorType: "ROUTE_ANY_CHANNEL",
  *             },
+ *             channel: "VOICE",
+ *             concurrency: 1,
  *         },
  *         {
- *             channel: "CHAT",
- *             concurrency: 3,
  *             crossChannelBehavior: {
  *                 behaviorType: "ROUTE_CURRENT_CHANNEL_ONLY",
  *             },
+ *             channel: "CHAT",
+ *             concurrency: 3,
  *         },
  *     ],
  *     queueConfigs: [{
@@ -44,6 +40,10 @@ import * as utilities from "../utilities";
  *         priority: 1,
  *         queueId: "12345678-1234-1234-1234-123456789012",
  *     }],
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     name: "example",
+ *     defaultOutboundQueueId: "12345678-1234-1234-1234-123456789012",
+ *     description: "example description",
  *     tags: {
  *         Name: "Example Routing Profile",
  *     },

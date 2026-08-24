@@ -74,13 +74,15 @@ def get_log_delivery_canonical_user_id(region: Optional[_builtins.str] = None,
     example = aws.cloudfront.get_log_delivery_canonical_user_id()
     example_bucket = aws.s3.Bucket("example", bucket="example")
     example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("example",
-        bucket=example_bucket.id,
         rule={
             "object_ownership": "BucketOwnerPreferred",
-        })
+        },
+        bucket=example_bucket.id)
     example_bucket_acl = aws.s3.BucketAcl("example",
-        bucket=example_bucket.id,
         access_control_policy={
+            "owner": {
+                "id": current.id,
+            },
             "grants": [{
                 "grantee": {
                     "id": example.id,
@@ -88,10 +90,8 @@ def get_log_delivery_canonical_user_id(region: Optional[_builtins.str] = None,
                 },
                 "permission": "FULL_CONTROL",
             }],
-            "owner": {
-                "id": current.id,
-            },
         },
+        bucket=example_bucket.id,
         opts = pulumi.ResourceOptions(depends_on=[example_bucket_ownership_controls]))
     ```
 
@@ -122,13 +122,15 @@ def get_log_delivery_canonical_user_id_output(region: pulumi.Input[Optional[Opti
     example = aws.cloudfront.get_log_delivery_canonical_user_id()
     example_bucket = aws.s3.Bucket("example", bucket="example")
     example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("example",
-        bucket=example_bucket.id,
         rule={
             "object_ownership": "BucketOwnerPreferred",
-        })
+        },
+        bucket=example_bucket.id)
     example_bucket_acl = aws.s3.BucketAcl("example",
-        bucket=example_bucket.id,
         access_control_policy={
+            "owner": {
+                "id": current.id,
+            },
             "grants": [{
                 "grantee": {
                     "id": example.id,
@@ -136,10 +138,8 @@ def get_log_delivery_canonical_user_id_output(region: pulumi.Input[Optional[Opti
                 },
                 "permission": "FULL_CONTROL",
             }],
-            "owner": {
-                "id": current.id,
-            },
         },
+        bucket=example_bucket.id,
         opts = pulumi.ResourceOptions(depends_on=[example_bucket_ownership_controls]))
     ```
 

@@ -52,6 +52,12 @@ namespace Pulumi.Aws.Rds
         ///         InstanceClass = Aws.Rds.InstanceType.T2_Micro,
         ///         DbName = "mydbdev",
         ///         SnapshotIdentifier = latestProdSnapshot.Apply(getSnapshotResult =&gt; getSnapshotResult.Id),
+        ///     }, new CustomResourceOptions
+        ///     {
+        ///         IgnoreChanges =
+        ///         {
+        ///             "snapshotIdentifier",
+        ///         },
         ///     });
         /// 
         /// });
@@ -101,6 +107,12 @@ namespace Pulumi.Aws.Rds
         ///         InstanceClass = Aws.Rds.InstanceType.T2_Micro,
         ///         DbName = "mydbdev",
         ///         SnapshotIdentifier = latestProdSnapshot.Apply(getSnapshotResult =&gt; getSnapshotResult.Id),
+        ///     }, new CustomResourceOptions
+        ///     {
+        ///         IgnoreChanges =
+        ///         {
+        ///             "snapshotIdentifier",
+        ///         },
         ///     });
         /// 
         /// });
@@ -150,6 +162,12 @@ namespace Pulumi.Aws.Rds
         ///         InstanceClass = Aws.Rds.InstanceType.T2_Micro,
         ///         DbName = "mydbdev",
         ///         SnapshotIdentifier = latestProdSnapshot.Apply(getSnapshotResult =&gt; getSnapshotResult.Id),
+        ///     }, new CustomResourceOptions
+        ///     {
+        ///         IgnoreChanges =
+        ///         {
+        ///             "snapshotIdentifier",
+        ///         },
         ///     });
         /// 
         /// });

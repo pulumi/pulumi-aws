@@ -20,8 +20,6 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.amp.Workspace("example", {});
  * const exampleAnomalyDetector = new aws.amp.AnomalyDetector("example", {
- *     alias: "example",
- *     workspaceId: example.id,
  *     configuration: {
  *         randomCutForest: {
  *             query: "avg(up)",
@@ -30,6 +28,8 @@ import * as utilities from "../utilities";
  *     missingDataAction: {
  *         skip: true,
  *     },
+ *     alias: "example",
+ *     workspaceId: example.id,
  * });
  * ```
  *
@@ -41,28 +41,28 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.amp.Workspace("example", {});
  * const exampleAnomalyDetector = new aws.amp.AnomalyDetector("example", {
- *     alias: "example",
- *     workspaceId: example.id,
- *     evaluationIntervalInSeconds: 120,
- *     labels: {
- *         env: "production",
- *         team: "platform",
- *     },
  *     configuration: {
  *         randomCutForest: {
- *             query: "avg(up)",
- *             sampleSize: 256,
- *             shingleSize: 4,
  *             ignoreNearExpectedFromAbove: {
  *                 ratio: 1.5,
  *             },
  *             ignoreNearExpectedFromBelow: {
  *                 amount: 2,
  *             },
+ *             query: "avg(up)",
+ *             sampleSize: 256,
+ *             shingleSize: 4,
  *         },
  *     },
  *     missingDataAction: {
  *         markAsAnomaly: true,
+ *     },
+ *     alias: "example",
+ *     workspaceId: example.id,
+ *     evaluationIntervalInSeconds: 120,
+ *     labels: {
+ *         env: "production",
+ *         team: "platform",
  *     },
  * });
  * ```

@@ -535,15 +535,14 @@ class ImageRecipe(pulumi.CustomResource):
 
         example = aws.imagebuilder.ImageRecipe("example",
             block_device_mappings=[{
-                "device_name": "/dev/xvdb",
                 "ebs": {
                     "delete_on_termination": "true",
                     "volume_size": 100,
                     "volume_type": "gp2",
                 },
+                "device_name": "/dev/xvdb",
             }],
             components=[{
-                "component_arn": example_aws_imagebuilder_component["arn"],
                 "parameters": [
                     {
                         "name": "Parameter1",
@@ -554,6 +553,7 @@ class ImageRecipe(pulumi.CustomResource):
                         "value": "Value2",
                     },
                 ],
+                "component_arn": example_aws_imagebuilder_component["arn"],
             }],
             name="example",
             parent_image=f"arn:{current['partition']}:imagebuilder:{current_aws_region['region']}:aws:image/amazon-linux-2-x86/x.x.x",
@@ -609,15 +609,14 @@ class ImageRecipe(pulumi.CustomResource):
 
         example = aws.imagebuilder.ImageRecipe("example",
             block_device_mappings=[{
-                "device_name": "/dev/xvdb",
                 "ebs": {
                     "delete_on_termination": "true",
                     "volume_size": 100,
                     "volume_type": "gp2",
                 },
+                "device_name": "/dev/xvdb",
             }],
             components=[{
-                "component_arn": example_aws_imagebuilder_component["arn"],
                 "parameters": [
                     {
                         "name": "Parameter1",
@@ -628,6 +627,7 @@ class ImageRecipe(pulumi.CustomResource):
                         "value": "Value2",
                     },
                 ],
+                "component_arn": example_aws_imagebuilder_component["arn"],
             }],
             name="example",
             parent_image=f"arn:{current['partition']}:imagebuilder:{current_aws_region['region']}:aws:image/amazon-linux-2-x86/x.x.x",

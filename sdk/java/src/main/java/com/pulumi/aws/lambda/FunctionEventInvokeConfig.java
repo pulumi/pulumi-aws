@@ -76,9 +76,6 @@ import javax.annotation.Nullable;
  * 
  *         // Complete event invoke configuration
  *         var example = new FunctionEventInvokeConfig("example", FunctionEventInvokeConfigArgs.builder()
- *             .functionName(exampleAwsLambdaFunction.functionName())
- *             .maximumEventAgeInSeconds(300)
- *             .maximumRetryAttempts(1)
  *             .destinationConfig(FunctionEventInvokeConfigDestinationConfigArgs.builder()
  *                 .onFailure(FunctionEventInvokeConfigDestinationConfigOnFailureArgs.builder()
  *                     .destination(dlq.arn())
@@ -87,6 +84,9 @@ import javax.annotation.Nullable;
  *                     .destination(success.arn())
  *                     .build())
  *                 .build())
+ *             .functionName(exampleAwsLambdaFunction.functionName())
+ *             .maximumEventAgeInSeconds(300)
+ *             .maximumRetryAttempts(1)
  *             .build());
  * 
  *     }
@@ -165,15 +165,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFunctionEventInvokeConfig = new FunctionEventInvokeConfig("exampleFunctionEventInvokeConfig", FunctionEventInvokeConfigArgs.builder()
- *             .functionName(exampleAwsLambdaFunction.functionName())
- *             .qualifier(example.name())
- *             .maximumEventAgeInSeconds(1800)
- *             .maximumRetryAttempts(2)
  *             .destinationConfig(FunctionEventInvokeConfigDestinationConfigArgs.builder()
  *                 .onFailure(FunctionEventInvokeConfigDestinationConfigOnFailureArgs.builder()
  *                     .destination(productionDlq.arn())
  *                     .build())
  *                 .build())
+ *             .functionName(exampleAwsLambdaFunction.functionName())
+ *             .qualifier(example.name())
+ *             .maximumEventAgeInSeconds(1800)
+ *             .maximumRetryAttempts(2)
  *             .build());
  * 
  *     }
@@ -209,10 +209,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new FunctionEventInvokeConfig("example", FunctionEventInvokeConfigArgs.builder()
- *             .functionName(exampleAwsLambdaFunction.functionName())
- *             .qualifier(exampleAwsLambdaFunction.version())
- *             .maximumEventAgeInSeconds(21600)
- *             .maximumRetryAttempts(2)
  *             .destinationConfig(FunctionEventInvokeConfigDestinationConfigArgs.builder()
  *                 .onFailure(FunctionEventInvokeConfigDestinationConfigOnFailureArgs.builder()
  *                     .destination(versionDlq.arn())
@@ -221,6 +217,10 @@ import javax.annotation.Nullable;
  *                     .destination(versionSuccess.arn())
  *                     .build())
  *                 .build())
+ *             .functionName(exampleAwsLambdaFunction.functionName())
+ *             .qualifier(exampleAwsLambdaFunction.version())
+ *             .maximumEventAgeInSeconds(21600)
+ *             .maximumRetryAttempts(2)
  *             .build());
  * 
  *     }
@@ -255,15 +255,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new FunctionEventInvokeConfig("example", FunctionEventInvokeConfigArgs.builder()
- *             .functionName(exampleAwsLambdaFunction.functionName())
- *             .qualifier("$LATEST")
- *             .maximumEventAgeInSeconds(120)
- *             .maximumRetryAttempts(0)
  *             .destinationConfig(FunctionEventInvokeConfigDestinationConfigArgs.builder()
  *                 .onFailure(FunctionEventInvokeConfigDestinationConfigOnFailureArgs.builder()
  *                     .destination(devDlq.arn())
  *                     .build())
  *                 .build())
+ *             .functionName(exampleAwsLambdaFunction.functionName())
+ *             .qualifier("$LATEST")
+ *             .maximumEventAgeInSeconds(120)
+ *             .maximumRetryAttempts(0)
  *             .build());
  * 
  *     }
@@ -313,7 +313,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new FunctionEventInvokeConfig("example", FunctionEventInvokeConfigArgs.builder()
- *             .functionName(exampleAwsLambdaFunction.functionName())
  *             .destinationConfig(FunctionEventInvokeConfigDestinationConfigArgs.builder()
  *                 .onFailure(FunctionEventInvokeConfigDestinationConfigOnFailureArgs.builder()
  *                     .destination(lambdaFailures.arn())
@@ -322,6 +321,7 @@ import javax.annotation.Nullable;
  *                     .destination(lambdaSuccessArchive.arn())
  *                     .build())
  *                 .build())
+ *             .functionName(exampleAwsLambdaFunction.functionName())
  *             .build());
  * 
  *     }

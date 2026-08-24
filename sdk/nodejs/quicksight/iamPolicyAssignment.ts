@@ -19,12 +19,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.quicksight.IamPolicyAssignment("example", {
- *     assignmentName: "example",
- *     assignmentStatus: "ENABLED",
- *     policyArn: exampleAwsIamPolicy.arn,
  *     identities: {
  *         users: [exampleAwsQuicksightUser.userName],
  *     },
+ *     assignmentName: "example",
+ *     assignmentStatus: "ENABLED",
+ *     policyArn: exampleAwsIamPolicy.arn,
  * });
  * ```
  *

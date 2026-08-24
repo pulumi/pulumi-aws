@@ -246,8 +246,8 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         Create = "true",
     ///         Update = "true",
-    ///         Delete = @$"            ENDPOINT_ID=`aws ec2 describe-vpc-endpoints --filters \""Name=tag:Name,Values={tags.Workaround1}\"" --query \""VpcEndpoints[0].VpcEndpointId\"" --output text` &amp;&amp;
-    ///             aws ec2 modify-vpc-endpoint --vpc-endpoint-id ${{ENDPOINT_ID}} --add-security-group-ids {tags.Workaround2} --remove-security-group-ids {id}
+    ///         Delete = @$"            ENDPOINT_ID=`aws ec2 describe-vpc-endpoints --filters \""Name=tag:Name,Values={example.Tags?.Workaround1}\"" --query \""VpcEndpoints[0].VpcEndpointId\"" --output text` &amp;&amp;
+    ///             aws ec2 modify-vpc-endpoint --vpc-endpoint-id ${{ENDPOINT_ID}} --add-security-group-ids {example.Tags?.Workaround2} --remove-security-group-ids {example.Id}
     /// ",
     ///     }, new CustomResourceOptions
     ///     {

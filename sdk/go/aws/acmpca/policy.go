@@ -34,8 +34,6 @@ import (
 //			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Sid:    pulumi.StringRef("1"),
-//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "AWS",
@@ -44,6 +42,8 @@ import (
 //								},
 //							},
 //						},
+//						Sid:    pulumi.StringRef("1"),
+//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"acm-pca:DescribeCertificateAuthority",
 //							"acm-pca:GetCertificate",
@@ -56,22 +56,6 @@ import (
 //						},
 //					},
 //					{
-//						Sid:    pulumi.StringRef("2"),
-//						Effect: pulumi.StringRef(allow),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "AWS",
-//								Identifiers: pulumi.StringArray{
-//									current.AccountId,
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"acm-pca:IssueCertificate",
-//						},
-//						Resources: pulumi.StringArray{
-//							exampleAwsAcmpcaCertificateAuthority.Arn,
-//						},
 //						Conditions: []iam.GetPolicyDocumentStatementCondition{
 //							{
 //								Test:     "StringEquals",
@@ -80,6 +64,22 @@ import (
 //									"arn:aws:acm-pca:::template/EndEntityCertificate/V1",
 //								},
 //							},
+//						},
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "AWS",
+//								Identifiers: pulumi.StringArray{
+//									current.AccountId,
+//								},
+//							},
+//						},
+//						Sid:    pulumi.StringRef("2"),
+//						Effect: pulumi.StringRef(allow),
+//						Actions: []string{
+//							"acm-pca:IssueCertificate",
+//						},
+//						Resources: pulumi.StringArray{
+//							exampleAwsAcmpcaCertificateAuthority.Arn,
 //						},
 //					},
 //				},

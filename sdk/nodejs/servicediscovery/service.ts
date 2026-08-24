@@ -27,18 +27,18 @@ import * as utilities from "../utilities";
  *     vpc: example.id,
  * });
  * const exampleService = new aws.servicediscovery.Service("example", {
- *     name: "example",
  *     dnsConfig: {
- *         namespaceId: examplePrivateDnsNamespace.id,
  *         dnsRecords: [{
  *             ttl: 10,
  *             type: "A",
  *         }],
+ *         namespaceId: examplePrivateDnsNamespace.id,
  *         routingPolicy: "MULTIVALUE",
  *     },
  *     healthCheckConfig: {
  *         failureThreshold: 1,
  *     },
+ *     name: "example",
  * });
  * ```
  *
@@ -51,19 +51,19 @@ import * as utilities from "../utilities";
  *     description: "example",
  * });
  * const exampleService = new aws.servicediscovery.Service("example", {
- *     name: "example",
  *     dnsConfig: {
- *         namespaceId: example.id,
  *         dnsRecords: [{
  *             ttl: 10,
  *             type: "A",
  *         }],
+ *         namespaceId: example.id,
  *     },
  *     healthCheckConfig: {
  *         failureThreshold: 10,
  *         resourcePath: "path",
  *         type: "HTTP",
  *     },
+ *     name: "example",
  * });
  * ```
  *

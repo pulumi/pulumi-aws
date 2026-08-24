@@ -17,25 +17,25 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.cloudfront.FieldLevelEncryptionConfig("test", {
- *     comment: "test comment",
  *     contentTypeProfileConfig: {
- *         forwardWhenContentTypeIsUnknown: true,
  *         contentTypeProfiles: {
  *             items: [{
  *                 contentType: "application/x-www-form-urlencoded",
  *                 format: "URLEncoded",
  *             }],
  *         },
+ *         forwardWhenContentTypeIsUnknown: true,
  *     },
  *     queryArgProfileConfig: {
- *         forwardWhenQueryArgProfileIsUnknown: true,
  *         queryArgProfiles: {
  *             items: [{
  *                 profileId: testAwsCloudfrontFieldLevelEncryptionProfile.id,
  *                 queryArg: "Arg1",
  *             }],
  *         },
+ *         forwardWhenQueryArgProfileIsUnknown: true,
  *     },
+ *     comment: "test comment",
  * });
  * ```
  *

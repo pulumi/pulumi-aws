@@ -19,18 +19,18 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.quicksight.Dashboard("example", {
- *     dashboardId: "example-id",
- *     name: "example-name",
- *     versionDescription: "version",
  *     sourceEntity: {
  *         sourceTemplate: {
- *             arn: source.arn,
  *             dataSetReferences: [{
  *                 dataSetArn: dataset.arn,
  *                 dataSetPlaceholder: "1",
  *             }],
+ *             arn: source.arn,
  *         },
  *     },
+ *     dashboardId: "example-id",
+ *     name: "example-name",
+ *     versionDescription: "version",
  * });
  * ```
  *
@@ -41,20 +41,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.quicksight.Dashboard("example", {
- *     dashboardId: "example-id",
- *     name: "example-name",
- *     versionDescription: "version",
  *     definition: {
  *         dataSetIdentifiersDeclarations: [{
  *             dataSetArn: dataset.arn,
  *             identifier: "1",
  *         }],
  *         sheets: [{
- *             title: "Example",
- *             sheetId: "Example1",
  *             visuals: [{
  *                 lineChartVisual: {
- *                     visualId: "LineChart",
  *                     title: {
  *                         formatText: {
  *                             plainText: "Line Chart Example",
@@ -65,30 +59,36 @@ import * as utilities from "../utilities";
  *                             lineChartAggregatedFieldWells: {
  *                                 categories: [{
  *                                     categoricalDimensionField: {
- *                                         fieldId: "1",
  *                                         column: {
  *                                             dataSetIdentifier: "1",
  *                                             columnName: "Column1",
  *                                         },
+ *                                         fieldId: "1",
  *                                     },
  *                                 }],
  *                                 values: [{
  *                                     categoricalMeasureField: {
- *                                         fieldId: "2",
  *                                         column: {
  *                                             dataSetIdentifier: "1",
  *                                             columnName: "Column1",
  *                                         },
+ *                                         fieldId: "2",
  *                                         aggregationFunction: "COUNT",
  *                                     },
  *                                 }],
  *                             },
  *                         },
  *                     },
+ *                     visualId: "LineChart",
  *                 },
  *             }],
+ *             title: "Example",
+ *             sheetId: "Example1",
  *         }],
  *     },
+ *     dashboardId: "example-id",
+ *     name: "example-name",
+ *     versionDescription: "version",
  * });
  * ```
  *

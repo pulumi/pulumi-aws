@@ -440,7 +440,6 @@ class SigningJob(pulumi.CustomResource):
 
         test_sp = aws.signer.SigningProfile("test_sp", platform_id="AWSLambda-SHA384-ECDSA")
         build_signing_job = aws.signer.SigningJob("build_signing_job",
-            profile_name=test_sp.name,
             source={
                 "s3": {
                     "bucket": "s3-bucket-name",
@@ -454,6 +453,7 @@ class SigningJob(pulumi.CustomResource):
                     "prefix": "signed/",
                 },
             },
+            profile_name=test_sp.name,
             ignore_signing_job_failure=True)
         ```
 
@@ -491,7 +491,6 @@ class SigningJob(pulumi.CustomResource):
 
         test_sp = aws.signer.SigningProfile("test_sp", platform_id="AWSLambda-SHA384-ECDSA")
         build_signing_job = aws.signer.SigningJob("build_signing_job",
-            profile_name=test_sp.name,
             source={
                 "s3": {
                     "bucket": "s3-bucket-name",
@@ -505,6 +504,7 @@ class SigningJob(pulumi.CustomResource):
                     "prefix": "signed/",
                 },
             },
+            profile_name=test_sp.name,
             ignore_signing_job_failure=True)
         ```
 

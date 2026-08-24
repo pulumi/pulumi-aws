@@ -49,15 +49,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var testFleet = new ImageBuilder("testFleet", ImageBuilderArgs.builder()
+ *             .vpcConfig(ImageBuilderVpcConfigArgs.builder()
+ *                 .subnetIds(example.id())
+ *                 .build())
  *             .name("Name")
  *             .description("Description of a ImageBuilder")
  *             .displayName("Display name of a ImageBuilder")
  *             .enableDefaultInternetAccess(false)
  *             .imageName("AppStream-WinServer2019-10-05-2022")
  *             .instanceType("stream.standard.large")
- *             .vpcConfig(ImageBuilderVpcConfigArgs.builder()
- *                 .subnetIds(example.id())
- *                 .build())
  *             .tags(Map.of("Name", "Example Image Builder"))
  *             .build());
  * 

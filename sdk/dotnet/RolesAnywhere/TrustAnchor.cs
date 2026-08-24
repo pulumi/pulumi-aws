@@ -24,32 +24,32 @@ namespace Pulumi.Aws.RolesAnywhere
     /// {
     ///     var example = new Aws.Acmpca.CertificateAuthority("example", new()
     ///     {
-    ///         PermanentDeletionTimeInDays = 7,
-    ///         Type = "ROOT",
     ///         CertificateAuthorityConfiguration = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs
     ///         {
-    ///             KeyAlgorithm = "RSA_4096",
-    ///             SigningAlgorithm = "SHA512WITHRSA",
     ///             Subject = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs
     ///             {
     ///                 CommonName = "example.com",
     ///             },
+    ///             KeyAlgorithm = "RSA_4096",
+    ///             SigningAlgorithm = "SHA512WITHRSA",
     ///         },
+    ///         PermanentDeletionTimeInDays = 7,
+    ///         Type = "ROOT",
     ///     });
     /// 
     ///     var current = Aws.GetPartition.Invoke();
     /// 
     ///     var test = new Aws.Acmpca.Certificate("test", new()
     ///     {
-    ///         CertificateAuthorityArn = example.Arn,
-    ///         CertificateSigningRequest = example.CertificateSigningRequest,
-    ///         SigningAlgorithm = "SHA512WITHRSA",
-    ///         TemplateArn = $"arn:{current.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:acm-pca:::template/RootCACertificate/V1",
     ///         Validity = new Aws.Acmpca.Inputs.CertificateValidityArgs
     ///         {
     ///             Type = "YEARS",
     ///             Value = "1",
     ///         },
+    ///         CertificateAuthorityArn = example.Arn,
+    ///         CertificateSigningRequest = example.CertificateSigningRequest,
+    ///         SigningAlgorithm = "SHA512WITHRSA",
+    ///         TemplateArn = $"arn:{current.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:acm-pca:::template/RootCACertificate/V1",
     ///     });
     /// 
     ///     var exampleCertificateAuthorityCertificate = new Aws.Acmpca.CertificateAuthorityCertificate("example", new()
@@ -61,7 +61,6 @@ namespace Pulumi.Aws.RolesAnywhere
     /// 
     ///     var testTrustAnchor = new Aws.RolesAnywhere.TrustAnchor("test", new()
     ///     {
-    ///         Name = "example",
     ///         Source = new Aws.RolesAnywhere.Inputs.TrustAnchorSourceArgs
     ///         {
     ///             SourceData = new Aws.RolesAnywhere.Inputs.TrustAnchorSourceSourceDataArgs
@@ -70,6 +69,7 @@ namespace Pulumi.Aws.RolesAnywhere
     ///             },
     ///             SourceType = "AWS_ACM_PCA",
     ///         },
+    ///         Name = "example",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

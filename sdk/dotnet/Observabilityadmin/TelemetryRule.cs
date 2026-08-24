@@ -32,12 +32,12 @@ namespace Pulumi.Aws.Observabilityadmin
     /// 
     ///     var exampleTelemetryRule = new Aws.Observabilityadmin.TelemetryRule("example", new()
     ///     {
-    ///         RuleName = "example-telemetry-rule",
     ///         Rule = new Aws.Observabilityadmin.Inputs.TelemetryRuleRuleArgs
     ///         {
     ///             TelemetryType = "Logs",
     ///             ResourceType = "AWS::EC2::VPC",
     ///         },
+    ///         RuleName = "example-telemetry-rule",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -63,9 +63,19 @@ namespace Pulumi.Aws.Observabilityadmin
     /// 
     ///     var exampleTelemetryRule = new Aws.Observabilityadmin.TelemetryRule("example", new()
     ///     {
-    ///         RuleName = "vpc-flow-logs-rule",
     ///         Rule = new Aws.Observabilityadmin.Inputs.TelemetryRuleRuleArgs
     ///         {
+    ///             DestinationConfiguration = new Aws.Observabilityadmin.Inputs.TelemetryRuleRuleDestinationConfigurationArgs
+    ///             {
+    ///                 VpcFlowLogParameters = new Aws.Observabilityadmin.Inputs.TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersArgs
+    ///                 {
+    ///                     TrafficType = "ALL",
+    ///                     MaxAggregationInterval = 60,
+    ///                 },
+    ///                 DestinationType = "cloud-watch-logs",
+    ///                 DestinationPattern = "/aws/vpcflowlogs/&lt;resourceId&gt;",
+    ///                 RetentionInDays = 30,
+    ///             },
     ///             TelemetryType = "Logs",
     ///             ResourceType = "AWS::EC2::VPC",
     ///             TelemetrySourceTypes = new[]
@@ -74,18 +84,8 @@ namespace Pulumi.Aws.Observabilityadmin
     ///             },
     ///             AllRegions = true,
     ///             AllowFieldUpdates = true,
-    ///             DestinationConfiguration = new Aws.Observabilityadmin.Inputs.TelemetryRuleRuleDestinationConfigurationArgs
-    ///             {
-    ///                 DestinationType = "cloud-watch-logs",
-    ///                 DestinationPattern = "/aws/vpcflowlogs/&lt;resourceId&gt;",
-    ///                 RetentionInDays = 30,
-    ///                 VpcFlowLogParameters = new Aws.Observabilityadmin.Inputs.TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersArgs
-    ///                 {
-    ///                     TrafficType = "ALL",
-    ///                     MaxAggregationInterval = 60,
-    ///                 },
-    ///             },
     ///         },
+    ///         RuleName = "vpc-flow-logs-rule",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -111,7 +111,6 @@ namespace Pulumi.Aws.Observabilityadmin
     /// 
     ///     var exampleTelemetryRule = new Aws.Observabilityadmin.TelemetryRule("example", new()
     ///     {
-    ///         RuleName = "multi-region-rule",
     ///         Rule = new Aws.Observabilityadmin.Inputs.TelemetryRuleRuleArgs
     ///         {
     ///             TelemetryType = "Logs",
@@ -123,6 +122,7 @@ namespace Pulumi.Aws.Observabilityadmin
     ///                 "eu-west-1",
     ///             },
     ///         },
+    ///         RuleName = "multi-region-rule",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -148,28 +148,18 @@ namespace Pulumi.Aws.Observabilityadmin
     /// 
     ///     var exampleTelemetryRule = new Aws.Observabilityadmin.TelemetryRule("example", new()
     ///     {
-    ///         RuleName = "waf-logs-rule",
     ///         Rule = new Aws.Observabilityadmin.Inputs.TelemetryRuleRuleArgs
     ///         {
-    ///             TelemetryType = "Logs",
-    ///             ResourceType = "AWS::WAFv2::WebACL",
     ///             DestinationConfiguration = new Aws.Observabilityadmin.Inputs.TelemetryRuleRuleDestinationConfigurationArgs
     ///             {
-    ///                 DestinationType = "cloud-watch-logs",
-    ///                 DestinationPattern = "aws-waf-logs-&lt;resourceId&gt;",
-    ///                 RetentionInDays = 30,
     ///                 WafLoggingParameters = new Aws.Observabilityadmin.Inputs.TelemetryRuleRuleDestinationConfigurationWafLoggingParametersArgs
     ///                 {
-    ///                     LogType = "WAF_LOGS",
     ///                     LoggingFilter = new Aws.Observabilityadmin.Inputs.TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterArgs
     ///                     {
-    ///                         DefaultBehavior = "KEEP",
     ///                         Filters = new[]
     ///                         {
     ///                             new Aws.Observabilityadmin.Inputs.TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArgs
     ///                             {
-    ///                                 Behavior = "DROP",
-    ///                                 Requirement = "MEETS_ANY",
     ///                                 Conditions = new[]
     ///                                 {
     ///                                     new Aws.Observabilityadmin.Inputs.TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArgs
@@ -180,23 +170,33 @@ namespace Pulumi.Aws.Observabilityadmin
     ///                                         },
     ///                                     },
     ///                                 },
+    ///                                 Behavior = "DROP",
+    ///                                 Requirement = "MEETS_ANY",
     ///                             },
     ///                         },
+    ///                         DefaultBehavior = "KEEP",
     ///                     },
     ///                     RedactedFields = new[]
     ///                     {
     ///                         new Aws.Observabilityadmin.Inputs.TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArgs
     ///                         {
-    ///                             QueryString = "",
     ///                             SingleHeader = new Aws.Observabilityadmin.Inputs.TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderArgs
     ///                             {
     ///                                 Name = "authorization",
     ///                             },
+    ///                             QueryString = "",
     ///                         },
     ///                     },
+    ///                     LogType = "WAF_LOGS",
     ///                 },
+    ///                 DestinationType = "cloud-watch-logs",
+    ///                 DestinationPattern = "aws-waf-logs-&lt;resourceId&gt;",
+    ///                 RetentionInDays = 30,
     ///             },
+    ///             TelemetryType = "Logs",
+    ///             ResourceType = "AWS::WAFv2::WebACL",
     ///         },
+    ///         RuleName = "waf-logs-rule",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -222,12 +222,12 @@ namespace Pulumi.Aws.Observabilityadmin
     /// 
     ///     var exampleTelemetryRule = new Aws.Observabilityadmin.TelemetryRule("example", new()
     ///     {
-    ///         RuleName = "tagged-rule",
     ///         Rule = new Aws.Observabilityadmin.Inputs.TelemetryRuleRuleArgs
     ///         {
     ///             TelemetryType = "Logs",
     ///             ResourceType = "AWS::EC2::VPC",
     ///         },
+    ///         RuleName = "tagged-rule",
     ///         Tags = 
     ///         {
     ///             { "Environment", "production" },

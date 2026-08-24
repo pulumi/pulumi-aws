@@ -33,7 +33,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := dataexchange.NewRevisionAssets(ctx, "example", &dataexchange.RevisionAssetsArgs{
-//				DataSetId: pulumi.String("example-data-set-id"),
 //				Assets: dataexchange.RevisionAssetsAssetArray{
 //					&dataexchange.RevisionAssetsAssetArgs{
 //						CreateS3DataAccessFromS3Bucket: &dataexchange.RevisionAssetsAssetCreateS3DataAccessFromS3BucketArgs{
@@ -43,6 +42,7 @@ import (
 //						},
 //					},
 //				},
+//				DataSetId: pulumi.String("example-data-set-id"),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("Production"),
 //				},

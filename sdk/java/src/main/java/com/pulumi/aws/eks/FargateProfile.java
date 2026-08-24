@@ -46,13 +46,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new FargateProfile("example", FargateProfileArgs.builder()
+ *             .selectors(FargateProfileSelectorArgs.builder()
+ *                 .namespace("example")
+ *                 .build())
  *             .clusterName(exampleAwsEksCluster.name())
  *             .fargateProfileName("example")
  *             .podExecutionRoleArn(exampleAwsIamRole.arn())
  *             .subnetIds(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
- *             .selectors(FargateProfileSelectorArgs.builder()
- *                 .namespace("example")
- *                 .build())
  *             .build());
  * 
  *     }

@@ -65,17 +65,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lex.NewV2modelsSlot(ctx, "example", &lex.V2modelsSlotArgs{
-//				BotId:      pulumi.Any(test.Id),
-//				BotVersion: pulumi.Any(testAwsLexv2modelsBotLocale.BotVersion),
-//				IntentId:   pulumi.Any(testAwsLexv2modelsIntent.IntentId),
-//				LocaleId:   pulumi.Any(testAwsLexv2modelsBotLocale.LocaleId),
-//				Name:       pulumi.String("example"),
 //				ValueElicitationSetting: &lex.V2modelsSlotValueElicitationSettingArgs{
-//					SlotConstraint: pulumi.String("Required"),
 //					PromptSpecification: &lex.V2modelsSlotValueElicitationSettingPromptSpecificationArgs{
-//						AllowInterrupt:           pulumi.Bool(true),
-//						MaxRetries:               pulumi.Int(1),
-//						MessageSelectionStrategy: pulumi.String("Random"),
 //						MessageGroups: lex.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupArray{
 //							&lex.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupArgs{
 //								Message: &lex.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageArgs{
@@ -87,38 +78,35 @@ import (
 //						},
 //						PromptAttemptsSpecifications: lex.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArray{
 //							&lex.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArgs{
+//								AllowedInputTypes: &lex.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs{
+//									AllowAudioInput: pulumi.Bool(true),
+//									AllowDtmfInput:  pulumi.Bool(true),
+//								},
+//								AudioAndDtmfInputSpecification: &lex.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs{
+//									AudioSpecification: &lex.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs{
+//										EndTimeoutMs: pulumi.Int(640),
+//										MaxLengthMs:  pulumi.Int(15000),
+//									},
+//									DtmfSpecification: &lex.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs{
+//										DeletionCharacter: pulumi.String("*"),
+//										EndCharacter:      pulumi.String("#"),
+//										EndTimeoutMs:      pulumi.Int(5000),
+//										MaxLength:         pulumi.Int(513),
+//									},
+//									StartTimeoutMs: pulumi.Int(4000),
+//								},
+//								TextInputSpecification: &lex.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgs{
+//									StartTimeoutMs: pulumi.Int(30000),
+//								},
 //								AllowInterrupt: pulumi.Bool(true),
 //								MapBlockKey:    pulumi.String("Initial"),
-//								AllowedInputTypes: &lex.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs{
-//									AllowAudioInput: pulumi.Bool(true),
-//									AllowDtmfInput:  pulumi.Bool(true),
-//								},
-//								AudioAndDtmfInputSpecification: &lex.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs{
-//									StartTimeoutMs: pulumi.Int(4000),
-//									AudioSpecification: &lex.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs{
-//										EndTimeoutMs: pulumi.Int(640),
-//										MaxLengthMs:  pulumi.Int(15000),
-//									},
-//									DtmfSpecification: &lex.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs{
-//										DeletionCharacter: pulumi.String("*"),
-//										EndCharacter:      pulumi.String("#"),
-//										EndTimeoutMs:      pulumi.Int(5000),
-//										MaxLength:         pulumi.Int(513),
-//									},
-//								},
-//								TextInputSpecification: &lex.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgs{
-//									StartTimeoutMs: pulumi.Int(30000),
-//								},
 //							},
 //							&lex.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArgs{
-//								AllowInterrupt: pulumi.Bool(true),
-//								MapBlockKey:    pulumi.String("Retry1"),
 //								AllowedInputTypes: &lex.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs{
 //									AllowAudioInput: pulumi.Bool(true),
 //									AllowDtmfInput:  pulumi.Bool(true),
 //								},
 //								AudioAndDtmfInputSpecification: &lex.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs{
-//									StartTimeoutMs: pulumi.Int(4000),
 //									AudioSpecification: &lex.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs{
 //										EndTimeoutMs: pulumi.Int(640),
 //										MaxLengthMs:  pulumi.Int(15000),
@@ -129,14 +117,26 @@ import (
 //										EndTimeoutMs:      pulumi.Int(5000),
 //										MaxLength:         pulumi.Int(513),
 //									},
+//									StartTimeoutMs: pulumi.Int(4000),
 //								},
 //								TextInputSpecification: &lex.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgs{
 //									StartTimeoutMs: pulumi.Int(30000),
 //								},
+//								AllowInterrupt: pulumi.Bool(true),
+//								MapBlockKey:    pulumi.String("Retry1"),
 //							},
 //						},
+//						AllowInterrupt:           pulumi.Bool(true),
+//						MaxRetries:               pulumi.Int(1),
+//						MessageSelectionStrategy: pulumi.String("Random"),
 //					},
+//					SlotConstraint: pulumi.String("Required"),
 //				},
+//				BotId:      pulumi.Any(test.Id),
+//				BotVersion: pulumi.Any(testAwsLexv2modelsBotLocale.BotVersion),
+//				IntentId:   pulumi.Any(testAwsLexv2modelsIntent.IntentId),
+//				LocaleId:   pulumi.Any(testAwsLexv2modelsBotLocale.LocaleId),
+//				Name:       pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

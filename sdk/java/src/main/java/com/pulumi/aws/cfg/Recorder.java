@@ -54,11 +54,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("config.amazonaws.com")
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
@@ -106,17 +106,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new Recorder("foo", RecorderArgs.builder()
- *             .name("example")
- *             .roleArn(r.arn())
  *             .recordingGroup(RecorderRecordingGroupArgs.builder()
- *                 .allSupported(false)
  *                 .exclusionByResourceTypes(RecorderRecordingGroupExclusionByResourceTypeArgs.builder()
  *                     .resourceTypes("AWS::EC2::Instance")
  *                     .build())
  *                 .recordingStrategies(RecorderRecordingGroupRecordingStrategyArgs.builder()
  *                     .useOnly("EXCLUSION_BY_RESOURCE_TYPES")
  *                     .build())
+ *                 .allSupported(false)
  *                 .build())
+ *             .name("example")
+ *             .roleArn(r.arn())
  *             .build());
  * 
  *     }
@@ -152,8 +152,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new Recorder("foo", RecorderArgs.builder()
- *             .name("example")
- *             .roleArn(r.arn())
  *             .recordingGroup(RecorderRecordingGroupArgs.builder()
  *                 .allSupported(false)
  *                 .includeGlobalResourceTypes(false)
@@ -162,13 +160,15 @@ import javax.annotation.Nullable;
  *                     "AWS::EC2::NetworkInterface")
  *                 .build())
  *             .recordingMode(RecorderRecordingModeArgs.builder()
- *                 .recordingFrequency("CONTINUOUS")
  *                 .recordingModeOverride(RecorderRecordingModeRecordingModeOverrideArgs.builder()
  *                     .description("Only record EC2 network interfaces daily")
  *                     .resourceTypes("AWS::EC2::NetworkInterface")
  *                     .recordingFrequency("DAILY")
  *                     .build())
+ *                 .recordingFrequency("CONTINUOUS")
  *                 .build())
+ *             .name("example")
+ *             .roleArn(r.arn())
  *             .build());
  * 
  *     }

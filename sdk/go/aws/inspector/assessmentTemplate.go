@@ -29,6 +29,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := inspector.NewAssessmentTemplate(ctx, "example", &inspector.AssessmentTemplateArgs{
+//				EventSubscriptions: inspector.AssessmentTemplateEventSubscriptionArray{
+//					&inspector.AssessmentTemplateEventSubscriptionArgs{
+//						Event:    pulumi.String("ASSESSMENT_RUN_COMPLETED"),
+//						TopicArn: pulumi.Any(exampleAwsSnsTopic.Arn),
+//					},
+//				},
 //				Name:      pulumi.String("example"),
 //				TargetArn: pulumi.Any(exampleAwsInspectorAssessmentTarget.Arn),
 //				Duration:  pulumi.Int(3600),
@@ -37,12 +43,6 @@ import (
 //					pulumi.String("arn:aws:inspector:us-west-2:758058086616:rulespackage/0-H5hpSawc"),
 //					pulumi.String("arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ"),
 //					pulumi.String("arn:aws:inspector:us-west-2:758058086616:rulespackage/0-vg5GGHSD"),
-//				},
-//				EventSubscriptions: inspector.AssessmentTemplateEventSubscriptionArray{
-//					&inspector.AssessmentTemplateEventSubscriptionArgs{
-//						Event:    pulumi.String("ASSESSMENT_RUN_COMPLETED"),
-//						TopicArn: pulumi.Any(exampleAwsSnsTopic.Arn),
-//					},
 //				},
 //			})
 //			if err != nil {

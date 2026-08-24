@@ -81,14 +81,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ContactList("example", ContactListArgs.builder()
- *             .contactListName("example")
- *             .description("description")
  *             .topics(ContactListTopicArgs.builder()
  *                 .defaultSubscriptionStatus("OPT_IN")
  *                 .description("topic description")
  *                 .displayName("Example Topic")
  *                 .topicName("example-topic")
  *                 .build())
+ *             .contactListName("example")
+ *             .description("description")
  *             .build());
  * 
  *     }

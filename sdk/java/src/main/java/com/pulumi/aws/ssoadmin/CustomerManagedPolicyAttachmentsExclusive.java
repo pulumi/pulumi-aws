@@ -83,12 +83,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCustomerManagedPolicyAttachmentsExclusive = new CustomerManagedPolicyAttachmentsExclusive("exampleCustomerManagedPolicyAttachmentsExclusive", CustomerManagedPolicyAttachmentsExclusiveArgs.builder()
- *             .instanceArn(example.arns()[0])
- *             .permissionSetArn(examplePermissionSet.arn())
  *             .customerManagedPolicyReferences(CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArgs.builder()
  *                 .name(examplePolicy.name())
  *                 .path("/")
  *                 .build())
+ *             .instanceArn(example.arns()[0])
+ *             .permissionSetArn(examplePermissionSet.arn())
  *             .build());
  * 
  *     }

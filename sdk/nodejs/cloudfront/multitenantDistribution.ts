@@ -48,22 +48,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cloudfront.MultitenantDistribution("example", {
- *     comment: "Multi-tenant distribution for my application",
- *     enabled: true,
- *     origins: [{
- *         domainName: "example.com",
- *         id: "example-origin",
- *         customOriginConfigs: [{
- *             httpPort: 80,
- *             httpsPort: 443,
- *             originProtocolPolicy: "https-only",
- *             originSslProtocols: ["TLSv1.2"],
- *         }],
- *     }],
  *     defaultCacheBehavior: {
- *         targetOriginId: "example-origin",
- *         viewerProtocolPolicy: "redirect-to-https",
- *         cachePolicyId: exampleAwsCloudfrontCachePolicy.id,
  *         allowedMethods: {
  *             items: [
  *                 "DELETE",
@@ -79,6 +64,9 @@ import * as utilities from "../utilities";
  *                 "HEAD",
  *             ],
  *         },
+ *         targetOriginId: "example-origin",
+ *         viewerProtocolPolicy: "redirect-to-https",
+ *         cachePolicyId: exampleAwsCloudfrontCachePolicy.id,
  *     },
  *     restrictions: {
  *         geoRestriction: {
@@ -91,15 +79,27 @@ import * as utilities from "../utilities";
  *     },
  *     tenantConfig: {
  *         parameterDefinitions: [{
- *             name: "origin_domain",
  *             definitions: [{
  *                 stringSchemas: [{
  *                     required: true,
  *                     comment: "Origin domain parameter for tenants",
  *                 }],
  *             }],
+ *             name: "origin_domain",
  *         }],
  *     },
+ *     origins: [{
+ *         customOriginConfigs: [{
+ *             httpPort: 80,
+ *             httpsPort: 443,
+ *             originProtocolPolicy: "https-only",
+ *             originSslProtocols: ["TLSv1.2"],
+ *         }],
+ *         domainName: "example.com",
+ *         id: "example-origin",
+ *     }],
+ *     comment: "Multi-tenant distribution for my application",
+ *     enabled: true,
  *     tags: {
  *         Environment: "production",
  *     },

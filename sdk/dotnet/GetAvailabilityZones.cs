@@ -67,7 +67,6 @@ namespace Pulumi.Aws
         /// {
         ///     var example = Aws.GetAvailabilityZones.Invoke(new()
         ///     {
-        ///         AllAvailabilityZones = true,
         ///         Filters = new[]
         ///         {
         ///             new Aws.Inputs.GetAvailabilityZonesFilterInputArgs
@@ -80,6 +79,7 @@ namespace Pulumi.Aws
         ///                 },
         ///             },
         ///         },
+        ///         AllAvailabilityZones = true,
         ///     });
         /// 
         /// });
@@ -172,7 +172,6 @@ namespace Pulumi.Aws
         /// {
         ///     var example = Aws.GetAvailabilityZones.Invoke(new()
         ///     {
-        ///         AllAvailabilityZones = true,
         ///         Filters = new[]
         ///         {
         ///             new Aws.Inputs.GetAvailabilityZonesFilterInputArgs
@@ -185,6 +184,7 @@ namespace Pulumi.Aws
         ///                 },
         ///             },
         ///         },
+        ///         AllAvailabilityZones = true,
         ///     });
         /// 
         /// });
@@ -277,7 +277,6 @@ namespace Pulumi.Aws
         /// {
         ///     var example = Aws.GetAvailabilityZones.Invoke(new()
         ///     {
-        ///         AllAvailabilityZones = true,
         ///         Filters = new[]
         ///         {
         ///             new Aws.Inputs.GetAvailabilityZonesFilterInputArgs
@@ -290,6 +289,7 @@ namespace Pulumi.Aws
         ///                 },
         ///             },
         ///         },
+        ///         AllAvailabilityZones = true,
         ///     });
         /// 
         /// });

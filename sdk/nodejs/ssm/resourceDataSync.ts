@@ -18,38 +18,38 @@ import * as utilities from "../utilities";
  *
  * const exampleBucket = new aws.s3.Bucket("example", {bucket: "example"});
  * const exampleResourceDataSync = new aws.ssm.ResourceDataSync("example", {
- *     name: "example",
  *     s3Destination: {
  *         bucketName: exampleBucket.bucket,
  *         region: exampleBucket.region,
  *     },
+ *     name: "example",
  * });
  * const example = aws.iam.getPolicyDocumentOutput({
  *     statements: [
  *         {
- *             sid: "SSMBucketPermissionsCheck",
- *             effect: "Allow",
  *             principals: [{
  *                 type: "Service",
  *                 identifiers: ["ssm.amazonaws.com"],
  *             }],
+ *             sid: "SSMBucketPermissionsCheck",
+ *             effect: "Allow",
  *             actions: ["s3:GetBucketAcl"],
  *             resources: [exampleBucket.arn],
  *         },
  *         {
- *             sid: "SSMBucketDelivery",
- *             effect: "Allow",
- *             principals: [{
- *                 type: "Service",
- *                 identifiers: ["ssm.amazonaws.com"],
- *             }],
- *             actions: ["s3:PutObject"],
- *             resources: [pulumi.interpolate`${exampleBucket.arn}/*`],
  *             conditions: [{
  *                 test: "StringEquals",
  *                 variable: "s3:x-amz-acl",
  *                 values: ["bucket-owner-full-control"],
  *             }],
+ *             principals: [{
+ *                 type: "Service",
+ *                 identifiers: ["ssm.amazonaws.com"],
+ *             }],
+ *             sid: "SSMBucketDelivery",
+ *             effect: "Allow",
+ *             actions: ["s3:PutObject"],
+ *             resources: [pulumi.interpolate`${exampleBucket.arn}/*`],
  *         },
  *     ],
  * });

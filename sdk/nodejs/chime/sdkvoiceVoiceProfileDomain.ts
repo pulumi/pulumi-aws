@@ -23,10 +23,10 @@ import * as utilities from "../utilities";
  *     deletionWindowInDays: 7,
  * });
  * const exampleSdkvoiceVoiceProfileDomain = new aws.chime.SdkvoiceVoiceProfileDomain("example", {
- *     name: "ExampleVoiceProfileDomain",
  *     serverSideEncryptionConfiguration: {
  *         kmsKeyArn: example.arn,
  *     },
+ *     name: "ExampleVoiceProfileDomain",
  *     description: "My Voice Profile Domain",
  *     tags: {
  *         key1: "value1",

@@ -65,7 +65,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.docdb.Cluster("example", {});
+ * const example = new aws.docdb.Cluster("example", {}, {
+ *     ignoreChanges: ["globalClusterIdentifier"],
+ * });
  * const exampleGlobalCluster = new aws.docdb.GlobalCluster("example", {
  *     globalClusterIdentifier: "example",
  *     sourceDbClusterIdentifier: example.arn,
@@ -86,7 +88,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.docdb.GlobalCluster("example", {});
+ * const example = new aws.docdb.GlobalCluster("example", {}, {
+ *     ignoreChanges: ["sourceDbClusterIdentifier"],
+ * });
  * ```
  */
 export class GlobalCluster extends pulumi.CustomResource {

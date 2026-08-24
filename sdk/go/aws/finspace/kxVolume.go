@@ -31,6 +31,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := finspace.NewKxVolume(ctx, "example", &finspace.KxVolumeArgs{
+//				Nas1Configurations: finspace.KxVolumeNas1ConfigurationArray{
+//					&finspace.KxVolumeNas1ConfigurationArgs{
+//						Size: pulumi.Int(1200),
+//						Type: pulumi.String("SSD_250"),
+//					},
+//				},
 //				Name:          pulumi.String("my-tf-kx-volume"),
 //				EnvironmentId: pulumi.Any(exampleAwsFinspaceKxEnvironment.Id),
 //				AvailabilityZones: pulumi.StringArray{
@@ -38,12 +44,6 @@ import (
 //				},
 //				AzMode: pulumi.String("SINGLE"),
 //				Type:   pulumi.String("NAS_1"),
-//				Nas1Configurations: finspace.KxVolumeNas1ConfigurationArray{
-//					&finspace.KxVolumeNas1ConfigurationArgs{
-//						Size: pulumi.Int(1200),
-//						Type: pulumi.String("SSD_250"),
-//					},
-//				},
 //			})
 //			if err != nil {
 //				return err

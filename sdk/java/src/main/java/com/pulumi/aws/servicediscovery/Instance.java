@@ -63,18 +63,18 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleService = new Service("exampleService", ServiceArgs.builder()
- *             .name("example")
  *             .dnsConfig(ServiceDnsConfigArgs.builder()
- *                 .namespaceId(examplePrivateDnsNamespace.id())
  *                 .dnsRecords(ServiceDnsConfigDnsRecordArgs.builder()
  *                     .ttl(10)
  *                     .type("A")
  *                     .build())
+ *                 .namespaceId(examplePrivateDnsNamespace.id())
  *                 .routingPolicy("MULTIVALUE")
  *                 .build())
  *             .healthCheckCustomConfig(ServiceHealthCheckCustomConfigArgs.builder()
  *                 .failureThreshold(1)
  *                 .build())
+ *             .name("example")
  *             .build());
  * 
  *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()

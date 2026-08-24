@@ -26,14 +26,10 @@ namespace Pulumi.Aws.NetworkFirewall
     /// {
     ///     var example = new Aws.NetworkFirewall.ContainerAssociation("example", new()
     ///     {
-    ///         ContainerAssociationName = "example-eks-association",
-    ///         Type = "EKS",
-    ///         Description = "Association for production EKS cluster",
     ///         ContainerMonitoringConfigurations = new[]
     ///         {
     ///             new Aws.NetworkFirewall.Inputs.ContainerAssociationContainerMonitoringConfigurationArgs
     ///             {
-    ///                 ClusterArn = exampleAwsEksCluster.Arn,
     ///                 AttributeFilters = new[]
     ///                 {
     ///                     new Aws.NetworkFirewall.Inputs.ContainerAssociationContainerMonitoringConfigurationAttributeFilterArgs
@@ -42,8 +38,12 @@ namespace Pulumi.Aws.NetworkFirewall
     ///                         Value = "backend",
     ///                     },
     ///                 },
+    ///                 ClusterArn = exampleAwsEksCluster.Arn,
     ///             },
     ///         },
+    ///         ContainerAssociationName = "example-eks-association",
+    ///         Type = "EKS",
+    ///         Description = "Association for production EKS cluster",
     ///         Tags = 
     ///         {
     ///             { "Name", "example" },
@@ -66,8 +66,6 @@ namespace Pulumi.Aws.NetworkFirewall
     /// {
     ///     var example = new Aws.NetworkFirewall.ContainerAssociation("example", new()
     ///     {
-    ///         ContainerAssociationName = "example-ecs-association",
-    ///         Type = "ECS",
     ///         ContainerMonitoringConfigurations = new[]
     ///         {
     ///             new Aws.NetworkFirewall.Inputs.ContainerAssociationContainerMonitoringConfigurationArgs
@@ -75,6 +73,8 @@ namespace Pulumi.Aws.NetworkFirewall
     ///                 ClusterArn = exampleAwsEcsCluster.Arn,
     ///             },
     ///         },
+    ///         ContainerAssociationName = "example-ecs-association",
+    ///         Type = "ECS",
     ///     });
     /// 
     /// });

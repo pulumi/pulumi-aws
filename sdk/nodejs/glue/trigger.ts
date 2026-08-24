@@ -19,17 +19,17 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.Trigger("example", {
- *     name: "example",
- *     type: "CONDITIONAL",
- *     actions: [{
- *         jobName: example1.name,
- *     }],
  *     predicate: {
  *         conditions: [{
  *             jobName: example2.name,
  *             state: "SUCCEEDED",
  *         }],
  *     },
+ *     actions: [{
+ *         jobName: example1.name,
+ *     }],
+ *     name: "example",
+ *     type: "CONDITIONAL",
  * });
  * ```
  *
@@ -40,11 +40,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.Trigger("example", {
- *     name: "example",
- *     type: "ON_DEMAND",
  *     actions: [{
  *         jobName: exampleAwsGlueJob.name,
  *     }],
+ *     name: "example",
+ *     type: "ON_DEMAND",
  * });
  * ```
  *
@@ -55,12 +55,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.Trigger("example", {
- *     name: "example",
- *     schedule: "cron(15 12 * * ? *)",
- *     type: "SCHEDULED",
  *     actions: [{
  *         jobName: exampleAwsGlueJob.name,
  *     }],
+ *     name: "example",
+ *     schedule: "cron(15 12 * * ? *)",
+ *     type: "SCHEDULED",
  * });
  * ```
  *
@@ -73,17 +73,17 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.Trigger("example", {
- *     name: "example",
- *     type: "CONDITIONAL",
- *     actions: [{
- *         crawlerName: example1.name,
- *     }],
  *     predicate: {
  *         conditions: [{
  *             jobName: example2.name,
  *             state: "SUCCEEDED",
  *         }],
  *     },
+ *     actions: [{
+ *         crawlerName: example1.name,
+ *     }],
+ *     name: "example",
+ *     type: "CONDITIONAL",
  * });
  * ```
  *
@@ -96,17 +96,17 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.Trigger("example", {
- *     name: "example",
- *     type: "CONDITIONAL",
- *     actions: [{
- *         jobName: example1.name,
- *     }],
  *     predicate: {
  *         conditions: [{
  *             crawlerName: example2.name,
  *             crawlState: "SUCCEEDED",
  *         }],
  *     },
+ *     actions: [{
+ *         jobName: example1.name,
+ *     }],
+ *     name: "example",
+ *     type: "CONDITIONAL",
  * });
  * ```
  *

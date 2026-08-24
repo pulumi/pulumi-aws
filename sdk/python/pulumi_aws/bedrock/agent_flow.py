@@ -425,39 +425,35 @@ class AgentFlow(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentFlow("example",
-            name="example",
-            execution_role_arn=example_aws_iam_role["arn"],
             definition={
                 "connections": [
                     {
-                        "name": "FlowInputNodeFlowInputNode0ToPrompt_1PromptsNode0",
-                        "source": "FlowInputNode",
-                        "target": "Prompt_1",
-                        "type": "Data",
                         "configuration": {
                             "data": {
                                 "source_output": "document",
                                 "target_input": "topic",
                             },
                         },
+                        "name": "FlowInputNodeFlowInputNode0ToPrompt_1PromptsNode0",
+                        "source": "FlowInputNode",
+                        "target": "Prompt_1",
+                        "type": "Data",
                     },
                     {
-                        "name": "Prompt_1PromptsNode0ToFlowOutputNodeFlowOutputNode0",
-                        "source": "Prompt_1",
-                        "target": "FlowOutputNode",
-                        "type": "Data",
                         "configuration": {
                             "data": {
                                 "source_output": "modelCompletion",
                                 "target_input": "document",
                             },
                         },
+                        "name": "Prompt_1PromptsNode0ToFlowOutputNodeFlowOutputNode0",
+                        "source": "Prompt_1",
+                        "target": "FlowOutputNode",
+                        "type": "Data",
                     },
                 ],
                 "nodes": [
                     {
-                        "name": "FlowInputNode",
-                        "type": "Input",
                         "configuration": {
                             "input": {},
                         },
@@ -465,16 +461,14 @@ class AgentFlow(pulumi.CustomResource):
                             "name": "document",
                             "type": "String",
                         }],
+                        "name": "FlowInputNode",
+                        "type": "Input",
                     },
                     {
-                        "name": "Prompt_1",
-                        "type": "Prompt",
                         "configuration": {
                             "prompt": {
                                 "source_configuration": {
                                     "inline": {
-                                        "model_id": "amazon.titan-text-express-v1",
-                                        "template_type": "TEXT",
                                         "inference_configuration": {
                                             "text": {
                                                 "max_tokens": 2048,
@@ -485,12 +479,14 @@ class AgentFlow(pulumi.CustomResource):
                                         },
                                         "template_configuration": {
                                             "text": {
-                                                "text": "Write a paragraph about {{topic}}.",
                                                 "input_variables": [{
                                                     "name": "topic",
                                                 }],
+                                                "text": "Write a paragraph about {{topic}}.",
                                             },
                                         },
+                                        "model_id": "amazon.titan-text-express-v1",
+                                        "template_type": "TEXT",
                                     },
                                 },
                             },
@@ -504,10 +500,10 @@ class AgentFlow(pulumi.CustomResource):
                             "name": "modelCompletion",
                             "type": "String",
                         }],
+                        "name": "Prompt_1",
+                        "type": "Prompt",
                     },
                     {
-                        "name": "FlowOutputNode",
-                        "type": "Output",
                         "configuration": {
                             "output": {},
                         },
@@ -516,9 +512,13 @@ class AgentFlow(pulumi.CustomResource):
                             "name": "document",
                             "type": "String",
                         }],
+                        "name": "FlowOutputNode",
+                        "type": "Output",
                     },
                 ],
-            })
+            },
+            name="example",
+            execution_role_arn=example_aws_iam_role["arn"])
         ```
 
         ## Import
@@ -571,39 +571,35 @@ class AgentFlow(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentFlow("example",
-            name="example",
-            execution_role_arn=example_aws_iam_role["arn"],
             definition={
                 "connections": [
                     {
-                        "name": "FlowInputNodeFlowInputNode0ToPrompt_1PromptsNode0",
-                        "source": "FlowInputNode",
-                        "target": "Prompt_1",
-                        "type": "Data",
                         "configuration": {
                             "data": {
                                 "source_output": "document",
                                 "target_input": "topic",
                             },
                         },
+                        "name": "FlowInputNodeFlowInputNode0ToPrompt_1PromptsNode0",
+                        "source": "FlowInputNode",
+                        "target": "Prompt_1",
+                        "type": "Data",
                     },
                     {
-                        "name": "Prompt_1PromptsNode0ToFlowOutputNodeFlowOutputNode0",
-                        "source": "Prompt_1",
-                        "target": "FlowOutputNode",
-                        "type": "Data",
                         "configuration": {
                             "data": {
                                 "source_output": "modelCompletion",
                                 "target_input": "document",
                             },
                         },
+                        "name": "Prompt_1PromptsNode0ToFlowOutputNodeFlowOutputNode0",
+                        "source": "Prompt_1",
+                        "target": "FlowOutputNode",
+                        "type": "Data",
                     },
                 ],
                 "nodes": [
                     {
-                        "name": "FlowInputNode",
-                        "type": "Input",
                         "configuration": {
                             "input": {},
                         },
@@ -611,16 +607,14 @@ class AgentFlow(pulumi.CustomResource):
                             "name": "document",
                             "type": "String",
                         }],
+                        "name": "FlowInputNode",
+                        "type": "Input",
                     },
                     {
-                        "name": "Prompt_1",
-                        "type": "Prompt",
                         "configuration": {
                             "prompt": {
                                 "source_configuration": {
                                     "inline": {
-                                        "model_id": "amazon.titan-text-express-v1",
-                                        "template_type": "TEXT",
                                         "inference_configuration": {
                                             "text": {
                                                 "max_tokens": 2048,
@@ -631,12 +625,14 @@ class AgentFlow(pulumi.CustomResource):
                                         },
                                         "template_configuration": {
                                             "text": {
-                                                "text": "Write a paragraph about {{topic}}.",
                                                 "input_variables": [{
                                                     "name": "topic",
                                                 }],
+                                                "text": "Write a paragraph about {{topic}}.",
                                             },
                                         },
+                                        "model_id": "amazon.titan-text-express-v1",
+                                        "template_type": "TEXT",
                                     },
                                 },
                             },
@@ -650,10 +646,10 @@ class AgentFlow(pulumi.CustomResource):
                             "name": "modelCompletion",
                             "type": "String",
                         }],
+                        "name": "Prompt_1",
+                        "type": "Prompt",
                     },
                     {
-                        "name": "FlowOutputNode",
-                        "type": "Output",
                         "configuration": {
                             "output": {},
                         },
@@ -662,9 +658,13 @@ class AgentFlow(pulumi.CustomResource):
                             "name": "document",
                             "type": "String",
                         }],
+                        "name": "FlowOutputNode",
+                        "type": "Output",
                     },
                 ],
-            })
+            },
+            name="example",
+            execution_role_arn=example_aws_iam_role["arn"])
         ```
 
         ## Import

@@ -24,11 +24,6 @@ namespace Pulumi.Aws.Elb
     /// {
     ///     var lb = new Aws.Elb.LoadBalancer("lb", new()
     ///     {
-    ///         Name = "test-lb",
-    ///         AvailabilityZones = new[]
-    ///         {
-    ///             "us-east-1a",
-    ///         },
     ///         Listeners = new[]
     ///         {
     ///             new Aws.Elb.Inputs.LoadBalancerListenerArgs
@@ -40,13 +35,15 @@ namespace Pulumi.Aws.Elb
     ///                 SslCertificateId = "arn:aws:iam::123456789012:server-certificate/certName",
     ///             },
     ///         },
+    ///         Name = "test-lb",
+    ///         AvailabilityZones = new[]
+    ///         {
+    ///             "us-east-1a",
+    ///         },
     ///     });
     /// 
     ///     var foo = new Aws.Elb.SslNegotiationPolicy("foo", new()
     ///     {
-    ///         Name = "foo-policy",
-    ///         LoadBalancer = lb.Id,
-    ///         LbPort = 443,
     ///         Attributes = new[]
     ///         {
     ///             new Aws.Elb.Inputs.SslNegotiationPolicyAttributeArgs
@@ -85,6 +82,9 @@ namespace Pulumi.Aws.Elb
     ///                 Value = "false",
     ///             },
     ///         },
+    ///         Name = "foo-policy",
+    ///         LoadBalancer = lb.Id,
+    ///         LbPort = 443,
     ///     });
     /// 
     /// });

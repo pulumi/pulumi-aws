@@ -627,6 +627,9 @@ class Firewall(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.Firewall("example",
+            subnet_mappings=[{
+                "subnet_id": example_aws_subnet["id"],
+            }],
             name="example",
             firewall_policy_arn=example_aws_networkfirewall_firewall_policy["arn"],
             vpc_id=example_aws_vpc["id"],
@@ -634,13 +637,11 @@ class Firewall(pulumi.CustomResource):
                 "TLS_SNI",
                 "HTTP_HOST",
             ],
-            subnet_mappings=[{
-                "subnet_id": example_aws_subnet["id"],
-            }],
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",
-            })
+            },
+            opts = pulumi.ResourceOptions(custom_timeouts=pulumi.CustomTimeouts(create="40m", update="50m", delete="1h")))
         ```
 
         ### Transit Gateway Attached Firewall
@@ -651,9 +652,6 @@ class Firewall(pulumi.CustomResource):
 
         example = aws.get_availability_zones(state="available")
         example_firewall = aws.networkfirewall.Firewall("example",
-            name="example",
-            firewall_policy_arn=example_aws_networkfirewall_firewall_policy["arn"],
-            transit_gateway_id=example_aws_ec2_transit_gateway["id"],
             availability_zone_mappings=[
                 {
                     "availability_zone_id": example.zone_ids[0],
@@ -661,7 +659,10 @@ class Firewall(pulumi.CustomResource):
                 {
                     "availability_zone_id": example.zone_ids[1],
                 },
-            ])
+            ],
+            name="example",
+            firewall_policy_arn=example_aws_networkfirewall_firewall_policy["arn"],
+            transit_gateway_id=example_aws_ec2_transit_gateway["id"])
         ```
 
         ### Transit Gateway Attached Firewall (Cross Account)
@@ -711,6 +712,9 @@ class Firewall(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.Firewall("example",
+            subnet_mappings=[{
+                "subnet_id": example_aws_subnet["id"],
+            }],
             name="example",
             firewall_policy_arn=example_aws_networkfirewall_firewall_policy["arn"],
             vpc_id=example_aws_vpc["id"],
@@ -718,13 +722,11 @@ class Firewall(pulumi.CustomResource):
                 "TLS_SNI",
                 "HTTP_HOST",
             ],
-            subnet_mappings=[{
-                "subnet_id": example_aws_subnet["id"],
-            }],
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",
-            })
+            },
+            opts = pulumi.ResourceOptions(custom_timeouts=pulumi.CustomTimeouts(create="40m", update="50m", delete="1h")))
         ```
 
         ### Transit Gateway Attached Firewall
@@ -735,9 +737,6 @@ class Firewall(pulumi.CustomResource):
 
         example = aws.get_availability_zones(state="available")
         example_firewall = aws.networkfirewall.Firewall("example",
-            name="example",
-            firewall_policy_arn=example_aws_networkfirewall_firewall_policy["arn"],
-            transit_gateway_id=example_aws_ec2_transit_gateway["id"],
             availability_zone_mappings=[
                 {
                     "availability_zone_id": example.zone_ids[0],
@@ -745,7 +744,10 @@ class Firewall(pulumi.CustomResource):
                 {
                     "availability_zone_id": example.zone_ids[1],
                 },
-            ])
+            ],
+            name="example",
+            firewall_policy_arn=example_aws_networkfirewall_firewall_policy["arn"],
+            transit_gateway_id=example_aws_ec2_transit_gateway["id"])
         ```
 
         ### Transit Gateway Attached Firewall (Cross Account)

@@ -55,8 +55,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.dynamodb.Table;
  * import com.pulumi.aws.dynamodb.TableArgs;
- * import com.pulumi.aws.dynamodb.inputs.TableAttributeArgs;
  * import com.pulumi.aws.dynamodb.inputs.TableTtlArgs;
+ * import com.pulumi.aws.dynamodb.inputs.TableAttributeArgs;
  * import com.pulumi.aws.dynamodb.inputs.TableGlobalSecondaryIndexArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
@@ -72,12 +72,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var basic_dynamodb_table = new Table("basic-dynamodb-table", TableArgs.builder()
- *             .name("GameScores")
- *             .billingMode("PROVISIONED")
- *             .readCapacity(20)
- *             .writeCapacity(20)
- *             .hashKey("UserId")
- *             .rangeKey("GameTitle")
+ *             .ttl(TableTtlArgs.builder()
+ *                 .attributeName("TimeToExist")
+ *                 .enabled(true)
+ *                 .build())
  *             .attributes(            
  *                 TableAttributeArgs.builder()
  *                     .name("UserId")
@@ -91,10 +89,6 @@ import javax.annotation.Nullable;
  *                     .name("TopScore")
  *                     .type("N")
  *                     .build())
- *             .ttl(TableTtlArgs.builder()
- *                 .attributeName("TimeToExist")
- *                 .enabled(true)
- *                 .build())
  *             .globalSecondaryIndexes(TableGlobalSecondaryIndexArgs.builder()
  *                 .name("GameTitleIndex")
  *                 .hashKey("GameTitle")
@@ -104,6 +98,12 @@ import javax.annotation.Nullable;
  *                 .projectionType("INCLUDE")
  *                 .nonKeyAttributes("UserId")
  *                 .build())
+ *             .name("GameScores")
+ *             .billingMode("PROVISIONED")
+ *             .readCapacity(20)
+ *             .writeCapacity(20)
+ *             .hashKey("UserId")
+ *             .rangeKey("GameTitle")
  *             .tags(Map.ofEntries(
  *                 Map.entry("Name", "dynamodb-table-1"),
  *                 Map.entry("Environment", "production")
@@ -130,8 +130,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.dynamodb.Table;
  * import com.pulumi.aws.dynamodb.TableArgs;
- * import com.pulumi.aws.dynamodb.inputs.TableAttributeArgs;
  * import com.pulumi.aws.dynamodb.inputs.TableTtlArgs;
+ * import com.pulumi.aws.dynamodb.inputs.TableAttributeArgs;
  * import com.pulumi.aws.dynamodb.inputs.TableGlobalSecondaryIndexArgs;
  * import com.pulumi.aws.dynamodb.inputs.TableGlobalSecondaryIndexKeySchemaArgs;
  * import java.util.ArrayList;
@@ -148,11 +148,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var basic_dynamodb_table = new Table("basic-dynamodb-table", TableArgs.builder()
- *             .name("TournamentMatches")
- *             .billingMode("PROVISIONED")
- *             .readCapacity(20)
- *             .writeCapacity(20)
- *             .hashKey("matchId")
+ *             .ttl(TableTtlArgs.builder()
+ *                 .attributeName("TimeToExist")
+ *                 .enabled(true)
+ *                 .build())
  *             .attributes(            
  *                 TableAttributeArgs.builder()
  *                     .name("matchId")
@@ -182,13 +181,8 @@ import javax.annotation.Nullable;
  *                     .name("matchDate")
  *                     .type("S")
  *                     .build())
- *             .ttl(TableTtlArgs.builder()
- *                 .attributeName("TimeToExist")
- *                 .enabled(true)
- *                 .build())
  *             .globalSecondaryIndexes(            
  *                 TableGlobalSecondaryIndexArgs.builder()
- *                     .name("TournamentRegionIndex")
  *                     .keySchemas(                    
  *                         TableGlobalSecondaryIndexKeySchemaArgs.builder()
  *                             .attributeName("tournamentId")
@@ -210,12 +204,12 @@ import javax.annotation.Nullable;
  *                             .attributeName("matchId")
  *                             .keyType("RANGE")
  *                             .build())
+ *                     .name("TournamentRegionIndex")
  *                     .writeCapacity(10)
  *                     .readCapacity(10)
  *                     .projectionType("ALL")
  *                     .build(),
  *                 TableGlobalSecondaryIndexArgs.builder()
- *                     .name("PlayerMatchHistoryIndex")
  *                     .keySchemas(                    
  *                         TableGlobalSecondaryIndexKeySchemaArgs.builder()
  *                             .attributeName("playerId")
@@ -229,10 +223,16 @@ import javax.annotation.Nullable;
  *                             .attributeName("round")
  *                             .keyType("RANGE")
  *                             .build())
+ *                     .name("PlayerMatchHistoryIndex")
  *                     .writeCapacity(10)
  *                     .readCapacity(10)
  *                     .projectionType("ALL")
  *                     .build())
+ *             .name("TournamentMatches")
+ *             .billingMode("PROVISIONED")
+ *             .readCapacity(20)
+ *             .writeCapacity(20)
+ *             .hashKey("matchId")
  *             .tags(Map.ofEntries(
  *                 Map.entry("Name", "dynamodb-table-1"),
  *                 Map.entry("Environment", "production")
@@ -275,11 +275,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Table("example", TableArgs.builder()
- *             .name("example")
- *             .hashKey("TestTableHashKey")
- *             .billingMode("PAY_PER_REQUEST")
- *             .streamEnabled(true)
- *             .streamViewType("NEW_AND_OLD_IMAGES")
  *             .attributes(TableAttributeArgs.builder()
  *                 .name("TestTableHashKey")
  *                 .type("S")
@@ -291,6 +286,11 @@ import javax.annotation.Nullable;
  *                 TableReplicaArgs.builder()
  *                     .regionName("us-west-2")
  *                     .build())
+ *             .name("example")
+ *             .hashKey("TestTableHashKey")
+ *             .billingMode("PAY_PER_REQUEST")
+ *             .streamEnabled(true)
+ *             .streamViewType("NEW_AND_OLD_IMAGES")
  *             .build());
  * 
  *     }
@@ -335,11 +335,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Table("example", TableArgs.builder()
- *             .name("example")
- *             .hashKey("TestTableHashKey")
- *             .billingMode("PAY_PER_REQUEST")
- *             .streamEnabled(true)
- *             .streamViewType("NEW_AND_OLD_IMAGES")
  *             .attributes(TableAttributeArgs.builder()
  *                 .name("TestTableHashKey")
  *                 .type("S")
@@ -353,6 +348,11 @@ import javax.annotation.Nullable;
  *                     .regionName("us-west-2")
  *                     .consistencyMode("STRONG")
  *                     .build())
+ *             .name("example")
+ *             .hashKey("TestTableHashKey")
+ *             .billingMode("PAY_PER_REQUEST")
+ *             .streamEnabled(true)
+ *             .streamViewType("NEW_AND_OLD_IMAGES")
  *             .build());
  * 
  *     }
@@ -371,9 +371,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.dynamodb.Table;
  * import com.pulumi.aws.dynamodb.TableArgs;
+ * import com.pulumi.aws.dynamodb.inputs.TableGlobalTableWitnessArgs;
  * import com.pulumi.aws.dynamodb.inputs.TableAttributeArgs;
  * import com.pulumi.aws.dynamodb.inputs.TableReplicaArgs;
- * import com.pulumi.aws.dynamodb.inputs.TableGlobalTableWitnessArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -388,11 +388,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Table("example", TableArgs.builder()
- *             .name("example")
- *             .hashKey("TestTableHashKey")
- *             .billingMode("PAY_PER_REQUEST")
- *             .streamEnabled(true)
- *             .streamViewType("NEW_AND_OLD_IMAGES")
+ *             .globalTableWitness(TableGlobalTableWitnessArgs.builder()
+ *                 .regionName("us-west-2")
+ *                 .build())
  *             .attributes(TableAttributeArgs.builder()
  *                 .name("TestTableHashKey")
  *                 .type("S")
@@ -401,9 +399,11 @@ import javax.annotation.Nullable;
  *                 .regionName("us-east-2")
  *                 .consistencyMode("STRONG")
  *                 .build())
- *             .globalTableWitness(TableGlobalTableWitnessArgs.builder()
- *                 .regionName("us-west-2")
- *                 .build())
+ *             .name("example")
+ *             .hashKey("TestTableHashKey")
+ *             .billingMode("PAY_PER_REQUEST")
+ *             .streamEnabled(true)
+ *             .streamViewType("NEW_AND_OLD_IMAGES")
  *             .build());
  * 
  *     }
@@ -455,11 +455,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new Table("example", TableArgs.builder()
- *             .billingMode("PAY_PER_REQUEST")
- *             .hashKey("TestTableHashKey")
- *             .name("example-13281")
- *             .streamEnabled(true)
- *             .streamViewType("NEW_AND_OLD_IMAGES")
  *             .attributes(TableAttributeArgs.builder()
  *                 .name("TestTableHashKey")
  *                 .type("S")
@@ -472,6 +467,11 @@ import javax.annotation.Nullable;
  *                     .regionName(third.region())
  *                     .propagateTags(true)
  *                     .build())
+ *             .billingMode("PAY_PER_REQUEST")
+ *             .hashKey("TestTableHashKey")
+ *             .name("example-13281")
+ *             .streamEnabled(true)
+ *             .streamViewType("NEW_AND_OLD_IMAGES")
  *             .tags(Map.ofEntries(
  *                 Map.entry("Architect", "Eleanor"),
  *                 Map.entry("Zone", "SW")

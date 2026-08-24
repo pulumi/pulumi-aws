@@ -198,25 +198,25 @@ class FieldLevelEncryptionConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.cloudfront.FieldLevelEncryptionConfig("test",
-            comment="test comment",
             content_type_profile_config={
-                "forward_when_content_type_is_unknown": True,
                 "content_type_profiles": {
                     "items": [{
                         "content_type": "application/x-www-form-urlencoded",
                         "format": "URLEncoded",
                     }],
                 },
+                "forward_when_content_type_is_unknown": True,
             },
             query_arg_profile_config={
-                "forward_when_query_arg_profile_is_unknown": True,
                 "query_arg_profiles": {
                     "items": [{
                         "profile_id": test_aws_cloudfront_field_level_encryption_profile["id"],
                         "query_arg": "Arg1",
                     }],
                 },
-            })
+                "forward_when_query_arg_profile_is_unknown": True,
+            },
+            comment="test comment")
         ```
 
         ## Import
@@ -250,25 +250,25 @@ class FieldLevelEncryptionConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.cloudfront.FieldLevelEncryptionConfig("test",
-            comment="test comment",
             content_type_profile_config={
-                "forward_when_content_type_is_unknown": True,
                 "content_type_profiles": {
                     "items": [{
                         "content_type": "application/x-www-form-urlencoded",
                         "format": "URLEncoded",
                     }],
                 },
+                "forward_when_content_type_is_unknown": True,
             },
             query_arg_profile_config={
-                "forward_when_query_arg_profile_is_unknown": True,
                 "query_arg_profiles": {
                     "items": [{
                         "profile_id": test_aws_cloudfront_field_level_encryption_profile["id"],
                         "query_arg": "Arg1",
                     }],
                 },
-            })
+                "forward_when_query_arg_profile_is_unknown": True,
+            },
+            comment="test comment")
         ```
 
         ## Import

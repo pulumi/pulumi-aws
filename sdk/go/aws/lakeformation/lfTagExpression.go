@@ -40,13 +40,13 @@ import (
 //				return err
 //			}
 //			_, err = lakeformation.NewLfTagExpression(ctx, "example", &lakeformation.LfTagExpressionArgs{
-//				Name: pulumi.String("example"),
 //				Expressions: lakeformation.LfTagExpressionExpressionArray{
 //					&lakeformation.LfTagExpressionExpressionArgs{
 //						TagKey:    example.Key,
 //						TagValues: example.Values,
 //					},
 //				},
+//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

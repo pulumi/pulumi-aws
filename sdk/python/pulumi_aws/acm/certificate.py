@@ -658,12 +658,12 @@ class Certificate(pulumi.CustomResource):
         import pulumi_aws as aws
 
         cert = aws.acm.Certificate("cert",
-            domain_name="testing.example.com",
-            validation_method="EMAIL",
             validation_options=[{
                 "domain_name": "testing.example.com",
                 "validation_domain": "example.com",
-            }])
+            }],
+            domain_name="testing.example.com",
+            validation_method="EMAIL")
         ```
 
         ### Existing Certificate Body Import
@@ -675,12 +675,12 @@ class Certificate(pulumi.CustomResource):
 
         example = tls.PrivateKey("example", algorithm="RSA")
         example_self_signed_cert = tls.SelfSignedCert("example",
-            key_algorithm="RSA",
-            private_key_pem=example.private_key_pem,
             subject=[{
                 "commonName": "example.com",
                 "organization": "ACME Examples, Inc",
             }],
+            key_algorithm="RSA",
+            private_key_pem=example.private_key_pem,
             validity_period_hours=12,
             allowed_uses=[
                 "key_encipherment",
@@ -701,12 +701,12 @@ class Certificate(pulumi.CustomResource):
 
         example = tls.PrivateKey("example", algorithm="RSA")
         example_self_signed_cert = tls.SelfSignedCert("example",
-            key_algorithm="RSA",
-            private_key_pem=example.private_key_pem,
             subject=[{
                 "commonName": "example.com",
                 "organization": "ACME Examples, Inc",
             }],
+            key_algorithm="RSA",
+            private_key_pem=example.private_key_pem,
             validity_period_hours=12,
             allowed_uses=[
                 "key_encipherment",
@@ -796,12 +796,12 @@ class Certificate(pulumi.CustomResource):
         import pulumi_aws as aws
 
         cert = aws.acm.Certificate("cert",
-            domain_name="testing.example.com",
-            validation_method="EMAIL",
             validation_options=[{
                 "domain_name": "testing.example.com",
                 "validation_domain": "example.com",
-            }])
+            }],
+            domain_name="testing.example.com",
+            validation_method="EMAIL")
         ```
 
         ### Existing Certificate Body Import
@@ -813,12 +813,12 @@ class Certificate(pulumi.CustomResource):
 
         example = tls.PrivateKey("example", algorithm="RSA")
         example_self_signed_cert = tls.SelfSignedCert("example",
-            key_algorithm="RSA",
-            private_key_pem=example.private_key_pem,
             subject=[{
                 "commonName": "example.com",
                 "organization": "ACME Examples, Inc",
             }],
+            key_algorithm="RSA",
+            private_key_pem=example.private_key_pem,
             validity_period_hours=12,
             allowed_uses=[
                 "key_encipherment",
@@ -839,12 +839,12 @@ class Certificate(pulumi.CustomResource):
 
         example = tls.PrivateKey("example", algorithm="RSA")
         example_self_signed_cert = tls.SelfSignedCert("example",
-            key_algorithm="RSA",
-            private_key_pem=example.private_key_pem,
             subject=[{
                 "commonName": "example.com",
                 "organization": "ACME Examples, Inc",
             }],
+            key_algorithm="RSA",
+            private_key_pem=example.private_key_pem,
             validity_period_hours=12,
             allowed_uses=[
                 "key_encipherment",

@@ -21,13 +21,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.wafv2.WebAclLoggingConfiguration("example", {
- *     logDestinationConfigs: [exampleAwsKinesisFirehoseDeliveryStream.arn],
- *     resourceArn: exampleAwsWafv2WebAcl.arn,
  *     redactedFields: [{
  *         singleHeader: {
  *             name: "user-agent",
  *         },
  *     }],
+ *     logDestinationConfigs: [exampleAwsKinesisFirehoseDeliveryStream.arn],
+ *     resourceArn: exampleAwsWafv2WebAcl.arn,
  * });
  * ```
  *
@@ -38,13 +38,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.wafv2.WebAclLoggingConfiguration("example", {
- *     logDestinationConfigs: [exampleAwsKinesisFirehoseDeliveryStream.arn],
- *     resourceArn: exampleAwsWafv2WebAcl.arn,
  *     loggingFilter: {
- *         defaultBehavior: "KEEP",
  *         filters: [
  *             {
- *                 behavior: "DROP",
  *                 conditions: [
  *                     {
  *                         actionCondition: {
@@ -57,19 +53,23 @@ import * as utilities from "../utilities";
  *                         },
  *                     },
  *                 ],
+ *                 behavior: "DROP",
  *                 requirement: "MEETS_ALL",
  *             },
  *             {
- *                 behavior: "KEEP",
  *                 conditions: [{
  *                     actionCondition: {
  *                         action: "ALLOW",
  *                     },
  *                 }],
+ *                 behavior: "KEEP",
  *                 requirement: "MEETS_ANY",
  *             },
  *         ],
+ *         defaultBehavior: "KEEP",
  *     },
+ *     logDestinationConfigs: [exampleAwsKinesisFirehoseDeliveryStream.arn],
+ *     resourceArn: exampleAwsWafv2WebAcl.arn,
  * });
  * ```
  *

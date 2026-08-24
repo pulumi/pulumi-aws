@@ -24,10 +24,6 @@ namespace Pulumi.Aws.AppConfig
     /// {
     ///     var example = new Aws.AppConfig.ConfigurationProfile("example", new()
     ///     {
-    ///         ApplicationId = exampleAwsAppconfigApplication.Id,
-    ///         Description = "Example Configuration Profile",
-    ///         Name = "example-configuration-profile-tf",
-    ///         LocationUri = "hosted",
     ///         Validators = new[]
     ///         {
     ///             new Aws.AppConfig.Inputs.ConfigurationProfileValidatorArgs
@@ -36,6 +32,10 @@ namespace Pulumi.Aws.AppConfig
     ///                 Type = "LAMBDA",
     ///             },
     ///         },
+    ///         ApplicationId = exampleAwsAppconfigApplication.Id,
+    ///         Description = "Example Configuration Profile",
+    ///         Name = "example-configuration-profile-tf",
+    ///         LocationUri = "hosted",
     ///         Tags = 
     ///         {
     ///             { "Type", "AppConfig Configuration Profile" },

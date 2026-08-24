@@ -327,9 +327,6 @@ class RegexPatternSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.wafv2.RegexPatternSet("example",
-            name="example",
-            description="Example regex pattern set",
-            scope="REGIONAL",
             regular_expressions=[
                 {
                     "regex_string": "one",
@@ -338,6 +335,9 @@ class RegexPatternSet(pulumi.CustomResource):
                     "regex_string": "two",
                 },
             ],
+            name="example",
+            description="Example regex pattern set",
+            scope="REGIONAL",
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",
@@ -379,9 +379,6 @@ class RegexPatternSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.wafv2.RegexPatternSet("example",
-            name="example",
-            description="Example regex pattern set",
-            scope="REGIONAL",
             regular_expressions=[
                 {
                     "regex_string": "one",
@@ -390,6 +387,9 @@ class RegexPatternSet(pulumi.CustomResource):
                     "regex_string": "two",
                 },
             ],
+            name="example",
+            description="Example regex pattern set",
+            scope="REGIONAL",
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",

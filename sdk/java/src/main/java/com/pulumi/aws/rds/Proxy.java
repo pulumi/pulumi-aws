@@ -52,6 +52,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Proxy("example", ProxyArgs.builder()
+ *             .auths(ProxyAuthArgs.builder()
+ *                 .authScheme("SECRETS")
+ *                 .description("example")
+ *                 .iamAuth("DISABLED")
+ *                 .secretArn(exampleAwsSecretsmanagerSecret.arn())
+ *                 .build())
  *             .name("example")
  *             .debugLogging(false)
  *             .engineFamily("MYSQL")
@@ -60,12 +66,6 @@ import javax.annotation.Nullable;
  *             .roleArn(exampleAwsIamRole.arn())
  *             .vpcSecurityGroupIds(exampleAwsSecurityGroup.id())
  *             .vpcSubnetIds(exampleAwsSubnet.id())
- *             .auths(ProxyAuthArgs.builder()
- *                 .authScheme("SECRETS")
- *                 .description("example")
- *                 .iamAuth("DISABLED")
- *                 .secretArn(exampleAwsSecretsmanagerSecret.arn())
- *                 .build())
  *             .tags(Map.ofEntries(
  *                 Map.entry("Name", "example"),
  *                 Map.entry("Key", "value")
@@ -116,12 +116,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
- *             .excludeZoneIds("use1-az3")
- *             .state("available")
  *             .filters(GetAvailabilityZonesFilterArgs.builder()
  *                 .name("opt-in-status")
  *                 .values("opt-in-not-required")
  *                 .build())
+ *             .excludeZoneIds("use1-az3")
+ *             .state("available")
  *             .build());
  * 
  *         var example = new Vpc("example", VpcArgs.builder()
@@ -162,6 +162,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.rds.Proxy;
  * import com.pulumi.aws.rds.ProxyArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -178,7 +179,9 @@ import javax.annotation.Nullable;
  *         var example = new Proxy("example", ProxyArgs.builder()
  *             .name("example")
  *             .vpcSubnetIds(exampleAwsSubnet.id())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .ignoreChanges("vpcSubnetIds")
+ *                 .build());
  * 
  *     }
  * }

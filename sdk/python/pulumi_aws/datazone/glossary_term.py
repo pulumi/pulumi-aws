@@ -382,6 +382,22 @@ class GlossaryTerm(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.iam.Role("example",
+            inline_policies=[{
+                "name": "example",
+                "policy": json.dumps({
+                    "Version": "2012-10-17",
+                    "Statement": [{
+                        "Action": [
+                            "datazone:*",
+                            "ram:*",
+                            "sso:*",
+                            "kms:*",
+                        ],
+                        "Effect": "Allow",
+                        "Resource": "*",
+                    }],
+                }),
+            }],
             name="example",
             assume_role_policy=json.dumps({
                 "Version": "2012-10-17",
@@ -407,23 +423,7 @@ class GlossaryTerm(pulumi.CustomResource):
                         },
                     },
                 ],
-            }),
-            inline_policies=[{
-                "name": "example",
-                "policy": json.dumps({
-                    "Version": "2012-10-17",
-                    "Statement": [{
-                        "Action": [
-                            "datazone:*",
-                            "ram:*",
-                            "sso:*",
-                            "kms:*",
-                        ],
-                        "Effect": "Allow",
-                        "Resource": "*",
-                    }],
-                }),
-            }])
+            }))
         example_domain = aws.datazone.Domain("example",
             name="example_name",
             domain_execution_role=example.arn)
@@ -497,6 +497,22 @@ class GlossaryTerm(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.iam.Role("example",
+            inline_policies=[{
+                "name": "example",
+                "policy": json.dumps({
+                    "Version": "2012-10-17",
+                    "Statement": [{
+                        "Action": [
+                            "datazone:*",
+                            "ram:*",
+                            "sso:*",
+                            "kms:*",
+                        ],
+                        "Effect": "Allow",
+                        "Resource": "*",
+                    }],
+                }),
+            }],
             name="example",
             assume_role_policy=json.dumps({
                 "Version": "2012-10-17",
@@ -522,23 +538,7 @@ class GlossaryTerm(pulumi.CustomResource):
                         },
                     },
                 ],
-            }),
-            inline_policies=[{
-                "name": "example",
-                "policy": json.dumps({
-                    "Version": "2012-10-17",
-                    "Statement": [{
-                        "Action": [
-                            "datazone:*",
-                            "ram:*",
-                            "sso:*",
-                            "kms:*",
-                        ],
-                        "Effect": "Allow",
-                        "Resource": "*",
-                    }],
-                }),
-            }])
+            }))
         example_domain = aws.datazone.Domain("example",
             name="example_name",
             domain_execution_role=example.arn)

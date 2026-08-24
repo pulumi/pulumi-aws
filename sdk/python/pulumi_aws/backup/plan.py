@@ -298,21 +298,21 @@ class Plan(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.backup.Plan("example",
-            name="my_example_backup_plan",
-            rules=[{
-                "rule_name": "my_example_backup_rule",
-                "target_vault_name": test["name"],
-                "schedule": "cron(0 12 * * ? *)",
-                "lifecycle": {
-                    "delete_after": 14,
-                },
-            }],
             advanced_backup_settings=[{
                 "backup_options": {
                     "WindowsVSS": "enabled",
                 },
                 "resource_type": "EC2",
-            }])
+            }],
+            rules=[{
+                "lifecycle": {
+                    "delete_after": 14,
+                },
+                "rule_name": "my_example_backup_rule",
+                "target_vault_name": test["name"],
+                "schedule": "cron(0 12 * * ? *)",
+            }],
+            name="my_example_backup_plan")
         ```
 
         ## Import
@@ -360,21 +360,21 @@ class Plan(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.backup.Plan("example",
-            name="my_example_backup_plan",
-            rules=[{
-                "rule_name": "my_example_backup_rule",
-                "target_vault_name": test["name"],
-                "schedule": "cron(0 12 * * ? *)",
-                "lifecycle": {
-                    "delete_after": 14,
-                },
-            }],
             advanced_backup_settings=[{
                 "backup_options": {
                     "WindowsVSS": "enabled",
                 },
                 "resource_type": "EC2",
-            }])
+            }],
+            rules=[{
+                "lifecycle": {
+                    "delete_after": 14,
+                },
+                "rule_name": "my_example_backup_rule",
+                "target_vault_name": test["name"],
+                "schedule": "cron(0 12 * * ? *)",
+            }],
+            name="my_example_backup_plan")
         ```
 
         ## Import

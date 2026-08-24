@@ -34,7 +34,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			rts, err := ec2.GetRouteTables(ctx, &ec2.GetRouteTablesArgs{
-//				VpcId: pulumi.StringRef(vpcId),
 //				Filters: []ec2.GetRouteTablesFilter{
 //					{
 //						Name: "tag:kubernetes.io/kops/role",
@@ -43,6 +42,7 @@ import (
 //						},
 //					},
 //				},
+//				VpcId: pulumi.StringRef(vpcId),
 //			}, nil)
 //			if err != nil {
 //				return err

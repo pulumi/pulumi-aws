@@ -44,12 +44,12 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     ///     var example = new Aws.Sagemaker.Workforce("example", new()
     ///     {
-    ///         WorkforceName = "example",
     ///         CognitoConfig = new Aws.Sagemaker.Inputs.WorkforceCognitoConfigArgs
     ///         {
     ///             ClientId = exampleUserPoolClient.Id,
     ///             UserPool = exampleUserPoolDomain.UserPoolId,
     ///         },
+    ///         WorkforceName = "example",
     ///     });
     /// 
     /// });
@@ -67,7 +67,6 @@ namespace Pulumi.Aws.Sagemaker
     /// {
     ///     var example = new Aws.Sagemaker.Workforce("example", new()
     ///     {
-    ///         WorkforceName = "example",
     ///         OidcConfig = new Aws.Sagemaker.Inputs.WorkforceOidcConfigArgs
     ///         {
     ///             AuthorizationEndpoint = "https://example.com",
@@ -79,6 +78,7 @@ namespace Pulumi.Aws.Sagemaker
     ///             TokenEndpoint = "https://example.com",
     ///             UserInfoEndpoint = "https://example.com",
     ///         },
+    ///         WorkforceName = "example",
     ///     });
     /// 
     /// });

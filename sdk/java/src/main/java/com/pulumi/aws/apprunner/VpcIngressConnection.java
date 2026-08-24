@@ -45,12 +45,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new VpcIngressConnection("example", VpcIngressConnectionArgs.builder()
- *             .name("example")
- *             .serviceArn(exampleAwsApprunnerService.arn())
  *             .ingressVpcConfiguration(VpcIngressConnectionIngressVpcConfigurationArgs.builder()
  *                 .vpcId(default_.id())
  *                 .vpcEndpointId(apprunner.id())
  *                 .build())
+ *             .name("example")
+ *             .serviceArn(exampleAwsApprunnerService.arn())
  *             .tags(Map.of("foo", "bar"))
  *             .build());
  * 

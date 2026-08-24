@@ -38,22 +38,6 @@ import (
 //				"Statement": []map[string]interface{}{
 //					map[string]interface{}{
 //						"Effect": "Allow",
-//						"Action": "sts:AssumeRole",
-//						"Principal": map[string]string{
-//							"Service": "quicksight.amazonaws.com",
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			tmpJSON1, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Effect": "Allow",
 //						"Action": []string{
 //							"ec2:CreateNetworkInterface",
 //							"ec2:ModifyNetworkInterfaceAttribute",
@@ -70,15 +54,31 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			json0 := string(tmpJSON0)
+//			tmpJSON1, err := json.Marshal(map[string]interface{}{
+//				"Version": "2012-10-17",
+//				"Statement": []map[string]interface{}{
+//					map[string]interface{}{
+//						"Effect": "Allow",
+//						"Action": "sts:AssumeRole",
+//						"Principal": map[string]string{
+//							"Service": "quicksight.amazonaws.com",
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			json1 := string(tmpJSON1)
 //			vpcConnectionRole, err := iam.NewRole(ctx, "vpc_connection_role", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.String(json0),
 //				InlinePolicies: iam.RoleInlinePolicyArray{
 //					&iam.RoleInlinePolicyArgs{
 //						Name:   pulumi.String("QuickSightVPCConnectionRolePolicy"),
-//						Policy: pulumi.String(json1),
+//						Policy: pulumi.String(json0),
 //					},
 //				},
+//				AssumeRolePolicy: pulumi.String(json1),
 //			})
 //			if err != nil {
 //				return err

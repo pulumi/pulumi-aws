@@ -45,12 +45,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Group("example", GroupArgs.builder()
- *             .groupName("example")
- *             .filterExpression("responsetime > 5")
  *             .insightsConfiguration(GroupInsightsConfigurationArgs.builder()
  *                 .insightsEnabled(true)
  *                 .notificationsEnabled(true)
  *                 .build())
+ *             .groupName("example")
+ *             .filterExpression("responsetime > 5")
  *             .build());
  * 
  *     }

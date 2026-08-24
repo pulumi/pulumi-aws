@@ -36,8 +36,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.sagemaker.FeatureGroup;
  * import com.pulumi.aws.sagemaker.FeatureGroupArgs;
- * import com.pulumi.aws.sagemaker.inputs.FeatureGroupFeatureDefinitionArgs;
  * import com.pulumi.aws.sagemaker.inputs.FeatureGroupOnlineStoreConfigArgs;
+ * import com.pulumi.aws.sagemaker.inputs.FeatureGroupFeatureDefinitionArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -52,17 +52,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new FeatureGroup("example", FeatureGroupArgs.builder()
- *             .featureGroupName("example")
- *             .recordIdentifierFeatureName("example")
- *             .eventTimeFeatureName("example")
- *             .roleArn(test.arn())
+ *             .onlineStoreConfig(FeatureGroupOnlineStoreConfigArgs.builder()
+ *                 .enableOnlineStore(true)
+ *                 .build())
  *             .featureDefinitions(FeatureGroupFeatureDefinitionArgs.builder()
  *                 .featureName("example")
  *                 .featureType("String")
  *                 .build())
- *             .onlineStoreConfig(FeatureGroupOnlineStoreConfigArgs.builder()
- *                 .enableOnlineStore(true)
- *                 .build())
+ *             .featureGroupName("example")
+ *             .recordIdentifierFeatureName("example")
+ *             .eventTimeFeatureName("example")
+ *             .roleArn(test.arn())
  *             .build());
  * 
  *     }

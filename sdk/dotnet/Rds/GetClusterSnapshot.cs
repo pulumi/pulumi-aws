@@ -40,6 +40,12 @@ namespace Pulumi.Aws.Rds
         ///         ClusterIdentifier = "development_cluster",
         ///         SnapshotIdentifier = developmentFinalSnapshot.Apply(getClusterSnapshotResult =&gt; getClusterSnapshotResult.Id),
         ///         DbSubnetGroupName = "my_db_subnet_group",
+        ///     }, new CustomResourceOptions
+        ///     {
+        ///         IgnoreChanges =
+        ///         {
+        ///             "snapshotIdentifier",
+        ///         },
         ///     });
         /// 
         ///     var auroraClusterInstance = new Aws.Rds.ClusterInstance("aurora", new()
@@ -84,6 +90,12 @@ namespace Pulumi.Aws.Rds
         ///         ClusterIdentifier = "development_cluster",
         ///         SnapshotIdentifier = developmentFinalSnapshot.Apply(getClusterSnapshotResult =&gt; getClusterSnapshotResult.Id),
         ///         DbSubnetGroupName = "my_db_subnet_group",
+        ///     }, new CustomResourceOptions
+        ///     {
+        ///         IgnoreChanges =
+        ///         {
+        ///             "snapshotIdentifier",
+        ///         },
         ///     });
         /// 
         ///     var auroraClusterInstance = new Aws.Rds.ClusterInstance("aurora", new()
@@ -128,6 +140,12 @@ namespace Pulumi.Aws.Rds
         ///         ClusterIdentifier = "development_cluster",
         ///         SnapshotIdentifier = developmentFinalSnapshot.Apply(getClusterSnapshotResult =&gt; getClusterSnapshotResult.Id),
         ///         DbSubnetGroupName = "my_db_subnet_group",
+        ///     }, new CustomResourceOptions
+        ///     {
+        ///         IgnoreChanges =
+        ///         {
+        ///             "snapshotIdentifier",
+        ///         },
         ///     });
         /// 
         ///     var auroraClusterInstance = new Aws.Rds.ClusterInstance("aurora", new()

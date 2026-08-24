@@ -31,13 +31,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewTrigger(ctx, "example", &glue.TriggerArgs{
-//				Name: pulumi.String("example"),
-//				Type: pulumi.String("CONDITIONAL"),
-//				Actions: glue.TriggerActionArray{
-//					&glue.TriggerActionArgs{
-//						JobName: pulumi.Any(example1.Name),
-//					},
-//				},
 //				Predicate: &glue.TriggerPredicateArgs{
 //					Conditions: glue.TriggerPredicateConditionArray{
 //						&glue.TriggerPredicateConditionArgs{
@@ -46,6 +39,13 @@ import (
 //						},
 //					},
 //				},
+//				Actions: glue.TriggerActionArray{
+//					&glue.TriggerActionArgs{
+//						JobName: pulumi.Any(example1.Name),
+//					},
+//				},
+//				Name: pulumi.String("example"),
+//				Type: pulumi.String("CONDITIONAL"),
 //			})
 //			if err != nil {
 //				return err
@@ -71,13 +71,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewTrigger(ctx, "example", &glue.TriggerArgs{
-//				Name: pulumi.String("example"),
-//				Type: pulumi.String("ON_DEMAND"),
 //				Actions: glue.TriggerActionArray{
 //					&glue.TriggerActionArgs{
 //						JobName: pulumi.Any(exampleAwsGlueJob.Name),
 //					},
 //				},
+//				Name: pulumi.String("example"),
+//				Type: pulumi.String("ON_DEMAND"),
 //			})
 //			if err != nil {
 //				return err
@@ -103,14 +103,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewTrigger(ctx, "example", &glue.TriggerArgs{
-//				Name:     pulumi.String("example"),
-//				Schedule: pulumi.String("cron(15 12 * * ? *)"),
-//				Type:     pulumi.String("SCHEDULED"),
 //				Actions: glue.TriggerActionArray{
 //					&glue.TriggerActionArgs{
 //						JobName: pulumi.Any(exampleAwsGlueJob.Name),
 //					},
 //				},
+//				Name:     pulumi.String("example"),
+//				Schedule: pulumi.String("cron(15 12 * * ? *)"),
+//				Type:     pulumi.String("SCHEDULED"),
 //			})
 //			if err != nil {
 //				return err
@@ -138,13 +138,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewTrigger(ctx, "example", &glue.TriggerArgs{
-//				Name: pulumi.String("example"),
-//				Type: pulumi.String("CONDITIONAL"),
-//				Actions: glue.TriggerActionArray{
-//					&glue.TriggerActionArgs{
-//						CrawlerName: pulumi.Any(example1.Name),
-//					},
-//				},
 //				Predicate: &glue.TriggerPredicateArgs{
 //					Conditions: glue.TriggerPredicateConditionArray{
 //						&glue.TriggerPredicateConditionArgs{
@@ -153,6 +146,13 @@ import (
 //						},
 //					},
 //				},
+//				Actions: glue.TriggerActionArray{
+//					&glue.TriggerActionArgs{
+//						CrawlerName: pulumi.Any(example1.Name),
+//					},
+//				},
+//				Name: pulumi.String("example"),
+//				Type: pulumi.String("CONDITIONAL"),
 //			})
 //			if err != nil {
 //				return err
@@ -180,13 +180,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewTrigger(ctx, "example", &glue.TriggerArgs{
-//				Name: pulumi.String("example"),
-//				Type: pulumi.String("CONDITIONAL"),
-//				Actions: glue.TriggerActionArray{
-//					&glue.TriggerActionArgs{
-//						JobName: pulumi.Any(example1.Name),
-//					},
-//				},
 //				Predicate: &glue.TriggerPredicateArgs{
 //					Conditions: glue.TriggerPredicateConditionArray{
 //						&glue.TriggerPredicateConditionArgs{
@@ -195,6 +188,13 @@ import (
 //						},
 //					},
 //				},
+//				Actions: glue.TriggerActionArray{
+//					&glue.TriggerActionArgs{
+//						JobName: pulumi.Any(example1.Name),
+//					},
+//				},
+//				Name: pulumi.String("example"),
+//				Type: pulumi.String("CONDITIONAL"),
 //			})
 //			if err != nil {
 //				return err

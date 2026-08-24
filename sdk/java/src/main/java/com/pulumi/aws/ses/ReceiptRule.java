@@ -54,11 +54,6 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) }{{@code
  *         // Add a header to the email and store it in S3
  *         var store = new ReceiptRule("store", ReceiptRuleArgs.builder()
- *             .name("store")
- *             .ruleSetName("default-rule-set")
- *             .recipients("karen}{@literal @}{@code example.com")
- *             .enabled(true)
- *             .scanEnabled(true)
  *             .addHeaderActions(ReceiptRuleAddHeaderActionArgs.builder()
  *                 .headerName("Custom-Header")
  *                 .headerValue("Added by SES")
@@ -68,6 +63,11 @@ import javax.annotation.Nullable;
  *                 .bucketName("emails")
  *                 .position(2)
  *                 .build())
+ *             .name("store")
+ *             .ruleSetName("default-rule-set")
+ *             .recipients("karen}{@literal @}{@code example.com")
+ *             .enabled(true)
+ *             .scanEnabled(true)
  *             .build());
  * 
  *     }}{@code

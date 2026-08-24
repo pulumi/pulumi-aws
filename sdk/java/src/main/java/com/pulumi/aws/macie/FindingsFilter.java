@@ -51,16 +51,16 @@ import javax.annotation.Nullable;
  *         var example = new Account("example");
  * 
  *         var test = new FindingsFilter("test", FindingsFilterArgs.builder()
- *             .name("NAME OF THE FINDINGS FILTER")
- *             .description("DESCRIPTION")
- *             .position(1)
- *             .action("ARCHIVE")
  *             .findingCriteria(FindingsFilterFindingCriteriaArgs.builder()
  *                 .criterions(FindingsFilterFindingCriteriaCriterionArgs.builder()
  *                     .field("region")
  *                     .eqs(current.region())
  *                     .build())
  *                 .build())
+ *             .name("NAME OF THE FINDINGS FILTER")
+ *             .description("DESCRIPTION")
+ *             .position(1)
+ *             .action("ARCHIVE")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(testAwsMacie2Account)
  *                 .build());

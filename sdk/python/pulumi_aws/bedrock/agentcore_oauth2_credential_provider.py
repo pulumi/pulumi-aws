@@ -277,14 +277,14 @@ class AgentcoreOauth2CredentialProvider(pulumi.CustomResource):
         import pulumi_aws as aws
 
         github = aws.bedrock.AgentcoreOauth2CredentialProvider("github",
-            name="github-oauth-provider",
-            credential_provider_vendor="GithubOauth2",
             oauth2_provider_config={
                 "github_oauth2_provider_config": {
                     "client_id": "your-github-client-id",
                     "client_secret": "your-github-client-secret",
                 },
-            })
+            },
+            name="github-oauth-provider",
+            credential_provider_vendor="GithubOauth2")
         ```
 
         ### Custom OAuth Provider with Discovery URL
@@ -294,18 +294,18 @@ class AgentcoreOauth2CredentialProvider(pulumi.CustomResource):
         import pulumi_aws as aws
 
         auth0 = aws.bedrock.AgentcoreOauth2CredentialProvider("auth0",
-            name="auth0-oauth-provider",
-            credential_provider_vendor="CustomOauth2",
             custom_oauth2_provider_config=[{
                 "custom": [{
-                    "clientIdWo": "auth0-client-id",
-                    "clientSecretWo": "auth0-client-secret",
-                    "clientCredentialsWoVersion": 1,
                     "oauthDiscovery": [{
                         "discoveryUrl": "https://dev-company.auth0.com/.well-known/openid-configuration",
                     }],
+                    "clientIdWo": "auth0-client-id",
+                    "clientSecretWo": "auth0-client-secret",
+                    "clientCredentialsWoVersion": 1,
                 }],
-            }])
+            }],
+            name="auth0-oauth-provider",
+            credential_provider_vendor="CustomOauth2")
         ```
 
         ### Custom OAuth Provider with Authorization Server Metadata
@@ -315,13 +315,8 @@ class AgentcoreOauth2CredentialProvider(pulumi.CustomResource):
         import pulumi_aws as aws
 
         keycloak = aws.bedrock.AgentcoreOauth2CredentialProvider("keycloak",
-            name="keycloak-oauth-provider",
-            credential_provider_vendor="CustomOauth2",
             oauth2_provider_config={
                 "custom_oauth2_provider_config": {
-                    "client_id_wo": "keycloak-client-id",
-                    "client_secret_wo": "keycloak-client-secret",
-                    "client_credentials_wo_version": 1,
                     "oauth_discovery": {
                         "authorization_server_metadata": {
                             "issuer": "https://auth.company.com/realms/production",
@@ -333,8 +328,13 @@ class AgentcoreOauth2CredentialProvider(pulumi.CustomResource):
                             ],
                         },
                     },
+                    "client_id_wo": "keycloak-client-id",
+                    "client_secret_wo": "keycloak-client-secret",
+                    "client_credentials_wo_version": 1,
                 },
-            })
+            },
+            name="keycloak-oauth-provider",
+            credential_provider_vendor="CustomOauth2")
         ```
 
         ## Import
@@ -376,14 +376,14 @@ class AgentcoreOauth2CredentialProvider(pulumi.CustomResource):
         import pulumi_aws as aws
 
         github = aws.bedrock.AgentcoreOauth2CredentialProvider("github",
-            name="github-oauth-provider",
-            credential_provider_vendor="GithubOauth2",
             oauth2_provider_config={
                 "github_oauth2_provider_config": {
                     "client_id": "your-github-client-id",
                     "client_secret": "your-github-client-secret",
                 },
-            })
+            },
+            name="github-oauth-provider",
+            credential_provider_vendor="GithubOauth2")
         ```
 
         ### Custom OAuth Provider with Discovery URL
@@ -393,18 +393,18 @@ class AgentcoreOauth2CredentialProvider(pulumi.CustomResource):
         import pulumi_aws as aws
 
         auth0 = aws.bedrock.AgentcoreOauth2CredentialProvider("auth0",
-            name="auth0-oauth-provider",
-            credential_provider_vendor="CustomOauth2",
             custom_oauth2_provider_config=[{
                 "custom": [{
-                    "clientIdWo": "auth0-client-id",
-                    "clientSecretWo": "auth0-client-secret",
-                    "clientCredentialsWoVersion": 1,
                     "oauthDiscovery": [{
                         "discoveryUrl": "https://dev-company.auth0.com/.well-known/openid-configuration",
                     }],
+                    "clientIdWo": "auth0-client-id",
+                    "clientSecretWo": "auth0-client-secret",
+                    "clientCredentialsWoVersion": 1,
                 }],
-            }])
+            }],
+            name="auth0-oauth-provider",
+            credential_provider_vendor="CustomOauth2")
         ```
 
         ### Custom OAuth Provider with Authorization Server Metadata
@@ -414,13 +414,8 @@ class AgentcoreOauth2CredentialProvider(pulumi.CustomResource):
         import pulumi_aws as aws
 
         keycloak = aws.bedrock.AgentcoreOauth2CredentialProvider("keycloak",
-            name="keycloak-oauth-provider",
-            credential_provider_vendor="CustomOauth2",
             oauth2_provider_config={
                 "custom_oauth2_provider_config": {
-                    "client_id_wo": "keycloak-client-id",
-                    "client_secret_wo": "keycloak-client-secret",
-                    "client_credentials_wo_version": 1,
                     "oauth_discovery": {
                         "authorization_server_metadata": {
                             "issuer": "https://auth.company.com/realms/production",
@@ -432,8 +427,13 @@ class AgentcoreOauth2CredentialProvider(pulumi.CustomResource):
                             ],
                         },
                     },
+                    "client_id_wo": "keycloak-client-id",
+                    "client_secret_wo": "keycloak-client-secret",
+                    "client_credentials_wo_version": 1,
                 },
-            })
+            },
+            name="keycloak-oauth-provider",
+            credential_provider_vendor="CustomOauth2")
         ```
 
         ## Import

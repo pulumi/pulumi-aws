@@ -24,11 +24,11 @@ namespace Pulumi.Aws.Iot
     /// {
     ///     var example = new Aws.Iot.BillingGroup("example", new()
     ///     {
-    ///         Name = "example",
     ///         Properties = new Aws.Iot.Inputs.BillingGroupPropertiesArgs
     ///         {
     ///             Description = "This is my billing group",
     ///         },
+    ///         Name = "example",
     ///         Tags = 
     ///         {
     ///             { "terraform", "true" },

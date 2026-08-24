@@ -66,18 +66,18 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleService = new Service("exampleService", ServiceArgs.builder()
- *             .name("example")
  *             .dnsConfig(ServiceDnsConfigArgs.builder()
- *                 .namespaceId(examplePrivateDnsNamespace.id())
  *                 .dnsRecords(ServiceDnsConfigDnsRecordArgs.builder()
  *                     .ttl(10)
  *                     .type("A")
  *                     .build())
+ *                 .namespaceId(examplePrivateDnsNamespace.id())
  *                 .routingPolicy("MULTIVALUE")
  *                 .build())
  *             .healthCheckConfig(ServiceHealthCheckConfigArgs.builder()
  *                 .failureThreshold(1)
  *                 .build())
+ *             .name("example")
  *             .build());
  * 
  *     }
@@ -118,19 +118,19 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleService = new Service("exampleService", ServiceArgs.builder()
- *             .name("example")
  *             .dnsConfig(ServiceDnsConfigArgs.builder()
- *                 .namespaceId(example.id())
  *                 .dnsRecords(ServiceDnsConfigDnsRecordArgs.builder()
  *                     .ttl(10)
  *                     .type("A")
  *                     .build())
+ *                 .namespaceId(example.id())
  *                 .build())
  *             .healthCheckConfig(ServiceHealthCheckConfigArgs.builder()
  *                 .failureThreshold(10)
  *                 .resourcePath("path")
  *                 .type("HTTP")
  *                 .build())
+ *             .name("example")
  *             .build());
  * 
  *     }

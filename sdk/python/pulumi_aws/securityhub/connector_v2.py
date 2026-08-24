@@ -323,12 +323,12 @@ class ConnectorV2(pulumi.CustomResource):
         example_aggregator_v2 = aws.securityhub.AggregatorV2("example", region_linking_mode="ALL_REGIONS",
         opts = pulumi.ResourceOptions(depends_on=[example]))
         example_connector_v2 = aws.securityhub.ConnectorV2("example",
-            name="jira-connector",
             connector_provider={
                 "jira_cloud": {
                     "project_key": "SEC",
                 },
             },
+            name="jira-connector",
             opts = pulumi.ResourceOptions(depends_on=[example_aggregator_v2]))
         pulumi.export("authUrl", example_connector_v2.auth_url)
         ```
@@ -340,14 +340,14 @@ class ConnectorV2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.securityhub.ConnectorV2("example",
-            name="jira-connector",
-            description="Jira Cloud integration for security findings",
-            kms_key_arn=example_aws_kms_key["arn"],
             connector_provider={
                 "jira_cloud": {
                     "project_key": "SEC",
                 },
             },
+            name="jira-connector",
+            description="Jira Cloud integration for security findings",
+            kms_key_arn=example_aws_kms_key["arn"],
             opts = pulumi.ResourceOptions(depends_on=[example_aws_securityhub_aggregator_v2]))
         ```
 
@@ -405,12 +405,12 @@ class ConnectorV2(pulumi.CustomResource):
         example_aggregator_v2 = aws.securityhub.AggregatorV2("example", region_linking_mode="ALL_REGIONS",
         opts = pulumi.ResourceOptions(depends_on=[example]))
         example_connector_v2 = aws.securityhub.ConnectorV2("example",
-            name="jira-connector",
             connector_provider={
                 "jira_cloud": {
                     "project_key": "SEC",
                 },
             },
+            name="jira-connector",
             opts = pulumi.ResourceOptions(depends_on=[example_aggregator_v2]))
         pulumi.export("authUrl", example_connector_v2.auth_url)
         ```
@@ -422,14 +422,14 @@ class ConnectorV2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.securityhub.ConnectorV2("example",
-            name="jira-connector",
-            description="Jira Cloud integration for security findings",
-            kms_key_arn=example_aws_kms_key["arn"],
             connector_provider={
                 "jira_cloud": {
                     "project_key": "SEC",
                 },
             },
+            name="jira-connector",
+            description="Jira Cloud integration for security findings",
+            kms_key_arn=example_aws_kms_key["arn"],
             opts = pulumi.ResourceOptions(depends_on=[example_aws_securityhub_aggregator_v2]))
         ```
 

@@ -134,24 +134,24 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCatalogTable = new CatalogTable("exampleCatalogTable", CatalogTableArgs.builder()
- *             .name("abelt")
- *             .databaseName(test.name())
  *             .storageDescriptor(CatalogTableStorageDescriptorArgs.builder()
  *                 .columns(CatalogTableStorageDescriptorColumnArgs.builder()
  *                     .name("event")
  *                     .type("string")
  *                     .build())
  *                 .build())
+ *             .name("abelt")
+ *             .databaseName(test.name())
  *             .build());
  * 
  *         var examplePermissions = new Permissions("examplePermissions", PermissionsArgs.builder()
- *             .permissions("SELECT")
- *             .principal("arn:aws:iam:us-east-1:123456789012:user/SanHolo")
  *             .tableWithColumns(PermissionsTableWithColumnsArgs.builder()
  *                 .databaseName(exampleCatalogTable.databaseName())
  *                 .name(exampleCatalogTable.name())
  *                 .columnNames("event")
  *                 .build())
+ *             .permissions("SELECT")
+ *             .principal("arn:aws:iam:us-east-1:123456789012:user/SanHolo")
  *             .build());
  * 
  *     }
@@ -193,13 +193,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Permissions("example", PermissionsArgs.builder()
- *             .permissions("SELECT")
- *             .principal("123456789012:IAMPrincipals")
  *             .tableWithColumns(PermissionsTableWithColumnsArgs.builder()
  *                 .databaseName(exampleAwsGlueCatalogTable.databaseName())
  *                 .name(exampleAwsGlueCatalogTable.name())
  *                 .columnNames("event")
  *                 .build())
+ *             .permissions("SELECT")
+ *             .principal("123456789012:IAMPrincipals")
  *             .build());
  * 
  *     }
@@ -241,11 +241,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Permissions("example", PermissionsArgs.builder()
- *             .principal(workflowRole.arn())
- *             .permissions("DATA_LOCATION_ACCESS")
  *             .dataLocation(PermissionsDataLocationArgs.builder()
  *                 .arn(exampleAwsLakeformationResource.arn())
  *                 .build())
+ *             .principal(workflowRole.arn())
+ *             .permissions("DATA_LOCATION_ACCESS")
  *             .build());
  * 
  *     }
@@ -279,15 +279,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Permissions("example", PermissionsArgs.builder()
+ *             .database(PermissionsDatabaseArgs.builder()
+ *                 .name(exampleAwsGlueCatalogDatabase.name())
+ *                 .catalogId("110376042874")
+ *                 .build())
  *             .principal(workflowRole.arn())
  *             .permissions(            
  *                 "CREATE_TABLE",
  *                 "ALTER",
  *                 "DROP")
- *             .database(PermissionsDatabaseArgs.builder()
- *                 .name(exampleAwsGlueCatalogDatabase.name())
- *                 .catalogId("110376042874")
- *                 .build())
  *             .build());
  * 
  *     }
@@ -322,13 +322,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Permissions("test", PermissionsArgs.builder()
- *             .principal(salesRole.arn())
- *             .permissions(            
- *                 "CREATE_TABLE",
- *                 "ALTER",
- *                 "DROP")
  *             .lfTagPolicy(PermissionsLfTagPolicyArgs.builder()
- *                 .resourceType("DATABASE")
  *                 .expressions(                
  *                     PermissionsLfTagPolicyExpressionArgs.builder()
  *                         .key("Team")
@@ -340,7 +334,13 @@ import javax.annotation.Nullable;
  *                             "Dev",
  *                             "Production")
  *                         .build())
+ *                 .resourceType("DATABASE")
  *                 .build())
+ *             .principal(salesRole.arn())
+ *             .permissions(            
+ *                 "CREATE_TABLE",
+ *                 "ALTER",
+ *                 "DROP")
  *             .build());
  * 
  *     }

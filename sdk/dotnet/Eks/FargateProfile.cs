@@ -24,10 +24,6 @@ namespace Pulumi.Aws.Eks
     /// {
     ///     var example = new Aws.Eks.FargateProfile("example", new()
     ///     {
-    ///         ClusterName = exampleAwsEksCluster.Name,
-    ///         FargateProfileName = "example",
-    ///         PodExecutionRoleArn = exampleAwsIamRole.Arn,
-    ///         SubnetIds = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
     ///         Selectors = new[]
     ///         {
     ///             new Aws.Eks.Inputs.FargateProfileSelectorArgs
@@ -35,6 +31,10 @@ namespace Pulumi.Aws.Eks
     ///                 Namespace = "example",
     ///             },
     ///         },
+    ///         ClusterName = exampleAwsEksCluster.Name,
+    ///         FargateProfileName = "example",
+    ///         PodExecutionRoleArn = exampleAwsIamRole.Arn,
+    ///         SubnetIds = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
     ///     });
     /// 
     /// });

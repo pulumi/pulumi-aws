@@ -205,14 +205,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var customSemantic = new AgentcoreMemoryStrategy("customSemantic", AgentcoreMemoryStrategyArgs.builder()
- *             .name("custom-semantic-strategy")
- *             .memoryId(example.id())
- *             .memoryExecutionRoleArn(example.memoryExecutionRoleArn())
- *             .type("CUSTOM")
- *             .description("Custom semantic processing strategy")
- *             .namespaceTemplates("{sessionId}")
  *             .configuration(AgentcoreMemoryStrategyConfigurationArgs.builder()
- *                 .type("SEMANTIC_OVERRIDE")
  *                 .consolidation(AgentcoreMemoryStrategyConfigurationConsolidationArgs.builder()
  *                     .appendToPrompt("Focus on extracting key semantic relationships and concepts")
  *                     .modelId("anthropic.claude-3-sonnet-20240229-v1:0")
@@ -221,7 +214,14 @@ import javax.annotation.Nullable;
  *                     .appendToPrompt("Extract and categorize semantic information")
  *                     .modelId("anthropic.claude-3-haiku-20240307-v1:0")
  *                     .build())
+ *                 .type("SEMANTIC_OVERRIDE")
  *                 .build())
+ *             .name("custom-semantic-strategy")
+ *             .memoryId(example.id())
+ *             .memoryExecutionRoleArn(example.memoryExecutionRoleArn())
+ *             .type("CUSTOM")
+ *             .description("Custom semantic processing strategy")
+ *             .namespaceTemplates("{sessionId}")
  *             .build());
  * 
  *     }
@@ -256,18 +256,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var customSummary = new AgentcoreMemoryStrategy("customSummary", AgentcoreMemoryStrategyArgs.builder()
+ *             .configuration(AgentcoreMemoryStrategyConfigurationArgs.builder()
+ *                 .consolidation(AgentcoreMemoryStrategyConfigurationConsolidationArgs.builder()
+ *                     .appendToPrompt("Create concise summaries while preserving key details")
+ *                     .modelId("anthropic.claude-3-sonnet-20240229-v1:0")
+ *                     .build())
+ *                 .type("SUMMARY_OVERRIDE")
+ *                 .build())
  *             .name("custom-summary-strategy")
  *             .memoryId(example.id())
  *             .type("CUSTOM")
  *             .description("Custom summarization strategy")
  *             .namespaceTemplates("summaries")
- *             .configuration(AgentcoreMemoryStrategyConfigurationArgs.builder()
- *                 .type("SUMMARY_OVERRIDE")
- *                 .consolidation(AgentcoreMemoryStrategyConfigurationConsolidationArgs.builder()
- *                     .appendToPrompt("Create concise summaries while preserving key details")
- *                     .modelId("anthropic.claude-3-sonnet-20240229-v1:0")
- *                     .build())
- *                 .build())
  *             .build());
  * 
  *     }
@@ -303,13 +303,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var customUserPref = new AgentcoreMemoryStrategy("customUserPref", AgentcoreMemoryStrategyArgs.builder()
- *             .name("custom-user-preference-strategy")
- *             .memoryId(example.id())
- *             .type("CUSTOM")
- *             .description("Custom user preference tracking strategy")
- *             .namespaceTemplates("user_prefs")
  *             .configuration(AgentcoreMemoryStrategyConfigurationArgs.builder()
- *                 .type("USER_PREFERENCE_OVERRIDE")
  *                 .consolidation(AgentcoreMemoryStrategyConfigurationConsolidationArgs.builder()
  *                     .appendToPrompt("Consolidate user preferences and behavioral patterns")
  *                     .modelId("anthropic.claude-3-sonnet-20240229-v1:0")
@@ -318,7 +312,13 @@ import javax.annotation.Nullable;
  *                     .appendToPrompt("Extract user preferences and interaction patterns")
  *                     .modelId("anthropic.claude-3-haiku-20240307-v1:0")
  *                     .build())
+ *                 .type("USER_PREFERENCE_OVERRIDE")
  *                 .build())
+ *             .name("custom-user-preference-strategy")
+ *             .memoryId(example.id())
+ *             .type("CUSTOM")
+ *             .description("Custom user preference tracking strategy")
+ *             .namespaceTemplates("user_prefs")
  *             .build());
  * 
  *     }
@@ -354,14 +354,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var customEpisodic = new AgentcoreMemoryStrategy("customEpisodic", AgentcoreMemoryStrategyArgs.builder()
- *             .name("custom-episodic-strategy")
- *             .memoryId(example.id())
- *             .memoryExecutionRoleArn(example.memoryExecutionRoleArn())
- *             .type("CUSTOM")
- *             .description("Custom episodic processing strategy")
- *             .namespaceTemplates("/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}")
  *             .configuration(AgentcoreMemoryStrategyConfigurationArgs.builder()
- *                 .type("EPISODIC_OVERRIDE")
  *                 .consolidation(AgentcoreMemoryStrategyConfigurationConsolidationArgs.builder()
  *                     .appendToPrompt("Consolidate episodic memories into coherent narratives")
  *                     .modelId("anthropic.claude-3-sonnet-20240229-v1:0")
@@ -370,7 +363,14 @@ import javax.annotation.Nullable;
  *                     .appendToPrompt("Extract key events and episodes from interactions")
  *                     .modelId("anthropic.claude-3-haiku-20240307-v1:0")
  *                     .build())
+ *                 .type("EPISODIC_OVERRIDE")
  *                 .build())
+ *             .name("custom-episodic-strategy")
+ *             .memoryId(example.id())
+ *             .memoryExecutionRoleArn(example.memoryExecutionRoleArn())
+ *             .type("CUSTOM")
+ *             .description("Custom episodic processing strategy")
+ *             .namespaceTemplates("/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}")
  *             .build());
  * 
  *     }
