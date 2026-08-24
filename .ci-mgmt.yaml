@@ -26,6 +26,7 @@ XrunUpstreamTools: true
 pulumiConvert: 1
 allowMissingDocs: false
 goBuildParallelism: 2
+fullGoCache: true
 aws: true
 releaseVerification:
     nodejs: examples/release-verification
