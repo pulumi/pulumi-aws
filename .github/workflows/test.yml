@@ -60,11 +60,6 @@ jobs:
         app-id: ${{ steps.esc-secrets.outputs.PULUMI_PROVIDER_AUTOMATION_APP_ID }}
         private-key: ${{ steps.esc-secrets.outputs.PULUMI_PROVIDER_AUTOMATION_PRIVATE_KEY }}
         owner: ${{ github.repository_owner }}
-    - name: Checkout p/examples
-      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      with:
-        repository: pulumi/examples
-        path: p-examples
     - name: Setup mise
       uses: jdx/mise-action@8d3b0ba20a9cea7b883d922ea958553c941ab082
       env:
@@ -75,6 +70,16 @@ jobs:
         github_token: ${{ steps.app-auth.outputs.token }}
         # also save this cache since we are using a different mise env.
         cache_save: true
+    - name: Setup Go cache
+      uses: ./.github/actions/setup-go-cache
+      with:
+        cache-key: integration-tests
+        save: ${{ matrix.current-shard == 0 }}
+    - name: Checkout p/examples
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      with:
+        repository: pulumi/examples
+        path: p-examples
     - name: Prepare local workspace
       run: make prepare_local_workspace
       env:

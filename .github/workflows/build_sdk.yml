@@ -80,16 +80,11 @@ jobs:
           github_token: ${{ steps.app-auth.outputs.token }}
           # only saving the cache in the prerequisites job
           cache_save: false
-      - name: Setup Go Cache
+      - name: Setup Go cache
         if: matrix.language == 'go' || contains(matrix.language, 'go')
-        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
+        uses: ./.github/actions/setup-go-cache
         with:
-          cache-dependency-path: |
-            provider/*.sum
-            upstream/*.sum
-            sdk/go/*.sum
-            sdk/*.sum
-            *.sum
+          cache-key: sdk-go
       - name: Prepare local workspace
         run: make prepare_local_workspace
         env:
@@ -129,9 +124,13 @@ jobs:
           git config --global user.email "bot@pulumi.com"
           git config --global user.name "pulumi-bot"
 
-          # Stash local changes and check out the PR's branch directly.
+          # Stash local changes and check out the PR's branch directly. Fetch
+          # only that ref: a bare fetch pulls every branch in the repo, and
+          # on-demand submodule recursion then tries to resolve the submodule
+          # gitlink of every commit it pulls, including long-dead branches
+          # pointing at commits the submodule's remote no longer serves.
           git stash
-          git fetch
+          git fetch --no-recurse-submodules origin "+refs/heads/$HEAD_REF:refs/remotes/origin/$HEAD_REF"
           git checkout "origin/$HEAD_REF"
 
           # Apply and add our changes, but don't commit any files we expect to
