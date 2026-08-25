@@ -129,9 +129,13 @@ jobs:
           git config --global user.email "bot@pulumi.com"
           git config --global user.name "pulumi-bot"
 
-          # Stash local changes and check out the PR's branch directly.
+          # Stash local changes and check out the PR's branch directly. Fetch
+          # only that ref: a bare fetch pulls every branch in the repo, and
+          # on-demand submodule recursion then tries to resolve the submodule
+          # gitlink of every commit it pulls, including long-dead branches
+          # pointing at commits the submodule's remote no longer serves.
           git stash
-          git fetch
+          git fetch --no-recurse-submodules origin "+refs/heads/$HEAD_REF:refs/remotes/origin/$HEAD_REF"
           git checkout "origin/$HEAD_REF"
 
           # Apply and add our changes, but don't commit any files we expect to
