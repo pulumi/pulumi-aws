@@ -20,9 +20,14 @@ env:
   PULUMI_PULUMI_ENABLE_JOURNALING: "true"
   TF_APPEND_USER_AGENT: pulumi
 
-# This should cancel any previous runs of the same workflow on the same branch which are still running.
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  # Split the group by actor so a Renovate PR's run is not cancelled by the SDK
+  # commits its own build_sdk jobs push back to the branch. Those pushes are
+  # `synchronize` events by pulumi-bot, which now land in a separate group;
+  # without this the first language to push cancels the run the other four are
+  # still building in. A genuinely new Renovate force-push shares the group and
+  # still supersedes the stale run it replaces.
+  group: ${{ github.workflow }}-${{ github.ref }}-${{ contains(github.actor, 'renovate') && 'renovate' || 'other' }}
   cancel-in-progress: true
 
 jobs:
