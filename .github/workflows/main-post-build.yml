@@ -67,15 +67,10 @@ jobs:
           github_token: ${{ steps.app-auth.outputs.token }}
           # only saving the cache in the prerequisites job
           cache_save: false
-      - name: Setup Go Cache
-        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
+      - name: Setup Go cache
+        uses: ./.github/actions/setup-go-cache
         with:
-          cache-dependency-path: |
-            provider/*.sum
-            upstream/*.sum
-            sdk/go/*.sum
-            sdk/*.sum
-            *.sum
+          cache-key: coverage
       - name: Echo Coverage Output Dir
         run: 'echo "Coverage output directory: ${{ env.COVERAGE_OUTPUT_DIR }}"'
       - name: Generate Coverage Data
