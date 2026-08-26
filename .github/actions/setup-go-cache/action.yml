@@ -1,0 +1,77 @@
+name: Setup Go cache
+description: Restore Go module and build caches for generated provider workflows
+
+inputs:
+  cache-key:
+    description: Identifies the workload that writes the build cache
+    required: true
+  target-os:
+    description: GOOS compiled by this workload; defaults to the host GOOS
+    required: false
+    default: ""
+  target-arch:
+    description: GOARCH compiled by this workload; defaults to the host GOARCH
+    required: false
+    default: ""
+  prime-modules:
+    description: Download dependencies for the checked-out Go modules before saving the module cache
+    required: false
+    default: "false"
+
+runs:
+  using: composite
+  steps:
+    - name: Get Go cache configuration
+      id: cache-config
+      shell: bash
+      env:
+        TARGET_OS: ${{ inputs.target-os }}
+        TARGET_ARCH: ${{ inputs.target-arch }}
+      run: |
+        set -euo pipefail
+        echo "build-cache=$(go env GOCACHE)" >> "$GITHUB_OUTPUT"
+        echo "module-cache=$(go env GOMODCACHE)" >> "$GITHUB_OUTPUT"
+        echo "go-version=$(go env GOVERSION)" >> "$GITHUB_OUTPUT"
+        echo "target-os=${TARGET_OS:-$(go env GOOS)}" >> "$GITHUB_OUTPUT"
+        echo "target-arch=${TARGET_ARCH:-$(go env GOARCH)}" >> "$GITHUB_OUTPUT"
+
+    - name: Prepare Go module cache restore
+      shell: bash
+      env:
+        MODULE_CACHE: ${{ steps.cache-config.outputs.module-cache }}
+      run: |
+        set -euo pipefail
+        if [[ -z "$MODULE_CACHE" || "$MODULE_CACHE" == "/" ]]; then
+          echo "Refusing to remove unsafe Go module cache path: '$MODULE_CACHE'" >&2
+          exit 1
+        fi
+        rm -rf -- "$MODULE_CACHE"
+
+    - name: Restore and save Go module cache
+      uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6
+      with:
+        path: ${{ steps.cache-config.outputs.module-cache }}
+        key: go-mod-v2-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('**/go.sum') }}
+        restore-keys: |
+          go-mod-v2-${{ runner.os }}-${{ runner.arch }}-
+
+    - name: Prime Go module cache
+      if: inputs.prime-modules == 'true'
+      shell: bash
+      run: |
+        set -euo pipefail
+        while IFS= read -r -d '' dependency_file; do
+          module_dir=$(dirname "$dependency_file")
+          if [[ -f "$module_dir/go.mod" ]]; then
+            (cd "$module_dir" && go mod download)
+          fi
+        done < <(find . -type f -name go.sum -not -path './.git/*' -print0 | sort -z)
+
+    - name: Restore and save Go build cache
+      uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6
+      with:
+        path: ${{ steps.cache-config.outputs.build-cache }}
+        key: go-build-v2-${{ steps.cache-config.outputs.target-os }}-${{ steps.cache-config.outputs.target-arch }}-${{ steps.cache-config.outputs.go-version }}-${{ inputs.cache-key }}-${{ hashFiles('**/*.go', '**/go.sum') }}
+        restore-keys: |
+          go-build-v2-${{ steps.cache-config.outputs.target-os }}-${{ steps.cache-config.outputs.target-arch }}-${{ steps.cache-config.outputs.go-version }}-${{ inputs.cache-key }}-
+          go-build-v2-${{ steps.cache-config.outputs.target-os }}-${{ steps.cache-config.outputs.target-arch }}-${{ steps.cache-config.outputs.go-version }}-
