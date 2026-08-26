@@ -3,6 +3,7 @@ lint: false
 major-version: 7
 parallel: 1
 shards: 8
+fullGoCache: true
 timeout: 150
 disableMajorProviderUpgrades: true
 generate-nightly-test-workflow: true
