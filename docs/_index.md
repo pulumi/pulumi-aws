@@ -110,12 +110,9 @@ outputs:
 
 Visit the [How-to Guides](./how-to-guides) to find step-by-step guides for specific scenarios like creating a serverless application or setting up Athena search.
 
-## Components
+## Learn More
 
-Pulumi offers Components that provide simpler interfaces and higher-productivity APIs for many areas of AWS:
-
-* [Amazon EKS](/registry/packages/eks)
-* [Crosswalk for AWS](/docs/guides/crosswalk/aws), which includes API Gateway, CloudWatch, Elastic Container Registry, Elastic Container Service, Elastic Kubernetes Service, Elastic Load Balancing, Identity & Access Management, Lambda, Virtual Private Cloud, and more
+For a complete catalog of resources for using Pulumi with AWS, including components, guides, examples, policy packs and more , see [the AWS integrations page](/docs/integrations/clouds/aws/) in the Pulumi docs.
 
 ## Migrations
 
