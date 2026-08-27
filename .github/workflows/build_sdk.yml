@@ -161,7 +161,12 @@ jobs:
             fi
             echo "Push rejected (attempt $attempt); rebasing onto the current tip."
             git fetch --no-recurse-submodules origin "+refs/heads/$HEAD_REF:refs/remotes/origin/$HEAD_REF"
-            git rebase "refs/remotes/origin/$HEAD_REF"
+            # --autostash because the `git reset` above deliberately leaves the
+            # always-changing files modified, and rebase refuses a dirty tree.
+            if ! git rebase --autostash "refs/remotes/origin/$HEAD_REF"; then
+              echo "::error::Rebase onto $HEAD_REF failed; the ${{ matrix.language }} SDK commit must be applied by hand."
+              exit 1
+            fi
           done
           echo "::error::Could not push the SDK commit after 3 attempts."
           exit 1
