@@ -184,12 +184,8 @@ type LookupAmiResult struct {
 }
 
 func LookupAmiOutput(ctx *pulumi.Context, args LookupAmiOutputArgs, opts ...pulumi.InvokeOption) LookupAmiResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAmiResultOutput, error) {
-			args := v.(LookupAmiArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ec2/getAmi:getAmi", args, LookupAmiResultOutput{}, options).(LookupAmiResultOutput), nil
-		}).(LookupAmiResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ec2/getAmi:getAmi", args, LookupAmiResultOutput{}, options).(LookupAmiResultOutput)
 }
 
 // A collection of arguments for invoking getAmi.

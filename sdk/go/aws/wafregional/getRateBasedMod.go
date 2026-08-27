@@ -65,12 +65,8 @@ type GetRateBasedModResult struct {
 }
 
 func GetRateBasedModOutput(ctx *pulumi.Context, args GetRateBasedModOutputArgs, opts ...pulumi.InvokeOption) GetRateBasedModResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetRateBasedModResultOutput, error) {
-			args := v.(GetRateBasedModArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:wafregional/getRateBasedMod:getRateBasedMod", args, GetRateBasedModResultOutput{}, options).(GetRateBasedModResultOutput), nil
-		}).(GetRateBasedModResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:wafregional/getRateBasedMod:getRateBasedMod", args, GetRateBasedModResultOutput{}, options).(GetRateBasedModResultOutput)
 }
 
 // A collection of arguments for invoking getRateBasedMod.

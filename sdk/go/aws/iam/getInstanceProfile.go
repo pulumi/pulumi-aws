@@ -76,12 +76,8 @@ type LookupInstanceProfileResult struct {
 }
 
 func LookupInstanceProfileOutput(ctx *pulumi.Context, args LookupInstanceProfileOutputArgs, opts ...pulumi.InvokeOption) LookupInstanceProfileResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupInstanceProfileResultOutput, error) {
-			args := v.(LookupInstanceProfileArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:iam/getInstanceProfile:getInstanceProfile", args, LookupInstanceProfileResultOutput{}, options).(LookupInstanceProfileResultOutput), nil
-		}).(LookupInstanceProfileResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:iam/getInstanceProfile:getInstanceProfile", args, LookupInstanceProfileResultOutput{}, options).(LookupInstanceProfileResultOutput)
 }
 
 // A collection of arguments for invoking getInstanceProfile.

@@ -75,12 +75,8 @@ type GetProducerDataSharesResult struct {
 }
 
 func GetProducerDataSharesOutput(ctx *pulumi.Context, args GetProducerDataSharesOutputArgs, opts ...pulumi.InvokeOption) GetProducerDataSharesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetProducerDataSharesResultOutput, error) {
-			args := v.(GetProducerDataSharesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:redshift/getProducerDataShares:getProducerDataShares", args, GetProducerDataSharesResultOutput{}, options).(GetProducerDataSharesResultOutput), nil
-		}).(GetProducerDataSharesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:redshift/getProducerDataShares:getProducerDataShares", args, GetProducerDataSharesResultOutput{}, options).(GetProducerDataSharesResultOutput)
 }
 
 // A collection of arguments for invoking getProducerDataShares.

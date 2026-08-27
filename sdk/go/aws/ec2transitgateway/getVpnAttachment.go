@@ -113,12 +113,8 @@ type GetVpnAttachmentResult struct {
 }
 
 func GetVpnAttachmentOutput(ctx *pulumi.Context, args GetVpnAttachmentOutputArgs, opts ...pulumi.InvokeOption) GetVpnAttachmentResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetVpnAttachmentResultOutput, error) {
-			args := v.(GetVpnAttachmentArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ec2transitgateway/getVpnAttachment:getVpnAttachment", args, GetVpnAttachmentResultOutput{}, options).(GetVpnAttachmentResultOutput), nil
-		}).(GetVpnAttachmentResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ec2transitgateway/getVpnAttachment:getVpnAttachment", args, GetVpnAttachmentResultOutput{}, options).(GetVpnAttachmentResultOutput)
 }
 
 // A collection of arguments for invoking getVpnAttachment.

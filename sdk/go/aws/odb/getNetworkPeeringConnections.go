@@ -64,12 +64,8 @@ type GetNetworkPeeringConnectionsResult struct {
 }
 
 func GetNetworkPeeringConnectionsOutput(ctx *pulumi.Context, args GetNetworkPeeringConnectionsOutputArgs, opts ...pulumi.InvokeOption) GetNetworkPeeringConnectionsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetNetworkPeeringConnectionsResultOutput, error) {
-			args := v.(GetNetworkPeeringConnectionsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:odb/getNetworkPeeringConnections:getNetworkPeeringConnections", args, GetNetworkPeeringConnectionsResultOutput{}, options).(GetNetworkPeeringConnectionsResultOutput), nil
-		}).(GetNetworkPeeringConnectionsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:odb/getNetworkPeeringConnections:getNetworkPeeringConnections", args, GetNetworkPeeringConnectionsResultOutput{}, options).(GetNetworkPeeringConnectionsResultOutput)
 }
 
 // A collection of arguments for invoking getNetworkPeeringConnections.

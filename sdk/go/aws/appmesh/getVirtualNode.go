@@ -86,12 +86,8 @@ type LookupVirtualNodeResult struct {
 }
 
 func LookupVirtualNodeOutput(ctx *pulumi.Context, args LookupVirtualNodeOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualNodeResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVirtualNodeResultOutput, error) {
-			args := v.(LookupVirtualNodeArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:appmesh/getVirtualNode:getVirtualNode", args, LookupVirtualNodeResultOutput{}, options).(LookupVirtualNodeResultOutput), nil
-		}).(LookupVirtualNodeResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:appmesh/getVirtualNode:getVirtualNode", args, LookupVirtualNodeResultOutput{}, options).(LookupVirtualNodeResultOutput)
 }
 
 // A collection of arguments for invoking getVirtualNode.

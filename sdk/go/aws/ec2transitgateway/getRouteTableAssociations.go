@@ -77,12 +77,8 @@ type GetRouteTableAssociationsResult struct {
 }
 
 func GetRouteTableAssociationsOutput(ctx *pulumi.Context, args GetRouteTableAssociationsOutputArgs, opts ...pulumi.InvokeOption) GetRouteTableAssociationsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetRouteTableAssociationsResultOutput, error) {
-			args := v.(GetRouteTableAssociationsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ec2transitgateway/getRouteTableAssociations:getRouteTableAssociations", args, GetRouteTableAssociationsResultOutput{}, options).(GetRouteTableAssociationsResultOutput), nil
-		}).(GetRouteTableAssociationsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ec2transitgateway/getRouteTableAssociations:getRouteTableAssociations", args, GetRouteTableAssociationsResultOutput{}, options).(GetRouteTableAssociationsResultOutput)
 }
 
 // A collection of arguments for invoking getRouteTableAssociations.

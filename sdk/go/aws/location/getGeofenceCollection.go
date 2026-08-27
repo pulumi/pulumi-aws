@@ -83,12 +83,8 @@ type LookupGeofenceCollectionResult struct {
 }
 
 func LookupGeofenceCollectionOutput(ctx *pulumi.Context, args LookupGeofenceCollectionOutputArgs, opts ...pulumi.InvokeOption) LookupGeofenceCollectionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupGeofenceCollectionResultOutput, error) {
-			args := v.(LookupGeofenceCollectionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:location/getGeofenceCollection:getGeofenceCollection", args, LookupGeofenceCollectionResultOutput{}, options).(LookupGeofenceCollectionResultOutput), nil
-		}).(LookupGeofenceCollectionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:location/getGeofenceCollection:getGeofenceCollection", args, LookupGeofenceCollectionResultOutput{}, options).(LookupGeofenceCollectionResultOutput)
 }
 
 // A collection of arguments for invoking getGeofenceCollection.

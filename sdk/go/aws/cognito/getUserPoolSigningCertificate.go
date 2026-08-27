@@ -67,12 +67,8 @@ type GetUserPoolSigningCertificateResult struct {
 }
 
 func GetUserPoolSigningCertificateOutput(ctx *pulumi.Context, args GetUserPoolSigningCertificateOutputArgs, opts ...pulumi.InvokeOption) GetUserPoolSigningCertificateResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetUserPoolSigningCertificateResultOutput, error) {
-			args := v.(GetUserPoolSigningCertificateArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:cognito/getUserPoolSigningCertificate:getUserPoolSigningCertificate", args, GetUserPoolSigningCertificateResultOutput{}, options).(GetUserPoolSigningCertificateResultOutput), nil
-		}).(GetUserPoolSigningCertificateResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:cognito/getUserPoolSigningCertificate:getUserPoolSigningCertificate", args, GetUserPoolSigningCertificateResultOutput{}, options).(GetUserPoolSigningCertificateResultOutput)
 }
 
 // A collection of arguments for invoking getUserPoolSigningCertificate.

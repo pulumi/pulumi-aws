@@ -53,12 +53,8 @@ type GetSubnetsResult struct {
 }
 
 func GetSubnetsOutput(ctx *pulumi.Context, args GetSubnetsOutputArgs, opts ...pulumi.InvokeOption) GetSubnetsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetSubnetsResultOutput, error) {
-			args := v.(GetSubnetsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ec2/getSubnets:getSubnets", args, GetSubnetsResultOutput{}, options).(GetSubnetsResultOutput), nil
-		}).(GetSubnetsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ec2/getSubnets:getSubnets", args, GetSubnetsResultOutput{}, options).(GetSubnetsResultOutput)
 }
 
 // A collection of arguments for invoking getSubnets.

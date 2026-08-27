@@ -93,12 +93,8 @@ type LookupProxyResult struct {
 }
 
 func LookupProxyOutput(ctx *pulumi.Context, args LookupProxyOutputArgs, opts ...pulumi.InvokeOption) LookupProxyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupProxyResultOutput, error) {
-			args := v.(LookupProxyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:rds/getProxy:getProxy", args, LookupProxyResultOutput{}, options).(LookupProxyResultOutput), nil
-		}).(LookupProxyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:rds/getProxy:getProxy", args, LookupProxyResultOutput{}, options).(LookupProxyResultOutput)
 }
 
 // A collection of arguments for invoking getProxy.

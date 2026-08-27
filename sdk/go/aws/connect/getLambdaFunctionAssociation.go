@@ -69,12 +69,8 @@ type LookupLambdaFunctionAssociationResult struct {
 }
 
 func LookupLambdaFunctionAssociationOutput(ctx *pulumi.Context, args LookupLambdaFunctionAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupLambdaFunctionAssociationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLambdaFunctionAssociationResultOutput, error) {
-			args := v.(LookupLambdaFunctionAssociationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:connect/getLambdaFunctionAssociation:getLambdaFunctionAssociation", args, LookupLambdaFunctionAssociationResultOutput{}, options).(LookupLambdaFunctionAssociationResultOutput), nil
-		}).(LookupLambdaFunctionAssociationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:connect/getLambdaFunctionAssociation:getLambdaFunctionAssociation", args, LookupLambdaFunctionAssociationResultOutput{}, options).(LookupLambdaFunctionAssociationResultOutput)
 }
 
 // A collection of arguments for invoking getLambdaFunctionAssociation.

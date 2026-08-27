@@ -64,12 +64,8 @@ type GetApplicationProvidersResult struct {
 }
 
 func GetApplicationProvidersOutput(ctx *pulumi.Context, args GetApplicationProvidersOutputArgs, opts ...pulumi.InvokeOption) GetApplicationProvidersResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetApplicationProvidersResultOutput, error) {
-			args := v.(GetApplicationProvidersArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ssoadmin/getApplicationProviders:getApplicationProviders", args, GetApplicationProvidersResultOutput{}, options).(GetApplicationProvidersResultOutput), nil
-		}).(GetApplicationProvidersResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ssoadmin/getApplicationProviders:getApplicationProviders", args, GetApplicationProvidersResultOutput{}, options).(GetApplicationProvidersResultOutput)
 }
 
 // A collection of arguments for invoking getApplicationProviders.

@@ -76,12 +76,8 @@ type LookupServerlessAccessPolicyResult struct {
 }
 
 func LookupServerlessAccessPolicyOutput(ctx *pulumi.Context, args LookupServerlessAccessPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupServerlessAccessPolicyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupServerlessAccessPolicyResultOutput, error) {
-			args := v.(LookupServerlessAccessPolicyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:opensearch/getServerlessAccessPolicy:getServerlessAccessPolicy", args, LookupServerlessAccessPolicyResultOutput{}, options).(LookupServerlessAccessPolicyResultOutput), nil
-		}).(LookupServerlessAccessPolicyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:opensearch/getServerlessAccessPolicy:getServerlessAccessPolicy", args, LookupServerlessAccessPolicyResultOutput{}, options).(LookupServerlessAccessPolicyResultOutput)
 }
 
 // A collection of arguments for invoking getServerlessAccessPolicy.

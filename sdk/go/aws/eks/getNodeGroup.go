@@ -108,12 +108,8 @@ type LookupNodeGroupResult struct {
 }
 
 func LookupNodeGroupOutput(ctx *pulumi.Context, args LookupNodeGroupOutputArgs, opts ...pulumi.InvokeOption) LookupNodeGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupNodeGroupResultOutput, error) {
-			args := v.(LookupNodeGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:eks/getNodeGroup:getNodeGroup", args, LookupNodeGroupResultOutput{}, options).(LookupNodeGroupResultOutput), nil
-		}).(LookupNodeGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:eks/getNodeGroup:getNodeGroup", args, LookupNodeGroupResultOutput{}, options).(LookupNodeGroupResultOutput)
 }
 
 // A collection of arguments for invoking getNodeGroup.

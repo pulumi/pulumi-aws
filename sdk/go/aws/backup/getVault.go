@@ -75,12 +75,8 @@ type LookupVaultResult struct {
 }
 
 func LookupVaultOutput(ctx *pulumi.Context, args LookupVaultOutputArgs, opts ...pulumi.InvokeOption) LookupVaultResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVaultResultOutput, error) {
-			args := v.(LookupVaultArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:backup/getVault:getVault", args, LookupVaultResultOutput{}, options).(LookupVaultResultOutput), nil
-		}).(LookupVaultResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:backup/getVault:getVault", args, LookupVaultResultOutput{}, options).(LookupVaultResultOutput)
 }
 
 // A collection of arguments for invoking getVault.

@@ -76,12 +76,8 @@ type GetOntapStorageVirtualMachinesResult struct {
 }
 
 func GetOntapStorageVirtualMachinesOutput(ctx *pulumi.Context, args GetOntapStorageVirtualMachinesOutputArgs, opts ...pulumi.InvokeOption) GetOntapStorageVirtualMachinesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetOntapStorageVirtualMachinesResultOutput, error) {
-			args := v.(GetOntapStorageVirtualMachinesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:fsx/getOntapStorageVirtualMachines:getOntapStorageVirtualMachines", args, GetOntapStorageVirtualMachinesResultOutput{}, options).(GetOntapStorageVirtualMachinesResultOutput), nil
-		}).(GetOntapStorageVirtualMachinesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:fsx/getOntapStorageVirtualMachines:getOntapStorageVirtualMachines", args, GetOntapStorageVirtualMachinesResultOutput{}, options).(GetOntapStorageVirtualMachinesResultOutput)
 }
 
 // A collection of arguments for invoking getOntapStorageVirtualMachines.

@@ -79,12 +79,8 @@ type GetRouteCalculatorResult struct {
 }
 
 func GetRouteCalculatorOutput(ctx *pulumi.Context, args GetRouteCalculatorOutputArgs, opts ...pulumi.InvokeOption) GetRouteCalculatorResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetRouteCalculatorResultOutput, error) {
-			args := v.(GetRouteCalculatorArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:location/getRouteCalculator:getRouteCalculator", args, GetRouteCalculatorResultOutput{}, options).(GetRouteCalculatorResultOutput), nil
-		}).(GetRouteCalculatorResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:location/getRouteCalculator:getRouteCalculator", args, GetRouteCalculatorResultOutput{}, options).(GetRouteCalculatorResultOutput)
 }
 
 // A collection of arguments for invoking getRouteCalculator.

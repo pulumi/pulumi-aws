@@ -79,12 +79,8 @@ type GetHostedZoneIdResult struct {
 }
 
 func GetHostedZoneIdOutput(ctx *pulumi.Context, args GetHostedZoneIdOutputArgs, opts ...pulumi.InvokeOption) GetHostedZoneIdResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetHostedZoneIdResultOutput, error) {
-			args := v.(GetHostedZoneIdArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:lb/getHostedZoneId:getHostedZoneId", args, GetHostedZoneIdResultOutput{}, options).(GetHostedZoneIdResultOutput), nil
-		}).(GetHostedZoneIdResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:lb/getHostedZoneId:getHostedZoneId", args, GetHostedZoneIdResultOutput{}, options).(GetHostedZoneIdResultOutput)
 }
 
 // A collection of arguments for invoking getHostedZoneId.

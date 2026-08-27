@@ -80,12 +80,8 @@ type GetOrderableClusterResult struct {
 }
 
 func GetOrderableClusterOutput(ctx *pulumi.Context, args GetOrderableClusterOutputArgs, opts ...pulumi.InvokeOption) GetOrderableClusterResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetOrderableClusterResultOutput, error) {
-			args := v.(GetOrderableClusterArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:redshift/getOrderableCluster:getOrderableCluster", args, GetOrderableClusterResultOutput{}, options).(GetOrderableClusterResultOutput), nil
-		}).(GetOrderableClusterResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:redshift/getOrderableCluster:getOrderableCluster", args, GetOrderableClusterResultOutput{}, options).(GetOrderableClusterResultOutput)
 }
 
 // A collection of arguments for invoking getOrderableCluster.

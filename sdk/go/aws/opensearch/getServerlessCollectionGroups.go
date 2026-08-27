@@ -62,12 +62,8 @@ type GetServerlessCollectionGroupsResult struct {
 }
 
 func GetServerlessCollectionGroupsOutput(ctx *pulumi.Context, args GetServerlessCollectionGroupsOutputArgs, opts ...pulumi.InvokeOption) GetServerlessCollectionGroupsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetServerlessCollectionGroupsResultOutput, error) {
-			args := v.(GetServerlessCollectionGroupsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:opensearch/getServerlessCollectionGroups:getServerlessCollectionGroups", args, GetServerlessCollectionGroupsResultOutput{}, options).(GetServerlessCollectionGroupsResultOutput), nil
-		}).(GetServerlessCollectionGroupsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:opensearch/getServerlessCollectionGroups:getServerlessCollectionGroups", args, GetServerlessCollectionGroupsResultOutput{}, options).(GetServerlessCollectionGroupsResultOutput)
 }
 
 // A collection of arguments for invoking getServerlessCollectionGroups.

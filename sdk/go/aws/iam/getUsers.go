@@ -123,12 +123,8 @@ type GetUsersResult struct {
 }
 
 func GetUsersOutput(ctx *pulumi.Context, args GetUsersOutputArgs, opts ...pulumi.InvokeOption) GetUsersResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetUsersResultOutput, error) {
-			args := v.(GetUsersArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:iam/getUsers:getUsers", args, GetUsersResultOutput{}, options).(GetUsersResultOutput), nil
-		}).(GetUsersResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:iam/getUsers:getUsers", args, GetUsersResultOutput{}, options).(GetUsersResultOutput)
 }
 
 // A collection of arguments for invoking getUsers.

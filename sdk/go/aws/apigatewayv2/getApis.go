@@ -73,12 +73,8 @@ type GetApisResult struct {
 }
 
 func GetApisOutput(ctx *pulumi.Context, args GetApisOutputArgs, opts ...pulumi.InvokeOption) GetApisResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetApisResultOutput, error) {
-			args := v.(GetApisArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:apigatewayv2/getApis:getApis", args, GetApisResultOutput{}, options).(GetApisResultOutput), nil
-		}).(GetApisResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:apigatewayv2/getApis:getApis", args, GetApisResultOutput{}, options).(GetApisResultOutput)
 }
 
 // A collection of arguments for invoking getApis.

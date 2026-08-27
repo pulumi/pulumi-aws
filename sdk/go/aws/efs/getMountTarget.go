@@ -101,12 +101,8 @@ type LookupMountTargetResult struct {
 }
 
 func LookupMountTargetOutput(ctx *pulumi.Context, args LookupMountTargetOutputArgs, opts ...pulumi.InvokeOption) LookupMountTargetResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupMountTargetResultOutput, error) {
-			args := v.(LookupMountTargetArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:efs/getMountTarget:getMountTarget", args, LookupMountTargetResultOutput{}, options).(LookupMountTargetResultOutput), nil
-		}).(LookupMountTargetResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:efs/getMountTarget:getMountTarget", args, LookupMountTargetResultOutput{}, options).(LookupMountTargetResultOutput)
 }
 
 // A collection of arguments for invoking getMountTarget.

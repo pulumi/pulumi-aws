@@ -78,12 +78,8 @@ type GetClusterAuthResult struct {
 }
 
 func GetClusterAuthOutput(ctx *pulumi.Context, args GetClusterAuthOutputArgs, opts ...pulumi.InvokeOption) GetClusterAuthResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetClusterAuthResultOutput, error) {
-			args := v.(GetClusterAuthArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:eks/getClusterAuth:getClusterAuth", args, GetClusterAuthResultOutput{}, options).(GetClusterAuthResultOutput), nil
-		}).(GetClusterAuthResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:eks/getClusterAuth:getClusterAuth", args, GetClusterAuthResultOutput{}, options).(GetClusterAuthResultOutput)
 }
 
 // A collection of arguments for invoking getClusterAuth.

@@ -122,12 +122,8 @@ type LookupJobDefinitionResult struct {
 }
 
 func LookupJobDefinitionOutput(ctx *pulumi.Context, args LookupJobDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupJobDefinitionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupJobDefinitionResultOutput, error) {
-			args := v.(LookupJobDefinitionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:batch/getJobDefinition:getJobDefinition", args, LookupJobDefinitionResultOutput{}, options).(LookupJobDefinitionResultOutput), nil
-		}).(LookupJobDefinitionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:batch/getJobDefinition:getJobDefinition", args, LookupJobDefinitionResultOutput{}, options).(LookupJobDefinitionResultOutput)
 }
 
 // A collection of arguments for invoking getJobDefinition.

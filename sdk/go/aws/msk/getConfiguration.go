@@ -75,12 +75,8 @@ type LookupConfigurationResult struct {
 }
 
 func LookupConfigurationOutput(ctx *pulumi.Context, args LookupConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupConfigurationResultOutput, error) {
-			args := v.(LookupConfigurationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:msk/getConfiguration:getConfiguration", args, LookupConfigurationResultOutput{}, options).(LookupConfigurationResultOutput), nil
-		}).(LookupConfigurationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:msk/getConfiguration:getConfiguration", args, LookupConfigurationResultOutput{}, options).(LookupConfigurationResultOutput)
 }
 
 // A collection of arguments for invoking getConfiguration.

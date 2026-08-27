@@ -106,12 +106,8 @@ type LookupCatalogTableResult struct {
 }
 
 func LookupCatalogTableOutput(ctx *pulumi.Context, args LookupCatalogTableOutputArgs, opts ...pulumi.InvokeOption) LookupCatalogTableResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCatalogTableResultOutput, error) {
-			args := v.(LookupCatalogTableArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:glue/getCatalogTable:getCatalogTable", args, LookupCatalogTableResultOutput{}, options).(LookupCatalogTableResultOutput), nil
-		}).(LookupCatalogTableResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:glue/getCatalogTable:getCatalogTable", args, LookupCatalogTableResultOutput{}, options).(LookupCatalogTableResultOutput)
 }
 
 // A collection of arguments for invoking getCatalogTable.

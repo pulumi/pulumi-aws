@@ -85,12 +85,8 @@ type GetClusterCredentialsResult struct {
 }
 
 func GetClusterCredentialsOutput(ctx *pulumi.Context, args GetClusterCredentialsOutputArgs, opts ...pulumi.InvokeOption) GetClusterCredentialsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetClusterCredentialsResultOutput, error) {
-			args := v.(GetClusterCredentialsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:redshift/getClusterCredentials:getClusterCredentials", args, GetClusterCredentialsResultOutput{}, options).(GetClusterCredentialsResultOutput), nil
-		}).(GetClusterCredentialsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:redshift/getClusterCredentials:getClusterCredentials", args, GetClusterCredentialsResultOutput{}, options).(GetClusterCredentialsResultOutput)
 }
 
 // A collection of arguments for invoking getClusterCredentials.

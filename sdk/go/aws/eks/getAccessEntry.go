@@ -92,12 +92,8 @@ type LookupAccessEntryResult struct {
 }
 
 func LookupAccessEntryOutput(ctx *pulumi.Context, args LookupAccessEntryOutputArgs, opts ...pulumi.InvokeOption) LookupAccessEntryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAccessEntryResultOutput, error) {
-			args := v.(LookupAccessEntryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:eks/getAccessEntry:getAccessEntry", args, LookupAccessEntryResultOutput{}, options).(LookupAccessEntryResultOutput), nil
-		}).(LookupAccessEntryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:eks/getAccessEntry:getAccessEntry", args, LookupAccessEntryResultOutput{}, options).(LookupAccessEntryResultOutput)
 }
 
 // A collection of arguments for invoking getAccessEntry.

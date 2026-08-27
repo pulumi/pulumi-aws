@@ -49,12 +49,8 @@ type LookupWebAclResult struct {
 }
 
 func LookupWebAclOutput(ctx *pulumi.Context, args LookupWebAclOutputArgs, opts ...pulumi.InvokeOption) LookupWebAclResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupWebAclResultOutput, error) {
-			args := v.(LookupWebAclArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:wafv2/getWebAcl:getWebAcl", args, LookupWebAclResultOutput{}, options).(LookupWebAclResultOutput), nil
-		}).(LookupWebAclResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:wafv2/getWebAcl:getWebAcl", args, LookupWebAclResultOutput{}, options).(LookupWebAclResultOutput)
 }
 
 // A collection of arguments for invoking getWebAcl.

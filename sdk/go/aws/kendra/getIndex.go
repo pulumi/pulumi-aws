@@ -100,12 +100,8 @@ type LookupIndexResult struct {
 }
 
 func LookupIndexOutput(ctx *pulumi.Context, args LookupIndexOutputArgs, opts ...pulumi.InvokeOption) LookupIndexResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupIndexResultOutput, error) {
-			args := v.(LookupIndexArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:kendra/getIndex:getIndex", args, LookupIndexResultOutput{}, options).(LookupIndexResultOutput), nil
-		}).(LookupIndexResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:kendra/getIndex:getIndex", args, LookupIndexResultOutput{}, options).(LookupIndexResultOutput)
 }
 
 // A collection of arguments for invoking getIndex.

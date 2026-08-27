@@ -62,12 +62,8 @@ type GetRequiredTagsResult struct {
 }
 
 func GetRequiredTagsOutput(ctx *pulumi.Context, args GetRequiredTagsOutputArgs, opts ...pulumi.InvokeOption) GetRequiredTagsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetRequiredTagsResultOutput, error) {
-			args := v.(GetRequiredTagsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:resourcegroupstaggingapi/getRequiredTags:getRequiredTags", args, GetRequiredTagsResultOutput{}, options).(GetRequiredTagsResultOutput), nil
-		}).(GetRequiredTagsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:resourcegroupstaggingapi/getRequiredTags:getRequiredTags", args, GetRequiredTagsResultOutput{}, options).(GetRequiredTagsResultOutput)
 }
 
 // A collection of arguments for invoking getRequiredTags.

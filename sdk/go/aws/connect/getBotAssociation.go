@@ -73,12 +73,8 @@ type LookupBotAssociationResult struct {
 }
 
 func LookupBotAssociationOutput(ctx *pulumi.Context, args LookupBotAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupBotAssociationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupBotAssociationResultOutput, error) {
-			args := v.(LookupBotAssociationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:connect/getBotAssociation:getBotAssociation", args, LookupBotAssociationResultOutput{}, options).(LookupBotAssociationResultOutput), nil
-		}).(LookupBotAssociationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:connect/getBotAssociation:getBotAssociation", args, LookupBotAssociationResultOutput{}, options).(LookupBotAssociationResultOutput)
 }
 
 // A collection of arguments for invoking getBotAssociation.

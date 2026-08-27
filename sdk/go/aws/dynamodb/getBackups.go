@@ -78,12 +78,8 @@ type GetBackupsResult struct {
 }
 
 func GetBackupsOutput(ctx *pulumi.Context, args GetBackupsOutputArgs, opts ...pulumi.InvokeOption) GetBackupsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetBackupsResultOutput, error) {
-			args := v.(GetBackupsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:dynamodb/getBackups:getBackups", args, GetBackupsResultOutput{}, options).(GetBackupsResultOutput), nil
-		}).(GetBackupsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:dynamodb/getBackups:getBackups", args, GetBackupsResultOutput{}, options).(GetBackupsResultOutput)
 }
 
 // A collection of arguments for invoking getBackups.

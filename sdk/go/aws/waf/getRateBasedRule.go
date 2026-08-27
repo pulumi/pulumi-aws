@@ -62,12 +62,8 @@ type LookupRateBasedRuleResult struct {
 }
 
 func LookupRateBasedRuleOutput(ctx *pulumi.Context, args LookupRateBasedRuleOutputArgs, opts ...pulumi.InvokeOption) LookupRateBasedRuleResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRateBasedRuleResultOutput, error) {
-			args := v.(LookupRateBasedRuleArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:waf/getRateBasedRule:getRateBasedRule", args, LookupRateBasedRuleResultOutput{}, options).(LookupRateBasedRuleResultOutput), nil
-		}).(LookupRateBasedRuleResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:waf/getRateBasedRule:getRateBasedRule", args, LookupRateBasedRuleResultOutput{}, options).(LookupRateBasedRuleResultOutput)
 }
 
 // A collection of arguments for invoking getRateBasedRule.

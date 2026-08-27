@@ -43,12 +43,8 @@ type GetGiVersionsResult struct {
 }
 
 func GetGiVersionsOutput(ctx *pulumi.Context, args GetGiVersionsOutputArgs, opts ...pulumi.InvokeOption) GetGiVersionsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetGiVersionsResultOutput, error) {
-			args := v.(GetGiVersionsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:odb/getGiVersions:getGiVersions", args, GetGiVersionsResultOutput{}, options).(GetGiVersionsResultOutput), nil
-		}).(GetGiVersionsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:odb/getGiVersions:getGiVersions", args, GetGiVersionsResultOutput{}, options).(GetGiVersionsResultOutput)
 }
 
 // A collection of arguments for invoking getGiVersions.

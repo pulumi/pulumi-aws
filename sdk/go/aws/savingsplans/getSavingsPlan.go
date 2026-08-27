@@ -98,12 +98,8 @@ type LookupSavingsPlanResult struct {
 }
 
 func LookupSavingsPlanOutput(ctx *pulumi.Context, args LookupSavingsPlanOutputArgs, opts ...pulumi.InvokeOption) LookupSavingsPlanResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSavingsPlanResultOutput, error) {
-			args := v.(LookupSavingsPlanArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:savingsplans/getSavingsPlan:getSavingsPlan", args, LookupSavingsPlanResultOutput{}, options).(LookupSavingsPlanResultOutput), nil
-		}).(LookupSavingsPlanResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:savingsplans/getSavingsPlan:getSavingsPlan", args, LookupSavingsPlanResultOutput{}, options).(LookupSavingsPlanResultOutput)
 }
 
 // A collection of arguments for invoking getSavingsPlan.

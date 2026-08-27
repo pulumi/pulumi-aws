@@ -81,12 +81,8 @@ type GetRegistrationCodeResult struct {
 }
 
 func GetRegistrationCodeOutput(ctx *pulumi.Context, args GetRegistrationCodeOutputArgs, opts ...pulumi.InvokeOption) GetRegistrationCodeResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetRegistrationCodeResultOutput, error) {
-			args := v.(GetRegistrationCodeArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:iot/getRegistrationCode:getRegistrationCode", args, GetRegistrationCodeResultOutput{}, options).(GetRegistrationCodeResultOutput), nil
-		}).(GetRegistrationCodeResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:iot/getRegistrationCode:getRegistrationCode", args, GetRegistrationCodeResultOutput{}, options).(GetRegistrationCodeResultOutput)
 }
 
 // A collection of arguments for invoking getRegistrationCode.

@@ -91,12 +91,8 @@ type LookupReplicationTaskResult struct {
 }
 
 func LookupReplicationTaskOutput(ctx *pulumi.Context, args LookupReplicationTaskOutputArgs, opts ...pulumi.InvokeOption) LookupReplicationTaskResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupReplicationTaskResultOutput, error) {
-			args := v.(LookupReplicationTaskArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:dms/getReplicationTask:getReplicationTask", args, LookupReplicationTaskResultOutput{}, options).(LookupReplicationTaskResultOutput), nil
-		}).(LookupReplicationTaskResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:dms/getReplicationTask:getReplicationTask", args, LookupReplicationTaskResultOutput{}, options).(LookupReplicationTaskResultOutput)
 }
 
 // A collection of arguments for invoking getReplicationTask.

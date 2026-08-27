@@ -70,12 +70,8 @@ type LookupBucketPolicyResult struct {
 }
 
 func LookupBucketPolicyOutput(ctx *pulumi.Context, args LookupBucketPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupBucketPolicyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupBucketPolicyResultOutput, error) {
-			args := v.(LookupBucketPolicyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:s3/getBucketPolicy:getBucketPolicy", args, LookupBucketPolicyResultOutput{}, options).(LookupBucketPolicyResultOutput), nil
-		}).(LookupBucketPolicyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:s3/getBucketPolicy:getBucketPolicy", args, LookupBucketPolicyResultOutput{}, options).(LookupBucketPolicyResultOutput)
 }
 
 // A collection of arguments for invoking getBucketPolicy.

@@ -84,12 +84,8 @@ type LookupConfigurationSetResult struct {
 }
 
 func LookupConfigurationSetOutput(ctx *pulumi.Context, args LookupConfigurationSetOutputArgs, opts ...pulumi.InvokeOption) LookupConfigurationSetResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupConfigurationSetResultOutput, error) {
-			args := v.(LookupConfigurationSetArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:sesv2/getConfigurationSet:getConfigurationSet", args, LookupConfigurationSetResultOutput{}, options).(LookupConfigurationSetResultOutput), nil
-		}).(LookupConfigurationSetResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:sesv2/getConfigurationSet:getConfigurationSet", args, LookupConfigurationSetResultOutput{}, options).(LookupConfigurationSetResultOutput)
 }
 
 // A collection of arguments for invoking getConfigurationSet.

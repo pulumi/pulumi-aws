@@ -76,12 +76,8 @@ type GetLocationResult struct {
 }
 
 func GetLocationOutput(ctx *pulumi.Context, args GetLocationOutputArgs, opts ...pulumi.InvokeOption) GetLocationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetLocationResultOutput, error) {
-			args := v.(GetLocationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:directconnect/getLocation:getLocation", args, GetLocationResultOutput{}, options).(GetLocationResultOutput), nil
-		}).(GetLocationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:directconnect/getLocation:getLocation", args, GetLocationResultOutput{}, options).(GetLocationResultOutput)
 }
 
 // A collection of arguments for invoking getLocation.

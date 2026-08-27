@@ -73,12 +73,8 @@ type LookupPipelineDefinitionResult struct {
 }
 
 func LookupPipelineDefinitionOutput(ctx *pulumi.Context, args LookupPipelineDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupPipelineDefinitionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPipelineDefinitionResultOutput, error) {
-			args := v.(LookupPipelineDefinitionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:datapipeline/getPipelineDefinition:getPipelineDefinition", args, LookupPipelineDefinitionResultOutput{}, options).(LookupPipelineDefinitionResultOutput), nil
-		}).(LookupPipelineDefinitionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:datapipeline/getPipelineDefinition:getPipelineDefinition", args, LookupPipelineDefinitionResultOutput{}, options).(LookupPipelineDefinitionResultOutput)
 }
 
 // A collection of arguments for invoking getPipelineDefinition.

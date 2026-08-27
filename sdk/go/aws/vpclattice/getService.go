@@ -88,12 +88,8 @@ type LookupServiceResult struct {
 }
 
 func LookupServiceOutput(ctx *pulumi.Context, args LookupServiceOutputArgs, opts ...pulumi.InvokeOption) LookupServiceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupServiceResultOutput, error) {
-			args := v.(LookupServiceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:vpclattice/getService:getService", args, LookupServiceResultOutput{}, options).(LookupServiceResultOutput), nil
-		}).(LookupServiceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:vpclattice/getService:getService", args, LookupServiceResultOutput{}, options).(LookupServiceResultOutput)
 }
 
 // A collection of arguments for invoking getService.

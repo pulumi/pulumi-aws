@@ -93,12 +93,8 @@ type LookupComponentResult struct {
 }
 
 func LookupComponentOutput(ctx *pulumi.Context, args LookupComponentOutputArgs, opts ...pulumi.InvokeOption) LookupComponentResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupComponentResultOutput, error) {
-			args := v.(LookupComponentArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:imagebuilder/getComponent:getComponent", args, LookupComponentResultOutput{}, options).(LookupComponentResultOutput), nil
-		}).(LookupComponentResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:imagebuilder/getComponent:getComponent", args, LookupComponentResultOutput{}, options).(LookupComponentResultOutput)
 }
 
 // A collection of arguments for invoking getComponent.

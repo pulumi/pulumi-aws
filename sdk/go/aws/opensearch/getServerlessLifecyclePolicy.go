@@ -80,12 +80,8 @@ type LookupServerlessLifecyclePolicyResult struct {
 }
 
 func LookupServerlessLifecyclePolicyOutput(ctx *pulumi.Context, args LookupServerlessLifecyclePolicyOutputArgs, opts ...pulumi.InvokeOption) LookupServerlessLifecyclePolicyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupServerlessLifecyclePolicyResultOutput, error) {
-			args := v.(LookupServerlessLifecyclePolicyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:opensearch/getServerlessLifecyclePolicy:getServerlessLifecyclePolicy", args, LookupServerlessLifecyclePolicyResultOutput{}, options).(LookupServerlessLifecyclePolicyResultOutput), nil
-		}).(LookupServerlessLifecyclePolicyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:opensearch/getServerlessLifecyclePolicy:getServerlessLifecyclePolicy", args, LookupServerlessLifecyclePolicyResultOutput{}, options).(LookupServerlessLifecyclePolicyResultOutput)
 }
 
 // A collection of arguments for invoking getServerlessLifecyclePolicy.

@@ -92,12 +92,8 @@ type LookupListenerResult struct {
 }
 
 func LookupListenerOutput(ctx *pulumi.Context, args LookupListenerOutputArgs, opts ...pulumi.InvokeOption) LookupListenerResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupListenerResultOutput, error) {
-			args := v.(LookupListenerArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:vpclattice/getListener:getListener", args, LookupListenerResultOutput{}, options).(LookupListenerResultOutput), nil
-		}).(LookupListenerResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:vpclattice/getListener:getListener", args, LookupListenerResultOutput{}, options).(LookupListenerResultOutput)
 }
 
 // A collection of arguments for invoking getListener.

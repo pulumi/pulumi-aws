@@ -75,12 +75,8 @@ type GetPromptResult struct {
 }
 
 func GetPromptOutput(ctx *pulumi.Context, args GetPromptOutputArgs, opts ...pulumi.InvokeOption) GetPromptResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetPromptResultOutput, error) {
-			args := v.(GetPromptArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:connect/getPrompt:getPrompt", args, GetPromptResultOutput{}, options).(GetPromptResultOutput), nil
-		}).(GetPromptResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:connect/getPrompt:getPrompt", args, GetPromptResultOutput{}, options).(GetPromptResultOutput)
 }
 
 // A collection of arguments for invoking getPrompt.

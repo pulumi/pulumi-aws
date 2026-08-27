@@ -84,12 +84,8 @@ type GetSpotPriceResult struct {
 }
 
 func GetSpotPriceOutput(ctx *pulumi.Context, args GetSpotPriceOutputArgs, opts ...pulumi.InvokeOption) GetSpotPriceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetSpotPriceResultOutput, error) {
-			args := v.(GetSpotPriceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ec2/getSpotPrice:getSpotPrice", args, GetSpotPriceResultOutput{}, options).(GetSpotPriceResultOutput), nil
-		}).(GetSpotPriceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ec2/getSpotPrice:getSpotPrice", args, GetSpotPriceResultOutput{}, options).(GetSpotPriceResultOutput)
 }
 
 // A collection of arguments for invoking getSpotPrice.

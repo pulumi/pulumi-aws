@@ -75,12 +75,8 @@ type LookupAppregistryApplicationResult struct {
 }
 
 func LookupAppregistryApplicationOutput(ctx *pulumi.Context, args LookupAppregistryApplicationOutputArgs, opts ...pulumi.InvokeOption) LookupAppregistryApplicationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAppregistryApplicationResultOutput, error) {
-			args := v.(LookupAppregistryApplicationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:servicecatalog/getAppregistryApplication:getAppregistryApplication", args, LookupAppregistryApplicationResultOutput{}, options).(LookupAppregistryApplicationResultOutput), nil
-		}).(LookupAppregistryApplicationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:servicecatalog/getAppregistryApplication:getAppregistryApplication", args, LookupAppregistryApplicationResultOutput{}, options).(LookupAppregistryApplicationResultOutput)
 }
 
 // A collection of arguments for invoking getAppregistryApplication.

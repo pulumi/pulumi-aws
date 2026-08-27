@@ -76,12 +76,8 @@ type LookupOriginAccessControlResult struct {
 }
 
 func LookupOriginAccessControlOutput(ctx *pulumi.Context, args LookupOriginAccessControlOutputArgs, opts ...pulumi.InvokeOption) LookupOriginAccessControlResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupOriginAccessControlResultOutput, error) {
-			args := v.(LookupOriginAccessControlArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:cloudfront/getOriginAccessControl:getOriginAccessControl", args, LookupOriginAccessControlResultOutput{}, options).(LookupOriginAccessControlResultOutput), nil
-		}).(LookupOriginAccessControlResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:cloudfront/getOriginAccessControl:getOriginAccessControl", args, LookupOriginAccessControlResultOutput{}, options).(LookupOriginAccessControlResultOutput)
 }
 
 // A collection of arguments for invoking getOriginAccessControl.

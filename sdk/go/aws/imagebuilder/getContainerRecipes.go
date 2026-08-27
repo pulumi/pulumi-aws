@@ -80,12 +80,8 @@ type GetContainerRecipesResult struct {
 }
 
 func GetContainerRecipesOutput(ctx *pulumi.Context, args GetContainerRecipesOutputArgs, opts ...pulumi.InvokeOption) GetContainerRecipesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetContainerRecipesResultOutput, error) {
-			args := v.(GetContainerRecipesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:imagebuilder/getContainerRecipes:getContainerRecipes", args, GetContainerRecipesResultOutput{}, options).(GetContainerRecipesResultOutput), nil
-		}).(GetContainerRecipesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:imagebuilder/getContainerRecipes:getContainerRecipes", args, GetContainerRecipesResultOutput{}, options).(GetContainerRecipesResultOutput)
 }
 
 // A collection of arguments for invoking getContainerRecipes.

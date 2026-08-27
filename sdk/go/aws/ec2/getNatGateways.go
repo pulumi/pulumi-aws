@@ -52,12 +52,8 @@ type GetNatGatewaysResult struct {
 }
 
 func GetNatGatewaysOutput(ctx *pulumi.Context, args GetNatGatewaysOutputArgs, opts ...pulumi.InvokeOption) GetNatGatewaysResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetNatGatewaysResultOutput, error) {
-			args := v.(GetNatGatewaysArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ec2/getNatGateways:getNatGateways", args, GetNatGatewaysResultOutput{}, options).(GetNatGatewaysResultOutput), nil
-		}).(GetNatGatewaysResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ec2/getNatGateways:getNatGateways", args, GetNatGatewaysResultOutput{}, options).(GetNatGatewaysResultOutput)
 }
 
 // A collection of arguments for invoking getNatGateways.

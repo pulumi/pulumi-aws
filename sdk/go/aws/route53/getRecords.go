@@ -112,12 +112,8 @@ type GetRecordsResult struct {
 }
 
 func GetRecordsOutput(ctx *pulumi.Context, args GetRecordsOutputArgs, opts ...pulumi.InvokeOption) GetRecordsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetRecordsResultOutput, error) {
-			args := v.(GetRecordsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:route53/getRecords:getRecords", args, GetRecordsResultOutput{}, options).(GetRecordsResultOutput), nil
-		}).(GetRecordsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:route53/getRecords:getRecords", args, GetRecordsResultOutput{}, options).(GetRecordsResultOutput)
 }
 
 // A collection of arguments for invoking getRecords.

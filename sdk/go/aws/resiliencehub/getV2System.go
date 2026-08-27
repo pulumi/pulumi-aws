@@ -81,12 +81,8 @@ type LookupV2SystemResult struct {
 }
 
 func LookupV2SystemOutput(ctx *pulumi.Context, args LookupV2SystemOutputArgs, opts ...pulumi.InvokeOption) LookupV2SystemResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupV2SystemResultOutput, error) {
-			args := v.(LookupV2SystemArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:resiliencehub/getV2System:getV2System", args, LookupV2SystemResultOutput{}, options).(LookupV2SystemResultOutput), nil
-		}).(LookupV2SystemResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:resiliencehub/getV2System:getV2System", args, LookupV2SystemResultOutput{}, options).(LookupV2SystemResultOutput)
 }
 
 // A collection of arguments for invoking getV2System.

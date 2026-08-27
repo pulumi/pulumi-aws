@@ -79,12 +79,8 @@ type GetRouterConfigurationResult struct {
 }
 
 func GetRouterConfigurationOutput(ctx *pulumi.Context, args GetRouterConfigurationOutputArgs, opts ...pulumi.InvokeOption) GetRouterConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetRouterConfigurationResultOutput, error) {
-			args := v.(GetRouterConfigurationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:directconnect/getRouterConfiguration:getRouterConfiguration", args, GetRouterConfigurationResultOutput{}, options).(GetRouterConfigurationResultOutput), nil
-		}).(GetRouterConfigurationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:directconnect/getRouterConfiguration:getRouterConfiguration", args, GetRouterConfigurationResultOutput{}, options).(GetRouterConfigurationResultOutput)
 }
 
 // A collection of arguments for invoking getRouterConfiguration.

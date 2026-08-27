@@ -73,12 +73,8 @@ type LookupNotificationChannelResult struct {
 }
 
 func LookupNotificationChannelOutput(ctx *pulumi.Context, args LookupNotificationChannelOutputArgs, opts ...pulumi.InvokeOption) LookupNotificationChannelResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupNotificationChannelResultOutput, error) {
-			args := v.(LookupNotificationChannelArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:devopsguru/getNotificationChannel:getNotificationChannel", args, LookupNotificationChannelResultOutput{}, options).(LookupNotificationChannelResultOutput), nil
-		}).(LookupNotificationChannelResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:devopsguru/getNotificationChannel:getNotificationChannel", args, LookupNotificationChannelResultOutput{}, options).(LookupNotificationChannelResultOutput)
 }
 
 // A collection of arguments for invoking getNotificationChannel.

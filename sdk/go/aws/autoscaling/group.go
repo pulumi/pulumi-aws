@@ -644,6 +644,46 @@ import (
 //
 // ### Auto Scaling group with Traffic Sources
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// var forResult0 []map[string]interface{}
+// for _, entry := range %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:1,34-65) {
+// forResult0 = append(forResult0, map[string]interface{}{
+// "identifier": entry.(map[string]interface{})["arn"],
+// "type": "vpc-lattice",
+// })
+// }
+// _, err := autoscaling.NewGroup(ctx, "test", &autoscaling.GroupArgs{
+// TrafficSources: toPulumiMapArray(forResult0),
+// VpcZoneIdentifiers: pulumi.Any(testAwsSubnet.Id),
+// MaxSize: pulumi.Int(1),
+// MinSize: pulumi.Int(1),
+// ForceDelete: pulumi.Bool(true),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// func toPulumiMapArray(arr []Map) pulumi.MapArray {
+// var pulumiArr pulumi.MapArray
+// for _, v := range arr {
+// pulumiArr = append(pulumiArr, pulumi.Map(v))
+// }
+// return pulumiArr
+// }
+// ```
+//
 // ## Import
 //
 // ### Identity Schema

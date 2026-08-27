@@ -281,12 +281,8 @@ type GetScriptResult struct {
 }
 
 func GetScriptOutput(ctx *pulumi.Context, args GetScriptOutputArgs, opts ...pulumi.InvokeOption) GetScriptResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetScriptResultOutput, error) {
-			args := v.(GetScriptArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:glue/getScript:getScript", args, GetScriptResultOutput{}, options).(GetScriptResultOutput), nil
-		}).(GetScriptResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:glue/getScript:getScript", args, GetScriptResultOutput{}, options).(GetScriptResultOutput)
 }
 
 // A collection of arguments for invoking getScript.

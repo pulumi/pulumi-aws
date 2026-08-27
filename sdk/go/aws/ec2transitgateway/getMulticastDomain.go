@@ -128,12 +128,8 @@ type LookupMulticastDomainResult struct {
 }
 
 func LookupMulticastDomainOutput(ctx *pulumi.Context, args LookupMulticastDomainOutputArgs, opts ...pulumi.InvokeOption) LookupMulticastDomainResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupMulticastDomainResultOutput, error) {
-			args := v.(LookupMulticastDomainArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ec2transitgateway/getMulticastDomain:getMulticastDomain", args, LookupMulticastDomainResultOutput{}, options).(LookupMulticastDomainResultOutput), nil
-		}).(LookupMulticastDomainResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ec2transitgateway/getMulticastDomain:getMulticastDomain", args, LookupMulticastDomainResultOutput{}, options).(LookupMulticastDomainResultOutput)
 }
 
 // A collection of arguments for invoking getMulticastDomain.

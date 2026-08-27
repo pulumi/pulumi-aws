@@ -93,12 +93,8 @@ type LookupResolverFirewallRuleGroupAssociationResult struct {
 }
 
 func LookupResolverFirewallRuleGroupAssociationOutput(ctx *pulumi.Context, args LookupResolverFirewallRuleGroupAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupResolverFirewallRuleGroupAssociationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupResolverFirewallRuleGroupAssociationResultOutput, error) {
-			args := v.(LookupResolverFirewallRuleGroupAssociationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:route53/getResolverFirewallRuleGroupAssociation:getResolverFirewallRuleGroupAssociation", args, LookupResolverFirewallRuleGroupAssociationResultOutput{}, options).(LookupResolverFirewallRuleGroupAssociationResultOutput), nil
-		}).(LookupResolverFirewallRuleGroupAssociationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:route53/getResolverFirewallRuleGroupAssociation:getResolverFirewallRuleGroupAssociation", args, LookupResolverFirewallRuleGroupAssociationResultOutput{}, options).(LookupResolverFirewallRuleGroupAssociationResultOutput)
 }
 
 // A collection of arguments for invoking getResolverFirewallRuleGroupAssociation.

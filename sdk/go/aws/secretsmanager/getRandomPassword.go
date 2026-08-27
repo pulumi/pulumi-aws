@@ -89,12 +89,8 @@ type GetRandomPasswordResult struct {
 }
 
 func GetRandomPasswordOutput(ctx *pulumi.Context, args GetRandomPasswordOutputArgs, opts ...pulumi.InvokeOption) GetRandomPasswordResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetRandomPasswordResultOutput, error) {
-			args := v.(GetRandomPasswordArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:secretsmanager/getRandomPassword:getRandomPassword", args, GetRandomPasswordResultOutput{}, options).(GetRandomPasswordResultOutput), nil
-		}).(GetRandomPasswordResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:secretsmanager/getRandomPassword:getRandomPassword", args, GetRandomPasswordResultOutput{}, options).(GetRandomPasswordResultOutput)
 }
 
 // A collection of arguments for invoking getRandomPassword.

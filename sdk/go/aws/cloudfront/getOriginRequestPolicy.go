@@ -103,12 +103,8 @@ type LookupOriginRequestPolicyResult struct {
 }
 
 func LookupOriginRequestPolicyOutput(ctx *pulumi.Context, args LookupOriginRequestPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupOriginRequestPolicyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupOriginRequestPolicyResultOutput, error) {
-			args := v.(LookupOriginRequestPolicyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:cloudfront/getOriginRequestPolicy:getOriginRequestPolicy", args, LookupOriginRequestPolicyResultOutput{}, options).(LookupOriginRequestPolicyResultOutput), nil
-		}).(LookupOriginRequestPolicyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:cloudfront/getOriginRequestPolicy:getOriginRequestPolicy", args, LookupOriginRequestPolicyResultOutput{}, options).(LookupOriginRequestPolicyResultOutput)
 }
 
 // A collection of arguments for invoking getOriginRequestPolicy.

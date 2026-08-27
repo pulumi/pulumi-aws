@@ -72,12 +72,8 @@ type GetRoute53HealthChecksResult struct {
 }
 
 func GetRoute53HealthChecksOutput(ctx *pulumi.Context, args GetRoute53HealthChecksOutputArgs, opts ...pulumi.InvokeOption) GetRoute53HealthChecksResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetRoute53HealthChecksResultOutput, error) {
-			args := v.(GetRoute53HealthChecksArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:arcregionswitch/getRoute53HealthChecks:getRoute53HealthChecks", args, GetRoute53HealthChecksResultOutput{}, options).(GetRoute53HealthChecksResultOutput), nil
-		}).(GetRoute53HealthChecksResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:arcregionswitch/getRoute53HealthChecks:getRoute53HealthChecks", args, GetRoute53HealthChecksResultOutput{}, options).(GetRoute53HealthChecksResultOutput)
 }
 
 // A collection of arguments for invoking getRoute53HealthChecks.

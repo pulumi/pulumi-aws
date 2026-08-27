@@ -75,12 +75,8 @@ type LookupAuthPolicyResult struct {
 }
 
 func LookupAuthPolicyOutput(ctx *pulumi.Context, args LookupAuthPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupAuthPolicyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAuthPolicyResultOutput, error) {
-			args := v.(LookupAuthPolicyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:vpclattice/getAuthPolicy:getAuthPolicy", args, LookupAuthPolicyResultOutput{}, options).(LookupAuthPolicyResultOutput), nil
-		}).(LookupAuthPolicyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:vpclattice/getAuthPolicy:getAuthPolicy", args, LookupAuthPolicyResultOutput{}, options).(LookupAuthPolicyResultOutput)
 }
 
 // A collection of arguments for invoking getAuthPolicy.

@@ -76,12 +76,8 @@ type GetInfrastructureConfigurationsResult struct {
 }
 
 func GetInfrastructureConfigurationsOutput(ctx *pulumi.Context, args GetInfrastructureConfigurationsOutputArgs, opts ...pulumi.InvokeOption) GetInfrastructureConfigurationsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetInfrastructureConfigurationsResultOutput, error) {
-			args := v.(GetInfrastructureConfigurationsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:imagebuilder/getInfrastructureConfigurations:getInfrastructureConfigurations", args, GetInfrastructureConfigurationsResultOutput{}, options).(GetInfrastructureConfigurationsResultOutput), nil
-		}).(GetInfrastructureConfigurationsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:imagebuilder/getInfrastructureConfigurations:getInfrastructureConfigurations", args, GetInfrastructureConfigurationsResultOutput{}, options).(GetInfrastructureConfigurationsResultOutput)
 }
 
 // A collection of arguments for invoking getInfrastructureConfigurations.

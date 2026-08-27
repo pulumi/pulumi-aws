@@ -77,12 +77,8 @@ type LookupEmailIdentityMailFromAttributesResult struct {
 }
 
 func LookupEmailIdentityMailFromAttributesOutput(ctx *pulumi.Context, args LookupEmailIdentityMailFromAttributesOutputArgs, opts ...pulumi.InvokeOption) LookupEmailIdentityMailFromAttributesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupEmailIdentityMailFromAttributesResultOutput, error) {
-			args := v.(LookupEmailIdentityMailFromAttributesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:sesv2/getEmailIdentityMailFromAttributes:getEmailIdentityMailFromAttributes", args, LookupEmailIdentityMailFromAttributesResultOutput{}, options).(LookupEmailIdentityMailFromAttributesResultOutput), nil
-		}).(LookupEmailIdentityMailFromAttributesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:sesv2/getEmailIdentityMailFromAttributes:getEmailIdentityMailFromAttributes", args, LookupEmailIdentityMailFromAttributesResultOutput{}, options).(LookupEmailIdentityMailFromAttributesResultOutput)
 }
 
 // A collection of arguments for invoking getEmailIdentityMailFromAttributes.

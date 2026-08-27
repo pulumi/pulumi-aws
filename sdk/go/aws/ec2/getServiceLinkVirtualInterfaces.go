@@ -75,12 +75,8 @@ type GetServiceLinkVirtualInterfacesResult struct {
 }
 
 func GetServiceLinkVirtualInterfacesOutput(ctx *pulumi.Context, args GetServiceLinkVirtualInterfacesOutputArgs, opts ...pulumi.InvokeOption) GetServiceLinkVirtualInterfacesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetServiceLinkVirtualInterfacesResultOutput, error) {
-			args := v.(GetServiceLinkVirtualInterfacesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ec2/getServiceLinkVirtualInterfaces:getServiceLinkVirtualInterfaces", args, GetServiceLinkVirtualInterfacesResultOutput{}, options).(GetServiceLinkVirtualInterfacesResultOutput), nil
-		}).(GetServiceLinkVirtualInterfacesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ec2/getServiceLinkVirtualInterfaces:getServiceLinkVirtualInterfaces", args, GetServiceLinkVirtualInterfacesResultOutput{}, options).(GetServiceLinkVirtualInterfacesResultOutput)
 }
 
 // A collection of arguments for invoking getServiceLinkVirtualInterfaces.

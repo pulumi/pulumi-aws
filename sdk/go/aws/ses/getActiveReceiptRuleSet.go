@@ -64,12 +64,8 @@ type LookupActiveReceiptRuleSetResult struct {
 }
 
 func LookupActiveReceiptRuleSetOutput(ctx *pulumi.Context, args LookupActiveReceiptRuleSetOutputArgs, opts ...pulumi.InvokeOption) LookupActiveReceiptRuleSetResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupActiveReceiptRuleSetResultOutput, error) {
-			args := v.(LookupActiveReceiptRuleSetArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ses/getActiveReceiptRuleSet:getActiveReceiptRuleSet", args, LookupActiveReceiptRuleSetResultOutput{}, options).(LookupActiveReceiptRuleSetResultOutput), nil
-		}).(LookupActiveReceiptRuleSetResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ses/getActiveReceiptRuleSet:getActiveReceiptRuleSet", args, LookupActiveReceiptRuleSetResultOutput{}, options).(LookupActiveReceiptRuleSetResultOutput)
 }
 
 // A collection of arguments for invoking getActiveReceiptRuleSet.

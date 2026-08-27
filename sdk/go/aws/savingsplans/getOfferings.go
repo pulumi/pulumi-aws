@@ -102,12 +102,8 @@ type GetOfferingsResult struct {
 }
 
 func GetOfferingsOutput(ctx *pulumi.Context, args GetOfferingsOutputArgs, opts ...pulumi.InvokeOption) GetOfferingsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetOfferingsResultOutput, error) {
-			args := v.(GetOfferingsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:savingsplans/getOfferings:getOfferings", args, GetOfferingsResultOutput{}, options).(GetOfferingsResultOutput), nil
-		}).(GetOfferingsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:savingsplans/getOfferings:getOfferings", args, GetOfferingsResultOutput{}, options).(GetOfferingsResultOutput)
 }
 
 // A collection of arguments for invoking getOfferings.

@@ -69,12 +69,8 @@ type GetUserGroupsResult struct {
 }
 
 func GetUserGroupsOutput(ctx *pulumi.Context, args GetUserGroupsOutputArgs, opts ...pulumi.InvokeOption) GetUserGroupsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetUserGroupsResultOutput, error) {
-			args := v.(GetUserGroupsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:cognito/getUserGroups:getUserGroups", args, GetUserGroupsResultOutput{}, options).(GetUserGroupsResultOutput), nil
-		}).(GetUserGroupsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:cognito/getUserGroups:getUserGroups", args, GetUserGroupsResultOutput{}, options).(GetUserGroupsResultOutput)
 }
 
 // A collection of arguments for invoking getUserGroups.

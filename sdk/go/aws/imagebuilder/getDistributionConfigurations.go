@@ -76,12 +76,8 @@ type GetDistributionConfigurationsResult struct {
 }
 
 func GetDistributionConfigurationsOutput(ctx *pulumi.Context, args GetDistributionConfigurationsOutputArgs, opts ...pulumi.InvokeOption) GetDistributionConfigurationsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetDistributionConfigurationsResultOutput, error) {
-			args := v.(GetDistributionConfigurationsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:imagebuilder/getDistributionConfigurations:getDistributionConfigurations", args, GetDistributionConfigurationsResultOutput{}, options).(GetDistributionConfigurationsResultOutput), nil
-		}).(GetDistributionConfigurationsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:imagebuilder/getDistributionConfigurations:getDistributionConfigurations", args, GetDistributionConfigurationsResultOutput{}, options).(GetDistributionConfigurationsResultOutput)
 }
 
 // A collection of arguments for invoking getDistributionConfigurations.

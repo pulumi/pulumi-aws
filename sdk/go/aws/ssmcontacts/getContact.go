@@ -77,12 +77,8 @@ type LookupContactResult struct {
 }
 
 func LookupContactOutput(ctx *pulumi.Context, args LookupContactOutputArgs, opts ...pulumi.InvokeOption) LookupContactResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupContactResultOutput, error) {
-			args := v.(LookupContactArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ssmcontacts/getContact:getContact", args, LookupContactResultOutput{}, options).(LookupContactResultOutput), nil
-		}).(LookupContactResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ssmcontacts/getContact:getContact", args, LookupContactResultOutput{}, options).(LookupContactResultOutput)
 }
 
 // A collection of arguments for invoking getContact.

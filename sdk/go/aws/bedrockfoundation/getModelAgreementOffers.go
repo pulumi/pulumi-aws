@@ -72,12 +72,8 @@ type GetModelAgreementOffersResult struct {
 }
 
 func GetModelAgreementOffersOutput(ctx *pulumi.Context, args GetModelAgreementOffersOutputArgs, opts ...pulumi.InvokeOption) GetModelAgreementOffersResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetModelAgreementOffersResultOutput, error) {
-			args := v.(GetModelAgreementOffersArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:bedrockfoundation/getModelAgreementOffers:getModelAgreementOffers", args, GetModelAgreementOffersResultOutput{}, options).(GetModelAgreementOffersResultOutput), nil
-		}).(GetModelAgreementOffersResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:bedrockfoundation/getModelAgreementOffers:getModelAgreementOffers", args, GetModelAgreementOffersResultOutput{}, options).(GetModelAgreementOffersResultOutput)
 }
 
 // A collection of arguments for invoking getModelAgreementOffers.

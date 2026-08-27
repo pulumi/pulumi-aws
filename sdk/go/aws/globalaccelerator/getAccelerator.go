@@ -85,12 +85,8 @@ type LookupAcceleratorResult struct {
 }
 
 func LookupAcceleratorOutput(ctx *pulumi.Context, args LookupAcceleratorOutputArgs, opts ...pulumi.InvokeOption) LookupAcceleratorResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAcceleratorResultOutput, error) {
-			args := v.(LookupAcceleratorArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:globalaccelerator/getAccelerator:getAccelerator", args, LookupAcceleratorResultOutput{}, options).(LookupAcceleratorResultOutput), nil
-		}).(LookupAcceleratorResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:globalaccelerator/getAccelerator:getAccelerator", args, LookupAcceleratorResultOutput{}, options).(LookupAcceleratorResultOutput)
 }
 
 // A collection of arguments for invoking getAccelerator.

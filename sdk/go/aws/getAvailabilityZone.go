@@ -94,7 +94,7 @@ import (
 //				CidrBlock: std.CidrsubnetOutput(ctx, std.CidrsubnetOutputArgs{
 //					Input:   exampleVpc.CidrBlock,
 //					Newbits: pulumi.Int(4),
-//					Netnum:  pulumi.Int(azNumber[example.NameSuffix]),
+//					Netnum:  azNumber[example.NameSuffix].(pulumi.Int),
 //				}, nil).Result(),
 //			})
 //			if err != nil {
@@ -160,12 +160,8 @@ type GetAvailabilityZoneResult struct {
 }
 
 func GetAvailabilityZoneOutput(ctx *pulumi.Context, args GetAvailabilityZoneOutputArgs, opts ...pulumi.InvokeOption) GetAvailabilityZoneResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetAvailabilityZoneResultOutput, error) {
-			args := v.(GetAvailabilityZoneArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:index/getAvailabilityZone:getAvailabilityZone", args, GetAvailabilityZoneResultOutput{}, options).(GetAvailabilityZoneResultOutput), nil
-		}).(GetAvailabilityZoneResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:index/getAvailabilityZone:getAvailabilityZone", args, GetAvailabilityZoneResultOutput{}, options).(GetAvailabilityZoneResultOutput)
 }
 
 // A collection of arguments for invoking getAvailabilityZone.

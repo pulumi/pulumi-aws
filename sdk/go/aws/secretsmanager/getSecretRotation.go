@@ -77,12 +77,8 @@ type LookupSecretRotationResult struct {
 }
 
 func LookupSecretRotationOutput(ctx *pulumi.Context, args LookupSecretRotationOutputArgs, opts ...pulumi.InvokeOption) LookupSecretRotationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSecretRotationResultOutput, error) {
-			args := v.(LookupSecretRotationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:secretsmanager/getSecretRotation:getSecretRotation", args, LookupSecretRotationResultOutput{}, options).(LookupSecretRotationResultOutput), nil
-		}).(LookupSecretRotationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:secretsmanager/getSecretRotation:getSecretRotation", args, LookupSecretRotationResultOutput{}, options).(LookupSecretRotationResultOutput)
 }
 
 // A collection of arguments for invoking getSecretRotation.

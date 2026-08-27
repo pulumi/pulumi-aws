@@ -97,12 +97,8 @@ type LookupThesaurusResult struct {
 }
 
 func LookupThesaurusOutput(ctx *pulumi.Context, args LookupThesaurusOutputArgs, opts ...pulumi.InvokeOption) LookupThesaurusResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupThesaurusResultOutput, error) {
-			args := v.(LookupThesaurusArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:kendra/getThesaurus:getThesaurus", args, LookupThesaurusResultOutput{}, options).(LookupThesaurusResultOutput), nil
-		}).(LookupThesaurusResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:kendra/getThesaurus:getThesaurus", args, LookupThesaurusResultOutput{}, options).(LookupThesaurusResultOutput)
 }
 
 // A collection of arguments for invoking getThesaurus.

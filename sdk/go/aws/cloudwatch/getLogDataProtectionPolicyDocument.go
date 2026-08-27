@@ -122,12 +122,8 @@ type GetLogDataProtectionPolicyDocumentResult struct {
 }
 
 func GetLogDataProtectionPolicyDocumentOutput(ctx *pulumi.Context, args GetLogDataProtectionPolicyDocumentOutputArgs, opts ...pulumi.InvokeOption) GetLogDataProtectionPolicyDocumentResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetLogDataProtectionPolicyDocumentResultOutput, error) {
-			args := v.(GetLogDataProtectionPolicyDocumentArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:cloudwatch/getLogDataProtectionPolicyDocument:getLogDataProtectionPolicyDocument", args, GetLogDataProtectionPolicyDocumentResultOutput{}, options).(GetLogDataProtectionPolicyDocumentResultOutput), nil
-		}).(GetLogDataProtectionPolicyDocumentResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:cloudwatch/getLogDataProtectionPolicyDocument:getLogDataProtectionPolicyDocument", args, GetLogDataProtectionPolicyDocumentResultOutput{}, options).(GetLogDataProtectionPolicyDocumentResultOutput)
 }
 
 // A collection of arguments for invoking getLogDataProtectionPolicyDocument.

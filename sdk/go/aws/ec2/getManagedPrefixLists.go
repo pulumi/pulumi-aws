@@ -52,12 +52,8 @@ type GetManagedPrefixListsResult struct {
 }
 
 func GetManagedPrefixListsOutput(ctx *pulumi.Context, args GetManagedPrefixListsOutputArgs, opts ...pulumi.InvokeOption) GetManagedPrefixListsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetManagedPrefixListsResultOutput, error) {
-			args := v.(GetManagedPrefixListsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ec2/getManagedPrefixLists:getManagedPrefixLists", args, GetManagedPrefixListsResultOutput{}, options).(GetManagedPrefixListsResultOutput), nil
-		}).(GetManagedPrefixListsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ec2/getManagedPrefixLists:getManagedPrefixLists", args, GetManagedPrefixListsResultOutput{}, options).(GetManagedPrefixListsResultOutput)
 }
 
 // A collection of arguments for invoking getManagedPrefixLists.

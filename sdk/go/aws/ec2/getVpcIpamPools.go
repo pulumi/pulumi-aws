@@ -86,12 +86,8 @@ type GetVpcIpamPoolsResult struct {
 }
 
 func GetVpcIpamPoolsOutput(ctx *pulumi.Context, args GetVpcIpamPoolsOutputArgs, opts ...pulumi.InvokeOption) GetVpcIpamPoolsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetVpcIpamPoolsResultOutput, error) {
-			args := v.(GetVpcIpamPoolsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ec2/getVpcIpamPools:getVpcIpamPools", args, GetVpcIpamPoolsResultOutput{}, options).(GetVpcIpamPoolsResultOutput), nil
-		}).(GetVpcIpamPoolsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ec2/getVpcIpamPools:getVpcIpamPools", args, GetVpcIpamPoolsResultOutput{}, options).(GetVpcIpamPoolsResultOutput)
 }
 
 // A collection of arguments for invoking getVpcIpamPools.

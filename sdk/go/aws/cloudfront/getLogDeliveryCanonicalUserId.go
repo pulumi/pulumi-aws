@@ -103,12 +103,8 @@ type GetLogDeliveryCanonicalUserIdResult struct {
 }
 
 func GetLogDeliveryCanonicalUserIdOutput(ctx *pulumi.Context, args GetLogDeliveryCanonicalUserIdOutputArgs, opts ...pulumi.InvokeOption) GetLogDeliveryCanonicalUserIdResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetLogDeliveryCanonicalUserIdResultOutput, error) {
-			args := v.(GetLogDeliveryCanonicalUserIdArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:cloudfront/getLogDeliveryCanonicalUserId:getLogDeliveryCanonicalUserId", args, GetLogDeliveryCanonicalUserIdResultOutput{}, options).(GetLogDeliveryCanonicalUserIdResultOutput), nil
-		}).(GetLogDeliveryCanonicalUserIdResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:cloudfront/getLogDeliveryCanonicalUserId:getLogDeliveryCanonicalUserId", args, GetLogDeliveryCanonicalUserIdResultOutput{}, options).(GetLogDeliveryCanonicalUserIdResultOutput)
 }
 
 // A collection of arguments for invoking getLogDeliveryCanonicalUserId.

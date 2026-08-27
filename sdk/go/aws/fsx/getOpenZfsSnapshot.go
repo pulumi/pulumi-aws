@@ -97,12 +97,8 @@ type LookupOpenZfsSnapshotResult struct {
 }
 
 func LookupOpenZfsSnapshotOutput(ctx *pulumi.Context, args LookupOpenZfsSnapshotOutputArgs, opts ...pulumi.InvokeOption) LookupOpenZfsSnapshotResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupOpenZfsSnapshotResultOutput, error) {
-			args := v.(LookupOpenZfsSnapshotArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:fsx/getOpenZfsSnapshot:getOpenZfsSnapshot", args, LookupOpenZfsSnapshotResultOutput{}, options).(LookupOpenZfsSnapshotResultOutput), nil
-		}).(LookupOpenZfsSnapshotResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:fsx/getOpenZfsSnapshot:getOpenZfsSnapshot", args, LookupOpenZfsSnapshotResultOutput{}, options).(LookupOpenZfsSnapshotResultOutput)
 }
 
 // A collection of arguments for invoking getOpenZfsSnapshot.

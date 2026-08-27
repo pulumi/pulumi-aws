@@ -64,12 +64,8 @@ type GetSinksResult struct {
 }
 
 func GetSinksOutput(ctx *pulumi.Context, args GetSinksOutputArgs, opts ...pulumi.InvokeOption) GetSinksResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetSinksResultOutput, error) {
-			args := v.(GetSinksArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:oam/getSinks:getSinks", args, GetSinksResultOutput{}, options).(GetSinksResultOutput), nil
-		}).(GetSinksResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:oam/getSinks:getSinks", args, GetSinksResultOutput{}, options).(GetSinksResultOutput)
 }
 
 // A collection of arguments for invoking getSinks.

@@ -133,12 +133,8 @@ type LookupPatchBaselineResult struct {
 }
 
 func LookupPatchBaselineOutput(ctx *pulumi.Context, args LookupPatchBaselineOutputArgs, opts ...pulumi.InvokeOption) LookupPatchBaselineResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPatchBaselineResultOutput, error) {
-			args := v.(LookupPatchBaselineArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ssm/getPatchBaseline:getPatchBaseline", args, LookupPatchBaselineResultOutput{}, options).(LookupPatchBaselineResultOutput), nil
-		}).(LookupPatchBaselineResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ssm/getPatchBaseline:getPatchBaseline", args, LookupPatchBaselineResultOutput{}, options).(LookupPatchBaselineResultOutput)
 }
 
 // A collection of arguments for invoking getPatchBaseline.

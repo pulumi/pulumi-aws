@@ -73,12 +73,8 @@ type LookupHttpNamespaceResult struct {
 }
 
 func LookupHttpNamespaceOutput(ctx *pulumi.Context, args LookupHttpNamespaceOutputArgs, opts ...pulumi.InvokeOption) LookupHttpNamespaceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupHttpNamespaceResultOutput, error) {
-			args := v.(LookupHttpNamespaceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:servicediscovery/getHttpNamespace:getHttpNamespace", args, LookupHttpNamespaceResultOutput{}, options).(LookupHttpNamespaceResultOutput), nil
-		}).(LookupHttpNamespaceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:servicediscovery/getHttpNamespace:getHttpNamespace", args, LookupHttpNamespaceResultOutput{}, options).(LookupHttpNamespaceResultOutput)
 }
 
 // A collection of arguments for invoking getHttpNamespace.

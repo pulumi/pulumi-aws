@@ -45,12 +45,8 @@ type GetVpcAttachmentsResult struct {
 }
 
 func GetVpcAttachmentsOutput(ctx *pulumi.Context, args GetVpcAttachmentsOutputArgs, opts ...pulumi.InvokeOption) GetVpcAttachmentsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetVpcAttachmentsResultOutput, error) {
-			args := v.(GetVpcAttachmentsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ec2transitgateway/getVpcAttachments:getVpcAttachments", args, GetVpcAttachmentsResultOutput{}, options).(GetVpcAttachmentsResultOutput), nil
-		}).(GetVpcAttachmentsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ec2transitgateway/getVpcAttachments:getVpcAttachments", args, GetVpcAttachmentsResultOutput{}, options).(GetVpcAttachmentsResultOutput)
 }
 
 // A collection of arguments for invoking getVpcAttachments.

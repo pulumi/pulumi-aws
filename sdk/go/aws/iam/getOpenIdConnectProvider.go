@@ -99,12 +99,8 @@ type LookupOpenIdConnectProviderResult struct {
 }
 
 func LookupOpenIdConnectProviderOutput(ctx *pulumi.Context, args LookupOpenIdConnectProviderOutputArgs, opts ...pulumi.InvokeOption) LookupOpenIdConnectProviderResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupOpenIdConnectProviderResultOutput, error) {
-			args := v.(LookupOpenIdConnectProviderArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:iam/getOpenIdConnectProvider:getOpenIdConnectProvider", args, LookupOpenIdConnectProviderResultOutput{}, options).(LookupOpenIdConnectProviderResultOutput), nil
-		}).(LookupOpenIdConnectProviderResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:iam/getOpenIdConnectProvider:getOpenIdConnectProvider", args, LookupOpenIdConnectProviderResultOutput{}, options).(LookupOpenIdConnectProviderResultOutput)
 }
 
 // A collection of arguments for invoking getOpenIdConnectProvider.
