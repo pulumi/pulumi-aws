@@ -80,11 +80,16 @@ jobs:
           github_token: ${{ steps.app-auth.outputs.token }}
           # only saving the cache in the prerequisites job
           cache_save: false
-      - name: Setup Go cache
+      - name: Setup Go Cache
         if: matrix.language == 'go' || contains(matrix.language, 'go')
-        uses: ./.github/actions/setup-go-cache
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
         with:
-          cache-key: sdk-go
+          cache-dependency-path: |
+            provider/*.sum
+            upstream/*.sum
+            sdk/go/*.sum
+            sdk/*.sum
+            *.sum
       - name: Prepare local workspace
         run: make prepare_local_workspace
         env:

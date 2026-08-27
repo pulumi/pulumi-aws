@@ -76,10 +76,15 @@ jobs:
           version: 2026.3.7
           github_token: ${{ secrets.GITHUB_TOKEN }}
           cache_save: false
-      - name: Setup Go cache
-        uses: ./.github/actions/setup-go-cache
+      - name: Setup Go Cache
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
         with:
-          cache-key: verify-release
+          cache-dependency-path: |
+            provider/*.sum
+            upstream/*.sum
+            sdk/go/*.sum
+            sdk/*.sum
+            *.sum
       - name: Generate Pulumi Access Token
         id: generate_pulumi_token
         uses: pulumi/auth-actions@141415910c3beb54e03b48e9057c204c97b956f2 # v2.1.0
