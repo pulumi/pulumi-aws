@@ -4101,6 +4101,9 @@
   "aws_pinpointsmsvoicev2_event_destination": {
     "hasUsableRegion": true
   },
+  "aws_pinpointsmsvoicev2_keyword": {
+    "hasUsableRegion": true
+  },
   "aws_pinpointsmsvoicev2_opt_out_list": {
     "hasInputName": true,
     "hasUsableRegion": true,
@@ -5394,6 +5397,10 @@
   },
   "aws_sesv2_email_identity_policy": {
     "hasUsableRegion": true
+  },
+  "aws_sesv2_multi_region_endpoint": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
   },
   "aws_sesv2_tenant": {
     "hasUsableRegion": true,
